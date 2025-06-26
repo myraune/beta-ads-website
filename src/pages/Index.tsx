@@ -137,7 +137,7 @@ const Index = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="border-white/30 text-white hover:bg-white/10 bg-white/5 px-12 py-8 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-white/50"
+                className="border-white/50 text-white hover:bg-white/20 bg-white/10 px-12 py-8 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-white/70"
                 onClick={() => window.open('https://beta.instreamly.com/en/sponsorships/available', '_blank')}
               >
                 {t.streamerButton}
@@ -329,19 +329,32 @@ const Index = () => {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-16">
-            {[
-              { name: 'Alex Chen', role: 'CEO & Co-founder', location: 'Oslo, Norway' },
-              { name: 'Sarah Kim', role: 'Head of Partnerships', location: 'Stockholm, Sweden' },
-              { name: 'Marcus Johansson', role: 'Tech Lead', location: 'Helsinki, Finland' }
-            ].map((member, index) => (
-              <div key={member.name} className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-                <div className="w-40 h-40 bg-gradient-to-br from-gray-200 to-gray-300 rounded-full mx-auto mb-8 group-hover:shadow-2xl transition-all duration-300"></div>
-                <h3 className="text-2xl font-light text-gray-900 mb-3 tracking-wide">{member.name}</h3>
-                <p className="text-gray-900 font-extralight mb-2 text-lg tracking-wide">{member.role}</p>
-                <p className="text-gray-500 font-extralight tracking-widest uppercase text-sm">{member.location}</p>
+          <div className="grid md:grid-cols-2 gap-16 max-w-4xl mx-auto">
+            <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+              <div className="w-40 h-40 rounded-full mx-auto mb-8 overflow-hidden group-hover:shadow-2xl transition-all duration-300">
+                <img 
+                  src="/lovable-uploads/e6d9646d-bf5f-471c-a2d8-1f06c274f570.png" 
+                  alt="Andreas Myraune"
+                  className="w-full h-full object-cover"
+                />
               </div>
-            ))}
+              <h3 className="text-2xl font-light text-gray-900 mb-3 tracking-wide">Andreas Myraune</h3>
+              <p className="text-gray-900 font-extralight mb-2 text-lg tracking-wide">Head of Agency</p>
+              <p className="text-gray-500 font-extralight tracking-wide">andreas@beta-ads.no</p>
+            </div>
+            
+            <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+              <div className="w-40 h-40 rounded-full mx-auto mb-8 overflow-hidden group-hover:shadow-2xl transition-all duration-300">
+                <img 
+                  src="/lovable-uploads/6f888d5f-8917-41fc-8808-f528b2aac891.png" 
+                  alt="Toms Znatnajs"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-2xl font-light text-gray-900 mb-3 tracking-wide">Toms Znatnajs</h3>
+              <p className="text-gray-900 font-extralight mb-2 text-lg tracking-wide">Head of Talent</p>
+              <p className="text-gray-500 font-extralight tracking-wide">toms@beta-ads.no</p>
+            </div>
           </div>
         </div>
       </section>
