@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -51,7 +52,9 @@ const Index = () => {
       bookDemo: "Let's have a chat",
       contactTitle: "CONTACT",
       connectTitle: "CONNECT",
-      languageTitle: "LANGUAGE"
+      languageTitle: "LANGUAGE",
+      campaignExamplesTitle: "Campaign Examples",
+      campaignExamplesDescription: "See how different brands have successfully reached Twitch audiences through our platform."
     },
     no: {
       heroSubtitle: "Nordisk Twitch-byrå",
@@ -95,7 +98,9 @@ const Index = () => {
       bookDemo: "La oss snakke sammen",
       contactTitle: "KONTAKT",
       connectTitle: "KOBLE TIL",
-      languageTitle: "SPRÅK"
+      languageTitle: "SPRÅK",
+      campaignExamplesTitle: "Kampanjeeksempler",
+      campaignExamplesDescription: "Se hvordan forskjellige merkevarer har nådd Twitch-publikum gjennom vår plattform."
     }
   };
 
@@ -107,14 +112,19 @@ const Index = () => {
 
   const caseVideos = [
     {
-      id: "O9bK6Sg7wHg",
-      title: "Samsung Galaxy Campaign Case Study",
-      brand: "Samsung"
+      id: "IZOx_VMdJJg",
+      title: "Shure Campaign Case Study",
+      brand: "Shure"
     },
     {
       id: "ufNq-A4d7iA", 
       title: "Komplett Campaign Case Study",
       brand: "Komplett"
+    },
+    {
+      id: "O9bK6Sg7wHg",
+      title: "Samsung Campaign Case Study",
+      brand: "Samsung"
     }
   ];
 
@@ -176,15 +186,15 @@ const Index = () => {
               </Button>
             </div>
 
-            {/* Video showcase */}
+            {/* Video showcase - Grid of campaigns */}
             <div className="pt-16">
               <div className="relative bg-gradient-to-r from-white/5 to-white/10 rounded-3xl p-6 backdrop-blur-md border border-white/10 shadow-2xl max-w-4xl mx-auto">
                 <div className="aspect-video rounded-2xl overflow-hidden border border-white/5">
                   <iframe
                     width="100%"
                     height="100%"
-                    src="https://www.youtube.com/embed/O9bK6Sg7wHg"
-                    title="Samsung Campaign Example"
+                    src="https://www.youtube.com/embed/P9yEc7v22MI"
+                    title="Campaign Grid Overview"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
@@ -192,7 +202,7 @@ const Index = () => {
                   ></iframe>
                 </div>
                 <div className="text-center mt-4">
-                  <p className="text-white/70 text-sm font-extralight tracking-wide">Live example: Samsung overlay in action</p>
+                  <p className="text-white/70 text-sm font-extralight tracking-wide">Overview of multiple campaigns in action</p>
                 </div>
               </div>
             </div>
@@ -268,11 +278,50 @@ const Index = () => {
               variant="outline"
               size="lg"
               className="px-8 py-4 text-lg font-light tracking-wide border-gray-200 hover:bg-gray-50"
-              onClick={() => scrollToSection('examples')}
+              onClick={() => scrollToSection('campaign-examples')}
             >
               {t.seeCampaignExample}
               <Play className="ml-3 h-5 w-5" />
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Campaign Examples Section */}
+      <section id="campaign-examples" className="py-32 bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-8 lg:px-12">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
+              {t.campaignExamplesTitle}
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+              {t.campaignExamplesDescription}
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+            {caseVideos.map((video, index) => (
+              <div key={video.id} className="group hover:transform hover:scale-105 transition-all duration-300">
+                <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-xl group-hover:shadow-2xl transition-all duration-300">
+                  <div className="aspect-video rounded-2xl overflow-hidden border border-gray-200 mb-6">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={`https://www.youtube.com/embed/${video.id}`}
+                      title={video.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      className="w-full h-full"
+                    ></iframe>
+                  </div>
+                  <div className="text-center">
+                    <h3 className="text-xl font-light text-gray-900 mb-2 tracking-wide">{video.brand}</h3>
+                    <p className="text-gray-600 font-extralight tracking-wide">{video.title}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
