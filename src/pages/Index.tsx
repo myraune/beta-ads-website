@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -201,38 +202,37 @@ const Index = () => {
       </section>
 
       {/* Trusted By Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-8 lg:px-12">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-light text-gray-900 mb-8 tracking-wide max-w-4xl mx-auto">
               {t.usedByTitle}
             </h2>
             
-            {/* Brand Carousel */}
-            <div className="mb-12">
-              <Carousel
-                opts={{
-                  align: "start",
-                  loop: true,
-                }}
-                className="w-full max-w-4xl mx-auto"
-              >
-                <CarouselContent className="-ml-1">
-                  {brands.map((brand, index) => (
-                    <CarouselItem key={brand} className="pl-1 basis-1/3 md:basis-1/5">
-                      <div className="p-1">
-                        <div className="flex items-center justify-center h-16">
-                          <div className="text-xl md:text-2xl font-extralight text-gray-400 hover:text-gray-900 transition-all duration-300 tracking-widest hover:scale-110 cursor-default text-center">
-                            {brand}
-                          </div>
-                        </div>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-              </Carousel>
+            {/* Infinite scrolling logos */}
+            <div className="mb-12 relative">
+              <div className="flex overflow-hidden">
+                <div className="flex animate-scroll">
+                  <div className="flex items-center space-x-12 whitespace-nowrap">
+                    <img src="/lovable-uploads/2d3c1437-7ed1-4a6a-b3dc-44752c80104d.png" alt="Beta Ads" className="h-8 opacity-60" />
+                    <img src="/lovable-uploads/8429cc1d-f2dd-4e59-8233-53017e4f1236.png" alt="Beta Ads Logo" className="h-8 opacity-60" />
+                    <div className="text-xl md:text-2xl font-extralight text-gray-400 tracking-widest">Samsung</div>
+                    <div className="text-xl md:text-2xl font-extralight text-gray-400 tracking-widest">Surfshark</div>
+                    <div className="text-xl md:text-2xl font-extralight text-gray-400 tracking-widest">Komplett</div>
+                    <div className="text-xl md:text-2xl font-extralight text-gray-400 tracking-widest">Shure</div>
+                    <div className="text-xl md:text-2xl font-extralight text-gray-400 tracking-widest">Domino's</div>
+                  </div>
+                  <div className="flex items-center space-x-12 whitespace-nowrap">
+                    <img src="/lovable-uploads/2d3c1437-7ed1-4a6a-b3dc-44752c80104d.png" alt="Beta Ads" className="h-8 opacity-60" />
+                    <img src="/lovable-uploads/8429cc1d-f2dd-4e59-8233-53017e4f1236.png" alt="Beta Ads Logo" className="h-8 opacity-60" />
+                    <div className="text-xl md:text-2xl font-extralight text-gray-400 tracking-widest">Samsung</div>
+                    <div className="text-xl md:text-2xl font-extralight text-gray-400 tracking-widest">Surfshark</div>
+                    <div className="text-xl md:text-2xl font-extralight text-gray-400 tracking-widest">Komplett</div>
+                    <div className="text-xl md:text-2xl font-extralight text-gray-400 tracking-widest">Shure</div>
+                    <div className="text-xl md:text-2xl font-extralight text-gray-400 tracking-widest">Domino's</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <Button 
