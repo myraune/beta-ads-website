@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -64,17 +63,23 @@ const Index = () => {
             </div>
           </div>
           
-          {/* Video Mockup Area */}
+          {/* Video Area - Updated with Samsung case study */}
           <div className="mt-32 max-w-6xl mx-auto">
-            <div className="relative bg-gradient-to-r from-white/5 to-white/10 rounded-3xl p-16 backdrop-blur-md border border-white/10 shadow-2xl">
-              <div className="aspect-video bg-gradient-to-br from-gray-900/80 to-black/90 rounded-2xl flex items-center justify-center border border-white/5">
-                <div className="text-center space-y-8">
-                  <div className="relative">
-                    <Play className="h-24 w-24 text-white/30 mx-auto animate-pulse" />
-                    <div className="absolute inset-0 bg-white/10 rounded-full blur-2xl"></div>
-                  </div>
-                  <p className="text-white/50 text-xl font-extralight tracking-wide">Interactive ad demo coming soon</p>
-                </div>
+            <div className="relative bg-gradient-to-r from-white/5 to-white/10 rounded-3xl p-8 backdrop-blur-md border border-white/10 shadow-2xl">
+              <div className="aspect-video rounded-2xl overflow-hidden border border-white/5">
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src="https://www.youtube.com/embed/O9bK6Sg7wHg"
+                  title="Samsung Case Study - Beta Ads"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  className="w-full h-full"
+                ></iframe>
+              </div>
+              <div className="text-center mt-6">
+                <p className="text-white/70 text-lg font-extralight tracking-wide">Samsung Galaxy Campaign Case Study</p>
               </div>
             </div>
           </div>
@@ -127,7 +132,7 @@ const Index = () => {
 
       {/* Why Twitch Section */}
       <section className="py-40 bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M20%2020c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10zm10%200c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M20%2020c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
         <div className="relative max-w-7xl mx-auto px-8 lg:px-12">
           <div className="text-center mb-24">
             <h2 className="text-5xl md:text-7xl font-extralight mb-12 tracking-tighter">
