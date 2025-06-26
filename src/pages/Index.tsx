@@ -1,13 +1,485 @@
-
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { ArrowRight, Play, Users, Target, TrendingUp, Star, ExternalLink, Sparkles, CheckCircle } from "lucide-react";
+import { ArrowRight, Play, Users, Target, TrendingUp, ExternalLink, Sparkles } from "lucide-react";
 import { useState } from "react";
 
+const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) => void }) => (
+  <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
+    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.02%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+    <div className="relative max-w-7xl mx-auto px-8 lg:px-12 py-32 lg:py-40">
+      <div className="text-center space-y-12">
+        <div className="inline-flex items-center space-x-3">
+          <Sparkles className="h-5 w-5 text-white/60" />
+          <Badge className="bg-white/5 text-white/90 border-white/10 text-sm px-6 py-3 font-light backdrop-blur-sm tracking-wider">
+            {t.heroSubtitle}
+          </Badge>
+        </div>
+
+        <div className="space-y-8">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extralight leading-[0.9] tracking-tighter">
+            {t.heroTitle[0]}{" "}
+            <span className="font-light italic bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              {t.heroTitle[1]}
+            </span>
+          </h1>
+
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-extralight tracking-wide">
+              {t.heroDescription}
+            </p>
+            <p className="text-lg md:text-xl text-gray-400 mt-4 font-extralight">
+              {t.heroSubDescription}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+          <Button
+            size="lg"
+            className="bg-white text-black hover:bg-gray-50 px-10 py-6 text-lg font-light tracking-wide h-auto border-0 shadow-2xl hover:shadow-white/10 transition-all duration-300 hover:scale-105"
+            onClick={() => scrollToSection("how-it-works")}
+          >
+            {t.brandButton}
+            <ArrowRight className="ml-3 h-5 w-5" />
+          </Button>
+
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-white/50 text-white hover:bg-white/20 bg-white/10 px-10 py-6 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-white/70"
+            onClick={() => scrollToSection("streamer-section")}
+          >
+            {t.streamerButton}
+            <ExternalLink className="ml-3 h-5 w-5" />
+          </Button>
+        </div>
+
+        <div className="pt-16">
+          <div className="relative bg-gradient-to-r from-white/5 to-white/10 rounded-3xl p-6 backdrop-blur-md border border-white/10 shadow-2xl max-w-4xl mx-auto">
+            <div className="aspect-video rounded-2xl overflow-hidden border border-white/5">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/P9yEc7v22MI"
+                title="Campaign Grid Overview"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </div>
+            <div className="text-center mt-4">
+              <p className="text-white/70 text-sm font-extralight tracking-wide">Overview of multiple campaigns in action</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const TrustedBy = () => (
+  <section className="py-20 bg-white overflow-hidden">
+    <div className="max-w-7xl mx-auto px-8 lg:px-12">
+      <div className="text-center mb-16">
+        <div className="mb-12 relative">
+          <div className="flex overflow-hidden">
+            <div className="flex animate-scroll">
+              <div className="flex items-center space-x-24 whitespace-nowrap">
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/bf505fdb-dc9b-4a82-93b6-f604c840737f.png" alt="Surfshark" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/1e56f4d8-0545-4132-8d6f-8738cdb1ae4f.png" alt="Komplett" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/5b2346c1-8226-4f68-9806-5b03cba8e17c.png" alt="Shure" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/59160e7a-4d18-4413-9f1b-f681271f8dde.png" alt="Foodora" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png" alt="Group M" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/cda69e31-7632-469a-b206-367ba4350480.png" alt="Logitech G" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/1fc4788c-f973-403f-9b01-4f3b4fa2ba20.png" alt="SteelSeries" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+              </div>
+              <div className="flex items-center space-x-24 whitespace-nowrap">
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/bf505fdb-dc9b-4a82-93b6-f604c840737f.png" alt="Surfshark" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/1e56f4d8-0545-4132-8d6f-8738cdb1ae4f.png" alt="Komplett" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/5b2346c1-8226-4f68-9806-5b03cba8e17c.png" alt="Shure" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/59160e7a-4d18-4413-9f1b-f681271f8dde.png" alt="Foodora" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png" alt="Group M" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/cda69e31-7632-469a-b206-367ba4350480.png" alt="Logitech G" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/1fc4788c-f973-403f-9b01-4f3b4fa2ba20.png" alt="SteelSeries" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const HowItWorks = ({ t }: { t: any }) => (
+  <section id="how-it-works" className="py-32 bg-gradient-to-br from-gray-50 to-white">
+    <div className="max-w-7xl mx-auto px-8 lg:px-12">
+      <div className="text-center mb-20">
+        <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
+          {t.howItWorksTitle}
+        </h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+          {t.howItWorksDescription}
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-4 gap-8 lg:gap-12">
+        {[
+          {
+            icon: Target,
+            title: t.step1Title,
+            description: t.step1Description,
+          },
+          {
+            icon: Users,
+            title: t.step2Title,
+            description: t.step2Description,
+          },
+          {
+            icon: Play,
+            title: t.step3Title,
+            description: t.step3Description,
+          },
+          {
+            icon: TrendingUp,
+            title: t.step4Title,
+            description: t.step4Description,
+          },
+        ].map((item, index) => (
+          <div
+            key={item.title}
+            className="text-center group hover:transform hover:scale-105 transition-all duration-300 relative"
+          >
+            {index < 3 && (
+              <div className="hidden md:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-gray-300 to-transparent z-0"></div>
+            )}
+
+            <div className="relative z-10">
+              <div className="w-20 h-20 bg-gradient-to-br from-black to-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl group-hover:shadow-black/20 transition-all duration-300">
+                <item.icon className="h-10 w-10 text-white" />
+              </div>
+              <h3 className="text-xl font-light text-gray-900 mb-6 tracking-wide">{item.title}</h3>
+              <p className="text-gray-600 leading-relaxed font-extralight text-lg tracking-wide">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => (
+  <section id="examples" className="py-32 bg-white">
+    <div className="max-w-7xl mx-auto px-8 lg:px-12">
+      <div className="text-center mb-20">
+        <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
+          {t.trustedByTitle}
+        </h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+          {t.trustedByDescription}
+        </p>
+      </div>
+
+      <div className="max-w-5xl mx-auto">
+        <Carousel className="w-full">
+          <CarouselContent>
+            {caseVideos.map((video) => (
+              <CarouselItem key={video.id}>
+                <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 border border-gray-100 shadow-xl">
+                  <div className="aspect-video rounded-2xl overflow-hidden border border-gray-200">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={`https://www.youtube.com/embed/${video.id}`}
+                      title={video.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      className="w-full h-full"
+                    ></iframe>
+                  </div>
+                  <div className="text-center mt-6">
+                    <h3 className="text-xl font-light text-gray-900 mb-2 tracking-wide">{video.brand}</h3>
+                    <p className="text-gray-600 font-extralight tracking-wide">{video.title}</p>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="text-gray-600 border-gray-200 hover:bg-gray-50" />
+          <CarouselNext className="text-gray-600 border-gray-200 hover:bg-gray-50" />
+        </Carousel>
+      </div>
+    </div>
+  </section>
+);
+
+const StreamerSection = ({ t, language }: { t: any; language: string }) => (
+  <section id="streamer-section" className="py-32 bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 text-white relative overflow-hidden">
+    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M20%2020c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+    <div className="relative max-w-7xl mx-auto px-8 lg:px-12">
+      <div className="text-center mb-20">
+        <h2 className="text-4xl md:text-6xl font-extralight mb-6 tracking-tighter">
+          {t.streamerSectionTitle}
+        </h2>
+        <p className="text-2xl md:text-3xl text-purple-200 font-light mb-8 tracking-wide">
+          {t.streamerSectionSubtitle}
+        </p>
+        <p className="text-xl text-purple-100 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+          {t.streamerSectionDescription}
+        </p>
+      </div>
+
+      <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-16">
+        <Button
+          size="lg"
+          className="bg-white text-purple-900 hover:bg-purple-50 px-12 py-6 text-lg font-light tracking-wide h-auto shadow-2xl hover:shadow-white/10 transition-all duration-300 hover:scale-105"
+          onClick={() => window.open("https://beta.instreamly.com/en/sponsorships/available", "_blank")}
+        >
+          {t.joinStreamer}
+          <ExternalLink className="ml-4 h-5 w-5" />
+        </Button>
+
+        <Button
+          size="lg"
+          variant="outline"
+          className="border-white/50 text-white hover:bg-white/20 bg-white/10 px-12 py-6 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-white/70"
+          onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
+        >
+          Join Our Discord
+          <ExternalLink className="ml-4 h-5 w-5" />
+        </Button>
+      </div>
+
+      <div className="text-center">
+        <div className="inline-flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-2xl px-8 py-4 border border-white/20">
+          <TrendingUp className="h-6 w-6 text-purple-200" />
+          <span className="text-purple-100 font-light text-lg tracking-wide">
+            {language === "en"
+              ? "Earn passive income based on your viewership"
+              : "Tjen passiv inntekt basert på dine seertall"}
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const WhyTwitch = ({ t, language }: { t: any; language: string }) => (
+  <section className="py-32 bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden">
+    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M20%2020c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+    <div className="relative max-w-7xl mx-auto px-8 lg:px-12">
+      <div className="text-center mb-24">
+        <h2 className="text-5xl md:text-7xl font-extralight mb-12 tracking-tighter">
+          {t.whyTwitchTitle}
+        </h2>
+        <p className="text-2xl text-gray-300 max-w-4xl mx-auto font-extralight leading-relaxed tracking-wide">
+          {t.whyTwitchDescription}
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-3 gap-20 text-center">
+        {[
+          {
+            stat: "2.5hrs",
+            label: language === "en" ? "Average viewing session" : "Gjennomsnittlig visningsøkt",
+            subtitle: language === "en" ? "vs 5-15 seconds on TikTok" : "vs 5-15 sekunder på TikTok",
+          },
+          {
+            stat: "73%",
+            label: language === "en" ? "Gen Z & Millennial audience" : "Gen Z & Millennial publikum",
+            subtitle: language === "en" ? "Prime consumer demographics" : "Primære forbrukerdemografi",
+          },
+          {
+            stat: "85%",
+            label: language === "en" ? "Viewer loyalty rate" : "Seer-lojalitetsrate",
+            subtitle: language === "en" ? "Highly engaged communities" : "Høyt engasjerte samfunn",
+          },
+        ].map((item) => (
+          <div key={item.stat} className="space-y-8 group hover:transform hover:scale-105 transition-all duration-300">
+            <div className="text-7xl font-extralight text-white tracking-tighter group-hover:text-gray-200 transition-colors duration-300">{item.stat}</div>
+            <p className="text-2xl text-gray-200 font-light tracking-wide">{item.label}</p>
+            <p className="text-gray-400 font-extralight text-lg tracking-wide">{item.subtitle}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const Team = ({ t }: { t: any }) => (
+  <section className="py-32 bg-gradient-to-br from-gray-50 to-white">
+    <div className="max-w-7xl mx-auto px-8 lg:px-12">
+      <div className="text-center mb-24">
+        <h2 className="text-5xl md:text-7xl font-extralight text-gray-900 mb-12 tracking-tighter">
+          {t.meetTeamTitle}
+        </h2>
+        <p className="text-2xl text-gray-600 max-w-4xl mx-auto font-extralight leading-relaxed tracking-wide">
+          {t.meetTeamDescription}
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-16 max-w-4xl mx-auto">
+        <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+          <div className="w-40 h-40 rounded-full mx-auto mb-8 overflow-hidden group-hover:shadow-2xl transition-all duration-300">
+            <img
+              src="/lovable-uploads/e6d9646d-bf5f-471c-a2d8-1f06c274f570.png"
+              alt="Andreas Myraune"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <h3 className="text-2xl font-light text-gray-900 mb-3 tracking-wide">Andreas Myraune</h3>
+          <p className="text-gray-900 font-extralight mb-2 text-lg tracking-wide">Head of Agency</p>
+          <p className="text-gray-500 font-extralight tracking-wide">andreas@beta-ads.no</p>
+        </div>
+
+        <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+          <div className="w-40 h-40 rounded-full mx-auto mb-8 overflow-hidden group-hover:shadow-2xl transition-all duration-300">
+            <img
+              src="/lovable-uploads/6f888d5f-8917-41fc-8808-f528b2aac891.png"
+              alt="Toms Znatnajs"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <h3 className="text-2xl font-light text-gray-900 mb-3 tracking-wide">Toms Znatnajs</h3>
+          <p className="text-gray-900 font-extralight mb-2 text-lg tracking-wide">Head of Talent</p>
+          <p className="text-gray-500 font-extralight tracking-wide">toms@beta-ads.no</p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const CTA = ({ t }: { t: any }) => (
+  <section className="py-32 bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden">
+    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.02%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+    <div className="relative max-w-5xl mx-auto text-center px-8 lg:px-12">
+      <h2 className="text-5xl md:text-7xl font-extralight mb-12 tracking-tighter">
+        {t.ctaTitle}
+      </h2>
+      <p className="text-2xl text-gray-300 mb-16 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+        {t.ctaDescription}
+      </p>
+
+      <Button
+        size="lg"
+        className="bg-white text-black hover:bg-gray-50 px-16 py-8 text-xl font-light tracking-wide h-auto shadow-2xl hover:shadow-white/10 transition-all duration-300 hover:scale-105"
+        onClick={() =>
+          window.open(
+            "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1RiJEObf5v758exr0hi5vk0ZRP0vgGQexQeAoykItGH1-RTFV1DQOye1rJbUSAqu7TdhWhRigO",
+            "_blank"
+          )
+        }
+      >
+        {t.bookDemo}
+        <ArrowRight className="ml-4 h-6 w-6" />
+      </Button>
+    </div>
+  </section>
+);
+
+const Footer = ({ t, language, setLanguage }: { t: any; language: string; setLanguage: (lang: string) => void }) => (
+  <footer className="bg-gray-900 text-white py-24">
+    <div className="max-w-7xl mx-auto px-8 lg:px-12">
+      <div className="grid md:grid-cols-4 gap-16">
+        <div className="space-y-8">
+          <h3 className="text-3xl font-extralight tracking-widest">Beta Ads</h3>
+          <p className="text-gray-400 font-extralight leading-relaxed text-lg tracking-wide">
+            {language === "en" ? "The future of Twitch advertising is here." : "Fremtiden for Twitch-annonsering er her."}
+          </p>
+        </div>
+
+        <div className="space-y-8">
+          <h4 className="font-light tracking-widest text-lg">{t.contactTitle}</h4>
+          <div className="space-y-4 text-gray-400 font-extralight text-lg">
+            <p className="tracking-wide">andreas@beta-ads.no</p>
+            <p className="tracking-wide">+47 46195548</p>
+          </div>
+        </div>
+
+        <div className="space-y-8">
+          <h4 className="font-light tracking-widest text-lg">{t.connectTitle}</h4>
+          <div className="space-y-4 text-gray-400 font-extralight text-lg">
+            <p
+              className="hover:text-white transition-colors cursor-pointer tracking-wide"
+              onClick={() => window.open("https://www.linkedin.com/company/beta-nordic", "_blank")}
+            >
+              LinkedIn
+            </p>
+            <p
+              className="hover:text-white transition-colors cursor-pointer tracking-wide"
+              onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
+            >
+              Discord
+            </p>
+          </div>
+        </div>
+
+        <div className="space-y-8">
+          <h4 className="font-light tracking-widest text-lg">{t.languageTitle}</h4>
+          <div className="space-y-4 text-gray-400 font-extralight text-lg">
+            <p
+              className={`hover:text-white transition-colors cursor-pointer tracking-wide ${language === "en" ? "text-white" : ""}`}
+              onClick={() => setLanguage("en")}
+            >
+              🇺🇸 English
+            </p>
+            <p
+              className={`hover:text-white transition-colors cursor-pointer tracking-wide ${language === "no" ? "text-white" : ""}`}
+              onClick={() => setLanguage("no")}
+            >
+              🇳🇴 Norwegian
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="border-t border-gray-800 mt-20 pt-12 text-center text-gray-400 font-extralight tracking-widest">
+        <p>&copy; 2024 Beta Ads. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+);
+
 const Index = () => {
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState("en");
 
   const translations = {
     en: {
@@ -53,8 +525,6 @@ const Index = () => {
       contactTitle: "CONTACT",
       connectTitle: "CONNECT",
       languageTitle: "LANGUAGE",
-      campaignExamplesTitle: "Campaign Examples",
-      campaignExamplesDescription: "See how different brands have successfully reached Twitch audiences through our platform."
     },
     no: {
       heroSubtitle: "Nordisk Twitch-byrå",
@@ -99,536 +569,44 @@ const Index = () => {
       contactTitle: "KONTAKT",
       connectTitle: "KOBLE TIL",
       languageTitle: "SPRÅK",
-      campaignExamplesTitle: "Kampanjeeksempler",
-      campaignExamplesDescription: "Se hvordan forskjellige merkevarer har nådd Twitch-publikum gjennom vår plattform."
-    }
+    },
   };
 
   const t = translations[language];
 
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   const caseVideos = [
     {
       id: "IZOx_VMdJJg",
       title: "Shure Campaign Case Study",
-      brand: "Shure"
+      brand: "Shure",
     },
     {
-      id: "ufNq-A4d7iA", 
+      id: "ufNq-A4d7iA",
       title: "Komplett Campaign Case Study",
-      brand: "Komplett"
+      brand: "Komplett",
     },
     {
       id: "O9bK6Sg7wHg",
       title: "Samsung Campaign Case Study",
-      brand: "Samsung"
-    }
+      brand: "Samsung",
+    },
   ];
-
-  const brands = ['Samsung', 'Surfshark', 'Komplett', 'Shure', 'Domino\'s'];
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.02%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-8 lg:px-12 py-32 lg:py-40">
-          <div className="text-center space-y-12">
-            {/* Top badge */}
-            <div className="inline-flex items-center space-x-3">
-              <Sparkles className="h-5 w-5 text-white/60" />
-              <Badge className="bg-white/5 text-white/90 border-white/10 text-sm px-6 py-3 font-light backdrop-blur-sm tracking-wider">
-                {t.heroSubtitle}
-              </Badge>
-            </div>
-            
-            {/* Main heading */}
-            <div className="space-y-8">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-extralight leading-[0.9] tracking-tighter">
-                {t.heroTitle[0]}{" "}
-                <span className="font-light italic bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                  {t.heroTitle[1]}
-                </span>
-              </h1>
-              
-              <div className="max-w-3xl mx-auto">
-                <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-extralight tracking-wide">
-                  {t.heroDescription}
-                </p>
-                <p className="text-lg md:text-xl text-gray-400 mt-4 font-extralight">
-                  {t.heroSubDescription}
-                </p>
-              </div>
-            </div>
-            
-            {/* Buttons */}
-            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-              <Button 
-                size="lg" 
-                className="bg-white text-black hover:bg-gray-50 px-10 py-6 text-lg font-light tracking-wide h-auto border-0 shadow-2xl hover:shadow-white/10 transition-all duration-300 hover:scale-105"
-                onClick={() => scrollToSection('how-it-works')}
-              >
-                {t.brandButton}
-                <ArrowRight className="ml-3 h-5 w-5" />
-              </Button>
-              
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-white/50 text-white hover:bg-white/20 bg-white/10 px-10 py-6 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-white/70"
-                onClick={() => scrollToSection('streamer-section')}
-              >
-                {t.streamerButton}
-                <ExternalLink className="ml-3 h-5 w-5" />
-              </Button>
-            </div>
-
-            {/* Video showcase - Grid of campaigns */}
-            <div className="pt-16">
-              <div className="relative bg-gradient-to-r from-white/5 to-white/10 rounded-3xl p-6 backdrop-blur-md border border-white/10 shadow-2xl max-w-4xl mx-auto">
-                <div className="aspect-video rounded-2xl overflow-hidden border border-white/5">
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    src="https://www.youtube.com/embed/P9yEc7v22MI"
-                    title="Campaign Grid Overview"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    className="w-full h-full"
-                  ></iframe>
-                </div>
-                <div className="text-center mt-4">
-                  <p className="text-white/70 text-sm font-extralight tracking-wide">Overview of multiple campaigns in action</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Trusted By Section - Fixed logo carousel */}
-      <section className="py-20 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto px-8 lg:px-12">
-          <div className="text-center mb-16">
-            {/* Infinite scrolling logos - Fixed sizing */}
-            <div className="mb-12 relative">
-              <div className="flex overflow-hidden">
-                <div className="flex animate-scroll">
-                  <div className="flex items-center space-x-24 whitespace-nowrap">
-                    <div className="h-12 w-32 flex items-center justify-center">
-                      <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="max-h-12 max-w-32 opacity-60 object-contain" />
-                    </div>
-                    <div className="h-12 w-32 flex items-center justify-center">
-                      <img src="/lovable-uploads/bf505fdb-dc9b-4a82-93b6-f604c840737f.png" alt="Surfshark" className="max-h-12 max-w-32 opacity-60 object-contain" />
-                    </div>
-                    <div className="h-12 w-32 flex items-center justify-center">
-                      <img src="/lovable-uploads/1e56f4d8-0545-4132-8d6f-8738cdb1ae4f.png" alt="Komplett" className="max-h-12 max-w-32 opacity-60 object-contain" />
-                    </div>
-                    <div className="h-12 w-32 flex items-center justify-center">
-                      <img src="/lovable-uploads/5b2346c1-8226-4f68-9806-5b03cba8e17c.png" alt="Shure" className="max-h-12 max-w-32 opacity-60 object-contain" />
-                    </div>
-                    <div className="h-12 w-32 flex items-center justify-center">
-                      <img src="/lovable-uploads/59160e7a-4d18-4413-9f1b-f681271f8dde.png" alt="Foodora" className="max-h-12 max-w-32 opacity-60 object-contain" />
-                    </div>
-                    <div className="h-12 w-32 flex items-center justify-center">
-                      <img src="/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png" alt="Group M" className="max-h-12 max-w-32 opacity-60 object-contain" />
-                    </div>
-                    <div className="h-12 w-32 flex items-center justify-center">
-                      <img src="/lovable-uploads/cda69e31-7632-469a-b206-367ba4350480.png" alt="Logitech G" className="max-h-12 max-w-32 opacity-60 object-contain" />
-                    </div>
-                    <div className="h-12 w-32 flex items-center justify-center">
-                      <img src="/lovable-uploads/1fc4788c-f973-403f-9b01-4f3b4fa2ba20.png" alt="SteelSeries" className="max-h-12 max-w-32 opacity-60 object-contain" />
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-24 whitespace-nowrap">
-                    <div className="h-12 w-32 flex items-center justify-center">
-                      <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="max-h-12 max-w-32 opacity-60 object-contain" />
-                    </div>
-                    <div className="h-12 w-32 flex items-center justify-center">
-                      <img src="/lovable-uploads/bf505fdb-dc9b-4a82-93b6-f604c840737f.png" alt="Surfshark" className="max-h-12 max-w-32 opacity-60 object-contain" />
-                    </div>
-                    <div className="h-12 w-32 flex items-center justify-center">
-                      <img src="/lovable-uploads/1e56f4d8-0545-4132-8d6f-8738cdb1ae4f.png" alt="Komplett" className="max-h-12 max-w-32 opacity-60 object-contain" />
-                    </div>
-                    <div className="h-12 w-32 flex items-center justify-center">
-                      <img src="/lovable-uploads/5b2346c1-8226-4f68-9806-5b03cba8e17c.png" alt="Shure" className="max-h-12 max-w-32 opacity-60 object-contain" />
-                    </div>
-                    <div className="h-12 w-32 flex items-center justify-center">
-                      <img src="/lovable-uploads/59160e7a-4d18-4413-9f1b-f681271f8dde.png" alt="Foodora" className="max-h-12 max-w-32 opacity-60 object-contain" />
-                    </div>
-                    <div className="h-12 w-32 flex items-center justify-center">
-                      <img src="/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png" alt="Group M" className="max-h-12 max-w-32 opacity-60 object-contain" />
-                    </div>
-                    <div className="h-12 w-32 flex items-center justify-center">
-                      <img src="/lovable-uploads/cda69e31-7632-469a-b206-367ba4350480.png" alt="Logitech G" className="max-h-12 max-w-32 opacity-60 object-contain" />
-                    </div>
-                    <div className="h-12 w-32 flex items-center justify-center">
-                      <img src="/lovable-uploads/1fc4788c-f973-403f-9b01-4f3b4fa2ba20.png" alt="SteelSeries" className="max-h-12 max-w-32 opacity-60 object-contain" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <Button 
-              variant="outline"
-              size="lg"
-              className="px-8 py-4 text-lg font-light tracking-wide border-gray-200 hover:bg-gray-50"
-              onClick={() => scrollToSection('campaign-examples')}
-            >
-              {t.seeCampaignExample}
-              <Play className="ml-3 h-5 w-5" />
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Campaign Examples Section */}
-      <section id="campaign-examples" className="py-32 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-8 lg:px-12">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
-              {t.campaignExamplesTitle}
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
-              {t.campaignExamplesDescription}
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
-            {caseVideos.map((video, index) => (
-              <div key={video.id} className="group hover:transform hover:scale-105 transition-all duration-300">
-                <div className="bg-white rounded-3xl p-6 border border-gray-100 shadow-xl group-hover:shadow-2xl transition-all duration-300">
-                  <div className="aspect-video rounded-2xl overflow-hidden border border-gray-200 mb-6">
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src={`https://www.youtube.com/embed/${video.id}`}
-                      title={video.title}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                      className="w-full h-full"
-                    ></iframe>
-                  </div>
-                  <div className="text-center">
-                    <h3 className="text-xl font-light text-gray-900 mb-2 tracking-wide">{video.brand}</h3>
-                    <p className="text-gray-600 font-extralight tracking-wide">{video.title}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section id="how-it-works" className="py-32 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-8 lg:px-12">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
-              {t.howItWorksTitle}
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
-              {t.howItWorksDescription}
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-4 gap-8 lg:gap-12">
-            {[
-              {
-                icon: Target,
-                title: t.step1Title,
-                description: t.step1Description
-              },
-              {
-                icon: Users,
-                title: t.step2Title,
-                description: t.step2Description
-              },
-              {
-                icon: Play,
-                title: t.step3Title,
-                description: t.step3Description
-              },
-              {
-                icon: TrendingUp,
-                title: t.step4Title,
-                description: t.step4Description
-              }
-            ].map((item, index) => (
-              <div key={item.title} className="text-center group hover:transform hover:scale-105 transition-all duration-300 relative">
-                {/* Connection line */}
-                {index < 3 && (
-                  <div className="hidden md:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-gray-300 to-transparent z-0"></div>
-                )}
-                
-                <div className="relative z-10">
-                  <div className="w-20 h-20 bg-gradient-to-br from-black to-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl group-hover:shadow-black/20 transition-all duration-300">
-                    <item.icon className="h-10 w-10 text-white" />
-                  </div>
-                  <h3 className="text-xl font-light text-gray-900 mb-6 tracking-wide">{item.title}</h3>
-                  <p className="text-gray-600 leading-relaxed font-extralight text-lg tracking-wide">
-                    {item.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Examples Section */}
-      <section id="examples" className="py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-8 lg:px-12">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
-              {t.trustedByTitle}
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
-              {t.trustedByDescription}
-            </p>
-          </div>
-          
-          {/* Case Studies Carousel */}
-          <div className="max-w-5xl mx-auto">
-            <Carousel className="w-full">
-              <CarouselContent>
-                {caseVideos.map((video, index) => (
-                  <CarouselItem key={video.id}>
-                    <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 border border-gray-100 shadow-xl">
-                      <div className="aspect-video rounded-2xl overflow-hidden border border-gray-200">
-                        <iframe
-                          width="100%"
-                          height="100%"
-                          src={`https://www.youtube.com/embed/${video.id}`}
-                          title={video.title}
-                          frameBorder="0"
-                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                          allowFullScreen
-                          className="w-full h-full"
-                        ></iframe>
-                      </div>
-                      <div className="text-center mt-6">
-                        <p className="text-gray-700 text-lg font-light tracking-wide">{video.title}</p>
-                      </div>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious className="text-gray-600 border-gray-200 hover:bg-gray-50" />
-              <CarouselNext className="text-gray-600 border-gray-200 hover:bg-gray-50" />
-            </Carousel>
-          </div>
-        </div>
-      </section>
-
-      {/* Streamer Section */}
-      <section id="streamer-section" className="py-32 bg-gradient-to-br from-purple-900 via-indigo-900 to-blue-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M20%2020c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-8 lg:px-12">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-extralight mb-6 tracking-tighter">
-              {t.streamerSectionTitle}
-            </h2>
-            <p className="text-2xl md:text-3xl text-purple-200 font-light mb-8 tracking-wide">
-              {t.streamerSectionSubtitle}
-            </p>
-            <p className="text-xl text-purple-100 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
-              {t.streamerSectionDescription}
-            </p>
-          </div>
-          
-          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-16">
-            <Button 
-              size="lg" 
-              className="bg-white text-purple-900 hover:bg-purple-50 px-12 py-6 text-lg font-light tracking-wide h-auto shadow-2xl hover:shadow-white/10 transition-all duration-300 hover:scale-105"
-              onClick={() => window.open('https://beta.instreamly.com/en/sponsorships/available', '_blank')}
-            >
-              {t.joinStreamer}
-              <ExternalLink className="ml-4 h-5 w-5" />
-            </Button>
-            
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-white/50 text-white hover:bg-white/20 bg-white/10 px-12 py-6 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-white/70"
-              onClick={() => window.open('https://discord.gg/hNgHCbQUvb', '_blank')}
-            >
-              Join Our Discord
-              <ExternalLink className="ml-4 h-5 w-5" />
-            </Button>
-          </div>
-
-          <div className="text-center">
-            <div className="inline-flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-2xl px-8 py-4 border border-white/20">
-              <TrendingUp className="h-6 w-6 text-purple-200" />
-              <span className="text-purple-100 font-light text-lg tracking-wide">
-                {language === 'en' ? 'Earn passive income based on your viewership' : 'Tjen passiv inntekt basert på dine seertall'}
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Twitch Section */}
-      <section className="py-32 bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M20%2020c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-8 lg:px-12">
-          <div className="text-center mb-24">
-            <h2 className="text-5xl md:text-7xl font-extralight mb-12 tracking-tighter">
-              {t.whyTwitchTitle}
-            </h2>
-            <p className="text-2xl text-gray-300 max-w-4xl mx-auto font-extralight leading-relaxed tracking-wide">
-              {t.whyTwitchDescription}
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-3 gap-20 text-center">
-            {[
-              { stat: "2.5hrs", label: language === 'en' ? "Average viewing session" : "Gjennomsnittlig visningsøkt", subtitle: language === 'en' ? "vs 5-15 seconds on TikTok" : "vs 5-15 sekunder på TikTok" },
-              { stat: "73%", label: language === 'en' ? "Gen Z & Millennial audience" : "Gen Z & Millennial publikum", subtitle: language === 'en' ? "Prime consumer demographics" : "Primære forbrukerdemografi" },
-              { stat: "85%", label: language === 'en' ? "Viewer loyalty rate" : "Seer-lojalitetsrate", subtitle: language === 'en' ? "Highly engaged communities" : "Høyt engasjerte samfunn" }
-            ].map((item, index) => (
-              <div key={item.stat} className="space-y-8 group hover:transform hover:scale-105 transition-all duration-300">
-                <div className="text-7xl font-extralight text-white tracking-tighter group-hover:text-gray-200 transition-colors duration-300">{item.stat}</div>
-                <p className="text-2xl text-gray-200 font-light tracking-wide">{item.label}</p>
-                <p className="text-gray-400 font-extralight text-lg tracking-wide">{item.subtitle}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-32 bg-gradient-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-8 lg:px-12">
-          <div className="text-center mb-24">
-            <h2 className="text-5xl md:text-7xl font-extralight text-gray-900 mb-12 tracking-tighter">
-              {t.meetTeamTitle}
-            </h2>
-            <p className="text-2xl text-gray-600 max-w-4xl mx-auto font-extralight leading-relaxed tracking-wide">
-              {t.meetTeamDescription}
-            </p>
-          </div>
-          
-          <div className="grid md:grid-cols-2 gap-16 max-w-4xl mx-auto">
-            <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-              <div className="w-40 h-40 rounded-full mx-auto mb-8 overflow-hidden group-hover:shadow-2xl transition-all duration-300">
-                <img 
-                  src="/lovable-uploads/e6d9646d-bf5f-471c-a2d8-1f06c274f570.png" 
-                  alt="Andreas Myraune"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-2xl font-light text-gray-900 mb-3 tracking-wide">Andreas Myraune</h3>
-              <p className="text-gray-900 font-extralight mb-2 text-lg tracking-wide">Head of Agency</p>
-              <p className="text-gray-500 font-extralight tracking-wide">andreas@beta-ads.no</p>
-            </div>
-            
-            <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-              <div className="w-40 h-40 rounded-full mx-auto mb-8 overflow-hidden group-hover:shadow-2xl transition-all duration-300">
-                <img 
-                  src="/lovable-uploads/6f888d5f-8917-41fc-8808-f528b2aac891.png" 
-                  alt="Toms Znatnajs"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-2xl font-light text-gray-900 mb-3 tracking-wide">Toms Znatnajs</h3>
-              <p className="text-gray-900 font-extralight mb-2 text-lg tracking-wide">Head of Talent</p>
-              <p className="text-gray-500 font-extralight tracking-wide">toms@beta-ads.no</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-32 bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.02%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
-        <div className="relative max-w-5xl mx-auto text-center px-8 lg:px-12">
-          <h2 className="text-5xl md:text-7xl font-extralight mb-12 tracking-tighter">
-            {t.ctaTitle}
-          </h2>
-          <p className="text-2xl text-gray-300 mb-16 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
-            {t.ctaDescription}
-          </p>
-          
-          <Button 
-            size="lg" 
-            className="bg-white text-black hover:bg-gray-50 px-16 py-8 text-xl font-light tracking-wide h-auto shadow-2xl hover:shadow-white/10 transition-all duration-300 hover:scale-105"
-            onClick={() => window.open('https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1RiJEObf5v758exr0hi5vk0ZRP0vgGQexQeAoykItGH1-RTFV1DQOye1rJbUSAqu7TdhWhRigO', '_blank')}
-          >
-            {t.bookDemo}
-            <ArrowRight className="ml-4 h-6 w-6" />
-          </Button>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-24">
-        <div className="max-w-7xl mx-auto px-8 lg:px-12">
-          <div className="grid md:grid-cols-4 gap-16">
-            <div className="space-y-8">
-              <h3 className="text-3xl font-extralight tracking-widest">Beta Ads</h3>
-              <p className="text-gray-400 font-extralight leading-relaxed text-lg tracking-wide">
-                {language === 'en' ? 'The future of Twitch advertising is here.' : 'Fremtiden for Twitch-annonsering er her.'}
-              </p>
-            </div>
-            
-            <div className="space-y-8">
-              <h4 className="font-light tracking-widest text-lg">{t.contactTitle}</h4>
-              <div className="space-y-4 text-gray-400 font-extralight text-lg">
-                <p className="tracking-wide">andreas@beta-ads.no</p>
-                <p className="tracking-wide">+47 46195548</p>
-              </div>
-            </div>
-            
-            <div className="space-y-8">
-              <h4 className="font-light tracking-widest text-lg">{t.connectTitle}</h4>
-              <div className="space-y-4 text-gray-400 font-extralight text-lg">
-                <p 
-                  className="hover:text-white transition-colors cursor-pointer tracking-wide"
-                  onClick={() => window.open('https://www.linkedin.com/company/beta-nordic', '_blank')}
-                >
-                  LinkedIn
-                </p>
-                <p 
-                  className="hover:text-white transition-colors cursor-pointer tracking-wide"
-                  onClick={() => window.open('https://discord.gg/hNgHCbQUvb', '_blank')}
-                >
-                  Discord
-                </p>
-              </div>
-            </div>
-            
-            <div className="space-y-8">
-              <h4 className="font-light tracking-widest text-lg">{t.languageTitle}</h4>
-              <div className="space-y-4 text-gray-400 font-extralight text-lg">
-                <p 
-                  className={`hover:text-white transition-colors cursor-pointer tracking-wide ${language === 'en' ? 'text-white' : ''}`}
-                  onClick={() => setLanguage('en')}
-                >
-                  🇺🇸 English
-                </p>
-                <p 
-                  className={`hover:text-white transition-colors cursor-pointer tracking-wide ${language === 'no' ? 'text-white' : ''}`}
-                  onClick={() => setLanguage('no')}
-                >
-                  🇳🇴 Norwegian
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-800 mt-20 pt-12 text-center text-gray-400 font-extralight tracking-widest">
-            <p>&copy; 2024 Beta Ads. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Hero t={t} scrollToSection={scrollToSection} />
+      <TrustedBy />
+      <HowItWorks t={t} />
+      <Examples t={t} caseVideos={caseVideos} />
+      <StreamerSection t={t} language={language} />
+      <WhyTwitch t={t} language={language} />
+      <Team t={t} />
+      <CTA t={t} />
+      <Footer t={t} language={language} setLanguage={setLanguage} />
     </div>
   );
 };
