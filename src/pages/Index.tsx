@@ -415,6 +415,95 @@ const CTA = ({ t }: { t: any }) => (
   </section>
 );
 
+const Press = ({ t }: { t: any }) => (
+  <section className="py-32 bg-gradient-to-br from-gray-50 to-white">
+    <div className="max-w-7xl mx-auto px-8 lg:px-12">
+      <div className="text-center mb-20">
+        <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
+          {t.pressTitle}
+        </h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+          {t.pressDescription}
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="group cursor-pointer" onClick={() => window.open("https://kampanje.com/premium/mai-2025/innsikt/andreas-22-startet-byra-ved-siden-av-studiene--na-utvider-han-til-sverige-og-finland/", "_blank")}>
+          <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 border border-gray-100">
+            <div className="mb-4">
+              <Badge className="bg-blue-100 text-blue-800 text-xs font-light">Kampanje</Badge>
+            </div>
+            <h3 className="text-lg font-light text-gray-900 mb-3 tracking-wide group-hover:text-blue-600 transition-colors">
+              Andreas (22) startet byrå ved siden av studiene
+            </h3>
+            <p className="text-gray-600 text-sm font-extralight leading-relaxed">
+              Nå utvider han til Sverige og Finland
+            </p>
+            <div className="mt-4 flex items-center text-gray-400 text-xs">
+              <ExternalLink className="h-3 w-3 mr-1" />
+              <span>Les mer</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="group cursor-pointer" onClick={() => window.open("https://kampanje.com/premium/september-2024/innsikt/andreas-21-satser-pa-eget-twtich-byra--na-far-han-polske-tech-krefter-i-ryggen---har-lagt-grunnlaget-na/", "_blank")}>
+          <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 border border-gray-100">
+            <div className="mb-4">
+              <Badge className="bg-blue-100 text-blue-800 text-xs font-light">Kampanje</Badge>
+            </div>
+            <h3 className="text-lg font-light text-gray-900 mb-3 tracking-wide group-hover:text-blue-600 transition-colors">
+              Andreas (21) satser på eget Twitch-byrå
+            </h3>
+            <p className="text-gray-600 text-sm font-extralight leading-relaxed">
+              Nå får han polske tech-krefter i ryggen
+            </p>
+            <div className="mt-4 flex items-center text-gray-400 text-xs">
+              <ExternalLink className="h-3 w-3 mr-1" />
+              <span>Les mer</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="group cursor-pointer" onClick={() => window.open("https://www.kom24.no/andreas-myraune-beta-influensere/ny-kanal-for-mediekjop-beta-er-norges-nye-twitch-byra/730424", "_blank")}>
+          <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 border border-gray-100">
+            <div className="mb-4">
+              <Badge className="bg-green-100 text-green-800 text-xs font-light">Kom24</Badge>
+            </div>
+            <h3 className="text-lg font-light text-gray-900 mb-3 tracking-wide group-hover:text-green-600 transition-colors">
+              Ny kanal for mediekjøp
+            </h3>
+            <p className="text-gray-600 text-sm font-extralight leading-relaxed">
+              Beta er Norges nye Twitch-byrå
+            </p>
+            <div className="mt-4 flex items-center text-gray-400 text-xs">
+              <ExternalLink className="h-3 w-3 mr-1" />
+              <span>Les mer</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="group cursor-pointer" onClick={() => window.open("https://www.kom24.no/andreas-myraune-beta-instreamly/instreamly-og-beta-inngar-partnerskap-i-norge/749907", "_blank")}>
+          <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 border border-gray-100">
+            <div className="mb-4">
+              <Badge className="bg-green-100 text-green-800 text-xs font-light">Kom24</Badge>
+            </div>
+            <h3 className="text-lg font-light text-gray-900 mb-3 tracking-wide group-hover:text-green-600 transition-colors">
+              Instreamly og Beta inngår partnerskap
+            </h3>
+            <p className="text-gray-600 text-sm font-extralight leading-relaxed">
+              Strategisk samarbeid i Norge
+            </p>
+            <div className="mt-4 flex items-center text-gray-400 text-xs">
+              <ExternalLink className="h-3 w-3 mr-1" />
+              <span>Les mer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 const Footer = ({ t, language, setLanguage }: { t: any; language: string; setLanguage: (lang: string) => void }) => (
   <footer className="bg-gray-900 text-white py-24">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
@@ -525,6 +614,8 @@ const Index = () => {
       contactTitle: "CONTACT",
       connectTitle: "CONNECT",
       languageTitle: "LANGUAGE",
+      pressTitle: "Featured in Press",
+      pressDescription: "Beta Ads has been featured in leading Nordic media outlets for our innovative approach to Twitch advertising.",
     },
     no: {
       heroSubtitle: "Nordisk Twitch-byrå",
@@ -569,6 +660,8 @@ const Index = () => {
       contactTitle: "KONTAKT",
       connectTitle: "KOBLE TIL",
       languageTitle: "SPRÅK",
+      pressTitle: "Omtalt i Media",
+      pressDescription: "Beta Ads har blitt omtalt i ledende nordiske medier for vår innovative tilnærming til Twitch-annonsering.",
     },
   };
 
@@ -605,6 +698,7 @@ const Index = () => {
       <StreamerSection t={t} language={language} />
       <WhyTwitch t={t} language={language} />
       <Team t={t} />
+      <Press t={t} />
       <CTA t={t} />
       <Footer t={t} language={language} setLanguage={setLanguage} />
     </div>
