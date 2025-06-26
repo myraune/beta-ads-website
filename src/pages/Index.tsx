@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -214,32 +213,28 @@ const Index = () => {
               <div className="flex overflow-hidden">
                 <div className="flex animate-scroll">
                   <div className="flex items-center space-x-16 whitespace-nowrap">
-                    <img src="/lovable-uploads/2d3c1437-7ed1-4a6a-b3dc-44752c80104d.png" alt="Beta Ads" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/8429cc1d-f2dd-4e59-8233-53017e4f1236.png" alt="Beta Ads Logo" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/bf505fdb-dc9b-4a82-93b6-f604c840737f.png" alt="Surfshark" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/1e56f4d8-0545-4132-8d6f-8738cdb1ae4f.png" alt="Komplett" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/5b2346c1-8226-4f68-9806-5b03cba8e17c.png" alt="Shure" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/59160e7a-4d18-4413-9f1b-f681271f8dde.png" alt="Foodora" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png" alt="Group M" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/f88bb0a9-d318-40f3-9e9c-736f0b37438c.png" alt="Client Logo" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/114bb69c-6e6b-41bd-b6b4-a6611e385c70.png" alt="Wal" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/cda69e31-7632-469a-b206-367ba4350480.png" alt="Logitech G" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/1fc4788c-f973-403f-9b01-4f3b4fa2ba20.png" alt="SteelSeries" className="h-12 opacity-60" />
+                    <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="h-16 opacity-60 object-contain" />
+                    <img src="/lovable-uploads/bf505fdb-dc9b-4a82-93b6-f604c840737f.png" alt="Surfshark" className="h-16 opacity-60 object-contain" />
+                    <img src="/lovable-uploads/1e56f4d8-0545-4132-8d6f-8738cdb1ae4f.png" alt="Komplett" className="h-16 opacity-60 object-contain" />
+                    <img src="/lovable-uploads/5b2346c1-8226-4f68-9806-5b03cba8e17c.png" alt="Shure" className="h-16 opacity-60 object-contain" />
+                    <img src="/lovable-uploads/59160e7a-4d18-4413-9f1b-f681271f8dde.png" alt="Foodora" className="h-16 opacity-60 object-contain" />
+                    <img src="/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png" alt="Group M" className="h-16 opacity-60 object-contain" />
+                    <img src="/lovable-uploads/f88bb0a9-d318-40f3-9e9c-736f0b37438c.png" alt="Client Logo" className="h-16 opacity-60 object-contain" />
+                    <img src="/lovable-uploads/114bb69c-6e6b-41bd-b6b4-a6611e385c70.png" alt="Wal" className="h-16 opacity-60 object-contain" />
+                    <img src="/lovable-uploads/cda69e31-7632-469a-b206-367ba4350480.png" alt="Logitech G" className="h-16 opacity-60 object-contain" />
+                    <img src="/lovable-uploads/1fc4788c-f973-403f-9b01-4f3b4fa2ba20.png" alt="SteelSeries" className="h-16 opacity-60 object-contain" />
                   </div>
                   <div className="flex items-center space-x-16 whitespace-nowrap">
-                    <img src="/lovable-uploads/2d3c1437-7ed1-4a6a-b3dc-44752c80104d.png" alt="Beta Ads" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/8429cc1d-f2dd-4e59-8233-53017e4f1236.png" alt="Beta Ads Logo" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/bf505fdb-dc9b-4a82-93b6-f604c840737f.png" alt="Surfshark" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/1e56f4d8-0545-4132-8d6f-8738cdb1ae4f.png" alt="Komplett" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/5b2346c1-8226-4f68-9806-5b03cba8e17c.png" alt="Shure" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/59160e7a-4d18-4413-9f1b-f681271f8dde.png" alt="Foodora" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png" alt="Group M" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/f88bb0a9-d318-40f3-9e9c-736f0b37438c.png" alt="Client Logo" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/114bb69c-6e6b-41bd-b6b4-a6611e385c70.png" alt="Wal" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/cda69e31-7632-469a-b206-367ba4350480.png" alt="Logitech G" className="h-12 opacity-60" />
-                    <img src="/lovable-uploads/1fc4788c-f973-403f-9b01-4f3b4fa2ba20.png" alt="SteelSeries" className="h-12 opacity-60" />
+                    <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="h-16 opacity-60 object-contain" />
+                    <img src="/lovable-uploads/bf505fdb-dc9b-4a82-93b6-f604c840737f.png" alt="Surfshark" className="h-16 opacity-60 object-contain" />
+                    <img src="/lovable-uploads/1e56f4d8-0545-4132-8d6f-8738cdb1ae4f.png" alt="Komplett" className="h-16 opacity-60 object-contain" />
+                    <img src="/lovable-uploads/5b2346c1-8226-4f68-9806-5b03cba8e17c.png" alt="Shure" className="h-16 opacity-60 object-contain" />
+                    <img src="/lovable-uploads/59160e7a-4d18-4413-9f1b-f681271f8dde.png" alt="Foodora" className="h-16 opacity-60 object-contain" />
+                    <img src="/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png" alt="Group M" className="h-16 opacity-60 object-contain" />
+                    <img src="/lovable-uploads/f88bb0a9-d318-40f3-9e9c-736f0b37438c.png" alt="Client Logo" className="h-16 opacity-60 object-contain" />
+                    <img src="/lovable-uploads/114bb69c-6e6b-41bd-b6b4-a6611e385c70.png" alt="Wal" className="h-16 opacity-60 object-contain" />
+                    <img src="/lovable-uploads/cda69e31-7632-469a-b206-367ba4350480.png" alt="Logitech G" className="h-16 opacity-60 object-contain" />
+                    <img src="/lovable-uploads/1fc4788c-f973-403f-9b01-4f3b4fa2ba20.png" alt="SteelSeries" className="h-16 opacity-60 object-contain" />
                   </div>
                 </div>
               </div>
