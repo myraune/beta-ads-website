@@ -10,7 +10,7 @@ const Index = () => {
 
   const translations = {
     en: {
-      heroSubtitle: "Now live across Nordic markets",
+      heroSubtitle: "Nordic twitch agency",
       heroTitle: ["Your brand, live on Twitch", "– without interruptions"],
       heroDescription: "We place your brand inside Twitch streams through animated overlays that viewers actually notice.",
       heroSubDescription: "No forced integrations. Just guaranteed visibility.",
@@ -27,7 +27,7 @@ const Index = () => {
       step3Title: "3. Ads Appear 1-2x Per Hour",
       step3Description: "Animated overlays display naturally during streams",
       step4Title: "4. You Get Guaranteed Reach",
-      step4Description: "Pay per view with transparent CPM tracking - average €13 CPM",
+      step4Description: "Pay per view with transparent CPM tracking",
       popUpsTitle: "Pop-ups in streams",
       popUpsDescription: "Small, branded animations appear 1-2 times per hour across 20+ livestreams simultaneously. No interruptions, just visibility.",
       payPerViewTitle: "Pay per view",
@@ -48,13 +48,13 @@ const Index = () => {
       meetTeamDescription: "Young, international, and passionate about revolutionizing advertising on Twitch.",
       ctaTitle: "Want to try a campaign?",
       ctaDescription: "Book a quick demo with our team and we'll show you what your brand could look like live on Twitch.",
-      bookDemo: "Book a Demo",
+      bookDemo: "Let's have a chat",
       contactTitle: "CONTACT",
       connectTitle: "CONNECT",
       languageTitle: "LANGUAGE"
     },
     no: {
-      heroSubtitle: "Nå live på tvers av nordiske markeder",
+      heroSubtitle: "Nordisk Twitch-byrå",
       heroTitle: ["Din merkevare, live på Twitch", "– uten avbrytelser"],
       heroDescription: "Vi plasserer din merkevare inne i Twitch-streams gjennom animerte overlays som seere faktisk legger merke til.",
       heroSubDescription: "Ingen tvungne integrasjoner. Bare garantert synlighet.",
@@ -71,7 +71,7 @@ const Index = () => {
       step3Title: "3. Annonser Vises 1-2x Per Time",
       step3Description: "Animerte overlays vises naturlig under streams",
       step4Title: "4. Du Får Garantert Rekkevidde",
-      step4Description: "Betal per visning med transparent CPM-sporing - gjennomsnitt €13 CPM",
+      step4Description: "Betal per visning med transparent CPM-sporing",
       popUpsTitle: "Pop-ups i streams",
       popUpsDescription: "Små, merkede animasjoner vises 1-2 ganger per time på tvers av 20+ livestreams samtidig. Ingen avbrytelser, bare synlighet.",
       payPerViewTitle: "Betal per visning",
@@ -92,7 +92,7 @@ const Index = () => {
       meetTeamDescription: "Unge, internasjonale og lidenskapelige om å revolusjonere annonsering på Twitch.",
       ctaTitle: "Vil du prøve en kampanje?",
       ctaDescription: "Book en rask demo med vårt team og vi viser deg hvordan din merkevare kan se ut live på Twitch.",
-      bookDemo: "Book en Demo",
+      bookDemo: "La oss snakke sammen",
       contactTitle: "KONTAKT",
       connectTitle: "KOBLE TIL",
       languageTitle: "SPRÅK"
@@ -126,59 +126,59 @@ const Index = () => {
       <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.02%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
         <div className="relative max-w-7xl mx-auto px-8 lg:px-12 py-32 lg:py-40">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left side - Text content */}
-            <div className="space-y-12">
-              <div className="inline-flex items-center space-x-3">
-                <Sparkles className="h-5 w-5 text-white/60" />
-                <Badge className="bg-white/5 text-white/90 border-white/10 text-sm px-6 py-3 font-light backdrop-blur-sm tracking-wider">
-                  {t.heroSubtitle}
-                </Badge>
-              </div>
+          <div className="text-center space-y-12">
+            {/* Top badge */}
+            <div className="inline-flex items-center space-x-3">
+              <Sparkles className="h-5 w-5 text-white/60" />
+              <Badge className="bg-white/5 text-white/90 border-white/10 text-sm px-6 py-3 font-light backdrop-blur-sm tracking-wider">
+                {t.heroSubtitle}
+              </Badge>
+            </div>
+            
+            {/* Main heading */}
+            <div className="space-y-8">
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-extralight leading-[0.9] tracking-tighter">
+                {t.heroTitle[0]}{" "}
+                <span className="font-light italic bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                  {t.heroTitle[1]}
+                </span>
+              </h1>
               
-              <div className="space-y-8">
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-extralight leading-[0.9] tracking-tighter">
-                  {t.heroTitle[0]}{" "}
-                  <span className="font-light italic bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                    {t.heroTitle[1]}
-                  </span>
-                </h1>
-                
-                <div className="max-w-2xl">
-                  <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-extralight tracking-wide">
-                    {t.heroDescription}
-                  </p>
-                  <p className="text-lg md:text-xl text-gray-400 mt-4 font-extralight">
-                    {t.heroSubDescription}
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-6 pt-8">
-                <Button 
-                  size="lg" 
-                  className="bg-white text-black hover:bg-gray-50 px-10 py-6 text-lg font-light tracking-wide h-auto border-0 shadow-2xl hover:shadow-white/10 transition-all duration-300 hover:scale-105"
-                  onClick={() => scrollToSection('how-it-works')}
-                >
-                  {t.brandButton}
-                  <ArrowRight className="ml-3 h-5 w-5" />
-                </Button>
-                
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-white/50 text-white hover:bg-white/20 bg-white/10 px-10 py-6 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-white/70"
-                  onClick={() => scrollToSection('streamer-section')}
-                >
-                  {t.streamerButton}
-                  <ExternalLink className="ml-3 h-5 w-5" />
-                </Button>
+              <div className="max-w-3xl mx-auto">
+                <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-extralight tracking-wide">
+                  {t.heroDescription}
+                </p>
+                <p className="text-lg md:text-xl text-gray-400 mt-4 font-extralight">
+                  {t.heroSubDescription}
+                </p>
               </div>
             </div>
+            
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+              <Button 
+                size="lg" 
+                className="bg-white text-black hover:bg-gray-50 px-10 py-6 text-lg font-light tracking-wide h-auto border-0 shadow-2xl hover:shadow-white/10 transition-all duration-300 hover:scale-105"
+                onClick={() => scrollToSection('how-it-works')}
+              >
+                {t.brandButton}
+                <ArrowRight className="ml-3 h-5 w-5" />
+              </Button>
+              
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-white/50 text-white hover:bg-white/20 bg-white/10 px-10 py-6 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-white/70"
+                onClick={() => scrollToSection('streamer-section')}
+              >
+                {t.streamerButton}
+                <ExternalLink className="ml-3 h-5 w-5" />
+              </Button>
+            </div>
 
-            {/* Right side - Video showcase */}
-            <div className="lg:pl-8">
-              <div className="relative bg-gradient-to-r from-white/5 to-white/10 rounded-3xl p-6 backdrop-blur-md border border-white/10 shadow-2xl">
+            {/* Video showcase */}
+            <div className="pt-16">
+              <div className="relative bg-gradient-to-r from-white/5 to-white/10 rounded-3xl p-6 backdrop-blur-md border border-white/10 shadow-2xl max-w-4xl mx-auto">
                 <div className="aspect-video rounded-2xl overflow-hidden border border-white/5">
                   <iframe
                     width="100%"
@@ -390,7 +390,7 @@ const Index = () => {
             <div className="inline-flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-2xl px-8 py-4 border border-white/20">
               <TrendingUp className="h-6 w-6 text-purple-200" />
               <span className="text-purple-100 font-light text-lg tracking-wide">
-                {language === 'en' ? 'Earn up to €3,000/month depending on hours streamed' : 'Tjen opptil €3,000/måned avhengig av timer streamet'}
+                {language === 'en' ? 'Earn passive income based on your viewership' : 'Tjen passiv inntekt basert på dine seertall'}
               </span>
             </div>
           </div>
@@ -482,14 +482,11 @@ const Index = () => {
           <Button 
             size="lg" 
             className="bg-white text-black hover:bg-gray-50 px-16 py-8 text-xl font-light tracking-wide h-auto shadow-2xl hover:shadow-white/10 transition-all duration-300 hover:scale-105"
+            onClick={() => window.open('https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1RiJEObf5v758exr0hi5vk0ZRP0vgGQexQeAoykItGH1-RTFV1DQOye1rJbUSAqu7TdhWhRigO', '_blank')}
           >
             {t.bookDemo}
             <ArrowRight className="ml-4 h-6 w-6" />
           </Button>
-          
-          <p className="text-gray-400 text-lg mt-12 font-extralight tracking-widest">
-            {language === 'en' ? 'Minimum campaign budget: $500 • Setup takes less than 24 hours' : 'Minimum kampanjebudsjett: $500 • Oppsett tar mindre enn 24 timer'}
-          </p>
         </div>
       </section>
 
