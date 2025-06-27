@@ -6,7 +6,7 @@ import { ArrowRight, Play, Users, Target, TrendingUp, ExternalLink, Sparkles } f
 import { useState } from "react";
 
 const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) => void }) => (
-  <section className="relative overflow-hidden bg-gradient-to-br from-pink-100 via-pink-200 to-red-100 text-gray-900">
+  <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 text-gray-900">
     <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23000000%22%20fill-opacity%3D%220.02%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
     <div className="relative max-w-7xl mx-auto px-8 lg:px-12 py-32 lg:py-40">
       <div className="text-center space-y-12">
@@ -18,6 +18,9 @@ const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) =>
         </div>
 
         <div className="space-y-8">
+          <div className="flex items-center justify-center mb-8">
+            <img src="/lovable-uploads/d8828941-198c-4e8f-b80d-b2d2755d18cc.png" alt="Beta Ads" className="h-20 md:h-24" />
+          </div>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-extralight leading-[0.9] tracking-tighter text-gray-900">
             {t.heroTitle[0]}{" "}
             <span className="font-light italic bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
@@ -148,7 +151,7 @@ const TrustedBy = () => (
 );
 
 const HowItWorks = ({ t }: { t: any }) => (
-  <section id="how-it-works" className="py-32 bg-gradient-to-br from-pink-50 to-white">
+  <section id="how-it-works" className="py-32 bg-gradient-to-br from-orange-50 to-white">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-20">
         <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
@@ -270,7 +273,7 @@ const StreamerSection = ({ t, language }: { t: any; language: string }) => (
       <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-16">
         <Button
           size="lg"
-          className="bg-pink-300 text-gray-900 hover:bg-pink-400 px-12 py-6 text-lg font-light tracking-wide h-auto shadow-2xl hover:shadow-pink-300/20 transition-all duration-300 hover:scale-105"
+          className="bg-red-400 text-white hover:bg-red-500 px-12 py-6 text-lg font-light tracking-wide h-auto shadow-2xl hover:shadow-red-400/20 transition-all duration-300 hover:scale-105"
           onClick={() => window.open("https://beta.instreamly.com/en/sponsorships/available", "_blank")}
         >
           {t.joinStreamer}
@@ -464,19 +467,19 @@ const CTA = ({ t }: { t: any }) => (
 );
 
 const Footer = ({ t, language, setLanguage }: { t: any; language: string; setLanguage: (lang: string) => void }) => (
-  <footer className="bg-gray-900 text-white py-24">
+  <footer className="bg-white text-gray-900 py-24">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="grid md:grid-cols-4 gap-16">
         <div className="space-y-8">
           <h3 className="text-3xl font-extralight tracking-widest">Beta Ads</h3>
-          <p className="text-gray-400 font-extralight leading-relaxed text-lg tracking-wide">
+          <p className="text-gray-600 font-extralight leading-relaxed text-lg tracking-wide">
             {language === "en" ? "The future of Twitch advertising is here." : "Fremtiden for Twitch-annonsering er her."}
           </p>
         </div>
 
         <div className="space-y-8">
           <h4 className="font-light tracking-widest text-lg">{t.contactTitle}</h4>
-          <div className="space-y-4 text-gray-400 font-extralight text-lg">
+          <div className="space-y-4 text-gray-600 font-extralight text-lg">
             <p className="tracking-wide">andreas@beta-ads.no</p>
             <p className="tracking-wide">+47 46195548</p>
           </div>
@@ -484,15 +487,15 @@ const Footer = ({ t, language, setLanguage }: { t: any; language: string; setLan
 
         <div className="space-y-8">
           <h4 className="font-light tracking-widest text-lg">{t.connectTitle}</h4>
-          <div className="space-y-4 text-gray-400 font-extralight text-lg">
+          <div className="space-y-4 text-gray-600 font-extralight text-lg">
             <p
-              className="hover:text-white transition-colors cursor-pointer tracking-wide"
+              className="hover:text-gray-900 transition-colors cursor-pointer tracking-wide"
               onClick={() => window.open("https://www.linkedin.com/company/beta-nordic", "_blank")}
             >
               LinkedIn
             </p>
             <p
-              className="hover:text-white transition-colors cursor-pointer tracking-wide"
+              className="hover:text-gray-900 transition-colors cursor-pointer tracking-wide"
               onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
             >
               Discord
@@ -502,15 +505,15 @@ const Footer = ({ t, language, setLanguage }: { t: any; language: string; setLan
 
         <div className="space-y-8">
           <h4 className="font-light tracking-widest text-lg">{t.languageTitle}</h4>
-          <div className="space-y-4 text-gray-400 font-extralight text-lg">
+          <div className="space-y-4 text-gray-600 font-extralight text-lg">
             <p
-              className={`hover:text-white transition-colors cursor-pointer tracking-wide ${language === "en" ? "text-white" : ""}`}
+              className={`hover:text-gray-900 transition-colors cursor-pointer tracking-wide ${language === "en" ? "text-gray-900" : ""}`}
               onClick={() => setLanguage("en")}
             >
               🇺🇸 English
             </p>
             <p
-              className={`hover:text-white transition-colors cursor-pointer tracking-wide ${language === "no" ? "text-white" : ""}`}
+              className={`hover:text-gray-900 transition-colors cursor-pointer tracking-wide ${language === "no" ? "text-gray-900" : ""}`}
               onClick={() => setLanguage("no")}
             >
               🇳🇴 Norwegian
@@ -519,7 +522,7 @@ const Footer = ({ t, language, setLanguage }: { t: any; language: string; setLan
         </div>
       </div>
 
-      <div className="border-t border-gray-800 mt-20 pt-12 text-center text-gray-400 font-extralight tracking-widest">
+      <div className="border-t border-gray-200 mt-20 pt-12 text-center text-gray-600 font-extralight tracking-widest">
         <p>&copy; 2024 Beta Ads. All rights reserved.</p>
       </div>
     </div>
