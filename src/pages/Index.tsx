@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -20,7 +19,10 @@ const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) =>
 
         <div className="space-y-8">
           <div className="flex items-center justify-center mb-8">
-            <img src="/lovable-uploads/d8828941-198c-4e8f-b80d-b2d2755d18cc.png" alt="Beta Ads" className="h-20 md:h-24" />
+            <div className="flex items-center">
+              <span className="text-5xl md:text-6xl font-extralight text-gray-900 tracking-tighter">Beta</span>
+              <span className="text-5xl md:text-6xl font-extralight text-red-400 tracking-tighter ml-2">Ads</span>
+            </div>
           </div>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-extralight leading-[0.9] tracking-tighter text-gray-900">
             {t.heroTitle[0]}{" "}
@@ -284,7 +286,7 @@ const StreamerSection = ({ t, language }: { t: any; language: string }) => (
         <Button
           size="lg"
           variant="outline"
-          className="border-gray-400 text-gray-800 hover:bg-gray-100 bg-gray-50 px-12 py-6 text-lg font-light tracking-wide h-auto transition-all duration-300 hover:border-gray-500"
+          className="border-gray-400 text-gray-800 hover:bg-gray-50 hover:text-gray-900 bg-gray-50 px-12 py-6 text-lg font-light tracking-wide h-auto transition-all duration-300 hover:border-gray-500"
           onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
         >
           Join Our Discord
