@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { ArrowRight, Play, Users, Target, TrendingUp, ExternalLink, Sparkles, Youtube, Twitch } from "lucide-react";
+import { ArrowRight, Play, Users, Target, TrendingUp, ExternalLink, Sparkles } from "lucide-react";
 import { useState } from "react";
 
 const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) => void }) => (
@@ -146,6 +146,49 @@ const TrustedBy = () => (
   </section>
 );
 
+const StreamerSoftwarePreview = ({ t }: { t: any }) => (
+  <section className="py-32 bg-gradient-to-br from-gray-50 to-white">
+    <div className="max-w-7xl mx-auto px-8 lg:px-12">
+      <div className="text-center mb-20">
+        <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
+          {t.streamerSoftwareTitle}
+        </h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+          {t.streamerSoftwareDescription}
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="bg-black rounded-3xl p-8 shadow-2xl">
+          <img
+            src="/lovable-uploads/71765092-972e-4792-a241-0f155a62af68.png"
+            alt="Beta Ads Dark Mode Login"
+            className="w-full rounded-2xl"
+          />
+        </div>
+        <div className="bg-white rounded-3xl p-8 shadow-2xl border border-gray-200">
+          <img
+            src="/lovable-uploads/a1b004cc-077e-4fec-8947-bc6f1644b763.png"
+            alt="Beta Ads Light Mode Login"
+            className="w-full rounded-2xl"
+          />
+        </div>
+      </div>
+
+      <div className="text-center mt-16">
+        <Button
+          size="lg"
+          className="bg-red-600 hover:bg-red-700 text-white px-12 py-6 text-lg font-light tracking-wide h-auto shadow-xl transition-all duration-300 hover:scale-105"
+          onClick={() => window.open("https://beta.instreamly.com/en/sponsorships/available", "_blank")}
+        >
+          {t.accessPlatform}
+          <ExternalLink className="ml-4 h-5 w-5" />
+        </Button>
+      </div>
+    </div>
+  </section>
+);
+
 const HowItWorks = ({ t }: { t: any }) => (
   <section id="how-it-works" className="py-32 bg-gradient-to-br from-gray-50 to-white">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
@@ -158,46 +201,48 @@ const HowItWorks = ({ t }: { t: any }) => (
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-          <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Target className="h-8 w-8 text-red-600" />
-            </div>
-            <h3 className="text-xl font-light text-gray-900 mb-4 tracking-wide">{t.step1Title}</h3>
-            <p className="text-gray-600 font-extralight leading-relaxed tracking-wide">{t.step1Description}</p>
-          </div>
-        </div>
+      <div className="grid md:grid-cols-4 gap-8 lg:gap-12">
+        {[
+          {
+            icon: Target,
+            title: t.step1Title,
+            description: t.step1Description,
+          },
+          {
+            icon: Users,
+            title: t.step2Title,
+            description: t.step2Description,
+          },
+          {
+            icon: Play,
+            title: t.step3Title,
+            description: t.step3Description,
+          },
+          {
+            icon: TrendingUp,
+            title: t.step4Title,
+            description: t.step4Description,
+          },
+        ].map((item, index) => (
+          <div
+            key={item.title}
+            className="text-center group hover:transform hover:scale-105 transition-all duration-300 relative"
+          >
+            {index < 3 && (
+              <div className="hidden md:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-gray-300 to-transparent z-0"></div>
+            )}
 
-        <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-          <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Users className="h-8 w-8 text-red-600" />
+            <div className="relative z-10">
+              <div className="w-20 h-20 bg-gradient-to-br from-red-600 to-red-800 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl group-hover:shadow-red-600/20 transition-all duration-300">
+                <item.icon className="h-10 w-10 text-white" />
+              </div>
+              <h3 className="text-xl font-light text-gray-900 mb-6 tracking-wide">{item.title}</h3>
+              <p className="text-gray-600 leading-relaxed font-extralight text-lg tracking-wide">
+                {item.description}
+              </p>
             </div>
-            <h3 className="text-xl font-light text-gray-900 mb-4 tracking-wide">{t.step2Title}</h3>
-            <p className="text-gray-600 font-extralight leading-relaxed tracking-wide">{t.step2Description}</p>
           </div>
-        </div>
-
-        <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-          <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Play className="h-8 w-8 text-red-600" />
-            </div>
-            <h3 className="text-xl font-light text-gray-900 mb-4 tracking-wide">{t.step3Title}</h3>
-            <p className="text-gray-600 font-extralight leading-relaxed tracking-wide">{t.step3Description}</p>
-          </div>
-        </div>
-
-        <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-          <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <TrendingUp className="h-8 w-8 text-red-600" />
-            </div>
-            <h3 className="text-xl font-light text-gray-900 mb-4 tracking-wide">{t.step4Title}</h3>
-            <p className="text-gray-600 font-extralight leading-relaxed tracking-wide">{t.step4Description}</p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
@@ -265,42 +310,6 @@ const StreamerSection = ({ t, language }: { t: any; language: string }) => (
         </p>
       </div>
 
-      <div className="mb-16">
-        <div className="text-center mb-12">
-          <h3 className="text-2xl font-light text-white mb-4 tracking-wide">
-            {language === "en" ? "Compatible with all major platforms" : "Kompatibel med alle store plattformer"}
-          </h3>
-        </div>
-        
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center max-w-2xl mx-auto">
-          <Button
-            size="lg"
-            className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 text-lg font-light tracking-wide h-auto shadow-xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
-          >
-            <Twitch className="mr-3 h-5 w-5" />
-            Login with Twitch
-          </Button>
-
-          <Button
-            size="lg"
-            className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 text-lg font-light tracking-wide h-auto shadow-xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
-          >
-            <Youtube className="mr-3 h-5 w-5" />
-            Login with YouTube
-          </Button>
-
-          <Button
-            size="lg"
-            className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg font-light tracking-wide h-auto shadow-xl transition-all duration-300 hover:scale-105 w-full sm:w-auto"
-          >
-            <svg className="mr-3 h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M7.5 2L2 7.5v9L7.5 22h9L22 16.5v-9L16.5 2h-9z"/>
-            </svg>
-            Login with Kick
-          </Button>
-        </div>
-      </div>
-
       <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-16">
         <Button
           size="lg"
@@ -337,7 +346,7 @@ const StreamerSection = ({ t, language }: { t: any; language: string }) => (
 );
 
 const Press = ({ t }: { t: any }) => (
-  <section className="py-32 bg-gradient-to-br from-red-900 via-red-950 to-black text-white relative overflow-hidden">
+  <section className="py-32 bg-gradient-to-br from-red-900 via-red-950 to-black text-white relative overflow-hidden border-t border-white/10">
     <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M20%2020c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
     <div className="relative max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-20">
@@ -583,6 +592,9 @@ const Index = () => {
       step3Description: "Animated overlays display naturally during streams",
       step4Title: "4. You Get Guaranteed Reach",
       step4Description: "Pay per view with transparent CPM tracking",
+      streamerSoftwareTitle: "Streamer Platform Preview",
+      streamerSoftwareDescription: "Get a sneak peek at our streamer platform where content creators can join our network and start earning.",
+      accessPlatform: "Access Platform",
       streamerSectionTitle: "Are you a Twitch streamer?",
       streamerSectionSubtitle: "Earn while you stream – automatically.",
       streamerSectionDescription: "Earn money automatically with Beta Ads. No shoutouts. No affiliate links. Just passive income through overlays.",
@@ -619,6 +631,9 @@ const Index = () => {
       step3Description: "Animerte overlays vises naturlig under streams",
       step4Title: "4. Du Får Garantert Rekkevidde",
       step4Description: "Betal per visning med transparent CPM-sporing",
+      streamerSoftwareTitle: "Forhåndsvisning av Streamer-plattform",
+      streamerSoftwareDescription: "Få en sniktitt på vår streamer-plattform hvor innholdsskapere kan bli med i nettverket vårt og begynne å tjene.",
+      accessPlatform: "Tilgang til Plattform",
       streamerSectionTitle: "Er du en Twitch-streamer?",
       streamerSectionSubtitle: "Tjen mens du streamer – automatisk.",
       streamerSectionDescription: "Tjen penger automatisk med Beta Ads. Ingen shoutouts. Ingen affiliate-lenker. Bare passiv inntekt gjennom overlays.",
@@ -667,6 +682,7 @@ const Index = () => {
       <Hero t={t} scrollToSection={scrollToSection} />
       <TrustedBy />
       <HowItWorks t={t} />
+      <StreamerSoftwarePreview t={t} />
       <Examples t={t} caseVideos={caseVideos} />
       <StreamerSection t={t} language={language} />
       <Press t={t} />
