@@ -5,30 +5,30 @@ import { ArrowRight, Play, Users, Target, TrendingUp, ExternalLink, Sparkles } f
 import { useState } from "react";
 
 const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) => void }) => (
-  <section className="relative overflow-hidden bg-gradient-to-br from-red-900 via-red-950 to-black text-white">
-    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.02%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+  <section className="relative overflow-hidden bg-gradient-to-br from-pink-200 via-pink-300 to-red-200 text-gray-900">
+    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23000000%22%20fill-opacity%3D%220.02%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
     <div className="relative max-w-7xl mx-auto px-8 lg:px-12 py-32 lg:py-40">
       <div className="text-center space-y-12">
         <div className="inline-flex items-center space-x-3">
-          <Sparkles className="h-5 w-5 text-white/60" />
-          <Badge className="bg-white/5 text-white/90 border-white/10 text-sm px-6 py-3 font-light backdrop-blur-sm tracking-wider">
+          <Sparkles className="h-5 w-5 text-gray-700" />
+          <Badge className="bg-white/20 text-gray-800 border-gray-300 text-sm px-6 py-3 font-light backdrop-blur-sm tracking-wider">
             {t.heroSubtitle}
           </Badge>
         </div>
 
         <div className="space-y-8">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extralight leading-[0.9] tracking-tighter">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extralight leading-[0.9] tracking-tighter text-gray-900">
             {t.heroTitle[0]}{" "}
-            <span className="font-light italic bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+            <span className="font-light italic bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
               {t.heroTitle[1]}
             </span>
           </h1>
 
           <div className="max-w-3xl mx-auto">
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-extralight tracking-wide">
+            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed font-extralight tracking-wide">
               {t.heroDescription}
             </p>
-            <p className="text-lg md:text-xl text-gray-400 mt-4 font-extralight">
+            <p className="text-lg md:text-xl text-gray-600 mt-4 font-extralight">
               {t.heroSubDescription}
             </p>
           </div>
@@ -37,7 +37,7 @@ const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) =>
         <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
           <Button
             size="lg"
-            className="bg-white text-black hover:bg-gray-50 px-10 py-6 text-lg font-light tracking-wide h-auto border-0 shadow-2xl hover:shadow-white/10 transition-all duration-300 hover:scale-105"
+            className="bg-gray-900 text-white hover:bg-gray-800 px-10 py-6 text-lg font-light tracking-wide h-auto border-0 shadow-2xl hover:shadow-gray-900/20 transition-all duration-300 hover:scale-105"
             onClick={() => scrollToSection("how-it-works")}
           >
             {t.brandButton}
@@ -47,7 +47,7 @@ const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) =>
           <Button
             size="lg"
             variant="outline"
-            className="border-white/50 text-white hover:bg-white/20 bg-white/10 px-10 py-6 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-white/70"
+            className="border-gray-600 text-gray-800 hover:bg-gray-100 bg-white/30 px-10 py-6 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-gray-700"
             onClick={() => scrollToSection("streamer-section")}
           >
             {t.streamerButton}
@@ -56,8 +56,8 @@ const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) =>
         </div>
 
         <div className="pt-16">
-          <div className="relative bg-gradient-to-r from-white/5 to-white/10 rounded-3xl p-6 backdrop-blur-md border border-white/10 shadow-2xl max-w-4xl mx-auto">
-            <div className="aspect-video rounded-2xl overflow-hidden border border-white/5">
+          <div className="relative bg-gradient-to-r from-white/30 to-white/40 rounded-3xl p-6 backdrop-blur-md border border-white/30 shadow-2xl max-w-4xl mx-auto">
+            <div className="aspect-video rounded-2xl overflow-hidden border border-white/20">
               <iframe
                 width="100%"
                 height="100%"
@@ -70,7 +70,7 @@ const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) =>
               ></iframe>
             </div>
             <div className="text-center mt-4">
-              <p className="text-white/70 text-sm font-extralight tracking-wide">Overview of multiple campaigns in action</p>
+              <p className="text-gray-700 text-sm font-extralight tracking-wide">Overview of multiple campaigns in action</p>
             </div>
           </div>
         </div>
@@ -146,49 +146,6 @@ const TrustedBy = () => (
   </section>
 );
 
-const StreamerSoftwarePreview = ({ t }: { t: any }) => (
-  <section className="py-32 bg-gradient-to-br from-gray-50 to-white">
-    <div className="max-w-7xl mx-auto px-8 lg:px-12">
-      <div className="text-center mb-20">
-        <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
-          {t.streamerSoftwareTitle}
-        </h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
-          {t.streamerSoftwareDescription}
-        </p>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-        <div className="bg-black rounded-3xl p-8 shadow-2xl">
-          <img
-            src="/lovable-uploads/71765092-972e-4792-a241-0f155a62af68.png"
-            alt="Beta Ads Dark Mode Login"
-            className="w-full rounded-2xl"
-          />
-        </div>
-        <div className="bg-white rounded-3xl p-8 shadow-2xl border border-gray-200">
-          <img
-            src="/lovable-uploads/a1b004cc-077e-4fec-8947-bc6f1644b763.png"
-            alt="Beta Ads Light Mode Login"
-            className="w-full rounded-2xl"
-          />
-        </div>
-      </div>
-
-      <div className="text-center mt-16">
-        <Button
-          size="lg"
-          className="bg-red-600 hover:bg-red-700 text-white px-12 py-6 text-lg font-light tracking-wide h-auto shadow-xl transition-all duration-300 hover:scale-105"
-          onClick={() => window.open("https://beta.instreamly.com/en/sponsorships/available", "_blank")}
-        >
-          {t.accessPlatform}
-          <ExternalLink className="ml-4 h-5 w-5" />
-        </Button>
-      </div>
-    </div>
-  </section>
-);
-
 const HowItWorks = ({ t }: { t: any }) => (
   <section id="how-it-works" className="py-32 bg-gradient-to-br from-gray-50 to-white">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
@@ -233,7 +190,7 @@ const HowItWorks = ({ t }: { t: any }) => (
             )}
 
             <div className="relative z-10">
-              <div className="w-20 h-20 bg-gradient-to-br from-red-600 to-red-800 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl group-hover:shadow-red-600/20 transition-all duration-300">
+              <div className="w-20 h-20 bg-gradient-to-br from-pink-400 to-red-300 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl group-hover:shadow-pink-400/20 transition-all duration-300">
                 <item.icon className="h-10 w-10 text-white" />
               </div>
               <h3 className="text-xl font-light text-gray-900 mb-6 tracking-wide">{item.title}</h3>
@@ -295,17 +252,16 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => (
 );
 
 const StreamerSection = ({ t, language }: { t: any; language: string }) => (
-  <section id="streamer-section" className="py-32 bg-gradient-to-br from-red-900 via-red-950 to-black text-white relative overflow-hidden">
-    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M20%2020c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
-    <div className="relative max-w-7xl mx-auto px-8 lg:px-12">
+  <section id="streamer-section" className="py-32 bg-white text-gray-900">
+    <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-20">
-        <h2 className="text-4xl md:text-6xl font-extralight mb-6 tracking-tighter">
+        <h2 className="text-4xl md:text-6xl font-extralight mb-6 tracking-tighter text-gray-900">
           {t.streamerSectionTitle}
         </h2>
-        <p className="text-2xl md:text-3xl text-gray-200 font-light mb-8 tracking-wide">
+        <p className="text-2xl md:text-3xl text-gray-700 font-light mb-8 tracking-wide">
           {t.streamerSectionSubtitle}
         </p>
-        <p className="text-xl text-gray-100 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
           {t.streamerSectionDescription}
         </p>
       </div>
@@ -313,7 +269,7 @@ const StreamerSection = ({ t, language }: { t: any; language: string }) => (
       <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-16">
         <Button
           size="lg"
-          className="bg-white text-black hover:bg-gray-50 px-12 py-6 text-lg font-light tracking-wide h-auto shadow-2xl hover:shadow-white/10 transition-all duration-300 hover:scale-105"
+          className="bg-pink-400 text-white hover:bg-pink-500 px-12 py-6 text-lg font-light tracking-wide h-auto shadow-2xl hover:shadow-pink-400/20 transition-all duration-300 hover:scale-105"
           onClick={() => window.open("https://beta.instreamly.com/en/sponsorships/available", "_blank")}
         >
           {t.joinStreamer}
@@ -323,7 +279,7 @@ const StreamerSection = ({ t, language }: { t: any; language: string }) => (
         <Button
           size="lg"
           variant="outline"
-          className="border-white/50 text-white hover:bg-white/20 bg-white/10 px-12 py-6 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-white/70"
+          className="border-gray-400 text-gray-800 hover:bg-gray-100 bg-gray-50 px-12 py-6 text-lg font-light tracking-wide h-auto transition-all duration-300 hover:border-gray-500"
           onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
         >
           Join Our Discord
@@ -332,9 +288,9 @@ const StreamerSection = ({ t, language }: { t: any; language: string }) => (
       </div>
 
       <div className="text-center">
-        <div className="inline-flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-2xl px-8 py-4 border border-white/20">
-          <TrendingUp className="h-6 w-6 text-gray-200" />
-          <span className="text-gray-100 font-light text-lg tracking-wide">
+        <div className="inline-flex items-center space-x-3 bg-gray-100 rounded-2xl px-8 py-4 border border-gray-200">
+          <TrendingUp className="h-6 w-6 text-gray-600" />
+          <span className="text-gray-700 font-light text-lg tracking-wide">
             {language === "en"
               ? "Earn passive income based on your viewership"
               : "Tjen passiv inntekt basert på dine seertall"}
@@ -592,9 +548,6 @@ const Index = () => {
       step3Description: "Animated overlays display naturally during streams",
       step4Title: "4. You Get Guaranteed Reach",
       step4Description: "Pay per view with transparent CPM tracking",
-      streamerSoftwareTitle: "Streamer Platform Preview",
-      streamerSoftwareDescription: "Get a sneak peek at our streamer platform where content creators can join our network and start earning.",
-      accessPlatform: "Access Platform",
       streamerSectionTitle: "Are you a Twitch streamer?",
       streamerSectionSubtitle: "Earn while you stream – automatically.",
       streamerSectionDescription: "Earn money automatically with Beta Ads. No shoutouts. No affiliate links. Just passive income through overlays.",
@@ -631,9 +584,6 @@ const Index = () => {
       step3Description: "Animerte overlays vises naturlig under streams",
       step4Title: "4. Du Får Garantert Rekkevidde",
       step4Description: "Betal per visning med transparent CPM-sporing",
-      streamerSoftwareTitle: "Forhåndsvisning av Streamer-plattform",
-      streamerSoftwareDescription: "Få en sniktitt på vår streamer-plattform hvor innholdsskapere kan bli med i nettverket vårt og begynne å tjene.",
-      accessPlatform: "Tilgang til Plattform",
       streamerSectionTitle: "Er du en Twitch-streamer?",
       streamerSectionSubtitle: "Tjen mens du streamer – automatisk.",
       streamerSectionDescription: "Tjen penger automatisk med Beta Ads. Ingen shoutouts. Ingen affiliate-lenker. Bare passiv inntekt gjennom overlays.",
@@ -682,7 +632,6 @@ const Index = () => {
       <Hero t={t} scrollToSection={scrollToSection} />
       <TrustedBy />
       <HowItWorks t={t} />
-      <StreamerSoftwarePreview t={t} />
       <Examples t={t} caseVideos={caseVideos} />
       <StreamerSection t={t} language={language} />
       <Press t={t} />
