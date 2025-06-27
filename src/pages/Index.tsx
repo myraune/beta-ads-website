@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { ArrowRight, Play, Users, Target, TrendingUp, ExternalLink, Sparkles } from "lucide-react";
 import { useState } from "react";
+import EstimationSection from "@/components/EstimationSection";
 
 const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) => void }) => (
   <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 text-gray-900">
@@ -45,7 +46,7 @@ const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) =>
           <Button
             size="lg"
             className="bg-gray-900 text-white hover:bg-gray-800 px-10 py-6 text-lg font-light tracking-wide h-auto border-0 shadow-2xl hover:shadow-gray-900/20 transition-all duration-300 hover:scale-105"
-            onClick={() => scrollToSection("how-it-works")}
+            onClick={() => scrollToSection("estimation")}
           >
             {t.brandButton}
             <ArrowRight className="ml-3 h-5 w-5" />
@@ -148,65 +149,6 @@ const TrustedBy = () => (
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-);
-
-const HowItWorks = ({ t }: { t: any }) => (
-  <section id="how-it-works" className="py-32 bg-white">
-    <div className="max-w-7xl mx-auto px-8 lg:px-12">
-      <div className="text-center mb-20">
-        <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
-          {t.howItWorksTitle}
-        </h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
-          {t.howItWorksDescription}
-        </p>
-      </div>
-
-      <div className="grid md:grid-cols-4 gap-8 lg:gap-12">
-        {[
-          {
-            icon: Target,
-            title: t.step1Title,
-            description: t.step1Description,
-          },
-          {
-            icon: Users,
-            title: t.step2Title,
-            description: t.step2Description,
-          },
-          {
-            icon: Play,
-            title: t.step3Title,
-            description: t.step3Description,
-          },
-          {
-            icon: TrendingUp,
-            title: t.step4Title,
-            description: t.step4Description,
-          },
-        ].map((item, index) => (
-          <div
-            key={item.title}
-            className="text-center group hover:transform hover:scale-105 transition-all duration-300 relative"
-          >
-            {index < 3 && (
-              <div className="hidden md:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-gray-300 to-transparent z-0"></div>
-            )}
-
-            <div className="relative z-10">
-              <div className="w-20 h-20 bg-gradient-to-br from-red-400 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl group-hover:shadow-red-400/20 transition-all duration-300">
-                <item.icon className="h-10 w-10 text-white" />
-              </div>
-              <h3 className="text-xl font-light text-gray-900 mb-6 tracking-wide">{item.title}</h3>
-              <p className="text-gray-600 leading-relaxed font-extralight text-lg tracking-wide">
-                {item.description}
-              </p>
-            </div>
-          </div>
-        ))}
       </div>
     </div>
   </section>
@@ -577,20 +519,10 @@ const Index = () => {
       heroTitle: ["Your brand, live on Twitch", "– without interruptions"],
       heroDescription: "We place your brand inside Twitch streams through animated overlays that viewers actually notice.",
       heroSubDescription: "No forced integrations. Just guaranteed visibility.",
-      brandButton: "See How It Works",
+      brandButton: "Get Campaign Estimate",
       streamerButton: "I'm a streamer",
       usedByTitle: "Used by Samsung, Surfshark, and Shure to reach Twitch viewers with native ads",
       seeCampaignExample: "See Campaign Example",
-      howItWorksTitle: "Campaign Flow",
-      howItWorksDescription: "Simple process, guaranteed results. Here's exactly how your brand reaches Twitch viewers.",
-      step1Title: "1. Brand Chooses Campaign",
-      step1Description: "Set your targeting, budget, and campaign goals with our team",
-      step2Title: "2. We Activate 40+ Streamers",
-      step2Description: "Your campaign goes live across our verified network simultaneously",
-      step3Title: "3. Ads Appear 1-2x Per Hour",
-      step3Description: "Animated overlays display naturally during streams",
-      step4Title: "4. You Get Guaranteed Reach",
-      step4Description: "Pay per view with transparent CPM tracking",
       streamerSectionTitle: "Are you a Twitch streamer?",
       streamerSectionSubtitle: "Earn while you stream – automatically.",
       streamerSectionDescription: "Earn money automatically with Beta Ads. No shoutouts. No affiliate links. Just passive income through overlays.",
@@ -613,20 +545,10 @@ const Index = () => {
       heroTitle: ["Din merkevare, live på Twitch", "– uten avbrytelser"],
       heroDescription: "Vi plasserer din merkevare inne i Twitch-streams gjennom animerte overlays som seere faktisk legger merke til.",
       heroSubDescription: "Ingen tvungne integrasjoner. Bare garantert synlighet.",
-      brandButton: "Se Hvordan Det Fungerer",
+      brandButton: "Få Kampanjeestimat",
       streamerButton: "Jeg er en streamer",
       usedByTitle: "Brukt av Samsung, Surfshark og Shure for å nå Twitch-seere med native annonser",
       seeCampaignExample: "Se Kampanjeeksempel",
-      howItWorksTitle: "Kampanjeflyt",
-      howItWorksDescription: "Enkel prosess, garanterte resultater. Her er nøyaktig hvordan din merkevare når Twitch-seere.",
-      step1Title: "1. Merkevare Velger Kampanje",
-      step1Description: "Sett målretting, budsjett og kampanjemål med vårt team",
-      step2Title: "2. Vi Aktiverer 40+ Streamere",
-      step2Description: "Din kampanje går live på tvers av vårt verifiserte nettverk samtidig",
-      step3Title: "3. Annonser Vises 1-2x Per Time",
-      step3Description: "Animerte overlays vises naturlig under streams",
-      step4Title: "4. Du Får Garantert Rekkevidde",
-      step4Description: "Betal per visning med transparent CPM-sporing",
       streamerSectionTitle: "Er du en Twitch-streamer?",
       streamerSectionSubtitle: "Tjen mens du streamer – automatisk.",
       streamerSectionDescription: "Tjen penger automatisk med Beta Ads. Ingen shoutouts. Ingen affiliate-lenker. Bare passiv inntekt gjennom overlays.",
@@ -674,7 +596,7 @@ const Index = () => {
     <div className="min-h-screen bg-white">
       <Hero t={t} scrollToSection={scrollToSection} />
       <TrustedBy />
-      <HowItWorks t={t} />
+      <EstimationSection t={t} scrollToSection={scrollToSection} />
       <Examples t={t} caseVideos={caseVideos} />
       <StreamerSection t={t} language={language} />
       <Press t={t} />
