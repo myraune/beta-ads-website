@@ -6,7 +6,7 @@ import { useState } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) => void }) => (
-  <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
+  <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900 dark:from-gray-800 dark:via-gray-900 dark:to-black text-white">
     <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.02%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
     <div className="relative max-w-7xl mx-auto px-8 lg:px-12 py-32 lg:py-40">
       <div className="text-center space-y-12">
@@ -81,7 +81,7 @@ const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) =>
 );
 
 const TrustedBy = () => (
-  <section className="py-20 bg-white overflow-hidden">
+  <section className="py-20 bg-white dark:bg-gray-900 overflow-hidden">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-16">
         <div className="mb-12 relative">
@@ -89,54 +89,54 @@ const TrustedBy = () => (
             <div className="flex animate-scroll">
               <div className="flex items-center space-x-24 whitespace-nowrap">
                 <div className="h-12 w-32 flex items-center justify-center">
-                  <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                  <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="max-h-12 max-w-32 opacity-60 dark:opacity-80 object-contain" />
                 </div>
                 <div className="h-12 w-32 flex items-center justify-center">
-                  <img src="/lovable-uploads/bf505fdb-dc9b-4a82-93b6-f604c840737f.png" alt="Surfshark" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                  <img src="/lovable-uploads/bf505fdb-dc9b-4a82-93b6-f604c840737f.png" alt="Surfshark" className="max-h-12 max-w-32 opacity-60 dark:opacity-80 object-contain" />
                 </div>
                 <div className="h-12 w-32 flex items-center justify-center">
-                  <img src="/lovable-uploads/1e56f4d8-0545-4132-8d6f-8738cdb1ae4f.png" alt="Komplett" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                  <img src="/lovable-uploads/1e56f4d8-0545-4132-8d6f-8738cdb1ae4f.png" alt="Komplett" className="max-h-12 max-w-32 opacity-60 dark:opacity-80 object-contain" />
                 </div>
                 <div className="h-12 w-32 flex items-center justify-center">
-                  <img src="/lovable-uploads/5b2346c1-8226-4f68-9806-5b03cba8e17c.png" alt="Shure" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                  <img src="/lovable-uploads/5b2346c1-8226-4f68-9806-5b03cba8e17c.png" alt="Shure" className="max-h-12 max-w-32 opacity-60 dark:opacity-80 object-contain" />
                 </div>
                 <div className="h-12 w-32 flex items-center justify-center">
-                  <img src="/lovable-uploads/59160e7a-4d18-4413-9f1b-f681271f8dde.png" alt="Foodora" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                  <img src="/lovable-uploads/59160e7a-4d18-4413-9f1b-f681271f8dde.png" alt="Foodora" className="max-h-12 max-w-32 opacity-60 dark:opacity-80 object-contain" />
                 </div>
                 <div className="h-12 w-32 flex items-center justify-center">
-                  <img src="/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png" alt="Group M" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                  <img src="/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png" alt="Group M" className="max-h-12 max-w-32 opacity-60 dark:opacity-80 object-contain" />
                 </div>
                 <div className="h-12 w-32 flex items-center justify-center">
-                  <img src="/lovable-uploads/cda69e31-7632-469a-b206-367ba4350480.png" alt="Logitech G" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                  <img src="/lovable-uploads/cda69e31-7632-469a-b206-367ba4350480.png" alt="Logitech G" className="max-h-12 max-w-32 opacity-60 dark:opacity-80 object-contain" />
                 </div>
                 <div className="h-12 w-32 flex items-center justify-center">
-                  <img src="/lovable-uploads/1fc4788c-f973-403f-9b01-4f3b4fa2ba20.png" alt="SteelSeries" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                  <img src="/lovable-uploads/1fc4788c-f973-403f-9b01-4f3b4fa2ba20.png" alt="SteelSeries" className="max-h-12 max-w-32 opacity-60 dark:opacity-80 object-contain" />
                 </div>
               </div>
               <div className="flex items-center space-x-24 whitespace-nowrap">
                 <div className="h-12 w-32 flex items-center justify-center">
-                  <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                  <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="max-h-12 max-w-32 opacity-60 dark:opacity-80 object-contain" />
                 </div>
                 <div className="h-12 w-32 flex items-center justify-center">
-                  <img src="/lovable-uploads/bf505fdb-dc9b-4a82-93b6-f604c840737f.png" alt="Surfshark" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                  <img src="/lovable-uploads/bf505fdb-dc9b-4a82-93b6-f604c840737f.png" alt="Surfshark" className="max-h-12 max-w-32 opacity-60 dark:opacity-80 object-contain" />
                 </div>
                 <div className="h-12 w-32 flex items-center justify-center">
-                  <img src="/lovable-uploads/1e56f4d8-0545-4132-8d6f-8738cdb1ae4f.png" alt="Komplett" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                  <img src="/lovable-uploads/1e56f4d8-0545-4132-8d6f-8738cdb1ae4f.png" alt="Komplett" className="max-h-12 max-w-32 opacity-60 dark:opacity-80 object-contain" />
                 </div>
                 <div className="h-12 w-32 flex items-center justify-center">
-                  <img src="/lovable-uploads/5b2346c1-8226-4f68-9806-5b03cba8e17c.png" alt="Shure" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                  <img src="/lovable-uploads/5b2346c1-8226-4f68-9806-5b03cba8e17c.png" alt="Shure" className="max-h-12 max-w-32 opacity-60 dark:opacity-80 object-contain" />
                 </div>
                 <div className="h-12 w-32 flex items-center justify-center">
-                  <img src="/lovable-uploads/59160e7a-4d18-4413-9f1b-f681271f8dde.png" alt="Foodora" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                  <img src="/lovable-uploads/59160e7a-4d18-4413-9f1b-f681271f8dde.png" alt="Foodora" className="max-h-12 max-w-32 opacity-60 dark:opacity-80 object-contain" />
                 </div>
                 <div className="h-12 w-32 flex items-center justify-center">
-                  <img src="/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png" alt="Group M" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                  <img src="/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png" alt="Group M" className="max-h-12 max-w-32 opacity-60 dark:opacity-80 object-contain" />
                 </div>
                 <div className="h-12 w-32 flex items-center justify-center">
-                  <img src="/lovable-uploads/cda69e31-7632-469a-b206-367ba4350480.png" alt="Logitech G" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                  <img src="/lovable-uploads/cda69e31-7632-469a-b206-367ba4350480.png" alt="Logitech G" className="max-h-12 max-w-32 opacity-60 dark:opacity-80 object-contain" />
                 </div>
                 <div className="h-12 w-32 flex items-center justify-center">
-                  <img src="/lovable-uploads/1fc4788c-f973-403f-9b01-4f3b4fa2ba20.png" alt="SteelSeries" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                  <img src="/lovable-uploads/1fc4788c-f973-403f-9b01-4f3b4fa2ba20.png" alt="SteelSeries" className="max-h-12 max-w-32 opacity-60 dark:opacity-80 object-contain" />
                 </div>
               </div>
             </div>
@@ -148,13 +148,13 @@ const TrustedBy = () => (
 );
 
 const HowItWorks = ({ t }: { t: any }) => (
-  <section id="how-it-works" className="py-32 bg-gradient-to-br from-gray-50 to-white">
+  <section id="how-it-works" className="py-32 bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-20">
-        <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
+        <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 dark:text-white mb-8 tracking-tighter">
           {t.howItWorksTitle}
         </h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
           {t.howItWorksDescription}
         </p>
       </div>
@@ -187,15 +187,15 @@ const HowItWorks = ({ t }: { t: any }) => (
             className="text-center group hover:transform hover:scale-105 transition-all duration-300 relative"
           >
             {index < 3 && (
-              <div className="hidden md:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-gray-300 to-transparent z-0"></div>
+              <div className="hidden md:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-gray-300 dark:from-gray-600 to-transparent z-0"></div>
             )}
 
             <div className="relative z-10">
-              <div className="w-20 h-20 bg-gradient-to-br from-black to-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl group-hover:shadow-black/20 transition-all duration-300">
+              <div className="w-20 h-20 bg-gradient-to-br from-black to-gray-800 dark:from-gray-700 dark:to-gray-900 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl group-hover:shadow-black/20 transition-all duration-300">
                 <item.icon className="h-10 w-10 text-white" />
               </div>
-              <h3 className="text-xl font-light text-gray-900 mb-6 tracking-wide">{item.title}</h3>
-              <p className="text-gray-600 leading-relaxed font-extralight text-lg tracking-wide">
+              <h3 className="text-xl font-light text-gray-900 dark:text-white mb-6 tracking-wide">{item.title}</h3>
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed font-extralight text-lg tracking-wide">
                 {item.description}
               </p>
             </div>
@@ -207,13 +207,13 @@ const HowItWorks = ({ t }: { t: any }) => (
 );
 
 const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => (
-  <section id="examples" className="py-32 bg-white">
+  <section id="examples" className="py-32 bg-white dark:bg-gray-900">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-20">
-        <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
+        <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 dark:text-white mb-8 tracking-tighter">
           {t.trustedByTitle}
         </h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
           {t.trustedByDescription}
         </p>
       </div>
@@ -223,8 +223,8 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => (
           <CarouselContent>
             {caseVideos.map((video) => (
               <CarouselItem key={video.id}>
-                <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 border border-gray-100 shadow-xl">
-                  <div className="aspect-video rounded-2xl overflow-hidden border border-gray-200">
+                <div className="relative bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-3xl p-8 border border-gray-100 dark:border-gray-700 shadow-xl">
+                  <div className="aspect-video rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-600">
                     <iframe
                       width="100%"
                       height="100%"
@@ -237,15 +237,15 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => (
                     ></iframe>
                   </div>
                   <div className="text-center mt-6">
-                    <h3 className="text-xl font-light text-gray-900 mb-2 tracking-wide">{video.brand}</h3>
-                    <p className="text-gray-600 font-extralight tracking-wide">{video.title}</p>
+                    <h3 className="text-xl font-light text-gray-900 dark:text-white mb-2 tracking-wide">{video.brand}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 font-extralight tracking-wide">{video.title}</p>
                   </div>
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="text-gray-600 border-gray-200 hover:bg-gray-50" />
-          <CarouselNext className="text-gray-600 border-gray-200 hover:bg-gray-50" />
+          <CarouselPrevious className="text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800" />
+          <CarouselNext className="text-gray-600 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800" />
         </Carousel>
       </div>
     </div>
@@ -253,7 +253,7 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => (
 );
 
 const StreamerSection = ({ t, language }: { t: any; language: string }) => (
-  <section id="streamer-section" className="py-32 bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden">
+  <section id="streamer-section" className="py-32 bg-gradient-to-br from-black via-gray-900 to-black dark:from-gray-900 dark:via-black dark:to-gray-800 text-white relative overflow-hidden">
     <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M20%2020c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
     <div className="relative max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-20">
@@ -304,7 +304,7 @@ const StreamerSection = ({ t, language }: { t: any; language: string }) => (
 );
 
 const Press = ({ t }: { t: any }) => (
-  <section className="py-32 bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden border-t border-white/10">
+  <section className="py-32 bg-gradient-to-br from-black via-gray-900 to-black dark:from-gray-900 dark:via-black dark:to-gray-800 text-white relative overflow-hidden border-t border-white/10">
     <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M20%2020c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
     <div className="relative max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-20">
@@ -394,13 +394,13 @@ const Press = ({ t }: { t: any }) => (
 );
 
 const Team = ({ t }: { t: any }) => (
-  <section className="py-32 bg-gradient-to-br from-gray-50 to-white">
+  <section className="py-32 bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-24">
-        <h2 className="text-5xl md:text-7xl font-extralight text-gray-900 mb-12 tracking-tighter">
+        <h2 className="text-5xl md:text-7xl font-extralight text-gray-900 dark:text-white mb-12 tracking-tighter">
           {t.meetTeamTitle}
         </h2>
-        <p className="text-2xl text-gray-600 max-w-4xl mx-auto font-extralight leading-relaxed tracking-wide">
+        <p className="text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto font-extralight leading-relaxed tracking-wide">
           {t.meetTeamDescription}
         </p>
       </div>
@@ -414,9 +414,9 @@ const Team = ({ t }: { t: any }) => (
               className="w-full h-full object-cover"
             />
           </div>
-          <h3 className="text-2xl font-light text-gray-900 mb-3 tracking-wide">Andreas Myraune</h3>
-          <p className="text-gray-900 font-extralight mb-2 text-lg tracking-wide">Head of Agency</p>
-          <p className="text-gray-500 font-extralight tracking-wide">andreas@beta-ads.no</p>
+          <h3 className="text-2xl font-light text-gray-900 dark:text-white mb-3 tracking-wide">Andreas Myraune</h3>
+          <p className="text-gray-900 dark:text-gray-300 font-extralight mb-2 text-lg tracking-wide">Head of Agency</p>
+          <p className="text-gray-500 dark:text-gray-400 font-extralight tracking-wide">andreas@beta-ads.no</p>
         </div>
 
         <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
@@ -427,9 +427,9 @@ const Team = ({ t }: { t: any }) => (
               className="w-full h-full object-cover"
             />
           </div>
-          <h3 className="text-2xl font-light text-gray-900 mb-3 tracking-wide">Toms Znatnajs</h3>
-          <p className="text-gray-900 font-extralight mb-2 text-lg tracking-wide">Head of Talent</p>
-          <p className="text-gray-500 font-extralight tracking-wide">toms@beta-ads.no</p>
+          <h3 className="text-2xl font-light text-gray-900 dark:text-white mb-3 tracking-wide">Toms Znatnajs</h3>
+          <p className="text-gray-900 dark:text-gray-300 font-extralight mb-2 text-lg tracking-wide">Head of Talent</p>
+          <p className="text-gray-500 dark:text-gray-400 font-extralight tracking-wide">toms@beta-ads.no</p>
         </div>
       </div>
     </div>
@@ -437,7 +437,7 @@ const Team = ({ t }: { t: any }) => (
 );
 
 const CTA = ({ t }: { t: any }) => (
-  <section className="py-32 bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden">
+  <section className="py-32 bg-gradient-to-br from-black via-gray-900 to-black dark:from-gray-900 dark:via-black dark:to-gray-800 text-white relative overflow-hidden">
     <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.02%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
     <div className="relative max-w-5xl mx-auto text-center px-8 lg:px-12">
       <h2 className="text-5xl md:text-7xl font-extralight mb-12 tracking-tighter">
@@ -465,19 +465,19 @@ const CTA = ({ t }: { t: any }) => (
 );
 
 const Footer = ({ t, language, setLanguage }: { t: any; language: string; setLanguage: (lang: string) => void }) => (
-  <footer className="bg-gray-900 text-white py-24">
+  <footer className="bg-gray-900 dark:bg-black text-white py-24">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="grid md:grid-cols-4 gap-16">
         <div className="space-y-8">
           <h3 className="text-3xl font-extralight tracking-widest">Beta Ads</h3>
-          <p className="text-gray-400 font-extralight leading-relaxed text-lg tracking-wide">
+          <p className="text-gray-400 dark:text-gray-500 font-extralight leading-relaxed text-lg tracking-wide">
             {language === "en" ? "The future of Twitch advertising is here." : "Fremtiden for Twitch-annonsering er her."}
           </p>
         </div>
 
         <div className="space-y-8">
           <h4 className="font-light tracking-widest text-lg">{t.contactTitle}</h4>
-          <div className="space-y-4 text-gray-400 font-extralight text-lg">
+          <div className="space-y-4 text-gray-400 dark:text-gray-500 font-extralight text-lg">
             <p className="tracking-wide">andreas@beta-ads.no</p>
             <p className="tracking-wide">+47 46195548</p>
           </div>
@@ -485,7 +485,7 @@ const Footer = ({ t, language, setLanguage }: { t: any; language: string; setLan
 
         <div className="space-y-8">
           <h4 className="font-light tracking-widest text-lg">{t.connectTitle}</h4>
-          <div className="space-y-4 text-gray-400 font-extralight text-lg">
+          <div className="space-y-4 text-gray-400 dark:text-gray-500 font-extralight text-lg">
             <p
               className="hover:text-white transition-colors cursor-pointer tracking-wide"
               onClick={() => window.open("https://www.linkedin.com/company/beta-nordic", "_blank")}
@@ -503,7 +503,7 @@ const Footer = ({ t, language, setLanguage }: { t: any; language: string; setLan
 
         <div className="space-y-8">
           <h4 className="font-light tracking-widest text-lg">{t.languageTitle}</h4>
-          <div className="space-y-4 text-gray-400 font-extralight text-lg">
+          <div className="space-y-4 text-gray-400 dark:text-gray-500 font-extralight text-lg">
             <p
               className={`hover:text-white transition-colors cursor-pointer tracking-wide ${language === "en" ? "text-white" : ""}`}
               onClick={() => setLanguage("en")}
@@ -520,7 +520,7 @@ const Footer = ({ t, language, setLanguage }: { t: any; language: string; setLan
         </div>
       </div>
 
-      <div className="border-t border-gray-800 mt-20 pt-12 text-center text-gray-400 font-extralight tracking-widest">
+      <div className="border-t border-gray-800 dark:border-gray-700 mt-20 pt-12 text-center text-gray-400 dark:text-gray-500 font-extralight tracking-widest">
         <p>&copy; 2024 Beta Ads. All rights reserved.</p>
       </div>
     </div>
