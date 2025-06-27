@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -151,7 +152,7 @@ const TrustedBy = () => (
 );
 
 const HowItWorks = ({ t }: { t: any }) => (
-  <section id="how-it-works" className="py-32 bg-gradient-to-br from-orange-50 to-white">
+  <section id="how-it-works" className="py-32 bg-white">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-20">
         <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
@@ -194,7 +195,7 @@ const HowItWorks = ({ t }: { t: any }) => (
             )}
 
             <div className="relative z-10">
-              <div className="w-20 h-20 bg-gradient-to-br from-pink-400 to-red-300 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl group-hover:shadow-pink-400/20 transition-all duration-300">
+              <div className="w-20 h-20 bg-gradient-to-br from-red-400 to-red-500 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl group-hover:shadow-red-400/20 transition-all duration-300">
                 <item.icon className="h-10 w-10 text-white" />
               </div>
               <h3 className="text-xl font-light text-gray-900 mb-6 tracking-wide">{item.title}</h3>
