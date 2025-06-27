@@ -1,417 +1,653 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { ArrowRight, Play, Users, Target, TrendingUp, ExternalLink, Sparkles } from "lucide-react";
 import { useState } from "react";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) => void }) => (
-  <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900 dark:from-gray-800 dark:via-gray-900 dark:to-black text-white">
-    <div className="container mx-auto px-4 py-32">
-      <div className="grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h1 className="text-5xl font-bold mb-6">{t.hero.title}</h1>
-          <p className="text-lg mb-8">{t.hero.subtitle}</p>
-          <div className="space-x-4">
-            <Button size="lg" onClick={() => scrollToSection('how-it-works')}>
-              {t.hero.primaryCTA} <ArrowRight className="ml-2" />
-            </Button>
-            <Button variant="outline" size="lg">
-              {t.hero.secondaryCTA}
-            </Button>
+  <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
+    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.02%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+    <div className="relative max-w-7xl mx-auto px-8 lg:px-12 py-32 lg:py-40">
+      <div className="text-center space-y-12">
+        <div className="inline-flex items-center space-x-3">
+          <Sparkles className="h-5 w-5 text-white/60" />
+          <Badge className="bg-white/5 text-white/90 border-white/10 text-sm px-6 py-3 font-light backdrop-blur-sm tracking-wider">
+            {t.heroSubtitle}
+          </Badge>
+        </div>
+
+        <div className="space-y-8">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extralight leading-[0.9] tracking-tighter">
+            {t.heroTitle[0]}{" "}
+            <span className="font-light italic bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              {t.heroTitle[1]}
+            </span>
+          </h1>
+
+          <div className="max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-extralight tracking-wide">
+              {t.heroDescription}
+            </p>
+            <p className="text-lg md:text-xl text-gray-400 mt-4 font-extralight">
+              {t.heroSubDescription}
+            </p>
           </div>
         </div>
-        <div className="relative">
-          <img
-            src="/hero-image.png"
-            alt="Hero Image"
-            className="rounded-lg shadow-xl"
-          />
+
+        <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+          <Button
+            size="lg"
+            className="bg-white text-black hover:bg-gray-50 px-10 py-6 text-lg font-light tracking-wide h-auto border-0 shadow-2xl hover:shadow-white/10 transition-all duration-300 hover:scale-105"
+            onClick={() => scrollToSection("how-it-works")}
+          >
+            {t.brandButton}
+            <ArrowRight className="ml-3 h-5 w-5" />
+          </Button>
+
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-white/50 text-white hover:bg-white/20 bg-white/10 px-10 py-6 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-white/70"
+            onClick={() => scrollToSection("streamer-section")}
+          >
+            {t.streamerButton}
+            <ExternalLink className="ml-3 h-5 w-5" />
+          </Button>
+        </div>
+
+        <div className="pt-16">
+          <div className="relative bg-gradient-to-r from-white/5 to-white/10 rounded-3xl p-6 backdrop-blur-md border border-white/10 shadow-2xl max-w-4xl mx-auto">
+            <div className="aspect-video rounded-2xl overflow-hidden border border-white/5">
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/P9yEc7v22MI"
+                title="Campaign Grid Overview"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+                className="w-full h-full"
+              ></iframe>
+            </div>
+            <div className="text-center mt-4">
+              <p className="text-white/70 text-sm font-extralight tracking-wide">Overview of multiple campaigns in action</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-gray-900 dark:from-black to-transparent"></div>
   </section>
 );
 
 const TrustedBy = () => (
-  <section className="py-16 bg-gray-50 dark:bg-gray-800">
-    <div className="container mx-auto px-4">
-      <h2 className="text-center text-2xl font-semibold mb-12 text-gray-600 dark:text-gray-300">
-        Trusted by leading companies worldwide
-      </h2>
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
-        {[
-          "/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png",
-          "/lovable-uploads/59160e7a-4d18-4413-9f1b-f681271f8dde.png",
-          "/lovable-uploads/6f888d5f-8917-41fc-8808-f528b2aac891.png",
-          "/lovable-uploads/bf505fdb-dc9b-4a82-93b6-f604c840737f.png",
-          "/lovable-uploads/cda69e31-7632-469a-b206-367ba4350480.png",
-          "/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png"
-        ].map((src, index) => (
-          <div key={index} className="flex justify-center">
-            <img src={src} alt={`Trusted company ${index + 1}`} className="h-8 w-auto grayscale hover:grayscale-0 transition-all duration-300 dark:brightness-0 dark:invert" />
+  <section className="py-20 bg-white overflow-hidden">
+    <div className="max-w-7xl mx-auto px-8 lg:px-12">
+      <div className="text-center mb-16">
+        <div className="mb-12 relative">
+          <div className="flex overflow-hidden">
+            <div className="flex animate-scroll">
+              <div className="flex items-center space-x-24 whitespace-nowrap">
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/bf505fdb-dc9b-4a82-93b6-f604c840737f.png" alt="Surfshark" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/1e56f4d8-0545-4132-8d6f-8738cdb1ae4f.png" alt="Komplett" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/5b2346c1-8226-4f68-9806-5b03cba8e17c.png" alt="Shure" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/59160e7a-4d18-4413-9f1b-f681271f8dde.png" alt="Foodora" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png" alt="Group M" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/cda69e31-7632-469a-b206-367ba4350480.png" alt="Logitech G" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/1fc4788c-f973-403f-9b01-4f3b4fa2ba20.png" alt="SteelSeries" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+              </div>
+              <div className="flex items-center space-x-24 whitespace-nowrap">
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/bf505fdb-dc9b-4a82-93b6-f604c840737f.png" alt="Surfshark" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/1e56f4d8-0545-4132-8d6f-8738cdb1ae4f.png" alt="Komplett" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/5b2346c1-8226-4f68-9806-5b03cba8e17c.png" alt="Shure" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/59160e7a-4d18-4413-9f1b-f681271f8dde.png" alt="Foodora" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png" alt="Group M" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/cda69e31-7632-469a-b206-367ba4350480.png" alt="Logitech G" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+                <div className="h-12 w-32 flex items-center justify-center">
+                  <img src="/lovable-uploads/1fc4788c-f973-403f-9b01-4f3b4fa2ba20.png" alt="SteelSeries" className="max-h-12 max-w-32 opacity-60 object-contain" />
+                </div>
+              </div>
+            </div>
           </div>
-        ))}
+        </div>
       </div>
     </div>
   </section>
 );
 
 const HowItWorks = ({ t }: { t: any }) => (
-  <section id="how-it-works" className="py-20 bg-white dark:bg-gray-900">
-    <div className="container mx-auto px-4">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">{t.howItWorks.title}</h2>
-        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">{t.howItWorks.subtitle}</p>
+  <section id="how-it-works" className="py-32 bg-gradient-to-br from-gray-50 to-white">
+    <div className="max-w-7xl mx-auto px-8 lg:px-12">
+      <div className="text-center mb-20">
+        <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
+          {t.howItWorksTitle}
+        </h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+          {t.howItWorksDescription}
+        </p>
       </div>
-      
-      <div className="grid md:grid-cols-3 gap-8">
-        {t.howItWorks.steps.map((step: any, index: number) => (
-          <Card key={index} className="text-center hover:shadow-lg transition-shadow border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
-            <CardHeader>
-              <div className="w-16 h-16 bg-gradient-to-r from-[#fe696e] to-[#fe4d52] rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl font-bold text-white">{index + 1}</span>
-              </div>
-              <CardTitle className="text-xl text-gray-900 dark:text-white">{step.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 dark:text-gray-300">{step.description}</p>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
-    </div>
-  </section>
-);
 
-const Features = ({ t }: { t: any }) => (
-  <section id="features" className="py-20 bg-gray-50 dark:bg-gray-800">
-    <div className="container mx-auto px-4">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">{t.features.title}</h2>
-        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">{t.features.subtitle}</p>
-      </div>
-      
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {t.features.items.map((feature: any, index: number) => {
-          const icons = [Users, Target, TrendingUp, Sparkles, Play, ExternalLink];
-          const Icon = icons[index % icons.length];
-          
-          return (
-            <Card key={index} className="hover:shadow-lg transition-shadow border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
-              <CardHeader>
-                <div className="w-12 h-12 bg-gradient-to-r from-[#fe696e] to-[#fe4d52] rounded-lg flex items-center justify-center mb-4">
-                  <Icon className="h-6 w-6 text-white" />
-                </div>
-                <CardTitle className="text-xl text-gray-900 dark:text-white">{feature.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
-              </CardContent>
-            </Card>
-          );
-        })}
-      </div>
-    </div>
-  </section>
-);
-
-const Testimonials = ({ t }: { t: any }) => (
-  <section id="testimonials" className="py-20 bg-white dark:bg-gray-900">
-    <div className="container mx-auto px-4">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">{t.testimonials.title}</h2>
-        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">{t.testimonials.subtitle}</p>
-      </div>
-      
-      <Carousel className="w-full max-w-4xl mx-auto">
-        <CarouselContent>
-          {t.testimonials.items.map((testimonial: any, index: number) => (
-            <CarouselItem key={index}>
-              <Card className="border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
-                <CardContent className="p-8 text-center">
-                  <div className="flex justify-center mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i} className="text-yellow-400 text-xl">★</span>
-                    ))}
-                  </div>
-                  <blockquote className="text-lg text-gray-700 dark:text-gray-300 mb-6 italic">
-                    "{testimonial.quote}"
-                  </blockquote>
-                  <div className="flex items-center justify-center space-x-4">
-                    <img 
-                      src={testimonial.avatar} 
-                      alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div>
-                      <p className="font-semibold text-gray-900 dark:text-white">{testimonial.name}</p>
-                      <p className="text-gray-600 dark:text-gray-400">{testimonial.role}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <CarouselPrevious className="dark:bg-gray-800 dark:border-gray-700 dark:text-white" />
-        <CarouselNext className="dark:bg-gray-800 dark:border-gray-700 dark:text-white" />
-      </Carousel>
-    </div>
-  </section>
-);
-
-const Pricing = ({ t }: { t: any }) => (
-  <section id="pricing" className="py-20 bg-gray-50 dark:bg-gray-800">
-    <div className="container mx-auto px-4">
-      <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">{t.pricing.title}</h2>
-        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">{t.pricing.subtitle}</p>
-      </div>
-      
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        {t.pricing.plans.map((plan: any, index: number) => (
-          <Card key={index} className={`relative hover:shadow-lg transition-shadow ${
-            plan.popular 
-              ? 'border-[#fe696e] shadow-lg scale-105 bg-white dark:bg-gray-800' 
-              : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800'
-          }`}>
-            {plan.popular && (
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#fe696e] to-[#fe4d52] text-white px-4 py-1 rounded-full text-sm font-medium">
-                Most Popular
-              </div>
+      <div className="grid md:grid-cols-4 gap-8 lg:gap-12">
+        {[
+          {
+            icon: Target,
+            title: t.step1Title,
+            description: t.step1Description,
+          },
+          {
+            icon: Users,
+            title: t.step2Title,
+            description: t.step2Description,
+          },
+          {
+            icon: Play,
+            title: t.step3Title,
+            description: t.step3Description,
+          },
+          {
+            icon: TrendingUp,
+            title: t.step4Title,
+            description: t.step4Description,
+          },
+        ].map((item, index) => (
+          <div
+            key={item.title}
+            className="text-center group hover:transform hover:scale-105 transition-all duration-300 relative"
+          >
+            {index < 3 && (
+              <div className="hidden md:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-gray-300 to-transparent z-0"></div>
             )}
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl text-gray-900 dark:text-white">{plan.name}</CardTitle>
-              <div className="mt-4">
-                <span className="text-4xl font-bold text-gray-900 dark:text-white">${plan.price}</span>
-                <span className="text-gray-600 dark:text-gray-400">/month</span>
+
+            <div className="relative z-10">
+              <div className="w-20 h-20 bg-gradient-to-br from-black to-gray-800 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-xl group-hover:shadow-black/20 transition-all duration-300">
+                <item.icon className="h-10 w-10 text-white" />
               </div>
-              <p className="text-gray-600 dark:text-gray-300 mt-2">{plan.description}</p>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3 mb-6">
-                {plan.features.map((feature: string, featureIndex: number) => (
-                  <li key={featureIndex} className="flex items-center text-gray-700 dark:text-gray-300">
-                    <span className="text-green-500 mr-2">✓</span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <Button 
-                className={`w-full ${
-                  plan.popular 
-                    ? 'bg-gradient-to-r from-[#fe696e] to-[#fe4d52] hover:from-[#fe4d52] hover:to-[#fe696e] text-white' 
-                    : 'border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-600'
-                }`}
-                variant={plan.popular ? "default" : "outline"}
-              >
-                Get Started
-              </Button>
-            </CardContent>
-          </Card>
+              <h3 className="text-xl font-light text-gray-900 mb-6 tracking-wide">{item.title}</h3>
+              <p className="text-gray-600 leading-relaxed font-extralight text-lg tracking-wide">
+                {item.description}
+              </p>
+            </div>
+          </div>
         ))}
+      </div>
+    </div>
+  </section>
+);
+
+const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => (
+  <section id="examples" className="py-32 bg-white">
+    <div className="max-w-7xl mx-auto px-8 lg:px-12">
+      <div className="text-center mb-20">
+        <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
+          {t.trustedByTitle}
+        </h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+          {t.trustedByDescription}
+        </p>
+      </div>
+
+      <div className="max-w-5xl mx-auto">
+        <Carousel className="w-full">
+          <CarouselContent>
+            {caseVideos.map((video) => (
+              <CarouselItem key={video.id}>
+                <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 border border-gray-100 shadow-xl">
+                  <div className="aspect-video rounded-2xl overflow-hidden border border-gray-200">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={`https://www.youtube.com/embed/${video.id}`}
+                      title={video.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      className="w-full h-full"
+                    ></iframe>
+                  </div>
+                  <div className="text-center mt-6">
+                    <h3 className="text-xl font-light text-gray-900 mb-2 tracking-wide">{video.brand}</h3>
+                    <p className="text-gray-600 font-extralight tracking-wide">{video.title}</p>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="text-gray-600 border-gray-200 hover:bg-gray-50" />
+          <CarouselNext className="text-gray-600 border-gray-200 hover:bg-gray-50" />
+        </Carousel>
+      </div>
+    </div>
+  </section>
+);
+
+const StreamerSection = ({ t, language }: { t: any; language: string }) => (
+  <section id="streamer-section" className="py-32 bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden">
+    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M20%2020c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+    <div className="relative max-w-7xl mx-auto px-8 lg:px-12">
+      <div className="text-center mb-20">
+        <h2 className="text-4xl md:text-6xl font-extralight mb-6 tracking-tighter">
+          {t.streamerSectionTitle}
+        </h2>
+        <p className="text-2xl md:text-3xl text-gray-200 font-light mb-8 tracking-wide">
+          {t.streamerSectionSubtitle}
+        </p>
+        <p className="text-xl text-gray-100 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+          {t.streamerSectionDescription}
+        </p>
+      </div>
+
+      <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-16">
+        <Button
+          size="lg"
+          className="bg-white text-black hover:bg-gray-50 px-12 py-6 text-lg font-light tracking-wide h-auto shadow-2xl hover:shadow-white/10 transition-all duration-300 hover:scale-105"
+          onClick={() => window.open("https://beta.instreamly.com/en/sponsorships/available", "_blank")}
+        >
+          {t.joinStreamer}
+          <ExternalLink className="ml-4 h-5 w-5" />
+        </Button>
+
+        <Button
+          size="lg"
+          variant="outline"
+          className="border-white/50 text-white hover:bg-white/20 bg-white/10 px-12 py-6 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-white/70"
+          onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
+        >
+          Join Our Discord
+          <ExternalLink className="ml-4 h-5 w-5" />
+        </Button>
+      </div>
+
+      <div className="text-center">
+        <div className="inline-flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-2xl px-8 py-4 border border-white/20">
+          <TrendingUp className="h-6 w-6 text-gray-200" />
+          <span className="text-gray-100 font-light text-lg tracking-wide">
+            {language === "en"
+              ? "Earn passive income based on your viewership"
+              : "Tjen passiv inntekt basert på dine seertall"}
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const Press = ({ t }: { t: any }) => (
+  <section className="py-32 bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden border-t border-white/10">
+    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M20%2020c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+    <div className="relative max-w-7xl mx-auto px-8 lg:px-12">
+      <div className="text-center mb-20">
+        <h2 className="text-4xl md:text-6xl font-extralight text-white mb-8 tracking-tighter">
+          {t.pressTitle}
+        </h2>
+        <p className="text-xl text-gray-300 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+          {t.pressDescription}
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="group cursor-pointer" onClick={() => window.open("https://kampanje.com/premium/mai-2025/innsikt/andreas-22-startet-byra-ved-siden-av-studiene--na-utvider-han-til-sverige-og-finland/", "_blank")}>
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 border border-white/10 hover:bg-white/10">
+            <div className="mb-4">
+              <Badge className="bg-blue-500/20 text-blue-300 border-blue-400/30 text-xs font-light">Kampanje</Badge>
+            </div>
+            <h3 className="text-lg font-light text-white mb-3 tracking-wide group-hover:text-blue-300 transition-colors">
+              Andreas (22) startet byrå ved siden av studiene
+            </h3>
+            <p className="text-gray-300 text-sm font-extralight leading-relaxed">
+              Nå utvider han til Sverige og Finland
+            </p>
+            <div className="mt-4 flex items-center text-gray-400 text-xs">
+              <ExternalLink className="h-3 w-3 mr-1" />
+              <span>Les mer</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="group cursor-pointer" onClick={() => window.open("https://kampanje.com/premium/september-2024/innsikt/andreas-21-satser-pa-eget-twtich-byra--na-far-han-polske-tech-krefter-i-ryggen---har-lagt-grunnlaget-na/", "_blank")}>
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 border border-white/10 hover:bg-white/10">
+            <div className="mb-4">
+              <Badge className="bg-blue-500/20 text-blue-300 border-blue-400/30 text-xs font-light">Kampanje</Badge>
+            </div>
+            <h3 className="text-lg font-light text-white mb-3 tracking-wide group-hover:text-blue-300 transition-colors">
+              Andreas (21) satser på eget Twitch-byrå
+            </h3>
+            <p className="text-gray-300 text-sm font-extralight leading-relaxed">
+              Nå får han polske tech-krefter i ryggen
+            </p>
+            <div className="mt-4 flex items-center text-gray-400 text-xs">
+              <ExternalLink className="h-3 w-3 mr-1" />
+              <span>Les mer</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="group cursor-pointer" onClick={() => window.open("https://www.kom24.no/andreas-myraune-beta-influensere/ny-kanal-for-mediekjop-beta-er-norges-nye-twitch-byra/730424", "_blank")}>
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 border border-white/10 hover:bg-white/10">
+            <div className="mb-4">
+              <Badge className="bg-green-500/20 text-green-300 border-green-400/30 text-xs font-light">Kom24</Badge>
+            </div>
+            <h3 className="text-lg font-light text-white mb-3 tracking-wide group-hover:text-green-300 transition-colors">
+              Ny kanal for mediekjøp
+            </h3>
+            <p className="text-gray-300 text-sm font-extralight leading-relaxed">
+              Beta er Norges nye Twitch-byrå
+            </p>
+            <div className="mt-4 flex items-center text-gray-400 text-xs">
+              <ExternalLink className="h-3 w-3 mr-1" />
+              <span>Les mer</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="group cursor-pointer" onClick={() => window.open("https://www.kom24.no/andreas-myraune-beta-instreamly/instreamly-og-beta-inngar-partnerskap-i-norge/749907", "_blank")}>
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 border border-white/10 hover:bg-white/10">
+            <div className="mb-4">
+              <Badge className="bg-green-500/20 text-green-300 border-green-400/30 text-xs font-light">Kom24</Badge>
+            </div>
+            <h3 className="text-lg font-light text-white mb-3 tracking-wide group-hover:text-green-300 transition-colors">
+              Instreamly og Beta inngår partnerskap
+            </h3>
+            <p className="text-gray-300 text-sm font-extralight leading-relaxed">
+              Strategisk samarbeid i Norge
+            </p>
+            <div className="mt-4 flex items-center text-gray-400 text-xs">
+              <ExternalLink className="h-3 w-3 mr-1" />
+              <span>Les mer</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const Team = ({ t }: { t: any }) => (
+  <section className="py-32 bg-gradient-to-br from-gray-50 to-white">
+    <div className="max-w-7xl mx-auto px-8 lg:px-12">
+      <div className="text-center mb-24">
+        <h2 className="text-5xl md:text-7xl font-extralight text-gray-900 mb-12 tracking-tighter">
+          {t.meetTeamTitle}
+        </h2>
+        <p className="text-2xl text-gray-600 max-w-4xl mx-auto font-extralight leading-relaxed tracking-wide">
+          {t.meetTeamDescription}
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-16 max-w-4xl mx-auto">
+        <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+          <div className="w-40 h-40 rounded-full mx-auto mb-8 overflow-hidden group-hover:shadow-2xl transition-all duration-300">
+            <img
+              src="/lovable-uploads/e6d9646d-bf5f-471c-a2d8-1f06c274f570.png"
+              alt="Andreas Myraune"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <h3 className="text-2xl font-light text-gray-900 mb-3 tracking-wide">Andreas Myraune</h3>
+          <p className="text-gray-900 font-extralight mb-2 text-lg tracking-wide">Head of Agency</p>
+          <p className="text-gray-500 font-extralight tracking-wide">andreas@beta-ads.no</p>
+        </div>
+
+        <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+          <div className="w-40 h-40 rounded-full mx-auto mb-8 overflow-hidden group-hover:shadow-2xl transition-all duration-300">
+            <img
+              src="/lovable-uploads/6f888d5f-8917-41fc-8808-f528b2aac891.png"
+              alt="Toms Znatnajs"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <h3 className="text-2xl font-light text-gray-900 mb-3 tracking-wide">Toms Znatnajs</h3>
+          <p className="text-gray-900 font-extralight mb-2 text-lg tracking-wide">Head of Talent</p>
+          <p className="text-gray-500 font-extralight tracking-wide">toms@beta-ads.no</p>
+        </div>
       </div>
     </div>
   </section>
 );
 
 const CTA = ({ t }: { t: any }) => (
-  <section className="py-20 bg-gradient-to-r from-[#fe696e] to-[#fe4d52] text-white">
-    <div className="container mx-auto px-4 text-center">
-      <h2 className="text-4xl font-bold mb-8">{t.cta.title}</h2>
-      <p className="text-xl mb-12">{t.cta.subtitle}</p>
-      <Button size="lg">
-        {t.cta.button}
+  <section className="py-32 bg-gradient-to-br from-black via-gray-900 to-black text-white relative overflow-hidden">
+    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.02%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+    <div className="relative max-w-5xl mx-auto text-center px-8 lg:px-12">
+      <h2 className="text-5xl md:text-7xl font-extralight mb-12 tracking-tighter">
+        {t.ctaTitle}
+      </h2>
+      <p className="text-2xl text-gray-300 mb-16 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+        {t.ctaDescription}
+      </p>
+
+      <Button
+        size="lg"
+        className="bg-white text-black hover:bg-gray-50 px-16 py-8 text-xl font-light tracking-wide h-auto shadow-2xl hover:shadow-white/10 transition-all duration-300 hover:scale-105"
+        onClick={() =>
+          window.open(
+            "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1RiJEObf5v758exr0hi5vk0ZRP0vgGQexQeAoykItGH1-RTFV1DQOye1rJbUSAqu7TdhWhRigO",
+            "_blank"
+          )
+        }
+      >
+        {t.bookDemo}
+        <ArrowRight className="ml-4 h-6 w-6" />
       </Button>
     </div>
   </section>
 );
 
-const Footer = ({ t }: { t: any }) => (
-  <footer className="bg-gray-900 dark:bg-black text-white py-12">
-    <div className="container mx-auto px-4">
-      <div className="grid md:grid-cols-4 gap-8">
-        <div>
-          <h3 className="text-xl font-bold mb-4">EngageFlow</h3>
-          <p className="text-gray-400 dark:text-gray-500">{t.footer.description}</p>
+const Footer = ({ t, language, setLanguage }: { t: any; language: string; setLanguage: (lang: string) => void }) => (
+  <footer className="bg-gray-900 text-white py-24">
+    <div className="max-w-7xl mx-auto px-8 lg:px-12">
+      <div className="grid md:grid-cols-4 gap-16">
+        <div className="space-y-8">
+          <h3 className="text-3xl font-extralight tracking-widest">Beta Ads</h3>
+          <p className="text-gray-400 font-extralight leading-relaxed text-lg tracking-wide">
+            {language === "en" ? "The future of Twitch advertising is here." : "Fremtiden for Twitch-annonsering er her."}
+          </p>
         </div>
-        <div>
-          <h4 className="font-semibold mb-4">{t.footer.product}</h4>
-          <ul className="space-y-2 text-gray-400 dark:text-gray-500">
-            <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-            <li><a href="#pricing" className="hover:text-white transition-colors">Pricing</a></li>
-            <li><a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
-          </ul>
+
+        <div className="space-y-8">
+          <h4 className="font-light tracking-widest text-lg">{t.contactTitle}</h4>
+          <div className="space-y-4 text-gray-400 font-extralight text-lg">
+            <p className="tracking-wide">andreas@beta-ads.no</p>
+            <p className="tracking-wide">+47 46195548</p>
+          </div>
         </div>
-        <div>
-          <h4 className="font-semibold mb-4">{t.footer.company}</h4>
-          <ul className="space-y-2 text-gray-400 dark:text-gray-500">
-            <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
-          </ul>
+
+        <div className="space-y-8">
+          <h4 className="font-light tracking-widest text-lg">{t.connectTitle}</h4>
+          <div className="space-y-4 text-gray-400 font-extralight text-lg">
+            <p
+              className="hover:text-white transition-colors cursor-pointer tracking-wide"
+              onClick={() => window.open("https://www.linkedin.com/company/beta-nordic", "_blank")}
+            >
+              LinkedIn
+            </p>
+            <p
+              className="hover:text-white transition-colors cursor-pointer tracking-wide"
+              onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
+            >
+              Discord
+            </p>
+          </div>
         </div>
-        <div>
-          <h4 className="font-semibold mb-4">{t.footer.support}</h4>
-          <ul className="space-y-2 text-gray-400 dark:text-gray-500">
-            <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Privacy</a></li>
-          </ul>
+
+        <div className="space-y-8">
+          <h4 className="font-light tracking-widest text-lg">{t.languageTitle}</h4>
+          <div className="space-y-4 text-gray-400 font-extralight text-lg">
+            <p
+              className={`hover:text-white transition-colors cursor-pointer tracking-wide ${language === "en" ? "text-white" : ""}`}
+              onClick={() => setLanguage("en")}
+            >
+              🇺🇸 English
+            </p>
+            <p
+              className={`hover:text-white transition-colors cursor-pointer tracking-wide ${language === "no" ? "text-white" : ""}`}
+              onClick={() => setLanguage("no")}
+            >
+              🇳🇴 Norwegian
+            </p>
+          </div>
         </div>
       </div>
-      <div className="border-t border-gray-800 dark:border-gray-700 mt-8 pt-8 text-center text-gray-400 dark:text-gray-500">
-        <p>&copy; 2024 EngageFlow. All rights reserved.</p>
+
+      <div className="border-t border-gray-800 mt-20 pt-12 text-center text-gray-400 font-extralight tracking-widest">
+        <p>&copy; 2024 Beta Ads. All rights reserved.</p>
       </div>
     </div>
   </footer>
 );
 
 const Index = () => {
-  const [activeLanguage, setActiveLanguage] = useState('en');
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const [language, setLanguage] = useState("en");
 
   const translations = {
     en: {
-      hero: {
-        title: "Boost Your Business with EngageFlow",
-        subtitle: "The all-in-one platform to engage your customers and grow your business.",
-        primaryCTA: "Get Started",
-        secondaryCTA: "Learn More",
-      },
-      howItWorks: {
-        title: "How It Works",
-        subtitle: "EngageFlow simplifies customer engagement in three easy steps.",
-        steps: [
-          {
-            title: "Connect",
-            description: "Integrate EngageFlow with your existing tools and platforms."
-          },
-          {
-            title: "Engage",
-            description: "Create personalized experiences that resonate with your audience."
-          },
-          {
-            title: "Grow",
-            description: "Analyze your results and optimize your strategy for maximum impact."
-          }
-        ]
-      },
-      features: {
-        title: "Key Features",
-        subtitle: "Explore the powerful features that make EngageFlow the ultimate engagement platform.",
-        items: [
-          {
-            title: "Audience Segmentation",
-            description: "Segment your audience based on behavior, demographics, and more."
-          },
-          {
-            title: "Personalized Messaging",
-            description: "Craft personalized messages that resonate with each individual."
-          },
-          {
-            title: "Automated Campaigns",
-            description: "Automate your engagement campaigns for maximum efficiency."
-          },
-          {
-            title: "Real-time Analytics",
-            description: "Track your results in real-time and optimize your strategy."
-          },
-          {
-            title: "A/B Testing",
-            description: "Experiment with different approaches to find what works best."
-          },
-          {
-            title: "Multi-Channel Support",
-            description: "Engage your audience across multiple channels, including email, SMS, and more."
-          }
-        ]
-      },
-      testimonials: {
-        title: "What Our Customers Say",
-        subtitle: "Don't just take our word for it. See what our customers are saying about EngageFlow.",
-        items: [
-          {
-            name: "John Smith",
-            role: "CEO, Company XYZ",
-            quote: "EngageFlow has transformed the way we engage with our customers. We've seen a significant increase in customer satisfaction and retention.",
-            avatar: "https://via.placeholder.com/150"
-          },
-          {
-            name: "Jane Doe",
-            role: "Marketing Manager, Company ABC",
-            quote: "EngageFlow's automated campaigns have saved us countless hours. We're now able to focus on more strategic initiatives.",
-            avatar: "https://via.placeholder.com/150"
-          },
-          {
-            name: "Peter Jones",
-            role: "Sales Director, Company LMN",
-            quote: "EngageFlow's real-time analytics have given us valuable insights into our customer behavior. We're now able to make data-driven decisions that drive results.",
-            avatar: "https://via.placeholder.com/150"
-          }
-        ]
-      },
-      pricing: {
-        title: "Pricing Plans",
-        subtitle: "Choose the plan that's right for you. Start engaging your customers today.",
-        plans: [
-          {
-            name: "Basic",
-            price: 29,
-            description: "For small businesses just getting started.",
-            features: [
-              "Up to 1,000 contacts",
-              "Basic segmentation",
-              "Email support"
-            ]
-          },
-          {
-            name: "Standard",
-            price: 99,
-            description: "For growing businesses that need more features.",
-            popular: true,
-            features: [
-              "Up to 10,000 contacts",
-              "Advanced segmentation",
-              "Automated campaigns",
-              "Priority support"
-            ]
-          },
-          {
-            name: "Premium",
-            price: 299,
-            description: "For large businesses that need the ultimate engagement platform.",
-            features: [
-              "Unlimited contacts",
-              "All features included",
-              "Dedicated support team"
-            ]
-          }
-        ]
-      },
-      cta: {
-        title: "Ready to Get Started?",
-        subtitle: "Join thousands of businesses that are already using EngageFlow to engage their customers and grow their business.",
-        button: "Get Started Today"
-      },
-      footer: {
-        description: "EngageFlow is the all-in-one platform to engage your customers and grow your business.",
-        product: "Product",
-        company: "Company",
-        support: "Support"
-      }
-    }
+      heroSubtitle: "Nordic twitch agency",
+      heroTitle: ["Your brand, live on Twitch", "– without interruptions"],
+      heroDescription: "We place your brand inside Twitch streams through animated overlays that viewers actually notice.",
+      heroSubDescription: "No forced integrations. Just guaranteed visibility.",
+      brandButton: "See How It Works",
+      streamerButton: "I'm a streamer",
+      usedByTitle: "Used by Samsung, Surfshark, and Shure to reach Twitch viewers with native ads",
+      seeCampaignExample: "See Campaign Example",
+      howItWorksTitle: "Campaign Flow",
+      howItWorksDescription: "Simple process, guaranteed results. Here's exactly how your brand reaches Twitch viewers.",
+      step1Title: "1. Brand Chooses Campaign",
+      step1Description: "Set your targeting, budget, and campaign goals with our team",
+      step2Title: "2. We Activate 40+ Streamers",
+      step2Description: "Your campaign goes live across our verified network simultaneously",
+      step3Title: "3. Ads Appear 1-2x Per Hour",
+      step3Description: "Animated overlays display naturally during streams",
+      step4Title: "4. You Get Guaranteed Reach",
+      step4Description: "Pay per view with transparent CPM tracking",
+      popUpsTitle: "Pop-ups in streams",
+      popUpsDescription: "Small, branded animations appear 1-2 times per hour across 20+ livestreams simultaneously. No interruptions, just visibility.",
+      payPerViewTitle: "Pay per view",
+      payPerViewDescription: "CPM model with precise viewer targeting. You only pay for actual impressions, with full transparency on campaign performance.",
+      streamersEarnTitle: "Streamers earn",
+      streamersEarnDescription: "Streamers get paid per view automatically. No awkward sponsorship reads, no content changes. Just passive monetization.",
+      streamerSectionTitle: "Are you a Twitch streamer?",
+      streamerSectionSubtitle: "Earn while you stream – automatically.",
+      streamerSectionDescription: "Earn money automatically with Beta Ads. No shoutouts. No affiliate links. Just passive income through overlays.",
+      joinStreamer: "Join as a Streamer",
+      estimateIncome: "Estimate My Income",
+      whyTwitchTitle: "Why Twitch is the sleeping giant",
+      whyTwitchDescription: "While other platforms saturate, Twitch offers authentic engagement with the most valuable demographics.",
+      trustedByTitle: "How your brand will look on Twitch",
+      trustedByDescription: "Designed to blend with the stream – but stand out to the viewer.",
+      featuredCampaign: "FEATURED CAMPAIGN",
+      meetTeamTitle: "Meet the team",
+      meetTeamDescription: "Young, international, and passionate about revolutionizing advertising on Twitch.",
+      ctaTitle: "Sounds cool?",
+      ctaDescription: "Book a quick demo with our team and we'll show you what your brand could look like live on Twitch.",
+      bookDemo: "Let's have a chat",
+      contactTitle: "CONTACT",
+      connectTitle: "CONNECT",
+      languageTitle: "LANGUAGE",
+      pressTitle: "Featured in Press",
+      pressDescription: "Beta Ads has been featured in leading Nordic media outlets for our innovative approach to Twitch advertising.",
+    },
+    no: {
+      heroSubtitle: "Nordisk Twitch-byrå",
+      heroTitle: ["Din merkevare, live på Twitch", "– uten avbrytelser"],
+      heroDescription: "Vi plasserer din merkevare inne i Twitch-streams gjennom animerte overlays som seere faktisk legger merke til.",
+      heroSubDescription: "Ingen tvungne integrasjoner. Bare garantert synlighet.",
+      brandButton: "Se Hvordan Det Fungerer",
+      streamerButton: "Jeg er en streamer",
+      usedByTitle: "Brukt av Samsung, Surfshark og Shure for å nå Twitch-seere med native annonser",
+      seeCampaignExample: "Se Kampanjeeksempel",
+      howItWorksTitle: "Kampanjeflyt",
+      howItWorksDescription: "Enkel prosess, garanterte resultater. Her er nøyaktig hvordan din merkevare når Twitch-seere.",
+      step1Title: "1. Merkevare Velger Kampanje",
+      step1Description: "Sett målretting, budsjett og kampanjemål med vårt team",
+      step2Title: "2. Vi Aktiverer 40+ Streamere",
+      step2Description: "Din kampanje går live på tvers av vårt verifiserte nettverk samtidig",
+      step3Title: "3. Annonser Vises 1-2x Per Time",
+      step3Description: "Animerte overlays vises naturlig under streams",
+      step4Title: "4. Du Får Garantert Rekkevidde",
+      step4Description: "Betal per visning med transparent CPM-sporing",
+      popUpsTitle: "Pop-ups i streams",
+      popUpsDescription: "Små, merkede animasjoner vises 1-2 ganger per time på tvers av 20+ livestreams samtidig. Ingen avbrytelser, bare synlighet.",
+      payPerViewTitle: "Betal per visning",
+      payPerViewDescription: "CPM-modell med presis seer-targeting. Du betaler kun for faktiske visninger, med full transparens på kampanjeytelse.",
+      streamersEarnTitle: "Streamere tjener",
+      streamersEarnDescription: "Streamere får betalt per visning automatisk. Ingen pinlige sponsoravlesninger, ingen innholdsendringer. Bare passiv inntjening.",
+      streamerSectionTitle: "Er du en Twitch-streamer?",
+      streamerSectionSubtitle: "Tjen mens du streamer – automatisk.",
+      streamerSectionDescription: "Tjen penger automatisk med Beta Ads. Ingen shoutouts. Ingen affiliate-lenker. Bare passiv inntekt gjennom overlays.",
+      joinStreamer: "Bli med som Streamer",
+      estimateIncome: "Estimer Min Inntekt",
+      whyTwitchTitle: "Hvorfor Twitch er den sovende giganten",
+      whyTwitchDescription: "Mens andre plattformer mettes, tilbyr Twitch autentisk engasjement med de mest verdifulle demografiene.",
+      trustedByTitle: "Hvordan din merkevare vil se ut på Twitch",
+      trustedByDescription: "Designet for å blande seg med streamen – men skille seg ut for seeren.",
+      featuredCampaign: "UTVALGT KAMPANJE",
+      meetTeamTitle: "Møt teamet",
+      meetTeamDescription: "Unge, internasjonale og lidenskapelige om å revolusjonere annonsering på Twitch.",
+      ctaTitle: "Høres kult ut?",
+      ctaDescription: "Book en rask demo med vårt team og vi viser deg hvordan din merkevare kan se ut live på Twitch.",
+      bookDemo: "La oss snakke sammen",
+      contactTitle: "KONTAKT",
+      connectTitle: "KOBLE TIL",
+      languageTitle: "SPRÅK",
+      pressTitle: "Omtalt i Media",
+      pressDescription: "Beta Ads har blitt omtalt i ledende nordiske medier for vår innovative tilnærming til Twitch-annonsering.",
+    },
   };
 
-  const t = translations[activeLanguage];
+  const t = translations[language];
+
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const caseVideos = [
+    {
+      id: "IZOx_VMdJJg",
+      title: "Shure Campaign Case Study",
+      brand: "Shure",
+    },
+    {
+      id: "ufNq-A4d7iA",
+      title: "Komplett Campaign Case Study",
+      brand: "Komplett",
+    },
+    {
+      id: "O9bK6Sg7wHg",
+      title: "Samsung Campaign Case Study",
+      brand: "Samsung",
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900">
@@ -419,11 +655,12 @@ const Index = () => {
       <Hero t={t} scrollToSection={scrollToSection} />
       <TrustedBy />
       <HowItWorks t={t} />
-      <Features t={t} />
-      <Testimonials t={t} />
-      <Pricing t={t} />
+      <Examples t={t} caseVideos={caseVideos} />
+      <StreamerSection t={t} language={language} />
+      <Press t={t} />
+      <Team t={t} />
       <CTA t={t} />
-      <Footer t={t} />
+      <Footer t={t} language={language} setLanguage={setLanguage} />
     </div>
   );
 };
