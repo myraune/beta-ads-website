@@ -16,35 +16,35 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 349 91% 67%;
+    --primary: 0 100% 70%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 349 100% 95%;
-    --secondary-foreground: 349 91% 67%;
+    --secondary: 0 100% 95%;
+    --secondary-foreground: 0 100% 70%;
 
-    --muted: 349 100% 98%;
+    --muted: 0 100% 98%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 349 100% 95%;
-    --accent-foreground: 349 91% 67%;
+    --accent: 0 100% 95%;
+    --accent-foreground: 0 100% 70%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 349 30% 91%;
-    --input: 349 30% 91%;
-    --ring: 349 91% 67%;
+    --border: 0 30% 91%;
+    --input: 0 30% 91%;
+    --ring: 0 100% 70%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 349 91% 67%;
+    --sidebar-primary: 0 100% 70%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 349 100% 95%;
-    --sidebar-accent-foreground: 349 91% 67%;
-    --sidebar-border: 349 30% 91%;
-    --sidebar-ring: 349 91% 67%;
+    --sidebar-accent: 0 100% 95%;
+    --sidebar-accent-foreground: 0 100% 70%;
+    --sidebar-border: 0 30% 91%;
+    --sidebar-ring: 0 100% 70%;
   }
 
   .dark {
@@ -57,7 +57,7 @@
     --popover: 217.2 32.6% 17.5%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 349 91% 67%;
+    --primary: 0 100% 70%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -74,16 +74,16 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 349 91% 67%;
+    --ring: 0 100% 70%;
     
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 349 91% 67%;
+    --sidebar-primary: 0 100% 70%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 240 3.7% 15.9%;
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 349 91% 67%;
+    --sidebar-ring: 0 100% 70%;
   }
 }
 
