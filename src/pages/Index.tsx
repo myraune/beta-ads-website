@@ -608,7 +608,7 @@ const Index = () => {
       featuredCampaign: "FEATURED CAMPAIGN",
       meetTeamTitle: "Meet the team",
       meetTeamDescription: "Young, international, and passionate about revolutionizing advertising on Twitch.",
-      ctaTitle: "Want to try a campaign?",
+      ctaTitle: "Sounds cool?",
       ctaDescription: "Book a quick demo with our team and we'll show you what your brand could look like live on Twitch.",
       bookDemo: "Let's have a chat",
       contactTitle: "CONTACT",
@@ -654,7 +654,7 @@ const Index = () => {
       featuredCampaign: "UTVALGT KAMPANJE",
       meetTeamTitle: "Møt teamet",
       meetTeamDescription: "Unge, internasjonale og lidenskapelige om å revolusjonere annonsering på Twitch.",
-      ctaTitle: "Vil du prøve en kampanje?",
+      ctaTitle: "Høres kult ut?",
       ctaDescription: "Book en rask demo med vårt team og vi viser deg hvordan din merkevare kan se ut live på Twitch.",
       bookDemo: "La oss snakke sammen",
       contactTitle: "KONTAKT",
@@ -696,9 +696,9 @@ const Index = () => {
       <HowItWorks t={t} />
       <Examples t={t} caseVideos={caseVideos} />
       <StreamerSection t={t} language={language} />
+      <Press t={t} />
       <WhyTwitch t={t} language={language} />
       <Team t={t} />
-      <Press t={t} />
       <CTA t={t} />
       <Footer t={t} language={language} setLanguage={setLanguage} />
     </div>
