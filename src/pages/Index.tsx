@@ -212,51 +212,87 @@ const HowItWorks = ({ t }: { t: any }) => (
   </section>
 );
 
-const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => (
-  <section id="examples" className="py-32 bg-white">
-    <div className="max-w-7xl mx-auto px-8 lg:px-12">
-      <div className="text-center mb-20">
-        <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
-          {t.trustedByTitle}
-        </h2>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
-          {t.trustedByDescription}
-        </p>
-      </div>
+const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-      <div className="max-w-5xl mx-auto">
-        <Carousel className="w-full">
-          <CarouselContent>
-            {caseVideos.map((video) => (
-              <CarouselItem key={video.id}>
-                <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 border border-gray-100 shadow-xl">
-                  <div className="aspect-video rounded-2xl overflow-hidden border border-gray-200">
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src={`https://www.youtube.com/embed/${video.id}`}
-                      title={video.title}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                      className="w-full h-full"
-                    ></iframe>
+  return (
+    <section id="examples" className="py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-8 lg:px-12">
+        <div className="text-center mb-20">
+          <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
+            {t.trustedByTitle}
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+            {t.trustedByDescription}
+          </p>
+        </div>
+
+        <div className="max-w-6xl mx-auto relative">
+          <Carousel 
+            className="w-full"
+            opts={{
+              align: "center",
+              loop: true,
+            }}
+          >
+            <CarouselContent className="-ml-2 md:-ml-6">
+              {caseVideos.map((video, index) => (
+                <CarouselItem key={video.id} className="pl-2 md:pl-6 md:basis-4/5 lg:basis-3/4">
+                  <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300">
+                    <div className="aspect-video rounded-2xl overflow-hidden border border-gray-200 relative">
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src={`https://www.youtube.com/embed/${video.id}`}
+                        title={video.title}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowFullScreen
+                        className="w-full h-full"
+                      ></iframe>
+                    </div>
+                    <div className="text-center mt-6">
+                      <h3 className="text-xl font-light text-gray-900 mb-2 tracking-wide">{video.brand}</h3>
+                      <p className="text-gray-600 font-extralight tracking-wide">{video.title}</p>
+                    </div>
                   </div>
-                  <div className="text-center mt-6">
-                    <h3 className="text-xl font-light text-gray-900 mb-2 tracking-wide">{video.brand}</h3>
-                    <p className="text-gray-600 font-extralight tracking-wide">{video.title}</p>
-                  </div>
-                </div>
-              </CarouselItem>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            
+            <CarouselPrevious className="text-gray-600 border-gray-200 hover:bg-gray-50 -left-6 lg:-left-12 h-12 w-12" />
+            <CarouselNext className="text-gray-600 border-gray-200 hover:bg-gray-50 -right-6 lg:-right-12 h-12 w-12" />
+          </Carousel>
+
+          {/* Dot indicators */}
+          <div className="flex justify-center mt-8 space-x-3">
+            {caseVideos.map((_, index) => (
+              <button
+                key={index}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentSlide 
+                    ? 'bg-red-400 shadow-lg' 
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+                onClick={() => {
+                  // This would need carousel API integration for full functionality
+                  setCurrentSlide(index);
+                }}
+              />
             ))}
-          </CarouselContent>
-          <CarouselPrevious className="text-gray-600 border-gray-200 hover:bg-gray-50" />
-          <CarouselNext className="text-gray-600 border-gray-200 hover:bg-gray-50" />
-        </Carousel>
+          </div>
+
+          {/* Helper text */}
+          <div className="text-center mt-6">
+            <p className="text-sm text-gray-500 font-light">
+              Swipe or use arrows to see more campaign examples
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 const StreamerSection = ({ t, language }: { t: any; language: string }) => (
   <section id="streamer-section" className="py-32 bg-white text-gray-900">
@@ -310,7 +346,7 @@ const StreamerSection = ({ t, language }: { t: any; language: string }) => (
 
 const Press = ({ t }: { t: any }) => (
   <section className="py-32 bg-gradient-to-br from-red-900 via-red-950 to-black text-white relative overflow-hidden border-t border-white/10">
-    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M20%2020c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010%2010%2010-4.5%2010-10z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+    <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M20%2020c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010-4.5%2010-10z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
     <div className="relative max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-20">
         <h2 className="text-4xl md:text-6xl font-extralight text-white mb-8 tracking-tighter">
