@@ -146,6 +146,63 @@ const TrustedBy = () => (
   </section>
 );
 
+const HowItWorks = ({ t }: { t: any }) => (
+  <section id="how-it-works" className="py-32 bg-gradient-to-br from-gray-50 to-white">
+    <div className="max-w-7xl mx-auto px-8 lg:px-12">
+      <div className="text-center mb-20">
+        <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
+          {t.howItWorksTitle}
+        </h2>
+        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+          {t.howItWorksDescription}
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+          <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Target className="h-8 w-8 text-red-600" />
+            </div>
+            <h3 className="text-xl font-light text-gray-900 mb-4 tracking-wide">{t.step1Title}</h3>
+            <p className="text-gray-600 font-extralight leading-relaxed tracking-wide">{t.step1Description}</p>
+          </div>
+        </div>
+
+        <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+          <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Users className="h-8 w-8 text-red-600" />
+            </div>
+            <h3 className="text-xl font-light text-gray-900 mb-4 tracking-wide">{t.step2Title}</h3>
+            <p className="text-gray-600 font-extralight leading-relaxed tracking-wide">{t.step2Description}</p>
+          </div>
+        </div>
+
+        <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+          <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <Play className="h-8 w-8 text-red-600" />
+            </div>
+            <h3 className="text-xl font-light text-gray-900 mb-4 tracking-wide">{t.step3Title}</h3>
+            <p className="text-gray-600 font-extralight leading-relaxed tracking-wide">{t.step3Description}</p>
+          </div>
+        </div>
+
+        <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
+          <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <TrendingUp className="h-8 w-8 text-red-600" />
+            </div>
+            <h3 className="text-xl font-light text-gray-900 mb-4 tracking-wide">{t.step4Title}</h3>
+            <p className="text-gray-600 font-extralight leading-relaxed tracking-wide">{t.step4Description}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => (
   <section id="examples" className="py-32 bg-white">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
