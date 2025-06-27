@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { ArrowRight, Play, Users, Target, TrendingUp, ExternalLink, Sparkles } from "lucide-react";
 import { useState } from "react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) => void }) => (
   <section className="relative overflow-hidden bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white">
@@ -649,7 +650,8 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white dark:bg-gray-900">
+      <ThemeToggle />
       <Hero t={t} scrollToSection={scrollToSection} />
       <TrustedBy />
       <HowItWorks t={t} />
