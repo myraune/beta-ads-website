@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -5,7 +6,7 @@ import { ArrowRight, Play, Users, Target, TrendingUp, ExternalLink, Sparkles } f
 import { useState } from "react";
 
 const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) => void }) => (
-  <section className="relative overflow-hidden bg-gradient-to-br from-pink-200 via-pink-300 to-red-200 text-gray-900">
+  <section className="relative overflow-hidden bg-gradient-to-br from-pink-100 via-pink-200 to-red-100 text-gray-900">
     <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23000000%22%20fill-opacity%3D%220.02%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
     <div className="relative max-w-7xl mx-auto px-8 lg:px-12 py-32 lg:py-40">
       <div className="text-center space-y-12">
@@ -147,7 +148,7 @@ const TrustedBy = () => (
 );
 
 const HowItWorks = ({ t }: { t: any }) => (
-  <section id="how-it-works" className="py-32 bg-gradient-to-br from-gray-50 to-white">
+  <section id="how-it-works" className="py-32 bg-gradient-to-br from-pink-50 to-white">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-20">
         <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
@@ -269,7 +270,7 @@ const StreamerSection = ({ t, language }: { t: any; language: string }) => (
       <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-16">
         <Button
           size="lg"
-          className="bg-pink-400 text-white hover:bg-pink-500 px-12 py-6 text-lg font-light tracking-wide h-auto shadow-2xl hover:shadow-pink-400/20 transition-all duration-300 hover:scale-105"
+          className="bg-pink-300 text-gray-900 hover:bg-pink-400 px-12 py-6 text-lg font-light tracking-wide h-auto shadow-2xl hover:shadow-pink-300/20 transition-all duration-300 hover:scale-105"
           onClick={() => window.open("https://beta.instreamly.com/en/sponsorships/available", "_blank")}
         >
           {t.joinStreamer}

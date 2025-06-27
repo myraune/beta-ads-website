@@ -16,16 +16,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 356 78% 85%;  /* lighter red */
+    --primary: 350 70% 90%;  /* very light pink */
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 0 33% 96%;  /* #ffeeee */
+    --secondary: 350 30% 95%;  /* very light pink background */
     --secondary-foreground: 222.2 47.4% 11.2%;
 
-    --muted: 0 33% 96%;  /* #ffeeee */
+    --muted: 350 30% 95%;  /* very light pink background */
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 356 78% 85%;  /* lighter red */
+    --accent: 350 70% 90%;  /* very light pink */
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -33,18 +33,18 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 356 78% 85%;  /* lighter red */
+    --ring: 350 70% 90%;  /* very light pink */
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 356 78% 85%;  /* lighter red */
+    --sidebar-primary: 350 70% 90%;  /* very light pink */
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 0 33% 96%;  /* #ffeeee */
+    --sidebar-accent: 350 30% 95%;  /* very light pink background */
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 356 78% 85%;  /* lighter red */
+    --sidebar-ring: 350 70% 90%;  /* very light pink */
   }
 }
 
@@ -56,4 +56,17 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
 }
