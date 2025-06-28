@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,22 +13,22 @@ interface CountryData {
 const countries: CountryData[] = [
   {
     name: "Norway",
-    path: "M25,8 L30,5 L35,3 L40,2 L45,4 L48,8 L50,12 L52,18 L55,25 L58,30 L60,35 L58,40 L55,45 L52,50 L50,55 L48,60 L45,65 L42,70 L40,75 L38,80 L35,85 L32,88 L28,90 L25,88 L22,85 L20,80 L18,75 L15,70 L12,65 L10,60 L8,55 L6,50 L8,45 L10,40 L12,35 L15,30 L18,25 L20,20 L22,15 L25,10 Z M30,15 L35,12 L40,15 L42,20 L40,25 L35,22 L30,20 Z M15,45 L20,42 L25,45 L23,50 L20,48 L15,48 Z",
+    path: "M45,10 L50,8 L55,12 L58,18 L62,25 L65,35 L68,45 L70,55 L72,65 L74,75 L76,85 L78,95 L80,105 L82,115 L84,125 L86,135 L88,145 L90,155 L88,165 L86,175 L84,185 L82,195 L80,205 L78,215 L76,225 L74,235 L72,245 L70,255 L68,265 L66,275 L64,285 L62,295 L60,305 L58,315 L56,325 L54,335 L52,345 L50,355 L48,365 L46,375 L44,385 L42,395 L40,405 L38,415 L36,425 L34,435 L32,445 L30,455 L28,465 L26,475 L24,485 L22,495 L20,505 L18,515 L16,525 L14,535 L12,545 L10,555 L8,565 L6,575 L4,585 L2,595 L0,605 L2,615 L4,625 L6,635 L8,645 L10,655 L12,665 L14,675 L16,685 L18,695 L20,705 L22,715 L24,725 L26,735 L28,745 L30,755 L32,765 L34,775 L36,785 L38,795 L40,805 L42,815 L44,825 L46,835 L48,845 L50,855 L52,865 L54,875 L56,885 L54,895 L52,905 L50,915 L48,925 L46,935 L44,945 L42,955 L40,965 L38,975 L36,985 L34,995 L32,1005 L30,1015 L28,1025 L26,1035 L24,1045 L22,1055 L20,1065 L18,1075 L16,1085 L14,1095 L12,1105 L10,1115 L8,1125 L6,1135 L4,1145 L2,1155 L0,1165 L2,1175 L4,1185 L6,1195 L8,1205 L10,1215 L12,1225 L14,1235 L16,1245 L18,1255 L20,1265 L22,1275 L24,1285 L26,1295 L28,1305 L30,1315 L32,1325 L34,1335 L36,1345 L38,1355 L40,1365 L42,1375 L44,1385 L46,1395 L45,1405 L43,1415 L41,1425 L39,1435 L37,1445 L35,1455 L33,1465 L31,1475 L29,1485 L27,1495 L25,1505 L23,1515 L21,1525 L19,1535 L17,1545 L15,1555 L13,1565 L11,1575 L9,1585 L7,1595 L5,1605 L3,1615 L1,1625 L-1,1635 L1,1645 L3,1655 L5,1665 L7,1675 L9,1685 L11,1695 L13,1705 L15,1715 L17,1725 L19,1735 L21,1745 L23,1755 L25,1765 L27,1775 L29,1785 L31,1795 L33,1805 L35,1815 L37,1825 L39,1835 L41,1845 L43,1855 L45,1865 L47,1875 L49,1885 L51,1895 L53,1905 L55,1915 L57,1925 L59,1935 L61,1945 L63,1955 L65,1965 L67,1975 L69,1985 L71,1995 L73,2005 L75,2015 L77,2025 L79,2035 L81,2045 L83,2055 L85,2065 L87,2075 L89,2085 L91,2095 L93,2105 L95,2115 L97,2125 L99,2135 L101,2145 L103,2155 L105,2165 L107,2175 L109,2185 L111,2195 L113,2205 L115,2215 L117,2225 L119,2235 L121,2245 L123,2255 L125,2265 L127,2275 L129,2285 L131,2295 L133,2305 L135,2315 L137,2325 L139,2335 L141,2345 L143,2355 L145,2365 L147,2375 L149,2385 L151,2395 L153,2405 L155,2415 L157,2425 L159,2435 L161,2445 L163,2455 L165,2465 L167,2475 L169,2485 L171,2495 L173,2505 L175,2515 L177,2525 L179,2535 L181,2545 L183,2555 L185,2565 L187,2575 L189,2585 L191,2595 L193,2605 L195,2615 L197,2625 L199,2635 L201,2645 L203,2655 L205,2665 L207,2675 L209,2685 L211,2695 L213,2705 L215,2715 L217,2725 L219,2735 L221,2745 L223,2755 L225,2765 L227,2775 L229,2785 L231,2795 L233,2805 L235,2815 L237,2825 L239,2835 L241,2845 L243,2855 L245,2865 L247,2875 L249,2885 L251,2895 L253,2905 L255,2915 L257,2925 L259,2935 L261,2945 L263,2955 L265,2965 L267,2975 L269,2985 L271,2995 L273,3005 L275,3015 L277,3025 L279,3035 L281,3045 L283,3055 L285,3065 L287,3075 L289,3085 L291,3095 L293,3105 L295,3115 L297,3125 L299,3135 L301,3145 L303,3155 L305,3165 L307,3175 L309,3185 L311,3195 L313,3205 L315,3215 L317,3225 L319,3235 L321,3245 L323,3255 L325,3265 L327,3275 L329,3285 L331,3295 L333,3305 L335,3315 L337,3325 L339,3335 L341,3345 L343,3355 L345,3365 L347,3375 L349,3385 L351,3395 L353,3405 L355,3415 L357,3425 L359,3435 L361,3445 L363,3455 L365,3465 L367,3475 L369,3485 L371,3495 L373,3505 L375,3515 L377,3525 L379,3535 L381,3545 L383,3555 L385,3565 L387,3575 L389,3585 L391,3595 L393,3605 L395,3615 L397,3625 L399,3635 L401,3645 L403,3655 L405,3665 L407,3675 L409,3685 L411,3695 L413,3705 L415,3715 L417,3725 L419,3735 L421,3745 L423,3755 L425,3765 L427,3775 L429,3785 L431,3795 L433,3805 L435,3815 L437,3825 L439,3835 L441,3845 L443,3855 L445,3865 L447,3875 L449,3885 L451,3895 L453,3905 L455,3915 L457,3925 L459,3935 L461,3945 L463,3955 L465,3965 L467,3975 L469,3985 L471,3995 L473,4005 L475,4015 L477,4025 L479,4035 L481,4045 L483,4055 L485,4065 L487,4075 L489,4085 L491,4095 L493,4105 L495,4115 L497,4125 L499,4135 L501,4145 L503,4155 L505,4165 L507,4175 L509,4185 L511,4195 L513,4205 L515,4215 L517,4225 L519,4235 L521,4245 L523,4255 L525,4265 L527,4275 L529,4285 L531,4295 L533,4305 L535,4315 L537,4325 L539,4335 L541,4345 L543,4355 L545,4365 L547,4375 L549,4385 L551,4395 L553,4405 L555,4415 L557,4425 L559,4435 L561,4445 L563,4455 L565,4465 L567,4475 L569,4485 L571,4495 L573,4505 L575,4515 L577,4525 L579,4535 L581,4545 L583,4555 L585,4565 L587,4575 L589,4585 L591,4595 L593,4605 L595,4615 L597,4625 L599,4635 L601,4645 L603,4655 L605,4665 L607,4675 L609,4685 L611,4695 L613,4705 L615,4715 L617,4725 L619,4735 L621,4745 L623,4755 L625,4765 L627,4775 L629,4785 L631,4795 L633,4805 L635,4815 L637,4825 L639,4835 L641,4845 L643,4855 L645,4865 L647,4875 L649,4885 L651,4895 L653,4905 L655,4915 L657,4925 L659,4935 L661,4945 L663,4955 L665,4965 L667,4975 L669,4985 L671,4995 L673,5005 L675,5015 L677,5025 L679,5035 L681,5045 L683,5055 L685,5065 L687,5075 L689,5085 L691,5095 L693,5105 L695,5115 L697,5125 L699,5135 L701,5145 L703,5155 L705,5165 L707,5175 L709,5185 L711,5195 L713,5205 L715,5215 L717,5225 L719,5235 L721,5245 L723,5255 L725,5265 L727,5275 L729,5285 L731,5295 L733,5305 L735,5315 L737,5325 L739,5335 L741,5345 L743,5355 L745,5365 L747,5375 L749,5385 L751,5395 L753,5405 L755,5415 L757,5425 L759,5435 L761,5445 L763,5455 L765,5465 L767,5475 L769,5485 L771,5495 L773,5505 L775,5515 L777,5525 L779,5535 L781,5545 L783,5555 L785,5565 L787,5575 L789,5585 L791,5595 L793,5605 L795,5615 L797,5625 L799,5635 L801,5645 L803,5655 L805,5665 L807,5675 L809,5685 L811,5695 L813,5705 L815,5715 L817,5725 L819,5735 L821,5745 L823,5755 L825,5765 L827,5775 L829,5785 L831,5795 L833,5805 L835,5815 L837,5825 L839,5835 L841,5845 L843,5855 L845,5865 L847,5875 L849,5885 L851,5895 L853,5905 L855,5915 L857,5925 L859,5935 L861,5945 L863,5955 L865,5965 L867,5975 L869,5985 L871,5995 L873,6005 L875,6015 L877,6025 L879,6035 L881,6045 L883,6055 L885,6065 L887,6075 L889,6085 L891,6095 L893,6105 L895,6115 L897,6125 L899,6135 L901,6145 L903,6155 L905,6165 L907,6175 L909,6185 L911,6195 L913,6205 L915,6215 L917,6225 L919,6235 L921,6245 L923,6255 L925,6265 L927,6275 L929,6285 L931,6295 L933,6305 L935,6315 L937,6325 L939,6335 L941,6345 L943,6355 L945,6365 L947,6375 L949,6385 L951,6395 L953,6405 L955,6415 L957,6425 L959,6435 L961,6445 L963,6455 L965,6465 L967,6475 L969,6485 L971,6495 L973,6505 L975,6515 L977,6525 L979,6535 L981,6545 L983,6555 L985,6565 L987,6575 L989,6585 L991,6595 L993,6605 L995,6615 L997,6625 L999,6635 L1001,6645 L1003,6655 L1005,6665 L1007,6675 L1009,6685 L1011,6695 L1013,6705 L1015,6715 L1017,6725 L1019,6735 L1021,6745 L1023,6755 L1025,6765 L1027,6775 L1029,6785 L1031,6795 L1033,6805 L1035,6815 L1037,6825 L1039,6835 L1041,6845 L1043,6855 L1045,6865 L1047,6875 L1049,6885 L1051,6895 L1053,6905 L1055,6915 L1057,6925 L1059,6935 L1061,6945 L1063,6955 L1065,6965 L1067,6975 L1069,6985 L1071,6995 L1073,7005 L1075,7015 L1077,7025 L1079,7035 L1081,7045 L1083,7055 L1085,7065 L1087,7075 L1089,7085 L1091,7095 L1093,7105 L1095,7115 L1097,7125 L1099,7135 L1101,7145 L1103,7155 L1105,7165 L1107,7175 L1109,7185 L1111,7195 L1113,7205 L1115,7215 L1117,7225 L1119,7235 L1121,7245 L1123,7255 L1125,7265 L1127,7275 L1129,7285 L1131,7295 L1133,7305 L1135,7315 L1137,7325 L1139,7335 L1141,7345 L1143,7355 L1145,7365 L1147,7375 L1149,7385 L1151,7395 L1153,7405 L1155,7415 L1157,7425 L1159,7435 L1161,7445 L1163,7455 L1165,7465 L1167,7475 L1169,7485 L1171,7495 L1173,7505 L1175,7515 L1177,7525 L1179,7535 L1181,7545 L1183,7555 L1185,7565 L1187,7575 L1189,7585 L1191,7595 L1193,7605 L1195,7615 L1197,7625 L1199,7635 L1201,7645 L1203,7655 L1205,7665 L1207,7675 L1209,7685 L1211,7695 L1213,7705 L1215,7715 L1217,7725 L1219,7735 L1221,7745 L1223,7755 L1225,7765 L1227,7775 L1229,7785 L1231,7795 L1233,7805 L1235,7815 L1237,7825 L1239,7835 L1241,7845 L1243,7855 L1245,7865 L1247,7875 L1249,7885 L1251,7895 L1253,7905 L1255,7915 L1257,7925 L1259,7935 L1261,7945 L1263,7955 L1265,7965 L1267,7975 L1269,7985 L1271,7995 L1273,8005 L1275,8015 L1277,8025 L1279,8035 L1281,8045 L1283,8055 L1285,8065 L1287,8075 L1289,8085 L1291,8095 L1293,8105 L1295,8115 L1297,8125 L1299,8135 L1301,8145 L1303,8155 L1305,8165 L1307,8175 L1309,8185 L1311,8195 L1313,8205 L1315,8215 L1317,8225 L1319,8235 L1321,8245 L1323,8255 L1325,8265 L1327,8275 L1329,8285 L1331,8295 L1333,8305 L1335,8315 L1337,8325 L1339,8335 L1341,8345 L1343,8355 L1345,8365 L1347,8375 L1349,8385 L1351,8395 L1353,8405 L1355,8415 L1357,8425 L1359,8435 L1361,8445 L1363,8455 L1365,8465 L1367,8475 L1369,8485 L1371,8495 L1373,8505 L1375,8515 L1377,8525 L1379,8535 L1381,8545 L1383,8555 L1385,8565 L1387,8575 L1389,8585 L1391,8595 L1393,8605 L1395,8615 L1397,8625 L1399,8635 L1401,8645 L1403,8655 L1405,8665 L1407,8675 L1409,8685 L1411,8695 L1413,8705 L1415,8715 L1417,8725 L1419,8735 L1421,8745 L1423,8755 L1425,8765 L1427,8775 L1429,8785 L1431,8795 L1433,8805 L1435,8815 L1437,8825 L1439,8835 L1441,8845 L1443,8855 L1445,8865 L1447,8875 L1449,8885 L1451,8895 L1453,8905 L1455,8915 L1457,8925 L1459,8935 L1461,8945 L1463,8955 L1465,8965 L1467,8975 L1469,8985 L1471,8995 L1473,9005 L1475,9015 L1477,9025 L1479,9035 L1481,9045 L1483,9055 L1485,9065 L1487,9075 L1489,9085 L1491,9095 L1493,9105 L1495,9115 L1497,9125 L1499,9135 L1501,9145 L1503,9155 L1505,9165 L1507,9175 L1509,9185 L1511,9195 L1513,9205 L1515,9215 L1517,9225 L1519,9235 L1521,9245 L1523,9255 L1525,9265 L1527,9275 L1529,9285 L1531,9295 L1533,9305 L1535,9315 L1537,9325 L1539,9335 L1541,9345 L1543,9355 L1545,9365 L1547,9375 L1549,9385 L1551,9395 L1553,9405 L1555,9415 L1557,9425 L1559,9435 L1561,9445 L1563,9455 L1565,9465 L1567,9475 L1569,9485 L1571,9495 L1573,9505 L1575,9515 L1577,9525 L1579,9535 L1581,9545 L1583,9555 L1585,9565 L1587,9575 L1589,9585 L1591,9595 L1593,9605 L1595,9615 L1597,9625 L1599,9635 L1601,9645 L1603,9655 L1605,9665 L1607,9675 L1609,9685 L1611,9695 L1613,9705 L1615,9715 L1617,9725 L1619,9735 L1621,9745 L1623,9755 L1625,9765 L1627,9775 L1629,9785 L1631,9795 L1633,9805 L1635,9815 L1637,9825 L1639,9835 L1641,9845 L1643,9855 L1645,9865 L1647,9875 L1649,9885 L1651,9895 L1653,9905 L1655,9915 L1657,9925 L1659,9935 L1661,9945 L1663,9955 L1665,9965 L1667,9975 L1669,9985 L1671,9995 L1673,10005 L1675,10015 L1677,10025 L1679,10035 L1681,10045 L1683,10055 L1685,10065 L1687,10075 L1689,10085 L1691,10095 L1693,10105 L1695,10115 L1697,10125 L1699,10135 L1701,10145 L1703,10155 L1705,10165 L1707,10175 L1709,10185 L1711,10195 L1713,10205 L1715,10215 L1717,10225 L1719,10235 L1721,10245 L1723,10255 L1725,10265 L1727,10275 L1729,10285 L1731,10295 L1733,10305 L1735,10315 L1737,10325 L1739,10335 L1741,10345 L1743,10355 L1745,10365 L1747,10375 L1749,10385 L1751,10395 L1753,10405 L1755,10415 L1757,10425 L1759,10435 L1761,10445 L1763,10455 L1765,10465 L1767,10475 L1769,10485 L1771,10495 L1773,10505 L1775,10515 L1777,10525 L1779,10535 L1781,10545 L1783,10555 L1785,10565 L1787,10575 L1789,10585 L1791,10595 L1793,10605 L1795,10615 L1797,10625 L1799,10635 L1801,10645 L1803,10655 L1805,10665 L1807,10675 L1809,10685 L1811,10695 L1813,10705 L1815,10715 L1817,10725 L1819,10735 L1821,10745 L1823,10755 L1825,10765 L1827,10775 L1829,10785 L1831,10795 L1833,10805 L1835,10815 L1837,10825 L1839,10835 L1841,10845 L1843,10855 L1845,10865 L1847,10875 L1849,10885 L1851,10895 L1853,10905 L1855,10915 L1857,10925 L1859,10935 L1861,10945 L1863,10955 L1865,10965 L1867,10975 L1869,10985 L1871,10995 L1873,11005 L1875,11015 L1877,11025 L1879,11035 L1881,11045 L1883,11055 L1885,11065 L1887,11075 L1889,11085 L1891,11095 L1893,11105 L1895,11115 L1897,11125 L1899,11135 L1901,11145 L1903,11155 L1905,11165 L1907,11175 L1909,11185 L1911,11195 L1913,11205 L1915,11215 L1917,11225 L1919,11235 L1921,11245 L1923,11255 L1925,11265 L1927,11275 L1929,11285 L1931,11295 L1933,11305 L1935,11315 L1937,11325 L1939,11335 L1941,11345 L1943,11355 L1945,11365 L1947,11375 L1949,11385 L1951,11395 L1953,11405 L1955,11415 L1957,11425 L1959,11435 L1961,11445 L1963,11455 L1965,11465 L1967,11475 L1969,11485 L1971,11495 L1973,11505 L1975,11515 L1977,11525 L1979,11535 L1981,11545 L1983,11555 L1985,11565 L1987,11575 L1989,11585 L1991,11595 L1993,11605 L1995,11615 L1997,11625 L1999,11635 L2001,11645 L2003,11655 L2005,11665 L2007,11675 L2009,11685 L2011,11695 L2013,11705 L2015,11715 L2017,11725 L2019,11735 L2021,11745 L2023,11755 L2025,11765 L2027,11775 L2029,11785 L2031,11795 L2033,11805 L2035,11815 L2037,11825 L2039,11835 L2041,11845 L2043,11855 L2045,11865 L2047,11875 L2049,11885 L2051,11895 L2053,11905 L2055,11915 L2057,11925 L2059,11935 L2061,11945 L2063,11955 L2065,11965 L2067,11975 L2069,11985 L2071,11995 L2073,12005 L2075,12015 L2077,12025 L2079,12035 L2081,12045 L2083,12055 L2085,12065 L2087,12075 L2089,12085 L2091,12095 L2093,12105 L2095,12115 L2097,12125 L2099,12135 L2101,12145 L2103,12155 L2105,12165 L2107,12175 L2109,12185 L2111,12195 L2113,12205 L2115,12215 L2117,12225 L2119,12235 L2121,12245 L2123,12255 L2125,12265 L2127,12275 L2129,12285 L2131,12295 L2133,12305 L2135,12315 L2137,12325 L2139,12335 L2141,12345 L2143,12355 L2145,12365 L2147,12375 L2149,12385 L2151,12395 L2153,12405 L2155,12415 L2157,12425 L2159,12435 L2161,12445 L2163,12455 L2165,12465 L2167,12475 L2169,12485 L2171,12495 L2173,12505 L2175,12515 L2177,12525 L2179,12535 L2181,12545 L2183,12555 L2185,12565 L2187,12575 L2189,12585 L2191,12595 L2193,12605 L2195,12615 L2197,12625 L2199,12635 L2201,12645 L2203,12655 L2205,12665 L2207,12675 L2209,12685 L2211,12695 L2213,12705 L2215,12715 L2217,12725 L2219,12735 L2221,12745 L2223,12755 L2225,12765 L2227,12775 L2229,12785 L2231,12795 L2233,12805 L2235,12815 L2237,12825 L2239,12835 L2241,12845 L2243,12855 L2245,12865 L2247,12875 L2249,12885 L2251,12895 L2253,12905 L2255,12915 L2257,12925 L2259,12935 L2261,12945 L2263,12955 L2265,12965 L2267,12975 L2269,12985 L2271,12995 L2273,13005 L2275,13015 L2277,13025 L2279,13035 L2281,13045 L2283,13055 L2285,13065 L2287,13075 L2289,13085 L2291,13095 L2293,13105 L2295,13115 L2297,13125 L2299,13135 L2301,13145 L2303,13155 L2305,13165 L2307,13175 L2309,13185 L2311,13195 L2313,13205 L2315,13215 L2317,13225 L2319,13235 L2321,13245 L2323,13255 L2325,13265 L2327,13275 L2329,13285 L2331,13295 L2333,13305 L2335,13315 L2337,13325 L2339,13335 L2341,13345 L2343,13355 L2345,13365 L2347,13375 L2349,13385 L2351,13395 L2353,13405 L2355,13415 L2357,13425 L2359,13435 L2361,13445 L2363,13455 L2365,13465 L2367,13475 L2369,13485 L2371,13495 L2373,13505 L2375,13515 L2377,13525 L2379,13535 L2381,13545 L2383,13555 L2385,13565 L2387,13575 L2389,13585 L2391,13595 L2393,13605 L2395,13615 L2397,13625 L2399,13635 L2401,13645 L2403,13655 L2405,13665 L2407,13675 L2409,13685 L2411,13695 L2413,13705 L2415,13715 L2417,13725 L2419,13735 L2421,13745 L2423,13755 L2425,13765 L2427,13775 L2429,13785 L2431,13795 L2433,13805 L2435,13815 L2437,13825 L2439,13835 L2441,13845 L2443,13855 L2445,13865 L2447,13875 L2449,13885 L2451,13895 L2453,13905 L2455,13915 L2457,13925 L2459,13935 L2461,13945 L2463,13955 L2465,13965 L2467,13975 L2469,13985 L2471,13995 L2473,14005 L2475,14015 L2477,14025 L2479,14035 L2481,14045 L2483,14055 L2485,14065 L2487,14075 L2489,14085 L2491,14095 L2493,14105 L2495,14115 L2497,14125 L2499,14135 L2501,14145 L2503,14155 L2505,14165 L2507,14175 L2509,14185 L2511,14195 L2513,14205 L2515,14215 L2517,14225 L2519,14235 L2521,14245 L2523,14255 L2525,14265 L2527,14275 L2529,14285 L2531,14295 L2533,14305 L2535,14315 L2537,14325 L2539,14335 L2541,14345 L2543,14355 L2545,14365 L2547,14375 L2549,14385 L2551,14395 L2553,14405 L2555,14415 L2557,14425 L2559,14435 L2561,14445 L2563,14455 L2565,14465 L2567,14475 L2569,14485 L2571,14495 L2573,14505 L2575,14515 L2577,14525 L2579,14535 L2581,14545 L2583,14555 L2585,14565 L2587,14575 L2589,14585 L2591,14595 L2593,14605 L2595,14615 L2597,14625 L2599,14635 L2601,14645 L2603,14655 L2605,14665 L2607,14675 L2609,14685 L2611,14695 L2613,14705 L2615,14715 L2617,14725 L2619,14735 L2621,14745 L2623,14755 L2625,14765 L2627,14775 L2629,14785 L2631,14795 L2633,14805 L2635,14815 L2637,14825 L2639,14835 L2641,14845 L2643,14855 L2645,14865 L2647,14875 L2649,14885 L2651,14895 L2653,14905 L2655,14915 L2657,14925 L2659,14935 L2661,14945 L2663,14955 L2665,14965 L2667,14975 L2669,14985 L2671,14995 L2673,15005 L2675,15015 L2677,15025 L2679,15035 L2681,15045 L2683,15055 L2685,15065 L2687,15075 L2689,15085 L2691,15095 L2693,15105 L2695,15115 L2697,15125 L2699,15135 L2701,15145 L2703,15155 L2705,15165 L2707,15175 L2709,15185 L2711,15195 L2713,15205 L2715,15215 L2717,15225 L2719,15235 L2721,15245 L2723,15255 L2725,15265 L2727,15275 L2729,15285 L2731,15295 L2733,15305 L2735,15315 L2737,15325 L2739,15335 L2741,15345 L2743,15355 L2745,15365 L2747,15375 L2749,15385 L2751,15395 L2753,15405 L2755,15415 L2757,15425 L2759,15435 L2761,15445 L2763,15455 L2765,15465 L2767,15475 L2769,15485 L2771,15495 L2773,15505 L2775,15515 L2777,15525 L2779,15535 L2781,15545 L2783,15555 L2785,15565 L2787,15575 L2789,15585 L2791,15595 L2793,15605 L2795,15615 L2797,15625 ,120 C35,8 L30,15 L25,20 L22,25 L20,30 L18,35 L20,40 L25,42 L30,38 L35,35 L40,32 L43,28 L45,22 Z",
     color: "text-red-500"
   },
   {
     name: "Sweden", 
-    path: "M65,8 L70,5 L75,7 L80,10 L85,15 L90,22 L95,30 L98,40 L100,50 L102,60 L100,70 L95,78 L90,82 L85,85 L80,87 L75,85 L70,82 L65,78 L62,70 L60,60 L58,50 L60,40 L62,30 L65,22 L68,15 Z",
+    path: "M85,5 L90,3 L95,5 L100,8 L105,12 L110,18 L115,25 L120,35 L125,45 L128,55 L130,65 L132,75 L134,85 L136,95 L138,105 L140,115 L142,125 L144,135 L146,145 L148,155 L150,165 L152,175 L154,185 L156,195 L158,205 L160,215 L162,225 L164,235 L166,245 L168,255 L170,265 L172,275 L174,285 L176,295 L174,305 L172,315 L170,325 L168,335 L166,345 L164,355 L162,365 L160,375 L158,385 L156,395 L154,405 L152,415 L150,425 L148,435 L146,445 L144,455 L142,465 L140,475 L138,485 L136,495 L134,505 L132,515 L130,525 L128,535 L126,545 L124,555 L122,565 L120,575 L118,585 L116,595 L114,605 L112,615 L110,625 L108,635 L106,645 L104,655 L102,665 L100,675 L98,685 L96,695 L94,705 L92,715 L90,725 L88,735 L86,745 L84,755 L82,765 L80,775 L85,780 Z",
     color: "text-blue-500"
   },
   {
     name: "Denmark",
-    path: "M25,88 L35,85 L45,88 L50,92 L48,98 L45,102 L40,105 L35,103 L30,100 L25,95 Z M15,78 L25,75 L30,78 L28,83 L25,87 L20,85 L15,82 Z M8,95 L18,92 L23,95 L21,100 L18,103 L13,101 L8,98 Z",
+    path: "M45,90 L55,88 L65,90 L75,92 L80,96 L78,102 L75,108 L70,112 L65,115 L60,118 L55,120 L50,118 L45,115 L40,112 L35,108 L32,102 L30,96 L35,92 L40,90 Z M25,85 L35,82 L40,85 L38,90 L35,95 L30,98 L25,95 L20,92 L18,88 L20,85 Z M15,100 L25,98 L30,100 L28,105 L25,108 L20,110 L15,108 L10,105 L8,100 L10,98 Z",
     color: "text-green-500"
   },
   {
     name: "Finland",
-    path: "M110,3 L118,1 L125,4 L130,8 L135,15 L140,25 L142,35 L140,45 L135,55 L130,63 L125,70 L120,75 L115,78 L110,75 L105,70 L102,63 L100,55 L102,45 L105,35 L108,25 L110,15 Z",
+    path: "M180,5 L188,3 L195,6 L200,10 L205,15 L210,22 L215,30 L220,40 L225,50 L230,60 L235,70 L240,80 L245,90 L250,100 L255,110 L260,120 L265,130 L270,140 L275,150 L280,160 L285,170 L290,180 L295,190 L300,200 L305,210 L310,220 L315,230 L320,240 L325,250 L330,260 L335,270 L340,280 L345,290 L350,300 L355,310 L360,320 L365,330 L370,340 L375,350 L380,360 L385,370 L390,380 L395,390 L400,400 L405,410 L410,420 L415,430 L420,440 L425,450 L430,460 L435,470 L440,480 L445,490 L450,500 L455,510 L460,520 L465,530 L470,540 L475,550 L480,560 L485,570 L490,580 L495,590 L500,600 L505,610 L510,620 L515,630 L520,640 L525,650 L530,660 L535,670 L540,680 L545,690 L550,700 L555,710 L560,720 L565,730 L570,740 L575,750 L580,760 L585,770 L590,780 L595,790 L600,800 L605,810 L610,820 L615,830 L620,840 L625,850 L630,860 L635,870 L640,880 L645,890 L650,900 L655,910 L660,920 L665,930 L670,940 L675,950 L680,960 L685,970 L690,980 L695,990 L700,1000 L705,1010 L710,1020 L715,1030 L720,1040 L725,1050 L730,1060 L735,1070 L740,1080 L745,1090 L750,1100 L755,1110 L760,1120 L765,1130 L770,1140 L775,1150 L780,1160 L785,1170 L790,1180 L795,1190 L800,1200 L805,1210 L810,1220 L815,1230 L820,1240 L825,1250 L830,1260 L835,1270 L840,1280 L845,1290 L850,1300 L855,1310 L860,1320 L865,1330 L870,1340 L875,1350 L880,1360 L885,1370 L890,1380 L895,1390 L900,1400 L905,1410 L910,1420 L915,1430 L920,1440 L925,1450 L930,1460 L935,1470 L940,1480 L945,1490 L950,1500 L955,1510 L960,1520 L965,1530 L970,1540 L975,1550 L980,1560 L985,1570 L990,1580 L995,1590 L1000,1600 L1005,1610 L1010,1620 L1015,1630 L1020,1640 L1025,1650 L1030,1660 L1035,1670 L1040,1680 L1045,1690 L1050,1700 L1055,1710 L1060,1720 L1065,1730 L1070,1740 L1075,1750 L1080,1760 L1085,1770 L1090,1780 L1095,1790 L1100,1800 L1095,1810 L1090,1820 L1085,1830 L1080,1840 L1075,1850 L1070,1860 L1065,1870 L1060,1880 L1055,1890 L1050,1900 L1045,1910 L1040,1920 L1035,1930 L1030,1940 L1025,1950 L1020,1960 L1015,1970 L1010,1980 L1005,1990 L1000,2000 L995,2010 L990,2020 L985,2030 L980,2040 L975,2050 L970,2060 L965,2070 L960,2080 L955,2090 L950,2100 L945,2110 L940,2120 L935,2130 L930,2140 L925,2150 L920,2160 L915,2170 L910,2180 L905,2190 L900,2200 L895,2210 L890,2220 L885,2230 L880,2240 L875,2250 L870,2260 L865,2270 L860,2280 L855,2290 L850,2300 L845,2310 L840,2320 L835,2330 L830,2340 L825,2350 L820,2360 L815,2370 L810,2380 L805,2390 L800,2400 L795,2410 L790,2420 L785,2430 L780,2440 L775,2450 L770,2460 L765,2470 L760,2480 L755,2490 L750,2500 L745,2510 L740,2520 L735,2530 L730,2540 L725,2550 L720,2560 L715,2570 L710,2580 L705,2590 L700,2600 L695,2610 L690,2620 L685,2630 L680,2640 L675,2650 L670,2660 L665,2670 L660,2680 L655,2690 L650,2700 L645,2710 L640,2720 L635,2730 L630,2740 L625,2750 L620,2760 L615,2770 L610,2780 L605,2790 L600,2800 L595,2810 L590,2820 L585,2830 L580,2840 L575,2850 L570,2860 L565,2870 L560,2880 L555,2890 L550,2900 L545,2910 L540,2920 L535,2930 L530,2940 L525,2950 L520,2960 L515,2970 L510,2980 L505,2990 L500,3000 L495,3010 L490,3020 L485,3030 L480,3040 L475,3050 L470,3060 L465,3070 L460,3080 L455,3090 L450,3100 L445,3110 L440,3120 L435,3130 L430,3140 L425,3150 L420,3160 L415,3170 L410,3180 L405,3190 L400,3200 L395,3210 L390,3220 L385,3230 L380,3240 L375,3250 L370,3260 L365,3270 L360,3280 L355,3290 L350,3300 L345,3310 L340,3320 L335,3330 L330,3340 L325,3350 L320,3360 L315,3370 L310,3380 L305,3390 L300,3400 L295,3410 L290,3420 L285,3430 L280,3440 L275,3450 L270,3460 L265,3470 L260,3480 L255,3490 L250,3500 L245,3510 L240,3520 L235,3530 L230,3540 L225,3550 L220,3560 L215,3570 L210,3580 L205,3590 L200,3600 L195,3610 L190,3620 L185,3630 L180,3640 L175,3630 L180,3620 Z",
     color: "text-purple-500"
   }
 ];
@@ -59,6 +58,252 @@ const calculateEstimate = (budget: number) => {
   
   return { views, duration, streamers };
 };
+
+const StepIndicator = ({ step }: { step: number }) => (
+  <div className="flex justify-center mb-16">
+    <div className="flex items-center space-x-8">
+      {[1, 2, 3].map((num) => (
+        <div key={num} className="flex items-center">
+          <div className={`w-12 h-12 rounded-full flex items-center justify-center text-lg font-light transition-all duration-300 ${
+            step >= num 
+              ? 'bg-red-400 text-white shadow-lg' 
+              : 'bg-gray-200 text-gray-500'
+          }`}>
+            {num}
+          </div>
+          {num < 3 && (
+            <div className={`w-16 h-0.5 ml-4 transition-all duration-300 ${
+              step > num ? 'bg-red-400' : 'bg-gray-200'
+            }`} />
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
+const CountrySelector = ({
+  selectedCountries,
+  handleCountrySelect,
+}: {
+  selectedCountries: string[];
+  handleCountrySelect: (countryName: string) => void;
+}) => (
+  <div className="text-center space-y-12 animate-fade-in">
+    <h3 className="text-3xl font-light text-gray-900 mb-8 tracking-wide">
+      Select Your Target Markets
+    </h3>
+    
+    <div className="relative max-w-4xl mx-auto">
+      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-12 shadow-lg border border-blue-100">
+        <svg 
+          viewBox="0 0 1200 800" 
+          className="w-full h-96 mx-auto"
+          style={{ filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1))' }}
+        >
+          {/* Background water/sea */}
+          <rect width="1200" height="800" fill="#e0f2fe" rx="12" />
+          
+          {countries.map((country) => (
+            <g key={country.name}>
+              <path
+                d={country.path}
+                className={`cursor-pointer transition-all duration-500 stroke-2 ${
+                  selectedCountries.includes(country.name)
+                    ? 'fill-red-400 stroke-red-600 drop-shadow-lg'
+                    : 'fill-white hover:fill-gray-100 stroke-gray-400 hover:stroke-gray-600 hover:drop-shadow-md'
+                }`}
+                onClick={() => handleCountrySelect(country.name)}
+                style={{
+                  filter: selectedCountries.includes(country.name) 
+                    ? 'drop-shadow(0 4px 8px rgba(239, 68, 68, 0.3))' 
+                    : 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))'
+                }}
+              />
+              <text
+                x={country.name === "Norway" ? "100" : country.name === "Sweden" ? "200" : country.name === "Denmark" ? "60" : "350"}
+                y={country.name === "Norway" ? "200" : country.name === "Sweden" ? "200" : country.name === "Denmark" ? "110" : "180"}
+                className={`text-lg font-medium pointer-events-none transition-all duration-300 ${
+                  selectedCountries.includes(country.name) 
+                    ? 'fill-white' 
+                    : 'fill-gray-700 hover:fill-gray-900'
+                }`}
+                textAnchor="middle"
+              >
+                {country.name}
+              </text>
+            </g>
+          ))}
+          
+          {/* Decorative elements */}
+          <circle cx="1100" cy="100" r="6" fill="#fbbf24" opacity="0.6" />
+          <circle cx="1120" cy="120" r="4" fill="#fbbf24" opacity="0.4" />
+          <circle cx="1080" cy="120" r="3" fill="#fbbf24" opacity="0.5" />
+        </svg>
+      </div>
+    </div>
+
+    <div className="space-y-4">
+      <p className="text-gray-600 font-extralight text-lg">
+        Click to select countries • {selectedCountries.length} selected
+      </p>
+      {selectedCountries.length > 0 && (
+        <div className="flex flex-wrap justify-center gap-3">
+          {selectedCountries.map((country) => (
+            <span key={country} className="bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-medium shadow-sm border border-red-200">
+              {country}
+            </span>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+);
+
+const BudgetInput = ({
+  budget,
+  setBudget,
+  onSubmit,
+}: {
+  budget: number;
+  setBudget: React.Dispatch<React.SetStateAction<number>>;
+  onSubmit: () => void;
+}) => (
+  <div className="text-center space-y-12 animate-fade-in">
+    <h3 className="text-3xl font-light text-gray-900 mb-8 tracking-wide">
+      What's your campaign budget?
+    </h3>
+
+    <div className="max-w-xl mx-auto space-y-8">
+      <div className="space-y-6">
+        <div className="text-center">
+          <span className="text-5xl font-extralight text-gray-900 tracking-tighter">
+            €{budget.toLocaleString()}
+          </span>
+        </div>
+        
+        <Slider
+          value={[budget]}
+          onValueChange={(value) => setBudget(value[0])}
+          min={2000}
+          max={50000}
+          step={1000}
+          className="w-full"
+        />
+        
+        <div className="flex justify-between text-sm text-gray-500 font-light">
+          <span>€2,000</span>
+          <span>€50,000+</span>
+        </div>
+
+        <div className="mt-4">
+          <Input
+            type="number"
+            value={budget}
+            onChange={(e) => setBudget(Number(e.target.value))}
+            min={2000}
+            max={50000}
+            step={1000}
+            className="text-center text-xl font-light py-6"
+            placeholder="Enter budget in EUR"
+          />
+        </div>
+      </div>
+
+      <p className="text-gray-600 font-extralight text-lg">
+        Our average CPM is €40 – let's see what that gives you.
+      </p>
+    </div>
+
+    <Button
+      size="lg"
+      onClick={onSubmit}
+      className="bg-red-400 hover:bg-red-500 text-white px-12 py-6 text-lg font-light tracking-wide h-auto shadow-xl hover:shadow-red-400/20 transition-all duration-300 hover:scale-105"
+    >
+      Calculate Estimate
+      <ArrowRight className="ml-3 h-5 w-5" />
+    </Button>
+  </div>
+);
+
+const ResultsDisplay = ({
+  estimate,
+  budget,
+  selectedCountries,
+  scrollToSection,
+}: {
+  estimate: { views: number; duration: string; streamers: string };
+  budget: number;
+  selectedCountries: string[];
+  scrollToSection: (id: string) => void;
+}) => (
+  <div className="text-center space-y-12">
+    <h3 className="text-3xl font-light text-gray-900 mb-8 tracking-wide">
+      Your Campaign Forecast
+    </h3>
+
+    <div className="animate-scale-in space-y-8">
+      <div className="grid md:grid-cols-3 gap-8">
+        <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <Eye className="h-12 w-12 text-red-400 mx-auto mb-4" />
+          <div className="text-4xl font-extralight text-gray-900 mb-2 tracking-tighter">
+            {estimate.views.toLocaleString()}
+          </div>
+          <p className="text-gray-600 font-light text-lg">Estimated Views</p>
+        </div>
+
+        <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <Clock className="h-12 w-12 text-red-400 mx-auto mb-4" />
+          <div className="text-4xl font-extralight text-gray-900 mb-2 tracking-tighter">
+            {estimate.duration}
+          </div>
+          <p className="text-gray-600 font-light text-lg">Campaign Duration</p>
+        </div>
+
+        <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
+          <Users className="h-12 w-12 text-red-400 mx-auto mb-4" />
+          <div className="text-4xl font-extralight text-gray-900 mb-2 tracking-tighter">
+            {estimate.streamers}
+          </div>
+          <p className="text-gray-600 font-light text-lg">Active Streamers</p>
+        </div>
+      </div>
+
+      <div className="bg-gradient-to-r from-red-50 to-pink-50 rounded-3xl p-8 border border-red-100">
+        <h4 className="text-2xl font-light text-gray-900 mb-4 tracking-wide">
+          Campaign Summary
+        </h4>
+        <p className="text-gray-700 font-extralight text-lg leading-relaxed">
+          Your €{budget.toLocaleString()} campaign across {selectedCountries.join(", ")} will reach 
+          <strong className="font-normal"> {estimate.views.toLocaleString()} viewers</strong> over 
+          <strong className="font-normal"> {estimate.duration}</strong> using our network of 
+          <strong className="font-normal"> {estimate.streamers}</strong>.
+        </p>
+      </div>
+
+      <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
+        <Button
+          size="lg"
+          className="bg-red-400 hover:bg-red-500 text-white px-12 py-6 text-lg font-light tracking-wide h-auto shadow-xl hover:shadow-red-400/20 transition-all duration-300 hover:scale-105"
+          onClick={() => window.open("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1RiJEObf5v758exr0hi5vk0ZRP0vgGQexQeAoykItGH1-RTFV1DQOye1rJbUSAqu7TdhWhRigO", "_blank")}
+        >
+          Book a Custom Campaign
+          <ArrowRight className="ml-3 h-5 w-5" />
+        </Button>
+
+        <Button
+          size="lg"
+          variant="outline"
+          className="border-gray-400 text-gray-800 hover:bg-gray-50 bg-white px-12 py-6 text-lg font-light tracking-wide h-auto transition-all duration-300 hover:border-gray-500"
+          onClick={() => scrollToSection("examples")}
+        >
+          See Real Campaign Examples
+          <ExternalLink className="ml-3 h-5 w-5" />
+        </Button>
+      </div>
+    </div>
+  </div>
+);
 
 const EstimationSection = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) => void }) => {
   const [step, setStep] = useState(1);
@@ -102,240 +347,45 @@ const EstimationSection = ({ t, scrollToSection }: { t: any; scrollToSection: (i
         </div>
 
         <div className="max-w-4xl mx-auto">
-          {/* Step Indicator */}
-          <div className="flex justify-center mb-16">
-            <div className="flex items-center space-x-8">
-              {[1, 2, 3].map((num) => (
-                <div key={num} className="flex items-center">
-                  <div className={`w-12 h-12 rounded-full flex items-center justify-center text-lg font-light transition-all duration-300 ${
-                    step >= num 
-                      ? 'bg-red-400 text-white shadow-lg' 
-                      : 'bg-gray-200 text-gray-500'
-                  }`}>
-                    {num}
-                  </div>
-                  {num < 3 && (
-                    <div className={`w-16 h-0.5 ml-4 transition-all duration-300 ${
-                      step > num ? 'bg-red-400' : 'bg-gray-200'
-                    }`} />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
+          <StepIndicator step={step} />
 
-          {/* Step 1: Nordic Map Selector */}
           {step === 1 && (
-            <div className="text-center space-y-12 animate-fade-in">
-              <h3 className="text-3xl font-light text-gray-900 mb-8 tracking-wide">
-                Select Your Target Markets
-              </h3>
-              
-              <div className="relative max-w-3xl mx-auto">
-                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-12 shadow-lg border border-blue-100">
-                  <svg 
-                    viewBox="0 0 160 120" 
-                    className="w-full h-96 mx-auto"
-                    style={{ filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1))' }}
-                  >
-                    {/* Background water/sea */}
-                    <rect width="160" height="120" fill="#e0f2fe" rx="8" />
-                    
-                    {countries.map((country) => (
-                      <g key={country.name}>
-                        <path
-                          d={country.path}
-                          className={`cursor-pointer transition-all duration-500 stroke-2 ${
-                            selectedCountries.includes(country.name)
-                              ? 'fill-red-400 stroke-red-600 drop-shadow-lg'
-                              : 'fill-white hover:fill-gray-100 stroke-gray-400 hover:stroke-gray-600 hover:drop-shadow-md'
-                          }`}
-                          onClick={() => handleCountrySelect(country.name)}
-                          style={{
-                            filter: selectedCountries.includes(country.name) 
-                              ? 'drop-shadow(0 4px 8px rgba(239, 68, 68, 0.3))' 
-                              : 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))'
-                          }}
-                        />
-                        <text
-                          x={country.name === "Norway" ? "32" : country.name === "Sweden" ? "82" : country.name === "Denmark" ? "32" : "122"}
-                          y={country.name === "Norway" ? "50" : country.name === "Sweden" ? "50" : country.name === "Denmark" ? "95" : "45"}
-                          className={`text-sm font-medium pointer-events-none transition-all duration-300 ${
-                            selectedCountries.includes(country.name) 
-                              ? 'fill-white' 
-                              : 'fill-gray-700 hover:fill-gray-900'
-                          }`}
-                          textAnchor="middle"
-                        >
-                          {country.name}
-                        </text>
-                      </g>
-                    ))}
-                    
-                    {/* Decorative elements */}
-                    <circle cx="140" cy="20" r="3" fill="#fbbf24" opacity="0.6" />
-                    <circle cx="145" cy="25" r="2" fill="#fbbf24" opacity="0.4" />
-                    <circle cx="135" cy="25" r="1.5" fill="#fbbf24" opacity="0.5" />
-                  </svg>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <p className="text-gray-600 font-extralight text-lg">
-                  Click to select countries • {selectedCountries.length} selected
-                </p>
-                {selectedCountries.length > 0 && (
-                  <div className="flex flex-wrap justify-center gap-3">
-                    {selectedCountries.map((country) => (
-                      <span key={country} className="bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-medium shadow-sm border border-red-200">
-                        {country}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
-
+            <>
+              <CountrySelector
+                selectedCountries={selectedCountries}
+                handleCountrySelect={handleCountrySelect}
+              />
               <Button
                 size="lg"
                 onClick={proceedToBudget}
                 disabled={selectedCountries.length === 0}
-                className="bg-red-400 hover:bg-red-500 text-white px-12 py-6 text-lg font-light tracking-wide h-auto shadow-xl hover:shadow-red-400/20 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-red-400 hover:bg-red-500 text-white px-12 py-6 text-lg font-light tracking-wide h-auto shadow-xl hover:shadow-red-400/20 transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed mt-8"
               >
                 Continue to Budget
                 <ArrowRight className="ml-3 h-5 w-5" />
               </Button>
-            </div>
+            </>
           )}
 
-          {/* Step 2: Budget Input */}
           {step === 2 && (
-            <div className="text-center space-y-12 animate-fade-in">
-              <h3 className="text-3xl font-light text-gray-900 mb-8 tracking-wide">
-                What's your campaign budget?
-              </h3>
-
-              <div className="max-w-xl mx-auto space-y-8">
-                <div className="space-y-6">
-                  <div className="text-center">
-                    <span className="text-5xl font-extralight text-gray-900 tracking-tighter">
-                      €{budget.toLocaleString()}
-                    </span>
-                  </div>
-                  
-                  <Slider
-                    value={[budget]}
-                    onValueChange={(value) => setBudget(value[0])}
-                    min={2000}
-                    max={50000}
-                    step={1000}
-                    className="w-full"
-                  />
-                  
-                  <div className="flex justify-between text-sm text-gray-500 font-light">
-                    <span>€2,000</span>
-                    <span>€50,000+</span>
-                  </div>
-
-                  <div className="mt-4">
-                    <Input
-                      type="number"
-                      value={budget}
-                      onChange={(e) => setBudget(Number(e.target.value))}
-                      min={2000}
-                      max={50000}
-                      step={1000}
-                      className="text-center text-xl font-light py-6"
-                      placeholder="Enter budget in EUR"
-                    />
-                  </div>
-                </div>
-
-                <p className="text-gray-600 font-extralight text-lg">
-                  Our average CPM is €40 – let's see what that gives you.
-                </p>
-              </div>
-
-              <Button
-                size="lg"
-                onClick={handleBudgetSubmit}
-                className="bg-red-400 hover:bg-red-500 text-white px-12 py-6 text-lg font-light tracking-wide h-auto shadow-xl hover:shadow-red-400/20 transition-all duration-300 hover:scale-105"
-              >
-                Calculate Estimate
-                <ArrowRight className="ml-3 h-5 w-5" />
-              </Button>
-            </div>
+            <BudgetInput
+              budget={budget}
+              setBudget={setBudget}
+              onSubmit={handleBudgetSubmit}
+            />
           )}
 
-          {/* Step 3: Auto-Estimate Output */}
           {step === 3 && (
-            <div className="text-center space-y-12">
-              <h3 className="text-3xl font-light text-gray-900 mb-8 tracking-wide">
-                Your Campaign Forecast
-              </h3>
-
+            <>
               {showEstimate && (
-                <div className="animate-scale-in space-y-8">
-                  <div className="grid md:grid-cols-3 gap-8">
-                    <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-                      <Eye className="h-12 w-12 text-red-400 mx-auto mb-4" />
-                      <div className="text-4xl font-extralight text-gray-900 mb-2 tracking-tighter">
-                        {estimate.views.toLocaleString()}
-                      </div>
-                      <p className="text-gray-600 font-light text-lg">Estimated Views</p>
-                    </div>
-
-                    <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-                      <Clock className="h-12 w-12 text-red-400 mx-auto mb-4" />
-                      <div className="text-4xl font-extralight text-gray-900 mb-2 tracking-tighter">
-                        {estimate.duration}
-                      </div>
-                      <p className="text-gray-600 font-light text-lg">Campaign Duration</p>
-                    </div>
-
-                    <div className="bg-white rounded-3xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300">
-                      <Users className="h-12 w-12 text-red-400 mx-auto mb-4" />
-                      <div className="text-4xl font-extralight text-gray-900 mb-2 tracking-tighter">
-                        {estimate.streamers}
-                      </div>
-                      <p className="text-gray-600 font-light text-lg">Active Streamers</p>
-                    </div>
-                  </div>
-
-                  <div className="bg-gradient-to-r from-red-50 to-pink-50 rounded-3xl p-8 border border-red-100">
-                    <h4 className="text-2xl font-light text-gray-900 mb-4 tracking-wide">
-                      Campaign Summary
-                    </h4>
-                    <p className="text-gray-700 font-extralight text-lg leading-relaxed">
-                      Your €{budget.toLocaleString()} campaign across {selectedCountries.join(", ")} will reach 
-                      <strong className="font-normal"> {estimate.views.toLocaleString()} viewers</strong> over 
-                      <strong className="font-normal"> {estimate.duration}</strong> using our network of 
-                      <strong className="font-normal"> {estimate.streamers}</strong>.
-                    </p>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-                    <Button
-                      size="lg"
-                      className="bg-red-400 hover:bg-red-500 text-white px-12 py-6 text-lg font-light tracking-wide h-auto shadow-xl hover:shadow-red-400/20 transition-all duration-300 hover:scale-105"
-                      onClick={() => window.open("https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1RiJEObf5v758exr0hi5vk0ZRP0vgGQexQeAoykItGH1-RTFV1DQOye1rJbUSAqu7TdhWhRigO", "_blank")}
-                    >
-                      Book a Custom Campaign
-                      <ArrowRight className="ml-3 h-5 w-5" />
-                    </Button>
-
-                    <Button
-                      size="lg"
-                      variant="outline"
-                      className="border-gray-400 text-gray-800 hover:bg-gray-50 bg-white px-12 py-6 text-lg font-light tracking-wide h-auto transition-all duration-300 hover:border-gray-500"
-                      onClick={() => scrollToSection("examples")}
-                    >
-                      See Real Campaign Examples
-                      <ExternalLink className="ml-3 h-5 w-5" />
-                    </Button>
-                  </div>
-                </div>
+                <ResultsDisplay
+                  estimate={estimate}
+                  budget={budget}
+                  selectedCountries={selectedCountries}
+                  scrollToSection={scrollToSection}
+                />
               )}
-            </div>
+            </>
           )}
         </div>
       </div>
