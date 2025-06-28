@@ -3,34 +3,39 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Slider } from "@/components/ui/slider";
-import { ArrowRight, ExternalLink, Users, Clock, Eye } from "lucide-react";
+import { ArrowRight, ExternalLink, Users, Clock, Eye, Check } from "lucide-react";
 
 interface CountryData {
   name: string;
-  path: string;
+  flag: string;
+  code: string;
   color: string;
 }
 
 const countries: CountryData[] = [
   {
     name: "Norway",
-    path: "M50,20 Q60,15 70,25 L75,40 Q70,50 60,45 L50,40 Z",
-    color: "text-red-400"
+    flag: "🇳🇴",
+    code: "NO",
+    color: "border-red-300 hover:border-red-400"
   },
   {
     name: "Sweden", 
-    path: "M70,25 Q80,20 90,30 L95,50 Q90,60 80,55 L70,50 Z",
-    color: "text-blue-400"
+    flag: "🇸🇪",
+    code: "SE",
+    color: "border-blue-300 hover:border-blue-400"
   },
   {
     name: "Denmark",
-    path: "M45,45 Q55,40 65,50 L60,60 Q50,65 45,55 Z", 
-    color: "text-green-400"
+    flag: "🇩🇰",
+    code: "DK", 
+    color: "border-green-300 hover:border-green-400"
   },
   {
     name: "Finland",
-    path: "M90,15 Q100,10 110,20 L115,45 Q110,55 100,50 L90,45 Z",
-    color: "text-purple-400"
+    flag: "🇫🇮",
+    code: "FI",
+    color: "border-purple-300 hover:border-purple-400"
   }
 ];
 
@@ -124,46 +129,42 @@ const EstimationSection = ({ t, scrollToSection }: { t: any; scrollToSection: (i
             </div>
           </div>
 
-          {/* Step 1: Nordic Map Selector */}
+          {/* Step 1: Country Cards Selector */}
           {step === 1 && (
             <div className="text-center space-y-12 animate-fade-in">
               <h3 className="text-3xl font-light text-gray-900 mb-8 tracking-wide">
                 Select Your Target Markets
               </h3>
               
-              <div className="relative max-w-2xl mx-auto">
-                <svg 
-                  viewBox="0 0 160 80" 
-                  className="w-full h-64 mx-auto"
-                  style={{ filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))' }}
-                >
-                  {countries.map((country) => (
-                    <g key={country.name}>
-                      <path
-                        d={country.path}
-                        className={`cursor-pointer transition-all duration-300 ${
-                          selectedCountries.includes(country.name)
-                            ? 'fill-red-400 stroke-red-500 stroke-2'
-                            : 'fill-gray-200 hover:fill-gray-300 stroke-gray-300 stroke-1'
-                        }`}
-                        onClick={() => handleCountrySelect(country.name)}
-                      />
-                      <text
-                        x={country.name === "Norway" ? "60" : country.name === "Sweden" ? "82" : country.name === "Denmark" ? "55" : "102"}
-                        y={country.name === "Norway" ? "35" : country.name === "Sweden" ? "42" : country.name === "Denmark" ? "57" : "35"}
-                        className="text-xs font-light fill-gray-700 pointer-events-none text-center"
-                        textAnchor="middle"
-                      >
-                        {country.name}
-                      </text>
-                    </g>
-                  ))}
-                </svg>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                {countries.map((country) => (
+                  <div
+                    key={country.name}
+                    className={`relative bg-white rounded-2xl p-8 border-2 cursor-pointer transition-all duration-300 hover:shadow-lg ${
+                      selectedCountries.includes(country.name)
+                        ? 'border-red-400 bg-red-50 shadow-lg scale-105'
+                        : `${country.color} hover:shadow-md`
+                    }`}
+                    onClick={() => handleCountrySelect(country.name)}
+                  >
+                    {selectedCountries.includes(country.name) && (
+                      <div className="absolute -top-2 -right-2 bg-red-400 text-white rounded-full w-6 h-6 flex items-center justify-center">
+                        <Check className="h-4 w-4" />
+                      </div>
+                    )}
+                    
+                    <div className="text-center space-y-4">
+                      <div className="text-4xl mb-3">{country.flag}</div>
+                      <h4 className="font-light text-lg text-gray-900">{country.name}</h4>
+                      <p className="text-sm text-gray-500 font-light">{country.code}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
 
               <div className="space-y-4">
                 <p className="text-gray-600 font-extralight text-lg">
-                  Click to select countries • {selectedCountries.length} selected
+                  Select one or more countries • {selectedCountries.length} selected
                 </p>
                 {selectedCountries.length > 0 && (
                   <div className="flex flex-wrap justify-center gap-3">
