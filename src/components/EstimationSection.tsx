@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,22 +13,22 @@ interface CountryData {
 const countries: CountryData[] = [
   {
     name: "Norway",
-    path: "M50,20 Q60,15 70,25 L75,40 Q70,50 60,45 L50,40 Z",
+    path: "M45,10 L48,8 L52,12 L50,18 L52,25 L48,35 L45,45 L42,55 L40,65 L38,75 L35,80 L32,75 L30,65 L28,50 L25,40 L28,30 L32,25 L35,20 L40,15 L42,12 Z",
     color: "text-red-400"
   },
   {
     name: "Sweden", 
-    path: "M70,25 Q80,20 90,30 L95,50 Q90,60 80,55 L70,50 Z",
+    path: "M55,15 L58,12 L62,15 L65,20 L68,30 L70,40 L72,55 L70,70 L65,80 L60,85 L55,80 L52,70 L50,55 L48,40 L50,30 L52,25 L55,20 Z",
     color: "text-blue-400"
   },
   {
     name: "Denmark",
-    path: "M45,45 Q55,40 65,50 L60,60 Q50,65 45,55 Z", 
+    path: "M35,70 L40,68 L45,70 L48,75 L45,80 L40,82 L35,80 L32,75 Z M25,65 L30,63 L35,65 L32,70 L28,72 L25,70 Z M20,75 L25,73 L28,75 L25,78 L22,80 L20,78 Z",
     color: "text-green-400"
   },
   {
     name: "Finland",
-    path: "M90,15 Q100,10 110,20 L115,45 Q110,55 100,50 L90,45 Z",
+    path: "M75,8 L80,5 L85,8 L90,12 L95,20 L98,30 L95,40 L92,50 L88,60 L85,70 L80,75 L75,70 L72,60 L70,50 L72,40 L75,30 L78,20 L75,15 Z",
     color: "text-purple-400"
   }
 ];
@@ -133,8 +132,8 @@ const EstimationSection = ({ t, scrollToSection }: { t: any; scrollToSection: (i
               
               <div className="relative max-w-2xl mx-auto">
                 <svg 
-                  viewBox="0 0 160 80" 
-                  className="w-full h-64 mx-auto"
+                  viewBox="0 0 120 100" 
+                  className="w-full h-80 mx-auto"
                   style={{ filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))' }}
                 >
                   {countries.map((country) => (
@@ -149,9 +148,9 @@ const EstimationSection = ({ t, scrollToSection }: { t: any; scrollToSection: (i
                         onClick={() => handleCountrySelect(country.name)}
                       />
                       <text
-                        x={country.name === "Norway" ? "60" : country.name === "Sweden" ? "82" : country.name === "Denmark" ? "55" : "102"}
-                        y={country.name === "Norway" ? "35" : country.name === "Sweden" ? "42" : country.name === "Denmark" ? "57" : "35"}
-                        className="text-xs font-light fill-gray-700 pointer-events-none text-center"
+                        x={country.name === "Norway" ? "38" : country.name === "Sweden" ? "60" : country.name === "Denmark" ? "38" : "82"}
+                        y={country.name === "Norway" ? "45" : country.name === "Sweden" ? "50" : country.name === "Denmark" ? "85" : "42"}
+                        className="text-sm font-light fill-gray-700 pointer-events-none text-center"
                         textAnchor="middle"
                       >
                         {country.name}
