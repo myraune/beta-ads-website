@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,23 +14,23 @@ interface CountryData {
 const countries: CountryData[] = [
   {
     name: "Norway",
-    path: "M45,10 L48,8 L52,12 L50,18 L52,25 L48,35 L45,45 L42,55 L40,65 L38,75 L35,80 L32,75 L30,65 L28,50 L25,40 L28,30 L32,25 L35,20 L40,15 L42,12 Z",
-    color: "text-red-400"
+    path: "M20,5 L25,3 L30,5 L35,8 L40,12 L42,18 L45,25 L48,35 L50,45 L52,55 L54,65 L55,75 L53,82 L50,85 L45,87 L40,85 L35,82 L30,78 L25,72 L20,65 L15,55 L12,45 L10,35 L12,25 L15,18 L18,12 Z",
+    color: "text-red-500"
   },
   {
     name: "Sweden", 
-    path: "M55,15 L58,12 L62,15 L65,20 L68,30 L70,40 L72,55 L70,70 L65,80 L60,85 L55,80 L52,70 L50,55 L48,40 L50,30 L52,25 L55,20 Z",
-    color: "text-blue-400"
+    path: "M65,8 L70,5 L75,7 L80,10 L85,15 L90,22 L95,30 L98,40 L100,50 L102,60 L100,70 L95,78 L90,82 L85,85 L80,87 L75,85 L70,82 L65,78 L62,70 L60,60 L58,50 L60,40 L62,30 L65,22 L68,15 Z",
+    color: "text-blue-500"
   },
   {
     name: "Denmark",
-    path: "M35,70 L40,68 L45,70 L48,75 L45,80 L40,82 L35,80 L32,75 Z M25,65 L30,63 L35,65 L32,70 L28,72 L25,70 Z M20,75 L25,73 L28,75 L25,78 L22,80 L20,78 Z",
-    color: "text-green-400"
+    path: "M25,88 L35,85 L45,88 L50,92 L48,98 L45,102 L40,105 L35,103 L30,100 L25,95 Z M15,78 L25,75 L30,78 L28,83 L25,87 L20,85 L15,82 Z M8,95 L18,92 L23,95 L21,100 L18,103 L13,101 L8,98 Z",
+    color: "text-green-500"
   },
   {
     name: "Finland",
-    path: "M75,8 L80,5 L85,8 L90,12 L95,20 L98,30 L95,40 L92,50 L88,60 L85,70 L80,75 L75,70 L72,60 L70,50 L72,40 L75,30 L78,20 L75,15 Z",
-    color: "text-purple-400"
+    path: "M110,3 L118,1 L125,4 L130,8 L135,15 L140,25 L142,35 L140,45 L135,55 L130,63 L125,70 L120,75 L115,78 L110,75 L105,70 L102,63 L100,55 L102,45 L105,35 L108,25 L110,15 Z",
+    color: "text-purple-500"
   }
 ];
 
@@ -130,34 +131,53 @@ const EstimationSection = ({ t, scrollToSection }: { t: any; scrollToSection: (i
                 Select Your Target Markets
               </h3>
               
-              <div className="relative max-w-2xl mx-auto">
-                <svg 
-                  viewBox="0 0 120 100" 
-                  className="w-full h-80 mx-auto"
-                  style={{ filter: 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))' }}
-                >
-                  {countries.map((country) => (
-                    <g key={country.name}>
-                      <path
-                        d={country.path}
-                        className={`cursor-pointer transition-all duration-300 ${
-                          selectedCountries.includes(country.name)
-                            ? 'fill-red-400 stroke-red-500 stroke-2'
-                            : 'fill-gray-200 hover:fill-gray-300 stroke-gray-300 stroke-1'
-                        }`}
-                        onClick={() => handleCountrySelect(country.name)}
-                      />
-                      <text
-                        x={country.name === "Norway" ? "38" : country.name === "Sweden" ? "60" : country.name === "Denmark" ? "38" : "82"}
-                        y={country.name === "Norway" ? "45" : country.name === "Sweden" ? "50" : country.name === "Denmark" ? "85" : "42"}
-                        className="text-sm font-light fill-gray-700 pointer-events-none text-center"
-                        textAnchor="middle"
-                      >
-                        {country.name}
-                      </text>
-                    </g>
-                  ))}
-                </svg>
+              <div className="relative max-w-3xl mx-auto">
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-3xl p-12 shadow-lg border border-blue-100">
+                  <svg 
+                    viewBox="0 0 160 120" 
+                    className="w-full h-96 mx-auto"
+                    style={{ filter: 'drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1))' }}
+                  >
+                    {/* Background water/sea */}
+                    <rect width="160" height="120" fill="#e0f2fe" rx="8" />
+                    
+                    {countries.map((country) => (
+                      <g key={country.name}>
+                        <path
+                          d={country.path}
+                          className={`cursor-pointer transition-all duration-500 stroke-2 ${
+                            selectedCountries.includes(country.name)
+                              ? 'fill-red-400 stroke-red-600 drop-shadow-lg'
+                              : 'fill-white hover:fill-gray-100 stroke-gray-400 hover:stroke-gray-600 hover:drop-shadow-md'
+                          }`}
+                          onClick={() => handleCountrySelect(country.name)}
+                          style={{
+                            filter: selectedCountries.includes(country.name) 
+                              ? 'drop-shadow(0 4px 8px rgba(239, 68, 68, 0.3))' 
+                              : 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))'
+                          }}
+                        />
+                        <text
+                          x={country.name === "Norway" ? "32" : country.name === "Sweden" ? "82" : country.name === "Denmark" ? "32" : "122"}
+                          y={country.name === "Norway" ? "50" : country.name === "Sweden" ? "50" : country.name === "Denmark" ? "95" : "45"}
+                          className={`text-sm font-medium pointer-events-none transition-all duration-300 ${
+                            selectedCountries.includes(country.name) 
+                              ? 'fill-white' 
+                              : 'fill-gray-700 hover:fill-gray-900'
+                          }`}
+                          textAnchor="middle"
+                        >
+                          {country.name}
+                        </text>
+                      </g>
+                    ))}
+                    
+                    {/* Decorative elements */}
+                    <circle cx="140" cy="20" r="3" fill="#fbbf24" opacity="0.6" />
+                    <circle cx="145" cy="25" r="2" fill="#fbbf24" opacity="0.4" />
+                    <circle cx="135" cy="25" r="1.5" fill="#fbbf24" opacity="0.5" />
+                  </svg>
+                </div>
               </div>
 
               <div className="space-y-4">
@@ -167,7 +187,7 @@ const EstimationSection = ({ t, scrollToSection }: { t: any; scrollToSection: (i
                 {selectedCountries.length > 0 && (
                   <div className="flex flex-wrap justify-center gap-3">
                     {selectedCountries.map((country) => (
-                      <span key={country} className="bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-light">
+                      <span key={country} className="bg-red-100 text-red-700 px-4 py-2 rounded-full text-sm font-medium shadow-sm border border-red-200">
                         {country}
                       </span>
                     ))}
