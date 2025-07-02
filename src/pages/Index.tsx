@@ -4,11 +4,38 @@ import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { ArrowRight, Play, Users, Target, TrendingUp, ExternalLink, Sparkles } from "lucide-react";
 import { useState } from "react";
-import EstimationSection from "@/components/EstimationSection";
 
-const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) => void }) => (
+
+const Hero = ({ t, scrollToSection, language, setLanguage }: { t: any; scrollToSection: (id: string) => void; language: string; setLanguage: (lang: string) => void }) => (
   <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 text-gray-900">
     <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23000000%22%20fill-opacity%3D%220.02%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+    
+    {/* Language Toggle */}
+    <div className="absolute top-8 right-8 z-10">
+      <div className="flex items-center space-x-1 bg-white/20 backdrop-blur-sm rounded-full p-1 border border-white/30">
+        <button
+          onClick={() => setLanguage("no")}
+          className={`px-4 py-2 rounded-full text-sm font-light transition-all duration-300 ${
+            language === "no" 
+              ? "bg-white text-gray-900 shadow-sm" 
+              : "text-gray-700 hover:text-gray-900"
+          }`}
+        >
+          Nor
+        </button>
+        <button
+          onClick={() => setLanguage("en")}
+          className={`px-4 py-2 rounded-full text-sm font-light transition-all duration-300 ${
+            language === "en" 
+              ? "bg-white text-gray-900 shadow-sm" 
+              : "text-gray-700 hover:text-gray-900"
+          }`}
+        >
+          Eng
+        </button>
+      </div>
+    </div>
+
     <div className="relative max-w-7xl mx-auto px-8 lg:px-12 py-32 lg:py-40">
       <div className="text-center space-y-12">
         <div className="inline-flex items-center space-x-3">
@@ -46,7 +73,7 @@ const Hero = ({ t, scrollToSection }: { t: any; scrollToSection: (id: string) =>
           <Button
             size="lg"
             className="bg-gray-900 text-white hover:bg-gray-800 px-10 py-6 text-lg font-light tracking-wide h-auto border-0 shadow-2xl hover:shadow-gray-900/20 transition-all duration-300 hover:scale-105"
-            onClick={() => scrollToSection("estimation")}
+            onClick={() => scrollToSection("examples")}
           >
             {t.brandButton}
             <ArrowRight className="ml-3 h-5 w-5" />
@@ -158,7 +185,7 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   return (
-    <section id="examples" className="py-32 bg-white">
+    <section id="examples" className="py-32 bg-gradient-to-br from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
@@ -169,7 +196,7 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => {
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto relative">
+        <div className="max-w-5xl mx-auto relative">
           <Carousel 
             className="w-full"
             opts={{
@@ -177,11 +204,11 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => {
               loop: true,
             }}
           >
-            <CarouselContent className="-ml-2 md:-ml-6">
+            <CarouselContent className="-ml-4 md:-ml-8">
               {caseVideos.map((video, index) => (
-                <CarouselItem key={video.id} className="pl-2 md:pl-6 md:basis-4/5 lg:basis-3/4">
-                  <div className="relative bg-gradient-to-br from-gray-50 to-white rounded-3xl p-8 border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300">
-                    <div className="aspect-video rounded-2xl overflow-hidden border border-gray-200 relative">
+                <CarouselItem key={video.id} className="pl-4 md:pl-8 basis-full md:basis-5/6">
+                  <div className="relative bg-white rounded-3xl p-6 md:p-8 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02]">
+                    <div className="aspect-video rounded-2xl overflow-hidden border border-gray-100 relative group">
                       <iframe
                         width="100%"
                         height="100%"
@@ -190,34 +217,33 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => {
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
-                        className="w-full h-full"
+                        className="w-full h-full transition-all duration-300 group-hover:scale-105"
                       ></iframe>
                     </div>
-                    <div className="text-center mt-6">
-                      <h3 className="text-xl font-light text-gray-900 mb-2 tracking-wide">{video.brand}</h3>
-                      <p className="text-gray-600 font-extralight tracking-wide">{video.title}</p>
+                    <div className="text-center mt-6 space-y-2">
+                      <h3 className="text-2xl font-light text-gray-900 tracking-wide">{video.brand}</h3>
+                      <p className="text-gray-600 font-extralight tracking-wide text-lg">{video.title}</p>
                     </div>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
             
-            <CarouselPrevious className="text-gray-600 border-gray-200 hover:bg-gray-50 -left-6 lg:-left-12 h-12 w-12" />
-            <CarouselNext className="text-gray-600 border-gray-200 hover:bg-gray-50 -right-6 lg:-right-12 h-12 w-12" />
+            <CarouselPrevious className="text-gray-600 border-gray-300 hover:bg-gray-100 hover:border-gray-400 -left-4 md:-left-8 h-14 w-14 transition-all duration-300" />
+            <CarouselNext className="text-gray-600 border-gray-300 hover:bg-gray-100 hover:border-gray-400 -right-4 md:-right-8 h-14 w-14 transition-all duration-300" />
           </Carousel>
 
           {/* Dot indicators */}
-          <div className="flex justify-center mt-8 space-x-3">
+          <div className="flex justify-center mt-12 space-x-3">
             {caseVideos.map((_, index) => (
               <button
                 key={index}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-4 h-4 rounded-full transition-all duration-300 ${
                   index === currentSlide 
-                    ? 'bg-red-400 shadow-lg' 
-                    : 'bg-gray-300 hover:bg-gray-400'
+                    ? 'bg-red-400 shadow-lg scale-125' 
+                    : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
                 }`}
                 onClick={() => {
-                  // This would need carousel API integration for full functionality
                   setCurrentSlide(index);
                 }}
               />
@@ -225,8 +251,8 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => {
           </div>
 
           {/* Helper text */}
-          <div className="text-center mt-6">
-            <p className="text-sm text-gray-500 font-light">
+          <div className="text-center mt-8">
+            <p className="text-gray-500 font-light text-lg">
               Swipe or use arrows to see more campaign examples
             </p>
           </div>
@@ -519,7 +545,7 @@ const Index = () => {
       heroTitle: ["Your brand, live on Twitch", "– without interruptions"],
       heroDescription: "We place your brand inside Twitch streams through animated overlays that viewers actually notice.",
       heroSubDescription: "No forced integrations. Just guaranteed visibility.",
-      brandButton: "Get Campaign Estimate",
+      brandButton: "See How It Works",
       streamerButton: "I'm a streamer",
       usedByTitle: "Used by Samsung, Surfshark, and Shure to reach Twitch viewers with native ads",
       seeCampaignExample: "See Campaign Example",
@@ -545,7 +571,7 @@ const Index = () => {
       heroTitle: ["Din merkevare, live på Twitch", "– uten avbrytelser"],
       heroDescription: "Vi plasserer din merkevare inne i Twitch-streams gjennom animerte overlays som seere faktisk legger merke til.",
       heroSubDescription: "Ingen tvungne integrasjoner. Bare garantert synlighet.",
-      brandButton: "Få Kampanjeestimat",
+      brandButton: "Se Hvordan Det Fungerer",
       streamerButton: "Jeg er en streamer",
       usedByTitle: "Brukt av Samsung, Surfshark og Shure for å nå Twitch-seere med native annonser",
       seeCampaignExample: "Se Kampanjeeksempel",
@@ -594,9 +620,8 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Hero t={t} scrollToSection={scrollToSection} />
+      <Hero t={t} scrollToSection={scrollToSection} language={language} setLanguage={setLanguage} />
       <TrustedBy />
-      <EstimationSection t={t} scrollToSection={scrollToSection} />
       <Examples t={t} caseVideos={caseVideos} />
       <StreamerSection t={t} language={language} />
       <Press t={t} />
