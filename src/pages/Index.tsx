@@ -207,8 +207,8 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => {
             <CarouselContent className="-ml-4 md:-ml-8">
               {caseVideos.map((video, index) => (
                 <CarouselItem key={video.id} className="pl-4 md:pl-8 basis-full md:basis-5/6">
-                  <div className="relative bg-white rounded-3xl p-6 md:p-8 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.01] group">
-                    <div className="aspect-video rounded-2xl overflow-hidden border border-gray-100 relative">
+                  <div className="relative bg-white rounded-3xl p-6 md:p-8 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 group">
+                    <div className="aspect-video rounded-2xl overflow-hidden">
                       <iframe
                         width="100%"
                         height="100%"
@@ -218,6 +218,7 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => {
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
                         className="w-full h-full rounded-2xl"
+                        style={{ borderRadius: '1rem' }}
                       ></iframe>
                     </div>
                     <div className="text-center mt-6 space-y-2">
