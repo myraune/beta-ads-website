@@ -207,8 +207,8 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => {
             <CarouselContent className="-ml-4 md:-ml-8">
               {caseVideos.map((video, index) => (
                 <CarouselItem key={video.id} className="pl-4 md:pl-8 basis-full md:basis-5/6">
-                  <div className="relative bg-white rounded-3xl p-6 md:p-8 border border-gray-200 shadow-lg hover:shadow-xl transition-all duration-500 hover:scale-[1.02]">
-                    <div className="aspect-video rounded-2xl overflow-hidden border border-gray-100 relative group">
+                  <div className="relative bg-white rounded-3xl p-6 md:p-8 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-[1.01] group">
+                    <div className="aspect-video rounded-2xl overflow-hidden border border-gray-100 relative">
                       <iframe
                         width="100%"
                         height="100%"
@@ -217,11 +217,11 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => {
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowFullScreen
-                        className="w-full h-full transition-all duration-300 group-hover:scale-105"
+                        className="w-full h-full rounded-2xl"
                       ></iframe>
                     </div>
                     <div className="text-center mt-6 space-y-2">
-                      <h3 className="text-2xl font-light text-gray-900 tracking-wide">{video.brand}</h3>
+                      <h3 className="text-2xl font-light text-gray-900 tracking-wide group-hover:text-red-400 transition-colors duration-300">{video.brand}</h3>
                       <p className="text-gray-600 font-extralight tracking-wide text-lg">{video.title}</p>
                     </div>
                   </div>
