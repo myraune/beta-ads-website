@@ -10,13 +10,13 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   return (
-    <section id="examples" className="py-32 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <section id="examples" className="py-32 bg-gradient-to-br from-gray-50 to-white dark:from-background dark:to-secondary">
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 dark:text-gray-100 mb-8 tracking-tighter">
+          <h2 className="text-4xl md:text-6xl font-extralight text-foreground mb-8 tracking-tighter">
             {t.trustedByTitle}
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
             {t.trustedByDescription}
           </p>
         </div>
