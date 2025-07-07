@@ -1,7 +1,7 @@
 import React from "react";
 
 export const TrustedBy: React.FC = () => (
-  <section className="py-20 bg-white dark:bg-gray-900 overflow-hidden">
+  <section className="py-20 bg-white overflow-hidden">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-16">
         <div className="mb-12 relative">
@@ -9,7 +9,7 @@ export const TrustedBy: React.FC = () => (
             <div className="flex animate-scroll">
               <div className="flex items-center space-x-32 whitespace-nowrap">
                 <div className="h-12 w-32 flex items-center justify-center">
-                  <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="max-h-12 max-w-32 opacity-60 object-contain mix-blend-multiply dark:mix-blend-screen" />
+                  <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="max-h-12 max-w-32 opacity-60 object-contain mix-blend-multiply" />
                 </div>
                 <div className="h-12 w-32 flex items-center justify-center">
                   <img src="/lovable-uploads/bf505fdb-dc9b-4a82-93b6-f604c840737f.png" alt="Surfshark" className="max-h-12 max-w-32 opacity-60 object-contain" />
@@ -35,7 +35,7 @@ export const TrustedBy: React.FC = () => (
               </div>
               <div className="flex items-center space-x-32 whitespace-nowrap">
                 <div className="h-12 w-32 flex items-center justify-center">
-                  <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="max-h-12 max-w-32 opacity-60 object-contain mix-blend-multiply dark:mix-blend-screen" />
+                  <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="max-h-12 max-w-32 opacity-60 object-contain mix-blend-multiply" />
                 </div>
                 <div className="h-12 w-32 flex items-center justify-center">
                   <img src="/lovable-uploads/bf505fdb-dc9b-4a82-93b6-f604c840737f.png" alt="Surfshark" className="max-h-12 max-w-32 opacity-60 object-contain" />

@@ -5,13 +5,13 @@ interface TeamProps {
 }
 
 export const Team: React.FC<TeamProps> = ({ t }) => (
-  <section className="py-32 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+  <section className="py-32 bg-gradient-to-br from-gray-50 to-white">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-24">
-        <h2 className="text-5xl md:text-7xl font-extralight text-gray-900 dark:text-gray-100 mb-12 tracking-tighter">
+        <h2 className="text-5xl md:text-7xl font-extralight text-gray-900 mb-12 tracking-tighter">
           {t.meetTeamTitle}
         </h2>
-        <p className="text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto font-extralight leading-relaxed tracking-wide">
+        <p className="text-2xl text-gray-600 max-w-4xl mx-auto font-extralight leading-relaxed tracking-wide">
           {t.meetTeamDescription}
         </p>
       </div>
@@ -25,9 +25,9 @@ export const Team: React.FC<TeamProps> = ({ t }) => (
               className="w-full h-full object-cover"
             />
           </div>
-          <h3 className="text-2xl font-light text-gray-900 dark:text-gray-100 mb-3 tracking-wide">Andreas Myraune</h3>
-          <p className="text-gray-900 dark:text-gray-100 font-extralight mb-2 text-lg tracking-wide">Head of Agency</p>
-          <p className="text-gray-500 dark:text-gray-400 font-extralight tracking-wide">andreas@beta-ads.no</p>
+          <h3 className="text-2xl font-light text-gray-900 mb-3 tracking-wide">Andreas Myraune</h3>
+          <p className="text-gray-900 font-extralight mb-2 text-lg tracking-wide">Head of Agency</p>
+          <p className="text-gray-500 font-extralight tracking-wide">andreas@beta-ads.no</p>
         </div>
 
         <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
@@ -38,9 +38,9 @@ export const Team: React.FC<TeamProps> = ({ t }) => (
               className="w-full h-full object-cover"
             />
           </div>
-          <h3 className="text-2xl font-light text-gray-900 dark:text-gray-100 mb-3 tracking-wide">Toms Znatnajs</h3>
-          <p className="text-gray-900 dark:text-gray-100 font-extralight mb-2 text-lg tracking-wide">Head of Talent</p>
-          <p className="text-gray-500 dark:text-gray-400 font-extralight tracking-wide">toms@beta-ads.no</p>
+          <h3 className="text-2xl font-light text-gray-900 mb-3 tracking-wide">Toms Znatnajs</h3>
+          <p className="text-gray-900 font-extralight mb-2 text-lg tracking-wide">Head of Talent</p>
+          <p className="text-gray-500 font-extralight tracking-wide">toms@beta-ads.no</p>
         </div>
       </div>
     </div>
