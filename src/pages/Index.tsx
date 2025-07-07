@@ -122,7 +122,7 @@ const TrustedBy = () => (
         <div className="mb-12 relative">
           <div className="flex overflow-hidden">
             <div className="flex animate-scroll">
-              <div className="flex items-center space-x-24 whitespace-nowrap">
+              <div className="flex items-center space-x-32 whitespace-nowrap">
                 <div className="h-12 w-32 flex items-center justify-center">
                   <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="max-h-12 max-w-32 opacity-60 object-contain" />
                 </div>
@@ -148,7 +148,7 @@ const TrustedBy = () => (
                   <img src="/lovable-uploads/1fc4788c-f973-403f-9b01-4f3b4fa2ba20.png" alt="SteelSeries" className="max-h-12 max-w-32 opacity-60 object-contain" />
                 </div>
               </div>
-              <div className="flex items-center space-x-24 whitespace-nowrap">
+              <div className="flex items-center space-x-32 whitespace-nowrap">
                 <div className="h-12 w-32 flex items-center justify-center">
                   <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="max-h-12 max-w-32 opacity-60 object-contain" />
                 </div>
