@@ -1,25 +1,25 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { ArrowRight, Play, Users, Target, TrendingUp, ExternalLink, Sparkles } from "lucide-react";
 import { useState } from "react";
-
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Hero = ({ t, scrollToSection, language, setLanguage }: { t: any; scrollToSection: (id: string) => void; language: string; setLanguage: (lang: string) => void }) => (
-  <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 text-gray-900">
+  <section className="relative overflow-hidden bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 dark:from-gray-900 dark:via-red-950 dark:to-pink-950 text-gray-900 dark:text-gray-100">
     <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23000000%22%20fill-opacity%3D%220.02%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
     
-    {/* Language Toggle */}
-    <div className="absolute top-8 right-8 z-10">
-      <div className="flex items-center space-x-1 bg-white/20 backdrop-blur-sm rounded-full p-1 border border-white/30">
+    {/* Language Toggle and Theme Toggle */}
+    <div className="absolute top-8 right-8 z-10 flex items-center space-x-4">
+      <ThemeToggle />
+      <div className="flex items-center space-x-1 bg-white/20 dark:bg-gray-800/20 backdrop-blur-sm rounded-full p-1 border border-white/30 dark:border-gray-600/30">
         <button
           onClick={() => setLanguage("no")}
           className={`px-4 py-2 rounded-full text-sm font-light transition-all duration-300 ${
             language === "no" 
-              ? "bg-white text-gray-900 shadow-sm" 
-              : "text-gray-700 hover:text-gray-900"
+              ? "bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm" 
+              : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100"
           }`}
         >
           Nor
@@ -28,8 +28,8 @@ const Hero = ({ t, scrollToSection, language, setLanguage }: { t: any; scrollToS
           onClick={() => setLanguage("en")}
           className={`px-4 py-2 rounded-full text-sm font-light transition-all duration-300 ${
             language === "en" 
-              ? "bg-white text-gray-900 shadow-sm" 
-              : "text-gray-700 hover:text-gray-900"
+              ? "bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 shadow-sm" 
+              : "text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100"
           }`}
         >
           Eng
@@ -40,8 +40,8 @@ const Hero = ({ t, scrollToSection, language, setLanguage }: { t: any; scrollToS
     <div className="relative max-w-7xl mx-auto px-8 lg:px-12 py-32 lg:py-40">
       <div className="text-center space-y-12">
         <div className="inline-flex items-center space-x-3">
-          <Sparkles className="h-5 w-5 text-gray-700" />
-          <Badge className="bg-white/20 text-gray-800 border-gray-300 text-sm px-6 py-3 font-light backdrop-blur-sm tracking-wider">
+          <Sparkles className="h-5 w-5 text-gray-700 dark:text-gray-300" />
+          <Badge className="bg-white/20 dark:bg-gray-800/20 text-gray-800 dark:text-gray-200 border-gray-300 dark:border-gray-600 text-sm px-6 py-3 font-light backdrop-blur-sm tracking-wider">
             {t.heroSubtitle}
           </Badge>
         </div>
@@ -49,22 +49,22 @@ const Hero = ({ t, scrollToSection, language, setLanguage }: { t: any; scrollToS
         <div className="space-y-8">
           <div className="flex items-center justify-center mb-8">
             <div className="flex items-center">
-              <span className="text-5xl md:text-6xl font-extralight text-gray-900 tracking-tighter">Beta</span>
+              <span className="text-5xl md:text-6xl font-extralight text-gray-900 dark:text-gray-100 tracking-tighter">Beta</span>
               <span className="text-5xl md:text-6xl font-extralight text-red-400 tracking-tighter ml-2">Ads</span>
             </div>
           </div>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extralight leading-[0.9] tracking-tighter text-gray-900">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extralight leading-[0.9] tracking-tighter text-gray-900 dark:text-gray-100">
             {t.heroTitle[0]}{" "}
-            <span className="font-light italic bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
+            <span className="font-light italic bg-gradient-to-r from-gray-800 to-gray-600 dark:from-gray-200 dark:to-gray-400 bg-clip-text text-transparent">
               {t.heroTitle[1]}
             </span>
           </h1>
 
           <div className="max-w-3xl mx-auto">
-            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed font-extralight tracking-wide">
+            <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed font-extralight tracking-wide">
               {t.heroDescription}
             </p>
-            <p className="text-lg md:text-xl text-gray-600 mt-4 font-extralight">
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mt-4 font-extralight">
               {t.heroSubDescription}
             </p>
           </div>
@@ -73,7 +73,7 @@ const Hero = ({ t, scrollToSection, language, setLanguage }: { t: any; scrollToS
         <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
           <Button
             size="lg"
-            className="bg-gray-900 text-white hover:bg-gray-800 px-10 py-6 text-lg font-light tracking-wide h-auto border-0 shadow-2xl hover:shadow-gray-900/20 transition-all duration-300 hover:scale-105"
+            className="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-200 px-10 py-6 text-lg font-light tracking-wide h-auto border-0 shadow-2xl hover:shadow-gray-900/20 dark:hover:shadow-gray-100/20 transition-all duration-300 hover:scale-105"
             onClick={() => scrollToSection("examples")}
           >
             {t.brandButton}
@@ -83,7 +83,7 @@ const Hero = ({ t, scrollToSection, language, setLanguage }: { t: any; scrollToS
           <Button
             size="lg"
             variant="outline"
-            className="border-gray-600 text-gray-800 hover:bg-gray-100 bg-white/30 px-10 py-6 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-gray-700"
+            className="border-gray-600 dark:border-gray-400 text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 bg-white/30 dark:bg-gray-800/30 px-10 py-6 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-gray-700 dark:hover:border-gray-300"
             onClick={() => scrollToSection("streamer-section")}
           >
             {t.streamerButton}
@@ -92,8 +92,8 @@ const Hero = ({ t, scrollToSection, language, setLanguage }: { t: any; scrollToS
         </div>
 
         <div className="pt-16">
-          <div className="relative bg-gradient-to-r from-white/30 to-white/40 rounded-3xl p-6 backdrop-blur-md border border-white/30 shadow-2xl max-w-4xl mx-auto">
-            <div className="aspect-video rounded-2xl overflow-hidden border border-white/20">
+          <div className="relative bg-gradient-to-r from-white/30 to-white/40 dark:from-gray-800/30 dark:to-gray-700/40 rounded-3xl p-6 backdrop-blur-md border border-white/30 dark:border-gray-600/30 shadow-2xl max-w-4xl mx-auto">
+            <div className="aspect-video rounded-2xl overflow-hidden border border-white/20 dark:border-gray-600/20">
               <iframe
                 width="100%"
                 height="100%"
@@ -106,7 +106,7 @@ const Hero = ({ t, scrollToSection, language, setLanguage }: { t: any; scrollToS
               ></iframe>
             </div>
             <div className="text-center mt-4">
-              <p className="text-gray-700 text-sm font-extralight tracking-wide">Overview of multiple campaigns in action</p>
+              <p className="text-gray-700 dark:text-gray-300 text-sm font-extralight tracking-wide">Overview of multiple campaigns in action</p>
             </div>
           </div>
         </div>
@@ -116,7 +116,7 @@ const Hero = ({ t, scrollToSection, language, setLanguage }: { t: any; scrollToS
 );
 
 const TrustedBy = () => (
-  <section className="py-20 bg-white overflow-hidden">
+  <section className="py-20 bg-white dark:bg-gray-900 overflow-hidden">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-16">
         <div className="mb-12 relative">
@@ -186,13 +186,13 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   return (
-    <section id="examples" className="py-32 bg-gradient-to-br from-gray-50 to-white">
+    <section id="examples" className="py-32 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
         <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 mb-8 tracking-tighter">
+          <h2 className="text-4xl md:text-6xl font-extralight text-gray-900 dark:text-gray-100 mb-8 tracking-tighter">
             {t.trustedByTitle}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
             {t.trustedByDescription}
           </p>
         </div>
@@ -208,7 +208,7 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => {
             <CarouselContent className="-ml-4 md:-ml-8">
               {caseVideos.map((video, index) => (
                 <CarouselItem key={video.id} className="pl-4 md:pl-8 basis-full md:basis-5/6">
-                  <div className="relative bg-white rounded-3xl p-6 md:p-8 border border-gray-200 shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                  <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-6 md:p-8 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-all duration-300 group">
                     <div className="aspect-video rounded-2xl overflow-hidden bg-black">
                       <iframe
                         width="100%"
@@ -222,16 +222,16 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => {
                       ></iframe>
                     </div>
                     <div className="text-center mt-6 space-y-2">
-                      <h3 className="text-2xl font-light text-gray-900 tracking-wide group-hover:text-red-400 transition-colors duration-300">{video.brand}</h3>
-                      <p className="text-gray-600 font-extralight tracking-wide text-lg">{video.title}</p>
+                      <h3 className="text-2xl font-light text-gray-900 dark:text-gray-100 tracking-wide group-hover:text-red-400 transition-colors duration-300">{video.brand}</h3>
+                      <p className="text-gray-600 dark:text-gray-400 font-extralight tracking-wide text-lg">{video.title}</p>
                     </div>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
             
-            <CarouselPrevious className="text-gray-600 border-gray-300 hover:bg-gray-100 hover:border-gray-400 -left-4 md:-left-8 h-14 w-14 transition-all duration-300" />
-            <CarouselNext className="text-gray-600 border-gray-300 hover:bg-gray-100 hover:border-gray-400 -right-4 md:-right-8 h-14 w-14 transition-all duration-300" />
+            <CarouselPrevious className="text-gray-600 dark:text-gray-400 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500 -left-4 md:-left-8 h-14 w-14 transition-all duration-300" />
+            <CarouselNext className="text-gray-600 dark:text-gray-400 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500 -right-4 md:-right-8 h-14 w-14 transition-all duration-300" />
           </Carousel>
 
           {/* Dot indicators */}
@@ -242,7 +242,7 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => {
                 className={`w-4 h-4 rounded-full transition-all duration-300 ${
                   index === currentSlide 
                     ? 'bg-red-400 shadow-lg scale-125' 
-                    : 'bg-gray-300 hover:bg-gray-400 hover:scale-110'
+                    : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 hover:scale-110'
                 }`}
                 onClick={() => {
                   setCurrentSlide(index);
@@ -253,7 +253,7 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => {
 
           {/* Helper text */}
           <div className="text-center mt-8">
-            <p className="text-gray-500 font-light text-lg">
+            <p className="text-gray-500 dark:text-gray-400 font-light text-lg">
               Swipe or use arrows to see more campaign examples
             </p>
           </div>
@@ -264,16 +264,16 @@ const Examples = ({ t, caseVideos }: { t: any; caseVideos: any[] }) => {
 };
 
 const StreamerSection = ({ t, language }: { t: any; language: string }) => (
-  <section id="streamer-section" className="py-32 bg-white text-gray-900">
+  <section id="streamer-section" className="py-32 bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-20">
-        <h2 className="text-4xl md:text-6xl font-extralight mb-6 tracking-tighter text-gray-900">
+        <h2 className="text-4xl md:text-6xl font-extralight mb-6 tracking-tighter text-gray-900 dark:text-gray-100">
           {t.streamerSectionTitle}
         </h2>
-        <p className="text-2xl md:text-3xl text-gray-700 font-light mb-8 tracking-wide">
+        <p className="text-2xl md:text-3xl text-gray-700 dark:text-gray-300 font-light mb-8 tracking-wide">
           {t.streamerSectionSubtitle}
         </p>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+        <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
           {t.streamerSectionDescription}
         </p>
       </div>
@@ -291,7 +291,7 @@ const StreamerSection = ({ t, language }: { t: any; language: string }) => (
         <Button
           size="lg"
           variant="outline"
-          className="border-gray-400 text-gray-800 hover:bg-gray-50 hover:text-gray-900 bg-gray-50 px-12 py-6 text-lg font-light tracking-wide h-auto transition-all duration-300 hover:border-gray-500"
+          className="border-gray-400 dark:border-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 bg-gray-50 dark:bg-gray-800/50 px-12 py-6 text-lg font-light tracking-wide h-auto transition-all duration-300 hover:border-gray-500 dark:hover:border-gray-500"
           onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
         >
           Join Our Discord
@@ -300,9 +300,9 @@ const StreamerSection = ({ t, language }: { t: any; language: string }) => (
       </div>
 
       <div className="text-center">
-        <div className="inline-flex items-center space-x-3 bg-gray-100 rounded-2xl px-8 py-4 border border-gray-200">
-          <TrendingUp className="h-6 w-6 text-gray-600" />
-          <span className="text-gray-700 font-light text-lg tracking-wide">
+        <div className="inline-flex items-center space-x-3 bg-gray-100 dark:bg-gray-800 rounded-2xl px-8 py-4 border border-gray-200 dark:border-gray-700">
+          <TrendingUp className="h-6 w-6 text-gray-600 dark:text-gray-400" />
+          <span className="text-gray-700 dark:text-gray-300 font-light text-lg tracking-wide">
             {language === "en"
               ? "Earn passive income based on your viewership"
               : "Tjen passiv inntekt basert på dine seertall"}
@@ -314,7 +314,7 @@ const StreamerSection = ({ t, language }: { t: any; language: string }) => (
 );
 
 const Press = ({ t }: { t: any }) => (
-  <section className="py-32 bg-gradient-to-br from-red-900 via-red-950 to-black text-white relative overflow-hidden border-t border-white/10">
+  <section className="py-32 bg-gradient-to-br from-red-900 via-red-950 to-black text-white relative overflow-hidden border-t border-white/10 dark:border-gray-600/10">
     <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.03%22%3E%3Cpath%20d%3D%22M20%2020c0-5.5-4.5-10-10-10s-10%204.5-10%2010%204.5%2010%2010-4.5%2010-10z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
     <div className="relative max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-20">
@@ -404,13 +404,13 @@ const Press = ({ t }: { t: any }) => (
 );
 
 const Team = ({ t }: { t: any }) => (
-  <section className="py-32 bg-gradient-to-br from-gray-50 to-white">
+  <section className="py-32 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-24">
-        <h2 className="text-5xl md:text-7xl font-extralight text-gray-900 mb-12 tracking-tighter">
+        <h2 className="text-5xl md:text-7xl font-extralight text-gray-900 dark:text-gray-100 mb-12 tracking-tighter">
           {t.meetTeamTitle}
         </h2>
-        <p className="text-2xl text-gray-600 max-w-4xl mx-auto font-extralight leading-relaxed tracking-wide">
+        <p className="text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto font-extralight leading-relaxed tracking-wide">
           {t.meetTeamDescription}
         </p>
       </div>
@@ -424,9 +424,9 @@ const Team = ({ t }: { t: any }) => (
               className="w-full h-full object-cover"
             />
           </div>
-          <h3 className="text-2xl font-light text-gray-900 mb-3 tracking-wide">Andreas Myraune</h3>
-          <p className="text-gray-900 font-extralight mb-2 text-lg tracking-wide">Head of Agency</p>
-          <p className="text-gray-500 font-extralight tracking-wide">andreas@beta-ads.no</p>
+          <h3 className="text-2xl font-light text-gray-900 dark:text-gray-100 mb-3 tracking-wide">Andreas Myraune</h3>
+          <p className="text-gray-900 dark:text-gray-100 font-extralight mb-2 text-lg tracking-wide">Head of Agency</p>
+          <p className="text-gray-500 dark:text-gray-400 font-extralight tracking-wide">andreas@beta-ads.no</p>
         </div>
 
         <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
@@ -437,9 +437,9 @@ const Team = ({ t }: { t: any }) => (
               className="w-full h-full object-cover"
             />
           </div>
-          <h3 className="text-2xl font-light text-gray-900 mb-3 tracking-wide">Toms Znatnajs</h3>
-          <p className="text-gray-900 font-extralight mb-2 text-lg tracking-wide">Head of Talent</p>
-          <p className="text-gray-500 font-extralight tracking-wide">toms@beta-ads.no</p>
+          <h3 className="text-2xl font-light text-gray-900 dark:text-gray-100 mb-3 tracking-wide">Toms Znatnajs</h3>
+          <p className="text-gray-900 dark:text-gray-100 font-extralight mb-2 text-lg tracking-wide">Head of Talent</p>
+          <p className="text-gray-500 dark:text-gray-400 font-extralight tracking-wide">toms@beta-ads.no</p>
         </div>
       </div>
     </div>
@@ -475,19 +475,19 @@ const CTA = ({ t }: { t: any }) => (
 );
 
 const Footer = ({ t, language, setLanguage }: { t: any; language: string; setLanguage: (lang: string) => void }) => (
-  <footer className="bg-white text-gray-900 py-24">
+  <footer className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 py-24">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="grid md:grid-cols-4 gap-16">
         <div className="space-y-8">
           <h3 className="text-3xl font-extralight tracking-widest">Beta Ads</h3>
-          <p className="text-gray-600 font-extralight leading-relaxed text-lg tracking-wide">
+          <p className="text-gray-600 dark:text-gray-400 font-extralight leading-relaxed text-lg tracking-wide">
             {language === "en" ? "The future of Twitch advertising is here." : "Fremtiden for Twitch-annonsering er her."}
           </p>
         </div>
 
         <div className="space-y-8">
           <h4 className="font-light tracking-widest text-lg">{t.contactTitle}</h4>
-          <div className="space-y-4 text-gray-600 font-extralight text-lg">
+          <div className="space-y-4 text-gray-600 dark:text-gray-400 font-extralight text-lg">
             <p className="tracking-wide">andreas@beta-ads.no</p>
             <p className="tracking-wide">+47 46195548</p>
           </div>
@@ -495,15 +495,15 @@ const Footer = ({ t, language, setLanguage }: { t: any; language: string; setLan
 
         <div className="space-y-8">
           <h4 className="font-light tracking-widest text-lg">{t.connectTitle}</h4>
-          <div className="space-y-4 text-gray-600 font-extralight text-lg">
+          <div className="space-y-4 text-gray-600 dark:text-gray-400 font-extralight text-lg">
             <p
-              className="hover:text-gray-900 transition-colors cursor-pointer tracking-wide"
+              className="hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer tracking-wide"
               onClick={() => window.open("https://www.linkedin.com/company/beta-nordic", "_blank")}
             >
               LinkedIn
             </p>
             <p
-              className="hover:text-gray-900 transition-colors cursor-pointer tracking-wide"
+              className="hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer tracking-wide"
               onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
             >
               Discord
@@ -513,15 +513,15 @@ const Footer = ({ t, language, setLanguage }: { t: any; language: string; setLan
 
         <div className="space-y-8">
           <h4 className="font-light tracking-widest text-lg">{t.languageTitle}</h4>
-          <div className="space-y-4 text-gray-600 font-extralight text-lg">
+          <div className="space-y-4 text-gray-600 dark:text-gray-400 font-extralight text-lg">
             <p
-              className={`hover:text-gray-900 transition-colors cursor-pointer tracking-wide ${language === "en" ? "text-gray-900" : ""}`}
+              className={`hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer tracking-wide ${language === "en" ? "text-gray-900 dark:text-gray-100" : ""}`}
               onClick={() => setLanguage("en")}
             >
               🇺🇸 English
             </p>
             <p
-              className={`hover:text-gray-900 transition-colors cursor-pointer tracking-wide ${language === "no" ? "text-gray-900" : ""}`}
+              className={`hover:text-gray-900 dark:hover:text-gray-100 transition-colors cursor-pointer tracking-wide ${language === "no" ? "text-gray-900 dark:text-gray-100" : ""}`}
               onClick={() => setLanguage("no")}
             >
               🇳🇴 Norwegian
@@ -530,7 +530,7 @@ const Footer = ({ t, language, setLanguage }: { t: any; language: string; setLan
         </div>
       </div>
 
-      <div className="border-t border-gray-200 mt-20 pt-12 text-center text-gray-600 font-extralight tracking-widest">
+      <div className="border-t border-gray-200 dark:border-gray-700 mt-20 pt-12 text-center text-gray-600 dark:text-gray-400 font-extralight tracking-widest">
         <p>&copy; 2024 Beta Ads. All rights reserved.</p>
       </div>
     </div>
