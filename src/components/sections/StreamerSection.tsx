@@ -35,7 +35,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
         <Button
           size="lg"
           variant="outline"
-          className="border-gray-400 dark:border-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-100 bg-gray-50 dark:bg-gray-800/50 px-12 py-6 text-lg font-light tracking-wide h-auto transition-all duration-300 hover:border-gray-500 dark:hover:border-gray-500"
+          className="border-border text-card-foreground hover:bg-secondary bg-secondary/50 px-12 py-6 text-lg font-light tracking-wide h-auto transition-all duration-300 hover:border-muted"
           onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
         >
           Join Our Discord
@@ -44,9 +44,9 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
       </div>
 
       <div className="text-center">
-        <div className="inline-flex items-center space-x-3 bg-gray-100 dark:bg-gray-800 rounded-2xl px-8 py-4 border border-gray-200 dark:border-gray-700">
-          <TrendingUp className="h-6 w-6 text-gray-600 dark:text-gray-400" />
-          <span className="text-gray-700 dark:text-gray-300 font-light text-lg tracking-wide">
+        <div className="inline-flex items-center space-x-3 bg-secondary rounded-2xl px-8 py-4 border border-border">
+          <TrendingUp className="h-6 w-6 text-muted-foreground" />
+          <span className="text-secondary-foreground font-light text-lg tracking-wide">
             {language === "en"
               ? "Earn passive income based on your viewership"
               : "Tjen passiv inntekt basert på dine seertall"}

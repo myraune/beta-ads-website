@@ -32,7 +32,7 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
             <CarouselContent className="-ml-4 md:-ml-8">
               {caseVideos.map((video, index) => (
                 <CarouselItem key={video.id} className="pl-4 md:pl-8 basis-full md:basis-5/6">
-                  <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-6 md:p-8 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                  <div className="relative bg-card rounded-3xl p-6 md:p-8 border border-border shadow-lg hover:shadow-2xl transition-all duration-300 group">
                     <div className="aspect-video rounded-2xl overflow-hidden bg-black">
                       <iframe
                         width="100%"
@@ -46,16 +46,16 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
                       ></iframe>
                     </div>
                     <div className="text-center mt-6 space-y-2">
-                      <h3 className="text-2xl font-light text-gray-900 dark:text-gray-100 tracking-wide group-hover:text-red-400 transition-colors duration-300">{video.brand}</h3>
-                      <p className="text-gray-600 dark:text-gray-400 font-extralight tracking-wide text-lg">{video.title}</p>
+                      <h3 className="text-2xl font-light text-card-foreground tracking-wide group-hover:text-primary transition-colors duration-300">{video.brand}</h3>
+                      <p className="text-muted-foreground font-extralight tracking-wide text-lg">{video.title}</p>
                     </div>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
             
-            <CarouselPrevious className="text-gray-600 dark:text-gray-400 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500 -left-4 md:-left-8 h-14 w-14 transition-all duration-300" />
-            <CarouselNext className="text-gray-600 dark:text-gray-400 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-gray-400 dark:hover:border-gray-500 -right-4 md:-right-8 h-14 w-14 transition-all duration-300" />
+            <CarouselPrevious className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -left-4 md:-left-8 h-14 w-14 transition-all duration-300" />
+            <CarouselNext className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -right-4 md:-right-8 h-14 w-14 transition-all duration-300" />
           </Carousel>
 
           {/* Dot indicators */}
@@ -65,8 +65,8 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
                 key={index}
                 className={`w-4 h-4 rounded-full transition-all duration-300 ${
                   index === currentSlide 
-                    ? 'bg-red-400 shadow-lg scale-125' 
-                    : 'bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 hover:scale-110'
+                    ? 'bg-primary shadow-lg scale-125' 
+                    : 'bg-muted hover:bg-muted-foreground hover:scale-110'
                 }`}
                 onClick={() => {
                   setCurrentSlide(index);
@@ -77,7 +77,7 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
 
           {/* Helper text */}
           <div className="text-center mt-8">
-            <p className="text-gray-500 dark:text-gray-400 font-light text-lg">
+            <p className="text-muted-foreground font-light text-lg">
               Swipe or use arrows to see more campaign examples
             </p>
           </div>
