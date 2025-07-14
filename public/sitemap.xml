@@ -3,29 +3,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
-  <!-- Main page with Norwegian focus -->
+  <!-- Main page with Norwegian focus - pointing to production domain -->
   <url>
-    <loc>https://beta-ads.lovable.app/</loc>
+    <loc>https://beta-ads.no/</loc>
     <lastmod>2024-12-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="no" href="https://beta-ads.lovable.app/?lang=no" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://beta-ads.lovable.app/?lang=en" />
-    <xhtml:link rel="alternate" hreflang="sv" href="https://beta-ads.lovable.app/?lang=sv" />
-    <xhtml:link rel="alternate" hreflang="da" href="https://beta-ads.lovable.app/?lang=da" />
-    <xhtml:link rel="alternate" hreflang="fi" href="https://beta-ads.lovable.app/?lang=fi" />
+    <xhtml:link rel="alternate" hreflang="no" href="https://beta-ads.no/?lang=no" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://beta-ads.no/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://beta-ads.no/?lang=sv" />
+    <xhtml:link rel="alternate" hreflang="da" href="https://beta-ads.no/?lang=da" />
+    <xhtml:link rel="alternate" hreflang="fi" href="https://beta-ads.no/?lang=fi" />
   </url>
   
   <!-- Section-specific URLs for better SEO -->
   <url>
-    <loc>https://beta-ads.lovable.app/#examples</loc>
+    <loc>https://beta-ads.no/#examples</loc>
     <lastmod>2024-12-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
   <url>
-    <loc>https://beta-ads.lovable.app/#streamer-section</loc>
+    <loc>https://beta-ads.no/#streamer-section</loc>
     <lastmod>2024-12-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

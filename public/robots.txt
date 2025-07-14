@@ -1,28 +1,12 @@
 
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
+# Robots.txt for beta-ads.lovable.app (development/staging)
+# This domain should NOT be indexed - main site is beta-ads.no
 
 User-agent: *
-Allow: /
-Crawl-delay: 2
+Disallow: /
 
-# Sitemap location
-Sitemap: https://beta-ads.lovable.app/sitemap.xml
+# Preferred domain for crawling
+# Main production site: https://beta-ads.no
 
-# Disallow crawling of admin or private areas (if any exist in future)
-Disallow: /admin/
-Disallow: /private/
+# No sitemap provided for this staging domain
+# Primary sitemap: https://beta-ads.no/sitemap.xml
