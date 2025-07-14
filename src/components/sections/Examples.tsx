@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
@@ -32,7 +33,7 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
             <CarouselContent className="-ml-4 md:-ml-8">
               {caseVideos.map((video, index) => (
                 <CarouselItem key={video.id} className="pl-4 md:pl-8 basis-full md:basis-5/6">
-                  <div className="relative bg-card rounded-3xl p-6 md:p-8 border border-border shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                  <div className="relative bg-card rounded-3xl p-6 md:p-8 border border-border hover:border-primary/20 transition-all duration-300 group">
                     <div className="aspect-video rounded-2xl overflow-hidden bg-black">
                       <iframe
                         width="100%"
