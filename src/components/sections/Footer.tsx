@@ -9,7 +9,7 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => (
   <footer className="bg-white text-gray-900 py-24">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
-      <div className="grid md:grid-cols-4 gap-16">
+      <div className="grid md:grid-cols-3 gap-16">
         <div className="space-y-8">
           <h3 className="text-3xl font-extralight tracking-widest">Beta Ads</h3>
           <p className="text-gray-600 font-extralight leading-relaxed text-lg tracking-wide">
@@ -39,24 +39,6 @@ export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => (
               onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
             >
               Discord
-            </p>
-          </div>
-        </div>
-
-        <div className="space-y-8">
-          <h4 className="font-light tracking-widest text-lg">{t.languageTitle}</h4>
-          <div className="space-y-4 text-gray-600 font-extralight text-lg">
-            <p
-              className={`hover:text-gray-900 transition-colors cursor-pointer tracking-wide ${language === "en" ? "text-gray-900" : ""}`}
-              onClick={() => setLanguage("en")}
-            >
-              🇺🇸 English
-            </p>
-            <p
-              className={`hover:text-gray-900 transition-colors cursor-pointer tracking-wide ${language === "no" ? "text-gray-900" : ""}`}
-              onClick={() => setLanguage("no")}
-            >
-              🇳🇴 Norwegian
             </p>
           </div>
         </div>
