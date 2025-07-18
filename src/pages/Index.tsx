@@ -147,6 +147,11 @@ const Index = () => {
 
   const caseVideos = [
     {
+      id: "Uw7IIecicB4",
+      title: "Samsung Campaign Case Study",
+      brand: "Samsung",
+    },
+    {
       id: "IZOx_VMdJJg",
       title: "Shure Campaign Case Study",
       brand: "Shure",
@@ -155,11 +160,6 @@ const Index = () => {
       id: "ufNq-A4d7iA",
       title: "Komplett Campaign Case Study",
       brand: "Komplett",
-    },
-    {
-      id: "O9bK6Sg7wHg",
-      title: "Samsung Campaign Case Study",
-      brand: "Samsung",
     },
   ];
 
