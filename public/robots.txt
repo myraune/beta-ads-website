@@ -1,12 +1,58 @@
 
-# Robots.txt for beta-ads.lovable.app (development/staging)
-# This domain should NOT be indexed - main site is beta-ads.no
+# Beta Ads Nordic - Premium Twitch Marketing Agency
+# Optimized robots.txt for maximum SEO visibility across Nordic gaming markets
 
 User-agent: *
+Allow: /
+
+# Enhanced crawling permissions for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 1
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 2
+
+# Block problematic crawlers while allowing beneficial ones
+User-agent: AhrefsBot
 Disallow: /
 
-# Preferred domain for crawling
-# Main production site: https://beta-ads.no
+User-agent: MJ12bot
+Disallow: /
 
-# No sitemap provided for this staging domain
-# Primary sitemap: https://beta-ads.no/sitemap.xml
+User-agent: SemrushBot
+Allow: /
+
+User-agent: MozBot
+Allow: /
+
+# Sitemap locations for comprehensive indexing
+Sitemap: https://beta-ads.no/sitemap.xml
+Sitemap: https://beta-ads.no/sitemap-images.xml
+Sitemap: https://beta-ads.no/sitemap-videos.xml
+Sitemap: https://beta-ads.no/sitemap-news.xml
+
+# Host preference for consolidation
+Host: beta-ads.no
+
+# Clean URLs for better SEO
+Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term
+Clean-param: gclid&fbclid&msclkid
+Clean-param: ref&source&medium
