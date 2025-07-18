@@ -38,6 +38,7 @@ const Index = () => {
       languageTitle: "LANGUAGE",
       pressTitle: "Featured in Press",
       pressDescription: "Beta Ads has been featured in leading Nordic media outlets for our innovative approach to Twitch advertising.",
+      footerDescription: "The future of Twitch advertising is here.",
     },
     no: {
       heroSubtitle: "Nordisk Twitch-byrå",
@@ -64,6 +65,7 @@ const Index = () => {
       languageTitle: "SPRÅK",
       pressTitle: "Omtalt i Media",
       pressDescription: "Beta Ads har blitt omtalt i ledende nordiske medier for vår innovative tilnærming til Twitch-annonsering.",
+      footerDescription: "Fremtiden for Twitch-annonsering er her.",
     },
     sv: {
       heroSubtitle: "Nordisk Twitch-byrå",
@@ -90,6 +92,7 @@ const Index = () => {
       languageTitle: "SPRÅK",
       pressTitle: "Uppmärksammat i Media",
       pressDescription: "Beta Ads har uppmärksammats i ledande nordiska medier för vår innovativa approach till Twitch-reklam.",
+      footerDescription: "Framtiden för Twitch-reklam är här.",
     },
     fi: {
       heroSubtitle: "Pohjoismainen Twitch-toimisto",
@@ -116,6 +119,7 @@ const Index = () => {
       languageTitle: "KIELI",
       pressTitle: "Mediassa Esillä",
       pressDescription: "Beta Ads on ollut esillä johtavissa pohjoismaisissa medioissa innovatiivisesta lähestymistavastamme Twitch-mainontaan.",
+      footerDescription: "Twitch-mainonnan tulevaisuus on täällä.",
     },
   };
 

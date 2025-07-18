@@ -13,7 +13,7 @@ export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => (
         <div className="space-y-8">
           <h3 className="text-3xl font-extralight tracking-widest">Beta Ads</h3>
           <p className="text-gray-600 font-extralight leading-relaxed text-lg tracking-wide">
-            {language === "en" ? "The future of Twitch advertising is here." : "Fremtiden for Twitch-annonsering er her."}
+            {t.footerDescription}
           </p>
         </div>
 
