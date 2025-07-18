@@ -66,7 +66,7 @@ export const TrustedBy: React.FC = () => (
                 <div className="h-16 w-40 flex items-center justify-center">
                   <img src="/lovable-uploads/4d784a07-41cb-46c9-9bfc-b33f83db6f0c.png" alt="Samsung" className="h-12 w-auto opacity-80 object-contain" />
                 </div>
-                <div className="h-16 w-40 flex items-center justify-center">
+                <div className="h-16 w-40 flex items-center justify-center ml-4">
                   <img src="/lovable-uploads/e18a5eac-737e-480f-8556-08251ac73021.png" alt="Surfshark" className="h-12 w-auto opacity-80 object-contain" />
                 </div>
                 <div className="h-16 w-40 flex items-center justify-center">
@@ -78,8 +78,8 @@ export const TrustedBy: React.FC = () => (
                 <div className="h-16 w-40 flex items-center justify-center">
                   <img src="/lovable-uploads/a716bb91-525c-4779-a530-ceb1daad954f.png" alt="Foodora" className="h-12 w-auto opacity-80 object-contain" />
                 </div>
-                <div className="h-16 w-40 flex items-center justify-center">
-                  <img src="/lovable-uploads/f4cf3326-1633-43f1-b28f-4055a2a77c6c.png" alt="Group M" className="h-12 w-auto opacity-80 object-contain" />
+                <div className="h-16 w-40 flex items-center justify-center -ml-2">
+                  <img src="/lovable-uploads/f4cf3326-1633-43f1-b28f-4055a2a77c6c.png" alt="Group M" className="h-14 w-auto opacity-80 object-contain" />
                 </div>
                 <div className="h-16 w-40 flex items-center justify-center">
                   <img src="/lovable-uploads/770b37b2-e4fc-4e77-86f5-7fc95755ab72.png" alt="Logitech G" className="h-12 w-auto opacity-80 object-contain" />
@@ -92,7 +92,7 @@ export const TrustedBy: React.FC = () => (
                 <div className="h-16 w-40 flex items-center justify-center">
                   <img src="/lovable-uploads/4d784a07-41cb-46c9-9bfc-b33f83db6f0c.png" alt="Samsung" className="h-12 w-auto opacity-80 object-contain" />
                 </div>
-                <div className="h-16 w-40 flex items-center justify-center">
+                <div className="h-16 w-40 flex items-center justify-center ml-4">
                   <img src="/lovable-uploads/e18a5eac-737e-480f-8556-08251ac73021.png" alt="Surfshark" className="h-12 w-auto opacity-80 object-contain" />
                 </div>
                 <div className="h-16 w-40 flex items-center justify-center">
@@ -104,8 +104,8 @@ export const TrustedBy: React.FC = () => (
                 <div className="h-16 w-40 flex items-center justify-center">
                   <img src="/lovable-uploads/a716bb91-525c-4779-a530-ceb1daad954f.png" alt="Foodora" className="h-12 w-auto opacity-80 object-contain" />
                 </div>
-                <div className="h-16 w-40 flex items-center justify-center">
-                  <img src="/lovable-uploads/f4cf3326-1633-43f1-b28f-4055a2a77c6c.png" alt="Group M" className="h-12 w-auto opacity-80 object-contain" />
+                <div className="h-16 w-40 flex items-center justify-center -ml-2">
+                  <img src="/lovable-uploads/f4cf3326-1633-43f1-b28f-4055a2a77c6c.png" alt="Group M" className="h-14 w-auto opacity-80 object-contain" />
                 </div>
                 <div className="h-16 w-40 flex items-center justify-center">
                   <img src="/lovable-uploads/770b37b2-e4fc-4e77-86f5-7fc95755ab72.png" alt="Logitech G" className="h-12 w-auto opacity-80 object-contain" />
