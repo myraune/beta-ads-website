@@ -164,7 +164,7 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background">
       <Hero t={t} scrollToSection={scrollToSection} language={language} setLanguage={setLanguage} />
       <TrustedBy />
       <Examples t={t} caseVideos={caseVideos} />

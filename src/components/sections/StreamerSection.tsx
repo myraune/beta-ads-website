@@ -8,16 +8,16 @@ interface StreamerSectionProps {
 }
 
 export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language }) => (
-  <section id="streamer-section" className="py-32 bg-white text-gray-900">
+  <section id="streamer-section" className="py-32 bg-background text-foreground">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-20">
-        <h2 className="text-4xl md:text-6xl font-extralight mb-6 tracking-tighter text-gray-900">
+        <h2 className="text-4xl md:text-6xl font-extralight mb-6 tracking-tighter text-foreground">
           {t.streamerSectionTitle}
         </h2>
-        <p className="text-2xl md:text-3xl text-gray-700 font-light mb-8 tracking-wide">
+        <p className="text-2xl md:text-3xl text-muted-foreground font-light mb-8 tracking-wide">
           {t.streamerSectionSubtitle}
         </p>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+        <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
           {t.streamerSectionDescription}
         </p>
       </div>
