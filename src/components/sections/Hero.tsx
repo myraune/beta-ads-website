@@ -132,7 +132,7 @@ export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLan
               ></iframe>
             </div>
             <div className="text-center mt-4">
-              <p className="text-gray-300 text-sm font-extralight tracking-wide">Overview of multiple campaigns in action</p>
+              <p className="text-gray-300 text-sm font-extralight tracking-wide">{t.campaignOverview}</p>
             </div>
           </div>
         </div>

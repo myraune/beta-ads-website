@@ -39,6 +39,10 @@ const Index = () => {
       pressTitle: "Featured in Press",
       pressDescription: "Beta Ads has been featured in leading Nordic media outlets for our innovative approach to Twitch advertising.",
       footerDescription: "The future of Twitch advertising is here.",
+      passiveIncome: "Earn passive income based on your viewership",
+      swipeHelper: "Swipe or use arrows to see more campaign examples",
+      campaignOverview: "Overview of multiple campaigns in action",
+      joinDiscord: "Join Our Discord",
     },
     no: {
       heroSubtitle: "Nordisk Twitch-byrå",
@@ -66,6 +70,10 @@ const Index = () => {
       pressTitle: "Omtalt i Media",
       pressDescription: "Beta Ads har blitt omtalt i ledende nordiske medier for vår innovative tilnærming til Twitch-annonsering.",
       footerDescription: "Fremtiden for Twitch-annonsering er her.",
+      passiveIncome: "Tjen passiv inntekt basert på dine seertall",
+      swipeHelper: "Sveip eller bruk pilene for å se flere kampanjeeksempler",
+      campaignOverview: "Oversikt over flere kampanjer i aksjon",
+      joinDiscord: "Bli med på Discord",
     },
     sv: {
       heroSubtitle: "Nordisk Twitch-byrå",
@@ -93,6 +101,10 @@ const Index = () => {
       pressTitle: "Uppmärksammat i Media",
       pressDescription: "Beta Ads har uppmärksammats i ledande nordiska medier för vår innovativa approach till Twitch-reklam.",
       footerDescription: "Framtiden för Twitch-reklam är här.",
+      passiveIncome: "Tjäna passiv inkomst baserat på dina tittarsiffror",
+      swipeHelper: "Svep eller använd pilarna för att se fler kampanjexempel",
+      campaignOverview: "Översikt över flera kampanjer i aktion",
+      joinDiscord: "Gå med i Discord",
     },
     fi: {
       heroSubtitle: "Pohjoismainen Twitch-toimisto",
@@ -120,6 +132,10 @@ const Index = () => {
       pressTitle: "Mediassa Esillä",
       pressDescription: "Beta Ads on ollut esillä johtavissa pohjoismaisissa medioissa innovatiivisesta lähestymistavastamme Twitch-mainontaan.",
       footerDescription: "Twitch-mainonnan tulevaisuus on täällä.",
+      passiveIncome: "Ansaitse passiivista tuloa katsojalukujen perusteella",
+      swipeHelper: "Pyyhkäise tai käytä nuolia nähdäksesi lisää kampanjaesimerkkejä",
+      campaignOverview: "Katsaus useisiin kampanjoihin toiminnassa",
+      joinDiscord: "Liity Discordiin",
     },
   };
 

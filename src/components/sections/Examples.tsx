@@ -79,7 +79,7 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
           {/* Helper text */}
           <div className="text-center mt-8">
             <p className="text-muted-foreground font-light text-lg">
-              Swipe or use arrows to see more campaign examples
+              {t.swipeHelper}
             </p>
           </div>
         </div>
