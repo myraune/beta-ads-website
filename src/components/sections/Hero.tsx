@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, ExternalLink, Sparkles, ChevronDown } from "lucide-react";
-import { ThemeToggle } from "@/components/ui/theme-toggle";
+
 
 
 interface HeroProps {
@@ -28,9 +28,8 @@ export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLan
     <section className="relative overflow-hidden bg-gradient-to-br from-red-950 via-red-900 to-black text-gray-100">
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23000000%22%20fill-opacity%3D%220.02%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
       
-      {/* Theme Toggle and Language Dropdown */}
-      <div className="absolute top-8 right-8 z-10 flex items-center space-x-3">
-        <ThemeToggle />
+      {/* Language Dropdown */}
+      <div className="absolute top-8 right-8 z-10">
         <div className="relative">
           <button
             onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
