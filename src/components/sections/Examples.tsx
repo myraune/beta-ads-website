@@ -11,7 +11,7 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   return (
-    <section id="examples" className="py-32 bg-gradient-subtle">
+    <section id="examples" className="py-32 bg-background">
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-extralight text-foreground mb-8 tracking-tighter">
