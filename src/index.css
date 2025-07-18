@@ -7,6 +7,7 @@
 
 @layer base {
   :root {
+    /* Light mode colors */
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
 
@@ -45,6 +46,54 @@
     --sidebar-accent-foreground: 0 0% 10%;
     --sidebar-border: 0 0% 91%;
     --sidebar-ring: 0 84% 60%;
+
+    /* Gradients for enhanced visuals */
+    --gradient-subtle: linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(0 0% 96%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
+  }
+
+  .dark {
+    /* Dark mode colors - softer, less harsh */
+    --background: 224 14% 8%;  /* Deep blue-gray instead of pure black */
+    --foreground: 213 31% 91%;
+
+    --card: 224 14% 10%;  /* Slightly lighter than background */
+    --card-foreground: 213 31% 91%;
+
+    --popover: 224 14% 10%;
+    --popover-foreground: 213 31% 91%;
+
+    --primary: 0 84% 60%;  /* Keep brand red */
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 217 19% 18%;  /* Warm gray instead of cold */
+    --secondary-foreground: 213 31% 91%;
+
+    --muted: 217 19% 15%;  /* Subtle background variation */
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 0 84% 60%;
+    --accent-foreground: 213 31% 91%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 217 19% 18%;  /* Visible but not harsh */
+    --input: 217 19% 18%;
+    --ring: 0 84% 60%;
+
+    --sidebar-background: 224 14% 9%;
+    --sidebar-foreground: 213 31% 91%;
+    --sidebar-primary: 0 84% 60%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 217 19% 15%;
+    --sidebar-accent-foreground: 213 31% 91%;
+    --sidebar-border: 217 19% 18%;
+    --sidebar-ring: 0 84% 60%;
+
+    /* Dark mode gradients - subtle warmth */
+    --gradient-subtle: linear-gradient(135deg, hsl(224 14% 8%) 0%, hsl(217 19% 12%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(224 14% 10%) 0%, hsl(217 19% 15%) 100%);
   }
 
 }
