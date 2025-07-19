@@ -105,6 +105,11 @@
 
   body {
     @apply bg-background text-foreground;
+    background-color: white; /* Fallback for mobile Safari overscroll */
+  }
+  
+  .dark body {
+    background-color: hsl(222 20% 4%); /* Dark mode fallback for mobile Safari overscroll */
   }
 }
 
