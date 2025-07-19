@@ -103,13 +103,14 @@
     @apply border-border;
   }
 
-  body {
+  html, body {
     @apply bg-background text-foreground;
-    background-color: white; /* Fallback for mobile Safari overscroll */
+    background-color: white !important; /* Force white background for iOS Safari overscroll */
+    overscroll-behavior: none; /* Prevent overscroll bounce */
   }
   
-  .dark body {
-    background-color: hsl(222 20% 4%); /* Dark mode fallback for mobile Safari overscroll */
+  .dark html, .dark body {
+    background-color: hsl(222 20% 4%) !important; /* Dark mode fallback for mobile Safari overscroll */
   }
 }
 
