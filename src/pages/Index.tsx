@@ -5,7 +5,7 @@ import { TrustedBy } from "@/components/sections/TrustedBy";
 import { Examples } from "@/components/sections/Examples";
 import { StreamerSection } from "@/components/sections/StreamerSection";
 import { Press } from "@/components/sections/Press";
-import { Team } from "@/components/sections/Team";
+
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/sections/Footer";
 
@@ -30,7 +30,7 @@ const Index = () => {
       trustedByDescription: "Designed to blend with the stream – but stand out to the viewer.",
       meetTeamTitle: "Meet the team",
       meetTeamDescription: "Young, international, and passionate about revolutionizing advertising on Twitch.",
-      ctaTitle: "Sounds cool?",
+      ctaTitle: "Andreas Myraune",
       ctaDescription: "Book a quick demo with our team and we'll show you what your brand could look like live on Twitch.",
       bookDemo: "Let's have a chat",
       contactTitle: "CONTACT",
@@ -170,7 +170,6 @@ const Index = () => {
       <Examples t={t} caseVideos={caseVideos} />
       <StreamerSection t={t} language={language} />
       <Press t={t} />
-      <Team t={t} />
       <CTA t={t} />
       <Footer t={t} language={language} setLanguage={setLanguage} />
     </div>
