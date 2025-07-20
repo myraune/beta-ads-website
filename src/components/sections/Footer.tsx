@@ -11,7 +11,20 @@ export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => (
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="grid md:grid-cols-3 gap-16">
         <div className="space-y-8">
-          <h3 className="text-3xl font-extralight tracking-widest">Beta Ads</h3>
+          <div className="flex items-center">
+            {/* Dark theme logo */}
+            <img 
+              src="/lovable-uploads/d3f9fcbc-48d7-4015-82cd-721f68f85de3.png" 
+              alt="Beta AOS" 
+              className="h-8 w-auto dark:block hidden"
+            />
+            {/* Light theme logo */}
+            <img 
+              src="/lovable-uploads/4036e1d6-6941-4822-9a2b-41b6c09ef4bc.png" 
+              alt="Beta AOS" 
+              className="h-8 w-auto dark:hidden block"
+            />
+          </div>
           <p className="text-muted-foreground font-extralight leading-relaxed text-lg tracking-wide">
             {t.footerDescription}
           </p>
