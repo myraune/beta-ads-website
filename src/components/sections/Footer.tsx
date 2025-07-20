@@ -12,17 +12,17 @@ export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => (
       <div className="grid md:grid-cols-3 gap-16">
         <div className="space-y-8">
           <div className="flex items-center">
-            {/* Dark theme logo */}
+            {/* Light theme logo (black) */}
             <img 
               src="/lovable-uploads/d3f9fcbc-48d7-4015-82cd-721f68f85de3.png" 
               alt="Beta AOS" 
-              className="h-8 w-auto dark:block hidden"
+              className="h-8 w-auto dark:hidden block"
             />
-            {/* Light theme logo */}
+            {/* Dark theme logo (white) */}
             <img 
               src="/lovable-uploads/4036e1d6-6941-4822-9a2b-41b6c09ef4bc.png" 
               alt="Beta AOS" 
-              className="h-8 w-auto dark:hidden block"
+              className="h-8 w-auto dark:block hidden"
             />
           </div>
           <p className="text-muted-foreground font-extralight leading-relaxed text-lg tracking-wide">
