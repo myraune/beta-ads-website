@@ -80,13 +80,13 @@ export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLan
               <img 
                 src="/lovable-uploads/d3f9fcbc-48d7-4015-82cd-721f68f85de3.png" 
                 alt="Beta AOS" 
-                className="h-16 md:h-20 w-auto dark:block hidden"
+                className="h-10 md:h-12 w-auto dark:block hidden"
               />
               {/* Light theme logo */}
               <img 
                 src="/lovable-uploads/4036e1d6-6941-4822-9a2b-41b6c09ef4bc.png" 
                 alt="Beta AOS" 
-                className="h-16 md:h-20 w-auto dark:hidden block"
+                className="h-10 md:h-12 w-auto dark:hidden block"
               />
             </div>
           </div>
