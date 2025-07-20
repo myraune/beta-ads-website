@@ -13,9 +13,23 @@ export const CTA: React.FC<CTAProps> = ({ t }) => (
       <h2 className="text-5xl md:text-7xl font-extralight mb-12 tracking-tighter">
         {t.ctaTitle}
       </h2>
-      <p className="text-2xl text-gray-300 mb-16 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+      <p className="text-2xl text-gray-300 mb-12 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
         {t.ctaDescription}
       </p>
+      
+      <div className="flex items-center justify-center mb-12">
+        <div className="w-16 h-16 rounded-full overflow-hidden mr-4 ring-2 ring-white/20">
+          <img
+            src="/lovable-uploads/e6d9646d-bf5f-471c-a2d8-1f06c274f570.png"
+            alt="Andreas Myraune"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="text-left">
+          <p className="text-lg font-light text-white tracking-wide">Andreas Myraune</p>
+          <p className="text-sm text-gray-300 font-extralight tracking-wide">Head of Agency</p>
+        </div>
+      </div>
 
       <Button
         size="lg"
