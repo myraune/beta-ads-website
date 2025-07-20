@@ -76,8 +76,18 @@ export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLan
         <div className="space-y-8">
           <div className="flex items-center justify-center mb-8">
             <div className="flex items-center">
-              <span className="text-5xl md:text-6xl font-extralight text-gray-100 tracking-tighter">Beta</span>
-              <span className="text-5xl md:text-6xl font-extralight text-red-400 tracking-tighter ml-2">Ads</span>
+              {/* Dark theme logo */}
+              <img 
+                src="/lovable-uploads/d3f9fcbc-48d7-4015-82cd-721f68f85de3.png" 
+                alt="Beta AOS" 
+                className="h-16 md:h-20 w-auto dark:block hidden"
+              />
+              {/* Light theme logo */}
+              <img 
+                src="/lovable-uploads/4036e1d6-6941-4822-9a2b-41b6c09ef4bc.png" 
+                alt="Beta AOS" 
+                className="h-16 md:h-20 w-auto dark:hidden block"
+              />
             </div>
           </div>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-extralight leading-[0.9] tracking-tighter text-gray-100">
