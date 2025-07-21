@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { TrendingUp, ExternalLink } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { TrendingUp, ExternalLink, DollarSign, Wallet } from "lucide-react";
 
 interface StreamerSectionProps {
   t: any;
@@ -9,8 +11,32 @@ interface StreamerSectionProps {
 }
 
 export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language }) => {
-  const navigate = useNavigate();
-  
+  const [showDashboard, setShowDashboard] = useState(false);
+
+  const sponsorships = [
+    {
+      id: 1,
+      title: "Samsung S25 Ultra",
+      image: "/lovable-uploads/71765092-972e-4792-a241-0f155a62af68.png",
+      status: "active",
+      price: "10 EUR"
+    },
+    {
+      id: 2,
+      title: "Kristiania Voting",
+      image: "/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png",
+      status: "active",
+      price: "13 EUR"
+    },
+    {
+      id: 3,
+      title: "Surfshark VPN",
+      image: "/lovable-uploads/f88bb0a9-d318-40f3-9e9c-736f0b37438c.png",
+      status: "inactive",
+      price: "13 EUR"
+    }
+  ];
+
   return (
   <section id="streamer-section" className="py-32 bg-background text-foreground">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
@@ -30,12 +56,9 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
         <Button
           size="lg"
           className="bg-red-400 text-white hover:bg-red-500 px-12 py-6 text-lg font-light tracking-wide h-auto shadow-2xl hover:shadow-red-400/20 transition-all duration-300 hover:scale-105"
-          onClick={() => {
-            console.log("Navigating to streamer dashboard");
-            navigate("/streamer-dashboard");
-          }}
+          onClick={() => setShowDashboard(!showDashboard)}
         >
-          {t.joinStreamer}
+          {showDashboard ? "Hide Dashboard" : t.joinStreamer}
         </Button>
 
         <Button
@@ -49,7 +72,96 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
         </Button>
       </div>
 
-      <div className="text-center">
+      {showDashboard && (
+        <div className="mt-16">
+          <Tabs defaultValue="sponsorships" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 max-w-md mx-auto mb-8">
+              <TabsTrigger value="sponsorships">Sponsorships</TabsTrigger>
+              <TabsTrigger value="wallet">Wallet</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="sponsorships">
+              <div className="mb-6">
+                <h3 className="text-2xl font-light mb-2">Available sponsorships</h3>
+                <p className="text-muted-foreground">Choose a brand you want to partner with.</p>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {sponsorships.map((sponsorship) => (
+                  <Card key={sponsorship.id} className="overflow-hidden">
+                    <div className="relative">
+                      <img 
+                        src={sponsorship.image} 
+                        alt={sponsorship.title}
+                        className="w-full h-48 object-cover"
+                      />
+                      <div className="absolute top-2 right-2">
+                        <Badge className={sponsorship.status === "active" ? "bg-green-500 text-white" : "bg-red-500 text-white"}>
+                          {sponsorship.status}
+                        </Badge>
+                      </div>
+                    </div>
+                    
+                    <CardContent className="p-4">
+                      <h3 className="font-medium mb-2">{sponsorship.title}</h3>
+                      <div className="text-center mb-4">
+                        <div className="text-2xl font-bold">{sponsorship.price}</div>
+                        <div className="text-sm text-muted-foreground">Rate for 1000 views</div>
+                      </div>
+                      
+                      <div className="flex gap-2">
+                        <Button variant="outline" size="sm" className="flex-1">
+                          View details
+                        </Button>
+                        <Button size="sm" className="flex-1 bg-red-400 hover:bg-red-500 text-white">
+                          Join
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="wallet">
+              <div className="max-w-md mx-auto">
+                <Card className="bg-gradient-to-r from-red-400 to-orange-400 text-white border-0">
+                  <CardHeader>
+                    <CardTitle className="flex items-center">
+                      <DollarSign className="h-5 w-5 mr-2" />
+                      Total Earnings
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="text-3xl font-bold mb-4">2,450 EUR</div>
+                    
+                    <div className="space-y-3">
+                      <div className="flex justify-between">
+                        <span className="text-white/80">This month:</span>
+                        <span className="font-semibold">340 EUR</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-white/80">Last month:</span>
+                        <span className="font-semibold">285 EUR</span>
+                      </div>
+                      <div className="flex justify-between">
+                        <span className="text-white/80">Total views:</span>
+                        <span className="font-semibold">125,300</span>
+                      </div>
+                    </div>
+                    
+                    <Button className="w-full mt-4 bg-white/20 hover:bg-white/30 text-white border-white/20">
+                      Withdraw Earnings
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
+            </TabsContent>
+          </Tabs>
+        </div>
+      )}
+
+      <div className="text-center mt-16">
         <div className="inline-flex items-center space-x-3 bg-secondary rounded-2xl px-8 py-4 border border-border">
           <TrendingUp className="h-6 w-6 text-muted-foreground" />
           <span className="text-secondary-foreground font-light text-lg tracking-wide">
