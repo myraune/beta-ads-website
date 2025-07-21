@@ -30,7 +30,10 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
         <Button
           size="lg"
           className="bg-red-400 text-white hover:bg-red-500 px-12 py-6 text-lg font-light tracking-wide h-auto shadow-2xl hover:shadow-red-400/20 transition-all duration-300 hover:scale-105"
-          onClick={() => navigate("/streamer-dashboard")}
+          onClick={() => {
+            console.log("Navigating to streamer dashboard");
+            navigate("/streamer-dashboard");
+          }}
         >
           {t.joinStreamer}
         </Button>

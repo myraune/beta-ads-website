@@ -7,6 +7,7 @@ import { ArrowLeft, HelpCircle, ArrowRight, Wallet, DollarSign, TrendingUp } fro
 import { useNavigate } from "react-router-dom";
 
 const StreamerDashboard = () => {
+  console.log("StreamerDashboard component is rendering");
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("available-sponsorships");
 
