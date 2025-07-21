@@ -1,13 +1,17 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { TrendingUp, ExternalLink } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface StreamerSectionProps {
   t: any;
   language: string;
 }
 
-export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language }) => (
+export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language }) => {
+  const navigate = useNavigate();
+  
+  return (
   <section id="streamer-section" className="py-32 bg-background text-foreground">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-20">
@@ -26,10 +30,9 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
         <Button
           size="lg"
           className="bg-red-400 text-white hover:bg-red-500 px-12 py-6 text-lg font-light tracking-wide h-auto shadow-2xl hover:shadow-red-400/20 transition-all duration-300 hover:scale-105"
-          onClick={() => window.open("https://beta.instreamly.com/en/sponsorships/available", "_blank")}
+          onClick={() => navigate("/streamer-dashboard")}
         >
           {t.joinStreamer}
-          <ExternalLink className="ml-4 h-5 w-5" />
         </Button>
 
         <Button
@@ -53,4 +56,5 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
       </div>
     </div>
   </section>
-);
+  );
+};
