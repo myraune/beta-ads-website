@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { X, Mail, TrendingUp, Users, Zap } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 
 interface NewsletterPopupProps {
   isOpen: boolean;
@@ -21,16 +22,43 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose }) =>
 
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      // Save to Supabase
+      const { error } = await supabase
+        .from('newsletter_signups')
+        .insert([{ email }]);
+
+      if (error) {
+        console.error('Error saving signup:', error);
+        toast({
+          title: "Error",
+          description: "Something went wrong. Please try again.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      // Send notification email
+      await supabase.functions.invoke('notify-newsletter-signup', {
+        body: { email }
+      });
+
       toast({
         title: "Success!",
         description: "You've been subscribed to Nordic Twitch market insights.",
       });
       setEmail("");
-      setIsSubmitting(false);
       onClose();
-    }, 1000);
+    } catch (error) {
+      console.error('Error:', error);
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
