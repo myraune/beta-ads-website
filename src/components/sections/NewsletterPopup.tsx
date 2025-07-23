@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { X } from "lucide-react";
+import { X, Mail, TrendingUp, Users, Zap } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 interface NewsletterPopupProps {
@@ -35,52 +35,94 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose }) =>
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle className="text-xl font-bold text-center">
-            Get Nordic Twitch Market Insights
-          </DialogTitle>
-          <button
-            onClick={onClose}
-            className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
-          >
-            <X className="h-4 w-4" />
-            <span className="sr-only">Close</span>
-          </button>
-        </DialogHeader>
-        
-        <div className="space-y-4 pt-4">
-          <div className="text-center space-y-2">
-            <p className="text-muted-foreground">
-              Interested in getting first-hand info about the Nordic Twitch market?
-            </p>
-            <p className="text-sm text-muted-foreground">
-              Join 500+ marketing professionals getting exclusive insights, case studies, and market trends.
-            </p>
+      <DialogContent className="sm:max-w-xl border-0 bg-gradient-to-br from-red-950 via-red-900 to-black text-gray-100 shadow-2xl backdrop-blur-md">
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute right-6 top-6 rounded-full p-2 text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-200 z-10"
+        >
+          <X className="h-5 w-5" />
+          <span className="sr-only">Close</span>
+        </button>
+
+        <div className="p-8 pt-12">
+          {/* Header section */}
+          <div className="text-center space-y-6 mb-8">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-4">
+              <TrendingUp className="h-8 w-8 text-white" />
+            </div>
+            
+            <div className="space-y-3">
+              <h2 className="text-2xl md:text-3xl font-light text-white leading-tight">
+                Get Nordic Twitch 
+                <span className="block font-extralight italic text-gray-300">
+                  Market Insights
+                </span>
+              </h2>
+              <p className="text-gray-300 text-lg font-extralight leading-relaxed max-w-sm mx-auto">
+                Interested in getting first-hand info about the Nordic Twitch market?
+              </p>
+            </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-4">
-            <Input
-              type="email"
-              placeholder="Enter your email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-              className="w-full"
-            />
+          {/* Features/Benefits */}
+          <div className="grid grid-cols-3 gap-4 mb-8">
+            <div className="text-center space-y-2">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10">
+                <Users className="h-5 w-5 text-gray-300" />
+              </div>
+              <p className="text-xs text-gray-400 font-light">500+ Marketing Professionals</p>
+            </div>
+            <div className="text-center space-y-2">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10">
+                <Zap className="h-5 w-5 text-gray-300" />
+              </div>
+              <p className="text-xs text-gray-400 font-light">Exclusive Case Studies</p>
+            </div>
+            <div className="text-center space-y-2">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10">
+                <TrendingUp className="h-5 w-5 text-gray-300" />
+              </div>
+              <p className="text-xs text-gray-400 font-light">Market Trends</p>
+            </div>
+          </div>
+
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="relative">
+              <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <Input
+                type="email"
+                placeholder="Enter your work email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                className="w-full pl-12 pr-4 py-4 bg-black/30 border border-white/20 rounded-xl text-white placeholder:text-gray-400 focus:border-white/40 focus:ring-2 focus:ring-white/20 backdrop-blur-sm text-base"
+              />
+            </div>
             
             <Button 
               type="submit" 
-              className="w-full"
+              className="w-full bg-white text-black hover:bg-gray-100 py-4 text-base font-medium rounded-xl transition-all duration-300 hover:scale-[1.02] shadow-lg disabled:opacity-50 disabled:hover:scale-100"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Subscribing..." : "Get Market Insights"}
+              {isSubmitting ? (
+                <div className="flex items-center justify-center space-x-2">
+                  <div className="animate-spin rounded-full h-4 w-4 border-2 border-black border-t-transparent"></div>
+                  <span>Subscribing...</span>
+                </div>
+              ) : (
+                "Get Exclusive Market Insights"
+              )}
             </Button>
           </form>
 
-          <p className="text-xs text-muted-foreground text-center">
-            We respect your privacy. Unsubscribe at any time.
-          </p>
+          {/* Footer */}
+          <div className="text-center mt-6">
+            <p className="text-xs text-gray-500 font-light">
+              We respect your privacy. Unsubscribe at any time.
+            </p>
+          </div>
         </div>
       </DialogContent>
     </Dialog>
