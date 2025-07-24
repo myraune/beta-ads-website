@@ -64,6 +64,15 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose }) =>
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-xl border-0 bg-gradient-to-br from-red-950 via-red-900 to-black text-gray-100 shadow-2xl backdrop-blur-md">
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute right-6 top-6 rounded-full p-2 text-gray-400 hover:text-white hover:bg-white/10 transition-all duration-200 z-10"
+        >
+          <X className="h-5 w-5" />
+          <span className="sr-only">Close</span>
+        </button>
+
         <div className="p-8 pt-12">
           {/* Header section */}
           <div className="text-center space-y-6 mb-8">
