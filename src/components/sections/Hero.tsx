@@ -123,7 +123,7 @@ export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLan
         </div>
 
         <div className="pt-16">
-          <div className="relative bg-gradient-to-r from-black/30 to-red-900/40 rounded-3xl p-6 backdrop-blur-md border border-gray-600/30 shadow-2xl max-w-4xl mx-auto">
+          <div className="relative bg-gradient-to-r from-black/30 to-red-900/40 rounded-3xl p-6 backdrop-blur-md border border-gray-600/30 shadow-2xl max-w-6xl mx-auto">
             <div className="aspect-video rounded-2xl overflow-hidden border border-gray-600/20">
               <iframe
                 width="100%"
