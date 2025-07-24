@@ -14,16 +14,17 @@ export const MouseTracker: React.FC = () => {
 
   return (
     <div
-      className="fixed pointer-events-none z-[1] transition-all duration-500 ease-out opacity-40"
+      className="fixed pointer-events-none z-[1] transition-all duration-300 ease-out opacity-60"
       style={{
-        left: mousePosition.x - 250,
-        top: mousePosition.y - 250,
-        width: 500,
-        height: 500,
-        background: `radial-gradient(circle, rgba(220, 38, 38, 0.15) 0%, rgba(220, 38, 38, 0.08) 40%, rgba(220, 38, 38, 0.03) 70%, transparent 100%)`,
+        left: mousePosition.x - 300,
+        top: mousePosition.y - 300,
+        width: 600,
+        height: 600,
+        background: `radial-gradient(circle, rgba(220, 38, 38, 0.25) 0%, rgba(220, 38, 38, 0.15) 30%, rgba(220, 38, 38, 0.08) 60%, transparent 100%)`,
         borderRadius: "50%",
-        filter: "blur(60px)",
-        transform: "translate3d(0, 0, 0)", // Hardware acceleration
+        filter: "blur(80px)",
+        transform: "translate3d(0, 0, 0)",
+        mixBlendMode: "multiply",
       }}
     />
   );
