@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Hero } from "@/components/sections/Hero";
 import { TrustedBy } from "@/components/sections/TrustedBy";
 import { Examples } from "@/components/sections/Examples";
+import { Mechanisms } from "@/components/sections/Mechanisms";
 import { StreamerSection } from "@/components/sections/StreamerSection";
 import { Press } from "@/components/sections/Press";
 
@@ -60,6 +61,33 @@ const Index = () => {
       swipeHelper: "Swipe or use arrows to see more campaign examples",
       campaignOverview: "Overview of multiple campaigns in action",
       joinDiscord: "Join Our Discord",
+      mechanismsSubtitle: "AI-Powered Features",
+      mechanismsTitle: "Innovative Mechanisms",
+      mechanismsDescription: "Discover our cutting-edge AI functionalities that make your brand integration more engaging and interactive.",
+      vrmTitle: "Voice Recognition Mechanism (VRM)",
+      vrmDescription: "Contextual artwork appears when streamers say keywords, creating natural brand integration.",
+      vrmHowItWorks: [
+        "The streamer says one of the keywords.",
+        "The mechanism recognises the word and launches the artwork.",
+        "Viewers see a contextual message on the stream."
+      ],
+      vrmWhyWorthIt: [
+        "An innovative mechanism that surprises audiences.",
+        "The brand becomes part of the themes or games on the stream.",
+        "Contextual messages reach the audience better."
+      ],
+      votingTitle: "Voting Mechanism",
+      votingDescription: "Interactive voting system that allows viewers to participate in decision-making and games.",
+      votingHowItWorks: [
+        "Artwork encouraging people to vote for a particular option appears on the stream.",
+        "Another artwork appears with the result that the players have chosen."
+      ],
+      votingWhyWorthIt: [
+        "Involving the audience in decision-making strengthens their focus.",
+        "The brand is the interactive part of the stream. And since I'm already clicking on the chat, I can also click the link...."
+      ],
+      howItWorksTitle: "HOW DOES IT WORK?",
+      whyWorthItTitle: "WHY IS IT WORTH IT?",
     },
     no: {
       heroSubtitle: "Nordisk Twitch-byrå",
@@ -91,6 +119,33 @@ const Index = () => {
       swipeHelper: "Sveip eller bruk pilene for å se flere kampanjeeksempler",
       campaignOverview: "Oversikt over flere kampanjer i aksjon",
       joinDiscord: "Bli med på Discord",
+      mechanismsSubtitle: "AI-Drevne Funksjoner",
+      mechanismsTitle: "Innovative Mekanismer",
+      mechanismsDescription: "Oppdag våre banebrytende AI-funksjoner som gjør merkevareintegrasjonen mer engasjerende og interaktiv.",
+      vrmTitle: "Stemmegjenkjenningsmekanisme (VRM)",
+      vrmDescription: "Kontekstuell grafikk dukker opp når streamere sier nøkkelord, og skaper naturlig merkevareintegrering.",
+      vrmHowItWorks: [
+        "Streameren sier et av nøkkelordene.",
+        "Mekanismen gjenkjenner ordet og lanserer grafikken.",
+        "Seerne ser en kontekstuell melding på streamen."
+      ],
+      vrmWhyWorthIt: [
+        "En innovativ mekanisme som overrasker publikum.",
+        "Merkevaren blir en del av temaene eller spillene på streamen.",
+        "Kontekstuelle meldinger når publikum bedre."
+      ],
+      votingTitle: "Avstemningsmekanisme",
+      votingDescription: "Interaktivt avstemningssystem som lar seere delta i beslutninger og spill.",
+      votingHowItWorks: [
+        "Grafikk som oppfordrer folk til å stemme på et bestemt alternativ dukker opp på streamen.",
+        "En annen grafikk dukker opp med resultatet som spillerne har valgt."
+      ],
+      votingWhyWorthIt: [
+        "Å involvere publikum i beslutninger styrker deres fokus.",
+        "Merkevaren er den interaktive delen av streamen. Og siden jeg allerede klikker på chatten, kan jeg også klikke på lenken...."
+      ],
+      howItWorksTitle: "HVORDAN FUNGERER DET?",
+      whyWorthItTitle: "HVORFOR ER DET VERDT DET?",
     },
     sv: {
       heroSubtitle: "Nordisk Twitch-byrå",
@@ -122,6 +177,33 @@ const Index = () => {
       swipeHelper: "Svep eller använd pilarna för att se fler kampanjexempel",
       campaignOverview: "Översikt över flera kampanjer i aktion",
       joinDiscord: "Gå med i Discord",
+      mechanismsSubtitle: "AI-Drivna Funktioner",
+      mechanismsTitle: "Innovativa Mekanismer",
+      mechanismsDescription: "Upptäck våra banbrytande AI-funktioner som gör din varumärkesintegration mer engagerande och interaktiv.",
+      vrmTitle: "Rösterkänningsmekanism (VRM)",
+      vrmDescription: "Kontextuell grafik visas när streamers säger nyckelord, vilket skapar naturlig varumärkesintegration.",
+      vrmHowItWorks: [
+        "Streamern säger ett av nyckelorden.",
+        "Mekanismen känner igen ordet och lanserar grafiken.",
+        "Tittarna ser ett kontextuellt meddelande på strömmen."
+      ],
+      vrmWhyWorthIt: [
+        "En innovativ mekanism som överraskar publiken.",
+        "Varumärket blir en del av temana eller spelen på strömmen.",
+        "Kontextuella meddelanden når publiken bättre."
+      ],
+      votingTitle: "Röstmekanism",
+      votingDescription: "Interaktivt röstningssystem som låter tittare delta i beslutsfattande och spel.",
+      votingHowItWorks: [
+        "Grafik som uppmuntrar folk att rösta på ett visst alternativ visas på strömmen.",
+        "En annan grafik visas med resultatet som spelarna har valt."
+      ],
+      votingWhyWorthIt: [
+        "Att involvera publiken i beslutsfattande stärker deras fokus.",
+        "Varumärket är den interaktiva delen av strömmen. Och eftersom jag redan klickar på chatten kan jag också klicka på länken...."
+      ],
+      howItWorksTitle: "HUR FUNGERAR DET?",
+      whyWorthItTitle: "VARFÖR ÄR DET VÄRT DET?",
     },
     fi: {
       heroSubtitle: "Pohjoismainen Twitch-toimisto",
@@ -153,6 +235,33 @@ const Index = () => {
       swipeHelper: "Pyyhkäise tai käytä nuolia nähdäksesi lisää kampanjaesimerkkejä",
       campaignOverview: "Katsaus useisiin kampanjoihin toiminnassa",
       joinDiscord: "Liity Discordiin",
+      mechanismsSubtitle: "AI-Käyttöiset Ominaisuudet",
+      mechanismsTitle: "Innovatiiviset Mekanismit",
+      mechanismsDescription: "Tutustu huippuluokan AI-toimintoihimme, jotka tekevät brändi-integraatiosta kiinnostavampaa ja interaktiivisempaa.",
+      vrmTitle: "Äänentunnistusmekanismi (VRM)",
+      vrmDescription: "Kontekstuaalinen grafiikka ilmestyy kun streamaajat sanovat avainsanoja, luoden luonnollisen brändi-integraation.",
+      vrmHowItWorks: [
+        "Streamaaja sanoo yhden avainsanoista.",
+        "Mekanismi tunnistaa sanan ja käynnistää grafiikan.",
+        "Katsojat näkevät kontekstuaalisen viestin streamissä."
+      ],
+      vrmWhyWorthIt: [
+        "Innovatiivinen mekanismi, joka yllättää yleisön.",
+        "Brändi tulee osaksi streamin teemoja tai pelejä.",
+        "Kontekstuaaliset viestit tavoittavat yleisön paremmin."
+      ],
+      votingTitle: "Äänestysmekanismi",
+      votingDescription: "Interaktiivinen äänestyssysteemi, joka antaa katsojien osallistua päätöksentekoon ja peleihin.",
+      votingHowItWorks: [
+        "Grafiikka, joka rohkaisee ihmisiä äänestämään tiettyä vaihtoehtoa, ilmestyy streamiin.",
+        "Toinen grafiikka ilmestyy tuloksella, jonka pelaajat ovat valinneet."
+      ],
+      votingWhyWorthIt: [
+        "Yleisön osallistaminen päätöksentekoon vahvistaa heidän keskittymistään.",
+        "Brändi on streamin interaktiivinen osa. Ja koska klikkaan jo chattia, voin myös klikata linkkiä...."
+      ],
+      howItWorksTitle: "MITEN SE TOIMII?",
+      whyWorthItTitle: "MIKSI SE ON KANNATTAVAA?",
     },
   };
 
@@ -185,6 +294,7 @@ const Index = () => {
       <Hero t={t} scrollToSection={scrollToSection} language={language} setLanguage={setLanguage} />
       <TrustedBy />
       <Examples t={t} caseVideos={caseVideos} />
+      <Mechanisms t={t} />
       <StreamerSection t={t} language={language} />
       <Press t={t} />
       <CTA t={t} />
