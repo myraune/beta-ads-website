@@ -33,8 +33,8 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
             <CarouselContent className="-ml-4 md:-ml-8">
               {caseVideos.map((video, index) => (
                 <CarouselItem key={video.id} className="pl-4 md:pl-8 basis-full md:basis-5/6">
-                  <div className="relative bg-card rounded-3xl p-6 md:p-8 border border-border hover:border-primary/20 transition-all duration-500 group hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-2">
-                    <div className="aspect-video rounded-2xl overflow-hidden bg-black transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
+                  <div className="relative bg-card rounded-3xl p-6 md:p-8 border border-border hover:border-primary/30 transition-all duration-700 ease-out group hover:shadow-[0_25px_50px_-12px_rgba(220,38,38,0.25)] hover:scale-[1.03] hover:-translate-y-3 cursor-pointer">
+                    <div className="aspect-video rounded-2xl overflow-hidden bg-black transition-all duration-500 ease-out group-hover:scale-[1.01] group-hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] group-hover:rounded-xl">
                       <iframe
                         width="100%"
                         height="100%"
@@ -46,9 +46,9 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
                         className="w-full h-full"
                       ></iframe>
                     </div>
-                    <div className="text-center mt-6 space-y-2">
-                      <h3 className="text-2xl font-light text-card-foreground tracking-wide group-hover:text-primary transition-colors duration-300">{video.brand}</h3>
-                      <p className="text-muted-foreground font-extralight tracking-wide text-lg">{video.title}</p>
+                    <div className="text-center mt-6 space-y-2 transition-all duration-500 ease-out group-hover:transform group-hover:translate-y-[-2px]">
+                      <h3 className="text-2xl font-light text-card-foreground tracking-wide group-hover:text-primary transition-all duration-500 ease-out group-hover:scale-105">{video.brand}</h3>
+                      <p className="text-muted-foreground font-extralight tracking-wide text-lg group-hover:text-foreground transition-all duration-500 ease-out">{video.title}</p>
                     </div>
                   </div>
                 </CarouselItem>
