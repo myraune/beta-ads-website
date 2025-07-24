@@ -64,7 +64,7 @@ const Index = () => {
       mechanismsSubtitle: "AI-Powered Features",
       mechanismsTitle: "Innovative Mechanisms",
       mechanismsDescription: "Discover our cutting-edge AI functionalities that make your brand integration more engaging and interactive.",
-      vrmTitle: "Voice Recognition Mechanism (VRM)",
+      vrmTitle: "Voice Recognition Mechanism",
       vrmDescription: "Contextual artwork appears when streamers say keywords, creating natural brand integration.",
       vrmHowItWorks: [
         "The streamer says one of the keywords.",
@@ -122,7 +122,7 @@ const Index = () => {
       mechanismsSubtitle: "AI-Drevne Funksjoner",
       mechanismsTitle: "Innovative Mekanismer",
       mechanismsDescription: "Oppdag våre banebrytende AI-funksjoner som gjør merkevareintegrasjonen mer engasjerende og interaktiv.",
-      vrmTitle: "Stemmegjenkjenningsmekanisme (VRM)",
+      vrmTitle: "Stemmegjenkjenningsmekanisme",
       vrmDescription: "Kontekstuell grafikk dukker opp når streamere sier nøkkelord, og skaper naturlig merkevareintegrering.",
       vrmHowItWorks: [
         "Streameren sier et av nøkkelordene.",
@@ -180,7 +180,7 @@ const Index = () => {
       mechanismsSubtitle: "AI-Drivna Funktioner",
       mechanismsTitle: "Innovativa Mekanismer",
       mechanismsDescription: "Upptäck våra banbrytande AI-funktioner som gör din varumärkesintegration mer engagerande och interaktiv.",
-      vrmTitle: "Rösterkänningsmekanism (VRM)",
+      vrmTitle: "Rösterkänningsmekanism",
       vrmDescription: "Kontextuell grafik visas när streamers säger nyckelord, vilket skapar naturlig varumärkesintegration.",
       vrmHowItWorks: [
         "Streamern säger ett av nyckelorden.",
@@ -238,7 +238,7 @@ const Index = () => {
       mechanismsSubtitle: "AI-Käyttöiset Ominaisuudet",
       mechanismsTitle: "Innovatiiviset Mekanismit",
       mechanismsDescription: "Tutustu huippuluokan AI-toimintoihimme, jotka tekevät brändi-integraatiosta kiinnostavampaa ja interaktiivisempaa.",
-      vrmTitle: "Äänentunnistusmekanismi (VRM)",
+      vrmTitle: "Äänentunnistusmekanismi",
       vrmDescription: "Kontekstuaalinen grafiikka ilmestyy kun streamaajat sanovat avainsanoja, luoden luonnollisen brändi-integraation.",
       vrmHowItWorks: [
         "Streamaaja sanoo yhden avainsanoista.",
