@@ -55,7 +55,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
       <div className="flex flex-col sm:flex-row gap-8 justify-center items-center mb-16">
         <Button
           size="lg"
-          className="bg-red-400 text-white hover:bg-red-500 px-12 py-6 text-lg font-light tracking-wide h-auto shadow-2xl hover:shadow-red-400/20 transition-all duration-300 hover:scale-105"
+          className="bg-red-400 text-white hover:bg-red-500 px-12 py-6 text-lg font-light tracking-wide h-auto shadow-2xl hover:shadow-red-400/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
           onClick={() => window.open("https://beta.instreamly.com/", "_blank")}
         >
           {t.joinStreamer}
@@ -64,7 +64,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
         <Button
           size="lg"
           variant="outline"
-          className="border-border text-card-foreground hover:bg-secondary bg-secondary/50 px-12 py-6 text-lg font-light tracking-wide h-auto transition-all duration-300 hover:border-muted"
+          className="border-border text-card-foreground hover:bg-secondary bg-secondary/50 px-12 py-6 text-lg font-light tracking-wide h-auto transition-all duration-300 hover:border-muted hover:scale-105 hover:-translate-y-1"
           onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
         >
           {t.joinDiscord}
@@ -88,12 +88,12 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {sponsorships.map((sponsorship) => (
-                  <Card key={sponsorship.id} className="overflow-hidden">
+                  <Card key={sponsorship.id} className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02] hover:-translate-y-1">
                     <div className="relative">
-                      <img 
-                        src={sponsorship.image} 
-                        alt={sponsorship.title}
-                        className="w-full h-48 object-cover"
+                       <img 
+                         src={sponsorship.image} 
+                         alt={sponsorship.title}
+                         className="w-full h-48 object-cover transition-all duration-300 hover:scale-110"
                       />
                       <div className="absolute top-2 right-2">
                         <Badge className={sponsorship.status === "active" ? "bg-green-500 text-white" : "bg-red-500 text-white"}>
@@ -110,10 +110,10 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
                       </div>
                       
                       <div className="flex gap-2">
-                        <Button variant="outline" size="sm" className="flex-1">
-                          View details
+                         <Button variant="outline" size="sm" className="flex-1 transition-all duration-300 hover:scale-105">
+                           View details
                         </Button>
-                        <Button size="sm" className="flex-1 bg-red-400 hover:bg-red-500 text-white">
+                        <Button size="sm" className="flex-1 bg-red-400 hover:bg-red-500 text-white transition-all duration-300 hover:scale-105">
                           Join
                         </Button>
                       </div>
@@ -125,7 +125,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
 
             <TabsContent value="wallet">
               <div className="max-w-md mx-auto">
-                <Card className="bg-gradient-to-r from-red-400 to-orange-400 text-white border-0">
+                <Card className="bg-gradient-to-r from-red-400 to-orange-400 text-white border-0 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]">
                   <CardHeader>
                     <CardTitle className="flex items-center">
                       <DollarSign className="h-5 w-5 mr-2" />
@@ -150,7 +150,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
                       </div>
                     </div>
                     
-                    <Button className="w-full mt-4 bg-white/20 hover:bg-white/30 text-white border-white/20">
+                    <Button className="w-full mt-4 bg-white/20 hover:bg-white/30 text-white border-white/20 transition-all duration-300 hover:scale-105">
                       Withdraw Earnings
                     </Button>
                   </CardContent>
@@ -162,7 +162,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
       )}
 
       <div className="text-center mt-16">
-        <div className="inline-flex items-center space-x-3 bg-secondary rounded-2xl px-8 py-4 border border-border">
+        <div className="inline-flex items-center space-x-3 bg-secondary rounded-2xl px-8 py-4 border border-border transition-all duration-300 hover:shadow-lg hover:scale-105 hover:bg-secondary/80">
           <TrendingUp className="h-6 w-6 text-muted-foreground" />
           <span className="text-secondary-foreground font-light text-lg tracking-wide">
             {t.passiveIncome}

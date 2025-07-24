@@ -17,23 +17,23 @@ export const CTA: React.FC<CTAProps> = ({ t }) => (
         {t.ctaDescription}
       </p>
       
-      <div className="flex items-center justify-center mb-12">
-        <div className="w-16 h-16 rounded-full overflow-hidden mr-4 ring-2 ring-white/20">
+      <div className="flex items-center justify-center mb-12 transition-all duration-300 hover:scale-105 cursor-pointer group">
+        <div className="w-16 h-16 rounded-full overflow-hidden mr-4 ring-2 ring-white/20 transition-all duration-300 group-hover:ring-white/40 group-hover:shadow-lg">
           <img
             src="/lovable-uploads/e6d9646d-bf5f-471c-a2d8-1f06c274f570.png"
             alt="Andreas Myraune"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110"
           />
         </div>
         <div className="text-left">
-          <p className="text-lg font-light text-white tracking-wide">Andreas Myraune</p>
-          <p className="text-sm text-gray-300 font-extralight tracking-wide">Head of Agency</p>
+          <p className="text-lg font-light text-white tracking-wide transition-all duration-300 group-hover:text-gray-100">Andreas Myraune</p>
+          <p className="text-sm text-gray-300 font-extralight tracking-wide transition-all duration-300 group-hover:text-gray-200">Head of Agency</p>
         </div>
       </div>
 
       <Button
         size="lg"
-        className="bg-white text-black hover:bg-gray-50 px-16 py-8 text-xl font-light tracking-wide h-auto shadow-2xl hover:shadow-white/10 transition-all duration-300 hover:scale-105"
+        className="bg-white text-black hover:bg-gray-50 px-16 py-8 text-xl font-light tracking-wide h-auto shadow-2xl hover:shadow-white/10 transition-all duration-300 hover:scale-105 hover:-translate-y-2"
         onClick={() =>
           window.open(
             "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1RiJEObf5v758exr0hi5vk0ZRP0vgGQexQeAoykItGH1-RTFV1DQOye1rJbUSAqu7TdhWhRigO",

@@ -9,6 +9,7 @@ import { Press } from "@/components/sections/Press";
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/sections/Footer";
 import NewsletterPopup from "@/components/sections/NewsletterPopup";
+import { MouseTracker } from "@/components/MouseTracker";
 
 const Index = () => {
   const [language, setLanguage] = useState("en");
@@ -290,7 +291,8 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      <MouseTracker />
       <Hero t={t} scrollToSection={scrollToSection} language={language} setLanguage={setLanguage} />
       <TrustedBy />
       <Examples t={t} caseVideos={caseVideos} />

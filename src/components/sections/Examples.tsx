@@ -33,8 +33,8 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
             <CarouselContent className="-ml-4 md:-ml-8">
               {caseVideos.map((video, index) => (
                 <CarouselItem key={video.id} className="pl-4 md:pl-8 basis-full md:basis-5/6">
-                  <div className="relative bg-card rounded-3xl p-6 md:p-8 border border-border hover:border-primary/20 transition-all duration-300 group">
-                    <div className="aspect-video rounded-2xl overflow-hidden bg-black">
+                  <div className="relative bg-card rounded-3xl p-6 md:p-8 border border-border hover:border-primary/20 transition-all duration-500 group hover:shadow-2xl hover:scale-[1.02] hover:-translate-y-2">
+                    <div className="aspect-video rounded-2xl overflow-hidden bg-black transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-lg">
                       <iframe
                         width="100%"
                         height="100%"
@@ -55,8 +55,8 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
               ))}
             </CarouselContent>
             
-            <CarouselPrevious className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -left-4 md:-left-8 h-14 w-14 transition-all duration-300" />
-            <CarouselNext className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -right-4 md:-right-8 h-14 w-14 transition-all duration-300" />
+            <CarouselPrevious className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -left-4 md:-left-8 h-14 w-14 transition-all duration-300 hover:scale-110 hover:shadow-lg" />
+            <CarouselNext className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -right-4 md:-right-8 h-14 w-14 transition-all duration-300 hover:scale-110 hover:shadow-lg" />
           </Carousel>
 
           {/* Dot indicators */}

@@ -17,17 +17,17 @@ export const Team: React.FC<TeamProps> = ({ t }) => (
       </div>
 
       <div className="flex justify-center max-w-4xl mx-auto">
-        <div className="text-center group hover:transform hover:scale-105 transition-all duration-300">
-          <div className="w-40 h-40 rounded-full mx-auto mb-8 overflow-hidden group-hover:shadow-2xl transition-all duration-300">
+        <div className="text-center group hover:transform hover:scale-105 transition-all duration-500 cursor-pointer">
+          <div className="w-40 h-40 rounded-full mx-auto mb-8 overflow-hidden group-hover:shadow-2xl transition-all duration-500 ring-2 ring-border group-hover:ring-primary/50">
             <img
               src="/lovable-uploads/e6d9646d-bf5f-471c-a2d8-1f06c274f570.png"
               alt="Andreas Myraune"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
             />
           </div>
-          <h3 className="text-2xl font-light text-foreground mb-3 tracking-wide">Andreas Myraune</h3>
-          <p className="text-foreground font-extralight mb-2 text-lg tracking-wide">Head of Agency</p>
-          <p className="text-muted-foreground font-extralight tracking-wide">andreas@beta-ads.no</p>
+          <h3 className="text-2xl font-light text-foreground mb-3 tracking-wide transition-all duration-300 group-hover:text-primary">Andreas Myraune</h3>
+          <p className="text-foreground font-extralight mb-2 text-lg tracking-wide transition-all duration-300 group-hover:text-foreground/80">Head of Agency</p>
+          <p className="text-muted-foreground font-extralight tracking-wide transition-all duration-300 group-hover:text-muted-foreground/80">andreas@beta-ads.no</p>
         </div>
       </div>
     </div>
