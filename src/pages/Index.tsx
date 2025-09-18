@@ -288,6 +288,11 @@ const Index = () => {
       title: "Komplett Campaign Case Study",
       brand: "Komplett",
     },
+    {
+      id: "DMz-NV1W_Is",
+      title: "Saily E-sim Campaign in Norway",
+      brand: "Saily",
+    },
   ];
 
   return (
