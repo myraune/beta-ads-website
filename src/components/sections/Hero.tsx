@@ -128,7 +128,7 @@ export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLan
               <iframe
                 width="100%"
                 height="100%"
-                src="https://www.youtube.com/embed/P9yEc7v22MI"
+                src="https://www.youtube.com/embed/P9yEc7v22MI?autoplay=1&mute=1"
                 title="Campaign Grid Overview"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
