@@ -1,6 +1,7 @@
 
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { type CarouselApi } from "@/components/ui/carousel";
 
 interface ExamplesProps {
   t: any;
@@ -8,7 +9,20 @@ interface ExamplesProps {
 }
 
 export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api]);
 
   return (
     <section id="examples" className="py-32 bg-background text-foreground">
@@ -24,6 +38,7 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
 
         <div className="max-w-5xl mx-auto relative">
           <Carousel 
+            setApi={setApi}
             className="w-full"
             opts={{
               align: "center",
@@ -33,8 +48,8 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
             <CarouselContent className="-ml-4 md:-ml-8">
               {caseVideos.map((video, index) => (
                 <CarouselItem key={video.id} className="pl-4 md:pl-8 basis-full md:basis-5/6">
-                  <div className="relative bg-card rounded-3xl p-6 md:p-8 border border-border hover:border-primary/30 transition-all duration-700 ease-out group hover:shadow-[0_25px_50px_-12px_rgba(220,38,38,0.25)] hover:scale-[1.03] hover:-translate-y-3 cursor-pointer">
-                    <div className="aspect-video rounded-2xl overflow-hidden bg-black transition-all duration-500 ease-out group-hover:scale-[1.01] group-hover:shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] group-hover:rounded-xl">
+                   <div className="relative bg-card rounded-3xl p-6 md:p-8 border border-border transition-colors duration-300">
+                     <div className="aspect-video rounded-2xl overflow-hidden bg-black">
                       <iframe
                         width="100%"
                         height="100%"
@@ -46,9 +61,9 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
                         className="w-full h-full"
                       ></iframe>
                     </div>
-                    <div className="text-center mt-6 space-y-2 transition-all duration-500 ease-out group-hover:transform group-hover:translate-y-[-2px]">
-                      <h3 className="text-2xl font-light text-card-foreground tracking-wide group-hover:text-primary transition-all duration-500 ease-out group-hover:scale-105">{video.brand}</h3>
-                      <p className="text-muted-foreground font-extralight tracking-wide text-lg group-hover:text-foreground transition-all duration-500 ease-out">{video.title}</p>
+                     <div className="text-center mt-6 space-y-2">
+                       <h3 className="text-2xl font-light text-card-foreground tracking-wide">{video.brand}</h3>
+                       <p className="text-muted-foreground font-extralight tracking-wide text-lg">{video.title}</p>
                     </div>
                   </div>
                 </CarouselItem>
@@ -65,12 +80,12 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
               <button
                 key={index}
                 className={`w-4 h-4 rounded-full transition-all duration-300 ${
-                  index === currentSlide 
+                  index === current 
                     ? 'bg-primary shadow-lg scale-125' 
                     : 'bg-muted hover:bg-muted-foreground hover:scale-110'
                 }`}
                 onClick={() => {
-                  setCurrentSlide(index);
+                  api?.scrollTo(index);
                 }}
               />
             ))}
