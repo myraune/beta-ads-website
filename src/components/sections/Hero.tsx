@@ -76,10 +76,10 @@ export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLan
         <div className="space-y-8">
           <div className="flex items-center justify-center mb-8">
             <div className="flex items-center">
-              {/* White logo only */}
+              {/* White logo for hero */}
               <img 
-                src="/lovable-uploads/4036e1d6-6941-4822-9a2b-41b6c09ef4bc.png" 
-                alt="Beta AOS" 
+                src="/lovable-uploads/logo-white.png" 
+                alt="Beta Ads" 
                 className="h-10 md:h-12 w-auto transition-all duration-500 hover:scale-110 hover:drop-shadow-lg cursor-pointer"
               />
             </div>
