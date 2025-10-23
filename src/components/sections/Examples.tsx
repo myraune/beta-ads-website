@@ -25,18 +25,18 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
   }, [api]);
 
   return (
-    <section id="examples" className="py-32 bg-background text-foreground">
-      <div className="max-w-7xl mx-auto px-8 lg:px-12">
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-extralight text-foreground mb-8 tracking-tighter">
+    <section id="examples" className="py-20 bg-background text-foreground">
+      <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
+        <div className="text-center mb-12">
+          <h2 className="text-5xl md:text-7xl font-bold text-foreground mb-6 tracking-tight">
             {t.trustedByTitle}
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
             {t.trustedByDescription}
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto relative">
+        <div className="max-w-[1400px] mx-auto relative">
           <Carousel 
             setApi={setApi}
             className="w-full"
@@ -45,11 +45,11 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
               loop: true,
             }}
           >
-            <CarouselContent className="-ml-2 md:-ml-4">
+            <CarouselContent className="-ml-1 md:-ml-2">
               {caseVideos.map((video, index) => (
-                <CarouselItem key={video.id} className="pl-2 md:pl-4 basis-full">
-                   <div className="relative bg-card rounded-2xl p-3 md:p-4 border border-border transition-colors duration-300">
-                     <div className="aspect-video rounded-xl overflow-hidden bg-black">
+                <CarouselItem key={video.id} className="pl-1 md:pl-2 basis-full">
+                   <div className="relative bg-card rounded-xl p-2 border border-border transition-colors duration-300">
+                      <div className="aspect-video rounded-lg overflow-hidden bg-black">
                       <iframe
                         width="100%"
                         height="100%"
@@ -61,25 +61,25 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
                         className="w-full h-full"
                       ></iframe>
                     </div>
-                     <div className="text-center mt-3 space-y-1">
-                       <h3 className="text-xl font-light text-card-foreground tracking-wide">{video.brand}</h3>
-                       <p className="text-muted-foreground font-extralight tracking-wide text-base">{video.title}</p>
+                      <div className="text-center mt-2 space-y-0.5">
+                        <h3 className="text-lg font-medium text-card-foreground">{video.brand}</h3>
+                        <p className="text-muted-foreground font-light text-sm">{video.title}</p>
                     </div>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
             
-            <CarouselPrevious className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -left-2 md:-left-4 h-12 w-12 transition-all duration-300 hover:scale-110 hover:shadow-lg" />
-            <CarouselNext className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -right-2 md:-right-4 h-12 w-12 transition-all duration-300 hover:scale-110 hover:shadow-lg" />
+            <CarouselPrevious className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -left-1 md:-left-3 h-10 w-10 transition-all duration-300 hover:scale-110 hover:shadow-lg" />
+            <CarouselNext className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -right-1 md:-right-3 h-10 w-10 transition-all duration-300 hover:scale-110 hover:shadow-lg" />
           </Carousel>
 
           {/* Dot indicators */}
-          <div className="flex justify-center mt-8 space-x-3">
+          <div className="flex justify-center mt-6 space-x-2">
             {caseVideos.map((_, index) => (
               <button
                 key={index}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                   index === current 
                     ? 'bg-primary shadow-lg scale-125' 
                     : 'bg-muted hover:bg-muted-foreground hover:scale-110'
@@ -92,8 +92,8 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
           </div>
 
           {/* Helper text */}
-          <div className="text-center mt-6">
-            <p className="text-muted-foreground font-light text-base">
+          <div className="text-center mt-4">
+            <p className="text-muted-foreground font-light text-sm">
               {t.swipeHelper}
             </p>
           </div>

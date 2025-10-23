@@ -9,6 +9,7 @@ import { Press } from "@/components/sections/Press";
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/sections/Footer";
 import { MouseTracker } from "@/components/MouseTracker";
+import { AnimatedBackground } from "@/components/AnimatedBackground";
 
 const Index = () => {
   const [language, setLanguage] = useState("en");
@@ -27,7 +28,7 @@ const Index = () => {
       streamerSectionSubtitle: "Earn while you stream – automatically.",
       streamerSectionDescription: "Earn money automatically with Beta Ads. No shoutouts. No affiliate links. Just passive income through overlays.",
       joinStreamer: "Join as a Streamer",
-      trustedByTitle: "How your brand will look on Twitch",
+      trustedByTitle: "Just watch...",
       trustedByDescription: "Designed to blend with the stream – but stand out to the viewer.",
       meetTeamTitle: "Meet the team",
       meetTeamDescription: "Young, international, and passionate about revolutionizing advertising on Twitch.",
@@ -45,7 +46,7 @@ const Index = () => {
       campaignOverview: "Overview of multiple campaigns in action",
       joinDiscord: "Join Our Discord",
       mechanismsSubtitle: "AI-Powered Features",
-      mechanismsTitle: "Innovative Mechanisms",
+      mechanismsTitle: "This should convince you.",
       mechanismsDescription: "Discover our cutting-edge AI functionalities that make your brand integration more engaging and interactive.",
       vrmTitle: "Voice Recognition Mechanism",
       vrmDescription: "Contextual artwork appears when streamers say keywords, creating natural brand integration.",
@@ -85,7 +86,7 @@ const Index = () => {
       streamerSectionSubtitle: "Tjen mens du streamer – automatisk.",
       streamerSectionDescription: "Tjen penger automatisk med Beta Ads. Ingen shoutouts. Ingen affiliate-lenker. Bare passiv inntekt gjennom overlays.",
       joinStreamer: "Bli med som Streamer",
-      trustedByTitle: "Hvordan din merkevare vil se ut på Twitch",
+      trustedByTitle: "Bare se...",
       trustedByDescription: "Designet for å blande seg med streamen – men skille seg ut for seeren.",
       meetTeamTitle: "Møt teamet",
       meetTeamDescription: "Unge, internasjonale og lidenskapelige om å revolusjonere annonsering på Twitch.",
@@ -103,7 +104,7 @@ const Index = () => {
       campaignOverview: "Oversikt over flere kampanjer i aksjon",
       joinDiscord: "Bli med på Discord",
       mechanismsSubtitle: "AI-Drevne Funksjoner",
-      mechanismsTitle: "Innovative Mekanismer",
+      mechanismsTitle: "Dette bør overbevise deg.",
       mechanismsDescription: "Oppdag våre banebrytende AI-funksjoner som gjør merkevareintegrasjonen mer engasjerende og interaktiv.",
       vrmTitle: "Stemmegjenkjenningsmekanisme",
       vrmDescription: "Kontekstuell grafikk dukker opp når streamere sier nøkkelord, og skaper naturlig merkevareintegrering.",
@@ -143,7 +144,7 @@ const Index = () => {
       streamerSectionSubtitle: "Tjäna medan du streamar – automatiskt.",
       streamerSectionDescription: "Tjäna pengar automatiskt med Beta Ads. Inga shoutouts. Inga affiliate-länkar. Bara passiv inkomst genom overlays.",
       joinStreamer: "Gå med som Streamer",
-      trustedByTitle: "Så här kommer ditt varumärke att se ut på Twitch",
+      trustedByTitle: "Bara titta...",
       trustedByDescription: "Designad för att smälta in med strömmen – men sticka ut för tittaren.",
       meetTeamTitle: "Träffa teamet",
       meetTeamDescription: "Unga, internationella och passionerade för att revolutionera reklam på Twitch.",
@@ -161,7 +162,7 @@ const Index = () => {
       campaignOverview: "Översikt över flera kampanjer i aktion",
       joinDiscord: "Gå med i Discord",
       mechanismsSubtitle: "AI-Drivna Funktioner",
-      mechanismsTitle: "Innovativa Mekanismer",
+      mechanismsTitle: "Detta borde övertyga dig.",
       mechanismsDescription: "Upptäck våra banbrytande AI-funktioner som gör din varumärkesintegration mer engagerande och interaktiv.",
       vrmTitle: "Rösterkänningsmekanism",
       vrmDescription: "Kontextuell grafik visas när streamers säger nyckelord, vilket skapar naturlig varumärkesintegration.",
@@ -201,7 +202,7 @@ const Index = () => {
       streamerSectionSubtitle: "Ansaitse samalla kun streamaat – automaattisesti.",
       streamerSectionDescription: "Ansaitse rahaa automaattisesti Beta Adsin kanssa. Ei shoutouteja. Ei affiliate-linkkejä. Vain passiivista tuloa overlay-kerrosten kautta.",
       joinStreamer: "Liity Streamaajaksi",
-      trustedByTitle: "Näin brändisi näyttää Twitchissä",
+      trustedByTitle: "Katso vain...",
       trustedByDescription: "Suunniteltu sulautumaan streamiin – mutta erottumaan katsojalle.",
       meetTeamTitle: "Tapaa tiimi",
       meetTeamDescription: "Nuoria, kansainvälisiä ja intohimoisia vallankumouksellista Twitch-mainontaa kohtaan.",
@@ -219,7 +220,7 @@ const Index = () => {
       campaignOverview: "Katsaus useisiin kampanjoihin toiminnassa",
       joinDiscord: "Liity Discordiin",
       mechanismsSubtitle: "AI-Käyttöiset Ominaisuudet",
-      mechanismsTitle: "Innovatiiviset Mekanismit",
+      mechanismsTitle: "Tämän pitäisi vakuuttaa sinut.",
       mechanismsDescription: "Tutustu huippuluokan AI-toimintoihimme, jotka tekevät brändi-integraatiosta kiinnostavampaa ja interaktiivisempaa.",
       vrmTitle: "Äänentunnistusmekanismi",
       vrmDescription: "Kontekstuaalinen grafiikka ilmestyy kun streamaajat sanovat avainsanoja, luoden luonnollisen brändi-integraation.",
@@ -284,6 +285,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background relative">
+      <AnimatedBackground />
       <MouseTracker />
       <Hero t={t} scrollToSection={scrollToSection} language={language} setLanguage={setLanguage} />
       <TrustedBy />
