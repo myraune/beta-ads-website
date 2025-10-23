@@ -8,28 +8,10 @@ import { Press } from "@/components/sections/Press";
 
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/sections/Footer";
-import NewsletterPopup from "@/components/sections/NewsletterPopup";
 import { MouseTracker } from "@/components/MouseTracker";
 
 const Index = () => {
   const [language, setLanguage] = useState("en");
-  const [showNewsletterPopup, setShowNewsletterPopup] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const hasSeenPopup = localStorage.getItem("newsletter-popup-seen");
-      if (!hasSeenPopup) {
-        setShowNewsletterPopup(true);
-      }
-    }, 8000); // Show after 8 seconds
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  const handleCloseNewsletter = () => {
-    setShowNewsletterPopup(false);
-    localStorage.setItem("newsletter-popup-seen", "true");
-  };
 
   const translations = {
     en: {
@@ -306,11 +288,6 @@ const Index = () => {
       <Press t={t} />
       <CTA t={t} />
       <Footer t={t} language={language} setLanguage={setLanguage} />
-      
-      <NewsletterPopup 
-        isOpen={showNewsletterPopup} 
-        onClose={handleCloseNewsletter} 
-      />
     </div>
   );
 };

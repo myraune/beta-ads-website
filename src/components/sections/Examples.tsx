@@ -11,7 +11,6 @@ interface ExamplesProps {
 export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
 
   useEffect(() => {
     if (!api) {
@@ -25,26 +24,6 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
     });
   }, [api]);
 
-  useEffect(() => {
-    if (!api || !isAutoPlaying) {
-      return;
-    }
-
-    const interval = setInterval(() => {
-      api.scrollNext();
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [api, isAutoPlaying]);
-
-  const handleMouseEnter = () => {
-    setIsAutoPlaying(true);
-  };
-
-  const handleMouseLeave = () => {
-    setIsAutoPlaying(false);
-  };
-
   return (
     <section id="examples" className="py-32 bg-background text-foreground">
       <div className="max-w-7xl mx-auto px-8 lg:px-12">
@@ -57,7 +36,7 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <div className="max-w-5xl mx-auto relative">
           <Carousel 
             setApi={setApi}
             className="w-full"
