@@ -36,7 +36,7 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto relative">
+        <div className="max-w-6xl mx-auto relative">
           <Carousel 
             setApi={setApi}
             className="w-full"
@@ -45,11 +45,11 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
               loop: true,
             }}
           >
-            <CarouselContent className="-ml-4 md:-ml-8">
+            <CarouselContent className="-ml-2 md:-ml-4">
               {caseVideos.map((video, index) => (
-                <CarouselItem key={video.id} className="pl-4 md:pl-8 basis-full md:basis-5/6">
-                   <div className="relative bg-card rounded-3xl p-6 md:p-8 border border-border transition-colors duration-300">
-                     <div className="aspect-video rounded-2xl overflow-hidden bg-black">
+                <CarouselItem key={video.id} className="pl-2 md:pl-4 basis-full">
+                   <div className="relative bg-card rounded-2xl p-3 md:p-4 border border-border transition-colors duration-300">
+                     <div className="aspect-video rounded-xl overflow-hidden bg-black">
                       <iframe
                         width="100%"
                         height="100%"
@@ -61,25 +61,25 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
                         className="w-full h-full"
                       ></iframe>
                     </div>
-                     <div className="text-center mt-6 space-y-2">
-                       <h3 className="text-2xl font-light text-card-foreground tracking-wide">{video.brand}</h3>
-                       <p className="text-muted-foreground font-extralight tracking-wide text-lg">{video.title}</p>
+                     <div className="text-center mt-3 space-y-1">
+                       <h3 className="text-xl font-light text-card-foreground tracking-wide">{video.brand}</h3>
+                       <p className="text-muted-foreground font-extralight tracking-wide text-base">{video.title}</p>
                     </div>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
             
-            <CarouselPrevious className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -left-4 md:-left-8 h-14 w-14 transition-all duration-300 hover:scale-110 hover:shadow-lg" />
-            <CarouselNext className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -right-4 md:-right-8 h-14 w-14 transition-all duration-300 hover:scale-110 hover:shadow-lg" />
+            <CarouselPrevious className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -left-2 md:-left-4 h-12 w-12 transition-all duration-300 hover:scale-110 hover:shadow-lg" />
+            <CarouselNext className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -right-2 md:-right-4 h-12 w-12 transition-all duration-300 hover:scale-110 hover:shadow-lg" />
           </Carousel>
 
           {/* Dot indicators */}
-          <div className="flex justify-center mt-12 space-x-3">
+          <div className="flex justify-center mt-8 space-x-3">
             {caseVideos.map((_, index) => (
               <button
                 key={index}
-                className={`w-4 h-4 rounded-full transition-all duration-300 ${
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === current 
                     ? 'bg-primary shadow-lg scale-125' 
                     : 'bg-muted hover:bg-muted-foreground hover:scale-110'
@@ -92,8 +92,8 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
           </div>
 
           {/* Helper text */}
-          <div className="text-center mt-8">
-            <p className="text-muted-foreground font-light text-lg">
+          <div className="text-center mt-6">
+            <p className="text-muted-foreground font-light text-base">
               {t.swipeHelper}
             </p>
           </div>

@@ -275,6 +275,11 @@ const Index = () => {
       title: "Saily E-sim Campaign in Norway",
       brand: "Saily",
     },
+    {
+      id: "U6i5uvhk2Sw",
+      title: "Surfshark Campaign Case Study",
+      brand: "Surfshark",
+    },
   ];
 
   return (
