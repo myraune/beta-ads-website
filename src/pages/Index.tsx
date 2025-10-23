@@ -8,7 +8,6 @@ import { Press } from "@/components/sections/Press";
 
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/sections/Footer";
-import { MouseTracker } from "@/components/MouseTracker";
 import { AnimatedBackground } from "@/components/AnimatedBackground";
 
 const Index = () => {
@@ -286,7 +285,6 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background relative">
       <AnimatedBackground />
-      <MouseTracker />
       <Hero t={t} scrollToSection={scrollToSection} language={language} setLanguage={setLanguage} />
       <TrustedBy />
       <Examples t={t} caseVideos={caseVideos} />
