@@ -5,7 +5,7 @@ import { Examples } from "@/components/sections/Examples";
 import { Mechanisms } from "@/components/sections/Mechanisms";
 import { StreamerSection } from "@/components/sections/StreamerSection";
 import { Press } from "@/components/sections/Press";
-
+import { Team } from "@/components/sections/Team";
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/sections/Footer";
 import { InteractiveBackground } from "@/components/InteractiveBackground";
@@ -291,6 +291,7 @@ const Index = () => {
       <Mechanisms t={t} />
       <StreamerSection t={t} language={language} />
       <Press t={t} />
+      <Team t={t} />
       <CTA t={t} />
       <Footer t={t} language={language} setLanguage={setLanguage} />
     </div>

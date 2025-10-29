@@ -194,7 +194,7 @@ export const InteractiveBackground: React.FC = () => {
       window.addEventListener('scroll', updateScroll, { passive: true });
 
       const sections = Array.from(document.querySelectorAll('[data-colors]')) as HTMLElement[];
-      let targetColors = [[0.62, 0.11, 0.15], [0.47, 0.08, 0.11], [0.04, 0.04, 0.06]]; // red theme default
+      let targetColors = [[0.35, 0.08, 0.11], [0.28, 0.05, 0.08], [0.02, 0.02, 0.04]]; // softer red theme
       let currentColors = targetColors.map(c => [...c]);
       let targetStrength = 1;
       let currentStrength = targetStrength;
@@ -286,12 +286,12 @@ export const InteractiveBackground: React.FC = () => {
       className="fixed inset-0 z-0 pointer-events-none"
       style={{
         background: `
-          radial-gradient(1200px 800px at 20% 10%, rgba(159, 28, 38, 0.35), transparent 60%),
-          radial-gradient(1000px 700px at 80% 30%, rgba(120, 20, 28, 0.35), transparent 60%),
-          radial-gradient(900px 600px at 50% 70%, rgba(80, 15, 20, 0.25), transparent 60%),
-          #0a0a0f
+          radial-gradient(ellipse 1400px 900px at 30% 20%, rgba(159, 28, 38, 0.12), transparent 70%),
+          radial-gradient(ellipse 1200px 800px at 70% 50%, rgba(120, 20, 28, 0.10), transparent 65%),
+          radial-gradient(ellipse 1000px 700px at 50% 80%, rgba(80, 15, 20, 0.08), transparent 70%),
+          linear-gradient(180deg, #0a0a0f 0%, #0d0a0f 50%, #0a0a0f 100%)
         `,
-        filter: 'saturate(1.1) contrast(1.05)',
+        filter: 'blur(40px) saturate(0.9) contrast(0.95)',
       }}
     >
       <canvas ref={canvasRef} className="w-full h-full" style={{ display: 'none' }} />
