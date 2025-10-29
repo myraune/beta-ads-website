@@ -38,7 +38,12 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
   ];
 
   return (
-  <section id="streamer-section" className="py-32 bg-background text-foreground">
+  <section 
+    id="streamer-section" 
+    className="py-32 text-foreground" 
+    data-colors="#9f1c26,#4a0a0f,#0a0a0f"
+    style={{ "--bg-strength": 0.7 } as React.CSSProperties}
+  >
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-20">
         <h2 className="text-4xl md:text-6xl font-extralight mb-6 tracking-tighter text-foreground">

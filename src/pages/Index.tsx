@@ -8,7 +8,7 @@ import { Press } from "@/components/sections/Press";
 
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/sections/Footer";
-import { AnimatedBackground } from "@/components/AnimatedBackground";
+import { InteractiveBackground } from "@/components/InteractiveBackground";
 
 const Index = () => {
   const [language, setLanguage] = useState("en");
@@ -283,8 +283,8 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background relative">
-      <AnimatedBackground />
+    <div className="min-h-screen bg-[#0a0a0f] relative">
+      <InteractiveBackground />
       <Hero t={t} scrollToSection={scrollToSection} language={language} setLanguage={setLanguage} />
       <TrustedBy />
       <Examples t={t} caseVideos={caseVideos} />

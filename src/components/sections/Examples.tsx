@@ -25,7 +25,12 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
   }, [api]);
 
   return (
-    <section id="examples" className="py-20 bg-background text-foreground">
+    <section 
+      id="examples" 
+      className="py-20 text-foreground" 
+      data-colors="#9f1c26,#5a0e14,#0a0a0f"
+      style={{ "--bg-strength": 0.9 } as React.CSSProperties}
+    >
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
         <div className="text-center mb-12">
           <h2 className="text-5xl md:text-7xl font-bold text-foreground mb-6 tracking-tight">

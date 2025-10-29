@@ -1,7 +1,11 @@
 import React from "react";
 
 export const TrustedBy: React.FC = () => (
-  <section className="py-20 bg-background overflow-hidden">
+  <section 
+    className="py-20 overflow-hidden" 
+    data-colors="#9f1c26,#5a0e14,#0a0a0f"
+    style={{ "--bg-strength": 0.65 } as React.CSSProperties}
+  >
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-16">
         <div className="mb-12 relative">
