@@ -48,6 +48,8 @@ export const InteractiveBackground: React.FC = () => {
         uniform float u_time;
         uniform float u_scroll;
         uniform vec2  u_mouse;
+        uniform vec2  u_mouseVel;
+        uniform float u_scrollVel;
         uniform float u_strength;
 
         uniform vec3 u_c1;
@@ -88,19 +90,42 @@ export const InteractiveBackground: React.FC = () => {
           vec2 aspect = vec2(u_resolution.x / u_resolution.y, 1.0);
           vec2 p = (uv - 0.5) * aspect;
 
-          float t = u_time * 0.05;
-          vec2 scrollShift = vec2(0.0, u_scroll * 0.6);
-          vec2 mouseShift  = (u_mouse - 0.5) * vec2(0.6, 0.4);
+          // Much faster time progression for more motion
+          float t = u_time * 0.18;
+          
+          // Amplified scroll and mouse influence
+          vec2 scrollShift = vec2(0.0, u_scroll * 1.4);
+          vec2 mouseShift = (u_mouse - 0.5) * vec2(1.5, 1.0);
+          
+          // Mouse velocity creates ripple distortions
+          float mouseVelMag = length(u_mouseVel) * 3.0;
+          vec2 ripple = u_mouseVel * mouseVelMag * sin(length(p - (u_mouse - 0.5) * 2.0) * 6.0 - t * 4.0);
+          
+          // Scroll velocity creates swoosh effect
+          float scrollVelEffect = u_scrollVel * 2.0;
+          vec2 swoosh = vec2(scrollVelEffect * 0.3, scrollVelEffect);
 
-          float base = fbm(p * 2.0 + t + scrollShift + mouseShift);
-          float detail = fbm(p * 4.0 - t * 0.7);
-
-          float blend = smoothstep(0.2, 0.8, base);
+          // Multiple FBM layers with different speeds and scales
+          float base = fbm(p * 2.2 + t + scrollShift + mouseShift + ripple + swoosh);
+          float detail = fbm(p * 4.5 - t * 1.4 + mouseShift * 0.5); // Faster rotation
+          float energy = fbm(p * 6.0 + t * 2.2 + ripple); // New fast-moving layer
+          
+          // Pulsing effect that breathes
+          float pulse = sin(t * 0.8) * 0.15 + 0.85;
+          
+          // More dramatic color blending
+          float blend = smoothstep(0.15, 0.85, base * pulse);
           vec3 col = mix(u_c1, u_c2, blend);
-          col = mix(col, u_c3, detail * 0.35);
-
-          float v = length(p) * 0.5;
-          col *= 1.0 - v * 0.25;
+          
+          // Stronger third color mixing for more complexity
+          col = mix(col, u_c3, detail * 0.7);
+          
+          // Add energy layer for extra motion
+          col += energy * 0.15 * vec3(u_c1 * 0.5);
+          
+          // Softer vignette
+          float v = length(p) * 0.4;
+          col *= 1.0 - v * 0.2;
           col = mix(vec3(0.0), col, clamp(u_strength, 0.0, 1.0));
 
           gl_FragColor = vec4(col, 1.0);
@@ -156,6 +181,8 @@ export const InteractiveBackground: React.FC = () => {
       const uTime = gl.getUniformLocation(program, 'u_time');
       const uScroll = gl.getUniformLocation(program, 'u_scroll');
       const uMouse = gl.getUniformLocation(program, 'u_mouse');
+      const uMouseVel = gl.getUniformLocation(program, 'u_mouseVel');
+      const uScrollVel = gl.getUniformLocation(program, 'u_scrollVel');
       const uStrength = gl.getUniformLocation(program, 'u_strength');
       const uC1 = gl.getUniformLocation(program, 'u_c1');
       const uC2 = gl.getUniformLocation(program, 'u_c2');
@@ -178,17 +205,41 @@ export const InteractiveBackground: React.FC = () => {
       resize();
       window.addEventListener('resize', resize);
 
-      const mouse = { x: 0.5, y: 0.5 };
+      const mouse = { x: 0.5, y: 0.5, prevX: 0.5, prevY: 0.5 };
+      const mouseVel = { x: 0, y: 0 };
       const handleMouseMove = (e: PointerEvent) => {
-        mouse.x = e.clientX / window.innerWidth;
-        mouse.y = 1 - e.clientY / window.innerHeight;
+        const newX = e.clientX / window.innerWidth;
+        const newY = 1 - e.clientY / window.innerHeight;
+        
+        // Calculate velocity with smooth decay
+        mouseVel.x += (newX - mouse.x) * 0.3;
+        mouseVel.y += (newY - mouse.y) * 0.3;
+        mouseVel.x *= 0.85; // decay
+        mouseVel.y *= 0.85;
+        
+        mouse.x = newX;
+        mouse.y = newY;
       };
       window.addEventListener('pointermove', handleMouseMove, { passive: true });
 
       let scrollNorm = 0;
+      let scrollVel = 0;
+      let lastScrollY = 0;
+      let lastScrollTime = performance.now();
+      
       const updateScroll = () => {
         const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
         scrollNorm = window.scrollY / max;
+        
+        // Calculate scroll velocity
+        const now = performance.now();
+        const dt = Math.max(1, now - lastScrollTime);
+        const delta = (window.scrollY - lastScrollY) / max;
+        scrollVel += (delta / dt) * 1000 * 0.5; // normalize to per second
+        scrollVel *= 0.92; // decay
+        
+        lastScrollY = window.scrollY;
+        lastScrollTime = now;
       };
       updateScroll();
       window.addEventListener('scroll', updateScroll, { passive: true });
@@ -229,16 +280,19 @@ export const InteractiveBackground: React.FC = () => {
       const frame = (tNow: number) => {
         const t = (tNow - start) / 1000;
 
+        // Faster color transitions for snappier section changes
         for (let i = 0; i < 3; i++) {
-          currentColors[i][0] += (targetColors[i][0] - currentColors[i][0]) * 0.06;
-          currentColors[i][1] += (targetColors[i][1] - currentColors[i][1]) * 0.06;
-          currentColors[i][2] += (targetColors[i][2] - currentColors[i][2]) * 0.06;
+          currentColors[i][0] += (targetColors[i][0] - currentColors[i][0]) * 0.12;
+          currentColors[i][1] += (targetColors[i][1] - currentColors[i][1]) * 0.12;
+          currentColors[i][2] += (targetColors[i][2] - currentColors[i][2]) * 0.12;
         }
-        currentStrength += (targetStrength - currentStrength) * 0.08;
+        currentStrength += (targetStrength - currentStrength) * 0.15;
 
         gl.uniform1f(uTime, t);
         gl.uniform1f(uScroll, scrollNorm);
         gl.uniform2f(uMouse, mouse.x, mouse.y);
+        gl.uniform2f(uMouseVel, mouseVel.x, mouseVel.y);
+        gl.uniform1f(uScrollVel, scrollVel);
         gl.uniform1f(uStrength, currentStrength);
         gl.uniform3f(uC1, currentColors[0][0], currentColors[0][1], currentColors[0][2]);
         gl.uniform3f(uC2, currentColors[1][0], currentColors[1][1], currentColors[1][2]);
@@ -286,12 +340,13 @@ export const InteractiveBackground: React.FC = () => {
       className="fixed inset-0 z-0 pointer-events-none"
       style={{
         background: `
-          radial-gradient(ellipse 1400px 900px at 30% 20%, rgba(159, 28, 38, 0.12), transparent 70%),
-          radial-gradient(ellipse 1200px 800px at 70% 50%, rgba(120, 20, 28, 0.10), transparent 65%),
-          radial-gradient(ellipse 1000px 700px at 50% 80%, rgba(80, 15, 20, 0.08), transparent 70%),
+          radial-gradient(ellipse 1400px 900px at 30% 20%, rgba(159, 28, 38, 0.18), transparent 70%),
+          radial-gradient(ellipse 1200px 800px at 70% 50%, rgba(120, 20, 28, 0.15), transparent 65%),
+          radial-gradient(ellipse 1000px 700px at 50% 80%, rgba(80, 15, 20, 0.12), transparent 70%),
           linear-gradient(180deg, #0a0a0f 0%, #0d0a0f 50%, #0a0a0f 100%)
         `,
-        filter: 'blur(40px) saturate(0.9) contrast(0.95)',
+        filter: 'blur(25px) saturate(1.1) contrast(1.05)',
+        animation: 'bgFlow 20s ease-in-out infinite',
       }}
     >
       <canvas ref={canvasRef} className="w-full h-full" style={{ display: 'none' }} />
