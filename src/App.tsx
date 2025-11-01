@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -6,6 +5,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { LoadingScreen } from "@/components/LoadingScreen";
+import { AmbientAudio } from "@/components/AmbientAudio";
+import { SoundControl } from "@/components/SoundControl";
 
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
@@ -22,6 +23,8 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <AmbientAudio />
+        <SoundControl />
         <Toaster />
         <Sonner />
         <BrowserRouter>

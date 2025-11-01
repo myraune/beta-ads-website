@@ -1,12 +1,16 @@
 import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink } from "lucide-react";
+import { useSoundEffects } from "@/hooks/useSoundEffects";
 
 interface PressProps {
   t: any;
 }
 
-export const Press: React.FC<PressProps> = ({ t }) => (
+export const Press: React.FC<PressProps> = ({ t }) => {
+  const { hover, cardFlip } = useSoundEffects();
+  
+  return (
   <section 
     className="pt-32 pb-16 text-white relative overflow-hidden" 
     data-colors="#9f1c26,#5a0e14,#0a0a0f"
@@ -23,7 +27,7 @@ export const Press: React.FC<PressProps> = ({ t }) => (
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div className="group cursor-pointer" onClick={() => window.open("https://kampanje.com/premium/mai-2025/innsikt/andreas-22-startet-byra-ved-siden-av-studiene--na-utvider-han-til-sverige-og-finland/", "_blank")}>
+        <div className="group cursor-pointer" onClick={() => { cardFlip(); window.open("https://kampanje.com/premium/mai-2025/innsikt/andreas-22-startet-byra-ved-siden-av-studiene--na-utvider-han-til-sverige-og-finland/", "_blank"); }} onMouseEnter={hover}>
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:transform hover:scale-105 border border-white/10 hover:bg-white/10">
             <div className="mb-4">
               <Badge className="bg-red-500/20 text-red-300 border-red-400/30 text-xs font-light">Kampanje</Badge>
@@ -97,4 +101,5 @@ export const Press: React.FC<PressProps> = ({ t }) => (
       </div>
     </div>
   </section>
-);
+  );
+};

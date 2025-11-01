@@ -5,6 +5,12 @@ export const useSoundEffects = () => {
   const isMuted = useRef(false);
 
   useEffect(() => {
+    // Load mute state from localStorage
+    const savedMuteState = localStorage.getItem('soundEffectsMuted');
+    if (savedMuteState === 'true') {
+      isMuted.current = true;
+    }
+
     // Initialize audio context on user interaction
     const initAudio = () => {
       if (!audioContext.current) {
@@ -84,8 +90,43 @@ export const useSoundEffects = () => {
     setTimeout(() => playTone(1200, 0.15, 0.06, 'sine'), 160);
   };
 
+  const buttonPress = () => {
+    playTone(1000, 0.1, 0.04, 'square');
+  };
+
+  const cardFlip = () => {
+    playTone(600, 0.08, 0.03, 'sine');
+    setTimeout(() => playTone(900, 0.06, 0.02, 'sine'), 40);
+  };
+
+  const slideTransition = () => {
+    const ctx = audioContext.current;
+    if (isMuted.current || !ctx) return;
+
+    try {
+      const oscillator = ctx.createOscillator();
+      const gainNode = ctx.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(ctx.destination);
+      
+      oscillator.type = 'sine';
+      oscillator.frequency.setValueAtTime(500, ctx.currentTime);
+      oscillator.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.2);
+      
+      gainNode.gain.setValueAtTime(0.04, ctx.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.2);
+      
+      oscillator.start(ctx.currentTime);
+      oscillator.stop(ctx.currentTime + 0.2);
+    } catch (error) {
+      console.warn('Audio playback failed:', error);
+    }
+  };
+
   const toggleMute = () => {
     isMuted.current = !isMuted.current;
+    localStorage.setItem('soundEffectsMuted', String(isMuted.current));
     return isMuted.current;
   };
 
@@ -94,6 +135,9 @@ export const useSoundEffects = () => {
     click,
     whoosh,
     success,
+    buttonPress,
+    cardFlip,
+    slideTransition,
     toggleMute,
     isMuted: isMuted.current
   };

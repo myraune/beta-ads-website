@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TrendingUp, ExternalLink, DollarSign, Wallet } from "lucide-react";
+import { useSoundEffects } from "@/hooks/useSoundEffects";
 
 interface StreamerSectionProps {
   t: any;
@@ -12,6 +13,7 @@ interface StreamerSectionProps {
 
 export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language }) => {
   const [showDashboard, setShowDashboard] = useState(false);
+  const { hover, click, whoosh, buttonPress } = useSoundEffects();
 
   const sponsorships = [
     {
@@ -61,7 +63,8 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
         <Button
           size="lg"
           className="bg-red-400 text-white hover:bg-red-500 px-12 py-6 text-lg font-light tracking-wide h-auto shadow-2xl hover:shadow-red-400/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
-          onClick={() => window.open("https://beta.instreamly.com/", "_blank")}
+          onClick={() => { whoosh(); window.open("https://beta.instreamly.com/", "_blank"); }}
+          onMouseEnter={hover}
         >
           {t.joinStreamer}
         </Button>
@@ -70,7 +73,8 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
           size="lg"
           variant="outline"
           className="border-border text-card-foreground hover:bg-secondary bg-secondary/50 px-12 py-6 text-lg font-light tracking-wide h-auto transition-all duration-300 hover:border-muted hover:scale-105 hover:-translate-y-1"
-          onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
+          onClick={() => { click(); window.open("https://discord.gg/hNgHCbQUvb", "_blank"); }}
+          onMouseEnter={hover}
         >
           {t.joinDiscord}
           <ExternalLink className="ml-4 h-5 w-5" />
@@ -92,8 +96,8 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {sponsorships.map((sponsorship) => (
-                  <Card key={sponsorship.id} className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02] hover:-translate-y-1">
+                 {sponsorships.map((sponsorship) => (
+                  <Card key={sponsorship.id} className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02] hover:-translate-y-1" onMouseEnter={hover}>
                     <div className="relative">
                        <img 
                          src={sponsorship.image} 
@@ -114,11 +118,11 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
                         <div className="text-sm text-muted-foreground">Rate for 1000 views</div>
                       </div>
                       
-                      <div className="flex gap-2">
-                         <Button variant="outline" size="sm" className="flex-1 transition-all duration-300 hover:scale-105">
+                       <div className="flex gap-2">
+                          <Button variant="outline" size="sm" className="flex-1 transition-all duration-300 hover:scale-105" onClick={buttonPress}>
                            View details
                         </Button>
-                        <Button size="sm" className="flex-1 bg-red-400 hover:bg-red-500 text-white transition-all duration-300 hover:scale-105">
+                        <Button size="sm" className="flex-1 bg-red-400 hover:bg-red-500 text-white transition-all duration-300 hover:scale-105" onClick={whoosh}>
                           Join
                         </Button>
                       </div>

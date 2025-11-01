@@ -103,58 +103,58 @@ export const InteractiveBackground: React.FC = () => {
           vec2 aspect = vec2(u_resolution.x / u_resolution.y, 1.0);
           vec2 p = (uv - 0.5) * aspect;
 
-          // Even faster time progression
-          float t = u_time * 0.25;
+          // Gentle time progression
+          float t = u_time * 0.08;
           
-          // Extreme scroll and mouse influence
-          vec2 scrollShift = vec2(sin(u_scroll * 3.14) * 0.3, u_scroll * 2.0);
-          vec2 mouseShift = (u_mouse - 0.5) * vec2(2.5, 1.8);
+          // Subtle scroll and mouse influence
+          vec2 scrollShift = vec2(sin(u_scroll * 3.14) * 0.15, u_scroll * 0.4);
+          vec2 mouseShift = (u_mouse - 0.5) * vec2(0.8, 0.5);
           
-          // Intense mouse velocity ripples
-          float mouseVelMag = length(u_mouseVel) * 5.0;
-          vec2 ripple = u_mouseVel * mouseVelMag * sin(length(p - (u_mouse - 0.5) * 2.0) * 8.0 - t * 6.0);
+          // Gentle mouse velocity ripples
+          float mouseVelMag = length(u_mouseVel) * 1.5;
+          vec2 ripple = u_mouseVel * mouseVelMag * sin(length(p - (u_mouse - 0.5) * 2.0) * 4.0 - t * 2.0);
           
-          // Dynamic scroll waves
-          float scrollVelEffect = u_scrollVel * 3.5;
-          vec2 swoosh = vec2(sin(t * 2.0 + scrollVelEffect) * scrollVelEffect * 0.5, scrollVelEffect);
+          // Soft scroll waves
+          float scrollVelEffect = u_scrollVel * 1.0;
+          vec2 swoosh = vec2(sin(t * 1.0 + scrollVelEffect) * scrollVelEffect * 0.3, scrollVelEffect * 0.5);
 
           // Rotating base layer
           vec2 rotated = p;
           float angle = t * 0.1 + length(p) * 0.5;
           rotated = mat2(cos(angle), -sin(angle), sin(angle), cos(angle)) * rotated;
 
-          // Multiple aggressive FBM layers
-          float base = fbm(rotated * 2.5 + t * 1.2 + scrollShift + mouseShift + ripple);
-          float detail = fbm(p * 5.5 - t * 1.8 + mouseShift * 0.7 + swoosh);
-          float energy = fbm(p * 8.0 + t * 3.0 + ripple * 2.0);
-          float micro = fbm(p * 12.0 - t * 2.5);
+          // Gentle FBM layers
+          float base = fbm(rotated * 2.0 + t * 0.5 + scrollShift + mouseShift + ripple);
+          float detail = fbm(p * 4.0 - t * 0.7 + mouseShift * 0.5 + swoosh);
+          float energy = fbm(p * 6.0 + t * 1.0 + ripple * 1.0);
+          float micro = fbm(p * 8.0 - t * 0.8);
           
           // Add particle field
-          float particleField = particles(p - mouseShift * 0.3, t);
+          float particleField = particles(p - mouseShift * 0.2, t);
           
-          // Dynamic pulsing
-          float pulse = sin(t * 1.2) * 0.25 + 0.75;
-          float fastPulse = sin(t * 3.0) * 0.1 + 0.9;
+          // Gentle pulsing
+          float pulse = sin(t * 0.6) * 0.2 + 0.8;
+          float fastPulse = sin(t * 1.5) * 0.08 + 0.92;
           
-          // Aggressive color blending
-          float blend = smoothstep(0.1, 0.9, base * pulse);
+          // Subtle color blending
+          float blend = smoothstep(0.2, 0.8, base * pulse);
           vec3 col = mix(u_c1, u_c2, blend);
           
           // Layer in third color with detail
-          col = mix(col, u_c3, detail * 0.8);
+          col = mix(col, u_c3, detail * 0.5);
           
-          // Energy layer adds glow
-          col += energy * 0.25 * u_c1 * fastPulse;
+          // Gentle energy layer
+          col += energy * 0.12 * u_c1 * fastPulse;
           
-          // Micro detail adds texture
-          col += micro * 0.1 * u_c2;
+          // Micro detail adds subtle texture
+          col += micro * 0.06 * u_c2;
           
-          // Particle glow effect
-          col += particleField * u_c1 * 2.0;
+          // Soft particle glow
+          col += particleField * u_c1 * 0.8;
           
-          // Mouse proximity glow
+          // Gentle mouse proximity glow
           float mouseDist = length(p - (u_mouse - 0.5) * aspect);
-          float mouseGlow = exp(-mouseDist * 2.0) * mouseVelMag * 0.3;
+          float mouseGlow = exp(-mouseDist * 2.5) * mouseVelMag * 0.15;
           col += mouseGlow * u_c2;
           
           // Dynamic vignette

@@ -1,12 +1,14 @@
 import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Mic, Users } from "lucide-react";
+import { useSoundEffects } from "@/hooks/useSoundEffects";
 
 interface MechanismsProps {
   t: any;
 }
 
 export const Mechanisms: React.FC<MechanismsProps> = ({ t }) => {
+  const { hover } = useSoundEffects();
   const mechanisms = [
     {
       icon: <Mic className="h-8 w-8" />,
@@ -52,6 +54,7 @@ export const Mechanisms: React.FC<MechanismsProps> = ({ t }) => {
             <div
               key={index}
               className="group bg-card border border-border rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-all duration-500 hover:border-primary/20"
+              onMouseEnter={hover}
             >
               {/* Video Section */}
               <div className="mb-4 md:mb-8">

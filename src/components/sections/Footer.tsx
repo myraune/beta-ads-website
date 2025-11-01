@@ -1,4 +1,5 @@
 import React from "react";
+import { useSoundEffects } from "@/hooks/useSoundEffects";
 
 interface FooterProps {
   t: any;
@@ -6,7 +7,10 @@ interface FooterProps {
   setLanguage: (lang: string) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => (
+export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => {
+  const { hover, click } = useSoundEffects();
+  
+  return (
   <footer 
     className="text-foreground py-24" 
     data-colors="#9f1c26,#2a0a0f,#0a0a0f"
@@ -47,13 +51,15 @@ export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => (
           <div className="space-y-4 text-muted-foreground font-extralight text-lg">
             <p
               className="hover:text-foreground transition-colors cursor-pointer tracking-wide"
-              onClick={() => window.open("https://www.linkedin.com/company/beta-nordic", "_blank")}
+              onClick={() => { click(); window.open("https://www.linkedin.com/company/beta-nordic", "_blank"); }}
+              onMouseEnter={hover}
             >
               LinkedIn
             </p>
             <p
               className="hover:text-foreground transition-colors cursor-pointer tracking-wide"
-              onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
+              onClick={() => { click(); window.open("https://discord.gg/hNgHCbQUvb", "_blank"); }}
+              onMouseEnter={hover}
             >
               Discord
             </p>
@@ -66,4 +72,5 @@ export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => (
       </div>
     </div>
   </footer>
-);
+  );
+};
