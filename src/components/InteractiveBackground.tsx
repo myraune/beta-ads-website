@@ -77,7 +77,7 @@ export const InteractiveBackground: React.FC = () => {
           float v = 0.0;
           float a = 0.5;
           mat2 rot = mat2(0.8, -0.6, 0.6, 0.8);
-          for (int i = 0; i < 5; i++) {
+          for (int i = 0; i < 6; i++) {
             v += a * noise(p);
             p = rot * p * 2.0;
             a *= 0.5;
@@ -85,47 +85,85 @@ export const InteractiveBackground: React.FC = () => {
           return v;
         }
 
+        // Particle field simulation
+        float particles(vec2 p, float t) {
+          float result = 0.0;
+          for (int i = 0; i < 8; i++) {
+            float fi = float(i);
+            vec2 offset = vec2(sin(t * 0.5 + fi * 0.8), cos(t * 0.3 + fi * 1.2)) * 2.0;
+            vec2 particlePos = p + offset + vec2(sin(fi), cos(fi * 1.3)) * 1.5;
+            float dist = length(particlePos);
+            result += 0.015 / (dist * dist + 0.01);
+          }
+          return result;
+        }
+
         void main() {
           vec2 uv = v_uv;
           vec2 aspect = vec2(u_resolution.x / u_resolution.y, 1.0);
           vec2 p = (uv - 0.5) * aspect;
 
-          // Much faster time progression for more motion
-          float t = u_time * 0.18;
+          // Even faster time progression
+          float t = u_time * 0.25;
           
-          // Amplified scroll and mouse influence
-          vec2 scrollShift = vec2(0.0, u_scroll * 1.4);
-          vec2 mouseShift = (u_mouse - 0.5) * vec2(1.5, 1.0);
+          // Extreme scroll and mouse influence
+          vec2 scrollShift = vec2(sin(u_scroll * 3.14) * 0.3, u_scroll * 2.0);
+          vec2 mouseShift = (u_mouse - 0.5) * vec2(2.5, 1.8);
           
-          // Mouse velocity creates ripple distortions
-          float mouseVelMag = length(u_mouseVel) * 3.0;
-          vec2 ripple = u_mouseVel * mouseVelMag * sin(length(p - (u_mouse - 0.5) * 2.0) * 6.0 - t * 4.0);
+          // Intense mouse velocity ripples
+          float mouseVelMag = length(u_mouseVel) * 5.0;
+          vec2 ripple = u_mouseVel * mouseVelMag * sin(length(p - (u_mouse - 0.5) * 2.0) * 8.0 - t * 6.0);
           
-          // Scroll velocity creates swoosh effect
-          float scrollVelEffect = u_scrollVel * 2.0;
-          vec2 swoosh = vec2(scrollVelEffect * 0.3, scrollVelEffect);
+          // Dynamic scroll waves
+          float scrollVelEffect = u_scrollVel * 3.5;
+          vec2 swoosh = vec2(sin(t * 2.0 + scrollVelEffect) * scrollVelEffect * 0.5, scrollVelEffect);
 
-          // Multiple FBM layers with different speeds and scales
-          float base = fbm(p * 2.2 + t + scrollShift + mouseShift + ripple + swoosh);
-          float detail = fbm(p * 4.5 - t * 1.4 + mouseShift * 0.5); // Faster rotation
-          float energy = fbm(p * 6.0 + t * 2.2 + ripple); // New fast-moving layer
+          // Rotating base layer
+          vec2 rotated = p;
+          float angle = t * 0.1 + length(p) * 0.5;
+          rotated = mat2(cos(angle), -sin(angle), sin(angle), cos(angle)) * rotated;
+
+          // Multiple aggressive FBM layers
+          float base = fbm(rotated * 2.5 + t * 1.2 + scrollShift + mouseShift + ripple);
+          float detail = fbm(p * 5.5 - t * 1.8 + mouseShift * 0.7 + swoosh);
+          float energy = fbm(p * 8.0 + t * 3.0 + ripple * 2.0);
+          float micro = fbm(p * 12.0 - t * 2.5);
           
-          // Pulsing effect that breathes
-          float pulse = sin(t * 0.8) * 0.15 + 0.85;
+          // Add particle field
+          float particleField = particles(p - mouseShift * 0.3, t);
           
-          // More dramatic color blending
-          float blend = smoothstep(0.15, 0.85, base * pulse);
+          // Dynamic pulsing
+          float pulse = sin(t * 1.2) * 0.25 + 0.75;
+          float fastPulse = sin(t * 3.0) * 0.1 + 0.9;
+          
+          // Aggressive color blending
+          float blend = smoothstep(0.1, 0.9, base * pulse);
           vec3 col = mix(u_c1, u_c2, blend);
           
-          // Stronger third color mixing for more complexity
-          col = mix(col, u_c3, detail * 0.7);
+          // Layer in third color with detail
+          col = mix(col, u_c3, detail * 0.8);
           
-          // Add energy layer for extra motion
-          col += energy * 0.15 * vec3(u_c1 * 0.5);
+          // Energy layer adds glow
+          col += energy * 0.25 * u_c1 * fastPulse;
           
-          // Softer vignette
-          float v = length(p) * 0.4;
-          col *= 1.0 - v * 0.2;
+          // Micro detail adds texture
+          col += micro * 0.1 * u_c2;
+          
+          // Particle glow effect
+          col += particleField * u_c1 * 2.0;
+          
+          // Mouse proximity glow
+          float mouseDist = length(p - (u_mouse - 0.5) * aspect);
+          float mouseGlow = exp(-mouseDist * 2.0) * mouseVelMag * 0.3;
+          col += mouseGlow * u_c2;
+          
+          // Dynamic vignette
+          float v = length(p) * 0.5;
+          col *= 1.0 - v * 0.3;
+          
+          // Enhance contrast
+          col = pow(col, vec3(0.95));
+          
           col = mix(vec3(0.0), col, clamp(u_strength, 0.0, 1.0));
 
           gl_FragColor = vec4(col, 1.0);

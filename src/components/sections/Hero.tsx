@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, ExternalLink, Sparkles, ChevronDown } from "lucide-react";
+import { useSoundEffects } from "@/hooks/useSoundEffects";
 
 
 
@@ -14,6 +15,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLanguage }) => {
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
+  const { hover, click, whoosh } = useSoundEffects();
   
   const languages = [
     { code: "en", label: "English", flag: "🇬🇧" },
@@ -35,7 +37,11 @@ export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLan
       <div className="absolute top-8 right-8 z-10">
         <div className="relative">
           <button
-            onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
+            onClick={() => {
+              click();
+              setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
+            }}
+            onMouseEnter={hover}
             className="flex items-center space-x-2 bg-black/20 backdrop-blur-sm rounded-full px-4 py-2 border border-white/30 text-gray-200 hover:text-white transition-all duration-300 hover:bg-black/30 hover:border-white/50 hover:scale-105"
           >
             <span className="text-sm">{currentLanguage?.flag}</span>
@@ -108,7 +114,11 @@ export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLan
           <Button
             size="lg"
             className="bg-white text-gray-900 hover:bg-gray-100 px-10 py-6 text-lg font-light tracking-wide h-auto border-0 shadow-2xl hover:shadow-white/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
-            onClick={() => scrollToSection("examples")}
+            onClick={() => {
+              whoosh();
+              scrollToSection("examples");
+            }}
+            onMouseEnter={hover}
           >
             {t.brandButton}
             <ArrowRight className="ml-3 h-5 w-5" />
@@ -118,7 +128,11 @@ export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLan
             size="lg"
             variant="outline"
             className="border-gray-400 text-gray-200 hover:bg-white/10 bg-black/30 px-10 py-6 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-gray-300 hover:scale-105 hover:-translate-y-1"
-            onClick={() => scrollToSection("streamer-section")}
+            onClick={() => {
+              whoosh();
+              scrollToSection("streamer-section");
+            }}
+            onMouseEnter={hover}
           >
             {t.streamerButton}
             <ExternalLink className="ml-3 h-5 w-5" />
