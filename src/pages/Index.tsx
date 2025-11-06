@@ -1,299 +1,363 @@
-import React, { useState, useEffect } from "react";
-import { Hero } from "@/components/sections/Hero";
-import { TrustedBy } from "@/components/sections/TrustedBy";
-import { Examples } from "@/components/sections/Examples";
-import { Mechanisms } from "@/components/sections/Mechanisms";
-import { StreamerSection } from "@/components/sections/StreamerSection";
-import { Press } from "@/components/sections/Press";
-import { Team } from "@/components/sections/Team";
-import { CTA } from "@/components/sections/CTA";
-import { Footer } from "@/components/sections/Footer";
-import { InteractiveBackground } from "@/components/InteractiveBackground";
+import React, { useMemo, useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { StatCard } from "@/components/analytics/StatCard";
+import { PlatformToggle, PlatformFilter } from "@/components/analytics/PlatformToggle";
+import { TrendChart, TrendPoint } from "@/components/analytics/TrendChart";
+import { CreatorTable, CreatorMetric } from "@/components/analytics/CreatorTable";
+import {
+  Activity,
+  ArrowUpRight,
+  BarChart3,
+  Layers3,
+  ShieldCheck,
+  Signal,
+  Sparkles,
+  Users,
+} from "lucide-react";
+
+const creatorMetrics: CreatorMetric[] = [
+  {
+    name: "PixelNora",
+    handle: "pixelnora",
+    platform: "twitch",
+    avgViewers: 3120,
+    watchHours: 540,
+    followerGrowth: 12,
+    monetizationScore: 92,
+    topCategory: "Valorant",
+    momentum: "surging",
+  },
+  {
+    name: "RetroWaveMike",
+    handle: "retrowave",
+    platform: "kick",
+    avgViewers: 1580,
+    watchHours: 410,
+    followerGrowth: 8,
+    monetizationScore: 84,
+    topCategory: "Retro FPS",
+    momentum: "stable",
+  },
+  {
+    name: "ChefMika",
+    handle: "chefmika",
+    platform: "twitch",
+    avgViewers: 920,
+    watchHours: 280,
+    followerGrowth: 5,
+    monetizationScore: 76,
+    topCategory: "IRL Food",
+    momentum: "surging",
+  },
+  {
+    name: "ArenaFox",
+    handle: "arenafox",
+    platform: "kick",
+    avgViewers: 2050,
+    watchHours: 460,
+    followerGrowth: 14,
+    monetizationScore: 88,
+    topCategory: "Fighting Games",
+    momentum: "surging",
+  },
+  {
+    name: "StudySession",
+    handle: "studywithme",
+    platform: "twitch",
+    avgViewers: 740,
+    watchHours: 200,
+    followerGrowth: 4,
+    monetizationScore: 72,
+    topCategory: "Just Chatting",
+    momentum: "stable",
+  },
+  {
+    name: "GGAnya",
+    handle: "gganya",
+    platform: "twitch",
+    avgViewers: 2640,
+    watchHours: 510,
+    followerGrowth: 17,
+    monetizationScore: 95,
+    topCategory: "MOBA",
+    momentum: "surging",
+  },
+  {
+    name: "CryptoCaster",
+    handle: "cryptocaster",
+    platform: "kick",
+    avgViewers: 1320,
+    watchHours: 320,
+    followerGrowth: -3,
+    monetizationScore: 61,
+    topCategory: "Markets",
+    momentum: "watch",
+  },
+  {
+    name: "IndieSky",
+    handle: "indiesky",
+    platform: "twitch",
+    avgViewers: 610,
+    watchHours: 180,
+    followerGrowth: 6,
+    monetizationScore: 68,
+    topCategory: "Indie Games",
+    momentum: "stable",
+  },
+];
+
+const trendData: TrendPoint[] = [
+  { week: "Mar 4", twitch: 38, kick: 16 },
+  { week: "Mar 11", twitch: 41, kick: 18 },
+  { week: "Mar 18", twitch: 45, kick: 19 },
+  { week: "Mar 25", twitch: 47, kick: 21 },
+  { week: "Apr 1", twitch: 52, kick: 23 },
+  { week: "Apr 8", twitch: 55, kick: 24 },
+  { week: "Apr 15", twitch: 58, kick: 26 },
+];
+
+const insightCards = [
+  {
+    title: "Sponsorship-ready pods",
+    metric: "4 creators",
+    description:
+      "Twitch teams averaging 3.2k CCV with 94% brand-safe segments over the last 30 days.",
+    icon: BarChart3,
+  },
+  {
+    title: "Kick retention spike",
+    metric: "+42% watch hours",
+    description:
+      "Crypto and markets audiences have compounded retention for three consecutive weeks.",
+    icon: Signal,
+  },
+  {
+    title: "Activation guardrails",
+    metric: "0 strikes",
+    description:
+      "Automated compliance scans ensure creator partners stay within PG-13 policy thresholds.",
+    icon: ShieldCheck,
+  },
+];
+
+const formatNumber = (value: number) =>
+  value >= 1000 ? `${(value / 1000).toFixed(1)}k` : value.toLocaleString();
 
 const Index = () => {
-  const [language, setLanguage] = useState("en");
+  const [platformFilter, setPlatformFilter] = useState<PlatformFilter>("all");
 
-  const translations = {
-    en: {
-      heroSubtitle: "Nordic twitch agency",
-      heroTitle: ["Your brand, live on Twitch", "– without interruptions"],
-      heroDescription: "We place your brand inside Twitch streams through animated overlays that viewers actually notice.",
-      heroSubDescription: "No forced integrations. Just guaranteed visibility.",
-      brandButton: "See How It Works",
-      streamerButton: "I'm a streamer",
-      usedByTitle: "Used by Samsung, Surfshark, and Shure to reach Twitch viewers with native ads",
-      seeCampaignExample: "See Campaign Example",
-      streamerSectionTitle: "are you a streamer?",
-      streamerSectionSubtitle: "Earn while you stream – automatically.",
-      streamerSectionDescription: "Earn money automatically with Beta Ads. No shoutouts. No affiliate links. Just passive income through overlays.",
-      joinStreamer: "Join as a Streamer",
-      trustedByTitle: "Just watch...",
-      trustedByDescription: "Designed to blend with the stream – but stand out to the viewer.",
-      meetTeamTitle: "Meet the team",
-      meetTeamDescription: "Young, international, and passionate about revolutionizing advertising on Twitch.",
-      ctaTitle: "Sounds cool?",
-      ctaDescription: "Book a quick demo with our team and we'll show you what your brand could look like live on Twitch.",
-      bookDemo: "Let's have a chat",
-      contactTitle: "CONTACT",
-      connectTitle: "CONNECT",
-      languageTitle: "LANGUAGE",
-      pressTitle: "Featured in Press",
-      pressDescription: "Beta Ads has been featured in leading Nordic media outlets for our innovative approach to Twitch advertising.",
-      footerDescription: "The future of Twitch advertising is here.",
-      passiveIncome: "Earn passive income based on your viewership",
-      swipeHelper: "Swipe or use arrows to see more campaign examples",
-      campaignOverview: "Overview of multiple campaigns in action",
-      joinDiscord: "Join Our Discord",
-      mechanismsSubtitle: "AI-Powered Features",
-      mechanismsTitle: "This should convince you.",
-      mechanismsDescription: "Discover our cutting-edge AI functionalities that make your brand integration more engaging and interactive.",
-      vrmTitle: "Voice Recognition Mechanism",
-      vrmDescription: "Contextual artwork appears when streamers say keywords, creating natural brand integration.",
-      vrmHowItWorks: [
-        "The streamer says one of the keywords.",
-        "The mechanism recognises the word and launches the artwork.",
-        "Viewers see a contextual message on the stream."
-      ],
-      vrmWhyWorthIt: [
-        "An innovative mechanism that surprises audiences.",
-        "The brand becomes part of the themes or games on the stream.",
-        "Contextual messages reach the audience better."
-      ],
-      votingTitle: "Voting Mechanism",
-      votingDescription: "Interactive voting system that allows viewers to participate in decision-making and games.",
-      votingHowItWorks: [
-        "Artwork encouraging people to vote for a particular option appears on the stream.",
-        "Another artwork appears with the result that the players have chosen."
-      ],
-      votingWhyWorthIt: [
-        "Involving the audience in decision-making strengthens their focus.",
-        "The brand is the interactive part of the stream. And since I'm already clicking on the chat, I can also click the link...."
-      ],
-      howItWorksTitle: "HOW DOES IT WORK?",
-      whyWorthItTitle: "WHY IS IT WORTH IT?",
-    },
-    no: {
-      heroSubtitle: "Nordisk Twitch-byrå",
-      heroTitle: ["Din merkevare, live på Twitch", "– uten avbrytelser"],
-      heroDescription: "Vi plasserer din merkevare inne i Twitch-streams gjennom animerte overlays som seere faktisk legger merke til.",
-      heroSubDescription: "Ingen tvungne integrasjoner. Bare garantert synlighet.",
-      brandButton: "Se Hvordan Det Fungerer",
-      streamerButton: "Jeg er en streamer",
-      usedByTitle: "Brukt av Samsung, Surfshark og Shure for å nå Twitch-seere med native annonser",
-      seeCampaignExample: "Se Kampanjeeksempel",
-      streamerSectionTitle: "er du en streamer?",
-      streamerSectionSubtitle: "Tjen mens du streamer – automatisk.",
-      streamerSectionDescription: "Tjen penger automatisk med Beta Ads. Ingen shoutouts. Ingen affiliate-lenker. Bare passiv inntekt gjennom overlays.",
-      joinStreamer: "Bli med som Streamer",
-      trustedByTitle: "Bare se...",
-      trustedByDescription: "Designet for å blande seg med streamen – men skille seg ut for seeren.",
-      meetTeamTitle: "Møt teamet",
-      meetTeamDescription: "Unge, internasjonale og lidenskapelige om å revolusjonere annonsering på Twitch.",
-      ctaTitle: "Høres kult ut?",
-      ctaDescription: "Book en rask demo med vårt team og vi viser deg hvordan din merkevare kan se ut live på Twitch.",
-      bookDemo: "La oss snakke sammen",
-      contactTitle: "KONTAKT",
-      connectTitle: "KOBLE TIL",
-      languageTitle: "SPRÅK",
-      pressTitle: "Omtalt i Media",
-      pressDescription: "Beta Ads har blitt omtalt i ledende nordiske medier for vår innovative tilnærming til Twitch-annonsering.",
-      footerDescription: "Fremtiden for Twitch-annonsering er her.",
-      passiveIncome: "Tjen passiv inntekt basert på dine seertall",
-      swipeHelper: "Sveip eller bruk pilene for å se flere kampanjeeksempler",
-      campaignOverview: "Oversikt over flere kampanjer i aksjon",
-      joinDiscord: "Bli med på Discord",
-      mechanismsSubtitle: "AI-Drevne Funksjoner",
-      mechanismsTitle: "Dette bør overbevise deg.",
-      mechanismsDescription: "Oppdag våre banebrytende AI-funksjoner som gjør merkevareintegrasjonen mer engasjerende og interaktiv.",
-      vrmTitle: "Stemmegjenkjenningsmekanisme",
-      vrmDescription: "Kontekstuell grafikk dukker opp når streamere sier nøkkelord, og skaper naturlig merkevareintegrering.",
-      vrmHowItWorks: [
-        "Streameren sier et av nøkkelordene.",
-        "Mekanismen gjenkjenner ordet og lanserer grafikken.",
-        "Seerne ser en kontekstuell melding på streamen."
-      ],
-      vrmWhyWorthIt: [
-        "En innovativ mekanisme som overrasker publikum.",
-        "Merkevaren blir en del av temaene eller spillene på streamen.",
-        "Kontekstuelle meldinger når publikum bedre."
-      ],
-      votingTitle: "Avstemningsmekanisme",
-      votingDescription: "Interaktivt avstemningssystem som lar seere delta i beslutninger og spill.",
-      votingHowItWorks: [
-        "Grafikk som oppfordrer folk til å stemme på et bestemt alternativ dukker opp på streamen.",
-        "En annen grafikk dukker opp med resultatet som spillerne har valgt."
-      ],
-      votingWhyWorthIt: [
-        "Å involvere publikum i beslutninger styrker deres fokus.",
-        "Merkevaren er den interaktive delen av streamen. Og siden jeg allerede klikker på chatten, kan jeg også klikke på lenken...."
-      ],
-      howItWorksTitle: "HVORDAN FUNGERER DET?",
-      whyWorthItTitle: "HVORFOR ER DET VERDT DET?",
-    },
-    sv: {
-      heroSubtitle: "Nordisk Twitch-byrå",
-      heroTitle: ["Ditt varumärke, live på Twitch", "– utan avbrott"],
-      heroDescription: "Vi placerar ditt varumärke i Twitch-strömmar genom animerade overlays som tittare faktiskt lägger märke till.",
-      heroSubDescription: "Inga tvingade integrationer. Bara garanterad synlighet.",
-      brandButton: "Se Hur Det Fungerar",
-      streamerButton: "Jag är en streamer",
-      usedByTitle: "Används av Samsung, Surfshark och Shure för att nå Twitch-tittare med native annonser",
-      seeCampaignExample: "Se Kampanjexempel",
-      streamerSectionTitle: "är du en streamer?",
-      streamerSectionSubtitle: "Tjäna medan du streamar – automatiskt.",
-      streamerSectionDescription: "Tjäna pengar automatiskt med Beta Ads. Inga shoutouts. Inga affiliate-länkar. Bara passiv inkomst genom overlays.",
-      joinStreamer: "Gå med som Streamer",
-      trustedByTitle: "Bara titta...",
-      trustedByDescription: "Designad för att smälta in med strömmen – men sticka ut för tittaren.",
-      meetTeamTitle: "Träffa teamet",
-      meetTeamDescription: "Unga, internationella och passionerade för att revolutionera reklam på Twitch.",
-      ctaTitle: "Låter coolt?",
-      ctaDescription: "Boka en snabb demo med vårt team så visar vi dig hur ditt varumärke kan se ut live på Twitch.",
-      bookDemo: "Låt oss prata",
-      contactTitle: "KONTAKT",
-      connectTitle: "ANSLUT",
-      languageTitle: "SPRÅK",
-      pressTitle: "Uppmärksammat i Media",
-      pressDescription: "Beta Ads har uppmärksammats i ledande nordiska medier för vår innovativa approach till Twitch-reklam.",
-      footerDescription: "Framtiden för Twitch-reklam är här.",
-      passiveIncome: "Tjäna passiv inkomst baserat på dina tittarsiffror",
-      swipeHelper: "Svep eller använd pilarna för att se fler kampanjexempel",
-      campaignOverview: "Översikt över flera kampanjer i aktion",
-      joinDiscord: "Gå med i Discord",
-      mechanismsSubtitle: "AI-Drivna Funktioner",
-      mechanismsTitle: "Detta borde övertyga dig.",
-      mechanismsDescription: "Upptäck våra banbrytande AI-funktioner som gör din varumärkesintegration mer engagerande och interaktiv.",
-      vrmTitle: "Rösterkänningsmekanism",
-      vrmDescription: "Kontextuell grafik visas när streamers säger nyckelord, vilket skapar naturlig varumärkesintegration.",
-      vrmHowItWorks: [
-        "Streamern säger ett av nyckelorden.",
-        "Mekanismen känner igen ordet och lanserar grafiken.",
-        "Tittarna ser ett kontextuellt meddelande på strömmen."
-      ],
-      vrmWhyWorthIt: [
-        "En innovativ mekanism som överraskar publiken.",
-        "Varumärket blir en del av temana eller spelen på strömmen.",
-        "Kontextuella meddelanden når publiken bättre."
-      ],
-      votingTitle: "Röstmekanism",
-      votingDescription: "Interaktivt röstningssystem som låter tittare delta i beslutsfattande och spel.",
-      votingHowItWorks: [
-        "Grafik som uppmuntrar folk att rösta på ett visst alternativ visas på strömmen.",
-        "En annan grafik visas med resultatet som spelarna har valt."
-      ],
-      votingWhyWorthIt: [
-        "Att involvera publiken i beslutsfattande stärker deras fokus.",
-        "Varumärket är den interaktiva delen av strömmen. Och eftersom jag redan klickar på chatten kan jag också klicka på länken...."
-      ],
-      howItWorksTitle: "HUR FUNGERAR DET?",
-      whyWorthItTitle: "VARFÖR ÄR DET VÄRT DET?",
-    },
-    fi: {
-      heroSubtitle: "Pohjoismainen Twitch-toimisto",
-      heroTitle: ["Brändisi, livenä Twitchissä", "– ilman keskeytyksiä"],
-      heroDescription: "Sijoitamme brändisi Twitch-streameihin animoitujen overlay-kerroksien kautta, joita katsojat todella huomaavat.",
-      heroSubDescription: "Ei pakotettuja integraatioita. Vain taattu näkyvyys.",
-      brandButton: "Katso Miten Se Toimii",
-      streamerButton: "Olen streamaaja",
-      usedByTitle: "Samsung, Surfshark ja Shure käyttävät meitä tavoittaakseen Twitch-katsojia natiivimainoksilla",
-      seeCampaignExample: "Katso Kampanjaesimerkki",
-      streamerSectionTitle: "oletko streamaaja?",
-      streamerSectionSubtitle: "Ansaitse samalla kun streamaat – automaattisesti.",
-      streamerSectionDescription: "Ansaitse rahaa automaattisesti Beta Adsin kanssa. Ei shoutouteja. Ei affiliate-linkkejä. Vain passiivista tuloa overlay-kerrosten kautta.",
-      joinStreamer: "Liity Streamaajaksi",
-      trustedByTitle: "Katso vain...",
-      trustedByDescription: "Suunniteltu sulautumaan streamiin – mutta erottumaan katsojalle.",
-      meetTeamTitle: "Tapaa tiimi",
-      meetTeamDescription: "Nuoria, kansainvälisiä ja intohimoisia vallankumouksellista Twitch-mainontaa kohtaan.",
-      ctaTitle: "Kuulostaa siistiltä?",
-      ctaDescription: "Varaa nopea demo tiimimme kanssa, niin näytämme miltä brändisi voisi näyttää livenä Twitchissä.",
-      bookDemo: "Jutellaan",
-      contactTitle: "YHTEYSTIEDOT",
-      connectTitle: "YHDISTÄ",
-      languageTitle: "KIELI",
-      pressTitle: "Mediassa Esillä",
-      pressDescription: "Beta Ads on ollut esillä johtavissa pohjoismaisissa medioissa innovatiivisesta lähestymistavastamme Twitch-mainontaan.",
-      footerDescription: "Twitch-mainonnan tulevaisuus on täällä.",
-      passiveIncome: "Ansaitse passiivista tuloa katsojalukujen perusteella",
-      swipeHelper: "Pyyhkäise tai käytä nuolia nähdäksesi lisää kampanjaesimerkkejä",
-      campaignOverview: "Katsaus useisiin kampanjoihin toiminnassa",
-      joinDiscord: "Liity Discordiin",
-      mechanismsSubtitle: "AI-Käyttöiset Ominaisuudet",
-      mechanismsTitle: "Tämän pitäisi vakuuttaa sinut.",
-      mechanismsDescription: "Tutustu huippuluokan AI-toimintoihimme, jotka tekevät brändi-integraatiosta kiinnostavampaa ja interaktiivisempaa.",
-      vrmTitle: "Äänentunnistusmekanismi",
-      vrmDescription: "Kontekstuaalinen grafiikka ilmestyy kun streamaajat sanovat avainsanoja, luoden luonnollisen brändi-integraation.",
-      vrmHowItWorks: [
-        "Streamaaja sanoo yhden avainsanoista.",
-        "Mekanismi tunnistaa sanan ja käynnistää grafiikan.",
-        "Katsojat näkevät kontekstuaalisen viestin streamissä."
-      ],
-      vrmWhyWorthIt: [
-        "Innovatiivinen mekanismi, joka yllättää yleisön.",
-        "Brändi tulee osaksi streamin teemoja tai pelejä.",
-        "Kontekstuaaliset viestit tavoittavat yleisön paremmin."
-      ],
-      votingTitle: "Äänestysmekanismi",
-      votingDescription: "Interaktiivinen äänestyssysteemi, joka antaa katsojien osallistua päätöksentekoon ja peleihin.",
-      votingHowItWorks: [
-        "Grafiikka, joka rohkaisee ihmisiä äänestämään tiettyä vaihtoehtoa, ilmestyy streamiin.",
-        "Toinen grafiikka ilmestyy tuloksella, jonka pelaajat ovat valinneet."
-      ],
-      votingWhyWorthIt: [
-        "Yleisön osallistaminen päätöksentekoon vahvistaa heidän keskittymistään.",
-        "Brändi on streamin interaktiivinen osa. Ja koska klikkaan jo chattia, voin myös klikata linkkiä...."
-      ],
-      howItWorksTitle: "MITEN SE TOIMII?",
-      whyWorthItTitle: "MIKSI SE ON KANNATTAVAA?",
-    },
-  };
+  const filteredCreators = useMemo(() => {
+    if (platformFilter === "all") return creatorMetrics;
+    return creatorMetrics.filter((creator) => creator.platform === platformFilter);
+  }, [platformFilter]);
 
-  const t = translations[language] || translations.en;
+  const aggregates = useMemo(() => {
+    const creatorCount = filteredCreators.length || 1;
+    const totalWatchHours = filteredCreators.reduce(
+      (sum, creator) => sum + creator.watchHours,
+      0
+    );
+    const totalAvgViewers = filteredCreators.reduce(
+      (sum, creator) => sum + creator.avgViewers,
+      0
+    );
+    const averageFollowerDelta =
+      filteredCreators.reduce((sum, creator) => sum + creator.followerGrowth, 0) /
+      creatorCount;
+    const averageMonetization =
+      filteredCreators.reduce((sum, creator) => sum + creator.monetizationScore, 0) /
+      creatorCount;
+    const positiveMomentum = filteredCreators.length
+      ? (filteredCreators.filter((creator) => creator.momentum === "surging").length /
+          filteredCreators.length) *
+        100
+      : 0;
 
-  const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
-  const caseVideos = [
-    {
-      id: "Uw7IIecicB4",
-      title: "Samsung Campaign Case Study",
-      brand: "Samsung",
-    },
-    {
-      id: "IZOx_VMdJJg",
-      title: "Shure Campaign Case Study",
-      brand: "Shure",
-    },
-    {
-      id: "ufNq-A4d7iA",
-      title: "Komplett Campaign Case Study",
-      brand: "Komplett",
-    },
-    {
-      id: "DMz-NV1W_Is",
-      title: "Saily E-sim Campaign in Norway",
-      brand: "Saily",
-    },
-    {
-      id: "U6i5uvhk2Sw",
-      title: "Surfshark Campaign Case Study",
-      brand: "Surfshark",
-    },
-  ];
+    return {
+      totalWatchHours,
+      totalAvgViewers,
+      averageFollowerDelta,
+      averageMonetization,
+      positiveMomentum,
+    };
+  }, [filteredCreators]);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] relative">
-      <InteractiveBackground />
-      <Hero t={t} scrollToSection={scrollToSection} language={language} setLanguage={setLanguage} />
-      <TrustedBy />
-      <Examples t={t} caseVideos={caseVideos} />
-      <Mechanisms t={t} />
-      <StreamerSection t={t} language={language} />
-      <Press t={t} />
-      <Team t={t} />
-      <CTA t={t} />
-      <Footer t={t} language={language} setLanguage={setLanguage} />
+    <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute -left-32 top-24 h-72 w-72 rounded-full bg-violet-500/20 blur-3xl" />
+        <div className="absolute right-0 top-0 h-80 w-80 rounded-full bg-emerald-500/10 blur-3xl" />
+        <div className="absolute bottom-0 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-primary/5 blur-2xl" />
+      </div>
+
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-16 px-4 pb-20 pt-12 sm:px-6 lg:px-8">
+        <header className="flex flex-col gap-6 rounded-3xl border border-border/60 bg-gradient-to-br from-background/95 via-background to-background/70 p-8 shadow-xl md:flex-row md:items-center md:justify-between">
+          <div className="space-y-4">
+            <Badge className="w-fit gap-1 rounded-full bg-primary/10 text-primary">
+              <Sparkles className="h-4 w-4" />
+              Unified creator intelligence
+            </Badge>
+            <div className="space-y-3">
+              <h1 className="text-3xl font-semibold leading-tight sm:text-4xl">
+                StreamPulse – analytics for Twitch & Kick teams
+              </h1>
+              <p className="max-w-2xl text-sm text-muted-foreground sm:text-base">
+                Monitor creators across platforms, surface monetization-ready pods, and track community health in minutes. All powered by live platform data and automated QA.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-3">
+              <Button size="sm" className="gap-1 rounded-full">
+                Request beta access
+                <ArrowUpRight className="h-4 w-4" />
+              </Button>
+              <Button size="sm" variant="outline" className="rounded-full border-dashed">
+                Download sample report
+              </Button>
+            </div>
+          </div>
+          <div className="flex flex-col items-end gap-4 text-sm text-muted-foreground">
+            <PlatformToggle value={platformFilter} onChange={setPlatformFilter} />
+            <Separator className="w-24 bg-border/60" />
+            <div className="text-right text-xs uppercase tracking-wide text-muted-foreground/80">
+              Last refresh • 4 minutes ago
+            </div>
+          </div>
+        </header>
+
+        <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <StatCard
+            title="Creators tracked"
+            value={`${filteredCreators.length}`}
+            helper="Linked to your campaign workspace"
+            delta={{ value: "+3 this month", positive: true }}
+            icon={<Users className="h-4 w-4" />}
+          />
+          <StatCard
+            title="Average live reach"
+            value={`${formatNumber(aggregates.totalAvgViewers)} viewers`}
+            helper="Concurrent viewers across active cohorts"
+            delta={{ value: "+11%", positive: true, label: "vs last 30d" }}
+            icon={<Signal className="h-4 w-4" />}
+          />
+          <StatCard
+            title="Monetization health"
+            value={`${Math.round(aggregates.averageMonetization)}/100`}
+            helper="Composite score across CPM, fill rate and sentiment"
+            delta={{ value: "+6 pts", positive: true, label: "QoQ" }}
+            icon={<ShieldCheck className="h-4 w-4" />}
+          />
+          <StatCard
+            title="Positive momentum"
+            value={`${Math.round(aggregates.positiveMomentum)}%`}
+            helper="Creators accelerating in the last 14 days"
+            delta={{ value: "+2 creators", positive: true }}
+            icon={<Activity className="h-4 w-4" />}
+          />
+        </section>
+
+        <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+          <TrendChart data={trendData} />
+          <div className="flex flex-col gap-4 rounded-3xl border border-border/60 bg-gradient-to-br from-background via-background to-background/60 p-6 shadow-xl">
+            <div className="space-y-1">
+              <h2 className="text-lg font-semibold">Why teams switch to StreamPulse</h2>
+              <p className="text-sm text-muted-foreground">
+                Built for partnerships, agencies, and e-sports orgs managing multi-platform rosters.
+              </p>
+            </div>
+            <div className="grid gap-4">
+              <div className="flex items-start gap-3 rounded-2xl border border-border/60 bg-muted/10 p-4">
+                <div className="rounded-full bg-primary/10 p-2 text-primary">
+                  <Layers3 className="h-4 w-4" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">Unified roster snapshots</p>
+                  <p className="text-sm text-muted-foreground">
+                    Sync Twitch & Kick stats, alerts, and sponsorship notes into a single workspace.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 rounded-2xl border border-border/60 bg-muted/10 p-4">
+                <div className="rounded-full bg-emerald-500/10 p-2 text-emerald-300">
+                  <Sparkles className="h-4 w-4" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">AI-surfaced opportunities</p>
+                  <p className="text-sm text-muted-foreground">
+                    Auto-prioritized creator pods and inventory based on growth, CPM, and sentiment trends.
+                  </p>
+                </div>
+              </div>
+              <div className="flex items-start gap-3 rounded-2xl border border-border/60 bg-muted/10 p-4">
+                <div className="rounded-full bg-sky-500/10 p-2 text-sky-300">
+                  <ShieldCheck className="h-4 w-4" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">Brand safety automation</p>
+                  <p className="text-sm text-muted-foreground">
+                    Weekly compliance checks with highlights of flagged VOD segments and chat anomalies.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="rounded-2xl border border-dashed border-primary/40 bg-primary/5 p-4 text-sm text-muted-foreground">
+              <p className="font-medium text-primary">Need raw exports?</p>
+              <p>
+                Push creator insights directly into your CRM or Slack using our REST or Supabase streaming API.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <CreatorTable creators={filteredCreators} />
+
+        <section className="grid gap-4 md:grid-cols-3">
+          {insightCards.map((card) => (
+            <div
+              key={card.title}
+              className="flex h-full flex-col gap-3 rounded-3xl border border-border/60 bg-gradient-to-br from-background via-background to-background/60 p-6 shadow-xl"
+            >
+              <div className="flex items-center justify-between">
+                <div className="rounded-full bg-primary/10 p-2 text-primary">
+                  <card.icon className="h-4 w-4" />
+                </div>
+                <Badge variant="outline" className="rounded-full border-border/40 text-[10px] uppercase tracking-wide">
+                  Insight
+                </Badge>
+              </div>
+              <div className="space-y-1">
+                <p className="text-xs font-medium text-muted-foreground">{card.metric}</p>
+                <h3 className="text-base font-semibold">{card.title}</h3>
+                <p className="text-sm text-muted-foreground">{card.description}</p>
+              </div>
+            </div>
+          ))}
+        </section>
+
+        <section className="rounded-3xl border border-primary/50 bg-gradient-to-r from-primary/10 via-primary/20 to-primary/10 p-8 text-center shadow-xl">
+          <div className="flex flex-col items-center gap-4">
+            <Badge className="rounded-full bg-background/90 text-xs uppercase tracking-wide text-primary">
+              Built for modern creator teams
+            </Badge>
+            <h2 className="max-w-2xl text-2xl font-semibold sm:text-3xl">
+              Start every sponsorship sync with live, trustworthy analytics.
+            </h2>
+            <p className="max-w-2xl text-sm text-muted-foreground sm:text-base">
+              StreamPulse consolidates creator performance, sentiment, and activation health so your partnerships team can move from decks to deals faster.
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Button size="sm" className="gap-1 rounded-full">
+                Book a walkthrough
+                <ArrowUpRight className="h-4 w-4" />
+              </Button>
+              <Button size="sm" variant="outline" className="rounded-full border-dashed">
+                Explore the API
+              </Button>
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 };
