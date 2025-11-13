@@ -280,6 +280,21 @@ const Index = () => {
       title: "Surfshark Campaign Case Study",
       brand: "Surfshark",
     },
+    {
+      id: "GwE4dagRm_k",
+      title: "Kristiania University Campaign Case Study",
+      brand: "Kristiania University",
+    },
+    {
+      id: "aE0-S8GC1Iw",
+      title: "M3panel Campaign Case Study",
+      brand: "M3panel",
+    },
+    {
+      id: "swu_ye12IHs",
+      title: "Norstat Campaign Case Study",
+      brand: "Norstat",
+    },
   ];
 
   return (
