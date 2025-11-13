@@ -5,11 +5,7 @@ interface TeamProps {
 }
 
 export const Team: React.FC<TeamProps> = ({ t }) => (
-  <section 
-    className="py-32" 
-    data-colors="#9f1c26,#3a0a0f,#0a0a0f"
-    style={{ "--bg-strength": 0.6 } as React.CSSProperties}
-  >
+  <section className="py-32 bg-gradient-subtle">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-24">
         <h2 className="text-5xl md:text-7xl font-extralight text-foreground mb-12 tracking-tighter">

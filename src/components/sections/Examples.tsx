@@ -1,7 +1,7 @@
+
 import React, { useState, useCallback, useEffect } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { type CarouselApi } from "@/components/ui/carousel";
-import { useSoundEffects } from "@/hooks/useSoundEffects";
 
 interface ExamplesProps {
   t: any;
@@ -11,7 +11,6 @@ interface ExamplesProps {
 export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
-  const { slideTransition, click } = useSoundEffects();
 
   useEffect(() => {
     if (!api) {
@@ -26,12 +25,7 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
   }, [api]);
 
   return (
-    <section 
-      id="examples" 
-      className="py-20 text-foreground" 
-      data-colors="#9f1c26,#5a0e14,#0a0a0f"
-      style={{ "--bg-strength": 0.9 } as React.CSSProperties}
-    >
+    <section id="examples" className="py-20 bg-background text-foreground">
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
         <div className="text-center mb-12">
           <h2 className="text-5xl md:text-7xl font-bold text-foreground mb-6 tracking-tight">
@@ -76,14 +70,8 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
               ))}
             </CarouselContent>
             
-            <CarouselPrevious 
-              className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -left-1 md:-left-3 h-10 w-10 transition-all duration-300 hover:scale-110 hover:shadow-lg" 
-              onClick={slideTransition}
-            />
-            <CarouselNext 
-              className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -right-1 md:-right-3 h-10 w-10 transition-all duration-300 hover:scale-110 hover:shadow-lg" 
-              onClick={slideTransition}
-            />
+            <CarouselPrevious className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -left-1 md:-left-3 h-10 w-10 transition-all duration-300 hover:scale-110 hover:shadow-lg" />
+            <CarouselNext className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -right-1 md:-right-3 h-10 w-10 transition-all duration-300 hover:scale-110 hover:shadow-lg" />
           </Carousel>
 
           {/* Dot indicators */}
@@ -98,7 +86,6 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
                 }`}
                 onClick={() => {
                   api?.scrollTo(index);
-                  click();
                 }}
               />
             ))}

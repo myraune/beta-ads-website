@@ -97,74 +97,13 @@ export default {
 				'float': {
 					'0%, 100%': { transform: 'translateY(0px)' },
 					'50%': { transform: 'translateY(-20px)' }
-				},
-				'blob': {
-					'0%, 100%': { transform: 'translate(0px, 0px) scale(1)' },
-					'33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-					'66%': { transform: 'translate(-20px, 20px) scale(0.9)' }
-				},
-				'drift': {
-					'0%, 100%': { transform: 'translate(0px, 0px)' },
-					'50%': { transform: 'translate(50px, 30px)' }
-				},
-				'slideRight': {
-					'0%': { transform: 'translateX(-100%)' },
-					'100%': { transform: 'translateX(100%)' }
-				},
-				'slideLeft': {
-					'0%': { transform: 'translateX(100%)' },
-					'100%': { transform: 'translateX(-100%)' }
-				},
-				'glitch-main': {
-					'0%, 100%': { 
-						transform: 'translate(0, 0) scale(1)',
-						opacity: '1'
-					},
-					'20%': { 
-						transform: 'translate(-2px, 2px) scale(1.01)',
-						opacity: '0.9'
-					},
-					'40%': { 
-						transform: 'translate(2px, -2px) scale(0.99)',
-						opacity: '1'
-					},
-					'60%': { 
-						transform: 'translate(-1px, -1px) scale(1.02)',
-						opacity: '0.95'
-					},
-					'80%': { 
-						transform: 'translate(1px, 1px) scale(0.98)',
-						opacity: '1'
-					}
-				},
-				'glitch-red': {
-					'0%, 100%': { transform: 'translate(0, 0)' },
-					'33%': { transform: 'translate(-3px, 0)' },
-					'66%': { transform: 'translate(3px, 0)' }
-				},
-				'glitch-blue': {
-					'0%, 100%': { transform: 'translate(0, 0)' },
-					'33%': { transform: 'translate(3px, 0)' },
-					'66%': { transform: 'translate(-3px, 0)' }
-				},
-				'scan': {
-					'0%': { transform: 'translateY(-100%)' },
-					'100%': { transform: 'translateY(100%)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'scroll': 'scroll 20s linear infinite',
-				'float': 'float 6s ease-in-out infinite',
-				'blob': 'blob 20s ease-in-out infinite',
-				'drift': 'drift 15s ease-in-out infinite',
-				'slideRight': 'slideRight 8s ease-in-out infinite',
-				'slideLeft': 'slideLeft 10s ease-in-out infinite',
-				'glitch-main': 'glitch-main 0.3s ease-in-out infinite',
-				'glitch-red': 'glitch-red 0.15s ease-in-out infinite',
-				'glitch-blue': 'glitch-blue 0.2s ease-in-out infinite',
-				'scan': 'scan 8s linear infinite'
+				'float': 'float 6s ease-in-out infinite'
 			}
 		}
 	},

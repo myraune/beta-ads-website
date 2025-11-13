@@ -1,15 +1,7 @@
 import React from "react";
-import { useSoundEffects } from "@/hooks/useSoundEffects";
 
-export const TrustedBy: React.FC = () => {
-  const { hover } = useSoundEffects();
-  
-  return (
-  <section 
-    className="py-20 overflow-hidden" 
-    data-colors="#9f1c26,#5a0e14,#0a0a0f"
-    style={{ "--bg-strength": 0.65 } as React.CSSProperties}
-  >
+export const TrustedBy: React.FC = () => (
+  <section className="py-20 bg-background overflow-hidden">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-16">
         <div className="mb-12 relative">
@@ -17,7 +9,7 @@ export const TrustedBy: React.FC = () => {
             <div className="flex animate-scroll">
               {/* Light theme logos */}
               <div className="flex items-center space-x-32 whitespace-nowrap dark:hidden">
-                <div className="h-12 w-32 flex items-center justify-center" onMouseEnter={hover}>
+                <div className="h-12 w-32 flex items-center justify-center">
                   <img src="/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png" alt="Samsung" className="max-h-12 max-w-32 opacity-60 object-contain mix-blend-multiply transition-transform duration-300 hover:scale-110" />
                 </div>
                 <div className="h-12 w-32 flex items-center justify-center">
@@ -128,5 +120,4 @@ export const TrustedBy: React.FC = () => {
       </div>
     </div>
   </section>
-  );
-};
+);

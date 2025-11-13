@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { TrendingUp, ExternalLink, DollarSign, Wallet } from "lucide-react";
-import { useSoundEffects } from "@/hooks/useSoundEffects";
 
 interface StreamerSectionProps {
   t: any;
@@ -13,7 +12,6 @@ interface StreamerSectionProps {
 
 export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language }) => {
   const [showDashboard, setShowDashboard] = useState(false);
-  const { hover, click, whoosh, buttonPress } = useSoundEffects();
 
   const sponsorships = [
     {
@@ -40,12 +38,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
   ];
 
   return (
-  <section 
-    id="streamer-section" 
-    className="py-32 text-foreground" 
-    data-colors="#9f1c26,#4a0a0f,#0a0a0f"
-    style={{ "--bg-strength": 0.7 } as React.CSSProperties}
-  >
+  <section id="streamer-section" className="py-32 bg-background text-foreground">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-20">
         <h2 className="text-4xl md:text-6xl font-extralight mb-6 tracking-tighter text-foreground">
@@ -63,8 +56,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
         <Button
           size="lg"
           className="bg-red-400 text-white hover:bg-red-500 px-12 py-6 text-lg font-light tracking-wide h-auto shadow-2xl hover:shadow-red-400/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
-          onClick={() => { whoosh(); window.open("https://beta.instreamly.com/", "_blank"); }}
-          onMouseEnter={hover}
+          onClick={() => window.open("https://beta.instreamly.com/", "_blank")}
         >
           {t.joinStreamer}
         </Button>
@@ -73,8 +65,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
           size="lg"
           variant="outline"
           className="border-border text-card-foreground hover:bg-secondary bg-secondary/50 px-12 py-6 text-lg font-light tracking-wide h-auto transition-all duration-300 hover:border-muted hover:scale-105 hover:-translate-y-1"
-          onClick={() => { click(); window.open("https://discord.gg/hNgHCbQUvb", "_blank"); }}
-          onMouseEnter={hover}
+          onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
         >
           {t.joinDiscord}
           <ExternalLink className="ml-4 h-5 w-5" />
@@ -96,8 +87,8 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
               </div>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                 {sponsorships.map((sponsorship) => (
-                  <Card key={sponsorship.id} className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02] hover:-translate-y-1" onMouseEnter={hover}>
+                {sponsorships.map((sponsorship) => (
+                  <Card key={sponsorship.id} className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02] hover:-translate-y-1">
                     <div className="relative">
                        <img 
                          src={sponsorship.image} 
@@ -118,11 +109,11 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
                         <div className="text-sm text-muted-foreground">Rate for 1000 views</div>
                       </div>
                       
-                       <div className="flex gap-2">
-                          <Button variant="outline" size="sm" className="flex-1 transition-all duration-300 hover:scale-105" onClick={buttonPress}>
+                      <div className="flex gap-2">
+                         <Button variant="outline" size="sm" className="flex-1 transition-all duration-300 hover:scale-105">
                            View details
                         </Button>
-                        <Button size="sm" className="flex-1 bg-red-400 hover:bg-red-500 text-white transition-all duration-300 hover:scale-105" onClick={whoosh}>
+                        <Button size="sm" className="flex-1 bg-red-400 hover:bg-red-500 text-white transition-all duration-300 hover:scale-105">
                           Join
                         </Button>
                       </div>

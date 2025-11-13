@@ -5,10 +5,10 @@ import { Examples } from "@/components/sections/Examples";
 import { Mechanisms } from "@/components/sections/Mechanisms";
 import { StreamerSection } from "@/components/sections/StreamerSection";
 import { Press } from "@/components/sections/Press";
-import { Team } from "@/components/sections/Team";
+
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/sections/Footer";
-import { InteractiveBackground } from "@/components/InteractiveBackground";
+import { AnimatedBackground } from "@/components/AnimatedBackground";
 
 const Index = () => {
   const [language, setLanguage] = useState("en");
@@ -283,15 +283,14 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] relative">
-      <InteractiveBackground />
+    <div className="min-h-screen bg-background relative">
+      <AnimatedBackground />
       <Hero t={t} scrollToSection={scrollToSection} language={language} setLanguage={setLanguage} />
       <TrustedBy />
       <Examples t={t} caseVideos={caseVideos} />
       <Mechanisms t={t} />
       <StreamerSection t={t} language={language} />
       <Press t={t} />
-      <Team t={t} />
       <CTA t={t} />
       <Footer t={t} language={language} setLanguage={setLanguage} />
     </div>

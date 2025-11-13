@@ -1,5 +1,4 @@
 import React from "react";
-import { useSoundEffects } from "@/hooks/useSoundEffects";
 
 interface FooterProps {
   t: any;
@@ -7,15 +6,8 @@ interface FooterProps {
   setLanguage: (lang: string) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => {
-  const { hover, click } = useSoundEffects();
-  
-  return (
-  <footer 
-    className="text-foreground py-24" 
-    data-colors="#9f1c26,#2a0a0f,#0a0a0f"
-    style={{ "--bg-strength": 0.5 } as React.CSSProperties}
-  >
+export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => (
+  <footer className="bg-background text-foreground py-24">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="grid md:grid-cols-3 gap-16">
         <div className="space-y-8">
@@ -51,15 +43,13 @@ export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => {
           <div className="space-y-4 text-muted-foreground font-extralight text-lg">
             <p
               className="hover:text-foreground transition-colors cursor-pointer tracking-wide"
-              onClick={() => { click(); window.open("https://www.linkedin.com/company/beta-nordic", "_blank"); }}
-              onMouseEnter={hover}
+              onClick={() => window.open("https://www.linkedin.com/company/beta-nordic", "_blank")}
             >
               LinkedIn
             </p>
             <p
               className="hover:text-foreground transition-colors cursor-pointer tracking-wide"
-              onClick={() => { click(); window.open("https://discord.gg/hNgHCbQUvb", "_blank"); }}
-              onMouseEnter={hover}
+              onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
             >
               Discord
             </p>
@@ -72,5 +62,4 @@ export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => {
       </div>
     </div>
   </footer>
-  );
-};
+);
