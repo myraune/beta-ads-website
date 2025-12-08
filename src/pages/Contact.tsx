@@ -1,6 +1,4 @@
 import React from "react";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import { Press } from "@/components/sections/Press";
 import { Footer } from "@/components/sections/Footer";
 
@@ -37,19 +35,6 @@ const Contact: React.FC<ContactProps> = ({ t, language, setLanguage }) => {
             </div>
           </div>
 
-          <Button
-            size="lg"
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-16 py-8 text-xl font-light tracking-wide h-auto shadow-2xl shadow-primary/20 hover:shadow-primary/30 transition-all duration-300 hover:scale-105 hover:-translate-y-2"
-            onClick={() =>
-              window.open(
-                "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1RiJEObf5v758exr0hi5vk0ZRP0vgGQexQeAoykItGH1-RTFV1DQOye1rJbUSAqu7TdhWhRigO",
-                "_blank"
-              )
-            }
-          >
-            {t.bookDemo}
-            <ArrowRight className="ml-4 h-6 w-6" />
-          </Button>
         </div>
       </section>
 

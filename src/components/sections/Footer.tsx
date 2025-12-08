@@ -7,7 +7,7 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => (
-  <footer className="py-24 border-t border-border/30">
+  <footer className="py-24">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="grid md:grid-cols-3 gap-16">
         <div className="space-y-8">
@@ -57,7 +57,7 @@ export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => (
         </div>
       </div>
 
-      <div className="border-t border-border mt-20 pt-12 text-center text-muted-foreground font-extralight tracking-widest">
+      <div className="mt-20 pt-12 text-center text-muted-foreground/60 font-extralight tracking-widest">
         <p>&copy; 2024 Beta Ads. All rights reserved.</p>
       </div>
     </div>

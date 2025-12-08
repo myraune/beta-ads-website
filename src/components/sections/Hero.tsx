@@ -25,8 +25,7 @@ export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLan
   const currentLanguage = languages.find(lang => lang.code === language);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-red-950 via-red-900 to-black text-gray-100">
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23000000%22%20fill-opacity%3D%220.02%22%3E%3Ccircle%20cx%3D%2230%22%20cy%3D%2230%22%20r%3D%222%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+    <section className="relative overflow-hidden text-foreground">
       
       {/* Language Dropdown */}
       <div className="absolute top-8 right-8 z-10">
@@ -84,18 +83,18 @@ export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLan
               />
             </div>
           </div>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extralight leading-[0.9] tracking-tighter text-gray-100">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extralight leading-[0.9] tracking-tighter text-foreground">
             {t.heroTitle[0]}{" "}
-            <span className="font-light italic bg-gradient-to-r from-gray-200 to-gray-400 bg-clip-text text-transparent">
+            <span className="font-light italic bg-gradient-to-r from-foreground/80 to-muted-foreground bg-clip-text text-transparent">
               {t.heroTitle[1]}
             </span>
           </h1>
 
           <div className="max-w-3xl mx-auto">
-            <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-extralight tracking-wide">
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-extralight tracking-wide">
               {t.heroDescription}
             </p>
-            <p className="text-lg md:text-xl text-gray-400 mt-4 font-extralight">
+            <p className="text-lg md:text-xl text-muted-foreground/70 mt-4 font-extralight">
               {t.heroSubDescription}
             </p>
           </div>
@@ -104,7 +103,7 @@ export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLan
         <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
           <Button
             size="lg"
-            className="bg-white text-gray-900 hover:bg-gray-100 px-10 py-6 text-lg font-light tracking-wide h-auto border-0 shadow-2xl hover:shadow-white/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 px-10 py-6 text-lg font-light tracking-wide h-auto border-0 shadow-2xl shadow-primary/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
             onClick={() => scrollToSection("examples")}
           >
             {t.brandButton}
@@ -114,7 +113,7 @@ export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLan
           <Button
             size="lg"
             variant="outline"
-            className="border-gray-400 text-gray-200 hover:bg-white/10 bg-black/30 px-10 py-6 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-gray-300 hover:scale-105 hover:-translate-y-1"
+            className="border-border text-foreground hover:bg-secondary/50 bg-secondary/30 px-10 py-6 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-border/80 hover:scale-105 hover:-translate-y-1"
             onClick={() => scrollToSection("streamer-section")}
           >
             {t.streamerButton}
@@ -123,8 +122,8 @@ export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLan
         </div>
 
         <div className="pt-16">
-          <div className="relative bg-gradient-to-r from-black/30 to-red-900/40 rounded-3xl p-6 backdrop-blur-md border border-gray-600/30 shadow-2xl max-w-6xl mx-auto transition-all duration-500 hover:shadow-3xl hover:scale-[1.02] hover:border-gray-500/50 group">
-            <div className="aspect-video rounded-2xl overflow-hidden border border-gray-600/20 transition-all duration-300 group-hover:border-gray-500/40">
+          <div className="relative glass-card rounded-3xl p-6 max-w-6xl mx-auto transition-all duration-500 hover:shadow-2xl hover:scale-[1.02] hover:border-border/50 group">
+            <div className="aspect-video rounded-2xl overflow-hidden border border-border/30 transition-all duration-300 group-hover:border-border/50">
               <iframe
                 width="100%"
                 height="100%"
@@ -137,7 +136,7 @@ export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLan
               ></iframe>
             </div>
             <div className="text-center mt-4">
-              <p className="text-gray-300 text-sm font-extralight tracking-wide">{t.campaignOverview}</p>
+              <p className="text-muted-foreground text-sm font-extralight tracking-wide">{t.campaignOverview}</p>
             </div>
           </div>
         </div>
