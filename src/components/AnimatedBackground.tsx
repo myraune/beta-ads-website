@@ -2,18 +2,69 @@ import React from "react";
 
 export const AnimatedBackground: React.FC = () => {
   return (
-    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {/* Animated gradient blobs */}
-      <div className="absolute top-0 -left-1/4 w-1/2 h-1/2 bg-primary/5 rounded-full blur-[120px] animate-[pulse_8s_ease-in-out_infinite]" />
-      <div className="absolute top-1/4 -right-1/4 w-1/2 h-1/2 bg-primary/5 rounded-full blur-[120px] animate-[pulse_10s_ease-in-out_infinite_2s]" />
-      <div className="absolute bottom-0 left-1/4 w-1/2 h-1/2 bg-primary/5 rounded-full blur-[120px] animate-[pulse_12s_ease-in-out_infinite_4s]" />
+    <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-gradient-to-b from-[hsl(222,20%,4%)] via-[hsl(0,30%,8%)] to-[hsl(222,20%,4%)]">
+      {/* Aurora Layer 1 - Base glow (slowest, largest) */}
+      <div 
+        className="absolute -top-1/2 -left-1/4 w-[150%] h-[100%] opacity-30 animate-aurora-drift-1"
+        style={{
+          background: 'radial-gradient(ellipse 80% 50% at 50% 50%, hsl(0, 84%, 60%) 0%, hsl(330, 70%, 40%) 30%, transparent 70%)',
+          filter: 'blur(80px)',
+          mixBlendMode: 'screen',
+        }}
+      />
       
-      {/* Floating particles */}
-      <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary/20 rounded-full animate-[float_6s_ease-in-out_infinite]" />
-      <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-primary/20 rounded-full animate-[float_8s_ease-in-out_infinite_2s]" />
-      <div className="absolute bottom-1/3 left-1/3 w-2.5 h-2.5 bg-primary/20 rounded-full animate-[float_7s_ease-in-out_infinite_1s]" />
-      <div className="absolute bottom-1/4 right-1/4 w-1.5 h-1.5 bg-primary/20 rounded-full animate-[float_9s_ease-in-out_infinite_3s]" />
-      <div className="absolute top-2/3 left-2/3 w-2 h-2 bg-primary/20 rounded-full animate-[float_10s_ease-in-out_infinite_4s]" />
+      {/* Aurora Layer 2 - Primary wave */}
+      <div 
+        className="absolute top-0 -right-1/4 w-[120%] h-[80%] opacity-25 animate-aurora-drift-2"
+        style={{
+          background: 'radial-gradient(ellipse 60% 40% at 60% 30%, hsl(0, 70%, 50%) 0%, hsl(270, 60%, 35%) 40%, transparent 70%)',
+          filter: 'blur(100px)',
+          mixBlendMode: 'screen',
+        }}
+      />
+      
+      {/* Aurora Layer 3 - Accent wave */}
+      <div 
+        className="absolute top-1/3 left-0 w-[100%] h-[60%] opacity-20 animate-aurora-drift-3"
+        style={{
+          background: 'radial-gradient(ellipse 70% 35% at 40% 50%, hsl(350, 80%, 55%) 0%, hsl(320, 60%, 40%) 35%, transparent 65%)',
+          filter: 'blur(120px)',
+          mixBlendMode: 'screen',
+        }}
+      />
+
+      {/* Aurora Layer 4 - Secondary accent */}
+      <div 
+        className="absolute bottom-0 right-0 w-[80%] h-[50%] opacity-15 animate-aurora-drift-4"
+        style={{
+          background: 'radial-gradient(ellipse 50% 40% at 70% 70%, hsl(0, 60%, 45%) 0%, hsl(280, 50%, 30%) 40%, transparent 70%)',
+          filter: 'blur(90px)',
+          mixBlendMode: 'screen',
+        }}
+      />
+
+      {/* Shimmer particles */}
+      <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary/40 rounded-full animate-shimmer-1" style={{ filter: 'blur(1px)' }} />
+      <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-primary/30 rounded-full animate-shimmer-2" style={{ filter: 'blur(1px)' }} />
+      <div className="absolute bottom-1/3 left-1/2 w-2.5 h-2.5 bg-primary/35 rounded-full animate-shimmer-3" style={{ filter: 'blur(1px)' }} />
+      <div className="absolute bottom-1/4 right-1/4 w-1.5 h-1.5 bg-primary/25 rounded-full animate-shimmer-4" style={{ filter: 'blur(1px)' }} />
+      <div className="absolute top-2/3 left-1/3 w-2 h-2 bg-primary/30 rounded-full animate-shimmer-5" style={{ filter: 'blur(1px)' }} />
+      
+      {/* Subtle grain overlay for texture */}
+      <div 
+        className="absolute inset-0 opacity-[0.015]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+        }}
+      />
+
+      {/* Vignette effect */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          background: 'radial-gradient(ellipse 80% 60% at 50% 50%, transparent 0%, hsl(222, 20%, 4%) 100%)',
+        }}
+      />
     </div>
   );
 };
