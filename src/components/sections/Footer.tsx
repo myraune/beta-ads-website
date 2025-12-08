@@ -7,7 +7,7 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => (
-  <footer className="bg-background text-foreground py-24">
+  <footer className="py-24 border-t border-border/30">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="grid md:grid-cols-3 gap-16">
         <div className="space-y-8">
