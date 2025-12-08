@@ -38,7 +38,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
   ];
 
   return (
-  <section id="streamer-section" className="py-32 bg-background text-foreground">
+  <section id="streamer-section" className="py-32">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="text-center mb-20">
         <h2 className="text-4xl md:text-6xl font-extralight mb-6 tracking-tighter text-foreground">
@@ -88,7 +88,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {sponsorships.map((sponsorship) => (
-                  <Card key={sponsorship.id} className="overflow-hidden transition-all duration-300 hover:shadow-lg hover:scale-[1.02] hover:-translate-y-1">
+                  <Card key={sponsorship.id} className="glass-card-hover overflow-hidden rounded-2xl">
                     <div className="relative">
                        <img 
                          src={sponsorship.image} 
@@ -125,7 +125,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
 
             <TabsContent value="wallet">
               <div className="max-w-md mx-auto">
-                <Card className="bg-gradient-to-r from-red-400 to-orange-400 text-white border-0 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]">
+                <Card className="glass-card bg-gradient-to-r from-primary/20 to-accent/20 text-foreground border-primary/30 transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]">
                   <CardHeader>
                     <CardTitle className="flex items-center">
                       <DollarSign className="h-5 w-5 mr-2" />
@@ -162,7 +162,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
       )}
 
       <div className="text-center mt-16">
-        <div className="inline-flex items-center space-x-3 bg-secondary rounded-2xl px-8 py-4 border border-border transition-all duration-300 hover:shadow-lg hover:scale-105 hover:bg-secondary/80">
+        <div className="inline-flex items-center space-x-3 glass-card rounded-2xl px-8 py-4 transition-all duration-300 hover:shadow-lg hover:scale-105">
           <TrendingUp className="h-6 w-6 text-muted-foreground" />
           <span className="text-secondary-foreground font-light text-lg tracking-wide">
             {t.passiveIncome}
