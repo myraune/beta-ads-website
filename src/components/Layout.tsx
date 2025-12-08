@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Navbar } from "./Navbar";
 import { AnimatedBackground } from "./AnimatedBackground";
+import { PageTransition } from "./PageTransition";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -17,9 +18,11 @@ export const Layout: React.FC<LayoutProps> = ({ children, language, setLanguage 
       {/* Navigation */}
       <Navbar language={language} setLanguage={setLanguage} />
       
-      {/* Main Content */}
+      {/* Main Content with Page Transitions */}
       <main className="relative z-10">
-        {children}
+        <PageTransition>
+          {children}
+        </PageTransition>
       </main>
     </div>
   );
