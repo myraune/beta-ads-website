@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, ExternalLink, Sparkles, ChevronDown } from "lucide-react";
-
-
+import { ArrowRight, ExternalLink, Sparkles } from "lucide-react";
 
 interface HeroProps {
   t: any;
@@ -12,57 +11,9 @@ interface HeroProps {
   setLanguage: (lang: string) => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLanguage }) => {
-  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
-  
-  const languages = [
-    { code: "en", label: "English", flag: "🇬🇧" },
-    { code: "no", label: "Norsk", flag: "🇳🇴" },
-    { code: "sv", label: "Svenska", flag: "🇸🇪" },
-    { code: "fi", label: "Suomi", flag: "🇫🇮" },
-  ];
-
-  const currentLanguage = languages.find(lang => lang.code === language);
-
+export const Hero: React.FC<HeroProps> = ({ t }) => {
   return (
     <section className="relative overflow-hidden text-foreground">
-      
-      {/* Language Dropdown */}
-      <div className="absolute top-8 right-8 z-10">
-        <div className="relative">
-          <button
-            onClick={() => setIsLanguageDropdownOpen(!isLanguageDropdownOpen)}
-            className="flex items-center space-x-2 bg-black/20 backdrop-blur-sm rounded-full px-4 py-2 border border-white/30 text-gray-200 hover:text-white transition-all duration-300 hover:bg-black/30 hover:border-white/50 hover:scale-105"
-          >
-            <span className="text-sm">{currentLanguage?.flag}</span>
-            <span className="text-sm font-light">{currentLanguage?.label}</span>
-            <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isLanguageDropdownOpen ? 'rotate-180' : ''}`} />
-          </button>
-          
-          {isLanguageDropdownOpen && (
-            <div className="absolute top-full mt-2 right-0 bg-black/90 backdrop-blur-md rounded-xl border border-white/20 py-2 min-w-[140px] shadow-xl">
-              {languages.map((lang) => (
-                <button
-                  key={lang.code}
-                  onClick={() => {
-                    setLanguage(lang.code);
-                    setIsLanguageDropdownOpen(false);
-                  }}
-                  className={`w-full flex items-center space-x-3 px-4 py-2 text-sm transition-all duration-200 ${
-                    language === lang.code
-                      ? "bg-white/10 text-white"
-                      : "text-gray-300 hover:bg-white/5 hover:text-white"
-                  }`}
-                >
-                  <span>{lang.flag}</span>
-                  <span className="font-light">{lang.label}</span>
-                </button>
-            ))}
-            </div>
-          )}
-        </div>
-      </div>
-
     <div className="relative max-w-7xl mx-auto px-8 lg:px-12 py-32 lg:py-40">
       <div className="text-center space-y-12">
         <div className="inline-flex items-center space-x-3">
@@ -101,24 +52,26 @@ export const Hero: React.FC<HeroProps> = ({ t, scrollToSection, language, setLan
         </div>
 
         <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-          <Button
-            size="lg"
-            className="bg-primary text-primary-foreground hover:bg-primary/90 px-10 py-6 text-lg font-light tracking-wide h-auto border-0 shadow-2xl shadow-primary/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
-            onClick={() => scrollToSection("examples")}
-          >
-            {t.brandButton}
-            <ArrowRight className="ml-3 h-5 w-5" />
-          </Button>
+          <Link to="/case-studies">
+            <Button
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 px-10 py-6 text-lg font-light tracking-wide h-auto border-0 shadow-2xl shadow-primary/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
+            >
+              {t.brandButton}
+              <ArrowRight className="ml-3 h-5 w-5" />
+            </Button>
+          </Link>
 
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-border text-foreground hover:bg-secondary/50 bg-secondary/30 px-10 py-6 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-border/80 hover:scale-105 hover:-translate-y-1"
-            onClick={() => scrollToSection("streamer-section")}
-          >
-            {t.streamerButton}
-            <ExternalLink className="ml-3 h-5 w-5" />
-          </Button>
+          <Link to="/streamers">
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-border text-foreground hover:bg-secondary/50 bg-secondary/30 px-10 py-6 text-lg font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 hover:border-border/80 hover:scale-105 hover:-translate-y-1"
+            >
+              {t.streamerButton}
+              <ExternalLink className="ml-3 h-5 w-5" />
+            </Button>
+          </Link>
         </div>
 
         <div className="pt-16">
