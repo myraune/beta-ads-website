@@ -1,13 +1,20 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 export const useParallax = () => {
   const [scrollY, setScrollY] = useState(0);
+  const ticking = useRef(false);
+
+  const updateScrollY = useCallback(() => {
+    setScrollY(window.scrollY);
+    ticking.current = false;
+  }, []);
 
   const handleScroll = useCallback(() => {
-    requestAnimationFrame(() => {
-      setScrollY(window.scrollY);
-    });
-  }, []);
+    if (!ticking.current) {
+      ticking.current = true;
+      requestAnimationFrame(updateScrollY);
+    }
+  }, [updateScrollY]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -15,7 +22,8 @@ export const useParallax = () => {
   }, [handleScroll]);
 
   const getParallaxStyle = (speed: number = 0.5) => ({
-    transform: `translateY(${scrollY * speed}px)`,
+    transform: `translate3d(0, ${scrollY * speed}px, 0)`,
+    willChange: 'transform',
   });
 
   return { scrollY, getParallaxStyle };

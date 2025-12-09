@@ -107,18 +107,6 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
               </DropdownMenuContent>
             </DropdownMenu>
 
-            <Button
-              size="sm"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground px-6"
-              onClick={() =>
-                window.open(
-                  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1RiJEObf5v758exr0hi5vk0ZRP0vgGQexQeAoykItGH1-RTFV1DQOye1rJbUSAqu7TdhWhRigO",
-                  "_blank"
-                )
-              }
-            >
-              Book Demo
-            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -153,7 +141,7 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
             </Link>
           ))}
           
-          <div className="pt-4 border-t border-border/50 flex items-center justify-between">
+          <div className="pt-4 border-t border-border/50">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="sm" className="text-muted-foreground">
@@ -174,19 +162,6 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-
-            <Button
-              size="sm"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
-              onClick={() =>
-                window.open(
-                  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1RiJEObf5v758exr0hi5vk0ZRP0vgGQexQeAoykItGH1-RTFV1DQOye1rJbUSAqu7TdhWhRigO",
-                  "_blank"
-                )
-              }
-            >
-              Book Demo
-            </Button>
           </div>
         </div>
       </div>
