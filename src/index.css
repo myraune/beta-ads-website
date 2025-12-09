@@ -101,6 +101,7 @@
 
   html {
     @apply dark;
+    scroll-behavior: smooth;
   }
 
   html, body {
