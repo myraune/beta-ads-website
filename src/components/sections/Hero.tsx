@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, ExternalLink, Sparkles } from "lucide-react";
 import { ScrollIndicator } from "@/components/ScrollIndicator";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { LiveDashboard } from "@/components/sections/LiveDashboard";
 
 interface HeroProps {
   t: any;
@@ -105,29 +106,16 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
             </Link>
           </div>
 
-          {/* Video */}
+          {/* Dashboard Preview */}
           <div 
             ref={videoRef}
             className={`pt-16 transition-all duration-1000 delay-500 ${
               videoVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-12 scale-95'
             }`}
           >
-            <div className="relative glass-card rounded-3xl p-6 max-w-6xl mx-auto transition-all duration-500 hover:shadow-2xl hover:scale-[1.02] hover:border-border/50 group">
-              <div className="aspect-video rounded-2xl overflow-hidden border border-border/30 transition-all duration-300 group-hover:border-border/50">
-                <iframe
-                  width="100%"
-                  height="100%"
-                  src="https://www.youtube.com/embed/P9yEc7v22MI?autoplay=1&mute=1"
-                  title="Campaign Grid Overview"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                  className="w-full h-full"
-                ></iframe>
-              </div>
-              <div className="text-center mt-4">
-                <p className="text-muted-foreground text-sm font-extralight tracking-wide">{t.campaignOverview}</p>
-              </div>
+            <LiveDashboard />
+            <div className="text-center mt-6">
+              <p className="text-muted-foreground text-sm font-extralight tracking-wide">{t.campaignOverview}</p>
             </div>
           </div>
         </div>
