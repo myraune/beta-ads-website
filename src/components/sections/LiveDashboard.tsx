@@ -47,20 +47,17 @@ const StatCard: React.FC<StatCardProps> = ({
   return (
     <div 
       className={`
-        relative p-3 rounded-lg backdrop-blur-sm 
-        bg-gradient-to-br from-card/50 to-card/20 
-        border border-border/10 
+        relative py-3 px-2
         transition-all duration-500
-        hover:border-border/30 hover:bg-card/40
-        ${isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-95'}
+        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
       `}
       style={{ transitionDelay: `${delay}ms` }}
     >
       <div className="flex items-center gap-1.5 mb-1">
-        <div className="text-primary/70">
+        <div className="text-primary/60">
           {icon}
         </div>
-        <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-medium truncate">
+        <span className="text-[9px] text-muted-foreground/70 uppercase tracking-wider font-medium truncate">
           {label}
         </span>
       </div>
@@ -70,14 +67,14 @@ const StatCard: React.FC<StatCardProps> = ({
         )}
         <span 
           className={`
-            text-lg md:text-xl lg:text-2xl font-bold tabular-nums tracking-tight text-foreground
+            text-lg md:text-xl font-bold tabular-nums tracking-tight text-foreground
             ${hasCompleted ? 'animate-pulse-subtle' : ''}
           `}
         >
           {displayValue}
         </span>
         {suffix && (
-          <span className="text-[10px] md:text-xs text-muted-foreground font-medium">{suffix}</span>
+          <span className="text-[10px] text-muted-foreground/70 font-medium">{suffix}</span>
         )}
       </div>
     </div>
@@ -178,24 +175,33 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "" }) 
             <span className="text-[10px] text-muted-foreground">Updated just now</span>
           </div>
 
-          {/* Stats Grid - 12 metrics in 4x3 grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 md:gap-3">
+          {/* Stats Grid - minimal separators instead of boxes */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4">
             {stats.map((stat, index) => (
-              <StatCard
+              <div 
                 key={stat.label}
-                {...stat}
-                isVisible={isVisible}
-                delay={200 + index * 50}
-              />
+                className={`
+                  ${index % 4 !== 3 ? 'md:border-r md:border-border/10' : ''}
+                  ${index < 8 ? 'md:border-b md:border-border/10' : ''}
+                  ${index % 3 !== 2 ? 'sm:border-r sm:border-border/10 md:border-r-0' : 'sm:border-r-0'}
+                  ${index < 9 ? 'sm:border-b sm:border-border/10' : 'sm:border-b-0'}
+                  ${index % 2 !== 1 ? 'border-r border-border/10 sm:border-r-0' : ''}
+                  ${index < 10 ? 'border-b border-border/10' : ''}
+                `}
+              >
+                <StatCard
+                  {...stat}
+                  isVisible={isVisible}
+                  delay={200 + index * 50}
+                />
+              </div>
             ))}
           </div>
 
-          {/* Area Chart - more compact */}
+          {/* Area Chart - borderless */}
           <div 
             className={`
-              p-3 md:p-4 rounded-lg 
-              bg-gradient-to-br from-card/30 to-transparent
-              border border-border/10
+              pt-4 border-t border-border/10
               transition-all duration-700 delay-700
               ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
             `}

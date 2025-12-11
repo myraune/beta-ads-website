@@ -361,3 +361,52 @@
   animation: scan 3s ease-in-out infinite;
   animation-delay: 2s;
 }
+
+/* Premium hover animations */
+@keyframes float-hover {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { 
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  50% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes arrow-slide {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+.animate-float-hover {
+  animation: float-hover 2s ease-in-out infinite;
+}
+
+.group:hover .group-hover\:animate-arrow-slide {
+  animation: arrow-slide 0.6s ease-in-out infinite;
+}
+
+/* Gradient text hover effect */
+.gradient-text-hover {
+  background: linear-gradient(90deg, hsl(var(--foreground)) 0%, hsl(var(--foreground)) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: background-position 0.3s ease;
+}
+
+.group:hover .gradient-text-hover {
+  background: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(330 80% 60%) 50%, hsl(280 70% 60%) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-position: 100% center;
+}
