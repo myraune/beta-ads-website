@@ -3,61 +3,61 @@ import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { BarChart3, Settings, Gamepad2, Mail, ArrowRight } from "lucide-react";
 
-interface NavCardProps {
+interface NavItemProps {
   icon: React.ReactNode;
   title: string;
   description: string;
   link: string;
-  cta: string;
   delay: number;
   isVisible: boolean;
 }
 
-const NavCard: React.FC<NavCardProps> = ({ 
+const NavItem: React.FC<NavItemProps> = ({ 
   icon, 
   title, 
   description, 
   link, 
-  cta, 
   delay, 
   isVisible 
 }) => (
   <Link 
     to={link}
     className={`
-      group relative p-6 rounded-xl
-      bg-gradient-to-br from-card/60 to-card/30
-      backdrop-blur-md border border-border/20
+      group relative py-6 px-4
       transition-all duration-500 ease-out
-      hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5
-      hover:-translate-y-1
       ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
     `}
     style={{ transitionDelay: `${delay}ms` }}
   >
-    {/* Icon */}
-    <div className="mb-4 inline-flex p-3 rounded-lg bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
-      {icon}
+    {/* Subtle glow on hover */}
+    <div className="absolute inset-0 rounded-2xl bg-primary/5 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500 pointer-events-none" />
+    
+    {/* Content wrapper with floating effect */}
+    <div className="relative transition-transform duration-300 group-hover:-translate-y-1">
+      {/* Icon with color shift */}
+      <div className="mb-3 inline-flex text-muted-foreground group-hover:text-primary transition-colors duration-300">
+        {icon}
+      </div>
+
+      {/* Title with gradient text on hover */}
+      <h3 className="text-lg font-semibold mb-1.5 gradient-text-hover">
+        {title}
+      </h3>
+
+      {/* Description */}
+      <p className="text-sm text-muted-foreground mb-3 leading-relaxed">
+        {description}
+      </p>
+
+      {/* Arrow CTA */}
+      <div className="flex items-center gap-1.5 text-sm font-medium text-primary/70 group-hover:text-primary transition-colors">
+        <span>Explore</span>
+        <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" />
+      </div>
     </div>
 
-    {/* Title */}
-    <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
-      {title}
-    </h3>
-
-    {/* Description */}
-    <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-      {description}
-    </p>
-
-    {/* CTA */}
-    <div className="flex items-center gap-1.5 text-sm font-medium text-primary">
-      <span>{cta}</span>
-      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-    </div>
-
-    {/* Hover glow effect */}
-    <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+    {/* Bottom border that animates on hover */}
+    <div className="absolute bottom-0 left-4 right-4 h-px bg-border/20 group-hover:bg-primary/30 transition-colors duration-300" />
   </Link>
 );
 
@@ -68,40 +68,36 @@ interface NavigationCardsProps {
 export const NavigationCards: React.FC<NavigationCardsProps> = ({ t }) => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
-  const cards = [
+  const items = [
     {
-      icon: <BarChart3 className="w-6 h-6" />,
+      icon: <BarChart3 className="w-5 h-5" />,
       title: "Case Studies",
-      description: "See how leading brands achieved remarkable results with our platform.",
+      description: "See how leading brands achieved remarkable results",
       link: "/case-studies",
-      cta: "View Cases",
     },
     {
-      icon: <Settings className="w-6 h-6" />,
+      icon: <Settings className="w-5 h-5" />,
       title: "How It Works",
-      description: "Discover our unique mechanisms and learn how we connect brands with streamers.",
+      description: "Discover our unique approach to streaming campaigns",
       link: "/how-it-works",
-      cta: "Learn More",
     },
     {
-      icon: <Gamepad2 className="w-6 h-6" />,
+      icon: <Gamepad2 className="w-5 h-5" />,
       title: "For Streamers",
-      description: "Join our network of streamers and start earning from your content.",
+      description: "Join our network and start earning from your content",
       link: "/streamers",
-      cta: "Apply Now",
     },
     {
-      icon: <Mail className="w-6 h-6" />,
+      icon: <Mail className="w-5 h-5" />,
       title: "Contact",
-      description: "Get in touch with our team to discuss your campaign needs.",
+      description: "Get in touch to discuss your campaign needs",
       link: "/contact",
-      cta: "Contact Us",
     },
   ];
 
   return (
     <section ref={ref} className="py-16 md:py-24 px-4">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div 
           className={`
@@ -113,17 +109,17 @@ export const NavigationCards: React.FC<NavigationCardsProps> = ({ t }) => {
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
             Explore Our Platform
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
+          <p className="text-muted-foreground max-w-md mx-auto">
             Everything you need to launch successful streaming campaigns
           </p>
         </div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-          {cards.map((card, index) => (
-            <NavCard
-              key={card.title}
-              {...card}
+        {/* Navigation Items - 2x2 Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8">
+          {items.map((item, index) => (
+            <NavItem
+              key={item.title}
+              {...item}
               delay={150 + index * 100}
               isVisible={isVisible}
             />
