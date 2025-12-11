@@ -34,7 +34,7 @@ export const TrustedBy: React.FC = () => {
                     <img src="/lovable-uploads/59160e7a-4d18-4413-9f1b-f681271f8dde.png" alt="Foodora" className="max-h-12 max-w-32 opacity-60 object-contain transition-all duration-300 hover:scale-110 hover:opacity-100" />
                   </div>
                   <div className="h-12 w-32 flex items-center justify-center">
-                    <img src="/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png" alt="Group M" className="max-h-12 max-w-32 opacity-60 object-contain transition-all duration-300 hover:scale-110 hover:opacity-100" />
+                    <img src="/lovable-uploads/wpp-media-logo.png" alt="WPP Media" className="max-h-12 max-w-32 opacity-60 object-contain transition-all duration-300 hover:scale-110 hover:opacity-100 invert" />
                   </div>
                   <div className="h-12 w-32 flex items-center justify-center">
                     <img src="/lovable-uploads/cda69e31-7632-469a-b206-367ba4350480.png" alt="Logitech G" className="max-h-12 max-w-32 opacity-60 object-contain transition-all duration-300 hover:scale-110 hover:opacity-100" />
@@ -60,7 +60,7 @@ export const TrustedBy: React.FC = () => {
                     <img src="/lovable-uploads/59160e7a-4d18-4413-9f1b-f681271f8dde.png" alt="Foodora" className="max-h-12 max-w-32 opacity-60 object-contain transition-all duration-300 hover:scale-110 hover:opacity-100" />
                   </div>
                   <div className="h-12 w-32 flex items-center justify-center">
-                    <img src="/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png" alt="Group M" className="max-h-12 max-w-32 opacity-60 object-contain transition-all duration-300 hover:scale-110 hover:opacity-100" />
+                    <img src="/lovable-uploads/wpp-media-logo.png" alt="WPP Media" className="max-h-12 max-w-32 opacity-60 object-contain transition-all duration-300 hover:scale-110 hover:opacity-100 invert" />
                   </div>
                   <div className="h-12 w-32 flex items-center justify-center">
                     <img src="/lovable-uploads/cda69e31-7632-469a-b206-367ba4350480.png" alt="Logitech G" className="max-h-12 max-w-32 opacity-60 object-contain transition-all duration-300 hover:scale-110 hover:opacity-100" />
@@ -88,7 +88,7 @@ export const TrustedBy: React.FC = () => {
                     <img src="/lovable-uploads/a716bb91-525c-4779-a530-ceb1daad954f.png" alt="Foodora" className="h-12 w-auto opacity-80 object-contain transition-all duration-300 hover:scale-110 hover:opacity-100" />
                   </div>
                   <div className="h-16 w-40 flex items-center justify-center -ml-2">
-                    <img src="/lovable-uploads/f4cf3326-1633-43f1-b28f-4055a2a77c6c.png" alt="Group M" className="h-14 w-auto opacity-80 object-contain transition-all duration-300 hover:scale-110 hover:opacity-100" />
+                    <img src="/lovable-uploads/wpp-media-logo.png" alt="WPP Media" className="h-14 w-auto opacity-80 object-contain transition-all duration-300 hover:scale-110 hover:opacity-100" />
                   </div>
                   <div className="h-16 w-40 flex items-center justify-center">
                     <img src="/lovable-uploads/770b37b2-e4fc-4e77-86f5-7fc95755ab72.png" alt="Logitech G" className="h-12 w-auto opacity-80 object-contain transition-all duration-300 hover:scale-110 hover:opacity-100" />
@@ -114,7 +114,7 @@ export const TrustedBy: React.FC = () => {
                     <img src="/lovable-uploads/a716bb91-525c-4779-a530-ceb1daad954f.png" alt="Foodora" className="h-12 w-auto opacity-80 object-contain transition-all duration-300 hover:scale-110 hover:opacity-100" />
                   </div>
                   <div className="h-16 w-40 flex items-center justify-center -ml-2">
-                    <img src="/lovable-uploads/f4cf3326-1633-43f1-b28f-4055a2a77c6c.png" alt="Group M" className="h-14 w-auto opacity-80 object-contain transition-all duration-300 hover:scale-110 hover:opacity-100" />
+                    <img src="/lovable-uploads/wpp-media-logo.png" alt="WPP Media" className="h-14 w-auto opacity-80 object-contain transition-all duration-300 hover:scale-110 hover:opacity-100" />
                   </div>
                   <div className="h-16 w-40 flex items-center justify-center">
                     <img src="/lovable-uploads/770b37b2-e4fc-4e77-86f5-7fc95755ab72.png" alt="Logitech G" className="h-12 w-auto opacity-80 object-contain transition-all duration-300 hover:scale-110 hover:opacity-100" />
