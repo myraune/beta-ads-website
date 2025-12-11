@@ -1,12 +1,10 @@
 import React from "react";
 import { Hero } from "@/components/sections/Hero";
 import { TrustedBy } from "@/components/sections/TrustedBy";
-
-import { Mechanisms } from "@/components/sections/Mechanisms";
-import { StreamerSection } from "@/components/sections/StreamerSection";
-import { Press } from "@/components/sections/Press";
+import { NavigationCards } from "@/components/sections/NavigationCards";
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/sections/Footer";
+
 interface IndexProps {
   t: any;
   language: string;
@@ -22,9 +20,7 @@ const Index: React.FC<IndexProps> = ({ t, language, setLanguage }) => {
     <>
       <Hero t={t} scrollToSection={scrollToSection} language={language} setLanguage={setLanguage} />
       <TrustedBy />
-      <Mechanisms t={t} />
-      <StreamerSection t={t} language={language} />
-      <Press t={t} />
+      <NavigationCards t={t} />
       <CTA t={t} />
       <Footer t={t} language={language} setLanguage={setLanguage} />
     </>
