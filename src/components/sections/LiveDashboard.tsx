@@ -83,21 +83,30 @@ const streamers = [
     gif: "/lovable-uploads/streamer-aienia.gif",
     viewers: 1247,
     category: "Just Chatting",
-    exposure: "2.4K"
+    exposure: "2.4K",
+    duration: "2h 34m",
+    ctr: 2.4,
+    clicks: 847
   },
   { 
     name: "Emmelie", 
     gif: "/lovable-uploads/streamer-emmelie.gif",
     viewers: 847,
     category: "Gaming",
-    exposure: "1.8K"
+    exposure: "1.8K",
+    duration: "1h 52m",
+    ctr: 2.1,
+    clicks: 612
   },
   { 
     name: "pernataia", 
     gif: "/lovable-uploads/streamer-pernataia.gif",
     viewers: 623,
     category: "Valorant",
-    exposure: "1.2K"
+    exposure: "1.2K",
+    duration: "3h 18m",
+    ctr: 1.9,
+    clicks: 438
   },
 ];
 
@@ -344,8 +353,8 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
           <div 
             key={streamer.name}
             className={`
-              relative rounded-lg overflow-hidden bg-muted/20 border border-border/20
-              transition-all duration-500
+              group relative rounded-lg overflow-hidden bg-muted/20 border border-border/20
+              transition-all duration-500 hover:scale-105 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10
               ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
             `}
             style={{ transitionDelay: `${150 + i * 100}ms` }}
@@ -355,7 +364,7 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
               <img 
                 src={streamer.gif} 
                 alt={streamer.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
               />
               {/* Live Badge */}
               <div className="absolute top-1 left-1 flex items-center gap-1 bg-destructive/90 px-1 py-0.5 rounded text-[7px] font-bold text-white">
@@ -365,6 +374,23 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
               {/* Viewer count */}
               <div className="absolute bottom-1 right-1 bg-background/80 backdrop-blur-sm px-1 py-0.5 rounded text-[8px] font-medium">
                 {streamer.viewers.toLocaleString()} 👁
+              </div>
+              
+              {/* Hover Overlay with Additional Stats */}
+              <div className="absolute inset-0 bg-background/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-2">
+                <Clock className="w-3 h-3 text-primary mb-1" />
+                <div className="text-[8px] text-muted-foreground">Stream Duration</div>
+                <div className="text-sm font-bold text-foreground">{streamer.duration}</div>
+                <div className="grid grid-cols-2 gap-3 mt-2 w-full">
+                  <div className="text-center">
+                    <div className="text-[7px] text-muted-foreground uppercase">CTR</div>
+                    <div className="text-xs font-semibold text-primary">{streamer.ctr}%</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-[7px] text-muted-foreground uppercase">Clicks</div>
+                    <div className="text-xs font-semibold text-foreground">{streamer.clicks}</div>
+                  </div>
+                </div>
               </div>
             </div>
             {/* Info */}
@@ -653,10 +679,15 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
               ))}
             </div>
 
-            {/* Tab Content */}
-            {activeTab === 0 && renderOverviewContent()}
-            {activeTab === 1 && renderStreamsContent()}
-            {activeTab === 2 && renderAnalyticsContent()}
+            {/* Tab Content with Fade Transition */}
+            <div 
+              key={activeTab}
+              className="animate-fade-in space-y-3"
+            >
+              {activeTab === 0 && renderOverviewContent()}
+              {activeTab === 1 && renderStreamsContent()}
+              {activeTab === 2 && renderAnalyticsContent()}
+            </div>
           </div>
         </div>
 
