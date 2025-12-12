@@ -30,7 +30,7 @@ export const AdFormatsPreview: React.FC<AdFormatsPreviewProps> = ({ id }) => {
           {/* Overlay Labels */}
           
           {/* ANIMATION label - pointing to phone overlay on left */}
-          <div className="absolute top-[18%] left-[2%] group cursor-pointer">
+          <div className="absolute top-[22%] left-[3%] group cursor-pointer">
             <div className="flex items-center gap-2">
               <div className="bg-primary/90 backdrop-blur-sm text-primary-foreground px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-primary/40 group-hover:shadow-xl">
                 Animation
@@ -41,7 +41,7 @@ export const AdFormatsPreview: React.FC<AdFormatsPreviewProps> = ({ id }) => {
           </div>
 
           {/* CTA label - pointing to !SAILY command */}
-          <div className="absolute top-[70%] left-[33%] group cursor-pointer">
+          <div className="absolute top-[62%] left-[35%] group cursor-pointer">
             <div className="flex items-center gap-2">
               <div className="bg-primary/90 backdrop-blur-sm text-primary-foreground px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-primary/40 group-hover:shadow-xl">
                 CTA
@@ -52,7 +52,7 @@ export const AdFormatsPreview: React.FC<AdFormatsPreviewProps> = ({ id }) => {
           </div>
 
           {/* BANNER label - pointing to yellow banner */}
-          <div className="absolute bottom-[12%] left-[2%] group cursor-pointer">
+          <div className="absolute bottom-[18%] left-[3%] group cursor-pointer">
             <div className="flex items-center gap-2">
               <div className="bg-primary/90 backdrop-blur-sm text-primary-foreground px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wide shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-primary/40 group-hover:shadow-xl">
                 Banner
@@ -63,7 +63,7 @@ export const AdFormatsPreview: React.FC<AdFormatsPreviewProps> = ({ id }) => {
           </div>
 
           {/* CHATBOT label - pointing to chatbot CTA in chat */}
-          <div className="absolute top-[65%] right-[2%] group cursor-pointer">
+          <div className="absolute top-[58%] right-[3%] group cursor-pointer">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 rounded-full bg-primary/60 group-hover:bg-primary transition-colors" />
               <div className="w-6 h-0.5 bg-primary/60 group-hover:bg-primary transition-colors" />

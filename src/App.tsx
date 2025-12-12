@@ -10,7 +10,7 @@ import Index from "./pages/Index";
 import CaseStudies from "./pages/CaseStudies";
 import HowItWorks from "./pages/HowItWorks";
 import Streamers from "./pages/Streamers";
-import Contact from "./pages/Contact";
+import AboutUs from "./pages/AboutUs";
 import NotFound from "./pages/NotFound";
 
 // Translations object - shared across all pages
@@ -211,7 +211,7 @@ const App = () => {
               <Route path="/case-studies" element={<CaseStudies t={t} language={language} setLanguage={setLanguage} />} />
               <Route path="/how-it-works" element={<HowItWorks t={t} language={language} setLanguage={setLanguage} />} />
               <Route path="/streamers" element={<Streamers t={t} language={language} setLanguage={setLanguage} />} />
-              <Route path="/contact" element={<Contact t={t} language={language} setLanguage={setLanguage} />} />
+              <Route path="/about" element={<AboutUs t={t} language={language} setLanguage={setLanguage} />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
