@@ -35,7 +35,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
       <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-extralight text-foreground mb-8 tracking-tighter">
-            {t.trustedByTitle}
+            Our Work
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-extralight leading-relaxed">
             {t.trustedByDescription}

@@ -28,20 +28,7 @@ export const Mechanisms: React.FC<MechanismsProps> = ({ t }) => {
 
   return (
     <section id="mechanisms" className="relative py-12 md:py-24">
-      
       <div className="relative max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
-        <div className="text-center mb-8 md:mb-16">
-          <Badge className="bg-primary/10 text-primary border-primary/20 mb-4 md:mb-6 px-4 md:px-6 py-1.5 md:py-2 text-xs md:text-sm font-light">
-            {t.mechanismsSubtitle}
-          </Badge>
-          <h2 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-extralight text-foreground mb-4 md:mb-6 tracking-tight px-2">
-            {t.mechanismsTitle}
-          </h2>
-          <p className="text-base md:text-xl text-muted-foreground max-w-3xl mx-auto font-light leading-relaxed px-2">
-            {t.mechanismsDescription}
-          </p>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16">
           {mechanisms.map((mechanism, index) => (
             <div
