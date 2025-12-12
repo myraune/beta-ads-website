@@ -373,42 +373,9 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
   );
 
   return (
-    <section id="streamer-section" className="py-32">
-      <div className="max-w-7xl mx-auto px-8 lg:px-12">
-        {/* Header with CTAs */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl md:text-6xl font-extralight mb-6 tracking-tighter text-foreground">
-            {t.streamerSectionTitle}
-          </h2>
-          <p className="text-2xl md:text-3xl text-muted-foreground font-light mb-8 tracking-wide">
-            {t.streamerSectionSubtitle}
-          </p>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide mb-12">
-            {t.streamerSectionDescription}
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center">
-            <Button
-              size="lg"
-              className="bg-red-400 text-white hover:bg-red-500 px-12 py-6 text-lg font-light tracking-wide h-auto shadow-2xl hover:shadow-red-400/20 transition-all duration-300 hover:scale-105 hover:-translate-y-1"
-              onClick={() => window.open("https://beta.instreamly.com/", "_blank")}
-            >
-              {t.joinStreamer}
-            </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-border text-card-foreground hover:bg-secondary bg-secondary/50 px-12 py-6 text-lg font-light tracking-wide h-auto transition-all duration-300 hover:border-muted hover:scale-105 hover:-translate-y-1"
-              onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
-            >
-              {t.joinDiscord}
-              <ExternalLink className="ml-4 h-5 w-5" />
-            </Button>
-          </div>
-        </div>
-
-        {/* Platform Preview */}
+    <section id="streamer-section" className="py-12 lg:py-20">
+      <div className="max-w-[1500px] mx-auto px-4 lg:px-6">
+        {/* Platform Preview - First */}
         <div className="rounded-2xl overflow-hidden shadow-2xl border border-border/50 bg-[#1a1a1a]">
           {/* Browser Bar */}
           <div className="bg-[#2a2a2a] px-4 py-3 flex items-center gap-3 border-b border-white/10">
@@ -431,10 +398,16 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
           {/* App Header */}
           <div className="bg-[#1a1a1a] border-b border-white/10">
             <div className="px-6 py-4 flex items-center justify-between">
-              {/* Logo */}
-              <div className="flex items-center gap-2">
-                <span className="text-white font-bold text-xl">beta</span>
-                <span className="text-red-400 font-bold text-xl">ads</span>
+              {/* Logo - Updated to use actual logo */}
+              <div className="flex items-center gap-3">
+                <img 
+                  src="/lovable-uploads/logo-white.png" 
+                  alt="inStreamly" 
+                  className="h-8 w-auto"
+                />
+                <Badge className="bg-red-400/20 text-red-400 text-[10px] px-2 py-0.5 border-0">
+                  BETA
+                </Badge>
               </div>
 
               {/* Navigation */}
@@ -451,21 +424,40 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
                   >
                     <item.icon className="w-4 h-4" />
                     {item.label}
+                    {item.label === "Sponsorships" && (
+                      <span className="bg-red-400 text-white text-[9px] px-1.5 py-0.5 rounded-full font-medium">4</span>
+                    )}
+                    {item.label === "Wallet" && (
+                      <span className="bg-green-400 text-white text-[9px] px-1.5 py-0.5 rounded-full font-medium">€</span>
+                    )}
                   </button>
                 ))}
               </nav>
 
-              {/* User avatar placeholder */}
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500" />
+              {/* User Section */}
+              <div className="flex items-center gap-3">
+                <div className="hidden sm:flex flex-col items-end text-xs">
+                  <span className="text-white/60">Level 3 Streamer</span>
+                  <span className="text-green-400">Next payout: Dec 15</span>
+                </div>
+                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 border-2 border-white/20" />
+              </div>
             </div>
           </div>
 
           {/* Breadcrumb */}
           <div className="bg-[#1a1a1a] px-6 py-3 border-b border-white/5">
-            <div className="flex items-center gap-2 text-sm">
-              <Home className="w-4 h-4 text-white/40" />
-              <ChevronRight className="w-3 h-3 text-white/30" />
-              <span className="text-white/60">{getBreadcrumb()}</span>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-sm">
+                <Home className="w-4 h-4 text-white/40" />
+                <ChevronRight className="w-3 h-3 text-white/30" />
+                <span className="text-white/60">{getBreadcrumb()}</span>
+              </div>
+              {activeNavItem === "Wallet" && (
+                <div className="text-xs text-white/40">
+                  Last updated: Just now
+                </div>
+              )}
             </div>
           </div>
 
@@ -477,7 +469,27 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
 
               {/* FAQ Card - Only show on Sponsorships */}
               {activeNavItem === "Sponsorships" && (
-                <div className="lg:w-64 shrink-0">
+                <div className="lg:w-72 shrink-0 space-y-4">
+                  {/* Stats Card */}
+                  <div className="bg-[#252525] rounded-xl p-5 border border-white/5">
+                    <h4 className="text-white font-semibold text-sm mb-4">Your Stats</h4>
+                    <div className="space-y-3">
+                      <div className="flex justify-between text-sm">
+                        <span className="text-white/50">Active campaigns</span>
+                        <span className="text-white font-medium">2</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-white/50">Total impressions</span>
+                        <span className="text-white font-medium">21,576</span>
+                      </div>
+                      <div className="flex justify-between text-sm">
+                        <span className="text-white/50">This month</span>
+                        <span className="text-green-400 font-medium">€132.90</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* FAQ Card */}
                   <div className="bg-gradient-to-br from-purple-600/30 to-pink-600/30 rounded-xl p-5 border border-white/10">
                     <div className="flex items-start gap-3 mb-3">
                       <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
@@ -501,11 +513,31 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
           </div>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <div className="inline-flex items-center space-x-3 glass-card rounded-2xl px-8 py-4 transition-all duration-300 hover:shadow-lg hover:scale-105">
-            <TrendingUp className="h-6 w-6 text-muted-foreground" />
-            <span className="text-secondary-foreground font-light text-lg tracking-wide">
+        {/* CTAs Below Preview */}
+        <div className="text-center mt-12">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8">
+            <Button
+              size="lg"
+              className="bg-red-400 text-white hover:bg-red-500 px-10 py-5 text-base font-light tracking-wide h-auto shadow-xl hover:shadow-red-400/20 transition-all duration-300 hover:scale-105"
+              onClick={() => window.open("https://beta.instreamly.com/", "_blank")}
+            >
+              {t.joinStreamer}
+            </Button>
+
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-border text-card-foreground hover:bg-secondary bg-secondary/50 px-10 py-5 text-base font-light tracking-wide h-auto transition-all duration-300 hover:border-muted hover:scale-105"
+              onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
+            >
+              {t.joinDiscord}
+              <ExternalLink className="ml-3 h-4 w-4" />
+            </Button>
+          </div>
+
+          <div className="inline-flex items-center space-x-3 glass-card rounded-2xl px-6 py-3 transition-all duration-300 hover:shadow-lg">
+            <TrendingUp className="h-5 w-5 text-muted-foreground" />
+            <span className="text-secondary-foreground font-light tracking-wide">
               {t.passiveIncome}
             </span>
           </div>
