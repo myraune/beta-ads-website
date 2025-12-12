@@ -13,7 +13,7 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ t, language, setLanguage }) => 
   return (
     <div className="pt-24 lg:pt-32">
       {/* Ad Formats Visual Preview */}
-      <AdFormatsPreview t={t} />
+      <AdFormatsPreview />
 
       {/* Mechanisms Content */}
       <Mechanisms t={t} />
