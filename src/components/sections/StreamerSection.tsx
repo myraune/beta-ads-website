@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { 
   TrendingUp, ExternalLink, Home, ChevronRight, Gift, TrendingUp as LevelUp, 
   Film, Wallet, BarChart3, CircleHelp, ArrowUpRight, ArrowDownLeft, 
-  CheckCircle2, Clock, Eye, MousePointer, Menu
+  CheckCircle2, Clock, Eye, MousePointer, Menu, Download, Filter
 } from "lucide-react";
-import { AreaChart, Area, BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts";
+import { AreaChart, Area, BarChart, Bar, PieChart, Pie, Cell, LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip, ReferenceLine, Legend } from "recharts";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 interface StreamerSectionProps {
   t: any;
@@ -17,6 +18,8 @@ interface StreamerSectionProps {
 export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language }) => {
   const [activeNavItem, setActiveNavItem] = useState<string>("Sponsorships");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [timeFilter, setTimeFilter] = useState<string>("7d");
+  const [campaignFilter, setCampaignFilter] = useState<string>("all");
 
   const sponsorships = [
     {
@@ -213,11 +216,68 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
     </div>
   );
 
+  const campaignBreakdown = [
+    { name: "Surfshark", value: 45, color: "#22c55e" },
+    { name: "Philips", value: 30, color: "#3b82f6" },
+    { name: "Saily", value: 15, color: "#f59e0b" },
+    { name: "Other", value: 10, color: "#6b7280" },
+  ];
+
+  const hourlyData = [
+    { hour: "6PM", views: 800 },
+    { hour: "7PM", views: 1200 },
+    { hour: "8PM", views: 2400 },
+    { hour: "9PM", views: 2100 },
+    { hour: "10PM", views: 1800 },
+    { hour: "11PM", views: 900 },
+  ];
+
+  const avgViews = useMemo(() => weeklyViews.reduce((a, b) => a + b.views, 0) / weeklyViews.length, []);
+
   const renderStatisticsContent = () => (
     <div className="flex-1 space-y-4">
+      {/* Filters Row */}
+      <div className="flex flex-wrap items-center justify-between gap-3 bg-[#252525] rounded-xl p-3 border border-white/5">
+        <div className="flex items-center gap-2">
+          <Filter className="w-4 h-4 text-white/40" />
+          <div className="flex gap-1">
+            {["7d", "30d", "90d", "all"].map((period) => (
+              <button
+                key={period}
+                onClick={() => setTimeFilter(period)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                  timeFilter === period
+                    ? "bg-primary text-primary-foreground"
+                    : "bg-white/5 text-white/60 hover:text-white hover:bg-white/10"
+                }`}
+              >
+                {period === "7d" ? "7 Days" : period === "30d" ? "30 Days" : period === "90d" ? "90 Days" : "All Time"}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <Select value={campaignFilter} onValueChange={setCampaignFilter}>
+            <SelectTrigger className="w-[140px] h-8 bg-white/5 border-white/10 text-white text-xs">
+              <SelectValue placeholder="All Campaigns" />
+            </SelectTrigger>
+            <SelectContent className="bg-[#252525] border-white/10">
+              <SelectItem value="all" className="text-white text-xs">All Campaigns</SelectItem>
+              <SelectItem value="surfshark" className="text-white text-xs">Surfshark VPN</SelectItem>
+              <SelectItem value="philips" className="text-white text-xs">Philips OneBlade</SelectItem>
+              <SelectItem value="saily" className="text-white text-xs">Saily eSIM</SelectItem>
+            </SelectContent>
+          </Select>
+          <Button variant="outline" size="sm" className="h-8 bg-white/5 border-white/10 text-white/60 hover:text-white text-xs">
+            <Download className="w-3.5 h-3.5 mr-1.5" />
+            Export
+          </Button>
+        </div>
+      </div>
+
       {/* Summary Stats */}
-      <div className="grid grid-cols-4 gap-3">
-        <div className="bg-[#252525] rounded-xl p-4 border border-white/5">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="bg-[#252525] rounded-xl p-4 border border-white/5 hover:border-primary/30 transition-colors">
           <div className="flex items-center gap-2 mb-2">
             <Eye className="w-4 h-4 text-primary/70" />
             <span className="text-white/60 text-xs">Total Views</span>
@@ -227,7 +287,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
             <ArrowUpRight className="w-3 h-3" /> +18.5%
           </div>
         </div>
-        <div className="bg-[#252525] rounded-xl p-4 border border-white/5">
+        <div className="bg-[#252525] rounded-xl p-4 border border-white/5 hover:border-primary/30 transition-colors">
           <div className="flex items-center gap-2 mb-2">
             <MousePointer className="w-4 h-4 text-primary/70" />
             <span className="text-white/60 text-xs">Avg CTR</span>
@@ -237,7 +297,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
             <ArrowUpRight className="w-3 h-3" /> +0.3%
           </div>
         </div>
-        <div className="bg-[#252525] rounded-xl p-4 border border-white/5">
+        <div className="bg-[#252525] rounded-xl p-4 border border-white/5 hover:border-primary/30 transition-colors">
           <div className="flex items-center gap-2 mb-2">
             <Clock className="w-4 h-4 text-primary/70" />
             <span className="text-white/60 text-xs">Watch Time</span>
@@ -245,7 +305,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
           <div className="text-white font-bold text-xl">23 min</div>
           <div className="text-muted-foreground text-xs mt-1">Average</div>
         </div>
-        <div className="bg-[#252525] rounded-xl p-4 border border-white/5">
+        <div className="bg-[#252525] rounded-xl p-4 border border-white/5 hover:border-primary/30 transition-colors">
           <div className="flex items-center gap-2 mb-2">
             <TrendingUp className="w-4 h-4 text-primary/70" />
             <span className="text-white/60 text-xs">Conversion</span>
@@ -258,14 +318,14 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
       </div>
 
       {/* Charts Row */}
-      <div className="grid grid-cols-2 gap-4">
-        {/* Views Chart */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        {/* Views Chart with Reference Line */}
         <div className="bg-[#252525] rounded-xl p-4 border border-white/5">
           <div className="flex items-center justify-between mb-3">
             <span className="text-white text-sm font-medium">Views This Week</span>
-            <span className="text-white/40 text-xs">Last 7 days</span>
+            <span className="text-white/40 text-xs">Avg: {Math.round(avgViews).toLocaleString()}</span>
           </div>
-          <div className="h-32">
+          <div className="h-36">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={weeklyViews}>
                 <defs>
@@ -281,12 +341,14 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
                   labelStyle={{ color: '#fff' }}
                   itemStyle={{ color: '#ef4444' }}
                 />
+                <ReferenceLine y={avgViews} stroke="#666" strokeDasharray="3 3" />
                 <Area 
                   type="monotone" 
                   dataKey="views" 
                   stroke="#ef4444" 
                   strokeWidth={2}
-                  fill="url(#viewsGradient)" 
+                  fill="url(#viewsGradient)"
+                  animationDuration={1000}
                 />
               </AreaChart>
             </ResponsiveContainer>
@@ -299,7 +361,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
             <span className="text-white text-sm font-medium">Earnings This Week</span>
             <span className="text-green-400 text-xs font-medium">€169.70 total</span>
           </div>
-          <div className="h-32">
+          <div className="h-36">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={weeklyEarnings}>
                 <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: '#666', fontSize: 10 }} />
@@ -309,8 +371,71 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
                   labelStyle={{ color: '#fff' }}
                   formatter={(value: number) => [`€${value.toFixed(2)}`, 'Earnings']}
                 />
-                <Bar dataKey="amount" fill="#22c55e" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="amount" fill="#22c55e" radius={[4, 4, 0, 0]} animationDuration={1000} />
               </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+      </div>
+
+      {/* Secondary Charts Row */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        {/* Campaign Breakdown Pie */}
+        <div className="bg-[#252525] rounded-xl p-4 border border-white/5">
+          <h4 className="text-white text-sm font-medium mb-3">Campaign Breakdown</h4>
+          <div className="h-32 flex items-center justify-center">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={campaignBreakdown}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={30}
+                  outerRadius={50}
+                  dataKey="value"
+                  animationDuration={1000}
+                >
+                  {campaignBreakdown.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                  ))}
+                </Pie>
+                <Tooltip 
+                  contentStyle={{ background: '#1a1a1a', border: '1px solid #333', borderRadius: 8 }}
+                  formatter={(value: number) => [`${value}%`, '']}
+                />
+                <Legend 
+                  layout="vertical" 
+                  align="right" 
+                  verticalAlign="middle"
+                  formatter={(value) => <span className="text-white/60 text-xs">{value}</span>}
+                />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+
+        {/* Peak Hours */}
+        <div className="bg-[#252525] rounded-xl p-4 border border-white/5">
+          <h4 className="text-white text-sm font-medium mb-3">Peak Hours</h4>
+          <div className="h-32">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={hourlyData}>
+                <XAxis dataKey="hour" axisLine={false} tickLine={false} tick={{ fill: '#666', fontSize: 10 }} />
+                <YAxis hide />
+                <Tooltip 
+                  contentStyle={{ background: '#1a1a1a', border: '1px solid #333', borderRadius: 8 }}
+                  labelStyle={{ color: '#fff' }}
+                />
+                <Line 
+                  type="monotone" 
+                  dataKey="views" 
+                  stroke="#8b5cf6" 
+                  strokeWidth={2}
+                  dot={{ fill: '#8b5cf6', r: 3 }}
+                  activeDot={{ r: 5, fill: '#8b5cf6' }}
+                  animationDuration={1000}
+                />
+              </LineChart>
             </ResponsiveContainer>
           </div>
         </div>
@@ -321,7 +446,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
         <h4 className="text-white text-sm font-medium mb-3">Top Performing Campaigns</h4>
         <div className="space-y-2">
           {topCampaigns.map((campaign, index) => (
-            <div key={campaign.name} className="flex items-center justify-between py-2 border-b border-white/5 last:border-0">
+            <div key={campaign.name} className="flex items-center justify-between py-2 border-b border-white/5 last:border-0 hover:bg-white/5 rounded-lg px-2 -mx-2 transition-colors">
               <div className="flex items-center gap-3">
                 <span className="text-white/40 text-xs w-4">{index + 1}.</span>
                 <span className="text-white text-sm">{campaign.name}</span>
