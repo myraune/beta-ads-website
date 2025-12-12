@@ -15,7 +15,6 @@ interface NavbarProps {
 }
 
 const navLinks = [
-  { href: "/", label: { en: "Home", no: "Hjem", sv: "Hem", fi: "Koti" } },
   { href: "/case-studies", label: { en: "Our Work", no: "Vårt Arbeid", sv: "Vårt Arbete", fi: "Työmme" } },
   { href: "/how-it-works", label: { en: "How It Works", no: "Hvordan Det Fungerer", sv: "Hur Det Fungerar", fi: "Miten Se Toimii" } },
   { href: "/streamers", label: { en: "For Streamers", no: "For Streamere", sv: "För Streamers", fi: "Streamaajille" } },
