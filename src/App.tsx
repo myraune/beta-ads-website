@@ -11,6 +11,7 @@ import CaseStudies from "./pages/CaseStudies";
 import HowItWorks from "./pages/HowItWorks";
 import Streamers from "./pages/Streamers";
 import AboutUs from "./pages/AboutUs";
+import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 
@@ -213,6 +214,7 @@ const App = () => {
               <Route path="/how-it-works" element={<HowItWorks t={t} language={language} setLanguage={setLanguage} />} />
               <Route path="/streamers" element={<Streamers t={t} language={language} setLanguage={setLanguage} />} />
               <Route path="/about" element={<AboutUs t={t} language={language} setLanguage={setLanguage} />} />
+              <Route path="/blog" element={<Blog t={t} language={language} setLanguage={setLanguage} />} />
               <Route path="/blog/:slug" element={<BlogPost t={t} language={language} setLanguage={setLanguage} />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

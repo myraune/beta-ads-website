@@ -202,16 +202,25 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
         className="py-24 px-4 lg:px-12 bg-muted/20"
       >
         <div className={`max-w-7xl mx-auto transition-all duration-1000 ${blogVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="flex items-start gap-4 mb-12">
-            <div className="w-1 h-16 bg-gradient-to-b from-primary to-primary/20 rounded-full" />
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-                {language === "no" ? "Siste innsikt" : language === "sv" ? "Senaste insikter" : language === "fi" ? "Viimeisimmät oivallukset" : "Latest Insights"}
-              </h2>
-              <p className="text-muted-foreground">
-                {language === "no" ? "Tanker om Twitch-annonsering og bransjetrender" : language === "sv" ? "Tankar om Twitch-reklam och branschtrender" : language === "fi" ? "Ajatuksia Twitch-mainonnasta ja alan trendeistä" : "Thoughts on Twitch advertising and industry trends"}
-              </p>
+          <div className="flex items-start justify-between gap-4 mb-12">
+            <div className="flex items-start gap-4">
+              <div className="w-1 h-16 bg-gradient-to-b from-primary to-primary/20 rounded-full" />
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+                  {language === "no" ? "Siste innsikt" : language === "sv" ? "Senaste insikter" : language === "fi" ? "Viimeisimmät oivallukset" : "Latest Insights"}
+                </h2>
+                <p className="text-muted-foreground">
+                  {language === "no" ? "Tanker om Twitch-annonsering og bransjetrender" : language === "sv" ? "Tankar om Twitch-reklam och branschtrender" : language === "fi" ? "Ajatuksia Twitch-mainonnasta ja alan trendeistä" : "Thoughts on Twitch advertising and industry trends"}
+                </p>
+              </div>
             </div>
+            <Link 
+              to="/blog" 
+              className="hidden md:flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors group"
+            >
+              {language === "no" ? "Se alle artikler" : language === "sv" ? "Se alla artiklar" : language === "fi" ? "Näytä kaikki artikkelit" : "View all posts"}
+              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
 
           {/* Featured + Sidebar Layout */}
