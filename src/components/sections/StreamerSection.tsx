@@ -4,9 +4,10 @@ import { Badge } from "@/components/ui/badge";
 import { 
   TrendingUp, ExternalLink, Home, ChevronRight, Gift, TrendingUp as LevelUp, 
   Film, Wallet, BarChart3, CircleHelp, ArrowUpRight, ArrowDownLeft, 
-  CheckCircle2, Clock, Eye, MousePointer
+  CheckCircle2, Clock, Eye, MousePointer, Menu
 } from "lucide-react";
 import { AreaChart, Area, BarChart, Bar, ResponsiveContainer, XAxis, YAxis, Tooltip } from "recharts";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 interface StreamerSectionProps {
   t: any;
@@ -15,6 +16,7 @@ interface StreamerSectionProps {
 
 export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language }) => {
   const [activeNavItem, setActiveNavItem] = useState<string>("Sponsorships");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const sponsorships = [
     {
@@ -182,13 +184,13 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
         {sponsorships.map((sponsorship) => (
           <div
             key={sponsorship.id}
-            className="bg-[#252525] rounded-xl overflow-hidden border border-white/5 hover:border-white/20 transition-all duration-300"
+            className="bg-[#252525] rounded-xl overflow-hidden border border-white/5 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 cursor-pointer group"
           >
             <div className="relative h-24 overflow-hidden">
               <img
                 src={sponsorship.image}
                 alt={sponsorship.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
               {sponsorship.isNew && (
                 <Badge className="absolute top-2 left-2 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-[9px] px-1.5 py-0.5 border-0">
@@ -379,6 +381,43 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
           <div className="bg-[#1a1a1a] border-b border-white/10">
             <div className="px-4 py-3 flex items-center justify-between">
               <div className="flex items-center gap-2">
+                {/* Mobile Menu Trigger */}
+                <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
+                  <SheetTrigger asChild>
+                    <button className="md:hidden p-1.5 rounded-lg hover:bg-white/10 transition-colors">
+                      <Menu className="w-5 h-5 text-white" />
+                    </button>
+                  </SheetTrigger>
+                  <SheetContent side="left" className="bg-[#1a1a1a] border-white/10 w-64 p-0">
+                    <div className="p-4 border-b border-white/10">
+                      <img 
+                        src="/lovable-uploads/logo-white.png" 
+                        alt="Beta Ads" 
+                        className="h-6 w-auto"
+                      />
+                    </div>
+                    <nav className="p-3 space-y-1">
+                      {navItems.map((item, index) => (
+                        <button
+                          key={index}
+                          onClick={() => {
+                            setActiveNavItem(item.label);
+                            setIsMobileMenuOpen(false);
+                          }}
+                          className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm transition-all ${
+                            activeNavItem === item.label
+                              ? "bg-red-400/20 text-red-400"
+                              : "text-white/60 hover:text-white hover:bg-white/5"
+                          }`}
+                        >
+                          <item.icon className="w-4 h-4" />
+                          {item.label}
+                        </button>
+                      ))}
+                    </nav>
+                  </SheetContent>
+                </Sheet>
+                
                 <img 
                   src="/lovable-uploads/logo-white.png" 
                   alt="inStreamly" 
