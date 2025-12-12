@@ -597,7 +597,7 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
     <div 
       ref={ref}
       className={`
-        relative w-full mx-auto max-w-lg
+        relative w-full mx-auto max-w-xl
         transition-all duration-1000 ease-out
         ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}
         ${className}
