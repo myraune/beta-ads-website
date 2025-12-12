@@ -14,44 +14,36 @@ interface StreamerSectionProps {
 }
 
 export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language }) => {
-  const [activeNavItem, setActiveNavItem] = useState<string>("Statistics");
+  const [activeNavItem, setActiveNavItem] = useState<string>("Sponsorships");
 
   const sponsorships = [
     {
       id: 1,
-      title: "NO Philips OneBlade x Fortnite Kickoff",
+      title: "Philips OneBlade x Fortnite",
       image: "/lovable-uploads/71765092-972e-4792-a241-0f155a62af68.png",
-      status: "planned",
-      isNew: true,
-      price: "13 EUR",
-      rateType: "Rate for 1000 views"
+      status: "available",
+      isNew: true
     },
     {
       id: 2,
-      title: "Saily",
+      title: "Saily eSIM",
       image: "/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png",
-      status: "planned",
-      isNew: true,
-      price: "13 EUR",
-      rateType: "Rate for 1000 views"
+      status: "available",
+      isNew: true
     },
     {
       id: 3,
-      title: "Brand Lift Study",
-      image: "/lovable-uploads/f88bb0a9-d318-40f3-9e9c-736f0b37438c.png",
-      status: "active",
-      isNew: true,
-      price: "0.7 EUR",
-      rateType: "Rate per survey"
+      title: "Surfshark VPN",
+      image: "/lovable-uploads/958b1a7f-a00c-46bc-acdb-bbefda64b9da.png",
+      status: "available",
+      isNew: false
     },
     {
       id: 4,
-      title: "Surfshark VPN",
-      image: "/lovable-uploads/958b1a7f-a00c-46bc-acdb-bbefda64b9da.png",
-      status: "active",
-      isNew: false,
-      price: "13 EUR",
-      rateType: "Rate for 1000 views"
+      title: "NordVPN",
+      image: "/lovable-uploads/4d784a07-41cb-46c9-9bfc-b33f83db6f0c.png",
+      status: "available",
+      isNew: true
     }
   ];
 
@@ -206,8 +198,12 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
             </div>
             <div className="p-3">
               <h4 className="text-white font-medium text-xs mb-2 line-clamp-1">{sponsorship.title}</h4>
-              <div className="text-white font-bold text-sm">{sponsorship.price}</div>
-              <div className="text-white/40 text-[10px]">{sponsorship.rateType}</div>
+              <Button 
+                size="sm" 
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-xs py-1 h-7 mt-2"
+              >
+                Apply
+              </Button>
             </div>
           </div>
         ))}
@@ -430,7 +426,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
           </div>
 
           {/* Main Content */}
-          <div className="p-4">
+          <div className="p-4 min-h-[320px]">
             {renderContent()}
           </div>
         </div>
