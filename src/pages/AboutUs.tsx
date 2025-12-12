@@ -4,6 +4,7 @@ import { Team } from "@/components/sections/Team";
 import { Press } from "@/components/sections/Press";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { blogPosts } from "@/data/blogPosts";
 
 interface AboutUsProps {
   t: any;
@@ -11,37 +12,30 @@ interface AboutUsProps {
   setLanguage: (lang: string) => void;
 }
 
-const blogPosts = [
-  {
-    id: 1,
-    title: "How Twitch Advertising Works in 2024",
-    excerpt: "A comprehensive guide to native advertising on Twitch and why traditional ads don't work for Gen Z audiences.",
-    date: "Dec 10, 2024",
-    readTime: "5 min read",
-    image: "/lovable-uploads/71765092-972e-4792-a241-0f155a62af68.png",
-    category: "Industry Insights"
-  },
-  {
-    id: 2,
-    title: "Case Study: Samsung's Twitch Campaign Success",
-    excerpt: "How Samsung reached 2.5M unique viewers through native overlay ads without interrupting the stream.",
-    date: "Dec 5, 2024",
-    readTime: "4 min read",
-    image: "/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png",
-    category: "Case Studies"
-  },
-  {
-    id: 3,
-    title: "The Rise of Streamer-First Advertising",
-    excerpt: "Why brands are shifting from interruptive ads to integrated experiences that respect both streamers and viewers.",
-    date: "Nov 28, 2024",
-    readTime: "6 min read",
-    image: "/lovable-uploads/958b1a7f-a00c-46bc-acdb-bbefda64b9da.png",
-    category: "Trends"
-  }
-];
-
 const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
+  const readMoreText = {
+    en: "Read more",
+    no: "Les mer",
+    sv: "Läs mer",
+    fi: "Lue lisää"
+  };
+
+  const blogTitle = {
+    en: "Latest Insights",
+    no: "Siste Innsikt",
+    sv: "Senaste Insikter",
+    fi: "Viimeisimmät Oivallukset"
+  };
+
+  const blogDescription = {
+    en: "Explore our thoughts on Twitch advertising, streamer trends, and industry news.",
+    no: "Utforsk våre tanker om Twitch-annonsering, streamertrender og bransjenyheter.",
+    sv: "Utforska våra tankar om Twitch-reklam, streamertrender och branschnyheter.",
+    fi: "Tutustu ajatuksiimme Twitch-mainonnasta, streamaajatrendeistä ja toimialauutisista."
+  };
+
+  const lang = language as keyof typeof readMoreText;
+
   return (
     <div className="pt-16 lg:pt-20">
       {/* Hero Section */}
@@ -80,24 +74,19 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
               {language === "no" ? "Blogg" : language === "sv" ? "Blogg" : language === "fi" ? "Blogi" : "Blog"}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              {language === "no" ? "Siste Innsikt" : 
-               language === "sv" ? "Senaste Insikter" : 
-               language === "fi" ? "Viimeisimmät Oivallukset" : 
-               "Latest Insights"}
+              {blogTitle[lang] || blogTitle.en}
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              {language === "no" ? "Utforsk våre tanker om Twitch-annonsering, streamertrender og bransjenyheter." : 
-               language === "sv" ? "Utforska våra tankar om Twitch-reklam, streamertrender och branschnyheter." : 
-               language === "fi" ? "Tutustu ajatuksiimme Twitch-mainonnasta, streamaajatrendeistä ja toimialauutisista." : 
-               "Explore our thoughts on Twitch advertising, streamer trends, and industry news."}
+              {blogDescription[lang] || blogDescription.en}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {blogPosts.map((post) => (
-              <article 
+            {blogPosts.slice(0, 6).map((post) => (
+              <Link 
                 key={post.id}
-                className="group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 cursor-pointer"
+                to={`/blog/${post.slug}`}
+                className="group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500"
               >
                 <div className="relative h-48 overflow-hidden">
                   <img 
@@ -129,14 +118,11 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
                     {post.excerpt}
                   </p>
                   <div className="flex items-center gap-2 text-primary text-sm font-medium group-hover:gap-3 transition-all">
-                    {language === "no" ? "Les mer" : 
-                     language === "sv" ? "Läs mer" : 
-                     language === "fi" ? "Lue lisää" : 
-                     "Read more"}
+                    {readMoreText[lang] || readMoreText.en}
                     <ArrowRight className="w-4 h-4" />
                   </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         </div>
