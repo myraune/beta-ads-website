@@ -48,28 +48,28 @@ const StatCard: React.FC<StatCardProps> = ({
   return (
     <div 
       className={`
-        relative transition-all duration-500 py-2 px-2.5
+        relative transition-all duration-500 py-2.5 px-3
         ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
       `}
       style={{ transitionDelay: `${delay}ms` }}
     >
-      <div className="flex items-center gap-1.5 mb-1">
+      <div className="flex items-center gap-1.5 mb-1.5">
         <div className="text-primary/70">
           {icon}
         </div>
-        <span className="text-muted-foreground/70 uppercase tracking-wider font-medium text-[8px]">
+        <span className="text-muted-foreground/70 uppercase tracking-wider font-medium text-[9px]">
           {label}
         </span>
       </div>
       <div className="flex items-baseline gap-0.5">
         {prefix && (
-          <span className="text-muted-foreground font-medium text-xs">{prefix}</span>
+          <span className="text-muted-foreground font-medium text-sm">{prefix}</span>
         )}
-        <span className="font-bold tabular-nums tracking-tight text-foreground text-lg">
+        <span className="font-bold tabular-nums tracking-tight text-foreground text-xl">
           {displayValue}
         </span>
         {suffix && (
-          <span className="text-muted-foreground/70 font-medium text-[9px]">{suffix}</span>
+          <span className="text-muted-foreground/70 font-medium text-[10px]">{suffix}</span>
         )}
       </div>
     </div>
@@ -219,16 +219,16 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
       {/* Performance Chart */}
       <div 
         className={`
-          bg-muted/10 rounded-lg p-2.5
+          bg-muted/10 rounded-lg p-3
           transition-all duration-700 delay-400
           ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
         `}
       >
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-[10px] font-medium text-foreground">Performance</span>
-          <span className="text-[9px] font-semibold text-primary">+18.5% ↑</span>
+        <div className="flex items-center justify-between mb-2.5">
+          <span className="text-[11px] font-medium text-foreground">Performance</span>
+          <span className="text-[10px] font-semibold text-primary">+18.5% ↑</span>
         </div>
-        <div className="h-16">
+        <div className="h-20">
           <ResponsiveContainer width="100%" height="100%">
             <AreaChart data={viewsData}>
               <defs>
@@ -594,10 +594,10 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
   );
 
   return (
-    <div 
+    <div
       ref={ref}
       className={`
-        relative w-full mx-auto max-w-xl
+        relative w-full mx-auto
         transition-all duration-1000 ease-out
         ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}
         ${className}
@@ -606,7 +606,7 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
       {/* Glow effect */}
       <div 
         className={`
-          absolute rounded-2xl -inset-6
+          absolute rounded-2xl -inset-8
           bg-gradient-to-br from-primary/20 via-primary/5 to-transparent
           blur-3xl opacity-60 -z-10
           transition-all duration-1000 delay-300
@@ -618,7 +618,7 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
       <div className="relative rounded-xl overflow-hidden bg-card/90 backdrop-blur-xl border border-border/40 shadow-2xl">
         
         {/* Browser top bar */}
-        <div className="flex items-center gap-2 bg-muted/40 border-b border-border/30 px-3 py-2">
+        <div className="flex items-center gap-2 bg-muted/40 border-b border-border/30 px-4 py-2.5">
           <div className="flex items-center gap-1.5">
             <div className="w-2.5 h-2.5 rounded-full bg-destructive/80" />
             <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
@@ -626,11 +626,11 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
           </div>
           
           <div className="flex-1 flex justify-center">
-            <div className="flex items-center gap-1.5 rounded-md bg-background/60 border border-border/30 px-3 py-1 max-w-[180px] w-full">
+            <div className="flex items-center gap-1.5 rounded-md bg-background/60 border border-border/30 px-3 py-1 max-w-[200px] w-full">
               <svg className="w-2.5 h-2.5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
               </svg>
-              <span className="text-[10px] text-muted-foreground font-medium">app.betaads.no</span>
+              <span className="text-[11px] text-muted-foreground font-medium">app.betaads.no</span>
             </div>
           </div>
 
@@ -640,34 +640,34 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
         {/* App layout with sidebar */}
         <div className="flex">
           {/* Mini Sidebar */}
-          <div className="w-10 bg-muted/20 border-r border-border/20 py-3 flex flex-col items-center gap-2">
+          <div className="w-11 bg-muted/20 border-r border-border/20 py-4 flex flex-col items-center gap-2.5">
             {sidebarItems.map((item, i) => (
               <div
                 key={i}
                 onClick={() => i < 3 && setActiveTab(i)}
                 className={`
-                  p-1.5 rounded-md transition-colors cursor-pointer
+                  p-2 rounded-md transition-colors cursor-pointer
                   ${item.active 
                     ? 'bg-primary/20 text-primary' 
                     : 'text-muted-foreground/60 hover:text-muted-foreground hover:bg-muted/30'
                   }
                 `}
               >
-                <item.icon className="w-3.5 h-3.5" />
+                <item.icon className="w-4 h-4" />
               </div>
             ))}
           </div>
 
           {/* Main content */}
-          <div className="flex-1 p-3 space-y-3">
+          <div className="flex-1 p-4 space-y-3.5">
             {/* Tabs */}
-            <div className="flex items-center gap-1 border-b border-border/20 pb-2">
+            <div className="flex items-center gap-1.5 border-b border-border/20 pb-2.5">
               {tabs.map((tab, i) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(i)}
                   className={`
-                    px-2.5 py-1 rounded-md text-[10px] font-medium transition-colors
+                    px-3 py-1.5 rounded-md text-[11px] font-medium transition-colors
                     ${activeTab === i 
                       ? 'bg-primary/15 text-primary' 
                       : 'text-muted-foreground/60 hover:text-muted-foreground'
