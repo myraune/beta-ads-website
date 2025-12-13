@@ -21,11 +21,11 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
 
   return (
     <section className="relative overflow-hidden text-foreground">
-      <div className="relative max-w-[1500px] mx-auto px-4 lg:px-6 pt-16 lg:pt-20 pb-12 lg:pb-16 min-h-[85vh] flex items-center">
-      <div className="grid lg:grid-cols-[0.7fr_1.6fr] gap-6 lg:gap-10 items-center w-full">
+      <div className="relative max-w-[1600px] mx-auto px-4 lg:px-6 pt-16 lg:pt-20 pb-12 lg:pb-16 min-h-[85vh] flex items-center">
+      <div className="grid lg:grid-cols-[0.55fr_1.8fr] gap-4 lg:gap-8 items-center w-full">
           
           {/* Left Column - Text Content */}
-          <div className="space-y-6 text-center lg:text-left order-2 lg:order-1">
+          <div className="space-y-5 text-center lg:text-left order-2 lg:order-1">
             {/* Title */}
             <div 
               ref={titleRef}
@@ -33,7 +33,7 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
                 titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <h1 className="text-2xl md:text-3xl lg:text-4xl font-extralight leading-relaxed tracking-tight text-foreground">
+              <h1 className="text-xl md:text-2xl lg:text-3xl font-extralight leading-relaxed tracking-tight text-foreground">
                 {t.heroTitle[0]}{" "}
                 <span className="font-light italic text-muted-foreground">
                   {t.heroTitle[1]}
