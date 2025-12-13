@@ -22,7 +22,7 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
   return (
     <section className="relative overflow-hidden text-foreground">
       <div className="relative max-w-[1600px] mx-auto px-4 lg:px-6 pt-16 lg:pt-20 pb-12 lg:pb-16 min-h-[85vh] flex items-center">
-      <div className="grid lg:grid-cols-[1fr_1.85fr] gap-4 lg:gap-8 items-center w-full">
+      <div className="grid lg:grid-cols-[1fr_1.4fr] gap-4 lg:gap-8 items-center w-full">
           
           {/* Left Column - Text Content */}
           <div className="space-y-5 text-center lg:text-left order-2 lg:order-1">
