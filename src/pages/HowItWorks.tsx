@@ -1,6 +1,7 @@
 import React from "react";
 import { Mechanisms } from "@/components/sections/Mechanisms";
 import { LiveStreamPreview } from "@/components/sections/LiveStreamPreview";
+import { AdFormats } from "@/components/sections/AdFormats";
 import { Footer } from "@/components/sections/Footer";
 
 interface HowItWorksProps {
@@ -14,6 +15,9 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ t, language, setLanguage }) => 
     <div className="pt-24 lg:pt-32">
       {/* Interactive Live Stream Preview */}
       <LiveStreamPreview />
+
+      {/* Ad Formats Section */}
+      <AdFormats />
 
       {/* Mechanisms Content */}
       <Mechanisms t={t} />
