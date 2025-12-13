@@ -32,13 +32,9 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
       setActiveFormat(null);
     };
 
-    // Show format
     showFormat();
 
-    // Hide after 2.5s
     const hideTimeout = setTimeout(hideFormat, 2500);
-
-    // Move to next format after 3.5s (2.5s visible + 1s pause)
     const nextTimeout = setTimeout(() => {
       setFormatIndex((prev) => (prev + 1) % formats.length);
     }, 3500);
@@ -52,16 +48,6 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
   return (
     <section id={id} className="py-16 md:py-24 px-4 bg-[#0e0e10]">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8 md:mb-12">
-          <span className="text-primary text-sm font-medium tracking-widest uppercase">
-            Live Preview
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-3">
-            See It In Action
-          </h2>
-        </div>
-
         {/* Twitch-like Container */}
         <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl shadow-primary/10">
           {/* Main Layout */}
@@ -75,7 +61,7 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
                     <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                     <span className="text-red-500 text-xs font-bold uppercase">Live</span>
                   </div>
-                  <span className="text-white/60 text-xs">12.4K viewers</span>
+                  <span className="text-white/60 text-xs">12.4K</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-500 to-pink-500" />
@@ -92,47 +78,35 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
                   className="w-full h-full object-cover"
                 />
 
-                {/* Animation Overlay */}
+                {/* Animation Overlay - Product slide-in */}
                 <div
-                  className={`absolute top-1/4 left-4 transition-all duration-500 ease-out ${
+                  className={`absolute top-1/4 left-4 transition-all duration-700 ease-in-out ${
                     activeFormat === 'animation'
                       ? 'translate-x-0 opacity-100'
                       : '-translate-x-full opacity-0'
                   }`}
                 >
-                  <div className="relative">
-                    <div className="absolute -top-6 left-0 flex items-center gap-1.5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                      <span className="text-primary text-xs font-semibold uppercase tracking-wide">Animation</span>
-                    </div>
-                    <div className="w-24 md:w-32 lg:w-40 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg p-2 shadow-lg shadow-orange-500/30">
-                      <div className="aspect-[9/16] bg-black/20 rounded flex items-center justify-center">
-                        <div className="text-white text-center">
-                          <div className="text-lg md:text-2xl font-bold">📱</div>
-                          <div className="text-[10px] md:text-xs mt-1 opacity-80">Saily VPN</div>
-                        </div>
-                      </div>
+                  <div className="w-24 md:w-32 lg:w-36 bg-black/60 backdrop-blur-sm rounded-lg p-2 border border-white/10 shadow-lg shadow-black/40">
+                    <div className="aspect-[9/16] bg-gradient-to-br from-orange-500/80 to-yellow-500/80 rounded flex items-center justify-center">
+                      <span className="text-white/90 text-xs font-medium">Ad</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Banner */}
+                {/* Banner - Subtle snipe */}
                 <div
-                  className={`absolute bottom-0 left-0 right-0 transition-all duration-500 ease-out ${
+                  className={`absolute bottom-0 left-0 right-0 transition-all duration-700 ease-in-out ${
                     activeFormat === 'banner'
                       ? 'translate-y-0 opacity-100'
                       : 'translate-y-full opacity-0'
                   }`}
                 >
-                  <div className="relative">
-                    <div className="absolute -top-6 left-4 flex items-center gap-1.5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                      <span className="text-primary text-xs font-semibold uppercase tracking-wide">Banner</span>
+                  <div className="bg-black/70 backdrop-blur-sm px-4 py-2.5 flex items-center justify-between border-t border-white/10">
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded bg-gradient-to-br from-primary to-primary/60" />
+                      <span className="text-white/90 text-sm font-medium">Sponsored</span>
                     </div>
-                    <div className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 px-4 py-2 flex items-center justify-center gap-3">
-                      <span className="text-black font-bold text-sm md:text-base">⚡ USE CODE "STREAM" FOR 20% OFF</span>
-                      <span className="text-black/60 text-xs md:text-sm">saily.com</span>
-                    </div>
+                    <span className="text-white/50 text-xs">saily.com</span>
                   </div>
                 </div>
               </div>
@@ -140,21 +114,15 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
               {/* CTA Below Stream */}
               <div className="relative px-4 py-3 bg-[#18181b] border-t border-white/5 min-h-[52px]">
                 <div
-                  className={`transition-all duration-500 ease-out ${
+                  className={`transition-all duration-700 ease-in-out ${
                     activeFormat === 'cta'
                       ? 'translate-y-0 opacity-100'
                       : 'translate-y-4 opacity-0'
                   }`}
                 >
-                  <div className="flex items-center gap-3">
-                    <div className="flex items-center gap-1.5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                      <span className="text-primary text-xs font-semibold uppercase tracking-wide">CTA</span>
-                    </div>
-                    <button className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-1.5 rounded text-sm font-medium transition-colors">
-                      !SAILY - Get Your Discount
-                    </button>
-                  </div>
+                  <button className="bg-primary/90 hover:bg-primary text-primary-foreground px-4 py-1.5 rounded text-sm font-medium transition-colors">
+                    Learn More
+                  </button>
                 </div>
               </div>
             </div>
@@ -163,7 +131,7 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
             <div className="w-full lg:w-72 bg-[#18181b] border-t lg:border-t-0 lg:border-l border-white/5">
               {/* Chat Header */}
               <div className="px-3 py-2 border-b border-white/5">
-                <span className="text-white/60 text-sm font-medium">Stream Chat</span>
+                <span className="text-white/60 text-sm font-medium">Chat</span>
               </div>
 
               {/* Chat Messages */}
@@ -181,21 +149,17 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
 
                   {/* Branded Chat Message */}
                   <div
-                    className={`transition-all duration-500 ease-out ${
+                    className={`transition-all duration-700 ease-in-out ${
                       activeFormat === 'chat'
                         ? 'translate-x-0 opacity-100'
                         : 'translate-x-4 opacity-0'
                     }`}
                   >
-                    <div className="relative bg-primary/20 rounded px-2 py-1.5 border-l-2 border-primary">
-                      <div className="absolute -left-16 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
-                        <span className="text-primary text-xs font-semibold uppercase tracking-wide">Chat</span>
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                      </div>
+                    <div className="bg-primary/15 rounded px-2 py-1.5 border-l-2 border-primary/60">
                       <div className="text-sm">
-                        <span className="text-primary font-semibold">BetaBot</span>
+                        <span className="text-primary/80 font-semibold">Sponsor</span>
                         <span className="text-white/40">: </span>
-                        <span className="text-white">🎁 Click here for 20% off!</span>
+                        <span className="text-white/70">Check this out</span>
                       </div>
                     </div>
                   </div>
@@ -222,41 +186,17 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
           </div>
 
           {/* Format Indicator Dots */}
-          <div className="flex items-center justify-center gap-2 py-4 bg-[#18181b] border-t border-white/5">
+          <div className="flex items-center justify-center gap-2 py-3 bg-[#18181b] border-t border-white/5">
             {formats.map((format, i) => (
               <button
                 key={format}
                 onClick={() => setFormatIndex(i)}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  formatIndex === i ? 'bg-primary scale-125' : 'bg-white/20 hover:bg-white/40'
+                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                  formatIndex === i ? 'bg-primary w-4' : 'bg-white/20 hover:bg-white/40'
                 }`}
               />
             ))}
           </div>
-        </div>
-
-        {/* Format Legend */}
-        <div className="flex flex-wrap justify-center gap-6 md:gap-10 mt-8">
-          {[
-            { key: 'animation', label: 'Animation' },
-            { key: 'banner', label: 'Banner' },
-            { key: 'chat', label: 'Chat' },
-            { key: 'cta', label: 'CTA' },
-          ].map((item) => (
-            <div
-              key={item.key}
-              className={`flex items-center gap-2 transition-all duration-300 ${
-                activeFormat === item.key ? 'text-primary scale-105' : 'text-white/50'
-              }`}
-            >
-              <div
-                className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                  activeFormat === item.key ? 'bg-primary' : 'bg-white/30'
-                }`}
-              />
-              <span className="text-sm font-medium">{item.label}</span>
-            </div>
-          ))}
         </div>
       </div>
     </section>
