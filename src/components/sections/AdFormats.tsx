@@ -71,7 +71,9 @@ export const AdFormats: React.FC = () => {
             >
               {/* Image Preview */}
               <div
-                className={`relative rounded-xl overflow-hidden border border-white/10 bg-black/40 ${
+                className={`relative rounded-xl overflow-hidden border border-white/10 bg-black/40 
+                  transition-all duration-300 ease-out cursor-pointer
+                  hover:scale-[1.02] hover:border-white/20 hover:shadow-[0_0_40px_rgba(234,56,76,0.15)] ${
                   index % 2 === 1 ? "lg:col-start-2" : ""
                 }`}
               >
