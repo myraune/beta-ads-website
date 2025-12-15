@@ -1,6 +1,7 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface AdFormat {
   name: string;
@@ -49,6 +50,7 @@ const adFormats: AdFormat[] = [
 ];
 
 export const AdFormatsCarousel: React.FC = () => {
+  const { ref: sectionRef, isVisible } = useScrollAnimation();
   const [emblaRef] = useEmblaCarousel(
     {
       align: "start",
@@ -66,7 +68,10 @@ export const AdFormatsCarousel: React.FC = () => {
   );
 
   return (
-    <section className="py-16 lg:py-24 overflow-hidden">
+    <section 
+      ref={sectionRef}
+      className={`py-16 lg:py-24 overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+    >
       {/* Section Header */}
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12 mb-10">
         <h2 className="text-2xl lg:text-3xl font-light text-foreground mb-2">
