@@ -48,8 +48,9 @@ const StatCard: React.FC<StatCardProps> = ({
   return (
     <div 
       className={`
-        relative transition-all duration-500 py-2.5 px-3
-        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+        relative py-2.5 px-3
+        transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
       `}
       style={{ transitionDelay: `${delay}ms` }}
     >
@@ -211,7 +212,7 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
             key={stat.label}
             {...stat}
             isVisible={isVisible}
-            delay={100 + index * 50}
+            delay={300 + index * 150}
           />
         ))}
       </div>
@@ -220,9 +221,10 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
       <div 
         className={`
           bg-muted/10 rounded-lg p-3
-          transition-all duration-700 delay-400
-          ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+          transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+          ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
         `}
+        style={{ transitionDelay: '900ms' }}
       >
         <div className="flex items-center justify-between mb-2.5">
           <span className="text-[11px] font-medium text-foreground">Performance</span>
@@ -256,9 +258,10 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
       <div 
         className={`
           bg-muted/10 rounded-lg p-2.5
-          transition-all duration-700 delay-500
-          ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+          transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
+          ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
         `}
+        style={{ transitionDelay: '1200ms' }}
       >
         <div className="flex items-center gap-1.5 mb-2.5">
           <Users className="w-3 h-3 text-primary/70" />
