@@ -8,38 +8,62 @@ interface CTAProps {
 }
 
 export const CTA: React.FC<CTAProps> = ({ t }) => (
-  <section className="pt-16 pb-32 relative overflow-hidden">
-    <div className="relative max-w-5xl mx-auto text-center px-8 lg:px-12">
-      <h2 className="text-5xl md:text-7xl font-extralight mb-12 tracking-tighter text-foreground">
-        {t.ctaTitle}
-      </h2>
-      <p className="text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto font-extralight leading-relaxed tracking-wide">
-        {t.ctaDescription}
-      </p>
+  <section className="py-24 relative overflow-hidden">
+    <div className="relative max-w-[1400px] mx-auto px-6 lg:px-12">
       
-      <div className="flex items-center justify-center mb-12 transition-all duration-300 hover:scale-105 cursor-pointer group">
-        <div className="w-16 h-16 rounded-full overflow-hidden mr-4 ring-2 ring-border/50 transition-all duration-300 group-hover:ring-primary/40 group-hover:shadow-lg">
-          <img
-            src="/lovable-uploads/e6d9646d-bf5f-471c-a2d8-1f06c274f570.png"
-            alt="Andreas Myraune"
-            className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110"
-          />
+      {/* Asymmetric Grid Layout */}
+      <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        
+        {/* Left: Visual Element */}
+        <div className="relative order-2 lg:order-1">
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-secondary/20 border border-border/30">
+            {/* Stream preview placeholder with gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5" />
+            
+            {/* Featured person image */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative">
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-border/30 shadow-2xl">
+                  <img
+                    src="/lovable-uploads/e6d9646d-bf5f-471c-a2d8-1f06c274f570.png"
+                    alt="Andreas Myraune"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/* Status indicator */}
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-background/90 backdrop-blur-sm px-4 py-1.5 rounded-full border border-border/50">
+                  <p className="text-sm font-light text-foreground whitespace-nowrap">Andreas Myraune</p>
+                  <p className="text-xs text-muted-foreground text-center">Head of Agency</p>
+                </div>
+              </div>
+            </div>
+            
+            {/* Decorative elements */}
+            <div className="absolute top-4 left-4 w-2 h-2 rounded-full bg-primary animate-pulse" />
+            <div className="absolute bottom-4 right-4 text-xs text-muted-foreground/50 font-mono">LIVE</div>
+          </div>
         </div>
-        <div className="text-left">
-          <p className="text-lg font-light text-foreground tracking-wide transition-all duration-300 group-hover:text-foreground/90">Andreas Myraune</p>
-          <p className="text-sm text-muted-foreground font-extralight tracking-wide transition-all duration-300 group-hover:text-muted-foreground/80">Head of Agency</p>
+
+        {/* Right: CTA Content - Left Aligned */}
+        <div className="order-1 lg:order-2">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight mb-8 tracking-tight text-foreground leading-tight">
+            {t.ctaTitle}
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-lg font-light leading-relaxed">
+            {t.ctaDescription}
+          </p>
+
+          <Link to="/contact">
+            <Button
+              size="lg"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 px-10 py-6 text-lg font-light tracking-wide h-auto shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105"
+            >
+              {t.ctaButton || "Get in Touch"}
+              <ArrowRight className="ml-3 h-5 w-5" />
+            </Button>
+          </Link>
         </div>
       </div>
-
-      <Link to="/contact">
-        <Button
-          size="lg"
-          className="bg-primary text-primary-foreground hover:bg-primary/90 px-16 py-8 text-xl font-light tracking-wide h-auto shadow-2xl shadow-primary/20 transition-all duration-300 hover:scale-105 hover:-translate-y-2"
-        >
-          {t.ctaButton || "Get in Touch"}
-          <ArrowRight className="ml-4 h-6 w-6" />
-        </Button>
-      </Link>
     </div>
   </section>
 );
