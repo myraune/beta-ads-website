@@ -69,9 +69,9 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
             </div>
           </div>
 
-          {/* Right: Dashboard Preview - Extends further, with parallax */}
+          {/* Right: Dashboard Preview - Subtle extension, with parallax */}
           <div 
-            className={`relative lg:-mr-24 xl:-mr-48 transition-all duration-1000 delay-300 ${
+            className={`relative lg:-mr-8 xl:-mr-12 transition-all duration-1000 delay-300 ${
               contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
             }`}
             style={getParallaxStyle(-0.08)}

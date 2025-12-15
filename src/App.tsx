@@ -34,7 +34,7 @@ const translations = {
     trustedByDescription: "Designed to blend with the stream – but stand out to the viewer.",
     meetTeamTitle: "Meet the team",
     meetTeamDescription: "Young, international, and passionate about revolutionizing advertising on Twitch.",
-    ctaTitle: "Sounds cool?",
+    ctaTitle: "Let's talk",
     ctaDescription: "Book a quick demo with our team and we'll show you what your brand could look like live on Twitch.",
     bookDemo: "Let's have a chat",
     contactTitle: "CONTACT",

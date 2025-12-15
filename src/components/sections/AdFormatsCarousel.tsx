@@ -70,10 +70,10 @@ export const AdFormatsCarousel: React.FC = () => {
       {/* Carousel Container - Full Width */}
       <div className="relative">
         {/* Left Gradient Fade */}
-        <div className="absolute left-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-r from-[hsl(222,20%,4%)/90] to-transparent z-10 pointer-events-none" />
         
         {/* Right Gradient Fade */}
-        <div className="absolute right-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-l from-[hsl(222,20%,4%)/90] to-transparent z-10 pointer-events-none" />
 
         {/* Embla Viewport */}
         <div ref={emblaRef} className="overflow-hidden cursor-grab active:cursor-grabbing">
@@ -114,12 +114,6 @@ export const AdFormatsCarousel: React.FC = () => {
         </div>
       </div>
 
-      {/* Scroll Hint */}
-      <div className="max-w-[1600px] mx-auto px-6 lg:px-12 mt-6">
-        <p className="text-muted-foreground/50 text-xs">
-          Drag to explore →
-        </p>
-      </div>
     </section>
   );
 };
