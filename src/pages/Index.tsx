@@ -1,6 +1,7 @@
 import React from "react";
 import { Hero } from "@/components/sections/Hero";
 import { TrustedBy } from "@/components/sections/TrustedBy";
+import { AdFormatsCarousel } from "@/components/sections/AdFormatsCarousel";
 import { CTA } from "@/components/sections/CTA";
 import { Footer } from "@/components/sections/Footer";
 
@@ -19,6 +20,7 @@ const Index: React.FC<IndexProps> = ({ t, language, setLanguage }) => {
     <>
       <Hero t={t} scrollToSection={scrollToSection} language={language} setLanguage={setLanguage} />
       <TrustedBy />
+      <AdFormatsCarousel />
       <CTA t={t} />
       <Footer t={t} language={language} setLanguage={setLanguage} />
     </>
