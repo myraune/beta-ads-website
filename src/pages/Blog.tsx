@@ -5,7 +5,6 @@ import { Search, Calendar, Clock, ArrowRight, X } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   Pagination,
@@ -144,30 +143,44 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
       </Helmet>
 
       <div className="min-h-screen bg-background pt-24 pb-16">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
           
-          {/* Header */}
+          {/* Header - Clean Editorial Style */}
           <div 
             ref={headerRef}
-            className={`mb-12 transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            className={`mb-16 transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
-            <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
+            <div className="max-w-2xl">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 tracking-tight">
                 {bt.pageTitle}
               </h1>
-              <p className="text-xl text-primary font-medium mb-2">
-                {bt.pageSubtitle}
-              </p>
-              <p className="text-muted-foreground text-lg">
+              <p className="text-muted-foreground text-lg leading-relaxed">
                 {bt.pageDescription}
               </p>
             </div>
 
-            {/* Search and Filters */}
-            <div className="mt-8 space-y-4">
-              {/* Search Input */}
-              <div className="relative max-w-md">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            {/* Search and Filters - Minimal */}
+            <div className="mt-12 flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
+              {/* Category Tabs - Underline style */}
+              <div className="flex flex-wrap gap-6">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => handleCategoryClick(category)}
+                    className={`text-sm font-medium pb-2 transition-all duration-300 border-b-2 ${
+                      activeCategory === category
+                        ? "text-foreground border-primary"
+                        : "text-muted-foreground border-transparent hover:text-foreground hover:border-border"
+                    }`}
+                  >
+                    {category === "all" ? bt.allCategories : category}
+                  </button>
+                ))}
+              </div>
+
+              {/* Search Input - Minimal */}
+              <div className="relative w-full sm:w-64">
+                <Search className="absolute left-0 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   type="text"
                   placeholder={bt.searchPlaceholder}
@@ -176,77 +189,55 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
                     setSearchQuery(e.target.value);
                     setCurrentPage(1);
                   }}
-                  className="pl-10 bg-card border-border/50"
+                  className="pl-6 bg-transparent border-0 border-b border-border rounded-none focus-visible:ring-0 focus-visible:border-primary"
                 />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery("")}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+                    className="absolute right-0 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                   >
                     <X className="h-4 w-4" />
                   </button>
                 )}
               </div>
-
-              {/* Category Pills */}
-              <div className="flex flex-wrap gap-2">
-                {categories.map((category) => (
-                  <button
-                    key={category}
-                    onClick={() => handleCategoryClick(category)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                      activeCategory === category
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-card border border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/50"
-                    }`}
-                  >
-                    {category === "all" ? bt.allCategories : category}
-                  </button>
-                ))}
-              </div>
             </div>
           </div>
 
-          {/* Featured Post */}
+          {/* Featured Post - Full width editorial */}
           {featuredPost && currentPage === 1 && (
             <Link
               to={`/blog/${featuredPost.slug}`}
-              className="block mb-12 group"
+              className="block mb-16 group"
             >
-              <article className="grid lg:grid-cols-2 gap-8 bg-card rounded-2xl border border-border/50 overflow-hidden hover:border-primary/50 transition-all duration-500">
-                <div className="aspect-video lg:aspect-auto lg:h-full overflow-hidden">
+              <article className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+                <div className="aspect-[4/3] rounded-xl overflow-hidden">
                   <img
                     src={featuredPost.image}
                     alt={featuredPost.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
-                <div className="p-8 flex flex-col justify-center">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Badge className="bg-primary/20 text-primary border-0">
-                      {bt.featured}
-                    </Badge>
-                    <Badge variant="outline" className="border-border/50 text-muted-foreground">
-                      {featuredPost.category}
-                    </Badge>
-                  </div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+                <div className="flex flex-col justify-center">
+                  <span className="text-primary text-sm font-medium mb-4">
+                    {featuredPost.category}
+                  </span>
+                  <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors leading-tight">
                     {featuredPost.title}
                   </h2>
-                  <p className="text-muted-foreground mb-6 line-clamp-3">
+                  <p className="text-muted-foreground mb-6 line-clamp-3 leading-relaxed">
                     {featuredPost.excerpt}
                   </p>
                   <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
-                    <span className="flex items-center gap-1">
+                    <span className="flex items-center gap-1.5">
                       <Calendar className="h-4 w-4" />
                       {featuredPost.date}
                     </span>
-                    <span className="flex items-center gap-1">
+                    <span className="flex items-center gap-1.5">
                       <Clock className="h-4 w-4" />
                       {featuredPost.readTime}
                     </span>
                   </div>
-                  <span className="inline-flex items-center text-primary font-medium group-hover:gap-3 gap-2 transition-all">
+                  <span className="inline-flex items-center text-foreground font-medium group-hover:text-primary group-hover:gap-3 gap-2 transition-all">
                     {bt.readMore} <ArrowRight className="h-4 w-4" />
                   </span>
                 </div>
@@ -254,14 +245,17 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
             </Link>
           )}
 
-          {/* Blog Grid */}
+          {/* Divider */}
+          {featuredPost && currentPage === 1 && <div className="border-t border-border/50 mb-12" />}
+
+          {/* Blog Grid - Clean minimal */}
           <div 
             ref={gridRef}
             className={`transition-all duration-700 delay-200 ${gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
           >
             {displayPosts.length > 0 ? (
               <>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12 mb-16">
                   {displayPosts.map((post, index) => (
                     <Link
                       key={post.id}
@@ -269,34 +263,32 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
                       className="group"
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
-                      <article className="h-full bg-card rounded-xl border border-border/50 overflow-hidden hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500 flex flex-col">
-                        <div className="aspect-video overflow-hidden">
+                      <article className="h-full flex flex-col">
+                        <div className="aspect-[3/2] rounded-lg overflow-hidden mb-5">
                           <img
                             src={post.image}
                             alt={post.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                           />
                         </div>
-                        <div className="p-6 flex flex-col flex-1">
-                          <Badge variant="outline" className="w-fit mb-3 border-border/50 text-muted-foreground">
-                            {post.category}
-                          </Badge>
-                          <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                            {post.title}
-                          </h3>
-                          <p className="text-muted-foreground text-sm mb-4 line-clamp-2 flex-1">
-                            {post.excerpt}
-                          </p>
-                          <div className="flex items-center gap-4 text-xs text-muted-foreground mt-auto">
-                            <span className="flex items-center gap-1">
-                              <Calendar className="h-3 w-3" />
-                              {post.date}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <Clock className="h-3 w-3" />
-                              {post.readTime}
-                            </span>
-                          </div>
+                        <span className="text-primary/70 text-sm font-medium mb-2">
+                          {post.category}
+                        </span>
+                        <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                          {post.title}
+                        </h3>
+                        <p className="text-muted-foreground text-sm mb-4 line-clamp-2 flex-1">
+                          {post.excerpt}
+                        </p>
+                        <div className="flex items-center gap-4 text-xs text-muted-foreground mt-auto">
+                          <span className="flex items-center gap-1">
+                            <Calendar className="h-3.5 w-3.5" />
+                            {post.date}
+                          </span>
+                          <span className="flex items-center gap-1">
+                            <Clock className="h-3.5 w-3.5" />
+                            {post.readTime}
+                          </span>
                         </div>
                       </article>
                     </Link>
@@ -336,17 +328,14 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
               </>
             ) : (
               /* Empty State */
-              <div className="text-center py-16">
-                <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-muted flex items-center justify-center">
-                  <Search className="h-8 w-8 text-muted-foreground" />
-                </div>
+              <div className="text-center py-20">
                 <h3 className="text-xl font-semibold text-foreground mb-2">
                   {bt.noResults}
                 </h3>
                 <p className="text-muted-foreground mb-6">
                   {bt.noResultsDescription}
                 </p>
-                <Button onClick={handleClearFilters} variant="outline">
+                <Button onClick={handleClearFilters} variant="outline" className="border-border">
                   {bt.clearFilters}
                 </Button>
               </div>
