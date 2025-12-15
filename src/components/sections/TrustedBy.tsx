@@ -7,8 +7,8 @@ export const TrustedBy: React.FC = () => {
   return (
     <section id="trusted-by" className="py-8 overflow-hidden relative">
       {/* Gradient fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[hsl(222,20%,4%)/80] to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[hsl(222,20%,4%)/80] to-transparent z-10 pointer-events-none" />
       
       <div 
         ref={ref}
