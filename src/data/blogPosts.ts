@@ -689,8 +689,92 @@ The global leaderboard shows Ninja (19.2M followers), ibai (17.2M), AuronPlay (1
       sv: ["twitch spel 2025", "mest tittade twitch kategorier", "topp twitch streamers följare", "twitch tittartrender", "streaming spel statistik"],
       fi: ["twitch pelit 2025", "katsotuimmat twitch kategoriat", "parhaat twitch streamaajat seuraajat", "twitch katselutrendit", "streaming pelit tilastot"]
     }
+  },
+  {
+    id: "nordic-twitch-market-2025",
+    slug: "nordic-twitch-market-2025",
+    title: "Nordic Twitch Market Overview 2025",
+    excerpt: "Interactive dashboard comparing Twitch markets across Sweden, Norway, Denmark, and Finland with growth trends and viewer analytics.",
+    content: "## Nordic Market Overview\n\nThe Nordic Twitch market represents one of the most engaged streaming audiences globally.",
+    date: "Dec 14, 2025",
+    dateISO: "2025-12-14",
+    readTime: "5 min read",
+    image: "/lovable-uploads/71765092-972e-4792-a241-0f155a62af68.png",
+    category: "Nordic Insights",
+    tags: ["nordic", "twitch", "market", "analytics", "2025"],
+    hasDashboard: "nordic-market",
+    seoTitle: { en: "Nordic Twitch Market Overview 2025 | Beta Ads", no: "Nordisk Twitch-marked 2025 | Beta Ads", sv: "Nordisk Twitch-marknad 2025 | Beta Ads", fi: "Pohjoismainen Twitch-markkina 2025 | Beta Ads" },
+    seoDescription: { en: "Interactive dashboard of Nordic Twitch markets. Compare Sweden, Norway, Denmark, and Finland viewership, growth rates, and streaming trends.", no: "Interaktivt dashbord over nordiske Twitch-markeder.", sv: "Interaktiv instrumentpanel för nordiska Twitch-marknader.", fi: "Interaktiivinen kojelauta pohjoismaisista Twitch-markkinoista." },
+    seoKeywords: { en: ["nordic twitch", "scandinavian streaming"], no: ["nordisk twitch"], sv: ["nordisk twitch"], fi: ["pohjoismainen twitch"] }
+  },
+  {
+    id: "twitch-vs-youtube-gaming-2025",
+    slug: "twitch-vs-youtube-gaming-2025",
+    title: "Twitch vs YouTube Gaming: Platform Comparison 2025",
+    excerpt: "Side-by-side comparison of Twitch and YouTube Gaming with metrics on users, engagement, and advertising effectiveness.",
+    content: "## Platform Comparison\n\nComparing the two major live streaming platforms for advertisers.",
+    date: "Dec 14, 2025",
+    dateISO: "2025-12-14",
+    readTime: "6 min read",
+    image: "/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png",
+    category: "Industry Insights",
+    tags: ["twitch", "youtube", "comparison", "platforms", "2025"],
+    hasDashboard: "platform-comparison",
+    seoTitle: { en: "Twitch vs YouTube Gaming 2025 | Platform Comparison | Beta Ads", no: "Twitch vs YouTube Gaming 2025 | Beta Ads", sv: "Twitch vs YouTube Gaming 2025 | Beta Ads", fi: "Twitch vs YouTube Gaming 2025 | Beta Ads" },
+    seoDescription: { en: "Compare Twitch and YouTube Gaming for advertisers. User metrics, engagement rates, and ROI analysis.", no: "Sammenlign Twitch og YouTube Gaming for annonsører.", sv: "Jämför Twitch och YouTube Gaming för annonsörer.", fi: "Vertaa Twitchiä ja YouTube Gamingia mainostajille." },
+    seoKeywords: { en: ["twitch vs youtube", "streaming platforms"], no: ["twitch vs youtube"], sv: ["twitch vs youtube"], fi: ["twitch vs youtube"] }
+  },
+  {
+    id: "twitch-advertising-benchmarks-2025",
+    slug: "twitch-advertising-benchmarks-2025",
+    title: "Twitch Advertising Benchmarks 2025",
+    excerpt: "CPM rates, CTR benchmarks, and ROI data for Twitch advertising across regions, formats, and industries.",
+    content: "## Advertising Benchmarks\n\nComprehensive benchmarks for Twitch advertising performance.",
+    date: "Dec 14, 2025",
+    dateISO: "2025-12-14",
+    readTime: "7 min read",
+    image: "/lovable-uploads/958b1a7f-a00c-46bc-acdb-bbefda64b9da.png",
+    category: "Statistics & Data",
+    tags: ["advertising", "benchmarks", "cpm", "ctr", "roi"],
+    hasDashboard: "ad-benchmarks",
+    seoTitle: { en: "Twitch Advertising Benchmarks 2025 | CPM & CTR Data | Beta Ads", no: "Twitch Annonsering Benchmarks 2025 | Beta Ads", sv: "Twitch Reklam Benchmarks 2025 | Beta Ads", fi: "Twitch Mainonta Benchmarks 2025 | Beta Ads" },
+    seoDescription: { en: "Complete Twitch advertising benchmarks. CPM by region, CTR by format, and ROI comparison data.", no: "Komplette Twitch annonsering benchmarks.", sv: "Kompletta Twitch reklam benchmarks.", fi: "Täydelliset Twitch mainonta benchmarkit." },
+    seoKeywords: { en: ["twitch cpm", "twitch advertising benchmarks"], no: ["twitch cpm"], sv: ["twitch cpm"], fi: ["twitch cpm"] }
+  },
+  {
+    id: "swedish-twitch-streamers-2025",
+    slug: "swedish-twitch-streamers-2025",
+    title: "Swedish Twitch Streamers 2025: Analytics Dashboard",
+    excerpt: "Top Swedish streamers ranked by viewership with detailed analytics on average viewers, peak numbers, and streaming hours.",
+    content: "## Swedish Streaming Scene\n\nSweden has one of the most established Twitch communities in Europe.",
+    date: "Dec 14, 2025",
+    dateISO: "2025-12-14",
+    readTime: "5 min read",
+    image: "/lovable-uploads/4d784a07-41cb-46c9-9bfc-b33f83db6f0c.png",
+    category: "Nordic Insights",
+    tags: ["sweden", "streamers", "analytics", "twitch", "nordic"],
+    hasDashboard: "swedish-streamers",
+    seoTitle: { en: "Swedish Twitch Streamers 2025 | Analytics Dashboard | Beta Ads", no: "Svenske Twitch-streamere 2025 | Beta Ads", sv: "Svenska Twitch-streamers 2025 | Beta Ads", fi: "Ruotsalaiset Twitch-streamaajat 2025 | Beta Ads" },
+    seoDescription: { en: "Top Swedish Twitch streamers analytics dashboard with viewership data and rankings.", no: "Topp svenske Twitch-streamere analysedashbord.", sv: "Topp svenska Twitch-streamers analysinstrumentpanel.", fi: "Ruotsalaisten Twitch-streamaajien analytiikkapaneeli." },
+    seoKeywords: { en: ["swedish twitch streamers", "sweden streaming"], no: ["svenske twitch streamere"], sv: ["svenska twitch streamers"], fi: ["ruotsalaiset twitch streamaajat"] }
+  },
+  {
+    id: "finnish-twitch-streamers-2025",
+    slug: "finnish-twitch-streamers-2025",
+    title: "Finnish Twitch Streamers 2025: Analytics Dashboard",
+    excerpt: "Top Finnish streamers with analytics on viewership, peak numbers, and hours streamed in the Finnish market.",
+    content: "## Finnish Streaming Scene\n\nFinland's esports heritage creates a unique streaming ecosystem.",
+    date: "Dec 14, 2025",
+    dateISO: "2025-12-14",
+    readTime: "5 min read",
+    image: "/lovable-uploads/cda69e31-7632-469a-b206-367ba4350480.png",
+    category: "Nordic Insights",
+    tags: ["finland", "streamers", "analytics", "twitch", "nordic"],
+    hasDashboard: "finnish-streamers",
+    seoTitle: { en: "Finnish Twitch Streamers 2025 | Analytics Dashboard | Beta Ads", no: "Finske Twitch-streamere 2025 | Beta Ads", sv: "Finska Twitch-streamers 2025 | Beta Ads", fi: "Suomalaiset Twitch-streamaajat 2025 | Beta Ads" },
+    seoDescription: { en: "Top Finnish Twitch streamers analytics dashboard with viewership data.", no: "Topp finske Twitch-streamere analysedashbord.", sv: "Topp finska Twitch-streamers analysinstrumentpanel.", fi: "Suomalaisten Twitch-streamaajien analytiikkapaneeli." },
+    seoKeywords: { en: ["finnish twitch streamers", "finland streaming"], no: ["finske twitch streamere"], sv: ["finska twitch streamers"], fi: ["suomalaiset twitch streamaajat"] }
   }
-];
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
   return blogPosts.find(post => post.slug === slug);

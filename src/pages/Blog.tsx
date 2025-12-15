@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
-import { Search, Calendar, Clock, ArrowRight, X } from "lucide-react";
+import { Search, Calendar, Clock, ArrowRight, X, BarChart3 } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -210,12 +210,18 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
               className="block mb-16 group"
             >
               <article className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-                <div className="aspect-[4/3] rounded-xl overflow-hidden">
+                <div className="aspect-[4/3] rounded-xl overflow-hidden relative">
                   <img
                     src={featuredPost.image}
                     alt={featuredPost.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
+                  {featuredPost.hasDashboard && (
+                    <div className="absolute top-4 left-4 flex items-center gap-1.5 bg-primary/90 backdrop-blur-sm text-primary-foreground px-3 py-1.5 rounded-full text-sm font-medium">
+                      <BarChart3 className="w-4 h-4" />
+                      Interactive Dashboard
+                    </div>
+                  )}
                 </div>
                 <div className="flex flex-col justify-center">
                   <span className="text-primary text-sm font-medium mb-4">
@@ -264,12 +270,18 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
                       style={{ animationDelay: `${index * 100}ms` }}
                     >
                       <article className="h-full flex flex-col">
-                        <div className="aspect-[3/2] rounded-lg overflow-hidden mb-5">
+                        <div className="aspect-[3/2] rounded-lg overflow-hidden mb-5 relative">
                           <img
                             src={post.image}
                             alt={post.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                           />
+                          {post.hasDashboard && (
+                            <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-primary/90 backdrop-blur-sm text-primary-foreground px-2.5 py-1 rounded-full text-xs font-medium">
+                              <BarChart3 className="w-3 h-3" />
+                              Interactive
+                            </div>
+                          )}
                         </div>
                         <span className="text-primary/70 text-sm font-medium mb-2">
                           {post.category}
