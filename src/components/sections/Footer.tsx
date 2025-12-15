@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface FooterProps {
   t: any;
@@ -53,6 +54,12 @@ export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => (
             >
               Discord
             </p>
+            <Link 
+              to="/blog" 
+              className="hover:text-foreground transition-colors tracking-wide block"
+            >
+              Blog
+            </Link>
           </div>
         </div>
       </div>
