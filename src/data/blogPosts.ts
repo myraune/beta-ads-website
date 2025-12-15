@@ -10,6 +10,7 @@ export interface BlogPost {
   image: string;
   category: string;
   tags: string[];
+  hasDashboard?: string;
   seoTitle: {
     en: string;
     no: string;
@@ -511,6 +512,182 @@ Ota yhteyttä pohjoismaiseen tiimiimme saadaksesi ilmaisen konsultaation ja rä�
       no: ["twitch reklam finland", "finsk twitch markedsføring", "nordisk streaming annonser", "finland gaming annonsering"],
       sv: ["twitch reklam finland", "finsk twitch marknadsföring", "nordisk streaming annonser", "finland gaming reklam"],
       fi: ["twitch mainonta suomi", "suomalainen twitch markkinointi", "pohjoismainen streaming mainokset", "suomi gaming mainonta"]
+    }
+  },
+  {
+    id: "twitch-statistics-2025-global-insights",
+    slug: "twitch-statistics-2025-global-insights",
+    title: "Twitch Statistics 2025: Global Platform Insights for Advertisers",
+    excerpt: "Comprehensive data dashboard with user growth, demographics, revenue breakdown, and geographic distribution for Twitch advertising.",
+    content: `
+## Platform Overview
+
+Twitch continues to dominate the live streaming market in 2025. This dashboard presents key platform statistics essential for advertisers planning campaigns on the platform.
+
+## Key Takeaways
+
+- **240 million** monthly active users globally
+- **35 million** daily active users
+- **2.29 million** average concurrent viewers
+- **7.3 million** active streamers
+- **$1.78 billion** estimated annual revenue
+
+## Demographics Insights
+
+The platform skews young and male, but female viewership has grown significantly:
+- 65% male, 35% female (up from 25% in 2020)
+- 34% aged 18-24 (core demographic)
+- 27% aged 25-34 (secondary target)
+- High-income, educated audience
+
+## Geographic Distribution
+
+The United States leads with 23.1% of users, followed by Germany (8.6%), Brazil (7.2%), and Russia (6.8%). The Nordic region represents approximately 2.3% of global traffic, with high engagement rates.
+
+## Revenue Model
+
+Twitch generates revenue through subscriptions (58%), advertising (33%), and Bits/donations (9%). Native advertising is the fastest-growing segment.
+    `,
+    date: "Dec 14, 2025",
+    dateISO: "2025-12-14",
+    readTime: "8 min read",
+    image: "/lovable-uploads/71765092-972e-4792-a241-0f155a62af68.png",
+    category: "Statistics & Data",
+    tags: ["twitch", "statistics", "data", "advertising", "2025"],
+    hasDashboard: "twitch-stats",
+    seoTitle: {
+      en: "Twitch Statistics 2025: Global Platform Insights | Beta Ads",
+      no: "Twitch-statistikk 2025: Globale plattforminnsikter | Beta Ads",
+      sv: "Twitch-statistik 2025: Globala plattformsinsikter | Beta Ads",
+      fi: "Twitch-tilastot 2025: Globaalit alustatiedot | Beta Ads"
+    },
+    seoDescription: {
+      en: "Interactive dashboard with Twitch platform statistics 2025. User growth, demographics, revenue breakdown, and geographic distribution for advertisers.",
+      no: "Interaktivt dashbord med Twitch-plattformstatistikk 2025. Brukervekst, demografi, inntektsfordeling og geografisk distribusjon for annonsører.",
+      sv: "Interaktiv instrumentpanel med Twitch-plattformsstatistik 2025. Användartillväxt, demografi, intäktsfördelning och geografisk distribution för annonsörer.",
+      fi: "Interaktiivinen kojelauta Twitch-alustatilastoilla 2025. Käyttäjäkasvu, demografiat, tulojen jakautuminen ja maantieteellinen jakauma mainostajille."
+    },
+    seoKeywords: {
+      en: ["twitch statistics 2025", "twitch user data", "twitch demographics", "twitch advertising stats", "streaming platform data"],
+      no: ["twitch statistikk 2025", "twitch brukerdata", "twitch demografi", "twitch annonsestatistikk", "strømme plattformdata"],
+      sv: ["twitch statistik 2025", "twitch användardata", "twitch demografi", "twitch annonsstatistik", "streaming plattformsdata"],
+      fi: ["twitch tilastot 2025", "twitch käyttäjätiedot", "twitch demografiat", "twitch mainostilastot", "suoratoistoalustan tiedot"]
+    }
+  },
+  {
+    id: "norwegian-twitch-streamers-2025-analytics",
+    slug: "norwegian-twitch-streamers-2025-analytics",
+    title: "Top Norwegian Twitch Streamers 2025: Complete Analytics Dashboard",
+    excerpt: "Detailed analytics on Norway's top Twitch streamers including viewership, peak numbers, hours streamed, and follower growth trends.",
+    content: `
+## Norwegian Streaming Landscape
+
+Norway's Twitch community has grown significantly, with local streamers building engaged audiences across gaming and entertainment categories.
+
+## Top Performers
+
+The Norwegian streaming scene is led by Komplettno, DennisVareide, and detoo, each commanding thousands of concurrent viewers. Notable peak viewership records include skiben's impressive 7,418 peak viewers.
+
+## Viewership Trends
+
+Norwegian streamers average between 350-1,250 concurrent viewers, with the top 10 streamers collectively reaching over 500,000 unique viewers monthly.
+
+## Content Categories
+
+Gaming remains dominant, with popular titles including:
+- Fortnite and FIFA
+- Counter-Strike 2
+- League of Legends
+- Just Chatting content
+
+## Advertising Opportunities
+
+Norwegian streamers offer unique advantages for advertisers:
+- High trust and authenticity
+- Engaged, loyal communities
+- Premium demographic profile
+- Native Norwegian language content
+    `,
+    date: "Dec 13, 2025",
+    dateISO: "2025-12-13",
+    readTime: "6 min read",
+    image: "/lovable-uploads/958b1a7f-a00c-46bc-acdb-bbefda64b9da.png",
+    category: "Nordic Insights",
+    tags: ["norway", "streamers", "analytics", "twitch", "nordic"],
+    hasDashboard: "norwegian-streamers",
+    seoTitle: {
+      en: "Top Norwegian Twitch Streamers 2025: Analytics Dashboard | Beta Ads",
+      no: "Topp norske Twitch-streamere 2025: Analyse-dashbord | Beta Ads",
+      sv: "Topp norska Twitch-streamers 2025: Analysinstrumentpanel | Beta Ads",
+      fi: "Parhaat norjalaiset Twitch-streamaajat 2025: Analytiikkapaneeli | Beta Ads"
+    },
+    seoDescription: {
+      en: "Interactive analytics dashboard of top Norwegian Twitch streamers. Viewership data, peak numbers, hours streamed, and follower growth for Norwegian streaming market.",
+      no: "Interaktivt analysedashbord over topp norske Twitch-streamere. Seerdata, toppnumre, streamede timer og følgervekst for det norske strømmemarkedet.",
+      sv: "Interaktiv analysinstrumentpanel över topp norska Twitch-streamers. Tittardata, toppnummer, streamade timmar och följartillväxt för den norska streamingmarknaden.",
+      fi: "Interaktiivinen analytiikkapaneeli parhaista norjalaisista Twitch-streamaajista. Katsojaluvut, huippuluvut, streamatut tunnit ja seuraajien kasvu Norjan streaming-markkinoilla."
+    },
+    seoKeywords: {
+      en: ["norwegian twitch streamers", "norway twitch analytics", "nordic streamers data", "norwegian gaming influencers", "twitch norway statistics"],
+      no: ["norske twitch streamere", "norge twitch analyse", "nordiske streamere data", "norske gaming influencere", "twitch norge statistikk"],
+      sv: ["norska twitch streamers", "norge twitch analys", "nordiska streamers data", "norska gaming influencers", "twitch norge statistik"],
+      fi: ["norjalaiset twitch streamaajat", "norja twitch analytiikka", "pohjoismaiset streamaajat data", "norjalaiset gaming vaikuttajat", "twitch norja tilastot"]
+    }
+  },
+  {
+    id: "most-watched-twitch-games-2025",
+    slug: "most-watched-twitch-games-2025",
+    title: "Most Watched Twitch Games & Categories 2025",
+    excerpt: "Interactive dashboard showing top games, content categories, leading streamers by followers, and yearly viewing trends on Twitch.",
+    content: `
+## Content Landscape
+
+The Twitch content landscape continues to evolve, with Just Chatting rivaling gaming as a dominant category. This dashboard presents the complete picture of what viewers watch.
+
+## Top Categories
+
+Just Chatting leads with 3.2 billion hours watched, followed by League of Legends (1.67B), Counter-Strike 2 (1.45B), and GTA V (1.21B).
+
+## Gaming vs Non-Gaming
+
+The split has shifted significantly:
+- Gaming: 68%
+- Non-Gaming: 32%
+
+This represents a major opportunity for brands outside the gaming industry.
+
+## Top Streamers
+
+The global leaderboard shows Ninja (19.2M followers), ibai (17.2M), AuronPlay (16.7M), and Kai Cenat (16.2M) as the platform's biggest names.
+
+## Viewing Trends
+
+2025 shows recovery in hours watched after a post-pandemic decline, with 23.2 billion hours projected for the full year.
+    `,
+    date: "Dec 12, 2025",
+    dateISO: "2025-12-12",
+    readTime: "7 min read",
+    image: "/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png",
+    category: "Trends",
+    tags: ["twitch", "games", "categories", "trends", "2025"],
+    hasDashboard: "top-games",
+    seoTitle: {
+      en: "Most Watched Twitch Games & Categories 2025 | Beta Ads",
+      no: "Mest sette Twitch-spill og kategorier 2025 | Beta Ads",
+      sv: "Mest tittade Twitch-spel och kategorier 2025 | Beta Ads",
+      fi: "Katsotuimmat Twitch-pelit ja kategoriat 2025 | Beta Ads"
+    },
+    seoDescription: {
+      en: "Interactive dashboard of most watched Twitch games and categories 2025. Top streamers, gaming vs non-gaming split, yearly trends, and hours watched data.",
+      no: "Interaktivt dashbord over mest sette Twitch-spill og kategorier 2025. Topp streamere, gaming vs ikke-gaming fordeling, årlige trender og timer sett data.",
+      sv: "Interaktiv instrumentpanel över mest tittade Twitch-spel och kategorier 2025. Topp streamers, gaming vs icke-gaming fördelning, årliga trender och timmar tittade data.",
+      fi: "Interaktiivinen kojelauta katsotuimmista Twitch-peleistä ja kategorioista 2025. Parhaat streamaajat, pelaaminen vs ei-pelaaminen jako, vuosittaiset trendit ja katsotut tunnit."
+    },
+    seoKeywords: {
+      en: ["twitch games 2025", "most watched twitch categories", "top twitch streamers followers", "twitch viewing trends", "streaming games statistics"],
+      no: ["twitch spill 2025", "mest sette twitch kategorier", "topp twitch streamere følgere", "twitch seertrender", "streaming spill statistikk"],
+      sv: ["twitch spel 2025", "mest tittade twitch kategorier", "topp twitch streamers följare", "twitch tittartrender", "streaming spel statistik"],
+      fi: ["twitch pelit 2025", "katsotuimmat twitch kategoriat", "parhaat twitch streamaajat seuraajat", "twitch katselutrendit", "streaming pelit tilastot"]
     }
   }
 ];

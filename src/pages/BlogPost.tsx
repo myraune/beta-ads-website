@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, lazy, Suspense } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { Footer } from "@/components/sections/Footer";
 import { ArrowLeft, Calendar, Clock, Tag, Share2, Twitter, Linkedin, Facebook } from "lucide-react";
@@ -6,6 +6,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { getBlogPostBySlug, getRelatedPosts, BlogPost as BlogPostType } from "@/data/blogPosts";
 import { Helmet } from "react-helmet";
+
+const TwitchStatsDashboard = lazy(() => import("@/components/blog/TwitchStatsDashboard"));
+const NorwegianStreamersDashboard = lazy(() => import("@/components/blog/NorwegianStreamersDashboard"));
+const TopGamesDashboard = lazy(() => import("@/components/blog/TopGamesDashboard"));
 
 interface BlogPostPageProps {
   t: any;
@@ -279,10 +283,18 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t, language, setLanguage })
               />
             </div>
 
-            {/* Content */}
-            <div className="prose prose-lg max-w-none">
-              {renderContent(post.content)}
-            </div>
+            {/* Dashboard or Content */}
+            {post.hasDashboard ? (
+              <Suspense fallback={<div className="text-center py-12 text-muted-foreground">Loading dashboard...</div>}>
+                {post.hasDashboard === "twitch-stats" && <TwitchStatsDashboard />}
+                {post.hasDashboard === "norwegian-streamers" && <NorwegianStreamersDashboard />}
+                {post.hasDashboard === "top-games" && <TopGamesDashboard />}
+              </Suspense>
+            ) : (
+              <div className="prose prose-lg max-w-none">
+                {renderContent(post.content)}
+              </div>
+            )}
 
             {/* Tags */}
             <div className="flex flex-wrap items-center gap-2 mt-12 pt-8 border-t border-border">
