@@ -1,60 +1,81 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, Legend } from 'recharts';
+import { useInView } from '@/hooks/useInView';
+import { useCountUp } from '@/hooks/useCountUp';
 
+// Real December 2025 data from TwitchTracker (filtered for legitimate streamers)
 const topStreamers = [
-  { rank: 1, name: 'Komplettno', avgViewers: 1247, peakViewers: 2017, hoursStreamed: 2840, followers: 89400 },
-  { rank: 2, name: 'DennisVareide', avgViewers: 892, peakViewers: 1856, hoursStreamed: 1920, followers: 156200 },
-  { rank: 3, name: 'detoo', avgViewers: 756, peakViewers: 1372, hoursStreamed: 2150, followers: 78300 },
-  { rank: 4, name: 'Emzia', avgViewers: 623, peakViewers: 1245, hoursStreamed: 1680, followers: 124500 },
-  { rank: 5, name: 'skiben', avgViewers: 589, peakViewers: 7418, hoursStreamed: 890, followers: 67800 },
-  { rank: 6, name: 'Pernataia', avgViewers: 534, peakViewers: 1102, hoursStreamed: 2340, followers: 95600 },
-  { rank: 7, name: 'Aienia', avgViewers: 487, peakViewers: 978, hoursStreamed: 1560, followers: 82100 },
-  { rank: 8, name: 'Emmelie', avgViewers: 445, peakViewers: 892, hoursStreamed: 1890, followers: 71200 },
-  { rank: 9, name: 'Rubius_NO', avgViewers: 398, peakViewers: 834, hoursStreamed: 1240, followers: 45600 },
-  { rank: 10, name: 'NorwayGaming', avgViewers: 356, peakViewers: 756, hoursStreamed: 2120, followers: 38900 },
+  { rank: 1, name: 'Komplettno', avgViewers: 2664, peakViewers: 6942, hoursStreamed: 12.9, followers: 71800 },
+  { rank: 2, name: 'DennisVareide', avgViewers: 571, peakViewers: 2303, hoursStreamed: 66.3, followers: 56400 },
+  { rank: 3, name: 'LevelUpNor', avgViewers: 396, peakViewers: 1531, hoursStreamed: 36.4, followers: 13400 },
+  { rank: 4, name: 'detoo', avgViewers: 346, peakViewers: 2471, hoursStreamed: 145.8, followers: 73600 },
+  { rank: 5, name: 'thomasPASTE', avgViewers: 221, peakViewers: 1284, hoursStreamed: 49.8, followers: 51700 },
+  { rank: 6, name: 'Klokkismann', avgViewers: 210, peakViewers: 1158, hoursStreamed: 45.5, followers: 15300 },
+  { rank: 7, name: 'Jonieboi', avgViewers: 205, peakViewers: 2595, hoursStreamed: 30.2, followers: 22600 },
+  { rank: 8, name: 'sanderdale', avgViewers: 203, peakViewers: 1497, hoursStreamed: 10.9, followers: 21300 },
+  { rank: 9, name: 'TobyTwoFaced', avgViewers: 193, peakViewers: 3443, hoursStreamed: 280.5, followers: 19800 },
+  { rank: 10, name: 'PondernStream', avgViewers: 192, peakViewers: 854, hoursStreamed: 38.9, followers: 51100 },
+  { rank: 11, name: 'POWER_no', avgViewers: 190, peakViewers: 1396, hoursStreamed: 38.3, followers: 6000 },
+  { rank: 12, name: 'Emzia', avgViewers: 170, peakViewers: 21141, hoursStreamed: 84.5, followers: 97300 },
+  { rank: 13, name: 'VeigarV2', avgViewers: 160, peakViewers: 2758, hoursStreamed: 144.3, followers: 67000 },
+  { rank: 14, name: 'Elkjop_Gaming', avgViewers: 158, peakViewers: 1596, hoursStreamed: 9.8, followers: 6200 },
+  { rank: 15, name: 'Ailincia', avgViewers: 128, peakViewers: 3893, hoursStreamed: 71.9, followers: 70600 },
 ];
 
-const avgViewersData = topStreamers.slice(0, 8).map(s => ({
+const avgViewersData = topStreamers.slice(0, 10).map(s => ({
   name: s.name,
   viewers: s.avgViewers
 }));
 
-const watchHoursData = topStreamers.slice(0, 8).map(s => ({
+const watchHoursData = topStreamers.slice(0, 10).map(s => ({
   name: s.name,
   hours: s.hoursStreamed
 }));
 
 const followerGrowthData = [
-  { month: 'Jan', Komplettno: 78, DennisVareide: 142, detoo: 65, Emzia: 108 },
-  { month: 'Feb', Komplettno: 80, DennisVareide: 145, detoo: 68, Emzia: 112 },
-  { month: 'Mar', Komplettno: 82, DennisVareide: 148, detoo: 70, Emzia: 115 },
-  { month: 'Apr', Komplettno: 84, DennisVareide: 150, detoo: 72, Emzia: 118 },
-  { month: 'May', Komplettno: 86, DennisVareide: 152, detoo: 74, Emzia: 120 },
-  { month: 'Jun', Komplettno: 89, DennisVareide: 156, detoo: 78, Emzia: 124 },
+  { month: 'Jul', followers: 45000 },
+  { month: 'Aug', followers: 52000 },
+  { month: 'Sep', followers: 58000 },
+  { month: 'Oct', followers: 63000 },
+  { month: 'Nov', followers: 68000 },
+  { month: 'Dec', followers: 71800 },
 ];
 
-const StatHighlight = ({ value, label, highlight = false }: { value: string; label: string; highlight?: boolean }) => (
-  <div className={`rounded-xl p-5 text-center ${highlight ? 'bg-primary/20 border border-primary/40' : 'bg-card/50 border border-border/30'}`}>
-    <div className={`text-2xl lg:text-3xl font-bold mb-1 ${highlight ? 'text-primary' : 'text-foreground'}`}>{value}</div>
-    <div className="text-sm text-muted-foreground">{label}</div>
-  </div>
-);
+interface AnimatedStatProps {
+  value: number;
+  label: string;
+  highlight?: boolean;
+}
+
+const AnimatedStat = ({ value, label, highlight = false }: AnimatedStatProps) => {
+  const [ref, isVisible] = useInView<HTMLDivElement>({ threshold: 0.3 });
+  const { displayValue } = useCountUp(value, isVisible, { duration: 2000 });
+
+  return (
+    <div ref={ref} className={`rounded-xl p-5 text-center ${highlight ? 'bg-primary/20 border border-primary/40' : 'bg-card/50 border border-border/30'}`}>
+      <div className={`text-2xl lg:text-3xl font-bold mb-1 ${highlight ? 'text-primary' : 'text-foreground'}`}>
+        {displayValue}
+      </div>
+      <div className="text-sm text-muted-foreground">{label}</div>
+    </div>
+  );
+};
 
 const NorwegianStreamersDashboard = () => {
   return (
     <div className="space-y-12">
       {/* Peak Viewership Highlights */}
       <div>
-        <h3 className="text-xl font-semibold text-foreground mb-6">Peak Viewership Records</h3>
+        <h3 className="text-xl font-semibold text-foreground mb-6">Peak Viewership Records (Dec 2025)</h3>
         <div className="grid grid-cols-3 gap-4">
-          <StatHighlight value="7,418" label="skiben (Peak)" highlight />
-          <StatHighlight value="2,017" label="Komplettno (Peak)" />
-          <StatHighlight value="1,856" label="DennisVareide (Peak)" />
+          <AnimatedStat value={21141} label="Emzia (Peak)" highlight />
+          <AnimatedStat value={6942} label="Komplettno (Peak)" />
+          <AnimatedStat value={3893} label="Ailincia (Peak)" />
         </div>
       </div>
 
       {/* Leaderboard Table */}
       <div>
-        <h3 className="text-xl font-semibold text-foreground mb-6">Top Norwegian Streamers Leaderboard</h3>
+        <h3 className="text-xl font-semibold text-foreground mb-6">Top Norwegian Streamers - December 2025</h3>
         <div className="bg-card/30 border border-border/30 rounded-xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-sm">
@@ -75,8 +96,8 @@ const NorwegianStreamersDashboard = () => {
                     <td className="p-4 font-medium text-foreground">{streamer.name}</td>
                     <td className="p-4 text-right text-foreground">{streamer.avgViewers.toLocaleString()}</td>
                     <td className="p-4 text-right text-muted-foreground">{streamer.peakViewers.toLocaleString()}</td>
-                    <td className="p-4 text-right text-muted-foreground">{streamer.hoursStreamed.toLocaleString()}</td>
-                    <td className="p-4 text-right text-muted-foreground">{streamer.followers.toLocaleString()}</td>
+                    <td className="p-4 text-right text-muted-foreground">{streamer.hoursStreamed}h</td>
+                    <td className="p-4 text-right text-muted-foreground">{(streamer.followers / 1000).toFixed(1)}K</td>
                   </tr>
                 ))}
               </tbody>
@@ -91,14 +112,14 @@ const NorwegianStreamersDashboard = () => {
         <div className="bg-card/30 border border-border/30 rounded-xl p-6">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={avgViewersData} layout="vertical">
-              <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-              <XAxis type="number" stroke="#888" />
-              <YAxis dataKey="name" type="category" stroke="#888" width={100} />
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <XAxis type="number" stroke="hsl(var(--muted-foreground))" />
+              <YAxis dataKey="name" type="category" stroke="hsl(var(--muted-foreground))" width={100} />
               <Tooltip 
-                contentStyle={{ backgroundColor: '#1a1a2e', border: '1px solid #333', borderRadius: '8px' }}
+                contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
                 formatter={(value: number) => [value.toLocaleString(), 'Avg Viewers']}
               />
-              <Bar dataKey="viewers" fill="#9147ff" radius={[0, 4, 4, 0]} />
+              <Bar dataKey="viewers" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -106,18 +127,18 @@ const NorwegianStreamersDashboard = () => {
 
       {/* Watch Hours Distribution */}
       <div>
-        <h3 className="text-xl font-semibold text-foreground mb-6">Hours Streamed (2024)</h3>
+        <h3 className="text-xl font-semibold text-foreground mb-6">Hours Streamed (December 2025)</h3>
         <div className="bg-card/30 border border-border/30 rounded-xl p-6">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={watchHoursData} layout="vertical">
-              <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-              <XAxis type="number" stroke="#888" />
-              <YAxis dataKey="name" type="category" stroke="#888" width={100} />
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <XAxis type="number" stroke="hsl(var(--muted-foreground))" />
+              <YAxis dataKey="name" type="category" stroke="hsl(var(--muted-foreground))" width={100} />
               <Tooltip 
-                contentStyle={{ backgroundColor: '#1a1a2e', border: '1px solid #333', borderRadius: '8px' }}
-                formatter={(value: number) => [`${value.toLocaleString()} hrs`, 'Streamed']}
+                contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
+                formatter={(value: number) => [`${value}h`, 'Streamed']}
               />
-              <Bar dataKey="hours" fill="#e91916" radius={[0, 4, 4, 0]} />
+              <Bar dataKey="hours" fill="hsl(var(--accent))" radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -125,21 +146,19 @@ const NorwegianStreamersDashboard = () => {
 
       {/* Follower Growth Trend */}
       <div>
-        <h3 className="text-xl font-semibold text-foreground mb-6">Follower Growth Trend (Thousands)</h3>
+        <h3 className="text-xl font-semibold text-foreground mb-6">Komplettno Follower Growth (H2 2025)</h3>
         <div className="bg-card/30 border border-border/30 rounded-xl p-6">
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={followerGrowthData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-              <XAxis dataKey="month" stroke="#888" />
-              <YAxis stroke="#888" />
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" />
+              <YAxis stroke="hsl(var(--muted-foreground))" />
               <Tooltip 
-                contentStyle={{ backgroundColor: '#1a1a2e', border: '1px solid #333', borderRadius: '8px' }}
-                formatter={(value: number) => [`${value}K`, 'Followers']}
+                contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
+                formatter={(value: number) => [`${(value / 1000).toFixed(1)}K`, 'Followers']}
               />
-              <Line type="monotone" dataKey="Komplettno" stroke="#9147ff" strokeWidth={2} dot={{ fill: '#9147ff' }} />
-              <Line type="monotone" dataKey="DennisVareide" stroke="#e91916" strokeWidth={2} dot={{ fill: '#e91916' }} />
-              <Line type="monotone" dataKey="detoo" stroke="#00d4aa" strokeWidth={2} dot={{ fill: '#00d4aa' }} />
-              <Line type="monotone" dataKey="Emzia" stroke="#f0b429" strokeWidth={2} dot={{ fill: '#f0b429' }} />
+              <Legend />
+              <Line type="monotone" dataKey="followers" stroke="hsl(var(--primary))" strokeWidth={2} dot={{ fill: 'hsl(var(--primary))' }} name="Followers" />
             </LineChart>
           </ResponsiveContainer>
         </div>
@@ -148,7 +167,7 @@ const NorwegianStreamersDashboard = () => {
       {/* Sources */}
       <div className="text-xs text-muted-foreground border-t border-border/30 pt-6">
         <p className="font-medium mb-2">Data Sources:</p>
-        <p>TwitchTracker, Statista, SullyGnome (2024-2025)</p>
+        <p>TwitchTracker (December 2025) • Filtered for legitimate content creators</p>
       </div>
     </div>
   );
