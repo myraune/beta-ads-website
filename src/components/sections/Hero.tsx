@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useParallax } from "@/hooks/useParallax";
 import { LiveDashboard } from "@/components/sections/LiveDashboard";
 
 interface HeroProps {
@@ -14,18 +15,19 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ t }) => {
   const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation();
+  const { getParallaxStyle } = useParallax();
 
   return (
     <section className="relative overflow-hidden text-foreground">
       <div className="relative max-w-[1600px] mx-auto px-6 lg:px-12 pt-24 lg:pt-32 pb-16">
         
-        {/* Asymmetric Grid Layout */}
-        <div className="grid lg:grid-cols-[45%_55%] gap-8 lg:gap-4 items-center">
+        {/* Asymmetric Grid Layout - Tighter split */}
+        <div className="grid lg:grid-cols-[38%_62%] gap-6 lg:gap-0 items-center">
           
-          {/* Left: Text Content - Left Aligned */}
+          {/* Left: Text Content - Tighter, more intentional */}
           <div 
             ref={contentRef}
-            className={`max-w-lg transition-all duration-1000 ease-out ${
+            className={`max-w-md lg:pr-8 transition-all duration-1000 ease-out ${
               contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
@@ -38,7 +40,7 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
             </h1>
 
             {/* Description */}
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8 max-w-md">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
               {t.heroDescription}
             </p>
 
@@ -67,11 +69,12 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
             </div>
           </div>
 
-          {/* Right: Dashboard Preview - Extends Past Edge */}
+          {/* Right: Dashboard Preview - Extends further, with parallax */}
           <div 
-            className={`relative lg:-mr-12 xl:-mr-24 transition-all duration-1000 delay-300 ${
+            className={`relative lg:-mr-24 xl:-mr-48 transition-all duration-1000 delay-300 ${
               contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
             }`}
+            style={getParallaxStyle(-0.08)}
           >
             <LiveDashboard compact />
           </div>
