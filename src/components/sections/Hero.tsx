@@ -31,6 +31,13 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
               contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
+            {/* Full Logo */}
+            <img 
+              src="/lovable-uploads/logo-white.png" 
+              alt="Beta Ads"
+              className="h-8 lg:h-10 w-auto mb-8"
+            />
+
             {/* Headline */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-foreground mb-6">
               {t.heroTitle[0]}{" "}

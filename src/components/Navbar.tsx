@@ -53,12 +53,12 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
+          {/* Logo Icon */}
           <Link to="/" className="flex items-center group">
             <img
-              src="/lovable-uploads/logo-white.png"
+              src="/lovable-uploads/favicon.png"
               alt="Beta Ads"
-              className="h-6 lg:h-7 w-auto transition-transform duration-300 group-hover:scale-105"
+              className="h-8 lg:h-9 w-auto transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
 
