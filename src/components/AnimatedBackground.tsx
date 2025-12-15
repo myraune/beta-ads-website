@@ -69,12 +69,6 @@ export const AnimatedBackground: React.FC = () => {
         }}
       />
 
-      {/* Shimmer particles - Simplified for performance */}
-      <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-primary/50 rounded-full animate-shimmer-1" />
-      <div className="absolute top-1/3 right-1/3 w-1.5 h-1.5 bg-primary/40 rounded-full animate-shimmer-2" />
-      <div className="absolute bottom-1/3 left-1/2 w-2.5 h-2.5 bg-primary/45 rounded-full animate-shimmer-3" />
-      <div className="absolute bottom-1/4 right-1/4 w-1.5 h-1.5 bg-primary/35 rounded-full animate-shimmer-4" />
-      <div className="absolute top-2/3 left-1/3 w-2 h-2 bg-primary/40 rounded-full animate-shimmer-5" />
       
       {/* Subtle grain overlay for texture */}
       <div 
