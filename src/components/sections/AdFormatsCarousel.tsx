@@ -1,5 +1,6 @@
 import React from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 
 interface AdFormat {
   name: string;
@@ -48,12 +49,21 @@ const adFormats: AdFormat[] = [
 ];
 
 export const AdFormatsCarousel: React.FC = () => {
-  const [emblaRef] = useEmblaCarousel({
-    align: "start",
-    loop: false,
-    dragFree: true,
-    containScroll: "trimSnaps",
-  });
+  const [emblaRef] = useEmblaCarousel(
+    {
+      align: "start",
+      loop: true,
+      dragFree: true,
+      containScroll: false,
+    },
+    [
+      Autoplay({
+        delay: 3000,
+        stopOnMouseEnter: true,
+        stopOnInteraction: false,
+      }),
+    ]
+  );
 
   return (
     <section className="py-16 lg:py-24 overflow-hidden">
@@ -84,7 +94,7 @@ export const AdFormatsCarousel: React.FC = () => {
                 className="flex-shrink-0 w-[280px] sm:w-[340px] lg:w-[400px] group"
               >
                 {/* Card */}
-                <div className="relative rounded-xl overflow-hidden border border-border/30 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-border/60 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/5">
+                <div className="relative rounded-xl overflow-hidden border border-border/30 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10">
                   {/* Image */}
                   <div className="aspect-video overflow-hidden">
                     <img
@@ -95,12 +105,21 @@ export const AdFormatsCarousel: React.FC = () => {
                     />
                   </div>
                   
-                  {/* Overlay with Format Info */}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/95 via-background/70 to-transparent p-4 pt-12">
-                    <h3 className="text-foreground font-medium text-lg mb-1">
+                  {/* Overlay with Format Info - Enhanced hover reveal */}
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/90 to-transparent p-4 pt-16 transition-all duration-300 group-hover:from-background/95 group-hover:via-background/85">
+                    {/* Dimensions Badge - Slides in on hover */}
+                    <div className="overflow-hidden mb-2">
+                      <span className="inline-block text-xs font-mono text-primary/80 bg-primary/10 px-2 py-0.5 rounded transform transition-all duration-300 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
+                        {format.dimensions}
+                      </span>
+                    </div>
+                    
+                    <h3 className="text-foreground font-medium text-lg mb-1 transition-transform duration-300 group-hover:-translate-y-0.5">
                       {format.name}
                     </h3>
-                    <p className="text-muted-foreground text-sm line-clamp-1">
+                    
+                    {/* Description - Expands on hover */}
+                    <p className="text-muted-foreground text-sm transition-all duration-300 line-clamp-1 group-hover:line-clamp-none">
                       {format.description}
                     </p>
                   </div>
