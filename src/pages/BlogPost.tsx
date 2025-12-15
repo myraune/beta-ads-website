@@ -6,10 +6,17 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { getBlogPostBySlug, getRelatedPosts, BlogPost as BlogPostType } from "@/data/blogPosts";
 import { Helmet } from "react-helmet";
+import { ReadingProgress } from "@/components/blog/ReadingProgress";
+import { TableOfContents, dashboardTocItems } from "@/components/blog/TableOfContents";
 
 const TwitchStatsDashboard = lazy(() => import("@/components/blog/TwitchStatsDashboard"));
 const NorwegianStreamersDashboard = lazy(() => import("@/components/blog/NorwegianStreamersDashboard"));
 const TopGamesDashboard = lazy(() => import("@/components/blog/TopGamesDashboard"));
+const NordicMarketDashboard = lazy(() => import("@/components/blog/NordicMarketDashboard"));
+const PlatformComparisonDashboard = lazy(() => import("@/components/blog/PlatformComparisonDashboard"));
+const AdvertisingBenchmarksDashboard = lazy(() => import("@/components/blog/AdvertisingBenchmarksDashboard"));
+const SwedishStreamersDashboard = lazy(() => import("@/components/blog/SwedishStreamersDashboard"));
+const FinnishStreamersDashboard = lazy(() => import("@/components/blog/FinnishStreamersDashboard"));
 
 interface BlogPostPageProps {
   t: any;
@@ -187,8 +194,11 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t, language, setLanguage })
     fi: "Takaisin blogiin"
   };
 
+  const tocItems = post.hasDashboard ? dashboardTocItems[post.hasDashboard] || [] : [];
+
   return (
     <>
+      <ReadingProgress />
       <Helmet>
         <title>{seoTitle}</title>
         <meta name="description" content={seoDescription} />
@@ -283,18 +293,28 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t, language, setLanguage })
               />
             </div>
 
-            {/* Dashboard or Content */}
-            {post.hasDashboard ? (
-              <Suspense fallback={<div className="text-center py-12 text-muted-foreground">Loading dashboard...</div>}>
-                {post.hasDashboard === "twitch-stats" && <TwitchStatsDashboard />}
-                {post.hasDashboard === "norwegian-streamers" && <NorwegianStreamersDashboard />}
-                {post.hasDashboard === "top-games" && <TopGamesDashboard />}
-              </Suspense>
-            ) : (
-              <div className="prose prose-lg max-w-none">
-                {renderContent(post.content)}
+            {/* Dashboard or Content with ToC */}
+            <div className="flex gap-8">
+              <div className="flex-1 min-w-0">
+                {post.hasDashboard ? (
+                  <Suspense fallback={<div className="text-center py-12 text-muted-foreground">Loading dashboard...</div>}>
+                    {post.hasDashboard === "twitch-stats" && <TwitchStatsDashboard />}
+                    {post.hasDashboard === "norwegian-streamers" && <NorwegianStreamersDashboard />}
+                    {post.hasDashboard === "top-games" && <TopGamesDashboard />}
+                    {post.hasDashboard === "nordic-market" && <NordicMarketDashboard />}
+                    {post.hasDashboard === "platform-comparison" && <PlatformComparisonDashboard />}
+                    {post.hasDashboard === "ad-benchmarks" && <AdvertisingBenchmarksDashboard />}
+                    {post.hasDashboard === "swedish-streamers" && <SwedishStreamersDashboard />}
+                    {post.hasDashboard === "finnish-streamers" && <FinnishStreamersDashboard />}
+                  </Suspense>
+                ) : (
+                  <div className="prose prose-lg max-w-none">
+                    {renderContent(post.content)}
+                  </div>
+                )}
               </div>
-            )}
+              {tocItems.length > 0 && <TableOfContents items={tocItems} />}
+            </div>
 
             {/* Tags */}
             <div className="flex flex-wrap items-center gap-2 mt-12 pt-8 border-t border-border">
