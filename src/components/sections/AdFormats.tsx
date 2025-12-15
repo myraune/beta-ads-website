@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface AdFormat {
   name: string;
@@ -9,7 +10,7 @@ interface AdFormat {
 
 const adFormats: AdFormat[] = [
   {
-    name: "Video Format",
+    name: "Video",
     dimensions: "640 × 360 px",
     description: "In-stream video ads that blend natively into the broadcast.",
     image: "/lovable-uploads/videoDemo1.png",
@@ -47,60 +48,94 @@ const adFormats: AdFormat[] = [
 ];
 
 export const AdFormats: React.FC = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeFormat = adFormats[activeIndex];
+
   return (
-    <section className="py-20 lg:py-32 bg-[#0e0e10]">
+    <section className="py-20 lg:py-32 bg-transparent">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16 lg:mb-24">
-          <h2 className="text-3xl lg:text-4xl font-medium text-white mb-4">
+        <div className="text-center mb-12 lg:mb-16">
+          <h2 className="text-3xl lg:text-4xl font-medium text-foreground mb-4">
             Ad Formats
           </h2>
-          <p className="text-white/50 text-lg max-w-xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
             Native advertising formats designed for live streaming
           </p>
         </div>
 
-        {/* Format Blocks */}
-        <div className="space-y-16 lg:space-y-24">
+        {/* Tab Navigation */}
+        <div className="flex flex-wrap justify-center gap-2 mb-10 lg:mb-14">
           {adFormats.map((format, index) => (
-            <div
+            <button
               key={format.name}
-              className={`grid lg:grid-cols-2 gap-8 lg:gap-16 items-center ${
-                index % 2 === 1 ? "lg:grid-flow-dense" : ""
+              onClick={() => setActiveIndex(index)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                activeIndex === index
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-card/50 text-muted-foreground hover:bg-card hover:text-foreground border border-border/50"
               }`}
             >
+              {format.name}
+            </button>
+          ))}
+        </div>
+
+        {/* Active Format Display */}
+        <div className="max-w-5xl mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="space-y-6"
+            >
               {/* Image Preview */}
-              <div
-                className={`relative rounded-xl overflow-hidden border border-white/10 bg-black/40 
-                  transition-all duration-300 ease-out cursor-pointer
-                  hover:scale-[1.02] hover:border-white/20 hover:shadow-[0_0_40px_rgba(234,56,76,0.15)] ${
-                  index % 2 === 1 ? "lg:col-start-2" : ""
-                }`}
-              >
+              <div className="relative rounded-xl overflow-hidden border border-border/50 bg-card/30">
                 <img
-                  src={format.image}
-                  alt={`${format.name} preview`}
+                  src={activeFormat.image}
+                  alt={`${activeFormat.name} preview`}
                   className="w-full h-auto"
                   loading="lazy"
                 />
               </div>
 
-              {/* Description */}
-              <div className="space-y-5">
-                <h3 className="text-2xl lg:text-3xl font-medium text-white">
-                  {format.name}
-                </h3>
-                <p className="text-white/60 text-base lg:text-lg leading-relaxed max-w-md">
-                  {format.description}
-                </p>
-                <div className="inline-flex items-center gap-3 px-4 py-2 bg-white/5 rounded-lg border border-white/10">
-                  <span className="text-white/40 text-sm">Dimensions</span>
-                  <span className="text-white font-mono text-sm">
-                    {format.dimensions}
+              {/* Format Info */}
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-2">
+                <div>
+                  <h3 className="text-xl lg:text-2xl font-medium text-foreground mb-1">
+                    {activeFormat.name}
+                  </h3>
+                  <p className="text-muted-foreground">
+                    {activeFormat.description}
+                  </p>
+                </div>
+                <div className="flex-shrink-0 px-4 py-2 bg-card/50 rounded-lg border border-border/50">
+                  <span className="text-muted-foreground text-sm">Dimensions: </span>
+                  <span className="text-foreground font-mono text-sm">
+                    {activeFormat.dimensions}
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Quick navigation dots */}
+        <div className="flex justify-center gap-2 mt-10">
+          {adFormats.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                activeIndex === index
+                  ? "bg-primary w-6"
+                  : "bg-border hover:bg-muted-foreground"
+              }`}
+              aria-label={`View format ${index + 1}`}
+            />
           ))}
         </div>
       </div>
