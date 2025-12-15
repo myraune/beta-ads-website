@@ -59,18 +59,17 @@ const AdFormatCard: React.FC<{ format: AdFormat }> = ({ format }) => (
         />
       </div>
       
-      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/90 to-transparent p-4 pt-16 transition-all duration-300 group-hover:from-background/95 group-hover:via-background/85">
-        <div className="overflow-hidden mb-2">
-          <span className="inline-block text-xs font-mono text-primary/80 bg-primary/10 px-2 py-0.5 rounded transform transition-all duration-300 translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-            {format.dimensions}
-          </span>
-        </div>
+      {/* Text overlay - only visible on hover */}
+      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/95 to-transparent p-4 pt-16 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <span className="inline-block text-xs font-mono text-primary/80 bg-primary/10 px-2 py-0.5 rounded mb-2">
+          {format.dimensions}
+        </span>
         
-        <h3 className="text-foreground font-medium text-lg mb-1 transition-transform duration-300 group-hover:-translate-y-0.5">
+        <h3 className="text-foreground font-medium text-lg mb-1">
           {format.name}
         </h3>
         
-        <p className="text-muted-foreground text-sm transition-all duration-300 line-clamp-1 group-hover:line-clamp-none">
+        <p className="text-muted-foreground text-sm">
           {format.description}
         </p>
       </div>
@@ -107,7 +106,7 @@ export const AdFormatsCarousel: React.FC = () => {
         {/* Continuous Scroll Container */}
         <div className="overflow-hidden">
           <div 
-            className="flex gap-4 lg:gap-6 animate-scroll hover:[animation-play-state:paused]"
+            className="flex gap-4 lg:gap-6 animate-scroll"
             style={{ width: 'max-content' }}
           >
             {/* First set of cards */}
