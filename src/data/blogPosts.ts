@@ -775,6 +775,7 @@ The global leaderboard shows Ninja (19.2M followers), ibai (17.2M), AuronPlay (1
     seoDescription: { en: "Top Finnish Twitch streamers analytics dashboard with viewership data.", no: "Topp finske Twitch-streamere analysedashbord.", sv: "Topp finska Twitch-streamers analysinstrumentpanel.", fi: "Suomalaisten Twitch-streamaajien analytiikkapaneeli." },
     seoKeywords: { en: ["finnish twitch streamers", "finland streaming"], no: ["finske twitch streamere"], sv: ["finska twitch streamers"], fi: ["suomalaiset twitch streamaajat"] }
   }
+];
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
   return blogPosts.find(post => post.slug === slug);
