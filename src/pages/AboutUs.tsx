@@ -2,9 +2,7 @@ import React from "react";
 import { Footer } from "@/components/sections/Footer";
 import { Team } from "@/components/sections/Team";
 import { Press } from "@/components/sections/Press";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { blogPosts } from "@/data/blogPosts";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface AboutUsProps {
@@ -16,16 +14,6 @@ interface AboutUsProps {
 const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: timelineRef, isVisible: timelineVisible } = useScrollAnimation();
-  const { ref: blogRef, isVisible: blogVisible } = useScrollAnimation();
-
-  const readMoreText = {
-    en: "Read more",
-    no: "Les mer",
-    sv: "Läs mer",
-    fi: "Lue lisää"
-  };
-
-  const lang = language as keyof typeof readMoreText;
 
   const milestones = [
     {
@@ -44,10 +32,6 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
       description: language === "no" ? "Passerte en million visninger" : language === "sv" ? "Passerade en miljon visningar" : language === "fi" ? "Ylitettiin miljoona näyttöä" : "Surpassed one million views"
     }
   ];
-
-  const featuredPost = blogPosts[0];
-  const sidebarPosts = blogPosts.slice(1, 3);
-  const gridPosts = blogPosts.slice(3, 6);
 
   return (
     <div className="pt-16 lg:pt-20">
@@ -177,143 +161,6 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
 
       {/* Press Section */}
       <Press t={t} />
-
-      {/* Blog Section - Editorial Layout */}
-      <section 
-        ref={blogRef}
-        className="py-32 px-4 lg:px-12"
-      >
-        <div className={`max-w-7xl mx-auto transition-all duration-1000 ${blogVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="flex items-end justify-between gap-4 mb-16">
-            <div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-                {language === "no" ? "Siste innsikt" : language === "sv" ? "Senaste insikter" : language === "fi" ? "Viimeisimmät oivallukset" : "Latest Insights"}
-              </h2>
-              <p className="text-muted-foreground text-lg max-w-lg">
-                {language === "no" ? "Tanker om Twitch-annonsering og bransjetrender" : language === "sv" ? "Tankar om Twitch-reklam och branschtrender" : language === "fi" ? "Ajatuksia Twitch-mainonnasta ja alan trendeistä" : "Thoughts on Twitch advertising and industry trends"}
-              </p>
-            </div>
-            <Link 
-              to="/blog" 
-              className="hidden md:flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors group"
-            >
-              {language === "no" ? "Se alle artikler" : language === "sv" ? "Se alla artiklar" : language === "fi" ? "Näytä kaikki artikkelit" : "View all posts"}
-              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-
-          {/* Featured + Sidebar Layout */}
-          <div className="grid lg:grid-cols-5 gap-8 mb-12">
-            {/* Featured Article */}
-            <Link 
-              to={`/blog/${featuredPost.slug}`}
-              className="lg:col-span-3 group relative overflow-hidden rounded-2xl"
-            >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img 
-                  src={featuredPost.image} 
-                  alt={featuredPost.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 p-8">
-                <span className="text-primary text-sm font-medium mb-3 block">
-                  {featuredPost.category}
-                </span>
-                <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-                  {featuredPost.title}
-                </h3>
-                <p className="text-muted-foreground mb-4 line-clamp-2 max-w-xl">
-                  {featuredPost.excerpt}
-                </p>
-                <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1.5">
-                    <Calendar className="w-4 h-4" />
-                    {featuredPost.date}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Clock className="w-4 h-4" />
-                    {featuredPost.readTime}
-                  </span>
-                </div>
-              </div>
-            </Link>
-
-            {/* Sidebar - 2 stacked posts */}
-            <div className="lg:col-span-2 flex flex-col gap-6">
-              {sidebarPosts.map((post) => (
-                <Link 
-                  key={post.id}
-                  to={`/blog/${post.slug}`}
-                  className="group flex-1 flex gap-4"
-                >
-                  <div className="w-28 h-28 flex-shrink-0 rounded-xl overflow-hidden">
-                    <img 
-                      src={post.image} 
-                      alt={post.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="flex flex-col justify-center">
-                    <span className="text-primary/70 text-xs font-medium mb-1">
-                      {post.category}
-                    </span>
-                    <h3 className="text-foreground font-semibold group-hover:text-primary transition-colors line-clamp-2 mb-2">
-                      {post.title}
-                    </h3>
-                    <span className="text-xs text-muted-foreground">{post.date}</span>
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Grid of remaining posts */}
-          <div className="grid md:grid-cols-3 gap-8">
-            {gridPosts.map((post) => (
-              <Link 
-                key={post.id}
-                to={`/blog/${post.slug}`}
-                className="group"
-              >
-                <div className="aspect-[3/2] rounded-xl overflow-hidden mb-4">
-                  <img 
-                    src={post.image} 
-                    alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <span className="text-primary/70 text-sm font-medium">
-                  {post.category}
-                </span>
-                <h3 className="text-lg font-semibold text-foreground mt-2 group-hover:text-primary transition-colors line-clamp-2">
-                  {post.title}
-                </h3>
-                <div className="flex items-center gap-3 text-sm text-muted-foreground mt-3">
-                  <span className="flex items-center gap-1">
-                    <Calendar className="w-3.5 h-3.5" />
-                    {post.date}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5" />
-                    {post.readTime}
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-          
-          {/* Mobile view all link */}
-          <Link 
-            to="/blog" 
-            className="flex md:hidden items-center justify-center gap-2 text-primary font-medium mt-12 mx-auto"
-          >
-            {language === "no" ? "Se alle artikler" : language === "sv" ? "Se alla artiklar" : language === "fi" ? "Näytä kaikki artikkelit" : "View all posts"}
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-      </section>
 
       <Footer t={t} language={language} setLanguage={setLanguage} />
     </div>
