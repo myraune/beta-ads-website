@@ -14,7 +14,13 @@ export const TrustedBy: React.FC = () => {
         }`}
       >
         <div className="relative">
-          <div className="flex overflow-hidden">
+          <div 
+            className="flex overflow-hidden"
+            style={{
+              maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)'
+            }}
+          >
             <div className="flex animate-scroll">
               {/* Light theme logos */}
               <div className="flex items-center space-x-24 whitespace-nowrap dark:hidden">
