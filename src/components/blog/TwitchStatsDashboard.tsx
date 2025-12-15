@@ -1,4 +1,6 @@
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar, Legend } from 'recharts';
+import { useInView } from '@/hooks/useInView';
+import { useCountUp } from '@/hooks/useCountUp';
 
 const userGrowthData = [
   { year: '2020', users: 140 },
@@ -10,21 +12,21 @@ const userGrowthData = [
 ];
 
 const ageData = [
-  { name: '18-24', value: 34, color: '#9147ff' },
-  { name: '25-34', value: 27, color: '#772ce8' },
-  { name: '35-44', value: 18, color: '#5c16c5' },
-  { name: '45+', value: 21, color: '#3d0099' },
+  { name: '16-24', value: 41, color: 'hsl(var(--primary))' },
+  { name: '25-34', value: 32, color: 'hsl(var(--accent))' },
+  { name: '35-44', value: 17, color: 'hsl(var(--muted-foreground))' },
+  { name: '45+', value: 10, color: 'hsl(var(--border))' },
 ];
 
 const genderData = [
-  { name: 'Male', value: 65, color: '#9147ff' },
-  { name: 'Female', value: 35, color: '#e91916' },
+  { name: 'Male', value: 65, color: 'hsl(var(--primary))' },
+  { name: 'Female', value: 35, color: 'hsl(var(--accent))' },
 ];
 
 const revenueData = [
-  { name: 'Subscriptions', value: 58, color: '#9147ff' },
-  { name: 'Advertising', value: 33, color: '#e91916' },
-  { name: 'Bits & Other', value: 9, color: '#00d4aa' },
+  { name: 'Subscriptions', value: 58, color: 'hsl(var(--primary))' },
+  { name: 'Advertising', value: 33, color: 'hsl(var(--accent))' },
+  { name: 'Bits & Other', value: 9, color: 'hsl(var(--muted-foreground))' },
 ];
 
 const geoData = [
@@ -38,12 +40,26 @@ const geoData = [
   { country: 'Spain', percentage: 3.8 },
 ];
 
-const StatCard = ({ value, label, suffix = '' }: { value: string; label: string; suffix?: string }) => (
-  <div className="bg-card/50 border border-border/30 rounded-xl p-6 text-center">
-    <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">{value}{suffix}</div>
-    <div className="text-sm text-muted-foreground">{label}</div>
-  </div>
-);
+interface AnimatedStatCardProps {
+  value: number;
+  label: string;
+  suffix?: string;
+  decimals?: number;
+}
+
+const AnimatedStatCard = ({ value, label, suffix = '', decimals = 0 }: AnimatedStatCardProps) => {
+  const [ref, isVisible] = useInView<HTMLDivElement>({ threshold: 0.3 });
+  const { displayValue } = useCountUp(value, isVisible, { duration: 2000, decimals });
+
+  return (
+    <div ref={ref} className="bg-card/50 border border-border/30 rounded-xl p-6 text-center">
+      <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
+        {displayValue}{suffix}
+      </div>
+      <div className="text-sm text-muted-foreground">{label}</div>
+    </div>
+  );
+};
 
 const TwitchStatsDashboard = () => {
   return (
@@ -52,10 +68,10 @@ const TwitchStatsDashboard = () => {
       <div>
         <h3 className="text-xl font-semibold text-foreground mb-6">Key Platform Metrics (2025)</h3>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <StatCard value="240" suffix="M" label="Monthly Active Users" />
-          <StatCard value="35" suffix="M" label="Daily Active Users" />
-          <StatCard value="2.29" suffix="M" label="Avg Concurrent Viewers" />
-          <StatCard value="7.3" suffix="M" label="Active Streamers" />
+          <AnimatedStatCard value={240} suffix="M" label="Monthly Active Users" />
+          <AnimatedStatCard value={35} suffix="M" label="Daily Active Users" />
+          <AnimatedStatCard value={2.29} suffix="M" label="Avg Concurrent Viewers" decimals={2} />
+          <AnimatedStatCard value={7.3} suffix="M" label="Active Streamers" decimals={1} />
         </div>
       </div>
 
@@ -67,18 +83,18 @@ const TwitchStatsDashboard = () => {
             <AreaChart data={userGrowthData}>
               <defs>
                 <linearGradient id="colorUsers" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#9147ff" stopOpacity={0.4}/>
-                  <stop offset="95%" stopColor="#9147ff" stopOpacity={0}/>
+                  <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.4}/>
+                  <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0}/>
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-              <XAxis dataKey="year" stroke="#888" />
-              <YAxis stroke="#888" />
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <XAxis dataKey="year" stroke="hsl(var(--muted-foreground))" />
+              <YAxis stroke="hsl(var(--muted-foreground))" />
               <Tooltip 
-                contentStyle={{ backgroundColor: '#1a1a2e', border: '1px solid #333', borderRadius: '8px' }}
-                labelStyle={{ color: '#fff' }}
+                contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
+                labelStyle={{ color: 'hsl(var(--foreground))' }}
               />
-              <Area type="monotone" dataKey="users" stroke="#9147ff" fill="url(#colorUsers)" strokeWidth={2} />
+              <Area type="monotone" dataKey="users" stroke="hsl(var(--primary))" fill="url(#colorUsers)" strokeWidth={2} />
             </AreaChart>
           </ResponsiveContainer>
         </div>
@@ -105,7 +121,7 @@ const TwitchStatsDashboard = () => {
                   ))}
                 </Pie>
                 <Tooltip 
-                  contentStyle={{ backgroundColor: '#1a1a2e', border: '1px solid #333', borderRadius: '8px' }}
+                  contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
                 />
               </PieChart>
             </ResponsiveContainer>
@@ -131,7 +147,7 @@ const TwitchStatsDashboard = () => {
                   ))}
                 </Pie>
                 <Tooltip 
-                  contentStyle={{ backgroundColor: '#1a1a2e', border: '1px solid #333', borderRadius: '8px' }}
+                  contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
                 />
               </PieChart>
             </ResponsiveContainer>
@@ -159,7 +175,7 @@ const TwitchStatsDashboard = () => {
                 ))}
               </Pie>
               <Tooltip 
-                contentStyle={{ backgroundColor: '#1a1a2e', border: '1px solid #333', borderRadius: '8px' }}
+                contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
               />
               <Legend />
             </PieChart>
@@ -173,14 +189,14 @@ const TwitchStatsDashboard = () => {
         <div className="bg-card/30 border border-border/30 rounded-xl p-6">
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={geoData} layout="vertical">
-              <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-              <XAxis type="number" stroke="#888" unit="%" />
-              <YAxis dataKey="country" type="category" stroke="#888" width={80} />
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <XAxis type="number" stroke="hsl(var(--muted-foreground))" unit="%" />
+              <YAxis dataKey="country" type="category" stroke="hsl(var(--muted-foreground))" width={80} />
               <Tooltip 
-                contentStyle={{ backgroundColor: '#1a1a2e', border: '1px solid #333', borderRadius: '8px' }}
+                contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
                 formatter={(value: number) => [`${value}%`, 'Share']}
               />
-              <Bar dataKey="percentage" fill="#9147ff" radius={[0, 4, 4, 0]} />
+              <Bar dataKey="percentage" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>

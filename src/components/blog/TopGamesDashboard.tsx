@@ -1,4 +1,6 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, Legend } from 'recharts';
+import { useInView } from '@/hooks/useInView';
+import { useCountUp } from '@/hooks/useCountUp';
 
 const topGamesData = [
   { name: 'Just Chatting', hours: 3200 },
@@ -12,8 +14,8 @@ const topGamesData = [
 ];
 
 const categoryData = [
-  { name: 'Gaming', value: 68, color: '#9147ff' },
-  { name: 'Non-Gaming', value: 32, color: '#e91916' },
+  { name: 'Gaming', value: 68, color: 'hsl(var(--primary))' },
+  { name: 'Non-Gaming', value: 32, color: 'hsl(var(--accent))' },
 ];
 
 const topStreamersData = [
@@ -46,12 +48,26 @@ const yearlyHoursData = [
   { year: '2025', hours: 23.2 },
 ];
 
-const StatCard = ({ value, label, suffix = '' }: { value: string; label: string; suffix?: string }) => (
-  <div className="bg-card/50 border border-border/30 rounded-xl p-6 text-center">
-    <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">{value}{suffix}</div>
-    <div className="text-sm text-muted-foreground">{label}</div>
-  </div>
-);
+interface AnimatedStatCardProps {
+  value: number;
+  label: string;
+  suffix?: string;
+  decimals?: number;
+}
+
+const AnimatedStatCard = ({ value, label, suffix = '', decimals = 0 }: AnimatedStatCardProps) => {
+  const [ref, isVisible] = useInView<HTMLDivElement>({ threshold: 0.3 });
+  const { displayValue } = useCountUp(value, isVisible, { duration: 2000, decimals });
+
+  return (
+    <div ref={ref} className="bg-card/50 border border-border/30 rounded-xl p-6 text-center">
+      <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
+        {displayValue}{suffix}
+      </div>
+      <div className="text-sm text-muted-foreground">{label}</div>
+    </div>
+  );
+};
 
 const TopGamesDashboard = () => {
   return (
@@ -60,10 +76,10 @@ const TopGamesDashboard = () => {
       <div>
         <h3 className="text-xl font-semibold text-foreground mb-6">Platform Overview (2025)</h3>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <StatCard value="23.2" suffix="B" label="Hours Watched" />
-          <StatCard value="9.2" suffix="M" label="Avg Channels Live" />
-          <StatCard value="105" suffix="K" label="Partner Streamers" />
-          <StatCard value="11.5" suffix="M" label="Affiliates" />
+          <AnimatedStatCard value={23.2} suffix="B" label="Hours Watched" decimals={1} />
+          <AnimatedStatCard value={9.2} suffix="M" label="Avg Channels Live" decimals={1} />
+          <AnimatedStatCard value={105} suffix="K" label="Partner Streamers" />
+          <AnimatedStatCard value={11.5} suffix="M" label="Affiliates" decimals={1} />
         </div>
       </div>
 
@@ -73,14 +89,14 @@ const TopGamesDashboard = () => {
         <div className="bg-card/30 border border-border/30 rounded-xl p-6">
           <ResponsiveContainer width="100%" height={350}>
             <BarChart data={topGamesData} layout="vertical">
-              <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-              <XAxis type="number" stroke="#888" />
-              <YAxis dataKey="name" type="category" stroke="#888" width={120} />
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <XAxis type="number" stroke="hsl(var(--muted-foreground))" />
+              <YAxis dataKey="name" type="category" stroke="hsl(var(--muted-foreground))" width={120} />
               <Tooltip 
-                contentStyle={{ backgroundColor: '#1a1a2e', border: '1px solid #333', borderRadius: '8px' }}
+                contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
                 formatter={(value: number) => [`${value}M hours`, 'Watched']}
               />
-              <Bar dataKey="hours" fill="#9147ff" radius={[0, 4, 4, 0]} />
+              <Bar dataKey="hours" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -107,7 +123,7 @@ const TopGamesDashboard = () => {
                   ))}
                 </Pie>
                 <Tooltip 
-                  contentStyle={{ backgroundColor: '#1a1a2e', border: '1px solid #333', borderRadius: '8px' }}
+                  contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
                 />
               </PieChart>
             </ResponsiveContainer>
@@ -123,14 +139,14 @@ const TopGamesDashboard = () => {
           <div className="bg-card/30 border border-border/30 rounded-xl p-6">
             <ResponsiveContainer width="100%" height={280}>
               <BarChart data={topStreamersData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-                <XAxis dataKey="name" stroke="#888" angle={-45} textAnchor="end" height={80} />
-                <YAxis stroke="#888" />
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" angle={-45} textAnchor="end" height={80} />
+                <YAxis stroke="hsl(var(--muted-foreground))" />
                 <Tooltip 
-                  contentStyle={{ backgroundColor: '#1a1a2e', border: '1px solid #333', borderRadius: '8px' }}
+                  contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
                   formatter={(value: number) => [`${value}M`, 'Followers']}
                 />
-                <Bar dataKey="followers" fill="#e91916" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="followers" fill="hsl(var(--accent))" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -143,14 +159,14 @@ const TopGamesDashboard = () => {
         <div className="bg-card/30 border border-border/30 rounded-xl p-6">
           <ResponsiveContainer width="100%" height={300}>
             <LineChart data={monthlyViewersData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-              <XAxis dataKey="month" stroke="#888" />
-              <YAxis stroke="#888" domain={[1.8, 2.6]} />
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" />
+              <YAxis stroke="hsl(var(--muted-foreground))" domain={[1.8, 2.6]} />
               <Tooltip 
-                contentStyle={{ backgroundColor: '#1a1a2e', border: '1px solid #333', borderRadius: '8px' }}
+                contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
                 formatter={(value: number) => [`${value}M`, 'Concurrent Viewers']}
               />
-              <Line type="monotone" dataKey="viewers" stroke="#9147ff" strokeWidth={3} dot={{ fill: '#9147ff', r: 5 }} />
+              <Line type="monotone" dataKey="viewers" stroke="hsl(var(--primary))" strokeWidth={3} dot={{ fill: 'hsl(var(--primary))', r: 5 }} />
             </LineChart>
           </ResponsiveContainer>
         </div>
@@ -162,14 +178,14 @@ const TopGamesDashboard = () => {
         <div className="bg-card/30 border border-border/30 rounded-xl p-6">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={yearlyHoursData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#333" />
-              <XAxis dataKey="year" stroke="#888" />
-              <YAxis stroke="#888" />
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <XAxis dataKey="year" stroke="hsl(var(--muted-foreground))" />
+              <YAxis stroke="hsl(var(--muted-foreground))" />
               <Tooltip 
-                contentStyle={{ backgroundColor: '#1a1a2e', border: '1px solid #333', borderRadius: '8px' }}
+                contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
                 formatter={(value: number) => [`${value}B hours`, 'Watched']}
               />
-              <Bar dataKey="hours" fill="#00d4aa" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="hours" fill="hsl(var(--accent))" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
           <p className="text-center text-sm text-muted-foreground mt-4">
