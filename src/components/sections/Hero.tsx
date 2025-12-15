@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useParallax } from "@/hooks/useParallax";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { LiveDashboard } from "@/components/sections/LiveDashboard";
 
 interface HeroProps {
@@ -17,50 +17,47 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
   const { ref: titleRef, isVisible: titleVisible } = useScrollAnimation();
   const { ref: descRef, isVisible: descVisible } = useScrollAnimation();
   const { ref: buttonsRef, isVisible: buttonsVisible } = useScrollAnimation();
-  const { getParallaxStyle } = useParallax();
+  const { getRevealStyle } = useScrollReveal({ maxOffset: 80, scrollRange: 400 });
 
   return (
     <section className="relative overflow-hidden text-foreground">
       <div className="relative max-w-[1600px] mx-auto px-4 lg:px-6 pt-16 lg:pt-20 pb-12 lg:pb-16 min-h-[85vh] flex items-center">
-      <div className="grid lg:grid-cols-[1fr_1.4fr] gap-4 lg:gap-8 items-center w-full">
+        <div className="grid lg:grid-cols-[1fr_1.4fr] gap-4 lg:gap-8 items-start w-full">
           
           {/* Left Column - Text Content */}
-          <div className="space-y-5 text-center lg:text-left order-2 lg:order-1">
+          <div className="space-y-6 text-center lg:text-left order-2 lg:order-1 pt-8 lg:pt-16">
             {/* Title */}
             <div 
               ref={titleRef}
-              className={`transition-all duration-700 ${
-                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              className={`transition-all duration-1000 ease-out ${
+                titleVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
             >
-              <h1 className="text-xl md:text-2xl lg:text-3xl font-extralight leading-relaxed tracking-tight text-foreground">
+              <h1 className="text-lg md:text-xl lg:text-2xl font-extralight leading-[1.8] tracking-tight text-foreground/80 max-w-[220px] mx-auto lg:mx-0">
                 {t.heroTitle[0]}{" "}
-                <span className="font-light italic text-muted-foreground">
+                <span className="font-light italic text-muted-foreground/70">
                   {t.heroTitle[1]}
                 </span>
               </h1>
             </div>
 
-            {/* Description */}
+            {/* Description - Single short paragraph */}
             <div 
               ref={descRef}
-              className={`space-y-2 transition-all duration-700 delay-100 ${
-                descVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              className={`transition-all duration-1000 delay-150 ease-out ${
+                descVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
             >
-              <p className="text-sm md:text-base text-muted-foreground leading-loose font-extralight max-w-xs mx-auto lg:mx-0">
+              <p className="text-sm text-muted-foreground/60 leading-[2] font-extralight max-w-[200px] mx-auto lg:mx-0">
                 {t.heroDescription}
-              </p>
-              <p className="text-xs md:text-sm text-muted-foreground/60 font-extralight max-w-xs mx-auto lg:mx-0">
-                {t.heroSubDescription}
               </p>
             </div>
 
             {/* Buttons */}
             <div 
               ref={buttonsRef}
-              className={`flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-1 transition-all duration-700 delay-200 ${
-                buttonsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              className={`flex flex-col sm:flex-row gap-3 justify-center lg:justify-start pt-2 transition-all duration-1000 delay-300 ease-out ${
+                buttonsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
               }`}
             >
               <Link to="/case-studies">
@@ -86,10 +83,10 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
             </div>
           </div>
 
-          {/* Right Column - Dashboard with Parallax */}
+          {/* Right Column - Dashboard with Scroll Reveal */}
           <div 
             className="order-1 lg:order-2"
-            style={getParallaxStyle(-0.06)}
+            style={getRevealStyle()}
           >
             <LiveDashboard compact />
           </div>
