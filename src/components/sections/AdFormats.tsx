@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface AdFormat {
@@ -47,12 +47,29 @@ const adFormats: AdFormat[] = [
   },
 ];
 
+const AUTO_PLAY_INTERVAL = 4000;
+
 export const AdFormats: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
   const activeFormat = adFormats[activeIndex];
 
+  useEffect(() => {
+    if (isHovered) return;
+    
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % adFormats.length);
+    }, AUTO_PLAY_INTERVAL);
+
+    return () => clearInterval(interval);
+  }, [isHovered]);
+
   return (
-    <section className="py-20 lg:py-32 bg-transparent">
+    <section 
+      className="py-20 lg:py-32 bg-transparent"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <div className="container mx-auto px-4 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-12 lg:mb-16">
