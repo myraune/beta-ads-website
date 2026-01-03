@@ -1,56 +1,13 @@
-import React, { useState, useEffect } from "react";
-
-type AdFormat = 'sidebar' | 'snipe' | 'cta' | null;
+import React from "react";
 
 interface LiveStreamPreviewProps {
   id?: string;
 }
 
-const formatLabels: Record<string, string> = {
-  sidebar: 'Side Bar',
-  snipe: 'Snipe',
-  cta: 'CTA Button',
-};
-
 export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
-  const [activeFormat, setActiveFormat] = useState<AdFormat>(null);
-  const [formatIndex, setFormatIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-
-  const formats: AdFormat[] = ['sidebar', 'snipe', 'cta'];
-
-  useEffect(() => {
-    if (isHovered) return;
-
-    const showFormat = () => {
-      setActiveFormat(formats[formatIndex]);
-    };
-
-    const hideFormat = () => {
-      setActiveFormat(null);
-    };
-
-    showFormat();
-
-    const hideTimeout = setTimeout(hideFormat, 5000);
-    const nextTimeout = setTimeout(() => {
-      setFormatIndex((prev) => (prev + 1) % formats.length);
-    }, 6500);
-
-    return () => {
-      clearTimeout(hideTimeout);
-      clearTimeout(nextTimeout);
-    };
-  }, [formatIndex, isHovered]);
-
   return (
-    <section 
-      id={id} 
-      className="py-16 md:py-24 px-4 bg-transparent"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="max-w-4xl mx-auto">
+    <section id={id} className="py-16 md:py-24 px-4 bg-transparent">
+      <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-10">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3">
@@ -61,9 +18,10 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
           </p>
         </div>
 
-        {/* Clean Stream Preview */}
-        <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl shadow-primary/10 bg-[#18181b]/80 backdrop-blur-sm">
-          {/* Top Bar */}
+        {/* Stream Preview Container */}
+        <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl shadow-primary/10 bg-[#18181b]">
+          
+          {/* Title Bar with !glorious command */}
           <div className="flex items-center justify-between px-4 py-2.5 bg-[#18181b] border-b border-white/5">
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1.5">
@@ -72,100 +30,111 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
               </div>
               <span className="text-white/60 text-xs">12.4K viewers</span>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-full bg-gradient-to-br from-purple-500 to-pink-500" />
-              <span className="text-white text-sm font-medium">EmmelieNova</span>
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-purple-500 to-pink-500" />
+                <span className="text-white text-sm font-medium">EmmelieNova</span>
+              </div>
+              <div className="h-4 w-px bg-white/20" />
+              <span className="text-primary font-semibold text-sm">!glorious</span>
             </div>
           </div>
 
-          {/* Stream Content - Clean GIF background */}
-          <div className="relative aspect-video bg-[#0e0e10] overflow-hidden">
-            <img
-              src="/lovable-uploads/streamer-emmelie.gif"
-              alt="Live stream"
-              className="w-full h-full object-cover"
-            />
-
-            {/* Sidebar Overlay */}
-            <div
-              className={`absolute top-4 left-4 transition-all duration-700 ease-out ${
-                activeFormat === 'sidebar'
-                  ? 'translate-x-0 opacity-100'
-                  : '-translate-x-full opacity-0'
-              }`}
-            >
-              <div className="w-32 md:w-40 bg-black/80 backdrop-blur-sm rounded-lg overflow-hidden border border-white/10 shadow-xl">
-                <div className="aspect-[9/16] bg-gradient-to-br from-primary to-primary/60 flex flex-col items-center justify-center p-3">
-                  <div className="w-10 h-10 rounded-full bg-white/20 mb-2 flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">AD</span>
-                  </div>
-                  <span className="text-white text-xs font-medium text-center">Surfshark VPN</span>
-                  <span className="text-white/60 text-[10px] mt-1">Save 80% today</span>
-                </div>
+          {/* Main Content Area */}
+          <div className="flex">
+            {/* Stream + Banner */}
+            <div className="flex-1">
+              {/* Rich Media Stream Background */}
+              <div className="relative aspect-video bg-[#0e0e10]">
+                <img
+                  src="/lovable-uploads/richMediaDemo1.png"
+                  alt="Rich media ad overlay on stream"
+                  className="w-full h-full object-cover"
+                />
               </div>
-            </div>
 
-            {/* Snipe Banner */}
-            <div
-              className={`absolute bottom-0 left-0 right-0 transition-all duration-700 ease-out ${
-                activeFormat === 'snipe'
-                  ? 'translate-y-0 opacity-100'
-                  : 'translate-y-full opacity-0'
-              }`}
-            >
-              <div className="bg-gradient-to-r from-primary/90 to-primary/70 backdrop-blur-sm px-6 py-4 flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-lg bg-white/20 flex items-center justify-center">
-                    <span className="text-white text-sm font-bold">⚡</span>
+              {/* Snipe Banner */}
+              <div className="bg-gradient-to-r from-[#1a1a2e] to-[#16213e] px-4 py-3 flex items-center justify-between border-t border-white/5">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center">
+                    <span className="text-white text-lg font-bold">G</span>
                   </div>
                   <div>
-                    <span className="text-white text-sm font-semibold block">Sponsored by Saily</span>
-                    <span className="text-white/70 text-xs">Travel smarter with eSIM</span>
+                    <span className="text-white text-sm font-semibold block">Sponsored by Glorious</span>
+                    <span className="text-white/60 text-xs">Get 20% off gaming gear</span>
                   </div>
                 </div>
-                <button className="bg-white text-primary px-4 py-1.5 rounded-lg text-sm font-medium">
-                  Learn More
+                <button className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-1.5 rounded-lg text-sm font-medium transition-colors">
+                  Shop Now
                 </button>
+              </div>
+            </div>
+
+            {/* Chat Section */}
+            <div className="w-64 bg-[#0e0e10] border-l border-white/5 flex flex-col">
+              <div className="px-3 py-2 border-b border-white/5">
+                <span className="text-white/80 text-xs font-semibold uppercase tracking-wide">Stream Chat</span>
+              </div>
+              
+              <div className="flex-1 p-3 space-y-2 text-sm overflow-hidden">
+                {/* Normal chat messages */}
+                <div className="flex gap-2">
+                  <span className="text-purple-400 font-medium shrink-0">xNinja:</span>
+                  <span className="text-white/80">gg nice play</span>
+                </div>
+                <div className="flex gap-2">
+                  <span className="text-green-400 font-medium shrink-0">StreamFan:</span>
+                  <span className="text-white/80">let's gooo</span>
+                </div>
+                
+                {/* CTA Ad Message */}
+                <div className="bg-primary/20 border border-primary/30 rounded-lg p-2 my-2">
+                  <div className="flex items-center gap-1.5 mb-1">
+                    <span className="text-primary text-[10px] font-bold uppercase">Sponsored</span>
+                  </div>
+                  <p className="text-white text-xs font-medium">
+                    Use code EMMELIE for 20% off at glorious.com!
+                  </p>
+                </div>
+                
+                {/* More normal chat */}
+                <div className="flex gap-2">
+                  <span className="text-orange-400 font-medium shrink-0">ProGamer:</span>
+                  <span className="text-white/80">!glorious</span>
+                </div>
+                <div className="flex gap-2">
+                  <span className="text-cyan-400 font-medium shrink-0">ChillVibes:</span>
+                  <span className="text-white/80">love this keyboard</span>
+                </div>
+              </div>
+              
+              {/* Chat input */}
+              <div className="p-2 border-t border-white/5">
+                <div className="bg-white/5 rounded px-3 py-2 text-white/30 text-xs">
+                  Send a message
+                </div>
               </div>
             </div>
           </div>
 
-          {/* CTA Below Stream */}
-          <div className="relative px-4 py-3 bg-[#18181b] border-t border-white/5 min-h-[52px]">
-            <div
-              className={`transition-all duration-700 ease-out ${
-                activeFormat === 'cta'
-                  ? 'translate-y-0 opacity-100'
-                  : 'translate-y-4 opacity-0'
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <button className="bg-primary hover:bg-primary/90 text-primary-foreground px-5 py-2 rounded-lg text-sm font-medium transition-colors">
-                  Get NordVPN 70% Off
-                </button>
-                <span className="text-white/40 text-xs">Sponsored</span>
-              </div>
+          {/* Format Labels */}
+          <div className="flex items-center justify-center gap-8 py-4 bg-[#0e0e10] border-t border-white/5">
+            <div className="flex items-center gap-2 text-white/60">
+              <div className="w-2 h-2 rounded-full bg-primary" />
+              <span className="text-xs">Rich Media Overlay</span>
             </div>
-          </div>
-
-          {/* Format Indicator */}
-          <div className="flex items-center justify-center gap-6 py-4 bg-[#0e0e10] border-t border-white/5">
-            {formats.map((format, i) => (
-              <button
-                key={format}
-                onClick={() => setFormatIndex(i)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all duration-300 ${
-                  formatIndex === i 
-                    ? 'bg-primary/20 text-primary' 
-                    : 'text-white/40 hover:text-white/60 hover:bg-white/5'
-                }`}
-              >
-                <span className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  formatIndex === i ? 'bg-primary' : 'bg-white/30'
-                }`} />
-                <span className="text-sm font-medium">{formatLabels[format]}</span>
-              </button>
-            ))}
+            <div className="flex items-center gap-2 text-white/60">
+              <div className="w-2 h-2 rounded-full bg-primary" />
+              <span className="text-xs">Snipe Banner</span>
+            </div>
+            <div className="flex items-center gap-2 text-white/60">
+              <div className="w-2 h-2 rounded-full bg-primary" />
+              <span className="text-xs">Chat CTA</span>
+            </div>
+            <div className="flex items-center gap-2 text-white/60">
+              <div className="w-2 h-2 rounded-full bg-primary" />
+              <span className="text-xs">Title Command</span>
+            </div>
           </div>
         </div>
       </div>
