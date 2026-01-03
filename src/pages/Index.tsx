@@ -2,6 +2,7 @@ import React from "react";
 import { Hero } from "@/components/sections/Hero";
 import { TrustedBy } from "@/components/sections/TrustedBy";
 import { AdFormatsCarousel } from "@/components/sections/AdFormatsCarousel";
+import { Press } from "@/components/sections/Press";
 import { Footer } from "@/components/sections/Footer";
 
 interface IndexProps {
@@ -20,6 +21,7 @@ const Index: React.FC<IndexProps> = ({ t, language, setLanguage }) => {
       <Hero t={t} scrollToSection={scrollToSection} language={language} setLanguage={setLanguage} />
       <TrustedBy />
       <AdFormatsCarousel />
+      <Press t={t} />
       <Footer t={t} language={language} setLanguage={setLanguage} />
     </>
   );
