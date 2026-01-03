@@ -1,9 +1,8 @@
 import React, { useMemo } from "react";
 import { Footer } from "@/components/sections/Footer";
-import { Press } from "@/components/sections/Press";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useMouseParallax } from "@/hooks/useMouseParallax";
-import { Mail, ArrowRight } from "lucide-react";
 
 interface AboutUsProps {
   t: any;
@@ -11,280 +10,262 @@ interface AboutUsProps {
   setLanguage: (lang: string) => void;
 }
 
-// Letter animation component
-const AnimatedText: React.FC<{ text: string; className?: string }> = ({ text, className = "" }) => {
-  const letters = text.split("");
-  
-  return (
-    <span className={`letter-animate relative ${className}`}>
-      {letters.map((letter, index) => (
-        <span 
-          key={index} 
-          className="letter relative inline-block"
-          style={{ transitionDelay: `${index * 0.02}s` }}
-        >
-          {letter === " " ? "\u00A0" : letter}
-        </span>
-      ))}
-      <span className="absolute inset-0">
-        {letters.map((letter, index) => (
-          <span 
-            key={`clone-${index}`} 
-            className="letter-clone"
-            style={{ transitionDelay: `${index * 0.02}s` }}
-          >
-            {letter === " " ? "\u00A0" : letter}
-          </span>
-        ))}
-      </span>
-    </span>
-  );
-};
-
-// Value block with hover reveal
-const ValueBlock: React.FC<{ 
-  title: string; 
+// Value card with large number and hover effect
+const ValueCard: React.FC<{
+  number: string;
+  title: string;
   subtitle: string;
-  index: number;
-}> = ({ title, subtitle, index }) => {
+}> = ({ number, title, subtitle }) => {
   return (
-    <div 
-      className="group hover-reveal-trigger relative h-48 lg:h-64 border border-border/30 flex items-end p-6 lg:p-8 overflow-hidden cursor-default"
-      style={{ 
-        clipPath: index === 0 
-          ? 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' 
-          : index === 1 
-            ? 'polygon(0 0, 100% 0, 85% 100%, 15% 100%)' 
-            : 'polygon(15% 0, 85% 0, 100% 100%, 0 100%)'
-      }}
-    >
-      {/* Background gradient on hover */}
-      <div className="hover-reveal-overlay absolute inset-0 bg-primary/10" />
-      
+    <div className="group relative h-[420px] bg-card border border-border/20 overflow-hidden cursor-pointer transition-all duration-500 hover:border-primary/50">
       {/* Large background number */}
-      <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[10rem] lg:text-[14rem] font-bold text-foreground/[0.03] leading-none select-none">
-        0{index + 1}
+      <span className="absolute -right-6 -top-12 text-[240px] font-bold text-muted/5 transition-all duration-500 group-hover:text-primary/10 select-none leading-none">
+        {number}
       </span>
       
       {/* Content */}
-      <div className="relative z-10">
-        <h3 className="text-2xl lg:text-3xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">
+      <div className="relative z-10 h-full flex flex-col justify-end p-8">
+        <h3 className="text-3xl md:text-4xl font-bold text-foreground mb-3 transition-colors duration-300 group-hover:text-primary">
           {title}
         </h3>
-        <p className="text-sm text-muted-foreground">{subtitle}</p>
+        <p className="text-muted-foreground text-lg max-w-xs">
+          {subtitle}
+        </p>
+        
+        {/* Hover arrow */}
+        <div className="mt-6 flex items-center gap-2 text-primary opacity-0 -translate-x-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+          <ArrowRight className="w-5 h-5" />
+        </div>
       </div>
+      
+      {/* Hover gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+    </div>
+  );
+};
+
+// Milestone item with large year
+const MilestoneItem: React.FC<{
+  year: string;
+  title: string;
+}> = ({ year, title }) => {
+  return (
+    <div className="group flex items-start gap-8 py-10 border-b border-border/20 last:border-b-0 cursor-pointer transition-colors duration-300 hover:border-primary/30">
+      <span className="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-muted/30 to-muted/10 transition-all duration-500 group-hover:from-primary group-hover:to-primary/70 leading-none min-w-[140px] md:min-w-[200px]">
+        {year}
+      </span>
+      <div className="flex-1 pt-3 md:pt-5">
+        <p className="text-xl md:text-2xl text-muted-foreground transition-colors duration-300 group-hover:text-foreground">
+          {title}
+        </p>
+      </div>
+      <ArrowRight className="w-6 h-6 text-muted/30 mt-3 md:mt-5 transition-all duration-300 group-hover:text-primary group-hover:translate-x-2" />
     </div>
   );
 };
 
 const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
-  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
-  const { ref: valuesRef, isVisible: valuesVisible } = useScrollAnimation();
-  const { ref: teamRef, isVisible: teamVisible } = useScrollAnimation();
-  const { containerRef, getParallaxStyle } = useMouseParallax(15);
-
-  const milestones = useMemo(() => [
-    { year: "2023", title: language === "no" ? "Grunnlagt" : language === "sv" ? "Grundades" : language === "fi" ? "Perustettu" : "Founded" },
-    { year: "2024", title: language === "no" ? "Nordisk ekspansjon" : language === "sv" ? "Nordisk expansion" : language === "fi" ? "Pohjoismainen laajennus" : "Nordic Expansion" },
-    { year: "2025", title: language === "no" ? "1M+ visninger" : language === "sv" ? "1M+ visningar" : language === "fi" ? "1M+ näyttöä" : "1M+ Views" }
+  const { containerRef, getParallaxStyle } = useMouseParallax(12);
+  
+  const values = useMemo(() => [
+    {
+      number: "01",
+      title: language === "no" ? "Native først" : "Native First",
+      subtitle: language === "no" ? "Annonser som føles som innhold, ikke avbrytelser." : "Ads that feel like content, not interruptions.",
+    },
+    {
+      number: "02",
+      title: language === "no" ? "Kvalitet" : "Quality",
+      subtitle: language === "no" ? "Hver visning teller. Vi gjør ikke fyll." : "Every impression matters. We don't do filler.",
+    },
+    {
+      number: "03",
+      title: language === "no" ? "Tillit" : "Trust",
+      subtitle: language === "no" ? "Bygget for merkevarer som bryr seg." : "Built for brands who care about their reputation.",
+    },
   ], [language]);
 
-  const values = useMemo(() => [
-    { 
-      title: language === "no" ? "Native først" : language === "sv" ? "Native först" : language === "fi" ? "Natiivi ensin" : "Native First",
-      subtitle: language === "no" ? "Annonser som føles ekte" : language === "sv" ? "Annonser som känns äkta" : language === "fi" ? "Mainoksia, jotka tuntuvat aidoilta" : "Ads that feel authentic"
+  const milestones = useMemo(() => [
+    {
+      year: "2021",
+      title: language === "no" ? "Beta Ads grunnlagt i Oslo" : "Beta Ads founded in Oslo",
     },
-    { 
-      title: language === "no" ? "Kvalitet" : language === "sv" ? "Kvalitet" : language === "fi" ? "Laatu" : "Quality",
-      subtitle: language === "no" ? "Premium streamere kun" : language === "sv" ? "Premium streamers endast" : language === "fi" ? "Vain premium-streamaajat" : "Premium streamers only"
+    {
+      year: "2022",
+      title: language === "no" ? "Første 100 streamere ombord" : "First 100 streamers onboarded",
     },
-    { 
-      title: language === "no" ? "Tillit" : language === "sv" ? "Förtroende" : language === "fi" ? "Luottamus" : "Trust",
-      subtitle: language === "no" ? "Langsiktige partnerskap" : language === "sv" ? "Långsiktiga partnerskap" : language === "fi" ? "Pitkäaikaiset kumppanuudet" : "Long-term partnerships"
-    }
+    {
+      year: "2023",
+      title: language === "no" ? "Utvidet til alle nordiske land" : "Expanded to all Nordic countries",
+    },
+    {
+      year: "2024",
+      title: language === "no" ? "Lanserte interaktive annonseformater" : "Launched interactive ad formats",
+    },
   ], [language]);
 
   return (
-    <div className="pt-16 lg:pt-20">
-      {/* Hero Section - Full viewport with parallax image */}
+    <div className="min-h-screen bg-background">
+      {/* Hero Section - Split Layout */}
       <section 
-        ref={heroRef}
-        className="min-h-screen flex items-center relative overflow-hidden"
+        ref={containerRef}
+        className="relative min-h-screen grid lg:grid-cols-2 items-center overflow-hidden"
       >
-        {/* Background image with parallax */}
+        {/* Left side - Text content */}
+        <div className="relative z-10 px-6 md:px-12 lg:px-20 py-32 lg:py-0">
+          <div className="max-w-xl">
+            {/* Role tag */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-8">
+              <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
+              <span className="text-sm text-primary font-medium">Founder & CEO</span>
+            </div>
+            
+            {/* Name - Large typography */}
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-foreground leading-[0.9] tracking-tight mb-6">
+              <span className="block">ANDREAS</span>
+              <span className="block text-primary">MYRAUNE</span>
+            </h1>
+            
+            {/* Short bio */}
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed mb-10 max-w-md">
+              {language === "no" 
+                ? "Bygger fremtiden for native annonsering i live streams." 
+                : "Building the future of native advertising inside live streams."}
+            </p>
+            
+            {/* Stats row */}
+            <div className="flex gap-12">
+              <div>
+                <span className="text-4xl md:text-5xl font-bold text-foreground">500+</span>
+                <p className="text-sm text-muted-foreground mt-1">
+                  {language === "no" ? "Streamere" : "Streamers"}
+                </p>
+              </div>
+              <div>
+                <span className="text-4xl md:text-5xl font-bold text-foreground">50M+</span>
+                <p className="text-sm text-muted-foreground mt-1">
+                  {language === "no" ? "Visninger" : "Impressions"}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Right side - Image with parallax and clip-path */}
         <div 
-          ref={containerRef}
-          className="absolute inset-0 z-0"
+          className="absolute lg:static inset-0 lg:h-screen"
+          style={getParallaxStyle(0.3)}
         >
           <div 
-            className="absolute inset-[-5%] w-[110%] h-[110%]"
-            style={getParallaxStyle(0.5)}
+            className="relative w-full h-full overflow-hidden"
+            style={{
+              clipPath: "polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%)",
+            }}
           >
             <img
               src="/lovable-uploads/e6d9646d-bf5f-471c-a2d8-1f06c274f570.png"
               alt="Andreas Myraune"
-              className="w-full h-full object-cover object-top opacity-40"
+              className="w-full h-full object-cover object-top"
             />
           </div>
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50" />
+          {/* Gradient overlay for text readability on mobile */}
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-background/20 lg:from-background lg:via-transparent lg:to-transparent pointer-events-none" />
         </div>
-
-        {/* Content */}
-        <div className={`relative z-10 w-full px-4 lg:px-12 transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="max-w-7xl mx-auto">
-            {/* Role tag */}
-            <div className="mb-6">
-              <span className="text-primary text-xs font-medium tracking-[0.3em] uppercase">
-                {language === "no" ? "Byråsjef" : language === "sv" ? "Byråchef" : language === "fi" ? "Toimistopäällikkö" : "Head of Agency"}
-              </span>
-            </div>
-            
-            {/* Large name with letter animation */}
-            <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-foreground leading-[0.9] tracking-tighter mb-8">
-              <AnimatedText text="ANDREAS" />
-              <br />
-              <span className="text-primary">
-                <AnimatedText text="MYRAUNE" />
-              </span>
-            </h1>
-
-            {/* Tagline */}
-            <p className="text-xl lg:text-2xl text-muted-foreground max-w-xl mb-12 leading-relaxed">
-              {language === "no" ? "Skaper fremtidens Twitch-annonsering i Norden." : 
-               language === "sv" ? "Skapar framtidens Twitch-reklam i Norden." : 
-               language === "fi" ? "Luo tulevaisuuden Twitch-mainontaa Pohjoismaissa." : 
-               "Building the future of Twitch advertising in the Nordics."}
-            </p>
-
-            {/* Stats row */}
-            <div className="flex items-center gap-12 lg:gap-16">
-              {[
-                { value: "50+", label: language === "no" ? "Kampanjer" : language === "sv" ? "Kampanjer" : language === "fi" ? "Kampanjat" : "Campaigns" },
-                { value: "1M+", label: language === "no" ? "Visninger" : language === "sv" ? "Visningar" : language === "fi" ? "Näyttöä" : "Views" },
-                { value: "4", label: language === "no" ? "Markeder" : language === "sv" ? "Marknader" : language === "fi" ? "Markkinat" : "Markets" }
-              ].map((stat, i) => (
-                <div key={i} className="text-center lg:text-left">
-                  <span className="text-4xl lg:text-5xl font-bold text-foreground">{stat.value}</span>
-                  <p className="text-xs text-muted-foreground mt-1 uppercase tracking-wider">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
+        
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-          <div className="w-px h-16 bg-gradient-to-b from-transparent via-primary/50 to-primary animate-pulse" />
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground z-10">
+          <span className="text-xs uppercase tracking-widest">Scroll</span>
+          <div className="w-px h-12 bg-gradient-to-b from-muted-foreground to-transparent" />
         </div>
       </section>
 
-      {/* Journey - Large year numbers */}
-      <section className="py-24 lg:py-40 px-4 lg:px-12 border-t border-border/20">
+      {/* Values Section */}
+      <section className="py-32 px-6 md:px-12 lg:px-20 bg-background">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-sm font-medium text-muted-foreground tracking-[0.3em] uppercase mb-16 lg:mb-24">
-            {language === "no" ? "Vår reise" : language === "sv" ? "Vår resa" : language === "fi" ? "Matkamme" : "Our Journey"}
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-4">
-            {milestones.map((milestone, index) => (
-              <div 
-                key={milestone.year}
-                className="group relative"
-              >
-                {/* Large year */}
-                <span className="text-8xl md:text-9xl lg:text-[12rem] font-bold text-transparent leading-none tracking-tighter"
-                  style={{
-                    WebkitTextStroke: '1px hsl(var(--border))',
-                  }}
-                >
-                  {milestone.year}
-                </span>
-                
-                {/* Filled year on hover */}
-                <span className="absolute top-0 left-0 text-8xl md:text-9xl lg:text-[12rem] font-bold text-primary leading-none tracking-tighter opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  {milestone.year}
-                </span>
-                
-                <h3 className="text-lg lg:text-xl font-medium text-foreground mt-4">
-                  {milestone.title}
-                </h3>
-              </div>
-            ))}
+          {/* Section header */}
+          <div className="mb-16">
+            <span className="text-sm text-primary font-medium uppercase tracking-widest">
+              {language === "no" ? "Våre Verdier" : "Our Values"}
+            </span>
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground mt-4 max-w-2xl">
+              {language === "no" 
+                ? "Det som driver alt vi bygger" 
+                : "What drives everything we build"}
+            </h2>
           </div>
-        </div>
-      </section>
-
-      {/* Values Section - Visual blocks with shapes */}
-      <section 
-        ref={valuesRef}
-        className="py-24 lg:py-32 px-4 lg:px-12 border-t border-border/20"
-      >
-        <div className={`max-w-7xl mx-auto transition-all duration-1000 ${valuesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-sm font-medium text-muted-foreground tracking-[0.3em] uppercase mb-16">
-            {language === "no" ? "Våre verdier" : language === "sv" ? "Våra värderingar" : language === "fi" ? "Arvomme" : "Our Values"}
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {values.map((value, index) => (
-              <ValueBlock
-                key={value.title}
+          
+          {/* Value cards grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {values.map((value) => (
+              <ValueCard
+                key={value.number}
+                number={value.number}
                 title={value.title}
                 subtitle={value.subtitle}
-                index={index}
               />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Contact Section - Bold CTA */}
-      <section 
-        ref={teamRef}
-        className="py-24 lg:py-40 px-4 lg:px-12 border-t border-border/20"
-      >
-        <div className={`max-w-7xl mx-auto transition-all duration-1000 ${teamVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-            {/* Left - Contact */}
-            <div>
-              <h2 className="text-sm font-medium text-muted-foreground tracking-[0.3em] uppercase mb-8">
-                {language === "no" ? "Ta kontakt" : language === "sv" ? "Kontakta oss" : language === "fi" ? "Ota yhteyttä" : "Get in Touch"}
-              </h2>
-              
-              <a 
-                href="mailto:andreas@beta-ads.no"
-                className="group inline-flex items-center gap-4 text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground hover:text-primary transition-colors duration-300"
-              >
-                <AnimatedText text="andreas@beta-ads.no" />
-                <ArrowRight className="w-8 h-8 lg:w-10 lg:h-10 group-hover:translate-x-2 transition-transform" />
-              </a>
-
-              <p className="text-muted-foreground mt-8 max-w-md">
-                {language === "no" ? "Vi tror på kraften i autentiske forbindelser. Når en streamer virkelig elsker et produkt, merker seerne det." : 
-                 language === "sv" ? "Vi tror på kraften i autentiska kopplingar. När en streamer verkligen älskar en produkt märker tittarna det." : 
-                 language === "fi" ? "Uskomme aitojen yhteyksien voimaan. Kun streamaaja todella rakastaa tuotetta, katsojat huomaavat sen." : 
-                 "We believe in the power of authentic connections. When a streamer genuinely loves a product, viewers notice."}
-              </p>
-            </div>
-
-            {/* Right - Join team */}
-            <div className="flex items-end lg:justify-end">
-              <a 
-                href="mailto:careers@beta-ads.no"
-                className="group inline-flex items-center gap-3 text-lg font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                <span className="w-12 h-px bg-current transition-all group-hover:w-20" />
-                {language === "no" ? "Bli med på laget" : language === "sv" ? "Gå med i teamet" : language === "fi" ? "Liity tiimiin" : "Join the team"}
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
+      {/* Journey Section */}
+      <section className="py-32 px-6 md:px-12 lg:px-20 bg-card/30">
+        <div className="max-w-5xl mx-auto">
+          {/* Section header */}
+          <div className="mb-16">
+            <span className="text-sm text-primary font-medium uppercase tracking-widest">
+              {language === "no" ? "Reisen" : "The Journey"}
+            </span>
+            <h2 className="text-4xl md:text-6xl font-bold text-foreground mt-4">
+              {language === "no" ? "Viktige øyeblikk" : "Key moments"}
+            </h2>
+          </div>
+          
+          {/* Milestones */}
+          <div>
+            {milestones.map((milestone) => (
+              <MilestoneItem
+                key={milestone.year}
+                year={milestone.year}
+                title={milestone.title}
+              />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Press Section */}
-      <Press t={t} />
+      {/* Contact CTA Section */}
+      <section className="py-32 px-6 md:px-12 lg:px-20 bg-background">
+        <div className="max-w-5xl mx-auto text-center">
+          <span className="text-sm text-primary font-medium uppercase tracking-widest">
+            {language === "no" ? "Ta kontakt" : "Get in touch"}
+          </span>
+          
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mt-6 mb-12">
+            {language === "no" ? "La oss snakke" : "Let's talk"}
+          </h2>
+          
+          {/* Email link */}
+          <a 
+            href="mailto:andreas@betaads.no"
+            className="group inline-flex items-center gap-4 text-2xl md:text-4xl text-muted-foreground hover:text-primary transition-colors duration-300"
+          >
+            <span>andreas@betaads.no</span>
+            <ArrowRight className="w-8 h-8 transition-transform duration-300 group-hover:translate-x-2" />
+          </a>
+          
+          {/* Secondary CTA */}
+          <div className="mt-16">
+            <Link 
+              to="/contact"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-medium rounded-full hover:bg-primary/90 transition-colors duration-300"
+            >
+              <span>{language === "no" ? "Kontakt oss" : "Contact us"}</span>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <Footer t={t} language={language} setLanguage={setLanguage} />
     </div>
