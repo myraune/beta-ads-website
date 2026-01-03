@@ -1,29 +1,34 @@
 import React, { useState, useEffect } from "react";
 
-type AdFormat = 'animation' | 'banner' | 'chat' | 'cta' | null;
+type AdFormat = 'sidebar' | 'snipe' | 'chat' | 'cta' | null;
 
 interface LiveStreamPreviewProps {
   id?: string;
 }
 
+const formatLabels: Record<string, string> = {
+  sidebar: 'Side Bar',
+  snipe: 'Snipe',
+  chat: 'Chat Message',
+  cta: 'CTA Button',
+};
+
 const chatMessages = [
-  { user: "xQcFan123", color: "#9b59b6", message: "POG" },
   { user: "StreamViewer", color: "#3498db", message: "lets gooo" },
   { user: "GamerGirl99", color: "#e91e63", message: "so good!" },
-  { user: "TwitchUser", color: "#2ecc71", message: "Kappa" },
   { user: "ProPlayer", color: "#f39c12", message: "nice one" },
-  { user: "ChatLurker", color: "#1abc9c", message: "haha" },
-  { user: "Mod_Steve", color: "#e74c3c", message: "calm chat" },
-  { user: "NewViewer01", color: "#9b59b6", message: "first time here" },
 ];
 
 export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
   const [activeFormat, setActiveFormat] = useState<AdFormat>(null);
   const [formatIndex, setFormatIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
-  const formats: AdFormat[] = ['animation', 'banner', 'chat', 'cta'];
+  const formats: AdFormat[] = ['sidebar', 'snipe', 'chat', 'cta'];
 
   useEffect(() => {
+    if (isHovered) return;
+
     const showFormat = () => {
       setActiveFormat(formats[formatIndex]);
     };
@@ -34,26 +39,41 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
 
     showFormat();
 
-    const hideTimeout = setTimeout(hideFormat, 2500);
+    const hideTimeout = setTimeout(hideFormat, 4500);
     const nextTimeout = setTimeout(() => {
       setFormatIndex((prev) => (prev + 1) % formats.length);
-    }, 3500);
+    }, 6000);
 
     return () => {
       clearTimeout(hideTimeout);
       clearTimeout(nextTimeout);
     };
-  }, [formatIndex]);
+  }, [formatIndex, isHovered]);
 
   return (
-    <section id={id} className="py-16 md:py-24 px-4 bg-[#0e0e10]">
-      <div className="max-w-6xl mx-auto">
+    <section 
+      id={id} 
+      className="py-16 md:py-24 px-4 bg-transparent"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="max-w-5xl mx-auto">
+        {/* Section Header */}
+        <div className="text-center mb-10">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3">
+            Native ads inside live streams
+          </h2>
+          <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
+            Ads appear as part of the stream, not interruptions
+          </p>
+        </div>
+
         {/* Twitch-like Container */}
-        <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl shadow-primary/10">
+        <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl shadow-primary/10 bg-[#18181b]/80 backdrop-blur-sm">
           {/* Main Layout */}
           <div className="flex flex-col lg:flex-row">
             {/* Stream Window */}
-            <div className="flex-1 relative bg-[#18181b]">
+            <div className="flex-1 relative">
               {/* Top Bar */}
               <div className="flex items-center justify-between px-3 py-2 bg-[#18181b] border-b border-white/5">
                 <div className="flex items-center gap-3">
@@ -71,42 +91,46 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
 
               {/* Stream Content */}
               <div className="relative aspect-video bg-[#0e0e10] overflow-hidden">
-                {/* Streamer Video */}
+                {/* Streamer Video - Static image instead of GIF */}
                 <img
-                  src="/lovable-uploads/streamer-emmelie.gif"
+                  src="/lovable-uploads/twitch-ad-example.png"
                   alt="Live stream"
                   className="w-full h-full object-cover"
                 />
 
-                {/* Animation Overlay - Product slide-in */}
+                {/* Sidebar Overlay */}
                 <div
-                  className={`absolute top-1/4 left-4 transition-all duration-700 ease-in-out ${
-                    activeFormat === 'animation'
+                  className={`absolute top-4 left-4 transition-all duration-700 ease-out ${
+                    activeFormat === 'sidebar'
                       ? 'translate-x-0 opacity-100'
                       : '-translate-x-full opacity-0'
                   }`}
                 >
-                  <div className="w-24 md:w-32 lg:w-36 bg-black/60 backdrop-blur-sm rounded-lg p-2 border border-white/10 shadow-lg shadow-black/40">
-                    <div className="aspect-[9/16] bg-gradient-to-br from-orange-500/80 to-yellow-500/80 rounded flex items-center justify-center">
-                      <span className="text-white/90 text-xs font-medium">Ad</span>
+                  <div className="w-28 md:w-36 bg-black/70 backdrop-blur-sm rounded-lg p-2 border border-white/10 shadow-lg">
+                    <div className="aspect-[9/16] bg-gradient-to-br from-primary/80 to-primary/40 rounded flex items-center justify-center">
+                      <span className="text-white/90 text-xs font-medium">Side Bar</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Banner - Subtle snipe */}
+                {/* Snipe Banner */}
                 <div
-                  className={`absolute bottom-0 left-0 right-0 transition-all duration-700 ease-in-out ${
-                    activeFormat === 'banner'
+                  className={`absolute bottom-0 left-0 right-0 transition-all duration-700 ease-out ${
+                    activeFormat === 'snipe'
                       ? 'translate-y-0 opacity-100'
                       : 'translate-y-full opacity-0'
                   }`}
                 >
-                  <div className="bg-black/70 backdrop-blur-sm px-4 py-2.5 flex items-center justify-between border-t border-white/10">
+                  <div className="bg-black/80 backdrop-blur-sm px-4 py-3 flex items-center justify-between border-t border-white/10">
                     <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded bg-gradient-to-br from-primary to-primary/60" />
-                      <span className="text-white/90 text-sm font-medium">Sponsored</span>
+                      <div className="w-10 h-10 rounded bg-gradient-to-br from-primary to-primary/60 flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">AD</span>
+                      </div>
+                      <div>
+                        <span className="text-white text-sm font-medium block">Sponsored Message</span>
+                        <span className="text-white/50 text-xs">saily.com</span>
+                      </div>
                     </div>
-                    <span className="text-white/50 text-xs">saily.com</span>
                   </div>
                 </div>
               </div>
@@ -114,7 +138,7 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
               {/* CTA Below Stream */}
               <div className="relative px-4 py-3 bg-[#18181b] border-t border-white/5 min-h-[52px]">
                 <div
-                  className={`transition-all duration-700 ease-in-out ${
+                  className={`transition-all duration-700 ease-out ${
                     activeFormat === 'cta'
                       ? 'translate-y-0 opacity-100'
                       : 'translate-y-4 opacity-0'
@@ -128,16 +152,16 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
             </div>
 
             {/* Chat Column */}
-            <div className="w-full lg:w-72 bg-[#18181b] border-t lg:border-t-0 lg:border-l border-white/5">
+            <div className="w-full lg:w-64 bg-[#18181b] border-t lg:border-t-0 lg:border-l border-white/5">
               {/* Chat Header */}
               <div className="px-3 py-2 border-b border-white/5">
                 <span className="text-white/60 text-sm font-medium">Chat</span>
               </div>
 
               {/* Chat Messages */}
-              <div className="h-48 lg:h-80 overflow-hidden relative">
-                <div className="absolute inset-0 flex flex-col justify-end p-3 space-y-1.5">
-                  {chatMessages.slice(0, 5).map((msg, i) => (
+              <div className="h-40 lg:h-72 overflow-hidden relative">
+                <div className="absolute inset-0 flex flex-col justify-end p-3 space-y-2">
+                  {chatMessages.map((msg, i) => (
                     <div key={i} className="text-sm">
                       <span style={{ color: msg.color }} className="font-semibold">
                         {msg.user}
@@ -149,30 +173,20 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
 
                   {/* Branded Chat Message */}
                   <div
-                    className={`transition-all duration-700 ease-in-out ${
+                    className={`transition-all duration-700 ease-out ${
                       activeFormat === 'chat'
                         ? 'translate-x-0 opacity-100'
-                        : 'translate-x-4 opacity-0'
+                        : 'translate-x-8 opacity-0'
                     }`}
                   >
                     <div className="bg-primary/15 rounded px-2 py-1.5 border-l-2 border-primary/60">
                       <div className="text-sm">
-                        <span className="text-primary/80 font-semibold">Sponsor</span>
+                        <span className="text-primary font-semibold">Sponsor</span>
                         <span className="text-white/40">: </span>
-                        <span className="text-white/70">Check this out</span>
+                        <span className="text-white/70">Check out our latest offer!</span>
                       </div>
                     </div>
                   </div>
-
-                  {chatMessages.slice(5).map((msg, i) => (
-                    <div key={i + 5} className="text-sm">
-                      <span style={{ color: msg.color }} className="font-semibold">
-                        {msg.user}
-                      </span>
-                      <span className="text-white/40">: </span>
-                      <span className="text-white/80">{msg.message}</span>
-                    </div>
-                  ))}
                 </div>
               </div>
 
@@ -185,16 +199,23 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
             </div>
           </div>
 
-          {/* Format Indicator Dots */}
-          <div className="flex items-center justify-center gap-2 py-3 bg-[#18181b] border-t border-white/5">
+          {/* Format Indicator with Labels */}
+          <div className="flex items-center justify-center gap-4 py-4 bg-[#18181b] border-t border-white/5">
             {formats.map((format, i) => (
               <button
                 key={format}
                 onClick={() => setFormatIndex(i)}
-                className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
-                  formatIndex === i ? 'bg-primary w-4' : 'bg-white/20 hover:bg-white/40'
+                className={`flex items-center gap-2 px-3 py-1.5 rounded-full transition-all duration-300 ${
+                  formatIndex === i 
+                    ? 'bg-primary/20 text-primary' 
+                    : 'text-white/40 hover:text-white/60'
                 }`}
-              />
+              >
+                <span className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+                  formatIndex === i ? 'bg-primary' : 'bg-white/30'
+                }`} />
+                <span className="text-xs font-medium">{formatLabels[format]}</span>
+              </button>
             ))}
           </div>
         </div>
