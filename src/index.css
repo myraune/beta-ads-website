@@ -367,6 +367,43 @@
   animation-delay: 2s;
 }
 
+/* Letter animation hover effect */
+.letter-animate {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.letter-animate .letter {
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.letter-animate:hover .letter {
+  transform: translateY(-110%);
+}
+
+.letter-animate .letter-clone {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  display: inline-block;
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.letter-animate:hover .letter-clone {
+  transform: translateY(-110%);
+}
+
+/* Clip-path hover reveal effect */
+.hover-reveal-overlay {
+  clip-path: ellipse(0% 0% at 50% 50%);
+  transition: clip-path 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.hover-reveal-trigger:hover .hover-reveal-overlay {
+  clip-path: ellipse(100% 100% at 50% 50%);
+}
+
 /* Premium hover animations */
 @keyframes float-hover {
   0%, 100% { transform: translateY(0); }
