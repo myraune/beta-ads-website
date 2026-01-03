@@ -25,28 +25,32 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
     {
       id: 1,
       title: "Philips OneBlade x Fortnite",
-      image: "/lovable-uploads/71765092-972e-4792-a241-0f155a62af68.png",
+      gradient: "from-blue-600 to-cyan-500",
+      brand: "PHILIPS",
       status: "available",
       isNew: true
     },
     {
       id: 2,
       title: "Saily eSIM",
-      image: "/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png",
+      gradient: "from-orange-500 to-yellow-500",
+      brand: "SAILY",
       status: "available",
       isNew: true
     },
     {
       id: 3,
       title: "Surfshark VPN",
-      image: "/lovable-uploads/958b1a7f-a00c-46bc-acdb-bbefda64b9da.png",
+      gradient: "from-teal-500 to-emerald-500",
+      brand: "SURFSHARK",
       status: "available",
       isNew: false
     },
     {
       id: 4,
       title: "NordVPN",
-      image: "/lovable-uploads/4d784a07-41cb-46c9-9bfc-b33f83db6f0c.png",
+      gradient: "from-blue-700 to-indigo-600",
+      brand: "NORDVPN",
       status: "available",
       isNew: true
     }
@@ -190,11 +194,9 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
             className="bg-[#252525] rounded-xl overflow-hidden border border-white/5 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 cursor-pointer group"
           >
             <div className="relative h-24 overflow-hidden">
-              <img
-                src={sponsorship.image}
-                alt={sponsorship.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
+              <div className={`w-full h-full bg-gradient-to-br ${sponsorship.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}>
+                <span className="text-white/90 font-bold text-sm tracking-wider">{sponsorship.brand}</span>
+              </div>
               {sponsorship.isNew && (
                 <Badge className="absolute top-2 left-2 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-[9px] px-1.5 py-0.5 border-0">
                   New!
