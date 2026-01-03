@@ -133,48 +133,48 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
 
   const renderWalletContent = () => (
     <div className="flex-1">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-6">
-        <div className="bg-gradient-to-br from-green-500/20 to-emerald-600/20 rounded-xl p-4 border border-green-500/20">
-          <div className="text-white/60 text-xs mb-1">Available</div>
-          <div className="text-white font-bold text-xl">€{walletData.availableBalance.toFixed(2)}</div>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 mb-4">
+        <div className="bg-gradient-to-br from-green-500/20 to-emerald-600/20 rounded-lg p-3 border border-green-500/20">
+          <div className="text-white/60 text-[10px] mb-0.5">Available</div>
+          <div className="text-white font-bold text-lg">€{walletData.availableBalance.toFixed(2)}</div>
         </div>
-        <div className="bg-[#252525] rounded-xl p-4 border border-white/5">
-          <div className="text-white/60 text-xs mb-1">Pending</div>
-          <div className="text-white font-bold text-xl">€{walletData.pendingEarnings.toFixed(2)}</div>
+        <div className="bg-[#252525] rounded-lg p-3 border border-white/5">
+          <div className="text-white/60 text-[10px] mb-0.5">Pending</div>
+          <div className="text-white font-bold text-lg">€{walletData.pendingEarnings.toFixed(2)}</div>
         </div>
-        <div className="bg-[#252525] rounded-xl p-4 border border-white/5">
-          <div className="text-white/60 text-xs mb-1">Total Earned</div>
-          <div className="text-white font-bold text-xl">€{walletData.totalEarned.toFixed(2)}</div>
+        <div className="bg-[#252525] rounded-lg p-3 border border-white/5">
+          <div className="text-white/60 text-[10px] mb-0.5">Total Earned</div>
+          <div className="text-white font-bold text-lg">€{walletData.totalEarned.toFixed(2)}</div>
         </div>
-        <div className="bg-[#252525] rounded-xl p-4 border border-white/5">
-          <div className="text-white/60 text-xs mb-1">This Month</div>
-          <div className="text-white font-bold text-xl">€{walletData.thisMonth.toFixed(2)}</div>
+        <div className="bg-[#252525] rounded-lg p-3 border border-white/5">
+          <div className="text-white/60 text-[10px] mb-0.5">This Month</div>
+          <div className="text-white font-bold text-lg">€{walletData.thisMonth.toFixed(2)}</div>
         </div>
       </div>
 
-      <div className="bg-[#252525] rounded-xl border border-white/5 overflow-hidden">
-        <div className="px-4 py-3 border-b border-white/10">
-          <h4 className="text-white font-medium text-sm">Recent Transactions</h4>
+      <div className="bg-[#252525] rounded-lg border border-white/5 overflow-hidden">
+        <div className="px-3 py-2 border-b border-white/10">
+          <h4 className="text-white font-medium text-xs">Recent Transactions</h4>
         </div>
         <div className="divide-y divide-white/5">
-          {transactions.map((tx, index) => (
-            <div key={index} className="px-4 py-3 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className={`w-7 h-7 rounded-full flex items-center justify-center ${
+          {transactions.slice(0, 3).map((tx, index) => (
+            <div key={index} className="px-3 py-2 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className={`w-6 h-6 rounded-full flex items-center justify-center ${
                   tx.type === "credit" ? "bg-green-500/20" : "bg-red-500/20"
                 }`}>
                   {tx.type === "credit" ? (
-                    <ArrowDownLeft className="w-3.5 h-3.5 text-green-400" />
+                    <ArrowDownLeft className="w-3 h-3 text-green-400" />
                   ) : (
-                    <ArrowUpRight className="w-3.5 h-3.5 text-red-400" />
+                    <ArrowUpRight className="w-3 h-3 text-red-400" />
                   )}
                 </div>
                 <div>
-                  <div className="text-white text-xs font-medium">{tx.description}</div>
-                  <div className="text-white/40 text-[10px]">{tx.date}</div>
+                  <div className="text-white text-[11px] font-medium">{tx.description}</div>
+                  <div className="text-white/40 text-[9px]">{tx.date}</div>
                 </div>
               </div>
-              <div className={`text-xs font-bold ${tx.type === "credit" ? "text-green-400" : "text-red-400"}`}>
+              <div className={`text-[11px] font-bold ${tx.type === "credit" ? "text-green-400" : "text-red-400"}`}>
                 {tx.type === "credit" ? "+" : ""}€{Math.abs(tx.amount).toFixed(2)}
               </div>
             </div>
@@ -186,28 +186,28 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
 
   const renderSponsorshipsContent = () => (
     <div className="flex-1">
-      <h3 className="text-lg font-medium text-white mb-4">Available sponsorships</h3>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+      <h3 className="text-sm font-medium text-white mb-3">Available sponsorships</h3>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
         {sponsorships.map((sponsorship) => (
           <div
             key={sponsorship.id}
-            className="bg-[#252525] rounded-xl overflow-hidden border border-white/5 hover:border-primary/50 hover:scale-[1.03] hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 cursor-pointer group"
+            className="bg-[#252525] rounded-lg overflow-hidden border border-white/5 hover:border-primary/50 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 cursor-pointer group"
           >
-            <div className="relative h-24 overflow-hidden">
+            <div className="relative h-16 overflow-hidden">
               <div className={`w-full h-full bg-gradient-to-br ${sponsorship.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}>
-                <span className="text-white/90 font-bold text-sm tracking-wider">{sponsorship.brand}</span>
+                <span className="text-white/90 font-bold text-xs tracking-wider">{sponsorship.brand}</span>
               </div>
               {sponsorship.isNew && (
-                <Badge className="absolute top-2 left-2 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-[9px] px-1.5 py-0.5 border-0">
+                <Badge className="absolute top-1.5 left-1.5 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-[8px] px-1 py-0 border-0">
                   New!
                 </Badge>
               )}
             </div>
-            <div className="p-3">
-              <h4 className="text-white font-medium text-xs mb-2 line-clamp-1">{sponsorship.title}</h4>
+            <div className="p-2">
+              <h4 className="text-white font-medium text-[11px] mb-1.5 line-clamp-1">{sponsorship.title}</h4>
               <Button 
                 size="sm" 
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-xs py-1 h-7 mt-2"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-[10px] py-0.5 h-6"
               >
                 Apply
               </Button>
@@ -237,97 +237,90 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
   const avgViews = useMemo(() => weeklyViews.reduce((a, b) => a + b.views, 0) / weeklyViews.length, []);
 
   const renderStatisticsContent = () => (
-    <div className="flex-1 space-y-4">
-      {/* Filters Row */}
-      <div className="flex flex-wrap items-center justify-between gap-3 bg-[#252525] rounded-xl p-3 border border-white/5">
+    <div className="flex-1 space-y-3">
+      {/* Filters Row - Compact */}
+      <div className="flex flex-wrap items-center justify-between gap-2 bg-[#252525] rounded-lg p-2 border border-white/5">
         <div className="flex items-center gap-2">
-          <Filter className="w-4 h-4 text-white/40" />
+          <Filter className="w-3.5 h-3.5 text-white/40" />
           <div className="flex gap-1">
-            {["7d", "30d", "90d", "all"].map((period) => (
+            {["7d", "30d", "90d"].map((period) => (
               <button
                 key={period}
                 onClick={() => setTimeFilter(period)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
+                className={`px-2 py-1 rounded-md text-[10px] font-medium transition-all ${
                   timeFilter === period
                     ? "bg-primary text-primary-foreground"
                     : "bg-white/5 text-white/60 hover:text-white hover:bg-white/10"
                 }`}
               >
-                {period === "7d" ? "7 Days" : period === "30d" ? "30 Days" : period === "90d" ? "90 Days" : "All Time"}
+                {period === "7d" ? "7D" : period === "30d" ? "30D" : "90D"}
               </button>
             ))}
           </div>
         </div>
-        <div className="flex items-center gap-2">
-          <Select value={campaignFilter} onValueChange={setCampaignFilter}>
-            <SelectTrigger className="w-[140px] h-8 bg-white/5 border-white/10 text-white text-xs">
-              <SelectValue placeholder="All Campaigns" />
-            </SelectTrigger>
-            <SelectContent className="bg-[#252525] border-white/10">
-              <SelectItem value="all" className="text-white text-xs">All Campaigns</SelectItem>
-              <SelectItem value="surfshark" className="text-white text-xs">Surfshark VPN</SelectItem>
-              <SelectItem value="philips" className="text-white text-xs">Philips OneBlade</SelectItem>
-              <SelectItem value="saily" className="text-white text-xs">Saily eSIM</SelectItem>
-            </SelectContent>
-          </Select>
-          <Button variant="outline" size="sm" className="h-8 bg-white/5 border-white/10 text-white/60 hover:text-white text-xs">
-            <Download className="w-3.5 h-3.5 mr-1.5" />
-            Export
-          </Button>
-        </div>
+        <Select value={campaignFilter} onValueChange={setCampaignFilter}>
+          <SelectTrigger className="w-[120px] h-7 bg-white/5 border-white/10 text-white text-[10px]">
+            <SelectValue placeholder="All Campaigns" />
+          </SelectTrigger>
+          <SelectContent className="bg-[#252525] border-white/10">
+            <SelectItem value="all" className="text-white text-xs">All Campaigns</SelectItem>
+            <SelectItem value="surfshark" className="text-white text-xs">Surfshark VPN</SelectItem>
+            <SelectItem value="philips" className="text-white text-xs">Philips OneBlade</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
 
-      {/* Summary Stats */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-        <div className="bg-[#252525] rounded-xl p-4 border border-white/5 hover:border-primary/30 transition-colors">
-          <div className="flex items-center gap-2 mb-2">
-            <Eye className="w-4 h-4 text-primary/70" />
-            <span className="text-white/60 text-xs">Total Views</span>
+      {/* Summary Stats - Compact */}
+      <div className="grid grid-cols-4 gap-2">
+        <div className="bg-[#252525] rounded-lg p-2.5 border border-white/5">
+          <div className="flex items-center gap-1.5 mb-1">
+            <Eye className="w-3 h-3 text-primary/70" />
+            <span className="text-white/60 text-[9px]">Views</span>
           </div>
-          <div className="text-white font-bold text-xl">15,900</div>
-          <div className="text-green-400 text-xs flex items-center gap-1 mt-1">
-            <ArrowUpRight className="w-3 h-3" /> +18.5%
-          </div>
-        </div>
-        <div className="bg-[#252525] rounded-xl p-4 border border-white/5 hover:border-primary/30 transition-colors">
-          <div className="flex items-center gap-2 mb-2">
-            <MousePointer className="w-4 h-4 text-primary/70" />
-            <span className="text-white/60 text-xs">Avg CTR</span>
-          </div>
-          <div className="text-white font-bold text-xl">2.4%</div>
-          <div className="text-green-400 text-xs flex items-center gap-1 mt-1">
-            <ArrowUpRight className="w-3 h-3" /> +0.3%
+          <div className="text-white font-bold text-sm">15.9K</div>
+          <div className="text-green-400 text-[9px] flex items-center gap-0.5">
+            <ArrowUpRight className="w-2.5 h-2.5" /> +18%
           </div>
         </div>
-        <div className="bg-[#252525] rounded-xl p-4 border border-white/5 hover:border-primary/30 transition-colors">
-          <div className="flex items-center gap-2 mb-2">
-            <Clock className="w-4 h-4 text-primary/70" />
-            <span className="text-white/60 text-xs">Watch Time</span>
+        <div className="bg-[#252525] rounded-lg p-2.5 border border-white/5">
+          <div className="flex items-center gap-1.5 mb-1">
+            <MousePointer className="w-3 h-3 text-primary/70" />
+            <span className="text-white/60 text-[9px]">CTR</span>
           </div>
-          <div className="text-white font-bold text-xl">23 min</div>
-          <div className="text-muted-foreground text-xs mt-1">Average</div>
+          <div className="text-white font-bold text-sm">2.4%</div>
+          <div className="text-green-400 text-[9px] flex items-center gap-0.5">
+            <ArrowUpRight className="w-2.5 h-2.5" /> +0.3%
+          </div>
         </div>
-        <div className="bg-[#252525] rounded-xl p-4 border border-white/5 hover:border-primary/30 transition-colors">
-          <div className="flex items-center gap-2 mb-2">
-            <TrendingUp className="w-4 h-4 text-primary/70" />
-            <span className="text-white/60 text-xs">Conversion</span>
+        <div className="bg-[#252525] rounded-lg p-2.5 border border-white/5">
+          <div className="flex items-center gap-1.5 mb-1">
+            <Clock className="w-3 h-3 text-primary/70" />
+            <span className="text-white/60 text-[9px]">Watch</span>
           </div>
-          <div className="text-white font-bold text-xl">1.8%</div>
-          <div className="text-green-400 text-xs flex items-center gap-1 mt-1">
-            <ArrowUpRight className="w-3 h-3" /> +0.2%
+          <div className="text-white font-bold text-sm">23m</div>
+          <div className="text-muted-foreground text-[9px]">Avg</div>
+        </div>
+        <div className="bg-[#252525] rounded-lg p-2.5 border border-white/5">
+          <div className="flex items-center gap-1.5 mb-1">
+            <TrendingUp className="w-3 h-3 text-primary/70" />
+            <span className="text-white/60 text-[9px]">Conv</span>
+          </div>
+          <div className="text-white font-bold text-sm">1.8%</div>
+          <div className="text-green-400 text-[9px] flex items-center gap-0.5">
+            <ArrowUpRight className="w-2.5 h-2.5" /> +0.2%
           </div>
         </div>
       </div>
 
-      {/* Charts Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        {/* Views Chart with Reference Line */}
-        <div className="bg-[#252525] rounded-xl p-4 border border-white/5">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-white text-sm font-medium">Views This Week</span>
-            <span className="text-white/40 text-xs">Avg: {Math.round(avgViews).toLocaleString()}</span>
+      {/* Charts Row - Compact */}
+      <div className="grid grid-cols-2 gap-2">
+        {/* Views Chart */}
+        <div className="bg-[#252525] rounded-lg p-3 border border-white/5">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-white text-xs font-medium">Views</span>
+            <span className="text-white/40 text-[9px]">Avg: {Math.round(avgViews).toLocaleString()}</span>
           </div>
-          <div className="h-36">
+          <div className="h-24">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={weeklyViews}>
                 <defs>
@@ -336,21 +329,21 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
                     <stop offset="100%" stopColor="#ef4444" stopOpacity={0} />
                   </linearGradient>
                 </defs>
-                <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: '#666', fontSize: 10 }} />
+                <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: '#666', fontSize: 9 }} />
                 <YAxis hide />
                 <Tooltip 
-                  contentStyle={{ background: '#1a1a1a', border: '1px solid #333', borderRadius: 8 }}
-                  labelStyle={{ color: '#fff' }}
-                  itemStyle={{ color: '#ef4444' }}
+                  contentStyle={{ background: '#1a1a1a', border: '1px solid #333', borderRadius: 6, fontSize: 10 }}
+                  labelStyle={{ color: '#fff', fontSize: 10 }}
+                  itemStyle={{ color: '#ef4444', fontSize: 10 }}
                 />
                 <ReferenceLine y={avgViews} stroke="#666" strokeDasharray="3 3" />
                 <Area 
                   type="monotone" 
                   dataKey="views" 
                   stroke="#ef4444" 
-                  strokeWidth={2}
+                  strokeWidth={1.5}
                   fill="url(#viewsGradient)"
-                  animationDuration={1000}
+                  animationDuration={800}
                 />
               </AreaChart>
             </ResponsiveContainer>
@@ -358,113 +351,25 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
         </div>
 
         {/* Earnings Chart */}
-        <div className="bg-[#252525] rounded-xl p-4 border border-white/5">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-white text-sm font-medium">Earnings This Week</span>
-            <span className="text-green-400 text-xs font-medium">€169.70 total</span>
+        <div className="bg-[#252525] rounded-lg p-3 border border-white/5">
+          <div className="flex items-center justify-between mb-2">
+            <span className="text-white text-xs font-medium">Earnings</span>
+            <span className="text-green-400 text-[9px] font-medium">€169.70</span>
           </div>
-          <div className="h-36">
+          <div className="h-24">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={weeklyEarnings}>
-                <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: '#666', fontSize: 10 }} />
+                <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: '#666', fontSize: 9 }} />
                 <YAxis hide />
                 <Tooltip 
-                  contentStyle={{ background: '#1a1a1a', border: '1px solid #333', borderRadius: 8 }}
-                  labelStyle={{ color: '#fff' }}
+                  contentStyle={{ background: '#1a1a1a', border: '1px solid #333', borderRadius: 6, fontSize: 10 }}
+                  labelStyle={{ color: '#fff', fontSize: 10 }}
                   formatter={(value: number) => [`€${value.toFixed(2)}`, 'Earnings']}
                 />
-                <Bar dataKey="amount" fill="#22c55e" radius={[4, 4, 0, 0]} animationDuration={1000} />
+                <Bar dataKey="amount" fill="#22c55e" radius={[3, 3, 0, 0]} animationDuration={800} />
               </BarChart>
             </ResponsiveContainer>
           </div>
-        </div>
-      </div>
-
-      {/* Secondary Charts Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        {/* Campaign Breakdown Pie */}
-        <div className="bg-[#252525] rounded-xl p-4 border border-white/5">
-          <h4 className="text-white text-sm font-medium mb-3">Campaign Breakdown</h4>
-          <div className="h-32 flex items-center justify-center">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={campaignBreakdown}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={30}
-                  outerRadius={50}
-                  dataKey="value"
-                  animationDuration={1000}
-                >
-                  {campaignBreakdown.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Pie>
-                <Tooltip 
-                  contentStyle={{ background: '#1a1a1a', border: '1px solid #333', borderRadius: 8 }}
-                  formatter={(value: number) => [`${value}%`, '']}
-                />
-                <Legend 
-                  layout="vertical" 
-                  align="right" 
-                  verticalAlign="middle"
-                  formatter={(value) => <span className="text-white/60 text-xs">{value}</span>}
-                />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-
-        {/* Peak Hours */}
-        <div className="bg-[#252525] rounded-xl p-4 border border-white/5">
-          <h4 className="text-white text-sm font-medium mb-3">Peak Hours</h4>
-          <div className="h-32">
-            <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={hourlyData}>
-                <XAxis dataKey="hour" axisLine={false} tickLine={false} tick={{ fill: '#666', fontSize: 10 }} />
-                <YAxis hide />
-                <Tooltip 
-                  contentStyle={{ background: '#1a1a1a', border: '1px solid #333', borderRadius: 8 }}
-                  labelStyle={{ color: '#fff' }}
-                />
-                <Line 
-                  type="monotone" 
-                  dataKey="views" 
-                  stroke="#8b5cf6" 
-                  strokeWidth={2}
-                  dot={{ fill: '#8b5cf6', r: 3 }}
-                  activeDot={{ r: 5, fill: '#8b5cf6' }}
-                  animationDuration={1000}
-                />
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-      </div>
-
-      {/* Top Campaigns */}
-      <div className="bg-[#252525] rounded-xl p-4 border border-white/5">
-        <h4 className="text-white text-sm font-medium mb-3">Top Performing Campaigns</h4>
-        <div className="space-y-2">
-          {topCampaigns.map((campaign, index) => (
-            <div key={campaign.name} className="flex items-center justify-between py-2 border-b border-white/5 last:border-0 hover:bg-white/5 rounded-lg px-2 -mx-2 transition-colors">
-              <div className="flex items-center gap-3">
-                <span className="text-white/40 text-xs w-4">{index + 1}.</span>
-                <span className="text-white text-sm">{campaign.name}</span>
-              </div>
-              <div className="flex items-center gap-6">
-                <div className="text-right">
-                  <div className="text-green-400 text-sm font-medium">€{campaign.earnings.toFixed(2)}</div>
-                  <div className="text-white/40 text-[10px]">earned</div>
-                </div>
-                <div className="text-right">
-                  <div className="text-white text-sm font-medium">{campaign.impressions.toLocaleString()}</div>
-                  <div className="text-white/40 text-[10px]">impressions</div>
-                </div>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
     </div>
@@ -591,8 +496,8 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
             </div>
           </div>
 
-          {/* Main Content */}
-          <div className="p-4 min-h-[320px]">
+          {/* Main Content - Fixed height for consistent sizing */}
+          <div className="p-3 h-[320px] overflow-hidden">
             {renderContent()}
           </div>
         </div>
