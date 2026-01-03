@@ -132,49 +132,49 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
   };
 
   const renderWalletContent = () => (
-    <div className="flex-1">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 mb-4">
-        <div className="bg-gradient-to-br from-green-500/20 to-emerald-600/20 rounded-lg p-3 border border-green-500/20">
-          <div className="text-white/60 text-[10px] mb-0.5">Available</div>
-          <div className="text-white font-bold text-lg">€{walletData.availableBalance.toFixed(2)}</div>
+    <div className="flex-1 flex flex-col">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 mb-2">
+        <div className="bg-gradient-to-br from-green-500/20 to-emerald-600/20 rounded-lg p-2 border border-green-500/20">
+          <div className="text-white/60 text-[9px] mb-0.5">Available</div>
+          <div className="text-white font-bold text-sm">€{walletData.availableBalance.toFixed(2)}</div>
         </div>
-        <div className="bg-[#252525] rounded-lg p-3 border border-white/5">
-          <div className="text-white/60 text-[10px] mb-0.5">Pending</div>
-          <div className="text-white font-bold text-lg">€{walletData.pendingEarnings.toFixed(2)}</div>
+        <div className="bg-[#252525] rounded-lg p-2 border border-white/5">
+          <div className="text-white/60 text-[9px] mb-0.5">Pending</div>
+          <div className="text-white font-bold text-sm">€{walletData.pendingEarnings.toFixed(2)}</div>
         </div>
-        <div className="bg-[#252525] rounded-lg p-3 border border-white/5">
-          <div className="text-white/60 text-[10px] mb-0.5">Total Earned</div>
-          <div className="text-white font-bold text-lg">€{walletData.totalEarned.toFixed(2)}</div>
+        <div className="bg-[#252525] rounded-lg p-2 border border-white/5">
+          <div className="text-white/60 text-[9px] mb-0.5">Total Earned</div>
+          <div className="text-white font-bold text-sm">€{walletData.totalEarned.toFixed(2)}</div>
         </div>
-        <div className="bg-[#252525] rounded-lg p-3 border border-white/5">
-          <div className="text-white/60 text-[10px] mb-0.5">This Month</div>
-          <div className="text-white font-bold text-lg">€{walletData.thisMonth.toFixed(2)}</div>
+        <div className="bg-[#252525] rounded-lg p-2 border border-white/5">
+          <div className="text-white/60 text-[9px] mb-0.5">This Month</div>
+          <div className="text-white font-bold text-sm">€{walletData.thisMonth.toFixed(2)}</div>
         </div>
       </div>
 
-      <div className="bg-[#252525] rounded-lg border border-white/5 overflow-hidden">
-        <div className="px-3 py-2 border-b border-white/10">
-          <h4 className="text-white font-medium text-xs">Recent Transactions</h4>
+      <div className="bg-[#252525] rounded-lg border border-white/5 overflow-hidden flex-1 flex flex-col">
+        <div className="px-2 py-1.5 border-b border-white/10">
+          <h4 className="text-white font-medium text-[10px]">Recent Transactions</h4>
         </div>
-        <div className="divide-y divide-white/5">
-          {transactions.slice(0, 3).map((tx, index) => (
-            <div key={index} className="px-3 py-2 flex items-center justify-between">
+        <div className="divide-y divide-white/5 flex-1">
+          {transactions.map((tx, index) => (
+            <div key={index} className="px-2 py-1.5 flex items-center justify-between">
               <div className="flex items-center gap-2">
-                <div className={`w-6 h-6 rounded-full flex items-center justify-center ${
+                <div className={`w-5 h-5 rounded-full flex items-center justify-center ${
                   tx.type === "credit" ? "bg-green-500/20" : "bg-red-500/20"
                 }`}>
                   {tx.type === "credit" ? (
-                    <ArrowDownLeft className="w-3 h-3 text-green-400" />
+                    <ArrowDownLeft className="w-2.5 h-2.5 text-green-400" />
                   ) : (
-                    <ArrowUpRight className="w-3 h-3 text-red-400" />
+                    <ArrowUpRight className="w-2.5 h-2.5 text-red-400" />
                   )}
                 </div>
                 <div>
-                  <div className="text-white text-[11px] font-medium">{tx.description}</div>
-                  <div className="text-white/40 text-[9px]">{tx.date}</div>
+                  <div className="text-white text-[10px] font-medium">{tx.description}</div>
+                  <div className="text-white/40 text-[8px]">{tx.date}</div>
                 </div>
               </div>
-              <div className={`text-[11px] font-bold ${tx.type === "credit" ? "text-green-400" : "text-red-400"}`}>
+              <div className={`text-[10px] font-bold ${tx.type === "credit" ? "text-green-400" : "text-red-400"}`}>
                 {tx.type === "credit" ? "+" : ""}€{Math.abs(tx.amount).toFixed(2)}
               </div>
             </div>
@@ -185,29 +185,29 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
   );
 
   const renderSponsorshipsContent = () => (
-    <div className="flex-1">
-      <h3 className="text-sm font-medium text-white mb-3">Available sponsorships</h3>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2">
+    <div className="flex-1 flex flex-col">
+      <h3 className="text-xs font-medium text-white mb-2">Available sponsorships</h3>
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 flex-1">
         {sponsorships.map((sponsorship) => (
           <div
             key={sponsorship.id}
-            className="bg-[#252525] rounded-lg overflow-hidden border border-white/5 hover:border-primary/50 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 cursor-pointer group"
+            className="bg-[#252525] rounded-lg overflow-hidden border border-white/5 hover:border-primary/50 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 cursor-pointer group flex flex-col"
           >
-            <div className="relative h-16 overflow-hidden">
+            <div className="relative flex-1 min-h-[80px] overflow-hidden">
               <div className={`w-full h-full bg-gradient-to-br ${sponsorship.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}>
-                <span className="text-white/90 font-bold text-xs tracking-wider">{sponsorship.brand}</span>
+                <span className="text-white/90 font-bold text-sm tracking-wider">{sponsorship.brand}</span>
               </div>
               {sponsorship.isNew && (
-                <Badge className="absolute top-1.5 left-1.5 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-[8px] px-1 py-0 border-0">
+                <Badge className="absolute top-1.5 left-1.5 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-[7px] px-1 py-0 border-0">
                   New!
                 </Badge>
               )}
             </div>
             <div className="p-2">
-              <h4 className="text-white font-medium text-[11px] mb-1.5 line-clamp-1">{sponsorship.title}</h4>
+              <h4 className="text-white font-medium text-[10px] mb-1 line-clamp-1">{sponsorship.title}</h4>
               <Button 
                 size="sm" 
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-[10px] py-0.5 h-6"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-[9px] py-0 h-5"
               >
                 Apply
               </Button>
@@ -237,17 +237,17 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
   const avgViews = useMemo(() => weeklyViews.reduce((a, b) => a + b.views, 0) / weeklyViews.length, []);
 
   const renderStatisticsContent = () => (
-    <div className="flex-1 space-y-3">
-      {/* Filters Row - Compact */}
-      <div className="flex flex-wrap items-center justify-between gap-2 bg-[#252525] rounded-lg p-2 border border-white/5">
-        <div className="flex items-center gap-2">
-          <Filter className="w-3.5 h-3.5 text-white/40" />
-          <div className="flex gap-1">
+    <div className="flex-1 flex flex-col gap-2">
+      {/* Filters + Stats Row Combined */}
+      <div className="flex items-center justify-between gap-2 bg-[#252525] rounded-lg p-1.5 border border-white/5">
+        <div className="flex items-center gap-1.5">
+          <Filter className="w-3 h-3 text-white/40" />
+          <div className="flex gap-0.5">
             {["7d", "30d", "90d"].map((period) => (
               <button
                 key={period}
                 onClick={() => setTimeFilter(period)}
-                className={`px-2 py-1 rounded-md text-[10px] font-medium transition-all ${
+                className={`px-1.5 py-0.5 rounded text-[9px] font-medium transition-all ${
                   timeFilter === period
                     ? "bg-primary text-primary-foreground"
                     : "bg-white/5 text-white/60 hover:text-white hover:bg-white/10"
@@ -258,69 +258,32 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
             ))}
           </div>
         </div>
-        <Select value={campaignFilter} onValueChange={setCampaignFilter}>
-          <SelectTrigger className="w-[120px] h-7 bg-white/5 border-white/10 text-white text-[10px]">
-            <SelectValue placeholder="All Campaigns" />
-          </SelectTrigger>
-          <SelectContent className="bg-[#252525] border-white/10">
-            <SelectItem value="all" className="text-white text-xs">All Campaigns</SelectItem>
-            <SelectItem value="surfshark" className="text-white text-xs">Surfshark VPN</SelectItem>
-            <SelectItem value="philips" className="text-white text-xs">Philips OneBlade</SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
-
-      {/* Summary Stats - Compact */}
-      <div className="grid grid-cols-4 gap-2">
-        <div className="bg-[#252525] rounded-lg p-2.5 border border-white/5">
-          <div className="flex items-center gap-1.5 mb-1">
-            <Eye className="w-3 h-3 text-primary/70" />
-            <span className="text-white/60 text-[9px]">Views</span>
+        <div className="flex items-center gap-3 text-[9px]">
+          <div className="flex items-center gap-1">
+            <Eye className="w-2.5 h-2.5 text-primary/70" />
+            <span className="text-white font-bold">15.9K</span>
+            <span className="text-green-400">+18%</span>
           </div>
-          <div className="text-white font-bold text-sm">15.9K</div>
-          <div className="text-green-400 text-[9px] flex items-center gap-0.5">
-            <ArrowUpRight className="w-2.5 h-2.5" /> +18%
+          <div className="flex items-center gap-1">
+            <MousePointer className="w-2.5 h-2.5 text-primary/70" />
+            <span className="text-white font-bold">2.4%</span>
           </div>
-        </div>
-        <div className="bg-[#252525] rounded-lg p-2.5 border border-white/5">
-          <div className="flex items-center gap-1.5 mb-1">
-            <MousePointer className="w-3 h-3 text-primary/70" />
-            <span className="text-white/60 text-[9px]">CTR</span>
-          </div>
-          <div className="text-white font-bold text-sm">2.4%</div>
-          <div className="text-green-400 text-[9px] flex items-center gap-0.5">
-            <ArrowUpRight className="w-2.5 h-2.5" /> +0.3%
-          </div>
-        </div>
-        <div className="bg-[#252525] rounded-lg p-2.5 border border-white/5">
-          <div className="flex items-center gap-1.5 mb-1">
-            <Clock className="w-3 h-3 text-primary/70" />
-            <span className="text-white/60 text-[9px]">Watch</span>
-          </div>
-          <div className="text-white font-bold text-sm">23m</div>
-          <div className="text-muted-foreground text-[9px]">Avg</div>
-        </div>
-        <div className="bg-[#252525] rounded-lg p-2.5 border border-white/5">
-          <div className="flex items-center gap-1.5 mb-1">
-            <TrendingUp className="w-3 h-3 text-primary/70" />
-            <span className="text-white/60 text-[9px]">Conv</span>
-          </div>
-          <div className="text-white font-bold text-sm">1.8%</div>
-          <div className="text-green-400 text-[9px] flex items-center gap-0.5">
-            <ArrowUpRight className="w-2.5 h-2.5" /> +0.2%
+          <div className="flex items-center gap-1">
+            <TrendingUp className="w-2.5 h-2.5 text-primary/70" />
+            <span className="text-white font-bold">€169</span>
           </div>
         </div>
       </div>
 
-      {/* Charts Row - Compact */}
-      <div className="grid grid-cols-2 gap-2">
+      {/* Charts Row - Takes remaining space */}
+      <div className="grid grid-cols-2 gap-2 flex-1">
         {/* Views Chart */}
-        <div className="bg-[#252525] rounded-lg p-3 border border-white/5">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-white text-xs font-medium">Views</span>
-            <span className="text-white/40 text-[9px]">Avg: {Math.round(avgViews).toLocaleString()}</span>
+        <div className="bg-[#252525] rounded-lg p-2 border border-white/5 flex flex-col">
+          <div className="flex items-center justify-between mb-1">
+            <span className="text-white text-[10px] font-medium">Views</span>
+            <span className="text-white/40 text-[8px]">Avg: {Math.round(avgViews).toLocaleString()}</span>
           </div>
-          <div className="h-24">
+          <div className="flex-1 min-h-0">
             <ResponsiveContainer width="100%" height="100%">
               <AreaChart data={weeklyViews}>
                 <defs>
@@ -329,12 +292,12 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
                     <stop offset="100%" stopColor="#ef4444" stopOpacity={0} />
                   </linearGradient>
                 </defs>
-                <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: '#666', fontSize: 9 }} />
+                <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: '#666', fontSize: 8 }} />
                 <YAxis hide />
                 <Tooltip 
-                  contentStyle={{ background: '#1a1a1a', border: '1px solid #333', borderRadius: 6, fontSize: 10 }}
-                  labelStyle={{ color: '#fff', fontSize: 10 }}
-                  itemStyle={{ color: '#ef4444', fontSize: 10 }}
+                  contentStyle={{ background: '#1a1a1a', border: '1px solid #333', borderRadius: 6, fontSize: 9 }}
+                  labelStyle={{ color: '#fff', fontSize: 9 }}
+                  itemStyle={{ color: '#ef4444', fontSize: 9 }}
                 />
                 <ReferenceLine y={avgViews} stroke="#666" strokeDasharray="3 3" />
                 <Area 
@@ -351,22 +314,22 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
         </div>
 
         {/* Earnings Chart */}
-        <div className="bg-[#252525] rounded-lg p-3 border border-white/5">
-          <div className="flex items-center justify-between mb-2">
-            <span className="text-white text-xs font-medium">Earnings</span>
-            <span className="text-green-400 text-[9px] font-medium">€169.70</span>
+        <div className="bg-[#252525] rounded-lg p-2 border border-white/5 flex flex-col">
+          <div className="flex items-center justify-between mb-1">
+            <span className="text-white text-[10px] font-medium">Earnings</span>
+            <span className="text-green-400 text-[8px] font-medium">€169.70</span>
           </div>
-          <div className="h-24">
+          <div className="flex-1 min-h-0">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={weeklyEarnings}>
-                <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: '#666', fontSize: 9 }} />
+                <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: '#666', fontSize: 8 }} />
                 <YAxis hide />
                 <Tooltip 
-                  contentStyle={{ background: '#1a1a1a', border: '1px solid #333', borderRadius: 6, fontSize: 10 }}
-                  labelStyle={{ color: '#fff', fontSize: 10 }}
+                  contentStyle={{ background: '#1a1a1a', border: '1px solid #333', borderRadius: 6, fontSize: 9 }}
+                  labelStyle={{ color: '#fff', fontSize: 9 }}
                   formatter={(value: number) => [`€${value.toFixed(2)}`, 'Earnings']}
                 />
-                <Bar dataKey="amount" fill="#22c55e" radius={[3, 3, 0, 0]} animationDuration={800} />
+                <Bar dataKey="amount" fill="#22c55e" radius={[2, 2, 0, 0]} animationDuration={800} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -390,17 +353,17 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
     <section id="streamer-section" className="py-12 lg:py-20">
       <div className="max-w-[1500px] mx-auto px-4 lg:px-6">
         {/* Platform Preview */}
-        <div className="rounded-2xl overflow-hidden shadow-2xl border border-border/50 bg-[#1a1a1a]">
-          {/* Browser Bar */}
-          <div className="bg-[#2a2a2a] px-4 py-2.5 flex items-center gap-3 border-b border-white/10">
-            <div className="flex gap-1.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
-              <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
-              <div className="w-2.5 h-2.5 rounded-full bg-green-500" />
+        <div className="rounded-2xl overflow-hidden shadow-2xl border border-border/50 bg-[#1a1a1a] flex flex-col" style={{ aspectRatio: '16/10' }}>
+          {/* Browser Bar - Compact */}
+          <div className="bg-[#2a2a2a] px-3 py-1.5 flex items-center gap-2 border-b border-white/10">
+            <div className="flex gap-1">
+              <div className="w-2 h-2 rounded-full bg-red-500" />
+              <div className="w-2 h-2 rounded-full bg-yellow-500" />
+              <div className="w-2 h-2 rounded-full bg-green-500" />
             </div>
             <div className="flex-1 flex justify-center">
-              <div className="bg-[#1a1a1a] rounded-lg px-3 py-1 text-xs text-white/60 flex items-center gap-2">
-                <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <div className="bg-[#1a1a1a] rounded px-2 py-0.5 text-[10px] text-white/60 flex items-center gap-1.5">
+                <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
                   <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                 </svg>
@@ -409,15 +372,15 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
             </div>
           </div>
 
-          {/* App Header */}
+          {/* App Header - Compact */}
           <div className="bg-[#1a1a1a] border-b border-white/10">
-            <div className="px-4 py-3 flex items-center justify-between">
+            <div className="px-3 py-2 flex items-center justify-between">
               <div className="flex items-center gap-2">
                 {/* Mobile Menu Trigger */}
                 <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
                   <SheetTrigger asChild>
-                    <button className="md:hidden p-1.5 rounded-lg hover:bg-white/10 transition-colors">
-                      <Menu className="w-5 h-5 text-white" />
+                    <button className="md:hidden p-1 rounded-lg hover:bg-white/10 transition-colors">
+                      <Menu className="w-4 h-4 text-white" />
                     </button>
                   </SheetTrigger>
                   <SheetContent side="left" className="bg-[#1a1a1a] border-white/10 w-64 p-0">
@@ -425,7 +388,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
                       <img 
                         src="/lovable-uploads/logo-white.png" 
                         alt="Beta Ads" 
-                        className="h-6 w-auto"
+                        className="h-5 w-auto"
                       />
                     </div>
                     <nav className="p-3 space-y-1">
@@ -436,7 +399,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
                             setActiveNavItem(item.label);
                             setIsMobileMenuOpen(false);
                           }}
-                          className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm transition-all ${
+                          className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm transition-all ${
                             activeNavItem === item.label
                               ? "bg-red-400/20 text-red-400"
                               : "text-white/60 hover:text-white hover:bg-white/5"
@@ -453,9 +416,9 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
                 <img 
                   src="/lovable-uploads/logo-white.png" 
                   alt="inStreamly" 
-                  className="h-6 w-auto"
+                  className="h-5 w-auto"
                 />
-                <Badge className="bg-red-400/20 text-red-400 text-[9px] px-1.5 py-0.5 border-0">
+                <Badge className="bg-red-400/20 text-red-400 text-[8px] px-1 py-0 border-0">
                   BETA
                 </Badge>
               </div>
@@ -465,39 +428,30 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
                   <button
                     key={index}
                     onClick={() => setActiveNavItem(item.label)}
-                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs transition-all ${
+                    className={`flex items-center gap-1 px-2 py-1 rounded text-[10px] transition-all ${
                       activeNavItem === item.label
                         ? "bg-red-400/20 text-red-400"
                         : "text-white/60 hover:text-white hover:bg-white/5"
                     }`}
                   >
-                    <item.icon className="w-3.5 h-3.5" />
+                    <item.icon className="w-3 h-3" />
                     {item.label}
                   </button>
                 ))}
               </nav>
 
-              <div className="flex items-center gap-2">
-                <div className="hidden sm:block text-right text-[10px]">
+              <div className="flex items-center gap-1.5">
+                <div className="hidden sm:block text-right text-[9px]">
                   <div className="text-white/60">Level 3</div>
                   <div className="text-green-400">€247.50</div>
                 </div>
-                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 border border-white/20" />
+                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 border border-white/20" />
               </div>
             </div>
           </div>
 
-          {/* Breadcrumb */}
-          <div className="bg-[#1a1a1a] px-4 py-2 border-b border-white/5">
-            <div className="flex items-center gap-1.5 text-xs">
-              <Home className="w-3.5 h-3.5 text-white/40" />
-              <ChevronRight className="w-3 h-3 text-white/30" />
-              <span className="text-white/60">{getBreadcrumb()}</span>
-            </div>
-          </div>
-
-          {/* Main Content - Fixed height for consistent sizing */}
-          <div className="p-3 h-[320px] overflow-hidden">
+          {/* Main Content - Fills remaining space */}
+          <div className="p-3 flex-1 overflow-hidden flex flex-col">
             {renderContent()}
           </div>
         </div>
