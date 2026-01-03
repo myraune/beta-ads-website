@@ -127,9 +127,10 @@ export const Press: React.FC<PressProps> = ({ t }) => {
 
         {/* Scrolling container */}
         <div
-          className={`flex gap-6 sm:gap-8 px-6 lg:px-8 overflow-hidden ${
+          className={`flex gap-6 sm:gap-8 px-6 lg:px-8 ${
             isVisible ? "animate-scroll" : ""
           } hover:[animation-play-state:paused]`}
+          style={{ width: "max-content" }}
         >
           {/* First set */}
           {pressArticles.map((article, index) => (
