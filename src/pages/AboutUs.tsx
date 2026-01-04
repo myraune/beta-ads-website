@@ -154,22 +154,24 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
         ref={containerRef as React.RefObject<HTMLElement>}
         className="relative min-h-screen flex items-center justify-center overflow-hidden"
       >
-        {/* Aurora background */}
+        {/* Aurora background - optimized for performance */}
         <div className="absolute inset-0 pointer-events-none">
-          {/* Primary glow */}
+          {/* Primary glow - reduced blur for better performance */}
           <div 
-            className="absolute top-1/4 left-1/4 w-[800px] h-[800px] rounded-full animate-aurora-drift-1"
+            className="absolute top-1/4 left-1/4 w-[600px] h-[600px] rounded-full animate-aurora-drift-1"
             style={{
-              background: 'radial-gradient(circle, hsl(0 84% 60% / 0.15) 0%, transparent 70%)',
-              filter: 'blur(80px)',
+              background: 'radial-gradient(circle, hsl(0 84% 60% / 0.12) 0%, transparent 70%)',
+              filter: 'blur(40px)',
+              transform: 'translateZ(0)',
             }}
           />
-          {/* Secondary glow */}
+          {/* Secondary glow - reduced blur for better performance */}
           <div 
-            className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] rounded-full animate-aurora-drift-2"
+            className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full animate-aurora-drift-2"
             style={{
-              background: 'radial-gradient(circle, hsl(280 70% 50% / 0.1) 0%, transparent 70%)',
-              filter: 'blur(100px)',
+              background: 'radial-gradient(circle, hsl(280 70% 50% / 0.08) 0%, transparent 70%)',
+              filter: 'blur(50px)',
+              transform: 'translateZ(0)',
             }}
           />
         </div>
@@ -317,6 +319,8 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
               <img
                 src="/lovable-uploads/e6d9646d-bf5f-471c-a2d8-1f06c274f570.png"
                 alt="Andreas Myraune"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover object-top"
               />
               {/* Gradient overlay */}
@@ -352,12 +356,13 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
         ref={ctaRef as React.RefObject<HTMLElement>}
         className="py-32 lg:py-40 px-6 relative overflow-hidden"
       >
-        {/* Background glow */}
+        {/* Background glow - optimized */}
         <div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full animate-aurora-pulse"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full animate-aurora-pulse"
           style={{
-            background: 'radial-gradient(circle, hsl(0 84% 60% / 0.1) 0%, transparent 70%)',
-            filter: 'blur(80px)',
+            background: 'radial-gradient(circle, hsl(0 84% 60% / 0.08) 0%, transparent 70%)',
+            filter: 'blur(40px)',
+            transform: 'translateZ(0)',
           }}
         />
         
