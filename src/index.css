@@ -424,3 +424,41 @@
   -webkit-text-fill-color: transparent;
   background-position: 100% center;
 }
+
+/* Reduced motion support for accessibility and older computers */
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll,
+  .animate-aurora-drift-1,
+  .animate-aurora-drift-2,
+  .animate-aurora-drift-3,
+  .animate-aurora-drift-4,
+  .animate-aurora-sweep,
+  .animate-aurora-pulse,
+  .animate-shimmer-1,
+  .animate-shimmer-2,
+  .animate-shimmer-3,
+  .animate-shimmer-4,
+  .animate-shimmer-5,
+  .animate-shimmer-6,
+  .animate-shimmer-7,
+  .animate-shimmer-8,
+  .animate-shimmer-9,
+  .animate-shimmer-10,
+  .animate-ping,
+  .animate-bounce,
+  .animate-pulse,
+  .animate-pulse-subtle,
+  .animate-float-hover,
+  .animate-dashboard-tilt,
+  .animate-scan,
+  .animate-scan-light {
+    animation: none !important;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
