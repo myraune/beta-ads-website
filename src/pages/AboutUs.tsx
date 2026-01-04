@@ -1,132 +1,114 @@
-// ============ EDIT CONTENT HERE ============
-// Stats - update these numbers as needed
+/**
+ * About Us Page - Beta Ads
+ * Editorial, founder-led design with scrollytelling
+ * 
+ * ============ EDIT CONTENT HERE ============
+ */
+
+// ============ STATS ============
 const STATS = {
   campaignsShipped: 150,
   nordicMarkets: 4,
   creatorsInNetwork: 500,
-  avgCtrRange: "2-4",
-  hoursWatchedDelivered: 2,
-  repeatBrandRate: 75,
+  avgCtr: "2-4",
+  hoursWatched: 2,
+  repeatRate: 75,
 };
 
-// Timeline milestones
+// ============ TIMELINE ============
 const TIMELINE_MILESTONES = [
   {
-    period: "2000–2018",
+    period: "1990s–2010s",
     title: "Roots in Frosta",
-    description: "Growing up on a farm in rural Norway. Long days. Hard work. Early mornings. The foundation of everything that came later.",
-    icon: "Sprout",
+    description: "Growing up on a farm in Norway taught me that good work means showing up, every single day. No shortcuts.",
   },
   {
-    period: "2018–2019",
-    title: "Early sales years",
-    description: "Moved out at 17. Sold everything from subscriptions to energy contracts. Learned that attention is the only currency.",
-    icon: "TrendingUp",
+    period: "2010s",
+    title: "Learning to sell",
+    description: "Moved out young. Worked in sales, learned to talk to people, and figured out what actually makes someone say yes.",
   },
   {
-    period: "2019–2020",
-    title: "First Twitch experiments",
-    description: "Started watching streams obsessively. Noticed that viewers hated pre-rolls but loved creator moments. Something clicked.",
-    icon: "Monitor",
+    period: "2017–2018",
+    title: "Discovering Twitch",
+    description: "Found Twitch and understood immediately: this is where attention lives now. Live, unfiltered, real.",
+  },
+  {
+    period: "2019",
+    title: "First overlay experiments",
+    description: "Started testing overlay ads in streams. Most failed. But the ones that felt native? They worked.",
   },
   {
     period: "2020–2021",
-    title: "First working overlay",
-    description: "Built a rough prototype. Placed a brand inside a live stream without interrupting it. The first native ad on a Nordic stream.",
-    icon: "Layers",
-  },
-  {
-    period: "2021–2022",
     title: "First brand campaigns",
-    description: "Samsung said yes. Then Komplett. Then others. Real budgets. Real results. The model worked.",
-    icon: "Rocket",
+    description: "Landed real brand deals. Proved that native streaming ads could deliver performance, not just impressions.",
   },
   {
-    period: "2022–2024",
-    title: "Scaling the Nordics",
-    description: "Built a network of 500+ creators across Norway, Sweden, Denmark, and Finland. Became the go-to for Twitch in the region.",
-    icon: "Users",
+    period: "2022–2023",
+    title: "Scaling the Nordic network",
+    description: "Built a network of creators across Norway, Sweden, Denmark, and Finland. Quality over quantity.",
   },
   {
     period: "2024–",
     title: "Beyond the Nordics",
-    description: "The playbook is proven. Now it's time to take it further. New markets. Bigger brands. Same native approach.",
-    icon: "Globe",
+    description: "Now we're ready. The playbook works. Time to take it further.",
   },
 ];
 
-// ON STREAM features
+// ============ ON STREAM FEATURES ============
 const ON_STREAM_FEATURES = [
-  { icon: "Layers", title: "Live overlay moments", description: "Branded visuals that appear naturally during gameplay." },
-  { icon: "MessageSquare", title: "Chat CTA links", description: "Direct response mechanics inside Twitch chat." },
-  { icon: "Zap", title: "Trigger based moments", description: "Ads that react to in-game events in real time." },
-  { icon: "Film", title: "Creative production", description: "We design assets that feel native to each stream." },
-  { icon: "Users", title: "Streamer distribution", description: "Access to 500+ vetted Nordic creators." },
-  { icon: "BarChart3", title: "Reporting and learnings", description: "Clear metrics on what worked and why." },
+  { title: "Live overlay moments", description: "Branded overlays that appear during natural stream moments" },
+  { title: "Chat CTA links", description: "Clickable calls-to-action that live in chat" },
+  { title: "Trigger based moments", description: "Ads that fire on gameplay events or viewer milestones" },
+  { title: "Creative production", description: "We handle the creative so it fits the stream" },
+  { title: "Streamer distribution", description: "Access to vetted Nordic creators" },
+  { title: "Reporting and learnings", description: "Real performance data after every campaign" },
 ];
 
-// OFF STREAM features
-const OFF_STREAM_FEATURES = [
-  { icon: "Heart", title: "Creator relationships", description: "Long-term partnerships, not one-off deals." },
-  { icon: "Shield", title: "Brand safety routines", description: "Vetting, guidelines, and ongoing monitoring." },
-  { icon: "Calendar", title: "Community and events", description: "Creator meetups and brand activations." },
-  { icon: "Globe", title: "Nordic focus, global ambition", description: "Deep local expertise with international standards." },
+// ============ OFF STREAM ITEMS ============
+const OFF_STREAM_ITEMS = [
+  { number: "01", title: "Creator relationships", description: "We work with creators long-term. No one-off deals." },
+  { number: "02", title: "Brand safety routines", description: "Every stream is monitored. Every creator is vetted." },
+  { number: "03", title: "Community and events", description: "We show up. LAN parties, meetups, industry events." },
+  { number: "04", title: "Nordic focus, global ambition", description: "Deep roots in the Nordics. Ready to expand." },
 ];
 
-// What makes Beta different
+// ============ DIFFERENTIATORS ============
 const DIFFERENTIATORS = [
-  {
-    title: "Why old ads fail in live",
-    description: "Pre-rolls get skipped. Banners get ignored. Viewers came for the streamer, not the interruption. Traditional formats break the contract.",
+  { 
+    title: "Old ads fail in live environments", 
+    description: "Pre-roll interrupts. Banners get ignored. Viewers have ad-blindness. The only way to win attention is to earn it inside the stream." 
   },
-  {
-    title: "Why creators are the distribution",
-    description: "Trust transfers. When a streamer uses a product, their audience notices. The creator is the channel, not the inventory.",
+  { 
+    title: "Creators are the distribution", 
+    description: "The streamer is not just a channel. They are the relationship. Their endorsement means everything." 
   },
-  {
-    title: "Why timing wins",
-    description: "A logo that appears during a victory hits different than one that loads before the stream. Context is everything in live content.",
+  { 
+    title: "Timing and integration wins", 
+    description: "When an ad appears at the right moment, in the right format, it feels like content. That's when performance happens." 
   },
 ];
 
-// Brand safety points
-const BRAND_SAFETY = [
-  { icon: "UserCheck", title: "Streamer vetting", description: "Every creator is reviewed before joining the network." },
-  { icon: "AlertTriangle", title: "Category restrictions", description: "No gambling, adult content, or high-risk categories." },
-  { icon: "Eye", title: "Creative review", description: "All assets are approved before going live." },
-  { icon: "FileText", title: "Transparent reporting", description: "Full visibility into where your brand appeared." },
-];
+// ============ BRAND SAFETY ============
+const BRAND_SAFETY = {
+  left: [
+    { title: "Streamer vetting", items: ["Background checks", "Content history review", "Audience quality analysis"] },
+    { title: "Category restrictions", items: ["No gambling streams", "No controversial content", "Family-safe by default"] },
+  ],
+  right: [
+    { title: "Creative review", items: ["Every asset approved", "Brand guidelines enforced", "Context-aware placement"] },
+    { title: "Transparent reporting", items: ["Full visibility on placements", "Real-time monitoring", "Post-campaign analysis"] },
+  ],
+};
+
 // ============ END EDITABLE CONTENT ============
 
-import React, { useState, useEffect, useRef } from "react";
-import { Footer } from "@/components/sections/Footer";
-import { Link } from "react-router-dom";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useCountUp } from "@/hooks/useCountUp";
-import {
-  ArrowRight,
-  ArrowDown,
-  Sprout,
-  TrendingUp,
-  Monitor,
-  Layers,
-  Rocket,
-  Users,
-  Globe,
-  MessageSquare,
-  Zap,
-  Film,
-  BarChart3,
-  Heart,
-  Shield,
-  Calendar,
-  UserCheck,
-  AlertTriangle,
-  Eye,
-  FileText,
-  X,
-  Focus,
-} from "lucide-react";
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import { Footer } from '@/components/sections/Footer';
+import { Button } from '@/components/ui/button';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useCountUp } from '@/hooks/useCountUp';
 
 interface AboutUsProps {
   t: any;
@@ -134,153 +116,53 @@ interface AboutUsProps {
   setLanguage: (lang: string) => void;
 }
 
-// Icon mapping
-const iconMap: Record<string, React.FC<{ className?: string }>> = {
-  Sprout, TrendingUp, Monitor, Layers, Rocket, Users, Globe, MessageSquare,
-  Zap, Film, BarChart3, Heart, Shield, Calendar, UserCheck, AlertTriangle, Eye, FileText,
-};
-
-// Timeline progress indicator
-const TimelineProgress: React.FC<{ progress: number }> = ({ progress }) => (
-  <div className="hidden lg:block fixed left-8 top-1/2 -translate-y-1/2 z-40">
-    <div className="relative h-48 w-0.5 bg-border/30 rounded-full">
-      <div 
-        className="absolute top-0 left-0 w-full bg-primary rounded-full transition-all duration-300"
-        style={{ height: `${progress * 100}%` }}
-      />
-      <div 
-        className="absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary border-2 border-background shadow-lg shadow-primary/30 transition-all duration-300"
-        style={{ top: `${progress * 100}%` }}
-      />
-    </div>
-  </div>
-);
-
-// Stat card component
-const StatCard: React.FC<{
-  value: number;
-  suffix: string;
-  label: string;
-  isVisible: boolean;
-  delay: number;
-}> = ({ value, suffix, label, isVisible, delay }) => {
-  const { displayValue } = useCountUp(value, isVisible, { duration: 2000, delay });
-
-  return (
-    <div
-      className={`
-        text-center p-6 bg-card/30 border border-border/20 rounded-xl
-        transition-all duration-700 ease-out hover:bg-card/50 hover:border-primary/30
-        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-      `}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      <span className="text-4xl md:text-5xl font-bold text-foreground">
-        {displayValue}{suffix}
-      </span>
-      <p className="text-muted-foreground mt-2 text-sm">{label}</p>
-    </div>
-  );
-};
-
-// Feature card component
-const FeatureCard: React.FC<{
-  icon: string;
-  title: string;
-  description: string;
-  isVisible: boolean;
-  delay: number;
-}> = ({ icon, title, description, isVisible, delay }) => {
-  const IconComponent = iconMap[icon] || Layers;
-
-  return (
-    <div
-      className={`
-        p-5 bg-card/20 border border-border/20 rounded-xl
-        transition-all duration-500 ease-out hover:bg-card/40 hover:border-primary/30 group
-        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
-      `}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3 group-hover:bg-primary/20 transition-colors">
-        <IconComponent className="w-5 h-5 text-primary" />
-      </div>
-      <h4 className="font-semibold text-foreground mb-1">{title}</h4>
-      <p className="text-sm text-muted-foreground">{description}</p>
-    </div>
-  );
-};
-
-// Timeline milestone card
-const MilestoneCard: React.FC<{
-  milestone: typeof TIMELINE_MILESTONES[0];
-  index: number;
-  isVisible: boolean;
-}> = ({ milestone, index, isVisible }) => {
-  const IconComponent = iconMap[milestone.icon] || Layers;
-  const isLeft = index % 2 === 0;
-
-  return (
-    <div
-      className={`
-        relative grid lg:grid-cols-2 gap-4 lg:gap-12 items-center
-        transition-all duration-700 ease-out
-        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-      `}
-      style={{ transitionDelay: `${index * 100}ms` }}
-    >
-      {/* Timeline dot - visible on desktop */}
-      <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-background z-10" />
-
-      {/* Content */}
-      <div className={`lg:${isLeft ? 'text-right pr-12' : 'col-start-2 pl-12'}`}>
-        <span className="text-xs text-primary font-medium uppercase tracking-wider">{milestone.period}</span>
-        <h3 className="text-xl font-bold text-foreground mt-1 mb-2">{milestone.title}</h3>
-        <p className="text-muted-foreground leading-relaxed">{milestone.description}</p>
-      </div>
-
-      {/* Icon - opposite side on desktop */}
-      <div className={`hidden lg:flex ${isLeft ? 'col-start-2 pl-12' : 'col-start-1 row-start-1 justify-end pr-12'}`}>
-        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-          <IconComponent className="w-6 h-6 text-primary" />
-        </div>
-      </div>
-    </div>
-  );
-};
-
 const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
   const [focusMode, setFocusMode] = useState(false);
   const [timelineProgress, setTimelineProgress] = useState(0);
   const timelineRef = useRef<HTMLDivElement>(null);
+  
+  const heroAnimation = useScrollAnimation({ threshold: 0.1 });
+  const founderAnimation = useScrollAnimation({ threshold: 0.1 });
+  const timelineAnimation = useScrollAnimation({ threshold: 0.05 });
+  const onStreamAnimation = useScrollAnimation({ threshold: 0.1 });
+  const offStreamAnimation = useScrollAnimation({ threshold: 0.1 });
+  const differentiatorAnimation = useScrollAnimation({ threshold: 0.1 });
+  const statsAnimation = useScrollAnimation({ threshold: 0.1 });
+  const brandSafetyAnimation = useScrollAnimation({ threshold: 0.1 });
+  const ctaAnimation = useScrollAnimation({ threshold: 0.1 });
 
-  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation({ threshold: 0.1 });
-  const { ref: messageRef, isVisible: messageVisible } = useScrollAnimation({ threshold: 0.1 });
-  const { ref: timelineSectionRef, isVisible: timelineVisible } = useScrollAnimation({ threshold: 0.05 });
-  const { ref: onStreamRef, isVisible: onStreamVisible } = useScrollAnimation({ threshold: 0.1 });
-  const { ref: offStreamRef, isVisible: offStreamVisible } = useScrollAnimation({ threshold: 0.1 });
-  const { ref: diffRef, isVisible: diffVisible } = useScrollAnimation({ threshold: 0.1 });
-  const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation({ threshold: 0.1 });
-  const { ref: safetyRef, isVisible: safetyVisible } = useScrollAnimation({ threshold: 0.1 });
-  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation({ threshold: 0.1 });
+  // Stats with count-up animation
+  const campaignsCount = useCountUp(STATS.campaignsShipped, statsAnimation.isVisible, { duration: 2000 });
+  const marketsCount = useCountUp(STATS.nordicMarkets, statsAnimation.isVisible, { duration: 1500 });
+  const creatorsCount = useCountUp(STATS.creatorsInNetwork, statsAnimation.isVisible, { duration: 2000 });
+  const hoursCount = useCountUp(STATS.hoursWatched, statsAnimation.isVisible, { duration: 1500 });
+  const repeatCount = useCountUp(STATS.repeatRate, statsAnimation.isVisible, { duration: 2000 });
 
-  // Track timeline scroll progress
+  // Timeline scroll progress
   useEffect(() => {
     const handleScroll = () => {
       if (!timelineRef.current) return;
       const rect = timelineRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      const start = windowHeight * 0.8;
-      const end = -rect.height + windowHeight * 0.2;
-      const progress = Math.max(0, Math.min(1, (start - rect.top) / (start - end)));
-      setTimelineProgress(progress);
+      const elementTop = rect.top;
+      const elementHeight = rect.height;
+      
+      if (elementTop > windowHeight) {
+        setTimelineProgress(0);
+      } else if (elementTop + elementHeight < 0) {
+        setTimelineProgress(100);
+      } else {
+        const visibleStart = Math.max(0, windowHeight - elementTop);
+        const progress = Math.min(100, (visibleStart / (elementHeight + windowHeight * 0.5)) * 100);
+        setTimelineProgress(progress);
+      }
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Prevent scroll when focus mode is active
+  // Lock scroll when focus mode is active
   useEffect(() => {
     if (focusMode) {
       document.body.style.overflow = 'hidden';
@@ -293,521 +175,371 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
   }, [focusMode]);
 
   return (
-    <div className="min-h-screen bg-background overflow-x-hidden">
-      {/* Timeline progress indicator */}
-      {timelineVisible && <TimelineProgress progress={timelineProgress} />}
+    <div className="min-h-screen bg-background text-foreground">
+      
+      {/* Section 1: Hero */}
+      <section 
+        ref={heroAnimation.ref}
+        className="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 pt-32 pb-20"
+      >
+        <div className={`max-w-7xl transition-all duration-1000 ${heroAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <h1 className="text-6xl md:text-8xl lg:text-[10rem] font-extralight tracking-tighter leading-[0.85] mb-8">
+            About
+            <br />
+            <span className="text-primary">Beta</span> Ads
+          </h1>
+          
+          <div className="max-w-md mt-12 mb-16">
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              We place native ads inside live streams, delivered through creators, measured like performance media.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+            <Button asChild size="lg" className="group">
+              <Link to="/contact">
+                Book a call
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <Link to="/case-studies">See our work</Link>
+            </Button>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <p className="text-sm text-muted-foreground">Built by Andreas from Norway</p>
+            <button
+              onClick={() => setFocusMode(true)}
+              className="text-xs uppercase tracking-widest text-primary hover:text-primary/80 transition-colors"
+            >
+              Tap to focus →
+            </button>
+          </div>
+        </div>
+      </section>
 
       {/* Focus Mode Overlay */}
       {focusMode && (
         <div 
-          className="fixed inset-0 z-50 bg-background/95 backdrop-blur-md flex items-center justify-center p-6"
+          className="fixed inset-0 z-50 bg-background/98 backdrop-blur-sm flex items-center justify-center p-6"
           onClick={() => setFocusMode(false)}
         >
           <div 
-            className="max-w-2xl w-full bg-card border border-border/30 rounded-2xl p-8 md:p-12 relative animate-scale-in"
+            className="max-w-2xl animate-fade-in"
             onClick={(e) => e.stopPropagation()}
           >
+            <p className="text-xs uppercase tracking-widest text-primary mb-8">Message from Andreas</p>
+            <p className="text-2xl md:text-3xl font-light leading-relaxed text-foreground/90 mb-8">
+              I started Beta because I believed ads in streams could feel like content, not interruption.
+              <br /><br />
+              Most people said it wouldn't work. They were wrong.
+            </p>
             <button
               onClick={() => setFocusMode(false)}
-              className="absolute top-4 right-4 p-2 text-muted-foreground hover:text-foreground transition-colors"
-              aria-label="Close"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              <X className="w-5 h-5" />
-            </button>
-
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">Message from Andreas</h2>
-
-            <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                I started Beta Ads because I believed ads in live streams could be better. Not louder. Not more intrusive. Just better.
-              </p>
-              <p>
-                When I watch a streamer I like, I'm not there for the ads. I'm there for the person. The moment. The community. 
-                And when a brand shows up in a way that respects that, it actually works.
-              </p>
-              <p>
-                That's what we build. Native moments inside live content. Ads that feel like part of the stream, not an interruption.
-              </p>
-              <p>
-                If you're a brand trying to reach Gen Z, you already know they skip everything. But they watch streamers for hours. 
-                Let's talk about how to show up in that space the right way.
-              </p>
-            </div>
-
-            <div className="mt-8 pt-6 border-t border-border/30 flex items-center gap-4">
-              <div className="w-1 h-8 bg-primary rounded-full" />
-              <span className="font-semibold text-foreground">Andreas</span>
-            </div>
-
-            <button
-              onClick={() => setFocusMode(false)}
-              className="mt-8 text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-2"
-            >
-              <ArrowDown className="w-4 h-4" />
-              Back to scroll
+              ← Back to scroll
             </button>
           </div>
         </div>
       )}
 
-      {/* Section 1: Hero */}
-      <section
-        ref={heroRef as React.RefObject<HTMLElement>}
-        className="relative min-h-screen flex items-center justify-center overflow-hidden px-6"
+      {/* Section 2: Founder Note - Editorial Style */}
+      <section 
+        ref={founderAnimation.ref}
+        className="py-32 px-6 md:px-12 lg:px-24"
       >
-        {/* Subtle background glow */}
+        <div className={`max-w-7xl mx-auto transition-all duration-1000 delay-200 ${founderAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="flex">
+            {/* Red accent bar */}
+            <div className="hidden md:block w-px bg-primary/60 mr-12 self-stretch" />
+            
+            <div className="max-w-2xl">
+              <p className="text-xs uppercase tracking-widest text-primary mb-12">From the founder</p>
+              
+              <div className="space-y-8 text-xl md:text-2xl font-light leading-relaxed text-foreground/80">
+                <p>
+                  I grew up on a farm in Frosta, Norway. Work was never optional. 
+                  You showed up, you did the job, you improved tomorrow.
+                </p>
+                <p>
+                  I left home young. Worked in sales. Learned that trust is earned 
+                  in small moments, not big pitches.
+                </p>
+                <p>
+                  When I found Twitch, I saw something different. A new kind of 
+                  attention. Real, live, earned. And I realized that advertising 
+                  here couldn't work the old way.
+                </p>
+                <p>
+                  So I built Beta. To make streaming ads that feel native, 
+                  not invasive. That respect the viewer. That actually work.
+                </p>
+              </div>
+
+              <div className="mt-16 flex items-center gap-4">
+                <div className="w-12 h-px bg-primary" />
+                <p className="text-lg italic text-primary">Andreas</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 3: Timeline */}
+      <section 
+        ref={timelineRef}
+        className="py-32 px-6 md:px-12 lg:px-24 relative"
+      >
         <div 
-          className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full opacity-30"
-          style={{
-            background: 'radial-gradient(circle, hsl(var(--primary) / 0.15) 0%, transparent 70%)',
-            filter: 'blur(60px)',
-            transform: 'translateZ(0)',
-          }}
-        />
-
-        <div className="relative z-10 max-w-4xl mx-auto text-center">
-          {/* Pre-headline */}
-          <div
-            className={`
-              inline-flex items-center gap-2 px-4 py-2 bg-primary/10 border border-primary/20 rounded-full mb-8
-              transition-all duration-700 delay-100
-              ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-            `}
-          >
-            <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-sm text-primary font-medium">About Beta Ads</span>
-          </div>
-
-          {/* Main headline */}
-          <h1
-            className={`
-              text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-tight tracking-tight mb-6
-              transition-all duration-1000 delay-200
-              ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-            `}
-          >
-            About Beta Ads
-          </h1>
-
-          {/* Subheadline */}
-          <p
-            className={`
-              text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-8
-              transition-all duration-700 delay-400
-              ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
-            `}
-          >
-            We place native ads inside live streams, delivered through creators, measured like performance media.
-          </p>
-
-          {/* CTAs */}
-          <div
-            className={`
-              flex flex-col sm:flex-row items-center justify-center gap-4 mb-8
-              transition-all duration-700 delay-500
-              ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
-            `}
-          >
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium rounded-full hover:bg-primary/90 transition-all hover:scale-105"
-            >
-              Book a call
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <Link
-              to="/case-studies"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-border text-foreground font-medium rounded-full hover:bg-card/50 transition-all"
-            >
-              See our work
-            </Link>
-          </div>
-
-          {/* Credit line */}
-          <p
-            className={`
-              text-sm text-muted-foreground/70
-              transition-all duration-700 delay-600
-              ${heroVisible ? 'opacity-100' : 'opacity-0'}
-            `}
-          >
-            Built by Andreas from Norway.
-          </p>
-
-          {/* Focus mode button */}
-          <button
-            onClick={() => setFocusMode(true)}
-            className={`
-              mt-12 inline-flex items-center gap-2 px-4 py-2 border border-border/40 rounded-full
-              text-sm text-muted-foreground hover:text-foreground hover:border-primary/40 hover:bg-card/30
-              transition-all duration-300
-              ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-            `}
-            style={{ transitionDelay: '700ms' }}
-          >
-            <Focus className="w-4 h-4" />
-            Tap to focus
-          </button>
-        </div>
-
-        {/* Scroll indicator */}
-        <div
-          className={`
-            absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted-foreground
-            transition-all duration-700 delay-800
-            ${heroVisible ? 'opacity-100' : 'opacity-0'}
-          `}
+          ref={timelineAnimation.ref}
+          className={`max-w-7xl mx-auto transition-all duration-1000 ${timelineAnimation.isVisible ? 'opacity-100' : 'opacity-0'}`}
         >
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
-          <ArrowDown className="w-4 h-4 animate-bounce" />
-        </div>
-      </section>
+          <p className="text-xs uppercase tracking-widest text-primary mb-4">The journey</p>
+          <h2 className="text-5xl md:text-7xl font-extralight tracking-tight mb-24">How we got here</h2>
 
-      {/* Section 2: Message from Andreas */}
-      <section
-        ref={messageRef as React.RefObject<HTMLElement>}
-        className="py-24 lg:py-32 px-6"
-      >
-        <div className="max-w-3xl mx-auto">
-          <div
-            className={`
-              bg-card/30 border border-border/20 rounded-2xl p-8 md:p-12
-              transition-all duration-700
-              ${messageVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-            `}
-          >
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8">A note from Andreas</h2>
-
-            <div className="space-y-5 text-muted-foreground leading-relaxed">
-              <p>
-                I grew up on a farm in Frosta, a small place in the middle of Norway. Long days. Physical work. Not much glamour.
-                But it taught me something: if you want results, you show up and do the work.
-              </p>
-              <p>
-                I moved out young. Sold everything I could to make rent. Learned that attention is the only thing that matters in sales.
-                If people aren't listening, nothing else works.
-              </p>
-              <p>
-                Then I found Twitch. I watched streamers for hours. I noticed something: viewers hated ads that interrupted the stream,
-                but they loved moments that felt like part of it. That gap was the opportunity.
-              </p>
-              <p>
-                I built Beta Ads to close that gap. To make advertising work inside live content without breaking the trust between
-                streamers and their audience. Native. Respectful. Effective.
-              </p>
-              <p>
-                Today, we work with some of the biggest brands in the Nordics. We have 500+ creators in our network.
-                And we're just getting started.
-              </p>
+          {/* Desktop progress indicator */}
+          <div className="hidden lg:block fixed right-8 top-1/2 -translate-y-1/2 z-40">
+            <div className="w-1 h-32 bg-border/20 rounded-full overflow-hidden">
+              <div 
+                className="w-full bg-primary transition-all duration-300 rounded-full"
+                style={{ height: `${timelineProgress}%` }}
+              />
             </div>
-
-            {/* Signature */}
-            <div className="mt-10 pt-6 border-t border-border/30 flex items-center gap-4">
-              <div className="w-1 h-8 bg-primary rounded-full" />
-              <span className="font-semibold text-foreground">Andreas</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Section 3: Journey Timeline */}
-      <section
-        ref={timelineSectionRef as React.RefObject<HTMLElement>}
-        className="py-24 lg:py-32 px-6 bg-card/10"
-      >
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <span
-              className={`
-                text-sm text-primary font-medium uppercase tracking-widest
-                transition-all duration-500
-                ${timelineVisible ? 'opacity-100' : 'opacity-0'}
-              `}
-            >
-              The Journey
-            </span>
-            <h2
-              className={`
-                text-3xl md:text-5xl font-bold text-foreground mt-4
-                transition-all duration-700 delay-100
-                ${timelineVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
-              `}
-            >
-              How we got here
-            </h2>
+            <p className="text-xs text-muted-foreground mt-2 text-center">{Math.round(timelineProgress)}%</p>
           </div>
 
           {/* Timeline */}
-          <div ref={timelineRef} className="relative">
-            {/* Vertical line - desktop only */}
-            <div className="hidden lg:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-border/30" />
+          <div className="relative">
+            {/* Vertical rail */}
+            <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border/30 md:-translate-x-px" />
 
-            <div className="space-y-12 lg:space-y-16">
-              {TIMELINE_MILESTONES.map((milestone, index) => (
-                <MilestoneCard
-                  key={milestone.period}
-                  milestone={milestone}
-                  index={index}
-                  isVisible={timelineVisible}
-                />
-              ))}
-            </div>
+            {TIMELINE_MILESTONES.map((milestone, index) => {
+              const isEven = index % 2 === 0;
+              
+              return (
+                <div 
+                  key={index}
+                  className={`relative flex items-start mb-20 last:mb-0 ${
+                    isEven ? 'md:flex-row' : 'md:flex-row-reverse'
+                  }`}
+                >
+                  {/* Dot on rail */}
+                  <div className="absolute left-4 md:left-1/2 w-3 h-3 bg-primary rounded-full -translate-x-1/2 mt-2 z-10" />
+                  
+                  {/* Content */}
+                  <div className={`ml-12 md:ml-0 md:w-1/2 ${isEven ? 'md:pr-16 md:text-right' : 'md:pl-16'}`}>
+                    <span className="text-xs uppercase tracking-widest text-muted-foreground">{milestone.period}</span>
+                    <h3 className="text-2xl font-light mt-2 mb-3">{milestone.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{milestone.description}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Section 4a: ON STREAM */}
-      <section
-        ref={onStreamRef as React.RefObject<HTMLElement>}
-        className="py-24 lg:py-32 px-6"
+      <section 
+        ref={onStreamAnimation.ref}
+        className="py-32 px-6 md:px-12 lg:px-24 border-t border-border/10"
       >
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-12">
-            <h2
-              className={`
-                text-4xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight
-                transition-all duration-700
-                ${onStreamVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-              `}
-            >
-              ON STREAM
-            </h2>
-            <p
-              className={`
-                text-lg text-muted-foreground mt-4 max-w-xl
-                transition-all duration-700 delay-100
-                ${onStreamVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
-              `}
-            >
-              What we deliver inside live streams.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {ON_STREAM_FEATURES.map((feature, index) => (
-              <FeatureCard
-                key={feature.title}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-                isVisible={onStreamVisible}
-                delay={150 + index * 80}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 4b: OFF STREAM */}
-      <section
-        ref={offStreamRef as React.RefObject<HTMLElement>}
-        className="py-24 lg:py-32 px-6 bg-card/10"
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="mb-12">
-            <h2
-              className={`
-                text-4xl md:text-6xl lg:text-7xl font-bold text-foreground tracking-tight
-                transition-all duration-700
-                ${offStreamVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-              `}
-            >
-              OFF STREAM
-            </h2>
-            <p
-              className={`
-                text-lg text-muted-foreground mt-4 max-w-xl
-                transition-all duration-700 delay-100
-                ${offStreamVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
-              `}
-            >
-              What builds trust and culture behind the scenes.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 gap-4">
-            {OFF_STREAM_FEATURES.map((feature, index) => (
-              <FeatureCard
-                key={feature.title}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-                isVisible={offStreamVisible}
-                delay={150 + index * 80}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Section 5: What Makes Beta Different */}
-      <section
-        ref={diffRef as React.RefObject<HTMLElement>}
-        className="py-24 lg:py-32 px-6"
-      >
-        <div className="max-w-5xl mx-auto">
-          <h2
-            className={`
-              text-2xl md:text-4xl lg:text-5xl font-bold text-foreground text-center mb-16 leading-tight
-              transition-all duration-700
-              ${diffVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-            `}
-          >
-            Streaming is not a billboard.<br />
-            <span className="text-primary">It is a relationship.</span>
+        <div className={`max-w-7xl mx-auto transition-all duration-1000 ${onStreamAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <p className="text-xs uppercase tracking-widest text-primary mb-4">What we deliver</p>
+          <h2 className="text-7xl md:text-9xl font-extralight tracking-tighter mb-24">
+            On<br />Stream
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {DIFFERENTIATORS.map((diff, index) => (
-              <div
-                key={diff.title}
-                className={`
-                  p-6 bg-card/30 border border-border/20 rounded-xl
-                  transition-all duration-700 hover:bg-card/50 hover:border-primary/30
-                  ${diffVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-                `}
-                style={{ transitionDelay: `${150 + index * 100}ms` }}
+          {/* Feature Rail */}
+          <div className="space-y-0">
+            {ON_STREAM_FEATURES.map((feature, index) => (
+              <div 
+                key={index}
+                className="group py-6 border-t border-border/20 first:border-t-0 flex flex-col md:flex-row md:items-center gap-2 md:gap-8 hover:bg-card/30 transition-colors px-4 -mx-4"
               >
-                <h3 className="text-lg font-semibold text-foreground mb-3">{diff.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{diff.description}</p>
+                <h3 className="text-lg font-medium md:w-56 shrink-0">{feature.title}</h3>
+                <p className="text-muted-foreground text-sm md:opacity-60 group-hover:opacity-100 transition-opacity">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Section 6: Stats */}
-      <section
-        ref={statsRef as React.RefObject<HTMLElement>}
-        className="py-24 lg:py-32 px-6 bg-card/10"
+      {/* Section 4b: OFF STREAM */}
+      <section 
+        ref={offStreamAnimation.ref}
+        className="py-32 px-6 md:px-12 lg:px-24"
       >
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span
-              className={`
-                text-sm text-primary font-medium uppercase tracking-widest
-                transition-all duration-500
-                ${statsVisible ? 'opacity-100' : 'opacity-0'}
-              `}
-            >
-              Proof
-            </span>
-            <h2
-              className={`
-                text-3xl md:text-5xl font-bold text-foreground mt-4
-                transition-all duration-700 delay-100
-                ${statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
-              `}
-            >
-              The numbers
-            </h2>
-          </div>
+        <div className={`max-w-7xl mx-auto transition-all duration-1000 ${offStreamAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <p className="text-xs uppercase tracking-widest text-primary mb-4">Beyond the stream</p>
+          <h2 className="text-7xl md:text-9xl font-extralight tracking-tighter mb-24">
+            Off<br />Stream
+          </h2>
 
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
-            <StatCard value={STATS.campaignsShipped} suffix="+" label="Campaigns shipped" isVisible={statsVisible} delay={0} />
-            <StatCard value={STATS.nordicMarkets} suffix="" label="Nordic markets" isVisible={statsVisible} delay={100} />
-            <StatCard value={STATS.creatorsInNetwork} suffix="+" label="Creators in network" isVisible={statsVisible} delay={200} />
-            <StatCard value={parseInt(STATS.avgCtrRange.split('-')[0])} suffix={`-${STATS.avgCtrRange.split('-')[1]}%`} label="Average CTR" isVisible={statsVisible} delay={300} />
-            <StatCard value={STATS.hoursWatchedDelivered} suffix="M+" label="Hours watched delivered" isVisible={statsVisible} delay={400} />
-            <StatCard value={STATS.repeatBrandRate} suffix="%" label="Repeat brand rate" isVisible={statsVisible} delay={500} />
+          {/* Staggered Callouts */}
+          <div className="space-y-16">
+            {OFF_STREAM_ITEMS.map((item, index) => (
+              <div 
+                key={index}
+                className="flex gap-6 md:gap-12"
+                style={{ marginLeft: `${index * 3}%` }}
+              >
+                <span className="text-6xl md:text-8xl font-extralight text-primary/20">{item.number}</span>
+                <div className="pt-4">
+                  <h3 className="text-xl font-medium mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground max-w-md">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 5: What Makes Beta Different */}
+      <section 
+        ref={differentiatorAnimation.ref}
+        className="py-32 px-6 md:px-12 lg:px-24 border-t border-border/10"
+      >
+        <div className={`max-w-7xl mx-auto transition-all duration-1000 ${differentiatorAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-tight leading-tight mb-24">
+            Streaming is not a billboard.
+            <br />
+            <span className="text-primary">It is a relationship.</span>
+          </h2>
+
+          <div className="space-y-16 max-w-3xl">
+            {DIFFERENTIATORS.map((item, index) => (
+              <div key={index} className="flex gap-6">
+                <div className="w-2 h-2 rounded-full bg-primary mt-3 shrink-0" />
+                <div>
+                  <h3 className="text-xl font-medium mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section 6: Stats Strip */}
+      <section 
+        ref={statsAnimation.ref}
+        className="py-32 px-6 md:px-12 lg:px-24 border-t border-border/10"
+      >
+        <div className={`max-w-7xl mx-auto transition-all duration-1000 ${statsAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <p className="text-xs uppercase tracking-widest text-primary mb-16">The numbers</p>
+          
+          {/* Stats Strip */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-0 lg:divide-x lg:divide-border/20 mb-24">
+            <div className="lg:px-6 first:lg:pl-0 last:lg:pr-0">
+              <p className="text-4xl md:text-5xl font-extralight text-primary">{campaignsCount.displayValue}+</p>
+              <p className="text-sm text-muted-foreground mt-2">Campaigns shipped</p>
+            </div>
+            <div className="lg:px-6">
+              <p className="text-4xl md:text-5xl font-extralight text-primary">{marketsCount.displayValue}</p>
+              <p className="text-sm text-muted-foreground mt-2">Nordic markets</p>
+            </div>
+            <div className="lg:px-6">
+              <p className="text-4xl md:text-5xl font-extralight text-primary">{creatorsCount.displayValue}+</p>
+              <p className="text-sm text-muted-foreground mt-2">Creators in network</p>
+            </div>
+            <div className="lg:px-6">
+              <p className="text-4xl md:text-5xl font-extralight text-primary">{STATS.avgCtr}%</p>
+              <p className="text-sm text-muted-foreground mt-2">Average CTR range</p>
+            </div>
+            <div className="lg:px-6">
+              <p className="text-4xl md:text-5xl font-extralight text-primary">{hoursCount.displayValue}M+</p>
+              <p className="text-sm text-muted-foreground mt-2">Hours watched</p>
+            </div>
+            <div className="lg:px-6 last:lg:pr-0">
+              <p className="text-4xl md:text-5xl font-extralight text-primary">{repeatCount.displayValue}%</p>
+              <p className="text-sm text-muted-foreground mt-2">Repeat brand rate</p>
+            </div>
           </div>
 
           {/* Quote */}
-          <div
-            className={`
-              mt-16 max-w-2xl mx-auto text-center
-              transition-all duration-700 delay-600
-              ${statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
-            `}
-          >
-            <blockquote className="text-xl md:text-2xl text-foreground font-light italic leading-relaxed">
+          <div className="max-w-2xl">
+            <blockquote className="text-2xl md:text-3xl font-light italic text-foreground/80 leading-relaxed">
               "We built Beta Ads to make streaming ads feel native, not invasive."
             </blockquote>
-            <div className="mt-4 flex items-center justify-center gap-3">
-              <div className="w-8 h-0.5 bg-primary rounded-full" />
-              <span className="text-muted-foreground font-medium">Andreas</span>
+            <div className="mt-8 flex items-center gap-4">
+              <div className="w-12 h-px bg-primary" />
+              <p className="text-primary">Andreas</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Section 7: Brand Safety */}
-      <section
-        ref={safetyRef as React.RefObject<HTMLElement>}
-        className="py-24 lg:py-32 px-6"
+      <section 
+        ref={brandSafetyAnimation.ref}
+        className="py-32 px-6 md:px-12 lg:px-24 border-t border-border/10"
       >
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-12">
-            <span
-              className={`
-                text-sm text-primary font-medium uppercase tracking-widest
-                transition-all duration-500
-                ${safetyVisible ? 'opacity-100' : 'opacity-0'}
-              `}
-            >
-              Brand Safety
-            </span>
-            <h2
-              className={`
-                text-3xl md:text-5xl font-bold text-foreground mt-4
-                transition-all duration-700 delay-100
-                ${safetyVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
-              `}
-            >
-              Trust is the foundation
-            </h2>
-          </div>
+        <div className={`max-w-7xl mx-auto transition-all duration-1000 ${brandSafetyAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <p className="text-xs uppercase tracking-widest text-primary mb-4">Brand safety</p>
+          <h2 className="text-4xl md:text-5xl font-extralight tracking-tight mb-16">
+            Your brand is protected
+          </h2>
 
-          <div className="grid sm:grid-cols-2 gap-4">
-            {BRAND_SAFETY.map((item, index) => (
-              <FeatureCard
-                key={item.title}
-                icon={item.icon}
-                title={item.title}
-                description={item.description}
-                isVisible={safetyVisible}
-                delay={150 + index * 80}
-              />
-            ))}
+          <div className="grid md:grid-cols-2 gap-16">
+            <div className="space-y-12">
+              {BRAND_SAFETY.left.map((block, index) => (
+                <div key={index}>
+                  <h3 className="text-lg font-medium mb-4">{block.title}</h3>
+                  <ul className="space-y-2">
+                    {block.items.map((item, i) => (
+                      <li key={i} className="text-muted-foreground flex items-start gap-3">
+                        <span className="w-1 h-1 rounded-full bg-primary mt-2 shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+            <div className="space-y-12">
+              {BRAND_SAFETY.right.map((block, index) => (
+                <div key={index}>
+                  <h3 className="text-lg font-medium mb-4">{block.title}</h3>
+                  <ul className="space-y-2">
+                    {block.items.map((item, i) => (
+                      <li key={i} className="text-muted-foreground flex items-start gap-3">
+                        <span className="w-1 h-1 rounded-full bg-primary mt-2 shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Section 8: Final CTA */}
-      <section
-        ref={ctaRef as React.RefObject<HTMLElement>}
-        className="py-32 lg:py-40 px-6 relative overflow-hidden"
+      <section 
+        ref={ctaAnimation.ref}
+        className="py-32 px-6 md:px-12 lg:px-24 border-t border-border/10"
       >
-        {/* Background glow */}
-        <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full opacity-40"
-          style={{
-            background: 'radial-gradient(circle, hsl(var(--primary) / 0.12) 0%, transparent 70%)',
-            filter: 'blur(60px)',
-            transform: 'translateZ(0)',
-          }}
-        />
-
-        <div
-          className={`
-            relative z-10 max-w-3xl mx-auto text-center
-            transition-all duration-1000
-            ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}
-          `}
-        >
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-8">
-            Ready to earn attention in the stream
+        <div className={`max-w-7xl mx-auto text-center transition-all duration-1000 ${ctaAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-tight mb-12">
+            Ready to earn attention
+            <br />
+            <span className="text-primary">in the stream</span>
           </h2>
-
-          <Link
-            to="/contact"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-primary-foreground font-medium rounded-full hover:bg-primary/90 transition-all hover:scale-105"
-          >
-            Book a call
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-
-          <p className="mt-8 text-muted-foreground">
+          
+          <Button asChild size="lg" className="mb-8">
+            <Link to="/contact">
+              Book a call
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+          
+          <p className="text-muted-foreground">
             We keep it simple. We ship. We improve.
           </p>
         </div>
