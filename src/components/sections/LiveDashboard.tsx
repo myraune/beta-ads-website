@@ -77,6 +77,42 @@ const StatCard: React.FC<StatCardProps> = ({
   );
 };
 
+// Hover-to-load GIF component for performance optimization
+const HoverGifImage: React.FC<{
+  gif: string;
+  alt: string;
+  className?: string;
+}> = ({ gif, alt, className = "" }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [hasLoaded, setHasLoaded] = useState(false);
+
+  return (
+    <div 
+      className={`relative ${className}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Placeholder shown until first hover */}
+      {!hasLoaded && (
+        <div className="absolute inset-0 bg-muted/40 animate-pulse flex items-center justify-center">
+          <div className="text-[10px] text-muted-foreground uppercase tracking-wider">Hover to preview</div>
+        </div>
+      )}
+      {/* Only load GIF when hovered for the first time */}
+      {(isHovered || hasLoaded) && (
+        <img 
+          src={gif} 
+          alt={alt}
+          loading="lazy"
+          decoding="async"
+          onLoad={() => setHasLoaded(true)}
+          className={`w-full h-full object-cover transition-all duration-300 ${hasLoaded ? 'opacity-100' : 'opacity-0'}`}
+        />
+      )}
+    </div>
+  );
+};
+
 // Streamer data for Streams tab
 const streamers = [
   { 
@@ -362,14 +398,12 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
             `}
             style={{ transitionDelay: `${150 + i * 100}ms` }}
           >
-            {/* GIF Thumbnail */}
+            {/* GIF Thumbnail - only loads on hover for performance */}
             <div className="relative aspect-video overflow-hidden">
-              <img 
-                src={streamer.gif} 
+              <HoverGifImage 
+                gif={streamer.gif} 
                 alt={streamer.name}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                className="w-full h-full"
               />
               {/* Live Badge */}
               <div className="absolute top-1 left-1 flex items-center gap-1 bg-destructive/90 px-1 py-0.5 rounded text-[7px] font-bold text-white">
