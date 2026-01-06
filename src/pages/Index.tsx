@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/Hero";
 import { TrustedBy } from "@/components/sections/TrustedBy";
 import { AdFormatsCarousel } from "@/components/sections/AdFormatsCarousel";
 import { Press } from "@/components/sections/Press";
+import { ScrollVideo } from "@/components/sections/ScrollVideo";
 import { Footer } from "@/components/sections/Footer";
 
 interface IndexProps {
@@ -22,6 +23,7 @@ const Index: React.FC<IndexProps> = ({ t, language, setLanguage }) => {
       <TrustedBy />
       <AdFormatsCarousel />
       <Press t={t} />
+      <ScrollVideo t={t} />
       <Footer t={t} language={language} setLanguage={setLanguage} />
     </>
   );
