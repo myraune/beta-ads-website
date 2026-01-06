@@ -110,13 +110,13 @@ export const Press: React.FC<PressProps> = ({ t }) => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   return (
-    <section ref={ref} className="py-20 lg:py-32 relative overflow-hidden">
+    <section ref={ref} className="py-16 lg:py-24 relative overflow-hidden">
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-12">
-        <h2 className="text-3xl md:text-5xl font-extralight text-foreground mb-4 tracking-tighter">
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-12 mb-10">
+        <h2 className="text-2xl lg:text-3xl font-light text-foreground mb-2">
           {t.pressTitle || "Featured in Press"}
         </h2>
-        <p className="text-lg text-muted-foreground max-w-2xl font-extralight leading-relaxed tracking-wide">
+        <p className="text-muted-foreground text-base max-w-md">
           {t.pressDescription || "What the media is saying about Beta Ads"}
         </p>
       </div>
