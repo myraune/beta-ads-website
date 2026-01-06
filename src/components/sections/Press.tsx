@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink } from "lucide-react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface PressArticle {
   title: string;
@@ -42,105 +42,129 @@ const pressArticles: PressArticle[] = [
   },
 ];
 
-const PressCard: React.FC<{ article: PressArticle }> = ({ article }) => {
-  const isKampanje = article.publication === "Kampanje";
-
-  return (
-    <div
-      className="flex-shrink-0 w-[280px] sm:w-[340px] lg:w-[400px] group cursor-pointer"
-      onClick={() => window.open(article.url, "_blank")}
-    >
-      <div className="relative rounded-xl overflow-hidden border border-border/30 bg-card/50 backdrop-blur-sm transition-all duration-500 group-hover:border-primary/50 group-hover:shadow-lg group-hover:shadow-primary/10">
-        {/* Article image */}
-        <div className="aspect-video overflow-hidden">
-          <img
-            src={article.image}
-            alt={article.title}
-            loading="lazy"
-            decoding="async"
-            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          />
-        </div>
-
-        {/* Text overlay - visible on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-4 sm:p-6">
-          <Badge
-            className={`mb-3 w-fit text-xs font-light ${
-              isKampanje
-                ? "bg-primary/20 text-primary border-primary/30"
-                : "bg-green-500/20 text-green-400 border-green-500/30"
-            }`}
-          >
-            {article.publication}
-          </Badge>
-          <h3 className="text-base sm:text-lg font-light text-foreground mb-2 tracking-wide leading-tight">
-            {article.title}
-          </h3>
-          <p className="text-muted-foreground text-sm font-extralight leading-relaxed">
-            {article.subtitle}
-          </p>
-          <div className="mt-3 flex items-center text-muted-foreground text-xs">
-            <ExternalLink className="h-3 w-3 mr-1" />
-            <span>Les mer</span>
-          </div>
-        </div>
-
-        {/* Publication badge - always visible */}
-        <div className="absolute top-3 left-3 opacity-100 group-hover:opacity-0 transition-opacity duration-300">
-          <Badge
-            className={`text-xs font-light ${
-              isKampanje
-                ? "bg-primary/80 text-primary-foreground border-primary/50"
-                : "bg-green-500/80 text-white border-green-500/50"
-            }`}
-          >
-            {article.publication}
-          </Badge>
-        </div>
-      </div>
-    </div>
-  );
-};
+const AUTO_PLAY_INTERVAL = 5000;
 
 interface PressProps {
   t: any;
 }
 
 export const Press: React.FC<PressProps> = ({ t }) => {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const activeArticle = pressArticles[activeIndex];
+
+  useEffect(() => {
+    if (isHovered) return;
+    
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % pressArticles.length);
+    }, AUTO_PLAY_INTERVAL);
+
+    return () => clearInterval(interval);
+  }, [isHovered]);
+
+  const isKampanje = activeArticle.publication === "Kampanje";
 
   return (
-    <section ref={ref} className="py-20 lg:py-32 relative overflow-hidden">
-      {/* Header */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-12">
-        <h2 className="text-3xl md:text-5xl font-extralight text-foreground mb-4 tracking-tighter">
-          {t.pressTitle || "Featured in Press"}
-        </h2>
-        <p className="text-lg text-muted-foreground max-w-2xl font-extralight leading-relaxed tracking-wide">
-          {t.pressDescription || "What the media is saying about Beta Ads"}
-        </p>
-      </div>
+    <section 
+      className="py-20 lg:py-32 bg-transparent"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="container mx-auto px-4 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center mb-12 lg:mb-16">
+          <h2 className="text-3xl lg:text-4xl font-medium text-foreground mb-4">
+            {t.pressTitle || "Featured in Press"}
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+            {t.pressDescription || "What the media is saying about Beta Ads"}
+          </p>
+        </div>
 
-      {/* Carousel */}
-      <div className="relative">
-        {/* Gradient fades */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-
-        {/* Scrolling container */}
-        <div
-          className={`flex gap-6 sm:gap-8 px-6 lg:px-8 ${
-            isVisible ? "animate-scroll" : ""
-          } hover:[animation-play-state:paused]`}
-          style={{ width: "max-content" }}
-        >
-          {/* First set */}
+        {/* Tab Navigation */}
+        <div className="flex flex-wrap justify-center gap-2 mb-10 lg:mb-14">
           {pressArticles.map((article, index) => (
-            <PressCard key={`press-${index}`} article={article} />
+            <button
+              key={index}
+              onClick={() => setActiveIndex(index)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                activeIndex === index
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-card/50 text-muted-foreground hover:bg-card hover:text-foreground border border-border/50"
+              }`}
+            >
+              {article.publication}
+            </button>
           ))}
-          {/* Duplicate for seamless loop */}
-          {pressArticles.map((article, index) => (
-            <PressCard key={`press-dup-${index}`} article={article} />
+        </div>
+
+        {/* Active Article Display */}
+        <div className="max-w-5xl mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIndex}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="space-y-6 cursor-pointer group"
+              onClick={() => window.open(activeArticle.url, "_blank")}
+            >
+              {/* Image Preview */}
+              <div className="relative rounded-xl overflow-hidden border border-border/50 bg-card/30 transition-all duration-300 group-hover:border-primary/50">
+                <img
+                  src={activeArticle.image}
+                  alt={activeArticle.title}
+                  className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
+                  loading="lazy"
+                />
+                {/* Publication badge */}
+                <div className="absolute top-4 left-4">
+                  <Badge
+                    className={`text-xs font-medium ${
+                      isKampanje
+                        ? "bg-primary/90 text-primary-foreground border-primary/50"
+                        : "bg-green-500/90 text-white border-green-500/50"
+                    }`}
+                  >
+                    {activeArticle.publication}
+                  </Badge>
+                </div>
+              </div>
+
+              {/* Article Info */}
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 px-2">
+                <div>
+                  <h3 className="text-xl lg:text-2xl font-medium text-foreground mb-1 group-hover:text-primary transition-colors">
+                    {activeArticle.title}
+                  </h3>
+                  <p className="text-muted-foreground">
+                    {activeArticle.subtitle}
+                  </p>
+                </div>
+                <div className="flex-shrink-0 flex items-center gap-2 text-muted-foreground text-sm group-hover:text-primary transition-colors">
+                  <ExternalLink className="h-4 w-4" />
+                  <span>Les mer</span>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Quick navigation dots */}
+        <div className="flex justify-center gap-2 mt-10">
+          {pressArticles.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                activeIndex === index
+                  ? "bg-primary w-6"
+                  : "bg-border hover:bg-muted-foreground"
+              }`}
+              aria-label={`View article ${index + 1}`}
+            />
           ))}
         </div>
       </div>
