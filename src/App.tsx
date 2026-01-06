@@ -63,6 +63,8 @@ const translations = {
     votingWhyWorthIt: ["Involving the audience in decision-making strengthens their focus.", "The brand is the interactive part of the stream. And since I'm already clicking on the chat, I can also click the link...."],
     howItWorksTitle: "HOW DOES IT WORK?",
     whyWorthItTitle: "WHY IS IT WORTH IT?",
+    exploreMoreCampaigns: "Explore more campaigns",
+    seeOurWork: "See our work",
   },
   no: {
     heroSubtitle: "Nordisk Twitch-byrå",
@@ -110,6 +112,8 @@ const translations = {
     votingWhyWorthIt: ["Å involvere publikum i beslutninger styrker deres fokus.", "Merkevaren er den interaktive delen av streamen. Og siden jeg allerede klikker på chatten, kan jeg også klikke på lenken...."],
     howItWorksTitle: "HVORDAN FUNGERER DET?",
     whyWorthItTitle: "HVORFOR ER DET VERDT DET?",
+    exploreMoreCampaigns: "Utforsk flere kampanjer",
+    seeOurWork: "Se vårt arbeid",
   },
   sv: {
     heroSubtitle: "Nordisk Twitch-byrå",
@@ -157,6 +161,8 @@ const translations = {
     votingWhyWorthIt: ["Att involvera publiken i beslutsfattande stärker deras fokus.", "Varumärket är den interaktiva delen av strömmen. Och eftersom jag redan klickar på chatten kan jag också klicka på länken...."],
     howItWorksTitle: "HUR FUNGERAR DET?",
     whyWorthItTitle: "VARFÖR ÄR DET VÄRT DET?",
+    exploreMoreCampaigns: "Utforska fler kampanjer",
+    seeOurWork: "Se vårt arbete",
   },
   fi: {
     heroSubtitle: "Pohjoismainen Twitch-toimisto",
@@ -204,6 +210,8 @@ const translations = {
     votingWhyWorthIt: ["Yleisön osallistaminen päätöksentekoon vahvistaa heidän keskittymistään.", "Brändi on streamin interaktiivinen osa. Ja koska klikkaan jo chattia, voin myös klikata linkkiä...."],
     howItWorksTitle: "MITEN SE TOIMII?",
     whyWorthItTitle: "MIKSI SE ON KANNATTAVAA?",
+    exploreMoreCampaigns: "Tutustu lisäkampanjoihin",
+    seeOurWork: "Katso työmme",
   },
 };
 
