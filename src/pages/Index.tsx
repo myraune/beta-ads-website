@@ -3,7 +3,7 @@ import { Hero } from "@/components/sections/Hero";
 import { TrustedBy } from "@/components/sections/TrustedBy";
 import { AdFormatsCarousel } from "@/components/sections/AdFormatsCarousel";
 import { Press } from "@/components/sections/Press";
-import { ScrollCaseVideo } from "@/components/sections/ScrollCaseVideo";
+import { ScrollVideo } from "@/components/sections/ScrollVideo";
 import { Footer } from "@/components/sections/Footer";
 
 interface IndexProps {
@@ -23,18 +23,7 @@ const Index: React.FC<IndexProps> = ({ t, language, setLanguage }) => {
       <TrustedBy />
       <AdFormatsCarousel />
       <Press t={t} />
-      <ScrollCaseVideo
-        src="/assets/case-samsung.mp4"
-        poster="/lovable-uploads/twitch-ad-example.png"
-        title="Samsung Campaign"
-        subtitle="Native integration across Nordic streamers"
-        metrics={[
-          { label: "Views", value: "2.5M" },
-          { label: "CTR", value: "4.2%" },
-          { label: "Engagement", value: "12%" },
-        ]}
-        t={t}
-      />
+      <ScrollVideo t={t} />
       <Footer t={t} language={language} setLanguage={setLanguage} />
     </>
   );
