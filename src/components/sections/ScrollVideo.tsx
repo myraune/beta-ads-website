@@ -10,16 +10,26 @@ export const ScrollVideo: React.FC<ScrollVideoProps> = ({ t }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [progress, setProgress] = useState(0);
   const [isUnmuted, setIsUnmuted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const ticking = useRef(false);
+
+  // Mobile detection
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener('resize', check);
+    return () => window.removeEventListener('resize', check);
+  }, []);
 
   const calculateProgress = useCallback(() => {
     if (!containerRef.current) return 0;
     
     const rect = containerRef.current.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    const containerHeight = rect.height;
+    const containerHeight = containerRef.current.offsetHeight;
+    const viewportHeight = window.innerHeight;
     
-    const scrollableDistance = containerHeight - windowHeight;
+    // Progress: 0 when section top hits viewport top, 1 when section bottom hits viewport bottom
+    const scrollableDistance = containerHeight - viewportHeight;
     const scrolled = -rect.top;
     
     if (scrolled <= 0) return 0;
@@ -44,21 +54,32 @@ export const ScrollVideo: React.FC<ScrollVideoProps> = ({ t }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [handleScroll]);
 
-  // Smooth easing for premium feel
-  const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
-  const easedProgress = easeOutCubic(progress);
+  // 3-phase animation:
+  // Phase 1 (0-0.25): Card format, no animation
+  // Phase 2 (0.25-0.55): Expand to fullscreen
+  // Phase 3 (0.55-1.0): Dead scroll (fullscreen hold)
+  
+  const getAnimationProgress = () => {
+    if (progress <= 0.25) return 0;
+    if (progress >= 0.55) return 1;
+    return (progress - 0.25) / 0.3; // 0 to 1 during phase 2
+  };
 
-  // Width: 85vw -> 100vw
-  const videoWidth = 85 + (15 * easedProgress);
+  const animationProgress = getAnimationProgress();
+  const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+  const easedProgress = easeOutCubic(animationProgress);
+
+  // Inset values - starts with padding, animates to 0
+  const maxInsetX = isMobile ? 16 : 64;
+  const maxInsetY = isMobile ? 24 : 48;
+  const insetX = maxInsetX * (1 - easedProgress);
+  const insetY = maxInsetY * (1 - easedProgress);
   
-  // Height: 70vh -> 100vh
-  const videoHeight = 70 + (30 * easedProgress);
+  // Border radius: 24px -> 0
+  const borderRadius = 24 * (1 - easedProgress);
   
-  // Border radius from 20px to 0
-  const borderRadius = 20 * (1 - easedProgress);
-  
-  // Overlay fades out later (starts fading at 60% progress)
-  const overlayOpacity = progress < 0.6 ? 1 : Math.max(0, 1 - (progress - 0.6) * 2.5);
+  // Overlay fades out during phase 2
+  const overlayOpacity = animationProgress < 0.5 ? 1 : Math.max(0, 1 - (animationProgress - 0.5) * 2);
 
   const handlePlayClick = () => {
     setIsUnmuted(true);
@@ -68,26 +89,31 @@ export const ScrollVideo: React.FC<ScrollVideoProps> = ({ t }) => {
     ? "https://www.youtube.com/embed/Uw7IIecicB4?autoplay=1&rel=0&modestbranding=1"
     : "https://www.youtube.com/embed/Uw7IIecicB4?autoplay=1&mute=1&loop=1&playlist=Uw7IIecicB4&rel=0&modestbranding=1";
 
+  // Container height: 280vh desktop, 160vh mobile
+  const containerHeight = isMobile ? '160vh' : '280vh';
+
   return (
     <>
       <section 
         ref={containerRef}
-        className="relative"
-        style={{ height: '250vh' }}
+        className="relative bg-background"
+        style={{ height: containerHeight }}
       >
-        {/* Sticky container */}
-        <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
-          {/* Video container with width/height animation */}
+        {/* Sticky container - always full viewport */}
+        <div className="sticky top-0 h-screen w-screen overflow-hidden">
+          {/* Video wrapper with animated inset */}
           <div 
-            className="relative overflow-hidden"
+            className="absolute overflow-hidden"
             style={{
-              width: `${videoWidth}vw`,
-              height: `${videoHeight}vh`,
+              top: insetY,
+              left: insetX,
+              right: insetX,
+              bottom: insetY,
               borderRadius: `${borderRadius}px`,
-              willChange: 'width, height, border-radius',
+              willChange: 'top, left, right, bottom, border-radius',
             }}
           >
-            {/* YouTube iframe */}
+            {/* YouTube iframe - always fills container */}
             <iframe
               src={videoSrc}
               className="absolute inset-0 w-full h-full"
@@ -96,7 +122,7 @@ export const ScrollVideo: React.FC<ScrollVideoProps> = ({ t }) => {
               title={t.caseVideoTitle || "Samsung Campaign"}
             />
             
-            {/* Play overlay - visible until late in scroll */}
+            {/* Play overlay */}
             {!isUnmuted && overlayOpacity > 0 && (
               <div 
                 className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none"
@@ -105,7 +131,7 @@ export const ScrollVideo: React.FC<ScrollVideoProps> = ({ t }) => {
                 {/* Gradient overlay for readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30" />
                 
-                {/* Play button - always clickable */}
+                {/* Play button */}
                 <button
                   onClick={handlePlayClick}
                   className="relative z-10 group flex flex-col items-center gap-4 focus:outline-none pointer-events-auto"
@@ -134,8 +160,8 @@ export const ScrollVideo: React.FC<ScrollVideoProps> = ({ t }) => {
         </div>
       </section>
       
-      {/* See Our Work CTA - outside sticky container */}
-      <div className="relative z-10 py-16 lg:py-24 text-center">
+      {/* See Our Work CTA */}
+      <div className="relative z-10 py-16 lg:py-24 text-center bg-background">
         <p className="text-muted-foreground text-sm uppercase tracking-widest mb-4">
           {t.exploreMoreCampaigns || "Explore more campaigns"}
         </p>
