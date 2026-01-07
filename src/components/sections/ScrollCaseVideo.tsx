@@ -44,6 +44,7 @@ export const ScrollCaseVideo: React.FC<ScrollCaseVideoProps> = ({
   const [isMuted, setIsMuted] = useState(true);
   const [shouldLoad, setShouldLoad] = useState(false);
   const [isInView, setIsInView] = useState(false);
+  const ticking = useRef(false);
 
   const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -88,9 +89,7 @@ export const ScrollCaseVideo: React.FC<ScrollCaseVideoProps> = ({
     if (!videoRef.current || prefersReducedMotion) return;
 
     if (isInView) {
-      videoRef.current.play().catch(() => {
-        // Autoplay blocked, that's okay
-      });
+      videoRef.current.play().catch(() => {});
     } else {
       videoRef.current.pause();
       videoRef.current.muted = true;
@@ -98,7 +97,7 @@ export const ScrollCaseVideo: React.FC<ScrollCaseVideoProps> = ({
     }
   }, [isInView, prefersReducedMotion]);
 
-  // Scroll progress calculation
+  // Scroll progress calculation - FIXED
   const calculateProgress = useCallback(() => {
     if (!containerRef.current) return 0;
 
@@ -106,23 +105,29 @@ export const ScrollCaseVideo: React.FC<ScrollCaseVideoProps> = ({
     const containerHeight = containerRef.current.offsetHeight;
     const viewportHeight = window.innerHeight;
 
-    // Start when section enters viewport, end when section leaves
-    const scrolled = viewportHeight - rect.top;
-    const total = containerHeight;
-    
-    return Math.max(0, Math.min(1, scrolled / total));
+    // Progress: 0 when top of section hits top of viewport
+    // Progress: 1 when bottom of section hits bottom of viewport
+    const scrollableDistance = containerHeight - viewportHeight;
+    const scrolled = -rect.top;
+
+    if (scrolled <= 0) return 0;
+    if (scrolled >= scrollableDistance) return 1;
+
+    return scrolled / scrollableDistance;
   }, []);
 
   // Scroll listener with RAF
   useEffect(() => {
     if (prefersReducedMotion) return;
 
-    let rafId: number;
-
     const handleScroll = () => {
-      rafId = requestAnimationFrame(() => {
-        setProgress(calculateProgress());
-      });
+      if (!ticking.current) {
+        ticking.current = true;
+        requestAnimationFrame(() => {
+          setProgress(calculateProgress());
+          ticking.current = false;
+        });
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -130,21 +135,20 @@ export const ScrollCaseVideo: React.FC<ScrollCaseVideoProps> = ({
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      cancelAnimationFrame(rafId);
     };
   }, [calculateProgress, prefersReducedMotion]);
 
   // Map scroll progress to animation progress with dead scroll
   const getAnimationProgress = (scrollProgress: number): number => {
-    // Phase 1: 0-0.35 - Card format (no animation)
-    if (scrollProgress < 0.35) return 0;
+    // Phase 1: 0-0.25 - Card format (no animation)
+    if (scrollProgress < 0.25) return 0;
     
-    // Phase 2: 0.35-0.65 - Scale to fullscreen
-    if (scrollProgress < 0.65) {
-      return (scrollProgress - 0.35) / 0.3;
+    // Phase 2: 0.25-0.55 - Scale to fullscreen
+    if (scrollProgress < 0.55) {
+      return (scrollProgress - 0.25) / 0.3;
     }
     
-    // Phase 3: 0.65-1.0 - Dead scroll (fullscreen, no change)
+    // Phase 3: 0.55-1.0 - Dead scroll (fullscreen, no change)
     return 1;
   };
 
@@ -154,17 +158,19 @@ export const ScrollCaseVideo: React.FC<ScrollCaseVideoProps> = ({
   const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
   const easedProgress = easeOutCubic(animationProgress);
 
-  // Animated values
-  const videoWidth = isMobile
-    ? `${85 + easedProgress * 15}vw`
-    : `${85 + easedProgress * 15}vw`;
+  // FIXED: Use inset animation instead of size animation
+  // The video wrapper has animated padding/inset, video always fills it
+  const maxInsetX = isMobile ? 16 : 64; // px on each side
+  const maxInsetY = isMobile ? 32 : 48; // px top/bottom
   
-  const videoHeight = isMobile
-    ? `${60 + easedProgress * 40}vh`
-    : `${70 + easedProgress * 30}vh`;
+  const insetX = maxInsetX * (1 - easedProgress);
+  const insetY = maxInsetY * (1 - easedProgress);
+  const borderRadius = 24 * (1 - easedProgress);
   
-  const borderRadius = `${24 * (1 - easedProgress)}px`;
-  const overlayOpacity = Math.max(0, 1 - easedProgress * 2);
+  // Overlay fades out during the second half of animation
+  const overlayOpacity = animationProgress < 0.5 
+    ? 1 
+    : Math.max(0, 1 - (animationProgress - 0.5) * 2);
 
   // Toggle mute
   const toggleMute = () => {
@@ -175,7 +181,7 @@ export const ScrollCaseVideo: React.FC<ScrollCaseVideoProps> = ({
   };
 
   // Container height for scroll distance
-  const containerHeight = isMobile ? "160vh" : "280vh";
+  const containerHeight = isMobile ? "160vh" : "250vh";
 
   // Reduced motion fallback
   if (prefersReducedMotion) {
@@ -201,7 +207,6 @@ export const ScrollCaseVideo: React.FC<ScrollCaseVideoProps> = ({
             </div>
           </div>
           
-          {/* CTA */}
           <div className="mt-12 text-center">
             <p className="text-muted-foreground text-sm uppercase tracking-widest mb-4">
               {t?.exploreMoreCampaigns || "Explore more campaigns"}
@@ -226,21 +231,21 @@ export const ScrollCaseVideo: React.FC<ScrollCaseVideoProps> = ({
         className="relative"
         style={{ height: containerHeight }}
       >
-        {/* Sticky wrapper */}
-        <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
-          {/* Video container with animation */}
+        {/* Sticky wrapper - always fills viewport */}
+        <div className="sticky top-0 h-screen w-screen overflow-hidden">
+          {/* Video container with animated inset - this is the key fix */}
           <div
-            className="relative overflow-hidden"
+            className="absolute overflow-hidden"
             style={{
-              width: videoWidth,
-              height: videoHeight,
-              borderRadius,
-              transition: "border-radius 0.1s ease-out",
-              maxWidth: "100vw",
-              maxHeight: "100vh",
+              top: insetY,
+              left: insetX,
+              right: insetX,
+              bottom: insetY,
+              borderRadius: `${borderRadius}px`,
+              willChange: "top, left, right, bottom, border-radius",
             }}
           >
-            {/* Video */}
+            {/* Video - always fills the container */}
             {shouldLoad && (
               <video
                 ref={videoRef}
@@ -265,15 +270,15 @@ export const ScrollCaseVideo: React.FC<ScrollCaseVideoProps> = ({
               />
             )}
 
-            {/* Overlay */}
+            {/* Overlay - fades out as video expands */}
             <div
-              className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6 lg:p-10 transition-opacity duration-300"
+              className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"
               style={{ opacity: overlayOpacity }}
             >
-              {/* Play/Mute button */}
+              {/* Play/Mute button - always interactive */}
               <button
                 onClick={toggleMute}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors group"
+                className="pointer-events-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors"
                 aria-label={isMuted ? "Unmute video" : "Mute video"}
               >
                 {isMuted ? (
@@ -283,40 +288,57 @@ export const ScrollCaseVideo: React.FC<ScrollCaseVideoProps> = ({
                 )}
               </button>
 
-              {/* Content */}
-              <div className="space-y-2">
-                <h3 className="text-2xl lg:text-3xl font-light text-white tracking-wide">
-                  {title}
-                </h3>
-                {subtitle && (
-                  <p className="text-white/70 text-base lg:text-lg">
-                    {subtitle}
-                  </p>
-                )}
+              {/* Content at bottom */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-10">
+                <div className="space-y-2">
+                  <h3 className="text-2xl lg:text-3xl font-light text-white tracking-wide">
+                    {title}
+                  </h3>
+                  {subtitle && (
+                    <p className="text-white/70 text-base lg:text-lg">
+                      {subtitle}
+                    </p>
+                  )}
 
-                {/* Metrics */}
-                {metrics && metrics.length > 0 && (
-                  <div className="flex gap-6 mt-4 pt-4 border-t border-white/10">
-                    {metrics.map((metric, index) => (
-                      <div key={index}>
-                        <p className="text-white text-xl lg:text-2xl font-light">
-                          {metric.value}
-                        </p>
-                        <p className="text-white/50 text-sm uppercase tracking-wider">
-                          {metric.label}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                )}
+                  {/* Metrics */}
+                  {metrics && metrics.length > 0 && (
+                    <div className="flex gap-6 mt-4 pt-4 border-t border-white/10">
+                      {metrics.map((metric, index) => (
+                        <div key={index}>
+                          <p className="text-white text-xl lg:text-2xl font-light">
+                            {metric.value}
+                          </p>
+                          <p className="text-white/50 text-sm uppercase tracking-wider">
+                            {metric.label}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* CTA hint */}
+                <p className="mt-4 text-white/50 text-sm flex items-center gap-2">
+                  <VolumeX className="w-4 h-4" />
+                  {ctaText}
+                </p>
               </div>
-
-              {/* CTA hint */}
-              <p className="mt-4 text-white/50 text-sm flex items-center gap-2">
-                <VolumeX className="w-4 h-4" />
-                {ctaText}
-              </p>
             </div>
+
+            {/* Mute button when overlay is faded - always accessible */}
+            {overlayOpacity < 0.3 && (
+              <button
+                onClick={toggleMute}
+                className="absolute bottom-6 right-6 w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-black/70 transition-colors z-10"
+                aria-label={isMuted ? "Unmute" : "Mute"}
+              >
+                {isMuted ? (
+                  <VolumeX className="w-5 h-5 text-white" />
+                ) : (
+                  <Volume2 className="w-5 h-5 text-white" />
+                )}
+              </button>
+            )}
           </div>
         </div>
       </section>
