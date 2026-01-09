@@ -5,45 +5,52 @@ interface AdFormat {
   name: string;
   dimensions: string;
   description: string;
+  bestFor: string;
   image: string;
 }
 
 const adFormats: AdFormat[] = [
   {
-    name: "Video Format",
-    dimensions: "640 × 360 px",
-    description: "In-stream video ads that blend natively into the broadcast.",
-    image: "/lovable-uploads/videoDemo1.png",
-  },
-  {
-    name: "Side Bar",
-    dimensions: "300 × 1080 px",
-    description: "Vertical ad placement alongside the stream.",
-    image: "/lovable-uploads/sideBarDemo1.png",
-  },
-  {
-    name: "Snipe",
+    name: "Snipe Banner",
     dimensions: "1920 × 250 px",
     description: "Horizontal banner overlay. High visibility.",
+    bestFor: "Best for: Awareness, product launches",
     image: "/lovable-uploads/snipeDemo1.png",
   },
   {
-    name: "Rich Media",
+    name: "Rich Media Overlay",
     dimensions: "1920 × 1080 px",
     description: "Full-screen takeover. Premium experience.",
+    bestFor: "Best for: Engagement, interactive campaigns",
     image: "/lovable-uploads/richMediaDemo1.png",
   },
   {
     name: "Poll",
     dimensions: "Dynamic",
     description: "Interactive poll overlay. Direct engagement.",
+    bestFor: "Best for: Direct conversions, promo codes",
     image: "/lovable-uploads/pollDemo1.png",
   },
   {
-    name: "Interactive",
-    dimensions: "Dynamic",
+    name: "Premium Experience",
+    dimensions: "1920 × 1080 px",
     description: "Rich media with clickable elements.",
+    bestFor: "Best for: Full-screen brand moments",
     image: "/lovable-uploads/interactiveDemo1.png",
+  },
+  {
+    name: "Video Format",
+    dimensions: "640 × 360 px",
+    description: "In-stream video ads that blend natively into the broadcast.",
+    bestFor: "Best for: Story-driven campaigns",
+    image: "/lovable-uploads/videoDemo1.png",
+  },
+  {
+    name: "Side Bar",
+    dimensions: "300 × 1080 px",
+    description: "Vertical ad placement alongside the stream.",
+    bestFor: "Best for: Persistent brand presence",
+    image: "/lovable-uploads/sideBarDemo1.png",
   },
 ];
 
@@ -69,8 +76,12 @@ const AdFormatCard: React.FC<{ format: AdFormat }> = ({ format }) => (
           {format.name}
         </h3>
         
-        <p className="text-muted-foreground text-sm">
+        <p className="text-muted-foreground text-sm mb-2">
           {format.description}
+        </p>
+        
+        <p className="text-primary text-xs font-medium">
+          {format.bestFor}
         </p>
       </div>
     </div>
