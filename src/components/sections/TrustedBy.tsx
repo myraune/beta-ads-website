@@ -1,5 +1,35 @@
 import React from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { Shield, TrendingUp, Target, MousePointerClick } from "lucide-react";
+
+interface Stat {
+  icon: React.ReactNode;
+  value: string;
+  label: string;
+}
+
+const stats: Stat[] = [
+  {
+    icon: <TrendingUp className="w-4 h-4" />,
+    value: "50,000+",
+    label: "monthly engaged viewers",
+  },
+  {
+    icon: <Target className="w-4 h-4" />,
+    value: "3-5x",
+    label: "higher engagement than traditional video ads",
+  },
+  {
+    icon: <MousePointerClick className="w-4 h-4" />,
+    value: "2.2%",
+    label: "avg CTR (vs 0.8% industry standard)",
+  },
+  {
+    icon: <Shield className="w-4 h-4" />,
+    value: "100%",
+    label: "adblock-proof by design",
+  },
+];
 
 export const TrustedBy: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
@@ -13,7 +43,8 @@ export const TrustedBy: React.FC = () => {
           isVisible ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="relative">
+        {/* Logo Carousel */}
+        <div className="relative mb-10">
           <div 
             className="flex overflow-hidden"
             style={{
@@ -130,6 +161,31 @@ export const TrustedBy: React.FC = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+
+        {/* Stats Row */}
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            {stats.map((stat, index) => (
+              <div 
+                key={stat.label}
+                className={`text-center transition-all duration-500 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                }`}
+                style={{ transitionDelay: `${index * 100 + 300}ms` }}
+              >
+                <div className="flex items-center justify-center gap-2 mb-1">
+                  <span className="text-primary">{stat.icon}</span>
+                  <span className="text-2xl lg:text-3xl font-light text-foreground">
+                    {stat.value}
+                  </span>
+                </div>
+                <p className="text-xs lg:text-sm text-muted-foreground">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
