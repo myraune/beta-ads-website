@@ -235,8 +235,9 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Layout language={language} setLanguage={setLanguage}>
-            <Routes>
+          <Routes>
+            {/* Marketing site routes with Layout */}
+            <Route element={<Layout language={language} setLanguage={setLanguage} />}>
               <Route path="/" element={<Index t={t} language={language} setLanguage={setLanguage} />} />
               <Route path="/case-studies" element={<CaseStudies t={t} language={language} setLanguage={setLanguage} />} />
               <Route path="/how-it-works" element={<HowItWorks t={t} language={language} setLanguage={setLanguage} />} />
@@ -244,11 +245,9 @@ const App = () => {
               <Route path="/about" element={<AboutUs t={t} language={language} setLanguage={setLanguage} />} />
               <Route path="/blog" element={<Blog t={t} language={language} setLanguage={setLanguage} />} />
               <Route path="/blog/:slug" element={<BlogPost t={t} language={language} setLanguage={setLanguage} />} />
-            </Routes>
-          </Layout>
-          
-          {/* Dashboard Routes (separate layout) */}
-          <Routes>
+            </Route>
+            
+            {/* Dashboard Routes (separate layout) */}
             <Route path="/dashboard" element={<DashboardLayout />}>
               <Route index element={<DashboardHome />} />
               <Route path="campaigns" element={<CampaignList />} />
@@ -256,12 +255,9 @@ const App = () => {
               <Route path="streamers/:id" element={<StreamerProfile />} />
               <Route path="audience" element={<AudienceInsights />} />
             </Route>
+            
+            <Route path="*" element={<NotFound />} />
           </Routes>
-          
-          <Routes>
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Layout>
         </BrowserRouter>
       </ThemeProvider>
     </QueryClientProvider>

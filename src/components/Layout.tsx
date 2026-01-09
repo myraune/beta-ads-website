@@ -1,16 +1,16 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 import { Navbar } from "./Navbar";
 import { AnimatedBackground } from "./AnimatedBackground";
 import { PageTransition } from "./PageTransition";
 import { ScrollProgress } from "./ScrollProgress";
 
 interface LayoutProps {
-  children: React.ReactNode;
   language: string;
   setLanguage: (lang: string) => void;
 }
 
-export const Layout: React.FC<LayoutProps> = ({ children, language, setLanguage }) => {
+export const Layout: React.FC<LayoutProps> = ({ language, setLanguage }) => {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       {/* Scroll Progress Indicator */}
@@ -25,7 +25,7 @@ export const Layout: React.FC<LayoutProps> = ({ children, language, setLanguage 
       {/* Main Content with Page Transitions */}
       <main className="relative z-10">
         <PageTransition>
-          {children}
+          <Outlet />
         </PageTransition>
       </main>
     </div>
