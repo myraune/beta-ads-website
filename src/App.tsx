@@ -15,6 +15,14 @@ import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 
+// Dashboard
+import { DashboardLayout } from "./components/dashboard/DashboardLayout";
+import DashboardHome from "./pages/dashboard/DashboardHome";
+import CampaignList from "./pages/dashboard/CampaignList";
+import CampaignDetail from "./pages/dashboard/CampaignDetail";
+import StreamerProfile from "./pages/dashboard/StreamerProfile";
+import AudienceInsights from "./pages/dashboard/AudienceInsights";
+
 // Translations object - shared across all pages
 const translations = {
   en: {
@@ -236,6 +244,21 @@ const App = () => {
               <Route path="/about" element={<AboutUs t={t} language={language} setLanguage={setLanguage} />} />
               <Route path="/blog" element={<Blog t={t} language={language} setLanguage={setLanguage} />} />
               <Route path="/blog/:slug" element={<BlogPost t={t} language={language} setLanguage={setLanguage} />} />
+            </Routes>
+          </Layout>
+          
+          {/* Dashboard Routes (separate layout) */}
+          <Routes>
+            <Route path="/dashboard" element={<DashboardLayout />}>
+              <Route index element={<DashboardHome />} />
+              <Route path="campaigns" element={<CampaignList />} />
+              <Route path="campaigns/:id" element={<CampaignDetail />} />
+              <Route path="streamers/:id" element={<StreamerProfile />} />
+              <Route path="audience" element={<AudienceInsights />} />
+            </Route>
+          </Routes>
+          
+          <Routes>
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Layout>
