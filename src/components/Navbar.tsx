@@ -19,7 +19,6 @@ const navLinks = [
   { href: "/how-it-works", label: { en: "How It Works", no: "Hvordan Det Fungerer", sv: "Hur Det Fungerar", fi: "Miten Se Toimii" } },
   { href: "/streamers", label: { en: "For Streamers", no: "For Streamere", sv: "För Streamers", fi: "Streamaajille" } },
   { href: "/about", label: { en: "About Us", no: "Om Oss", sv: "Om Oss", fi: "Tietoa Meistä" } },
-  { href: "/dashboard", label: { en: "Dashboard", no: "Dashboard", sv: "Dashboard", fi: "Dashboard" } },
 ];
 
 const languages = [
