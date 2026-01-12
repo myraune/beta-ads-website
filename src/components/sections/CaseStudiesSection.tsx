@@ -8,7 +8,6 @@ interface CaseStudy {
   campaign: string;
   impressions: string;
   ctr: string;
-  cpm: string;
   duration: string;
 }
 
@@ -18,7 +17,6 @@ const caseStudies: CaseStudy[] = [
     campaign: "Gaming monitor awareness, Nordics",
     impressions: "250,000+",
     ctr: "2.1%",
-    cpm: "€38",
     duration: "6-week campaign",
   },
   {
@@ -26,7 +24,6 @@ const caseStudies: CaseStudy[] = [
     campaign: "MV6 microphone launch campaign",
     impressions: "180,000+",
     ctr: "2.8%",
-    cpm: "€42",
     duration: "4-week campaign",
   },
   {
@@ -34,7 +31,6 @@ const caseStudies: CaseStudy[] = [
     campaign: "PC gaming hardware promotion",
     impressions: "320,000+",
     ctr: "1.9%",
-    cpm: "€35",
     duration: "8-week campaign",
   },
 ];
@@ -78,15 +74,7 @@ const CaseStudyCard: React.FC<{ study: CaseStudy; index: number; isVisible: bool
           CTR
         </p>
       </div>
-      <div>
-        <p className="text-2xl lg:text-3xl font-light text-foreground">
-          {study.cpm}
-        </p>
-        <p className="text-xs text-muted-foreground uppercase tracking-wide">
-          CPM
-        </p>
-      </div>
-      <div>
+      <div className="col-span-2">
         <p className="text-sm text-muted-foreground">
           {study.duration}
         </p>
