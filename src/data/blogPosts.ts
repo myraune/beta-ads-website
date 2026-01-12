@@ -313,13 +313,13 @@ Norske seere responderer best på innhold på norsk. Våre overlay-annonser og c
 - Høyest engasjement: Søndag kveld
 - Sesongtopper: Gaming-lanseringer, e-sport-events
 
-## Prismodeller og ROI
+## Forventet Ytelse
 
-| Kampanjetype | Kostnad | Forventet CTR |
-|--------------|---------|---------------|
-| Overlay-annonser | 5-15 NOK CPM | 2.5-4% |
-| Chatbot-integrasjon | 8-20 NOK CPM | 3-5% |
-| Full streamer-partnerskap | Skreddersydd | 4-7% |
+| Kampanjetype | Forventet CTR |
+|--------------|---------------|
+| Overlay-annonser | 2.5-4% |
+| Chatbot-integrasjon | 3-5% |
+| Full streamer-partnerskap | 4-7% |
 
 ## Kom i Gang
 
@@ -395,13 +395,13 @@ Svenska tittare svarar bäst på innehåll på svenska. Våra overlay-annonser o
 - Högst engagemang: Lördag kväll
 - Säsongstoppar: Gaming-lanseringar, Dreamhack
 
-## Prismodeller och ROI
+## Förväntad Prestanda
 
-| Kampanjtyp | Kostnad | Förväntad CTR |
-|------------|---------|---------------|
-| Overlay-annonser | 50-150 SEK CPM | 2.8-4.2% |
-| Chatbot-integration | 80-200 SEK CPM | 3.2-5.5% |
-| Full streamer-partnerskap | Skräddarsytt | 4.5-7.5% |
+| Kampanjtyp | Förväntad CTR |
+|------------|---------------|
+| Overlay-annonser | 2.8-4.2% |
+| Chatbot-integration | 3.2-5.5% |
+| Full streamer-partnerskap | 4.5-7.5% |
 
 ## Kom Igång
 
@@ -477,13 +477,13 @@ Suomalaiset katsojat reagoivat parhaiten suomenkieliseen sisältöön. Overlay-m
 - Korkein sitoutuminen: Sunnuntai-ilta
 - Kausipiikit: Pelijulkaisut, Assembly, ENCE-ottelut
 
-## Hinnoittelumallit ja ROI
+## Odotettu Suorituskyky
 
-| Kampanjatyyppi | Hinta | Odotettu CTR |
-|----------------|-------|--------------|
-| Overlay-mainokset | 5-15 € CPM | 2.3-3.8% |
-| Chatbot-integraatio | 8-20 € CPM | 2.8-4.5% |
-| Täysi streamaaja-kumppanuus | Räätälöity | 4-6.5% |
+| Kampanjatyyppi | Odotettu CTR |
+|----------------|--------------|
+| Overlay-mainokset | 2.3-3.8% |
+| Chatbot-integraatio | 2.8-4.5% |
+| Täysi streamaaja-kumppanuus | 4-6.5% |
 
 ## Aloita tänään
 
@@ -728,18 +728,18 @@ The global leaderboard shows Ninja (19.2M followers), ibai (17.2M), AuronPlay (1
     id: "twitch-advertising-benchmarks-2025",
     slug: "twitch-advertising-benchmarks-2025",
     title: "Twitch Advertising Benchmarks 2025",
-    excerpt: "CPM rates, CTR benchmarks, and ROI data for Twitch advertising across regions, formats, and industries.",
+    excerpt: "CTR benchmarks, engagement rates, and ROI data for Twitch advertising across formats and industries.",
     content: "## Advertising Benchmarks\n\nComprehensive benchmarks for Twitch advertising performance.",
     date: "Dec 14, 2025",
     dateISO: "2025-12-14",
     readTime: "7 min read",
     image: "/lovable-uploads/958b1a7f-a00c-46bc-acdb-bbefda64b9da.png",
     category: "Statistics & Data",
-    tags: ["advertising", "benchmarks", "cpm", "ctr", "roi"],
+    tags: ["advertising", "benchmarks", "ctr", "roi", "engagement"],
     hasDashboard: "ad-benchmarks",
-    seoTitle: { en: "Twitch Advertising Benchmarks 2025 | CPM & CTR Data | Beta Ads", no: "Twitch Annonsering Benchmarks 2025 | Beta Ads", sv: "Twitch Reklam Benchmarks 2025 | Beta Ads", fi: "Twitch Mainonta Benchmarks 2025 | Beta Ads" },
-    seoDescription: { en: "Complete Twitch advertising benchmarks. CPM by region, CTR by format, and ROI comparison data.", no: "Komplette Twitch annonsering benchmarks.", sv: "Kompletta Twitch reklam benchmarks.", fi: "Täydelliset Twitch mainonta benchmarkit." },
-    seoKeywords: { en: ["twitch cpm", "twitch advertising benchmarks"], no: ["twitch cpm"], sv: ["twitch cpm"], fi: ["twitch cpm"] }
+    seoTitle: { en: "Twitch Advertising Benchmarks 2025 | CTR & ROI Data | Beta Ads", no: "Twitch Annonsering Benchmarks 2025 | Beta Ads", sv: "Twitch Reklam Benchmarks 2025 | Beta Ads", fi: "Twitch Mainonta Benchmarks 2025 | Beta Ads" },
+    seoDescription: { en: "Complete Twitch advertising benchmarks. CTR by format, engagement rates, and ROI comparison data.", no: "Komplette Twitch annonsering benchmarks.", sv: "Kompletta Twitch reklam benchmarks.", fi: "Täydelliset Twitch mainonta benchmarkit." },
+    seoKeywords: { en: ["twitch advertising benchmarks", "twitch ctr"], no: ["twitch benchmarks"], sv: ["twitch benchmarks"], fi: ["twitch benchmarks"] }
   },
   {
     id: "swedish-twitch-streamers-2025",

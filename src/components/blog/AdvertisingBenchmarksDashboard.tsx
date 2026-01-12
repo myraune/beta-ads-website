@@ -2,14 +2,6 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, L
 import { useInView } from '@/hooks/useInView';
 import { useCountUp } from '@/hooks/useCountUp';
 
-const cpmByRegion = [
-  { region: 'North America', cpm: 12.50 },
-  { region: 'Western Europe', cpm: 9.80 },
-  { region: 'Nordics', cpm: 11.20 },
-  { region: 'UK', cpm: 10.40 },
-  { region: 'APAC', cpm: 4.20 },
-  { region: 'LATAM', cpm: 2.80 },
-];
 
 const ctrByFormat = [
   { format: 'Native Overlay', ctr: 3.2, engagement: 4.8 },
@@ -74,34 +66,10 @@ export default function AdvertisingBenchmarksDashboard() {
       {/* Overview Stats */}
       <section id="overview">
         <h2 className="text-2xl font-bold text-foreground mb-6">Twitch Advertising Benchmarks 2025</h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <AnimatedStatCard value={10.5} label="Avg CPM (Global)" prefix="$" decimals={1} />
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
           <AnimatedStatCard value={3.2} label="Avg CTR (Native)" suffix="%" decimals={1} />
           <AnimatedStatCard value={4.7} label="Avg Engagement Rate" suffix="%" decimals={1} />
           <AnimatedStatCard value={380} label="Avg ROI (Native)" suffix="%" />
-        </div>
-      </section>
-
-      {/* CPM by Region */}
-      <section id="cpm">
-        <h2 className="text-2xl font-bold text-foreground mb-6">Average CPM by Region</h2>
-        <div className="bg-card/30 border border-border/30 rounded-xl p-6">
-          <div className="h-80">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={cpmByRegion} layout="vertical">
-                <XAxis type="number" tickFormatter={(v) => `$${v}`} stroke="hsl(var(--muted-foreground))" />
-                <YAxis type="category" dataKey="region" width={120} stroke="hsl(var(--muted-foreground))" />
-                <Tooltip 
-                  formatter={(value) => [`$${value}`, 'CPM']}
-                  contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))' }}
-                />
-                <Bar dataKey="cpm" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-          <p className="text-sm text-muted-foreground mt-4 text-center">
-            Nordic markets command premium CPMs due to high purchasing power and engaged audiences.
-          </p>
         </div>
       </section>
 
