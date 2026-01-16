@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Play, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Play } from 'lucide-react';
 
 interface ScrollVideoProps {
   t: any;
@@ -93,86 +92,83 @@ export const ScrollVideo: React.FC<ScrollVideoProps> = ({ t }) => {
   const containerHeight = isMobile ? '160vh' : '280vh';
 
   return (
-    <>
-      <section 
-        ref={containerRef}
-        className="relative bg-background"
-        style={{ height: containerHeight }}
-      >
-        {/* Sticky container - always full viewport */}
-        <div className="sticky top-0 h-screen w-screen overflow-hidden">
-          {/* Video wrapper with animated inset */}
-          <div 
-            className="absolute overflow-hidden"
-            style={{
-              top: insetY,
-              left: insetX,
-              right: insetX,
-              bottom: insetY,
-              borderRadius: `${borderRadius}px`,
-              willChange: 'top, left, right, bottom, border-radius',
-            }}
-          >
-            {/* YouTube iframe - always fills container */}
-            <iframe
-              src={videoSrc}
-              className="absolute inset-0 w-full h-full"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title={t.caseVideoTitle || "Samsung Campaign"}
-            />
-            
-            {/* Play overlay */}
-            {!isUnmuted && overlayOpacity > 0 && (
-              <div 
-                className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none"
-                style={{ opacity: overlayOpacity }}
-              >
-                {/* Gradient overlay for readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/30" />
-                
-                {/* Play button */}
-                <button
-                  onClick={handlePlayClick}
-                  className="relative z-10 group flex flex-col items-center gap-4 focus:outline-none pointer-events-auto"
-                  aria-label={t.watchVideo || "Watch video"}
-                >
-                  <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/20">
-                    <Play className="w-8 h-8 text-white ml-1" fill="white" />
-                  </div>
-                  <span className="text-white text-lg font-light tracking-wide">
-                    {t.watchVideo || "Watch with sound"}
-                  </span>
-                </button>
-                
-                {/* Case title at bottom */}
-                <div className="absolute bottom-8 left-8 text-left z-10">
-                  <p className="text-white/60 text-sm uppercase tracking-widest mb-1">
-                    {t.caseStudy || "Case Study"}
-                  </p>
-                  <h3 className="text-white text-2xl font-light">
-                    {t.caseVideoTitle || "Samsung Campaign"}
-                  </h3>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
+    <section 
+      ref={containerRef}
+      className="relative"
+      style={{ height: containerHeight }}
+    >
+      {/* Dark gradient background for seamless blending */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background via-background to-background" />
       
-      {/* See Our Work CTA */}
-      <div className="relative z-10 py-16 lg:py-24 text-center bg-background">
-        <p className="text-muted-foreground text-sm uppercase tracking-widest mb-4">
-          {t.exploreMoreCampaigns || "Explore more campaigns"}
-        </p>
-        <Link 
-          to="/case-studies"
-          className="inline-flex items-center gap-3 text-foreground text-xl lg:text-2xl font-light hover:text-primary transition-colors group"
+      {/* Sticky container - always full viewport */}
+      <div className="sticky top-0 h-screen w-screen overflow-hidden">
+        {/* Outer glow/vignette for softer edges */}
+        <div 
+          className="absolute inset-0 pointer-events-none z-10"
+          style={{
+            background: `radial-gradient(ellipse at center, transparent 40%, hsl(var(--background)) 100%)`,
+            opacity: 0.4 * (1 - easedProgress),
+          }}
+        />
+        
+        {/* Video wrapper with animated inset */}
+        <div 
+          className="absolute overflow-hidden shadow-2xl shadow-black/50"
+          style={{
+            top: insetY,
+            left: insetX,
+            right: insetX,
+            bottom: insetY,
+            borderRadius: `${borderRadius}px`,
+            willChange: 'top, left, right, bottom, border-radius',
+            border: animationProgress < 1 ? '1px solid hsl(var(--border) / 0.3)' : 'none',
+          }}
         >
-          {t.seeOurWork || "See our work"}
-          <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-        </Link>
+          {/* YouTube iframe - always fills container */}
+          <iframe
+            src={videoSrc}
+            className="absolute inset-0 w-full h-full"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            title={t.caseVideoTitle || "Samsung Campaign"}
+          />
+          
+          {/* Play overlay */}
+          {!isUnmuted && overlayOpacity > 0 && (
+            <div 
+              className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none"
+              style={{ opacity: overlayOpacity }}
+            >
+              {/* Gradient overlay for readability */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/40" />
+              
+              {/* Play button */}
+              <button
+                onClick={handlePlayClick}
+                className="relative z-10 group flex flex-col items-center gap-4 focus:outline-none pointer-events-auto"
+                aria-label={t.watchVideo || "Watch video"}
+              >
+                <div className="w-20 h-20 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/20">
+                  <Play className="w-8 h-8 text-white ml-1" fill="white" />
+                </div>
+                <span className="text-white text-lg font-light tracking-wide">
+                  {t.watchVideo || "Watch with sound"}
+                </span>
+              </button>
+              
+              {/* Case title at bottom */}
+              <div className="absolute bottom-8 left-8 text-left z-10">
+                <p className="text-white/60 text-sm uppercase tracking-widest mb-1">
+                  {t.caseStudy || "Case Study"}
+                </p>
+                <h3 className="text-white text-2xl font-light">
+                  {t.caseVideoTitle || "Samsung Campaign"}
+                </h3>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
-    </>
+    </section>
   );
 };
