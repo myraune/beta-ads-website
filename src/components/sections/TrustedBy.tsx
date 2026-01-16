@@ -44,7 +44,7 @@ export const TrustedBy: React.FC = () => {
         }`}
       >
         {/* Logo Carousel */}
-        <div className="relative mb-10">
+        <div className="relative mb-16 lg:mb-20">
           <div 
             className="flex overflow-hidden"
             style={{
