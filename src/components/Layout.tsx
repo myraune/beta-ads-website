@@ -3,7 +3,6 @@ import { Outlet } from "react-router-dom";
 import { Navbar } from "./Navbar";
 import { AnimatedBackground } from "./AnimatedBackground";
 import { PageTransition } from "./PageTransition";
-import { ScrollProgress } from "./ScrollProgress";
 
 interface LayoutProps {
   language: string;
@@ -13,8 +12,6 @@ interface LayoutProps {
 export const Layout: React.FC<LayoutProps> = ({ language, setLanguage }) => {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Scroll Progress Indicator */}
-      <ScrollProgress />
       
       {/* Unified Aurora Background */}
       <AnimatedBackground />
