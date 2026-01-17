@@ -45,17 +45,15 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
 
   return (
     <nav
-      className={`fixed z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "top-4 left-1/2 -translate-x-1/2 w-auto bg-background/95 backdrop-blur-xl border border-border/50 shadow-2xl shadow-black/20 rounded-full px-3"
-          : "top-0 left-0 right-0 bg-transparent"
+          ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-black/5"
+          : "bg-transparent"
       }`}
     >
-      <div className={`transition-all duration-300 ${
-        scrolled ? "px-4" : "max-w-7xl mx-auto px-6 lg:px-8"
-      }`}>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className={`flex items-center justify-between transition-all duration-300 ${
-          scrolled ? "h-12" : "h-16 lg:h-20"
+          scrolled ? "h-14 lg:h-16" : "h-16 lg:h-20"
         }`}>
           {/* Logo Icon */}
           <Link to="/" className="flex items-center group">
@@ -63,7 +61,7 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
               src="/lovable-uploads/favicon.png"
               alt="Beta Ads"
               className={`w-auto transition-all duration-300 group-hover:scale-105 ${
-                scrolled ? "h-5 lg:h-6" : "h-8 lg:h-9"
+                scrolled ? "h-6 lg:h-7" : "h-8 lg:h-9"
               }`}
             />
           </Link>

@@ -4,6 +4,7 @@ import { TrustedBy } from "@/components/sections/TrustedBy";
 import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
 import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
 import { AdFormatsCarousel } from "@/components/sections/AdFormatsCarousel";
+import { Testimonials } from "@/components/sections/Testimonials";
 import { Press } from "@/components/sections/Press";
 import { Footer } from "@/components/sections/Footer";
 
@@ -25,6 +26,7 @@ const Index: React.FC<IndexProps> = ({ t, language, setLanguage }) => {
       <HowItWorksSection />
       <AdFormatsCarousel />
       <CaseStudiesSection />
+      <Testimonials />
       <Press t={t} />
       <Footer t={t} language={language} setLanguage={setLanguage} />
     </>
