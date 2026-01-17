@@ -45,10 +45,10 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
 
   return (
     <nav
-      className={`fixed top-0 z-50 transition-all duration-500 ${
+      className={`fixed z-50 transition-all duration-500 ${
         scrolled
-          ? "left-1/2 -translate-x-1/2 top-4 bg-background/90 backdrop-blur-xl border border-border/50 shadow-xl shadow-black/10 rounded-full px-2"
-          : "left-0 right-0 bg-transparent"
+          ? "top-4 left-1/2 -translate-x-1/2 w-auto bg-background/95 backdrop-blur-xl border border-border/50 shadow-2xl shadow-black/20 rounded-full px-3"
+          : "top-0 left-0 right-0 bg-transparent"
       }`}
     >
       <div className={`transition-all duration-300 ${

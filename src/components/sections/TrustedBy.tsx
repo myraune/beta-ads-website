@@ -36,12 +36,7 @@ export const TrustedBy: React.FC = () => {
           }}
         >
           {/* Light theme logos */}
-          <div 
-            className="flex gap-12 lg:gap-16 animate-scroll dark:hidden"
-            style={{
-              animation: 'scroll 40s linear infinite',
-            }}
-          >
+          <div className="flex gap-12 lg:gap-16 animate-scroll dark:hidden">
             {duplicatedLogos.map((logo, index) => (
               <div
                 key={`light-${logo.name}-${index}`}
@@ -58,12 +53,7 @@ export const TrustedBy: React.FC = () => {
           </div>
           
           {/* Dark theme logos */}
-          <div 
-            className="hidden dark:flex gap-12 lg:gap-16"
-            style={{
-              animation: 'scroll 40s linear infinite',
-            }}
-          >
+          <div className="hidden dark:flex gap-12 lg:gap-16 animate-scroll">
             {duplicatedLogos.map((logo, index) => (
               <div
                 key={`dark-${logo.name}-${index}`}
@@ -80,20 +70,6 @@ export const TrustedBy: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-33.333%);
-          }
-        }
-        .animate-scroll {
-          animation: scroll 40s linear infinite;
-        }
-      `}</style>
     </section>
   );
 };
