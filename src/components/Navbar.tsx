@@ -46,14 +46,16 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-black/5"
-          : "bg-transparent"
+        scrolled ? "top-4" : ""
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className={`transition-all duration-500 ${
+        scrolled 
+          ? "mx-4 lg:mx-auto lg:max-w-3xl rounded-full bg-background/95 backdrop-blur-xl shadow-lg shadow-black/10 border border-border/30 px-4 lg:px-6"
+          : "max-w-7xl mx-auto px-6 lg:px-8"
+      }`}>
         <div className={`flex items-center justify-between transition-all duration-300 ${
-          scrolled ? "h-14 lg:h-16" : "h-16 lg:h-20"
+          scrolled ? "h-12 lg:h-14" : "h-16 lg:h-20"
         }`}>
           {/* Logo Icon */}
           <Link to="/" className="flex items-center group">
