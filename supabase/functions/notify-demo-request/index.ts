@@ -15,27 +15,85 @@ interface DemoRequest {
   message: string;
 }
 
+// HTML escape function to prevent XSS in emails
+function escapeHtml(text: string): string {
+  const map: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return text.replace(/[&<>"']/g, m => map[m]);
+}
+
+// Server-side validation
+function validateInput(data: DemoRequest): { valid: boolean; error?: string } {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  if (!data.name || typeof data.name !== 'string' || data.name.trim().length === 0) {
+    return { valid: false, error: 'Name is required' };
+  }
+  if (data.name.length > 100) {
+    return { valid: false, error: 'Name must be less than 100 characters' };
+  }
+  if (!data.email || typeof data.email !== 'string' || !emailRegex.test(data.email)) {
+    return { valid: false, error: 'Valid email is required' };
+  }
+  if (data.email.length > 255) {
+    return { valid: false, error: 'Email must be less than 255 characters' };
+  }
+  if (!data.message || typeof data.message !== 'string' || data.message.trim().length === 0) {
+    return { valid: false, error: 'Message is required' };
+  }
+  if (data.message.length > 5000) {
+    return { valid: false, error: 'Message must be less than 5000 characters' };
+  }
+  if (data.company && data.company.length > 200) {
+    return { valid: false, error: 'Company must be less than 200 characters' };
+  }
+  
+  return { valid: true };
+}
+
 const handler = async (req: Request): Promise<Response> => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { name, email, company, message }: DemoRequest = await req.json();
+    const body: DemoRequest = await req.json();
+    
+    // Server-side validation
+    const validation = validateInput(body);
+    if (!validation.valid) {
+      return new Response(JSON.stringify({ error: validation.error }), {
+        status: 400,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
 
-    console.log("Sending demo request notification for:", name, email);
+    const { name, email, company, message } = body;
+    
+    // Escape all user input for HTML emails
+    const safeName = escapeHtml(name.trim());
+    const safeEmail = escapeHtml(email.trim());
+    const safeCompany = company ? escapeHtml(company.trim()) : "Not provided";
+    const safeMessage = escapeHtml(message.trim());
+
+    console.log("Sending demo request notification for:", safeName);
 
     const emailResponse = await resend.emails.send({
       from: "Beta Ads <onboarding@resend.dev>",
       to: ["andreas@beta-ads.no"],
-      subject: `New Demo Request from ${name}`,
+      subject: `New Demo Request from ${safeName}`,
       html: `
         <h2>New Demo Request</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Company:</strong> ${company || "Not provided"}</p>
+        <p><strong>Name:</strong> ${safeName}</p>
+        <p><strong>Email:</strong> ${safeEmail}</p>
+        <p><strong>Company:</strong> ${safeCompany}</p>
         <p><strong>Message:</strong></p>
-        <p>${message}</p>
+        <p>${safeMessage}</p>
         <hr>
         <p><em>Sent from Beta Ads website</em></p>
       `,
@@ -49,7 +107,7 @@ const handler = async (req: Request): Promise<Response> => {
     });
   } catch (error: any) {
     console.error("Error sending email:", error);
-    return new Response(JSON.stringify({ error: error.message }), {
+    return new Response(JSON.stringify({ error: "Failed to process request" }), {
       status: 500,
       headers: { "Content-Type": "application/json", ...corsHeaders },
     });
