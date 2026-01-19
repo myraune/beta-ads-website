@@ -6,6 +6,7 @@ export const TrustedBy: React.FC = () => {
 
   // Logo data - no groupM
   const logos = [
+    { src: "/lovable-uploads/wpp-media-logo.png", alt: "WPP Media" },
     { src: "/lovable-uploads/1fc4788c-f973-403f-9b01-4f3b4fa2ba20.png", alt: "SteelSeries" },
     { src: "/lovable-uploads/5b2346c1-8226-4f68-9806-5b03cba8e17c.png", alt: "Shure" },
     { src: "/lovable-uploads/59160e7a-4d18-4413-9f1b-f681271f8dde.png", alt: "Foodora" },
@@ -16,6 +17,7 @@ export const TrustedBy: React.FC = () => {
   ];
 
   const darkLogos = [
+    { src: "/lovable-uploads/wpp-media-logo.png", alt: "WPP Media" },
     { src: "/lovable-uploads/9fee36e6-a901-40bb-961b-b20b878b80de.png", alt: "SteelSeries" },
     { src: "/lovable-uploads/958b1a7f-a00c-46bc-acdb-bbefda64b9da.png", alt: "Shure" },
     { src: "/lovable-uploads/a716bb91-525c-4779-a530-ceb1daad954f.png", alt: "Foodora" },
