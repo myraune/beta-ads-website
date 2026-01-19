@@ -334,6 +334,20 @@
   animation: scroll 40s linear infinite;
 }
 
+@keyframes scroll-smooth {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-smooth {
+  animation: scroll-smooth 30s linear infinite;
+  will-change: transform;
+}
+
 /* Dashboard 3D tilt animation */
 @keyframes dashboard-tilt {
   0% {
