@@ -15,8 +15,8 @@ export const useCountUp = (
   const { duration = 2000, delay = 0, decimals = 0, enableLivePulse = true } = options;
   const [value, setValue] = useState(0);
   const [hasCompleted, setHasCompleted] = useState(false);
-  const animationRef = useRef<number>();
-  const pulseIntervalRef = useRef<NodeJS.Timeout>();
+  const animationRef = useRef<number | undefined>(undefined);
+  const pulseIntervalRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
 
   useEffect(() => {
     if (!isVisible) return;
