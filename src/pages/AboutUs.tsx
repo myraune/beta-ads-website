@@ -197,10 +197,14 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <Button asChild size="lg" className="group">
-              <Link to="/contact">
+              <a 
+                href="https://calendar.app.google/coW5NLQJtLxfRer19" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
                 Book a call
                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+              </a>
             </Button>
             <Button asChild variant="outline" size="lg">
               <Link to="/case-studies">See our work</Link>
@@ -533,10 +537,14 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
           </h2>
           
           <Button asChild size="lg" className="mb-8">
-            <Link to="/contact">
+            <a 
+              href="https://calendar.app.google/coW5NLQJtLxfRer19" 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
               Book a call
               <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
+            </a>
           </Button>
           
           <p className="text-muted-foreground">
