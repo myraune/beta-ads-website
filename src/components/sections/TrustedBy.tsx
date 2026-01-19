@@ -1,8 +1,19 @@
 import React from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-// Client logos for the carousel - upload logos and add them here
-const logos: Array<{ src: string; alt: string; className?: string; isLarge?: boolean }> = [];
+// Client logos for the carousel
+const logos: Array<{ src: string; alt: string; className?: string; isLarge?: boolean }> = [
+  { src: "/lovable-uploads/logo-client-1.png", alt: "Client 1" },
+  { src: "/lovable-uploads/logo-client-2.png", alt: "Client 2" },
+  { src: "/lovable-uploads/logo-foodora.png", alt: "Foodora" },
+  { src: "/lovable-uploads/logo-shure.png", alt: "Shure" },
+  { src: "/lovable-uploads/logo-client-5.png", alt: "Client 5" },
+  { src: "/lovable-uploads/logo-client-6.png", alt: "Client 6" },
+  { src: "/lovable-uploads/logo-glorious.png", alt: "Glorious" },
+  { src: "/lovable-uploads/logo-client-8.png", alt: "Client 8" },
+  { src: "/lovable-uploads/logo-logitech.png", alt: "Logitech" },
+  { src: "/lovable-uploads/logo-client-10.png", alt: "Client 10" },
+];
 
 interface LogoItemProps {
   src: string;
