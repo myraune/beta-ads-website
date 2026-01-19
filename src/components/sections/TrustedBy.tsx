@@ -43,6 +43,21 @@ const LogoItem: React.FC<LogoItemProps> = ({ src, alt, className = "", isLarge, 
   </div>
 );
 
+interface LogoType {
+  src: string;
+  alt: string;
+  className?: string;
+  isLarge?: boolean;
+}
+
+const LogoSet: React.FC<{ logos: LogoType[]; isDark: boolean; keyPrefix?: string }> = ({ logos, isDark, keyPrefix = "" }) => (
+  <div className="flex items-center gap-20 px-10 shrink-0">
+    {logos.map((logo) => (
+      <LogoItem key={`${keyPrefix}${logo.alt}`} {...logo} isDark={isDark} />
+    ))}
+  </div>
+);
+
 export const TrustedBy: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
@@ -59,31 +74,21 @@ export const TrustedBy: React.FC = () => {
             }}
           >
             {/* Light theme carousel */}
-            <div className="flex animate-scroll dark:hidden" style={{ willChange: 'transform' }}>
-              <div className="flex items-center gap-24 px-12">
-                {lightLogos.map((logo) => (
-                  <LogoItem key={logo.alt} {...logo} isDark={false} />
-                ))}
-              </div>
-              <div className="flex items-center gap-24 px-12">
-                {lightLogos.map((logo) => (
-                  <LogoItem key={`dup-${logo.alt}`} {...logo} isDark={false} />
-                ))}
-              </div>
+            <div 
+              className="flex dark:hidden animate-scroll-smooth"
+              style={{ width: 'max-content' }}
+            >
+              <LogoSet logos={lightLogos} isDark={false} />
+              <LogoSet logos={lightLogos} isDark={false} keyPrefix="dup-" />
             </div>
 
             {/* Dark theme carousel */}
-            <div className="hidden dark:flex animate-scroll" style={{ willChange: 'transform' }}>
-              <div className="flex items-center gap-16 px-8">
-                {darkLogos.map((logo) => (
-                  <LogoItem key={logo.alt} {...logo} isDark={true} />
-                ))}
-              </div>
-              <div className="flex items-center gap-16 px-8">
-                {darkLogos.map((logo) => (
-                  <LogoItem key={`dup-${logo.alt}`} {...logo} isDark={true} />
-                ))}
-              </div>
+            <div 
+              className="hidden dark:flex animate-scroll-smooth"
+              style={{ width: 'max-content' }}
+            >
+              <LogoSet logos={darkLogos} isDark={true} />
+              <LogoSet logos={darkLogos} isDark={true} keyPrefix="dup-" />
             </div>
           </div>
         </div>
