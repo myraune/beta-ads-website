@@ -14,24 +14,24 @@ interface CaseStudy {
 const caseStudies: CaseStudy[] = [
   {
     brand: "Samsung",
-    campaign: "Gaming monitor awareness, Nordics",
-    impressions: "250,000+",
-    ctr: "2.1%",
-    duration: "6-week campaign",
+    campaign: "S25 Ultra awareness Norway",
+    impressions: "500,000+",
+    ctr: "2.93%",
+    duration: "Awareness campaign",
   },
   {
-    brand: "Shure",
-    campaign: "MV6 microphone launch campaign",
-    impressions: "180,000+",
-    ctr: "2.8%",
-    duration: "4-week campaign",
+    brand: "Kristiania University",
+    campaign: "University awareness campaign",
+    impressions: "600,000+",
+    ctr: "2.0%",
+    duration: "Education campaign",
   },
   {
     brand: "Komplett",
-    campaign: "PC gaming hardware promotion",
-    impressions: "320,000+",
-    ctr: "1.9%",
-    duration: "8-week campaign",
+    campaign: "Monthly gaming deals campaign",
+    impressions: "150,000+",
+    ctr: "3.24%",
+    duration: "Ongoing campaign",
   },
 ];
 

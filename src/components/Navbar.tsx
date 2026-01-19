@@ -15,10 +15,8 @@ interface NavbarProps {
 }
 
 const navLinks = [
-  { href: "/case-studies", label: { en: "Our Work", no: "Vårt Arbeid", sv: "Vårt Arbete", fi: "Työmme" } },
-  { href: "/how-it-works", label: { en: "How It Works", no: "Hvordan Det Fungerer", sv: "Hur Det Fungerar", fi: "Miten Se Toimii" } },
-  { href: "/streamers", label: { en: "For Streamers", no: "For Streamere", sv: "För Streamers", fi: "Streamaajille" } },
-  { href: "/about", label: { en: "About Us", no: "Om Oss", sv: "Om Oss", fi: "Tietoa Meistä" } },
+  { href: "/case-studies", label: { en: "Brands", no: "Merkevarer", sv: "Varumärken", fi: "Brändit" } },
+  { href: "/streamers", label: { en: "Streamers", no: "Streamere", sv: "Streamers", fi: "Streamaajat" } },
 ];
 
 const languages = [
@@ -45,11 +43,12 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "top-4" : ""
+      className={`fixed left-0 right-0 z-50 transition-transform duration-300 ease-out ${
+        scrolled ? "translate-y-4" : "translate-y-0"
       }`}
+      style={{ top: 0, willChange: 'transform' }}
     >
-      <div className={`transition-all duration-500 border ${
+      <div className={`transition-all duration-300 ease-out border ${
         scrolled 
           ? "mx-4 lg:mx-auto lg:max-w-3xl rounded-full bg-background/95 backdrop-blur-xl shadow-lg shadow-black/10 border-border/30 px-4 lg:px-6"
           : "max-w-7xl mx-auto px-6 lg:px-8 border-transparent"
