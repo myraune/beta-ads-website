@@ -41,6 +41,11 @@ const LogoSet: React.FC<{ logos: LogoType[]; keyPrefix?: string }> = ({ logos, k
 export const TrustedBy: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
+  // Don't render section if no logos
+  if (logos.length === 0) {
+    return null;
+  }
+
   return (
     <section id="trusted-by" className="py-8 overflow-hidden relative">
       <div ref={ref} className={`transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
