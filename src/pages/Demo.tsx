@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ExternalLink, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import {
   Form,
   FormControl,
@@ -34,6 +35,7 @@ type FormData = z.infer<typeof formSchema>;
 
 const Demo: React.FC<DemoProps> = ({ t, language, setLanguage }) => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
@@ -45,12 +47,30 @@ const Demo: React.FC<DemoProps> = ({ t, language, setLanguage }) => {
     },
   });
 
-  const onSubmit = (data: FormData) => {
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you shortly.",
-    });
-    form.reset();
+  const onSubmit = async (data: FormData) => {
+    setIsSubmitting(true);
+    try {
+      const { error } = await supabase.functions.invoke('notify-demo-request', {
+        body: data,
+      });
+
+      if (error) throw error;
+
+      toast({
+        title: "Message sent!",
+        description: "We'll get back to you shortly.",
+      });
+      form.reset();
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -183,10 +203,20 @@ const Demo: React.FC<DemoProps> = ({ t, language, setLanguage }) => {
                   <Button 
                     type="submit" 
                     size="lg"
+                    disabled={isSubmitting}
                     className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12"
                   >
-                    Send Message
-                    <ArrowRight className="ml-2 h-4 w-4" />
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <ArrowRight className="ml-2 h-4 w-4" />
+                      </>
+                    )}
                   </Button>
                 </form>
               </Form>
