@@ -13,7 +13,7 @@ const logos: Array<{ src: string; alt: string; scale?: string }> = [
   { src: "/lovable-uploads/logo-client-8.png", alt: "Client 8", scale: "scale-75" },
   { src: "/lovable-uploads/logo-logitech.png", alt: "Logitech", scale: "scale-100" },
   { src: "/lovable-uploads/logo-client-10.png", alt: "Client 10", scale: "scale-90" },
-  { src: "/lovable-uploads/logo-dentsu.png", alt: "Dentsu", scale: "scale-110" },
+  { src: "/lovable-uploads/logo-dentsu.png", alt: "Dentsu", scale: "scale-90" },
   { src: "/lovable-uploads/logo-carat.png", alt: "Carat", scale: "scale-100" },
   { src: "/lovable-uploads/logo-steelseries.png", alt: "SteelSeries", scale: "scale-110" },
   { src: "/lovable-uploads/logo-surfshark.png", alt: "Surfshark", scale: "scale-100" },
