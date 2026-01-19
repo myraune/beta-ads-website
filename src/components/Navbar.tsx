@@ -49,10 +49,10 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
         scrolled ? "top-4" : ""
       }`}
     >
-      <div className={`transition-all duration-500 ${
+      <div className={`transition-all duration-500 border ${
         scrolled 
-          ? "mx-4 lg:mx-auto lg:max-w-3xl rounded-full bg-background/95 backdrop-blur-xl shadow-lg shadow-black/10 border border-border/30 px-4 lg:px-6"
-          : "max-w-7xl mx-auto px-6 lg:px-8"
+          ? "mx-4 lg:mx-auto lg:max-w-3xl rounded-full bg-background/95 backdrop-blur-xl shadow-lg shadow-black/10 border-border/30 px-4 lg:px-6"
+          : "max-w-7xl mx-auto px-6 lg:px-8 border-transparent"
       }`}>
         <div className={`flex items-center justify-between transition-all duration-300 ${
           scrolled ? "h-12 lg:h-14" : "h-16 lg:h-20"
