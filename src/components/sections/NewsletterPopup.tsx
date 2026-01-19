@@ -23,13 +23,13 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose }) =>
     setIsSubmitting(true);
     
     try {
-      // Save to Supabase
-      const { error } = await supabase
-        .from('newsletter_signups')
-        .insert([{ email }]);
+      // Send notification email
+      const { error } = await supabase.functions.invoke('notify-newsletter-signup', {
+        body: { email }
+      });
 
       if (error) {
-        console.error('Error saving signup:', error);
+        console.error('Error sending notification:', error);
         toast({
           title: "Error",
           description: "Something went wrong. Please try again.",
@@ -37,11 +37,6 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose }) =>
         });
         return;
       }
-
-      // Send notification email
-      await supabase.functions.invoke('notify-newsletter-signup', {
-        body: { email }
-      });
 
       toast({
         title: "Success!",
