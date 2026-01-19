@@ -2,7 +2,7 @@ import React from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 // Client logos for the carousel
-const logos: Array<{ src: string; alt: string; className?: string; isLarge?: boolean }> = [
+const logos: Array<{ src: string; alt: string; className?: string }> = [
   { src: "/lovable-uploads/logo-client-1.png", alt: "Client 1" },
   { src: "/lovable-uploads/logo-client-2.png", alt: "Client 2" },
   { src: "/lovable-uploads/logo-foodora.png", alt: "Foodora" },
@@ -13,23 +13,26 @@ const logos: Array<{ src: string; alt: string; className?: string; isLarge?: boo
   { src: "/lovable-uploads/logo-client-8.png", alt: "Client 8" },
   { src: "/lovable-uploads/logo-logitech.png", alt: "Logitech" },
   { src: "/lovable-uploads/logo-client-10.png", alt: "Client 10" },
+  { src: "/lovable-uploads/logo-dentsu.png", alt: "Dentsu" },
+  { src: "/lovable-uploads/logo-carat.png", alt: "Carat" },
+  { src: "/lovable-uploads/logo-steelseries.png", alt: "SteelSeries" },
+  { src: "/lovable-uploads/logo-surfshark.png", alt: "Surfshark" },
 ];
 
 interface LogoItemProps {
   src: string;
   alt: string;
   className?: string;
-  isLarge?: boolean;
 }
 
-const LogoItem: React.FC<LogoItemProps> = ({ src, alt, className = "", isLarge }) => (
-  <div className={`flex-shrink-0 flex items-center justify-center ${isLarge ? 'h-16 w-44' : 'h-12 w-32'}`}>
+const LogoItem: React.FC<LogoItemProps> = ({ src, alt, className = "" }) => (
+  <div className="flex-shrink-0 flex items-center justify-center h-12 w-36">
     <img
       src={src}
       alt={alt}
       loading="lazy"
       decoding="async"
-      className={`${isLarge ? 'h-16' : 'h-10'} w-auto opacity-60 object-contain transition-all duration-300 hover:scale-110 hover:opacity-90 ${className}`}
+      className={`max-h-10 max-w-32 w-auto h-auto opacity-60 object-contain transition-all duration-300 hover:scale-110 hover:opacity-90 ${className}`}
     />
   </div>
 );
@@ -38,7 +41,6 @@ interface LogoType {
   src: string;
   alt: string;
   className?: string;
-  isLarge?: boolean;
 }
 
 const LogoSet: React.FC<{ logos: LogoType[]; keyPrefix?: string }> = ({ logos, keyPrefix = "" }) => (
