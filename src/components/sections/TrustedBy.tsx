@@ -1,6 +1,7 @@
 import React from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
+// Client logos for the carousel
 const lightLogos = [
   { src: "/lovable-uploads/711bde8c-3d71-40eb-8c93-2f8bf7350a57.png", alt: "Samsung", className: "mix-blend-multiply" },
   { src: "/lovable-uploads/08646782-d620-4f3a-bcd4-128419cc79d3.png", alt: "Surfshark" },
