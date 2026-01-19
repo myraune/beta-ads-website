@@ -13,6 +13,8 @@ import Streamers from "./pages/Streamers";
 import AboutUs from "./pages/AboutUs";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import Contact from "./pages/Contact";
+import Demo from "./pages/Demo";
 import NotFound from "./pages/NotFound";
 
 // Dashboard
@@ -245,6 +247,8 @@ const App = () => {
               <Route path="/about" element={<AboutUs t={t} language={language} setLanguage={setLanguage} />} />
               <Route path="/blog" element={<Blog t={t} language={language} setLanguage={setLanguage} />} />
               <Route path="/blog/:slug" element={<BlogPost t={t} language={language} setLanguage={setLanguage} />} />
+              <Route path="/contact" element={<Contact t={t} language={language} setLanguage={setLanguage} />} />
+              <Route path="/demo" element={<Demo t={t} language={language} setLanguage={setLanguage} />} />
             </Route>
             
             {/* Dashboard Routes (separate layout) */}

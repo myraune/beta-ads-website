@@ -53,7 +53,7 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-3">
-              <a href="#case-video">
+              <Link to="/demo">
                 <Button
                   size="lg"
                   className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2.5 text-sm font-light tracking-wide h-auto border-0 shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105"
@@ -61,9 +61,13 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
                   {t.brandButton}
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-              </a>
+              </Link>
 
-              <Link to="/contact">
+              <a 
+                href="https://calendar.app.google/coW5NLQJtLxfRer19" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
                 <Button
                   size="lg"
                   variant="outline"
@@ -72,7 +76,7 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
                   {t.streamerButton}
                   <ExternalLink className="ml-2 h-4 w-4" />
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
 

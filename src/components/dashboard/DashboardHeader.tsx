@@ -47,7 +47,7 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
             variant="default"
             size="sm"
             className="bg-primary hover:bg-primary/90"
-            onClick={() => window.open("/contact", "_blank")}
+            onClick={() => window.open("https://calendar.app.google/coW5NLQJtLxfRer19", "_blank")}
           >
             Book demo
           </Button>

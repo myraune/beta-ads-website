@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -53,7 +52,11 @@ export const CTA: React.FC<CTAProps> = ({ t }) => (
             {t.ctaDescription}
           </p>
 
-          <Link to="/contact">
+          <a 
+            href="https://calendar.app.google/coW5NLQJtLxfRer19" 
+            target="_blank" 
+            rel="noopener noreferrer"
+          >
             <Button
               size="lg"
               className="bg-primary text-primary-foreground hover:bg-primary/90 px-10 py-6 text-lg font-light tracking-wide h-auto shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105"
@@ -61,7 +64,7 @@ export const CTA: React.FC<CTAProps> = ({ t }) => (
               {t.ctaButton || "Get in Touch"}
               <ArrowRight className="ml-3 h-5 w-5" />
             </Button>
-          </Link>
+          </a>
         </div>
       </div>
     </div>
