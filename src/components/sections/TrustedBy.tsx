@@ -1,38 +1,38 @@
 import React from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-// Client logos for the carousel
-const logos: Array<{ src: string; alt: string; className?: string }> = [
-  { src: "/lovable-uploads/logo-client-1.png", alt: "Client 1" },
-  { src: "/lovable-uploads/logo-client-2.png", alt: "Client 2" },
-  { src: "/lovable-uploads/logo-foodora.png", alt: "Foodora" },
-  { src: "/lovable-uploads/logo-shure.png", alt: "Shure" },
-  { src: "/lovable-uploads/logo-client-5.png", alt: "Client 5" },
-  { src: "/lovable-uploads/logo-client-6.png", alt: "Client 6" },
-  { src: "/lovable-uploads/logo-glorious.png", alt: "Glorious" },
-  { src: "/lovable-uploads/logo-client-8.png", alt: "Client 8" },
-  { src: "/lovable-uploads/logo-logitech.png", alt: "Logitech" },
-  { src: "/lovable-uploads/logo-client-10.png", alt: "Client 10" },
-  { src: "/lovable-uploads/logo-dentsu.png", alt: "Dentsu" },
-  { src: "/lovable-uploads/logo-carat.png", alt: "Carat" },
-  { src: "/lovable-uploads/logo-steelseries.png", alt: "SteelSeries" },
-  { src: "/lovable-uploads/logo-surfshark.png", alt: "Surfshark" },
+// Client logos for the carousel with individual scale adjustments
+const logos: Array<{ src: string; alt: string; scale?: string }> = [
+  { src: "/lovable-uploads/logo-client-1.png", alt: "Client 1", scale: "scale-100" },
+  { src: "/lovable-uploads/logo-client-2.png", alt: "Client 2", scale: "scale-90" },
+  { src: "/lovable-uploads/logo-foodora.png", alt: "Foodora", scale: "scale-100" },
+  { src: "/lovable-uploads/logo-shure.png", alt: "Shure", scale: "scale-100" },
+  { src: "/lovable-uploads/logo-client-5.png", alt: "Client 5", scale: "scale-75" },
+  { src: "/lovable-uploads/logo-client-6.png", alt: "Client 6", scale: "scale-90" },
+  { src: "/lovable-uploads/logo-glorious.png", alt: "Glorious", scale: "scale-100" },
+  { src: "/lovable-uploads/logo-client-8.png", alt: "Client 8", scale: "scale-75" },
+  { src: "/lovable-uploads/logo-logitech.png", alt: "Logitech", scale: "scale-100" },
+  { src: "/lovable-uploads/logo-client-10.png", alt: "Client 10", scale: "scale-90" },
+  { src: "/lovable-uploads/logo-dentsu.png", alt: "Dentsu", scale: "scale-110" },
+  { src: "/lovable-uploads/logo-carat.png", alt: "Carat", scale: "scale-100" },
+  { src: "/lovable-uploads/logo-steelseries.png", alt: "SteelSeries", scale: "scale-110" },
+  { src: "/lovable-uploads/logo-surfshark.png", alt: "Surfshark", scale: "scale-100" },
 ];
 
 interface LogoItemProps {
   src: string;
   alt: string;
-  className?: string;
+  scale?: string;
 }
 
-const LogoItem: React.FC<LogoItemProps> = ({ src, alt, className = "" }) => (
-  <div className="flex-shrink-0 flex items-center justify-center h-12 w-36">
+const LogoItem: React.FC<LogoItemProps> = ({ src, alt, scale = "scale-100" }) => (
+  <div className="flex-shrink-0 flex items-center justify-center h-14 w-40">
     <img
       src={src}
       alt={alt}
       loading="lazy"
       decoding="async"
-      className={`max-h-10 max-w-32 w-auto h-auto opacity-60 object-contain transition-all duration-300 hover:scale-110 hover:opacity-90 ${className}`}
+      className={`max-h-12 max-w-36 w-auto h-auto opacity-60 object-contain transition-all duration-300 hover:opacity-90 ${scale}`}
     />
   </div>
 );
@@ -40,11 +40,11 @@ const LogoItem: React.FC<LogoItemProps> = ({ src, alt, className = "" }) => (
 interface LogoType {
   src: string;
   alt: string;
-  className?: string;
+  scale?: string;
 }
 
 const LogoSet: React.FC<{ logos: LogoType[]; keyPrefix?: string }> = ({ logos, keyPrefix = "" }) => (
-  <div className="flex items-center gap-20 px-10 shrink-0">
+  <div className="flex items-center gap-16 px-8 shrink-0">
     {logos.map((logo) => (
       <LogoItem key={`${keyPrefix}${logo.alt}`} {...logo} />
     ))}
