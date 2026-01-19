@@ -13,6 +13,35 @@ interface NotifyRequest {
   email: string;
 }
 
+// HTML escape function to prevent XSS in emails
+function escapeHtml(text: string): string {
+  const map: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return text.replace(/[&<>"']/g, m => map[m]);
+}
+
+// Server-side email validation
+function validateEmail(email: unknown): { valid: boolean; error?: string } {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  if (!email || typeof email !== 'string') {
+    return { valid: false, error: 'Email is required' };
+  }
+  if (!emailRegex.test(email)) {
+    return { valid: false, error: 'Invalid email format' };
+  }
+  if (email.length > 255) {
+    return { valid: false, error: 'Email must be less than 255 characters' };
+  }
+  
+  return { valid: true };
+}
+
 const handler = async (req: Request): Promise<Response> => {
   // Handle CORS preflight requests
   if (req.method === "OPTIONS") {
@@ -20,9 +49,23 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { email }: NotifyRequest = await req.json();
+    const body: NotifyRequest = await req.json();
+    
+    // Server-side validation
+    const validation = validateEmail(body.email);
+    if (!validation.valid) {
+      return new Response(JSON.stringify({ error: validation.error }), {
+        status: 400,
+        headers: { "Content-Type": "application/json", ...corsHeaders },
+      });
+    }
 
-    console.log(`New newsletter signup: ${email}`);
+    const { email } = body;
+    
+    // Escape email for HTML
+    const safeEmail = escapeHtml(email.trim());
+
+    console.log("New newsletter signup received");
 
     const emailResponse = await resend.emails.send({
       from: "Nordic Twitch Insights <onboarding@resend.dev>",
@@ -30,7 +73,7 @@ const handler = async (req: Request): Promise<Response> => {
       subject: "New Newsletter Signup - Nordic Twitch Market",
       html: `
         <h2>New Newsletter Signup</h2>
-        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Email:</strong> ${safeEmail}</p>
         <p><strong>Source:</strong> Website Popup</p>
         <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
         
@@ -54,7 +97,7 @@ const handler = async (req: Request): Promise<Response> => {
   } catch (error: any) {
     console.error("Error in notify-newsletter-signup function:", error);
     return new Response(
-      JSON.stringify({ error: error.message }),
+      JSON.stringify({ error: "Failed to process request" }),
       {
         status: 500,
         headers: { "Content-Type": "application/json", ...corsHeaders },
