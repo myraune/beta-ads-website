@@ -31,53 +31,129 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const currentLang = languages.find((l) => l.code === language) || languages[0];
 
   return (
-    <nav
-      className={`fixed left-0 right-0 z-50 transition-all duration-300 ease-out ${
-        scrolled ? "pointer-events-none" : ""
-      }`}
-      style={{ 
-        top: 0,
-        transform: scrolled ? 'translateY(0.5rem)' : 'translateY(0)',
-        willChange: 'transform'
-      }}
-    >
-      <div className={`transition-all duration-300 ease-out border ${
-            scrolled 
-              ? "mx-auto w-fit rounded-full bg-background/60 backdrop-blur-xl shadow-lg shadow-black/5 border-white/10 px-6 pointer-events-auto"
-          : "max-w-7xl mx-auto px-6 lg:px-8 border-transparent"
-      }`}>
-        <div className={`flex items-center justify-center gap-4 lg:gap-6 transition-all duration-300 ${
-          scrolled ? "h-12 lg:h-14" : "h-14 lg:h-16"
-        }`}>
-          {/* Logo Icon */}
-          <Link to="/" className="flex items-center group">
+    <header className="fixed top-0 left-0 right-0 z-50">
+      {/* Desktop Navigation */}
+      <nav
+        className={`hidden lg:block transition-all duration-300 ${
+          scrolled ? "pt-2" : "pt-0"
+        }`}
+      >
+        <div
+          className={`mx-auto transition-all duration-300 ${
+            scrolled
+              ? "w-fit px-6 py-2 rounded-full bg-background/70 backdrop-blur-xl border border-white/10 shadow-lg shadow-black/10"
+              : "max-w-7xl px-8 py-4 border border-transparent"
+          }`}
+        >
+          <div className="flex items-center justify-center gap-6">
+            {/* Logo */}
+            <Link to="/" className="flex items-center group">
+              <img
+                src="/lovable-uploads/favicon.png"
+                alt="Beta Ads"
+                className="h-7 w-auto transition-transform duration-200 group-hover:scale-105"
+              />
+            </Link>
+
+            {/* Nav Links */}
+            <div className="flex items-center gap-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className={`px-4 py-2 text-sm font-light tracking-wide rounded-full transition-colors duration-200 ${
+                    location.pathname === link.href
+                      ? "text-primary bg-primary/10"
+                      : "text-muted-foreground hover:text-foreground hover:bg-white/5"
+                  }`}
+                >
+                  {link.label[language as keyof typeof link.label] || link.label.en}
+                </Link>
+              ))}
+            </div>
+
+            {/* Language Selector */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="h-8 px-3 rounded-full text-muted-foreground hover:text-foreground hover:bg-white/5"
+                >
+                  <Globe className="h-4 w-4 mr-2" />
+                  <span className="text-sm">{currentLang.flag}</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent
+                align="end"
+                className="bg-background/90 backdrop-blur-xl border-white/10"
+              >
+                {languages.map((lang) => (
+                  <DropdownMenuItem
+                    key={lang.code}
+                    onClick={() => setLanguage(lang.code)}
+                    className={`cursor-pointer ${
+                      language === lang.code ? "bg-primary/10 text-primary" : ""
+                    }`}
+                  >
+                    <span className="mr-2">{lang.flag}</span>
+                    {lang.label}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
+        </div>
+      </nav>
+
+      {/* Mobile Navigation */}
+      <nav className="lg:hidden">
+        {/* Mobile Header Bar */}
+        <div className="flex items-center justify-between px-4 py-3 bg-background/80 backdrop-blur-xl border-b border-white/5">
+          <Link to="/" className="flex items-center">
             <img
               src="/lovable-uploads/favicon.png"
               alt="Beta Ads"
-              className={`w-auto transition-all duration-300 group-hover:scale-105 ${
-                scrolled ? "h-6 lg:h-7" : "h-7 lg:h-8"
-              }`}
+              className="h-7 w-auto"
             />
           </Link>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-2 text-foreground rounded-lg hover:bg-white/5 transition-colors"
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1">
+        {/* Mobile Menu Dropdown */}
+        <div
+          className={`overflow-hidden transition-all duration-300 ease-out ${
+            isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="px-4 py-4 bg-background/95 backdrop-blur-xl border-b border-white/5 space-y-2">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`px-4 py-2 text-sm font-light tracking-wide transition-all duration-300 rounded-full ${
+                className={`block px-4 py-3 text-sm font-light tracking-wide rounded-lg transition-colors ${
                   location.pathname === link.href
                     ? "text-primary bg-primary/10"
                     : "text-muted-foreground hover:text-foreground hover:bg-white/5"
@@ -86,92 +162,39 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                 {link.label[language as keyof typeof link.label] || link.label.en}
               </Link>
             ))}
-          </div>
 
-          {/* Language selector */}
-          <div className="hidden lg:flex items-center">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-muted-foreground hover:text-foreground hover:bg-white/5 h-8 px-2.5 rounded-full"
-                >
-                  <Globe className="h-4 w-4 mr-2" />
-                  <span className="text-sm">{currentLang.flag}</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="bg-background/80 backdrop-blur-xl border-white/10">
-                {languages.map((lang) => (
-                  <DropdownMenuItem
-                    key={lang.code}
-                    onClick={() => setLanguage(lang.code)}
-                    className={`cursor-pointer ${language === lang.code ? "bg-primary/10 text-primary" : ""}`}
+            {/* Mobile Language Selector */}
+            <div className="pt-4 border-t border-white/5">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="text-muted-foreground hover:text-foreground"
                   >
-                    <span className="mr-2">{lang.flag}</span>
-                    {lang.label}
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-
-          {/* Mobile menu button */}
-          <button
-            className="lg:hidden p-2 text-foreground"
-            onClick={() => setIsOpen(!isOpen)}
-          >
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Navigation */}
-      <div
-        className={`lg:hidden transition-all duration-300 overflow-hidden ${
-          isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <div className="bg-background/95 backdrop-blur-xl border-t border-border/50 px-6 py-4 space-y-2">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              to={link.href}
-              onClick={() => setIsOpen(false)}
-              className={`block px-4 py-3 text-sm font-light tracking-wide transition-all duration-300 rounded-lg ${
-                location.pathname === link.href
-                  ? "text-primary bg-primary/10"
-                  : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
-              }`}
-            >
-              {link.label[language as keyof typeof link.label] || link.label.en}
-            </Link>
-          ))}
-          
-          <div className="pt-4 border-t border-border/50">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="sm" className="text-muted-foreground">
-                  <Globe className="h-4 w-4 mr-2" />
-                  {currentLang.flag} {currentLang.label}
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-card/95 backdrop-blur-xl border-border/50">
-                {languages.map((lang) => (
-                  <DropdownMenuItem
-                    key={lang.code}
-                    onClick={() => setLanguage(lang.code)}
-                    className={`cursor-pointer ${language === lang.code ? "bg-primary/10 text-primary" : ""}`}
-                  >
-                    <span className="mr-2">{lang.flag}</span>
-                    {lang.label}
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+                    <Globe className="h-4 w-4 mr-2" />
+                    {currentLang.flag} {currentLang.label}
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="bg-background/95 backdrop-blur-xl border-white/10">
+                  {languages.map((lang) => (
+                    <DropdownMenuItem
+                      key={lang.code}
+                      onClick={() => setLanguage(lang.code)}
+                      className={`cursor-pointer ${
+                        language === lang.code ? "bg-primary/10 text-primary" : ""
+                      }`}
+                    >
+                      <span className="mr-2">{lang.flag}</span>
+                      {lang.label}
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </header>
   );
 };
