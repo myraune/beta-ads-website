@@ -8,6 +8,7 @@ import { getBlogPostBySlug, getRelatedPosts, BlogPost as BlogPostType } from "@/
 import { Helmet } from "react-helmet";
 import { ReadingProgress } from "@/components/blog/ReadingProgress";
 import { TableOfContents, dashboardTocItems } from "@/components/blog/TableOfContents";
+import ReactMarkdown from "react-markdown";
 
 const TwitchStatsDashboard = lazy(() => import("@/components/blog/TwitchStatsDashboard"));
 const NorwegianStreamersDashboard = lazy(() => import("@/components/blog/NorwegianStreamersDashboard"));
@@ -58,119 +59,6 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t, language, setLanguage })
       facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
     };
     window.open(urls[platform], "_blank", "width=600,height=400");
-  };
-
-  // Parse markdown content to HTML-like sections
-  const renderContent = (content: string) => {
-    const lines = content.trim().split("\n");
-    const elements: React.ReactNode[] = [];
-    let currentList: string[] = [];
-    let inTable = false;
-    let tableRows: string[][] = [];
-
-    const flushList = () => {
-      if (currentList.length > 0) {
-        elements.push(
-          <ul key={`list-${elements.length}`} className="list-disc pl-6 space-y-2 text-muted-foreground">
-            {currentList.map((item, i) => (
-              <li key={i} dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, "<strong class='text-foreground'>$1</strong>") }} />
-            ))}
-          </ul>
-        );
-        currentList = [];
-      }
-    };
-
-    const flushTable = () => {
-      if (tableRows.length > 0) {
-        const headers = tableRows[0];
-        const body = tableRows.slice(2); // Skip header and separator
-        elements.push(
-          <div key={`table-${elements.length}`} className="overflow-x-auto my-6">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="border-b border-border">
-                  {headers.map((cell, i) => (
-                    <th key={i} className="text-left py-3 px-4 text-foreground font-semibold">{cell.trim()}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {body.map((row, i) => (
-                  <tr key={i} className="border-b border-border/50">
-                    {row.map((cell, j) => (
-                      <td key={j} className="py-3 px-4 text-muted-foreground">{cell.trim()}</td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        );
-        tableRows = [];
-        inTable = false;
-      }
-    };
-
-    lines.forEach((line, index) => {
-      const trimmedLine = line.trim();
-
-      // Table detection
-      if (trimmedLine.startsWith("|") && trimmedLine.endsWith("|")) {
-        flushList();
-        inTable = true;
-        const cells = trimmedLine.split("|").filter(cell => cell.trim() !== "" && !cell.match(/^[-:]+$/));
-        if (cells.length > 0 && !trimmedLine.match(/^\|[-:|\s]+\|$/)) {
-          tableRows.push(cells);
-        }
-        return;
-      } else if (inTable) {
-        flushTable();
-      }
-
-      // Headers
-      if (trimmedLine.startsWith("## ")) {
-        flushList();
-        elements.push(
-          <h2 key={index} className="text-2xl font-bold text-foreground mt-10 mb-4">
-            {trimmedLine.replace("## ", "")}
-          </h2>
-        );
-      } else if (trimmedLine.startsWith("### ")) {
-        flushList();
-        elements.push(
-          <h3 key={index} className="text-xl font-semibold text-foreground mt-8 mb-3">
-            {trimmedLine.replace("### ", "")}
-          </h3>
-        );
-      } 
-      // List items
-      else if (trimmedLine.startsWith("- ")) {
-        currentList.push(trimmedLine.replace("- ", ""));
-      }
-      // Numbered list
-      else if (/^\d+\.\s/.test(trimmedLine)) {
-        currentList.push(trimmedLine.replace(/^\d+\.\s/, ""));
-      }
-      // Regular paragraph
-      else if (trimmedLine.length > 0) {
-        flushList();
-        elements.push(
-          <p 
-            key={index} 
-            className="text-muted-foreground leading-relaxed mb-4"
-            dangerouslySetInnerHTML={{ 
-              __html: trimmedLine.replace(/\*\*(.*?)\*\*/g, "<strong class='text-foreground'>$1</strong>") 
-            }}
-          />
-        );
-      }
-    });
-
-    flushList();
-    flushTable();
-
-    return elements;
   };
 
   const readMoreText = {
@@ -308,8 +196,50 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t, language, setLanguage })
                     {post.hasDashboard === "finnish-streamers" && <FinnishStreamersDashboard />}
                   </Suspense>
                 ) : (
-                  <div className="prose prose-lg max-w-none">
-                    {renderContent(post.content)}
+                  <div className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground">
+                    <ReactMarkdown
+                      components={{
+                        h2: ({ children }) => (
+                          <h2 className="text-2xl font-bold text-foreground mt-10 mb-4">{children}</h2>
+                        ),
+                        h3: ({ children }) => (
+                          <h3 className="text-xl font-semibold text-foreground mt-8 mb-3">{children}</h3>
+                        ),
+                        p: ({ children }) => (
+                          <p className="text-muted-foreground leading-relaxed mb-4">{children}</p>
+                        ),
+                        ul: ({ children }) => (
+                          <ul className="list-disc pl-6 space-y-2 text-muted-foreground">{children}</ul>
+                        ),
+                        ol: ({ children }) => (
+                          <ol className="list-decimal pl-6 space-y-2 text-muted-foreground">{children}</ol>
+                        ),
+                        li: ({ children }) => (
+                          <li className="text-muted-foreground">{children}</li>
+                        ),
+                        strong: ({ children }) => (
+                          <strong className="text-foreground font-semibold">{children}</strong>
+                        ),
+                        table: ({ children }) => (
+                          <div className="overflow-x-auto my-6">
+                            <table className="w-full border-collapse">{children}</table>
+                          </div>
+                        ),
+                        thead: ({ children }) => <thead>{children}</thead>,
+                        tbody: ({ children }) => <tbody>{children}</tbody>,
+                        tr: ({ children }) => (
+                          <tr className="border-b border-border/50">{children}</tr>
+                        ),
+                        th: ({ children }) => (
+                          <th className="text-left py-3 px-4 text-foreground font-semibold border-b border-border">{children}</th>
+                        ),
+                        td: ({ children }) => (
+                          <td className="py-3 px-4 text-muted-foreground">{children}</td>
+                        ),
+                      }}
+                    >
+                      {post.content}
+                    </ReactMarkdown>
                   </div>
                 )}
               </div>
