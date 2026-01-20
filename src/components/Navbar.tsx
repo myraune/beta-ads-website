@@ -15,8 +15,8 @@ interface NavbarProps {
 }
 
 const navLinks = [
-  { href: "/case-studies", label: { en: "Brands", no: "Merkevarer", sv: "Varumärken", fi: "Brändit" } },
-  { href: "/streamers", label: { en: "Streamers", no: "Streamere", sv: "Streamers", fi: "Streamaajat" } },
+  { href: "/case-studies", label: { en: "For brands", no: "For merkevarer", sv: "För varumärken", fi: "Brändeille" } },
+  { href: "/streamers", label: { en: "For streamers", no: "For streamere", sv: "För streamers", fi: "Streamaajille" } },
 ];
 
 const languages = [
@@ -48,17 +48,17 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
       }`}
       style={{ 
         top: 0,
-        transform: scrolled ? 'translateY(1rem)' : 'translateY(0)',
+        transform: scrolled ? 'translateY(0.5rem)' : 'translateY(0)',
         willChange: 'transform'
       }}
     >
       <div className={`transition-all duration-300 ease-out border ${
-        scrolled 
-          ? "mx-4 lg:mx-auto lg:max-w-3xl rounded-full bg-background/95 backdrop-blur-xl shadow-lg shadow-black/10 border-border/30 px-4 lg:px-6 pointer-events-auto"
+            scrolled 
+              ? "mx-4 lg:mx-auto lg:max-w-2xl rounded-full bg-background/95 backdrop-blur-xl shadow-lg shadow-black/10 border-border/30 px-3 lg:px-4 pointer-events-auto"
           : "max-w-7xl mx-auto px-6 lg:px-8 border-transparent"
       }`}>
         <div className={`flex items-center justify-between transition-all duration-300 ${
-          scrolled ? "h-12 lg:h-14" : "h-16 lg:h-20"
+          scrolled ? "h-10 lg:h-11" : "h-14 lg:h-16"
         }`}>
           {/* Logo Icon */}
           <Link to="/" className="flex items-center group">
@@ -66,7 +66,7 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
               src="/lovable-uploads/favicon.png"
               alt="Beta Ads"
               className={`w-auto transition-all duration-300 group-hover:scale-105 ${
-                scrolled ? "h-6 lg:h-7" : "h-8 lg:h-9"
+                scrolled ? "h-5 lg:h-6" : "h-7 lg:h-8"
               }`}
             />
           </Link>
