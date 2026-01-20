@@ -683,12 +683,11 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
             {sidebarItems.map((item, i) => (
               <div
                 key={i}
-                onClick={() => i < 3 && setActiveTab(i)}
                 className={`
-                  p-2 rounded-md transition-colors cursor-pointer
+                  p-2 rounded-md cursor-default
                   ${item.active 
                     ? 'bg-primary/20 text-primary' 
-                    : 'text-muted-foreground/60 hover:text-muted-foreground hover:bg-muted/30'
+                    : 'text-muted-foreground/60'
                   }
                 `}
               >
@@ -702,19 +701,18 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
             {/* Tabs */}
             <div className="flex items-center gap-1.5 border-b border-border/20 pb-2.5">
               {tabs.map((tab, i) => (
-                <button
+                <div
                   key={tab}
-                  onClick={() => setActiveTab(i)}
                   className={`
-                    px-3 py-1.5 rounded-md text-[11px] font-medium transition-colors
+                    px-3 py-1.5 rounded-md text-[11px] font-medium cursor-default
                     ${activeTab === i 
                       ? 'bg-primary/15 text-primary' 
-                      : 'text-muted-foreground/60 hover:text-muted-foreground'
+                      : 'text-muted-foreground/60'
                     }
                   `}
                 >
                   {tab}
-                </button>
+                </div>
               ))}
             </div>
 
