@@ -43,12 +43,18 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
 
   return (
     <nav
-      className="fixed left-0 right-0 z-50 transition-all duration-300 ease-out"
-      style={{ top: 0 }}
+      className={`fixed left-0 right-0 z-50 transition-all duration-300 ease-out ${
+        scrolled ? "pointer-events-none" : ""
+      }`}
+      style={{ 
+        top: 0,
+        transform: scrolled ? 'translateY(1rem)' : 'translateY(0)',
+        willChange: 'transform'
+      }}
     >
       <div className={`transition-all duration-300 ease-out border ${
         scrolled 
-          ? "mx-4 lg:mx-auto lg:max-w-3xl rounded-full bg-background/95 backdrop-blur-xl shadow-lg shadow-black/10 border-border/30 px-4 lg:px-6"
+          ? "mx-4 lg:mx-auto lg:max-w-3xl rounded-full bg-background/95 backdrop-blur-xl shadow-lg shadow-black/10 border-border/30 px-4 lg:px-6 pointer-events-auto"
           : "max-w-7xl mx-auto px-6 lg:px-8 border-transparent"
       }`}>
         <div className={`flex items-center justify-between transition-all duration-300 ${
