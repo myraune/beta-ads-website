@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useParallax } from "@/hooks/useParallax";
 import { LiveDashboard } from "@/components/sections/LiveDashboard";
 
 interface HeroProps {
@@ -15,7 +14,6 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ t }) => {
   const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation();
-  const { getParallaxStyle } = useParallax();
 
   return (
     <section className="relative overflow-hidden text-foreground">
@@ -80,12 +78,11 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
             </div>
           </div>
 
-          {/* Right: Dashboard Preview - Subtle extension, with parallax */}
+          {/* Right: Dashboard Preview */}
           <div 
             className={`relative lg:-mr-8 xl:-mr-12 transition-all duration-1000 delay-300 ${
               contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
             }`}
-            style={getParallaxStyle(-0.08)}
           >
             <LiveDashboard compact />
           </div>
