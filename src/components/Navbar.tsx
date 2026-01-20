@@ -54,11 +54,11 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
     >
       <div className={`transition-all duration-300 ease-out border ${
             scrolled 
-              ? "mx-4 lg:mx-auto lg:max-w-2xl rounded-full bg-background/95 backdrop-blur-xl shadow-lg shadow-black/10 border-border/30 px-3 lg:px-4 pointer-events-auto"
+              ? "mx-auto w-fit rounded-full bg-background/60 backdrop-blur-xl shadow-lg shadow-black/5 border-white/10 px-4 pointer-events-auto"
           : "max-w-7xl mx-auto px-6 lg:px-8 border-transparent"
       }`}>
-        <div className={`flex items-center justify-between transition-all duration-300 ${
-          scrolled ? "h-10 lg:h-11" : "h-14 lg:h-16"
+        <div className={`flex items-center justify-center gap-4 lg:gap-6 transition-all duration-300 ${
+          scrolled ? "h-10" : "h-14 lg:h-16"
         }`}>
           {/* Logo Icon */}
           <Link to="/" className="flex items-center group">
@@ -66,21 +66,21 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
               src="/lovable-uploads/favicon.png"
               alt="Beta Ads"
               className={`w-auto transition-all duration-300 group-hover:scale-105 ${
-                scrolled ? "h-5 lg:h-6" : "h-7 lg:h-8"
+                scrolled ? "h-5" : "h-7 lg:h-8"
               }`}
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
-                className={`px-4 py-2 text-sm font-light tracking-wide transition-all duration-300 rounded-lg ${
+                className={`px-3 py-1.5 text-xs font-light tracking-wide transition-all duration-300 rounded-full ${
                   location.pathname === link.href
                     ? "text-primary bg-primary/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                    : "text-muted-foreground hover:text-foreground hover:bg-white/5"
                 }`}
               >
                 {link.label[language as keyof typeof link.label] || link.label.en}
@@ -88,20 +88,20 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
             ))}
           </div>
 
-          {/* Right side - Language + CTA */}
-          <div className="hidden lg:flex items-center space-x-4">
+          {/* Language selector */}
+          <div className="hidden lg:flex items-center">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="text-muted-foreground hover:text-foreground"
+                  className="text-muted-foreground hover:text-foreground hover:bg-white/5 h-7 px-2 rounded-full"
                 >
-                  <Globe className="h-4 w-4 mr-2" />
-                  <span className="text-sm">{currentLang.flag}</span>
+                  <Globe className="h-3.5 w-3.5 mr-1.5" />
+                  <span className="text-xs">{currentLang.flag}</span>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="bg-card/95 backdrop-blur-xl border-border/50">
+              <DropdownMenuContent align="end" className="bg-background/80 backdrop-blur-xl border-white/10">
                 {languages.map((lang) => (
                   <DropdownMenuItem
                     key={lang.code}
@@ -114,7 +114,6 @@ export const Navbar: React.FC<NavbarProps> = ({ language, setLanguage }) => {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
-
           </div>
 
           {/* Mobile menu button */}
