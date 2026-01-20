@@ -281,9 +281,7 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
                 stroke="hsl(var(--primary))" 
                 strokeWidth={1.5}
                 fill="url(#viewsGradientCompact)"
-                isAnimationActive={isVisible}
-                animationDuration={1000}
-                animationBegin={300}
+                isAnimationActive={false}
               />
             </AreaChart>
           </ResponsiveContainer>
