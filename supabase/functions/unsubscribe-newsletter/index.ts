@@ -114,10 +114,10 @@ const handler = async (req: Request): Promise<Response> => {
     const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    // Find subscriber by token
+    // Find subscriber by token - include subscribed_at for expiration check
     const { data: subscriber, error: findError } = await supabase
       .from("newsletter_subscribers")
-      .select("id, email, is_active")
+      .select("id, email, is_active, subscribed_at")
       .eq("unsubscribe_token", token)
       .single();
 
@@ -126,6 +126,25 @@ const handler = async (req: Request): Promise<Response> => {
         JSON.stringify({ error: "Invalid or expired unsubscribe link" }),
         {
           status: 404,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        }
+      );
+    }
+
+    // Token expiration check - tokens are valid for 90 days from subscription
+    // This limits the exposure window if tokens are leaked
+    const TOKEN_EXPIRY_DAYS = 90;
+    const subscribedAt = new Date(subscriber.subscribed_at);
+    const expiryDate = new Date(subscribedAt.getTime() + TOKEN_EXPIRY_DAYS * 24 * 60 * 60 * 1000);
+    
+    if (new Date() > expiryDate) {
+      console.log("Expired unsubscribe token attempt for:", subscriber.email);
+      return new Response(
+        JSON.stringify({ 
+          error: "Unsubscribe link has expired. Please contact support to unsubscribe." 
+        }),
+        {
+          status: 410, // Gone - resource no longer available
           headers: { "Content-Type": "application/json", ...corsHeaders },
         }
       );
