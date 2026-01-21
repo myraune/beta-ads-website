@@ -22,9 +22,9 @@ const Index: React.FC<IndexProps> = ({ t, language, setLanguage }) => {
     <>
       <Hero t={t} scrollToSection={scrollToSection} language={language} setLanguage={setLanguage} />
       <TrustedBy />
-      <HowItWorksSection />
-      <AdFormatsCarousel />
-      <CaseStudiesSection />
+      <HowItWorksSection t={t} />
+      <AdFormatsCarousel t={t} />
+      <CaseStudiesSection t={t} />
       <Press t={t} />
       <Footer t={t} language={language} setLanguage={setLanguage} />
     </>

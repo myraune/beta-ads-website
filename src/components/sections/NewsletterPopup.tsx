@@ -1,20 +1,90 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { X, Mail, TrendingUp, Users, Zap } from "lucide-react";
+import { Mail, TrendingUp, Users, Zap } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 
 interface NewsletterPopupProps {
   isOpen: boolean;
   onClose: () => void;
+  language?: string;
 }
 
-const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose }) => {
+const translations = {
+  en: {
+    title: "Get Nordic Twitch",
+    subtitle: "Market Insights",
+    description: "Interested in getting first-hand info about the Nordic Twitch market?",
+    marketingProfessionals: "500+ Marketing Professionals",
+    exclusiveCaseStudies: "Exclusive Case Studies",
+    marketTrends: "Market Trends",
+    placeholder: "Enter your work email",
+    getInsights: "Get Exclusive Market Insights",
+    subscribing: "Subscribing...",
+    privacyNote: "We respect your privacy. Unsubscribe at any time.",
+    successTitle: "Success!",
+    successDescription: "You've been subscribed to Nordic Twitch market insights.",
+    errorTitle: "Error",
+    errorDescription: "Something went wrong. Please try again.",
+  },
+  no: {
+    title: "Få Nordiske Twitch",
+    subtitle: "Markedsinnsikter",
+    description: "Interessert i førstehåndsinformasjon om det nordiske Twitch-markedet?",
+    marketingProfessionals: "500+ Markedsførere",
+    exclusiveCaseStudies: "Eksklusive Case-studier",
+    marketTrends: "Markedstrender",
+    placeholder: "Skriv inn jobb-e-posten din",
+    getInsights: "Få Eksklusive Markedsinnsikter",
+    subscribing: "Registrerer...",
+    privacyNote: "Vi respekterer ditt personvern. Avslutt abonnement når som helst.",
+    successTitle: "Suksess!",
+    successDescription: "Du er nå abonnent på nordiske Twitch-markedsinnsikter.",
+    errorTitle: "Feil",
+    errorDescription: "Noe gikk galt. Vennligst prøv igjen.",
+  },
+  sv: {
+    title: "Få Nordiska Twitch",
+    subtitle: "Marknadsinsikter",
+    description: "Intresserad av förstahandsinformation om den nordiska Twitch-marknaden?",
+    marketingProfessionals: "500+ Marknadsförare",
+    exclusiveCaseStudies: "Exklusiva Fallstudier",
+    marketTrends: "Marknadstrender",
+    placeholder: "Ange din jobbmail",
+    getInsights: "Få Exklusiva Marknadsinsikter",
+    subscribing: "Registrerar...",
+    privacyNote: "Vi respekterar din integritet. Avsluta prenumeration när som helst.",
+    successTitle: "Framgång!",
+    successDescription: "Du prenumererar nu på nordiska Twitch-marknadsinsikter.",
+    errorTitle: "Fel",
+    errorDescription: "Något gick fel. Försök igen.",
+  },
+  fi: {
+    title: "Saa Pohjoismaisia Twitch",
+    subtitle: "Markkinanäkemyksiä",
+    description: "Kiinnostaako ensikäden tieto pohjoismaisesta Twitch-markkinasta?",
+    marketingProfessionals: "500+ Markkinointiammattilaista",
+    exclusiveCaseStudies: "Eksklusiiviset Tapaustutkimukset",
+    marketTrends: "Markkinatrendit",
+    placeholder: "Syötä työsähköpostisi",
+    getInsights: "Saa Eksklusiivisia Markkinanäkemyksiä",
+    subscribing: "Tilataan...",
+    privacyNote: "Kunnioitamme yksityisyyttäsi. Peruuta tilaus milloin tahansa.",
+    successTitle: "Onnistui!",
+    successDescription: "Olet nyt tilannut pohjoismaiset Twitch-markkinanäkemykset.",
+    errorTitle: "Virhe",
+    errorDescription: "Jotain meni pieleen. Yritä uudelleen.",
+  },
+};
+
+const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose, language = "en" }) => {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
+
+  const t = translations[language as keyof typeof translations] || translations.en;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -23,7 +93,6 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose }) =>
     setIsSubmitting(true);
     
     try {
-      // Send notification email
       const { error } = await supabase.functions.invoke('notify-newsletter-signup', {
         body: { email }
       });
@@ -31,24 +100,24 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose }) =>
       if (error) {
         console.error('Error sending notification:', error);
         toast({
-          title: "Error",
-          description: "Something went wrong. Please try again.",
+          title: t.errorTitle,
+          description: t.errorDescription,
           variant: "destructive",
         });
         return;
       }
 
       toast({
-        title: "Success!",
-        description: "You've been subscribed to Nordic Twitch market insights.",
+        title: t.successTitle,
+        description: t.successDescription,
       });
       setEmail("");
       onClose();
     } catch (error) {
       console.error('Error:', error);
       toast({
-        title: "Error",
-        description: "Something went wrong. Please try again.",
+        title: t.errorTitle,
+        description: t.errorDescription,
         variant: "destructive",
       });
     } finally {
@@ -59,7 +128,6 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose }) =>
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-xl border-0 bg-gradient-to-br from-red-950 via-red-900 to-black text-gray-100 shadow-2xl backdrop-blur-md">
-
         <div className="p-8 pt-12">
           {/* Header section */}
           <div className="text-center space-y-6 mb-8">
@@ -69,13 +137,13 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose }) =>
             
             <div className="space-y-3">
               <h2 className="text-2xl md:text-3xl font-light text-white leading-tight">
-                Get Nordic Twitch 
+                {t.title}
                 <span className="block font-extralight italic text-gray-300">
-                  Market Insights
+                  {t.subtitle}
                 </span>
               </h2>
               <p className="text-gray-300 text-lg font-extralight leading-relaxed max-w-sm mx-auto">
-                Interested in getting first-hand info about the Nordic Twitch market?
+                {t.description}
               </p>
             </div>
           </div>
@@ -86,19 +154,19 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose }) =>
               <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10">
                 <Users className="h-5 w-5 text-gray-300" />
               </div>
-              <p className="text-xs text-gray-400 font-light">500+ Marketing Professionals</p>
+              <p className="text-xs text-gray-400 font-light">{t.marketingProfessionals}</p>
             </div>
             <div className="text-center space-y-2">
               <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10">
                 <Zap className="h-5 w-5 text-gray-300" />
               </div>
-              <p className="text-xs text-gray-400 font-light">Exclusive Case Studies</p>
+              <p className="text-xs text-gray-400 font-light">{t.exclusiveCaseStudies}</p>
             </div>
             <div className="text-center space-y-2">
               <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10">
                 <TrendingUp className="h-5 w-5 text-gray-300" />
               </div>
-              <p className="text-xs text-gray-400 font-light">Market Trends</p>
+              <p className="text-xs text-gray-400 font-light">{t.marketTrends}</p>
             </div>
           </div>
 
@@ -108,7 +176,7 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose }) =>
               <Mail className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
               <Input
                 type="email"
-                placeholder="Enter your work email"
+                placeholder={t.placeholder}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -124,10 +192,10 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose }) =>
               {isSubmitting ? (
                 <div className="flex items-center justify-center space-x-2">
                   <div className="animate-spin rounded-full h-4 w-4 border-2 border-black border-t-transparent"></div>
-                  <span>Subscribing...</span>
+                  <span>{t.subscribing}</span>
                 </div>
               ) : (
-                "Get Exclusive Market Insights"
+                t.getInsights
               )}
             </Button>
           </form>
@@ -135,7 +203,7 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose }) =>
           {/* Footer */}
           <div className="text-center mt-6">
             <p className="text-xs text-gray-500 font-light">
-              We respect your privacy. Unsubscribe at any time.
+              {t.privacyNote}
             </p>
           </div>
         </div>

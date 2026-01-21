@@ -3,6 +3,10 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
+interface CaseStudiesSectionProps {
+  t: any;
+}
+
 interface CaseStudy {
   brand: string;
   campaign: string;
@@ -35,10 +39,11 @@ const caseStudies: CaseStudy[] = [
   },
 ];
 
-const CaseStudyCard: React.FC<{ study: CaseStudy; index: number; isVisible: boolean }> = ({ 
+const CaseStudyCard: React.FC<{ study: CaseStudy; index: number; isVisible: boolean; t: any }> = ({ 
   study, 
   index, 
-  isVisible 
+  isVisible,
+  t
 }) => (
   <div
     className={`group relative p-6 lg:p-8 rounded-xl border border-border/30 bg-card/30 backdrop-blur-sm transition-all duration-500 hover:border-primary/40 hover:bg-card/50 ${
@@ -63,7 +68,7 @@ const CaseStudyCard: React.FC<{ study: CaseStudy; index: number; isVisible: bool
           {study.impressions}
         </p>
         <p className="text-xs text-muted-foreground uppercase tracking-wide">
-          Impressions
+          {t.impressions || "Impressions"}
         </p>
       </div>
       <div>
@@ -71,7 +76,7 @@ const CaseStudyCard: React.FC<{ study: CaseStudy; index: number; isVisible: bool
           {study.ctr}
         </p>
         <p className="text-xs text-muted-foreground uppercase tracking-wide">
-          CTR
+          {t.ctr || "CTR"}
         </p>
       </div>
       <div className="col-span-2">
@@ -83,7 +88,7 @@ const CaseStudyCard: React.FC<{ study: CaseStudy; index: number; isVisible: bool
   </div>
 );
 
-export const CaseStudiesSection: React.FC = () => {
+export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ t }) => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   return (
@@ -98,17 +103,17 @@ export const CaseStudiesSection: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
           <div>
             <h2 className="text-2xl lg:text-3xl font-light text-foreground mb-3">
-              Our Work
+              {t.ourWork || "Our Work"}
             </h2>
             <p className="text-muted-foreground text-base max-w-md">
-              Real campaigns. Real results.
+              {t.realCampaigns || "Real campaigns. Real results."}
             </p>
           </div>
           <Link 
             to="/case-studies"
             className="group inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            View all case studies
+            {t.viewAllCases || "View all case studies"}
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
@@ -121,6 +126,7 @@ export const CaseStudiesSection: React.FC = () => {
               study={study} 
               index={index}
               isVisible={isVisible}
+              t={t}
             />
           ))}
         </div>

@@ -42,7 +42,7 @@ const pressArticles: PressArticle[] = [
   },
 ];
 
-const PressCard: React.FC<{ article: PressArticle }> = ({ article }) => {
+const PressCard: React.FC<{ article: PressArticle; t: any }> = ({ article, t }) => {
   const isKampanje = article.publication === "Kampanje";
 
   return (
@@ -81,7 +81,7 @@ const PressCard: React.FC<{ article: PressArticle }> = ({ article }) => {
           </p>
           <div className="mt-3 flex items-center text-muted-foreground text-xs">
             <ExternalLink className="h-3 w-3 mr-1" />
-            <span>Les mer</span>
+            <span>{t.readMore || "Read more"}</span>
           </div>
         </div>
 
@@ -136,11 +136,11 @@ export const Press: React.FC<PressProps> = ({ t }) => {
         >
           {/* First set */}
           {pressArticles.map((article, index) => (
-            <PressCard key={`press-${index}`} article={article} />
+            <PressCard key={`press-${index}`} article={article} t={t} />
           ))}
           {/* Duplicate for seamless loop */}
           {pressArticles.map((article, index) => (
-            <PressCard key={`press-dup-${index}`} article={article} />
+            <PressCard key={`press-dup-${index}`} article={article} t={t} />
           ))}
         </div>
       </div>
