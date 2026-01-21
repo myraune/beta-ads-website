@@ -16,6 +16,7 @@ import BlogPost from "./pages/BlogPost";
 import Contact from "./pages/Contact";
 import Demo from "./pages/Demo";
 import NotFound from "./pages/NotFound";
+import Unsubscribe from "./pages/Unsubscribe";
 
 // Dashboard
 import { DashboardLayout } from "./components/dashboard/DashboardLayout";
@@ -259,6 +260,9 @@ const App = () => {
               <Route path="streamers/:id" element={<StreamerProfile />} />
               <Route path="audience" element={<AudienceInsights />} />
             </Route>
+            
+            {/* Standalone pages without main layout */}
+            <Route path="/unsubscribe" element={<Unsubscribe />} />
             
             <Route path="*" element={<NotFound />} />
           </Routes>
