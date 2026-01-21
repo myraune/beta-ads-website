@@ -57,15 +57,15 @@ const Demo: React.FC<DemoProps> = ({ t, language, setLanguage }) => {
       if (error) throw error;
 
       toast({
-        title: "Message sent!",
-        description: "We'll get back to you shortly.",
+        title: t.messageSent,
+        description: t.wellGetBack,
       });
       form.reset();
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
         title: "Error",
-        description: "Something went wrong. Please try again.",
+        description: t.somethingWentWrong,
         variant: "destructive",
       });
     } finally {
@@ -82,14 +82,14 @@ const Demo: React.FC<DemoProps> = ({ t, language, setLanguage }) => {
             
             {/* Left: Content */}
             <div>
-              <p className="text-xs uppercase tracking-widest text-primary mb-6">Request a Demo</p>
+              <p className="text-xs uppercase tracking-widest text-primary mb-6">{t.requestDemo}</p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight mb-8 leading-tight">
-                See Beta Ads
+                {t.seeInAction.split(' ').slice(0, 2).join(' ')}
                 <br />
-                <span className="text-primary">in action</span>
+                <span className="text-primary">{t.seeInAction.split(' ').slice(2).join(' ')}</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed mb-12 max-w-md">
-                Fill out the form and we'll show you how native Twitch advertising can work for your brand.
+                {t.demoFormDescription}
               </p>
 
               {/* Book a Call Option */}
@@ -108,7 +108,7 @@ const Demo: React.FC<DemoProps> = ({ t, language, setLanguage }) => {
                   </div>
                 </div>
                 <p className="text-sm text-muted-foreground mb-4">
-                  Prefer to talk directly? Book a 15-minute call.
+                  {t.preferTalkDirectly}
                 </p>
                 <a 
                   href="https://calendar.app.google/coW5NLQJtLxfRer19" 
@@ -116,7 +116,7 @@ const Demo: React.FC<DemoProps> = ({ t, language, setLanguage }) => {
                   rel="noopener noreferrer"
                 >
                   <Button variant="outline" size="sm" className="gap-2">
-                    Book a Call
+                    {t.bookCallDirect}
                     <ExternalLink className="h-4 w-4" />
                   </Button>
                 </a>
@@ -132,10 +132,10 @@ const Demo: React.FC<DemoProps> = ({ t, language, setLanguage }) => {
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-foreground">Name</FormLabel>
+                        <FormLabel className="text-foreground">{t.name}</FormLabel>
                         <FormControl>
                           <Input 
-                            placeholder="Your name" 
+                            placeholder={t.namePlaceholder} 
                             className="bg-background/50 border-border/50"
                             {...field} 
                           />
@@ -150,11 +150,11 @@ const Demo: React.FC<DemoProps> = ({ t, language, setLanguage }) => {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-foreground">Email</FormLabel>
+                        <FormLabel className="text-foreground">{t.email}</FormLabel>
                         <FormControl>
                           <Input 
                             type="email"
-                            placeholder="you@company.com" 
+                            placeholder={t.emailPlaceholder} 
                             className="bg-background/50 border-border/50"
                             {...field} 
                           />
@@ -169,10 +169,10 @@ const Demo: React.FC<DemoProps> = ({ t, language, setLanguage }) => {
                     name="company"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-foreground">Company (optional)</FormLabel>
+                        <FormLabel className="text-foreground">{t.companyOptional}</FormLabel>
                         <FormControl>
                           <Input 
-                            placeholder="Your company" 
+                            placeholder={t.companyPlaceholder} 
                             className="bg-background/50 border-border/50"
                             {...field} 
                           />
@@ -187,10 +187,10 @@ const Demo: React.FC<DemoProps> = ({ t, language, setLanguage }) => {
                     name="message"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-foreground">Message</FormLabel>
+                        <FormLabel className="text-foreground">{t.message}</FormLabel>
                         <FormControl>
                           <Textarea 
-                            placeholder="Tell us about your campaign goals..."
+                            placeholder={t.messagePlaceholder}
                             className="bg-background/50 border-border/50 min-h-[120px] resize-none"
                             {...field} 
                           />
@@ -209,11 +209,11 @@ const Demo: React.FC<DemoProps> = ({ t, language, setLanguage }) => {
                     {isSubmitting ? (
                       <>
                         <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        Sending...
+                        {t.sending}
                       </>
                     ) : (
                       <>
-                        Send Message
+                        {t.sendMessage}
                         <ArrowRight className="ml-2 h-4 w-4" />
                       </>
                     )}

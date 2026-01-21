@@ -28,10 +28,10 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
       <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-extralight text-foreground mb-6 tracking-tighter">
-            Our Work
+            {t.ourWork}
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto font-extralight leading-relaxed">
-            Discover how we've helped brands connect with streaming audiences through authentic partnerships.
+            {t.discoverHow}
           </p>
         </div>
       </section>

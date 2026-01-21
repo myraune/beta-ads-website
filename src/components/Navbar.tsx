@@ -73,22 +73,18 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Desktop Navigation */}
-      <nav className={`hidden lg:block transition-all duration-500 ${scrolled ? "pt-3" : "pt-0"}`}>
-        <div className={`mx-auto transition-all duration-500 ease-out ${
+      <nav className={`hidden lg:block transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${scrolled ? "pt-3" : "pt-0"}`}>
+        <div className={`mx-auto transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-[max-width,padding,background,border,box-shadow] ${
           scrolled 
             ? "max-w-fit px-6 py-2.5 rounded-full bg-background/70 backdrop-blur-xl border border-white/10 shadow-lg shadow-black/10" 
-            : "max-w-7xl px-8 py-5"
+            : "max-w-7xl px-8 py-5 border border-transparent"
         }`}>
-          <div className={`flex items-center transition-all duration-500 ${
-            scrolled 
-              ? "justify-center gap-6" 
-              : "justify-between"
-          }`}>
-            {/* Logo - Animates from left edge to center */}
-            <div className={`transition-all duration-500 ease-out ${
+          <div className="flex items-center">
+            {/* Logo - Uses flex-1 to push to edge when not scrolled */}
+            <div className={`flex-shrink-0 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-[flex,width] ${
               scrolled 
-                ? "translate-x-0" 
-                : ""
+                ? "flex-none" 
+                : "flex-1"
             }`}>
               <Link to="/" className="flex items-center group">
                 <img 
@@ -99,8 +95,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               </Link>
             </div>
 
-            {/* Nav Links - Always centered */}
-            <div className="flex items-center gap-1">
+            {/* Nav Links - Gap animates to bring elements together */}
+            <div className={`flex items-center gap-1 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+              scrolled ? "mx-6" : "mx-0"
+            }`}>
               {navLinks.map(link => (
                 <Link 
                   key={link.href} 
@@ -116,11 +114,11 @@ export const Navbar: React.FC<NavbarProps> = ({
               ))}
             </div>
 
-            {/* Language Selector - Animates from right edge to center */}
-            <div className={`transition-all duration-500 ease-out ${
+            {/* Language Selector - Uses flex-1 with justify-end when not scrolled */}
+            <div className={`flex-shrink-0 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-[flex,width] ${
               scrolled 
-                ? "translate-x-0" 
-                : ""
+                ? "flex-none" 
+                : "flex-1 flex justify-end"
             }`}>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
