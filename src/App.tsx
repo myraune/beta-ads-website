@@ -122,6 +122,16 @@ const translations = {
     // Case Studies Page
     discoverHow: "Discover how we've helped brands connect with streaming audiences through authentic partnerships.",
     readMore: "Read more",
+    // Demo Form extras
+    preferTalkDirectly: "Prefer to talk directly? Book a 15-minute call.",
+    namePlaceholder: "Your name",
+    emailPlaceholder: "you@company.com",
+    companyOptional: "Company (optional)",
+    companyPlaceholder: "Your company",
+    messagePlaceholder: "Tell us about your campaign goals...",
+    messageSent: "Message sent!",
+    wellGetBack: "We'll get back to you shortly.",
+    somethingWentWrong: "Something went wrong. Please try again.",
   },
   no: {
     heroSubtitle: "Nordisk Twitch-byrå",
@@ -217,6 +227,16 @@ const translations = {
     // Case Studies Page
     discoverHow: "Oppdag hvordan vi har hjulpet merkevarer med å nå streamingpublikum gjennom autentiske partnerskap.",
     readMore: "Les mer",
+    // Demo Form extras
+    preferTalkDirectly: "Foretrekker å snakke direkte? Book en 15-minutters samtale.",
+    namePlaceholder: "Ditt navn",
+    emailPlaceholder: "du@bedrift.no",
+    companyOptional: "Bedrift (valgfritt)",
+    companyPlaceholder: "Din bedrift",
+    messagePlaceholder: "Fortell oss om dine kampanjemål...",
+    messageSent: "Melding sendt!",
+    wellGetBack: "Vi tar kontakt snart.",
+    somethingWentWrong: "Noe gikk galt. Vennligst prøv igjen.",
   },
   sv: {
     heroSubtitle: "Nordisk Twitch-byrå",
@@ -312,6 +332,16 @@ const translations = {
     // Case Studies Page
     discoverHow: "Upptäck hur vi har hjälpt varumärken att nå streamingpubliker genom autentiska partnerskap.",
     readMore: "Läs mer",
+    // Demo Form extras
+    preferTalkDirectly: "Föredrar att prata direkt? Boka ett 15-minuters samtal.",
+    namePlaceholder: "Ditt namn",
+    emailPlaceholder: "du@foretag.se",
+    companyOptional: "Företag (valfritt)",
+    companyPlaceholder: "Ditt företag",
+    messagePlaceholder: "Berätta om dina kampanjmål...",
+    messageSent: "Meddelande skickat!",
+    wellGetBack: "Vi återkommer snart.",
+    somethingWentWrong: "Något gick fel. Försök igen.",
   },
   fi: {
     heroSubtitle: "Pohjoismainen Twitch-toimisto",
@@ -407,6 +437,16 @@ const translations = {
     // Case Studies Page
     discoverHow: "Tutustu miten olemme auttaneet brändejä tavoittamaan streamingyleisöjä aitojen kumppanuuksien kautta.",
     readMore: "Lue lisää",
+    // Demo Form extras
+    preferTalkDirectly: "Haluatko puhua suoraan? Varaa 15 minuutin puhelu.",
+    namePlaceholder: "Nimesi",
+    emailPlaceholder: "sina@yritys.fi",
+    companyOptional: "Yritys (valinnainen)",
+    companyPlaceholder: "Yrityksesi",
+    messagePlaceholder: "Kerro meille kampanjatavoitteistasi...",
+    messageSent: "Viesti lähetetty!",
+    wellGetBack: "Palaamme asiaan pian.",
+    somethingWentWrong: "Jokin meni pieleen. Yritä uudelleen.",
   },
 };
 
