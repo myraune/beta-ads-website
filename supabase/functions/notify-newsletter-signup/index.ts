@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.39.3";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
@@ -133,18 +134,78 @@ const handler = async (req: Request): Promise<Response> => {
     }
 
     const { email } = body;
+    const normalizedEmail = email.trim().toLowerCase();
     
-    // Escape email for HTML
-    const safeEmail = escapeHtml(email.trim());
+    // Initialize Supabase client with service role for database operations
+    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+    const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+    const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    console.log("New newsletter signup received");
+    // Check if email already exists
+    const { data: existingSubscriber } = await supabase
+      .from("newsletter_subscribers")
+      .select("id, is_active, unsubscribe_token")
+      .eq("email", normalizedEmail)
+      .single();
+
+    let unsubscribeToken: string;
+    let isNewSubscriber = false;
+
+    if (existingSubscriber) {
+      if (existingSubscriber.is_active) {
+        // Already subscribed - return success silently
+        return new Response(JSON.stringify({ success: true, message: "Already subscribed" }), {
+          status: 200,
+          headers: { "Content-Type": "application/json", ...corsHeaders },
+        });
+      } else {
+        // Reactivate subscription
+        const { error: updateError } = await supabase
+          .from("newsletter_subscribers")
+          .update({ 
+            is_active: true, 
+            unsubscribed_at: null,
+            subscribed_at: new Date().toISOString()
+          })
+          .eq("id", existingSubscriber.id);
+
+        if (updateError) {
+          console.error("Error reactivating subscriber:", updateError);
+          throw new Error("Failed to reactivate subscription");
+        }
+        unsubscribeToken = existingSubscriber.unsubscribe_token;
+      }
+    } else {
+      // New subscriber
+      const { data: newSubscriber, error: insertError } = await supabase
+        .from("newsletter_subscribers")
+        .insert({ email: normalizedEmail })
+        .select("unsubscribe_token")
+        .single();
+
+      if (insertError) {
+        console.error("Error inserting subscriber:", insertError);
+        throw new Error("Failed to save subscription");
+      }
+      unsubscribeToken = newSubscriber.unsubscribe_token;
+      isNewSubscriber = true;
+    }
+
+    // Escape email for HTML
+    const safeEmail = escapeHtml(normalizedEmail);
+    
+    // Get the base URL for unsubscribe link
+    const baseUrl = "https://beta-ads.lovable.app";
+    const unsubscribeUrl = `${baseUrl}/unsubscribe?token=${unsubscribeToken}`;
+
+    console.log("New newsletter signup received:", isNewSubscriber ? "new" : "reactivated");
 
     const emailResponse = await resend.emails.send({
       from: "Nordic Twitch Insights <onboarding@resend.dev>",
       to: ["andreas@beta-ads.no"],
-      subject: "New Newsletter Signup - Nordic Twitch Market",
+      subject: `${isNewSubscriber ? "New" : "Reactivated"} Newsletter Signup - Nordic Twitch Market`,
       html: `
-        <h2>New Newsletter Signup</h2>
+        <h2>${isNewSubscriber ? "New" : "Reactivated"} Newsletter Signup</h2>
         <p><strong>Email:</strong> ${safeEmail}</p>
         <p><strong>Source:</strong> Website Popup</p>
         <p><strong>Time:</strong> ${new Date().toLocaleString()}</p>
@@ -153,6 +214,9 @@ const handler = async (req: Request): Promise<Response> => {
         
         <p style="color: #666; font-size: 14px;">
           This notification was sent automatically when someone signed up for your Nordic Twitch market insights newsletter.
+        </p>
+        <p style="color: #999; font-size: 12px;">
+          Unsubscribe link for this user: <a href="${unsubscribeUrl}">${unsubscribeUrl}</a>
         </p>
       `,
     });
