@@ -200,10 +200,86 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("New newsletter signup received:", isNewSubscriber ? "new" : "reactivated");
 
-    const emailResponse = await resend.emails.send({
-      from: "Nordic Twitch Insights <onboarding@resend.dev>",
+    // Send welcome email to the subscriber
+    const welcomeEmailResponse = await resend.emails.send({
+      from: "Beta Ads <noreply@beta-ads.no>",
+      to: [normalizedEmail],
+      subject: "Welcome to Nordic Twitch Market Insights",
+      html: `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="margin: 0; padding: 0; background-color: #0a0a0a; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+          <table width="100%" cellpadding="0" cellspacing="0" style="background-color: #0a0a0a; padding: 40px 20px;">
+            <tr>
+              <td align="center">
+                <table width="600" cellpadding="0" cellspacing="0" style="background-color: #1a1a1a; border-radius: 12px; overflow: hidden;">
+                  <!-- Header -->
+                  <tr>
+                    <td style="padding: 40px 40px 20px; text-align: center; background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);">
+                      <h1 style="margin: 0; color: #ffffff; font-size: 28px; font-weight: 700;">Beta Ads</h1>
+                      <p style="margin: 8px 0 0; color: rgba(255,255,255,0.9); font-size: 14px;">Nordic Twitch Advertising</p>
+                    </td>
+                  </tr>
+                  
+                  <!-- Content -->
+                  <tr>
+                    <td style="padding: 40px;">
+                      <h2 style="margin: 0 0 20px; color: #ffffff; font-size: 24px; font-weight: 600;">Thanks for subscribing!</h2>
+                      <p style="margin: 0 0 20px; color: #a1a1aa; font-size: 16px; line-height: 1.6;">
+                        You're now on the list for exclusive insights into the Nordic Twitch advertising market.
+                      </p>
+                      
+                      <div style="background-color: #262626; border-radius: 8px; padding: 24px; margin: 24px 0;">
+                        <h3 style="margin: 0 0 16px; color: #ffffff; font-size: 16px; font-weight: 600;">What you'll receive:</h3>
+                        <ul style="margin: 0; padding: 0 0 0 20px; color: #a1a1aa; font-size: 14px; line-height: 1.8;">
+                          <li>Market trends and viewership data</li>
+                          <li>Case studies from successful campaigns</li>
+                          <li>New ad format announcements</li>
+                          <li>Industry insights and benchmarks</li>
+                        </ul>
+                      </div>
+                      
+                      <p style="margin: 24px 0; color: #a1a1aa; font-size: 16px; line-height: 1.6;">
+                        In the meantime, explore our website to learn more about native Twitch advertising.
+                      </p>
+                      
+                      <a href="https://beta-ads.lovable.app" style="display: inline-block; background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); color: #ffffff; text-decoration: none; padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 14px;">
+                        Visit Beta Ads
+                      </a>
+                    </td>
+                  </tr>
+                  
+                  <!-- Footer -->
+                  <tr>
+                    <td style="padding: 24px 40px; background-color: #0f0f0f; border-top: 1px solid #262626;">
+                      <p style="margin: 0 0 8px; color: #71717a; font-size: 12px; text-align: center;">
+                        Beta Ads — Native advertising for live Twitch streams
+                      </p>
+                      <p style="margin: 0; color: #71717a; font-size: 12px; text-align: center;">
+                        <a href="${unsubscribeUrl}" style="color: #71717a; text-decoration: underline;">Unsubscribe</a>
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </body>
+        </html>
+      `,
+    });
+
+    console.log("Welcome email sent to subscriber:", welcomeEmailResponse);
+
+    // Send internal notification to admin
+    const adminNotificationResponse = await resend.emails.send({
+      from: "Beta Ads <noreply@beta-ads.no>",
       to: ["andreas@beta-ads.no"],
-      subject: `${isNewSubscriber ? "New" : "Reactivated"} Newsletter Signup - Nordic Twitch Market`,
+      subject: `${isNewSubscriber ? "New" : "Reactivated"} Newsletter Signup`,
       html: `
         <h2>${isNewSubscriber ? "New" : "Reactivated"} Newsletter Signup</h2>
         <p><strong>Email:</strong> ${safeEmail}</p>
@@ -221,7 +297,7 @@ const handler = async (req: Request): Promise<Response> => {
       `,
     });
 
-    console.log("Notification email sent successfully:", emailResponse);
+    console.log("Admin notification sent:", adminNotificationResponse);
 
     return new Response(JSON.stringify({ success: true }), {
       status: 200,
