@@ -1,491 +1,317 @@
-import React, { useState, useMemo } from "react";
+import React from "react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { 
-  TrendingUp, ExternalLink, Home, ChevronRight, Gift, TrendingUp as LevelUp, 
-  Film, Wallet, BarChart3, CircleHelp, ArrowUpRight, ArrowDownLeft, 
-  CheckCircle2, Clock, Eye, MousePointer, Menu, Download, Filter
+  Gift, Wallet, BarChart3, ArrowRight, Zap, Users, Shield,
+  CheckCircle2, Twitch, Youtube
 } from "lucide-react";
-import { AreaChart, Area, BarChart, Bar, PieChart, Pie, Cell, LineChart, Line, ResponsiveContainer, XAxis, YAxis, Tooltip, ReferenceLine, Legend } from "recharts";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface StreamerSectionProps {
   t: any;
   language: string;
 }
 
+// Brand logos that work with Beta Ads streamers
+const brandLogos = [
+  { src: "/lovable-uploads/logo-surfshark.png", alt: "Surfshark", scale: "scale-90" },
+  { src: "/lovable-uploads/logo-logitech.png", alt: "Logitech", scale: "scale-100" },
+  { src: "/lovable-uploads/logo-steelseries.png", alt: "SteelSeries", scale: "scale-110" },
+  { src: "/lovable-uploads/logo-shure.png", alt: "Shure", scale: "scale-90" },
+  { src: "/lovable-uploads/logo-foodora.png", alt: "Foodora", scale: "scale-90" },
+  { src: "/lovable-uploads/logo-dentsu.png", alt: "Dentsu", scale: "scale-75" },
+];
+
+const features = [
+  {
+    icon: Gift,
+    title: "Easy Sponsorships",
+    description: "Browse available campaigns, accept with one click. Pre-written scripts and brand guidelines included."
+  },
+  {
+    icon: Wallet,
+    title: "Get Paid Monthly",
+    description: "Earn per impression (RPM). Track your earnings and request payouts directly from the platform."
+  },
+  {
+    icon: BarChart3,
+    title: "See Your Stats",
+    description: "Real-time analytics on views, clicks, and earnings. Know exactly how your content performs."
+  }
+];
+
+const steps = [
+  {
+    number: "01",
+    title: "Connect your stream",
+    description: "Sign in with Twitch, Kick, YouTube, or Trovo. Instant setup, no technical knowledge required.",
+    icons: [Twitch, Youtube]
+  },
+  {
+    number: "02",
+    title: "Accept sponsorships",
+    description: "Browse campaigns and accept the ones you like. Full creative control, pre-made scripts provided."
+  },
+  {
+    number: "03",
+    title: "Get paid",
+    description: "Ads run automatically during your stream. You get paid monthly based on your RPM."
+  }
+];
+
+const benefits = [
+  "No minimum follower count",
+  "Works with Twitch, Kick, YouTube, Trovo",
+  "Get paid within 30 days",
+  "Full creative control",
+  "Pre-made scripts & guidelines",
+  "Real-time earnings dashboard"
+];
+
 export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language }) => {
-  const [activeNavItem, setActiveNavItem] = useState<string>("Sponsorships");
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [timeFilter, setTimeFilter] = useState<string>("7d");
-  const [campaignFilter, setCampaignFilter] = useState<string>("all");
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const { ref: featuresRef, isVisible: featuresVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const { ref: stepsRef, isVisible: stepsVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const { ref: brandsRef, isVisible: brandsVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
-  const sponsorships = [
-    {
-      id: 1,
-      title: "Philips OneBlade x Fortnite",
-      gradient: "from-blue-600 to-cyan-500",
-      brand: "PHILIPS",
-      status: "available",
-      isNew: true
-    },
-    {
-      id: 2,
-      title: "Saily eSIM",
-      gradient: "from-orange-500 to-yellow-500",
-      brand: "SAILY",
-      status: "available",
-      isNew: true
-    },
-    {
-      id: 3,
-      title: "Surfshark VPN",
-      gradient: "from-teal-500 to-emerald-500",
-      brand: "SURFSHARK",
-      status: "available",
-      isNew: false
-    },
-    {
-      id: 4,
-      title: "NordVPN",
-      gradient: "from-blue-700 to-indigo-600",
-      brand: "NORDVPN",
-      status: "available",
-      isNew: true
-    }
-  ];
-
-  const walletData = {
-    availableBalance: 247.50,
-    pendingEarnings: 34.20,
-    totalEarned: 1842.30,
-    thisMonth: 156.80,
-    monthChange: 12
-  };
-
-  const transactions = [
-    { date: "Dec 8", description: "Surfshark VPN payout", amount: 24.70, type: "credit", status: "completed" },
-    { date: "Dec 5", description: "Saily campaign bonus", amount: 15.00, type: "credit", status: "completed" },
-    { date: "Dec 2", description: "Withdrawal to PayPal", amount: -150.00, type: "debit", status: "completed" },
-    { date: "Nov 28", description: "Philips OneBlade payout", amount: 42.30, type: "credit", status: "completed" },
-  ];
-
-  const navItems = [
-    { icon: Gift, label: "Sponsorships" },
-    { icon: LevelUp, label: "Level Up" },
-    { icon: Film, label: "My clips" },
-    { icon: Wallet, label: "Wallet" },
-    { icon: BarChart3, label: "Statistics" },
-    { icon: CircleHelp, label: "Help" },
-  ];
-
-  // Statistics data
-  const weeklyViews = [
-    { day: "Mon", views: 1200 },
-    { day: "Tue", views: 1800 },
-    { day: "Wed", views: 1500 },
-    { day: "Thu", views: 2200 },
-    { day: "Fri", views: 2800 },
-    { day: "Sat", views: 3500 },
-    { day: "Sun", views: 2900 },
-  ];
-
-  const weeklyEarnings = [
-    { day: "Mon", amount: 12.50 },
-    { day: "Tue", amount: 18.20 },
-    { day: "Wed", amount: 15.80 },
-    { day: "Thu", amount: 24.30 },
-    { day: "Fri", amount: 31.40 },
-    { day: "Sat", amount: 38.60 },
-    { day: "Sun", amount: 28.90 },
-  ];
-
-  const topCampaigns = [
-    { name: "Surfshark VPN", earnings: 124.50, impressions: 9576 },
-    { name: "Brand Lift Study", earnings: 8.40, impressions: 12 },
-    { name: "Philips OneBlade", earnings: 67.30, impressions: 5178 },
-  ];
-
-  const getBrowserUrl = () => {
-    const urlMap: Record<string, string> = {
-      "Sponsorships": "sponsorships",
-      "Level Up": "level-up",
-      "My clips": "clips",
-      "Wallet": "wallet",
-      "Statistics": "statistics",
-      "Help": "help"
-    };
-    return `beta.instreamly.com/${urlMap[activeNavItem] || "sponsorships"}`;
-  };
-
-  const getBreadcrumb = () => {
-    const breadcrumbMap: Record<string, string> = {
-      "Sponsorships": "Available sponsorships",
-      "Level Up": "Level Up",
-      "My clips": "My clips",
-      "Wallet": "Wallet",
-      "Statistics": "Statistics",
-      "Help": "Help center"
-    };
-    return breadcrumbMap[activeNavItem] || "Available sponsorships";
-  };
-
-  const renderWalletContent = () => (
-    <div className="flex-1 flex flex-col">
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 mb-2">
-        <div className="bg-gradient-to-br from-green-500/20 to-emerald-600/20 rounded-lg p-2 border border-green-500/20">
-          <div className="text-white/60 text-[9px] mb-0.5">Available</div>
-          <div className="text-white font-bold text-sm">€{walletData.availableBalance.toFixed(2)}</div>
+  return (
+    <div className="relative">
+      {/* Hero Section */}
+      <section className="min-h-[80vh] flex items-center justify-center relative overflow-hidden">
+        {/* Aurora glow effect */}
+        <div className="absolute top-1/2 right-0 w-[600px] h-[600px] -translate-y-1/2 translate-x-1/4">
+          <div className="absolute inset-0 bg-gradient-radial from-primary/20 via-primary/5 to-transparent blur-3xl animate-pulse" />
         </div>
-        <div className="bg-[#252525] rounded-lg p-2 border border-white/5">
-          <div className="text-white/60 text-[9px] mb-0.5">Pending</div>
-          <div className="text-white font-bold text-sm">€{walletData.pendingEarnings.toFixed(2)}</div>
-        </div>
-        <div className="bg-[#252525] rounded-lg p-2 border border-white/5">
-          <div className="text-white/60 text-[9px] mb-0.5">Total Earned</div>
-          <div className="text-white font-bold text-sm">€{walletData.totalEarned.toFixed(2)}</div>
-        </div>
-        <div className="bg-[#252525] rounded-lg p-2 border border-white/5">
-          <div className="text-white/60 text-[9px] mb-0.5">This Month</div>
-          <div className="text-white font-bold text-sm">€{walletData.thisMonth.toFixed(2)}</div>
-        </div>
-      </div>
-
-      <div className="bg-[#252525] rounded-lg border border-white/5 overflow-hidden flex-1 flex flex-col">
-        <div className="px-2 py-1.5 border-b border-white/10">
-          <h4 className="text-white font-medium text-[10px]">Recent Transactions</h4>
-        </div>
-        <div className="divide-y divide-white/5 flex-1">
-          {transactions.map((tx, index) => (
-            <div key={index} className="px-2 py-1.5 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <div className={`w-5 h-5 rounded-full flex items-center justify-center ${
-                  tx.type === "credit" ? "bg-green-500/20" : "bg-red-500/20"
-                }`}>
-                  {tx.type === "credit" ? (
-                    <ArrowDownLeft className="w-2.5 h-2.5 text-green-400" />
-                  ) : (
-                    <ArrowUpRight className="w-2.5 h-2.5 text-red-400" />
-                  )}
-                </div>
-                <div>
-                  <div className="text-white text-[10px] font-medium">{tx.description}</div>
-                  <div className="text-white/40 text-[8px]">{tx.date}</div>
-                </div>
+        
+        <div 
+          ref={heroRef}
+          className={`max-w-7xl mx-auto px-4 lg:px-8 w-full transition-all duration-1000 ${
+            heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Text content */}
+            <div className="space-y-8">
+              <div className="space-y-4">
+                <span className="text-primary/80 text-sm font-medium tracking-wider uppercase">
+                  For Streamers
+                </span>
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[0.95]">
+                  Get paid to stream.
+                  <br />
+                  <span className="text-muted-foreground">No extra work.</span>
+                </h1>
+                <p className="text-lg text-muted-foreground max-w-md">
+                  Monetize your stream with native sponsorships that feel part of your content, not interruptions.
+                </p>
               </div>
-              <div className={`text-[10px] font-bold ${tx.type === "credit" ? "text-green-400" : "text-red-400"}`}>
-                {tx.type === "credit" ? "+" : ""}€{Math.abs(tx.amount).toFixed(2)}
+
+              <div className="flex flex-wrap gap-4">
+                <Button 
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 px-8"
+                  onClick={() => window.open("https://beta.streamer.livad.stream/login", "_blank")}
+                >
+                  Join Beta Ads
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="border-border/50 hover:bg-card/50 gap-2"
+                  onClick={() => window.open("https://discord.gg/betaads", "_blank")}
+                >
+                  Join Discord
+                </Button>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
 
-  const renderSponsorshipsContent = () => (
-    <div className="flex-1 flex flex-col">
-      <h3 className="text-xs font-medium text-white mb-2">Available sponsorships</h3>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 flex-1">
-        {sponsorships.map((sponsorship) => (
-          <div
-            key={sponsorship.id}
-            className="bg-[#252525] rounded-lg overflow-hidden border border-white/5 hover:border-primary/50 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 cursor-pointer group flex flex-col"
-          >
-            <div className="relative flex-1 min-h-[80px] overflow-hidden">
-              <div className={`w-full h-full bg-gradient-to-br ${sponsorship.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}>
-                <span className="text-white/90 font-bold text-sm tracking-wider">{sponsorship.brand}</span>
+            {/* Right: Visual element */}
+            <div className="relative hidden lg:block">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-border/30 bg-card/20 backdrop-blur-sm">
+                <img 
+                  src="/lovable-uploads/streamer-dashboard-sponsors.png" 
+                  alt="Beta Ads streamer dashboard showing available sponsorships"
+                  className="w-full h-full object-cover object-top"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
               </div>
-              {sponsorship.isNew && (
-                <Badge className="absolute top-1.5 left-1.5 bg-gradient-to-r from-pink-500 to-rose-500 text-white text-[7px] px-1 py-0 border-0">
-                  New!
-                </Badge>
-              )}
-            </div>
-            <div className="p-2">
-              <h4 className="text-white font-medium text-[10px] mb-1 line-clamp-1">{sponsorship.title}</h4>
-              <Button 
-                size="sm" 
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-[9px] py-0 h-5"
-              >
-                Apply
-              </Button>
             </div>
           </div>
-        ))}
-      </div>
-    </div>
-  );
+        </div>
+      </section>
 
-  const campaignBreakdown = [
-    { name: "Surfshark", value: 45, color: "#22c55e" },
-    { name: "Philips", value: 30, color: "#3b82f6" },
-    { name: "Saily", value: 15, color: "#f59e0b" },
-    { name: "Other", value: 10, color: "#6b7280" },
-  ];
+      {/* Value Proposition Section */}
+      <section className="py-20 lg:py-28">
+        <div 
+          ref={featuresRef}
+          className={`max-w-6xl mx-auto px-4 lg:px-8 transition-all duration-1000 delay-100 ${
+            featuresVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Why streamers love Beta Ads
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Everything you need to monetize your stream, without the hassle.
+            </p>
+          </div>
 
-  const hourlyData = [
-    { hour: "6PM", views: 800 },
-    { hour: "7PM", views: 1200 },
-    { hour: "8PM", views: 2400 },
-    { hour: "9PM", views: 2100 },
-    { hour: "10PM", views: 1800 },
-    { hour: "11PM", views: 900 },
-  ];
-
-  const avgViews = useMemo(() => weeklyViews.reduce((a, b) => a + b.views, 0) / weeklyViews.length, []);
-
-  const renderStatisticsContent = () => (
-    <div className="flex-1 flex flex-col gap-2">
-      {/* Filters + Stats Row Combined */}
-      <div className="flex items-center justify-between gap-2 bg-[#252525] rounded-lg p-1.5 border border-white/5">
-        <div className="flex items-center gap-1.5">
-          <Filter className="w-3 h-3 text-white/40" />
-          <div className="flex gap-0.5">
-            {["7d", "30d", "90d"].map((period) => (
-              <button
-                key={period}
-                onClick={() => setTimeFilter(period)}
-                className={`px-1.5 py-0.5 rounded text-[9px] font-medium transition-all ${
-                  timeFilter === period
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-white/5 text-white/60 hover:text-white hover:bg-white/10"
-                }`}
+          <div className="grid md:grid-cols-3 gap-6">
+            {features.map((feature, index) => (
+              <div 
+                key={index}
+                className={`bg-card/30 backdrop-blur-sm border border-border/50 rounded-2xl p-8 transition-all duration-500 hover:border-primary/30 hover:bg-card/50`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
-                {period === "7d" ? "7D" : period === "30d" ? "30D" : "90D"}
-              </button>
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+                  <feature.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  {feature.description}
+                </p>
+              </div>
             ))}
           </div>
         </div>
-        <div className="flex items-center gap-3 text-[9px]">
-          <div className="flex items-center gap-1">
-            <Eye className="w-2.5 h-2.5 text-primary/70" />
-            <span className="text-white font-bold">15.9K</span>
-            <span className="text-green-400">+18%</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <MousePointer className="w-2.5 h-2.5 text-primary/70" />
-            <span className="text-white font-bold">2.4%</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <TrendingUp className="w-2.5 h-2.5 text-primary/70" />
-            <span className="text-white font-bold">€169</span>
-          </div>
-        </div>
-      </div>
+      </section>
 
-      {/* Charts Row - Takes remaining space */}
-      <div className="grid grid-cols-2 gap-2 flex-1">
-        {/* Views Chart */}
-        <div className="bg-[#252525] rounded-lg p-2 border border-white/5 flex flex-col">
-          <div className="flex items-center justify-between mb-1">
-            <span className="text-white text-[10px] font-medium">Views</span>
-            <span className="text-white/40 text-[8px]">Avg: {Math.round(avgViews).toLocaleString()}</span>
-          </div>
-          <div className="flex-1 min-h-0">
-            <ResponsiveContainer width="100%" height="100%">
-              <AreaChart data={weeklyViews}>
-                <defs>
-                  <linearGradient id="viewsGradient" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#ef4444" stopOpacity={0.3} />
-                    <stop offset="100%" stopColor="#ef4444" stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: '#666', fontSize: 8 }} />
-                <YAxis hide />
-                <Tooltip 
-                  contentStyle={{ background: '#1a1a1a', border: '1px solid #333', borderRadius: 6, fontSize: 9 }}
-                  labelStyle={{ color: '#fff', fontSize: 9 }}
-                  itemStyle={{ color: '#ef4444', fontSize: 9 }}
-                />
-                <ReferenceLine y={avgViews} stroke="#666" strokeDasharray="3 3" />
-                <Area 
-                  type="monotone" 
-                  dataKey="views" 
-                  stroke="#ef4444" 
-                  strokeWidth={1.5}
-                  fill="url(#viewsGradient)"
-                  animationDuration={800}
-                />
-              </AreaChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-
-        {/* Earnings Chart */}
-        <div className="bg-[#252525] rounded-lg p-2 border border-white/5 flex flex-col">
-          <div className="flex items-center justify-between mb-1">
-            <span className="text-white text-[10px] font-medium">Earnings</span>
-            <span className="text-green-400 text-[8px] font-medium">€169.70</span>
-          </div>
-          <div className="flex-1 min-h-0">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={weeklyEarnings}>
-                <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fill: '#666', fontSize: 8 }} />
-                <YAxis hide />
-                <Tooltip 
-                  contentStyle={{ background: '#1a1a1a', border: '1px solid #333', borderRadius: 6, fontSize: 9 }}
-                  labelStyle={{ color: '#fff', fontSize: 9 }}
-                  formatter={(value: number) => [`€${value.toFixed(2)}`, 'Earnings']}
-                />
-                <Bar dataKey="amount" fill="#22c55e" radius={[2, 2, 0, 0]} animationDuration={800} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-
-  const renderContent = () => {
-    switch (activeNavItem) {
-      case "Wallet":
-        return renderWalletContent();
-      case "Statistics":
-        return renderStatisticsContent();
-      default:
-        return renderSponsorshipsContent();
-    }
-  };
-
-  return (
-    <section id="streamer-section" className="py-12 lg:py-20">
-      <div className="max-w-[1500px] mx-auto px-4 lg:px-6">
-        {/* Platform Preview */}
-        <div className="rounded-2xl overflow-hidden shadow-2xl border border-border/50 bg-[#1a1a1a] flex flex-col" style={{ aspectRatio: '16/10' }}>
-          {/* Browser Bar - Compact */}
-          <div className="bg-[#2a2a2a] px-3 py-1.5 flex items-center gap-2 border-b border-white/10">
-            <div className="flex gap-1">
-              <div className="w-2 h-2 rounded-full bg-red-500" />
-              <div className="w-2 h-2 rounded-full bg-yellow-500" />
-              <div className="w-2 h-2 rounded-full bg-green-500" />
-            </div>
-            <div className="flex-1 flex justify-center">
-              <div className="bg-[#1a1a1a] rounded px-2 py-0.5 text-[10px] text-white/60 flex items-center gap-1.5">
-                <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                </svg>
-                {getBrowserUrl()}
-              </div>
-            </div>
+      {/* How It Works Section */}
+      <section className="py-20 lg:py-28 bg-card/20">
+        <div 
+          ref={stepsRef}
+          className={`max-w-6xl mx-auto px-4 lg:px-8 transition-all duration-1000 ${
+            stepsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              How it works
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Start earning in three simple steps.
+            </p>
           </div>
 
-          {/* App Header - Compact */}
-          <div className="bg-[#1a1a1a] border-b border-white/10">
-            <div className="px-3 py-2 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                {/* Mobile Menu Trigger */}
-                <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
-                  <SheetTrigger asChild>
-                    <button className="md:hidden p-1 rounded-lg hover:bg-white/10 transition-colors">
-                      <Menu className="w-4 h-4 text-white" />
-                    </button>
-                  </SheetTrigger>
-                  <SheetContent side="left" className="bg-[#1a1a1a] border-white/10 w-64 p-0">
-                    <div className="p-4 border-b border-white/10">
-                      <img 
-                        src="/lovable-uploads/logo-white.png" 
-                        alt="Beta Ads" 
-                        className="h-5 w-auto"
-                      />
-                    </div>
-                    <nav className="p-3 space-y-1">
-                      {navItems.map((item, index) => (
-                        <button
-                          key={index}
-                          onClick={() => {
-                            setActiveNavItem(item.label);
-                            setIsMobileMenuOpen(false);
-                          }}
-                          className={`w-full flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm transition-all ${
-                            activeNavItem === item.label
-                              ? "bg-red-400/20 text-red-400"
-                              : "text-white/60 hover:text-white hover:bg-white/5"
-                          }`}
-                        >
-                          <item.icon className="w-4 h-4" />
-                          {item.label}
-                        </button>
-                      ))}
-                    </nav>
-                  </SheetContent>
-                </Sheet>
+          <div className="grid md:grid-cols-3 gap-8">
+            {steps.map((step, index) => (
+              <div 
+                key={index}
+                className="relative"
+                style={{ transitionDelay: `${index * 150}ms` }}
+              >
+                {/* Connector line */}
+                {index < steps.length - 1 && (
+                  <div className="hidden md:block absolute top-8 left-[60%] w-[calc(100%-20%)] h-px bg-gradient-to-r from-border to-transparent" />
+                )}
                 
-                <img 
-                  src="/lovable-uploads/logo-white.png" 
-                  alt="inStreamly" 
-                  className="h-5 w-auto"
-                />
-                <Badge className="bg-red-400/20 text-red-400 text-[8px] px-1 py-0 border-0">
-                  BETA
-                </Badge>
-              </div>
-
-              <nav className="hidden md:flex items-center gap-0.5">
-                {navItems.map((item, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveNavItem(item.label)}
-                    className={`flex items-center gap-1 px-2 py-1 rounded text-[10px] transition-all ${
-                      activeNavItem === item.label
-                        ? "bg-red-400/20 text-red-400"
-                        : "text-white/60 hover:text-white hover:bg-white/5"
-                    }`}
-                  >
-                    <item.icon className="w-3 h-3" />
-                    {item.label}
-                  </button>
-                ))}
-              </nav>
-
-              <div className="flex items-center gap-1.5">
-                <div className="hidden sm:block text-right text-[9px]">
-                  <div className="text-white/60">Level 3</div>
-                  <div className="text-green-400">€247.50</div>
+                <div className="space-y-4">
+                  <span className="text-5xl font-bold text-primary/20">
+                    {step.number}
+                  </span>
+                  <h3 className="text-xl font-semibold text-foreground">
+                    {step.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
-                <div className="w-6 h-6 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 border border-white/20" />
               </div>
+            ))}
+          </div>
+
+          {/* Benefits list */}
+          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {benefits.map((benefit, index) => (
+              <div 
+                key={index}
+                className="flex items-center gap-3 text-muted-foreground"
+              >
+                <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
+                <span>{benefit}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trusted by Brands Section */}
+      <section className="py-20 lg:py-28">
+        <div 
+          ref={brandsRef}
+          className={`max-w-6xl mx-auto px-4 lg:px-8 transition-all duration-1000 ${
+            brandsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <div className="text-center mb-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+              Earn from brands like these
+            </h2>
+            <p className="text-muted-foreground">
+              Join 500+ streamers already earning with Beta Ads.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
+            {brandLogos.map((logo, index) => (
+              <div 
+                key={index}
+                className={`h-10 w-28 flex items-center justify-center opacity-60 hover:opacity-100 transition-opacity ${logo.scale}`}
+              >
+                <img 
+                  src={logo.src} 
+                  alt={logo.alt}
+                  className="max-h-full max-w-full object-contain filter brightness-0 invert"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 lg:py-28">
+        <div 
+          ref={ctaRef}
+          className={`max-w-4xl mx-auto px-4 lg:px-8 text-center transition-all duration-1000 ${
+            ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <div className="bg-gradient-to-br from-card/60 to-card/30 backdrop-blur-sm border border-border/50 rounded-3xl p-12 lg:p-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              Ready to start earning?
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
+              Sign up in seconds. Start earning from your next stream.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 px-10 py-6 text-lg"
+                onClick={() => window.open("https://beta.streamer.livad.stream/login", "_blank")}
+              >
+                Join Beta Ads
+                <ArrowRight className="w-5 h-5" />
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="border-border/50 hover:bg-card/50 gap-2 px-8 py-6 text-lg"
+                onClick={() => window.open("https://discord.gg/betaads", "_blank")}
+              >
+                Join Discord
+              </Button>
             </div>
           </div>
-
-          {/* Main Content - Fills remaining space */}
-          <div className="p-3 flex-1 overflow-hidden flex flex-col">
-            {renderContent()}
-          </div>
         </div>
-
-        {/* CTAs Below Preview */}
-        <div className="text-center mt-10">
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6">
-            <Button
-              size="lg"
-              className="bg-red-400 text-white hover:bg-red-500 px-8 py-4 text-sm font-light tracking-wide h-auto shadow-xl hover:shadow-red-400/20 transition-all duration-300 hover:scale-105"
-              onClick={() => window.open("https://beta.instreamly.com/", "_blank")}
-            >
-              {t.joinStreamer}
-            </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-border text-card-foreground hover:bg-secondary bg-secondary/50 px-8 py-4 text-sm font-light tracking-wide h-auto transition-all duration-300 hover:border-muted hover:scale-105"
-              onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
-            >
-              {t.joinDiscord}
-              <ExternalLink className="ml-2 h-4 w-4" />
-            </Button>
-          </div>
-
-          <div className="inline-flex items-center space-x-2 glass-card rounded-xl px-5 py-2.5">
-            <TrendingUp className="h-4 w-4 text-muted-foreground" />
-            <span className="text-secondary-foreground font-light text-sm tracking-wide">
-              {t.passiveIncome}
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
