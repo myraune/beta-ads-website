@@ -334,6 +334,42 @@
   animation: scroll 40s linear infinite;
 }
 
+/* Horizontal snap-scroll utilities for Our Work page */
+.horizontal-snap-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.horizontal-snap-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.snap-card {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* Custom colors for Our Work page */
+.bg-charcoal {
+  background-color: hsl(180 2% 12%);
+}
+
+.bg-charcoal-light {
+  background-color: hsl(180 2% 15%);
+}
+
+.text-burgundy {
+  color: hsl(4 76% 58%);
+}
+
+.border-burgundy {
+  border-color: hsl(4 76% 58%);
+}
+
 @keyframes scroll-smooth {
   0% {
     transform: translateX(0);
