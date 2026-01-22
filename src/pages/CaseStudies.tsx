@@ -3,7 +3,7 @@ import { Footer } from "@/components/sections/Footer";
 import { Play, ChevronLeft, ChevronRight, ExternalLink, X } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useCountUp } from "@/hooks/useCountUp";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 interface CaseStudiesProps {
   t: any;
@@ -379,22 +379,24 @@ const VideoModal: React.FC<{
   videoId: string | null; 
   onClose: () => void 
 }> = ({ videoId, onClose }) => {
-  if (!videoId) return null;
-  
   return (
-    <Dialog open={!!videoId} onOpenChange={() => onClose()}>
+    <Dialog open={!!videoId} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="max-w-5xl w-[95vw] p-0 bg-black border-border/20 overflow-hidden">
+        <DialogTitle className="sr-only">Case Study Video</DialogTitle>
+        <DialogDescription className="sr-only">Watch the full campaign breakdown</DialogDescription>
         <div className="aspect-video w-full">
-          <iframe
-            width="100%"
-            height="100%"
-            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
-            title="Case Study Video"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="w-full h-full"
-          />
+          {videoId && (
+            <iframe
+              width="100%"
+              height="100%"
+              src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+              title="Case Study Video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            />
+          )}
         </div>
       </DialogContent>
     </Dialog>
