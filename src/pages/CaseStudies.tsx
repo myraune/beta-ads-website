@@ -263,93 +263,59 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
       {/* Video Modal */}
       <VideoModal videoId={modalVideoId} onClose={() => setModalVideoId(null)} />
 
-      {/* ========== HERO SECTION - Immersive Split Layout ========== */}
+      {/* ========== HERO SECTION - Calm, Minimal Opening ========== */}
       <section 
         ref={heroRef}
-        className={`min-h-[90vh] lg:min-h-screen pt-24 lg:pt-0 transition-all duration-1000 ${
+        className={`min-h-screen flex flex-col justify-center relative overflow-hidden transition-all duration-1000 ${
           heroVisible ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="h-full lg:grid lg:grid-cols-2 lg:min-h-screen">
-          {/* Left: Text Content */}
-          <div className="flex flex-col justify-center px-6 lg:px-16 xl:px-24 py-12 lg:py-0">
+        {/* Aurora/Glow Effect - Right Side */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div 
+            className="absolute top-1/2 right-0 w-[70%] h-[140%] -translate-y-1/2 opacity-50"
+            style={{
+              background: 'radial-gradient(ellipse 100% 80% at 90% 50%, hsl(var(--primary)) 0%, hsl(15, 90%, 50%) 20%, hsl(350, 75%, 40%) 40%, transparent 70%)',
+              filter: 'blur(80px)',
+            }}
+          />
+          <div 
+            className="absolute top-1/3 right-[10%] w-[40%] h-[60%] opacity-30"
+            style={{
+              background: 'radial-gradient(ellipse 80% 80% at 50% 50%, hsl(25, 95%, 55%) 0%, hsl(0, 80%, 50%) 50%, transparent 80%)',
+              filter: 'blur(60px)',
+            }}
+          />
+        </div>
+
+        <div className="grid lg:grid-cols-2 h-full px-6 lg:px-16 xl:px-24 relative z-10">
+          {/* Left: Large Typography */}
+          <div className="flex flex-col justify-center py-32 lg:py-0">
             <div className={`transition-all duration-700 delay-200 ${heroVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight mb-8 text-foreground">
                 Our Work
               </h1>
-              <p className="text-lg lg:text-xl font-light max-w-lg text-muted-foreground leading-relaxed mb-12">
-                Real campaigns. Real results. See how brands connect with gaming audiences through native Twitch advertising.
+              <p className="text-lg lg:text-xl font-light max-w-md text-muted-foreground leading-relaxed">
+                Native advertising for Gen Z audiences.
               </p>
-
-              {/* Animated Stats - Large */}
-              <div className="grid grid-cols-3 gap-6 lg:gap-10">
-                <div>
-                  <p className="text-3xl lg:text-4xl xl:text-5xl font-light text-primary">
-                    <AnimatedNumber 
-                      value={totalImpressions / 1000000} 
-                      suffix="M+" 
-                      decimals={1}
-                      isVisible={heroVisible} 
-                    />
-                  </p>
-                  <p className="text-xs lg:text-sm uppercase tracking-wider text-muted-foreground mt-2">Impressions</p>
-                </div>
-                <div>
-                  <p className="text-3xl lg:text-4xl xl:text-5xl font-light text-primary">
-                    <AnimatedNumber 
-                      value={avgCtr} 
-                      suffix="%" 
-                      decimals={1}
-                      isVisible={heroVisible} 
-                    />
-                  </p>
-                  <p className="text-xs lg:text-sm uppercase tracking-wider text-muted-foreground mt-2">Avg CTR</p>
-                </div>
-                <div>
-                  <p className="text-3xl lg:text-4xl xl:text-5xl font-light text-primary">
-                    <AnimatedNumber 
-                      value={caseStudies.length} 
-                      suffix="+" 
-                      isVisible={heroVisible} 
-                    />
-                  </p>
-                  <p className="text-xs lg:text-sm uppercase tracking-wider text-muted-foreground mt-2">Campaigns</p>
-                </div>
-              </div>
             </div>
           </div>
 
-          {/* Right: Featured Video Preview */}
-          <div className="relative h-[50vh] lg:h-auto overflow-hidden group cursor-pointer" onClick={() => setModalVideoId(featuredStudy.id)}>
-            {/* Video Thumbnail */}
-            <img
-              src={`https://img.youtube.com/vi/${featuredStudy.id}/maxresdefault.jpg`}
-              alt={featuredStudy.campaign}
-              className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-              onError={(e) => {
-                e.currentTarget.src = `https://img.youtube.com/vi/${featuredStudy.id}/hqdefault.jpg`;
-              }}
-            />
-            
-            {/* Gradient Overlays */}
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-            
-            {/* Play Button - Centered */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-primary/90 flex items-center justify-center shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:bg-primary">
-                <Play className="w-8 h-8 lg:w-10 lg:h-10 text-primary-foreground ml-1" fill="currentColor" />
-              </div>
+          {/* Right: Subtle Tagline at Bottom */}
+          <div className="hidden lg:flex items-end justify-end pb-32">
+            <div className={`transition-all duration-700 delay-500 ${heroVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
+              <p className="text-sm text-muted-foreground/60 max-w-xs text-right leading-relaxed">
+                Nordic advertising platform reaching gaming audiences through Twitch.
+              </p>
             </div>
+          </div>
+        </div>
 
-            {/* Featured Label */}
-            <div className="absolute bottom-8 left-8 right-8">
-              <span className="text-xs font-medium px-3 py-1.5 rounded-full bg-primary/80 text-primary-foreground mb-3 inline-block">
-                Featured Campaign
-              </span>
-              <h2 className="text-2xl lg:text-3xl font-light text-foreground">{featuredStudy.brand}</h2>
-              <p className="text-muted-foreground">{featuredStudy.campaign}</p>
-            </div>
+        {/* Scroll Indicator */}
+        <div className={`absolute bottom-10 left-1/2 -translate-x-1/2 transition-all duration-700 delay-700 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <div className="flex flex-col items-center gap-2">
+            <span className="text-xs text-muted-foreground/40 uppercase tracking-widest">Scroll</span>
+            <div className="w-px h-12 bg-gradient-to-b from-muted-foreground/30 to-transparent animate-pulse" />
           </div>
         </div>
       </section>
