@@ -6,9 +6,9 @@ interface UseScrollAnimationOptions {
   triggerOnce?: boolean;
 }
 
-export const useScrollAnimation = (options: UseScrollAnimationOptions = {}) => {
+export const useScrollAnimation = <T extends HTMLElement = HTMLDivElement>(options: UseScrollAnimationOptions = {}) => {
   const { threshold = 0.1, rootMargin = '0px', triggerOnce = true } = options;
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<T>(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -37,8 +37,8 @@ export const useScrollAnimation = (options: UseScrollAnimationOptions = {}) => {
   return { ref, isVisible };
 };
 
-export const useMultipleScrollAnimations = (count: number, options: UseScrollAnimationOptions = {}) => {
-  const refs = useRef<(HTMLDivElement | null)[]>([]);
+export const useMultipleScrollAnimations = <T extends HTMLElement = HTMLDivElement>(count: number, options: UseScrollAnimationOptions = {}) => {
+  const refs = useRef<(T | null)[]>([]);
   const [visibleItems, setVisibleItems] = useState<boolean[]>(new Array(count).fill(false));
 
   useEffect(() => {
@@ -70,7 +70,7 @@ export const useMultipleScrollAnimations = (count: number, options: UseScrollAni
     return () => observers.forEach(obs => obs.disconnect());
   }, [count, options.threshold, options.rootMargin, options.triggerOnce]);
 
-  const setRef = (index: number) => (el: HTMLDivElement | null) => {
+  const setRef = (index: number) => (el: T | null) => {
     refs.current[index] = el;
   };
 

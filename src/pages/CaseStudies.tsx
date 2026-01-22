@@ -406,10 +406,10 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
   const caseStudiesRef = useRef<HTMLDivElement>(null);
   
   // Scroll animations
-  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation({ threshold: 0.2 });
-  const { ref: caseStudiesAnimRef, isVisible: caseStudiesVisible } = useScrollAnimation({ threshold: 0.1 });
-  const { ref: formatsRef, isVisible: formatsVisible } = useScrollAnimation({ threshold: 0.1 });
-  const { ref: pressRef, isVisible: pressVisible } = useScrollAnimation({ threshold: 0.1 });
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.2 });
+  const { ref: caseStudiesAnimRef, isVisible: caseStudiesVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
+  const { ref: formatsRef, isVisible: formatsVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
+  const { ref: pressRef, isVisible: pressVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
 
   const scrollCaseStudies = (direction: 'left' | 'right') => {
     if (caseStudiesRef.current) {
