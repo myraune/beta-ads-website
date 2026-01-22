@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { Footer } from "@/components/sections/Footer";
-import { Play, ExternalLink, ChevronLeft, ChevronRight, ArrowRight, BarChart3, Users, Filter, Layers } from "lucide-react";
+import { Play, ExternalLink, ChevronLeft, ChevronRight, ArrowRight, BarChart3, Filter } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useCountUp } from "@/hooks/useCountUp";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
 
@@ -96,10 +95,6 @@ const caseStudies = [
   },
 ];
 
-// Calculate totals for hero stats
-const totalImpressions = caseStudies.reduce((sum, s) => sum + s.impressionsNum, 0);
-const avgCtr = caseStudies.reduce((sum, s) => sum + s.ctrNum, 0) / caseStudies.length;
-
 // Ad formats data
 const adFormats = [
   {
@@ -184,27 +179,6 @@ const pressArticles = [
   },
 ];
 
-// Animated Number Component for Hero
-const AnimatedNumber: React.FC<{ 
-  value: number; 
-  suffix?: string; 
-  prefix?: string;
-  decimals?: number;
-  isVisible: boolean;
-}> = ({ value, suffix = "", prefix = "", decimals = 0, isVisible }) => {
-  const { displayValue } = useCountUp(value, isVisible, { 
-    duration: 2500, 
-    decimals,
-    enableLivePulse: false 
-  });
-  
-  return (
-    <span className="tabular-nums">
-      {prefix}{displayValue}{suffix}
-    </span>
-  );
-};
-
 // Video Modal Component
 const VideoModal: React.FC<{ 
   videoId: string | null; 
@@ -247,9 +221,6 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
   const { ref: pressRef, isVisible: pressVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
 
   const selectedFormat = adFormats.find(f => f.id === activeFormat) || adFormats[0];
-  
-  // Featured case study for hero
-  const featuredStudy = caseStudies[0];
 
   const navigateCaseStudy = (direction: 'prev' | 'next') => {
     if (direction === 'prev') {
@@ -730,7 +701,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
                           "text-xs font-medium px-3 py-1.5 rounded-full backdrop-blur-sm",
                           isKampanje 
                             ? "bg-primary/80 text-primary-foreground" 
-                            : "bg-green-500/80 text-white"
+                            : "bg-accent/80 text-accent-foreground"
                         )}
                       >
                         {article.publication}
