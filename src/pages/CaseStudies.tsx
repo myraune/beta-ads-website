@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Footer } from "@/components/sections/Footer";
-import { Play, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
+import { Play, ExternalLink, ChevronLeft, ChevronRight, ArrowRight, BarChart3, Users, Filter, Layers } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useCountUp } from "@/hooks/useCountUp";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -240,7 +240,8 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
   const [caseStudyIndex, setCaseStudyIndex] = useState(0);
   
   // Scroll animations
-  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.2 });
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const { ref: platformRef, isVisible: platformVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
   const { ref: caseStudiesRef, isVisible: caseStudiesVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
   const { ref: formatsRef, isVisible: formatsVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
   const { ref: pressRef, isVisible: pressVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
@@ -263,59 +264,202 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
       {/* Video Modal */}
       <VideoModal videoId={modalVideoId} onClose={() => setModalVideoId(null)} />
 
-      {/* ========== HERO SECTION - Calm, Minimal Opening ========== */}
-      <section 
-        ref={heroRef}
-        className={`min-h-screen flex flex-col justify-center relative overflow-hidden transition-all duration-1000 ${
-          heroVisible ? 'opacity-100' : 'opacity-0'
-        }`}
-      >
-        {/* Aurora/Glow Effect - Right Side */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          <div 
-            className="absolute top-1/2 right-0 w-[70%] h-[140%] -translate-y-1/2 opacity-50"
-            style={{
-              background: 'radial-gradient(ellipse 100% 80% at 90% 50%, hsl(var(--primary)) 0%, hsl(15, 90%, 50%) 20%, hsl(350, 75%, 40%) 40%, transparent 70%)',
-              filter: 'blur(80px)',
-            }}
-          />
-          <div 
-            className="absolute top-1/3 right-[10%] w-[40%] h-[60%] opacity-30"
-            style={{
-              background: 'radial-gradient(ellipse 80% 80% at 50% 50%, hsl(25, 95%, 55%) 0%, hsl(0, 80%, 50%) 50%, transparent 80%)',
-              filter: 'blur(60px)',
-            }}
-          />
-        </div>
-
-        <div className="grid lg:grid-cols-2 h-full px-6 lg:px-16 xl:px-24 relative z-10">
-          {/* Left: Large Typography */}
-          <div className="flex flex-col justify-center py-32 lg:py-0">
-            <div className={`transition-all duration-700 delay-200 ${heroVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight mb-8 text-foreground">
-                Our Work
+      {/* ========== HERO SECTION - Calm, Minimal - Uses global AnimatedBackground ========== */}
+      <section className="min-h-screen flex flex-col justify-center relative">
+        <div className="container mx-auto px-6 lg:px-16 xl:px-24">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Text */}
+            <div 
+              ref={heroRef}
+              className={`flex flex-col justify-center transition-all duration-1000 ${
+                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight mb-6">
+                For Brands
               </h1>
-              <p className="text-lg lg:text-xl font-light max-w-md text-muted-foreground leading-relaxed">
-                Native advertising for Gen Z audiences.
+              <p className={`text-xl lg:text-2xl font-light text-muted-foreground max-w-lg transition-all duration-1000 delay-200 ${
+                heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}>
+                Reach Gen Z where they live. Native advertising inside live Twitch streams.
               </p>
             </div>
-          </div>
 
-          {/* Right: Subtle Tagline at Bottom */}
-          <div className="hidden lg:flex items-end justify-end pb-32">
-            <div className={`transition-all duration-700 delay-500 ${heroVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'}`}>
-              <p className="text-sm text-muted-foreground/60 max-w-xs text-right leading-relaxed">
+            {/* Right: Tagline */}
+            <div className={`hidden lg:flex items-end justify-end transition-all duration-1000 delay-500 ${
+              heroVisible ? 'opacity-100' : 'opacity-0'
+            }`}>
+              <p className="text-sm text-muted-foreground/60 max-w-xs text-right">
                 Nordic advertising platform reaching gaming audiences through Twitch.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Scroll Indicator */}
-        <div className={`absolute bottom-10 left-1/2 -translate-x-1/2 transition-all duration-700 delay-700 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-xs text-muted-foreground/40 uppercase tracking-widest">Scroll</span>
-            <div className="w-px h-12 bg-gradient-to-b from-muted-foreground/30 to-transparent animate-pulse" />
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+          <div className="w-px h-16 bg-gradient-to-b from-transparent via-muted-foreground/30 to-transparent animate-pulse" />
+        </div>
+      </section>
+
+      {/* ========== PLATFORM TEASER SECTION ========== */}
+      <section 
+        ref={platformRef}
+        className={`py-24 lg:py-32 relative transition-all duration-700 ${
+          platformVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
+      >
+        <div className="container mx-auto px-6 lg:px-16 xl:px-24">
+          {/* Section Header */}
+          <div className="mb-16 max-w-2xl">
+            <h2 className="text-3xl lg:text-4xl font-light mb-4">The Platform</h2>
+            <p className="text-lg text-muted-foreground">
+              Everything you need to plan, launch, and measure Twitch campaigns.
+            </p>
+          </div>
+
+          {/* Two Cards Grid */}
+          <div className="grid lg:grid-cols-2 gap-8">
+            
+            {/* Agency Portal Card */}
+            <div className="group relative bg-card/30 backdrop-blur-sm border border-border/50 rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden">
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                {/* Mockup Visual - Dashboard */}
+                <div className="mb-8 aspect-[16/10] bg-background/50 rounded-lg border border-border/30 overflow-hidden">
+                  <div className="p-4 h-full flex flex-col gap-3">
+                    {/* Top bar */}
+                    <div className="flex items-center gap-3">
+                      <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
+                        <BarChart3 className="w-4 h-4 text-primary/60" />
+                      </div>
+                      <div className="flex-1 h-3 bg-muted/30 rounded" />
+                      <div className="w-20 h-6 bg-muted/20 rounded" />
+                    </div>
+                    {/* Stats row */}
+                    <div className="flex gap-3">
+                      <div className="flex-1 h-16 bg-muted/20 rounded-lg flex flex-col items-center justify-center">
+                        <div className="text-sm font-medium text-muted-foreground/70">2.6M</div>
+                        <div className="text-[10px] text-muted-foreground/40">Impressions</div>
+                      </div>
+                      <div className="flex-1 h-16 bg-muted/20 rounded-lg flex flex-col items-center justify-center">
+                        <div className="text-sm font-medium text-muted-foreground/70">3.2%</div>
+                        <div className="text-[10px] text-muted-foreground/40">Avg CTR</div>
+                      </div>
+                      <div className="flex-1 h-16 bg-muted/20 rounded-lg flex flex-col items-center justify-center">
+                        <div className="text-sm font-medium text-muted-foreground/70">48</div>
+                        <div className="text-[10px] text-muted-foreground/40">Campaigns</div>
+                      </div>
+                    </div>
+                    {/* Chart area */}
+                    <div className="flex-1 bg-muted/10 rounded-lg flex items-end p-3 gap-1">
+                      {[40, 65, 45, 80, 55, 70, 60, 85, 50, 75, 90, 65].map((h, i) => (
+                        <div key={i} className="flex-1 bg-primary/30 rounded-t transition-all duration-300 group-hover:bg-primary/40" style={{ height: `${h}%` }} />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Title & Description */}
+                <h3 className="text-2xl font-medium mb-3">Agency Portal</h3>
+                <p className="text-muted-foreground mb-6">
+                  Real-time campaign analytics, performance tracking, and multi-brand management in one dashboard.
+                </p>
+
+                {/* Features */}
+                <ul className="space-y-2 mb-8 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
+                    Live impression & CTR tracking
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
+                    Campaign performance reports
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
+                    Multi-brand account switching
+                  </li>
+                </ul>
+
+                {/* CTA */}
+                <a 
+                  href="/demo" 
+                  className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all duration-300"
+                >
+                  Book a demo
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+
+            {/* Streamer Explorer Card */}
+            <div className="group relative bg-card/30 backdrop-blur-sm border border-border/50 rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden">
+              {/* Gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              
+              <div className="relative z-10">
+                {/* Mockup Visual - Streamer Grid */}
+                <div className="mb-8 aspect-[16/10] bg-background/50 rounded-lg border border-border/30 overflow-hidden">
+                  <div className="p-4 h-full flex gap-3">
+                    {/* Sidebar filters */}
+                    <div className="w-1/4 space-y-2">
+                      <div className="flex items-center gap-1.5 mb-3">
+                        <Filter className="w-3 h-3 text-muted-foreground/50" />
+                        <div className="h-2 bg-muted/30 rounded flex-1" />
+                      </div>
+                      <div className="h-6 bg-muted/20 rounded" />
+                      <div className="h-6 bg-muted/20 rounded" />
+                      <div className="h-6 bg-primary/20 rounded" />
+                      <div className="h-2 bg-muted/30 rounded w-3/4 mt-4" />
+                      <div className="h-6 bg-muted/20 rounded" />
+                    </div>
+                    {/* Streamer grid */}
+                    <div className="flex-1 grid grid-cols-3 gap-2">
+                      {[...Array(9)].map((_, i) => (
+                        <div key={i} className="bg-muted/20 rounded-lg flex flex-col items-center justify-center p-2 transition-all duration-300 group-hover:bg-muted/25">
+                          <div className="w-6 h-6 rounded-full bg-muted/40 mb-1" />
+                          <div className="w-full h-1.5 bg-muted/30 rounded" />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Title & Description */}
+                <h3 className="text-2xl font-medium mb-3">Streamer Explorer</h3>
+                <p className="text-muted-foreground mb-6">
+                  Browse and filter 400+ Nordic streamers. Find the perfect match for your brand.
+                </p>
+
+                {/* Features */}
+                <ul className="space-y-2 mb-8 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
+                    Filter by country, category, viewers
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
+                    View streamer profiles & stats
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
+                    Build custom streamer lists
+                  </li>
+                </ul>
+
+                {/* CTA */}
+                <a 
+                  href="/streamers" 
+                  className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all duration-300"
+                >
+                  Explore streamers
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
