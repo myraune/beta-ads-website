@@ -2,21 +2,45 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Twitch, Youtube, MonitorPlay, Wallet } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
 interface StreamerSectionProps {
   t: any;
   language: string;
 }
-
-export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language }) => {
-  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
-  const { ref: dashboardRef, isVisible: dashboardVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
-  const { ref: brandsRef, isVisible: brandsVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
-  const { ref: processRef, isVisible: processVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
-  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
-
-  return (
-    <div className="relative">
+export const StreamerSection: React.FC<StreamerSectionProps> = ({
+  t,
+  language
+}) => {
+  const {
+    ref: heroRef,
+    isVisible: heroVisible
+  } = useScrollAnimation<HTMLDivElement>({
+    threshold: 0.1
+  });
+  const {
+    ref: dashboardRef,
+    isVisible: dashboardVisible
+  } = useScrollAnimation<HTMLDivElement>({
+    threshold: 0.1
+  });
+  const {
+    ref: brandsRef,
+    isVisible: brandsVisible
+  } = useScrollAnimation<HTMLDivElement>({
+    threshold: 0.1
+  });
+  const {
+    ref: processRef,
+    isVisible: processVisible
+  } = useScrollAnimation<HTMLDivElement>({
+    threshold: 0.1
+  });
+  const {
+    ref: ctaRef,
+    isVisible: ctaVisible
+  } = useScrollAnimation<HTMLDivElement>({
+    threshold: 0.1
+  });
+  return <div className="relative">
       {/* Hero Section - Minimal text */}
       <section className="pt-32 pb-12 relative overflow-hidden">
         {/* Aurora glow effect */}
@@ -24,12 +48,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
           <div className="absolute inset-0 bg-gradient-radial from-primary/15 via-primary/5 to-transparent blur-3xl" />
         </div>
         
-        <div 
-          ref={heroRef}
-          className={`max-w-4xl mx-auto px-4 lg:px-8 text-center transition-all duration-1000 ${
-            heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
+        <div ref={heroRef} className={`max-w-4xl mx-auto px-4 lg:px-8 text-center transition-all duration-1000 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <span className="text-primary/80 text-sm font-medium tracking-wider uppercase mb-4 block">
             For Streamers
           </span>
@@ -38,20 +57,11 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
           </h1>
 
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button 
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 px-8"
-              onClick={() => window.open("https://beta.streamer.livad.stream/login", "_blank")}
-            >
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 px-8" onClick={() => window.open("https://beta.streamer.livad.stream/login", "_blank")}>
               Join Beta Ads
               <ArrowRight className="w-4 h-4" />
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-border/50 hover:bg-card/50 gap-2"
-              onClick={() => window.open("https://discord.gg/betaads", "_blank")}
-            >
+            <Button variant="outline" size="lg" className="border-border/50 hover:bg-card/50 gap-2" onClick={() => window.open("https://discord.gg/betaads", "_blank")}>
               Join Discord
             </Button>
           </div>
@@ -60,52 +70,12 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
 
       {/* Full-Width Dashboard Preview */}
       <section className="py-12 lg:py-20">
-        <div 
-          ref={dashboardRef}
-          className={`max-w-6xl mx-auto px-4 lg:px-8 transition-all duration-1000 delay-200 ${
-            dashboardVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-          }`}
-        >
-          {/* Browser Chrome Frame */}
-          <div className="bg-card/30 backdrop-blur-sm border border-border/40 rounded-2xl shadow-2xl shadow-black/20 overflow-hidden">
-            {/* Browser Header */}
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-border/30 bg-card/50">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-500/60" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
-                <div className="w-3 h-3 rounded-full bg-green-500/60" />
-              </div>
-              <div className="flex-1 flex justify-center">
-                <div className="bg-background/50 rounded-md px-4 py-1 text-xs text-muted-foreground">
-                  beta.streamer.livad.stream
-                </div>
-              </div>
-              <div className="w-16" /> {/* Spacer for symmetry */}
-            </div>
-            
-            {/* Dashboard Screenshot */}
-            <div className="relative">
-              <img 
-                src="/lovable-uploads/streamer-dashboard-sponsors.png" 
-                alt="Beta Ads streamer dashboard showing available sponsorships"
-                className="w-full h-auto"
-                loading="lazy"
-              />
-              {/* Subtle bottom fade */}
-              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background/60 to-transparent" />
-            </div>
-          </div>
-        </div>
+        
       </section>
 
       {/* Full-Width Brands Grid Preview */}
       <section className="py-16 lg:py-24">
-        <div 
-          ref={brandsRef}
-          className={`max-w-6xl mx-auto px-4 lg:px-8 transition-all duration-1000 ${
-            brandsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-          }`}
-        >
+        <div ref={brandsRef} className={`max-w-6xl mx-auto px-4 lg:px-8 transition-all duration-1000 ${brandsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
           <h2 className="text-3xl md:text-4xl font-semibold text-foreground text-center mb-12">
             Earn from 100+ brands
           </h2>
@@ -129,12 +99,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
             
             {/* Brands Grid Screenshot */}
             <div className="relative">
-              <img 
-                src="/lovable-uploads/streamer-brands-grid.png" 
-                alt="Beta Ads available brand partnerships grid"
-                className="w-full h-auto"
-                loading="lazy"
-              />
+              <img src="/lovable-uploads/streamer-brands-grid.png" alt="Beta Ads available brand partnerships grid" className="w-full h-auto" loading="lazy" />
               {/* Subtle bottom fade */}
               <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background/60 to-transparent" />
             </div>
@@ -143,94 +108,25 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({ t, language })
       </section>
 
       {/* Minimal Process Flow */}
-      <section className="py-16 lg:py-24">
-        <div 
-          ref={processRef}
-          className={`max-w-4xl mx-auto px-4 lg:px-8 transition-all duration-1000 ${
-            processVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          {/* Horizontal Process Flow */}
-          <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-4 lg:gap-8 mb-12">
-            {/* Step 1 */}
-            <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-2xl bg-card/50 border border-border/40 flex items-center justify-center mb-4">
-                <div className="flex gap-1">
-                  <Twitch className="w-5 h-5 text-primary" />
-                  <Youtube className="w-5 h-5 text-primary" />
-                </div>
-              </div>
-              <span className="text-foreground font-medium">Connect your stream</span>
-            </div>
-
-            {/* Arrow */}
-            <div className="hidden md:block">
-              <ArrowRight className="w-6 h-6 text-muted-foreground/40" />
-            </div>
-
-            {/* Step 2 */}
-            <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-2xl bg-card/50 border border-border/40 flex items-center justify-center mb-4">
-                <MonitorPlay className="w-6 h-6 text-primary" />
-              </div>
-              <span className="text-foreground font-medium">Accept sponsorships</span>
-            </div>
-
-            {/* Arrow */}
-            <div className="hidden md:block">
-              <ArrowRight className="w-6 h-6 text-muted-foreground/40" />
-            </div>
-
-            {/* Step 3 */}
-            <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 rounded-2xl bg-card/50 border border-border/40 flex items-center justify-center mb-4">
-                <Wallet className="w-6 h-6 text-primary" />
-              </div>
-              <span className="text-foreground font-medium">Get paid monthly</span>
-            </div>
-          </div>
-
-          {/* Inline Benefits */}
-          <div className="text-center">
-            <p className="text-muted-foreground text-sm md:text-base">
-              No minimum followers • Works with Twitch, Kick, YouTube • Paid within 30 days
-            </p>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Simple CTA Section */}
       <section className="py-20 lg:py-28">
-        <div 
-          ref={ctaRef}
-          className={`max-w-3xl mx-auto px-4 lg:px-8 text-center transition-all duration-1000 ${
-            ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
+        <div ref={ctaRef} className={`max-w-3xl mx-auto px-4 lg:px-8 text-center transition-all duration-1000 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-8">
             Ready to start earning?
           </h2>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button 
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 px-10 py-6 text-lg"
-              onClick={() => window.open("https://beta.streamer.livad.stream/login", "_blank")}
-            >
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 px-10 py-6 text-lg" onClick={() => window.open("https://beta.streamer.livad.stream/login", "_blank")}>
               Join Beta Ads
               <ArrowRight className="w-5 h-5" />
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-border/50 hover:bg-card/50 gap-2 px-8 py-6 text-lg"
-              onClick={() => window.open("https://discord.gg/betaads", "_blank")}
-            >
+            <Button variant="outline" size="lg" className="border-border/50 hover:bg-card/50 gap-2 px-8 py-6 text-lg" onClick={() => window.open("https://discord.gg/betaads", "_blank")}>
               Join Discord
             </Button>
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
