@@ -1,9 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { Footer } from "@/components/sections/Footer";
-import { Play, ChevronLeft, ChevronRight, ExternalLink, X } from "lucide-react";
+import { Play, ExternalLink, ChevronLeft, ChevronRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useCountUp } from "@/hooks/useCountUp";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { cn } from "@/lib/utils";
 
 interface CaseStudiesProps {
   t: any;
@@ -102,44 +103,50 @@ const avgCtr = caseStudies.reduce((sum, s) => sum + s.ctrNum, 0) / caseStudies.l
 // Ad formats data
 const adFormats = [
   {
+    id: "snipe",
     name: "Snipe Banner",
     dimensions: "1920 × 250 px",
-    description: "Horizontal banner overlay with high visibility.",
+    description: "Horizontal banner overlay with high visibility. Appears at the top or bottom of the stream for maximum exposure without disrupting the viewing experience.",
     bestFor: "Awareness",
     image: "/lovable-uploads/snipeDemo1.png",
   },
   {
+    id: "richmedia",
     name: "Rich Media",
     dimensions: "1920 × 1080 px",
-    description: "Full-screen takeover with premium experience.",
+    description: "Full-screen takeover with premium experience. Perfect for major announcements, product launches, or brand moments that demand attention.",
     bestFor: "Engagement",
     image: "/lovable-uploads/richMediaDemo1.png",
   },
   {
+    id: "poll",
     name: "Poll",
     dimensions: "Dynamic",
-    description: "Interactive poll for audience engagement.",
+    description: "Interactive poll that lets viewers participate in real-time. Great for audience insights, product preferences, or engagement campaigns.",
     bestFor: "Insights",
     image: "/lovable-uploads/pollDemo1.png",
   },
   {
+    id: "premium",
     name: "Premium",
     dimensions: "1920 × 1080 px",
-    description: "Rich media with clickable elements.",
-    bestFor: "Brand moments",
+    description: "Rich media with clickable elements and interactive features. Includes CTAs, hotspots, and trackable engagement metrics.",
+    bestFor: "Brand Moments",
     image: "/lovable-uploads/interactiveDemo1.png",
   },
   {
+    id: "video",
     name: "Video",
     dimensions: "640 × 360 px",
-    description: "Native in-stream video ads.",
+    description: "Native in-stream video ads that feel organic to the broadcast. Supports sound-on playback with viewer-friendly skip options.",
     bestFor: "Storytelling",
     image: "/lovable-uploads/videoDemo1.png",
   },
   {
+    id: "sidebar",
     name: "Side Bar",
     dimensions: "300 × 1080 px",
-    description: "Persistent vertical placement.",
+    description: "Persistent vertical placement alongside the stream. Maintains brand presence throughout the viewing session without interruption.",
     bestFor: "Presence",
     image: "/lovable-uploads/sideBarDemo1.png",
   },
@@ -198,182 +205,6 @@ const AnimatedNumber: React.FC<{
   );
 };
 
-// Case Study Card Component - Responsive sizing
-const CaseStudyCard: React.FC<{ 
-  study: typeof caseStudies[0]; 
-  onOpenModal: (id: string) => void;
-  index: number;
-  isVisible: boolean;
-}> = ({ study, onOpenModal, index, isVisible }) => (
-  <div 
-    className={`flex-shrink-0 w-[340px] sm:w-[400px] lg:w-[460px] group transition-all duration-700 ${
-      isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-    }`}
-    style={{ transitionDelay: `${index * 100}ms` }}
-  >
-    <div className="rounded-2xl overflow-hidden border border-border/20 bg-card/40 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1">
-      {/* Video Thumbnail */}
-      <div 
-        className="relative aspect-video overflow-hidden cursor-pointer"
-        onClick={() => onOpenModal(study.id)}
-      >
-        <img
-          src={`https://img.youtube.com/vi/${study.id}/maxresdefault.jpg`}
-          alt={study.campaign}
-          className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
-          onError={(e) => {
-            e.currentTarget.src = `https://img.youtube.com/vi/${study.id}/hqdefault.jpg`;
-          }}
-        />
-        
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        
-        {/* Play Button - Centered with pulse animation */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-16 h-16 rounded-full bg-primary/90 flex items-center justify-center shadow-xl opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110">
-            <Play className="w-7 h-7 text-primary-foreground ml-1" fill="currentColor" />
-          </div>
-        </div>
-
-        {/* Watch label */}
-        <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <span className="text-sm font-medium text-white/90">Watch Case Study</span>
-          <span className="text-xs text-white/70">{study.brand}</span>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="p-6">
-        <div className="flex items-start justify-between mb-3">
-          <div>
-            <h3 className="text-xl font-medium text-foreground mb-1">{study.brand}</h3>
-            <p className="text-sm text-muted-foreground">{study.campaign}</p>
-          </div>
-          <span className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20">
-            Case Study
-          </span>
-        </div>
-        
-        {/* Metrics Row - Animated on hover */}
-        <div className="flex gap-8 my-5 py-4 border-y border-border/20">
-          <div className="group/metric">
-            <p className="text-2xl font-semibold text-primary transition-transform duration-300 group-hover/metric:scale-105">
-              {study.impressions}
-            </p>
-            <p className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Impressions</p>
-          </div>
-          <div className="group/metric">
-            <p className="text-2xl font-semibold text-primary transition-transform duration-300 group-hover/metric:scale-105">
-              {study.ctr}
-            </p>
-            <p className="text-xs uppercase tracking-wider text-muted-foreground mt-1">CTR</p>
-          </div>
-        </div>
-
-        <p className="text-sm leading-relaxed text-muted-foreground line-clamp-2">{study.description}</p>
-      </div>
-    </div>
-  </div>
-);
-
-// Ad Format Card Component - For carousel
-const AdFormatCard: React.FC<{ format: typeof adFormats[0] }> = ({ format }) => (
-  <div className="flex-shrink-0 w-[300px] sm:w-[360px] lg:w-[420px] group">
-    <div className="rounded-2xl overflow-hidden border border-border/20 bg-card/40 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5">
-      {/* Image with hover overlay */}
-      <div className="relative aspect-video overflow-hidden">
-        <img
-          src={format.image}
-          alt={format.name}
-          className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
-          loading="lazy"
-        />
-        
-        {/* Hover overlay with details */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-5">
-          <p className="text-sm text-foreground/90 mb-2">{format.description}</p>
-          <span className="text-xs font-mono text-primary">{format.dimensions}</span>
-        </div>
-      </div>
-      
-      {/* Content */}
-      <div className="p-5">
-        <div className="flex items-center justify-between">
-          <h3 className="text-lg font-medium text-foreground">{format.name}</h3>
-          <span className="text-xs px-2.5 py-1 rounded-full bg-primary/10 text-primary">
-            {format.bestFor}
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-);
-
-// Press Card Component - Larger, matching frontpage style
-const PressCard: React.FC<{ article: typeof pressArticles[0]; index: number; isVisible: boolean }> = ({ 
-  article, 
-  index,
-  isVisible 
-}) => {
-  const isKampanje = article.publication === "Kampanje";
-  
-  return (
-    <div 
-      className={`flex-shrink-0 w-[300px] sm:w-[360px] lg:w-[420px] group cursor-pointer transition-all duration-700 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-      }`}
-      style={{ transitionDelay: `${index * 100}ms` }}
-      onClick={() => window.open(article.url, "_blank")}
-    >
-      <div className="rounded-2xl overflow-hidden border border-border/20 bg-card/40 backdrop-blur-sm transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5">
-        {/* Image */}
-        <div className="relative aspect-video overflow-hidden">
-          <img
-            src={article.image}
-            alt={article.title}
-            className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
-            loading="lazy"
-          />
-          
-          {/* Gradient overlay on hover */}
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-5">
-            <h3 className="text-base font-medium text-foreground mb-2 leading-tight">
-              {article.title}
-            </h3>
-            <p className="text-sm text-muted-foreground line-clamp-2">{article.subtitle}</p>
-            <div className="flex items-center text-xs text-primary mt-3">
-              <ExternalLink className="w-3.5 h-3.5 mr-1.5" />
-              Read full article
-            </div>
-          </div>
-
-          {/* Publication badge - Always visible */}
-          <div className="absolute top-4 left-4">
-            <span 
-              className={`text-xs font-medium px-3 py-1.5 rounded-full backdrop-blur-sm ${
-                isKampanje 
-                  ? 'bg-primary/80 text-primary-foreground' 
-                  : 'bg-green-500/80 text-white'
-              }`}
-            >
-              {article.publication}
-            </span>
-          </div>
-        </div>
-        
-        {/* Simple title below */}
-        <div className="p-5">
-          <h3 className="text-base font-medium text-foreground line-clamp-1 group-hover:text-primary transition-colors duration-200">
-            {article.title}
-          </h3>
-          <p className="text-sm text-muted-foreground mt-1 line-clamp-1">{article.subtitle}</p>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 // Video Modal Component
 const VideoModal: React.FC<{ 
   videoId: string | null; 
@@ -381,7 +212,7 @@ const VideoModal: React.FC<{
 }> = ({ videoId, onClose }) => {
   return (
     <Dialog open={!!videoId} onOpenChange={(open) => !open && onClose()}>
-      <DialogContent className="max-w-5xl w-[95vw] p-0 bg-black border-border/20 overflow-hidden">
+      <DialogContent className="max-w-6xl w-[95vw] p-0 bg-black border-border/20 overflow-hidden">
         <DialogTitle className="sr-only">Case Study Video</DialogTitle>
         <DialogDescription className="sr-only">Watch the full campaign breakdown</DialogDescription>
         <div className="aspect-video w-full">
@@ -405,18 +236,25 @@ const VideoModal: React.FC<{
 
 const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) => {
   const [modalVideoId, setModalVideoId] = useState<string | null>(null);
-  const caseStudiesRef = useRef<HTMLDivElement>(null);
+  const [activeFormat, setActiveFormat] = useState(adFormats[0].id);
+  const [caseStudyIndex, setCaseStudyIndex] = useState(0);
   
   // Scroll animations
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.2 });
-  const { ref: caseStudiesAnimRef, isVisible: caseStudiesVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
+  const { ref: caseStudiesRef, isVisible: caseStudiesVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
   const { ref: formatsRef, isVisible: formatsVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
   const { ref: pressRef, isVisible: pressVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
 
-  const scrollCaseStudies = (direction: 'left' | 'right') => {
-    if (caseStudiesRef.current) {
-      const scrollAmount = window.innerWidth < 640 ? 360 : window.innerWidth < 1024 ? 420 : 480;
-      caseStudiesRef.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+  const selectedFormat = adFormats.find(f => f.id === activeFormat) || adFormats[0];
+  
+  // Featured case study for hero
+  const featuredStudy = caseStudies[0];
+
+  const navigateCaseStudy = (direction: 'prev' | 'next') => {
+    if (direction === 'prev') {
+      setCaseStudyIndex(prev => prev === 0 ? caseStudies.length - 1 : prev - 1);
+    } else {
+      setCaseStudyIndex(prev => prev === caseStudies.length - 1 ? 0 : prev + 1);
     }
   };
 
@@ -425,180 +263,385 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
       {/* Video Modal */}
       <VideoModal videoId={modalVideoId} onClose={() => setModalVideoId(null)} />
 
-      {/* Hero Header with Animated Stats */}
+      {/* ========== HERO SECTION - Immersive Split Layout ========== */}
       <section 
         ref={heroRef}
-        className={`pt-32 pb-16 lg:pb-24 px-6 lg:px-12 transition-all duration-1000 ${
-          heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        className={`min-h-[90vh] lg:min-h-screen pt-24 lg:pt-0 transition-all duration-1000 ${
+          heroVisible ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="max-w-[1600px] mx-auto">
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-light tracking-tight mb-6 text-foreground">
-            {t.ourWork || "Our Work"}
-          </h1>
-          <p className="text-lg lg:text-xl font-light max-w-2xl text-muted-foreground leading-relaxed mb-12">
-            Real campaigns. Real results. See how brands connect with gaming audiences through native Twitch advertising.
-          </p>
+        <div className="h-full lg:grid lg:grid-cols-2 lg:min-h-screen">
+          {/* Left: Text Content */}
+          <div className="flex flex-col justify-center px-6 lg:px-16 xl:px-24 py-12 lg:py-0">
+            <div className={`transition-all duration-700 delay-200 ${heroVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tight mb-8 text-foreground">
+                Our Work
+              </h1>
+              <p className="text-lg lg:text-xl font-light max-w-lg text-muted-foreground leading-relaxed mb-12">
+                Real campaigns. Real results. See how brands connect with gaming audiences through native Twitch advertising.
+              </p>
 
-          {/* Animated Stats */}
-          <div className="flex flex-wrap gap-12 lg:gap-20">
-            <div>
-              <p className="text-4xl lg:text-5xl font-light text-primary">
-                <AnimatedNumber 
-                  value={totalImpressions} 
-                  suffix="+" 
-                  isVisible={heroVisible} 
-                />
-              </p>
-              <p className="text-sm uppercase tracking-wider text-muted-foreground mt-2">Total Impressions</p>
+              {/* Animated Stats - Large */}
+              <div className="grid grid-cols-3 gap-6 lg:gap-10">
+                <div>
+                  <p className="text-3xl lg:text-4xl xl:text-5xl font-light text-primary">
+                    <AnimatedNumber 
+                      value={totalImpressions / 1000000} 
+                      suffix="M+" 
+                      decimals={1}
+                      isVisible={heroVisible} 
+                    />
+                  </p>
+                  <p className="text-xs lg:text-sm uppercase tracking-wider text-muted-foreground mt-2">Impressions</p>
+                </div>
+                <div>
+                  <p className="text-3xl lg:text-4xl xl:text-5xl font-light text-primary">
+                    <AnimatedNumber 
+                      value={avgCtr} 
+                      suffix="%" 
+                      decimals={1}
+                      isVisible={heroVisible} 
+                    />
+                  </p>
+                  <p className="text-xs lg:text-sm uppercase tracking-wider text-muted-foreground mt-2">Avg CTR</p>
+                </div>
+                <div>
+                  <p className="text-3xl lg:text-4xl xl:text-5xl font-light text-primary">
+                    <AnimatedNumber 
+                      value={caseStudies.length} 
+                      suffix="+" 
+                      isVisible={heroVisible} 
+                    />
+                  </p>
+                  <p className="text-xs lg:text-sm uppercase tracking-wider text-muted-foreground mt-2">Campaigns</p>
+                </div>
+              </div>
             </div>
-            <div>
-              <p className="text-4xl lg:text-5xl font-light text-primary">
-                <AnimatedNumber 
-                  value={avgCtr} 
-                  suffix="%" 
-                  decimals={2}
-                  isVisible={heroVisible} 
-                />
-              </p>
-              <p className="text-sm uppercase tracking-wider text-muted-foreground mt-2">Average CTR</p>
+          </div>
+
+          {/* Right: Featured Video Preview */}
+          <div className="relative h-[50vh] lg:h-auto overflow-hidden group cursor-pointer" onClick={() => setModalVideoId(featuredStudy.id)}>
+            {/* Video Thumbnail */}
+            <img
+              src={`https://img.youtube.com/vi/${featuredStudy.id}/maxresdefault.jpg`}
+              alt={featuredStudy.campaign}
+              className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+              onError={(e) => {
+                e.currentTarget.src = `https://img.youtube.com/vi/${featuredStudy.id}/hqdefault.jpg`;
+              }}
+            />
+            
+            {/* Gradient Overlays */}
+            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+            
+            {/* Play Button - Centered */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-primary/90 flex items-center justify-center shadow-2xl transition-all duration-300 group-hover:scale-110 group-hover:bg-primary">
+                <Play className="w-8 h-8 lg:w-10 lg:h-10 text-primary-foreground ml-1" fill="currentColor" />
+              </div>
             </div>
-            <div>
-              <p className="text-4xl lg:text-5xl font-light text-primary">
-                <AnimatedNumber 
-                  value={caseStudies.length} 
-                  suffix="+" 
-                  isVisible={heroVisible} 
-                />
-              </p>
-              <p className="text-sm uppercase tracking-wider text-muted-foreground mt-2">Campaigns</p>
+
+            {/* Featured Label */}
+            <div className="absolute bottom-8 left-8 right-8">
+              <span className="text-xs font-medium px-3 py-1.5 rounded-full bg-primary/80 text-primary-foreground mb-3 inline-block">
+                Featured Campaign
+              </span>
+              <h2 className="text-2xl lg:text-3xl font-light text-foreground">{featuredStudy.brand}</h2>
+              <p className="text-muted-foreground">{featuredStudy.campaign}</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Case Studies Section */}
-      <section ref={caseStudiesAnimRef} className="py-16 lg:py-24 relative">
-        <div className="px-6 lg:px-12 mb-10 max-w-[1600px] mx-auto">
-          <h2 className="text-2xl lg:text-3xl font-light mb-2 text-foreground">Case Studies</h2>
-          <p className="text-muted-foreground">Click to watch the full campaign breakdown</p>
-        </div>
+      {/* ========== CASE STUDIES - Large Gallery with Navigation ========== */}
+      <section 
+        ref={caseStudiesRef}
+        className={`py-20 lg:py-32 transition-all duration-700 ${
+          caseStudiesVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
+      >
+        <div className="px-6 lg:px-16 xl:px-24 max-w-[1800px] mx-auto">
+          <div className="flex items-end justify-between mb-12">
+            <div>
+              <h2 className="text-3xl lg:text-4xl font-light mb-3 text-foreground">Case Studies</h2>
+              <p className="text-muted-foreground">Click to watch the full campaign breakdown</p>
+            </div>
+            
+            {/* Navigation */}
+            <div className="hidden lg:flex items-center gap-3">
+              <button 
+                onClick={() => navigateCaseStudy('prev')}
+                className="w-12 h-12 rounded-full flex items-center justify-center border border-border/30 bg-card/50 hover:border-primary hover:bg-primary/10 transition-all duration-300"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <span className="text-sm text-muted-foreground tabular-nums min-w-[60px] text-center">
+                {caseStudyIndex + 1} / {caseStudies.length}
+              </span>
+              <button 
+                onClick={() => navigateCaseStudy('next')}
+                className="w-12 h-12 rounded-full flex items-center justify-center border border-border/30 bg-card/50 hover:border-primary hover:bg-primary/10 transition-all duration-300"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
 
-        {/* Scroll Container */}
-        <div className="relative group/scroll">
-          {/* Navigation Arrows */}
-          <button 
-            onClick={() => scrollCaseStudies('left')}
-            className="absolute left-2 lg:left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center border border-border/30 bg-background/90 backdrop-blur-sm opacity-0 group-hover/scroll:opacity-100 transition-all duration-300 hover:border-primary hover:bg-primary/10 text-foreground shadow-lg"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
+          {/* Large Card Display */}
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+            {/* Main Featured Card */}
+            <div 
+              className="group cursor-pointer"
+              onClick={() => setModalVideoId(caseStudies[caseStudyIndex].id)}
+            >
+              <div className="relative aspect-video rounded-2xl overflow-hidden border border-border/20 bg-card/40">
+                <img
+                  src={`https://img.youtube.com/vi/${caseStudies[caseStudyIndex].id}/maxresdefault.jpg`}
+                  alt={caseStudies[caseStudyIndex].campaign}
+                  className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                  onError={(e) => {
+                    e.currentTarget.src = `https://img.youtube.com/vi/${caseStudies[caseStudyIndex].id}/hqdefault.jpg`;
+                  }}
+                />
+                
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                
+                {/* Play Button */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full bg-primary/90 flex items-center justify-center shadow-xl transition-all duration-300 group-hover:scale-110">
+                    <Play className="w-7 h-7 lg:w-8 lg:h-8 text-primary-foreground ml-1" fill="currentColor" />
+                  </div>
+                </div>
 
-          <button 
-            onClick={() => scrollCaseStudies('right')}
-            className="absolute right-2 lg:right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full flex items-center justify-center border border-border/30 bg-background/90 backdrop-blur-sm opacity-0 group-hover/scroll:opacity-100 transition-all duration-300 hover:border-primary hover:bg-primary/10 text-foreground shadow-lg"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
+                {/* Info Overlay */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+                  <h3 className="text-2xl lg:text-3xl font-medium text-white mb-2">{caseStudies[caseStudyIndex].brand}</h3>
+                  <p className="text-white/80">{caseStudies[caseStudyIndex].campaign}</p>
+                </div>
+              </div>
+              
+              {/* Metrics Below */}
+              <div className="flex gap-8 mt-6 pt-6 border-t border-border/20">
+                <div>
+                  <p className="text-2xl lg:text-3xl font-light text-primary">{caseStudies[caseStudyIndex].impressions}</p>
+                  <p className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Impressions</p>
+                </div>
+                <div>
+                  <p className="text-2xl lg:text-3xl font-light text-primary">{caseStudies[caseStudyIndex].ctr}</p>
+                  <p className="text-xs uppercase tracking-wider text-muted-foreground mt-1">CTR</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground mt-4 leading-relaxed">{caseStudies[caseStudyIndex].description}</p>
+            </div>
 
-          {/* Gradient Fades */}
-          <div className="absolute left-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+            {/* Thumbnail Grid */}
+            <div className="grid grid-cols-2 gap-4">
+              {caseStudies.slice(1, 5).map((study, index) => (
+                <div 
+                  key={study.id}
+                  className={cn(
+                    "group cursor-pointer relative aspect-video rounded-xl overflow-hidden border border-border/20 bg-card/40 transition-all duration-300",
+                    caseStudyIndex === index + 1 && "ring-2 ring-primary"
+                  )}
+                  onClick={() => setCaseStudyIndex(index + 1)}
+                >
+                  <img
+                    src={`https://img.youtube.com/vi/${study.id}/hqdefault.jpg`}
+                    alt={study.campaign}
+                    className="w-full h-full object-cover transition-all duration-300 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <p className="text-sm font-medium text-white">{study.brand}</p>
+                    <p className="text-xs text-white/70 truncate">{study.campaign}</p>
+                  </div>
+                  
+                  {/* Play Icon on Hover */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                    <div className="w-10 h-10 rounded-full bg-primary/90 flex items-center justify-center">
+                      <Play className="w-4 h-4 text-primary-foreground ml-0.5" fill="currentColor" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
 
-          {/* Scrollable Cards */}
-          <div 
-            ref={caseStudiesRef}
-            className="flex gap-6 lg:gap-8 overflow-x-auto scrollbar-hide px-6 lg:px-12 pb-4 snap-x snap-mandatory"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-          >
-            {caseStudies.map((study, index) => (
-              <CaseStudyCard 
-                key={study.id} 
-                study={study} 
-                onOpenModal={setModalVideoId}
-                index={index}
-                isVisible={caseStudiesVisible}
-              />
+          {/* Mobile: All Cards Grid */}
+          <div className="lg:hidden mt-8 grid gap-4">
+            {caseStudies.slice(5).map((study) => (
+              <div 
+                key={study.id}
+                className="group cursor-pointer flex gap-4 p-4 rounded-xl border border-border/20 bg-card/40"
+                onClick={() => setModalVideoId(study.id)}
+              >
+                <div className="relative w-32 h-20 rounded-lg overflow-hidden flex-shrink-0">
+                  <img
+                    src={`https://img.youtube.com/vi/${study.id}/hqdefault.jpg`}
+                    alt={study.campaign}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                    <Play className="w-5 h-5 text-white" fill="currentColor" />
+                  </div>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h4 className="font-medium text-foreground">{study.brand}</h4>
+                  <p className="text-sm text-muted-foreground truncate">{study.campaign}</p>
+                  <div className="flex gap-4 mt-2">
+                    <span className="text-xs text-primary">{study.impressions}</span>
+                    <span className="text-xs text-primary">{study.ctr} CTR</span>
+                  </div>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Ad Formats Section - Auto-scrolling carousel */}
+      {/* ========== AD FORMATS - Interactive Tab Selector ========== */}
       <section 
         ref={formatsRef}
-        className={`py-16 lg:py-24 overflow-hidden transition-all duration-700 ${
+        className={`py-20 lg:py-32 transition-all duration-700 ${
           formatsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
-        <div className="px-6 lg:px-12 mb-10 max-w-[1600px] mx-auto">
-          <h2 className="text-2xl lg:text-3xl font-light mb-2 text-foreground">Ad Formats</h2>
-          <p className="text-muted-foreground">Native advertising designed for live streaming</p>
-        </div>
+        <div className="px-6 lg:px-16 xl:px-24 max-w-[1800px] mx-auto">
+          <h2 className="text-3xl lg:text-4xl font-light mb-3 text-foreground">Ad Formats</h2>
+          <p className="text-muted-foreground mb-10">Native advertising designed for live streaming</p>
 
-        {/* Auto-scrolling Carousel */}
-        <div className="relative">
-          {/* Gradient Fades */}
-          <div className="absolute left-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+          {/* Tab Selector */}
+          <div className="flex flex-wrap gap-2 mb-10">
+            {adFormats.map((format) => (
+              <button
+                key={format.id}
+                onClick={() => setActiveFormat(format.id)}
+                className={cn(
+                  "px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300",
+                  activeFormat === format.id
+                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                    : "bg-card/60 text-muted-foreground hover:text-foreground hover:bg-card border border-border/30"
+                )}
+              >
+                {format.name}
+              </button>
+            ))}
+          </div>
 
-          {/* Continuous Scroll Container */}
-          <div className="overflow-hidden">
-            <div 
-              className="flex gap-6 lg:gap-8 animate-scroll hover:[animation-play-state:paused]"
-              style={{ width: 'max-content' }}
-            >
-              {/* First set */}
-              {adFormats.map((format) => (
-                <AdFormatCard key={`1-${format.name}`} format={format} />
-              ))}
-              {/* Duplicate for seamless loop */}
-              {adFormats.map((format) => (
-                <AdFormatCard key={`2-${format.name}`} format={format} />
-              ))}
+          {/* Format Display */}
+          <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
+            {/* Large Preview Image - 3/5 width */}
+            <div className="lg:col-span-3 relative">
+              <div className="aspect-video rounded-2xl overflow-hidden border border-border/20 bg-card/40 shadow-2xl">
+                <img
+                  key={selectedFormat.id}
+                  src={selectedFormat.image}
+                  alt={selectedFormat.name}
+                  className="w-full h-full object-cover animate-fade-in"
+                />
+              </div>
+              
+              {/* Dimensions Badge */}
+              <div className="absolute top-4 right-4 px-3 py-1.5 rounded-lg bg-background/90 backdrop-blur-sm border border-border/30">
+                <span className="text-xs font-mono text-muted-foreground">{selectedFormat.dimensions}</span>
+              </div>
+            </div>
+
+            {/* Format Details - 2/5 width */}
+            <div className="lg:col-span-2 flex flex-col justify-center">
+              <span className="text-xs font-medium px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 w-fit mb-4">
+                {selectedFormat.bestFor}
+              </span>
+              <h3 className="text-2xl lg:text-3xl font-light text-foreground mb-4">{selectedFormat.name}</h3>
+              <p className="text-muted-foreground leading-relaxed mb-6">{selectedFormat.description}</p>
+              
+              {/* Format Quick Stats */}
+              <div className="pt-6 border-t border-border/20 space-y-4">
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-muted-foreground">Dimensions</span>
+                  <span className="text-sm font-mono text-foreground">{selectedFormat.dimensions}</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-muted-foreground">Best For</span>
+                  <span className="text-sm text-foreground">{selectedFormat.bestFor}</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-muted-foreground">Format</span>
+                  <span className="text-sm text-foreground">PNG / MP4</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Press Section */}
-      <section ref={pressRef} className="py-16 lg:py-24 relative">
-        <div className="px-6 lg:px-12 mb-10 max-w-[1600px] mx-auto">
-          <h2 className="text-2xl lg:text-3xl font-light mb-2 text-foreground">Featured in Press</h2>
-          <p className="text-muted-foreground">What the media is saying about Beta Ads</p>
-        </div>
+      {/* ========== PRESS SECTION - Static Grid ========== */}
+      <section 
+        ref={pressRef}
+        className={`py-20 lg:py-32 transition-all duration-700 ${
+          pressVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}
+      >
+        <div className="px-6 lg:px-16 xl:px-24 max-w-[1800px] mx-auto">
+          <h2 className="text-3xl lg:text-4xl font-light mb-3 text-foreground">Featured in Press</h2>
+          <p className="text-muted-foreground mb-12">What the media is saying about Beta Ads</p>
 
-        {/* Auto-scrolling Carousel */}
-        <div className="relative">
-          {/* Gradient Fades */}
-          <div className="absolute left-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-12 lg:w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-
-          {/* Continuous Scroll Container */}
-          <div className="overflow-hidden">
-            <div 
-              className="flex gap-6 lg:gap-8 animate-scroll hover:[animation-play-state:paused]"
-              style={{ width: 'max-content' }}
-            >
-              {/* First set */}
-              {pressArticles.map((article, index) => (
-                <PressCard 
-                  key={`1-${article.url}`} 
-                  article={article} 
-                  index={index}
-                  isVisible={pressVisible}
-                />
-              ))}
-              {/* Duplicate for seamless loop */}
-              {pressArticles.map((article, index) => (
-                <PressCard 
-                  key={`2-${article.url}`} 
-                  article={article} 
-                  index={index}
-                  isVisible={pressVisible}
-                />
-              ))}
-            </div>
+          {/* 4-Column Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {pressArticles.map((article, index) => {
+              const isKampanje = article.publication === "Kampanje";
+              
+              return (
+                <a 
+                  key={article.url}
+                  href={article.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group block rounded-2xl overflow-hidden border border-border/20 bg-card/40 transition-all duration-500 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1 ${
+                    pressVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
+                  style={{ transitionDelay: `${index * 100}ms` }}
+                >
+                  {/* Image */}
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    
+                    {/* Publication Badge */}
+                    <div className="absolute top-3 left-3">
+                      <span 
+                        className={cn(
+                          "text-xs font-medium px-3 py-1.5 rounded-full backdrop-blur-sm",
+                          isKampanje 
+                            ? "bg-primary/80 text-primary-foreground" 
+                            : "bg-green-500/80 text-white"
+                        )}
+                      >
+                        {article.publication}
+                      </span>
+                    </div>
+                  </div>
+                  
+                  {/* Content */}
+                  <div className="p-5">
+                    <h3 className="text-base font-medium text-foreground line-clamp-2 group-hover:text-primary transition-colors duration-200 mb-2">
+                      {article.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground line-clamp-2 mb-4">{article.subtitle}</p>
+                    <div className="flex items-center text-xs text-primary">
+                      <ExternalLink className="w-3.5 h-3.5 mr-1.5" />
+                      Read article
+                    </div>
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </div>
       </section>
