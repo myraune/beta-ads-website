@@ -73,36 +73,34 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({
         
       </section>
 
-      {/* Full-Width Brands Grid Preview */}
+      {/* Platform Logos Section */}
       <section className="py-16 lg:py-24">
-        <div ref={brandsRef} className={`max-w-6xl mx-auto px-4 lg:px-8 transition-all duration-1000 ${brandsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          <h2 className="text-3xl md:text-4xl font-semibold text-foreground text-center mb-12">
-            Earn from 100+ brands
-          </h2>
-
-          {/* Browser Chrome Frame */}
-          <div className="bg-card/30 backdrop-blur-sm border border-border/40 rounded-2xl shadow-2xl shadow-black/20 overflow-hidden">
-            {/* Browser Header */}
-            <div className="flex items-center gap-2 px-4 py-3 border-b border-border/30 bg-card/50">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full bg-red-500/60" />
-                <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
-                <div className="w-3 h-3 rounded-full bg-green-500/60" />
-              </div>
-              <div className="flex-1 flex justify-center">
-                <div className="bg-background/50 rounded-md px-4 py-1 text-xs text-muted-foreground">
-                  beta.streamer.livad.stream/brands
-                </div>
-              </div>
-              <div className="w-16" />
-            </div>
-            
-            {/* Brands Grid Screenshot */}
-            <div className="relative">
-              <img src="/lovable-uploads/streamer-brands-grid.png" alt="Beta Ads available brand partnerships grid" className="w-full h-auto" loading="lazy" />
-              {/* Subtle bottom fade */}
-              <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background/60 to-transparent" />
-            </div>
+        <div ref={brandsRef} className={`max-w-4xl mx-auto px-4 lg:px-8 text-center transition-all duration-1000 ${brandsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <span className="text-muted-foreground text-sm font-medium tracking-wider uppercase mb-4 block">
+            Available on
+          </span>
+          
+          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 lg:gap-16">
+            <img 
+              src="/lovable-uploads/platform-twitch.png" 
+              alt="Twitch" 
+              className="h-8 md:h-10 w-auto opacity-80 hover:opacity-100 transition-opacity"
+            />
+            <img 
+              src="/lovable-uploads/platform-youtube.png" 
+              alt="YouTube" 
+              className="h-10 md:h-12 w-auto opacity-80 hover:opacity-100 transition-opacity"
+            />
+            <img 
+              src="/lovable-uploads/platform-kick.avif" 
+              alt="Kick" 
+              className="h-8 md:h-10 w-auto opacity-80 hover:opacity-100 transition-opacity"
+            />
+            <img 
+              src="/lovable-uploads/platform-trovo.png" 
+              alt="Trovo" 
+              className="h-8 md:h-10 w-auto opacity-80 hover:opacity-100 transition-opacity"
+            />
           </div>
         </div>
       </section>
