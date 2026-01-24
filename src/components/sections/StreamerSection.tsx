@@ -1,46 +1,29 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Twitch, Youtube, MonitorPlay, Wallet } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 interface StreamerSectionProps {
   t: any;
   language: string;
 }
+
 export const StreamerSection: React.FC<StreamerSectionProps> = ({
   t,
   language
 }) => {
-  const {
-    ref: heroRef,
-    isVisible: heroVisible
-  } = useScrollAnimation<HTMLDivElement>({
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation<HTMLDivElement>({
     threshold: 0.1
   });
-  const {
-    ref: dashboardRef,
-    isVisible: dashboardVisible
-  } = useScrollAnimation<HTMLDivElement>({
+  const { ref: brandsRef, isVisible: brandsVisible } = useScrollAnimation<HTMLDivElement>({
     threshold: 0.1
   });
-  const {
-    ref: brandsRef,
-    isVisible: brandsVisible
-  } = useScrollAnimation<HTMLDivElement>({
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation<HTMLDivElement>({
     threshold: 0.1
   });
-  const {
-    ref: processRef,
-    isVisible: processVisible
-  } = useScrollAnimation<HTMLDivElement>({
-    threshold: 0.1
-  });
-  const {
-    ref: ctaRef,
-    isVisible: ctaVisible
-  } = useScrollAnimation<HTMLDivElement>({
-    threshold: 0.1
-  });
-  return <div className="relative">
+
+  return (
+    <div className="relative">
       {/* Hero Section - Minimal text */}
       <section className="pt-32 pb-12 relative overflow-hidden">
         {/* Aurora glow effect */}
@@ -66,11 +49,6 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({
             </Button>
           </div>
         </div>
-      </section>
-
-      {/* Full-Width Dashboard Preview */}
-      <section className="py-12 lg:py-20">
-        
       </section>
 
       {/* Platform Logos Section */}
@@ -105,9 +83,6 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({
         </div>
       </section>
 
-      {/* Minimal Process Flow */}
-      
-
       {/* Simple CTA Section */}
       <section className="py-20 lg:py-28">
         <div ref={ctaRef} className={`max-w-3xl mx-auto px-4 lg:px-8 text-center transition-all duration-1000 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -126,5 +101,6 @@ export const StreamerSection: React.FC<StreamerSectionProps> = ({
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
