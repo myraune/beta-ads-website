@@ -24,11 +24,10 @@ interface LogoItemProps {
   src: string;
   alt: string;
   scale?: string;
+  isLightTheme: boolean;
 }
 
-const LogoItem: React.FC<LogoItemProps> = ({ src, alt, scale = "scale-100" }) => {
-  const { theme } = useTheme();
-  
+const LogoItem: React.FC<LogoItemProps> = ({ src, alt, scale = "scale-100", isLightTheme }) => {
   return (
     <div className="flex-shrink-0 flex items-center justify-center h-14 w-40">
       <img
@@ -37,7 +36,7 @@ const LogoItem: React.FC<LogoItemProps> = ({ src, alt, scale = "scale-100" }) =>
         loading="lazy"
         decoding="async"
         className={`max-h-12 max-w-36 w-auto h-auto object-contain transition-all duration-300 ${scale} ${
-          theme === "light" 
+          isLightTheme 
             ? "brightness-0 opacity-50 hover:opacity-70" 
             : "opacity-60 hover:opacity-90"
         }`}
@@ -52,16 +51,18 @@ interface LogoType {
   scale?: string;
 }
 
-const LogoSet: React.FC<{ logos: LogoType[]; keyPrefix?: string }> = ({ logos, keyPrefix = "" }) => (
+const LogoSet: React.FC<{ logos: LogoType[]; keyPrefix?: string; isLightTheme: boolean }> = ({ logos, keyPrefix = "", isLightTheme }) => (
   <div className="flex items-center gap-16 px-8 shrink-0">
     {logos.map((logo) => (
-      <LogoItem key={`${keyPrefix}${logo.alt}`} {...logo} />
+      <LogoItem key={`${keyPrefix}${logo.alt}`} {...logo} isLightTheme={isLightTheme} />
     ))}
   </div>
 );
 
 export const TrustedBy: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { theme } = useTheme();
+  const isLightTheme = theme === "light";
 
   // Don't render section if no logos
   if (logos.length === 0) {
@@ -83,8 +84,8 @@ export const TrustedBy: React.FC = () => {
               className="flex animate-scroll-smooth"
               style={{ width: 'max-content' }}
             >
-              <LogoSet logos={logos} />
-              <LogoSet logos={logos} keyPrefix="dup-" />
+              <LogoSet logos={logos} isLightTheme={isLightTheme} />
+              <LogoSet logos={logos} keyPrefix="dup-" isLightTheme={isLightTheme} />
             </div>
           </div>
         </div>
