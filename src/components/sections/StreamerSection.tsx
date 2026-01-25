@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, Gift, Wallet } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { EarningsCalculator } from "@/components/sections/EarningsCalculator";
 
 interface StreamerSectionProps {
@@ -23,38 +23,20 @@ const brandLogos = [
   { src: "/lovable-uploads/logo-glorious.png", alt: "Glorious" },
 ];
 
-const valueProps = [
-  {
-    icon: Zap,
-    title: "No minimum followers 🌱",
-    description: "Start earning from day one. We work with streamers of all sizes. 💪",
-  },
-  {
-    icon: Gift,
-    title: "Brands come to you 🎁",
-    description: "Browse and accept sponsorship offers directly from your dashboard. Easy peasy. ✌️",
-  },
-  {
-    icon: Wallet,
-    title: "Get paid monthly 💰",
-    description: "Simple, transparent payouts. No complicated contracts. 🤝",
-  },
-];
-
 const processSteps = [
   { 
     number: "1", 
-    title: "Connect your stream 🔗",
+    title: "Connect your stream",
     description: "Link your Twitch, YouTube, or Kick account in seconds."
   },
   { 
     number: "2", 
-    title: "Accept sponsorships ✅",
+    title: "Accept sponsorships",
     description: "Browse real offers from brands and choose what fits your stream."
   },
   { 
     number: "3", 
-    title: "Earn 💸",
+    title: "Get paid",
     description: "Get paid monthly for running native ads during your streams."
   },
 ];
@@ -86,7 +68,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = () => {
                 transition={{ duration: 0.5 }}
                 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-[1.1] tracking-tight mb-6"
               >
-                Micro sponsorships for streamers of all sizes. ✨
+                Micro sponsorships for streamers of all sizes.
               </motion.h1>
 
               <motion.p
@@ -96,7 +78,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = () => {
                 className="text-lg text-muted-foreground leading-relaxed mb-8"
               >
                 Beta Ads helps smaller streamers earn from brand partnerships early. 
-                Simple sponsorships. Fair payouts. Built to grow with you. 🚀
+                Simple sponsorships. Fair payouts. Built to grow with you.
               </motion.p>
 
               {/* CTAs */}
@@ -111,7 +93,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = () => {
                   className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 px-8 py-6 text-base font-medium rounded-xl" 
                   onClick={() => window.open("https://beta.streamer.livad.stream/login", "_blank")}
                 >
-                  Easy apply 🎮
+                  Easy apply
                   <ArrowRight className="w-4 h-4" />
                 </Button>
                 
@@ -183,38 +165,6 @@ export const StreamerSection: React.FC<StreamerSectionProps> = () => {
         </div>
       </section>
 
-      {/* Value Propositions: Full Width Cards */}
-      <section className="py-16 lg:py-24">
-        <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
-          <motion.h2
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5 }}
-            className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-12 lg:mb-16"
-          >
-            Built for your growth journey 🌟
-          </motion.h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            {valueProps.map((prop, index) => (
-              <motion.div
-                key={prop.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="bg-card/5 rounded-xl p-8 lg:p-10 hover:bg-card/10 transition-all duration-300 shadow-lg shadow-black/5 dark:shadow-black/20"
-              >
-                <prop.icon className="w-8 h-8 text-primary mb-5" strokeWidth={1.5} />
-                <h3 className="text-xl font-semibold text-foreground mb-3">{prop.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{prop.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Brand Partners: Full Width */}
       <section className="py-16 lg:py-20">
         <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
@@ -225,7 +175,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = () => {
             transition={{ duration: 0.5 }}
           >
             <p className="text-muted-foreground text-sm mb-10 uppercase tracking-wider">
-              Partner with brands you know 🤝
+              Partner with brands you know
             </p>
             <div className="flex flex-wrap items-center gap-10 lg:gap-16">
               {brandLogos.map((logo) => (
@@ -251,7 +201,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = () => {
             transition={{ duration: 0.5 }}
             className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground mb-12 lg:mb-16"
           >
-            How it works ⚡
+            How it works
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
@@ -290,10 +240,10 @@ export const StreamerSection: React.FC<StreamerSectionProps> = () => {
               className="max-w-xl"
             >
               <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                Ready to start earning? 🎉
+                Ready to start earning?
               </h2>
               <p className="text-lg text-muted-foreground">
-                Join streamers across the Nordics earning from brand sponsorships. Let's gooo! 🙌
+                Join streamers across the Nordics earning from brand sponsorships.
               </p>
             </motion.div>
             
@@ -309,7 +259,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = () => {
                 className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 px-10 py-6 text-base font-medium rounded-xl" 
                 onClick={() => window.open("https://beta.streamer.livad.stream/login", "_blank")}
               >
-                Easy apply 🎮
+                Easy apply
                 <ArrowRight className="w-4 h-4" />
               </Button>
               
@@ -317,7 +267,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = () => {
                 className="text-muted-foreground hover:text-foreground text-sm transition-colors" 
                 onClick={() => window.open("https://beta.streamer.livad.stream/login", "_blank")}
               >
-                Already a member? Sign in 👋
+                Already a member? Sign in
               </button>
             </motion.div>
           </div>
