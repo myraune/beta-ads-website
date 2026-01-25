@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { Slider } from "@/components/ui/slider";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -16,23 +16,19 @@ const formatNumber = (num: number): string => {
   if (num >= 1000) {
     return (num / 1000).toFixed(num >= 10000 ? 0 : 1) + "K";
   }
-  return num.toLocaleString();
+  return Math.round(num).toLocaleString();
 };
 
 const formatCurrency = (num: number): string => {
-  return "$" + num.toLocaleString(undefined, { maximumFractionDigits: 0 });
+  return "$" + Math.round(num).toLocaleString();
 };
 
-// Animated number component
-const AnimatedNumber: React.FC<{ 
-  value: number; 
-  formatter: (n: number) => string;
-  className?: string;
-}> = ({ value, formatter, className }) => {
-  const [displayValue, setDisplayValue] = useState(value);
+// Hook for animated numbers
+const useAnimatedValue = (targetValue: number, duration = 400) => {
+  const [displayValue, setDisplayValue] = useState(targetValue);
+  const animationRef = useRef<number | null>(null);
   
   useEffect(() => {
-    const duration = 400;
     const startValue = displayValue;
     const startTime = performance.now();
     
@@ -40,22 +36,28 @@ const AnimatedNumber: React.FC<{
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const easeOut = 1 - Math.pow(1 - progress, 3);
-      const current = startValue + (value - startValue) * easeOut;
+      const current = startValue + (targetValue - startValue) * easeOut;
       
       setDisplayValue(current);
       
       if (progress < 1) {
-        requestAnimationFrame(animate);
+        animationRef.current = requestAnimationFrame(animate);
       }
     };
     
-    requestAnimationFrame(animate);
-  }, [value]);
+    animationRef.current = requestAnimationFrame(animate);
+    
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [targetValue, duration]);
   
-  return <span className={className}>{formatter(displayValue)}</span>;
+  return displayValue;
 };
 
-export const EarningsCalculator: React.FC = () => {
+export const EarningsCalculator = () => {
   const [viewers, setViewers] = useState(100);
   const [hours, setHours] = useState(40);
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
@@ -64,6 +66,11 @@ export const EarningsCalculator: React.FC = () => {
   const impressions = viewers * hours * 60;
   const earningsLow = (impressions / 1000) * 10;
   const earningsHigh = (impressions / 1000) * 15;
+
+  // Animated values
+  const animatedImpressions = useAnimatedValue(impressions);
+  const animatedEarningsLow = useAnimatedValue(earningsLow);
+  const animatedEarningsHigh = useAnimatedValue(earningsHigh);
 
   return (
     <section ref={ref} className="py-20 lg:py-28">
@@ -169,11 +176,9 @@ export const EarningsCalculator: React.FC = () => {
               <p className="text-sm uppercase tracking-wider text-muted-foreground/60 mb-3">
                 Estimated monthly impressions
               </p>
-              <AnimatedNumber
-                value={impressions}
-                formatter={formatNumber}
-                className="text-5xl lg:text-6xl font-bold text-foreground"
-              />
+              <span className="text-5xl lg:text-6xl font-bold text-foreground">
+                {formatNumber(animatedImpressions)}
+              </span>
             </div>
 
             {/* Earnings */}
@@ -183,9 +188,9 @@ export const EarningsCalculator: React.FC = () => {
               </p>
               <div className="text-5xl lg:text-6xl font-bold">
                 <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                  <AnimatedNumber value={earningsLow} formatter={formatCurrency} />
+                  {formatCurrency(animatedEarningsLow)}
                   <span className="text-muted-foreground/40 mx-2">–</span>
-                  <AnimatedNumber value={earningsHigh} formatter={formatCurrency} />
+                  {formatCurrency(animatedEarningsHigh)}
                 </span>
               </div>
             </div>
