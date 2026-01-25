@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { Layout } from "@/components/Layout";
-
 import Index from "./pages/Index";
 import CaseStudies from "./pages/CaseStudies";
 import HowItWorks from "./pages/HowItWorks";
@@ -458,7 +457,7 @@ const App = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} storageKey="beta-ads-theme">
         <Toaster />
         <Sonner />
         <BrowserRouter>

@@ -1,6 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
 export const AnimatedBackground: React.FC = () => {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Avoid flash by not rendering until mounted
+  if (!mounted) {
+    return (
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-background" />
+    );
+  }
+
+  // Light mode: Clean white background, no effects
+  if (theme === "light") {
+    return (
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-background" />
+    );
+  }
+
+  // Dark mode: Aurora effect
   return (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-gradient-to-b from-[hsl(222,20%,4%)] via-[hsl(0,30%,8%)] to-[hsl(222,20%,4%)]">
       {/* Aurora Layer 1 - Base glow */}
