@@ -152,9 +152,9 @@ export const StreamerSection: React.FC<StreamerSectionProps> = () => {
               className="lg:-mr-12 relative"
             >
               {/* Browser Chrome Frame */}
-              <div className="bg-card/5 border border-border/20 rounded-xl overflow-hidden shadow-2xl">
+              <div className="bg-card/5 rounded-xl overflow-hidden shadow-2xl shadow-black/20">
                 {/* Browser Header */}
-                <div className="flex items-center gap-2 px-4 py-3 bg-card/10 border-b border-border/10">
+                <div className="flex items-center gap-2 px-4 py-3 bg-card/10">
                   <div className="flex gap-1.5">
                     <div className="w-2.5 h-2.5 rounded-full bg-muted-foreground/20" />
                     <div className="w-2.5 h-2.5 rounded-full bg-muted-foreground/20" />
@@ -183,7 +183,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = () => {
       </section>
 
       {/* Value Propositions: Full Width Cards */}
-      <section className="py-16 lg:py-24 border-t border-border/10">
+      <section className="py-16 lg:py-24">
         <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
@@ -203,7 +203,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="bg-card/5 border border-border/15 rounded-xl p-8 lg:p-10 hover:bg-card/10 hover:border-border/25 transition-all duration-300"
+                className="bg-card/5 rounded-xl p-8 lg:p-10 hover:bg-card/10 transition-all duration-300 shadow-lg shadow-black/5 dark:shadow-black/20"
               >
                 <prop.icon className="w-8 h-8 text-primary mb-5" strokeWidth={1.5} />
                 <h3 className="text-xl font-semibold text-foreground mb-3">{prop.title}</h3>
@@ -215,7 +215,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = () => {
       </section>
 
       {/* Brand Partners: Full Width */}
-      <section className="py-16 lg:py-20 border-t border-border/10">
+      <section className="py-16 lg:py-20">
         <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
           <motion.div
             initial={{ opacity: 0 }}
@@ -241,7 +241,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = () => {
       </section>
 
       {/* How It Works: Full Width Visual Cards */}
-      <section id="how-it-works" className="py-20 lg:py-28 border-t border-border/10">
+      <section id="how-it-works" className="py-20 lg:py-28">
         <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
@@ -261,7 +261,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="bg-card/5 border border-border/15 rounded-xl p-8 lg:p-10"
+                className="bg-card/5 rounded-xl p-8 lg:p-10 shadow-lg shadow-black/5 dark:shadow-black/20"
               >
                 <span className="text-5xl lg:text-6xl font-bold text-primary/30 mb-4 block">
                   {step.number}
@@ -275,7 +275,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = () => {
       </section>
 
       {/* Final CTA: Full Width, Two Column */}
-      <section className="py-20 lg:py-28 border-t border-border/10">
+      <section className="py-20 lg:py-28">
         <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <motion.div

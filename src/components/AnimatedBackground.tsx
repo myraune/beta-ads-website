@@ -16,10 +16,37 @@ export const AnimatedBackground: React.FC = () => {
     );
   }
 
-  // Light mode: Clean white background, no effects
+  // Light mode: Subtle red ambient glow with slow motion
   if (theme === "light") {
     return (
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-background" />
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-background">
+        {/* Subtle Red Ambient Layer 1 - Top Right */}
+        <div 
+          className="absolute -top-1/4 -right-1/4 w-[60%] h-[50%] animate-light-ambient-1"
+          style={{
+            background: 'radial-gradient(ellipse 60% 50% at 70% 30%, hsl(0 80% 60% / 0.04) 0%, transparent 70%)',
+            filter: 'blur(80px)',
+          }}
+        />
+        
+        {/* Subtle Red Ambient Layer 2 - Bottom Left */}
+        <div 
+          className="absolute -bottom-1/4 -left-1/4 w-[50%] h-[40%] animate-light-ambient-2"
+          style={{
+            background: 'radial-gradient(ellipse 50% 40% at 30% 70%, hsl(350 75% 55% / 0.03) 0%, transparent 60%)',
+            filter: 'blur(100px)',
+          }}
+        />
+        
+        {/* Subtle Red Ambient Layer 3 - Center */}
+        <div 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[30%] animate-light-ambient-3"
+          style={{
+            background: 'radial-gradient(ellipse 50% 50% at 50% 50%, hsl(0 70% 50% / 0.02) 0%, transparent 50%)',
+            filter: 'blur(120px)',
+          }}
+        />
+      </div>
     );
   }
 

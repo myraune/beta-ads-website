@@ -86,10 +86,10 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Desktop Navigation */}
       <nav className={`hidden lg:block transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${scrolled ? "pt-3" : "pt-0"}`}>
-        <div className={`mx-auto transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-[max-width,padding,background,border,box-shadow] ${
+        <div className={`mx-auto transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-[max-width,padding,background,box-shadow] ${
           scrolled 
-            ? "max-w-fit px-6 py-2.5 rounded-full bg-background/70 backdrop-blur-xl border border-border shadow-lg shadow-black/10" 
-            : "max-w-7xl px-8 py-5 border border-transparent"
+            ? "max-w-fit px-6 py-2.5 rounded-full bg-background/70 backdrop-blur-xl shadow-lg shadow-black/15" 
+            : "max-w-7xl px-8 py-5"
         }`}>
           <div className="flex items-center">
             {/* Logo - Uses flex-1 to push to edge when not scrolled */}
@@ -160,7 +160,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     <span className="text-sm">{currentLang.flag}</span>
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="bg-background/90 backdrop-blur-xl border-border">
+                <DropdownMenuContent align="end" className="bg-background/90 backdrop-blur-xl shadow-xl shadow-black/15">
                   {languages.map(lang => (
                     <DropdownMenuItem 
                       key={lang.code} 
@@ -181,7 +181,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Mobile Navigation */}
       <nav className="lg:hidden">
         {/* Mobile Header Bar */}
-        <div className="flex items-center justify-between px-4 py-3 bg-background/80 backdrop-blur-xl border-b border-border">
+        <div className="flex items-center justify-between px-4 py-3 bg-background/80 backdrop-blur-xl shadow-md shadow-black/10">
           <Link to="/" className="flex items-center">
             <img src="/lovable-uploads/favicon.png" alt="Beta Ads" className="h-7 w-auto" />
           </Link>
@@ -214,7 +214,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Mobile Menu Dropdown */}
         <div className={`overflow-hidden transition-all duration-300 ease-out ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
-          <div className="px-4 py-4 bg-background/95 backdrop-blur-xl border-b border-border space-y-2">
+          <div className="px-4 py-4 bg-background/95 backdrop-blur-xl shadow-lg shadow-black/10 space-y-2">
             {navLinks.map(link => (
               <Link 
                 key={link.href} 
@@ -230,7 +230,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             ))}
 
             {/* Mobile Language Selector */}
-            <div className="pt-4 border-t border-border">
+            <div className="pt-4">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
@@ -238,7 +238,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     {currentLang.flag} {currentLang.label}
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="bg-background/95 backdrop-blur-xl border-border">
+                <DropdownMenuContent className="bg-background/95 backdrop-blur-xl shadow-xl shadow-black/15">
                   {languages.map(lang => (
                     <DropdownMenuItem 
                       key={lang.code} 
