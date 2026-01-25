@@ -20,91 +20,111 @@
 
 @layer base {
   :root {
-    /* Light mode colors - keeping for compatibility but dark is default */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    /* Light theme - exact tokens from spec */
+    --bg: 0 0% 100%; /* #FFFFFF */
+    --surface: 220 14% 96%; /* #F6F7F9 */
+    --surface2: 0 0% 100%; /* #FFFFFF */
+    --text: 222 20% 5%; /* #0B0D10 */
+    --text2: 215 15% 39%; /* #556070 */
+    --border-custom: 222 20% 5% / 0.10; /* rgba(11,13,16,0.10) */
+    --accent: 0 100% 62%; /* #FF3B3B */
+    --accent-hover: 0 80% 55%; /* #E93333 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    /* Map to Tailwind semantic tokens */
+    --background: 0 0% 100%;
+    --foreground: 222 20% 5%;
+
+    --card: 220 14% 96%;
+    --card-foreground: 222 20% 5%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
+    --popover-foreground: 222 20% 5%;
 
-    --primary: 0 84% 60%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 0 100% 62%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 9%;
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 20% 5%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 215 15% 39%;
 
-    --accent: 0 84% 60%;
-    --accent-foreground: 0 0% 9%;
+    --accent: 0 100% 62%;
+    --accent-foreground: 222 20% 5%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 100% 62%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 89%;
-    --input: 0 0% 89%;
-    --ring: 0 84% 60%;
+    --border: 222 20% 5% / 0.10;
+    --input: 222 20% 5% / 0.10;
+    --ring: 0 100% 62%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 26%;
-    --sidebar-primary: 0 84% 60%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 0 0% 96%;
-    --sidebar-accent-foreground: 0 0% 10%;
-    --sidebar-border: 0 0% 91%;
-    --sidebar-ring: 0 84% 60%;
+    --sidebar-background: 220 14% 96%;
+    --sidebar-foreground: 222 20% 5%;
+    --sidebar-primary: 0 100% 62%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 222 20% 5%;
+    --sidebar-border: 222 20% 5% / 0.10;
+    --sidebar-ring: 0 100% 62%;
 
-    --gradient-subtle: linear-gradient(135deg, hsl(0 0% 98%) 0%, hsl(0 0% 96%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
+    --gradient-subtle: #FFFFFF;
+    --gradient-card: #F6F7F9;
   }
 
   .dark {
-    /* Premium dark mode - the default experience */
+    /* Dark theme - exact tokens from spec */
+    --bg: 222 20% 4%; /* #0B0D10 */
+    --surface: 222 18% 9%; /* #12151B */
+    --surface2: 222 15% 11%; /* #171B22 */
+    --text: 210 20% 97%; /* #F4F6F8 */
+    --text2: 210 15% 70%; /* #A7B0BC */
+    --border-custom: 0 0% 100% / 0.10; /* rgba(255,255,255,0.10) */
+    --accent: 0 100% 62%; /* #FF3B3B */
+    --accent-hover: 0 100% 68%; /* #FF5A5A */
+
+    /* Map to Tailwind semantic tokens */
     --background: 222 20% 4%;
-    --foreground: 210 40% 95%;
+    --foreground: 210 20% 97%;
 
-    --card: 222 18% 7%;
-    --card-foreground: 210 40% 95%;
+    --card: 222 18% 9%;
+    --card-foreground: 210 20% 97%;
 
-    --popover: 222 18% 7%;
-    --popover-foreground: 210 40% 95%;
+    --popover: 222 18% 9%;
+    --popover-foreground: 210 20% 97%;
 
-    --primary: 0 84% 60%;
-    --primary-foreground: 0 0% 98%;
+    --primary: 0 100% 62%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 215 25% 12%;
-    --secondary-foreground: 210 40% 88%;
+    --secondary: 222 15% 11%;
+    --secondary-foreground: 210 20% 97%;
 
-    --muted: 215 20% 8%;
-    --muted-foreground: 210 15% 60%;
+    --muted: 222 15% 11%;
+    --muted-foreground: 210 15% 70%;
 
-    --accent: 0 84% 60%;
-    --accent-foreground: 210 40% 95%;
+    --accent: 0 100% 62%;
+    --accent-foreground: 210 20% 97%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 100% 62%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 215 20% 15%;
-    --input: 215 20% 15%;
-    --ring: 0 84% 60%;
+    --border: 0 0% 100% / 0.10;
+    --input: 0 0% 100% / 0.10;
+    --ring: 0 100% 62%;
 
-    --sidebar-background: 222 18% 5%;
-    --sidebar-foreground: 210 40% 95%;
-    --sidebar-primary: 0 84% 60%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 215 20% 10%;
-    --sidebar-accent-foreground: 210 40% 88%;
-    --sidebar-border: 215 20% 15%;
-    --sidebar-ring: 0 84% 60%;
+    --sidebar-background: 222 18% 6%;
+    --sidebar-foreground: 210 20% 97%;
+    --sidebar-primary: 0 100% 62%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 15% 11%;
+    --sidebar-accent-foreground: 210 20% 97%;
+    --sidebar-border: 0 0% 100% / 0.10;
+    --sidebar-ring: 0 100% 62%;
 
-    --gradient-subtle: linear-gradient(135deg, hsl(222 20% 4%) 0%, hsl(215 25% 8%) 50%, hsl(222 18% 6%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(222 18% 7%) 0%, hsl(215 20% 10%) 50%, hsl(222 15% 8%) 100%);
+    --gradient-subtle: linear-gradient(135deg, hsl(222 20% 4%) 0%, hsl(222 18% 9%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(222 18% 9%) 0%, hsl(222 15% 11%) 100%);
   }
 }
 
@@ -114,13 +134,11 @@
   }
 
   html {
-    @apply dark;
     scroll-behavior: smooth;
   }
 
   html, body {
     @apply bg-background text-foreground;
-    background-color: hsl(222, 20%, 4%) !important;
     overscroll-behavior: none;
   }
 }
@@ -475,8 +493,17 @@
   background-position: 100% center;
 }
 
+/* Theme transition */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.15s ease;
+}
+
 /* Reduced motion support for accessibility and older computers */
 @media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+  
   .animate-scroll,
   .animate-aurora-drift-1,
   .animate-aurora-drift-2,
@@ -501,14 +528,9 @@
   .animate-float-hover,
   .animate-dashboard-tilt,
   .animate-scan,
-  .animate-scan-light {
+  .animate-scan-light,
+  .animate-page-enter,
+  .animate-scroll-smooth {
     animation: none !important;
-  }
-  
-  *,
-  *::before,
-  *::after {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
   }
 }
