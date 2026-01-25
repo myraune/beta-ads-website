@@ -16,33 +16,41 @@ export const AnimatedBackground: React.FC = () => {
     );
   }
 
-  // Light mode: Subtle red ambient glow with slow motion
+  // Light mode: Enhanced red ambient glow with more visible motion
   if (theme === "light") {
     return (
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden bg-background">
-        {/* Subtle Red Ambient Layer 1 - Top Right */}
+        {/* Warmer base tint to reduce intense white */}
         <div 
-          className="absolute -top-1/4 -right-1/4 w-[60%] h-[50%] animate-light-ambient-1"
+          className="absolute inset-0"
           style={{
-            background: 'radial-gradient(ellipse 60% 50% at 70% 30%, hsl(0 80% 60% / 0.04) 0%, transparent 70%)',
+            background: 'linear-gradient(135deg, hsl(0 50% 97% / 0.5) 0%, transparent 50%, hsl(350 40% 96% / 0.3) 100%)',
+          }}
+        />
+        
+        {/* Red Ambient Layer 1 - Top Right - increased opacity */}
+        <div 
+          className="absolute -top-1/4 -right-1/4 w-[70%] h-[60%] animate-light-ambient-1"
+          style={{
+            background: 'radial-gradient(ellipse 60% 50% at 70% 30%, hsl(0 80% 60% / 0.06) 0%, transparent 70%)',
             filter: 'blur(80px)',
           }}
         />
         
-        {/* Subtle Red Ambient Layer 2 - Bottom Left */}
+        {/* Red Ambient Layer 2 - Bottom Left - increased opacity */}
         <div 
-          className="absolute -bottom-1/4 -left-1/4 w-[50%] h-[40%] animate-light-ambient-2"
+          className="absolute -bottom-1/4 -left-1/4 w-[60%] h-[50%] animate-light-ambient-2"
           style={{
-            background: 'radial-gradient(ellipse 50% 40% at 30% 70%, hsl(350 75% 55% / 0.03) 0%, transparent 60%)',
+            background: 'radial-gradient(ellipse 50% 40% at 30% 70%, hsl(350 75% 55% / 0.05) 0%, transparent 60%)',
             filter: 'blur(100px)',
           }}
         />
         
-        {/* Subtle Red Ambient Layer 3 - Center */}
+        {/* Red Ambient Layer 3 - Center - increased opacity */}
         <div 
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] h-[30%] animate-light-ambient-3"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[50%] h-[40%] animate-light-ambient-3"
           style={{
-            background: 'radial-gradient(ellipse 50% 50% at 50% 50%, hsl(0 70% 50% / 0.02) 0%, transparent 50%)',
+            background: 'radial-gradient(ellipse 50% 50% at 50% 50%, hsl(0 70% 50% / 0.04) 0%, transparent 50%)',
             filter: 'blur(120px)',
           }}
         />

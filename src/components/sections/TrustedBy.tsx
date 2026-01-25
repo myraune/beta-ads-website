@@ -1,5 +1,6 @@
 import React from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useTheme } from "next-themes";
 
 // Client logos for the carousel with individual scale adjustments
 const logos: Array<{ src: string; alt: string; scale?: string }> = [
@@ -25,17 +26,25 @@ interface LogoItemProps {
   scale?: string;
 }
 
-const LogoItem: React.FC<LogoItemProps> = ({ src, alt, scale = "scale-100" }) => (
-  <div className="flex-shrink-0 flex items-center justify-center h-14 w-40">
-    <img
-      src={src}
-      alt={alt}
-      loading="lazy"
-      decoding="async"
-      className={`max-h-12 max-w-36 w-auto h-auto opacity-60 object-contain transition-all duration-300 hover:opacity-90 ${scale}`}
-    />
-  </div>
-);
+const LogoItem: React.FC<LogoItemProps> = ({ src, alt, scale = "scale-100" }) => {
+  const { theme } = useTheme();
+  
+  return (
+    <div className="flex-shrink-0 flex items-center justify-center h-14 w-40">
+      <img
+        src={src}
+        alt={alt}
+        loading="lazy"
+        decoding="async"
+        className={`max-h-12 max-w-36 w-auto h-auto object-contain transition-all duration-300 ${scale} ${
+          theme === "light" 
+            ? "brightness-0 opacity-50 hover:opacity-70" 
+            : "opacity-60 hover:opacity-90"
+        }`}
+      />
+    </div>
+  );
+};
 
 interface LogoType {
   src: string;

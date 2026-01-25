@@ -242,7 +242,7 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
       </div>
 
       {/* Main Stats */}
-      <div className="grid grid-cols-4 bg-muted/20 rounded-lg divide-x divide-border/20">
+      <div className="grid grid-cols-4 bg-muted/20 rounded-lg">
         {mainStats.map((stat, index) => (
           <StatCard
             key={stat.label}
@@ -329,7 +329,7 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
                 <span className="text-[9px] text-muted-foreground font-medium">{g.percent}%</span>
               </div>
             ))}
-            <div className="pt-1 border-t border-border/20">
+            <div className="pt-1">
               <div className="flex items-center gap-1 mb-1">
                 <Monitor className="w-2.5 h-2.5 text-muted-foreground/60" />
                 <span className="text-[8px] text-muted-foreground/80 uppercase tracking-wide">Device</span>
@@ -390,8 +390,8 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
           <div 
             key={streamer.name}
             className={`
-              group relative rounded-lg overflow-hidden bg-muted/20 border border-border/20
-              transition-all duration-500 hover:scale-105 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10
+              group relative rounded-lg overflow-hidden bg-muted/20 shadow-md shadow-black/10
+              transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-primary/15
               ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
             `}
             style={{ transitionDelay: `${150 + i * 100}ms` }}
