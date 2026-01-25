@@ -69,7 +69,7 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-border/50 text-muted-foreground hover:text-foreground hover:bg-secondary/30 bg-transparent px-6 py-2.5 text-sm font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300"
+                  className="text-muted-foreground hover:text-foreground hover:bg-secondary/30 bg-muted/20 px-6 py-2.5 text-sm font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 shadow-sm shadow-black/5"
                 >
                   {t.streamerButton}
                   <ExternalLink className="ml-2 h-4 w-4" />

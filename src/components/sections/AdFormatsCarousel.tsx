@@ -60,7 +60,7 @@ const adFormats: AdFormat[] = [
 
 const AdFormatCard: React.FC<{ format: AdFormat; t: any }> = ({ format, t }) => (
   <div className="flex-shrink-0 w-[280px] sm:w-[340px] lg:w-[400px] group">
-    <div className="relative rounded-xl overflow-hidden border border-border/30 bg-card/50 backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/10">
+    <div className="relative rounded-xl overflow-hidden bg-card/50 backdrop-blur-sm shadow-lg shadow-black/10 transition-all duration-300 hover:shadow-xl hover:shadow-primary/15">
       <div className="aspect-video overflow-hidden">
         <img
           src={format.image}

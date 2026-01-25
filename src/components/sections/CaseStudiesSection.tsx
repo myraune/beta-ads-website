@@ -46,7 +46,7 @@ const CaseStudyCard: React.FC<{ study: CaseStudy; index: number; isVisible: bool
   t
 }) => (
   <div
-    className={`group relative p-6 lg:p-8 rounded-xl border border-border/30 bg-card/30 backdrop-blur-sm transition-all duration-500 hover:border-primary/40 hover:bg-card/50 ${
+    className={`group relative p-6 lg:p-8 rounded-xl bg-card/30 backdrop-blur-sm shadow-lg shadow-black/10 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:bg-card/50 ${
       isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
     }`}
     style={{ transitionDelay: `${index * 150}ms` }}

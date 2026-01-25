@@ -66,7 +66,7 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ t }) => {
           {/* Desktop: Horizontal Layout */}
           <div className="hidden lg:block">
             {/* Connecting Line */}
-            <div className="absolute top-8 left-[calc(12.5%+24px)] right-[calc(12.5%+24px)] h-px bg-border/50" />
+            <div className="absolute top-8 left-[calc(12.5%+24px)] right-[calc(12.5%+24px)] h-px bg-muted/40" />
 
             <div className="grid grid-cols-4 gap-6">
               {stepConfig.map((step, index) => (
@@ -78,7 +78,7 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ t }) => {
                   style={{ transitionDelay: `${index * 150}ms` }}
                 >
                   {/* Step Number Circle */}
-                  <div className="relative z-10 w-16 h-16 rounded-full bg-card border border-border/50 flex items-center justify-center mb-6">
+                  <div className="relative z-10 w-16 h-16 rounded-full bg-card shadow-md shadow-black/10 dark:shadow-white/5 flex items-center justify-center mb-6">
                     <span className="text-primary font-mono text-sm">{step.number}</span>
                   </div>
 
@@ -111,10 +111,10 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({ t }) => {
               >
                 {/* Left: Number & Line */}
                 <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-card border border-border/50 flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 rounded-full bg-card shadow-md shadow-black/10 dark:shadow-white/5 flex items-center justify-center flex-shrink-0">
                     <span className="text-primary font-mono text-xs">{step.number}</span>
                   </div>
-                  {index < stepConfig.length - 1 && <div className="w-px h-full bg-border/50 mt-2" />}
+                  {index < stepConfig.length - 1 && <div className="w-px h-full bg-muted/40 mt-2" />}
                 </div>
 
                 {/* Right: Content */}

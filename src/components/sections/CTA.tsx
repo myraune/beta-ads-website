@@ -15,14 +15,14 @@ export const CTA: React.FC<CTAProps> = ({ t }) => (
         
         {/* Left: Visual Element */}
         <div className="relative order-2 lg:order-1">
-          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-secondary/20 border border-border/30">
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-secondary/20 shadow-xl shadow-black/15">
             {/* Stream preview placeholder with gradient overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5" />
             
             {/* Featured person image */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="relative">
-                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden ring-4 ring-border/30 shadow-2xl">
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden shadow-2xl shadow-black/30">
                   <img
                     src="/lovable-uploads/e6d9646d-bf5f-471c-a2d8-1f06c274f570.png"
                     alt="Andreas Myraune"
@@ -30,7 +30,7 @@ export const CTA: React.FC<CTAProps> = ({ t }) => (
                   />
                 </div>
                 {/* Status indicator */}
-                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-background/90 backdrop-blur-sm px-4 py-1.5 rounded-full border border-border/50">
+                <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-background/90 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-md shadow-black/10">
                   <p className="text-sm font-light text-foreground whitespace-nowrap">Andreas Myraune</p>
                   <p className="text-xs text-muted-foreground text-center">Head of Agency</p>
                 </div>

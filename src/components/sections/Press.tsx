@@ -50,7 +50,7 @@ const PressCard: React.FC<{ article: PressArticle; t: any }> = ({ article, t }) 
       className="flex-shrink-0 w-[280px] sm:w-[340px] lg:w-[400px] group cursor-pointer"
       onClick={() => window.open(article.url, "_blank")}
     >
-      <div className="relative rounded-xl overflow-hidden border border-border/30 bg-card/50 backdrop-blur-sm transition-all duration-500 group-hover:border-primary/50 group-hover:shadow-lg group-hover:shadow-primary/10">
+      <div className="relative rounded-xl overflow-hidden bg-card/50 backdrop-blur-sm shadow-lg shadow-black/10 transition-all duration-500 group-hover:shadow-xl group-hover:shadow-primary/15">
         {/* Article image */}
         <div className="aspect-video overflow-hidden">
           <img
