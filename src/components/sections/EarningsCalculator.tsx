@@ -20,9 +20,10 @@ const formatUSD = (num: number): string => {
 const useAnimatedValue = (targetValue: number, duration = 400) => {
   const [displayValue, setDisplayValue] = useState(targetValue);
   const animationRef = useRef<number | null>(null);
+  const previousValueRef = useRef(targetValue);
   
   useEffect(() => {
-    const startValue = displayValue;
+    const startValue = previousValueRef.current;
     const startTime = performance.now();
     
     const animate = (currentTime: number) => {
@@ -35,8 +36,14 @@ const useAnimatedValue = (targetValue: number, duration = 400) => {
       
       if (progress < 1) {
         animationRef.current = requestAnimationFrame(animate);
+      } else {
+        previousValueRef.current = targetValue;
       }
     };
+    
+    if (animationRef.current) {
+      cancelAnimationFrame(animationRef.current);
+    }
     
     animationRef.current = requestAnimationFrame(animate);
     
