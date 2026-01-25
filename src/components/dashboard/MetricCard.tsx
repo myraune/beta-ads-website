@@ -24,7 +24,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
   return (
     <div
       className={cn(
-        "bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-6 hover:border-primary/30 transition-all duration-300",
+        "bg-card/50 backdrop-blur-sm shadow-lg shadow-black/10 rounded-xl p-6 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300",
         className
       )}
     >

@@ -12,7 +12,7 @@ const AudienceInsights: React.FC = () => {
 
       <div className="grid lg:grid-cols-2 gap-6">
         {/* Regions */}
-        <div className="bg-card/50 border border-border/50 rounded-xl p-6">
+        <div className="bg-card/50 shadow-lg shadow-black/10 rounded-xl p-6">
           <h3 className="font-semibold text-foreground mb-4">Hvor i Norge ser de fra?</h3>
           <div className="mb-4">
             <span className="text-muted-foreground">🇳🇴 Norge: </span>
@@ -32,14 +32,14 @@ const AudienceInsights: React.FC = () => {
               </div>
             ))}
           </div>
-          <div className="mt-4 pt-4 border-t border-border/50 text-sm text-muted-foreground">
+          <div className="mt-4 pt-4 text-sm text-muted-foreground">
             Øvrige land: Sverige (2.5%), Danmark (1.5%)
           </div>
         </div>
 
         {/* Devices & Age */}
         <div className="space-y-6">
-          <div className="bg-card/50 border border-border/50 rounded-xl p-6">
+          <div className="bg-card/50 shadow-lg shadow-black/10 rounded-xl p-6">
             <h3 className="font-semibold text-foreground mb-4">Hvilken enhet bruker de?</h3>
             {audienceInsights.devices.map((d) => (
               <div key={d.type} className="flex justify-between items-center py-2">
@@ -48,7 +48,7 @@ const AudienceInsights: React.FC = () => {
               </div>
             ))}
           </div>
-          <div className="bg-card/50 border border-border/50 rounded-xl p-6">
+          <div className="bg-card/50 shadow-lg shadow-black/10 rounded-xl p-6">
             <h3 className="font-semibold text-foreground mb-4">Hvor gamle er de?</h3>
             {audienceInsights.ageGroups.map((a) => (
               <div key={a.range} className="flex justify-between items-center py-2">
@@ -63,7 +63,7 @@ const AudienceInsights: React.FC = () => {
       <HorizontalBarChart data={audienceInsights.topCategories} title="Hva spilles mest?" />
 
       {/* Insights */}
-      <div className="bg-card/50 border border-border/50 rounded-xl p-6">
+      <div className="bg-card/50 shadow-lg shadow-black/10 rounded-xl p-6">
         <h3 className="font-semibold text-foreground mb-4">Hva betyr dette for deg?</h3>
         <ul className="space-y-3 text-muted-foreground">
           <li>• <strong className="text-foreground">95% fra Norge</strong> → Fokus på norske kampanjer gir best ROI</li>

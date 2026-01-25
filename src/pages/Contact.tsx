@@ -22,7 +22,7 @@ const Contact: React.FC<ContactProps> = ({ t, language, setLanguage }) => {
           </p>
           
           <div className="flex items-center justify-center mb-16 transition-all duration-300 hover:scale-105 cursor-pointer group">
-            <div className="w-20 h-20 rounded-full overflow-hidden mr-6 ring-2 ring-primary/20 transition-all duration-300 group-hover:ring-primary/40 group-hover:shadow-lg group-hover:shadow-primary/20">
+            <div className="w-20 h-20 rounded-full overflow-hidden mr-6 shadow-lg shadow-primary/20 transition-all duration-300 group-hover:shadow-xl group-hover:shadow-primary/30">
               <img
                 src="/lovable-uploads/e6d9646d-bf5f-471c-a2d8-1f06c274f570.png"
                 alt="Andreas Myraune"

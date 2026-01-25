@@ -247,7 +247,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t, language, setLanguage })
             </div>
 
             {/* Tags */}
-            <div className="flex flex-wrap items-center gap-2 mt-12 pt-8 border-t border-border">
+            <div className="flex flex-wrap items-center gap-2 mt-12 pt-8">
               <Tag className="w-4 h-4 text-muted-foreground" />
               {post.tags.map((tag) => (
                 <Badge key={tag} variant="outline" className="text-xs">
@@ -302,7 +302,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t, language, setLanguage })
                   <Link 
                     key={relatedPost.id} 
                     to={`/blog/${relatedPost.slug}`}
-                    className="group bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500"
+                    className="group bg-card rounded-2xl overflow-hidden shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500"
                   >
                     <div className="relative h-40 overflow-hidden">
                       <img 

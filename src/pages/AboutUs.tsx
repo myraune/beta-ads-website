@@ -348,7 +348,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
       {/* Section 4a: ON STREAM */}
       <section 
         ref={onStreamAnimation.ref}
-        className="py-32 px-6 md:px-12 lg:px-24 border-t border-border/10"
+        className="py-32 px-6 md:px-12 lg:px-24"
       >
         <div className={`max-w-7xl mx-auto transition-all duration-1000 ${onStreamAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p className="text-xs uppercase tracking-widest text-primary mb-4">What we deliver</p>
@@ -361,7 +361,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
             {ON_STREAM_FEATURES.map((feature, index) => (
               <div 
                 key={index}
-                className="group py-6 border-t border-border/20 first:border-t-0 flex flex-col md:flex-row md:items-center gap-2 md:gap-8 hover:bg-card/30 transition-colors px-4 -mx-4"
+                className="group py-6 first:pt-0 flex flex-col md:flex-row md:items-center gap-2 md:gap-8 hover:bg-card/30 transition-colors px-4 -mx-4"
               >
                 <h3 className="text-lg font-medium md:w-56 shrink-0">{feature.title}</h3>
                 <p className="text-muted-foreground text-sm md:opacity-60 group-hover:opacity-100 transition-opacity">
@@ -406,7 +406,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
       {/* Section 5: What Makes Beta Different */}
       <section 
         ref={differentiatorAnimation.ref}
-        className="py-32 px-6 md:px-12 lg:px-24 border-t border-border/10"
+        className="py-32 px-6 md:px-12 lg:px-24"
       >
         <div className={`max-w-7xl mx-auto transition-all duration-1000 ${differentiatorAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-extralight tracking-tight leading-tight mb-24">
@@ -432,34 +432,34 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
       {/* Section 6: Stats Strip */}
       <section 
         ref={statsAnimation.ref}
-        className="py-32 px-6 md:px-12 lg:px-24 border-t border-border/10"
+        className="py-32 px-6 md:px-12 lg:px-24"
       >
         <div className={`max-w-7xl mx-auto transition-all duration-1000 ${statsAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p className="text-xs uppercase tracking-widest text-primary mb-16">The numbers</p>
           
           {/* Stats Strip */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-0 lg:divide-x lg:divide-border/20 mb-24">
-            <div className="lg:px-6 first:lg:pl-0 last:lg:pr-0">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 lg:gap-12 mb-24">
+            <div>
               <p className="text-4xl md:text-5xl font-extralight text-primary">{campaignsCount.displayValue}+</p>
               <p className="text-sm text-muted-foreground mt-2">Campaigns shipped</p>
             </div>
-            <div className="lg:px-6">
+            <div>
               <p className="text-4xl md:text-5xl font-extralight text-primary">{marketsCount.displayValue}</p>
               <p className="text-sm text-muted-foreground mt-2">Nordic markets</p>
             </div>
-            <div className="lg:px-6">
+            <div>
               <p className="text-4xl md:text-5xl font-extralight text-primary">{creatorsCount.displayValue}+</p>
               <p className="text-sm text-muted-foreground mt-2">Creators in network</p>
             </div>
-            <div className="lg:px-6">
+            <div>
               <p className="text-4xl md:text-5xl font-extralight text-primary">{STATS.avgCtr}%</p>
               <p className="text-sm text-muted-foreground mt-2">Average CTR range</p>
             </div>
-            <div className="lg:px-6">
+            <div>
               <p className="text-4xl md:text-5xl font-extralight text-primary">{hoursCount.displayValue}M+</p>
               <p className="text-sm text-muted-foreground mt-2">Hours watched</p>
             </div>
-            <div className="lg:px-6 last:lg:pr-0">
+            <div>
               <p className="text-4xl md:text-5xl font-extralight text-primary">{repeatCount.displayValue}%</p>
               <p className="text-sm text-muted-foreground mt-2">Repeat brand rate</p>
             </div>
@@ -481,7 +481,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
       {/* Section 7: Brand Safety */}
       <section 
         ref={brandSafetyAnimation.ref}
-        className="py-32 px-6 md:px-12 lg:px-24 border-t border-border/10"
+        className="py-32 px-6 md:px-12 lg:px-24"
       >
         <div className={`max-w-7xl mx-auto transition-all duration-1000 ${brandSafetyAnimation.isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p className="text-xs uppercase tracking-widest text-primary mb-4">Brand safety</p>

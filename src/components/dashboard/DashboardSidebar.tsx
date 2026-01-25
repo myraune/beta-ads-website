@@ -68,12 +68,12 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
       {/* Desktop Sidebar */}
       <aside
         className={cn(
-          "fixed left-0 top-0 h-full bg-card/95 backdrop-blur-md border-r border-border/50 z-30 transition-all duration-300 hidden lg:block",
+          "fixed left-0 top-0 h-full bg-card/95 backdrop-blur-md shadow-xl shadow-black/10 z-30 transition-all duration-300 hidden lg:block",
           isOpen ? "w-60" : "w-16"
         )}
       >
         {/* Logo */}
-        <div className="h-16 flex items-center px-4 border-b border-border/50">
+        <div className="h-16 flex items-center px-4 shadow-sm shadow-black/5">
           <NavLink to="/dashboard" className="flex items-center gap-3">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">B</span>
@@ -108,7 +108,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
 
         {/* Footer */}
         {isOpen && (
-          <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-border/50">
+          <div className="absolute bottom-0 left-0 right-0 p-4 pt-4">
             <NavLink
               to="/"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -122,12 +122,12 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
       {/* Mobile Sidebar */}
       <aside
         className={cn(
-          "fixed left-0 top-0 h-full w-72 bg-card/95 backdrop-blur-md border-r border-border/50 z-50 transition-transform duration-300 lg:hidden",
+          "fixed left-0 top-0 h-full w-72 bg-card/95 backdrop-blur-md shadow-2xl shadow-black/20 z-50 transition-transform duration-300 lg:hidden",
           isMobileOpen ? "translate-x-0" : "-translate-x-full"
         )}
       >
         {/* Header */}
-        <div className="h-16 flex items-center justify-between px-4 border-b border-border/50">
+        <div className="h-16 flex items-center justify-between px-4 shadow-sm shadow-black/5">
           <NavLink to="/dashboard" className="flex items-center gap-3">
             <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-sm">B</span>
@@ -166,7 +166,7 @@ export const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
         </nav>
 
         {/* Footer */}
-        <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-border/50">
+        <div className="absolute bottom-0 left-0 right-0 p-4 pt-4">
           <NavLink
             to="/"
             onClick={onMobileClose}

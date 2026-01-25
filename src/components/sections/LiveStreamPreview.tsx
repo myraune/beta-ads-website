@@ -19,10 +19,10 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
         </div>
 
         {/* Stream Preview Container */}
-        <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl shadow-primary/10 bg-[#18181b]">
+        <div className="relative rounded-xl overflow-hidden shadow-2xl shadow-primary/10 bg-[#18181b]">
           
           {/* Title Bar with !glorious command */}
-          <div className="flex items-center justify-between px-4 py-2.5 bg-[#18181b] border-b border-white/5">
+          <div className="flex items-center justify-between px-4 py-2.5 bg-[#18181b]">
             <div className="flex items-center gap-3">
               <div className="flex items-center gap-1.5">
                 <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
@@ -54,7 +54,7 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
               </div>
 
               {/* Snipe Banner */}
-              <div className="bg-gradient-to-r from-[#1a1a2e] to-[#16213e] px-4 py-3 flex items-center justify-between border-t border-white/5">
+              <div className="bg-gradient-to-r from-[#1a1a2e] to-[#16213e] px-4 py-3 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center">
                     <span className="text-white text-lg font-bold">G</span>
@@ -71,8 +71,8 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
             </div>
 
             {/* Chat Section */}
-            <div className="w-64 bg-[#0e0e10] border-l border-white/5 flex flex-col">
-              <div className="px-3 py-2 border-b border-white/5">
+            <div className="w-64 bg-[#0e0e10] flex flex-col">
+              <div className="px-3 py-2">
                 <span className="text-white/80 text-xs font-semibold uppercase tracking-wide">Stream Chat</span>
               </div>
               
@@ -109,7 +109,7 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
               </div>
               
               {/* Chat input */}
-              <div className="p-2 border-t border-white/5">
+              <div className="p-2">
                 <div className="bg-white/5 rounded px-3 py-2 text-white/30 text-xs">
                   Send a message
                 </div>
@@ -118,7 +118,7 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
           </div>
 
           {/* Format Labels */}
-          <div className="flex items-center justify-center gap-8 py-4 bg-[#0e0e10] border-t border-white/5">
+          <div className="flex items-center justify-center gap-8 py-4 bg-[#0e0e10]">
             <div className="flex items-center gap-2 text-white/60">
               <div className="w-2 h-2 rounded-full bg-primary" />
               <span className="text-xs">Rich Media Overlay</span>

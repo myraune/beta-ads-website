@@ -131,7 +131,7 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose, lang
         <div className="p-8 pt-12">
           {/* Header section */}
           <div className="text-center space-y-6 mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-4">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm shadow-lg shadow-white/5 mb-4">
               <TrendingUp className="h-8 w-8 text-white" />
             </div>
             
@@ -151,19 +151,19 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose, lang
           {/* Features/Benefits */}
           <div className="grid grid-cols-3 gap-4 mb-8">
             <div className="text-center space-y-2">
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 shadow-inner shadow-white/5">
                 <Users className="h-5 w-5 text-gray-300" />
               </div>
               <p className="text-xs text-gray-400 font-light">{t.marketingProfessionals}</p>
             </div>
             <div className="text-center space-y-2">
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 shadow-inner shadow-white/5">
                 <Zap className="h-5 w-5 text-gray-300" />
               </div>
               <p className="text-xs text-gray-400 font-light">{t.exclusiveCaseStudies}</p>
             </div>
             <div className="text-center space-y-2">
-              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10">
+              <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 shadow-inner shadow-white/5">
                 <TrendingUp className="h-5 w-5 text-gray-300" />
               </div>
               <p className="text-xs text-gray-400 font-light">{t.marketTrends}</p>
@@ -180,7 +180,7 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose, lang
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full pl-12 pr-4 py-4 bg-black/30 border border-white/20 rounded-xl text-white placeholder:text-gray-400 focus:border-white/40 focus:ring-2 focus:ring-white/20 backdrop-blur-sm text-base"
+                className="w-full pl-12 pr-4 py-4 bg-black/30 rounded-xl text-white placeholder:text-gray-400 focus:shadow-[0_0_0_2px_hsl(0_0%_100%/0.3)] backdrop-blur-sm text-base"
               />
             </div>
             
