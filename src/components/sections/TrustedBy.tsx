@@ -37,7 +37,7 @@ const LogoItem: React.FC<LogoItemProps> = ({ src, alt, scale = "scale-100", isLi
         decoding="async"
         className={`max-h-12 max-w-36 w-auto h-auto object-contain transition-all duration-300 ${scale} ${
           isLightTheme 
-            ? "brightness-0 opacity-50 hover:opacity-70" 
+            ? "invert brightness-0 opacity-60 hover:opacity-80" 
             : "opacity-60 hover:opacity-90"
         }`}
       />

@@ -71,7 +71,7 @@ const DashboardHome: React.FC = () => {
 
       <div className="grid lg:grid-cols-2 gap-8">
         {/* Top Performers */}
-        <section className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-6">
+        <section className="bg-card/50 backdrop-blur-sm shadow-lg shadow-black/10 rounded-xl p-6">
           <h2 className="text-lg font-semibold text-foreground mb-4">Streamere som leverer</h2>
           <div className="space-y-1">
             {topStreamers.map((streamer, index) => (
@@ -87,7 +87,7 @@ const DashboardHome: React.FC = () => {
         </section>
 
         {/* Audience Snapshot */}
-        <section className="bg-card/50 backdrop-blur-sm border border-border/50 rounded-xl p-6">
+        <section className="bg-card/50 backdrop-blur-sm shadow-lg shadow-black/10 rounded-xl p-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-lg font-semibold text-foreground">Hvor ser de fra?</h2>
             <Link to="/dashboard/audience" className="text-sm text-primary hover:text-primary/80">
@@ -112,7 +112,7 @@ const DashboardHome: React.FC = () => {
               <span className="text-muted-foreground">🇩🇪 Tyskland</span>
               <span className="font-mono">1%</span>
             </div>
-            <div className="pt-4 border-t border-border/50">
+            <div className="pt-4">
               <div className="flex justify-between text-sm">
                 <span className="text-muted-foreground">💻 Desktop</span>
                 <span className="font-mono font-medium">80%</span>

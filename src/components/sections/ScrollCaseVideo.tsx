@@ -302,7 +302,7 @@ export const ScrollCaseVideo: React.FC<ScrollCaseVideoProps> = ({
 
                   {/* Metrics */}
                   {metrics && metrics.length > 0 && (
-                    <div className="flex gap-6 mt-4 pt-4 border-t border-white/10">
+                    <div className="flex gap-6 mt-4 pt-4">
                       {metrics.map((metric, index) => (
                         <div key={index}>
                           <p className="text-white text-xl lg:text-2xl font-light">

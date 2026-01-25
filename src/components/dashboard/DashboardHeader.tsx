@@ -14,7 +14,7 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
   onToggleMobileSidebar,
 }) => {
   return (
-    <header className="sticky top-0 z-20 h-16 bg-background/80 backdrop-blur-md border-b border-border/50">
+    <header className="sticky top-0 z-20 h-16 bg-background/80 backdrop-blur-md shadow-md shadow-black/5">
       <div className="h-full flex items-center justify-between px-4">
         <div className="flex items-center gap-4">
           {/* Mobile menu button */}

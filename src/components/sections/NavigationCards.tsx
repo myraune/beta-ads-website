@@ -21,7 +21,6 @@ const NavItem: React.FC<NavItemProps> = ({
       group relative py-6 px-6
       text-center
       transition-all duration-500 ease-out
-      border-r border-border/10 last:border-r-0
       hover:bg-secondary/20
       ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
     `}
@@ -53,7 +52,7 @@ export const NavigationCards: React.FC<NavigationCardsProps> = ({ t }) => {
         <div 
           className={`
             grid grid-cols-2 md:grid-cols-4
-            border border-border/10 rounded-lg
+            rounded-lg shadow-lg shadow-black/10
             bg-secondary/5
             transition-all duration-700
             ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}

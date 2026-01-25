@@ -189,7 +189,7 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
                     setSearchQuery(e.target.value);
                     setCurrentPage(1);
                   }}
-                  className="pl-6 bg-transparent border-0 border-b border-border rounded-none focus-visible:ring-0 focus-visible:border-primary"
+                  className="pl-6 bg-transparent border-0 border-b border-border/50 rounded-none focus-visible:ring-0 focus-visible:border-primary"
                 />
                 {searchQuery && (
                   <button
