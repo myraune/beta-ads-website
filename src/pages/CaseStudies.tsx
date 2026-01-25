@@ -293,13 +293,13 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
           <div className="grid lg:grid-cols-2 gap-8">
             
             {/* Agency Portal Card */}
-            <div className="group relative bg-card/30 backdrop-blur-sm border border-border/50 rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden">
+            <div className="group relative bg-card/30 backdrop-blur-sm rounded-2xl p-8 hover:bg-card/40 transition-all duration-500 overflow-hidden shadow-xl shadow-black/10">
               {/* Gradient overlay on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative z-10">
                 {/* Mockup Visual - Dashboard */}
-                <div className="mb-8 aspect-[16/10] bg-background/50 rounded-lg border border-border/30 overflow-hidden">
+                <div className="mb-8 aspect-[16/10] bg-background/50 rounded-lg overflow-hidden shadow-inner shadow-black/5">
                   <div className="p-4 h-full flex flex-col gap-3">
                     {/* Top bar */}
                     <div className="flex items-center gap-3">
@@ -367,13 +367,13 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
             </div>
 
             {/* Streamer Explorer Card */}
-            <div className="group relative bg-card/30 backdrop-blur-sm border border-border/50 rounded-2xl p-8 hover:border-primary/30 transition-all duration-500 overflow-hidden">
+            <div className="group relative bg-card/30 backdrop-blur-sm rounded-2xl p-8 hover:bg-card/40 transition-all duration-500 overflow-hidden shadow-xl shadow-black/10">
               {/* Gradient overlay on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="relative z-10">
                 {/* Mockup Visual - Streamer Grid */}
-                <div className="mb-8 aspect-[16/10] bg-background/50 rounded-lg border border-border/30 overflow-hidden">
+                <div className="mb-8 aspect-[16/10] bg-background/50 rounded-lg overflow-hidden shadow-inner shadow-black/5">
                   <div className="p-4 h-full flex gap-3">
                     {/* Sidebar filters */}
                     <div className="w-1/4 space-y-2">
@@ -453,7 +453,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
             <div className="hidden lg:flex items-center gap-3">
               <button 
                 onClick={() => navigateCaseStudy('prev')}
-                className="w-12 h-12 rounded-full flex items-center justify-center border border-border/30 bg-card/50 hover:border-primary hover:bg-primary/10 transition-all duration-300"
+                className="w-12 h-12 rounded-full flex items-center justify-center bg-card/50 hover:bg-primary/10 transition-all duration-300 shadow-lg shadow-black/10"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -462,7 +462,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
               </span>
               <button 
                 onClick={() => navigateCaseStudy('next')}
-                className="w-12 h-12 rounded-full flex items-center justify-center border border-border/30 bg-card/50 hover:border-primary hover:bg-primary/10 transition-all duration-300"
+                className="w-12 h-12 rounded-full flex items-center justify-center bg-card/50 hover:bg-primary/10 transition-all duration-300 shadow-lg shadow-black/10"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -476,7 +476,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
               className="group cursor-pointer"
               onClick={() => setModalVideoId(caseStudies[caseStudyIndex].id)}
             >
-              <div className="relative aspect-video rounded-2xl overflow-hidden border border-border/20 bg-card/40">
+              <div className="relative aspect-video rounded-2xl overflow-hidden bg-card/40 shadow-2xl shadow-black/20">
                 <img
                   src={`https://img.youtube.com/vi/${caseStudies[caseStudyIndex].id}/maxresdefault.jpg`}
                   alt={caseStudies[caseStudyIndex].campaign}
@@ -504,7 +504,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
               </div>
               
               {/* Metrics Below */}
-              <div className="flex gap-8 mt-6 pt-6 border-t border-border/20">
+              <div className="flex gap-8 mt-6 pt-6">
                 <div>
                   <p className="text-2xl lg:text-3xl font-light text-primary">{caseStudies[caseStudyIndex].impressions}</p>
                   <p className="text-xs uppercase tracking-wider text-muted-foreground mt-1">Impressions</p>
@@ -523,7 +523,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
                 <div 
                   key={study.id}
                   className={cn(
-                    "group cursor-pointer relative aspect-video rounded-xl overflow-hidden border border-border/20 bg-card/40 transition-all duration-300",
+                    "group cursor-pointer relative aspect-video rounded-xl overflow-hidden bg-card/40 transition-all duration-300 shadow-lg shadow-black/10",
                     caseStudyIndex === index + 1 && "ring-2 ring-primary"
                   )}
                   onClick={() => setCaseStudyIndex(index + 1)}
@@ -555,7 +555,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
             {caseStudies.slice(5).map((study) => (
               <div 
                 key={study.id}
-                className="group cursor-pointer flex gap-4 p-4 rounded-xl border border-border/20 bg-card/40"
+                className="group cursor-pointer flex gap-4 p-4 rounded-xl bg-card/40 shadow-lg shadow-black/10"
                 onClick={() => setModalVideoId(study.id)}
               >
                 <div className="relative w-32 h-20 rounded-lg overflow-hidden flex-shrink-0">
@@ -603,7 +603,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
                   "px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300",
                   activeFormat === format.id
                     ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
-                    : "bg-card/60 text-muted-foreground hover:text-foreground hover:bg-card border border-border/30"
+                    : "bg-card/60 text-muted-foreground hover:text-foreground hover:bg-card shadow-md shadow-black/5"
                 )}
               >
                 {format.name}
@@ -615,7 +615,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
           <div className="grid lg:grid-cols-5 gap-8 lg:gap-12">
             {/* Large Preview Image - 3/5 width */}
             <div className="lg:col-span-3 relative">
-              <div className="aspect-video rounded-2xl overflow-hidden border border-border/20 bg-card/40 shadow-2xl">
+              <div className="aspect-video rounded-2xl overflow-hidden bg-card/40 shadow-2xl shadow-black/20">
                 <img
                   key={selectedFormat.id}
                   src={selectedFormat.image}
@@ -625,21 +625,21 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
               </div>
               
               {/* Dimensions Badge */}
-              <div className="absolute top-4 right-4 px-3 py-1.5 rounded-lg bg-background/90 backdrop-blur-sm border border-border/30">
+              <div className="absolute top-4 right-4 px-3 py-1.5 rounded-lg bg-background/90 backdrop-blur-sm shadow-lg shadow-black/10">
                 <span className="text-xs font-mono text-muted-foreground">{selectedFormat.dimensions}</span>
               </div>
             </div>
 
             {/* Format Details - 2/5 width */}
             <div className="lg:col-span-2 flex flex-col justify-center">
-              <span className="text-xs font-medium px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 w-fit mb-4">
+              <span className="text-xs font-medium px-3 py-1.5 rounded-full bg-primary/10 text-primary w-fit mb-4">
                 {selectedFormat.bestFor}
               </span>
               <h3 className="text-2xl lg:text-3xl font-light text-foreground mb-4">{selectedFormat.name}</h3>
               <p className="text-muted-foreground leading-relaxed mb-6">{selectedFormat.description}</p>
               
               {/* Format Quick Stats */}
-              <div className="pt-6 border-t border-border/20 space-y-4">
+              <div className="pt-6 space-y-4">
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-muted-foreground">Dimensions</span>
                   <span className="text-sm font-mono text-foreground">{selectedFormat.dimensions}</span>
