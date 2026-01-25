@@ -139,6 +139,35 @@
   }
 }
 
+/* Light theme ambient background with animated red glow */
+html[data-theme="light"] body,
+:root:not(.dark) body {
+  background: #ffffff;
+  position: relative;
+  overflow-x: hidden;
+}
+
+html[data-theme="light"] body::before,
+:root:not(.dark) body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(650px 450px at 20% 20%, rgba(255,59,59,0.10), transparent 60%),
+    radial-gradient(800px 520px at 85% 25%, rgba(255,59,59,0.08), transparent 62%),
+    radial-gradient(900px 650px at 45% 90%, rgba(255,59,59,0.06), transparent 65%);
+  filter: blur(22px);
+  animation: ambientFloat 18s ease-in-out infinite;
+}
+
+@keyframes ambientFloat {
+  0%   { transform: translate3d(-1.5%, -1%, 0) scale(1); }
+  50%  { transform: translate3d(1.5%, 1%, 0) scale(1.03); }
+  100% { transform: translate3d(-1.5%, -1%, 0) scale(1); }
+}
+
 @layer components {
   /* Glassmorphism card style - borderless with shadows */
   .glass-card {
