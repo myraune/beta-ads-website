@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Gift, Wallet } from "lucide-react";
+import { EarningsCalculator } from "@/components/sections/EarningsCalculator";
 
 interface StreamerSectionProps {
   t: any;
@@ -273,6 +274,9 @@ export const StreamerSection: React.FC<StreamerSectionProps> = () => {
           </div>
         </div>
       </section>
+
+      {/* Earnings Calculator */}
+      <EarningsCalculator />
 
       {/* Final CTA: Full Width, Two Column */}
       <section className="py-20 lg:py-28">
