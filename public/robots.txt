@@ -1,11 +1,10 @@
-
-# Beta Ads Nordic - Premium Twitch Marketing Agency
-# Optimized robots.txt for maximum SEO visibility across Nordic gaming markets
+# Beta Ads Nordic - Twitch Marketing Agency
+# robots.txt
 
 User-agent: *
 Allow: /
 
-# Enhanced crawling permissions for major search engines
+# Major search engines
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
@@ -14,45 +13,26 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
-User-agent: Slurp
-Allow: /
-Crawl-delay: 1
-
 User-agent: DuckDuckBot
 Allow: /
 Crawl-delay: 1
 
-User-agent: Baiduspider
-Allow: /
-Crawl-delay: 2
-
-User-agent: YandexBot
-Allow: /
-Crawl-delay: 2
-
-# Block problematic crawlers while allowing beneficial ones
-User-agent: AhrefsBot
-Disallow: /
-
-User-agent: MJ12bot
-Disallow: /
-
+# SEO tools
 User-agent: SemrushBot
 Allow: /
 
 User-agent: MozBot
 Allow: /
 
-# Sitemap locations for comprehensive indexing
+# Block aggressive crawlers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Sitemap location
 Sitemap: https://beta-ads.no/sitemap.xml
-Sitemap: https://beta-ads.no/sitemap-images.xml
-Sitemap: https://beta-ads.no/sitemap-videos.xml
-Sitemap: https://beta-ads.no/sitemap-news.xml
 
-# Host preference for consolidation
+# Host preference
 Host: beta-ads.no
-
-# Clean URLs for better SEO
-Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term
-Clean-param: gclid&fbclid&msclkid
-Clean-param: ref&source&medium
