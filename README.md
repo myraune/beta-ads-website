@@ -34,6 +34,9 @@ npm i
 
 # Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
+
+# Optional: Install Molt for enhanced development workflow
+curl -fsSL https://molt.bot/install.sh | bash
 ```
 
 **Edit a file directly in GitHub**
