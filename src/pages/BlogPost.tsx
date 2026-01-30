@@ -105,14 +105,14 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t, language, setLanguage })
         <link rel="alternate" hrefLang="sv" href={`https://betaads.com/sv/blog/${post.slug}`} />
         <link rel="alternate" hrefLang="fi" href={`https://betaads.com/fi/blog/${post.slug}`} />
         <script type="application/ld+json">
-          {JSON.stringify({
+          {`{
             "@context": "https://schema.org",
             "@type": "BlogPosting",
-            "headline": post.title,
-            "description": seoDescription,
-            "image": post.image,
-            "datePublished": post.dateISO,
-            "dateModified": post.dateISO,
+            "headline": ${JSON.stringify(post.title)},
+            "description": ${JSON.stringify(seoDescription)},
+            "image": ${JSON.stringify(post.image)},
+            "datePublished": "${post.dateISO}",
+            "dateModified": "${post.dateISO}",
             "author": {
               "@type": "Organization",
               "name": "Beta Ads"
@@ -127,9 +127,9 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t, language, setLanguage })
             },
             "mainEntityOfPage": {
               "@type": "WebPage",
-              "@id": shareUrl
+              "@id": ${JSON.stringify(shareUrl)}
             }
-          })}
+          }`}
         </script>
       </Helmet>
 
