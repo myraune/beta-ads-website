@@ -173,14 +173,6 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t, language, setLanguage })
               {post.excerpt}
             </p>
 
-            {/* Hero Image */}
-            <div className="relative rounded-2xl overflow-hidden mb-12 aspect-video">
-              <img 
-                src={post.image} 
-                alt={post.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
 
             {/* Dashboard or Content with ToC */}
             <div className="flex gap-8">
