@@ -18,6 +18,7 @@ const PlatformComparisonDashboard = lazy(() => import("@/components/blog/Platfor
 const AdvertisingBenchmarksDashboard = lazy(() => import("@/components/blog/AdvertisingBenchmarksDashboard"));
 const SwedishStreamersDashboard = lazy(() => import("@/components/blog/SwedishStreamersDashboard"));
 const FinnishStreamersDashboard = lazy(() => import("@/components/blog/FinnishStreamersDashboard"));
+const GloriousCaseStudy = lazy(() => import("@/components/blog/GloriousCaseStudy"));
 
 interface BlogPostPageProps {
   t: any;
@@ -185,7 +186,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t, language, setLanguage })
             <div className="flex gap-8">
               <div className="flex-1 min-w-0">
                 {post.hasDashboard ? (
-                  <Suspense fallback={<div className="text-center py-12 text-muted-foreground">Loading dashboard...</div>}>
+                <Suspense fallback={<div className="text-center py-12 text-muted-foreground">Loading dashboard...</div>}>
                     {post.hasDashboard === "twitch-stats" && <TwitchStatsDashboard />}
                     {post.hasDashboard === "norwegian-streamers" && <NorwegianStreamersDashboard />}
                     {post.hasDashboard === "top-games" && <TopGamesDashboard />}
@@ -194,6 +195,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t, language, setLanguage })
                     {post.hasDashboard === "ad-benchmarks" && <AdvertisingBenchmarksDashboard />}
                     {post.hasDashboard === "swedish-streamers" && <SwedishStreamersDashboard />}
                     {post.hasDashboard === "finnish-streamers" && <FinnishStreamersDashboard />}
+                    {post.hasDashboard === "glorious-case-study" && <GloriousCaseStudy />}
                   </Suspense>
                 ) : (
                   <div className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground">
