@@ -33,6 +33,38 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "glorious-o3-nordic-campaign",
+    slug: "glorious-o3-nordic-campaign",
+    title: "Case Study: Glorious O3 Mouse Nordic Campaign",
+    excerpt: "How Glorious empowered the Nordic gaming community with Rich Media Overlays, reaching 137K+ views across Finland, Norway, and Sweden.",
+    content: "",
+    date: "Jan 30, 2025",
+    dateISO: "2025-01-30",
+    readTime: "5 min read",
+    image: "https://storage.googleapis.com/livad-blog/3292/3669942.gif",
+    category: "Case Studies",
+    tags: ["glorious", "case-study", "nordic", "gaming", "rich-media", "overlay-ads"],
+    hasDashboard: "glorious-case-study",
+    seoTitle: {
+      en: "Glorious O3 Mouse Nordic Campaign Case Study | Beta Ads",
+      no: "Glorious O3 Mus Nordisk Kampanje Case Study | Beta Ads",
+      sv: "Glorious O3 Mus Nordisk Kampanj Case Study | Beta Ads",
+      fi: "Glorious O3 Hiiri Pohjoismainen Kampanja Case Study | Beta Ads"
+    },
+    seoDescription: {
+      en: "See how Glorious reached 137K+ views across Finland, Norway, and Sweden with Rich Media Overlays. Case study of native gaming advertising in the Nordic market.",
+      no: "Se hvordan Glorious nådde 137K+ visninger i Finland, Norge og Sverige med Rich Media Overlays. Case study av native gaming-annonsering i det nordiske markedet.",
+      sv: "Se hur Glorious nådde 137K+ visningar i Finland, Norge och Sverige med Rich Media Overlays. Case study av native gaming-reklam på den nordiska marknaden.",
+      fi: "Katso kuinka Glorious tavoitti 137K+ näyttökertaa Suomessa, Norjassa ja Ruotsissa Rich Media Overlays -mainoksilla. Case study native gaming-mainonnasta pohjoismaisilla markkinoilla."
+    },
+    seoKeywords: {
+      en: ["glorious gaming", "nordic gaming campaign", "twitch overlay ads", "gaming peripherals marketing", "rich media advertising"],
+      no: ["glorious gaming", "nordisk gaming kampanje", "twitch overlay annonser", "gaming periferiutstyr markedsføring", "rich media annonsering"],
+      sv: ["glorious gaming", "nordisk gaming kampanj", "twitch overlay annonser", "gaming tillbehör marknadsföring", "rich media reklam"],
+      fi: ["glorious gaming", "pohjoismainen gaming kampanja", "twitch overlay mainokset", "gaming-oheislaitteet markkinointi", "rich media mainonta"]
+    }
+  },
+  {
     id: "how-twitch-advertising-works-2024",
     slug: "how-twitch-advertising-works-2024",
     title: "How Twitch Advertising Works in 2024",
