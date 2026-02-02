@@ -86,10 +86,10 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Desktop Navigation */}
       <nav className={`hidden lg:block transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${scrolled ? "pt-3" : "pt-0"}`}>
-        <div className={`mx-auto transition-[max-width,padding,background-color,backdrop-filter,box-shadow,border-radius] duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-[max-width,padding,background-color,backdrop-filter,box-shadow,border-radius] ${
+        <div className={`mx-auto transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
           scrolled 
             ? "max-w-[600px] px-6 py-2.5 rounded-full bg-background/70 backdrop-blur-xl shadow-lg shadow-black/15" 
-            : "max-w-[1280px] px-8 py-5 rounded-none bg-transparent backdrop-blur-none shadow-none"
+            : "max-w-[1280px] px-8 py-5 rounded-none bg-transparent shadow-none"
         }`}>
           <div className="flex items-center">
             {/* Logo - Uses flex-1 to push to edge when not scrolled */}
