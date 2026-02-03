@@ -2,50 +2,135 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://beta-ads.no/</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://beta-ads.no/demo</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://beta-ads.no/streamers</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beta-ads.no/how-it-works</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beta-ads.no/case-studies</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://beta-ads.no/about</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://beta-ads.no/blog</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://beta-ads.no/contact</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-02-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://beta-ads.no/blog/glorious-o3-nordic-campaign</loc>
+    <lastmod>2025-01-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta-ads.no/blog/how-twitch-advertising-works-2024</loc>
+    <lastmod>2024-12-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta-ads.no/blog/samsung-twitch-campaign-case-study</loc>
+    <lastmod>2024-12-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta-ads.no/blog/rise-of-streamer-first-advertising</loc>
+    <lastmod>2024-11-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta-ads.no/blog/twitch-annonsering-norge-guide</loc>
+    <lastmod>2024-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta-ads.no/blog/twitch-reklam-sverige-guide</loc>
+    <lastmod>2024-11-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta-ads.no/blog/twitch-mainonta-suomi-opas</loc>
+    <lastmod>2024-11-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta-ads.no/blog/nordic-twitch-market-2024</loc>
+    <lastmod>2024-11-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta-ads.no/blog/top-twitch-games-nordic-2024</loc>
+    <lastmod>2024-10-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta-ads.no/blog/twitch-youtube-comparison-nordic</loc>
+    <lastmod>2024-10-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta-ads.no/blog/twitch-advertising-benchmarks-2024</loc>
+    <lastmod>2024-10-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta-ads.no/blog/top-norwegian-twitch-streamers-2024</loc>
+    <lastmod>2024-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta-ads.no/blog/top-swedish-twitch-streamers-2024</loc>
+    <lastmod>2024-10-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://beta-ads.no/blog/top-finnish-twitch-streamers-2024</loc>
+    <lastmod>2024-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 </urlset>

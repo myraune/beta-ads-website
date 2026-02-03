@@ -105,13 +105,15 @@
     <!-- Cookiebot Cookie Consent - loads async to prevent blocking -->
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="0da38451-6eb4-4a9d-9e8a-c81111f17b87" data-blockingmode="auto" type="text/javascript" async></script>
 
-    <!-- Structured Data for Organization - Enhanced -->
+    <!-- Structured Data for Organization - Enhanced for Entity Differentiation -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
-      "name": "Beta Ads",
-      
+      "@id": "https://beta-ads.no/#organization",
+      "name": "Beta Ads Nordic",
+      "legalName": "Beta Ads AS",
+      "alternateName": ["Beta Ads", "Beta Ads Norway", "Beta Ads Norge"],
       "url": "https://beta-ads.no",
       "logo": {
         "@type": "ImageObject",
@@ -120,14 +122,34 @@
         "height": "512"
       },
       "image": "https://beta-ads.no/lovable-uploads/f5ee9e49-8fe8-4060-b6af-1363637629c8.png",
-      "description": "Ledende Twitch markedsføringsbyrå i Norden. Vi spesialiserer oss på automatiserte overlay-annonser for gaming livestreams. Twitch streamere Norge, influencer marketing.",
+      "description": "Nordic Twitch marketing agency specializing in native overlay advertising for gaming livestreams. Headquartered in Oslo, Norway, serving Norway, Sweden, Finland, and Denmark.",
       "foundingDate": "2023",
+      "foundingLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Oslo",
+          "addressCountry": "NO"
+        }
+      },
       "slogan": "Your brand, live on Twitch – without interruptions",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://beta-ads.no/#founder",
+        "name": "Andreas Myraune",
+        "jobTitle": "Founder & CEO",
+        "worksFor": {
+          "@id": "https://beta-ads.no/#organization"
+        },
+        "sameAs": [
+          "https://www.linkedin.com/in/andreasmyraune"
+        ]
+      },
       "areaServed": [
         {
           "@type": "Country",
-          "name": "Norge",
-          "alternateName": "Norway"
+          "name": "Norway",
+          "alternateName": "Norge"
         },
         {
           "@type": "Country", 
@@ -163,12 +185,15 @@
       },
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "NO",
-        "addressRegion": "Norge"
+        "addressLocality": "Oslo",
+        "addressRegion": "Oslo",
+        "addressCountry": "NO"
       },
       "sameAs": [
         "https://www.linkedin.com/company/beta-nordic",
-        "https://discord.gg/hNgHCbQUvb"
+        "https://discord.gg/hNgHCbQUvb",
+        "https://www.instagram.com/betaadsofficial",
+        "https://twitter.com/betaads"
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -195,23 +220,54 @@
     }
     </script>
 
-    <!-- Enhanced LocalBusiness Schema -->
+    <!-- Person Schema for Founder - Strengthens Entity Association -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://beta-ads.no/#founder",
+      "name": "Andreas Myraune",
+      "jobTitle": "Founder & CEO",
+      "worksFor": {
+        "@type": "Organization",
+        "@id": "https://beta-ads.no/#organization",
+        "name": "Beta Ads Nordic"
+      },
+      "nationality": {
+        "@type": "Country",
+        "name": "Norway"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/in/andreasmyraune"
+      ]
+    }
+    </script>
+
+    <!-- Enhanced LocalBusiness Schema for Geographic Entity Signals -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "Beta Ads Norge",
+      "@id": "https://beta-ads.no/#localbusiness",
+      "name": "Beta Ads Nordic",
+      "alternateName": ["Beta Ads Norge", "Beta Ads AS"],
       "image": {
         "@type": "ImageObject",
         "url": "https://beta-ads.no/lovable-uploads/f5ee9e49-8fe8-4060-b6af-1363637629c8.png",
         "width": "1200",
         "height": "630"
       },
-      "description": "Twitch markedsføringsbyrå i Norge. Vi hjelper merkevarer nå twitch streamere og gaming-publikum gjennom innovative overlay-annonser.",
+      "description": "Nordic Twitch marketing agency headquartered in Oslo, Norway. We help brands reach gaming audiences through native overlay advertising on Twitch streams.",
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "NO",
-        "addressRegion": "Norge"
+        "addressLocality": "Oslo",
+        "addressRegion": "Oslo",
+        "addressCountry": "NO"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "59.9139",
+        "longitude": "10.7522"
       },
       "telephone": "+47-46195548",
       "email": "andreas@beta-ads.no",
@@ -221,7 +277,7 @@
       "areaServed": [
         {
           "@type": "Country",
-          "name": "Norge"
+          "name": "Norway"
         },
         {
           "@type": "Country",
@@ -236,6 +292,11 @@
           "name": "Finland"
         }
       ],
+      "sameAs": [
+        "https://www.linkedin.com/company/beta-nordic",
+        "https://discord.gg/hNgHCbQUvb",
+        "https://www.instagram.com/betaadsofficial"
+      ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Nordic Twitch Marketing",
@@ -244,8 +305,8 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Twitch Overlay Reklame",
-              "description": "Automatiserte overlay-annonser i norske Twitch streams"
+              "name": "Twitch Overlay Advertising",
+              "description": "Automated native overlay ads in Nordic Twitch streams"
             }
           }
         ]
