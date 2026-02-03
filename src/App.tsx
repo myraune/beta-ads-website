@@ -16,6 +16,7 @@ import Contact from "./pages/Contact";
 import Demo from "./pages/Demo";
 import NotFound from "./pages/NotFound";
 import Unsubscribe from "./pages/Unsubscribe";
+import Press from "./pages/Press";
 
 // Dashboard
 import { DashboardLayout } from "./components/dashboard/DashboardLayout";
@@ -473,6 +474,7 @@ const App = () => {
               <Route path="/blog/:slug" element={<BlogPost t={t} language={language} setLanguage={setLanguage} />} />
               <Route path="/contact" element={<Contact t={t} language={language} setLanguage={setLanguage} />} />
               <Route path="/demo" element={<Demo t={t} language={language} setLanguage={setLanguage} />} />
+              <Route path="/press" element={<Press t={t} language={language} setLanguage={setLanguage} />} />
             </Route>
             
             {/* Dashboard Routes (separate layout) */}
