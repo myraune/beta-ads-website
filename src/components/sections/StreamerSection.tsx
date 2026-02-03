@@ -1,9 +1,9 @@
 import React from "react";
 import { StreamerHero } from "@/components/sections/StreamerHero";
-import { StreamerExperience } from "@/components/sections/StreamerExperience";
+import { StreamerBrands } from "@/components/sections/StreamerBrands";
+import { StreamerHowItWorks } from "@/components/sections/StreamerHowItWorks";
+import { StreamerWhatYouGet } from "@/components/sections/StreamerWhatYouGet";
 import { EarningsCalculator } from "@/components/sections/EarningsCalculator";
-import { StreamerDashboardPreview } from "@/components/sections/StreamerDashboardPreview";
-import { StreamerSocialProof } from "@/components/sections/StreamerSocialProof";
 import { StreamerCTA } from "@/components/sections/StreamerCTA";
 
 interface StreamerSectionProps {
@@ -14,20 +14,20 @@ interface StreamerSectionProps {
 export const StreamerSection: React.FC<StreamerSectionProps> = () => {
   return (
     <div className="relative overflow-hidden">
-      {/* 1. Hero - Full-width with animated preview */}
+      {/* 1. Hero - Matches homepage style */}
       <StreamerHero />
 
-      {/* 2. How it works - Interactive step-by-step demo */}
-      <StreamerExperience />
+      {/* 2. Brand logos */}
+      <StreamerBrands />
 
-      {/* 3. Dashboard Preview - Tabbed interface */}
-      <StreamerDashboardPreview />
+      {/* 3. How it works - Same style as homepage */}
+      <StreamerHowItWorks />
 
-      {/* 4. Earnings Calculator */}
+      {/* 4. What you get - Clear feature grid */}
+      <StreamerWhatYouGet />
+
+      {/* 5. Earnings Calculator */}
       <EarningsCalculator />
-
-      {/* 5. Social Proof - Testimonials & stats */}
-      <StreamerSocialProof />
 
       {/* 6. Final CTA */}
       <StreamerCTA />
