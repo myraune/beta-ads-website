@@ -68,7 +68,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 80);
     };
     window.addEventListener("scroll", handleScroll, {
       passive: true
@@ -85,11 +85,11 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Desktop Navigation */}
-      <nav className={`hidden lg:block transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${scrolled ? "pt-3" : "pt-0"}`}>
-        <div className={`mx-auto transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+      <nav className={`hidden lg:block transition-all duration-500 ease-out ${scrolled ? "pt-4" : "pt-6"}`}>
+        <div className={`mx-auto transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           scrolled 
-            ? "max-w-[600px] px-6 py-2.5 rounded-full bg-background/70 backdrop-blur-xl shadow-lg shadow-black/15" 
-            : "max-w-[1280px] px-8 py-5 rounded-none bg-transparent shadow-none"
+            ? "max-w-[720px] px-8 py-3 rounded-full bg-background/80 backdrop-blur-xl shadow-lg shadow-black/20" 
+            : "max-w-[1280px] px-8 py-4 rounded-2xl bg-background/5 backdrop-blur-sm shadow-none"
         }`}>
           <div className="flex items-center">
             {/* Logo - Uses flex-1 to push to edge when not scrolled */}
