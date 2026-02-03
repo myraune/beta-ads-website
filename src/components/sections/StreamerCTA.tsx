@@ -1,45 +1,54 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export const StreamerCTA: React.FC = () => {
-  return (
-    <section className="py-24 lg:py-32">
-      <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto"
-        >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-            Ready to start earning?
-          </h2>
-          <p className="text-muted-foreground text-lg mb-10">
-            Join hundreds of Nordic streamers earning from brand sponsorships.
-            No follower minimums. No contracts.
-          </p>
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground gap-2 px-10 py-7 text-base font-medium rounded-xl" 
-              onClick={() => window.open("https://beta.streamer.livad.stream/login", "_blank")}
+  return (
+    <section
+      ref={ref}
+      className={`py-16 lg:py-24 transition-all duration-700 ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+      }`}
+    >
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+          <div className="max-w-xl">
+            <h2 className="text-2xl lg:text-3xl font-light text-foreground mb-3">
+              Ready to start earning?
+            </h2>
+            <p className="text-muted-foreground text-base">
+              Apply in 2 minutes. Start receiving offers as soon as you're approved.
+            </p>
+          </div>
+          
+          <div className="flex flex-col items-start lg:items-end gap-3">
+            <a 
+              href="https://beta.streamer.livad.stream/login" 
+              target="_blank" 
+              rel="noopener noreferrer"
             >
-              Apply now
-              <ArrowRight className="w-4 h-4" />
-            </Button>
+              <Button
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-sm font-light tracking-wide h-auto border-0 shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105"
+              >
+                Apply now
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </a>
             
-            <button 
-              className="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors py-4"
-              onClick={() => window.open("https://beta.streamer.livad.stream/login", "_blank")}
+            <a 
+              href="https://beta.streamer.livad.stream/login"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground text-sm transition-colors"
             >
               Already a member? Sign in
-            </button>
+            </a>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
