@@ -1,104 +1,87 @@
 
+# Plan: Forbedre Header-Animasjon og Navnekonflikt
 
-# Plan: Fiks Header og Legg til Presseside
+## Del 1: Header-Animasjon Forbedringer
 
-## Del 1: Fiks Header-Problemer
+### Identifiserte Problemer
 
-### Problemer Identifisert
-1. **Feil timing**: Overgangen trigges ved 20px scroll, som er for tidlig
-2. **For brå overgang**: Animasjonen mangler en mykere easing og mellomsteg
-3. **Feil proporsjoner**: Pillen på 600px kan føles for smal sammenlignet med innholdet
+| Problem | Nåværende | Årsak |
+|---------|-----------|-------|
+| Feil timing | Terskel: 80px | Overgangen starter for tidlig/brått |
+| For brå overgang | Alle egenskaper animeres samtidig | Mangler "staggered" effekt |
+| Feil proporsjoner | 1280px → 720px | For dramatisk breddeendring |
 
-### Løsning
+### Løsning: Smooth Two-Phase Animation
 
-#### Timing
-- Øk scroll-terskelen fra 20px til 60-80px slik at overgangen skjer mer naturlig
-- Brukeren får mer tid til å se den fulle headeren før den transformeres
+#### Fase 1: Subtil bakgrunns-fade (først)
+Når brukeren begynner å scrolle, fade inn bakgrunnen gradvis uten å endre bredde ennå.
 
-#### Overgang
-- Bruk en todelt tilnærming:
-  - Først: Fade inn bakgrunn og blur (raskere, 400ms)
-  - Deretter: Animer bredde og border-radius (litt tregere, 600ms)
-- Legg til en subtil bakgrunn i "non-scrolled" state for å unngå hopp fra ingenting til noe
-
-#### Proporsjoner
-- Øk pille-bredden fra 600px til 700px for bedre balanse
-- Juster padding for å gi mer pusterom rundt elementene
+#### Fase 2: Bredde-kontraksjon (etter mer scroll)
+Etter mer scrolling, animer bredden og border-radius.
 
 ### Tekniske Endringer
 
-**Fil: `src/components/Navbar.tsx`**
-
 ```text
+Fil: src/components/Navbar.tsx
+
 Endringer:
-1. Endre scroll-terskel fra 20 til 80
-2. Øk max-width fra 600px til 700px
-3. Legg til subtil bg-background/5 i initial state
-4. Juster padding for bedre proporsjoner
+1. Øk terskel fra 80px til 120px for hovedovergangen
+2. Legg til en mellomtilstand (80px) for bakgrunns-fade
+3. Øk pille-bredden fra 720px til 800px
+4. Bruk separate transition-delays for ulike egenskaper
+5. Legg til en subtil bakgrunn også i "non-scrolled" state
 ```
 
----
-
-## Del 2: Ny Presseside (/press)
-
-### Formål
-En dedikert side for journalister, redaksjoner og samarbeidspartnere med:
-- Nedlastbare pressebilder (logoer i ulike formater)
-- Produktbilder fra kampanjer
-- Kontaktinformasjon til daglig leder Andreas Myraune
-- Kort om selskapet
-
-### Sidestruktur
+### Ny Animasjonslogikk
 
 ```text
-/press
-├── Hero: "Press Kit" overskrift
-├── Kontaktseksjon: Andreas Myraune med bilde, tittel, e-post, telefon
-├── Om Beta Ads: Kort boilerplate-tekst om selskapet
-├── Pressebilder: 
-│   ├── Logoer (hvit, svart, farge)
-│   └── Produkt/kampanjebilder
-├── Pressedekning: Lenker til eksisterende artikler
-└── Footer
+0-80px scroll:    Full bredde, transparent bakgrunn
+80-120px scroll:  Full bredde, bakgrunn fader inn (bg-background/50)
+120px+ scroll:    Pill-form (800px), full bakgrunn (bg-background/80)
 ```
 
-### Design
-- Følger borderless UI-system med subtle bakgrunner
-- Fokus på funksjonalitet - journalister skal enkelt finne det de trenger
-- Nedlastbare bilder vises i et grid med "Last ned" knapper
+### CSS Transition Strategy
 
-### Filer som Opprettes/Endres
+```text
+- Bakgrunn + blur: transition-[background,backdrop-filter] duration-400
+- Bredde + padding: transition-[max-width,padding] duration-600 delay-100
+- Border-radius: transition-[border-radius] duration-500
+- Shadow: transition-shadow duration-500 delay-200
+```
 
-| Fil | Handling |
-|-----|----------|
-| `src/pages/Press.tsx` | Ny fil - Presseside |
-| `src/App.tsx` | Legg til /press route og oversettelser |
-| `src/components/Navbar.tsx` | Fiks header + legg til Press-lenke |
-
-### Innhold på Pressesiden
-
-**Kontaktinfo:**
-- Andreas Myraune
-- Daglig leder / CEO
-- andreas@beta-ads.no
-- +47 46195548
-
-**Om Beta Ads (boilerplate):**
-"Beta Ads er en nordisk annonseringsplattform spesialisert på native reklame i live Twitch-strømmer. Selskapet har hovedkontor i Oslo og opererer i Norge, Sverige, Finland og Danmark."
-
-**Tilgjengelige pressebilder:**
-- Logo hvit (`logo-white.png`)
-- Logo svart (`logo-black.png`)
-- Logo farge (`logo-color.png`)
-- Favicon/ikon (`favicon.png`)
+Dette gir en "kaskadering" der:
+1. Bakgrunnen fader inn først
+2. Deretter kontraherer bredden
+3. Til slutt kommer skyggen
 
 ---
 
-## Oppsummering
+## Del 2: Fiks Navnekonflikt (Valgfritt)
 
-| Oppgave | Prioritet |
-|---------|-----------|
-| Fiks header-timing og proporsjoner | Høy |
-| Opprett /press side | Høy |
-| Legg til Press i navigasjon | Medium |
+### Nåværende Situasjon
+- `src/pages/Press.tsx` - Presseside (default export som `Press`)
+- `src/components/sections/Press.tsx` - Press-seksjon (named export som `Press`)
 
+### Anbefaling
+Gi pressesiden et tydeligere navn for å unngå forvirring:
+
+```text
+Alternativ A: Behold som det er (fungerer teknisk)
+Alternativ B: Rename page til PressPage.tsx
+```
+
+Jeg anbefaler Alternativ A siden de bruker forskjellige import-paths og export-typer.
+
+---
+
+## Oppsummering av Endringer
+
+| Fil | Endring |
+|-----|---------|
+| `src/components/Navbar.tsx` | Ny to-fase animasjonslogikk med bedre timing, proporsjoner og smooth transitions |
+
+### Forventet Resultat
+- Header føles mer naturlig og "smooth"
+- Overgangen er ikke lenger brå
+- Proporsjonene er bedre balansert
+- Bakgrunnen fader inn før bredden endres
