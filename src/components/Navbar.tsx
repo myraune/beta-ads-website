@@ -51,7 +51,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   setLanguage
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [scrollPhase, setScrollPhase] = useState<0 | 1 | 2>(0); // 0: top, 1: background, 2: pill
   const [mounted, setMounted] = useState(false);
   const location = useLocation();
   const { theme, setTheme } = useTheme();
@@ -66,13 +66,19 @@ export const Navbar: React.FC<NavbarProps> = ({
     setIsOpen(false);
   }, [location.pathname]);
 
+  // Two-phase scroll animation
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 80);
+      const y = window.scrollY;
+      if (y > 120) {
+        setScrollPhase(2); // Pill mode
+      } else if (y > 60) {
+        setScrollPhase(1); // Background fade
+      } else {
+        setScrollPhase(0); // Top
+      }
     };
-    window.addEventListener("scroll", handleScroll, {
-      passive: true
-    });
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -85,16 +91,19 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Desktop Navigation */}
-      <nav className={`hidden lg:block transition-all duration-500 ease-out ${scrolled ? "pt-4" : "pt-6"}`}>
-        <div className={`mx-auto transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-          scrolled 
-            ? "max-w-[720px] px-8 py-3 rounded-full bg-background/80 backdrop-blur-xl shadow-lg shadow-black/20" 
-            : "max-w-[1280px] px-8 py-4 rounded-2xl bg-background/5 backdrop-blur-sm shadow-none"
-        }`}>
+      <nav className={`hidden lg:block transition-all duration-500 ease-out ${scrollPhase === 2 ? "pt-4" : "pt-6"}`}>
+        <div className={`mx-auto 
+          transition-[background,backdrop-filter] duration-400 ease-out
+          ${scrollPhase >= 1 ? "bg-background/80 backdrop-blur-xl" : "bg-background/5 backdrop-blur-sm"}
+          ${scrollPhase === 2 
+            ? "max-w-[800px] px-8 py-3 rounded-full shadow-lg shadow-black/20 transition-[max-width,padding,border-radius,box-shadow] duration-600 delay-100" 
+            : "max-w-[1280px] px-8 py-4 rounded-2xl shadow-none transition-[max-width,padding,border-radius,box-shadow] duration-500"
+          }
+        `}>
           <div className="flex items-center">
             {/* Logo - Uses flex-1 to push to edge when not scrolled */}
             <div className={`flex-shrink-0 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-[flex,width] ${
-              scrolled 
+              scrollPhase === 2 
                 ? "flex-none" 
                 : "flex-1"
             }`}>
@@ -109,7 +118,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Nav Links - Gap animates to bring elements together */}
             <div className={`flex items-center gap-1 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] ${
-              scrolled ? "mx-6" : "mx-0"
+              scrollPhase === 2 ? "mx-6" : "mx-0"
             }`}>
               {navLinks.map(link => (
                 <Link 
@@ -128,7 +137,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Theme Toggle & Language Selector */}
             <div className={`flex items-center gap-1 flex-shrink-0 transition-all duration-700 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-[flex,width] ${
-              scrolled 
+              scrollPhase === 2 
                 ? "flex-none" 
                 : "flex-1 justify-end"
             }`}>
