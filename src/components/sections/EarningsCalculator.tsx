@@ -59,7 +59,7 @@ const useAnimatedValue = (targetValue: number, duration = 400) => {
 
 export const EarningsCalculator = () => {
   const [ccv, setCcv] = useState(100);
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { ref, isVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.2 });
 
   // Simplified calculation
   const impressions = ccv * AVG_HOURS * AVG_ADS_PER_HOUR;
@@ -71,7 +71,7 @@ export const EarningsCalculator = () => {
   const animatedHigh = useAnimatedValue(highEarnings);
 
   return (
-    <section ref={ref} className="py-32 lg:py-40">
+    <section ref={ref as React.RefObject<HTMLElement>} className="py-32 lg:py-40">
       <div className="max-w-2xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
