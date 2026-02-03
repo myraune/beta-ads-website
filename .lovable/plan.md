@@ -1,128 +1,104 @@
 
-# Plan: Improve Search Visibility for "Beta Ads"
 
-## The Problem
+# Plan: Fiks Header og Legg til Presseside
 
-When searching "Beta Ads" on Google, your website appears correctly in organic results (position 1), but the **Knowledge Panel** on the right shows an unrelated Indian advertising agency in Kumbakonam, India. This creates brand confusion and undermines trust.
+## Del 1: Fiks Header-Problemer
 
-## Root Cause
+### Problemer Identifisert
+1. **Feil timing**: Overgangen trigges ved 20px scroll, som er for tidlig
+2. **For brå overgang**: Animasjonen mangler en mykere easing og mellomsteg
+3. **Feil proporsjoner**: Pillen på 600px kan føles for smal sammenlignet med innholdet
 
-Google's Knowledge Graph has associated the generic term "Beta Ads" with the Indian company that has:
-- An established Google Business Profile
-- Reviews (16 Google reviews, 4.7 stars)
-- Verified business information
+### Løsning
 
-Your Nordic company is newer and lacks a claimed Google Business Profile, so Google defaults to the other entity.
+#### Timing
+- Øk scroll-terskelen fra 20px til 60-80px slik at overgangen skjer mer naturlig
+- Brukeren får mer tid til å se den fulle headeren før den transformeres
 
-## Solution: Two-Track Approach
+#### Overgang
+- Bruk en todelt tilnærming:
+  - Først: Fade inn bakgrunn og blur (raskere, 400ms)
+  - Deretter: Animer bredde og border-radius (litt tregere, 600ms)
+- Legg til en subtil bakgrunn i "non-scrolled" state for å unngå hopp fra ingenting til noe
 
-### Track 1: External Actions (Required - Cannot Be Done in Code)
+#### Proporsjoner
+- Øk pille-bredden fra 600px til 700px for bedre balanse
+- Juster padding for å gi mer pusterom rundt elementene
 
-These are the most impactful steps and must be done outside the codebase:
+### Tekniske Endringer
 
-| Action | Why It Matters | How to Do It |
-|--------|---------------|--------------|
-| **Claim Google Business Profile** | This is the #1 way to get your own Knowledge Panel | Go to business.google.com and claim "Beta Ads" as a business in Norway |
-| **Verify the business** | Proves you're the real entity | Google will send a postcard or call to verify |
-| **Add complete business info** | Helps Google distinguish you | Add photos, hours, services, description, website URL |
-| **Get Google Reviews** | Builds authority | Ask clients like Samsung, Kristiania, etc. to leave reviews |
-| **Create/Update LinkedIn Company Page** | Strengthens entity signals | Ensure linkedin.com/company/beta-nordic is complete and active |
-| **Wikipedia Entry** | Creates strong Knowledge Graph signal | If notable enough, a Wikipedia stub article helps Google identify the entity |
-
-### Track 2: On-Site SEO Improvements (Code Changes)
-
-Your current SEO is good, but we can make targeted improvements to help Google better understand your distinct identity:
-
-#### 1. Add Differentiated Branding in Structured Data
-
-Update the Organization schema to emphasize "Beta Ads Nordic" or "Beta Ads Norway" as a distinct entity:
+**Fil: `src/components/Navbar.tsx`**
 
 ```text
-Current: "name": "Beta Ads"
-Better:  "name": "Beta Ads Nordic"
-         "legalName": "Beta Ads AS"
+Endringer:
+1. Endre scroll-terskel fra 20 til 80
+2. Øk max-width fra 600px til 700px
+3. Legg til subtil bg-background/5 i initial state
+4. Juster padding for bedre proporsjoner
 ```
 
-Add `identifier` with Norwegian business registry number if you have one.
+---
 
-#### 2. Add Person Schema for Andreas Myraune
+## Del 2: Ny Presseside (/press)
 
-Create structured data for the founder to strengthen entity association:
+### Formål
+En dedikert side for journalister, redaksjoner og samarbeidspartnere med:
+- Nedlastbare pressebilder (logoer i ulike formater)
+- Produktbilder fra kampanjer
+- Kontaktinformasjon til daglig leder Andreas Myraune
+- Kort om selskapet
 
-```json
-{
-  "@type": "Person",
-  "name": "Andreas Myraune",
-  "jobTitle": "Founder & CEO",
-  "worksFor": { "@type": "Organization", "name": "Beta Ads Nordic" },
-  "sameAs": ["https://linkedin.com/in/andreasmyraune"]
-}
-```
-
-#### 3. Strengthen Geographic Signals
-
-Add more specific address information if available:
-
-```json
-"address": {
-  "@type": "PostalAddress",
-  "streetAddress": "[Your office address]",
-  "addressLocality": "Oslo",
-  "postalCode": "[Postal code]",
-  "addressCountry": "NO"
-}
-```
-
-#### 4. Add SameAs Links
-
-Ensure all official profiles are linked in structured data:
-
-```json
-"sameAs": [
-  "https://www.linkedin.com/company/beta-nordic",
-  "https://discord.gg/hNgHCbQUvb",
-  "https://instagram.com/betaadsofficial",
-  "https://twitter.com/betaads"
-]
-```
-
-#### 5. Update Title and Meta for Brand Differentiation
-
-Consider updating:
+### Sidestruktur
 
 ```text
-Current: "Beta Ads | Native Twitch Advertising in the Nordics"
-Option:  "Beta Ads Nordic | Native Twitch Advertising in Norway, Sweden, Finland"
+/press
+├── Hero: "Press Kit" overskrift
+├── Kontaktseksjon: Andreas Myraune med bilde, tittel, e-post, telefon
+├── Om Beta Ads: Kort boilerplate-tekst om selskapet
+├── Pressebilder: 
+│   ├── Logoer (hvit, svart, farge)
+│   └── Produkt/kampanjebilder
+├── Pressedekning: Lenker til eksisterende artikler
+└── Footer
 ```
 
-This helps differentiate from the Indian company in search results.
+### Design
+- Følger borderless UI-system med subtle bakgrunner
+- Fokus på funksjonalitet - journalister skal enkelt finne det de trenger
+- Nedlastbare bilder vises i et grid med "Last ned" knapper
 
-## Technical Implementation
+### Filer som Opprettes/Endres
 
-### Files to Modify
+| Fil | Handling |
+|-----|----------|
+| `src/pages/Press.tsx` | Ny fil - Presseside |
+| `src/App.tsx` | Legg til /press route og oversettelser |
+| `src/components/Navbar.tsx` | Fiks header + legg til Press-lenke |
 
-1. **index.html** - Update Organization and LocalBusiness schemas with:
-   - More specific name ("Beta Ads Nordic")
-   - Complete address with city/postal code if available
-   - Additional sameAs social profiles
-   - Person schema for founder
+### Innhold på Pressesiden
 
-2. **sitemap.xml** - Add any missing blog post URLs and ensure lastmod dates are current
+**Kontaktinfo:**
+- Andreas Myraune
+- Daglig leder / CEO
+- andreas@beta-ads.no
+- +47 46195548
 
-## Priority Order
+**Om Beta Ads (boilerplate):**
+"Beta Ads er en nordisk annonseringsplattform spesialisert på native reklame i live Twitch-strømmer. Selskapet har hovedkontor i Oslo og opererer i Norge, Sverige, Finland og Danmark."
 
-1. **Google Business Profile** (External - Highest Impact)
-2. **Update structured data** (Code change)
-3. **LinkedIn company page optimization** (External)
-4. **Collect Google reviews from clients** (External)
-5. **Consider "Beta Ads Nordic" branding emphasis** (Brand decision)
+**Tilgjengelige pressebilder:**
+- Logo hvit (`logo-white.png`)
+- Logo svart (`logo-black.png`)
+- Logo farge (`logo-color.png`)
+- Favicon/ikon (`favicon.png`)
 
-## Expected Timeline
+---
 
-- Google Business Profile verification: 1-2 weeks
-- Knowledge Panel appearance: 4-8 weeks after verification
-- Structured data improvements: Immediate (once implemented)
+## Oppsummering
 
-## Important Note
+| Oppgave | Prioritet |
+|---------|-----------|
+| Fiks header-timing og proporsjoner | Høy |
+| Opprett /press side | Høy |
+| Legg til Press i navigasjon | Medium |
 
-The Indian company's Knowledge Panel cannot be removed - it's a legitimate business. The goal is to establish your Nordic company as a **separate, distinct entity** so that regional/contextual searches show your panel instead, or so both appear with clear geographic differentiation.
