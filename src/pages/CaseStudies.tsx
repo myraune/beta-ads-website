@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Footer } from "@/components/sections/Footer";
-import { Play, ExternalLink, ChevronLeft, ChevronRight, ArrowRight, BarChart3, Filter } from "lucide-react";
+import { Play, ExternalLink, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
-
+import { PlatformShowcase } from "@/components/sections/PlatformShowcase";
 interface CaseStudiesProps {
   t: any;
   language: string;
@@ -215,7 +215,6 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
   
   // Scroll animations
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
-  const { ref: platformRef, isVisible: platformVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
   const { ref: caseStudiesRef, isVisible: caseStudiesVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
   const { ref: formatsRef, isVisible: formatsVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
   const { ref: pressRef, isVisible: pressVisible } = useScrollAnimation<HTMLElement>({ threshold: 0.1 });
@@ -273,167 +272,8 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
         </div>
       </section>
 
-      {/* ========== PLATFORM TEASER SECTION ========== */}
-      <section 
-        ref={platformRef}
-        className={`py-24 lg:py-32 relative transition-all duration-700 ${
-          platformVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-        }`}
-      >
-        <div className="container mx-auto px-6 lg:px-16 xl:px-24">
-          {/* Section Header */}
-          <div className="mb-16 max-w-2xl">
-            <h2 className="text-3xl lg:text-4xl font-light mb-4">The Platform</h2>
-            <p className="text-lg text-muted-foreground">
-              Everything you need to plan, launch, and measure Twitch campaigns.
-            </p>
-          </div>
-
-          {/* Two Cards Grid */}
-          <div className="grid lg:grid-cols-2 gap-8">
-            
-            {/* Agency Portal Card */}
-            <div className="group relative bg-card/30 backdrop-blur-sm rounded-2xl p-8 hover:bg-card/40 transition-all duration-500 overflow-hidden shadow-xl shadow-black/10">
-              {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative z-10">
-                {/* Mockup Visual - Dashboard */}
-                <div className="mb-8 aspect-[16/10] bg-background/50 rounded-lg overflow-hidden shadow-inner shadow-black/5">
-                  <div className="p-4 h-full flex flex-col gap-3">
-                    {/* Top bar */}
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
-                        <BarChart3 className="w-4 h-4 text-primary/60" />
-                      </div>
-                      <div className="flex-1 h-3 bg-muted/30 rounded" />
-                      <div className="w-20 h-6 bg-muted/20 rounded" />
-                    </div>
-                    {/* Stats row */}
-                    <div className="flex gap-3">
-                      <div className="flex-1 h-16 bg-muted/20 rounded-lg flex flex-col items-center justify-center">
-                        <div className="text-sm font-medium text-muted-foreground/70">2.6M</div>
-                        <div className="text-[10px] text-muted-foreground/40">Impressions</div>
-                      </div>
-                      <div className="flex-1 h-16 bg-muted/20 rounded-lg flex flex-col items-center justify-center">
-                        <div className="text-sm font-medium text-muted-foreground/70">3.2%</div>
-                        <div className="text-[10px] text-muted-foreground/40">Avg CTR</div>
-                      </div>
-                      <div className="flex-1 h-16 bg-muted/20 rounded-lg flex flex-col items-center justify-center">
-                        <div className="text-sm font-medium text-muted-foreground/70">48</div>
-                        <div className="text-[10px] text-muted-foreground/40">Campaigns</div>
-                      </div>
-                    </div>
-                    {/* Chart area */}
-                    <div className="flex-1 bg-muted/10 rounded-lg flex items-end p-3 gap-1">
-                      {[40, 65, 45, 80, 55, 70, 60, 85, 50, 75, 90, 65].map((h, i) => (
-                        <div key={i} className="flex-1 bg-primary/30 rounded-t transition-all duration-300 group-hover:bg-primary/40" style={{ height: `${h}%` }} />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Title & Description */}
-                <h3 className="text-2xl font-medium mb-3">Agency Portal</h3>
-                <p className="text-muted-foreground mb-6">
-                  Real-time campaign analytics, performance tracking, and multi-brand management in one dashboard.
-                </p>
-
-                {/* Features */}
-                <ul className="space-y-2 mb-8 text-sm text-muted-foreground">
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
-                    Live impression & CTR tracking
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
-                    Campaign performance reports
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
-                    Multi-brand account switching
-                  </li>
-                </ul>
-
-                {/* CTA */}
-                <a 
-                  href="/demo" 
-                  className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all duration-300"
-                >
-                  Book a demo
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-
-            {/* Streamer Explorer Card */}
-            <div className="group relative bg-card/30 backdrop-blur-sm rounded-2xl p-8 hover:bg-card/40 transition-all duration-500 overflow-hidden shadow-xl shadow-black/10">
-              {/* Gradient overlay on hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative z-10">
-                {/* Mockup Visual - Streamer Grid */}
-                <div className="mb-8 aspect-[16/10] bg-background/50 rounded-lg overflow-hidden shadow-inner shadow-black/5">
-                  <div className="p-4 h-full flex gap-3">
-                    {/* Sidebar filters */}
-                    <div className="w-1/4 space-y-2">
-                      <div className="flex items-center gap-1.5 mb-3">
-                        <Filter className="w-3 h-3 text-muted-foreground/50" />
-                        <div className="h-2 bg-muted/30 rounded flex-1" />
-                      </div>
-                      <div className="h-6 bg-muted/20 rounded" />
-                      <div className="h-6 bg-muted/20 rounded" />
-                      <div className="h-6 bg-primary/20 rounded" />
-                      <div className="h-2 bg-muted/30 rounded w-3/4 mt-4" />
-                      <div className="h-6 bg-muted/20 rounded" />
-                    </div>
-                    {/* Streamer grid */}
-                    <div className="flex-1 grid grid-cols-3 gap-2">
-                      {[...Array(9)].map((_, i) => (
-                        <div key={i} className="bg-muted/20 rounded-lg flex flex-col items-center justify-center p-2 transition-all duration-300 group-hover:bg-muted/25">
-                          <div className="w-6 h-6 rounded-full bg-muted/40 mb-1" />
-                          <div className="w-full h-1.5 bg-muted/30 rounded" />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Title & Description */}
-                <h3 className="text-2xl font-medium mb-3">Streamer Explorer</h3>
-                <p className="text-muted-foreground mb-6">
-                  Browse and filter 400+ Nordic streamers. Find the perfect match for your brand.
-                </p>
-
-                {/* Features */}
-                <ul className="space-y-2 mb-8 text-sm text-muted-foreground">
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
-                    Filter by country, category, viewers
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
-                    View streamer profiles & stats
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary/60" />
-                    Build custom streamer lists
-                  </li>
-                </ul>
-
-                {/* CTA */}
-                <a 
-                  href="/streamers" 
-                  className="inline-flex items-center gap-2 text-primary hover:gap-3 transition-all duration-300"
-                >
-                  Explore streamers
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ========== PLATFORM SHOWCASE SECTION ========== */}
+      <PlatformShowcase />
 
       {/* ========== CASE STUDIES - Large Gallery with Navigation ========== */}
       <section 
