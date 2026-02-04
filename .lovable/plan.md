@@ -1,101 +1,52 @@
 
-# Plan: Simplify About Page and Add Footer Link
+# Plan: Fix About Page Layout
 
-## Current Problem
+## Current Problems
 
-The About page is 561 lines of content including:
-- 7-milestone timeline (1990s to present)
-- Founder story with "focus mode" overlay
-- Stats with animated counters
-- "On Stream" features (6 items)
-- "Off Stream" items (4 items)
-- Differentiators section (3 items)
-- Brand Safety breakdown
-- Scroll progress indicator
+1. **Not centered on page** - Uses `max-w-6xl` without `mx-auto`, leaving content left-aligned
+2. **Image is too tall** - 3:4 aspect ratio creates a massive vertical element
+3. **Grid is 50/50** - Should follow the site's 38/62 asymmetric pattern (text/visual)
+4. **Awkward proportions** - Text feels cramped next to the dominant image
 
-This is content overload. For a company website, the About page should be short and credible, not a scrollytelling magazine piece.
+## Proposed Layout
 
----
-
-## Design Approach
-
-Strip it down to the essentials:
-
-| Keep | Remove |
-|------|--------|
-| Company intro (1 paragraph) | Full timeline |
-| What we do (1 sentence) | Founder story essay |
-| Founder name + role | Focus mode overlay |
-| Contact/CTA | Stats with counters |
-| | On/Off stream features |
-| | Brand safety breakdown |
-| | Scroll progress indicator |
-
----
-
-## New About Page Structure
+Follow the homepage Hero pattern but adapted for an About page:
 
 ```text
-+------------------------------------------+
-|                                          |
-|  About Beta Ads                          |
-|                                          |
-|  [Short paragraph: who we are]           |
-|                                          |
-|  [What we do: 1-2 sentences]             |
-|                                          |
-|  [Founder section: name, role, photo]    |
-|                                          |
-|  [CTA: Book a call]                      |
-|                                          |
-+------------------------------------------+
++----------------------------------------------------------+
+|                                                          |
+|   About Beta Ads                                         |
+|                                                          |
+|   [Text content + CTA]     [Founder image - landscape]   |
+|         38%                        62%                   |
+|                                                          |
++----------------------------------------------------------+
 ```
 
-### Content Draft
+## Changes
 
-**Heading**: About Beta Ads
+| Issue | Fix |
+|-------|-----|
+| Not centered | Add `max-w-[1600px] mx-auto` wrapper |
+| 50/50 grid | Change to `grid lg:grid-cols-[38%_62%]` |
+| Portrait 3:4 image | Use landscape `aspect-[4/3]` or square `aspect-square` |
+| Too much padding | Reduce `gap-24` to `gap-8` |
+| Oversized heading | Scale down to match homepage proportions |
 
-**Intro**: Native advertising on Twitch. We work with brands and streamers to create ads that feel like content, not interruption.
+## Code Changes
 
-**What we do**: We place sponsored overlays inside live streams across the Nordics. Brands get reach. Streamers get paid. Viewers get content that respects their attention.
+**File: `src/pages/AboutUs.tsx`**
 
-**Founder**: Andreas Myraune, Founder. (simple, no biography essay)
+1. Update container to match homepage: `max-w-[1600px] mx-auto px-6 lg:px-12`
+2. Change grid to asymmetric: `lg:grid-cols-[38%_62%]`
+3. Change image aspect from `aspect-[3/4]` to `aspect-[4/3]` (landscape)
+4. Reduce heading size to match homepage scale
+5. Reduce gap from `gap-24` to `gap-8`
+6. Add visual extension styling like homepage dashboard
 
-**CTA**: Single button to book a call.
+## Result
 
----
-
-## Footer Change
-
-Add "About" link in the Connect column, linking to `/about`.
-
-Current Connect column:
-- LinkedIn
-- Discord
-- Blog
-
-New Connect column:
-- LinkedIn
-- Discord
-- Blog
-- About
-
----
-
-## Files to Modify
-
-| File | Change |
-|------|--------|
-| `src/pages/AboutUs.tsx` | Complete rewrite - reduce from 561 lines to ~100 lines |
-| `src/components/sections/Footer.tsx` | Add "About" link in Connect column |
-
----
-
-## Technical Notes
-
-- Remove all scroll animation hooks (7+ currently)
-- Remove timeline progress tracking
-- Remove focus mode state and overlay
-- Remove stats counters
-- Keep simple fade-in animation for consistency with other pages
-- Match existing page typography (font-extralight headings, tracking-tight)
+A balanced, horizontally-oriented layout that:
+- Matches the homepage design language
+- Keeps the image prominent but not overwhelming
+- Feels intentional and professional
