@@ -2,8 +2,11 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Footer } from '@/components/sections/Footer';
 import { Button } from '@/components/ui/button';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { useScrollAnimation, useMultipleScrollAnimations } from '@/hooks/useScrollAnimation';
 import founderImage from '@/assets/founder-andreas.jpeg';
+import founderImage2 from '@/assets/founder-andreas-2.jpg';
+import founderImage3 from '@/assets/founder-andreas-3.jpg';
+import founderImage4 from '@/assets/founder-andreas-4.jpg';
 
 interface AboutUsProps {
   t: any;
@@ -11,8 +14,15 @@ interface AboutUsProps {
   setLanguage: (lang: string) => void;
 }
 
+const secondaryImages = [
+  { src: founderImage2, alt: 'Andreas in professional setting', label: 'At work' },
+  { src: founderImage3, alt: 'Andreas standing in office', label: 'Working environment' },
+  { src: founderImage4, alt: 'Andreas at desk', label: 'Behind the scenes' },
+];
+
 const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
   const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation();
+  const { setRef, visibleItems } = useMultipleScrollAnimations(3);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -71,7 +81,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
             >
               {/* Image Container */}
               <div className="bg-card/5 rounded-xl overflow-hidden shadow-2xl shadow-black/20">
-              <div className="relative aspect-[16/9] overflow-hidden">
+                <div className="relative aspect-[16/9] overflow-hidden">
                   <img 
                     src={founderImage} 
                     alt="Andreas Myraune, Founder of Beta Ads"
@@ -88,6 +98,33 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Secondary Images Grid */}
+      <section className="max-w-[1600px] mx-auto px-6 lg:px-12 pb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {secondaryImages.map((image, index) => (
+            <div
+              key={index}
+              ref={setRef(index)}
+              className={`group overflow-hidden rounded-xl transition-all duration-700 ${
+                visibleItems[index] 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
+              <div className="relative aspect-[4/3] overflow-hidden bg-muted/10">
+                <img 
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
