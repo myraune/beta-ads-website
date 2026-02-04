@@ -71,11 +71,11 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
             >
               {/* Image Container */}
               <div className="bg-card/5 rounded-xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="relative aspect-[16/9] overflow-hidden">
                   <img 
                     src={founderImage} 
                     alt="Andreas Myraune, Founder of Beta Ads"
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-[center_30%]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
                   
