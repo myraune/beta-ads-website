@@ -1,144 +1,101 @@
 
+# Plan: Simplify About Page and Add Footer Link
 
-# Plan: Redesign "For Streamers" Page - From Generic to Compelling
+## Current Problem
 
-## Current Problems
+The About page is 561 lines of content including:
+- 7-milestone timeline (1990s to present)
+- Founder story with "focus mode" overlay
+- Stats with animated counters
+- "On Stream" features (6 items)
+- "Off Stream" items (4 items)
+- Differentiators section (3 items)
+- Brand Safety breakdown
+- Scroll progress indicator
 
-| Issue | Current State | Impact |
-|-------|--------------|--------|
-| Static hero image | Single dashboard screenshot | Doesn't show the product in action |
-| Generic layout | Standard text-left, image-right | Looks like every other SaaS landing page |
-| Weak differentiation | No unique visual elements | Nothing memorable, fails to capture attention |
-| Missing social proof | Only brand logos | No real streamer testimonials or success stories |
-| No product demo | Static screenshots | Doesn't show what streamers actually experience |
-
-## Design Vision
-
-Transform the page into an immersive, product-led experience that shows streamers exactly what they get - with real previews, animated interactions, and a visual journey that mirrors the actual streamer experience.
-
----
-
-## Section 1: Hero Redesign
-
-**Current**: Generic 40/60 split with static dashboard image  
-**New**: Full-width immersive hero with live-style preview
-
-### Changes
-- Replace static dashboard screenshot with an animated "streamer dashboard preview" component
-- Show the actual Beta Ads widget/overlay appearing on a mock stream
-- Add subtle animation showing the flow: stream → ad appears → earnings tick up
-- Use the existing GIF assets (`streamer-aienia.gif`, etc.) as background texture
-
-### Visual Concept
-```text
-+--------------------------------------------------+
-|                                                  |
-|   "Get sponsored while you stream"               |
-|                                                  |
-|   [Animated preview: stream with Beta Ads       |
-|    widget fading in, showing brand offer,       |
-|    earnings counter incrementing]               |
-|                                                  |
-|   [Easy Apply Button]                            |
-|                                                  |
-+--------------------------------------------------+
-```
+This is content overload. For a company website, the About page should be short and credible, not a scrollytelling magazine piece.
 
 ---
 
-## Section 2: New "See It In Action" Section
+## Design Approach
 
-**Replace**: Generic "How it works" numbered cards  
-**With**: Interactive visual demo showing the streamer experience
+Strip it down to the essentials:
 
-### Elements
-1. Mock Twitch stream preview (using existing `LiveStreamPreview` component style)
-2. Animated sequence:
-   - Stream is live
-   - Brand offer appears in dashboard
-   - Streamer accepts
-   - Ad appears on stream
-   - Earnings update
-
-### Technical Approach
-- Create a `StreamerExperience` component
-- Use Framer Motion for step-by-step animation
-- Reuse visual language from `LiveStreamPreview.tsx`
-
----
-
-## Section 3: Earnings Calculator Improvements
-
-**Current**: Good, but isolated  
-**Enhancement**: Add context with streamer success stories
-
-### Changes
-- Add 2-3 micro-testimonials next to calculator
-- Show example earnings from different streamer tiers
-- Add visual comparison: "Streamers like you earn..."
-
----
-
-## Section 4: New "Your Dashboard" Section
-
-**Purpose**: Show streamers what they actually get access to
-
-### Visual
-- Interactive preview of the streamer dashboard
-- Tabs: "Your Offers" / "Your Earnings" / "Your Stats"
-- Hover states reveal details
-- Use existing `streamer-brands-grid.png` and `streamer-dashboard-sponsors.png` assets
-
----
-
-## Section 5: Trust & Social Proof
-
-**Current**: Only brand logos  
-**New**: Streamer-focused social proof
-
-### Elements
-- "Streamers we work with" with real streamer avatars/names
-- Quick stats: "X streamers active" / "€Y paid out"
-- Testimonial quotes (2-3 short ones)
-
----
-
-## Files to Create/Modify
-
-| File | Action |
+| Keep | Remove |
 |------|--------|
-| `src/components/sections/StreamerSection.tsx` | Complete redesign |
-| `src/components/sections/StreamerHero.tsx` | New - animated hero |
-| `src/components/sections/StreamerExperience.tsx` | New - interactive demo |
-| `src/components/sections/StreamerDashboardPreview.tsx` | New - dashboard preview |
-| `src/components/sections/StreamerSocialProof.tsx` | New - testimonials/stats |
+| Company intro (1 paragraph) | Full timeline |
+| What we do (1 sentence) | Founder story essay |
+| Founder name + role | Focus mode overlay |
+| Contact/CTA | Stats with counters |
+| | On/Off stream features |
+| | Brand safety breakdown |
+| | Scroll progress indicator |
 
 ---
 
-## Visual Style Guidelines
-
-- Follow the site's dark, minimal aesthetic
-- Use motion purposefully (show product, not decoration)
-- Keep text minimal - let visuals explain
-- Use existing assets and component patterns
-- Maintain the borderless iOS-inspired card system
-
----
-
-## Technical Summary
+## New About Page Structure
 
 ```text
-New Page Structure:
-1. StreamerHero - Full-width animated hero with product preview
-2. StreamerExperience - Interactive "how it works" demo
-3. EarningsCalculator - Existing + testimonials
-4. StreamerDashboardPreview - Dashboard preview with tabs
-5. StreamerSocialProof - Streamer testimonials + stats
-6. CTA - Keep existing final CTA section
++------------------------------------------+
+|                                          |
+|  About Beta Ads                          |
+|                                          |
+|  [Short paragraph: who we are]           |
+|                                          |
+|  [What we do: 1-2 sentences]             |
+|                                          |
+|  [Founder section: name, role, photo]    |
+|                                          |
+|  [CTA: Book a call]                      |
+|                                          |
++------------------------------------------+
 ```
 
-### Key Dependencies
-- Framer Motion (already installed)
-- Existing GIF assets
-- Existing LiveDashboard component patterns
+### Content Draft
 
+**Heading**: About Beta Ads
+
+**Intro**: Native advertising on Twitch. We work with brands and streamers to create ads that feel like content, not interruption.
+
+**What we do**: We place sponsored overlays inside live streams across the Nordics. Brands get reach. Streamers get paid. Viewers get content that respects their attention.
+
+**Founder**: Andreas Myraune, Founder. (simple, no biography essay)
+
+**CTA**: Single button to book a call.
+
+---
+
+## Footer Change
+
+Add "About" link in the Connect column, linking to `/about`.
+
+Current Connect column:
+- LinkedIn
+- Discord
+- Blog
+
+New Connect column:
+- LinkedIn
+- Discord
+- Blog
+- About
+
+---
+
+## Files to Modify
+
+| File | Change |
+|------|--------|
+| `src/pages/AboutUs.tsx` | Complete rewrite - reduce from 561 lines to ~100 lines |
+| `src/components/sections/Footer.tsx` | Add "About" link in Connect column |
+
+---
+
+## Technical Notes
+
+- Remove all scroll animation hooks (7+ currently)
+- Remove timeline progress tracking
+- Remove focus mode state and overlay
+- Remove stats counters
+- Keep simple fade-in animation for consistency with other pages
+- Match existing page typography (font-extralight headings, tracking-tight)
