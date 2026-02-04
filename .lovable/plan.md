@@ -1,51 +1,86 @@
 
-# Plan: Adjust Founder Photo Display
+# Plan: Multi-Image About Page
 
-## Current Issue
+## Overview
 
-The photo uses `aspect-[4/3]` with `object-cover object-top`, but the image composition isn't being displayed well. The face or key part of the photo may be cropped awkwardly.
+Replace the single hero image with a multi-image layout showcasing the founder in different contexts. This creates a more personal, dynamic presentation while maintaining the site's visual-first design principles.
 
-## Proposed Changes
+## Proposed Layout
 
-**File: `src/pages/AboutUs.tsx`**
-
-| Current | Change |
-|---------|--------|
-| `aspect-[4/3]` | `aspect-[16/9]` for wider cinematic format |
-| `object-top` | `object-center` or `object-[center_25%]` to better frame the subject |
-
-### Updated Image Code
-
-```tsx
-<div className="relative aspect-[16/9] overflow-hidden">
-  <img 
-    src={founderImage} 
-    alt="Andreas Myraune, Founder of Beta Ads"
-    className="w-full h-full object-cover object-[center_30%]"
-  />
+```text
++------------------------------------------------------------------+
+|  About Beta Ads                                                   |
+|                                                                   |
+|  [Text + CTA]          [MAIN IMAGE - Hero, large]                |
+|      38%                        62%                               |
++------------------------------------------------------------------+
+|                                                                   |
+|  [IMAGE 2]        [IMAGE 3]        [IMAGE 4]                     |
+|    1/3              1/3              1/3                          |
+|  At work          Standing         Office setup                   |
+|                                                                   |
++------------------------------------------------------------------+
 ```
 
-The `object-[center_30%]` positions the focus point 30% from the top, which typically frames a person's face better in a landscape crop.
+## Image Assignment
+
+| Slot | Image | Context |
+|------|-------|---------|
+| Hero (main) | Current founder-andreas.jpeg | Primary headshot |
+| Image 2 | 58AADC5C (atrium) | Professional setting |
+| Image 3 | B83368C8 (standing, office) | Working environment |
+| Image 4 | 6A9DA933 (at desk) | Behind the scenes |
+
+## Files to Create/Modify
+
+### New Assets
+
+Copy the 3 uploaded images to `src/assets/`:
+- `src/assets/founder-andreas-2.jpg` (atrium photo)
+- `src/assets/founder-andreas-3.jpg` (standing in office)
+- `src/assets/founder-andreas-4.jpg` (at desk)
+
+### Code Changes: `src/pages/AboutUs.tsx`
+
+1. Import all 4 founder images
+2. Keep current hero layout (38/62 split)
+3. Add new section below hero with 3-column image grid
+4. Each secondary image uses:
+   - `aspect-[4/3]` for consistent proportions
+   - `rounded-xl` corners
+   - Subtle hover effect (scale)
+   - Optional caption overlay
+
+## Technical Details
+
+### Image Grid Styling
+
+```tsx
+<section className="max-w-[1600px] mx-auto px-6 lg:px-12 pb-16">
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    {/* Three secondary images */}
+  </div>
+</section>
+```
+
+### Hover Effect
+
+```tsx
+<div className="group overflow-hidden rounded-xl">
+  <img 
+    className="transition-transform duration-500 group-hover:scale-105"
+  />
+</div>
+```
+
+### Animation
+
+- Secondary images fade in with staggered delay
+- Uses existing `useScrollAnimation` hook for scroll-triggered reveal
 
 ## Visual Result
 
-```text
-Current (4:3):
-+------------------+
-|                  |
-|   [cropped       |
-|    awkwardly]    |
-|                  |
-+------------------+
-
-New (16:9):
-+---------------------------+
-|   [wider, better framed]  |
-+---------------------------+
-```
-
-## Summary
-
-- Change aspect ratio from 4:3 to 16:9
-- Adjust object position for better face framing
-- Image will feel more cinematic and professional
+- Hero section unchanged (keeps current strong layout)
+- New image grid adds depth and personality
+- Shows founder in multiple professional contexts
+- Maintains clean, minimal aesthetic with consistent spacing
