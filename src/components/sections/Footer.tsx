@@ -60,6 +60,12 @@ export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => (
             >
               Blog
             </Link>
+            <Link 
+              to="/about" 
+              className="hover:text-foreground transition-colors tracking-wide block"
+            >
+              About
+            </Link>
           </div>
         </div>
       </div>
