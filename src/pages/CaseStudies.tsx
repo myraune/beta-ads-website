@@ -518,15 +518,18 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
             </div>
 
             {/* Thumbnail Grid */}
-            <div className="grid grid-cols-2 gap-4">
-              {caseStudies.slice(1, 5).map((study, index) => (
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+              {caseStudies
+                .map((study, index) => ({ study, index }))
+                .filter(({ index }) => index !== caseStudyIndex)
+                .map(({ study, index }) => (
                 <div 
                   key={study.id}
                   className={cn(
                     "group cursor-pointer relative aspect-video rounded-xl overflow-hidden bg-card/40 transition-all duration-300 shadow-lg shadow-black/10",
-                    caseStudyIndex === index + 1 && "ring-2 ring-primary"
+                    false // no need for ring since selected is shown in main card
                   )}
-                  onClick={() => setCaseStudyIndex(index + 1)}
+                  onClick={() => setCaseStudyIndex(index)}
                 >
                   <img
                     src={`https://img.youtube.com/vi/${study.id}/hqdefault.jpg`}
@@ -548,36 +551,6 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t, language, setLanguage }) =
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Mobile: All Cards Grid */}
-          <div className="lg:hidden mt-8 grid gap-4">
-            {caseStudies.slice(5).map((study) => (
-              <div 
-                key={study.id}
-                className="group cursor-pointer flex gap-4 p-4 rounded-xl bg-card/40 shadow-lg shadow-black/10"
-                onClick={() => setModalVideoId(study.id)}
-              >
-                <div className="relative w-32 h-20 rounded-lg overflow-hidden flex-shrink-0">
-                  <img
-                    src={`https://img.youtube.com/vi/${study.id}/hqdefault.jpg`}
-                    alt={study.campaign}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                    <Play className="w-5 h-5 text-white" fill="currentColor" />
-                  </div>
-                </div>
-                <div className="flex-1 min-w-0">
-                  <h4 className="font-medium text-foreground">{study.brand}</h4>
-                  <p className="text-sm text-muted-foreground truncate">{study.campaign}</p>
-                  <div className="flex gap-4 mt-2">
-                    <span className="text-xs text-primary">{study.impressions}</span>
-                    <span className="text-xs text-primary">{study.ctr} CTR</span>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
