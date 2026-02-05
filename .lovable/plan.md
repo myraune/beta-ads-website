@@ -1,69 +1,61 @@
-# Plan: StreamHatchet 2025 Blog Update - COMPLETED
 
-## Status: ✅ COMPLETED
 
-All updates from the StreamHatchet 2025 Yearly Live Streaming Trends Report have been implemented.
+# Plan: Fix Blog Post Markdown Table Rendering
 
----
+## Issue Identified
 
-## Completed Tasks
+Markdown tables in blog posts are rendering as raw pipe-separated text instead of proper HTML tables.
 
-### Part 1: Updated 5 Existing Blog Posts
+Example of broken rendering:
+```
+| Metric | Goal | Achieved |
+|--------|------|----------|
+| Unique Viewers | 2M | 2.5M |
+```
 
-| Post Slug | Updates Made |
-|-----------|--------------|
-| `twitch-statistics-2025-global-insights` | Updated to 19.2B hours (-8.9%), 52.8% market share, non-gaming 22% |
-| `most-watched-twitch-games-2025` | New top 10 ranking with LoL 1.95B, GTA V 1.90B, Roblox +212% |
-| `twitch-vs-youtube-gaming-2025` | Added Kick data, platform genre comparisons, sponsor growth |
-| `nordic-twitch-market-2025` | Added global context (36.4B hours), non-gaming opportunity |
-| `twitch-advertising-benchmarks-2025` | Added brand mentions, co-streaming data, sponsor trends |
+This affects:
+- Samsung Twitch Campaign Case Study
+- Kick Streaming Growth 2025
+- Top Streamers 2025
+- Esports Viewership 2025
+- Non-Gaming Content on Twitch 2025
+- All other posts with tables
 
-### Part 2: Created 5 New Blog Posts
+## Root Cause
 
-| Post Slug | Topic |
-|-----------|-------|
-| `kick-streaming-growth-2025` | Kick's +131% growth, 4.5B hours, creator ecosystem |
-| `top-streaming-games-2025` | Cross-platform gaming report, genre breakdown |
-| `non-gaming-content-twitch-2025` | 22% non-gaming, Just Chatting +25%, IRL +19% |
-| `top-streamers-2025-rankings` | Kai Cenat #1 (131.9M), Caedrel #2, rising stars |
-| `esports-viewership-2025` | 2.8B hours, 50% co-streaming, World Cup +73% |
+The `react-markdown` package (v10.1.0) does not parse GitHub Flavored Markdown features like **tables** by default. It requires the `remark-gfm` plugin.
 
-### Part 3: Updated Dashboard Components
+## Solution
 
-| Component | Changes |
-|-----------|---------|
-| `TwitchStatsDashboard.tsx` | Updated with StreamHatchet 2025 data, market share, quarterly breakdown |
-| `TopGamesDashboard.tsx` | New top 10 games, genre breakdown, Roblox growth |
-| `PlatformComparisonDashboard.tsx` | Three-platform comparison (Twitch/YouTube/Kick) |
+### Step 1: Install remark-gfm
 
-### Part 4: Updated Featured Hub
+Add the `remark-gfm` package to the project dependencies.
 
-| Component | Changes |
-|-----------|---------|
-| `FeaturedInsightsHub.tsx` | Updated featured posts to include Kick growth post |
+### Step 2: Update BlogPost.tsx
 
----
+Import and configure the plugin in the ReactMarkdown component:
 
-## Key Statistics Implemented
+```tsx
+import remarkGfm from 'remark-gfm';
 
-| Metric | 2025 Value | Source |
-|--------|------------|--------|
-| Total Live Streaming | 36.4B hours | StreamHatchet |
-| Twitch Hours | 19.2B (-8.9%) | StreamHatchet |
-| Twitch Market Share | 52.8% | StreamHatchet |
-| YouTube Gaming | 8.8B (+12%) | StreamHatchet |
-| Kick | 4.5B (+131%) | StreamHatchet |
-| Non-Gaming on Twitch | 22% | StreamHatchet |
-| Esports | 2.8B (+6%) | StreamHatchet |
-| Top Game (LoL) | 1.95B hours | StreamHatchet |
-| Roblox Growth | +212% | StreamHatchet |
+<ReactMarkdown remarkPlugins={[remarkGfm]}>
+```
 
----
+## Files to Modify
 
-## Files Modified
+| File | Change |
+|------|--------|
+| package.json | Add `remark-gfm` dependency |
+| src/pages/BlogPost.tsx | Import `remarkGfm` and add to `remarkPlugins` prop |
 
-- `src/data/blogPosts.ts` - Updated 5 posts, added 5 new posts
-- `src/components/blog/TwitchStatsDashboard.tsx` - Complete rewrite with 2025 data
-- `src/components/blog/TopGamesDashboard.tsx` - Complete rewrite with 2025 data
-- `src/components/blog/PlatformComparisonDashboard.tsx` - Complete rewrite with 3-platform comparison
-- `src/components/blog/FeaturedInsightsHub.tsx` - Updated featured posts
+## Expected Result
+
+After this fix:
+- All markdown tables render as proper HTML tables
+- Tables will use the existing custom styling defined in the component
+- Posts like Kick Streaming Growth 2025 and Top Streamers 2025 will display data correctly
+
+## Technical Details
+
+The BlogPost.tsx component already has custom table styling configured (lines 218-234), so once the plugin is added, the tables will automatically use these styles.
+
