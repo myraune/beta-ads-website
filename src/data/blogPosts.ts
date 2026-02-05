@@ -556,58 +556,71 @@ Ota yhteyttä pohjoismaiseen tiimiimme saadaksesi ilmaisen konsultaation ja rä�
     content: `
 ## Platform Overview 2025
 
-Twitch remains the leading live streaming platform, but 2025 marked significant shifts. According to the StreamHatchet 2025 Yearly Report, Twitch recorded **19.2 billion hours watched**, a **-8.9% YoY decline** from 2024.
+Twitch remains the leading live streaming platform, but 2025 marked significant shifts. According to the StreamHatchet 2025 Yearly Report, Twitch recorded **19.2 billion hours watched**, a **-8.9% YoY decline** from 2024. Despite the decline, Twitch still commands more than half of the global live streaming market.
 
 ## Key Statistics (StreamHatchet 2025)
 
 - **19.2 billion** hours watched in 2025
 - **52.8%** global market share (-8.3 percentage points YoY)
 - **19.7 million** unique channels (-0.5% YoY)
-- **22%** of content is now non-gaming
+- **22%** of content is now non-gaming (+2 pts YoY)
 
-## Market Share Decline
+## Engagement & Activity
 
-Twitch's market share dropped from 61.1% in 2024 to 52.8% in 2025. This decline was primarily driven by:
-- Platform-wide viewbotting crackdown removing artificial viewership
-- Top 2024 creators saw **-14.5% viewership decline**
-- Q4 2025 was the lowest viewership quarter since Q1 2020 (4.4B hours)
-
-## Non-Gaming Content Growth
-
-Non-gaming content now represents 22% of Twitch, up from 20% in 2024:
-- **Just Chatting**: +25% YoY growth
-- **IRL Streams**: +19% YoY growth
-- Weekly viewership peaked at **810M hours** in July 2025
-
-## Demographics Insights
-
-The platform continues to skew young:
-- 65% male, 35% female
-- 73% of viewers are under 35
-- High engagement rates with average session times exceeding traditional media
-
-## Geographic Distribution
-
-The United States leads with 23.1% of users, followed by Germany (8.6%), Brazil (7.2%), and Russia (6.8%). The Nordic region represents approximately 2.3% of global traffic with high engagement rates.
+Twitch remains a massive ecosystem of live content. On average, **91,400 channels are live simultaneously**, serving **2.3 million concurrent viewers**. That's roughly **48,000 hours of content watched every single minute**. Over 7.4 million unique streamers broadcast at least once per month.
 
 ## Quarterly Breakdown 2025
 
-| Quarter | Hours Watched | Change |
-|---------|---------------|--------|
+| Quarter | Hours Watched | YoY Change |
+|---------|---------------|------------|
 | Q1 2025 | 5.2B | -3.2% |
 | Q2 2025 | 4.8B | -8.5% |
 | Q3 2025 | 4.8B | -10.1% |
 | Q4 2025 | 4.4B | -13.8% |
 
+Q4 2025 was the lowest viewership quarter since Q1 2020, driven by platform-wide viewbotting crackdowns that removed artificial viewership.
+
+## Year-over-Year Comparison
+
+Every major metric declined from 2024 to 2025. Hours watched dropped from 21.0B to 19.2B, market share fell from 61.1% to 52.8%, and average concurrent viewers declined from 2.5M to 2.3M. The viewbotting cleanup was the primary driver — top 2024 creators saw **-14.5% viewership decline** once artificial viewers were removed.
+
+## Market Share & Content Split
+
+Twitch's 52.8% market share is still dominant but faces growing competition from YouTube Gaming (24.3%) and Kick (12.4%). The content mix continues to diversify: non-gaming now represents 22% of all Twitch content, up from 20% in 2024. **Just Chatting** alone grew +25% YoY.
+
+## Most Watched Streamers 2025
+
+KaiCenat dominated for the second consecutive year with **317 million hours watched**, followed by Jynxzi (212M), ibai (186M), and Gaules (178M). The top 10 is increasingly international, with creators from Brazil, Spain, France, and Japan alongside US streamers.
+
+## Top Content Categories
+
+Just Chatting leads all categories with **3.8 billion hours watched** — nearly double the #2 category. League of Legends (1.95B) and GTA V (1.90B) follow closely. The FPS genre collectively generated 4.6B hours, while Roblox exploded with +212% growth.
+
+## Viewer Demographics
+
+The platform skews heavily young: **73% of viewers are under 35**, with 41% in the 16-24 age range. Twitch viewers spend an average of **25.4 minutes per session** — **8x longer** than on-demand video platforms. 42.8% of Gen Z internet users watch live streams regularly. The gender split is 65% male, 35% female.
+
+## Geographic Distribution
+
+The United States leads with 23.1% of users, followed by Germany (8.6%), Brazil (7.2%), and Russia (6.8%). South Korea and Turkey round out the top 10. The Nordic region represents approximately 2.3% of global traffic with above-average engagement rates.
+
+## Creator Economy & Revenue
+
+Twitch's standard revenue split is **50/50** for subscriptions, with top-tier Partner Plus creators earning **70%**. Sponsored content on the platform grew **+71% YoY**, with Disney leading brand mentions at 1.7 million. Meanwhile, Kick's **95% revenue split** continues to attract creators seeking better monetization.
+
+## Esports Viewership
+
+Esports remains a major driver of Twitch viewership, averaging **654 million hours per quarter**. LoL Worlds 2024 set an all-time esports record with **6.9 million peak concurrent viewers**. VALORANT Champions (1.9M peak) and CS2 Major Copenhagen (1.8M peak) were also standout events.
+
 ## What This Means for Advertisers
 
-Despite the viewership decline, Twitch remains the most engaged live streaming audience. The shift toward non-gaming content opens opportunities for brands outside gaming, while the viewbotting cleanup means more authentic reach metrics.
+Despite the viewership decline, Twitch remains the most engaged live streaming audience. The shift toward non-gaming content opens opportunities for brands outside gaming, while the viewbotting cleanup means more authentic reach metrics. With 73% of viewers under 35 and session times 8x longer than on-demand video, Twitch offers unmatched access to Gen Z audiences.
 
-*Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
+*Data sources: StreamHatchet 2025 Yearly Live Streaming Trends Report, TwitchTracker, Esports Charts*
     `,
     date: "Feb 5, 2026",
     dateISO: "2026-02-05",
-    readTime: "8 min read",
+    readTime: "14 min read",
     image: "/lovable-uploads/blog-twitch-logo.webp",
     category: "Statistics & Data",
     tags: ["twitch", "statistics", "data", "advertising", "2025", "streamhatchet"],
