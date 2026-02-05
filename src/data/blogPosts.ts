@@ -34,6 +34,39 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "gokstad-akademiet-gamer-recruitment",
+    slug: "gokstad-akademiet-gamer-recruitment",
+    title: "Case Study: Gokstad Akademiet Recruits Gamers",
+    excerpt: "How Gokstad Akademiet recruited students by targeting gamers with Live Stream Overlays, achieving a 1.01% CTR across 19 creators.",
+    content: "",
+    date: "Feb 5, 2025",
+    dateISO: "2025-02-05",
+    readTime: "4 min read",
+    image: "https://storage.googleapis.com/livad-blog/3498/3790256.gif",
+    category: "Case Studies",
+    tags: ["gokstad", "case-study", "education", "gaming", "overlay-ads", "recruitment"],
+    hasDashboard: "gokstad-case-study",
+    relatedSlugs: ["glorious-o3-nordic-campaign"],
+    seoTitle: {
+      en: "Gokstad Akademiet Gamer Recruitment Case Study | Beta Ads",
+      no: "Gokstad Akademiet Gamer-rekruttering Case Study | Beta Ads",
+      sv: "Gokstad Akademiet Gamer-rekrytering Case Study | Beta Ads",
+      fi: "Gokstad Akademiet Pelaajien Rekrytointi Case Study | Beta Ads"
+    },
+    seoDescription: {
+      en: "See how Gokstad Akademiet achieved a 1.01% CTR recruiting students through live stream overlays across 19 gaming creators.",
+      no: "Se hvordan Gokstad Akademiet oppnådde 1.01% CTR med rekruttering av studenter gjennom live stream overlays på 19 gaming-skapere.",
+      sv: "Se hur Gokstad Akademiet uppnådde 1.01% CTR vid rekrytering av studenter genom live stream overlays på 19 gaming-skapare.",
+      fi: "Katso kuinka Gokstad Akademiet saavutti 1.01% CTR rekrytoidessaan opiskelijoita live stream -mainoksilla 19 pelisisällöntuottajan kautta."
+    },
+    seoKeywords: {
+      en: ["gokstad akademiet", "gamer recruitment", "twitch overlay ads", "education marketing", "live stream advertising"],
+      no: ["gokstad akademiet", "gamer rekruttering", "twitch overlay annonser", "utdanning markedsføring", "live stream annonsering"],
+      sv: ["gokstad akademiet", "gamer rekrytering", "twitch overlay annonser", "utbildning marknadsföring", "live stream reklam"],
+      fi: ["gokstad akademiet", "pelaajien rekrytointi", "twitch overlay mainokset", "koulutus markkinointi", "live stream mainonta"]
+    }
+  },
+  {
     id: "glorious-o3-nordic-campaign",
     slug: "glorious-o3-nordic-campaign",
     title: "Case Study: Glorious O3 Mouse Nordic Campaign",
@@ -46,6 +79,7 @@ export const blogPosts: BlogPost[] = [
     category: "Case Studies",
     tags: ["glorious", "case-study", "nordic", "gaming", "rich-media", "overlay-ads"],
     hasDashboard: "glorious-case-study",
+    relatedSlugs: ["gokstad-akademiet-gamer-recruitment"],
     seoTitle: {
       en: "Glorious O3 Mouse Nordic Campaign Case Study | Beta Ads",
       no: "Glorious O3 Mus Nordisk Kampanje Case Study | Beta Ads",
