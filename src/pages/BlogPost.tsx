@@ -10,6 +10,7 @@ import { ReadingProgress } from "@/components/blog/ReadingProgress";
 import { TableOfContents, dashboardTocItems } from "@/components/blog/TableOfContents";
 import { StickyCTA, InlineCTA } from "@/components/blog/StickyCTA";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const TwitchStatsDashboard = lazy(() => import("@/components/blog/TwitchStatsDashboard"));
 const NorwegianStreamersDashboard = lazy(() => import("@/components/blog/NorwegianStreamersDashboard"));
@@ -193,6 +194,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t, language, setLanguage })
                 ) : (
                   <div className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground">
                     <ReactMarkdown
+                      remarkPlugins={[remarkGfm]}
                       components={{
                         h2: ({ children }) => (
                           <h2 className="text-2xl font-bold text-foreground mt-10 mb-4">{children}</h2>
