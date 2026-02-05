@@ -1,40 +1,42 @@
 
 
-# Add Gokstad Akademiet Case Study to Blog
+# Plan: Fix Blog Background and Simplify About Page
 
-## Overview
-Add a new case study blog post for the Gokstad Akademiet campaign, following the exact same pattern as the Glorious O3 case study.
+## 1. Blog Page Background
 
-## Files to Create
+**File:** `src/pages/Blog.tsx` (line 178)
 
-### 1. `src/components/blog/GokstadCaseStudy.tsx`
-A new React component mirroring the structure of `GloriousCaseStudy.tsx` with:
-- Header GIF: `https://storage.googleapis.com/livad-blog/3498/3790256.gif`
-- **Challenge** section: Recruiting students for Autumn 2026 by targeting gamers interested in tech/creativity
-- **Solution** section: Live Stream Overlay across 19 channels with streamer-endorsed messaging
-- **Impact** section: 1.01% CTR, qualified traffic to application portal
-- **Results** section: 54K+ Completed Views, 1.01% CTR, 19 Creators, 31 Categories
-- Performance analysis image: `https://storage.googleapis.com/livad-blog/3498/analysis_campaign_3498.png`
-- Video embed: `https://storage.googleapis.com/livad-blog/3498/combined_campaign_3498_20260205_150643.mp4`
+The Blog page wraps everything in `min-h-screen bg-background`, which creates an opaque layer that blocks the shared aurora/ambient background rendered by `AnimatedBackground` in the Layout. Other pages like Index and Streamers do not use `bg-background` on their outer wrapper, allowing the aurora to show through.
+
+**Change:** Remove `bg-background` from the outer div, matching the pattern used by other pages:
+
+```tsx
+// Before
+<div className="min-h-screen bg-background pt-24 pb-16">
+
+// After
+<div className="min-h-screen pt-24 pb-16">
+```
+
+## 2. About Page -- Single Photo Only
+
+**File:** `src/pages/AboutUs.tsx`
+
+Remove the secondary images grid (lines 104-129) and the unused imports for `founderImage2`, `founderImage3`, `founderImage4` (lines 8-9), the `secondaryImages` array (lines 17-21), and the `useMultipleScrollAnimations` hook usage. Keep only the main hero image of Andreas.
+
+Also remove `bg-background` from the About page outer div (line 28) to match the same aurora background fix.
+
+**Changes:**
+- Remove imports: `founderImage2`, `founderImage3`, `founderImage4`
+- Remove `useMultipleScrollAnimations` from the import and its usage
+- Remove the `secondaryImages` array
+- Remove the entire "Secondary Images Grid" section
+- Change outer div from `min-h-screen bg-background text-foreground` to `min-h-screen text-foreground`
 
 ## Files to Modify
 
-### 2. `src/data/blogPosts.ts`
-Add a new blog post entry at the top of the array with:
-- **slug**: `gokstad-akademiet-gamer-recruitment`
-- **title**: "Case Study: Gokstad Akademiet Recruits Gamers"
-- **category**: "Case Studies"
-- **hasDashboard**: `"gokstad-case-study"`
-- **date**: "Feb 5, 2025"
-- Localized SEO metadata (en, no, sv, fi)
-- **relatedSlugs** linking to the Glorious case study (and vice versa)
-
-### 3. `src/pages/BlogPost.tsx`
-- Add lazy import for `GokstadCaseStudy`
-- Add rendering condition: `{post.hasDashboard === "gokstad-case-study" && <GokstadCaseStudy />}`
-
-## Technical Details
-- Component uses the same Tailwind classes and structure as `GloriousCaseStudy.tsx` for visual consistency
-- `hasDashboard` triggers the wider `max-w-7xl` layout automatically
-- All media assets are externally hosted on Google Cloud Storage (no uploads needed)
+| File | Change |
+|------|--------|
+| `src/pages/Blog.tsx` | Remove `bg-background` from outer wrapper |
+| `src/pages/AboutUs.tsx` | Remove secondary images grid, unused imports, and `bg-background` |
 
