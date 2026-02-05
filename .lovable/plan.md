@@ -1,217 +1,101 @@
 
 
-# Plan: SEO-Optimized Blog Improvements
+# Plan: Replace Blog Post Images with Professional Twitch-Themed Photos
 
 ## Overview
 
-Based on Google Search Console data, the blog has high impressions but critically low CTR. This plan addresses all 5 recommendations to convert that search visibility into actual traffic.
+Replace the current "tacky screenshot" blog images with the 9 professional, polished images you uploaded. These new images have a cohesive Twitch visual aesthetic with purple backgrounds, professional photography, and clean branding that matches your site's design principles.
 
 ---
 
-## Google Search Console Data Analysis
+## Current State
 
-| Page | Impressions | Clicks | CTR | Position | Issue |
-|------|-------------|--------|-----|----------|-------|
-| `/blog/most-watched-twitch-games-2025` | 2,144 | 9 | 0.4% | 9.0 | Generic title |
-| `/blog/twitch-statistics-2025-global-insights` | 2,080 | 3 | 0.1% | 8.2 | Title not compelling |
-| `/blog/twitch-vs-youtube-gaming-2025` | 1,252 | 1 | 0.1% | 6.4 | Weak meta description |
-| `/blog` | 79 | 1 | 1.3% | 8.4 | Plain landing page |
-| `/blog/nordic-twitch-market-2025` | 175 | 2 | 1.1% | 9.0 | Missing value proposition |
+The blog posts currently use old screenshots stored in `/lovable-uploads/` with random UUIDs. These look unprofessional and don't convey the quality of your brand.
 
 ---
 
-## Part 1: Rewrite SEO Metadata for Top 5 Posts
+## Image Mapping Plan
 
-Improve titles and descriptions to be more click-worthy using power words, numbers, and clear value propositions.
+| Image File | Visual Content | Best Use For |
+|------------|----------------|--------------|
+| `twitch_logo.webp` | Clean Twitch logo on purple background | Twitch Statistics 2025 (hero/featured) |
+| `how-to-stream-on-twitch.jpg` | Streamer with headphones, "LIVE" badge | How Twitch Advertising Works 2024 |
+| `1-Twitch-YT-Featured.webp` | Twitch vs YouTube split logo | Twitch vs YouTube Gaming 2025 |
+| `studio-ces24-twitch-nvidia.jpg` | Pro gamer at RGB setup | Nordic Twitch Market 2025 |
+| `go_live_on_twitch.webp` | "Go live and create" app screenshot | Rise of Streamer-First Advertising |
+| `unnamed_1.webp` | DJ streaming "Discover new streams" | Most Watched Twitch Games 2025 |
+| `twitch_phone_4.webp` | Chat interface on mobile | Norwegian Twitch Streamers 2025 |
+| `twitch_phone_3.webp` | Browse/search categories view | Swedish Twitch Streamers 2025 |
+| `unnamed.webp` | "Get chatting" mobile view | Finnish Twitch Streamers 2025 |
+
+---
+
+## Files to Change
+
+### 1. Copy Images to Project
+
+Copy all 9 uploaded images to `public/lovable-uploads/` with clean, descriptive names:
+
+```text
+user-uploads://twitch_logo.webp → public/lovable-uploads/blog-twitch-logo.webp
+user-uploads://how-to-stream-on-twitch.jpg → public/lovable-uploads/blog-twitch-streamer.jpg
+user-uploads://1-Twitch-YT-Featured.webp → public/lovable-uploads/blog-twitch-vs-youtube.webp
+user-uploads://studio-ces24-twitch-nvidia.jpg → public/lovable-uploads/blog-gaming-setup.jpg
+user-uploads://go_live_on_twitch.webp → public/lovable-uploads/blog-go-live.webp
+user-uploads://unnamed_1.webp → public/lovable-uploads/blog-dj-streaming.webp
+user-uploads://twitch_phone_4.webp → public/lovable-uploads/blog-twitch-chat.webp
+user-uploads://twitch_phone_3.webp → public/lovable-uploads/blog-twitch-browse.webp
+user-uploads://unnamed.webp → public/lovable-uploads/blog-get-chatting.webp
+```
+
+### 2. Update Blog Post Data
 
 **File: `src/data/blogPosts.ts`**
 
-### Post 1: twitch-statistics-2025-global-insights
+Update the `image` field for each relevant blog post:
 
-| Current | New |
-|---------|-----|
-| Title: "Twitch Statistics 2025: Global Platform Insights \| Beta Ads" | Title: "Twitch Statistics 2025: 240M Users, Demographics & Ad Trends \| Beta Ads" |
-| Description: "Interactive dashboard with Twitch platform statistics 2025..." | Description: "Live dashboard: 240M monthly users, 35M daily active, $1.78B revenue. Get the demographics and ad benchmarks that top advertisers use." |
-
-### Post 2: most-watched-twitch-games-2025
-
-| Current | New |
-|---------|-----|
-| Title: "Most Watched Twitch Games & Categories 2025 \| Beta Ads" | Title: "Top 20 Twitch Games 2025: Hours Watched & Trending Categories \| Beta Ads" |
-| Description: "Interactive dashboard of most watched Twitch games and categories 2025..." | Description: "Just Chatting leads with 3.2B hours. See the full ranking of games, top streamers, and year-over-year viewing trends advertisers need." |
-
-### Post 3: twitch-vs-youtube-gaming-2025
-
-| Current | New |
-|---------|-----|
-| Title: "Twitch vs YouTube Gaming 2025 \| Platform Comparison \| Beta Ads" | Title: "Twitch vs YouTube Gaming 2025: Which Platform Converts Better? \| Beta Ads" |
-| Description: "Compare Twitch and YouTube Gaming for advertisers..." | Description: "Head-to-head comparison: user metrics, engagement rates, and ROI data. Find out which platform delivers better results for your ad spend." |
-
-### Post 4: nordic-twitch-market-2025
-
-| Current | New |
-|---------|-----|
-| Title: "Nordic Twitch Market Overview 2025 \| Beta Ads" | Title: "Nordic Twitch Market 2025: Sweden, Norway, Finland Growth Data \| Beta Ads" |
-| Description: "Interactive dashboard of Nordic Twitch markets." | Description: "Compare viewership across all Nordic countries. Growth rates, top streamers, and advertising opportunities in the Scandinavian market." |
-
-### Post 5: samsung-twitch-campaign-case-study
-
-| Current | New |
-|---------|-----|
-| Title: "Samsung Twitch Campaign Case Study \| 2.5M Viewers \| Beta Ads" | Title: "Samsung Twitch Case Study: 2.5M Viewers, 89% Positive Sentiment \| Beta Ads" |
-| Description: "See how Samsung reached 2.5M unique viewers on Twitch..." | Description: "How Samsung achieved 4.7% engagement and 3.2% CTR with native overlay ads. Full campaign breakdown with results and learnings." |
+| Blog Post | Current Image | New Image |
+|-----------|---------------|-----------|
+| `twitch-statistics-2025-global-insights` | `71765092-...png` | `blog-twitch-logo.webp` |
+| `how-twitch-advertising-works-2024` | `71765092-...png` | `blog-twitch-streamer.jpg` |
+| `twitch-vs-youtube-gaming-2025` | `a3645b32-...png` | `blog-twitch-vs-youtube.webp` |
+| `nordic-twitch-market-2025` | `71765092-...png` | `blog-gaming-setup.jpg` |
+| `rise-of-streamer-first-advertising` | `958b1a7f-...png` | `blog-go-live.webp` |
+| `most-watched-twitch-games-2025` | `a3645b32-...png` | `blog-dj-streaming.webp` |
+| `norwegian-twitch-streamers-2025-analytics` | `958b1a7f-...png` | `blog-twitch-chat.webp` |
+| `swedish-twitch-streamers-2025` | `4d784a07-...png` | `blog-twitch-browse.webp` |
+| `finnish-twitch-streamers-2025` | `cda69e31-...png` | `blog-get-chatting.webp` |
 
 ---
 
-## Part 2: Featured Collection on Blog Homepage
+## Visual Preview of New Images
 
-Add a "Twitch Insights Hub" section at the top of the blog to highlight the high-performing data posts.
-
-**File: `src/pages/Blog.tsx`**
-
-### New Featured Section Structure
-
-```text
-+------------------------------------------------------------------+
-|  TWITCH INSIGHTS HUB                                              |
-|  "Data-driven insights for smarter advertising decisions"         |
-+------------------------------------------------------------------+
-|                                                                   |
-|  [Twitch Stats]    [Top Games]    [Twitch vs YT]                 |
-|   Full-width thumbnail grid with Interactive Dashboard badges     |
-|                                                                   |
-+------------------------------------------------------------------+
-|                                                                   |
-|  [Rest of blog as-is]                                            |
-|                                                                   |
-+------------------------------------------------------------------+
-```
-
-### Implementation
-
-1. Create a `featuredPosts` array with slugs of the top 3 dashboard posts
-2. Render a new section before the existing Featured Post
-3. Use 3-column grid with large thumbnails and "Interactive Dashboard" badges
-4. Add section headline and subtitle
+| Image | Description |
+|-------|-------------|
+| **twitch_logo.webp** | Bold Twitch wordmark on signature purple - perfect for statistics/data posts |
+| **how-to-stream-on-twitch.jpg** | Pro streamer at keyboard with LIVE badge overlay - captures live energy |
+| **1-Twitch-YT-Featured.webp** | Clean Twitch vs YouTube split design - ideal for comparison content |
+| **studio-ces24-twitch-nvidia.jpg** | High-end gaming setup with Twitch/Nvidia branding - Nordic market appeal |
+| **go_live_on_twitch.webp** | Colorful app screenshot with 3D mascots - engaging for trend content |
+| **unnamed_1.webp** | DJ streaming with neon lights - shows diverse content beyond gaming |
+| **twitch_phone_4.webp** | Mobile chat view with emotes - community engagement focus |
+| **twitch_phone_3.webp** | Categories/browse view - discovery/search focused |
+| **unnamed.webp** | "Get chatting" mobile interface - compact chat focus |
 
 ---
 
-## Part 3: Sticky CTA Sidebar on Blog Posts
+## Result
 
-Add a persistent call-to-action on the right side of blog content.
-
-**File: `src/pages/BlogPost.tsx`**
-
-### Desktop: Sticky Sidebar
-
-```text
-+-------------------------------------+  +------------------+
-|                                     |  | START YOUR       |
-|  [Blog Content]                     |  | TWITCH CAMPAIGN  |
-|                                     |  |                  |
-|  ...                                |  | [Book a Call]    |
-|                                     |  |                  |
-|                                     |  | Or request a     |
-|                                     |  | [Free Demo]      |
-+-------------------------------------+  +------------------+
-```
-
-### Mobile: Inline CTA Banner
-
-Insert a subtle CTA banner at approximately 40% through the content.
-
-### Implementation
-
-1. Add a new `StickyCTA` component with `sticky top-24` positioning
-2. Include primary CTA "Book a Call" linking to Google Calendar
-3. Secondary CTA "Watch Demo" linking to `/demo`
-4. Style with subtle background, rounded corners, matching design system
-
----
-
-## Part 4: In-Content Related Reading Links
-
-Improve internal linking between related posts using inline "See also" callouts.
-
-**File: `src/data/blogPosts.ts`**
-
-### Add New Field: `relatedSlugs`
-
-```typescript
-interface BlogPost {
-  // ... existing fields
-  relatedSlugs?: string[]; // New field for explicit internal links
-}
-```
-
-### Example Mapping
-
-| Post | Related Posts |
-|------|---------------|
-| twitch-statistics-2025 | most-watched-twitch-games-2025, twitch-vs-youtube-gaming-2025 |
-| most-watched-twitch-games-2025 | twitch-statistics-2025, nordic-twitch-market-2025 |
-| twitch-vs-youtube-gaming-2025 | twitch-statistics-2025, twitch-advertising-benchmarks-2025 |
-
-**File: `src/pages/BlogPost.tsx`**
-
-Add a "Related Reading" box after the first major section or dashboard, with direct links styled as inline cards.
-
----
-
-## Part 5: Redesigned Blog Homepage
-
-Transform the `/blog` page from a basic list to an authoritative hub.
-
-**File: `src/pages/Blog.tsx`**
-
-### New Header
-
-| Current | New |
-|---------|-----|
-| "Blog" | "Beta Ads Insights" |
-| Generic subtitle | "Data-driven guides for the Nordic streaming market" |
-
-### New Category Filters
-
-Add prominent filter buttons:
-- [All]
-- [Twitch Insights] (Statistics & Data + Trends)
-- [Case Studies]
-- [Nordic Market]
-- [How-To Guides]
-
-### Hero Featured Post
-
-Make the first post span full-width with larger dimensions when no filters are active.
-
----
-
-## File Changes Summary
-
-| File | Changes |
-|------|---------|
-| `src/data/blogPosts.ts` | Rewrite SEO titles/descriptions for top 5 posts, add `relatedSlugs` field |
-| `src/pages/Blog.tsx` | Add Featured Collection section, update header copy, improve category filters |
-| `src/pages/BlogPost.tsx` | Add sticky CTA sidebar, inline mobile CTA, Related Reading box |
-
----
-
-## Expected Impact
-
-| Metric | Current | Target |
-|--------|---------|--------|
-| CTR (twitch-statistics) | 0.1% | 2-3% |
-| CTR (most-watched-games) | 0.4% | 2-4% |
-| CTR (/blog) | 1.3% | 3-5% |
-| Avg. Time on Page | Unknown | +30% (from interlinking) |
-| Conversion (CTA clicks) | None tracked | New tracking opportunity |
+- All blog post thumbnails will have a consistent, professional Twitch aesthetic
+- Images match the dark, modern, Twitch-native design principles in your project context
+- Higher visual quality will improve perceived credibility and click-through rates
+- Cohesive look across the Blog page and Featured Insights Hub
 
 ---
 
 ## Technical Notes
 
-- All SEO changes use existing `seoTitle` and `seoDescription` fields in `blogPosts.ts`
-- Sticky sidebar uses `position: sticky` with `top: 6rem` (96px) to clear navbar
-- Featured Collection respects existing category filter logic
-- Mobile CTA uses a new component inserted via markdown renderer or conditional block
+- All images saved as WebP/JPG for optimal web performance
+- Images placed in `public/lovable-uploads/` to match existing asset structure
+- No component changes needed - only data file updates for the `image` field
 
