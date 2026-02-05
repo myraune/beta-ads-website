@@ -1,85 +1,93 @@
 
 
-# Plan: Refactor Stat Cards to Responsive CSS Grid
+# Plan: Overhaul TwitchStatsDashboard with Better Layout and More Data
 
-## Current State
+## Problems to Fix
 
-The `StatCard` and `StatCardGrid` components currently use:
-- Grid classes: `grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4`
-- Card styling: `rounded-xl p-4 sm:p-5 lg:p-6 text-center`
-- No consistent minimum height or flex centering
+1. **Layout issues**: The stat cards still look awkward due to the `suffix` prop containing multi-character strings like "B hrs" which get appended after the animated number, creating visual clutter
+2. **Too little data**: The dashboard only covers 5 sections (key metrics, quarterly hours, market share, content split, demographics, geography). The StreamHatchet 2025 report contains significantly more data that would make this a richer, more authoritative resource
 
 ## Changes
 
-### 1. Update StatCardGrid Component
+### 1. Fix TwitchStatsDashboard Stat Cards
 
-**File:** `src/components/blog/StatCard.tsx` (lines 104-109)
+The current stat cards use `format="raw"` with decimal values like `19.2` and suffix `"B"`. This works correctly with the StatCard component. The real issue is that some cards may look off because:
+- The trend text adds a third line making cards uneven heights
+- Need to verify all 4 cards have consistent content density
 
-Update the grid wrapper to use the exact classes requested:
+**Fix**: Ensure all stat cards have a trend value so they all render 3 lines consistently. The StatCardGrid with `items-stretch` and `min-h-[120px]` should handle the rest.
 
-```tsx
-export const StatCardGrid = ({ children, columns = 4 }: StatCardGridProps) => {
-  const gridClass = columns === 3 
-    ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch'
-    : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch';
-  
-  return <div className={gridClass}>{children}</div>;
-};
-```
+### 2. Add Significantly More Data Sections
 
-### 2. Update StatCard Component
+Expand the dashboard from 5 sections to 10+ sections using verified data from StreamHatchet 2025 and cross-referenced industry sources:
 
-**File:** `src/components/blog/StatCard.tsx` (lines 67-88)
+**New data arrays and chart sections to add:**
 
-Update the card container styling:
+#### a) Top Streamers 2025 (Table + Bar Chart)
+- KaiCenat, Jynxzi, ibai, Gaules, xQc and others with hours watched
+- Most watched streamers by total hours
 
-| Property | Before | After |
-|----------|--------|-------|
-| Width | implicit | `w-full min-w-0` |
-| Border radius | `rounded-xl` | `rounded-2xl` |
-| Border | conditional | `border border-border/30` (always) |
-| Layout | `text-center` | `flex flex-col items-center justify-center` |
-| Height | auto | `min-h-[120px]` |
-| Overflow | none | `overflow-hidden` |
+#### b) Concurrent Viewership Trend (Line Chart)
+- Average concurrent viewers by quarter (2024 vs 2025)
+- ~2.3M average concurrent viewers
 
-```tsx
-return (
-  <div 
-    ref={ref} 
-    className={`w-full min-w-0 rounded-2xl border p-4 sm:p-5 lg:p-6 
-      flex flex-col items-center justify-center min-h-[120px] overflow-hidden ${
-      highlight 
-        ? 'bg-primary/20 border-primary/40' 
-        : 'bg-card/50 border-border/30'
-    }`}
-  >
-    <div 
-      className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 tabular-nums text-center ${
-        highlight ? 'text-primary' : 'text-primary'
-      }`}
-    >
-      {displayValue}{suffix}
-    </div>
-    <div className="text-xs sm:text-sm text-muted-foreground leading-tight text-center">
-      {label}
-    </div>
-    {trend && (
-      <div className="text-xs text-muted-foreground/80 mt-1 text-center">{trend}</div>
-    )}
-  </div>
-);
-```
+#### c) Streamer Activity Stats (Stat Cards)
+- 7.4M active streamers
+- 91,400 avg concurrent live channels
+- ~25 viewers per stream average
+- 48,000 hours watched per minute on Twitch
+
+#### d) Content Category Breakdown (Stacked Bar Chart)
+- Just Chatting, League of Legends, GTA V, Fortnite, Valorant, etc.
+- Show top 10 categories by hours watched
+
+#### e) Year-over-Year Comparison (Grouped Bar Chart)
+- 2024 vs 2025 side-by-side for key metrics
+- Hours watched, market share, channels, peak concurrent
+
+#### f) Weekly Viewership Pattern (Area Chart)
+- Viewership peaked at 810M hours in July 2025
+- Show weekly pattern with notable peaks
+
+#### g) Platform Revenue & Creator Economy (Stat Cards)
+- Twitch subscription revenue split (50% base / 70% Partner Plus)
+- Comparison context with Kick's 95% split
+- Sponsored content growth +71% YoY
+
+#### h) Esports Viewership (Bar Chart)
+- 654M hours of esports content per quarter
+- Top esports events and peak viewers
+- LoL Worlds 2024 peaked at 6.7M concurrent
+
+#### i) Engagement Metrics (Stat Cards)
+- 8x longer viewing time vs on-demand video
+- Average session 25.4 minutes
+- 42.8% of Gen Z internet users watch live streams
+
+### 3. Update Blog Post Content
+
+Update the markdown content in `blogPosts.ts` for this post to include all the new data sections with proper headings that match the dashboard sections.
 
 ## Files to Modify
 
 | File | Changes |
 |------|---------|
-| `src/components/blog/StatCard.tsx` | Update StatCard and StatCardGrid styling |
+| `src/components/blog/TwitchStatsDashboard.tsx` | Major expansion: add ~8 new data arrays and chart sections |
+| `src/data/blogPosts.ts` | Update the blog post content to reference all new sections |
 
-## Technical Summary
+## Technical Details
 
-- **Grid:** `grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch`
-- **Cards:** `w-full min-w-0 rounded-2xl border flex flex-col items-center justify-center min-h-[120px] overflow-hidden`
-- **Typography:** Centered with `text-center` on each text element
-- **Height consistency:** `items-stretch` on grid + `min-h-[120px]` on cards ensures uniform height
+- All new charts use `isAnimationActive={false}` per project convention
+- All new stat cards use the shared `StatCard` and `StatCardGrid` components
+- Consistent chart styling: `bg-card/30 border border-border/30 rounded-xl p-6`
+- Tooltip styling matches existing pattern
+- Data sourced from StreamHatchet 2025, TwitchTracker, and cross-referenced industry reports (Teleprompter.com, Adam Connell compilations)
+
+## Expected Result
+
+- A comprehensive, data-rich dashboard that positions Beta Ads as an authoritative source on Twitch statistics
+- All stat cards render consistently across mobile and desktop
+- 10+ interactive chart sections instead of the current 5
+- Better SEO value due to richer content
+- More reasons for media agencies and brands to engage with the page
 
