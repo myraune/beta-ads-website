@@ -87,6 +87,7 @@ export default function PlatformComparisonDashboard() {
                   outerRadius={110}
                   dataKey="value"
                   label={({ name, value }) => `${name}: ${value}%`}
+                  isAnimationActive={false}
                 >
                   {marketShareData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
@@ -129,7 +130,7 @@ export default function PlatformComparisonDashboard() {
                   contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))' }}
                   formatter={(value: number, name: string, props: any) => [`${value}B hours (${props.payload.change})`, 'Watched']}
                 />
-                <Bar dataKey="hours" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="hours" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} isAnimationActive={false} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -152,9 +153,9 @@ export default function PlatformComparisonDashboard() {
                   formatter={(value) => [`${value}%`, '']}
                   contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))' }}
                 />
-                <Bar dataKey="twitch" name="Twitch" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
-                <Bar dataKey="youtube" name="YouTube" fill="hsl(var(--chart-2))" radius={[4, 4, 0, 0]} />
-                <Bar dataKey="kick" name="Kick" fill="hsl(var(--accent))" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="twitch" name="Twitch" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} isAnimationActive={false} />
+                <Bar dataKey="youtube" name="YouTube" fill="hsl(var(--chart-2))" radius={[4, 4, 0, 0]} isAnimationActive={false} />
+                <Bar dataKey="kick" name="Kick" fill="hsl(var(--accent))" radius={[4, 4, 0, 0]} isAnimationActive={false} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -187,9 +188,9 @@ export default function PlatformComparisonDashboard() {
               <RadarChart data={radarData}>
                 <PolarGrid stroke="hsl(var(--border))" />
                 <PolarAngleAxis dataKey="metric" tick={{ fill: 'hsl(var(--muted-foreground))', fontSize: 12 }} />
-                <Radar name="Twitch" dataKey="twitch" stroke="hsl(var(--primary))" fill="hsl(var(--primary))" fillOpacity={0.3} />
-                <Radar name="YouTube" dataKey="youtube" stroke="hsl(var(--chart-2))" fill="hsl(var(--chart-2))" fillOpacity={0.3} />
-                <Radar name="Kick" dataKey="kick" stroke="hsl(var(--accent))" fill="hsl(var(--accent))" fillOpacity={0.3} />
+                <Radar name="Twitch" dataKey="twitch" stroke="hsl(var(--primary))" fill="hsl(var(--primary))" fillOpacity={0.3} isAnimationActive={false} />
+                <Radar name="YouTube" dataKey="youtube" stroke="hsl(var(--chart-2))" fill="hsl(var(--chart-2))" fillOpacity={0.3} isAnimationActive={false} />
+                <Radar name="Kick" dataKey="kick" stroke="hsl(var(--accent))" fill="hsl(var(--accent))" fillOpacity={0.3} isAnimationActive={false} />
                 <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))' }} />
               </RadarChart>
             </ResponsiveContainer>

@@ -93,7 +93,7 @@ const TopGamesDashboard = () => {
                 contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
                 formatter={(value: number, name: string, props: any) => [`${value}M hours (${props.payload.change})`, 'Watched']}
               />
-              <Bar dataKey="hours" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} />
+              <Bar dataKey="hours" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} isAnimationActive={false} />
             </BarChart>
           </ResponsiveContainer>
           <p className="text-center text-sm text-muted-foreground mt-4">
@@ -116,7 +116,7 @@ const TopGamesDashboard = () => {
                   contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
                   formatter={(value: number, name: string, props: any) => [`${(value/1000).toFixed(1)}B hours (${props.payload.change})`, 'Watched']}
                 />
-                <Bar dataKey="hours" fill="hsl(var(--accent))" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="hours" fill="hsl(var(--accent))" radius={[4, 4, 0, 0]} isAnimationActive={false} />
               </BarChart>
             </ResponsiveContainer>
             <p className="text-center text-sm text-muted-foreground mt-4">
@@ -139,6 +139,7 @@ const TopGamesDashboard = () => {
                   outerRadius={100}
                   dataKey="value"
                   label={({ name, value }) => `${name}: ${value}%`}
+                  isAnimationActive={false}
                 >
                   {contentSplitData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
@@ -169,7 +170,7 @@ const TopGamesDashboard = () => {
                 contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
                 formatter={(value: number) => [`${value}B hours`, 'Watched']}
               />
-              <Bar dataKey="hours" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="hours" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} isAnimationActive={false} />
             </BarChart>
           </ResponsiveContainer>
           <p className="text-center text-sm text-muted-foreground mt-4">
@@ -191,7 +192,7 @@ const TopGamesDashboard = () => {
                 contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
                 formatter={(value: number) => [`${value}M hours`, 'Watched']}
               />
-              <Bar dataKey="hours" fill="hsl(var(--accent))" radius={[0, 4, 4, 0]} />
+              <Bar dataKey="hours" fill="hsl(var(--accent))" radius={[0, 4, 4, 0]} isAnimationActive={false} />
             </BarChart>
           </ResponsiveContainer>
         </div>
