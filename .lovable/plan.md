@@ -1,54 +1,52 @@
 
-# Plan: Fix TwitchStatsDashboard Chart Rendering Error
+# Plan: Fix Stat Card Number Overflow
 
-## Issue Identified
+## Issue
 
-The error occurs in the "Quarterly Hours Watched" chart section of the `TwitchStatsDashboard` component. This is a known Recharts issue where chart animations cause crashes during rapid visibility state changes (such as when components are lazy-loaded via React Suspense).
-
-The project already has a documented fix for this in `LiveDashboard.tsx` - disabling animations with `isAnimationActive={false}`.
-
-## Root Cause
-
-Recharts charts with animations enabled can crash when:
-- Components are lazy-loaded via `React.lazy()`
-- Visibility changes rapidly (intersection observer + count-up animations)
-- Multiple charts render simultaneously
-
-The `TwitchStatsDashboard`, `TopGamesDashboard`, and `PlatformComparisonDashboard` components all lack the `isAnimationActive={false}` prop that prevents these crashes.
+The animated stat cards in the TwitchStatsDashboard show numbers overflowing outside their container boxes on smaller screens. This happens because:
+- The grid uses `grid-cols-2` on mobile, making cards narrower
+- Font size `text-3xl lg:text-4xl` is too large for narrow cards
+- No text truncation or responsive sizing is applied
 
 ## Solution
 
-Add `isAnimationActive={false}` to all chart elements in the affected dashboard components:
+Update the `AnimatedStatCard` component styling to:
+1. Use responsive font sizes that scale down on smaller screens
+2. Add `overflow-hidden` to prevent text escaping the container
+3. Use `min-w-0` to allow flex/grid items to shrink properly
+4. Adjust padding for smaller screens
 
-### Files to Modify
+## File to Modify
 
-| File | Charts to Update |
-|------|------------------|
-| `src/components/blog/TwitchStatsDashboard.tsx` | Area, Pie (x3), Bar |
-| `src/components/blog/TopGamesDashboard.tsx` | Bar, Pie (x2) |
-| `src/components/blog/PlatformComparisonDashboard.tsx` | Bar (x2), Pie, Radar |
+`src/components/blog/TwitchStatsDashboard.tsx`
 
-### Changes Per Component
+## Changes
 
-**TwitchStatsDashboard.tsx:**
-- Line 104: `<Area ... isAnimationActive={false} />`
-- Lines 120-131, 146-157, 177-188: `<Pie ... isAnimationActive={false} />`
-- Line 214: `<Bar ... isAnimationActive={false} />`
+Update the AnimatedStatCard component (lines 59-67):
 
-**TopGamesDashboard.tsx:**
-- All `<Bar>` and `<Pie>` components need `isAnimationActive={false}`
+```tsx
+return (
+  <div ref={ref} className="bg-card/50 border border-border/30 rounded-xl p-4 lg:p-6 text-center min-w-0 overflow-hidden">
+    <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2 truncate">
+      {displayValue}{suffix}
+    </div>
+    <div className="text-xs sm:text-sm text-muted-foreground">{label}</div>
+    {trend && <div className="text-xs text-muted-foreground mt-1">{trend}</div>}
+  </div>
+);
+```
 
-**PlatformComparisonDashboard.tsx:**
-- All `<Bar>`, `<Pie>`, and `<Radar>` components need `isAnimationActive={false}`
+## Technical Details
+
+| Property | Before | After |
+|----------|--------|-------|
+| Container padding | `p-6` | `p-4 lg:p-6` |
+| Container overflow | none | `overflow-hidden min-w-0` |
+| Number font size | `text-3xl lg:text-4xl` | `text-2xl sm:text-3xl lg:text-4xl` |
+| Label font size | `text-sm` | `text-xs sm:text-sm` |
 
 ## Expected Result
 
-After this fix:
-- Charts will render without crashing on lazy-load
-- The error dialog will no longer appear
-- All dashboard visualizations will display correctly
-- Slight trade-off: no entrance animations on charts (acceptable for stability)
-
-## Technical Notes
-
-This follows the existing pattern established in `LiveDashboard.tsx` which already uses `isAnimationActive={false}` for the same reason.
+- Numbers will stay within card boundaries on all screen sizes
+- Cards will scale gracefully from mobile to desktop
+- Visual hierarchy is preserved with proportional scaling
