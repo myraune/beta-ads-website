@@ -43,7 +43,7 @@ interface AnimatedStatCardProps {
 }
 
 const AnimatedStatCard = ({ value, label, sublabel, suffix = '', decimals = 0, trend }: AnimatedStatCardProps) => {
-  const [ref, isVisible] = useInView({ threshold: 0.3 });
+  const [ref, isVisible] = useInView<HTMLDivElement>({ threshold: 0.3 });
   const { displayValue } = useCountUp(value, isVisible, { duration: 2000, decimals });
   
   return (
