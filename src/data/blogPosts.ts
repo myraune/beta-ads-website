@@ -551,62 +551,85 @@ Ota yhteyttä pohjoismaiseen tiimiimme saadaksesi ilmaisen konsultaation ja rä�
   {
     id: "twitch-statistics-2025-global-insights",
     slug: "twitch-statistics-2025-global-insights",
-    title: "Twitch Statistics 2025: Global Platform Insights for Advertisers",
-    excerpt: "Comprehensive data dashboard with user growth, demographics, revenue breakdown, and geographic distribution for Twitch advertising.",
+    title: "Twitch Statistics 2025: 19.2B Hours, Market Share & Platform Trends",
+    excerpt: "StreamHatchet 2025 data: 19.2B hours watched (-8.9% YoY), market share at 52.8%, and non-gaming content growing to 22% of Twitch.",
     content: `
-## Platform Overview
+## Platform Overview 2025
 
-Twitch continues to dominate the live streaming market in 2025. This dashboard presents key platform statistics essential for advertisers planning campaigns on the platform.
+Twitch remains the leading live streaming platform, but 2025 marked significant shifts. According to the StreamHatchet 2025 Yearly Report, Twitch recorded **19.2 billion hours watched**, a **-8.9% YoY decline** from 2024.
 
-## Key Takeaways
+## Key Statistics (StreamHatchet 2025)
 
-- **240 million** monthly active users globally
-- **35 million** daily active users
-- **2.29 million** average concurrent viewers
-- **7.3 million** active streamers
-- **$1.78 billion** estimated annual revenue
+- **19.2 billion** hours watched in 2025
+- **52.8%** global market share (-8.3 percentage points YoY)
+- **19.7 million** unique channels (-0.5% YoY)
+- **22%** of content is now non-gaming
+
+## Market Share Decline
+
+Twitch's market share dropped from 61.1% in 2024 to 52.8% in 2025. This decline was primarily driven by:
+- Platform-wide viewbotting crackdown removing artificial viewership
+- Top 2024 creators saw **-14.5% viewership decline**
+- Q4 2025 was the lowest viewership quarter since Q1 2020 (4.4B hours)
+
+## Non-Gaming Content Growth
+
+Non-gaming content now represents 22% of Twitch, up from 20% in 2024:
+- **Just Chatting**: +25% YoY growth
+- **IRL Streams**: +19% YoY growth
+- Weekly viewership peaked at **810M hours** in July 2025
 
 ## Demographics Insights
 
-The platform skews young and male, but female viewership has grown significantly:
-- 65% male, 35% female (up from 25% in 2020)
-- 34% aged 18-24 (core demographic)
-- 27% aged 25-34 (secondary target)
-- High-income, educated audience
+The platform continues to skew young:
+- 65% male, 35% female
+- 73% of viewers are under 35
+- High engagement rates with average session times exceeding traditional media
 
 ## Geographic Distribution
 
-The United States leads with 23.1% of users, followed by Germany (8.6%), Brazil (7.2%), and Russia (6.8%). The Nordic region represents approximately 2.3% of global traffic, with high engagement rates.
+The United States leads with 23.1% of users, followed by Germany (8.6%), Brazil (7.2%), and Russia (6.8%). The Nordic region represents approximately 2.3% of global traffic with high engagement rates.
 
-## Revenue Model
+## Quarterly Breakdown 2025
 
-Twitch generates revenue through subscriptions (58%), advertising (33%), and Bits/donations (9%). Native advertising is the fastest-growing segment.
+| Quarter | Hours Watched | Change |
+|---------|---------------|--------|
+| Q1 2025 | 5.2B | -3.2% |
+| Q2 2025 | 4.8B | -8.5% |
+| Q3 2025 | 4.8B | -10.1% |
+| Q4 2025 | 4.4B | -13.8% |
+
+## What This Means for Advertisers
+
+Despite the viewership decline, Twitch remains the most engaged live streaming audience. The shift toward non-gaming content opens opportunities for brands outside gaming, while the viewbotting cleanup means more authentic reach metrics.
+
+*Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
     `,
-    date: "Dec 14, 2025",
-    dateISO: "2025-12-14",
+    date: "Feb 5, 2026",
+    dateISO: "2026-02-05",
     readTime: "8 min read",
     image: "/lovable-uploads/blog-twitch-logo.webp",
     category: "Statistics & Data",
-    tags: ["twitch", "statistics", "data", "advertising", "2025"],
+    tags: ["twitch", "statistics", "data", "advertising", "2025", "streamhatchet"],
     hasDashboard: "twitch-stats",
-    relatedSlugs: ["most-watched-twitch-games-2025", "twitch-vs-youtube-gaming-2025", "twitch-advertising-benchmarks-2025"],
+    relatedSlugs: ["most-watched-twitch-games-2025", "twitch-vs-youtube-gaming-2025", "kick-streaming-growth-2025"],
     seoTitle: {
-      en: "Twitch Statistics 2025: 240M Users, Demographics & Ad Trends | Beta Ads",
-      no: "Twitch-statistikk 2025: 240M brukere, demografi og annonsetrender | Beta Ads",
-      sv: "Twitch-statistik 2025: 240M användare, demografi och annonstrender | Beta Ads",
-      fi: "Twitch-tilastot 2025: 240M käyttäjää, demografiat ja mainostrendit | Beta Ads"
+      en: "Twitch Statistics 2025: 19.2B Hours, Market Share Decline & Trends | Beta Ads",
+      no: "Twitch-statistikk 2025: 19,2B timer, markedsandel nedgang | Beta Ads",
+      sv: "Twitch-statistik 2025: 19,2B timmar, marknadsandelsminskning | Beta Ads",
+      fi: "Twitch-tilastot 2025: 19,2B tuntia, markkinaosuuden lasku | Beta Ads"
     },
     seoDescription: {
-      en: "Live dashboard: 240M monthly users, 35M daily active, $1.78B revenue. Get the demographics and ad benchmarks that top advertisers use.",
-      no: "Live dashboard: 240M månedlige brukere, 35M daglig aktive, $1,78B inntekter. Få demografien og annonsebenchmarks som toppannonsører bruker.",
-      sv: "Live dashboard: 240M månatliga användare, 35M dagligt aktiva, $1,78B intäkter. Få demografin och annonsbenchmarks som toppannonsörer använder.",
-      fi: "Live dashboard: 240M kuukausittaista käyttäjää, 35M päivittäin aktiivista, $1,78B tulot. Hanki demografiat ja mainosbenchmarkit, joita huippumainostajat käyttävät."
+      en: "2025 Twitch data from StreamHatchet: 19.2B hours watched (-8.9%), market share at 52.8%. See viewbotting impact, non-gaming growth to 22%, and platform trends.",
+      no: "2025 Twitch-data fra StreamHatchet: 19,2B timer sett (-8,9%), markedsandel på 52,8%. Se viewbotting-påvirkning og plattformtrender.",
+      sv: "2025 Twitch-data från StreamHatchet: 19,2B timmar tittade (-8,9%), marknadsandel på 52,8%. Se viewbotting-påverkan och plattformstrender.",
+      fi: "2025 Twitch-data StreamHatchetistä: 19,2B tuntia katsottu (-8,9%), markkinaosuus 52,8%. Katso viewbotting-vaikutus ja alustatrendit."
     },
     seoKeywords: {
-      en: ["twitch statistics 2025", "twitch user data", "twitch demographics", "twitch advertising stats", "streaming platform data"],
-      no: ["twitch statistikk 2025", "twitch brukerdata", "twitch demografi", "twitch annonsestatistikk", "strømme plattformdata"],
-      sv: ["twitch statistik 2025", "twitch användardata", "twitch demografi", "twitch annonsstatistik", "streaming plattformsdata"],
-      fi: ["twitch tilastot 2025", "twitch käyttäjätiedot", "twitch demografiat", "twitch mainostilastot", "suoratoistoalustan tiedot"]
+      en: ["twitch statistics 2025", "twitch hours watched", "twitch market share", "streamhatchet report", "twitch viewbotting"],
+      no: ["twitch statistikk 2025", "twitch timer sett", "twitch markedsandel"],
+      sv: ["twitch statistik 2025", "twitch timmar tittade", "twitch marknadsandel"],
+      fi: ["twitch tilastot 2025", "twitch tunnit katsottu", "twitch markkinaosuus"]
     }
   },
   {
@@ -672,132 +695,315 @@ Norwegian streamers offer unique advantages for advertisers:
   {
     id: "most-watched-twitch-games-2025",
     slug: "most-watched-twitch-games-2025",
-    title: "Most Watched Twitch Games & Categories 2025",
-    excerpt: "Interactive dashboard showing top games, content categories, leading streamers by followers, and yearly viewing trends on Twitch.",
+    title: "Most Watched Twitch Games 2025: LoL, GTA V & Roblox +212% Growth",
+    excerpt: "StreamHatchet 2025: League of Legends leads with 1.95B hours, GTA V at 1.90B, and Roblox explodes with +212% YoY growth driven by viral experiences.",
     content: `
-## Content Landscape
+## Top Games on Twitch 2025
 
-The Twitch content landscape continues to evolve, with Just Chatting rivaling gaming as a dominant category. This dashboard presents the complete picture of what viewers watch.
+According to the StreamHatchet 2025 Yearly Report, the gaming landscape on Twitch saw significant shifts, with established titles maintaining dominance while Roblox emerged as the breakout success story.
 
-## Top Categories
+## Top 10 Games by Hours Watched (2025)
 
-Just Chatting leads with 3.2 billion hours watched, followed by League of Legends (1.67B), Counter-Strike 2 (1.45B), and GTA V (1.21B).
+| Rank | Game | Hours Watched | YoY Change |
+|------|------|---------------|------------|
+| 1 | League of Legends | 1.95B | +4% |
+| 2 | GTA V | 1.90B | -5% |
+| 3 | Counter-Strike | 1.28B | +29% |
+| 4 | VALORANT | 939M | -14% |
+| 5 | Minecraft | 850M | +10% |
+| 6 | Dota 2 | 743M | -15% |
+| 7 | Fortnite | 691M | -7% |
+| 8 | Mobile Legends | 524M | +4% |
+| 9 | Roblox | 515M | +212% |
+| 10 | Garena Free Fire | 461M | - |
 
-## Gaming vs Non-Gaming
+## The Roblox Phenomenon
 
-The split has shifted significantly:
-- Gaming: 68%
-- Non-Gaming: 32%
+Roblox was the breakout story of 2025, growing **+212% YoY**. This explosion was driven by viral experiences, particularly:
+- **"Grow A Garden"**: 113.7M hours watched alone
+- User-generated content driving engagement
+- Cross-generational appeal expanding the viewer base
 
-This represents a major opportunity for brands outside the gaming industry.
+## Top Gaming Genres 2025
 
-## Top Streamers
+- **First-Person Shooters**: 4.6B hours (+6.7% YoY)
+- **Action-Adventure**: Led by GTA V with 1.90B hours
+- **MOBA**: Led by League of Legends with 1.95B hours
+- **Battle Royale**: Fortnite continues at 691M despite -7% decline
 
-The global leaderboard shows Ninja (19.2M followers), ibai (17.2M), AuronPlay (16.7M), and Kai Cenat (16.2M) as the platform's biggest names.
+## Gaming vs Non-Gaming Split
 
-## Viewing Trends
+The content split on Twitch has shifted significantly:
+- **Gaming**: 78%
+- **Non-Gaming**: 22% (up from 20% in 2024)
 
-2025 shows recovery in hours watched after a post-pandemic decline, with 23.2 billion hours projected for the full year.
+Just Chatting remains the overall leader when including non-gaming content.
+
+## Top New Game Releases 2025
+
+| Game | Hours Watched | Notes |
+|------|---------------|-------|
+| ARC Raiders | 129M | Biggest new title launch |
+| Escape From Tarkov | 104M | Arena mode resurgence |
+| Monster Hunter Wilds | 74M | Strong franchise debut |
+
+## Platform Comparison: Gaming Preferences
+
+Different platforms show distinct gaming preferences:
+- **Twitch**: FPS (23%), MOBA (20%), Action-Adventure (15%)
+- **YouTube Gaming**: FPS (17%), Action-Adventure (15%), Battle Royale (14%)
+- **Kick**: Action-Adventure, Gambling (11%), FPS (11%)
+
+*Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
     `,
-    date: "Dec 12, 2025",
-    dateISO: "2025-12-12",
+    date: "Feb 5, 2026",
+    dateISO: "2026-02-05",
     readTime: "7 min read",
     image: "/lovable-uploads/blog-dj-streaming.webp",
     category: "Trends",
-    tags: ["twitch", "games", "categories", "trends", "2025"],
+    tags: ["twitch", "games", "league-of-legends", "roblox", "2025", "streamhatchet"],
     hasDashboard: "top-games",
-    relatedSlugs: ["twitch-statistics-2025-global-insights", "nordic-twitch-market-2025", "twitch-vs-youtube-gaming-2025"],
+    relatedSlugs: ["twitch-statistics-2025-global-insights", "top-streaming-games-2025", "twitch-vs-youtube-gaming-2025"],
     seoTitle: {
-      en: "Top 20 Twitch Games 2025: Hours Watched & Trending Categories | Beta Ads",
-      no: "Topp 20 Twitch-spill 2025: Timer sett og trendende kategorier | Beta Ads",
-      sv: "Topp 20 Twitch-spel 2025: Timmar tittade och trendande kategorier | Beta Ads",
-      fi: "Top 20 Twitch-pelit 2025: Katsotut tunnit ja trendaavat kategoriat | Beta Ads"
+      en: "Top Twitch Games 2025: LoL 1.95B, GTA V 1.90B, Roblox +212% | Beta Ads",
+      no: "Topp Twitch-spill 2025: LoL 1,95B, GTA V 1,90B, Roblox +212% | Beta Ads",
+      sv: "Topp Twitch-spel 2025: LoL 1,95B, GTA V 1,90B, Roblox +212% | Beta Ads",
+      fi: "Top Twitch-pelit 2025: LoL 1,95B, GTA V 1,90B, Roblox +212% | Beta Ads"
     },
     seoDescription: {
-      en: "Just Chatting leads with 3.2B hours. See the full ranking of games, top streamers, and year-over-year viewing trends advertisers need.",
-      no: "Just Chatting leder med 3,2B timer. Se full rangering av spill, topp streamere og årlige seertrender annonsører trenger.",
-      sv: "Just Chatting leder med 3,2B timmar. Se full ranking av spel, topp streamers och årliga tittartrender annonsörer behöver.",
-      fi: "Just Chatting johtaa 3,2B tunnilla. Katso täydellinen pelien ranking, parhaat streamaajat ja vuosittaiset katselutrendit mainostajille."
+      en: "StreamHatchet 2025 data: League of Legends leads with 1.95B hours, Roblox explodes +212%. Full top 10 games ranking with YoY changes.",
+      no: "StreamHatchet 2025-data: League of Legends leder med 1,95B timer, Roblox eksploderer +212%. Full topp 10-rangering.",
+      sv: "StreamHatchet 2025-data: League of Legends leder med 1,95B timmar, Roblox exploderar +212%. Full topp 10-ranking.",
+      fi: "StreamHatchet 2025-data: League of Legends johtaa 1,95B tunnilla, Roblox räjähtää +212%. Täydellinen top 10 -ranking."
     },
     seoKeywords: {
-      en: ["twitch games 2025", "most watched twitch categories", "top twitch streamers followers", "twitch viewing trends", "streaming games statistics"],
-      no: ["twitch spill 2025", "mest sette twitch kategorier", "topp twitch streamere følgere", "twitch seertrender", "streaming spill statistikk"],
-      sv: ["twitch spel 2025", "mest tittade twitch kategorier", "topp twitch streamers följare", "twitch tittartrender", "streaming spel statistik"],
-      fi: ["twitch pelit 2025", "katsotuimmat twitch kategoriat", "parhaat twitch streamaajat seuraajat", "twitch katselutrendit", "streaming pelit tilastot"]
+      en: ["twitch games 2025", "most watched twitch games", "roblox growth", "league of legends twitch", "streamhatchet gaming"],
+      no: ["twitch spill 2025", "mest sette twitch spill", "roblox vekst"],
+      sv: ["twitch spel 2025", "mest tittade twitch spel", "roblox tillväxt"],
+      fi: ["twitch pelit 2025", "katsotuimmat twitch pelit", "roblox kasvu"]
     }
   },
   {
     id: "nordic-twitch-market-2025",
     slug: "nordic-twitch-market-2025",
-    title: "Nordic Twitch Market Overview 2025",
-    excerpt: "Interactive dashboard comparing Twitch markets across Sweden, Norway, Denmark, and Finland with growth trends and viewer analytics.",
-    content: "## Nordic Market Overview\n\nThe Nordic Twitch market represents one of the most engaged streaming audiences globally.",
-    date: "Dec 14, 2025",
-    dateISO: "2025-12-14",
+    title: "Nordic Twitch Market Overview 2025: Regional Streaming Insights",
+    excerpt: "Global streaming hit 36.4B hours in 2025. Nordic region represents ~2.3% of traffic with high engagement. Non-gaming content diversifying brand opportunities.",
+    content: `
+## Nordic Market in Global Context
+
+According to the StreamHatchet 2025 Yearly Report, global live streaming reached **36.4 billion hours** watched (+6% YoY). The Nordic region represents approximately 2.3% of global traffic, but with significantly higher engagement rates than average.
+
+## Key Regional Insights
+
+- Nordic viewers average **longer session times** than global average
+- High purchasing power demographic
+- Strong adoption of non-gaming content
+- Premium advertising market with high CPMs
+
+## Non-Gaming Opportunity
+
+With non-gaming content growing globally (22% of Twitch), Nordic markets are seeing similar trends:
+- Just Chatting: +25% YoY growth
+- IRL content: +19% YoY growth
+- Music and creative streams gaining traction
+
+This opens opportunities for non-endemic brands in finance, lifestyle, and consumer goods.
+
+## Platform Diversification
+
+Nordic creators are diversifying across platforms:
+- Twitch remains primary for gaming
+- YouTube Gaming growing for VOD discovery
+- Kick emerging for creator experimentation
+
+*Data context: StreamHatchet 2025 Yearly Live Streaming Trends Report*
+    `,
+    date: "Feb 5, 2026",
+    dateISO: "2026-02-05",
     readTime: "5 min read",
     image: "/lovable-uploads/blog-gaming-setup.jpg",
     category: "Nordic Insights",
     tags: ["nordic", "twitch", "market", "analytics", "2025"],
     hasDashboard: "nordic-market",
-    relatedSlugs: ["twitch-statistics-2025-global-insights", "norwegian-twitch-streamers-2025-analytics", "swedish-twitch-streamers-2025"],
+    relatedSlugs: ["twitch-statistics-2025-global-insights", "norwegian-twitch-streamers-2025-analytics", "non-gaming-content-twitch-2025"],
     seoTitle: { 
-      en: "Nordic Twitch Market 2025: Sweden, Norway, Finland Growth Data | Beta Ads", 
-      no: "Nordisk Twitch-marked 2025: Sverige, Norge, Finland vekstdata | Beta Ads", 
-      sv: "Nordisk Twitch-marknad 2025: Sverige, Norge, Finland tillväxtdata | Beta Ads", 
-      fi: "Pohjoismainen Twitch-markkina 2025: Ruotsi, Norja, Suomi kasvudata | Beta Ads" 
+      en: "Nordic Twitch Market 2025: 36.4B Global Hours, Regional Insights | Beta Ads", 
+      no: "Nordisk Twitch-marked 2025: 36,4B globale timer, regionale innsikter | Beta Ads", 
+      sv: "Nordisk Twitch-marknad 2025: 36,4B globala timmar, regionala insikter | Beta Ads", 
+      fi: "Pohjoismainen Twitch-markkina 2025: 36,4B globaalia tuntia, alueelliset näkemykset | Beta Ads" 
     },
     seoDescription: { 
-      en: "Compare viewership across all Nordic countries. Growth rates, top streamers, and advertising opportunities in the Scandinavian market.", 
-      no: "Sammenlign seertall på tvers av alle nordiske land. Vekstrater, topp streamere og annonsemuligheter i det skandinaviske markedet.", 
-      sv: "Jämför tittarsiffror över alla nordiska länder. Tillväxttakt, topp streamers och annonsmöjligheter på den skandinaviska marknaden.", 
-      fi: "Vertaa katsojalukuja kaikissa Pohjoismaissa. Kasvuvauhti, parhaat streamaajat ja mainosmahdollisuudet pohjoismaisilla markkinoilla." 
+      en: "Global streaming hit 36.4B hours in 2025. Nordic region at 2.3% with high engagement. Non-gaming content opens new brand opportunities.", 
+      no: "Global streaming nådde 36,4B timer i 2025. Nordisk region med høyt engasjement.", 
+      sv: "Global streaming nådde 36,4B timmar 2025. Nordisk region med högt engagemang.", 
+      fi: "Globaali streaming saavutti 36,4B tuntia 2025. Pohjoismainen alue korkealla sitoutumisella." 
     },
-    seoKeywords: { en: ["nordic twitch", "scandinavian streaming", "sweden twitch", "norway twitch", "finland twitch"], no: ["nordisk twitch", "skandinavisk streaming"], sv: ["nordisk twitch", "skandinavisk streaming"], fi: ["pohjoismainen twitch", "skandinaavinen streaming"] }
+    seoKeywords: { en: ["nordic twitch 2025", "scandinavian streaming market", "sweden twitch", "norway twitch", "finland twitch"], no: ["nordisk twitch 2025", "skandinavisk streaming"], sv: ["nordisk twitch 2025", "skandinavisk streaming"], fi: ["pohjoismainen twitch 2025", "skandinaavinen streaming"] }
   },
   {
     id: "twitch-vs-youtube-gaming-2025",
     slug: "twitch-vs-youtube-gaming-2025",
-    title: "Twitch vs YouTube Gaming: Platform Comparison 2025",
-    excerpt: "Side-by-side comparison of Twitch and YouTube Gaming with metrics on users, engagement, and advertising effectiveness.",
-    content: "## Platform Comparison\n\nComparing the two major live streaming platforms for advertisers.",
-    date: "Dec 14, 2025",
-    dateISO: "2025-12-14",
+    title: "Twitch vs YouTube vs Kick 2025: Platform Market Share Comparison",
+    excerpt: "StreamHatchet 2025: Twitch at 52.8% (-8.3pts), YouTube Gaming at 24.3% (+12%), Kick explodes to 12.4% (+131%). Complete platform comparison.",
+    content: `
+## Platform Market Share 2025
+
+The StreamHatchet 2025 Yearly Report reveals a shifting landscape in live streaming, with Twitch losing ground while YouTube Gaming and Kick gain momentum.
+
+## Market Share Breakdown
+
+| Platform | 2025 Hours | YoY Change | Market Share |
+|----------|------------|------------|--------------|
+| Twitch | 19.2B | -8.9% | 52.8% |
+| YouTube Gaming | 8.8B | +12% | 24.3% |
+| Kick | 4.5B | +131% | 12.4% |
+| Others | 3.9B | - | 10.5% |
+
+**Total Industry**: 36.4 billion hours watched (+6% YoY)
+
+## YouTube Gaming: Record Year
+
+YouTube Gaming achieved its **highest annual viewership ever** in 2025:
+- **8.8 billion hours** watched (+12% YoY)
+- **+54% increase** in unique channels
+- **+71% growth** in sponsored content (10.8M hours)
+- Strong in Southeast Asian markets (Mobile Legends, Free Fire)
+
+## Kick: The Breakout Platform
+
+Kick's explosive growth made it the story of 2025:
+- **4.5 billion hours** watched (+131% YoY)
+- First platform to surpass 1B quarterly hours in Q3 2025
+- **+68%** growth in unique channels
+- 64% gaming content, 36% non-gaming
+
+## Platform Genre Preferences
+
+Each platform attracts different content preferences:
+
+### Twitch
+- FPS: 23%
+- MOBA: 20%
+- Action-Adventure: 15%
+
+### YouTube Gaming
+- FPS: 17%
+- Action-Adventure: 15%
+- Battle Royale: 14%
+
+### Kick
+- Action-Adventure: 15%
+- Gambling: 11%
+- FPS: 11%
+
+## Sponsored Content Comparison
+
+YouTube Gaming saw the largest growth in sponsored content:
+- YouTube Gaming: +71% YoY in sponsored hours
+- Cross-platform creators increasingly diversifying
+
+## For Advertisers
+
+- **Twitch**: Best for engagement and younger demographics
+- **YouTube Gaming**: Best for reach and discoverability
+- **Kick**: Emerging platform with rapid creator growth
+
+*Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
+    `,
+    date: "Feb 5, 2026",
+    dateISO: "2026-02-05",
     readTime: "6 min read",
     image: "/lovable-uploads/blog-twitch-vs-youtube.webp",
     category: "Industry Insights",
-    tags: ["twitch", "youtube", "comparison", "platforms", "2025"],
+    tags: ["twitch", "youtube", "kick", "comparison", "platforms", "2025"],
     hasDashboard: "platform-comparison",
-    relatedSlugs: ["twitch-statistics-2025-global-insights", "twitch-advertising-benchmarks-2025", "most-watched-twitch-games-2025"],
+    relatedSlugs: ["twitch-statistics-2025-global-insights", "kick-streaming-growth-2025", "most-watched-twitch-games-2025"],
     seoTitle: { 
-      en: "Twitch vs YouTube Gaming 2025: Which Platform Converts Better? | Beta Ads", 
-      no: "Twitch vs YouTube Gaming 2025: Hvilken plattform konverterer best? | Beta Ads", 
-      sv: "Twitch vs YouTube Gaming 2025: Vilken plattform konverterar bäst? | Beta Ads", 
-      fi: "Twitch vs YouTube Gaming 2025: Kumpi alusta konvertoi paremmin? | Beta Ads" 
+      en: "Twitch vs YouTube vs Kick 2025: Market Share & Platform Data | Beta Ads", 
+      no: "Twitch vs YouTube vs Kick 2025: Markedsandel og plattformdata | Beta Ads", 
+      sv: "Twitch vs YouTube vs Kick 2025: Marknadsandel och plattformsdata | Beta Ads", 
+      fi: "Twitch vs YouTube vs Kick 2025: Markkinaosuus ja alustadata | Beta Ads" 
     },
     seoDescription: { 
-      en: "Head-to-head comparison: user metrics, engagement rates, and ROI data. Find out which platform delivers better results for your ad spend.", 
-      no: "Direkte sammenligning: brukertall, engasjementsrater og ROI-data. Finn ut hvilken plattform gir bedre resultater for annonsebudsjettet.", 
-      sv: "Direkt jämförelse: användarmått, engagemangsfrekvenser och ROI-data. Ta reda på vilken plattform ger bättre resultat för din annonsbudget.", 
-      fi: "Suora vertailu: käyttäjämittarit, sitoutumisasteet ja ROI-data. Selvitä kumpi alusta tuottaa parempia tuloksia mainosbudjetillesi." 
+      en: "StreamHatchet 2025: Twitch 52.8%, YouTube Gaming 24.3% (+12%), Kick 12.4% (+131%). Full platform comparison with hours watched and trends.", 
+      no: "StreamHatchet 2025: Twitch 52,8%, YouTube Gaming 24,3% (+12%), Kick 12,4% (+131%). Full plattformsammenligning.", 
+      sv: "StreamHatchet 2025: Twitch 52,8%, YouTube Gaming 24,3% (+12%), Kick 12,4% (+131%). Full plattformsjämförelse.", 
+      fi: "StreamHatchet 2025: Twitch 52,8%, YouTube Gaming 24,3% (+12%), Kick 12,4% (+131%). Täydellinen alustavertailu." 
     },
-    seoKeywords: { en: ["twitch vs youtube", "streaming platforms comparison", "gaming platform roi", "youtube gaming vs twitch"], no: ["twitch vs youtube", "streaming plattformer"], sv: ["twitch vs youtube", "streaming plattformar"], fi: ["twitch vs youtube", "streaming alustat"] }
+    seoKeywords: { en: ["twitch vs youtube 2025", "kick streaming growth", "streaming platforms comparison", "youtube gaming market share"], no: ["twitch vs youtube 2025", "streaming plattformer"], sv: ["twitch vs youtube 2025", "streaming plattformar"], fi: ["twitch vs youtube 2025", "streaming alustat"] }
   },
   {
     id: "twitch-advertising-benchmarks-2025",
     slug: "twitch-advertising-benchmarks-2025",
-    title: "Twitch Advertising Benchmarks 2025",
-    excerpt: "CTR benchmarks, engagement rates, and ROI data for Twitch advertising across formats and industries.",
-    content: "## Advertising Benchmarks\n\nComprehensive benchmarks for Twitch advertising performance.",
-    date: "Dec 14, 2025",
-    dateISO: "2025-12-14",
+    title: "Twitch Advertising Benchmarks 2025: Brand Mentions & Sponsored Content",
+    excerpt: "StreamHatchet 2025: Top brand mentions on Twitch (Disney 1.7M chatters), +71% sponsored content growth on YouTube Gaming, and co-streaming driving 50% of esports viewership.",
+    content: `
+## Advertising Landscape 2025
+
+The StreamHatchet 2025 Yearly Report reveals key insights for advertisers looking to reach live streaming audiences.
+
+## Most Mentioned Brands on Twitch (By Unique Chatters)
+
+| Category | Brand | Unique Chatters |
+|----------|-------|-----------------|
+| Media | Marvel/Disney | 1.7M |
+| Retail | Disney | 1.5M |
+| Beverages | Coca-Cola | 1.2M |
+| Restaurants | KFC | 1.1M |
+| Automotive | BMW | 490K |
+| Apparel | Gucci | 434K |
+
+## Sponsored Content Trends
+
+YouTube Gaming saw the largest growth in sponsored content:
+- **+71% YoY** increase in sponsored content hours
+- **10.8 million hours** of sponsored content on YouTube Gaming
+- Cross-platform creator sponsorships increasingly common
+
+## Co-Streaming and Esports
+
+Co-streaming has become a major advertising vector:
+- **50% of esports viewership** comes from co-streamers (1.4B hours)
+- Top co-streamers: Caedrel (83M hours), Gaules (66M hours)
+- Brands increasingly sponsor co-stream events
+
+## CTR Benchmarks by Format
+
+| Ad Format | Average CTR | Top Performer CTR |
+|-----------|-------------|-------------------|
+| Native Overlays | 2.5-4.0% | 6.5% |
+| Chatbot Integration | 3.0-5.0% | 7.2% |
+| Full Sponsorship | 4.0-7.0% | 12% |
+| Pre-roll (Traditional) | 0.1-0.3% | 0.8% |
+
+## Key Advertising Insights
+
+1. **Native beats interruptive**: Native formats consistently outperform traditional pre-roll by 10-25x
+2. **Authenticity matters**: Streamers with genuine brand affinity drive 2-3x better results
+3. **Non-gaming opportunities**: 22% non-gaming content opens doors for non-endemic brands
+4. **Event-based peaks**: Major events (esports, marathons) drive 5-10x normal engagement
+
+## Platform Advertising Comparison
+
+| Platform | Best For | Key Advantage |
+|----------|----------|---------------|
+| Twitch | Engagement | Highest interaction rates |
+| YouTube Gaming | Reach | Largest total audience |
+| Kick | Early adopters | Lower CPM, growing audience |
+
+*Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
+    `,
+    date: "Feb 5, 2026",
+    dateISO: "2026-02-05",
     readTime: "7 min read",
     image: "/lovable-uploads/blog-twitch-overview.webp",
     category: "Statistics & Data",
-    tags: ["advertising", "benchmarks", "ctr", "roi", "engagement"],
+    tags: ["advertising", "benchmarks", "ctr", "roi", "engagement", "streamhatchet"],
     hasDashboard: "ad-benchmarks",
-    seoTitle: { en: "Twitch Advertising Benchmarks 2025 | CTR & ROI Data | Beta Ads", no: "Twitch Annonsering Benchmarks 2025 | Beta Ads", sv: "Twitch Reklam Benchmarks 2025 | Beta Ads", fi: "Twitch Mainonta Benchmarks 2025 | Beta Ads" },
-    seoDescription: { en: "Complete Twitch advertising benchmarks. CTR by format, engagement rates, and ROI comparison data.", no: "Komplette Twitch annonsering benchmarks.", sv: "Kompletta Twitch reklam benchmarks.", fi: "Täydelliset Twitch mainonta benchmarkit." },
-    seoKeywords: { en: ["twitch advertising benchmarks", "twitch ctr"], no: ["twitch benchmarks"], sv: ["twitch benchmarks"], fi: ["twitch benchmarks"] }
+    relatedSlugs: ["twitch-statistics-2025-global-insights", "twitch-vs-youtube-gaming-2025", "esports-viewership-2025"],
+    seoTitle: { en: "Twitch Advertising Benchmarks 2025: Brand Mentions & CTR Data | Beta Ads", no: "Twitch Annonsering Benchmarks 2025 | Beta Ads", sv: "Twitch Reklam Benchmarks 2025 | Beta Ads", fi: "Twitch Mainonta Benchmarks 2025 | Beta Ads" },
+    seoDescription: { en: "StreamHatchet 2025: Top brand mentions (Disney 1.7M), +71% sponsored content growth. Complete advertising benchmarks for live streaming.", no: "StreamHatchet 2025: Topp merkeomtaler, +71% sponset innholdsvekst. Komplette annonsebenchmarks.", sv: "StreamHatchet 2025: Topp varumärkesomnemningar, +71% sponsrat innehållstillväxt.", fi: "StreamHatchet 2025: Top brändimainaukset, +71% sponsoroidun sisällön kasvu." },
+    seoKeywords: { en: ["twitch advertising benchmarks 2025", "twitch brand mentions", "streaming sponsored content", "twitch ctr benchmarks"], no: ["twitch annonsering benchmarks"], sv: ["twitch reklam benchmarks"], fi: ["twitch mainonta benchmarks"] }
   },
   {
     id: "swedish-twitch-streamers-2025",
@@ -832,6 +1038,416 @@ The global leaderboard shows Ninja (19.2M followers), ibai (17.2M), AuronPlay (1
     seoTitle: { en: "Finnish Twitch Streamers 2025 | Analytics Dashboard | Beta Ads", no: "Finske Twitch-streamere 2025 | Beta Ads", sv: "Finska Twitch-streamers 2025 | Beta Ads", fi: "Suomalaiset Twitch-streamaajat 2025 | Beta Ads" },
     seoDescription: { en: "Top Finnish Twitch streamers analytics dashboard with viewership data.", no: "Topp finske Twitch-streamere analysedashbord.", sv: "Topp finska Twitch-streamers analysinstrumentpanel.", fi: "Suomalaisten Twitch-streamaajien analytiikkapaneeli." },
     seoKeywords: { en: ["finnish twitch streamers", "finland streaming"], no: ["finske twitch streamere"], sv: ["finska twitch streamers"], fi: ["suomalaiset twitch streamaajat"] }
+  },
+  {
+    id: "kick-streaming-growth-2025",
+    slug: "kick-streaming-growth-2025",
+    title: "Kick Streaming Statistics 2025: +131% Growth & Creator Boom",
+    excerpt: "StreamHatchet 2025: Kick hit 4.5B hours watched (+131% YoY), surpassed 1B quarterly hours for the first time, with 21 creators averaging 10K+ viewers.",
+    content: `
+## Kick's Explosive Growth
+
+The StreamHatchet 2025 Yearly Report reveals Kick as the breakout story of 2025, with **4.5 billion hours watched** representing a staggering **+131% YoY growth**.
+
+## Key Metrics 2025
+
+| Metric | 2025 Value | YoY Change |
+|--------|------------|------------|
+| Hours Watched | 4.5B | +131% |
+| Market Share | 12.4% | +5.6 pts |
+| Unique Channels | +68% | Growth |
+| Gaming Content | 64% | - |
+| Non-Gaming Content | 36% | - |
+
+## Quarterly Milestones
+
+Kick surpassed **1 billion quarterly hours** for the first time in Q3 2025, a significant platform milestone:
+- Q1 2025: 850M hours
+- Q2 2025: 950M hours
+- Q3 2025: 1.2B hours (first time over 1B)
+- Q4 2025: 1.5B hours
+
+## Creator Ecosystem Growth
+
+The creator landscape on Kick matured significantly:
+- **27%** of 1000+ hour creators now attract 100+ viewers (up from 14% in 2024)
+- **21 creators** averaged 10K+ viewers (up from 10 in 2024)
+- Top creators establishing permanent presences
+
+## Top Kick Creators 2025
+
+| Creator | Avg Viewers | Notes |
+|---------|-------------|-------|
+| korekore_ch | 53.9K | Japanese creator |
+| MrStivenTc | 39.5K | Latin American |
+| Maherco | 35K+ | +345% growth |
+
+## Content Categories on Kick
+
+Kick's content mix differs from Twitch:
+- **Action-Adventure**: 15%
+- **Gambling**: 11%
+- **FPS**: 11%
+- **Just Chatting**: +68% growth
+- **IRL**: +337% growth
+
+## What This Means for Advertisers
+
+Kick presents an emerging opportunity:
+- Lower CPMs than established platforms
+- Rapidly growing, engaged audience
+- Early mover advantage for brands
+- Strong creator relationships available
+
+The platform's authenticity-focused positioning attracts audiences skeptical of over-commercialized content.
+
+*Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
+    `,
+    date: "Feb 5, 2026",
+    dateISO: "2026-02-05",
+    readTime: "6 min read",
+    image: "/lovable-uploads/platform-kick.avif",
+    category: "Industry Insights",
+    tags: ["kick", "streaming", "growth", "2025", "streamhatchet"],
+    relatedSlugs: ["twitch-vs-youtube-gaming-2025", "twitch-statistics-2025-global-insights", "top-streamers-2025-rankings"],
+    seoTitle: { en: "Kick Streaming Statistics 2025: +131% Growth, 4.5B Hours | Beta Ads", no: "Kick Streaming Statistikk 2025: +131% vekst | Beta Ads", sv: "Kick Streaming Statistik 2025: +131% tillväxt | Beta Ads", fi: "Kick Streaming Tilastot 2025: +131% kasvu | Beta Ads" },
+    seoDescription: { en: "StreamHatchet 2025: Kick hit 4.5B hours watched (+131% YoY), 12.4% market share. Complete platform analysis with creator data and trends.", no: "StreamHatchet 2025: Kick nådde 4,5B timer sett (+131% YoY).", sv: "StreamHatchet 2025: Kick nådde 4,5B timmar (+131% YoY).", fi: "StreamHatchet 2025: Kick saavutti 4,5B tuntia (+131% YoY)." },
+    seoKeywords: { en: ["kick streaming 2025", "kick platform growth", "kick vs twitch", "kick streamers"], no: ["kick streaming 2025"], sv: ["kick streaming 2025"], fi: ["kick streaming 2025"] }
+  },
+  {
+    id: "top-streaming-games-2025",
+    slug: "top-streaming-games-2025",
+    title: "Top Streaming Games 2025: Complete Industry Report Across All Platforms",
+    excerpt: "StreamHatchet 2025: LoL leads with 1.95B hours, FPS genre dominates with 4.6B hours, and new releases like ARC Raiders (129M) reshape the landscape.",
+    content: `
+## Gaming Viewership Across All Platforms
+
+The StreamHatchet 2025 Yearly Report provides comprehensive data on gaming content across Twitch, YouTube Gaming, Kick, and other platforms.
+
+## Top 10 Games Globally (2025)
+
+| Rank | Game | Hours Watched | YoY Change |
+|------|------|---------------|------------|
+| 1 | League of Legends | 1.95B | +4% |
+| 2 | GTA V | 1.90B | -5% |
+| 3 | Counter-Strike | 1.28B | +29% |
+| 4 | VALORANT | 939M | -14% |
+| 5 | Minecraft | 850M | +10% |
+| 6 | Dota 2 | 743M | -15% |
+| 7 | Fortnite | 691M | -7% |
+| 8 | Mobile Legends | 524M | +4% |
+| 9 | Roblox | 515M | +212% |
+| 10 | Garena Free Fire | 461M | - |
+
+## Genre Breakdown 2025
+
+| Genre | Hours Watched | YoY Change |
+|-------|---------------|------------|
+| First-Person Shooters | 4.6B | +6.7% |
+| Action-Adventure | 2.8B | +3% |
+| MOBA | 2.7B | +1% |
+| Battle Royale | 1.8B | -5% |
+
+## Roblox: The Breakout Story
+
+Roblox grew **+212% YoY**, driven by viral user-generated experiences:
+- **"Grow A Garden"**: 113.7M hours watched
+- Cross-generational appeal
+- UGC content driving engagement
+
+## Top New Game Releases 2025
+
+| Game | Hours Watched | Launch Impact |
+|------|---------------|---------------|
+| ARC Raiders | 129M | Biggest new title |
+| Escape From Tarkov | 104M | Arena mode success |
+| Monster Hunter Wilds | 74M | Franchise strength |
+
+## Platform Gaming Preferences
+
+### Twitch
+- FPS: 23% | MOBA: 20% | Action-Adventure: 15%
+
+### YouTube Gaming  
+- FPS: 17% | Action-Adventure: 15% | Battle Royale: 14%
+
+### Kick
+- Action-Adventure: 15% | Gambling: 11% | FPS: 11%
+
+## Advertising Implications
+
+- **FPS games** offer the largest addressable audience (4.6B hours)
+- **Roblox growth** opens opportunities for family/youth brands
+- **New releases** provide launch window spikes for sponsorships
+- **Mobile games** remain strong in Southeast Asian markets
+
+*Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
+    `,
+    date: "Feb 5, 2026",
+    dateISO: "2026-02-05",
+    readTime: "7 min read",
+    image: "/lovable-uploads/blog-gaming-setup.jpg",
+    category: "Trends",
+    tags: ["games", "streaming", "league-of-legends", "roblox", "2025"],
+    relatedSlugs: ["most-watched-twitch-games-2025", "twitch-statistics-2025-global-insights", "twitch-vs-youtube-gaming-2025"],
+    seoTitle: { en: "Top Streaming Games 2025: LoL, GTA V, Roblox +212% | Beta Ads", no: "Topp Streaming Spill 2025 | Beta Ads", sv: "Topp Streaming Spel 2025 | Beta Ads", fi: "Top Streaming Pelit 2025 | Beta Ads" },
+    seoDescription: { en: "StreamHatchet 2025: Complete gaming report. LoL leads with 1.95B hours, FPS genre at 4.6B, Roblox explodes +212%. All platforms analyzed.", no: "StreamHatchet 2025: Komplett spillrapport.", sv: "StreamHatchet 2025: Komplett spelrapport.", fi: "StreamHatchet 2025: Täydellinen peliraportti." },
+    seoKeywords: { en: ["top streaming games 2025", "most watched games", "roblox streaming growth", "league of legends twitch"], no: ["topp streaming spill 2025"], sv: ["topp streaming spel 2025"], fi: ["top streaming pelit 2025"] }
+  },
+  {
+    id: "non-gaming-content-twitch-2025",
+    slug: "non-gaming-content-twitch-2025",
+    title: "Non-Gaming Content on Twitch 2025: Just Chatting +25% & IRL Growth",
+    excerpt: "StreamHatchet 2025: Non-gaming now 22% of Twitch. Just Chatting grew +25%, IRL +19%. Creator-led events hit 9.2M peak viewers.",
+    content: `
+## The Non-Gaming Revolution
+
+According to the StreamHatchet 2025 Yearly Report, non-gaming content now represents **22% of Twitch**, up from 20% in 2024. This shift opens significant opportunities for non-endemic brands.
+
+## Non-Gaming Growth Metrics
+
+| Category | Platform | YoY Change |
+|----------|----------|------------|
+| Just Chatting | Twitch | +25% |
+| IRL | Twitch | +19% |
+| Just Chatting | Kick | +68% |
+| IRL | Kick | +337% |
+| News & Politics | YouTube | +236% |
+
+## Platform Content Split (2025)
+
+### Twitch
+- Gaming: 78%
+- Non-Gaming: 22%
+
+### Kick
+- Gaming: 64%
+- Non-Gaming: 36%
+
+## Top Creator-Led Events 2025
+
+Major non-gaming events drove massive viewership:
+
+| Event | Platform | Peak Viewers |
+|-------|----------|--------------|
+| La Velada del Año 5 | Twitch | 9.2M |
+| La Casa de Alofoke 2 | YouTube | 3.6M |
+| Sidemen Charity Match | YouTube | 2.5M |
+| KaiCenat Mafiathon 3 | Twitch | 700K+ |
+
+## Why Non-Gaming Matters for Advertisers
+
+1. **Broader Audience**: Reaches viewers beyond core gaming demographic
+2. **Higher Engagement**: IRL and Just Chatting have longer average session times
+3. **Brand Safety**: Generally safer content for mainstream brands
+4. **Authenticity**: Viewers develop stronger parasocial relationships
+
+## Brand Opportunities
+
+Non-gaming content opens doors for:
+- **Consumer goods** brands
+- **Food & beverage** sponsorships
+- **Fashion & lifestyle** partnerships
+- **Financial services** targeting young professionals
+- **Travel & experiences** integration
+
+## Growth Trajectory
+
+The trend toward non-gaming content is accelerating:
+- 2023: 18% non-gaming
+- 2024: 20% non-gaming
+- 2025: 22% non-gaming
+- Projected 2026: 24-26% non-gaming
+
+*Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
+    `,
+    date: "Feb 5, 2026",
+    dateISO: "2026-02-05",
+    readTime: "6 min read",
+    image: "/lovable-uploads/blog-go-live.webp",
+    category: "Trends",
+    tags: ["non-gaming", "just-chatting", "irl", "twitch", "2025"],
+    relatedSlugs: ["twitch-statistics-2025-global-insights", "top-streamers-2025-rankings", "twitch-advertising-benchmarks-2025"],
+    seoTitle: { en: "Non-Gaming Content on Twitch 2025: Just Chatting +25%, IRL Growth | Beta Ads", no: "Ikke-gaming innhold på Twitch 2025 | Beta Ads", sv: "Icke-gaming innehåll på Twitch 2025 | Beta Ads", fi: "Ei-pelisisältö Twitchissä 2025 | Beta Ads" },
+    seoDescription: { en: "StreamHatchet 2025: Non-gaming is 22% of Twitch. Just Chatting +25%, IRL +19%. Creator events hit 9.2M peak. Complete analysis for brands.", no: "StreamHatchet 2025: Ikke-gaming er 22% av Twitch.", sv: "StreamHatchet 2025: Icke-gaming är 22% av Twitch.", fi: "StreamHatchet 2025: Ei-pelisisältö on 22% Twitchistä." },
+    seoKeywords: { en: ["non-gaming twitch 2025", "just chatting growth", "irl streaming", "twitch content trends"], no: ["ikke-gaming twitch 2025"], sv: ["icke-gaming twitch 2025"], fi: ["ei-pelisisältö twitch 2025"] }
+  },
+  {
+    id: "top-streamers-2025-rankings",
+    slug: "top-streamers-2025-rankings",
+    title: "Top Streamers 2025: Kai Cenat #1 with 131.9M Hours Watched",
+    excerpt: "StreamHatchet 2025: Kai Cenat leads with 131.9M hours (first to 1M subs), Caedrel #2 at 108.1M (+38%), and rising stars across all platforms.",
+    content: `
+## Top Streamers of 2025
+
+The StreamHatchet 2025 Yearly Report reveals the dominant creators who shaped the live streaming landscape.
+
+## Top 10 Streamers by Hours Watched (2025)
+
+| Rank | Streamer | Hours Watched | YoY Change | Platform |
+|------|----------|---------------|------------|----------|
+| 1 | Kai Cenat | 131.9M | +15% | Twitch |
+| 2 | Caedrel | 108.1M | +38% | Twitch |
+| 3 | Gaules | 96.6M | +5% | Twitch |
+| 4 | ibai | 89.2M | -8% | Twitch |
+| 5 | zackrawrr | 78.3M | +52% | Twitch |
+| 6 | Maherco | 72.1M | +345% | Kick |
+| 7 | xQc | 68.5M | -12% | Kick |
+| 8 | Rubius | 65.2M | -15% | Twitch |
+| 9 | AuronPlay | 61.8M | -10% | Twitch |
+| 10 | Shroud | 58.4M | +8% | Twitch |
+
+## Kai Cenat: The Undisputed King
+
+Kai Cenat dominated 2025 with several milestones:
+- **First streamer to reach 1 million subscribers**
+- **Mafiathon 3** broke viewership records
+- Consistent daily streaming schedule
+- Cross-platform cultural influence
+
+## Rising Stars 2025
+
+| Streamer | Growth | Notes |
+|----------|--------|-------|
+| Maherco | +345% | Top Kick creator |
+| zackrawrr | +52% | WoW/variety resurgence |
+| Caedrel | +38% | Esports co-streaming king |
+
+## Top Female Streamers 2025
+
+| Streamer | Hours Watched | YoY Change |
+|----------|---------------|------------|
+| Emiru | 23.8M | +41% |
+| Valkyrae | 19.7M | +83% |
+| Pokimane | 18.2M | -5% |
+
+## VTubers Dominating 2025
+
+Virtual streamers continued strong growth:
+
+| VTuber | Hours Watched | YoY Change |
+|--------|---------------|------------|
+| Sakura Miko | 49.4M | +56% |
+| Usada Pekora | 47.3M | +26% |
+| Korone | 38.1M | +32% |
+
+## Follower Growth Leaders
+
+IShowSpeed led new follower acquisition:
+- **IShowSpeed**: +14.9M new followers (YouTube + Twitch combined)
+- Platform-agnostic creator strategy
+- Event-driven content spikes
+
+## Platform Distribution
+
+Top creators are increasingly multi-platform:
+- **Twitch-primary**: 60% of top 50
+- **YouTube-primary**: 25% of top 50
+- **Kick-primary**: 15% of top 50
+
+*Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
+    `,
+    date: "Feb 5, 2026",
+    dateISO: "2026-02-05",
+    readTime: "7 min read",
+    image: "/lovable-uploads/blog-twitch-streamer.jpg",
+    category: "Industry Insights",
+    tags: ["streamers", "kai-cenat", "caedrel", "rankings", "2025"],
+    relatedSlugs: ["twitch-statistics-2025-global-insights", "kick-streaming-growth-2025", "esports-viewership-2025"],
+    seoTitle: { en: "Top Streamers 2025: Kai Cenat #1, Caedrel, Rising Stars | Beta Ads", no: "Topp Streamere 2025: Kai Cenat #1 | Beta Ads", sv: "Topp Streamers 2025: Kai Cenat #1 | Beta Ads", fi: "Top Streamaajat 2025: Kai Cenat #1 | Beta Ads" },
+    seoDescription: { en: "StreamHatchet 2025: Kai Cenat leads with 131.9M hours, first to 1M subs. Caedrel #2 at 108.1M (+38%). Complete streamer rankings.", no: "StreamHatchet 2025: Kai Cenat leder med 131,9M timer.", sv: "StreamHatchet 2025: Kai Cenat leder med 131,9M timmar.", fi: "StreamHatchet 2025: Kai Cenat johtaa 131,9M tunnilla." },
+    seoKeywords: { en: ["top streamers 2025", "kai cenat hours watched", "caedrel streaming", "twitch streamer rankings"], no: ["topp streamere 2025"], sv: ["topp streamers 2025"], fi: ["top streamaajat 2025"] }
+  },
+  {
+    id: "esports-viewership-2025",
+    slug: "esports-viewership-2025",
+    title: "Esports Viewership 2025: 2.8B Hours & World Cup +73% Growth",
+    excerpt: "StreamHatchet 2025: Esports hit 2.8B hours (+6%), 50% from co-streamers. LoL Worlds peaked at 6.6M, Esports World Cup grew +73%.",
+    content: `
+## Esports in 2025
+
+The StreamHatchet 2025 Yearly Report shows esports maintaining strong growth, with **2.8 billion hours watched** representing a **+6% YoY increase**.
+
+## Key Esports Metrics 2025
+
+| Metric | Value | YoY Change |
+|--------|-------|------------|
+| Total Hours Watched | 2.8B | +6% |
+| Co-Streamer Hours | 1.4B | +12% |
+| Official Broadcast | 1.4B | +1% |
+| Mobile Esports | Declined | -11% |
+
+## The Co-Streaming Revolution
+
+**50% of esports viewership** now comes from co-streamers:
+- More authentic viewing experience
+- Creator personalities enhance engagement
+- Lower production barriers
+- Sponsor integration opportunities
+
+## Top Co-Streamers 2025
+
+| Streamer | Esports Hours | Primary Game |
+|----------|---------------|--------------|
+| Caedrel | 83M | League of Legends |
+| Gaules | 66M | Counter-Strike |
+| ibai | 45M | Various |
+
+## Top Esports Events 2025 (Peak Viewers)
+
+| Event | Peak Viewers | Platform |
+|-------|--------------|----------|
+| LoL Worlds 2025 | 6.6M | Twitch |
+| MPL Indonesia S15 | 4.2M | YouTube |
+| LoL MSI 2025 | 3.4M | Twitch |
+| The International 2025 | 2.8M | Twitch |
+| VALORANT Champions | 2.5M | Twitch |
+
+## Esports World Cup 2025
+
+The Esports World Cup saw massive growth:
+- **168 million hours** watched
+- **+73% YoY growth**
+- Multi-game format driving engagement
+- Saudi investment boosting production value
+
+## Game-Specific Esports Performance
+
+| Game | Esports Hours | Trend |
+|------|---------------|-------|
+| League of Legends | 650M | Stable |
+| Counter-Strike | 480M | +15% |
+| VALORANT | 350M | +8% |
+| Dota 2 | 280M | -5% |
+| Mobile Legends | 420M | +3% |
+
+## Mobile Esports Decline
+
+Mobile esports saw an **-11% decline** in 2025:
+- Saturation in Southeast Asian markets
+- Viewer fatigue with frequent tournaments
+- Shift toward PC/console esports
+
+## Advertising in Esports 2025
+
+Key opportunities for brands:
+- **Co-stream sponsorships**: Higher engagement than official broadcasts
+- **Event integration**: World Cup and major tournaments
+- **Team partnerships**: Endemic and non-endemic growing
+- **Player endorsements**: Individual creator deals
+
+*Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
+    `,
+    date: "Feb 5, 2026",
+    dateISO: "2026-02-05",
+    readTime: "7 min read",
+    image: "/lovable-uploads/blog-twitch-chat.webp",
+    category: "Statistics & Data",
+    tags: ["esports", "league-of-legends", "world-cup", "co-streaming", "2025"],
+    relatedSlugs: ["twitch-statistics-2025-global-insights", "top-streamers-2025-rankings", "twitch-advertising-benchmarks-2025"],
+    seoTitle: { en: "Esports Viewership 2025: 2.8B Hours, World Cup +73% | Beta Ads", no: "Esport Seertall 2025: 2,8B timer | Beta Ads", sv: "Esport Tittarsiffror 2025: 2,8B timmar | Beta Ads", fi: "Esports Katsojaluvut 2025: 2,8B tuntia | Beta Ads" },
+    seoDescription: { en: "StreamHatchet 2025: Esports hit 2.8B hours (+6%), 50% from co-streamers. LoL Worlds 6.6M peak, Esports World Cup +73% growth.", no: "StreamHatchet 2025: Esport nådde 2,8B timer (+6%).", sv: "StreamHatchet 2025: Esport nådde 2,8B timmar (+6%).", fi: "StreamHatchet 2025: Esports saavutti 2,8B tuntia (+6%)." },
+    seoKeywords: { en: ["esports viewership 2025", "lol worlds 2025", "esports world cup", "co-streaming esports"], no: ["esport seertall 2025"], sv: ["esport tittarsiffror 2025"], fi: ["esports katsojaluvut 2025"] }
   }
 ];
 

@@ -1,51 +1,46 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, Legend } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts';
 import { useInView } from '@/hooks/useInView';
 import { useCountUp } from '@/hooks/useCountUp';
 
+// StreamHatchet 2025 data
 const topGamesData = [
-  { name: 'Just Chatting', hours: 3200 },
-  { name: 'League of Legends', hours: 1670 },
-  { name: 'Counter-Strike 2', hours: 1450 },
-  { name: 'GTA V', hours: 1210 },
-  { name: 'VALORANT', hours: 980 },
-  { name: 'Minecraft', hours: 890 },
-  { name: 'Fortnite', hours: 780 },
-  { name: 'Dota 2', hours: 650 },
+  { name: 'League of Legends', hours: 1950, change: '+4%' },
+  { name: 'GTA V', hours: 1900, change: '-5%' },
+  { name: 'Counter-Strike', hours: 1280, change: '+29%' },
+  { name: 'VALORANT', hours: 939, change: '-14%' },
+  { name: 'Minecraft', hours: 850, change: '+10%' },
+  { name: 'Dota 2', hours: 743, change: '-15%' },
+  { name: 'Fortnite', hours: 691, change: '-7%' },
+  { name: 'Mobile Legends', hours: 524, change: '+4%' },
+  { name: 'Roblox', hours: 515, change: '+212%' },
+  { name: 'Garena Free Fire', hours: 461, change: '-' },
 ];
 
-const categoryData = [
-  { name: 'Gaming', value: 68, color: 'hsl(var(--primary))' },
-  { name: 'Non-Gaming', value: 32, color: 'hsl(var(--accent))' },
+const genreData = [
+  { name: 'FPS', hours: 4600, change: '+6.7%' },
+  { name: 'Action-Adventure', hours: 2800, change: '+3%' },
+  { name: 'MOBA', hours: 2700, change: '+1%' },
+  { name: 'Battle Royale', hours: 1800, change: '-5%' },
 ];
 
-const topStreamersData = [
-  { name: 'Ninja', followers: 19.2 },
-  { name: 'ibai', followers: 17.2 },
-  { name: 'AuronPlay', followers: 16.7 },
-  { name: 'Kai Cenat', followers: 16.2 },
-  { name: 'Rubius', followers: 14.8 },
-  { name: 'xQc', followers: 12.1 },
-  { name: 'Tfue', followers: 11.8 },
-  { name: 'shroud', followers: 10.9 },
-];
-
-const monthlyViewersData = [
-  { month: 'Jan 25', viewers: 2.46 },
-  { month: 'Feb 25', viewers: 2.38 },
-  { month: 'Mar 25', viewers: 2.42 },
-  { month: 'Apr 25', viewers: 2.35 },
-  { month: 'May 25', viewers: 2.28 },
-  { month: 'Jun 25', viewers: 2.22 },
-  { month: 'Jul 25', viewers: 2.09 },
+const contentSplitData = [
+  { name: 'Gaming', value: 78, color: 'hsl(var(--primary))' },
+  { name: 'Non-Gaming', value: 22, color: 'hsl(var(--accent))' },
 ];
 
 const yearlyHoursData = [
   { year: '2020', hours: 18.4 },
   { year: '2021', hours: 24.3 },
   { year: '2022', hours: 22.8 },
-  { year: '2023', hours: 21.4 },
-  { year: '2024', hours: 20.8 },
-  { year: '2025', hours: 23.2 },
+  { year: '2023', hours: 21.0 },
+  { year: '2024', hours: 21.1 },
+  { year: '2025', hours: 19.2 },
+];
+
+const newReleasesData = [
+  { name: 'ARC Raiders', hours: 129 },
+  { name: 'Escape From Tarkov', hours: 104 },
+  { name: 'Monster Hunter Wilds', hours: 74 },
 ];
 
 interface AnimatedStatCardProps {
@@ -53,9 +48,10 @@ interface AnimatedStatCardProps {
   label: string;
   suffix?: string;
   decimals?: number;
+  trend?: string;
 }
 
-const AnimatedStatCard = ({ value, label, suffix = '', decimals = 0 }: AnimatedStatCardProps) => {
+const AnimatedStatCard = ({ value, label, suffix = '', decimals = 0, trend }: AnimatedStatCardProps) => {
   const [ref, isVisible] = useInView<HTMLDivElement>({ threshold: 0.3 });
   const { displayValue } = useCountUp(value, isVisible, { duration: 2000, decimals });
 
@@ -65,6 +61,7 @@ const AnimatedStatCard = ({ value, label, suffix = '', decimals = 0 }: AnimatedS
         {displayValue}{suffix}
       </div>
       <div className="text-sm text-muted-foreground">{label}</div>
+      {trend && <div className="text-xs text-accent mt-1">{trend}</div>}
     </div>
   );
 };
@@ -72,45 +69,70 @@ const AnimatedStatCard = ({ value, label, suffix = '', decimals = 0 }: AnimatedS
 const TopGamesDashboard = () => {
   return (
     <div className="space-y-12">
-      {/* Key Stats */}
+      {/* Key Stats - StreamHatchet 2025 */}
       <div>
-        <h3 className="text-xl font-semibold text-foreground mb-6">Platform Overview (2025)</h3>
+        <h3 className="text-xl font-semibold text-foreground mb-6">Platform Overview (StreamHatchet 2025)</h3>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <AnimatedStatCard value={23.2} suffix="B" label="Hours Watched" decimals={1} />
-          <AnimatedStatCard value={9.2} suffix="M" label="Avg Channels Live" decimals={1} />
-          <AnimatedStatCard value={105} suffix="K" label="Partner Streamers" />
-          <AnimatedStatCard value={11.5} suffix="M" label="Affiliates" decimals={1} />
+          <AnimatedStatCard value={19.2} suffix="B" label="Twitch Hours Watched" decimals={1} trend="-8.9% YoY" />
+          <AnimatedStatCard value={1.95} suffix="B" label="LoL Hours (Top Game)" decimals={2} trend="+4%" />
+          <AnimatedStatCard value={4.6} suffix="B" label="FPS Genre Hours" decimals={1} trend="+6.7%" />
+          <AnimatedStatCard value={212} suffix="%" label="Roblox Growth" trend="Breakout Star" />
         </div>
       </div>
 
       {/* Top Games Ranking */}
       <div>
-        <h3 className="text-xl font-semibold text-foreground mb-6">Most Watched Categories (Millions of Hours)</h3>
+        <h3 className="text-xl font-semibold text-foreground mb-6">Top 10 Games by Hours Watched (Millions)</h3>
         <div className="bg-card/30 border border-border/30 rounded-xl p-6">
-          <ResponsiveContainer width="100%" height={350}>
+          <ResponsiveContainer width="100%" height={400}>
             <BarChart data={topGamesData} layout="vertical">
               <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
               <XAxis type="number" stroke="hsl(var(--muted-foreground))" />
               <YAxis dataKey="name" type="category" stroke="hsl(var(--muted-foreground))" width={120} />
               <Tooltip 
                 contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
-                formatter={(value: number) => [`${value}M hours`, 'Watched']}
+                formatter={(value: number, name: string, props: any) => [`${value}M hours (${props.payload.change})`, 'Watched']}
               />
               <Bar dataKey="hours" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} />
             </BarChart>
           </ResponsiveContainer>
+          <p className="text-center text-sm text-muted-foreground mt-4">
+            Roblox was the breakout story with +212% growth, driven by "Grow A Garden" (113.7M hours)
+          </p>
         </div>
       </div>
 
-      {/* Gaming vs Non-Gaming */}
+      {/* Genre Breakdown */}
       <div className="grid lg:grid-cols-2 gap-8">
         <div>
-          <h3 className="text-xl font-semibold text-foreground mb-6">Content Category Split</h3>
+          <h3 className="text-xl font-semibold text-foreground mb-6">Genre Hours Watched (Billions)</h3>
+          <div className="bg-card/30 border border-border/30 rounded-xl p-6">
+            <ResponsiveContainer width="100%" height={280}>
+              <BarChart data={genreData}>
+                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+                <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" />
+                <YAxis stroke="hsl(var(--muted-foreground))" />
+                <Tooltip 
+                  contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
+                  formatter={(value: number, name: string, props: any) => [`${(value/1000).toFixed(1)}B hours (${props.payload.change})`, 'Watched']}
+                />
+                <Bar dataKey="hours" fill="hsl(var(--accent))" radius={[4, 4, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+            <p className="text-center text-sm text-muted-foreground mt-4">
+              FPS genre leads with 4.6B hours (+6.7% YoY)
+            </p>
+          </div>
+        </div>
+
+        {/* Content Split */}
+        <div>
+          <h3 className="text-xl font-semibold text-foreground mb-6">Gaming vs Non-Gaming Split</h3>
           <div className="bg-card/30 border border-border/30 rounded-xl p-6">
             <ResponsiveContainer width="100%" height={280}>
               <PieChart>
                 <Pie
-                  data={categoryData}
+                  data={contentSplitData}
                   cx="50%"
                   cy="50%"
                   innerRadius={70}
@@ -118,7 +140,7 @@ const TopGamesDashboard = () => {
                   dataKey="value"
                   label={({ name, value }) => `${name}: ${value}%`}
                 >
-                  {categoryData.map((entry, index) => (
+                  {contentSplitData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
                   ))}
                 </Pie>
@@ -128,53 +150,15 @@ const TopGamesDashboard = () => {
               </PieChart>
             </ResponsiveContainer>
             <p className="text-center text-sm text-muted-foreground mt-4">
-              "Just Chatting" now rivals gaming as a top category
+              Non-gaming grew to 22%, up from 20% in 2024
             </p>
           </div>
         </div>
-
-        {/* Top Streamers by Followers */}
-        <div>
-          <h3 className="text-xl font-semibold text-foreground mb-6">Top Streamers by Followers (Millions)</h3>
-          <div className="bg-card/30 border border-border/30 rounded-xl p-6">
-            <ResponsiveContainer width="100%" height={280}>
-              <BarChart data={topStreamersData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-                <XAxis dataKey="name" stroke="hsl(var(--muted-foreground))" angle={-45} textAnchor="end" height={80} />
-                <YAxis stroke="hsl(var(--muted-foreground))" />
-                <Tooltip 
-                  contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
-                  formatter={(value: number) => [`${value}M`, 'Followers']}
-                />
-                <Bar dataKey="followers" fill="hsl(var(--accent))" radius={[4, 4, 0, 0]} />
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
       </div>
 
-      {/* Monthly Concurrent Viewers Trend */}
+      {/* Yearly Hours Trend */}
       <div>
-        <h3 className="text-xl font-semibold text-foreground mb-6">Average Concurrent Viewers 2025 (Millions)</h3>
-        <div className="bg-card/30 border border-border/30 rounded-xl p-6">
-          <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={monthlyViewersData}>
-              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-              <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" />
-              <YAxis stroke="hsl(var(--muted-foreground))" domain={[1.8, 2.6]} />
-              <Tooltip 
-                contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
-                formatter={(value: number) => [`${value}M`, 'Concurrent Viewers']}
-              />
-              <Line type="monotone" dataKey="viewers" stroke="hsl(var(--primary))" strokeWidth={3} dot={{ fill: 'hsl(var(--primary))', r: 5 }} />
-            </LineChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
-
-      {/* Yearly Hours Watched */}
-      <div>
-        <h3 className="text-xl font-semibold text-foreground mb-6">Total Hours Watched by Year (Billions)</h3>
+        <h3 className="text-xl font-semibold text-foreground mb-6">Twitch Hours Watched by Year (Billions)</h3>
         <div className="bg-card/30 border border-border/30 rounded-xl p-6">
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={yearlyHoursData}>
@@ -185,19 +169,38 @@ const TopGamesDashboard = () => {
                 contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
                 formatter={(value: number) => [`${value}B hours`, 'Watched']}
               />
-              <Bar dataKey="hours" fill="hsl(var(--accent))" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="hours" fill="hsl(var(--primary))" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
           <p className="text-center text-sm text-muted-foreground mt-4">
-            2021 peak driven by pandemic viewing habits
+            2021 peak driven by pandemic; 2025 decline due to viewbotting crackdown
           </p>
+        </div>
+      </div>
+
+      {/* Top New Releases */}
+      <div>
+        <h3 className="text-xl font-semibold text-foreground mb-6">Top New Game Releases 2025 (Millions of Hours)</h3>
+        <div className="bg-card/30 border border-border/30 rounded-xl p-6">
+          <ResponsiveContainer width="100%" height={200}>
+            <BarChart data={newReleasesData} layout="vertical">
+              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+              <XAxis type="number" stroke="hsl(var(--muted-foreground))" />
+              <YAxis dataKey="name" type="category" stroke="hsl(var(--muted-foreground))" width={150} />
+              <Tooltip 
+                contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
+                formatter={(value: number) => [`${value}M hours`, 'Watched']}
+              />
+              <Bar dataKey="hours" fill="hsl(var(--accent))" radius={[0, 4, 4, 0]} />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
       </div>
 
       {/* Sources */}
       <div className="text-xs text-muted-foreground border-t border-border/30 pt-6">
-        <p className="font-medium mb-2">Data Sources:</p>
-        <p>TwitchTracker, Statista, StreamElements, Business of Apps (2024-2025)</p>
+        <p className="font-medium mb-2">Data Source:</p>
+        <p>StreamHatchet 2025 Yearly Live Streaming Trends Report</p>
       </div>
     </div>
   );
