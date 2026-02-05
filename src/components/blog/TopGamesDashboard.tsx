@@ -1,6 +1,5 @@
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts';
-import { useInView } from '@/hooks/useInView';
-import { useCountUp } from '@/hooks/useCountUp';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import { StatCard, StatCardGrid } from './StatCard';
 
 // StreamHatchet 2025 data
 const topGamesData = [
@@ -43,41 +42,18 @@ const newReleasesData = [
   { name: 'Monster Hunter Wilds', hours: 74 },
 ];
 
-interface AnimatedStatCardProps {
-  value: number;
-  label: string;
-  suffix?: string;
-  decimals?: number;
-  trend?: string;
-}
-
-const AnimatedStatCard = ({ value, label, suffix = '', decimals = 0, trend }: AnimatedStatCardProps) => {
-  const [ref, isVisible] = useInView<HTMLDivElement>({ threshold: 0.3 });
-  const { displayValue } = useCountUp(value, isVisible, { duration: 2000, decimals });
-
-  return (
-    <div ref={ref} className="bg-card/50 border border-border/30 rounded-xl p-6 text-center">
-      <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
-        {displayValue}{suffix}
-      </div>
-      <div className="text-sm text-muted-foreground">{label}</div>
-      {trend && <div className="text-xs text-accent mt-1">{trend}</div>}
-    </div>
-  );
-};
-
 const TopGamesDashboard = () => {
   return (
     <div className="space-y-12">
       {/* Key Stats - StreamHatchet 2025 */}
       <div>
         <h3 className="text-xl font-semibold text-foreground mb-6">Platform Overview (StreamHatchet 2025)</h3>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <AnimatedStatCard value={19.2} suffix="B" label="Twitch Hours Watched" decimals={1} trend="-8.9% YoY" />
-          <AnimatedStatCard value={1.95} suffix="B" label="LoL Hours (Top Game)" decimals={2} trend="+4%" />
-          <AnimatedStatCard value={4.6} suffix="B" label="FPS Genre Hours" decimals={1} trend="+6.7%" />
-          <AnimatedStatCard value={212} suffix="%" label="Roblox Growth" trend="Breakout Star" />
-        </div>
+        <StatCardGrid>
+          <StatCard value={19.2} suffix="B" label="Twitch Hours Watched" decimals={1} trend="-8.9% YoY" format="raw" />
+          <StatCard value={1.95} suffix="B" label="LoL Hours (Top Game)" decimals={2} trend="+4%" format="raw" />
+          <StatCard value={4.6} suffix="B" label="FPS Genre Hours" decimals={1} trend="+6.7%" format="raw" />
+          <StatCard value={212} suffix="%" label="Roblox Growth" trend="Breakout Star" format="raw" />
+        </StatCardGrid>
       </div>
 
       {/* Top Games Ranking */}

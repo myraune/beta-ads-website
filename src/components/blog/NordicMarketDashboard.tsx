@@ -1,6 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell } from 'recharts';
-import { useInView } from '@/hooks/useInView';
-import { useCountUp } from '@/hooks/useCountUp';
+import { StatCard, StatCardGrid } from './StatCard';
 
 const countryData = [
   { country: 'Sweden', viewers: 620000, watchTime: 2.1, growth: 12, streamers: 850 },
@@ -25,39 +24,18 @@ const quarterlyGrowth = [
 
 const COLORS = ['hsl(var(--primary))', 'hsl(var(--chart-2))', 'hsl(var(--chart-3))', 'hsl(var(--chart-4))'];
 
-interface AnimatedStatCardProps {
-  value: number;
-  label: string;
-  suffix?: string;
-  decimals?: number;
-}
-
-const AnimatedStatCard = ({ value, label, suffix = '', decimals = 0 }: AnimatedStatCardProps) => {
-  const [ref, isVisible] = useInView({ threshold: 0.3 });
-  const { displayValue } = useCountUp(value, isVisible, { duration: 2000, decimals });
-  
-  return (
-    <div ref={ref} className="bg-card/50 border border-border/30 rounded-xl p-6 text-center">
-      <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
-        {displayValue}{suffix}
-      </div>
-      <div className="text-sm text-muted-foreground">{label}</div>
-    </div>
-  );
-};
-
 export default function NordicMarketDashboard() {
   return (
     <div className="space-y-12">
       {/* Overview Stats */}
       <section id="overview">
         <h2 className="text-2xl font-bold text-foreground mb-6">Nordic Twitch Market Overview</h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <AnimatedStatCard value={1.77} label="Total Nordic Viewers" suffix="M" decimals={2} />
-          <AnimatedStatCard value={2.05} label="Avg Watch Time (hrs)" suffix="h" decimals={2} />
-          <AnimatedStatCard value={16.75} label="YoY Growth Rate" suffix="%" decimals={2} />
-          <AnimatedStatCard value={2470} label="Active Nordic Streamers" suffix="" />
-        </div>
+        <StatCardGrid>
+          <StatCard value={1.77} label="Total Nordic Viewers" suffix="M" decimals={2} format="raw" />
+          <StatCard value={2.05} label="Avg Watch Time (hrs)" suffix="h" decimals={2} format="raw" />
+          <StatCard value={16.75} label="YoY Growth Rate" suffix="%" decimals={2} format="raw" />
+          <StatCard value={2470} label="Active Nordic Streamers" format="raw" />
+        </StatCardGrid>
       </section>
 
       {/* Country Comparison */}
