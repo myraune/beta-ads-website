@@ -67,22 +67,23 @@ export const StatCard = ({
   return (
     <div 
       ref={ref} 
-      className={`rounded-xl p-4 sm:p-5 lg:p-6 text-center ${
+      className={`w-full min-w-0 rounded-2xl border p-4 sm:p-5 lg:p-6 
+        flex flex-col items-center justify-center min-h-[120px] overflow-hidden ${
         highlight 
-          ? 'bg-primary/20 border border-primary/40' 
-          : 'bg-card/50 border border-border/30'
+          ? 'bg-primary/20 border-primary/40' 
+          : 'bg-card/50 border-border/30'
       }`}
     >
       <div 
-        className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 tabular-nums ${
+        className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 tabular-nums text-center ${
           highlight ? 'text-primary' : 'text-primary'
         }`}
       >
         {displayValue}{suffix}
       </div>
-      <div className="text-xs sm:text-sm text-muted-foreground leading-tight">{label}</div>
+      <div className="text-xs sm:text-sm text-muted-foreground leading-tight text-center">{label}</div>
       {trend && (
-        <div className="text-xs text-muted-foreground/80 mt-1">{trend}</div>
+        <div className="text-xs text-muted-foreground/80 mt-1 text-center">{trend}</div>
       )}
     </div>
   );
@@ -103,8 +104,8 @@ export interface StatCardGridProps {
  */
 export const StatCardGrid = ({ children, columns = 4 }: StatCardGridProps) => {
   const gridClass = columns === 3 
-    ? 'grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4'
-    : 'grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4';
+    ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch'
+    : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch';
   
   return <div className={gridClass}>{children}</div>;
 };
