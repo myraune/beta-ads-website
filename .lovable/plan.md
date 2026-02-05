@@ -1,82 +1,85 @@
 
-# Plan: Fix Stat Card Layout Properly
 
-## Problem Analysis
+# Plan: Refactor Stat Cards to Responsive CSS Grid
 
-The current stat cards break on smaller screens because:
-1. A 4-column grid on 2-column mobile creates very narrow containers
-2. Large numbers with locale formatting (e.g., "127,459") overflow narrow cards
-3. The quick fix (truncation + tiny fonts) makes the cards look cramped and unreadable
+## Current State
 
-## Solution: Responsive Stat Card System
+The `StatCard` and `StatCardGrid` components currently use:
+- Grid classes: `grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4`
+- Card styling: `rounded-xl p-4 sm:p-5 lg:p-6 text-center`
+- No consistent minimum height or flex centering
 
-### Approach
-Create a proper responsive design that adapts gracefully across all screen sizes without truncation or cramped text.
+## Changes
 
-### Changes
+### 1. Update StatCardGrid Component
 
-**1. Create Shared Stat Card Component**
+**File:** `src/components/blog/StatCard.tsx` (lines 104-109)
 
-Create `src/components/blog/StatCard.tsx` as a reusable component:
-- Responsive grid that stacks to 1-col on very small screens, 2-col on mobile, 4-col on desktop
-- Auto-fitting text using viewport-relative sizing where appropriate
-- Compact number formatting built-in (e.g., 19.2B, 52.8%, 127K)
-- Consistent styling across all dashboards
+Update the grid wrapper to use the exact classes requested:
 
-```
-File: src/components/blog/StatCard.tsx
-
-- Uses useInView and useCountUp hooks
-- Accepts formatType prop: 'number' | 'percent' | 'currency' | 'compact'
-- Auto-formats large numbers (thousands → K, millions → M, billions → B)
-- Uses tabular-nums for alignment
-- Responsive padding and font sizes without truncation
+```tsx
+export const StatCardGrid = ({ children, columns = 4 }: StatCardGridProps) => {
+  const gridClass = columns === 3 
+    ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch'
+    : 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch';
+  
+  return <div className={gridClass}>{children}</div>;
+};
 ```
 
-**2. Update TwitchStatsDashboard**
+### 2. Update StatCard Component
 
-- Import the shared StatCard component
-- Change grid from `grid-cols-2 lg:grid-cols-4` to `grid-cols-1 sm:grid-cols-2 lg:grid-cols-4`
-- Remove the local AnimatedStatCard component
-- Keep existing data structure
+**File:** `src/components/blog/StatCard.tsx` (lines 67-88)
 
-**3. Update FinnishStreamersDashboard**
+Update the card container styling:
 
-- Import shared StatCard component  
-- Apply same responsive grid pattern
-- Remove local AnimatedStat component
+| Property | Before | After |
+|----------|--------|-------|
+| Width | implicit | `w-full min-w-0` |
+| Border radius | `rounded-xl` | `rounded-2xl` |
+| Border | conditional | `border border-border/30` (always) |
+| Layout | `text-center` | `flex flex-col items-center justify-center` |
+| Height | auto | `min-h-[120px]` |
+| Overflow | none | `overflow-hidden` |
 
-**4. Update Other Dashboards**
+```tsx
+return (
+  <div 
+    ref={ref} 
+    className={`w-full min-w-0 rounded-2xl border p-4 sm:p-5 lg:p-6 
+      flex flex-col items-center justify-center min-h-[120px] overflow-hidden ${
+      highlight 
+        ? 'bg-primary/20 border-primary/40' 
+        : 'bg-card/50 border-border/30'
+    }`}
+  >
+    <div 
+      className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 tabular-nums text-center ${
+        highlight ? 'text-primary' : 'text-primary'
+      }`}
+    >
+      {displayValue}{suffix}
+    </div>
+    <div className="text-xs sm:text-sm text-muted-foreground leading-tight text-center">
+      {label}
+    </div>
+    {trend && (
+      <div className="text-xs text-muted-foreground/80 mt-1 text-center">{trend}</div>
+    )}
+  </div>
+);
+```
 
-Apply the same pattern to:
-- `SwedishStreamersDashboard.tsx`
-- `NorwegianStreamersDashboard.tsx`
-- `NordicMarketDashboard.tsx`
-- `TopGamesDashboard.tsx`
-- `PlatformComparisonDashboard.tsx`
+## Files to Modify
 
-### Technical Details
+| File | Changes |
+|------|---------|
+| `src/components/blog/StatCard.tsx` | Update StatCard and StatCardGrid styling |
 
-| Breakpoint | Grid Columns | Card Padding | Number Size | Label Size |
-|------------|--------------|--------------|-------------|------------|
-| < 400px    | 1 column     | p-4          | text-3xl    | text-xs    |
-| 400-640px  | 2 columns    | p-4          | text-3xl    | text-xs    |
-| 640-1024px | 2 columns    | p-5          | text-3xl    | text-sm    |
-| > 1024px   | 4 columns    | p-6          | text-4xl    | text-sm    |
+## Technical Summary
 
-### Number Formatting
+- **Grid:** `grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch`
+- **Cards:** `w-full min-w-0 rounded-2xl border flex flex-col items-center justify-center min-h-[120px] overflow-hidden`
+- **Typography:** Centered with `text-center` on each text element
+- **Height consistency:** `items-stretch` on grid + `min-h-[120px]` on cards ensures uniform height
 
-Instead of displaying raw numbers that overflow:
-- 19200000000 → 19.2B
-- 127459 → 127,459 (fits at 3xl)
-- 52.8 (with % suffix) → stays as-is
-
-The component will auto-format based on magnitude while keeping the animated count-up effect.
-
-### Expected Result
-
-- Stat cards are readable at all screen sizes
-- No text truncation or overflow
-- Numbers animate smoothly
-- Consistent look across all dashboard components
-- Proper visual hierarchy maintained
