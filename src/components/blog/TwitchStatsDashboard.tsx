@@ -2,31 +2,28 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import { useInView } from '@/hooks/useInView';
 import { useCountUp } from '@/hooks/useCountUp';
 
-const userGrowthData = [
-  { year: '2020', users: 140 },
-  { year: '2021', users: 180 },
-  { year: '2022', users: 200 },
-  { year: '2023', users: 220 },
-  { year: '2024', users: 230 },
-  { year: '2025', users: 240 },
+// StreamHatchet 2025 data
+const quarterlyData = [
+  { quarter: 'Q1 2024', hours: 5.4 },
+  { quarter: 'Q2 2024', hours: 5.2 },
+  { quarter: 'Q3 2024', hours: 5.3 },
+  { quarter: 'Q4 2024', hours: 5.1 },
+  { quarter: 'Q1 2025', hours: 5.2 },
+  { quarter: 'Q2 2025', hours: 4.8 },
+  { quarter: 'Q3 2025', hours: 4.8 },
+  { quarter: 'Q4 2025', hours: 4.4 },
 ];
 
-const ageData = [
-  { name: '16-24', value: 41, color: 'hsl(var(--primary))' },
-  { name: '25-34', value: 32, color: 'hsl(var(--accent))' },
-  { name: '35-44', value: 17, color: 'hsl(var(--muted-foreground))' },
-  { name: '45+', value: 10, color: 'hsl(var(--border))' },
+const marketShareData = [
+  { name: 'Twitch', value: 52.8, color: 'hsl(var(--primary))' },
+  { name: 'YouTube Gaming', value: 24.3, color: 'hsl(var(--chart-2))' },
+  { name: 'Kick', value: 12.4, color: 'hsl(var(--accent))' },
+  { name: 'Others', value: 10.5, color: 'hsl(var(--muted-foreground))' },
 ];
 
-const genderData = [
-  { name: 'Male', value: 65, color: 'hsl(var(--primary))' },
-  { name: 'Female', value: 35, color: 'hsl(var(--accent))' },
-];
-
-const revenueData = [
-  { name: 'Subscriptions', value: 58, color: 'hsl(var(--primary))' },
-  { name: 'Advertising', value: 33, color: 'hsl(var(--accent))' },
-  { name: 'Bits & Other', value: 9, color: 'hsl(var(--muted-foreground))' },
+const contentSplitData = [
+  { name: 'Gaming', value: 78, color: 'hsl(var(--primary))' },
+  { name: 'Non-Gaming', value: 22, color: 'hsl(var(--accent))' },
 ];
 
 const geoData = [
@@ -40,14 +37,22 @@ const geoData = [
   { country: 'Spain', percentage: 3.8 },
 ];
 
+const ageData = [
+  { name: '16-24', value: 41, color: 'hsl(var(--primary))' },
+  { name: '25-34', value: 32, color: 'hsl(var(--accent))' },
+  { name: '35-44', value: 17, color: 'hsl(var(--muted-foreground))' },
+  { name: '45+', value: 10, color: 'hsl(var(--border))' },
+];
+
 interface AnimatedStatCardProps {
   value: number;
   label: string;
   suffix?: string;
   decimals?: number;
+  trend?: string;
 }
 
-const AnimatedStatCard = ({ value, label, suffix = '', decimals = 0 }: AnimatedStatCardProps) => {
+const AnimatedStatCard = ({ value, label, suffix = '', decimals = 0, trend }: AnimatedStatCardProps) => {
   const [ref, isVisible] = useInView<HTMLDivElement>({ threshold: 0.3 });
   const { displayValue } = useCountUp(value, isVisible, { duration: 2000, decimals });
 
@@ -57,6 +62,7 @@ const AnimatedStatCard = ({ value, label, suffix = '', decimals = 0 }: AnimatedS
         {displayValue}{suffix}
       </div>
       <div className="text-sm text-muted-foreground">{label}</div>
+      {trend && <div className="text-xs text-muted-foreground mt-1">{trend}</div>}
     </div>
   );
 };
@@ -64,122 +70,131 @@ const AnimatedStatCard = ({ value, label, suffix = '', decimals = 0 }: AnimatedS
 const TwitchStatsDashboard = () => {
   return (
     <div className="space-y-12">
-      {/* Key Metrics */}
+      {/* Key Metrics - StreamHatchet 2025 */}
       <div>
-        <h3 className="text-xl font-semibold text-foreground mb-6">Key Platform Metrics (2025)</h3>
+        <h3 className="text-xl font-semibold text-foreground mb-6">Key Platform Metrics (StreamHatchet 2025)</h3>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <AnimatedStatCard value={240} suffix="M" label="Monthly Active Users" />
-          <AnimatedStatCard value={35} suffix="M" label="Daily Active Users" />
-          <AnimatedStatCard value={2.29} suffix="M" label="Avg Concurrent Viewers" decimals={2} />
-          <AnimatedStatCard value={7.3} suffix="M" label="Active Streamers" decimals={1} />
+          <AnimatedStatCard value={19.2} suffix="B" label="Hours Watched" decimals={1} trend="-8.9% YoY" />
+          <AnimatedStatCard value={52.8} suffix="%" label="Market Share" decimals={1} trend="-8.3 pts YoY" />
+          <AnimatedStatCard value={19.7} suffix="M" label="Unique Channels" decimals={1} trend="-0.5% YoY" />
+          <AnimatedStatCard value={22} suffix="%" label="Non-Gaming Content" trend="+2 pts YoY" />
         </div>
       </div>
 
-      {/* User Growth Chart */}
+      {/* Quarterly Hours Watched */}
       <div>
-        <h3 className="text-xl font-semibold text-foreground mb-6">Monthly Active Users Growth (Millions)</h3>
+        <h3 className="text-xl font-semibold text-foreground mb-6">Quarterly Hours Watched (Billions)</h3>
         <div className="bg-card/30 border border-border/30 rounded-xl p-6">
           <ResponsiveContainer width="100%" height={300}>
-            <AreaChart data={userGrowthData}>
+            <AreaChart data={quarterlyData}>
               <defs>
-                <linearGradient id="colorUsers" x1="0" y1="0" x2="0" y2="1">
+                <linearGradient id="colorHours" x1="0" y1="0" x2="0" y2="1">
                   <stop offset="5%" stopColor="hsl(var(--primary))" stopOpacity={0.4}/>
                   <stop offset="95%" stopColor="hsl(var(--primary))" stopOpacity={0}/>
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-              <XAxis dataKey="year" stroke="hsl(var(--muted-foreground))" />
-              <YAxis stroke="hsl(var(--muted-foreground))" />
+              <XAxis dataKey="quarter" stroke="hsl(var(--muted-foreground))" />
+              <YAxis stroke="hsl(var(--muted-foreground))" domain={[4, 6]} />
               <Tooltip 
                 contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
                 labelStyle={{ color: 'hsl(var(--foreground))' }}
+                formatter={(value: number) => [`${value}B hours`, 'Watched']}
               />
-              <Area type="monotone" dataKey="users" stroke="hsl(var(--primary))" fill="url(#colorUsers)" strokeWidth={2} />
+              <Area type="monotone" dataKey="hours" stroke="hsl(var(--primary))" fill="url(#colorHours)" strokeWidth={2} />
             </AreaChart>
           </ResponsiveContainer>
+          <p className="text-center text-sm text-muted-foreground mt-4">
+            Q4 2025 was the lowest viewership quarter since Q1 2020
+          </p>
+        </div>
+      </div>
+
+      {/* Market Share */}
+      <div className="grid lg:grid-cols-2 gap-8">
+        <div>
+          <h3 className="text-xl font-semibold text-foreground mb-6">Platform Market Share 2025</h3>
+          <div className="bg-card/30 border border-border/30 rounded-xl p-6">
+            <ResponsiveContainer width="100%" height={250}>
+              <PieChart>
+                <Pie
+                  data={marketShareData}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={60}
+                  outerRadius={90}
+                  dataKey="value"
+                  label={({ name, value }) => `${name}: ${value}%`}
+                >
+                  {marketShareData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                  ))}
+                </Pie>
+                <Tooltip 
+                  contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
+                />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-xl font-semibold text-foreground mb-6">Content Split 2025</h3>
+          <div className="bg-card/30 border border-border/30 rounded-xl p-6">
+            <ResponsiveContainer width="100%" height={250}>
+              <PieChart>
+                <Pie
+                  data={contentSplitData}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={60}
+                  outerRadius={90}
+                  dataKey="value"
+                  label={({ name, value }) => `${name}: ${value}%`}
+                >
+                  {contentSplitData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                  ))}
+                </Pie>
+                <Tooltip 
+                  contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
+                />
+              </PieChart>
+            </ResponsiveContainer>
+            <p className="text-center text-sm text-muted-foreground mt-4">
+              Non-gaming grew from 20% to 22% YoY
+            </p>
+          </div>
         </div>
       </div>
 
       {/* Demographics */}
-      <div className="grid lg:grid-cols-2 gap-8">
-        <div>
-          <h3 className="text-xl font-semibold text-foreground mb-6">Age Distribution</h3>
-          <div className="bg-card/30 border border-border/30 rounded-xl p-6">
-            <ResponsiveContainer width="100%" height={250}>
-              <PieChart>
-                <Pie
-                  data={ageData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={60}
-                  outerRadius={90}
-                  dataKey="value"
-                  label={({ name, value }) => `${name}: ${value}%`}
-                >
-                  {ageData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Pie>
-                <Tooltip 
-                  contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
-                />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-
-        <div>
-          <h3 className="text-xl font-semibold text-foreground mb-6">Gender Split</h3>
-          <div className="bg-card/30 border border-border/30 rounded-xl p-6">
-            <ResponsiveContainer width="100%" height={250}>
-              <PieChart>
-                <Pie
-                  data={genderData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={60}
-                  outerRadius={90}
-                  dataKey="value"
-                  label={({ name, value }) => `${name}: ${value}%`}
-                >
-                  {genderData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Pie>
-                <Tooltip 
-                  contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
-                />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-      </div>
-
-      {/* Revenue Breakdown */}
       <div>
-        <h3 className="text-xl font-semibold text-foreground mb-6">Revenue Breakdown ($1.78B Total)</h3>
+        <h3 className="text-xl font-semibold text-foreground mb-6">Age Distribution</h3>
         <div className="bg-card/30 border border-border/30 rounded-xl p-6">
-          <ResponsiveContainer width="100%" height={300}>
+          <ResponsiveContainer width="100%" height={250}>
             <PieChart>
               <Pie
-                data={revenueData}
+                data={ageData}
                 cx="50%"
                 cy="50%"
-                innerRadius={70}
-                outerRadius={110}
+                innerRadius={60}
+                outerRadius={90}
                 dataKey="value"
                 label={({ name, value }) => `${name}: ${value}%`}
               >
-                {revenueData.map((entry, index) => (
+                {ageData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
               <Tooltip 
                 contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
               />
-              <Legend />
             </PieChart>
           </ResponsiveContainer>
+          <p className="text-center text-sm text-muted-foreground mt-4">
+            73% of viewers are under 35 years old
+          </p>
         </div>
       </div>
 
@@ -204,8 +219,8 @@ const TwitchStatsDashboard = () => {
 
       {/* Sources */}
       <div className="text-xs text-muted-foreground border-t border-border/30 pt-6">
-        <p className="font-medium mb-2">Data Sources:</p>
-        <p>TwitchTracker, Statista, Business of Apps, DemandSage (2024-2025)</p>
+        <p className="font-medium mb-2">Data Source:</p>
+        <p>StreamHatchet 2025 Yearly Live Streaming Trends Report</p>
       </div>
     </div>
   );
