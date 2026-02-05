@@ -138,10 +138,10 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t, language, setLanguage })
       <div className="pt-16 lg:pt-20">
         {/* Hero Section */}
         <article className="py-12 lg:py-20">
-          <div className="max-w-4xl mx-auto px-4">
+          <div className={`${post.hasDashboard ? 'max-w-7xl' : 'max-w-4xl'} mx-auto px-4`}>
             {/* Back Button */}
             <Link 
-              to="/about" 
+              to="/blog" 
               className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8"
             >
               <ArrowLeft className="w-4 h-4" />
