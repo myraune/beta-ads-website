@@ -11,6 +11,7 @@ export interface BlogPost {
   category: string;
   tags: string[];
   hasDashboard?: string;
+  relatedSlugs?: string[];
   seoTitle: {
     en: string;
     no: string;
@@ -199,17 +200,18 @@ Samsung's campaign demonstrates that Twitch advertising works when it respects t
     image: "/lovable-uploads/a3645b32-75a2-494d-aa42-f7b96dba1d94.png",
     category: "Case Studies",
     tags: ["samsung", "case-study", "twitch", "campaign", "nordic"],
+    relatedSlugs: ["twitch-statistics-2025-global-insights", "twitch-advertising-benchmarks-2025"],
     seoTitle: {
-      en: "Samsung Twitch Campaign Case Study | 2.5M Viewers | Beta Ads",
-      no: "Samsung Twitch-kampanje Case Study | 2,5M seere | Beta Ads",
-      sv: "Samsung Twitch-kampanj Case Study | 2,5M tittare | Beta Ads",
-      fi: "Samsung Twitch-kampanja Case Study | 2,5M katsojaa | Beta Ads"
+      en: "Samsung Twitch Case Study: 2.5M Viewers, 89% Positive Sentiment | Beta Ads",
+      no: "Samsung Twitch Case Study: 2,5M seere, 89% positiv sentiment | Beta Ads",
+      sv: "Samsung Twitch Case Study: 2,5M tittare, 89% positiv sentiment | Beta Ads",
+      fi: "Samsung Twitch Case Study: 2,5M katsojaa, 89% positiivinen sentimentti | Beta Ads"
     },
     seoDescription: {
-      en: "See how Samsung reached 2.5M unique viewers on Twitch with 89% positive brand sentiment. Detailed case study of native overlay advertising in the Nordic market.",
-      no: "Se hvordan Samsung nådde 2,5M unike seere på Twitch med 89% positiv merkevareoppfatning. Detaljert case study av native overlay-annonsering i det nordiske markedet.",
-      sv: "Se hur Samsung nådde 2,5M unika tittare på Twitch med 89% positiv varumärkesuppfattning. Detaljerad case study av native overlay-reklam på den nordiska marknaden.",
-      fi: "Katso kuinka Samsung tavoitti 2,5M ainutlaatuista katsojaa Twitchissä 89% positiivisella brändimielikuvalla. Yksityiskohtainen case study native overlay-mainonnasta pohjoismaisilla markkinoilla."
+      en: "How Samsung achieved 4.7% engagement and 3.2% CTR with native overlay ads. Full campaign breakdown with results and learnings.",
+      no: "Hvordan Samsung oppnådde 4,7% engasjement og 3,2% CTR med native overlay-annonser. Full kampanjegjennomgang med resultater.",
+      sv: "Hur Samsung uppnådde 4,7% engagemang och 3,2% CTR med native overlay-annonser. Full kampanjgenomgång med resultat.",
+      fi: "Miten Samsung saavutti 4,7% sitoutumisen ja 3,2% CTR:n native overlay-mainoksilla. Täydellinen kampanja-analyysi tuloksineen."
     },
     seoKeywords: {
       en: ["samsung twitch campaign", "twitch case study", "gaming advertising", "nordic marketing", "overlay ads"],
@@ -587,17 +589,18 @@ Twitch generates revenue through subscriptions (58%), advertising (33%), and Bit
     category: "Statistics & Data",
     tags: ["twitch", "statistics", "data", "advertising", "2025"],
     hasDashboard: "twitch-stats",
+    relatedSlugs: ["most-watched-twitch-games-2025", "twitch-vs-youtube-gaming-2025", "twitch-advertising-benchmarks-2025"],
     seoTitle: {
-      en: "Twitch Statistics 2025: Global Platform Insights | Beta Ads",
-      no: "Twitch-statistikk 2025: Globale plattforminnsikter | Beta Ads",
-      sv: "Twitch-statistik 2025: Globala plattformsinsikter | Beta Ads",
-      fi: "Twitch-tilastot 2025: Globaalit alustatiedot | Beta Ads"
+      en: "Twitch Statistics 2025: 240M Users, Demographics & Ad Trends | Beta Ads",
+      no: "Twitch-statistikk 2025: 240M brukere, demografi og annonsetrender | Beta Ads",
+      sv: "Twitch-statistik 2025: 240M användare, demografi och annonstrender | Beta Ads",
+      fi: "Twitch-tilastot 2025: 240M käyttäjää, demografiat ja mainostrendit | Beta Ads"
     },
     seoDescription: {
-      en: "Interactive dashboard with Twitch platform statistics 2025. User growth, demographics, revenue breakdown, and geographic distribution for advertisers.",
-      no: "Interaktivt dashbord med Twitch-plattformstatistikk 2025. Brukervekst, demografi, inntektsfordeling og geografisk distribusjon for annonsører.",
-      sv: "Interaktiv instrumentpanel med Twitch-plattformsstatistik 2025. Användartillväxt, demografi, intäktsfördelning och geografisk distribution för annonsörer.",
-      fi: "Interaktiivinen kojelauta Twitch-alustatilastoilla 2025. Käyttäjäkasvu, demografiat, tulojen jakautuminen ja maantieteellinen jakauma mainostajille."
+      en: "Live dashboard: 240M monthly users, 35M daily active, $1.78B revenue. Get the demographics and ad benchmarks that top advertisers use.",
+      no: "Live dashboard: 240M månedlige brukere, 35M daglig aktive, $1,78B inntekter. Få demografien og annonsebenchmarks som toppannonsører bruker.",
+      sv: "Live dashboard: 240M månatliga användare, 35M dagligt aktiva, $1,78B intäkter. Få demografin och annonsbenchmarks som toppannonsörer använder.",
+      fi: "Live dashboard: 240M kuukausittaista käyttäjää, 35M päivittäin aktiivista, $1,78B tulot. Hanki demografiat ja mainosbenchmarkit, joita huippumainostajat käyttävät."
     },
     seoKeywords: {
       en: ["twitch statistics 2025", "twitch user data", "twitch demographics", "twitch advertising stats", "streaming platform data"],
@@ -703,17 +706,18 @@ The global leaderboard shows Ninja (19.2M followers), ibai (17.2M), AuronPlay (1
     category: "Trends",
     tags: ["twitch", "games", "categories", "trends", "2025"],
     hasDashboard: "top-games",
+    relatedSlugs: ["twitch-statistics-2025-global-insights", "nordic-twitch-market-2025", "twitch-vs-youtube-gaming-2025"],
     seoTitle: {
-      en: "Most Watched Twitch Games & Categories 2025 | Beta Ads",
-      no: "Mest sette Twitch-spill og kategorier 2025 | Beta Ads",
-      sv: "Mest tittade Twitch-spel och kategorier 2025 | Beta Ads",
-      fi: "Katsotuimmat Twitch-pelit ja kategoriat 2025 | Beta Ads"
+      en: "Top 20 Twitch Games 2025: Hours Watched & Trending Categories | Beta Ads",
+      no: "Topp 20 Twitch-spill 2025: Timer sett og trendende kategorier | Beta Ads",
+      sv: "Topp 20 Twitch-spel 2025: Timmar tittade och trendande kategorier | Beta Ads",
+      fi: "Top 20 Twitch-pelit 2025: Katsotut tunnit ja trendaavat kategoriat | Beta Ads"
     },
     seoDescription: {
-      en: "Interactive dashboard of most watched Twitch games and categories 2025. Top streamers, gaming vs non-gaming split, yearly trends, and hours watched data.",
-      no: "Interaktivt dashbord over mest sette Twitch-spill og kategorier 2025. Topp streamere, gaming vs ikke-gaming fordeling, årlige trender og timer sett data.",
-      sv: "Interaktiv instrumentpanel över mest tittade Twitch-spel och kategorier 2025. Topp streamers, gaming vs icke-gaming fördelning, årliga trender och timmar tittade data.",
-      fi: "Interaktiivinen kojelauta katsotuimmista Twitch-peleistä ja kategorioista 2025. Parhaat streamaajat, pelaaminen vs ei-pelaaminen jako, vuosittaiset trendit ja katsotut tunnit."
+      en: "Just Chatting leads with 3.2B hours. See the full ranking of games, top streamers, and year-over-year viewing trends advertisers need.",
+      no: "Just Chatting leder med 3,2B timer. Se full rangering av spill, topp streamere og årlige seertrender annonsører trenger.",
+      sv: "Just Chatting leder med 3,2B timmar. Se full ranking av spel, topp streamers och årliga tittartrender annonsörer behöver.",
+      fi: "Just Chatting johtaa 3,2B tunnilla. Katso täydellinen pelien ranking, parhaat streamaajat ja vuosittaiset katselutrendit mainostajille."
     },
     seoKeywords: {
       en: ["twitch games 2025", "most watched twitch categories", "top twitch streamers followers", "twitch viewing trends", "streaming games statistics"],
@@ -735,9 +739,20 @@ The global leaderboard shows Ninja (19.2M followers), ibai (17.2M), AuronPlay (1
     category: "Nordic Insights",
     tags: ["nordic", "twitch", "market", "analytics", "2025"],
     hasDashboard: "nordic-market",
-    seoTitle: { en: "Nordic Twitch Market Overview 2025 | Beta Ads", no: "Nordisk Twitch-marked 2025 | Beta Ads", sv: "Nordisk Twitch-marknad 2025 | Beta Ads", fi: "Pohjoismainen Twitch-markkina 2025 | Beta Ads" },
-    seoDescription: { en: "Interactive dashboard of Nordic Twitch markets. Compare Sweden, Norway, Denmark, and Finland viewership, growth rates, and streaming trends.", no: "Interaktivt dashbord over nordiske Twitch-markeder.", sv: "Interaktiv instrumentpanel för nordiska Twitch-marknader.", fi: "Interaktiivinen kojelauta pohjoismaisista Twitch-markkinoista." },
-    seoKeywords: { en: ["nordic twitch", "scandinavian streaming"], no: ["nordisk twitch"], sv: ["nordisk twitch"], fi: ["pohjoismainen twitch"] }
+    relatedSlugs: ["twitch-statistics-2025-global-insights", "norwegian-twitch-streamers-2025-analytics", "swedish-twitch-streamers-2025"],
+    seoTitle: { 
+      en: "Nordic Twitch Market 2025: Sweden, Norway, Finland Growth Data | Beta Ads", 
+      no: "Nordisk Twitch-marked 2025: Sverige, Norge, Finland vekstdata | Beta Ads", 
+      sv: "Nordisk Twitch-marknad 2025: Sverige, Norge, Finland tillväxtdata | Beta Ads", 
+      fi: "Pohjoismainen Twitch-markkina 2025: Ruotsi, Norja, Suomi kasvudata | Beta Ads" 
+    },
+    seoDescription: { 
+      en: "Compare viewership across all Nordic countries. Growth rates, top streamers, and advertising opportunities in the Scandinavian market.", 
+      no: "Sammenlign seertall på tvers av alle nordiske land. Vekstrater, topp streamere og annonsemuligheter i det skandinaviske markedet.", 
+      sv: "Jämför tittarsiffror över alla nordiska länder. Tillväxttakt, topp streamers och annonsmöjligheter på den skandinaviska marknaden.", 
+      fi: "Vertaa katsojalukuja kaikissa Pohjoismaissa. Kasvuvauhti, parhaat streamaajat ja mainosmahdollisuudet pohjoismaisilla markkinoilla." 
+    },
+    seoKeywords: { en: ["nordic twitch", "scandinavian streaming", "sweden twitch", "norway twitch", "finland twitch"], no: ["nordisk twitch", "skandinavisk streaming"], sv: ["nordisk twitch", "skandinavisk streaming"], fi: ["pohjoismainen twitch", "skandinaavinen streaming"] }
   },
   {
     id: "twitch-vs-youtube-gaming-2025",
@@ -752,9 +767,20 @@ The global leaderboard shows Ninja (19.2M followers), ibai (17.2M), AuronPlay (1
     category: "Industry Insights",
     tags: ["twitch", "youtube", "comparison", "platforms", "2025"],
     hasDashboard: "platform-comparison",
-    seoTitle: { en: "Twitch vs YouTube Gaming 2025 | Platform Comparison | Beta Ads", no: "Twitch vs YouTube Gaming 2025 | Beta Ads", sv: "Twitch vs YouTube Gaming 2025 | Beta Ads", fi: "Twitch vs YouTube Gaming 2025 | Beta Ads" },
-    seoDescription: { en: "Compare Twitch and YouTube Gaming for advertisers. User metrics, engagement rates, and ROI analysis.", no: "Sammenlign Twitch og YouTube Gaming for annonsører.", sv: "Jämför Twitch och YouTube Gaming för annonsörer.", fi: "Vertaa Twitchiä ja YouTube Gamingia mainostajille." },
-    seoKeywords: { en: ["twitch vs youtube", "streaming platforms"], no: ["twitch vs youtube"], sv: ["twitch vs youtube"], fi: ["twitch vs youtube"] }
+    relatedSlugs: ["twitch-statistics-2025-global-insights", "twitch-advertising-benchmarks-2025", "most-watched-twitch-games-2025"],
+    seoTitle: { 
+      en: "Twitch vs YouTube Gaming 2025: Which Platform Converts Better? | Beta Ads", 
+      no: "Twitch vs YouTube Gaming 2025: Hvilken plattform konverterer best? | Beta Ads", 
+      sv: "Twitch vs YouTube Gaming 2025: Vilken plattform konverterar bäst? | Beta Ads", 
+      fi: "Twitch vs YouTube Gaming 2025: Kumpi alusta konvertoi paremmin? | Beta Ads" 
+    },
+    seoDescription: { 
+      en: "Head-to-head comparison: user metrics, engagement rates, and ROI data. Find out which platform delivers better results for your ad spend.", 
+      no: "Direkte sammenligning: brukertall, engasjementsrater og ROI-data. Finn ut hvilken plattform gir bedre resultater for annonsebudsjettet.", 
+      sv: "Direkt jämförelse: användarmått, engagemangsfrekvenser och ROI-data. Ta reda på vilken plattform ger bättre resultat för din annonsbudget.", 
+      fi: "Suora vertailu: käyttäjämittarit, sitoutumisasteet ja ROI-data. Selvitä kumpi alusta tuottaa parempia tuloksia mainosbudjetillesi." 
+    },
+    seoKeywords: { en: ["twitch vs youtube", "streaming platforms comparison", "gaming platform roi", "youtube gaming vs twitch"], no: ["twitch vs youtube", "streaming plattformer"], sv: ["twitch vs youtube", "streaming plattformar"], fi: ["twitch vs youtube", "streaming alustat"] }
   },
   {
     id: "twitch-advertising-benchmarks-2025",

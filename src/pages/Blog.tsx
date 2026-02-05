@@ -6,6 +6,7 @@ import { blogPosts } from "@/data/blogPosts";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { FeaturedInsightsHub } from "@/components/blog/FeaturedInsightsHub";
 import {
   Pagination,
   PaginationContent,
@@ -23,11 +24,15 @@ interface BlogProps {
 
 const blogTranslations = {
   en: {
-    pageTitle: "Blog",
-    pageSubtitle: "Insights & Guides on Twitch Advertising",
-    pageDescription: "Stay updated on native advertising trends, strategies, and success stories from the Nordic streaming market.",
+    pageTitle: "Beta Ads Insights",
+    pageSubtitle: "Data-driven guides for the Nordic streaming market",
+    pageDescription: "Data-driven insights, analytics dashboards, and advertising guides for reaching Gen Z on Twitch and streaming platforms.",
     searchPlaceholder: "Search articles...",
     allCategories: "All",
+    twitchInsights: "Twitch Insights",
+    caseStudies: "Case Studies",
+    nordicMarket: "Nordic Market",
+    guides: "Guides",
     noResults: "No articles found",
     noResultsDescription: "Try adjusting your search or filters to find what you're looking for.",
     clearFilters: "Clear filters",
@@ -36,11 +41,15 @@ const blogTranslations = {
     minRead: "min read",
   },
   no: {
-    pageTitle: "Blogg",
-    pageSubtitle: "Innsikt & Guider om Twitch-annonsering",
-    pageDescription: "Hold deg oppdatert på native annonseringstrender, strategier og suksesshistorier fra det nordiske streamingmarkedet.",
+    pageTitle: "Beta Ads Innsikt",
+    pageSubtitle: "Datadrevne guider for det nordiske streamingmarkedet",
+    pageDescription: "Datadrevet innsikt, analysedashboards og annonseguider for å nå Gen Z på Twitch og streamingplattformer.",
     searchPlaceholder: "Søk artikler...",
     allCategories: "Alle",
+    twitchInsights: "Twitch Innsikt",
+    caseStudies: "Case Studies",
+    nordicMarket: "Nordisk Marked",
+    guides: "Guider",
     noResults: "Ingen artikler funnet",
     noResultsDescription: "Prøv å justere søket eller filtrene for å finne det du leter etter.",
     clearFilters: "Fjern filtre",
@@ -49,11 +58,15 @@ const blogTranslations = {
     minRead: "min lesing",
   },
   sv: {
-    pageTitle: "Blogg",
-    pageSubtitle: "Insikter & Guider om Twitch-reklam",
-    pageDescription: "Håll dig uppdaterad om native reklamtrender, strategier och framgångshistorier från den nordiska streamingmarknaden.",
+    pageTitle: "Beta Ads Insights",
+    pageSubtitle: "Datadrivna guider för den nordiska streamingmarknaden",
+    pageDescription: "Datadrivna insikter, analysinstrumentpaneler och annonsguider för att nå Gen Z på Twitch och streamingplattformar.",
     searchPlaceholder: "Sök artiklar...",
     allCategories: "Alla",
+    twitchInsights: "Twitch Insights",
+    caseStudies: "Case Studies",
+    nordicMarket: "Nordisk Marknad",
+    guides: "Guider",
     noResults: "Inga artiklar hittades",
     noResultsDescription: "Prova att justera din sökning eller filter för att hitta det du letar efter.",
     clearFilters: "Rensa filter",
@@ -62,11 +75,15 @@ const blogTranslations = {
     minRead: "min läsning",
   },
   fi: {
-    pageTitle: "Blogi",
-    pageSubtitle: "Oivallukset & Oppaat Twitch-mainonnasta",
-    pageDescription: "Pysy ajan tasalla native-mainonnan trendeistä, strategioista ja menestystarinoista pohjoismaisilla streaming-markkinoilla.",
+    pageTitle: "Beta Ads Insights",
+    pageSubtitle: "Datapohjaiset oppaat pohjoismaisille streaming-markkinoille",
+    pageDescription: "Datapohjaiset oivallukset, analytiikkapaneelit ja mainosoppaat Gen Z:n tavoittamiseen Twitchissä ja streaming-alustoilla.",
     searchPlaceholder: "Etsi artikkeleita...",
     allCategories: "Kaikki",
+    twitchInsights: "Twitch Insights",
+    caseStudies: "Case Studies",
+    nordicMarket: "Pohjoismainen Markkina",
+    guides: "Oppaat",
     noResults: "Artikkeleita ei löytynyt",
     noResultsDescription: "Kokeile muuttaa hakua tai suodattimia löytääksesi etsimäsi.",
     clearFilters: "Tyhjennä suodattimet",
@@ -88,11 +105,24 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
   const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
 
-  // Extract unique categories
-  const categories = useMemo(() => {
-    const cats = new Set(blogPosts.map(p => p.category));
-    return ["all", ...Array.from(cats)];
-  }, []);
+  // Category mapping for improved filters
+  const categoryMap: Record<string, string[]> = {
+    "twitch-insights": ["Statistics & Data", "Trends"],
+    "case-studies": ["Case Studies"],
+    "nordic-market": ["Nordic Insights"],
+    "guides": ["Guider", "Oppaat", "Industry Insights"],
+  };
+
+  // Category labels
+  const categoryLabels: Record<string, string> = {
+    "all": bt.allCategories,
+    "twitch-insights": bt.twitchInsights,
+    "case-studies": bt.caseStudies,
+    "nordic-market": bt.nordicMarket,
+    "guides": bt.guides,
+  };
+
+  const categories = ["all", "twitch-insights", "case-studies", "nordic-market", "guides"];
 
   // Filter posts
   const filteredPosts = useMemo(() => {
@@ -103,7 +133,10 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
         post.excerpt.toLowerCase().includes(searchLower) ||
         post.tags.some(tag => tag.toLowerCase().includes(searchLower));
       
-      const matchesCategory = activeCategory === "all" || post.category === activeCategory;
+      let matchesCategory = activeCategory === "all";
+      if (!matchesCategory && categoryMap[activeCategory]) {
+        matchesCategory = categoryMap[activeCategory].includes(post.category);
+      }
       
       return matchesSearch && matchesCategory;
     });
@@ -173,7 +206,7 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
                         : "text-muted-foreground border-transparent hover:text-foreground hover:border-border"
                     }`}
                   >
-                    {category === "all" ? bt.allCategories : category}
+                    {categoryLabels[category] || category}
                   </button>
                 ))}
               </div>
@@ -202,6 +235,11 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
               </div>
             </div>
           </div>
+
+          {/* Featured Insights Hub - Only show when no filters active */}
+          {searchQuery === "" && activeCategory === "all" && currentPage === 1 && (
+            <FeaturedInsightsHub language={language} />
+          )}
 
           {/* Featured Post - Full width editorial */}
           {featuredPost && currentPage === 1 && (
