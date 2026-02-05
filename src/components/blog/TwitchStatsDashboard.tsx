@@ -1,7 +1,14 @@
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { StatCard, StatCardGrid } from './StatCard';
+import TopStreamersSection from './twitch-stats/TopStreamersSection';
+import CategoryBreakdownSection from './twitch-stats/CategoryBreakdownSection';
+import YearOverYearSection from './twitch-stats/YearOverYearSection';
+import EngagementSection from './twitch-stats/EngagementSection';
+import RevenueSection from './twitch-stats/RevenueSection';
+import EsportsSection from './twitch-stats/EsportsSection';
+import ViewerDemographicsSection from './twitch-stats/ViewerDemographicsSection';
+import GeographicSection from './twitch-stats/GeographicSection';
 
-// StreamHatchet 2025 data
 const quarterlyData = [
   { quarter: 'Q1 2024', hours: 5.4 },
   { quarter: 'Q2 2024', hours: 5.2 },
@@ -25,28 +32,10 @@ const contentSplitData = [
   { name: 'Non-Gaming', value: 22, color: 'hsl(var(--accent))' },
 ];
 
-const geoData = [
-  { country: 'USA', percentage: 23.1 },
-  { country: 'Germany', percentage: 8.6 },
-  { country: 'Brazil', percentage: 7.2 },
-  { country: 'Russia', percentage: 6.8 },
-  { country: 'France', percentage: 5.4 },
-  { country: 'UK', percentage: 4.9 },
-  { country: 'Canada', percentage: 4.2 },
-  { country: 'Spain', percentage: 3.8 },
-];
-
-const ageData = [
-  { name: '16-24', value: 41, color: 'hsl(var(--primary))' },
-  { name: '25-34', value: 32, color: 'hsl(var(--accent))' },
-  { name: '35-44', value: 17, color: 'hsl(var(--muted-foreground))' },
-  { name: '45+', value: 10, color: 'hsl(var(--border))' },
-];
-
 const TwitchStatsDashboard = () => {
   return (
-    <div className="space-y-12">
-      {/* Key Metrics - StreamHatchet 2025 */}
+    <div className="space-y-16">
+      {/* Key Platform Metrics */}
       <div>
         <h3 className="text-xl font-semibold text-foreground mb-6">Key Platform Metrics (StreamHatchet 2025)</h3>
         <StatCardGrid>
@@ -57,7 +46,10 @@ const TwitchStatsDashboard = () => {
         </StatCardGrid>
       </div>
 
-      {/* Quarterly Hours Watched */}
+      {/* Engagement & Activity */}
+      <EngagementSection />
+
+      {/* Quarterly Hours */}
       <div>
         <h3 className="text-xl font-semibold text-foreground mb-6">Quarterly Hours Watched (Billions)</h3>
         <div className="bg-card/30 border border-border/30 rounded-xl p-6">
@@ -80,126 +72,66 @@ const TwitchStatsDashboard = () => {
               <Area type="monotone" dataKey="hours" stroke="hsl(var(--primary))" fill="url(#colorHours)" strokeWidth={2} isAnimationActive={false} />
             </AreaChart>
           </ResponsiveContainer>
-          <p className="text-center text-sm text-muted-foreground mt-4">
-            Q4 2025 was the lowest viewership quarter since Q1 2020
-          </p>
+          <p className="text-center text-sm text-muted-foreground mt-4">Q4 2025 was the lowest viewership quarter since Q1 2020</p>
         </div>
       </div>
 
-      {/* Market Share */}
+      {/* YoY Comparison */}
+      <YearOverYearSection />
+
+      {/* Market Share & Content Split */}
       <div className="grid lg:grid-cols-2 gap-8">
         <div>
           <h3 className="text-xl font-semibold text-foreground mb-6">Platform Market Share 2025</h3>
           <div className="bg-card/30 border border-border/30 rounded-xl p-6">
             <ResponsiveContainer width="100%" height={250}>
               <PieChart>
-                <Pie
-                  data={marketShareData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={60}
-                  outerRadius={90}
-                  dataKey="value"
-                  label={({ name, value }) => `${name}: ${value}%`}
-                  isAnimationActive={false}
-                >
-                  {marketShareData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
+                <Pie data={marketShareData} cx="50%" cy="50%" innerRadius={60} outerRadius={90} dataKey="value" label={({ name, value }) => `${name}: ${value}%`} isAnimationActive={false}>
+                  {marketShareData.map((entry, i) => <Cell key={i} fill={entry.color} />)}
                 </Pie>
-                <Tooltip 
-                  contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
-                />
+                <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }} />
               </PieChart>
             </ResponsiveContainer>
           </div>
         </div>
-
         <div>
           <h3 className="text-xl font-semibold text-foreground mb-6">Content Split 2025</h3>
           <div className="bg-card/30 border border-border/30 rounded-xl p-6">
             <ResponsiveContainer width="100%" height={250}>
               <PieChart>
-                <Pie
-                  data={contentSplitData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={60}
-                  outerRadius={90}
-                  dataKey="value"
-                  label={({ name, value }) => `${name}: ${value}%`}
-                  isAnimationActive={false}
-                >
-                  {contentSplitData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
+                <Pie data={contentSplitData} cx="50%" cy="50%" innerRadius={60} outerRadius={90} dataKey="value" label={({ name, value }) => `${name}: ${value}%`} isAnimationActive={false}>
+                  {contentSplitData.map((entry, i) => <Cell key={i} fill={entry.color} />)}
                 </Pie>
-                <Tooltip 
-                  contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
-                />
+                <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }} />
               </PieChart>
             </ResponsiveContainer>
-            <p className="text-center text-sm text-muted-foreground mt-4">
-              Non-gaming grew from 20% to 22% YoY
-            </p>
+            <p className="text-center text-sm text-muted-foreground mt-4">Non-gaming grew from 20% to 22% YoY</p>
           </div>
         </div>
       </div>
 
-      {/* Demographics */}
-      <div>
-        <h3 className="text-xl font-semibold text-foreground mb-6">Age Distribution</h3>
-        <div className="bg-card/30 border border-border/30 rounded-xl p-6">
-          <ResponsiveContainer width="100%" height={250}>
-            <PieChart>
-                <Pie
-                  data={ageData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={60}
-                  outerRadius={90}
-                  dataKey="value"
-                  label={({ name, value }) => `${name}: ${value}%`}
-                  isAnimationActive={false}
-                >
-                  {ageData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Pie>
-              <Tooltip 
-                contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
-              />
-            </PieChart>
-          </ResponsiveContainer>
-          <p className="text-center text-sm text-muted-foreground mt-4">
-            73% of viewers are under 35 years old
-          </p>
-        </div>
-      </div>
+      {/* Top Streamers */}
+      <TopStreamersSection />
+
+      {/* Category Breakdown */}
+      <CategoryBreakdownSection />
+
+      {/* Viewer Demographics */}
+      <ViewerDemographicsSection />
 
       {/* Geographic Distribution */}
-      <div>
-        <h3 className="text-xl font-semibold text-foreground mb-6">Geographic Distribution (Top Markets)</h3>
-        <div className="bg-card/30 border border-border/30 rounded-xl p-6">
-          <ResponsiveContainer width="100%" height={350}>
-            <BarChart data={geoData} layout="vertical">
-              <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
-              <XAxis type="number" stroke="hsl(var(--muted-foreground))" unit="%" />
-              <YAxis dataKey="country" type="category" stroke="hsl(var(--muted-foreground))" width={80} />
-              <Tooltip 
-                contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
-                formatter={(value: number) => [`${value}%`, 'Share']}
-              />
-              <Bar dataKey="percentage" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} isAnimationActive={false} />
-            </BarChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
+      <GeographicSection />
+
+      {/* Creator Economy */}
+      <RevenueSection />
+
+      {/* Esports */}
+      <EsportsSection />
 
       {/* Sources */}
       <div className="text-xs text-muted-foreground border-t border-border/30 pt-6">
-        <p className="font-medium mb-2">Data Source:</p>
-        <p>StreamHatchet 2025 Yearly Live Streaming Trends Report</p>
+        <p className="font-medium mb-2">Data Sources:</p>
+        <p>StreamHatchet 2025 Yearly Live Streaming Trends Report, TwitchTracker, Esports Charts</p>
       </div>
     </div>
   );
