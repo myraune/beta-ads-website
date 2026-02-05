@@ -8,6 +8,7 @@ import { getBlogPostBySlug, getRelatedPosts, BlogPost as BlogPostType } from "@/
 import { Helmet } from "react-helmet";
 import { ReadingProgress } from "@/components/blog/ReadingProgress";
 import { TableOfContents, dashboardTocItems } from "@/components/blog/TableOfContents";
+import { StickyCTA, InlineCTA } from "@/components/blog/StickyCTA";
 import ReactMarkdown from "react-markdown";
 
 const TwitchStatsDashboard = lazy(() => import("@/components/blog/TwitchStatsDashboard"));
@@ -174,7 +175,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t, language, setLanguage })
             </p>
 
 
-            {/* Dashboard or Content with ToC */}
+            {/* Dashboard or Content with ToC and Sticky CTA */}
             <div className="flex gap-8">
               <div className="flex-1 min-w-0">
                 {post.hasDashboard ? (
@@ -234,10 +235,18 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t, language, setLanguage })
                     >
                       {post.content}
                     </ReactMarkdown>
+                    
+                    {/* Inline CTA for mobile - appears after content */}
+                    <InlineCTA language={language} />
                   </div>
                 )}
               </div>
-              {tocItems.length > 0 && <TableOfContents items={tocItems} />}
+              
+              {/* Sidebar with ToC and Sticky CTA */}
+              <div className="hidden lg:flex flex-col gap-6 w-72 shrink-0">
+                {tocItems.length > 0 && <TableOfContents items={tocItems} />}
+                <StickyCTA language={language} />
+              </div>
             </div>
 
             {/* Tags */}
