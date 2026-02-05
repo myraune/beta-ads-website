@@ -175,7 +175,7 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
         <link rel="canonical" href="https://betaads.no/blog" />
       </Helmet>
 
-      <div className="min-h-screen bg-background pt-24 pb-16">
+      <div className="min-h-screen pt-24 pb-16">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           
           {/* Header - Clean Editorial Style */}
