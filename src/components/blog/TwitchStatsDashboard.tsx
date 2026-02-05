@@ -1,6 +1,5 @@
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar, Legend } from 'recharts';
-import { useInView } from '@/hooks/useInView';
-import { useCountUp } from '@/hooks/useCountUp';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, BarChart, Bar } from 'recharts';
+import { StatCard, StatCardGrid } from './StatCard';
 
 // StreamHatchet 2025 data
 const quarterlyData = [
@@ -44,41 +43,18 @@ const ageData = [
   { name: '45+', value: 10, color: 'hsl(var(--border))' },
 ];
 
-interface AnimatedStatCardProps {
-  value: number;
-  label: string;
-  suffix?: string;
-  decimals?: number;
-  trend?: string;
-}
-
-const AnimatedStatCard = ({ value, label, suffix = '', decimals = 0, trend }: AnimatedStatCardProps) => {
-  const [ref, isVisible] = useInView<HTMLDivElement>({ threshold: 0.3 });
-  const { displayValue } = useCountUp(value, isVisible, { duration: 2000, decimals });
-
-  return (
-    <div ref={ref} className="bg-card/50 border border-border/30 rounded-xl p-4 lg:p-6 text-center min-w-0 overflow-hidden">
-      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2 truncate">
-        {displayValue}{suffix}
-      </div>
-      <div className="text-xs sm:text-sm text-muted-foreground">{label}</div>
-      {trend && <div className="text-xs text-muted-foreground mt-1">{trend}</div>}
-    </div>
-  );
-};
-
 const TwitchStatsDashboard = () => {
   return (
     <div className="space-y-12">
       {/* Key Metrics - StreamHatchet 2025 */}
       <div>
         <h3 className="text-xl font-semibold text-foreground mb-6">Key Platform Metrics (StreamHatchet 2025)</h3>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <AnimatedStatCard value={19.2} suffix="B" label="Hours Watched" decimals={1} trend="-8.9% YoY" />
-          <AnimatedStatCard value={52.8} suffix="%" label="Market Share" decimals={1} trend="-8.3 pts YoY" />
-          <AnimatedStatCard value={19.7} suffix="M" label="Unique Channels" decimals={1} trend="-0.5% YoY" />
-          <AnimatedStatCard value={22} suffix="%" label="Non-Gaming Content" trend="+2 pts YoY" />
-        </div>
+        <StatCardGrid>
+          <StatCard value={19.2} suffix="B" label="Hours Watched" decimals={1} trend="-8.9% YoY" format="raw" />
+          <StatCard value={52.8} suffix="%" label="Market Share" decimals={1} trend="-8.3 pts YoY" format="raw" />
+          <StatCard value={19.7} suffix="M" label="Unique Channels" decimals={1} trend="-0.5% YoY" format="raw" />
+          <StatCard value={22} suffix="%" label="Non-Gaming Content" trend="+2 pts YoY" format="raw" />
+        </StatCardGrid>
       </div>
 
       {/* Quarterly Hours Watched */}

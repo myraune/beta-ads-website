@@ -1,6 +1,5 @@
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line } from 'recharts';
-import { useInView } from '@/hooks/useInView';
-import { useCountUp } from '@/hooks/useCountUp';
+import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { StatCard, StatCardGrid } from './StatCard';
 
 // Real data from TwitchTracker - December 2024
 const topStreamers = [
@@ -26,47 +25,18 @@ const watchHoursData = topStreamers.map(s => ({
   hours: s.hoursStreamed,
 }));
 
-const followerGrowthData = [
-  { month: 'Jul', followers: 3200 },
-  { month: 'Aug', followers: 3380 },
-  { month: 'Sep', followers: 3520 },
-  { month: 'Oct', followers: 3680 },
-  { month: 'Nov', followers: 3850 },
-  { month: 'Dec', followers: 4020 },
-];
-
-interface AnimatedStatProps {
-  value: number;
-  label: string;
-  suffix?: string;
-}
-
-const AnimatedStat = ({ value, label, suffix = '' }: AnimatedStatProps) => {
-  const [ref, isVisible] = useInView({ threshold: 0.3 });
-  const { displayValue } = useCountUp(value, isVisible, { duration: 2000 });
-  
-  return (
-    <div ref={ref} className="bg-card/50 border border-border/30 rounded-xl p-4 lg:p-6 text-center min-w-0 overflow-hidden">
-      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2 truncate">
-        {displayValue}{suffix}
-      </div>
-      <div className="text-xs sm:text-sm text-muted-foreground">{label}</div>
-    </div>
-  );
-};
-
 export default function FinnishStreamersDashboard() {
   return (
     <div className="space-y-12">
       {/* Peak Viewership Highlights */}
       <section id="peak-viewership">
         <h2 className="text-2xl font-bold text-foreground mb-6">Finnish Streamer Highlights</h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <AnimatedStat value={45234} label="Peak Viewers (ENCE)" />
-          <AnimatedStat value={18234} label="Peak Viewers (Jamppi)" />
-          <AnimatedStat value={4523} label="Top Avg Viewers" />
-          <AnimatedStat value={4020} label="Total Followers (K)" suffix="K" />
-        </div>
+        <StatCardGrid>
+          <StatCard value={45234} label="Peak Viewers (ENCE)" />
+          <StatCard value={18234} label="Peak Viewers (Jamppi)" />
+          <StatCard value={4523} label="Top Avg Viewers" />
+          <StatCard value={4020} label="Total Followers (K)" suffix="K" format="raw" />
+        </StatCardGrid>
       </section>
 
       {/* Leaderboard Table */}

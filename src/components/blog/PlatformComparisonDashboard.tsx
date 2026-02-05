@@ -1,6 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar, PieChart, Pie, Cell } from 'recharts';
-import { useInView } from '@/hooks/useInView';
-import { useCountUp } from '@/hooks/useCountUp';
+import { StatCard, StatCardGrid } from './StatCard';
 
 // StreamHatchet 2025 data
 const marketShareData = [
@@ -33,43 +32,18 @@ const radarData = [
   { metric: 'Young Demo', twitch: 85, youtube: 70, kick: 80 },
 ];
 
-interface AnimatedStatCardProps {
-  value: number;
-  label: string;
-  sublabel?: string;
-  suffix?: string;
-  decimals?: number;
-  trend?: string;
-}
-
-const AnimatedStatCard = ({ value, label, sublabel, suffix = '', decimals = 0, trend }: AnimatedStatCardProps) => {
-  const [ref, isVisible] = useInView<HTMLDivElement>({ threshold: 0.3 });
-  const { displayValue } = useCountUp(value, isVisible, { duration: 2000, decimals });
-  
-  return (
-    <div ref={ref} className="bg-card/50 border border-border/30 rounded-xl p-6 text-center">
-      <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
-        {displayValue}{suffix}
-      </div>
-      <div className="text-sm text-foreground font-medium">{label}</div>
-      {sublabel && <div className="text-xs text-muted-foreground mt-1">{sublabel}</div>}
-      {trend && <div className="text-xs text-accent mt-1">{trend}</div>}
-    </div>
-  );
-};
-
 export default function PlatformComparisonDashboard() {
   return (
     <div className="space-y-12">
       {/* Overview Stats - StreamHatchet 2025 */}
       <section id="overview">
         <h2 className="text-2xl font-bold text-foreground mb-6">Platform Overview (StreamHatchet 2025)</h2>
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-          <AnimatedStatCard value={36.4} label="Total Industry" suffix="B hrs" decimals={1} trend="+6% YoY" />
-          <AnimatedStatCard value={19.2} label="Twitch" suffix="B hrs" decimals={1} trend="-8.9% YoY" />
-          <AnimatedStatCard value={8.8} label="YouTube Gaming" suffix="B hrs" decimals={1} trend="+12% YoY" />
-          <AnimatedStatCard value={4.5} label="Kick" suffix="B hrs" decimals={1} trend="+131% YoY" />
-        </div>
+        <StatCardGrid>
+          <StatCard value={36.4} label="Total Industry" suffix="B hrs" decimals={1} trend="+6% YoY" format="raw" />
+          <StatCard value={19.2} label="Twitch" suffix="B hrs" decimals={1} trend="-8.9% YoY" format="raw" />
+          <StatCard value={8.8} label="YouTube Gaming" suffix="B hrs" decimals={1} trend="+12% YoY" format="raw" />
+          <StatCard value={4.5} label="Kick" suffix="B hrs" decimals={1} trend="+131% YoY" format="raw" />
+        </StatCardGrid>
       </section>
 
       {/* Market Share Pie Chart */}

@@ -1,6 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, Legend } from 'recharts';
-import { useInView } from '@/hooks/useInView';
-import { useCountUp } from '@/hooks/useCountUp';
+import { StatCard, StatCardGrid } from './StatCard';
 
 // Real December 2025 data from TwitchTracker (filtered for legitimate streamers)
 const topStreamers = [
@@ -40,37 +39,17 @@ const followerGrowthData = [
   { month: 'Dec', followers: 71800 },
 ];
 
-interface AnimatedStatProps {
-  value: number;
-  label: string;
-  highlight?: boolean;
-}
-
-const AnimatedStat = ({ value, label, highlight = false }: AnimatedStatProps) => {
-  const [ref, isVisible] = useInView<HTMLDivElement>({ threshold: 0.3 });
-  const { displayValue } = useCountUp(value, isVisible, { duration: 2000 });
-
-  return (
-    <div ref={ref} className={`rounded-xl p-5 text-center ${highlight ? 'bg-primary/20 border border-primary/40' : 'bg-card/50 border border-border/30'}`}>
-      <div className={`text-2xl lg:text-3xl font-bold mb-1 ${highlight ? 'text-primary' : 'text-foreground'}`}>
-        {displayValue}
-      </div>
-      <div className="text-sm text-muted-foreground">{label}</div>
-    </div>
-  );
-};
-
 const NorwegianStreamersDashboard = () => {
   return (
     <div className="space-y-12">
       {/* Peak Viewership Highlights */}
       <div>
         <h3 className="text-xl font-semibold text-foreground mb-6">Peak Viewership Records (Dec 2025)</h3>
-        <div className="grid grid-cols-3 gap-4">
-          <AnimatedStat value={21141} label="Emzia (Peak)" highlight />
-          <AnimatedStat value={6942} label="Komplettno (Peak)" />
-          <AnimatedStat value={3893} label="Ailincia (Peak)" />
-        </div>
+        <StatCardGrid columns={3}>
+          <StatCard value={21141} label="Emzia (Peak)" highlight />
+          <StatCard value={6942} label="Komplettno (Peak)" />
+          <StatCard value={3893} label="Ailincia (Peak)" />
+        </StatCardGrid>
       </div>
 
       {/* Leaderboard Table */}
