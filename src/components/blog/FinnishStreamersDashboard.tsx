@@ -46,11 +46,11 @@ const AnimatedStat = ({ value, label, suffix = '' }: AnimatedStatProps) => {
   const { displayValue } = useCountUp(value, isVisible, { duration: 2000 });
   
   return (
-    <div ref={ref} className="bg-card/50 border border-border/30 rounded-xl p-6 text-center">
-      <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
+    <div ref={ref} className="bg-card/50 border border-border/30 rounded-xl p-4 lg:p-6 text-center min-w-0 overflow-hidden">
+      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2 truncate">
         {displayValue}{suffix}
       </div>
-      <div className="text-sm text-muted-foreground">{label}</div>
+      <div className="text-xs sm:text-sm text-muted-foreground">{label}</div>
     </div>
   );
 };
