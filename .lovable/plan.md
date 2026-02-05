@@ -1,86 +1,79 @@
 
-# Plan: Multi-Image About Page
+# Plan: Fix Case Studies Visibility
 
-## Overview
+## Problem Identified
 
-Replace the single hero image with a multi-image layout showcasing the founder in different contexts. This creates a more personal, dynamic presentation while maintaining the site's visual-first design principles.
+The current layout on desktop only displays 5 of the 8 case studies:
+- 1 main featured card (shows selected case study)
+- 4 thumbnail cards in the grid (`slice(1, 5)`)
+- Case studies 6, 7, and 8 (indices 5, 6, 7) are hidden on desktop
 
-## Proposed Layout
+The remaining 3 case studies only appear on mobile in a separate section (`slice(5)`), creating a confusing experience where users on desktop cannot see all campaigns.
 
 ```text
-+------------------------------------------------------------------+
-|  About Beta Ads                                                   |
-|                                                                   |
-|  [Text + CTA]          [MAIN IMAGE - Hero, large]                |
-|      38%                        62%                               |
-+------------------------------------------------------------------+
-|                                                                   |
-|  [IMAGE 2]        [IMAGE 3]        [IMAGE 4]                     |
-|    1/3              1/3              1/3                          |
-|  At work          Standing         Office setup                   |
-|                                                                   |
-+------------------------------------------------------------------+
+Current Desktop:
++------------------+   +-------+-------+
+|                  |   |   2   |   3   |
+|   MAIN (1)       |   +-------+-------+
+|                  |   |   4   |   5   |
++------------------+   +-------+-------+
+                       
+                       [6, 7, 8 are HIDDEN]
 ```
 
-## Image Assignment
+## Proposed Solution
 
-| Slot | Image | Context |
-|------|-------|---------|
-| Hero (main) | Current founder-andreas.jpeg | Primary headshot |
-| Image 2 | 58AADC5C (atrium) | Professional setting |
-| Image 3 | B83368C8 (standing, office) | Working environment |
-| Image 4 | 6A9DA933 (at desk) | Behind the scenes |
+Show all 8 case studies in the thumbnail grid by changing the layout:
 
-## Files to Create/Modify
-
-### New Assets
-
-Copy the 3 uploaded images to `src/assets/`:
-- `src/assets/founder-andreas-2.jpg` (atrium photo)
-- `src/assets/founder-andreas-3.jpg` (standing in office)
-- `src/assets/founder-andreas-4.jpg` (at desk)
-
-### Code Changes: `src/pages/AboutUs.tsx`
-
-1. Import all 4 founder images
-2. Keep current hero layout (38/62 split)
-3. Add new section below hero with 3-column image grid
-4. Each secondary image uses:
-   - `aspect-[4/3]` for consistent proportions
-   - `rounded-xl` corners
-   - Subtle hover effect (scale)
-   - Optional caption overlay
-
-## Technical Details
-
-### Image Grid Styling
-
-```tsx
-<section className="max-w-[1600px] mx-auto px-6 lg:px-12 pb-16">
-  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-    {/* Three secondary images */}
-  </div>
-</section>
+```text
+New Desktop:
++------------------+   +-------+-------+-------+
+|                  |   |   2   |   3   |   4   |
+|   MAIN (1)       |   +-------+-------+-------+
+|                  |   |   5   |   6   |   7   |
++------------------+   +-------+-------+-------+
+                       |        8              |
+                       +-----------------------+
 ```
 
-### Hover Effect
+## Technical Changes
+
+**File: `src/pages/CaseStudies.tsx`**
+
+| Current | Change |
+|---------|--------|
+| `caseStudies.slice(1, 5)` | `caseStudies.filter((_, i) => i !== caseStudyIndex)` |
+| `grid-cols-2` for thumbnails | `grid-cols-2 lg:grid-cols-3` for better layout |
+| Separate mobile section | Unified layout for all devices |
+
+### Updated Thumbnail Grid Code
 
 ```tsx
-<div className="group overflow-hidden rounded-xl">
-  <img 
-    className="transition-transform duration-500 group-hover:scale-105"
-  />
+{/* Thumbnail Grid - Show all except current */}
+<div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+  {caseStudies
+    .map((study, index) => ({ study, index }))
+    .filter(({ index }) => index !== caseStudyIndex)
+    .map(({ study, index }) => (
+      <div 
+        key={study.id}
+        className="group cursor-pointer relative aspect-video rounded-xl overflow-hidden bg-card/40 transition-all duration-300 shadow-lg shadow-black/10"
+        onClick={() => setCaseStudyIndex(index)}
+      >
+        {/* ... thumbnail content ... */}
+      </div>
+    ))}
 </div>
 ```
 
-### Animation
+### Remove Mobile-Only Section
 
-- Secondary images fade in with staggered delay
-- Uses existing `useScrollAnimation` hook for scroll-triggered reveal
+Delete the `lg:hidden` section that shows `caseStudies.slice(5)` since all case studies will now be visible in the unified grid.
 
-## Visual Result
+## Result
 
-- Hero section unchanged (keeps current strong layout)
-- New image grid adds depth and personality
-- Shows founder in multiple professional contexts
-- Maintains clean, minimal aesthetic with consistent spacing
+- All 8 case studies visible on desktop
+- Clicking any thumbnail makes it the main featured card
+- The currently selected card is excluded from the grid (no duplication)
+- Cleaner, unified layout for all screen sizes
+- Navigation arrows still work for cycling through all case studies
