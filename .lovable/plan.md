@@ -1,61 +1,54 @@
 
-
-# Plan: Fix Blog Post Markdown Table Rendering
+# Plan: Fix TwitchStatsDashboard Chart Rendering Error
 
 ## Issue Identified
 
-Markdown tables in blog posts are rendering as raw pipe-separated text instead of proper HTML tables.
+The error occurs in the "Quarterly Hours Watched" chart section of the `TwitchStatsDashboard` component. This is a known Recharts issue where chart animations cause crashes during rapid visibility state changes (such as when components are lazy-loaded via React Suspense).
 
-Example of broken rendering:
-```
-| Metric | Goal | Achieved |
-|--------|------|----------|
-| Unique Viewers | 2M | 2.5M |
-```
-
-This affects:
-- Samsung Twitch Campaign Case Study
-- Kick Streaming Growth 2025
-- Top Streamers 2025
-- Esports Viewership 2025
-- Non-Gaming Content on Twitch 2025
-- All other posts with tables
+The project already has a documented fix for this in `LiveDashboard.tsx` - disabling animations with `isAnimationActive={false}`.
 
 ## Root Cause
 
-The `react-markdown` package (v10.1.0) does not parse GitHub Flavored Markdown features like **tables** by default. It requires the `remark-gfm` plugin.
+Recharts charts with animations enabled can crash when:
+- Components are lazy-loaded via `React.lazy()`
+- Visibility changes rapidly (intersection observer + count-up animations)
+- Multiple charts render simultaneously
+
+The `TwitchStatsDashboard`, `TopGamesDashboard`, and `PlatformComparisonDashboard` components all lack the `isAnimationActive={false}` prop that prevents these crashes.
 
 ## Solution
 
-### Step 1: Install remark-gfm
+Add `isAnimationActive={false}` to all chart elements in the affected dashboard components:
 
-Add the `remark-gfm` package to the project dependencies.
+### Files to Modify
 
-### Step 2: Update BlogPost.tsx
+| File | Charts to Update |
+|------|------------------|
+| `src/components/blog/TwitchStatsDashboard.tsx` | Area, Pie (x3), Bar |
+| `src/components/blog/TopGamesDashboard.tsx` | Bar, Pie (x2) |
+| `src/components/blog/PlatformComparisonDashboard.tsx` | Bar (x2), Pie, Radar |
 
-Import and configure the plugin in the ReactMarkdown component:
+### Changes Per Component
 
-```tsx
-import remarkGfm from 'remark-gfm';
+**TwitchStatsDashboard.tsx:**
+- Line 104: `<Area ... isAnimationActive={false} />`
+- Lines 120-131, 146-157, 177-188: `<Pie ... isAnimationActive={false} />`
+- Line 214: `<Bar ... isAnimationActive={false} />`
 
-<ReactMarkdown remarkPlugins={[remarkGfm]}>
-```
+**TopGamesDashboard.tsx:**
+- All `<Bar>` and `<Pie>` components need `isAnimationActive={false}`
 
-## Files to Modify
-
-| File | Change |
-|------|--------|
-| package.json | Add `remark-gfm` dependency |
-| src/pages/BlogPost.tsx | Import `remarkGfm` and add to `remarkPlugins` prop |
+**PlatformComparisonDashboard.tsx:**
+- All `<Bar>`, `<Pie>`, and `<Radar>` components need `isAnimationActive={false}`
 
 ## Expected Result
 
 After this fix:
-- All markdown tables render as proper HTML tables
-- Tables will use the existing custom styling defined in the component
-- Posts like Kick Streaming Growth 2025 and Top Streamers 2025 will display data correctly
+- Charts will render without crashing on lazy-load
+- The error dialog will no longer appear
+- All dashboard visualizations will display correctly
+- Slight trade-off: no entrance animations on charts (acceptable for stability)
 
-## Technical Details
+## Technical Notes
 
-The BlogPost.tsx component already has custom table styling configured (lines 218-234), so once the plugin is added, the tables will automatically use these styles.
-
+This follows the existing pattern established in `LiveDashboard.tsx` which already uses `isAnimationActive={false}` for the same reason.
