@@ -101,7 +101,7 @@ const TwitchStatsDashboard = () => {
                 labelStyle={{ color: 'hsl(var(--foreground))' }}
                 formatter={(value: number) => [`${value}B hours`, 'Watched']}
               />
-              <Area type="monotone" dataKey="hours" stroke="hsl(var(--primary))" fill="url(#colorHours)" strokeWidth={2} />
+              <Area type="monotone" dataKey="hours" stroke="hsl(var(--primary))" fill="url(#colorHours)" strokeWidth={2} isAnimationActive={false} />
             </AreaChart>
           </ResponsiveContainer>
           <p className="text-center text-sm text-muted-foreground mt-4">
@@ -125,6 +125,7 @@ const TwitchStatsDashboard = () => {
                   outerRadius={90}
                   dataKey="value"
                   label={({ name, value }) => `${name}: ${value}%`}
+                  isAnimationActive={false}
                 >
                   {marketShareData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
@@ -151,6 +152,7 @@ const TwitchStatsDashboard = () => {
                   outerRadius={90}
                   dataKey="value"
                   label={({ name, value }) => `${name}: ${value}%`}
+                  isAnimationActive={false}
                 >
                   {contentSplitData.map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={entry.color} />
@@ -174,19 +176,20 @@ const TwitchStatsDashboard = () => {
         <div className="bg-card/30 border border-border/30 rounded-xl p-6">
           <ResponsiveContainer width="100%" height={250}>
             <PieChart>
-              <Pie
-                data={ageData}
-                cx="50%"
-                cy="50%"
-                innerRadius={60}
-                outerRadius={90}
-                dataKey="value"
-                label={({ name, value }) => `${name}: ${value}%`}
-              >
-                {ageData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
-                ))}
-              </Pie>
+                <Pie
+                  data={ageData}
+                  cx="50%"
+                  cy="50%"
+                  innerRadius={60}
+                  outerRadius={90}
+                  dataKey="value"
+                  label={({ name, value }) => `${name}: ${value}%`}
+                  isAnimationActive={false}
+                >
+                  {ageData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                  ))}
+                </Pie>
               <Tooltip 
                 contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
               />
@@ -211,7 +214,7 @@ const TwitchStatsDashboard = () => {
                 contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '8px' }}
                 formatter={(value: number) => [`${value}%`, 'Share']}
               />
-              <Bar dataKey="percentage" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} />
+              <Bar dataKey="percentage" fill="hsl(var(--primary))" radius={[0, 4, 4, 0]} isAnimationActive={false} />
             </BarChart>
           </ResponsiveContainer>
         </div>
