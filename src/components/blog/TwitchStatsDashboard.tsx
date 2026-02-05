@@ -57,11 +57,11 @@ const AnimatedStatCard = ({ value, label, suffix = '', decimals = 0, trend }: An
   const { displayValue } = useCountUp(value, isVisible, { duration: 2000, decimals });
 
   return (
-    <div ref={ref} className="bg-card/50 border border-border/30 rounded-xl p-6 text-center">
-      <div className="text-3xl lg:text-4xl font-bold text-primary mb-2">
+    <div ref={ref} className="bg-card/50 border border-border/30 rounded-xl p-4 lg:p-6 text-center min-w-0 overflow-hidden">
+      <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2 truncate">
         {displayValue}{suffix}
       </div>
-      <div className="text-sm text-muted-foreground">{label}</div>
+      <div className="text-xs sm:text-sm text-muted-foreground">{label}</div>
       {trend && <div className="text-xs text-muted-foreground mt-1">{trend}</div>}
     </div>
   );
