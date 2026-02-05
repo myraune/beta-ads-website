@@ -1,42 +1,71 @@
 
 
-# Plan: Fix Blog Background and Simplify About Page
+# Fix: Aurora Background Visibility on Blog and About Pages
 
-## 1. Blog Page Background
+## Problem
 
-**File:** `src/pages/Blog.tsx` (line 178)
+After comparing all pages via browser screenshots, the aurora background IS rendering on every page (it's in the shared Layout component). However, on the Blog and About pages, it appears much flatter than on the Homepage and Streamers page. The reason is content density -- the Blog and About pages immediately fill the viewport with text and cards starting from the top, leaving no visual breathing room for the aurora glow to be visible.
 
-The Blog page wraps everything in `min-h-screen bg-background`, which creates an opaque layer that blocks the shared aurora/ambient background rendered by `AnimatedBackground` in the Layout. Other pages like Index and Streamers do not use `bg-background` on their outer wrapper, allowing the aurora to show through.
+The Homepage and Streamers page both have spacious hero sections with open areas where the aurora shines through.
 
-**Change:** Remove `bg-background` from the outer div, matching the pattern used by other pages:
+## Solution
+
+Add a subtle top section gradient to the Blog and About pages that reinforces the aurora's appearance, matching the visual warmth seen on other pages. This is a lightweight approach that keeps the content structure unchanged while ensuring the background atmosphere is consistent across the site.
+
+## Changes
+
+### 1. `src/pages/Blog.tsx`
+
+Add an absolute-positioned gradient overlay at the top of the page content that matches the aurora glow. This creates the same atmospheric effect seen on other pages.
 
 ```tsx
-// Before
-<div className="min-h-screen bg-background pt-24 pb-16">
+// Before (line 178)
+<div className="min-h-screen pt-24 pb-16">
 
 // After
-<div className="min-h-screen pt-24 pb-16">
+<div className="min-h-screen pt-24 pb-16 relative">
+  {/* Aurora reinforcement gradient */}
+  <div 
+    className="absolute inset-x-0 top-0 h-[500px] pointer-events-none z-0"
+    style={{
+      background: 'radial-gradient(ellipse 80% 70% at 30% 0%, hsl(0, 80%, 50%, 0.12), transparent 70%)',
+    }}
+  />
 ```
 
-## 2. About Page -- Single Photo Only
+Also add a `relative z-10` to the inner content container so text stays above the gradient.
 
-**File:** `src/pages/AboutUs.tsx`
+### 2. `src/pages/AboutUs.tsx`
 
-Remove the secondary images grid (lines 104-129) and the unused imports for `founderImage2`, `founderImage3`, `founderImage4` (lines 8-9), the `secondaryImages` array (lines 17-21), and the `useMultipleScrollAnimations` hook usage. Keep only the main hero image of Andreas.
+Same treatment: add an aurora reinforcement gradient to the outer wrapper.
 
-Also remove `bg-background` from the About page outer div (line 28) to match the same aurora background fix.
+```tsx
+// Before (line 18)
+<div className="min-h-screen text-foreground">
 
-**Changes:**
-- Remove imports: `founderImage2`, `founderImage3`, `founderImage4`
-- Remove `useMultipleScrollAnimations` from the import and its usage
-- Remove the `secondaryImages` array
-- Remove the entire "Secondary Images Grid" section
-- Change outer div from `min-h-screen bg-background text-foreground` to `min-h-screen text-foreground`
+// After
+<div className="min-h-screen text-foreground relative">
+  {/* Aurora reinforcement gradient */}
+  <div 
+    className="absolute inset-x-0 top-0 h-[500px] pointer-events-none z-0"
+    style={{
+      background: 'radial-gradient(ellipse 80% 70% at 30% 0%, hsl(0, 80%, 50%, 0.12), transparent 70%)',
+    }}
+  />
+```
+
+### 3. Add a Footer to the Blog page
+
+The Blog page is currently missing a Footer (unlike all other pages), which also makes it feel incomplete. Add the Footer component at the end.
 
 ## Files to Modify
 
 | File | Change |
 |------|--------|
-| `src/pages/Blog.tsx` | Remove `bg-background` from outer wrapper |
-| `src/pages/AboutUs.tsx` | Remove secondary images grid, unused imports, and `bg-background` |
+| `src/pages/Blog.tsx` | Add aurora reinforcement gradient, add Footer component |
+| `src/pages/AboutUs.tsx` | Add aurora reinforcement gradient |
+
+## Result
+
+Both pages will show a warm red glow in the upper area, matching the atmospheric look of the Homepage and Streamers page. The effect is subtle and only affects dark mode (in light mode, the `body::before` pseudo-element already handles the ambient glow).
 
