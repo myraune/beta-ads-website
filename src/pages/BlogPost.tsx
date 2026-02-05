@@ -21,6 +21,7 @@ const AdvertisingBenchmarksDashboard = lazy(() => import("@/components/blog/Adve
 const SwedishStreamersDashboard = lazy(() => import("@/components/blog/SwedishStreamersDashboard"));
 const FinnishStreamersDashboard = lazy(() => import("@/components/blog/FinnishStreamersDashboard"));
 const GloriousCaseStudy = lazy(() => import("@/components/blog/GloriousCaseStudy"));
+const GokstadCaseStudy = lazy(() => import("@/components/blog/GokstadCaseStudy"));
 
 interface BlogPostPageProps {
   t: any;
@@ -190,6 +191,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t, language, setLanguage })
                     {post.hasDashboard === "swedish-streamers" && <SwedishStreamersDashboard />}
                     {post.hasDashboard === "finnish-streamers" && <FinnishStreamersDashboard />}
                     {post.hasDashboard === "glorious-case-study" && <GloriousCaseStudy />}
+                    {post.hasDashboard === "gokstad-case-study" && <GokstadCaseStudy />}
                   </Suspense>
                 ) : (
                   <div className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground">
