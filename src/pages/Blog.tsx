@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { FeaturedInsightsHub } from "@/components/blog/FeaturedInsightsHub";
+import { Footer } from "@/components/sections/Footer";
 import {
   Pagination,
   PaginationContent,
@@ -175,8 +176,15 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
         <link rel="canonical" href="https://betaads.no/blog" />
       </Helmet>
 
-      <div className="min-h-screen pt-24 pb-16">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      <div className="min-h-screen pt-24 pb-16 relative">
+        {/* Aurora reinforcement gradient */}
+        <div 
+          className="absolute inset-x-0 top-0 h-[500px] pointer-events-none z-0"
+          style={{
+            background: 'radial-gradient(ellipse 80% 70% at 30% 0%, hsl(0, 80%, 50%, 0.12), transparent 70%)',
+          }}
+        />
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
           
           {/* Header - Clean Editorial Style */}
           <div 
@@ -392,6 +400,11 @@ const Blog: React.FC<BlogProps> = ({ language }) => {
             )}
           </div>
         </div>
+        <Footer t={{
+          footerDescription: "Native advertising on Twitch across the Nordics.",
+          contactTitle: "Contact",
+          connectTitle: "Connect"
+        }} language={language} setLanguage={() => {}} />
       </div>
     </>
   );
