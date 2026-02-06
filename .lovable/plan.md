@@ -1,71 +1,78 @@
 
+# Expand About Page: Office Locations and Interactive Market Map
 
-# Fix: Aurora Background Visibility on Blog and About Pages
+## Overview
+Add two new sections below the hero on the About page:
+1. **Office Locations** -- side-by-side cinematic city photos (Oslo and Chicago) with labels
+2. **Interactive Nordic Market Map** -- an SVG map of the Nordics highlighting Norway, Sweden, and Finland with hover/click interactions
 
-## Problem
+## New Assets
+Copy the two uploaded city images into `src/assets/`:
+- `src/assets/city-oslo.jpg` (Oslo skyline)
+- `src/assets/city-chicago.jpg` (Chicago skyline)
 
-After comparing all pages via browser screenshots, the aurora background IS rendering on every page (it's in the shared Layout component). However, on the Blog and About pages, it appears much flatter than on the Homepage and Streamers page. The reason is content density -- the Blog and About pages immediately fill the viewport with text and cards starting from the top, leaving no visual breathing room for the aurora glow to be visible.
+## Changes to `src/pages/AboutUs.tsx`
 
-The Homepage and Streamers page both have spacious hero sections with open areas where the aurora shines through.
+### Section 1: Office Locations
+Placed directly after the hero section. Two cards side by side on desktop, stacked on mobile. Each card contains:
+- Full-width cinematic image (aspect-ratio 16/10) with a gradient overlay at the bottom
+- City name and "HQ" / "Office" label in the bottom-left corner
+- Scroll-reveal animation using `useScrollAnimation`
+- Short contextual line beneath the grid (e.g., "Founded in Oslo. Growing from Chicago.")
 
-## Solution
+### Section 2: Interactive Nordic Market Map
+A clean section with a heading like "Our Markets" and a custom inline SVG map showing the Nordic/Scandinavian region. The map will:
+- Highlight Norway, Sweden, and Finland with the primary color (red) fill
+- Grey out other countries (Denmark, Iceland, etc.) for context
+- On hover, each active country glows or scales slightly, and a tooltip/label shows the country name
+- Use React state to track which country is hovered
+- Include a small legend or text list of the three markets below the map
+- The SVG paths will be simplified outlines of the Nordic countries (not pixel-perfect cartography, but recognizable)
 
-Add a subtle top section gradient to the Blog and About pages that reinforces the aurora's appearance, matching the visual warmth seen on other pages. This is a lightweight approach that keeps the content structure unchanged while ensuring the background atmosphere is consistent across the site.
-
-## Changes
-
-### 1. `src/pages/Blog.tsx`
-
-Add an absolute-positioned gradient overlay at the top of the page content that matches the aurora glow. This creates the same atmospheric effect seen on other pages.
-
-```tsx
-// Before (line 178)
-<div className="min-h-screen pt-24 pb-16">
-
-// After
-<div className="min-h-screen pt-24 pb-16 relative">
-  {/* Aurora reinforcement gradient */}
-  <div 
-    className="absolute inset-x-0 top-0 h-[500px] pointer-events-none z-0"
-    style={{
-      background: 'radial-gradient(ellipse 80% 70% at 30% 0%, hsl(0, 80%, 50%, 0.12), transparent 70%)',
-    }}
-  />
+### Layout Flow
+```text
++----------------------------------+
+|         HERO (existing)          |
++----------------------------------+
+|                                  |
+|   OFFICE LOCATIONS               |
+|   [Oslo photo] [Chicago photo]   |
+|   "Founded in Oslo..."           |
+|                                  |
++----------------------------------+
+|                                  |
+|   OUR MARKETS                    |
+|   [Interactive Nordic SVG Map]   |
+|   Norway / Sweden / Finland      |
+|                                  |
++----------------------------------+
+|         FOOTER (existing)        |
++----------------------------------+
 ```
 
-Also add a `relative z-10` to the inner content container so text stays above the gradient.
+## Technical Details
 
-### 2. `src/pages/AboutUs.tsx`
+### Imports to add
+- `city-oslo.jpg` and `city-chicago.jpg` from `@/assets/`
+- Additional `useScrollAnimation` instances for each new section
+- `useState` for map hover state
 
-Same treatment: add an aurora reinforcement gradient to the outer wrapper.
+### SVG Map approach
+Use simplified SVG `<path>` elements for the three Nordic countries plus surrounding context countries. Each active country path gets:
+- `onMouseEnter` / `onMouseLeave` to set hovered state
+- Conditional fill: primary color when hovered, slightly muted primary when not
+- A smooth CSS transition on fill and transform
+- Inactive countries rendered in `hsl(var(--muted))` with lower opacity
 
-```tsx
-// Before (line 18)
-<div className="min-h-screen text-foreground">
+### Animation
+- Office location cards use staggered scroll-reveal (delay-100, delay-300)
+- Map section fades in on scroll
+- Country hover effects use CSS transitions (200ms)
 
-// After
-<div className="min-h-screen text-foreground relative">
-  {/* Aurora reinforcement gradient */}
-  <div 
-    className="absolute inset-x-0 top-0 h-[500px] pointer-events-none z-0"
-    style={{
-      background: 'radial-gradient(ellipse 80% 70% at 30% 0%, hsl(0, 80%, 50%, 0.12), transparent 70%)',
-    }}
-  />
-```
+## Files
 
-### 3. Add a Footer to the Blog page
-
-The Blog page is currently missing a Footer (unlike all other pages), which also makes it feel incomplete. Add the Footer component at the end.
-
-## Files to Modify
-
-| File | Change |
-|------|--------|
-| `src/pages/Blog.tsx` | Add aurora reinforcement gradient, add Footer component |
-| `src/pages/AboutUs.tsx` | Add aurora reinforcement gradient |
-
-## Result
-
-Both pages will show a warm red glow in the upper area, matching the atmospheric look of the Homepage and Streamers page. The effect is subtle and only affects dark mode (in light mode, the `body::before` pseudo-element already handles the ambient glow).
-
+| Action | File | Description |
+|--------|------|-------------|
+| Copy | `user-uploads://christoffer-engstrom-...` to `src/assets/city-oslo.jpg` | Oslo skyline photo |
+| Copy | `user-uploads://ricky-beron-...` to `src/assets/city-chicago.jpg` | Chicago skyline photo |
+| Modify | `src/pages/AboutUs.tsx` | Add Office Locations section and Interactive Market Map section between hero and footer |
