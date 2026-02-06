@@ -71,7 +71,7 @@ export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => (
       </div>
 
       <div className="mt-20 pt-12 text-center text-muted-foreground/60 font-extralight tracking-widest">
-        <p>&copy; 2024 Beta Ads. All rights reserved.</p>
+        <p>&copy; 2026 Beta Ads. All rights reserved. | Beta Agency AS | Org. 933 303 136</p>
       </div>
     </div>
   </footer>
