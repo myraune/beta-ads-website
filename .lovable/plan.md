@@ -1,23 +1,17 @@
 
 
-# Fix Nordic Map Hover — Remove Scale, Keep It Simple
+# Add Company Details to Footer
 
-## Problem
-The `scale(1.03)` transform on SVG `<g>` elements does not work correctly because SVG transform origins resolve to the SVG coordinate system origin (0,0), not the visual center of the group. This causes countries to shift position on hover, making the effect look broken.
+## Change
+Add the legal company name and organization number to the footer's bottom section, next to the existing copyright line.
 
-## Solution
-Remove the scale transform entirely. The hover effect should be purely color/opacity based — simple and clean:
+## File: `src/components/sections/Footer.tsx`
 
-- On hover: opacity goes from 0.5 to 1 (already done)
-- On hover: stroke brightens (already done)
-- Remove `transform`, `transformOrigin`, and `transition` from the `<g>` style — leave it as a plain wrapper with just `key`
+Update the bottom `<p>` tag (currently showing "&copy; 2024 Beta Ads. All rights reserved.") to:
 
-**File: `src/components/sections/MarketsSection.tsx`** (lines 110-117)
-
-Strip the `<g>` inline style completely so it becomes:
-```tsx
-<g key={key}>
+```
+© 2026 Beta Ads. All rights reserved. | Beta Agency AS | Org. 933 303 136
 ```
 
-No other changes needed. The path-level opacity (0.5 to 1) and stroke color shift already provide a clean, subtle hover effect without any filter artifacts or transform issues.
+This keeps it on a single line, minimal and professional. The year will also be corrected from 2024 to 2026.
 
