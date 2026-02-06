@@ -15,7 +15,14 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
   const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation();
 
   return (
-    <div className="min-h-screen text-foreground">
+    <div className="min-h-screen text-foreground relative">
+      {/* Aurora reinforcement gradient */}
+      <div 
+        className="absolute inset-x-0 top-0 h-[500px] pointer-events-none z-0"
+        style={{
+          background: 'radial-gradient(ellipse 80% 70% at 30% 0%, hsl(0, 80%, 50%, 0.12), transparent 70%)',
+        }}
+      />
       
       {/* Hero Section */}
       <section className="relative overflow-hidden text-foreground">
