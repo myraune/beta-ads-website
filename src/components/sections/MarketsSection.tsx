@@ -119,10 +119,10 @@ const MarketsSection: React.FC<MarketsSectionProps> = ({ marketsRef, marketsVisi
                           ? hoveredCountry === key ? 0.9 : 0.5
                           : 0.2,
                         stroke: country.active
-                          ? hoveredCountry === key ? 'hsl(0, 80%, 60%)' : 'hsl(0, 60%, 40%)'
+                          ? hoveredCountry === key ? '#e64646' : '#993333'
                           : 'hsl(var(--muted-foreground))',
                         strokeWidth: hoveredCountry === key ? 0.8 : 0.3,
-                        filter: hoveredCountry === key ? 'drop-shadow(0 0 6px hsl(0, 80%, 50%, 0.5))' : 'none',
+                        filter: hoveredCountry === key ? 'drop-shadow(0 0 6px rgba(230, 70, 70, 0.5))' : 'none',
                       }}
                       onMouseEnter={() => country.active && setHoveredCountry(key)}
                       onMouseLeave={() => setHoveredCountry(null)}
