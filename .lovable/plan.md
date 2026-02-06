@@ -1,31 +1,23 @@
 
 
-# Simplify Nordic Map Hover Effect
+# Fix Nordic Map Hover — Remove Scale, Keep It Simple
 
 ## Problem
-The `drop-shadow` filter still produces harsh edges on multi-path countries. SVG filters on complex shapes with tight curves inherently create artifacts.
+The `scale(1.03)` transform on SVG `<g>` elements does not work correctly because SVG transform origins resolve to the SVG coordinate system origin (0,0), not the visual center of the group. This causes countries to shift position on hover, making the effect look broken.
 
 ## Solution
-Remove the `drop-shadow` filter entirely. Instead, on hover:
-- Increase the fill opacity from 0.5 to 1.0 (brighter color)
-- Apply a subtle `scale(1.03)` transform on the `<g>` group for a slight zoom effect
-- Use `transform-origin: center` so the zoom feels natural
+Remove the scale transform entirely. The hover effect should be purely color/opacity based — simple and clean:
 
-## File: `src/components/sections/MarketsSection.tsx`
+- On hover: opacity goes from 0.5 to 1 (already done)
+- On hover: stroke brightens (already done)
+- Remove `transform`, `transformOrigin`, and `transition` from the `<g>` style — leave it as a plain wrapper with just `key`
 
-**On the `<g>` element (line ~110-115):**
-- Remove the `filter: drop-shadow(...)` property
-- Add `transform` and `transformOrigin` for the zoom effect on hover
+**File: `src/components/sections/MarketsSection.tsx`** (lines 110-117)
 
-```
-style={{
-  transform: hoveredCountry === key && country.active ? 'scale(1.03)' : 'scale(1)',
-  transformOrigin: 'center',
-  transition: 'transform 0.2s ease',
-}}
+Strip the `<g>` inline style completely so it becomes:
+```tsx
+<g key={key}>
 ```
 
-**On each `<path>` element (line ~122):**
-- Change hovered opacity from `0.9` to `1`
-- No other changes needed — stroke, fill, and inactive styles stay the same
+No other changes needed. The path-level opacity (0.5 to 1) and stroke color shift already provide a clean, subtle hover effect without any filter artifacts or transform issues.
 
