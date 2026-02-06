@@ -1,17 +1,31 @@
 
 
-# Fix Glow Seams on Nordic Map Hover
+# Simplify Nordic Map Hover Effect
 
-## The Bug
-When hovering a country, the `drop-shadow` filter is applied to each individual SVG `<path>`. Countries like Norway have 4 separate path segments (mainland + islands). The glow renders independently per path, creating visible cuts and strange edges where paths overlap or meet.
+## Problem
+The `drop-shadow` filter still produces harsh edges on multi-path countries. SVG filters on complex shapes with tight curves inherently create artifacts.
 
-## The Fix
+## Solution
+Remove the `drop-shadow` filter entirely. Instead, on hover:
+- Increase the fill opacity from 0.5 to 1.0 (brighter color)
+- Apply a subtle `scale(1.03)` transform on the `<g>` group for a slight zoom effect
+- Use `transform-origin: center` so the zoom feels natural
 
-**File: `src/components/sections/MarketsSection.tsx`** (lines ~109-131)
+## File: `src/components/sections/MarketsSection.tsx`
 
-Move the `filter: drop-shadow(...)` from the individual `<path>` elements up to the parent `<g>` group element. This way the glow is computed once for the entire country shape, producing a clean, unified shadow with no seams.
+**On the `<g>` element (line ~110-115):**
+- Remove the `filter: drop-shadow(...)` property
+- Add `transform` and `transformOrigin` for the zoom effect on hover
 
-- Add inline `style` with the `filter` property to the `<g>` element, conditioned on `hoveredCountry === key`
-- Remove the `filter` property from the individual `<path>` style objects
-- All other path styles (fill, opacity, stroke, strokeWidth) remain on the individual paths as before
+```
+style={{
+  transform: hoveredCountry === key && country.active ? 'scale(1.03)' : 'scale(1)',
+  transformOrigin: 'center',
+  transition: 'transform 0.2s ease',
+}}
+```
+
+**On each `<path>` element (line ~122):**
+- Change hovered opacity from `0.9` to `1`
+- No other changes needed — stroke, fill, and inactive styles stay the same
 
