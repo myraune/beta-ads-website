@@ -1,9 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Footer } from '@/components/sections/Footer';
-import { Button } from '@/components/ui/button';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import NordicMap from '@/components/NordicMap';
 import founderImage from '@/assets/founder-andreas.jpeg';
 import cityOslo from '@/assets/city-oslo.jpg';
 import cityChicago from '@/assets/city-chicago.jpg';
@@ -15,8 +13,9 @@ interface AboutUsProps {
 }
 
 const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
-  const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation();
+  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: officeRef, isVisible: officeVisible } = useScrollAnimation();
+  const { ref: marketsRef, isVisible: marketsVisible } = useScrollAnimation();
 
   return (
     <div className="min-h-screen text-foreground relative">
@@ -27,125 +26,137 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
           background: 'radial-gradient(ellipse 80% 70% at 30% 0%, hsl(0, 80%, 50%, 0.12), transparent 70%)',
         }}
       />
-      
-      {/* Hero Section */}
-      <section className="relative overflow-hidden text-foreground">
-        <div className="relative max-w-[1600px] mx-auto px-6 lg:px-12 pt-24 lg:pt-32 pb-16">
-          <div className="grid lg:grid-cols-[38%_62%] gap-6 lg:gap-0 items-center">
-            {/* Left: Text Content */}
-            <div 
-              ref={contentRef}
-              className={`max-w-md lg:pr-8 transition-all duration-1000 ease-out ${
-                contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
-            >
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-foreground mb-6">
-                About <span className="font-extralight italic text-primary">Beta</span> Ads
+
+      {/* Section 1 — About Intro */}
+      <section className="relative">
+        <div
+          ref={heroRef}
+          className={`max-w-[1200px] mx-auto px-6 lg:px-12 pt-32 lg:pt-44 pb-24 lg:pb-32 transition-all duration-1000 ease-out ${
+            heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <div className="grid lg:grid-cols-[55%_45%] gap-12 lg:gap-8 items-start">
+            {/* Left column */}
+            <div className="max-w-[480px]">
+              <h1 className="text-5xl lg:text-6xl font-light leading-[1.1] tracking-tight text-foreground mb-8">
+                About <span className="italic text-primary">Beta</span> Ads
               </h1>
-              <div className="space-y-4 mb-8">
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              <div className="space-y-5 mb-10">
+                <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
                   Native advertising on Twitch. We work with brands and streamers to create ads that feel like content, not interruption.
                 </p>
-                <p className="text-sm md:text-base text-muted-foreground/80 leading-relaxed">
+                <p className="text-base lg:text-lg text-muted-foreground/70 leading-relaxed">
                   We place sponsored overlays inside live streams across the Nordics. Brands get reach. Streamers get paid. Viewers get content that respects their attention.
                 </p>
               </div>
-              <a 
-                href="https://calendar.app.google/coW5NLQJtLxfRer19" 
-                target="_blank" 
+              <a
+                href="https://calendar.app.google/coW5NLQJtLxfRer19"
+                target="_blank"
                 rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-primary text-sm tracking-wide hover:gap-3 transition-all duration-300"
               >
-                <Button
-                  size="lg"
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2.5 text-sm font-light tracking-wide h-auto border-0 shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105"
-                >
-                  Book a call
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                Book a call <ArrowRight size={14} />
               </a>
             </div>
 
-            {/* Right: Founder Image */}
-            <div 
-              className={`relative lg:-mr-8 xl:-mr-12 transition-all duration-1000 delay-300 ${
-                contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
-              }`}
-            >
-              <div className="bg-card/5 rounded-xl overflow-hidden shadow-2xl shadow-black/20">
-                <div className="relative aspect-[16/9] overflow-hidden">
-                  <img 
-                    src={founderImage} 
-                    alt="Andreas Myraune, Founder of Beta Ads"
-                    className="w-full h-full object-cover object-[center_30%]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-                  <div className="absolute bottom-4 left-4">
-                    <p className="text-xs uppercase tracking-widest text-primary mb-1">Founder</p>
-                    <p className="text-lg font-light text-white">Andreas Myraune</p>
-                  </div>
-                </div>
+            {/* Right column — Founder image */}
+            <div className="lg:-mr-16 xl:-mr-24">
+              <div className="overflow-hidden rounded-2xl">
+                <img
+                  src={founderImage}
+                  alt="Andreas Myraune, Founder of Beta Ads"
+                  className="w-full aspect-[3/4] object-cover object-[center_30%]"
+                />
+              </div>
+              <div className="mt-4">
+                <p className="text-sm text-muted-foreground">Andreas Myraune</p>
+                <p className="text-[10px] uppercase tracking-[0.2em] text-primary mt-0.5">Founder</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Office Locations */}
-      <section
-        ref={officeRef}
-        className="py-20 lg:py-28"
-      >
-        <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
-          <div className="grid md:grid-cols-2 gap-4 lg:gap-6">
-            {/* Oslo */}
+      {/* Section 2 — Where We Are */}
+      <section className="relative">
+        <div
+          ref={officeRef}
+          className="max-w-[1200px] mx-auto px-6 lg:px-12 py-32 lg:py-40"
+        >
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+            {/* Oslo — larger, left */}
             <div
-              className={`relative rounded-xl overflow-hidden group transition-all duration-1000 ${
+              className={`lg:w-[60%] transition-all duration-1000 ease-out ${
                 officeVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <div className="aspect-[16/10] overflow-hidden">
+              <div className="overflow-hidden rounded-2xl">
                 <img
                   src={cityOslo}
-                  alt="Oslo, Norway — Beta Ads headquarters"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  alt="Oslo, Norway"
+                  className="w-full aspect-[4/5] object-cover transition-transform duration-700 hover:scale-[1.03]"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-              <div className="absolute bottom-4 left-5">
-                <p className="text-[10px] uppercase tracking-[0.25em] text-primary/90 mb-0.5">Headquarters</p>
-                <p className="text-lg font-light text-white tracking-wide">Oslo</p>
+              <div className="mt-4">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-primary">Headquarters</p>
+                <p className="text-lg font-medium text-foreground mt-0.5">Oslo</p>
               </div>
             </div>
 
-            {/* Chicago */}
+            {/* Chicago — smaller, right, staggered down */}
             <div
-              className={`relative rounded-xl overflow-hidden group transition-all duration-1000 delay-150 ${
+              className={`lg:w-[35%] lg:mt-16 xl:mt-24 transition-all duration-1000 delay-200 ease-out ${
                 officeVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <div className="aspect-[16/10] overflow-hidden">
+              <div className="overflow-hidden rounded-2xl">
                 <img
                   src={cityChicago}
-                  alt="Chicago, USA — Beta Ads office"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  alt="Chicago, USA"
+                  className="w-full aspect-[3/4] object-cover transition-transform duration-700 hover:scale-[1.03]"
                 />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-              <div className="absolute bottom-4 left-5">
-                <p className="text-[10px] uppercase tracking-[0.25em] text-primary/90 mb-0.5">Office</p>
-                <p className="text-lg font-light text-white tracking-wide">Chicago</p>
+              <div className="mt-4">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-primary">Office</p>
+                <p className="text-lg font-medium text-foreground mt-0.5">Chicago</p>
               </div>
             </div>
           </div>
 
-          <p className="text-center text-sm text-muted-foreground/60 font-light tracking-wide mt-6">
+          <p className="text-sm italic text-muted-foreground mt-16">
             Founded in Oslo. Growing from Chicago.
           </p>
         </div>
       </section>
 
-      {/* Interactive Nordic Market Map */}
-      <NordicMap />
+      {/* Section 3 — Markets */}
+      <section className="relative">
+        <div
+          ref={marketsRef}
+          className={`max-w-[1200px] mx-auto px-6 lg:px-12 py-32 lg:py-40 transition-all duration-1000 ease-out ${
+            marketsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <div className="border-t border-foreground/[0.06] pt-16">
+            <p className="text-xs uppercase tracking-[0.25em] text-primary mb-4">Our Markets</p>
+            <h2 className="text-3xl lg:text-4xl font-light tracking-tight text-foreground mb-6">
+              Active across the Nordics
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed max-w-[520px] mb-12">
+              We connect brands with live audiences in Norway, Sweden, and Finland — the most engaged streaming markets in Europe.
+            </p>
+
+            <div className="flex gap-10 lg:gap-16">
+              {['Norway', 'Sweden', 'Finland'].map((country) => (
+                <div key={country} className="flex items-center gap-2.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                  <span className="text-sm font-light text-foreground tracking-wide">{country}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
       <Footer t={t} language={language} setLanguage={setLanguage} />
     </div>
