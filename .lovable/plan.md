@@ -1,80 +1,31 @@
 
 
-# Upgrade About Page: Instrument Serif + Enhanced Sections
+# Replace Abstract Dots with Nordic Map Visualization
 
 ## Overview
-Refine the existing About page with the specific design details from the prompts: Instrument Serif typography, updated hero copy, section dividers, and an abstract dot visualization for markets.
+Replace the current abstract dot visualization in the Markets section with a proper SVG map of Northern Europe, where Norway, Sweden, and Finland are highlighted in the primary red color. Denmark and surrounding geography shown as faint/muted shapes for context.
 
-## Files to Modify
+## What Changes
 
-| File | Change |
-|------|--------|
-| `index.html` | Add Instrument Serif font from Google Fonts |
-| `src/pages/AboutUs.tsx` | Update all three sections with new typography, copy, dividers, and market visualization |
+**File: `src/pages/AboutUs.tsx`** (lines 189-215)
 
----
+Replace the current "abstract dot visualization" div with an inline SVG map of the Nordic region:
 
-## 1. Add Instrument Serif Font
+- Use geographically accurate simplified SVG paths for Norway, Sweden, Finland, and Denmark
+- Norway, Sweden, Finland filled with primary red at ~60% opacity, brightening on hover
+- Denmark shown muted (low opacity, gray) to indicate it is not an active market
+- Subtle red glow filter on the highlighted countries
+- Country name label appears on hover (text element at bottom of SVG)
+- Interactive: hovering a country name in the left-column list highlights the corresponding country on the map, and vice versa
+- The SVG viewBox is tuned so the Nordic peninsula fills the space naturally
+- Hidden on mobile (`hidden lg:block`), same as the current visualization
+- All glow effects use inline `style` props (not Tailwind arbitrary shadow classes) per the project's CSS parser constraint
 
-Add to `index.html` head:
-```html
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-```
+## Technical Approach
 
----
-
-## 2. Section 1 -- Hero Updates
-
-- Add small uppercase red label "ABOUT" above the heading (11px, letter-spacing 0.16em, color primary)
-- Change heading to: "We make ads that feel like **content**, not interruption." -- using `font-family: 'Instrument Serif'`, with "content" in italic + primary red
-- Keep the two muted paragraphs and "Book a call" link as-is
-- Grid stays 55/45 asymmetric
-- Keep founder photo, name, and "FOUNDER" label
-
----
-
-## 3. Section 2 -- Locations Updates
-
-- Add a thin 1px divider (`border-t border-foreground/[0.06]`) at the top of the section
-- Add subtle dark gradient overlays on the bottom of each city image (for label readability)
-- Change city name typography to Instrument Serif
-- Change tagline to Instrument Serif italic
-- Keep the staggered layout (Oslo 60%, Chicago 35% offset)
-
----
-
-## 4. Section 3 -- Markets: Add Abstract Dot Visualization
-
-Replace the current text-only layout with a two-column approach:
-
-**Left column (50%):**
-- Red uppercase "OUR MARKETS" label
-- Serif heading "Active across the Nordics" in Instrument Serif
-- Muted gray paragraph
-- Three inline country indicators with glowing red dots
-
-**Right column (50%, desktop only):**
-- Three absolutely positioned glowing dots representing Norway, Sweden, and Finland
-- Each dot has a tiny country code label (NO, SE, FI) next to it
-- Dots connected by very faint white SVG lines (opacity 0.07)
-- Dots have a subtle red glow effect (box-shadow or radial gradient)
-- Hidden on mobile (`hidden lg:block`)
-
-Dot positions (approximate, within a relative container):
-- Norway (NO): top-left area (~25%, 30%)
-- Sweden (SE): center (~50%, 45%)
-- Finland (FI): right area (~70%, 35%)
-
-SVG lines connect the three dots in a triangle pattern with very low opacity.
-
----
-
-## Technical Details
-
-- Instrument Serif applied via inline style `fontFamily: "'Instrument Serif', serif"` on specific headings and taglines only (not body text)
-- Body text remains the default sans-serif (Inter)
-- All existing scroll animations (useScrollAnimation) are preserved
-- Aurora reinforcement gradient stays
-- No new dependencies required -- Google Fonts loaded via CDN link
-- The dot visualization uses pure CSS positioning + an inline SVG for the connecting lines
+- Reuse the proven SVG path data from the existing `src/components/NordicMap.tsx` component (simplified country outlines already defined there)
+- Add `useState` for `hoveredCountry` to enable interactive hover between the text list and the map
+- Country indicator dots in the left column gain `onMouseEnter`/`onMouseLeave` handlers that sync with the map
+- SVG paths gain matching hover handlers
+- No new files or dependencies needed -- all changes are within `AboutUs.tsx`
 
