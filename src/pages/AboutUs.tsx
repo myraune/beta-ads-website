@@ -179,7 +179,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
               <div className="flex gap-10 lg:gap-16">
                 {['Norway', 'Sweden', 'Finland'].map((country) => (
                   <div key={country} className="flex items-center gap-2.5">
-                    <div className="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_hsl(var(--primary)/0.6)]" />
+                    <div className="w-2 h-2 rounded-full bg-primary" style={{ boxShadow: '0 0 8px hsl(var(--primary) / 0.6)' }} />
                     <span className="text-sm font-light text-foreground tracking-wide">{country}</span>
                   </div>
                 ))}
@@ -197,19 +197,19 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
 
               {/* Norway dot */}
               <div className="absolute" style={{ left: '25%', top: '30%', transform: 'translate(-50%,-50%)' }}>
-                <div className="w-3 h-3 rounded-full bg-primary shadow-[0_0_14px_hsl(var(--primary)/0.5)]" />
+                <div className="w-3 h-3 rounded-full bg-primary" style={{ boxShadow: '0 0 14px hsl(var(--primary) / 0.5)' }} />
                 <span className="absolute left-5 top-1/2 -translate-y-1/2 text-[10px] uppercase tracking-[0.15em] text-muted-foreground">NO</span>
               </div>
 
               {/* Sweden dot */}
               <div className="absolute" style={{ left: '50%', top: '55%', transform: 'translate(-50%,-50%)' }}>
-                <div className="w-3 h-3 rounded-full bg-primary shadow-[0_0_14px_hsl(var(--primary)/0.5)]" />
+                <div className="w-3 h-3 rounded-full bg-primary" style={{ boxShadow: '0 0 14px hsl(var(--primary) / 0.5)' }} />
                 <span className="absolute left-5 top-1/2 -translate-y-1/2 text-[10px] uppercase tracking-[0.15em] text-muted-foreground">SE</span>
               </div>
 
               {/* Finland dot */}
               <div className="absolute" style={{ left: '72%', top: '35%', transform: 'translate(-50%,-50%)' }}>
-                <div className="w-3 h-3 rounded-full bg-primary shadow-[0_0_14px_hsl(var(--primary)/0.5)]" />
+                <div className="w-3 h-3 rounded-full bg-primary" style={{ boxShadow: '0 0 14px hsl(var(--primary) / 0.5)' }} />
                 <span className="absolute left-5 top-1/2 -translate-y-1/2 text-[10px] uppercase tracking-[0.15em] text-muted-foreground">FI</span>
               </div>
             </div>
