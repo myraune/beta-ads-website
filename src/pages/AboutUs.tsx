@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Footer } from '@/components/sections/Footer';
+import MarketsSection from '@/components/sections/MarketsSection';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import founderImage from '@/assets/founder-andreas.jpeg';
 import cityOslo from '@/assets/city-oslo.jpg';
@@ -149,73 +150,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t, language, setLanguage }) => {
       </section>
 
       {/* ── Section 3 — Markets ── */}
-      <section className="relative">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
-          <div className="border-t border-foreground/[0.06]" />
-        </div>
-
-        <div
-          ref={marketsRef}
-          className={`max-w-[1200px] mx-auto px-6 lg:px-12 py-32 lg:py-40 transition-all duration-1000 ease-out ${
-            marketsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left — text */}
-            <div>
-              <p className="text-xs uppercase tracking-[0.25em] text-primary mb-4 font-light">
-                Our Markets
-              </p>
-              <h2
-                className="text-3xl lg:text-4xl tracking-tight text-foreground mb-6"
-                style={serifFont}
-              >
-                Active across the Nordics
-              </h2>
-              <p className="text-base text-muted-foreground leading-relaxed max-w-[520px] mb-12">
-                We connect brands with live audiences in Norway, Sweden, and Finland — the most engaged streaming markets in Europe.
-              </p>
-
-              <div className="flex gap-10 lg:gap-16">
-                {['Norway', 'Sweden', 'Finland'].map((country) => (
-                  <div key={country} className="flex items-center gap-2.5">
-                    <div className="w-2 h-2 rounded-full bg-primary" style={{ boxShadow: '0 0 8px hsl(var(--primary) / 0.6)' }} />
-                    <span className="text-sm font-light text-foreground tracking-wide">{country}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right — abstract dot visualization (desktop only) */}
-            <div className="hidden lg:block relative h-[280px]">
-              {/* Connecting lines */}
-              <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <line x1="25%" y1="30%" x2="50%" y2="55%" stroke="white" strokeWidth="1" opacity="0.07" />
-                <line x1="50%" y1="55%" x2="72%" y2="35%" stroke="white" strokeWidth="1" opacity="0.07" />
-                <line x1="72%" y1="35%" x2="25%" y2="30%" stroke="white" strokeWidth="1" opacity="0.07" />
-              </svg>
-
-              {/* Norway dot */}
-              <div className="absolute" style={{ left: '25%', top: '30%', transform: 'translate(-50%,-50%)' }}>
-                <div className="w-3 h-3 rounded-full bg-primary" style={{ boxShadow: '0 0 14px hsl(var(--primary) / 0.5)' }} />
-                <span className="absolute left-5 top-1/2 -translate-y-1/2 text-[10px] uppercase tracking-[0.15em] text-muted-foreground">NO</span>
-              </div>
-
-              {/* Sweden dot */}
-              <div className="absolute" style={{ left: '50%', top: '55%', transform: 'translate(-50%,-50%)' }}>
-                <div className="w-3 h-3 rounded-full bg-primary" style={{ boxShadow: '0 0 14px hsl(var(--primary) / 0.5)' }} />
-                <span className="absolute left-5 top-1/2 -translate-y-1/2 text-[10px] uppercase tracking-[0.15em] text-muted-foreground">SE</span>
-              </div>
-
-              {/* Finland dot */}
-              <div className="absolute" style={{ left: '72%', top: '35%', transform: 'translate(-50%,-50%)' }}>
-                <div className="w-3 h-3 rounded-full bg-primary" style={{ boxShadow: '0 0 14px hsl(var(--primary) / 0.5)' }} />
-                <span className="absolute left-5 top-1/2 -translate-y-1/2 text-[10px] uppercase tracking-[0.15em] text-muted-foreground">FI</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <MarketsSection marketsRef={marketsRef} marketsVisible={marketsVisible} />
 
       <Footer t={t} language={language} setLanguage={setLanguage} />
     </div>
