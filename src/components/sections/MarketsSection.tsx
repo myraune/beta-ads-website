@@ -110,8 +110,9 @@ const MarketsSection: React.FC<MarketsSectionProps> = ({ marketsRef, marketsVisi
                 <g
                   key={key}
                   style={{
-                    filter: hoveredCountry === key && country.active ? 'drop-shadow(0 0 6px rgba(230, 70, 70, 0.5))' : 'none',
-                    transition: 'filter 0.2s ease',
+                    transform: hoveredCountry === key && country.active ? 'scale(1.03)' : 'scale(1)',
+                    transformOrigin: 'center',
+                    transition: 'transform 0.2s ease',
                   }}
                 >
                   {country.paths.map((pathD, i) => (
@@ -122,7 +123,7 @@ const MarketsSection: React.FC<MarketsSectionProps> = ({ marketsRef, marketsVisi
                       style={{
                         fill: country.active ? 'hsl(var(--primary))' : 'rgba(255, 255, 255, 0.04)',
                         opacity: country.active
-                          ? hoveredCountry === key ? 0.9 : 0.5
+                          ? hoveredCountry === key ? 1 : 0.5
                           : 0.08,
                         stroke: country.active
                           ? hoveredCountry === key ? '#e64646' : '#993333'
