@@ -1,31 +1,29 @@
 
-
-# Replace Abstract Dots with Nordic Map Visualization
+# Replace Simplified SVG Paths with Geographically Accurate Nordic Map
 
 ## Overview
-Replace the current abstract dot visualization in the Markets section with a proper SVG map of Northern Europe, where Norway, Sweden, and Finland are highlighted in the primary red color. Denmark and surrounding geography shown as faint/muted shapes for context.
+Replace the current hand-drawn SVG paths in `src/components/sections/MarketsSection.tsx` with geographically accurate country outlines sourced from a public domain world map dataset (sirlisko/world-map-country-shapes, MIT license).
 
 ## What Changes
 
-**File: `src/pages/AboutUs.tsx`** (lines 189-215)
+**File: `src/components/sections/MarketsSection.tsx`**
 
-Replace the current "abstract dot visualization" div with an inline SVG map of the Nordic region:
+Replace the `COUNTRIES` object paths (lines 5-26) with accurate SVG path data:
 
-- Use geographically accurate simplified SVG paths for Norway, Sweden, Finland, and Denmark
-- Norway, Sweden, Finland filled with primary red at ~60% opacity, brightening on hover
-- Denmark shown muted (low opacity, gray) to indicate it is not an active market
-- Subtle red glow filter on the highlighted countries
-- Country name label appears on hover (text element at bottom of SVG)
-- Interactive: hovering a country name in the left-column list highlights the corresponding country on the map, and vice versa
-- The SVG viewBox is tuned so the Nordic peninsula fills the space naturally
-- Hidden on mobile (`hidden lg:block`), same as the current visualization
-- All glow effects use inline `style` props (not Tailwind arbitrary shadow classes) per the project's CSS parser constraint
+- **Norway**: Real coastline with fjords and northern islands (Svalbard excluded for framing)
+- **Sweden**: Proper elongated shape with correct western coastline
+- **Finland**: Accurate eastern border and lake region outline
+- **Denmark**: Correct Jutland peninsula and Zealand island shapes
 
-## Technical Approach
+Update the SVG `viewBox` from the current `"60 10 130 270"` to approximately `"1010 85 120 160"` to frame the Nordic region correctly within the world-map coordinate system.
 
-- Reuse the proven SVG path data from the existing `src/components/NordicMap.tsx` component (simplified country outlines already defined there)
-- Add `useState` for `hoveredCountry` to enable interactive hover between the text list and the map
-- Country indicator dots in the left column gain `onMouseEnter`/`onMouseLeave` handlers that sync with the map
-- SVG paths gain matching hover handlers
-- No new files or dependencies needed -- all changes are within `AboutUs.tsx`
+## Technical Details
 
+- The new paths come from a Mercator-projected world map where coordinates range roughly from 0-1950 horizontally and 0-1000 vertically
+- The Nordic countries sit around x: 1010-1130, y: 85-240 in this projection
+- The viewBox will be tuned to crop tightly around the Nordics
+- All existing interactivity (hover sync, glow effects, opacity transitions) remains unchanged
+- All styles continue to use inline `style` props for complex effects (per the project's CSS parser constraint)
+- No new dependencies or files needed
+- The SVG height container stays the same (`h-[320px]`)
+- The hover label text position will be adjusted to fit the new viewBox coordinate space
