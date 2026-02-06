@@ -107,22 +107,27 @@ const MarketsSection: React.FC<MarketsSectionProps> = ({ marketsRef, marketsVisi
               xmlns="http://www.w3.org/2000/svg"
             >
               {Object.entries(COUNTRIES).map(([key, country]) => (
-                <g key={key}>
+                <g
+                  key={key}
+                  style={{
+                    filter: hoveredCountry === key && country.active ? 'drop-shadow(0 0 6px rgba(230, 70, 70, 0.5))' : 'none',
+                    transition: 'filter 0.2s ease',
+                  }}
+                >
                   {country.paths.map((pathD, i) => (
                     <path
                       key={`${key}-${i}`}
                       d={pathD}
                       className="transition-all duration-200 cursor-pointer"
                       style={{
-                        fill: country.active ? 'hsl(var(--primary))' : 'hsl(var(--muted))',
+                        fill: country.active ? 'hsl(var(--primary))' : 'rgba(255, 255, 255, 0.04)',
                         opacity: country.active
                           ? hoveredCountry === key ? 0.9 : 0.5
-                          : 0.2,
+                          : 0.08,
                         stroke: country.active
                           ? hoveredCountry === key ? '#e64646' : '#993333'
-                          : 'hsl(var(--muted-foreground))',
+                          : 'rgba(255, 255, 255, 0.1)',
                         strokeWidth: hoveredCountry === key ? 0.8 : 0.3,
-                        filter: hoveredCountry === key ? 'drop-shadow(0 0 6px rgba(230, 70, 70, 0.5))' : 'none',
                       }}
                       onMouseEnter={() => country.active && setHoveredCountry(key)}
                       onMouseLeave={() => setHoveredCountry(null)}
