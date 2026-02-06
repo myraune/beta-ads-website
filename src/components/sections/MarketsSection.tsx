@@ -107,14 +107,7 @@ const MarketsSection: React.FC<MarketsSectionProps> = ({ marketsRef, marketsVisi
               xmlns="http://www.w3.org/2000/svg"
             >
               {Object.entries(COUNTRIES).map(([key, country]) => (
-                <g
-                  key={key}
-                  style={{
-                    transform: hoveredCountry === key && country.active ? 'scale(1.03)' : 'scale(1)',
-                    transformOrigin: 'center',
-                    transition: 'transform 0.2s ease',
-                  }}
-                >
+                <g key={key}>
                   {country.paths.map((pathD, i) => (
                     <path
                       key={`${key}-${i}`}
