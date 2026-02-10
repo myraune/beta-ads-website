@@ -15,11 +15,25 @@ interface AdFormat {
 
 const adFormats: AdFormat[] = [
   {
+    name: "Video Format",
+    dimensions: "640 × 360 px",
+    description: "In-stream video ads that blend natively into the broadcast.",
+    bestFor: "Story-driven campaigns",
+    image: "/lovable-uploads/videoDemo1.png",
+  },
+  {
     name: "Snipe Banner",
     dimensions: "1920 × 250 px",
     description: "Horizontal banner overlay. High visibility.",
     bestFor: "Awareness, product launches",
     image: "/lovable-uploads/snipeDemo1.png",
+  },
+  {
+    name: "Side Bar",
+    dimensions: "300 × 1080 px",
+    description: "Vertical ad placement alongside the stream.",
+    bestFor: "Persistent brand presence",
+    image: "/lovable-uploads/sideBarDemo1.png",
   },
   {
     name: "Rich Media Overlay",
@@ -36,25 +50,11 @@ const adFormats: AdFormat[] = [
     image: "/lovable-uploads/pollDemo1.png",
   },
   {
-    name: "Premium Experience",
+    name: "Interactive",
     dimensions: "1920 × 1080 px",
     description: "Rich media with clickable elements.",
     bestFor: "Full-screen brand moments",
     image: "/lovable-uploads/interactiveDemo1.png",
-  },
-  {
-    name: "Video Format",
-    dimensions: "640 × 360 px",
-    description: "In-stream video ads that blend natively into the broadcast.",
-    bestFor: "Story-driven campaigns",
-    image: "/lovable-uploads/videoDemo1.png",
-  },
-  {
-    name: "Side Bar",
-    dimensions: "300 × 1080 px",
-    description: "Vertical ad placement alongside the stream.",
-    bestFor: "Persistent brand presence",
-    image: "/lovable-uploads/sideBarDemo1.png",
   },
 ];
 
