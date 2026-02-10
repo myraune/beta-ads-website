@@ -98,12 +98,28 @@ const caseStudies = [
 // Ad formats data
 const adFormats = [
   {
+    id: "video",
+    name: "Video",
+    dimensions: "640 × 360 px",
+    description: "Native in-stream video ads that feel organic to the broadcast. Supports sound-on playback with viewer-friendly skip options.",
+    bestFor: "Storytelling",
+    image: "/lovable-uploads/videoDemo1.png",
+  },
+  {
     id: "snipe",
     name: "Snipe Banner",
     dimensions: "1920 × 250 px",
     description: "Horizontal banner overlay with high visibility. Appears at the top or bottom of the stream for maximum exposure without disrupting the viewing experience.",
     bestFor: "Awareness",
     image: "/lovable-uploads/snipeDemo1.png",
+  },
+  {
+    id: "sidebar",
+    name: "Side Bar",
+    dimensions: "300 × 1080 px",
+    description: "Persistent vertical placement alongside the stream. Maintains brand presence throughout the viewing session without interruption.",
+    bestFor: "Presence",
+    image: "/lovable-uploads/sideBarDemo1.png",
   },
   {
     id: "richmedia",
@@ -122,28 +138,12 @@ const adFormats = [
     image: "/lovable-uploads/pollDemo1.png",
   },
   {
-    id: "premium",
-    name: "Premium",
+    id: "interactive",
+    name: "Interactive",
     dimensions: "1920 × 1080 px",
     description: "Rich media with clickable elements and interactive features. Includes CTAs, hotspots, and trackable engagement metrics.",
     bestFor: "Brand Moments",
     image: "/lovable-uploads/interactiveDemo1.png",
-  },
-  {
-    id: "video",
-    name: "Video",
-    dimensions: "640 × 360 px",
-    description: "Native in-stream video ads that feel organic to the broadcast. Supports sound-on playback with viewer-friendly skip options.",
-    bestFor: "Storytelling",
-    image: "/lovable-uploads/videoDemo1.png",
-  },
-  {
-    id: "sidebar",
-    name: "Side Bar",
-    dimensions: "300 × 1080 px",
-    description: "Persistent vertical placement alongside the stream. Maintains brand presence throughout the viewing session without interruption.",
-    bestFor: "Presence",
-    image: "/lovable-uploads/sideBarDemo1.png",
   },
 ];
 

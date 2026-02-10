@@ -585,7 +585,6 @@ html:not(.dark) body::before {
     transition: none !important;
   }
   
-  .animate-scroll,
   .animate-aurora-drift-1,
   .animate-aurora-drift-2,
   .animate-aurora-drift-3,
