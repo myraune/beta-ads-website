@@ -17,16 +17,16 @@ export const StreamerCTA: React.FC = () => {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
           <div className="max-w-xl">
             <h2 className="text-2xl lg:text-3xl font-light text-foreground mb-3">
-              Ready to start earning?
+              Ready to get started?
             </h2>
             <p className="text-muted-foreground text-base">
-              Apply in 2 minutes. Start receiving offers as soon as you're approved.
+              Join our Discord to connect with the community and start receiving opportunities.
             </p>
           </div>
           
           <div className="flex flex-col items-start lg:items-end gap-3">
             <a 
-              href="https://beta.streamer.livad.stream/login" 
+              href="https://discord.gg/tSmM6XMEkn" 
               target="_blank" 
               rel="noopener noreferrer"
             >
@@ -34,7 +34,7 @@ export const StreamerCTA: React.FC = () => {
                 size="lg"
                 className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-sm font-light tracking-wide h-auto border-0 shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105"
               >
-                Apply now
+                Join our Discord
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </a>

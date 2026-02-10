@@ -38,22 +38,21 @@ export const StreamerHero: React.FC = () => {
 
             {/* Headline */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-foreground mb-6">
-              Brand sponsorships,{" "}
+              Join the streamer{" "}
               <span className="font-extralight italic text-muted-foreground">
-                simplified.
+                community.
               </span>
             </h1>
 
             {/* Description - Clear value prop */}
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
-              We connect you with real brands. You accept the offers you like. 
-              Ads run natively in your stream. You get paid monthly.
+              Connect with other streamers, discover brand opportunities, and start earning. Our Discord is where it all begins.
             </p>
 
             {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
               <a 
-                href="https://beta.streamer.livad.stream/login" 
+                href="https://discord.gg/tSmM6XMEkn" 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -61,7 +60,7 @@ export const StreamerHero: React.FC = () => {
                   size="lg"
                   className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2.5 text-sm font-light tracking-wide h-auto border-0 shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105"
                 >
-                  Apply now
+                  Join our Discord
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </a>
