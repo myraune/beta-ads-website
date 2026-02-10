@@ -13,8 +13,8 @@ const stepConfig: Step[] = [
   {
     number: "01",
     icon: <Users className="w-5 h-5" />,
-    title: "Browse offers",
-    description: "See real sponsorship opportunities from brands that match your content.",
+    title: "Join Discord",
+    description: "Connect with our community, meet other streamers, and get onboarded by the team.",
   },
   {
     number: "02",
