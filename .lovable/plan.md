@@ -1,42 +1,26 @@
 
 
-# Redesign "For Streamers" Page -- Discord Community Focus
+# Update Blog Post Title and Add to Sitemap
 
-## Overview
+## Changes
 
-Shift the primary CTA from "Apply now" (streamer portal) to "Join our Discord" across the entire page. The page should position Discord as the starting point for streamers -- where they connect with the community, learn about opportunities, and get onboarded.
+### 1. Update sitemap.xml
+Add a new entry for the blog post in `public/sitemap.xml`:
+```xml
+<url>
+  <loc>https://beta-ads.no/blog/how-to-make-money-on-twitch</loc>
+  <lastmod>2026-02-09</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.6</priority>
+</url>
+```
 
-## Changes by component
+### 2. Update blog post title in `src/data/blogPosts.ts`
+Change the post title from "How to Make Money on Twitch: A Beginner's Guide" to **"How to Make Money on Twitch in 2026"**.
 
-### 1. StreamerHero.tsx
-- Change headline from "Brand sponsorships, simplified." to something community-focused like "Join the streamer community."
-- Update description to emphasize the Discord community as the first step
-- Replace primary CTA button: "Apply now" becomes **"Join our Discord"** linking to `https://discord.gg/tSmM6XMEkn` (opens in new tab)
-- Keep "How it works" as secondary link
-- Keep platform logos (Twitch, YouTube, Kick)
-
-### 2. StreamerHowItWorks.tsx
-- Update step 01 from "Browse offers" to **"Join Discord"** with description about joining the community first
-- Keep steps 02-04 largely the same (Accept, Stream, Get Paid)
-
-### 3. StreamerCTA.tsx
-- Replace headline: "Ready to start earning?" becomes **"Ready to get started?"**
-- Replace description to reference joining the Discord
-- Replace primary button: "Apply now" becomes **"Join our Discord"** linking to `https://discord.gg/tSmM6XMEkn`
-- Replace "Already a member? Sign in" link to point to the streamer portal instead (secondary action)
-
-### 4. StreamerSection.tsx
-No structural changes -- same section order is kept.
-
-### 5. No changes to
-- StreamerBrands.tsx (still relevant)
-- StreamerWhatYouGet.tsx (still relevant)
-- EarningsCalculator.tsx (still relevant)
-
-## Technical details
-
-- All Discord links point to `https://discord.gg/tSmM6XMEkn`
-- Links open in new tab with `target="_blank" rel="noopener noreferrer"`
-- The streamer portal link (`https://beta.streamer.livad.stream/login`) moves to a secondary/subtle position
-- No new components or dependencies needed
+Also update the corresponding SEO titles across all languages to include "2026" consistently:
+- EN: "How to Make Money on Twitch in 2026 | Beta Ads"
+- NO: "Hvordan tjene penger pa Twitch i 2026 | Beta Ads"
+- SV: "Hur man tjanar pengar pa Twitch 2026 | Beta Ads"
+- FI: "Kuinka ansaita rahaa Twitchissa 2026 | Beta Ads"
 
