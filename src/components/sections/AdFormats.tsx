@@ -16,16 +16,16 @@ const adFormats: AdFormat[] = [
     image: "/lovable-uploads/videoDemo1.png",
   },
   {
-    name: "Snipe",
-    dimensions: "1920 × 250 px",
-    description: "Horizontal banner overlay. Time-based, high visibility.",
-    image: "/lovable-uploads/snipeDemo1.png",
-  },
-  {
     name: "Side Bar",
     dimensions: "300 × 1080 px",
     description: "Vertical ad placement alongside the stream. Native to the interface.",
     image: "/lovable-uploads/sideBarDemo1.png",
+  },
+  {
+    name: "Snipe",
+    dimensions: "1920 × 250 px",
+    description: "Horizontal banner overlay. Time-based, high visibility.",
+    image: "/lovable-uploads/snipeDemo1.png",
   },
   {
     name: "Rich Media",
