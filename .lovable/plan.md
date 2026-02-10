@@ -1,26 +1,36 @@
 
 
-# Update Blog Post Title and Add to Sitemap
+# Ad Formats Updates -- For Brands Page
 
-## Changes
+## Issues to fix
 
-### 1. Update sitemap.xml
-Add a new entry for the blog post in `public/sitemap.xml`:
-```xml
-<url>
-  <loc>https://beta-ads.no/blog/how-to-make-money-on-twitch</loc>
-  <lastmod>2026-02-09</lastmod>
-  <changefreq>monthly</changefreq>
-  <priority>0.6</priority>
-</url>
-```
+### 1. Carousel not scrolling
+The `animate-scroll` CSS class exists and should work, but if your system has "prefers-reduced-motion" enabled (common on macOS), all animations are disabled by the media query at the bottom of `index.css`. The fix is to exclude `animate-scroll` from that reduced-motion block so the carousel always runs.
 
-### 2. Update blog post title in `src/data/blogPosts.ts`
-Change the post title from "How to Make Money on Twitch: A Beginner's Guide" to **"How to Make Money on Twitch in 2026"**.
+### 2. Rename "Premium" to "Interactive"
+Three files contain an ad format called "Premium" or "Premium Experience" that needs renaming:
+- `src/pages/CaseStudies.tsx` (line 125-131)
+- `src/components/sections/AdFormatsCarousel.tsx` (line 38-43)
 
-Also update the corresponding SEO titles across all languages to include "2026" consistently:
-- EN: "How to Make Money on Twitch in 2026 | Beta Ads"
-- NO: "Hvordan tjene penger pa Twitch i 2026 | Beta Ads"
-- SV: "Hur man tjanar pengar pa Twitch 2026 | Beta Ads"
-- FI: "Kuinka ansaita rahaa Twitchissa 2026 | Beta Ads"
+The `AdFormats.tsx` component already uses "Interactive" -- no change needed there.
+
+### 3. Reorder formats
+New order across all three files: **Video, Snipe Banner, Side Bar, Rich Media, Poll, Interactive**
+
+## File changes
+
+### `src/index.css`
+Remove `.animate-scroll` from the `prefers-reduced-motion` media query so the carousel always animates.
+
+### `src/pages/CaseStudies.tsx`
+- Rename "Premium" to "Interactive" (id stays or changes to "interactive")
+- Reorder the `adFormats` array to: Video, Snipe Banner, Side Bar, Rich Media, Poll, Interactive
+
+### `src/components/sections/AdFormatsCarousel.tsx`
+- Rename "Premium Experience" to "Interactive"
+- Reorder the array to: Video, Snipe Banner, Side Bar, Rich Media, Poll, Interactive
+
+### `src/components/sections/AdFormats.tsx`
+- Reorder the array to: Video, Snipe Banner, Side Bar, Rich Media, Poll, Interactive
+- (Already named correctly -- "Interactive" is already used here)
 
