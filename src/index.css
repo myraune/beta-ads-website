@@ -526,7 +526,9 @@ html:not(.dark) body::before {
 }
 
 /* Theme transition */
-* {
+a, p, span, h1, h2, h3, h4, h5, h6,
+button, input, textarea, select,
+.glass-card, .glass-card-hover {
   transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.15s ease;
 }
 
