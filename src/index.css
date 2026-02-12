@@ -610,7 +610,7 @@ html:not(.dark) body::before {
   .animate-scan,
   .animate-scan-light,
   .animate-page-enter,
-  .animate-scroll-smooth,
+  
   .animate-light-ambient-1,
   .animate-light-ambient-2,
   .animate-light-ambient-3 {
