@@ -9,24 +9,22 @@ import { Footer } from "@/components/sections/Footer";
 
 interface IndexProps {
   t: any;
-  language: string;
-  setLanguage: (lang: string) => void;
 }
 
-const Index: React.FC<IndexProps> = ({ t, language, setLanguage }) => {
+const Index: React.FC<IndexProps> = ({ t }) => {
   const scrollToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <>
-      <Hero t={t} scrollToSection={scrollToSection} language={language} setLanguage={setLanguage} />
+      <Hero t={t} scrollToSection={scrollToSection} />
       <TrustedBy />
       <HowItWorksSection t={t} />
       <AdFormatsCarousel t={t} />
       <CaseStudiesSection t={t} />
       <Press t={t} />
-      <Footer t={t} language={language} setLanguage={setLanguage} />
+      <Footer t={t} />
     </>
   );
 };

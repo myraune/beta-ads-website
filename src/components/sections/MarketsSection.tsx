@@ -135,10 +135,10 @@ const MarketsSection: React.FC<MarketsSectionProps> = ({ marketsRef, marketsVisi
                   x="442"
                   y="388"
                   textAnchor="middle"
-                  className="fill-foreground font-light uppercase"
-                  style={{ fontSize: '3px', letterSpacing: '0.15em' }}
+                  className="fill-foreground font-light"
+                  style={{ fontSize: '3.5px', letterSpacing: '0.1em' }}
                 >
-                  {COUNTRIES[hoveredCountry as keyof typeof COUNTRIES].name}
+                  {hoveredCountry === 'norway' ? 'Hei' : hoveredCountry === 'sweden' ? 'Hej' : 'Moi'}
                 </text>
               )}
             </svg>

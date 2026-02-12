@@ -20,8 +20,6 @@ import { Footer } from "@/components/sections/Footer";
 
 interface DemoProps {
   t: any;
-  language: string;
-  setLanguage: (lang: string) => void;
 }
 
 const formSchema = z.object({
@@ -33,7 +31,7 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-const Demo: React.FC<DemoProps> = ({ t, language, setLanguage }) => {
+const Demo: React.FC<DemoProps> = ({ t }) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   
@@ -53,9 +51,7 @@ const Demo: React.FC<DemoProps> = ({ t, language, setLanguage }) => {
       const { error } = await supabase.functions.invoke('notify-demo-request', {
         body: data,
       });
-
       if (error) throw error;
-
       toast({
         title: t.messageSent,
         description: t.wellGetBack,
@@ -75,12 +71,9 @@ const Demo: React.FC<DemoProps> = ({ t, language, setLanguage }) => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Hero Section */}
       <section className="pt-32 pb-16 px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            
-            {/* Left: Content */}
             <div>
               <p className="text-xs uppercase tracking-widest text-primary mb-6">{t.requestDemo}</p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight mb-8 leading-tight">
@@ -92,7 +85,6 @@ const Demo: React.FC<DemoProps> = ({ t, language, setLanguage }) => {
                 {t.demoFormDescription}
               </p>
 
-              {/* Book a Call Option */}
               <div className="p-6 bg-card/50 rounded-xl border border-border/30 mb-8">
                 <div className="flex items-center gap-4 mb-4">
                   <div className="w-16 h-16 rounded-full overflow-hidden ring-2 ring-primary/20">
@@ -123,100 +115,39 @@ const Demo: React.FC<DemoProps> = ({ t, language, setLanguage }) => {
               </div>
             </div>
 
-            {/* Right: Form */}
             <div className="bg-card/30 rounded-2xl border border-border/30 p-8">
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-foreground">{t.name}</FormLabel>
-                        <FormControl>
-                          <Input 
-                            placeholder={t.namePlaceholder} 
-                            className="bg-background/50 border-border/50"
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-foreground">{t.email}</FormLabel>
-                        <FormControl>
-                          <Input 
-                            type="email"
-                            placeholder={t.emailPlaceholder} 
-                            className="bg-background/50 border-border/50"
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="company"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-foreground">{t.companyOptional}</FormLabel>
-                        <FormControl>
-                          <Input 
-                            placeholder={t.companyPlaceholder} 
-                            className="bg-background/50 border-border/50"
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-foreground">{t.message}</FormLabel>
-                        <FormControl>
-                          <Textarea 
-                            placeholder={t.messagePlaceholder}
-                            className="bg-background/50 border-border/50 min-h-[120px] resize-none"
-                            {...field} 
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <Button 
-                    type="submit" 
-                    size="lg"
-                    disabled={isSubmitting}
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12"
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                        {t.sending}
-                      </>
-                    ) : (
-                      <>
-                        {t.sendMessage}
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </>
-                    )}
+                  <FormField control={form.control} name="name" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-foreground">{t.name}</FormLabel>
+                      <FormControl><Input placeholder={t.namePlaceholder} className="bg-background/50 border-border/50" {...field} /></FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                  <FormField control={form.control} name="email" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-foreground">{t.email}</FormLabel>
+                      <FormControl><Input type="email" placeholder={t.emailPlaceholder} className="bg-background/50 border-border/50" {...field} /></FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                  <FormField control={form.control} name="company" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-foreground">{t.companyOptional}</FormLabel>
+                      <FormControl><Input placeholder={t.companyPlaceholder} className="bg-background/50 border-border/50" {...field} /></FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                  <FormField control={form.control} name="message" render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-foreground">{t.message}</FormLabel>
+                      <FormControl><Textarea placeholder={t.messagePlaceholder} className="bg-background/50 border-border/50 min-h-[120px] resize-none" {...field} /></FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )} />
+                  <Button type="submit" size="lg" disabled={isSubmitting} className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12">
+                    {isSubmitting ? (<><Loader2 className="mr-2 h-4 w-4 animate-spin" />{t.sending}</>) : (<>{t.sendMessage}<ArrowRight className="ml-2 h-4 w-4" /></>)}
                   </Button>
                 </form>
               </Form>
@@ -224,8 +155,7 @@ const Demo: React.FC<DemoProps> = ({ t, language, setLanguage }) => {
           </div>
         </div>
       </section>
-
-      <Footer t={t} language={language} setLanguage={setLanguage} />
+      <Footer t={t} />
     </div>
   );
 };

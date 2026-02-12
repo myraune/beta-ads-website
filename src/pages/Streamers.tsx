@@ -4,17 +4,13 @@ import { Footer } from "@/components/sections/Footer";
 
 interface StreamersProps {
   t: any;
-  language: string;
-  setLanguage: (lang: string) => void;
 }
 
-const Streamers: React.FC<StreamersProps> = ({ t, language, setLanguage }) => {
+const Streamers: React.FC<StreamersProps> = ({ t }) => {
   return (
     <div className="pt-16 lg:pt-20">
-      {/* Streamer Content - Preview First */}
-      <StreamerSection t={t} language={language} />
-
-      <Footer t={t} language={language} setLanguage={setLanguage} />
+      <StreamerSection t={t} language="en" />
+      <Footer t={t} />
     </div>
   );
 };

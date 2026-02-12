@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink } from "lucide-react";
@@ -8,27 +8,52 @@ import { LiveDashboard } from "@/components/sections/LiveDashboard";
 interface HeroProps {
   t: any;
   scrollToSection: (id: string) => void;
-  language: string;
-  setLanguage: (lang: string) => void;
 }
+
+const nordicGreetings = ["Hei", "Hej", "Moi"];
 
 export const Hero: React.FC<HeroProps> = ({ t }) => {
   const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation();
+  const [greetingIndex, setGreetingIndex] = useState(0);
+  const [greetingVisible, setGreetingVisible] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setGreetingVisible(false);
+      setTimeout(() => {
+        setGreetingIndex((prev) => (prev + 1) % nordicGreetings.length);
+        setGreetingVisible(true);
+      }, 400);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section className="relative overflow-hidden text-foreground">
       <div className="relative max-w-[1600px] mx-auto px-6 lg:px-12 pt-24 lg:pt-32 pb-16">
         
-        {/* Asymmetric Grid Layout - Tighter split */}
         <div className="grid lg:grid-cols-[38%_62%] gap-6 lg:gap-0 items-center">
           
-          {/* Left: Text Content - Tighter, more intentional */}
           <div 
             ref={contentRef}
             className={`max-w-md lg:pr-8 transition-all duration-1000 ease-out ${
               contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
           >
+            {/* Rotating Nordic Greeting */}
+            <div className="mb-6 h-6 flex items-center">
+              <span 
+                className={`text-sm font-light tracking-[0.2em] text-primary/70 transition-opacity duration-400 ${
+                  greetingVisible ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                {nordicGreetings[greetingIndex]}
+              </span>
+              <span className="text-sm text-muted-foreground/30 ml-2 font-extralight">
+                — from the Nordics
+              </span>
+            </div>
+
             {/* Full Logo */}
             <img 
               src="/lovable-uploads/logo-white.png" 
@@ -36,7 +61,6 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
               className="h-8 lg:h-10 w-auto mb-8"
             />
 
-            {/* Headline */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-foreground mb-6">
               {t.heroTitle[0]}{" "}
               <span className="font-extralight italic text-muted-foreground">
@@ -44,12 +68,10 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
               </span>
             </h1>
 
-            {/* Description */}
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-8">
               {t.heroDescription}
             </p>
 
-            {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-3">
               <Link to="/demo">
                 <Button
@@ -78,7 +100,6 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
             </div>
           </div>
 
-          {/* Right: Dashboard Preview */}
           <div 
             className={`relative lg:-mr-8 xl:-mr-12 transition-all duration-1000 delay-300 ${
               contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
