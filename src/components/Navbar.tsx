@@ -46,7 +46,6 @@ export const Navbar: React.FC = () => {
               : "bg-background/5 backdrop-blur-none shadow-none scale-100 translate-y-0"
             }
           `}
-          style={{ transform: isScrolled ? 'scale(0.98) translateY(-4px)' : 'scale(1) translateY(0)' }}
         >
           <div className="flex items-center justify-between">
             <Link to="/" className="flex items-center group flex-shrink-0">
