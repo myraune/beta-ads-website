@@ -1,77 +1,38 @@
 
-# English Only, System Theme, and Nordic Easter Eggs
 
-## 1. English Only -- Remove Language Selector
+# Fix Header Smoothness
 
-**Navbar** (`src/components/Navbar.tsx`):
-- Remove the language dropdown (Globe icon, flag selector) from both desktop and mobile nav
-- Remove `language` and `setLanguage` props entirely
-- Clean up the `languages` array and related imports
+## Problem
+The global CSS rule `* { transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.15s ease; }` in `src/index.css` applies transitions to every element on the page, including the fixed navbar. When the rotating Nordic greeting updates every 3 seconds, it triggers repaints that cause the navbar to re-evaluate its transitions, creating visible jank.
 
-**App.tsx** (`src/App.tsx`):
-- Remove `useState` for language -- hardcode `language = "en"`
-- Remove the NO, SV, FI translation objects (lines ~136-450) to reduce bundle size
-- Remove `setLanguage` prop passed to all pages/components
+## Solution
 
-**Footer** (`src/components/sections/Footer.tsx`):
-- Remove `language` and `setLanguage` props
-- Remove the "LANGUAGE" section if it exists
+Two changes:
 
-**All page components** that receive `language`/`setLanguage` props:
-- Simplify prop interfaces (Index, CaseStudies, HowItWorks, Streamers, AboutUs, Blog, BlogPost, Contact, Demo, Press, Layout)
+### 1. Scope the global transition rule (index.css)
+Replace the blanket `*` selector with a more targeted approach. Remove the wildcard and instead apply theme transitions only where needed (cards, buttons, text elements) -- NOT on the fixed navbar or layout containers:
 
-## 2. Theme Follows System
+```css
+/* Before */
+* {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.15s ease;
+}
 
-**App.tsx**: Change ThemeProvider from:
-```
-defaultTheme="dark" enableSystem={false}
-```
-to:
-```
-defaultTheme="system" enableSystem={true}
+/* After */
+a, p, span, h1, h2, h3, h4, h5, h6,
+button, input, textarea, select,
+.glass-card, .glass-card-hover,
+[class*="bg-"], [class*="text-"], [class*="shadow-"] {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.15s ease;
+}
 ```
 
-The existing theme toggle button in the Navbar stays, so users can still override manually. But the default will match their OS preference.
+### 2. Remove duplicate transform on the Navbar (Navbar.tsx)
+The navbar currently sets transform via both a Tailwind class AND an inline `style` prop, which can conflict. Remove the inline `style` attribute and keep only the Tailwind classes for the scroll animation.
 
-## 3. Nordic Easter Eggs on the Homepage
+## Files to modify
 
-Subtle, tasteful Nordic greetings that reinforce the "we are Nordic" identity without cluttering the design. Ideas:
-
-**Option A -- Rotating greeting in the Hero subtitle area**
-A small line above or below the hero headline that cycles through Nordic greetings with a fade animation:
-- "Hei" (Norwegian)
-- "Hej" (Swedish)
-- "Moi" (Finnish)
-- "Hei verden" (Norwegian for "Hello world")
-
-This would be a subtle, auto-rotating text element -- one word at a time, fading in/out every 3 seconds.
-
-**Option B -- Footer sign-off**
-Replace the generic footer copyright area with a Nordic touch:
-- "Made with kaffe in Oslo, Stockholm and Helsinki"
-- Or rotate between "Laget i Norden" / "Gjort i Norden" / "Tehty Pohjoismaissa"
-
-**Option C -- Cursor/hover micro-interactions on the Markets section**
-When hovering over Norway/Sweden/Finland on the map, show the local greeting ("Hei" / "Hej" / "Moi") instead of just the country name.
-
-**Recommendation: All three.** They are small, non-intrusive, and reinforce the Nordic brand identity throughout the page.
-
-## Technical Details
-
-### Files to modify
-
-| File | Changes |
-|------|---------|
-| `src/App.tsx` | Remove language state, remove NO/SV/FI translations, change ThemeProvider to `defaultTheme="system" enableSystem={true}` |
-| `src/components/Navbar.tsx` | Remove language selector UI, remove language/setLanguage props |
-| `src/components/sections/Footer.tsx` | Remove language props, add "Made with kaffe in Oslo" line |
-| `src/components/sections/Hero.tsx` | Add rotating Nordic greeting element ("Hei" / "Hej" / "Moi") |
-| `src/components/sections/MarketsSection.tsx` | Show "Hei"/"Hej"/"Moi" on country hover instead of country name |
-| `src/components/Layout.tsx` | Remove language/setLanguage props passed to Navbar |
-| `src/pages/Index.tsx` | Simplify props |
-| `src/pages/CaseStudies.tsx` | Simplify props |
-| `src/pages/Streamers.tsx` | Simplify props |
-| All other page files | Remove unused language/setLanguage props |
-
-### Rotating greeting component (Hero)
-A small React component using `useState` + `useEffect` with a 3-second interval, cycling through `["Hei", "Hej", "Moi"]` with a CSS fade transition. Positioned as a small, muted text element near the hero -- subtle, not distracting.
+| File | Change |
+|------|--------|
+| `src/index.css` | Replace `*` transition selector with scoped selectors (around line 430) |
+| `src/components/Navbar.tsx` | Remove the inline `style={{ transform: ... }}` prop from the desktop nav pill |
