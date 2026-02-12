@@ -4,14 +4,11 @@ import { Footer } from "@/components/sections/Footer";
 
 interface ContactProps {
   t: any;
-  language: string;
-  setLanguage: (lang: string) => void;
 }
 
-const Contact: React.FC<ContactProps> = ({ t, language, setLanguage }) => {
+const Contact: React.FC<ContactProps> = ({ t }) => {
   return (
     <div className="pt-24 lg:pt-32">
-      {/* CTA Hero Section */}
       <section className="py-20 lg:py-32">
         <div className="max-w-5xl mx-auto text-center px-6 lg:px-8">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-extralight text-foreground mb-12 tracking-tighter">
@@ -34,14 +31,10 @@ const Contact: React.FC<ContactProps> = ({ t, language, setLanguage }) => {
               <p className="text-muted-foreground font-extralight tracking-wide">Head of Agency</p>
             </div>
           </div>
-
         </div>
       </section>
-
-      {/* Press Section */}
       <Press t={t} />
-
-      <Footer t={t} language={language} setLanguage={setLanguage} />
+      <Footer t={t} />
     </div>
   );
 };

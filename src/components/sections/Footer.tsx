@@ -3,23 +3,19 @@ import { Link } from "react-router-dom";
 
 interface FooterProps {
   t: any;
-  language: string;
-  setLanguage: (lang: string) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => (
+export const Footer: React.FC<FooterProps> = ({ t }) => (
   <footer className="py-24">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
       <div className="grid md:grid-cols-3 gap-16">
         <div className="space-y-8">
           <div className="flex items-center">
-            {/* Light theme logo (black) */}
             <img 
               src="/lovable-uploads/logo-black.png" 
               alt="Beta Ads" 
               className="h-8 w-auto dark:hidden block"
             />
-            {/* Dark theme logo (white) */}
             <img 
               src="/lovable-uploads/logo-white.png" 
               alt="Beta Ads" 
@@ -70,7 +66,8 @@ export const Footer: React.FC<FooterProps> = ({ t, language, setLanguage }) => (
         </div>
       </div>
 
-      <div className="mt-20 pt-12 text-center text-muted-foreground/60 font-extralight tracking-widest">
+      <div className="mt-20 pt-12 text-center text-muted-foreground/60 font-extralight tracking-widest space-y-3">
+        <p className="text-sm italic font-light tracking-wide">Made with kaffe in Oslo, Stockholm & Helsinki</p>
         <p>&copy; 2026 Beta Ads. All rights reserved. | Beta Agency AS | Org. 933 303 136</p>
       </div>
     </div>
