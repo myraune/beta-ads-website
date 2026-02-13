@@ -46,7 +46,7 @@ const CaseStudyCard: React.FC<{ study: CaseStudy; index: number; isVisible: bool
   t
 }) => (
   <div
-    className={`group relative p-6 lg:p-8 rounded-xl bg-card/30 backdrop-blur-sm shadow-lg shadow-black/10 transition-all duration-500 hover:shadow-xl hover:shadow-primary/10 hover:bg-card/50 ${
+    className={`group relative p-6 lg:p-8 rounded-xl bg-card/30 backdrop-blur-sm shadow-lg shadow-black/10 transition-[box-shadow,background-color] duration-500 hover:shadow-xl hover:shadow-primary/10 hover:bg-card/50 ${
       isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
     }`}
     style={{ transitionDelay: `${index * 150}ms` }}
@@ -94,7 +94,7 @@ export const CaseStudiesSection: React.FC<CaseStudiesSectionProps> = ({ t }) => 
   return (
     <section 
       ref={ref}
-      className={`py-16 lg:py-24 transition-all duration-700 ${
+      className={`py-16 lg:py-24 transition-[opacity,transform] duration-700 ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
       }`}
     >
