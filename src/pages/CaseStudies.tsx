@@ -84,6 +84,13 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
               <p className={`text-xl lg:text-2xl font-light text-muted-foreground max-w-lg transition-all duration-1000 delay-200 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                 Reach Gen Z where they live. Native advertising inside live Twitch streams.
               </p>
+              <button
+                onClick={() => (window as any).Supademo?.open('cmlk4c3zt00uz5yi3au9mqr61')}
+                className={`mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 text-sm font-medium transition-all duration-1000 delay-400 hover:scale-105 shadow-lg shadow-primary/20 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+              >
+                <Play className="w-4 h-4" />
+                Try the tour
+              </button>
             </div>
             <div className={`hidden lg:flex items-end justify-end transition-all duration-1000 delay-500 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
               <p className="text-sm text-muted-foreground/60 max-w-xs text-right">Nordic advertising platform reaching gaming audiences through Twitch.</p>
