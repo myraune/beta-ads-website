@@ -1,25 +1,38 @@
 
 
-# Adjust Supademo Iframe Sizing in Hero
+# Fix Header Smoothness
 
-## Change
+## Problem
+The global CSS rule `* { transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.15s ease; }` in `src/index.css` applies transitions to every element on the page, including the fixed navbar. When the rotating Nordic greeting updates every 3 seconds, it triggers repaints that cause the navbar to re-evaluate its transitions, creating visible jank.
 
-Update the iframe container in the hero section for better visual balance:
+## Solution
 
-- Change aspect ratio from `aspect-[4/3]` to `aspect-video` (16:9), which better matches the Supademo content and feels more natural alongside the headline
-- Add a subtle border for definition against the dark background
+Two changes:
 
-## File: `src/pages/CaseStudies.tsx` (line 89)
+### 1. Scope the global transition rule (index.css)
+Replace the blanket `*` selector with a more targeted approach. Remove the wildcard and instead apply theme transitions only where needed (cards, buttons, text elements) -- NOT on the fixed navbar or layout containers:
 
-**Before:**
-```tsx
-<div className="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl shadow-black/20 bg-card/20">
+```css
+/* Before */
+* {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.15s ease;
+}
+
+/* After */
+a, p, span, h1, h2, h3, h4, h5, h6,
+button, input, textarea, select,
+.glass-card, .glass-card-hover,
+[class*="bg-"], [class*="text-"], [class*="shadow-"] {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.15s ease;
+}
 ```
 
-**After:**
-```tsx
-<div className="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl shadow-black/20 bg-card/20 border border-white/5">
-```
+### 2. Remove duplicate transform on the Navbar (Navbar.tsx)
+The navbar currently sets transform via both a Tailwind class AND an inline `style` prop, which can conflict. Remove the inline `style` attribute and keep only the Tailwind classes for the scroll animation.
 
-Single line change. The 16:9 ratio reduces the vertical height of the embed, keeping the hero balanced with the text column on the left.
+## Files to modify
 
+| File | Change |
+|------|--------|
+| `src/index.css` | Replace `*` transition selector with scoped selectors (around line 430) |
+| `src/components/Navbar.tsx` | Remove the inline `style={{ transform: ... }}` prop from the desktop nav pill |

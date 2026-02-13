@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Footer } from "@/components/sections/Footer";
-import { ExternalLink, ChevronLeft, ChevronRight, ArrowRight, BarChart3, Filter, Play } from "lucide-react";
+import { Play, ExternalLink, ChevronLeft, ChevronRight, ArrowRight, BarChart3, Filter } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
@@ -85,18 +85,8 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
                 Reach Gen Z where they live. Native advertising inside live Twitch streams.
               </p>
             </div>
-            <div className={`transition-all duration-1000 delay-500 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl shadow-black/20 bg-card/20 border border-white/5">
-                <iframe
-                  src="https://app.supademo.com/embed/cmlk4c3zt00uz5yi3au9mqr61?embed_v=2"
-                  loading="lazy"
-                  title="Beta Ads Platform Tour"
-                  allow="clipboard-write"
-                  frameBorder="0"
-                  allowFullScreen
-                  className="w-full h-full"
-                />
-              </div>
+            <div className={`hidden lg:flex items-end justify-end transition-all duration-1000 delay-500 ${heroVisible ? 'opacity-100' : 'opacity-0'}`}>
+              <p className="text-sm text-muted-foreground/60 max-w-xs text-right">Nordic advertising platform reaching gaming audiences through Twitch.</p>
             </div>
           </div>
         </div>
