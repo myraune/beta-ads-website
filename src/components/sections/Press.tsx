@@ -50,7 +50,7 @@ const PressCard: React.FC<{ article: PressArticle; t: any }> = ({ article, t }) 
       className="flex-shrink-0 w-[280px] sm:w-[340px] lg:w-[400px] group cursor-pointer"
       onClick={() => window.open(article.url, "_blank")}
     >
-      <div className="relative rounded-xl overflow-hidden bg-card/50 backdrop-blur-sm shadow-lg shadow-black/10 transition-all duration-500 group-hover:shadow-xl group-hover:shadow-primary/15">
+      <div className="relative rounded-xl overflow-hidden bg-card/50 backdrop-blur-sm shadow-lg shadow-black/10 transition-[box-shadow,background-color] duration-500 group-hover:shadow-xl group-hover:shadow-primary/15">
         {/* Article image */}
         <div className="aspect-video overflow-hidden">
           <img
@@ -63,7 +63,7 @@ const PressCard: React.FC<{ article: PressArticle; t: any }> = ({ article, t }) 
         </div>
 
         {/* Text overlay - visible on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-4 sm:p-6">
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4 sm:p-6">
           <Badge
             className={`mb-3 w-fit text-xs font-light ${
               isKampanje

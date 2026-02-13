@@ -60,7 +60,7 @@ const adFormats: AdFormat[] = [
 
 const AdFormatCard: React.FC<{ format: AdFormat; t: any }> = ({ format, t }) => (
   <div className="flex-shrink-0 w-[280px] sm:w-[340px] lg:w-[400px] group">
-    <div className="relative rounded-xl overflow-hidden bg-card/50 backdrop-blur-sm shadow-lg shadow-black/10 transition-all duration-300 hover:shadow-xl hover:shadow-primary/15">
+    <div className="relative rounded-xl overflow-hidden bg-card/50 backdrop-blur-sm shadow-lg shadow-black/10 transition-[box-shadow,background-color] duration-300 hover:shadow-xl hover:shadow-primary/15">
       <div className="aspect-video overflow-hidden">
         <img
           src={format.image}
@@ -98,7 +98,7 @@ export const AdFormatsCarousel: React.FC<AdFormatsCarouselProps> = ({ t }) => {
   return (
     <section 
       ref={sectionRef}
-      className={`py-16 lg:py-24 overflow-hidden transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+      className={`py-16 lg:py-24 overflow-hidden transition-[opacity,transform] duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
     >
       {/* Section Header */}
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12 mb-10">
