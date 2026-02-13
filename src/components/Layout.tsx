@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import { Navbar } from "./Navbar";
 import { AnimatedBackground } from "./AnimatedBackground";
 import { PageTransition } from "./PageTransition";
+import { AnnouncementBar } from "./sections/AnnouncementBar";
 
 export const Layout: React.FC = () => {
   return (
@@ -13,6 +14,9 @@ export const Layout: React.FC = () => {
       
       {/* Unified Aurora Background */}
       <AnimatedBackground />
+
+      {/* Announcement Bar */}
+      <AnnouncementBar />
       
       {/* Navigation */}
       <Navbar />

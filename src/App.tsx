@@ -17,6 +17,7 @@ import Demo from "./pages/Demo";
 import NotFound from "./pages/NotFound";
 import Unsubscribe from "./pages/Unsubscribe";
 import Press from "./pages/Press";
+import Pricing from "./pages/Pricing";
 
 // Dashboard
 import { DashboardLayout } from "./components/dashboard/DashboardLayout";
@@ -146,6 +147,7 @@ const App = () => {
               <Route path="/contact" element={<Contact t={t} />} />
               <Route path="/demo" element={<Demo t={t} />} />
               <Route path="/press" element={<Press />} />
+              <Route path="/pricing" element={<Pricing />} />
             </Route>
             
             <Route path="/dashboard" element={<DashboardLayout />}>
