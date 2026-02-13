@@ -1,38 +1,27 @@
 
 
-# Fix Header Smoothness
+# Fix Rough Hover Transitions on Cards
 
 ## Problem
-The global CSS rule `* { transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.15s ease; }` in `src/index.css` applies transitions to every element on the page, including the fixed navbar. When the rotating Nordic greeting updates every 3 seconds, it triggers repaints that cause the navbar to re-evaluate its transitions, creating visible jank.
+The "Our Work", "Featured in Press", and "Ad Formats" cards all use `transition-all`, which transitions every CSS property on hover -- including backdrop-filter, border-radius, and layout properties that should not animate. This causes visible jank and a "rough" feel.
 
 ## Solution
+Replace `transition-all` with targeted transition properties on each component, so only shadow, background-color, and opacity actually animate on hover.
 
-Two changes:
+## Changes
 
-### 1. Scope the global transition rule (index.css)
-Replace the blanket `*` selector with a more targeted approach. Remove the wildcard and instead apply theme transitions only where needed (cards, buttons, text elements) -- NOT on the fixed navbar or layout containers:
+### 1. CaseStudiesSection.tsx (Our Work)
+- Card wrapper (line 49): Replace `transition-all duration-500` with `transition-[box-shadow,background-color] duration-500`
+- Section wrapper (line 97): Replace `transition-all duration-700` with `transition-[opacity,transform] duration-700`
 
-```css
-/* Before */
-* {
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.15s ease;
-}
+### 2. Press.tsx (Featured in Press)
+- Card outer div (line 53): Replace `transition-all duration-500` with `transition-[box-shadow,background-color] duration-500`
+- Hover overlay (line 66): Replace `transition-all duration-500` with `transition-opacity duration-500`
 
-/* After */
-a, p, span, h1, h2, h3, h4, h5, h6,
-button, input, textarea, select,
-.glass-card, .glass-card-hover,
-[class*="bg-"], [class*="text-"], [class*="shadow-"] {
-  transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.15s ease;
-}
-```
+### 3. AdFormatsCarousel.tsx (Ad Formats)
+- Card wrapper (line 63): Replace `transition-all duration-300` with `transition-[box-shadow,background-color] duration-300`
+- Section wrapper (line 101): Replace `transition-all duration-700` with `transition-[opacity,transform] duration-700`
 
-### 2. Remove duplicate transform on the Navbar (Navbar.tsx)
-The navbar currently sets transform via both a Tailwind class AND an inline `style` prop, which can conflict. Remove the inline `style` attribute and keep only the Tailwind classes for the scroll animation.
+## Why this works
+`transition-all` forces the browser to check and interpolate every animatable property on each frame. By scoping to only `box-shadow` and `background-color` (the properties that actually change on hover), the browser does far less work, resulting in smooth, instant-feeling interactions.
 
-## Files to modify
-
-| File | Change |
-|------|--------|
-| `src/index.css` | Replace `*` transition selector with scoped selectors (around line 430) |
-| `src/components/Navbar.tsx` | Remove the inline `style={{ transform: ... }}` prop from the desktop nav pill |
