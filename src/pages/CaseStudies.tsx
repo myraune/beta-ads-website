@@ -86,7 +86,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
               </p>
             </div>
             <div className={`transition-all duration-1000 delay-500 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl shadow-black/20 bg-card/20">
+              <div className="aspect-video w-full rounded-2xl overflow-hidden shadow-2xl shadow-black/20 bg-card/20 border border-white/5">
                 <iframe
                   src="https://app.supademo.com/embed/cmlk4c3zt00uz5yi3au9mqr61?embed_v=2"
                   loading="lazy"
