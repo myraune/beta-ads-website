@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 
 const navLinks = [
   { href: "/case-studies", label: "For brands" },
   { href: "/streamers", label: "For streamers" },
+  { href: "/pricing", label: "Pricing" },
 ];
 
 export const Navbar: React.FC = () => {
@@ -38,7 +39,7 @@ export const Navbar: React.FC = () => {
       <nav className="hidden lg:block pt-6">
         <div 
           className={`
-            mx-auto max-w-[800px] px-8 py-3 rounded-full
+            mx-auto max-w-[900px] px-6 py-2.5 rounded-full
             will-change-transform
             transition-[transform,background-color,box-shadow,backdrop-filter] duration-300 ease-out
             ${isScrolled 
@@ -61,7 +62,7 @@ export const Navbar: React.FC = () => {
                 <Link 
                   key={link.href} 
                   to={link.href} 
-                  className={`px-4 py-2 text-sm font-light tracking-wide rounded-full transition-colors duration-200 ${
+                  className={`px-3 py-2 text-sm font-light tracking-wide rounded-full transition-colors duration-200 ${
                     location.pathname === link.href 
                       ? "text-primary bg-primary/10" 
                       : "text-muted-foreground hover:text-foreground hover:bg-foreground/5"
@@ -72,7 +73,7 @@ export const Navbar: React.FC = () => {
               ))}
             </div>
 
-            <div className="flex items-center flex-shrink-0">
+            <div className="flex items-center gap-2 flex-shrink-0">
               {mounted && (
                 <Button 
                   variant="ghost" 
@@ -84,6 +85,29 @@ export const Navbar: React.FC = () => {
                   {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
                 </Button>
               )}
+              <a 
+                href="https://calendar.app.google/coW5NLQJtLxfRer19" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="text-muted-foreground hover:text-foreground text-xs font-light tracking-wide h-8 px-3 rounded-full"
+                >
+                  Book a Call
+                  <ExternalLink className="ml-1.5 h-3 w-3" />
+                </Button>
+              </a>
+              <Link to="/demo">
+                <Button
+                  size="sm"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 text-xs font-light tracking-wide h-8 px-4 rounded-full shadow-md shadow-primary/20"
+                >
+                  Book a Demo
+                  <ArrowRight className="ml-1.5 h-3 w-3" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>
@@ -117,7 +141,7 @@ export const Navbar: React.FC = () => {
           </div>
         </div>
 
-        <div className={`overflow-hidden transition-all duration-300 ease-out ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
+        <div className={`overflow-hidden transition-all duration-300 ease-out ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}>
           <div className="px-4 py-4 bg-background/95 backdrop-blur-xl shadow-lg shadow-black/10 space-y-2">
             {navLinks.map(link => (
               <Link 
@@ -132,6 +156,32 @@ export const Navbar: React.FC = () => {
                 {link.label}
               </Link>
             ))}
+            <div className="pt-3 space-y-2 border-t border-border">
+              <a 
+                href="https://calendar.app.google/coW5NLQJtLxfRer19" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="w-full text-sm font-light tracking-wide h-10 rounded-lg"
+                >
+                  Book a Call
+                  <ExternalLink className="ml-2 h-4 w-4" />
+                </Button>
+              </a>
+              <Link to="/demo" className="block">
+                <Button
+                  size="sm"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-sm font-light tracking-wide h-10 rounded-lg shadow-md shadow-primary/20"
+                >
+                  Book a Demo
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </nav>

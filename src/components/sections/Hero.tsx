@@ -11,11 +11,14 @@ interface HeroProps {
 }
 
 const nordicGreetings = ["Hei", "Hej", "Moi"];
+const rotatingWords = ["skipped", "blocked", "ignored", "invisible"];
 
 export const Hero: React.FC<HeroProps> = ({ t }) => {
   const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation();
   const [greetingIndex, setGreetingIndex] = useState(0);
   const [greetingVisible, setGreetingVisible] = useState(true);
+  const [wordIndex, setWordIndex] = useState(0);
+  const [wordVisible, setWordVisible] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -25,6 +28,17 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
         setGreetingVisible(true);
       }, 400);
     }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordVisible(false);
+      setTimeout(() => {
+        setWordIndex((prev) => (prev + 1) % rotatingWords.length);
+        setWordVisible(true);
+      }, 300);
+    }, 2500);
     return () => clearInterval(interval);
   }, []);
 
@@ -62,9 +76,19 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
             />
 
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-foreground mb-6">
-              {t.heroTitle[0]}{" "}
+              Your ads shouldn't be{" "}
+              <span className="relative inline-block min-w-[120px]">
+                <span 
+                  className={`font-extralight italic text-primary transition-all duration-300 ${
+                    wordVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
+                  }`}
+                >
+                  {rotatingWords[wordIndex]}
+                </span>
+              </span>
+              <br />
               <span className="font-extralight italic text-muted-foreground">
-                {t.heroTitle[1]}
+                They should be part of the stream.
               </span>
             </h1>
 

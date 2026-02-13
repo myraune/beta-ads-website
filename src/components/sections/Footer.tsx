@@ -8,8 +8,9 @@ interface FooterProps {
 export const Footer: React.FC<FooterProps> = ({ t }) => (
   <footer className="py-24">
     <div className="max-w-7xl mx-auto px-8 lg:px-12">
-      <div className="grid md:grid-cols-3 gap-16">
-        <div className="space-y-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
+        {/* Brand */}
+        <div className="space-y-6">
           <div className="flex items-center">
             <img 
               src="/lovable-uploads/logo-black.png" 
@@ -22,46 +23,75 @@ export const Footer: React.FC<FooterProps> = ({ t }) => (
               className="h-8 w-auto dark:block hidden"
             />
           </div>
-          <p className="text-muted-foreground font-extralight leading-relaxed text-lg tracking-wide">
+          <p className="text-muted-foreground font-extralight leading-relaxed text-base tracking-wide">
             {t.footerDescription}
           </p>
-        </div>
-
-        <div className="space-y-8">
-          <h4 className="font-light tracking-widest text-lg">{t.contactTitle}</h4>
-          <div className="space-y-4 text-muted-foreground font-extralight text-lg">
-            <p className="tracking-wide">andreas@beta-ads.no</p>
-            <p className="tracking-wide">+47 46195548</p>
-          </div>
-        </div>
-
-        <div className="space-y-8">
-          <h4 className="font-light tracking-widest text-lg">{t.connectTitle}</h4>
-          <div className="space-y-4 text-muted-foreground font-extralight text-lg">
-            <p
-              className="hover:text-foreground transition-colors cursor-pointer tracking-wide"
+          <div className="flex gap-4">
+            <span
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer text-sm font-light"
               onClick={() => window.open("https://www.linkedin.com/company/beta-nordic", "_blank")}
             >
               LinkedIn
-            </p>
-            <p
-              className="hover:text-foreground transition-colors cursor-pointer tracking-wide"
+            </span>
+            <span
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer text-sm font-light"
               onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
             >
               Discord
-            </p>
-            <Link 
-              to="/blog" 
-              className="hover:text-foreground transition-colors tracking-wide block"
-            >
+            </span>
+          </div>
+        </div>
+
+        {/* Product */}
+        <div className="space-y-6">
+          <h4 className="font-light tracking-widest text-sm uppercase text-muted-foreground/60">Product</h4>
+          <div className="space-y-3">
+            <Link to="/how-it-works" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+              How It Works
+            </Link>
+            <Link to="/case-studies" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+              Ad Formats
+            </Link>
+            <Link to="/pricing" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+              Pricing
+            </Link>
+            <Link to="/streamers" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+              For Streamers
+            </Link>
+          </div>
+        </div>
+
+        {/* Resources */}
+        <div className="space-y-6">
+          <h4 className="font-light tracking-widest text-sm uppercase text-muted-foreground/60">Resources</h4>
+          <div className="space-y-3">
+            <Link to="/case-studies" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+              Case Studies
+            </Link>
+            <Link to="/blog" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
               Blog
             </Link>
-            <Link 
-              to="/about" 
-              className="hover:text-foreground transition-colors tracking-wide block"
-            >
+            <Link to="/press" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+              Press
+            </Link>
+          </div>
+        </div>
+
+        {/* Company */}
+        <div className="space-y-6">
+          <h4 className="font-light tracking-widest text-sm uppercase text-muted-foreground/60">Company</h4>
+          <div className="space-y-3">
+            <Link to="/about" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
               About
             </Link>
+            <Link to="/contact" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+              Contact
+            </Link>
+            <Link to="/demo" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+              Book a Demo
+            </Link>
+            <p className="text-muted-foreground text-sm font-light tracking-wide">andreas@beta-ads.no</p>
+            <p className="text-muted-foreground text-sm font-light tracking-wide">+47 46195548</p>
           </div>
         </div>
       </div>
