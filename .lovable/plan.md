@@ -1,16 +1,14 @@
 
-# Remove "Book a Call" Button from Navbar
+# Replace "How it works" with "Join Discord" on Streamer Hero
 
 ## Change
 
-Remove the "Book a Call" ghost button from both desktop and mobile navigation in `src/components/Navbar.tsx`, keeping only the "Book a Demo" primary button.
+In `src/components/sections/StreamerHero.tsx`, replace the "How it works" scroll button (lines 69-75) with a "Join Discord" button that links to the Beta Ads Discord server (`https://discord.gg/tSmM6XMEkn`).
 
 ## Details
 
-**Desktop (lines 88-101):** Remove the entire `<a>` wrapper containing the "Book a Call" button and its `ExternalLink` icon.
-
-**Mobile (lines 159-174):** Remove the `<a>` wrapper containing the mobile "Book a Call" outline button.
-
-**Imports (line 3):** Remove `ExternalLink` from the lucide-react import since it will no longer be used.
-
-No other files need changes.
+- Remove the `scrollToHowItWorks` function (lines 16-18) since it will no longer be used
+- Replace the `<button>` element with an `<a>` tag linking to the Discord invite URL, opening in a new tab
+- Keep the same visual style (ghost/text style beside the primary "Apply now" button)
+- Update the label to "Join Discord"
+- Remove the unused `ExternalLink` import if not needed elsewhere
