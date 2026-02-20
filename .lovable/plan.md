@@ -1,25 +1,39 @@
 
-
-# Fix Navbar Layout
+# Fix Navbar - Make It Compact
 
 ## Problem
-The screenshot shows the nav links ("For brands", "For streamers", "Pricing") are wrapping onto two lines and not vertically centered within the pill. The `h-[52px]` container doesn't pass its height to the inner flex div, and the `max-w-[900px]` constraint makes the three `flex-1` columns too tight, causing text wrap.
+The `flex-1` on the logo and button columns pushes the logo far left and the button far right, creating a huge gap between the icon and the nav links. The navbar should feel like one tight, cohesive bar.
 
 ## Solution
+Drop the three-column `flex-1` layout. Instead, use a single flex row with a small gap between all items: logo, links, and buttons. The logo stays left, everything else flows naturally with consistent spacing.
 
 **File: `src/components/Navbar.tsx`**
 
-1. **Add `h-full` to the inner flex container** (line 51) so items vertically center within the 52px pill
-2. **Remove `flex-1` from the center nav links div** -- instead use `flex-shrink-0` so links never wrap. The left and right columns keep `flex-1` to push the links to center naturally
-3. **Add `whitespace-nowrap`** to each nav link to prevent text wrapping
-4. **Widen the pill** from `max-w-[900px]` to `max-w-[960px]` to give more breathing room
+Replace the inner layout (lines 51-99) with:
 
-Changes at a glance:
-- Line 42: `max-w-[900px]` becomes `max-w-[960px]`
-- Line 51: `flex items-center w-full` becomes `flex items-center w-full h-full`
-- Line 62: `flex-1 flex justify-center gap-3` becomes `flex items-center justify-center gap-1`
-- Line 67: Add `whitespace-nowrap` to each nav link class
-- Line 78: Keep `flex-1 flex justify-end gap-2` as-is
+```
+<div className="flex items-center justify-between w-full h-full">
+  {/* Logo */}
+  <Link to="/" className="flex items-center group">
+    <img src="/lovable-uploads/favicon.png" alt="Beta Ads" className="h-6 w-auto" />
+  </Link>
 
-This ensures the center links stay on one line, are truly centered, and the pill has proper vertical alignment.
+  {/* Nav links + actions together on the right */}
+  <div className="flex items-center gap-1">
+    {navLinks...}
+    <div className="w-px h-4 bg-foreground/10 mx-2" />  <!-- subtle divider -->
+    {theme toggle}
+    {Book a Demo button}
+  </div>
+</div>
+```
 
+Key changes:
+- Remove all `flex-1` wrappers -- no more three columns
+- Logo on the left via `justify-between`
+- Nav links, theme toggle, and CTA button grouped together on the right with tight `gap-1` spacing
+- A subtle 1px vertical divider separates nav links from action buttons
+- Reduce logo from `h-7` to `h-6` for better proportion
+- Reduce pill max-width from `960px` to `680px` to keep it compact
+
+This gives a compact, proportional navbar where nothing is far apart.
