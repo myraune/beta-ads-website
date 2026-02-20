@@ -39,7 +39,7 @@ export const Navbar: React.FC = () => {
       <nav className="hidden lg:block pt-6">
         <div 
           className={`
-            mx-auto max-w-[900px] px-6 py-2.5 rounded-full
+            mx-auto max-w-[900px] px-6 h-[52px] rounded-full
             will-change-transform
             transition-[transform,background-color,box-shadow,backdrop-filter] duration-300 ease-out
             ${isScrolled 
@@ -48,16 +48,18 @@ export const Navbar: React.FC = () => {
             }
           `}
         >
-          <div className="relative flex items-center justify-between">
-            <Link to="/" className="flex items-center group flex-shrink-0">
-              <img 
-                src="/lovable-uploads/favicon.png" 
-                alt="Beta Ads" 
-                className="h-7 w-auto transition-transform duration-200 group-hover:scale-105" 
-              />
-            </Link>
+          <div className="flex items-center w-full">
+            <div className="flex-1 flex justify-start">
+              <Link to="/" className="flex items-center group">
+                <img 
+                  src="/lovable-uploads/favicon.png" 
+                  alt="Beta Ads" 
+                  className="h-7 w-auto transition-transform duration-200 group-hover:scale-105" 
+                />
+              </Link>
+            </div>
 
-            <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2">
+            <div className="flex-1 flex justify-center gap-3">
               {navLinks.map(link => (
                 <Link 
                   key={link.href} 
@@ -73,7 +75,7 @@ export const Navbar: React.FC = () => {
               ))}
             </div>
 
-            <div className="flex items-center gap-2 flex-shrink-0">
+            <div className="flex-1 flex justify-end gap-2">
               {mounted && (
                 <Button 
                   variant="ghost" 
@@ -101,7 +103,7 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Navigation */}
       <nav className="lg:hidden">
-        <div className="flex items-center justify-between px-4 py-3 bg-background/80 backdrop-blur-xl shadow-md shadow-black/10">
+        <div className="flex items-center justify-between px-4 h-[60px] bg-background/80 backdrop-blur-xl shadow-md shadow-black/10">
           <Link to="/" className="flex items-center">
             <img src="/lovable-uploads/favicon.png" alt="Beta Ads" className="h-7 w-auto" />
           </Link>
