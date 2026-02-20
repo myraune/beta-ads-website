@@ -37,12 +37,12 @@ export const blogPosts: BlogPost[] = [
     id: "gokstad-akademiet-gamer-recruitment",
     slug: "gokstad-akademiet-gamer-recruitment",
     title: "Case Study: Gokstad Akademiet Recruits Gamers",
-    excerpt: "How Gokstad Akademiet recruited students by targeting gamers with Live Stream Overlays, achieving a 1.01% CTR across 19 creators.",
+    excerpt: "How Gokstad Akademiet recruited students by targeting gamers with Live Stream Overlays, achieving a 1.22% CTR across 22 creators and 100K+ completed views.",
     content: "",
-    date: "Feb 5, 2025",
-    dateISO: "2025-02-05",
+    date: "Feb 20, 2025",
+    dateISO: "2025-02-20",
     readTime: "4 min read",
-    image: "https://storage.googleapis.com/livad-blog/3498/3790256.gif",
+    image: "https://storage.googleapis.com/ad-gifs/3818527.gif",
     category: "Case Studies",
     tags: ["gokstad", "case-study", "education", "gaming", "overlay-ads", "recruitment"],
     hasDashboard: "gokstad-case-study",
@@ -54,10 +54,10 @@ export const blogPosts: BlogPost[] = [
       fi: "Gokstad Akademiet Pelaajien Rekrytointi Case Study | Beta Ads"
     },
     seoDescription: {
-      en: "See how Gokstad Akademiet achieved a 1.01% CTR recruiting students through live stream overlays across 19 gaming creators.",
-      no: "Se hvordan Gokstad Akademiet oppnådde 1.01% CTR med rekruttering av studenter gjennom live stream overlays på 19 gaming-skapere.",
-      sv: "Se hur Gokstad Akademiet uppnådde 1.01% CTR vid rekrytering av studenter genom live stream overlays på 19 gaming-skapare.",
-      fi: "Katso kuinka Gokstad Akademiet saavutti 1.01% CTR rekrytoidessaan opiskelijoita live stream -mainoksilla 19 pelisisällöntuottajan kautta."
+      en: "See how Gokstad Akademiet achieved a 1.22% CTR recruiting students through live stream overlays across 22 gaming creators with 100K+ views.",
+      no: "Se hvordan Gokstad Akademiet oppnådde 1.22% CTR med rekruttering av studenter gjennom live stream overlays på 22 gaming-skapere med 100K+ visninger.",
+      sv: "Se hur Gokstad Akademiet uppnådde 1.22% CTR vid rekrytering av studenter genom live stream overlays på 22 gaming-skapare med 100K+ visningar.",
+      fi: "Katso kuinka Gokstad Akademiet saavutti 1.22% CTR rekrytoidessaan opiskelijoita live stream -mainoksilla 22 pelisisällöntuottajan kautta ja 100K+ katselua."
     },
     seoKeywords: {
       en: ["gokstad akademiet", "gamer recruitment", "twitch overlay ads", "education marketing", "live stream advertising"],
