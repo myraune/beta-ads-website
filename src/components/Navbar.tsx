@@ -39,7 +39,7 @@ export const Navbar: React.FC = () => {
       <nav className="hidden lg:block pt-6">
         <div 
           className={`
-            mx-auto max-w-[900px] px-6 h-[52px] rounded-full
+            mx-auto max-w-[960px] px-6 h-[52px] rounded-full
             will-change-transform
             transition-[transform,background-color,box-shadow,backdrop-filter] duration-300 ease-out
             ${isScrolled 
@@ -48,7 +48,7 @@ export const Navbar: React.FC = () => {
             }
           `}
         >
-          <div className="flex items-center w-full">
+          <div className="flex items-center w-full h-full">
             <div className="flex-1 flex justify-start">
               <Link to="/" className="flex items-center group">
                 <img 
@@ -59,12 +59,12 @@ export const Navbar: React.FC = () => {
               </Link>
             </div>
 
-            <div className="flex-1 flex justify-center gap-3">
+            <div className="flex items-center justify-center gap-1">
               {navLinks.map(link => (
                 <Link 
                   key={link.href} 
                   to={link.href} 
-                  className={`px-3 py-2 text-sm font-light tracking-wide rounded-full transition-colors duration-200 ${
+                  className={`whitespace-nowrap flex-shrink-0 px-3 py-2 text-sm font-light tracking-wide rounded-full transition-colors duration-200 ${
                     location.pathname === link.href 
                       ? "text-primary bg-primary/10" 
                       : "text-muted-foreground hover:text-foreground hover:bg-foreground/5"
