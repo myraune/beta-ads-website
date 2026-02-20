@@ -3,7 +3,6 @@ import { StreamerHero } from "@/components/sections/StreamerHero";
 import { StreamerBrands } from "@/components/sections/StreamerBrands";
 import { StreamerHowItWorks } from "@/components/sections/StreamerHowItWorks";
 import { StreamerWhatYouGet } from "@/components/sections/StreamerWhatYouGet";
-import { EarningsCalculator } from "@/components/sections/EarningsCalculator";
 import { StreamerCTA } from "@/components/sections/StreamerCTA";
 
 interface StreamerSectionProps {
@@ -26,10 +25,7 @@ export const StreamerSection: React.FC<StreamerSectionProps> = () => {
       {/* 4. What you get - Clear feature grid */}
       <StreamerWhatYouGet />
 
-      {/* 5. Earnings Calculator */}
-      <EarningsCalculator />
-
-      {/* 6. Final CTA */}
+      {/* 5. Final CTA */}
       <StreamerCTA />
     </div>
   );
