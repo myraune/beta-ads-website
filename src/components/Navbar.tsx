@@ -39,7 +39,7 @@ export const Navbar: React.FC = () => {
       <nav className="hidden lg:block pt-6">
         <div 
           className={`
-            mx-auto max-w-[960px] px-6 h-[52px] rounded-full
+            mx-auto max-w-[680px] px-6 h-[52px] rounded-full
             will-change-transform
             transition-[transform,background-color,box-shadow,backdrop-filter] duration-300 ease-out
             ${isScrolled 
@@ -48,18 +48,16 @@ export const Navbar: React.FC = () => {
             }
           `}
         >
-          <div className="flex items-center w-full h-full">
-            <div className="flex-1 flex justify-start">
-              <Link to="/" className="flex items-center group">
-                <img 
-                  src="/lovable-uploads/favicon.png" 
-                  alt="Beta Ads" 
-                  className="h-7 w-auto transition-transform duration-200 group-hover:scale-105" 
-                />
-              </Link>
-            </div>
+          <div className="flex items-center justify-between w-full h-full">
+            <Link to="/" className="flex items-center group">
+              <img 
+                src="/lovable-uploads/favicon.png" 
+                alt="Beta Ads" 
+                className="h-6 w-auto transition-transform duration-200 group-hover:scale-105" 
+              />
+            </Link>
 
-            <div className="flex items-center justify-center gap-1">
+            <div className="flex items-center gap-1">
               {navLinks.map(link => (
                 <Link 
                   key={link.href} 
@@ -73,9 +71,7 @@ export const Navbar: React.FC = () => {
                   {link.label}
                 </Link>
               ))}
-            </div>
-
-            <div className="flex-1 flex justify-end gap-2">
+              <div className="w-px h-4 bg-foreground/10 mx-2" />
               {mounted && (
                 <Button 
                   variant="ghost" 
