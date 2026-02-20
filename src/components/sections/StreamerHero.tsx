@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const platforms = [
@@ -12,10 +12,6 @@ const platforms = [
 
 export const StreamerHero: React.FC = () => {
   const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation();
-
-  const scrollToHowItWorks = () => {
-    document.getElementById('streamer-how-it-works')?.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
     <section className="relative overflow-hidden text-foreground">
@@ -66,13 +62,15 @@ export const StreamerHero: React.FC = () => {
                 </Button>
               </a>
 
-              <button
-                onClick={scrollToHowItWorks}
+              <a
+                href="https://discord.gg/tSmM6XMEkn"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground text-sm font-light transition-colors flex items-center gap-2 px-4"
               >
-                How it works
-                <span className="text-xs">↓</span>
-              </button>
+                Join Discord
+                <ArrowRight className="h-3.5 w-3.5" />
+              </a>
             </div>
 
             {/* Platforms */}
