@@ -38,54 +38,62 @@ export const Navbar: React.FC = () => {
       {/* Desktop */}
       <nav className="hidden lg:block pt-6">
         <div
-          className={`mx-auto max-w-[680px] px-6 h-[52px] rounded-full transition-[background-color,box-shadow,backdrop-filter] duration-300 ease-out ${
+          className={`mx-auto w-fit px-4 h-[52px] rounded-full transition-[background-color,box-shadow,backdrop-filter] duration-300 ease-out ${
             isScrolled
               ? "bg-background/80 backdrop-blur-md shadow-lg shadow-black/10"
               : "bg-background/5 backdrop-blur-none shadow-none"
           }`}
         >
-          <div className="flex items-center justify-center gap-2 w-full h-full">
-            <Link to="/">
+          <div className="flex items-center gap-3 h-full">
+            {/* Logo */}
+            <Link to="/" className="mr-1">
               <img src="/lovable-uploads/favicon.png" alt="Beta Ads" className="h-6 w-auto" />
             </Link>
 
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                to={link.href}
-                className={`px-3 py-2 text-sm font-light tracking-wide rounded-full transition-colors duration-150 ${
-                  location.pathname === link.href
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {link.label}
+            {/* Nav links */}
+            <div className="flex items-center gap-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className={`px-3 py-2 text-sm font-light tracking-wide rounded-full transition-colors duration-150 ${
+                    location.pathname === link.href
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+
+            {/* Divider */}
+            <div className="w-px h-4 bg-foreground/10 mx-1" />
+
+            {/* Actions */}
+            <div className="flex items-center gap-2">
+              {mounted && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={toggleTheme}
+                  className="h-8 w-8 rounded-full text-muted-foreground hover:text-foreground transition-colors duration-150 p-0"
+                  aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                >
+                  {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+                </Button>
+              )}
+
+              <Link to="/demo">
+                <Button
+                  size="sm"
+                  className="bg-primary text-primary-foreground hover:bg-primary/90 text-xs font-light tracking-wide h-8 px-4 rounded-full shadow-md shadow-primary/20 transition-colors duration-150"
+                >
+                  Book a Demo
+                  <ArrowRight className="ml-1.5 h-3 w-3" />
+                </Button>
               </Link>
-            ))}
-
-            <div className="w-px h-4 bg-foreground/10 mx-2" />
-
-            {mounted && (
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={toggleTheme}
-                className="h-8 w-8 rounded-full text-muted-foreground hover:text-foreground transition-colors duration-150 p-0"
-                aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-              >
-                {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-              </Button>
-            )}
-
-            <Link to="/demo">
-              <Button
-                size="sm"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 text-xs font-light tracking-wide h-8 px-4 rounded-full shadow-md shadow-primary/20 transition-colors duration-150"
-              >
-                Book a Demo
-                <ArrowRight className="ml-1.5 h-3 w-3" />
-              </Button>
-            </Link>
+            </div>
           </div>
         </div>
       </nav>
