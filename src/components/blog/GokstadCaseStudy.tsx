@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const GokstadCaseStudy: React.FC = () => {
   return (
     <div className="space-y-8">
       {/* Header Cover */}
       <img
-        src="https://storage.googleapis.com/livad-blog/3498/3790256.gif"
+        src="https://storage.googleapis.com/ad-gifs/3818527.gif"
         alt="Gokstad Akademiet campaign header"
         className="w-full h-auto rounded-xl"
       />
@@ -16,15 +17,14 @@ const GokstadCaseStudy: React.FC = () => {
           Challenge
         </h2>
         <p className="text-muted-foreground leading-relaxed text-lg">
-          Gokstad Akademiet offers vocational studies in IT, development, design, and marketing. 
-          They focus on practical education that bridges the gap between hobbies like gaming and 
-          professional careers.
-        </p>
-        <p className="text-muted-foreground leading-relaxed text-lg mt-4">
-          The goal was to recruit students for the Autumn 2026 semester by targeting gamers with 
-          relevant interests in tech and creativity. Traditional social media ads often get scrolled 
-          past by this audience, so the school needed a direct line of communication during engaged 
-          viewing moments to announce available free study places.
+          Gokstad Akademiet wanted to connect with the next generation of IT and
+          design professionals where they are most active. The goal was to show
+          tech-savvy individuals how a passion for gaming can lead to a career in
+          development or marketing. To do this effectively, the academy looked past
+          standard ads. They needed to share a time-sensitive opportunity regarding
+          free study places for the Autumn 2026 intake. This message required more
+          than a static image. It needed the personal touch and trust that comes
+          from a live personality.
         </p>
       </section>
 
@@ -33,12 +33,26 @@ const GokstadCaseStudy: React.FC = () => {
         <h2 className="text-2xl font-bold text-foreground border-b-2 border-border pb-3 mb-6">
           Solution
         </h2>
+        <div className="flex gap-4 justify-center my-6">
+          <img
+            src="https://storage.googleapis.com/ad-gifs/3818913.gif"
+            alt="Campaign creative left"
+            className="max-w-[48%] rounded-lg shadow-md"
+          />
+          <img
+            src="https://storage.googleapis.com/ad-gifs/3819116.gif"
+            alt="Campaign creative right"
+            className="max-w-[48%] rounded-lg shadow-md"
+          />
+        </div>
         <p className="text-muted-foreground leading-relaxed text-lg">
-          The campaign utilized a Live Stream Overlay across 19 channels, where streamers verbally 
-          connected the school's programs to the gaming world. The creative highlighted specific 
-          courses and the availability of free study places, prompting viewers to click the link in 
-          the chat for more details. Streamers emphasized how skills in development and design relate 
-          directly to the games their audiences love.
+          Viewers encountered a Live Stream Overlay during natural breaks in
+          content. While the graphic displayed the school's branding, streamers
+          explained the connection between gaming and studying IT or design. A
+          direct link in the chat allowed interested students to browse the course
+          catalog right away. The campaign covered 49 different categories to ensure
+          the message reached a wide variety of interests. In total, 22 creators
+          helped share these study opportunities.
         </p>
       </section>
 
@@ -48,9 +62,13 @@ const GokstadCaseStudy: React.FC = () => {
           Impact
         </h2>
         <p className="text-muted-foreground leading-relaxed text-lg mb-6">
-          The campaign delivered a strong 1.01% click-through rate, proving that the messaging about 
-          turning a gaming passion into a career landed effectively. Viewers engaged with the offer 
-          for free study places, driving qualified traffic to the application portal through the chat links.
+          The audience showed strong interest, resulting in a 1.22% click-through
+          rate. This metric proves the offer was relevant enough for viewers to take
+          action. With over 100K completed views, the campaign successfully
+          introduced the academy to potential students. The results confirm a clear
+          alignment between the gaming community and technical education. This
+          approach effectively drove traffic to the application portal for the
+          upcoming academic year.
         </p>
 
         {/* Performance Analysis Image */}
@@ -67,39 +85,52 @@ const GokstadCaseStudy: React.FC = () => {
           Results
         </h2>
 
-        {/* Results List */}
         <ul className="space-y-3 mb-8">
           <li className="text-lg text-muted-foreground flex items-start gap-3">
             <span className="text-primary font-bold text-2xl leading-none">•</span>
-            <span><strong className="text-foreground">54K+</strong> Completed Views</span>
+            <span><strong className="text-foreground">100K+</strong> Completed Views</span>
           </li>
           <li className="text-lg text-muted-foreground flex items-start gap-3">
             <span className="text-primary font-bold text-2xl leading-none">•</span>
-            <span><strong className="text-foreground">1.01%</strong> CTR</span>
+            <span><strong className="text-foreground">1.22%</strong> CTR</span>
           </li>
           <li className="text-lg text-muted-foreground flex items-start gap-3">
             <span className="text-primary font-bold text-2xl leading-none">•</span>
-            <span><strong className="text-foreground">19</strong> Creators</span>
+            <span><strong className="text-foreground">22</strong> Creators</span>
           </li>
           <li className="text-lg text-muted-foreground flex items-start gap-3">
             <span className="text-primary font-bold text-2xl leading-none">•</span>
-            <span><strong className="text-foreground">31</strong> Categories</span>
+            <span><strong className="text-foreground">49</strong> Categories</span>
           </li>
         </ul>
 
         <p className="text-muted-foreground leading-relaxed text-lg mb-8">
-          Reach your target audience with fun and engaging virtual experiences, start today.
+          <strong className="text-foreground">
+            Reach your target audience with fun and engaging virtual experiences,{" "}
+            <Link to="/demo" className="text-primary hover:underline font-bold">
+              start today
+            </Link>
+            .
+          </strong>
         </p>
 
         {/* Video Container */}
         <div className="relative w-full pb-[56.25%] h-0 overflow-hidden bg-black rounded-xl">
           <video
             controls
+            crossOrigin="anonymous"
             className="absolute top-0 left-0 w-full h-full"
           >
             <source
-              src="https://storage.googleapis.com/livad-blog/3498/combined_campaign_3498_20260205_150643.mp4"
+              src="https://storage.googleapis.com/livad-blog/3498/combined_campaign_3498_20260220_053553.mp4"
               type="video/mp4"
+            />
+            <track
+              src="https://storage.googleapis.com/livad-blog/3498/subtitles/combined_trimmed_386_20260220_053313.vtt"
+              kind="subtitles"
+              srcLang="en"
+              label="English"
+              default
             />
             Your browser does not support the video tag.
           </video>
