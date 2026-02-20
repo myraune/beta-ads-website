@@ -1,23 +1,35 @@
 
-# Fix Navbar Spacing
 
-## Problem
-The desktop navbar has uneven spacing between its three sections (logo, nav links, right-side buttons). The `justify-between` layout creates inconsistent gaps because the three groups have different widths.
+# Update Gokstad Akademiet Case Study
 
-## Solution
-Change the desktop navbar to use a properly balanced layout:
+## What changes
 
-1. Make the nav links absolutely centered in the bar
-2. Pin the logo to the left and CTA to the right
-3. Increase `gap` between nav link items from `gap-1` to `gap-2` for better breathing room
+Update the Gokstad case study with the new campaign data you provided. The metrics and content have improved since the first version.
 
-### Technical detail
+## Key updates
 
-**File: `src/components/Navbar.tsx`**
+- **Header GIF**: New URL (`ad-gifs/3818527.gif`)
+- **Challenge text**: Rewritten to focus on connecting with next-gen IT professionals
+- **Solution section**: Now includes a two-column GIF gallery showing campaign creatives, plus updated copy (49 categories, 22 creators)
+- **Impact section**: Updated CTR from 1.01% to 1.22%, updated views from 54K+ to 100K+
+- **Results**: 100K+ views, 1.22% CTR, 22 creators, 49 categories
+- **Video**: Updated to new video URL with English subtitle track
+- **CTA link**: Points to contact page (`/demo`) instead of external URL
 
-- Change the inner flex container (line 51) to use `relative` positioning
-- Make the nav links div (line 60) absolutely centered: `absolute left-1/2 -translate-x-1/2`
-- Increase nav link gap from `gap-1` to `gap-2`
-- Keep logo and right-side CTA as `justify-between` at the edges
+## Files to change
 
-This ensures the navigation links are always perfectly centered in the bar, with logo and CTA symmetrically placed at each end regardless of content width.
+### 1. `src/components/blog/GokstadCaseStudy.tsx`
+- Replace header GIF source
+- Rewrite Challenge paragraph
+- Add GIF gallery (two side-by-side GIFs) to Solution section with updated copy
+- Update Impact text and keep the analysis image
+- Update Results list with new numbers
+- Update video source URL and add subtitle track
+- Update CTA to link internally
+
+### 2. `src/data/blogPosts.ts` (lines 37-67)
+- Update excerpt to reflect new metrics (1.22% CTR, 22 creators, 100K+ views)
+- Update header image URL to new GIF
+- Update SEO descriptions across all languages with new stats
+- Update date to Feb 20, 2025
+
