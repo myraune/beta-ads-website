@@ -40,21 +40,24 @@ export const Navbar: React.FC = () => {
           className={`
             mx-auto max-w-[900px] px-6 py-2.5 rounded-full
             will-change-transform
-            transition-[transform,background-color,box-shadow,backdrop-filter] duration-300 ease-out
+            transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)]
+            backdrop-blur-sm
             ${isScrolled 
-              ? "bg-background/80 backdrop-blur-md shadow-lg shadow-black/10 scale-[0.98] -translate-y-1" 
-              : "bg-background/5 backdrop-blur-none shadow-none scale-100 translate-y-0"
+              ? "bg-background/80 backdrop-blur-md shadow-lg shadow-black/10" 
+              : "bg-transparent shadow-none"
             }
           `}
         >
-          <div className="flex items-center justify-between">
-            <Link to="/" className="flex items-center group flex-shrink-0">
-              <img 
-                src="/lovable-uploads/favicon.png" 
-                alt="Beta Ads" 
-                className="h-7 w-auto transition-transform duration-200 group-hover:scale-105" 
-              />
-            </Link>
+          <div className="flex items-center">
+            <div className="flex-1 flex justify-start">
+              <Link to="/" className="flex items-center group">
+                <img 
+                  src="/lovable-uploads/favicon.png" 
+                  alt="Beta Ads" 
+                  className="h-7 w-auto transition-transform duration-200 group-hover:scale-105" 
+                />
+              </Link>
+            </div>
 
             <div className="flex items-center gap-1">
               {navLinks.map(link => (
@@ -72,7 +75,7 @@ export const Navbar: React.FC = () => {
               ))}
             </div>
 
-            <div className="flex items-center gap-2 flex-shrink-0">
+            <div className="flex-1 flex items-center justify-end gap-2">
               {mounted && (
                 <Button 
                   variant="ghost" 
