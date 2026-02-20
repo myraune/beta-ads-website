@@ -48,7 +48,7 @@ export const Navbar: React.FC = () => {
             }
           `}
         >
-          <div className="flex items-center justify-between">
+          <div className="relative flex items-center justify-between">
             <Link to="/" className="flex items-center group flex-shrink-0">
               <img 
                 src="/lovable-uploads/favicon.png" 
@@ -57,7 +57,7 @@ export const Navbar: React.FC = () => {
               />
             </Link>
 
-            <div className="flex items-center gap-1">
+            <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-2">
               {navLinks.map(link => (
                 <Link 
                   key={link.href} 
