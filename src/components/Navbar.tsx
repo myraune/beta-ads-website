@@ -40,7 +40,7 @@ export const Navbar: React.FC = () => {
           className={`
             mx-auto max-w-[900px] px-6 py-2.5 rounded-full
             will-change-transform backdrop-blur-md
-            transition-[transform,background-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]
+            transition-[transform,background-color,box-shadow] duration-500 ease-out
             ${isScrolled 
               ? "bg-background/80 shadow-lg shadow-black/10 scale-[0.98] -translate-y-1" 
               : "bg-transparent shadow-none scale-100 translate-y-0"
