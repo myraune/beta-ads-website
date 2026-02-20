@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 
 const navLinks = [
-  { href: "/case-studies", label: "For brands" },
-  { href: "/streamers", label: "For streamers" },
+  { href: "/case-studies", label: "Brands" },
+  { href: "/streamers", label: "Streamers" },
   { href: "/pricing", label: "Pricing" },
 ];
 
@@ -48,7 +48,7 @@ export const Navbar: React.FC = () => {
             }
           `}
         >
-          <div className="flex items-center justify-between w-full h-full">
+          <div className="flex items-center justify-center gap-1 w-full h-full">
             <Link to="/" className="flex items-center group">
               <img 
                 src="/lovable-uploads/favicon.png" 
