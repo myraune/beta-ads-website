@@ -1,35 +1,36 @@
 
 
-# Update Gokstad Akademiet Case Study
+# Fix Navbar Dimensions and Layout
 
-## What changes
+## Problem
+The navbar lacks a fixed height, uses absolute positioning for center links which can cause overlap, and the mobile bar height is inconsistent. The layout needs tighter control with proper flexbox distribution.
 
-Update the Gokstad case study with the new campaign data you provided. The metrics and content have improved since the first version.
+## Changes (single file: `src/components/Navbar.tsx`)
 
-## Key updates
+### Desktop navbar
+- Set the pill container to a fixed height of `h-[52px]` (fits within the 60-80px range including the `pt-6` top padding)
+- Remove `absolute left-1/2 -translate-x-1/2` from the nav links div -- replace with proper flexbox: make the three sections (logo, links, buttons) use `flex-1` so they share space evenly
+- Logo section: `flex-1 flex justify-start`
+- Links section: `flex-1 flex justify-center gap-3`
+- Buttons section: `flex-1 flex justify-end gap-2`
+- This eliminates any overlap risk and spaces everything evenly
 
-- **Header GIF**: New URL (`ad-gifs/3818527.gif`)
-- **Challenge text**: Rewritten to focus on connecting with next-gen IT professionals
-- **Solution section**: Now includes a two-column GIF gallery showing campaign creatives, plus updated copy (49 categories, 22 creators)
-- **Impact section**: Updated CTR from 1.01% to 1.22%, updated views from 54K+ to 100K+
-- **Results**: 100K+ views, 1.22% CTR, 22 creators, 49 categories
-- **Video**: Updated to new video URL with English subtitle track
-- **CTA link**: Points to contact page (`/demo`) instead of external URL
+### Mobile navbar
+- Set the top bar to a fixed height of `h-[60px]` with `px-4` padding
+- Keep the existing hamburger menu behavior unchanged
 
-## Files to change
+### Technical detail
 
-### 1. `src/components/blog/GokstadCaseStudy.tsx`
-- Replace header GIF source
-- Rewrite Challenge paragraph
-- Add GIF gallery (two side-by-side GIFs) to Solution section with updated copy
-- Update Impact text and keep the analysis image
-- Update Results list with new numbers
-- Update video source URL and add subtitle track
-- Update CTA to link internally
+**Line 42**: Add `h-[52px] flex items-center` to the pill container, remove `py-2.5` (height is now explicit)
 
-### 2. `src/data/blogPosts.ts` (lines 37-67)
-- Update excerpt to reflect new metrics (1.22% CTR, 22 creators, 100K+ views)
-- Update header image URL to new GIF
-- Update SEO descriptions across all languages with new stats
-- Update date to Feb 20, 2025
+**Lines 51-74**: Restructure the three-column layout:
+```
+<div className="flex items-center w-full">
+  <div className="flex-1 flex justify-start">  <!-- logo -->
+  <div className="flex-1 flex justify-center gap-3">  <!-- links -->
+  <div className="flex-1 flex justify-end gap-2">  <!-- buttons -->
+</div>
+```
+
+**Line 104**: Change `py-3` to `h-[60px]` for consistent mobile height
 
