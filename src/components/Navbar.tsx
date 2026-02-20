@@ -7,7 +7,6 @@ import { useTheme } from "next-themes";
 const navLinks = [
   { href: "/case-studies", label: "For brands" },
   { href: "/streamers", label: "For streamers" },
-  { href: "/pricing", label: "Pricing" },
 ];
 
 export const Navbar: React.FC = () => {
