@@ -1,39 +1,36 @@
 
-# Fix Navbar - Make It Compact
+# Fix Navbar: Close the Gap and Rename Labels
 
 ## Problem
-The `flex-1` on the logo and button columns pushes the logo far left and the button far right, creating a huge gap between the icon and the nav links. The navbar should feel like one tight, cohesive bar.
+The `justify-between` on the inner flex container pushes the logo to the far left edge and the links/buttons to the far right edge of the 680px pill, creating a huge visual gap. The labels also need "For" removed.
 
-## Solution
-Drop the three-column `flex-1` layout. Instead, use a single flex row with a small gap between all items: logo, links, and buttons. The logo stays left, everything else flows naturally with consistent spacing.
+## Solution (single file: `src/components/Navbar.tsx`)
 
-**File: `src/components/Navbar.tsx`**
+### 1. Rename nav labels (line 7-10)
+- "For brands" becomes "Brands"
+- "For streamers" becomes "Streamers"
+- Update both desktop and mobile (mobile uses same `navLinks` array, so one change fixes both)
 
-Replace the inner layout (lines 51-99) with:
+### 2. Fix the gap between logo and links (line 51)
+- Remove `justify-between` from the inner flex container
+- Add a `gap-1` so all items (logo, links, divider, buttons) flow together with consistent tight spacing
+- The pill already has `px-6` padding, so items will naturally sit together in the center of the bar without being pushed apart
 
+### Technical detail
+
+**Line 8-9**: Change labels:
 ```
-<div className="flex items-center justify-between w-full h-full">
-  {/* Logo */}
-  <Link to="/" className="flex items-center group">
-    <img src="/lovable-uploads/favicon.png" alt="Beta Ads" className="h-6 w-auto" />
-  </Link>
-
-  {/* Nav links + actions together on the right */}
-  <div className="flex items-center gap-1">
-    {navLinks...}
-    <div className="w-px h-4 bg-foreground/10 mx-2" />  <!-- subtle divider -->
-    {theme toggle}
-    {Book a Demo button}
-  </div>
-</div>
+{ href: "/case-studies", label: "Brands" },
+{ href: "/streamers", label: "Streamers" },
 ```
 
-Key changes:
-- Remove all `flex-1` wrappers -- no more three columns
-- Logo on the left via `justify-between`
-- Nav links, theme toggle, and CTA button grouped together on the right with tight `gap-1` spacing
-- A subtle 1px vertical divider separates nav links from action buttons
-- Reduce logo from `h-7` to `h-6` for better proportion
-- Reduce pill max-width from `960px` to `680px` to keep it compact
+**Line 51**: Change from:
+```
+flex items-center justify-between w-full h-full
+```
+To:
+```
+flex items-center justify-center gap-1 w-full h-full
+```
 
-This gives a compact, proportional navbar where nothing is far apart.
+This centers everything as one cohesive group with tight spacing -- logo, links, divider, toggle, and CTA all sit together.
