@@ -1,36 +1,55 @@
 
-# Fix Navbar: Close the Gap and Rename Labels
 
-## Problem
-The `justify-between` on the inner flex container pushes the logo to the far left edge and the links/buttons to the far right edge of the 680px pill, creating a huge visual gap. The labels also need "For" removed.
+# Rebuild Navbar From Scratch
 
-## Solution (single file: `src/components/Navbar.tsx`)
+## What changes
 
-### 1. Rename nav labels (line 7-10)
-- "For brands" becomes "Brands"
-- "For streamers" becomes "Streamers"
-- Update both desktop and mobile (mobile uses same `navLinks` array, so one change fixes both)
+**Delete and rewrite `src/components/Navbar.tsx`** with a clean, minimal implementation.
 
-### 2. Fix the gap between logo and links (line 51)
-- Remove `justify-between` from the inner flex container
-- Add a `gap-1` so all items (logo, links, divider, buttons) flow together with consistent tight spacing
-- The pill already has `px-6` padding, so items will naturally sit together in the center of the bar without being pushed apart
+## Desktop navbar
 
-### Technical detail
+A centered floating pill with all elements in a single row, tightly spaced:
 
-**Line 8-9**: Change labels:
-```
-{ href: "/case-studies", label: "Brands" },
-{ href: "/streamers", label: "Streamers" },
+```text
+[Logo] [Brands] [Streamers] [Pricing] | [theme] [Book a Demo ->]
 ```
 
-**Line 51**: Change from:
-```
-flex items-center justify-between w-full h-full
-```
-To:
-```
-flex items-center justify-center gap-1 w-full h-full
-```
+- Fixed `max-w-[680px]`, `h-[52px]`, `rounded-full`, centered with `mx-auto`
+- Single flex row with `items-center justify-center gap-2`
+- No nested flex containers or `flex-1` columns
+- Scroll behavior: IntersectionObserver with sentinel (keep existing pattern)
+- On scroll: only `bg-background/80 backdrop-blur-md shadow-lg` -- no scale or translate transforms
 
-This centers everything as one cohesive group with tight spacing -- logo, links, divider, toggle, and CTA all sit together.
+## Mobile navbar
+
+- Full-width bar, `h-[56px]`, logo left, hamburger right
+- Dropdown panel slides open with simple `max-h` transition
+- Links stacked vertically, CTA at bottom
+
+## Hover states
+
+All hover transitions scoped to specific properties only (no `transition-all`):
+- Nav links: `transition-colors duration-150` -- just color change, no background shift
+- CTA button: `transition-colors duration-150` -- subtle brightness change only
+- Logo: no hover effect at all (remove the scale transform)
+- Theme toggle: `transition-colors duration-150`
+
+## What stays the same
+
+- `navLinks` array with current labels (Brands, Streamers, Pricing)
+- IntersectionObserver scroll detection with sentinel div
+- Theme toggle with `next-themes`
+- Mobile menu open/close with `isOpen` state
+- Close mobile menu on route change
+
+## Technical details
+
+Single file change: `src/components/Navbar.tsx` -- complete rewrite, approximately 120 lines. No other files need changes.
+
+Key structural differences from current code:
+- Remove all `group-hover` effects on logo
+- Remove `will-change-transform` (unnecessary for color-only transitions)
+- Remove scale/translate animations on scroll (just bg + blur + shadow)
+- Flatten the desktop layout to one flex container instead of nested divs
+- Use `transition-colors` everywhere instead of broad transition classes
+
