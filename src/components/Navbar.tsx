@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Sun, Moon, ArrowRight, ExternalLink } from "lucide-react";
+import { Menu, X, Sun, Moon, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 
@@ -85,20 +85,6 @@ export const Navbar: React.FC = () => {
                   {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
                 </Button>
               )}
-              <a 
-                href="https://calendar.app.google/coW5NLQJtLxfRer19" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  className="text-muted-foreground hover:text-foreground text-xs font-light tracking-wide h-8 px-3 rounded-full"
-                >
-                  Book a Call
-                  <ExternalLink className="ml-1.5 h-3 w-3" />
-                </Button>
-              </a>
               <Link to="/demo">
                 <Button
                   size="sm"
@@ -157,21 +143,6 @@ export const Navbar: React.FC = () => {
               </Link>
             ))}
             <div className="pt-3 space-y-2 border-t border-border">
-              <a 
-                href="https://calendar.app.google/coW5NLQJtLxfRer19" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block"
-              >
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="w-full text-sm font-light tracking-wide h-10 rounded-lg"
-                >
-                  Book a Call
-                  <ExternalLink className="ml-2 h-4 w-4" />
-                </Button>
-              </a>
               <Link to="/demo" className="block">
                 <Button
                   size="sm"
