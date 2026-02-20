@@ -1,19 +1,16 @@
 
+# Remove "Book a Call" Button from Navbar
 
-# Remove Three Sections
+## Change
 
-## What gets removed
+Remove the "Book a Call" ghost button from both desktop and mobile navigation in `src/components/Navbar.tsx`, keeping only the "Book a Demo" primary button.
 
-1. **Stat Counters** (40+ Nordic streamers, 2.5M+ impressions, 2.8% CTR, 8 campaigns) from the homepage
-2. **Common Questions** (FAQ accordion) from the homepage
-3. **Earnings Calculator** from the Streamers page
+## Details
 
-## Changes
+**Desktop (lines 88-101):** Remove the entire `<a>` wrapper containing the "Book a Call" button and its `ExternalLink` icon.
 
-| File | Change |
-|------|--------|
-| `src/pages/Index.tsx` | Remove `StatCounters` and `HomepageFAQ` imports and their usage from the page |
-| `src/components/sections/StreamerSection.tsx` | Remove `EarningsCalculator` import and its usage from the streamer page |
+**Mobile (lines 159-174):** Remove the `<a>` wrapper containing the mobile "Book a Call" outline button.
 
-The component files themselves (`StatCounters.tsx`, `HomepageFAQ.tsx`, `EarningsCalculator.tsx`) can be left in place or deleted -- they simply won't be rendered anywhere.
+**Imports (line 3):** Remove `ExternalLink` from the lucide-react import since it will no longer be used.
 
+No other files need changes.
