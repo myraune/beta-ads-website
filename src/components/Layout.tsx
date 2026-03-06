@@ -6,7 +6,7 @@ import { PageTransition } from "./PageTransition";
 
 export const Layout: React.FC = () => {
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+    <div className="min-h-screen bg-background relative overflow-x-hidden">
       
       {/* Scroll sentinel for navbar - 1px invisible div at top */}
       <div id="navbar-sentinel" className="absolute top-0 left-0 w-full h-[1px] pointer-events-none" />
