@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useMemo } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 
 export const ContainerScroll = ({
@@ -11,6 +11,7 @@ export const ContainerScroll = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
+    offset: ["start start", "end start"],
   });
   const [isMobile, setIsMobile] = React.useState(false);
 
@@ -25,17 +26,15 @@ export const ContainerScroll = ({
     };
   }, []);
 
-  const scaleDimensions = () => {
-    return isMobile ? [0.7, 0.9] : [1.05, 1];
-  };
+  const scaleRange = useMemo(() => (isMobile ? [0.7, 0.9] : [1.05, 1]), [isMobile]);
 
-  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
+  const rotate = useTransform(scrollYProgress, [0, 1], [12, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], scaleRange);
   const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
     <div
-      className="h-[60rem] md:h-[80rem] flex items-center justify-center relative p-2 md:p-20"
+      className="h-[40rem] md:h-[50rem] flex items-center justify-center relative p-2 md:p-20"
       ref={containerRef}
     >
       <div
@@ -59,7 +58,7 @@ export const Header = ({ translate, titleComponent }: { translate: MotionValue<n
       style={{
         translateY: translate,
       }}
-      className="div max-w-5xl mx-auto text-center"
+      className="max-w-5xl mx-auto text-center"
     >
       {titleComponent}
     </motion.div>
@@ -84,18 +83,18 @@ export const Card = ({
         boxShadow:
           "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
-      className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full p-3 md:p-4 bg-[#1a1a1a] rounded-[40px] shadow-2xl relative"
+      className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full p-2 md:p-3 bg-[#1a1a1a] rounded-[30px] shadow-2xl relative"
     >
       {/* Front camera */}
-      <div className="absolute top-[10px] left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-[#2a2a2a] z-10" />
+      <div className="absolute top-[8px] left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-[#2a2a2a] z-10" />
       
       {/* Screen */}
-      <div className="h-full w-full overflow-hidden rounded-[28px] bg-background/95 md:p-4">
+      <div className="h-full w-full overflow-hidden rounded-[22px] bg-background/95 md:p-4">
         {children}
       </div>
       
       {/* Home indicator */}
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 rounded-full bg-[#3a3a3a]" />
+      <div className="absolute bottom-[6px] left-1/2 -translate-x-1/2 w-20 h-[3px] rounded-full bg-[#3a3a3a]" />
     </motion.div>
   );
 };
