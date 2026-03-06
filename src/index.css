@@ -289,16 +289,14 @@ html:not(.dark) body::before {
 @keyframes page-enter {
   0% {
     opacity: 0;
-    transform: translateY(20px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
 .animate-page-enter {
-  animation: page-enter 0.5s ease-out forwards;
+  animation: page-enter 0.35s ease-out;
 }
 
 .animate-aurora-drift-1 {
