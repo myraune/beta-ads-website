@@ -26,15 +26,15 @@ export const ContainerScroll = ({
     };
   }, []);
 
-  const scaleRange = useMemo(() => (isMobile ? [0.7, 0.9] : [1.05, 1]), [isMobile]);
+  const scaleRange = useMemo(() => (isMobile ? [0.7, 0.9] : [1.02, 1]), [isMobile]);
 
-  const rotate = useTransform(scrollYProgress, [0, 1], [12, 0]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [8, 0]);
   const scale = useTransform(scrollYProgress, [0, 1], scaleRange);
-  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const translate = useTransform(scrollYProgress, [0, 1], [0, -60]);
 
   return (
     <div
-      className="h-[160vh] md:h-[180vh] relative"
+      className="h-[120vh] md:h-[140vh] relative"
       ref={containerRef}
     >
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
