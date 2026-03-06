@@ -1,23 +1,35 @@
 
 
-# Fix: Pin Hero During Dashboard Scroll Animation
+# Update Gokstad Akademiet Case Study
 
-## Problem
-The entire page scrolls normally while the dashboard tilt animation plays, making it feel broken. The animation should play while the hero section stays visually pinned in the viewport.
+## What changes
 
-## Solution
-Use a **sticky positioning** approach: the outer container provides the scroll height (for framer-motion to track), while the visible content is `position: sticky; top: 0` so it stays pinned in the viewport as the user scrolls. The animation plays smoothly while the hero appears stationary.
+Replace the content in the Gokstad case study component with updated information, new media assets, and a revised layout.
 
-## Changes
+## Key updates
 
-### `src/components/ui/container-scroll-animation.tsx`
-- The outer `div` (with `ref={containerRef}`) keeps its tall height but removes `flex items-center justify-center` — it just provides scroll range
-- Add a new inner wrapper with `sticky top-0 h-screen` that holds the perspective container, header, and card
-- This pins the visible content while `scrollYProgress` advances from 0 to 1
-- Adjust inner padding so the content is vertically centered within the sticky viewport
-- Keep all existing animation transforms (rotate 12deg→0, scale, translate)
+- **Header GIF**: New URL (`https://storage.googleapis.com/ad-gifs/3818527.gif`)
+- **Challenge section**: Rewritten copy about connecting with next-gen IT/design professionals
+- **Solution section**: New two-column GIF gallery added (two side-by-side GIFs), plus updated copy about 49 categories and 22 creators
+- **Impact section**: Updated text referencing 1.22% CTR and 100K+ completed views (same analysis image kept)
+- **Results section**: Updated metrics: 100K+ Completed Views, 1.22% CTR, 22 Creators, 49 Categories
+- **Video section**: New video URL (`combined_campaign_3498_20260220_053553.mp4`) with subtitle track (`combined_trimmed_386_20260220_053313.vtt`)
+- **CTA**: Updated to link to `/contact` (internal) instead of external livad.stream URL
 
-### `src/components/sections/Hero.tsx`
-- Remove `overflow-hidden` from the section — it would break `sticky` positioning
-- No other changes needed
+## Technical details
+
+**File: `src/components/blog/GokstadCaseStudy.tsx`**
+
+Full rewrite of the component content:
+
+1. Update header GIF src
+2. Rewrite Challenge paragraph
+3. Add a two-column GIF gallery in the Solution section using `flex gap-4` layout with two images
+4. Rewrite Solution paragraph
+5. Rewrite Impact paragraph (keep existing analysis image)
+6. Update Results list values (100K+, 1.22%, 22, 49)
+7. Update video source URL and add a `<track>` element for English subtitles
+8. Update the CTA link to use React Router `Link` to `/contact` instead of external URL
+
+No changes needed to `blogPosts.ts` or `BlogPost.tsx`.
 
