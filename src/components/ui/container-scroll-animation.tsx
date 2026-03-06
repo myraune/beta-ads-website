@@ -84,11 +84,18 @@ export const Card = ({
         boxShadow:
           "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
-      className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full border-4 border-border/20 p-2 md:p-6 bg-card/5 rounded-[30px] shadow-2xl"
+      className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full p-3 md:p-4 bg-[#1a1a1a] rounded-[40px] shadow-2xl relative"
     >
-      <div className="h-full w-full overflow-hidden rounded-2xl bg-background/50 md:rounded-2xl md:p-4">
+      {/* Front camera */}
+      <div className="absolute top-[10px] left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-[#2a2a2a] z-10" />
+      
+      {/* Screen */}
+      <div className="h-full w-full overflow-hidden rounded-[28px] bg-background/95 md:p-4">
         {children}
       </div>
+      
+      {/* Home indicator */}
+      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 rounded-full bg-[#3a3a3a]" />
     </motion.div>
   );
 };
