@@ -1,35 +1,30 @@
 
 
-# Update Gokstad Akademiet Case Study
+# Add Container Scroll Animation to Homepage Hero
 
-## What changes
+## Overview
 
-Replace the content in the Gokstad case study component with updated information, new media assets, and a revised layout.
+Replace the current side-by-side hero layout with a vertical layout that uses a 3D perspective scroll animation on the LiveDashboard preview. As the user scrolls, the dashboard rotates from a tilted perspective to flat, creating a cinematic reveal effect.
 
-## Key updates
+## Changes
 
-- **Header GIF**: New URL (`https://storage.googleapis.com/ad-gifs/3818527.gif`)
-- **Challenge section**: Rewritten copy about connecting with next-gen IT/design professionals
-- **Solution section**: New two-column GIF gallery added (two side-by-side GIFs), plus updated copy about 49 categories and 22 creators
-- **Impact section**: Updated text referencing 1.22% CTR and 100K+ completed views (same analysis image kept)
-- **Results section**: Updated metrics: 100K+ Completed Views, 1.22% CTR, 22 Creators, 49 Categories
-- **Video section**: New video URL (`combined_campaign_3498_20260220_053553.mp4`) with subtitle track (`combined_trimmed_386_20260220_053313.vtt`)
-- **CTA**: Updated to link to `/contact` (internal) instead of external livad.stream URL
+### 1. Create `src/components/ui/container-scroll-animation.tsx`
+- Port the provided component, removing `"use client"` directive (not needed in Vite/React)
+- Uses framer-motion's `useScroll` and `useTransform` for scroll-linked rotation, scale, and translate
+- Three sub-components: `ContainerScroll` (wrapper), `Header` (title area), `Card` (animated container)
 
-## Technical details
+### 2. Restructure `src/components/sections/Hero.tsx`
+- Change from the current `grid lg:grid-cols-[38%_62%]` side-by-side layout to a vertical layout
+- The text content (greeting, logo, headline, buttons) becomes the `titleComponent` prop passed to `ContainerScroll`
+- The `LiveDashboard` becomes the child of `ContainerScroll`, wrapped in the animated card
+- Keep all existing text content, rotating words, Nordic greeting animations intact
+- The dashboard preview will start tilted at 20deg rotateX and animate to flat as user scrolls
 
-**File: `src/components/blog/GokstadCaseStudy.tsx`**
+### 3. Layout adaptation
+- Center the text content above the dashboard instead of left-aligned
+- Keep the `max-w-md` constraint on text but center it
+- The `ContainerScroll` container handles the scroll-based animation area (needs sufficient height for scroll range)
 
-Full rewrite of the component content:
-
-1. Update header GIF src
-2. Rewrite Challenge paragraph
-3. Add a two-column GIF gallery in the Solution section using `flex gap-4` layout with two images
-4. Rewrite Solution paragraph
-5. Rewrite Impact paragraph (keep existing analysis image)
-6. Update Results list values (100K+, 1.22%, 22, 49)
-7. Update video source URL and add a `<track>` element for English subtitles
-8. Update the CTA link to use React Router `Link` to `/contact` instead of external URL
-
-No changes needed to `blogPosts.ts` or `BlogPost.tsx`.
+### No new dependencies needed
+- `framer-motion` is already installed (version ^12.23.26)
 
