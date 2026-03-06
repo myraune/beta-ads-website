@@ -42,7 +42,7 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden text-foreground">
+    <section className="relative text-foreground">
       <div className="relative max-w-[1600px] mx-auto px-6 lg:px-12">
         <ContainerScroll
           titleComponent={

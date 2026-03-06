@@ -34,19 +34,21 @@ export const ContainerScroll = ({
 
   return (
     <div
-      className="h-[40rem] md:h-[50rem] flex items-center justify-center relative p-2 md:p-20"
+      className="h-[160vh] md:h-[180vh] relative"
       ref={containerRef}
     >
-      <div
-        className="py-10 md:py-40 w-full relative"
-        style={{
-          perspective: "1000px",
-        }}
-      >
-        <Header translate={translate} titleComponent={titleComponent} />
-        <Card rotate={rotate} translate={translate} scale={scale}>
-          {children}
-        </Card>
+      <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
+        <div
+          className="py-10 md:py-20 w-full relative"
+          style={{
+            perspective: "1000px",
+          }}
+        >
+          <Header translate={translate} titleComponent={titleComponent} />
+          <Card rotate={rotate} translate={translate} scale={scale}>
+            {children}
+          </Card>
+        </div>
       </div>
     </div>
   );
