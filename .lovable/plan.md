@@ -1,35 +1,32 @@
 
 
-# Update Gokstad Akademiet Case Study
+# Fix Container Scroll Animation Bugs
 
-## What changes
+## Issues Identified
 
-Replace the content in the Gokstad case study component with updated information, new media assets, and a revised layout.
+1. **Massive scroll height** — The container is 80rem (1280px) tall on desktop, creating an unnaturally long scroll zone before content appears. This makes the page feel broken.
+2. **`scaleDimensions()` reactivity bug** — Called as a plain function during render, but depends on `isMobile` state. When state updates, the `useTransform` hook doesn't properly re-initialize with new scale values, causing visual jumps.
+3. **Stale className** — The Header has `className="div max-w-5xl..."` with a leftover `div` string.
+4. **iPad bezel too thin** — Padding of 12-16px doesn't look realistic. Real iPads have thinner bezels on modern models but the camera dot and home indicator need refinement.
+5. **Scroll offset config** — Missing `offset` parameter on `useScroll`, so the animation triggers based on when the container enters/exits viewport rather than a controlled range, causing the tilt to snap between extremes.
 
-## Key updates
+## Changes
 
-- **Header GIF**: New URL (`https://storage.googleapis.com/ad-gifs/3818527.gif`)
-- **Challenge section**: Rewritten copy about connecting with next-gen IT/design professionals
-- **Solution section**: New two-column GIF gallery added (two side-by-side GIFs), plus updated copy about 49 categories and 22 creators
-- **Impact section**: Updated text referencing 1.22% CTR and 100K+ completed views (same analysis image kept)
-- **Results section**: Updated metrics: 100K+ Completed Views, 1.22% CTR, 22 Creators, 49 Categories
-- **Video section**: New video URL (`combined_campaign_3498_20260220_053553.mp4`) with subtitle track (`combined_trimmed_386_20260220_053313.vtt`)
-- **CTA**: Updated to link to `/contact` (internal) instead of external livad.stream URL
+### 1. `src/components/ui/container-scroll-animation.tsx` — Full fix
 
-## Technical details
+- **Reduce container height** from `h-[60rem] md:h-[80rem]` to `h-[40rem] md:h-[50rem]` — enough scroll range without breaking the page flow
+- **Add scroll offset** — use `offset: ["start start", "end start"]` on `useScroll` to control when the animation begins and ends relative to viewport
+- **Fix scale reactivity** — pass scale values directly inline instead of through a function, or memoize properly
+- **Reduce rotation** from 20deg to 12deg for a more subtle, polished feel
+- **Remove stale `"div"` class** from Header
+- **Refine iPad frame**:
+  - Thinner bezel padding: `p-2 md:p-3` (modern iPad look)
+  - Slightly smaller camera dot: `w-2 h-2`
+  - Adjusted rounded corners: `rounded-[30px]` outer, `rounded-[22px]` inner screen
+  - Home indicator: thinner, `h-[3px]`
 
-**File: `src/components/blog/GokstadCaseStudy.tsx`**
+### 2. `src/components/sections/Hero.tsx` — Minor cleanup
 
-Full rewrite of the component content:
-
-1. Update header GIF src
-2. Rewrite Challenge paragraph
-3. Add a two-column GIF gallery in the Solution section using `flex gap-4` layout with two images
-4. Rewrite Solution paragraph
-5. Rewrite Impact paragraph (keep existing analysis image)
-6. Update Results list values (100K+, 1.22%, 22, 49)
-7. Update video source URL and add a `<track>` element for English subtitles
-8. Update the CTA link to use React Router `Link` to `/contact` instead of external URL
-
-No changes needed to `blogPosts.ts` or `BlogPost.tsx`.
+- No structural changes needed, the component is correct
+- The `overflow-hidden` on the section is fine
 
