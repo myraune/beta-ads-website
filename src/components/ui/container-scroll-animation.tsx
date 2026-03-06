@@ -11,7 +11,7 @@ export const ContainerScroll = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end start"],
+    offset: ["start start", "end end"],
   });
   const [isMobile, setIsMobile] = React.useState(false);
 
@@ -26,15 +26,21 @@ export const ContainerScroll = ({
     };
   }, []);
 
-  const scaleRange = useMemo(() => (isMobile ? [0.7, 0.9] : [1.02, 1]), [isMobile]);
+  const revealStart = 0.12;
+  const revealEnd = 0.72;
+  const scaleRange = useMemo(() => (isMobile ? [0.78, 0.92] : [1.03, 1]), [isMobile]);
 
-  const rotate = useTransform(scrollYProgress, [0, 1], [8, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], scaleRange);
-  const translate = useTransform(scrollYProgress, [0, 1], [0, -60]);
+  const rotate = useTransform(scrollYProgress, [0, revealStart, revealEnd, 1], [8, 8, 0, 0]);
+  const scale = useTransform(
+    scrollYProgress,
+    [0, revealStart, revealEnd, 1],
+    [scaleRange[0], scaleRange[0], scaleRange[1], scaleRange[1]]
+  );
+  const translate = useTransform(scrollYProgress, [0, revealStart, revealEnd, 1], [0, 0, 0, 0]);
 
   return (
     <div
-      className="h-[120vh] md:h-[140vh] relative"
+      className="h-[180vh] md:h-[220vh] relative"
       ref={containerRef}
     >
       <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
