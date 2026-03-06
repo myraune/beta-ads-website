@@ -1,35 +1,27 @@
 
 
-# Update Gokstad Akademiet Case Study
+# Fine-Tune Hero Scroll Animation
 
-## What changes
+## Current State
+The container scroll height is `160vh / 180vh` with rotation `12→0`, scale `1.05→1`, and translate `0→-100`. The animation works with sticky positioning but the scroll range is too long — the user scrolls for a while before the reveal completes.
 
-Replace the content in the Gokstad case study component with updated information, new media assets, and a revised layout.
+## Changes
 
-## Key updates
+### `src/components/ui/container-scroll-animation.tsx`
 
-- **Header GIF**: New URL (`https://storage.googleapis.com/ad-gifs/3818527.gif`)
-- **Challenge section**: Rewritten copy about connecting with next-gen IT/design professionals
-- **Solution section**: New two-column GIF gallery added (two side-by-side GIFs), plus updated copy about 49 categories and 22 creators
-- **Impact section**: Updated text referencing 1.22% CTR and 100K+ completed views (same analysis image kept)
-- **Results section**: Updated metrics: 100K+ Completed Views, 1.22% CTR, 22 Creators, 49 Categories
-- **Video section**: New video URL (`combined_campaign_3498_20260220_053553.mp4`) with subtitle track (`combined_trimmed_386_20260220_053313.vtt`)
-- **CTA**: Updated to link to `/contact` (internal) instead of external livad.stream URL
+**Tighter scroll range:**
+- Reduce container height from `h-[160vh] md:h-[180vh]` to `h-[120vh] md:h-[140vh]` — faster reveal, less dead scrolling
 
-## Technical details
+**Refined transforms:**
+- Reduce initial rotation from `12` to `8` degrees — subtler, more polished tilt
+- Reduce translate from `[0, -100]` to `[0, -60]` — header moves up less aggressively
+- Adjust desktop scale from `[1.05, 1]` to `[1.02, 1]` — less scale bounce
 
-**File: `src/components/blog/GokstadCaseStudy.tsx`**
+These three changes together create a tighter, snappier reveal that feels intentional rather than sluggish.
 
-Full rewrite of the component content:
-
-1. Update header GIF src
-2. Rewrite Challenge paragraph
-3. Add a two-column GIF gallery in the Solution section using `flex gap-4` layout with two images
-4. Rewrite Solution paragraph
-5. Rewrite Impact paragraph (keep existing analysis image)
-6. Update Results list values (100K+, 1.22%, 22, 49)
-7. Update video source URL and add a `<track>` element for English subtitles
-8. Update the CTA link to use React Router `Link` to `/contact` instead of external URL
-
-No changes needed to `blogPosts.ts` or `BlogPost.tsx`.
+### Testing Plan
+After implementation, use browser tools to:
+1. Scroll through the homepage on desktop (1440px) — verify the hero stays pinned and animation completes smoothly
+2. Resize to mobile (375px) — verify the same behavior on small screens
+3. Confirm no layout jumps or content overflow issues
 
