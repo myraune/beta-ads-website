@@ -625,7 +625,7 @@ const NAV_SCREENS = [
   { label: "Users", icon: Users },
 ];
 
-const DASH_W = 1080;
+const DASH_W = 1100;
 const DASH_H = 910;
 const AUTOPLAY_DURATIONS = [8000, 6000, 5000, 5000];
 
@@ -714,19 +714,20 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
         }
       `}</style>
 
-      {/* Full-size dashboard, zoomed to fit container */}
+      {/* Full-size dashboard, scaled to fit container — uses transform for crisp retina rendering */}
       <div
         style={{
           width: DASH_W,
           height: DASH_H,
-          zoom: scale,
+          transform: `scale(${scale})`,
+          transformOrigin: 'top left',
         }}
       >
         {/* App shell */}
         <div className="flex h-full w-full overflow-hidden" style={{ background: "#f8f8f8" }}>
 
           {/* Sidebar — interactive */}
-          <div className="w-[170px] shrink-0 py-4 px-2.5 flex flex-col gap-0.5 pointer-events-auto" style={{ background: "#ffffff", borderRight: "1px solid #eee" }}>
+          <div className="w-[195px] shrink-0 py-4 px-2.5 flex flex-col gap-0.5 pointer-events-auto" style={{ background: "#ffffff", borderRight: "1px solid #eee" }}>
             <div className="px-2 mb-5">
               <img
                 src="/lovable-uploads/logo-color.png"
@@ -746,7 +747,7 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
                 }`}
               >
                 <screen.icon className={`w-4 h-4 shrink-0 ${activeScreen === i ? 'text-[#e94f37]' : ''}`} />
-                <span className="truncate text-[13px]">{screen.label}</span>
+                <span className="whitespace-nowrap text-[13px]">{screen.label}</span>
               </div>
             ))}
 
@@ -761,8 +762,8 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
           <div className="flex-1 flex flex-col min-w-0 overflow-hidden pointer-events-none">
             {/* Top bar */}
             <div className="flex items-center justify-end gap-2.5 px-4 py-2.5" style={{ background: "#ffffff", borderBottom: "1px solid #eee" }}>
-              <div className="bg-gray-50 border border-gray-200 rounded-lg px-2.5 py-1 text-[11px] text-gray-500 font-medium flex items-center gap-1">
-                <img src="/lovable-uploads/wpp-logo.svg" alt="WPP" className="h-3 w-auto" />
+              <div className="bg-gray-50 border border-gray-200 rounded-lg px-2.5 py-1 flex items-center">
+                <img src="/lovable-uploads/wpp-logo.svg" alt="WPP" className="h-3.5 w-auto" onError={(e) => { (e.target as HTMLImageElement).outerHTML = '<span class="text-[11px] text-gray-500 font-bold tracking-wider">WPP</span>' }} />
               </div>
               <div className="bg-gray-50 border border-gray-200 rounded-lg px-2.5 py-1 text-[11px] text-gray-700 font-medium">Samsung</div>
               <Moon className="w-3.5 h-3.5 text-gray-400" />
