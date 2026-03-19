@@ -180,7 +180,7 @@ const DashboardScreen: React.FC = () => (
         </thead>
         <tbody>
           <tr className="border-b border-gray-50">
-            <td className="px-3 py-2 text-sm font-semibold text-gray-900 whitespace-nowrap">Gokstad Akademiet</td>
+            <td className="px-3 py-2 text-sm font-semibold text-gray-900 whitespace-nowrap">Samsung Galaxy S26</td>
             <td className="px-3 py-2"><span className="text-[9px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-semibold">Active</span></td>
             <td className="px-3 py-2 text-xs text-gray-500">2026-01-19</td>
             <td className="px-3 py-2 text-xs text-gray-500">2026-03-17</td>
@@ -541,7 +541,7 @@ const StreamerListsScreen: React.FC = () => (
 const UsersScreen: React.FC = () => (
   <div className="flex-1 flex flex-col gap-5">
     <div>
-      <div className="text-xl font-bold text-gray-900">Gokstad Akademiet Team</div>
+      <div className="text-xl font-bold text-gray-900">Samsung / WPP Team</div>
       <div className="text-sm text-gray-500 mt-1">Invite or manage your organization's users</div>
     </div>
 
@@ -562,10 +562,10 @@ const UsersScreen: React.FC = () => (
         </thead>
         <tbody>
           {[
-            { name: "Andreas Myraune", initials: "AM", email: "andreas@beta-ads.no", role: "Owner", roleColor: "bg-amber-100 text-amber-700", status: "Active", statusColor: "bg-green-100 text-green-700", canDelete: false },
-            { name: "Karoline Berggren", initials: "KB", email: "karoline@allegro.no", role: "Viewer", roleColor: "bg-gray-100 text-gray-600", status: "Active", statusColor: "bg-green-100 text-green-700", canDelete: true },
-            { name: "Sofia Lindqvist", initials: "SL", email: "sofia@beta-ads.no", role: "Admin", roleColor: "bg-blue-100 text-blue-700", status: "Active", statusColor: "bg-green-100 text-green-700", canDelete: true },
-            { name: "Alf Johansen", initials: "AJ", email: "alf@allegro.no", role: "Viewer", roleColor: "bg-gray-100 text-gray-600", status: "Invited", statusColor: "bg-yellow-100 text-yellow-700", canDelete: true },
+            { name: "James Whitfield", initials: "JW", email: "j.whitfield@wpp.com", role: "Owner", roleColor: "bg-amber-100 text-amber-700", status: "Active", statusColor: "bg-green-100 text-green-700", canDelete: false },
+            { name: "Priya Sharma", initials: "PS", email: "p.sharma@samsung.com", role: "Admin", roleColor: "bg-blue-100 text-blue-700", status: "Active", statusColor: "bg-green-100 text-green-700", canDelete: true },
+            { name: "Emma Thornton", initials: "ET", email: "e.thornton@wpp.com", role: "Admin", roleColor: "bg-blue-100 text-blue-700", status: "Active", statusColor: "bg-green-100 text-green-700", canDelete: true },
+            { name: "Marcus Chen", initials: "MC", email: "m.chen@samsung.com", role: "Viewer", roleColor: "bg-gray-100 text-gray-600", status: "Invited", statusColor: "bg-yellow-100 text-yellow-700", canDelete: true },
           ].map((user) => (
             <tr key={user.email} className="border-b border-gray-50">
               <td className="px-4 py-3 whitespace-nowrap">
@@ -628,7 +628,6 @@ const NAV_SCREENS = [
 const DASH_W = 1080;
 const DASH_H = 910;
 const AUTOPLAY_DURATIONS = [8000, 6000, 5000, 5000];
-const AUTOPLAY_RESUME_DELAY = 12000;
 
 export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", compact = false }) => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.05 });
@@ -638,7 +637,6 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
   const [selectedStreamer, setSelectedStreamer] = useState<typeof tableStreamers[0] | null>(null);
 
   const userInteracted = useRef(false);
-  const lastInteraction = useRef(0);
   const autoplayTimeout = useRef<ReturnType<typeof setTimeout>>();
 
   const effectiveVisible = compact ? true : isVisible;
@@ -648,14 +646,14 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
     setActiveScreen(index);
     setSelectedStreamer(null);
     userInteracted.current = true;
-    lastInteraction.current = Date.now();
+    if (autoplayTimeout.current) clearTimeout(autoplayTimeout.current);
   }, []);
 
   // Click handler for streamer name in explorer
   const handleSelectStreamer = useCallback((s: typeof tableStreamers[0]) => {
     setSelectedStreamer(s);
     userInteracted.current = true;
-    lastInteraction.current = Date.now();
+    if (autoplayTimeout.current) clearTimeout(autoplayTimeout.current);
   }, []);
 
   // Dynamic scale via ResizeObserver
@@ -677,26 +675,14 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
     return () => ro.disconnect();
   }, []);
 
-  // Smart autoplay: pauses on user interaction, resumes after idle
+  // Autoplay: cycles through screens, stops permanently once user clicks
   useEffect(() => {
     if (!effectiveVisible) return;
 
     let cancelled = false;
 
     const cycle = (screenIndex: number) => {
-      if (cancelled) return;
-
-      // If user recently interacted, check idle time
-      if (userInteracted.current) {
-        const idle = Date.now() - lastInteraction.current;
-        if (idle < AUTOPLAY_RESUME_DELAY) {
-          // Check again in 2 seconds
-          autoplayTimeout.current = setTimeout(() => cycle(screenIndex), 2000);
-          return;
-        }
-        // Idle long enough, resume autoplay from current screen
-        userInteracted.current = false;
-      }
+      if (cancelled || userInteracted.current) return;
 
       setActiveScreen(screenIndex);
       autoplayTimeout.current = setTimeout(() => {
@@ -780,11 +766,11 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
             <div className="flex items-center justify-end gap-2.5 px-4 py-2.5" style={{ background: "#ffffff", borderBottom: "1px solid #eee" }}>
               <div className="bg-gray-50 border border-gray-200 rounded-lg px-2.5 py-1 text-[11px] text-gray-500 font-medium flex items-center gap-1">
                 <img src="/lovable-uploads/logo-carat.png" alt="" className="w-3.5 h-3.5" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }} />
-                Beta
+                WPP
               </div>
-              <div className="bg-gray-50 border border-gray-200 rounded-lg px-2.5 py-1 text-[11px] text-gray-700 font-medium">Gokstad Akademiet</div>
+              <div className="bg-gray-50 border border-gray-200 rounded-lg px-2.5 py-1 text-[11px] text-gray-700 font-medium">Samsung</div>
               <Moon className="w-3.5 h-3.5 text-gray-400" />
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#e94f37] to-[#d4432d] flex items-center justify-center text-white text-[9px] font-bold">AM</div>
+              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#e94f37] to-[#d4432d] flex items-center justify-center text-white text-[9px] font-bold">JW</div>
             </div>
 
             {/* Content area */}
