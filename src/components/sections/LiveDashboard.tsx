@@ -763,7 +763,7 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
             {/* Top bar */}
             <div className="flex items-center justify-end gap-2.5 px-4 py-2.5" style={{ background: "#ffffff", borderBottom: "1px solid #eee" }}>
               <div className="bg-gray-50 border border-gray-200 rounded-lg px-2.5 py-1 flex items-center">
-                <img src="/lovable-uploads/wpp-logo.svg" alt="WPP" className="h-3.5 w-auto" onError={(e) => { (e.target as HTMLImageElement).outerHTML = '<span class="text-[11px] text-gray-500 font-bold tracking-wider">WPP</span>' }} />
+                <span className="text-[12px] text-gray-600 font-black tracking-[0.08em]" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>WPP</span>
               </div>
               <div className="bg-gray-50 border border-gray-200 rounded-lg px-2.5 py-1 text-[11px] text-gray-700 font-medium">Samsung</div>
               <Moon className="w-3.5 h-3.5 text-gray-400" />
