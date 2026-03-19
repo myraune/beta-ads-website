@@ -12,7 +12,10 @@ export const ContainerScroll = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end start"],
+    // Animation runs from when container enters viewport bottom
+    // to when container top reaches viewport top — exactly 1 viewport of scroll.
+    // This is resolution-independent.
+    offset: ["start end", "start start"],
   });
   const [isMobile, setIsMobile] = React.useState(false);
 
@@ -31,30 +34,25 @@ export const ContainerScroll = ({
     return isMobile ? [0.7, 0.9] : [1.05, 1];
   };
 
-  // Animation completes in the first 60% of scroll so it finishes
-  // before the user scrolls past the sticky content
-  const rotate = useTransform(scrollYProgress, [0, 0.6], [20, 0]);
-  const scale = useTransform(scrollYProgress, [0, 0.6], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 0.6], [0, -100]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
+  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
 
   return (
     <div
-      className="relative"
+      className="relative p-2 md:p-20"
       ref={containerRef}
-      style={{ height: isMobile ? "60rem" : "150vh" }}
     >
-      <div className="sticky top-0 h-screen flex items-center justify-center p-2 md:p-20 overflow-hidden">
-        <div
-          className="py-10 md:py-16 w-full relative z-0"
-          style={{
-            perspective: "1000px",
-          }}
-        >
-          <Header translate={translate} titleComponent={titleComponent} />
-          <Card rotate={rotate} translate={translate} scale={scale}>
-            {children}
-          </Card>
-        </div>
+      <div
+        className="w-full relative z-0"
+        style={{
+          perspective: "1000px",
+        }}
+      >
+        <Header translate={translate} titleComponent={titleComponent} />
+        <Card rotate={rotate} translate={translate} scale={scale}>
+          {children}
+        </Card>
       </div>
     </div>
   );
@@ -91,7 +89,7 @@ export const Card = ({
         boxShadow:
           "0 0 #0000004d, 0 9px 20px #0000004a, 0 37px 37px #00000042, 0 84px 50px #00000026, 0 149px 60px #0000000a, 0 233px 65px #00000003",
       }}
-      className="max-w-5xl mt-4 mx-auto h-[30rem] md:h-[50rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#222222] rounded-[30px] shadow-2xl"
+      className="max-w-5xl mt-4 mx-auto h-[30rem] md:h-[40rem] w-full border-4 border-[#6C6C6C] p-2 md:p-6 bg-[#222222] rounded-[30px] shadow-2xl"
     >
       <div className="h-full w-full overflow-hidden rounded-2xl bg-gray-100 dark:bg-zinc-900 md:rounded-2xl">
         {children}
