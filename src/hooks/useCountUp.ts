@@ -19,7 +19,7 @@ export const useCountUp = (
   const pulseIntervalRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
 
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isVisible || hasCompleted) return;
 
     const startTime = performance.now() + delay;
     const startValue = 0;

@@ -1,739 +1,527 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { useCountUp } from "@/hooks/useCountUp";
-import { AreaChart, Area, ResponsiveContainer } from "recharts";
-import { 
-  Eye, MousePointer, TrendingUp, Wallet,
-  LayoutDashboard, Video, BarChart3, Users, Settings,
-  Gamepad2, Monitor, Smartphone, Globe, Clock, MessageSquare, RotateCcw
+import { BarChart, Bar, ResponsiveContainer, PieChart, Pie, Cell, YAxis, XAxis, Tooltip } from "recharts";
+import {
+  Home, Search, ListChecks, Users,
+  Download, Plus, Calendar,
+  Moon, ChevronDown
 } from "lucide-react";
 
-const viewsData = [
-  { name: "Mon", views: 18500 },
-  { name: "Tue", views: 22000 },
-  { name: "Wed", views: 19800 },
-  { name: "Thu", views: 28000 },
-  { name: "Fri", views: 35500 },
-  { name: "Sat", views: 42000 },
-  { name: "Sun", views: 38000 },
+// ── Data ──────────────────────────────────────────────
+
+const barData = [
+  { name: "Jan 19", v: 2400 }, { name: "Jan 22", v: 2800 }, { name: "Jan 25", v: 3100 },
+  { name: "Jan 28", v: 3400 }, { name: "Jan 31", v: 3200 }, { name: "Feb 03", v: 3600 },
+  { name: "Feb 06", v: 3300 }, { name: "Feb 09", v: 2900 }, { name: "Feb 12", v: 3500 },
+  { name: "Feb 15", v: 3700 }, { name: "Feb 18", v: 3400 }, { name: "Feb 21", v: 3100 },
+  { name: "Feb 24", v: 3600 }, { name: "Feb 27", v: 3800 }, { name: "Mar 02", v: 3500 },
+  { name: "Mar 05", v: 3200 }, { name: "Mar 08", v: 2800 }, { name: "Mar 11", v: 2600 },
 ];
 
-interface StatCardProps {
-  icon: React.ReactNode;
-  label: string;
-  value: number;
-  prefix?: string;
-  suffix?: string;
-  decimals?: number;
-  isVisible: boolean;
-  delay: number;
-}
-
-const StatCard: React.FC<StatCardProps> = ({ 
-  icon, 
-  label, 
-  value, 
-  prefix = "",
-  suffix = "", 
-  decimals = 0,
-  isVisible, 
-  delay,
-}) => {
-  const { displayValue } = useCountUp(value, isVisible, { 
-    delay, 
-    decimals,
-    enableLivePulse: true 
-  });
-
-  return (
-    <div 
-      className={`
-        relative py-2.5 px-3
-        transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
-        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
-      `}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      <div className="flex items-center gap-1.5 mb-1.5">
-        <div className="text-primary/70">
-          {icon}
-        </div>
-        <span className="text-muted-foreground/70 uppercase tracking-wider font-medium text-[9px]">
-          {label}
-        </span>
-      </div>
-      <div className="flex items-baseline gap-0.5">
-        {prefix && (
-          <span className="text-muted-foreground font-medium text-sm">{prefix}</span>
-        )}
-        <span className="font-bold tabular-nums tracking-tight text-foreground text-xl">
-          {displayValue}
-        </span>
-        {suffix && (
-          <span className="text-muted-foreground/70 font-medium text-[10px]">{suffix}</span>
-        )}
-      </div>
-    </div>
-  );
-};
-
-// Hover-to-load GIF component for performance optimization
-const HoverGifImage: React.FC<{
-  gif: string;
-  alt: string;
-  className?: string;
-}> = ({ gif, alt, className = "" }) => {
-  const [isHovered, setIsHovered] = useState(false);
-  const [hasLoaded, setHasLoaded] = useState(false);
-
-  return (
-    <div 
-      className={`relative ${className}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Placeholder shown until first hover */}
-      {!hasLoaded && (
-        <div className="absolute inset-0 bg-muted/40 animate-pulse flex items-center justify-center">
-          <div className="text-[10px] text-muted-foreground uppercase tracking-wider">Hover to preview</div>
-        </div>
-      )}
-      {/* Only load GIF when hovered for the first time */}
-      {(isHovered || hasLoaded) && (
-        <img 
-          src={gif} 
-          alt={alt}
-          loading="lazy"
-          decoding="async"
-          onLoad={() => setHasLoaded(true)}
-          className={`w-full h-full object-cover transition-all duration-300 ${hasLoaded ? 'opacity-100' : 'opacity-0'}`}
-        />
-      )}
-    </div>
-  );
-};
-
-// Streamer data for Streams tab
-const streamers = [
-  { 
-    name: "AIENIA", 
-    gif: "/lovable-uploads/streamer-aienia.gif",
-    viewers: 1247,
-    category: "Just Chatting",
-    exposure: "2.4K",
-    duration: "2h 34m",
-    ctr: 2.4,
-    clicks: 847
-  },
-  { 
-    name: "Emmelie", 
-    gif: "/lovable-uploads/streamer-emmelie.gif",
-    viewers: 847,
-    category: "Gaming",
-    exposure: "1.8K",
-    duration: "1h 52m",
-    ctr: 2.1,
-    clicks: 612
-  },
-  { 
-    name: "pernataia", 
-    gif: "/lovable-uploads/streamer-pernataia.gif",
-    viewers: 623,
-    category: "Valorant",
-    exposure: "1.2K",
-    duration: "3h 18m",
-    ctr: 1.9,
-    clicks: 438
-  },
+const donutData = [
+  { name: "Danniz", value: 22, color: "#3b82f6" },
+  { name: "LaSanias", value: 18, color: "#84cc16" },
+  { name: "RubenGKS", value: 14, color: "#f59e0b" },
+  { name: "Caisphere", value: 12, color: "#ef4444" },
+  { name: "oreokjeks1x", value: 8, color: "#67e8f9" },
+  { name: "ForsteGir", value: 8, color: "#6366f1" },
+  { name: "VettisTV", value: 6, color: "#f97316" },
+  { name: "Geir", value: 5, color: "#a855f7" },
+  { name: "FjOlsenFN", value: 4, color: "#ec4899" },
+  { name: "Others", value: 3, color: "#84cc16" },
 ];
 
-// Analytics data
-const analyticsData = {
-  ageDistribution: [
-    { range: "18-24", percent: 42 },
-    { range: "25-34", percent: 36 },
-    { range: "35-44", percent: 15 },
-    { range: "45+", percent: 7 },
-  ],
-  gender: [
-    { label: "Male", percent: 78, color: "bg-blue-500" },
-    { label: "Female", percent: 19, color: "bg-pink-500" },
-    { label: "Other", percent: 3, color: "bg-purple-500" },
-  ],
-  countries: [
-    { flag: "🇳🇴", name: "Norway", percent: 34 },
-    { flag: "🇸🇪", name: "Sweden", percent: 22 },
-    { flag: "🇩🇰", name: "Denmark", percent: 16 },
-    { flag: "🇩🇪", name: "Germany", percent: 12 },
-    { flag: "🇺🇸", name: "USA", percent: 8 },
-  ],
-  interests: [
-    { name: "Gaming", icon: "🎮", percent: 62 },
-    { name: "Tech", icon: "💻", percent: 48 },
-    { name: "Esports", icon: "🏆", percent: 41 },
-    { name: "Music", icon: "🎵", percent: 35 },
-  ],
-  peakHours: [
-    { time: "20:00-23:00", intensity: 100 },
-    { time: "17:00-20:00", intensity: 70 },
-    { time: "14:00-17:00", intensity: 40 },
-  ],
-  engagement: {
-    chatActivity: 4.7,
-    avgWatchTime: 23,
-    returnRate: 67,
-  },
-};
+const tableStreamers = [
+  { name: "Danniz", avatar: "DA", color: "bg-purple-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "12.4K", engagement: "Good", safety: "8.7" },
+  { name: "LaSanias", avatar: "LS", color: "bg-blue-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "8.7K", engagement: "Average", safety: "5.4" },
+  { name: "VettisTV", avatar: "VT", color: "bg-green-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "5.2K", engagement: "Good", safety: "7.7" },
+  { name: "Caisphere", avatar: "CA", color: "bg-pink-500", platform: "Kick", platformColor: "#53fc18", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♀ Female", followers: "3.8K", engagement: "Excellent", safety: "8.3" },
+  { name: "ForsteGir", avatar: "FG", color: "bg-amber-500", platform: "Kick", platformColor: "#53fc18", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "6.1K", engagement: "Average", safety: "4.6" },
+  { name: "FjOlsenFN", avatar: "FO", color: "bg-red-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "4.5K", engagement: "Average", safety: "4.1" },
+  { name: "karbells", avatar: "KB", color: "bg-emerald-500", platform: "Kick", platformColor: "#53fc18", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♀ Female", followers: "7.3K", engagement: "Good", safety: "7.3" },
+  { name: "Simontops", avatar: "SI", color: "bg-orange-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "3.1K", engagement: "Average", safety: "6.2" },
+  { name: "GOOTHAROLD", avatar: "GH", color: "bg-indigo-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "9.8K", engagement: "Good", safety: "8.1" },
+  { name: "hanne1", avatar: "HA", color: "bg-rose-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♀ Female", followers: "2.4K", engagement: "Excellent", safety: "9.2" },
+  { name: "iHenski", avatar: "IH", color: "bg-teal-500", platform: "Kick", platformColor: "#53fc18", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "5.6K", engagement: "Average", safety: "5.8" },
+  { name: "RubenGKS", avatar: "RG", color: "bg-lime-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "11.2K", engagement: "Good", safety: "7.9" },
+];
+
+// ═══════════════════════════════════════════════════════
+// FULL-SIZE SCREENS (designed at 1400×900, then scaled)
+// ═══════════════════════════════════════════════════════
+
+const DashboardScreen: React.FC = () => (
+  <div className="flex-1 flex flex-col gap-4">
+    {/* Date range + New Campaign */}
+    <div className="flex items-center justify-between">
+      <div className="flex items-center gap-4">
+        <div>
+          <div className="text-[#e94f37] text-xs font-medium mb-1">Start Date</div>
+          <div className="border border-gray-200 rounded-md px-3 py-1.5 text-sm text-gray-800 bg-white">01/19/2026</div>
+        </div>
+        <div>
+          <div className="text-[#e94f37] text-xs font-medium mb-1">End Date</div>
+          <div className="border border-gray-200 rounded-md px-3 py-1.5 text-sm text-gray-800 bg-white">03/17/2026</div>
+        </div>
+        <div className="border border-gray-200 rounded-md px-4 py-1.5 text-sm text-gray-800 font-medium bg-white mt-5 cursor-pointer hover:bg-gray-50">Apply</div>
+      </div>
+      <div className="bg-[#e94f37] text-white rounded-lg px-4 py-2 text-sm font-medium flex items-center gap-2 cursor-pointer hover:bg-[#d4432d]">
+        <Plus className="w-4 h-4" /> New Campaign
+      </div>
+    </div>
+
+    {/* Stats row 1 */}
+    <div className="border border-gray-100 rounded-xl overflow-hidden bg-white shadow-sm">
+      <div className="grid grid-cols-6">
+        {[
+          { label: "Views", value: "1,312,847", red: true },
+          { label: "Clicks", value: "15,754" },
+          { label: "CTR", value: "1.20 %" },
+          { label: "Spend", value: "€48,320" },
+          { label: "Exposure Time", value: "142.6 hrs" },
+          { label: "Watch Time", value: "8,412 hrs" },
+        ].map((s, i) => (
+          <div key={s.label} className={`px-5 py-3 ${i > 0 ? "border-l border-gray-100" : ""}`}>
+            <div className={`text-[11px] font-semibold uppercase tracking-wider ${s.red ? "text-[#e94f37]" : "text-gray-400"}`}>{s.label}</div>
+            <div className="text-xl font-bold text-gray-900 leading-tight mt-1">{s.value}</div>
+            {s.red && <div className="h-[2px] bg-[#e94f37] mt-1.5 w-full rounded-full" />}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Stats row 2 */}
+    <div className="border border-gray-100 rounded-xl overflow-hidden bg-white shadow-sm">
+      <div className="grid grid-cols-6">
+        {[
+          { label: "Sponsored Streamers", value: "100" },
+          { label: "Sponsored Streams", value: "1,247" },
+          { label: "Total Followers", value: "2.1M" },
+          { label: "Categories", value: "63" },
+          { label: "Cost / Hr Watched", value: "€5.74" },
+          { label: "Brand Mentions", value: "24,319" },
+        ].map((s, i) => (
+          <div key={s.label} className={`px-5 py-3 ${i > 0 ? "border-l border-gray-100" : ""}`}>
+            <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400">{s.label}</div>
+            <div className="text-xl font-bold text-gray-900 leading-tight mt-1">{s.value}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    {/* Charts row */}
+    <div className="grid grid-cols-5 gap-4 flex-1 min-h-0">
+      {/* Bar chart */}
+      <div className="col-span-3 border border-gray-100 rounded-xl bg-white p-4 shadow-sm flex flex-col">
+        <div className="flex justify-between items-center mb-2">
+          <span className="text-sm font-semibold text-gray-700">Views Over Time</span>
+          <span className="text-xs text-gray-400 flex items-center gap-1 cursor-pointer hover:text-gray-600"><Download className="w-3.5 h-3.5" /> Export as .CSV</span>
+        </div>
+        <div className="flex-1 min-h-0">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={barData} barSize={14} margin={{ left: 0, right: 4, top: 4, bottom: 0 }}>
+              <YAxis tick={{ fontSize: 11, fill: '#aaa' }} axisLine={false} tickLine={false} width={40} />
+              <Bar dataKey="v" fill="#e94f37" radius={[3, 3, 0, 0]} opacity={0.85} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+        <div className="flex justify-between mt-2 text-[10px] text-gray-400 pl-10">
+          <span>Jan 19</span><span>Jan 28</span><span>Feb 06</span><span>Feb 15</span><span>Feb 24</span><span>Mar 05</span><span>Mar 14</span>
+        </div>
+      </div>
+
+      {/* Donut chart */}
+      <div className="col-span-2 border border-gray-100 rounded-xl bg-white p-4 shadow-sm flex flex-col">
+        <div className="flex gap-2 mb-3">
+          {["Streamers", "Campaigns", "Categories"].map((t, i) => (
+            <span key={t} className={`text-xs font-medium px-3 py-1 rounded-full cursor-pointer ${i === 0 ? "bg-[#e94f37]/10 text-[#e94f37] ring-1 ring-[#e94f37]/20" : "text-gray-400 hover:text-gray-600"}`}>{t}</span>
+          ))}
+        </div>
+        <div className="flex items-center gap-4 flex-1 min-h-0">
+          <div className="space-y-1">
+            {donutData.map((d) => (
+              <div key={d.name} className="flex items-center gap-2">
+                <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: d.color }} />
+                <span className="text-xs text-gray-700">{d.name}</span>
+              </div>
+            ))}
+          </div>
+          <div className="flex-1 flex items-center justify-center">
+            <div className="w-[160px] h-[160px]">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie data={donutData} cx="50%" cy="50%" innerRadius={40} outerRadius={72} paddingAngle={1.5} dataKey="value" stroke="none">
+                    {donutData.map((entry, i) => <Cell key={i} fill={entry.color} />)}
+                  </Pie>
+                </PieChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Campaigns table */}
+    <div className="border border-gray-100 rounded-xl bg-white overflow-hidden shadow-sm">
+      <div className="flex items-center gap-3 px-5 py-3 border-b border-gray-100">
+        {["Campaigns", "Categories", "Streamers"].map((t, i) => (
+          <span key={t} className={`text-xs font-medium px-3 py-1 rounded-full cursor-pointer ${i === 0 ? "bg-[#e94f37]/10 text-[#e94f37] ring-1 ring-[#e94f37]/20" : "text-gray-400 hover:text-gray-600"}`}>{t}</span>
+        ))}
+        <div className="ml-auto text-xs text-gray-400 flex items-center gap-1 cursor-pointer hover:text-gray-600"><Download className="w-3.5 h-3.5" /> Export as .CSV</div>
+      </div>
+      <table className="w-full">
+        <thead>
+          <tr className="border-b border-gray-100 bg-gray-50/50">
+            {["Campaign", "Status", "Start", "End", "Budget", "Views", "Clicks", "CTR", "Ad Spend"].map((h) => (
+              <th key={h} className="px-5 py-2.5 text-left text-[10px] uppercase tracking-wider text-gray-400 font-semibold whitespace-nowrap">{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="border-b border-gray-50 hover:bg-gray-50/50">
+            <td className="px-5 py-3 text-sm font-semibold text-gray-900 whitespace-nowrap">Gokstad Akademiet</td>
+            <td className="px-5 py-3"><span className="text-[10px] bg-green-100 text-green-700 px-2.5 py-1 rounded-full font-semibold">Active</span></td>
+            <td className="px-5 py-3 text-sm text-gray-500">2026-01-19</td>
+            <td className="px-5 py-3 text-sm text-gray-500">2026-03-17</td>
+            <td className="px-5 py-3 text-sm text-gray-500">€ 48,320</td>
+            <td className="px-5 py-3 text-sm font-medium text-gray-900">1,312,847</td>
+            <td className="px-5 py-3 text-sm text-gray-500">15,754</td>
+            <td className="px-5 py-3 text-sm text-gray-500">1.20%</td>
+            <td className="px-5 py-3 text-sm text-gray-500">€ 48,320.50</td>
+          </tr>
+          <tr className="border-b border-gray-50 hover:bg-gray-50/50">
+            <td className="px-5 py-3 text-sm font-semibold text-gray-900 whitespace-nowrap">Foodora Spring</td>
+            <td className="px-5 py-3"><span className="text-[10px] bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full font-semibold">Scheduled</span></td>
+            <td className="px-5 py-3 text-sm text-gray-500">2026-03-20</td>
+            <td className="px-5 py-3 text-sm text-gray-500">2026-04-20</td>
+            <td className="px-5 py-3 text-sm text-gray-500">€ 35,000</td>
+            <td className="px-5 py-3 text-sm text-gray-400">—</td>
+            <td className="px-5 py-3 text-sm text-gray-400">—</td>
+            <td className="px-5 py-3 text-sm text-gray-400">—</td>
+            <td className="px-5 py-3 text-sm text-gray-400">—</td>
+          </tr>
+          <tr className="hover:bg-gray-50/50">
+            <td className="px-5 py-3 text-sm font-semibold text-gray-900 whitespace-nowrap">Samsung S25 Ultra</td>
+            <td className="px-5 py-3"><span className="text-[10px] bg-gray-100 text-gray-500 px-2.5 py-1 rounded-full font-semibold">Past</span></td>
+            <td className="px-5 py-3 text-sm text-gray-500">2025-11-01</td>
+            <td className="px-5 py-3 text-sm text-gray-500">2025-12-15</td>
+            <td className="px-5 py-3 text-sm text-gray-500">€ 25,000</td>
+            <td className="px-5 py-3 text-sm font-medium text-gray-900">524,310</td>
+            <td className="px-5 py-3 text-sm text-gray-500">6,842</td>
+            <td className="px-5 py-3 text-sm text-gray-500">1.30%</td>
+            <td className="px-5 py-3 text-sm text-gray-500">€ 24,850.00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+);
+
+// ── Screen: Streamer Explorer ─────────────────────────
+
+const StreamerExplorerScreen: React.FC = () => (
+  <div className="flex-1 flex flex-col gap-4">
+    {/* Top bar */}
+    <div className="flex items-center gap-3">
+      <span className="text-[#e94f37] text-sm font-semibold">Filter by</span>
+      <span className="text-xs text-gray-400 cursor-pointer hover:text-gray-600">✕ Clear</span>
+      <div className="flex-1 border border-gray-200 rounded-lg bg-white flex items-center gap-2 px-4 py-2">
+        <Search className="w-4 h-4 text-gray-300" />
+        <span className="text-sm text-gray-400">Search by name...</span>
+      </div>
+      <div className="text-sm text-gray-500 flex items-center gap-1">Sort by: <span className="font-medium">Default</span> <ChevronDown className="w-3.5 h-3.5" /></div>
+      <div className="text-xs text-gray-500 flex items-center gap-1.5 border border-gray-200 rounded-lg px-3 py-2 bg-white cursor-pointer hover:bg-gray-50">
+        <Download className="w-3.5 h-3.5" /> Export as .CSV
+      </div>
+      <div className="text-xs text-gray-500 border border-gray-200 rounded-lg px-3 py-2 bg-white cursor-pointer hover:bg-gray-50">+ Add All to List</div>
+    </div>
+
+    <div className="flex gap-4 flex-1 min-h-0">
+      {/* Sidebar filters */}
+      <div className="w-[140px] shrink-0 space-y-5 overflow-y-auto">
+        <div>
+          <div className="text-xs font-semibold text-gray-700 mb-2">Stream Activity</div>
+          <label className="flex items-center gap-2 cursor-pointer"><div className="w-4 h-4 rounded bg-[#e94f37] flex items-center justify-center text-white text-[8px]">✓</div><span className="text-sm text-gray-600">Recently Active</span></label>
+        </div>
+        <div>
+          <div className="text-xs font-semibold text-gray-700 mb-2">Platform</div>
+          {["Twitch", "Kick", "YouTube", "Trovo"].map((p) => (
+            <label key={p} className="flex items-center gap-2 mb-1 cursor-pointer"><div className="w-4 h-4 rounded border border-gray-300" /><span className="text-sm text-gray-500">{p}</span></label>
+          ))}
+        </div>
+        <div>
+          <div className="text-xs font-semibold text-gray-700 mb-2">Languages</div>
+          {["Arabic", "Chinese", "Czech", "Danish", "Dutch"].map((l) => (
+            <label key={l} className="flex items-center gap-2 mb-1 cursor-pointer"><div className="w-4 h-4 rounded border border-gray-300" /><span className="text-sm text-gray-500">{l}</span></label>
+          ))}
+        </div>
+        <div>
+          <div className="text-xs font-semibold text-gray-700 mb-2">Country</div>
+          {["🇳🇴 Norway", "🇸🇪 Sweden", "🇩🇰 Denmark"].map((c) => (
+            <label key={c} className="flex items-center gap-2 mb-1 cursor-pointer"><div className="w-4 h-4 rounded border border-gray-300" /><span className="text-sm text-gray-500">{c}</span></label>
+          ))}
+        </div>
+      </div>
+
+      {/* Table */}
+      <div className="flex-1 overflow-hidden border border-gray-100 rounded-xl bg-white shadow-sm">
+        <table className="w-full">
+          <thead>
+            <tr className="border-b border-gray-200 bg-gray-50/50">
+              {["Streamer", "Platform", "Country", "Language", "Gender", "Safety", "Engage.", "Followers"].map((h) => (
+                <th key={h} className="px-4 py-2.5 text-left text-[10px] uppercase tracking-wider text-gray-400 font-semibold whitespace-nowrap">{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {tableStreamers.map((s) => (
+              <tr key={s.name} className="border-b border-gray-50 hover:bg-gray-50/50">
+                <td className="px-4 py-2.5 whitespace-nowrap">
+                  <div className="flex items-center gap-2.5">
+                    <div className={`w-7 h-7 rounded-full ${s.color} flex items-center justify-center text-white text-[9px] font-bold shrink-0`}>{s.avatar}</div>
+                    <span className="text-sm font-medium text-gray-900">{s.name}</span>
+                  </div>
+                </td>
+                <td className="px-4 py-2.5"><div className="flex items-center gap-1.5"><div className="w-3 h-3 rounded" style={{ backgroundColor: s.platformColor }} /><span className="text-sm text-gray-600">{s.platform}</span></div></td>
+                <td className="px-4 py-2.5 text-sm text-gray-600 whitespace-nowrap">{s.country}</td>
+                <td className="px-4 py-2.5 text-sm text-gray-600 whitespace-nowrap">{s.lang}</td>
+                <td className="px-4 py-2.5 text-sm text-gray-600">{s.gender}</td>
+                <td className="px-4 py-2.5"><span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">{s.safety}</span></td>
+                <td className="px-4 py-2.5 text-sm text-gray-600">{s.engagement}</td>
+                <td className="px-4 py-2.5 text-sm text-gray-700 font-medium">{s.followers}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div className="text-right text-xs text-gray-400 py-2 pr-4">Showing 1–50 of 39,480 streamers</div>
+      </div>
+    </div>
+  </div>
+);
+
+// ── Screen: My Streamer Lists ─────────────────────────
+
+const StreamerListsScreen: React.FC = () => (
+  <div className="flex-1 flex flex-col gap-6">
+    <div className="flex items-center justify-between">
+      <span className="text-[#e94f37] text-xl font-bold">My Streamer Lists</span>
+      <div className="bg-[#e94f37] text-white rounded-lg px-5 py-2.5 text-sm font-medium flex items-center gap-2 cursor-pointer hover:bg-[#d4432d]">
+        <Plus className="w-4 h-4" /> Create a New List
+      </div>
+    </div>
+
+    <div className="grid grid-cols-2 gap-5">
+      {[
+        { name: "Favorite Streamers", count: 5, date: "06/01/2026", by: "LIVAD Technologies", avatars: [
+          { i: "DA", c: "bg-purple-500" }, { i: "LS", c: "bg-blue-500" }, { i: "VT", c: "bg-green-500" }, { i: "CA", c: "bg-pink-500" }, { i: "+2", c: "bg-[#e94f37]/20", text: true },
+        ]},
+        { name: "My Streamer List", count: 1, date: "12/02/2026", by: "Andreas Myraune", avatars: [
+          { i: "KB", c: "bg-emerald-500" },
+        ]},
+      ].map((list) => (
+        <div key={list.name} className="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-shadow cursor-pointer">
+          <div className="text-base font-semibold text-gray-800 mb-4">{list.name}</div>
+          <div className="flex -space-x-2 mb-4">
+            {list.avatars.map((av, j) => (
+              <div key={j} className={`rounded-full ${av.c} border-[2.5px] border-white flex items-center justify-center text-xs font-bold shadow-sm ${av.text ? 'text-[#e94f37]' : 'text-white'}`} style={{ width: 40, height: 40 }}>
+                {av.i}
+              </div>
+            ))}
+          </div>
+          <div className="space-y-1.5 text-sm text-gray-400">
+            <div className="flex items-center gap-2"><Calendar className="w-4 h-4" /> Created: {list.date}</div>
+            <div className="flex items-center gap-2"><Users className="w-4 h-4" /> By: {list.by}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* Recent Activity */}
+    <div className="flex-1 flex flex-col gap-3">
+      <div className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Recent Activity</div>
+      <div className="bg-white border border-gray-100 rounded-2xl p-6 flex-1 shadow-sm">
+        <div className="space-y-4">
+          {[
+            { action: "Added Danniz to", list: "Favorite Streamers", time: "2 hours ago" },
+            { action: "Created list", list: "My Streamer List", time: "1 day ago" },
+            { action: "Added karbells to", list: "My Streamer List", time: "1 day ago" },
+            { action: "Removed FjOlsenFN from", list: "Favorite Streamers", time: "3 days ago" },
+            { action: "Added LaSanias to", list: "Favorite Streamers", time: "5 days ago" },
+          ].map((activity, i) => (
+            <div key={i} className="flex items-center gap-3 text-sm">
+              <div className="w-2 h-2 rounded-full bg-[#e94f37]/40 shrink-0" />
+              <span className="text-gray-600">{activity.action} <span className="font-semibold text-gray-800">{activity.list}</span></span>
+              <span className="text-gray-400 ml-auto text-xs">{activity.time}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+// ═══════════════════════════════════════════════════════
+// MAIN COMPONENT — Uses CSS transform: scale() to fit
+// ═══════════════════════════════════════════════════════
 
 interface LiveDashboardProps {
   className?: string;
   compact?: boolean;
 }
 
+const screens = [
+  { label: "Dashboard", icon: Home },
+  { label: "Streamer Explorer", icon: Search },
+  { label: "My Streamer Lists", icon: ListChecks },
+];
+
+// Full-size dashboard dimensions
+const DASH_W = 1080;
+const DASH_H = 910;
+
 export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", compact = false }) => {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
-  const [activeTab, setActiveTab] = useState(0);
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.05 });
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [activeScreen, setActiveScreen] = useState(0);
+  const [scale, setScale] = useState(0.5);
 
-  const mainStats = [
-    { icon: <Eye className="w-3 h-3" />, label: "Views", value: 127459 },
-    { icon: <MousePointer className="w-3 h-3" />, label: "Clicks", value: 2847 },
-    { icon: <Wallet className="w-3 h-3" />, label: "Spent", value: 1240, prefix: "€" },
-    { icon: <TrendingUp className="w-3 h-3" />, label: "CTR", value: 2.23, suffix: "%", decimals: 2 },
-  ];
+  const effectiveVisible = compact ? true : isVisible;
 
-  const demographics = {
-    countries: [
-      { flag: "🇳🇴", code: "NO", percent: 34 },
-      { flag: "🇸🇪", code: "SE", percent: 22 },
-      { flag: "🇩🇰", code: "DK", percent: 16 },
-      { flag: "🇩🇪", code: "DE", percent: 12 },
-    ],
-    gender: [
-      { label: "Male", percent: 78 },
-      { label: "Female", percent: 19 },
-    ],
-    interests: ["Gaming", "Tech", "Esports", "Music"],
-    devices: { desktop: 62, mobile: 38 },
-  };
+  // Dynamic scale: use Math.max to fill both width AND height
+  // The overflow:hidden on the container clips any excess (bottom rows)
+  // This ensures NO gaps on any screen size
+  useEffect(() => {
+    if (!containerRef.current) return;
+    const el = containerRef.current;
 
-  const sidebarItems = [
-    { icon: LayoutDashboard, active: activeTab === 0 },
-    { icon: Video, active: activeTab === 1 },
-    { icon: BarChart3, active: activeTab === 2 },
-    { icon: Users, active: false },
-    { icon: Settings, active: false },
-  ];
+    const updateScale = () => {
+      const w = el.clientWidth;
+      const h = el.clientHeight;
+      if (w > 0 && h > 0) {
+        setScale(Math.max(w / DASH_W, h / DASH_H));
+      }
+    };
 
-  const tabs = ["Overview", "Streams", "Analytics"];
+    updateScale();
+    const ro = new ResizeObserver(updateScale);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
-  // Render Overview Tab Content
-  const renderOverviewContent = () => (
-    <>
-      {/* Campaign header */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-          </span>
-          <span className="text-[11px] font-medium text-foreground">Samsung Gaming Monitors Q4</span>
-        </div>
-        <span className="text-[9px] text-muted-foreground">Updated now</span>
-      </div>
+  // Autoplay: simple chained timeouts, always starts at Dashboard
+  useEffect(() => {
+    if (!effectiveVisible) return;
 
-      {/* Main Stats */}
-      <div className="grid grid-cols-4 bg-muted/20 rounded-lg">
-        {mainStats.map((stat, index) => (
-          <StatCard
-            key={stat.label}
-            {...stat}
-            isVisible={isVisible}
-            delay={300 + index * 150}
-          />
-        ))}
-      </div>
+    const DURATIONS = [8000, 6000, 5000];
+    let timeoutId: ReturnType<typeof setTimeout>;
+    let cancelled = false;
 
-      {/* Performance Chart */}
-      <div 
-        className={`
-          bg-muted/10 rounded-lg p-3
-          transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
-          ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
-        `}
-        style={{ transitionDelay: '900ms' }}
-      >
-        <div className="flex items-center justify-between mb-2.5">
-          <span className="text-[11px] font-medium text-foreground">Performance</span>
-          <span className="text-[10px] font-semibold text-primary">+18.5% ↑</span>
-        </div>
-        <div className="h-20">
-          <ResponsiveContainer width="100%" height="100%">
-            <AreaChart data={viewsData}>
-              <defs>
-                <linearGradient id="viewsGradientCompact" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="hsl(var(--primary))" stopOpacity={0.4} />
-                  <stop offset="100%" stopColor="hsl(var(--primary))" stopOpacity={0} />
-                </linearGradient>
-              </defs>
-              <Area 
-                type="monotone"
-                dataKey="views" 
-                stroke="hsl(var(--primary))" 
-                strokeWidth={1.5}
-                fill="url(#viewsGradientCompact)"
-                isAnimationActive={false}
-              />
-            </AreaChart>
-          </ResponsiveContainer>
-        </div>
-      </div>
+    const cycle = (screenIndex: number) => {
+      if (cancelled) return;
+      setActiveScreen(screenIndex);
+      timeoutId = setTimeout(() => {
+        cycle((screenIndex + 1) % 3);
+      }, DURATIONS[screenIndex]);
+    };
 
-      {/* Audience Demographics */}
-      <div 
-        className={`
-          bg-muted/10 rounded-lg p-2.5
-          transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]
-          ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}
-        `}
-        style={{ transitionDelay: '1200ms' }}
-      >
-        <div className="flex items-center gap-1.5 mb-2.5">
-          <Users className="w-3 h-3 text-primary/70" />
-          <span className="text-[10px] font-medium text-foreground">Audience Demographics</span>
-        </div>
+    // Start from Dashboard after a short delay to beat strict mode
+    timeoutId = setTimeout(() => cycle(0), 100);
 
-        <div className="grid grid-cols-3 gap-2">
-          {/* Countries */}
-          <div className="space-y-1.5">
-            <div className="flex items-center gap-1">
-              <Globe className="w-2.5 h-2.5 text-muted-foreground/60" />
-              <span className="text-[8px] text-muted-foreground/80 uppercase tracking-wide">Region</span>
-            </div>
-            {demographics.countries.map((c) => (
-              <div key={c.code} className="flex items-center justify-between">
-                <span className="text-[10px]">{c.flag} {c.code}</span>
-                <span className="text-[9px] text-muted-foreground font-medium">{c.percent}%</span>
-              </div>
-            ))}
-          </div>
-
-          {/* Gender & Age */}
-          <div className="space-y-1.5">
-            <div className="flex items-center gap-1">
-              <Users className="w-2.5 h-2.5 text-muted-foreground/60" />
-              <span className="text-[8px] text-muted-foreground/80 uppercase tracking-wide">Gender</span>
-            </div>
-            {demographics.gender.map((g) => (
-              <div key={g.label} className="flex items-center justify-between">
-                <span className="text-[10px] text-foreground">{g.label}</span>
-                <span className="text-[9px] text-muted-foreground font-medium">{g.percent}%</span>
-              </div>
-            ))}
-            <div className="pt-1">
-              <div className="flex items-center gap-1 mb-1">
-                <Monitor className="w-2.5 h-2.5 text-muted-foreground/60" />
-                <span className="text-[8px] text-muted-foreground/80 uppercase tracking-wide">Device</span>
-              </div>
-              <div className="flex gap-2">
-                <span className="text-[9px]">
-                  <Monitor className="w-2.5 h-2.5 inline mr-0.5 text-muted-foreground/60" />
-                  {demographics.devices.desktop}%
-                </span>
-                <span className="text-[9px]">
-                  <Smartphone className="w-2.5 h-2.5 inline mr-0.5 text-muted-foreground/60" />
-                  {demographics.devices.mobile}%
-                </span>
-              </div>
-            </div>
-          </div>
-
-          {/* Interests */}
-          <div className="space-y-1.5">
-            <div className="flex items-center gap-1">
-              <Gamepad2 className="w-2.5 h-2.5 text-muted-foreground/60" />
-              <span className="text-[8px] text-muted-foreground/80 uppercase tracking-wide">Interests</span>
-            </div>
-            <div className="flex flex-wrap gap-1">
-              {demographics.interests.map((interest) => (
-                <span
-                  key={interest}
-                  className="px-1.5 py-0.5 bg-primary/10 text-primary text-[8px] rounded font-medium"
-                >
-                  {interest}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-
-  // Render Streams Tab Content
-  const renderStreamsContent = () => (
-    <>
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-          </span>
-          <span className="text-[11px] font-medium text-foreground">Live Streams</span>
-          <span className="text-[9px] text-muted-foreground bg-muted/40 px-1.5 py-0.5 rounded">3 active</span>
-        </div>
-      </div>
-
-      {/* Streamer Cards */}
-      <div className="grid grid-cols-3 gap-2">
-        {streamers.map((streamer, i) => (
-          <div 
-            key={streamer.name}
-            className={`
-              group relative rounded-lg overflow-hidden bg-muted/20 shadow-md shadow-black/10
-              transition-all duration-500 hover:scale-105 hover:shadow-lg hover:shadow-primary/15
-              ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-            `}
-            style={{ transitionDelay: `${150 + i * 100}ms` }}
-          >
-            {/* GIF Thumbnail - only loads on hover for performance */}
-            <div className="relative aspect-video overflow-hidden">
-              <HoverGifImage 
-                gif={streamer.gif} 
-                alt={streamer.name}
-                className="w-full h-full"
-              />
-              {/* Live Badge */}
-              <div className="absolute top-1 left-1 flex items-center gap-1 bg-destructive/90 px-1 py-0.5 rounded text-[7px] font-bold text-white">
-                <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
-                LIVE
-              </div>
-              {/* Viewer count */}
-              <div className="absolute bottom-1 right-1 bg-background/80 backdrop-blur-sm px-1 py-0.5 rounded text-[8px] font-medium">
-                {streamer.viewers.toLocaleString()} 👁
-              </div>
-              
-              {/* Hover Overlay with Additional Stats */}
-              <div className="absolute inset-0 bg-background/90 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center p-2">
-                <Clock className="w-3 h-3 text-primary mb-1" />
-                <div className="text-[8px] text-muted-foreground">Stream Duration</div>
-                <div className="text-sm font-bold text-foreground">{streamer.duration}</div>
-                <div className="grid grid-cols-2 gap-3 mt-2 w-full">
-                  <div className="text-center">
-                    <div className="text-[7px] text-muted-foreground uppercase">CTR</div>
-                    <div className="text-xs font-semibold text-primary">{streamer.ctr}%</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-[7px] text-muted-foreground uppercase">Clicks</div>
-                    <div className="text-xs font-semibold text-foreground">{streamer.clicks}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* Info */}
-            <div className="p-1.5 space-y-0.5">
-              <div className="text-[9px] font-semibold text-foreground truncate">{streamer.name}</div>
-              <div className="text-[8px] text-muted-foreground truncate">{streamer.category}</div>
-              <div className="flex items-center gap-1 pt-0.5">
-                <div className="text-[7px] text-primary bg-primary/10 px-1 py-0.5 rounded">
-                  {streamer.exposure} exposed
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Stream Stats Summary */}
-      <div 
-        className={`
-          bg-muted/10 rounded-lg p-2.5
-          transition-all duration-700 delay-400
-          ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-        `}
-      >
-        <div className="grid grid-cols-3 gap-3 text-center">
-          <div>
-            <div className="text-[10px] text-muted-foreground mb-0.5">Total Viewers</div>
-            <div className="text-sm font-bold text-foreground">2,717</div>
-          </div>
-          <div>
-            <div className="text-[10px] text-muted-foreground mb-0.5">Total Exposure</div>
-            <div className="text-sm font-bold text-primary">5.4K</div>
-          </div>
-          <div>
-            <div className="text-[10px] text-muted-foreground mb-0.5">Avg CTR</div>
-            <div className="text-sm font-bold text-foreground">2.3%</div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-
-  // Render Analytics Tab Content
-  const renderAnalyticsContent = () => (
-    <>
-      {/* Header */}
-      <div className="flex items-center justify-between mb-1">
-        <span className="text-[11px] font-medium text-foreground">Audience Insights</span>
-        <span className="text-[9px] text-muted-foreground">Last 30 days</span>
-      </div>
-
-      {/* Age Distribution */}
-      <div 
-        className={`
-          bg-muted/10 rounded-lg p-2
-          transition-all duration-500
-          ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-        `}
-      >
-        <div className="text-[9px] font-medium text-foreground mb-1.5">Age Distribution</div>
-        <div className="space-y-1">
-          {analyticsData.ageDistribution.map((age, i) => (
-            <div key={age.range} className="flex items-center gap-2">
-              <span className="text-[8px] text-muted-foreground w-8">{age.range}</span>
-              <div className="flex-1 h-2 bg-muted/30 rounded-full overflow-hidden">
-                <div 
-                  className="h-full bg-primary/70 rounded-full transition-all duration-700"
-                  style={{ 
-                    width: isVisible ? `${age.percent}%` : '0%',
-                    transitionDelay: `${200 + i * 100}ms`
-                  }}
-                />
-              </div>
-              <span className="text-[8px] font-medium text-foreground w-6 text-right">{age.percent}%</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Gender & Countries Row */}
-      <div className="grid grid-cols-2 gap-2">
-        {/* Gender */}
-        <div 
-          className={`
-            bg-muted/10 rounded-lg p-2
-            transition-all duration-500 delay-200
-            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-          `}
-        >
-          <div className="text-[9px] font-medium text-foreground mb-1.5">Gender</div>
-          <div className="space-y-1">
-            {analyticsData.gender.map((g) => (
-              <div key={g.label} className="flex items-center justify-between">
-                <div className="flex items-center gap-1.5">
-                  <div className={`w-2 h-2 rounded-full ${g.color}`} />
-                  <span className="text-[9px] text-foreground">{g.label}</span>
-                </div>
-                <span className="text-[9px] font-medium text-muted-foreground">{g.percent}%</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Top Countries */}
-        <div 
-          className={`
-            bg-muted/10 rounded-lg p-2
-            transition-all duration-500 delay-300
-            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-          `}
-        >
-          <div className="text-[9px] font-medium text-foreground mb-1.5">Top Countries</div>
-          <div className="space-y-0.5">
-            {analyticsData.countries.map((c) => (
-              <div key={c.name} className="flex items-center justify-between">
-                <span className="text-[9px]">{c.flag} {c.name}</span>
-                <span className="text-[8px] font-medium text-muted-foreground">{c.percent}%</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Interests & Peak Hours Row */}
-      <div className="grid grid-cols-2 gap-2">
-        {/* Interests */}
-        <div 
-          className={`
-            bg-muted/10 rounded-lg p-2
-            transition-all duration-500 delay-400
-            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-          `}
-        >
-          <div className="text-[9px] font-medium text-foreground mb-1.5">Interests</div>
-          <div className="space-y-1">
-            {analyticsData.interests.map((interest) => (
-              <div key={interest.name} className="flex items-center justify-between">
-                <span className="text-[9px]">{interest.icon} {interest.name}</span>
-                <span className="text-[8px] font-medium text-primary">{interest.percent}%</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Peak Hours */}
-        <div 
-          className={`
-            bg-muted/10 rounded-lg p-2
-            transition-all duration-500 delay-500
-            ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-          `}
-        >
-          <div className="flex items-center gap-1 mb-1.5">
-            <Clock className="w-2.5 h-2.5 text-muted-foreground/60" />
-            <span className="text-[9px] font-medium text-foreground">Peak Hours</span>
-          </div>
-          <div className="space-y-1">
-            {analyticsData.peakHours.map((hour) => (
-              <div key={hour.time} className="flex items-center gap-1.5">
-                <div className="flex-1 h-1.5 bg-muted/30 rounded-full overflow-hidden">
-                  <div 
-                    className="h-full bg-primary/60 rounded-full"
-                    style={{ width: `${hour.intensity}%` }}
-                  />
-                </div>
-                <span className="text-[7px] text-muted-foreground w-14">{hour.time}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Engagement Metrics */}
-      <div 
-        className={`
-          bg-muted/10 rounded-lg p-2
-          transition-all duration-500 delay-600
-          ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
-        `}
-      >
-        <div className="text-[9px] font-medium text-foreground mb-1.5">Engagement Metrics</div>
-        <div className="grid grid-cols-3 gap-2 text-center">
-          <div className="flex flex-col items-center">
-            <MessageSquare className="w-3 h-3 text-primary/70 mb-0.5" />
-            <div className="text-[10px] font-bold text-foreground">{analyticsData.engagement.chatActivity}%</div>
-            <div className="text-[7px] text-muted-foreground">Chat Activity</div>
-          </div>
-          <div className="flex flex-col items-center">
-            <Clock className="w-3 h-3 text-primary/70 mb-0.5" />
-            <div className="text-[10px] font-bold text-foreground">{analyticsData.engagement.avgWatchTime}m</div>
-            <div className="text-[7px] text-muted-foreground">Avg Watch</div>
-          </div>
-          <div className="flex flex-col items-center">
-            <RotateCcw className="w-3 h-3 text-primary/70 mb-0.5" />
-            <div className="text-[10px] font-bold text-foreground">{analyticsData.engagement.returnRate}%</div>
-            <div className="text-[7px] text-muted-foreground">Return Rate</div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+    return () => {
+      cancelled = true;
+      clearTimeout(timeoutId);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Mount only
 
   return (
     <div
-      ref={ref}
-      className={`
-        relative w-full mx-auto
-        transition-all duration-1000 ease-out
-        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}
-        ${className}
-      `}
+      ref={(el) => {
+        // Merge refs
+        (ref as React.MutableRefObject<HTMLDivElement | null>).current = el;
+        (containerRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
+      }}
+      className={`relative w-full h-full overflow-hidden rounded-[inherit] transition-all duration-700 ease-out ${effectiveVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'} ${className}`}
     >
-      {/* Glow effect */}
-      <div 
-        className={`
-          absolute rounded-2xl -inset-8
-          bg-gradient-to-br from-primary/20 via-primary/5 to-transparent
-          blur-3xl opacity-60 -z-10
-          transition-all duration-1000 delay-300
-          ${isVisible ? 'opacity-60 scale-100' : 'opacity-0 scale-90'}
-        `}
-      />
+      <style>{`
+        @keyframes dashScreenIn {
+          from { opacity: 0; transform: translateY(6px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
 
-      {/* Browser frame */}
-      <div className="relative rounded-xl overflow-hidden bg-card/90 backdrop-blur-xl border border-border/40 shadow-2xl">
-        
-        {/* Browser top bar */}
-        <div className="flex items-center gap-2 bg-muted/40 border-b border-border/30 px-4 py-2.5">
-          <div className="flex items-center gap-1.5">
-            <div className="w-2.5 h-2.5 rounded-full bg-destructive/80" />
-            <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80" />
-            <div className="w-2.5 h-2.5 rounded-full bg-green-500/80" />
-          </div>
-          
-          <div className="flex-1 flex justify-center">
-            <div className="flex items-center gap-1.5 rounded-md bg-background/60 border border-border/30 px-3 py-1 max-w-[200px] w-full">
-              <svg className="w-2.5 h-2.5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
-              </svg>
-              <span className="text-[11px] text-muted-foreground font-medium">app.betaads.no</span>
+      {/* Full-size dashboard, scaled down with CSS transform */}
+      <div
+        className="pointer-events-none"
+        style={{
+          width: DASH_W,
+          height: DASH_H,
+          transform: `scale(${scale})`,
+          transformOrigin: "top left",
+          willChange: "transform",
+          backfaceVisibility: "hidden",
+        }}
+      >
+        {/* App shell */}
+        <div className="flex h-full w-full overflow-hidden" style={{ background: "#f8f8f8" }}>
+
+          {/* Sidebar */}
+          <div className="w-[170px] shrink-0 py-5 px-3 flex flex-col gap-1" style={{ background: "#ffffff", borderRight: "1px solid #eee" }}>
+            <div className="px-2 mb-6">
+              <img
+                src="/lovable-uploads/logo-color.png"
+                alt="Beta Ads"
+                className="h-6 w-auto"
+              />
             </div>
-          </div>
 
-          <div className="w-10" />
-        </div>
-
-        {/* App layout with sidebar */}
-        <div className="flex">
-          {/* Mini Sidebar */}
-          <div className="w-11 bg-muted/20 border-r border-border/20 py-4 flex flex-col items-center gap-2.5">
-            {sidebarItems.map((item, i) => (
+            {screens.map((screen, i) => (
               <div
-                key={i}
-                className={`
-                  p-2 rounded-md cursor-default
-                  ${item.active 
-                    ? 'bg-primary/20 text-primary' 
-                    : 'text-muted-foreground/60'
-                  }
-                `}
+                key={screen.label}
+                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-500 ${
+                  activeScreen === i
+                    ? 'bg-[#e94f37]/10 text-[#e94f37]'
+                    : 'text-gray-400'
+                }`}
               >
-                <item.icon className="w-4 h-4" />
+                <screen.icon className={`w-4.5 h-4.5 shrink-0 ${activeScreen === i ? 'text-[#e94f37]' : ''}`} />
+                <span className="whitespace-nowrap">{screen.label}</span>
               </div>
             ))}
-          </div>
-
-          {/* Main content */}
-          <div className="flex-1 p-4 space-y-3.5">
-            {/* Tabs */}
-            <div className="flex items-center gap-1.5 border-b border-border/20 pb-2.5">
-              {tabs.map((tab, i) => (
-                <div
-                  key={tab}
-                  className={`
-                    px-3 py-1.5 rounded-md text-[11px] font-medium cursor-default
-                    ${activeTab === i 
-                      ? 'bg-primary/15 text-primary' 
-                      : 'text-muted-foreground/60'
-                    }
-                  `}
-                >
-                  {tab}
-                </div>
-              ))}
+            <div className="flex items-center gap-3 px-3 py-2.5 text-sm text-gray-400">
+              <Users className="w-4.5 h-4.5 shrink-0" />
+              <span>Users</span>
             </div>
 
-            {/* Tab Content with Fade Transition */}
-            <div 
-              key={activeTab}
-              className="animate-fade-in space-y-3"
-            >
-              {activeTab === 0 && renderOverviewContent()}
-              {activeTab === 1 && renderStreamsContent()}
-              {activeTab === 2 && renderAnalyticsContent()}
+            {/* Sidebar bottom */}
+            <div className="mt-auto pt-4 border-t border-gray-100">
+              <div className="text-xs text-gray-400 px-3">Beta for Business</div>
+              <div className="text-[10px] text-gray-300 px-3 mt-1">v2.4.1</div>
             </div>
           </div>
-        </div>
 
-        {/* Scanning light effect */}
-        <div 
-          className={`
-            absolute inset-0 pointer-events-none overflow-hidden
-            ${isVisible ? 'animate-scan-light' : 'opacity-0'}
-          `}
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent -translate-x-full animate-scan" />
+          {/* Main area */}
+          <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+            {/* Top bar */}
+            <div className="flex items-center justify-end gap-3 px-6 py-3" style={{ background: "#ffffff", borderBottom: "1px solid #eee" }}>
+              <div className="bg-gray-50 border border-gray-200 rounded-lg px-3 py-1.5 text-xs text-gray-500 font-medium flex items-center gap-1.5">
+                <img src="/lovable-uploads/logo-carat.png" alt="" className="w-4 h-4" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }} />
+                Beta
+              </div>
+              <div className="bg-gray-50 border border-gray-200 rounded-lg px-3 py-1.5 text-xs text-gray-700 font-medium">Gokstad Akademiet</div>
+              <Moon className="w-4 h-4 text-gray-400" />
+              <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#e94f37] to-[#d4432d] flex items-center justify-center text-white text-[10px] font-bold">AM</div>
+            </div>
+
+            {/* Content area */}
+            <div className="flex-1 p-5 overflow-hidden flex flex-col" style={{ background: "#f8f8f8" }}>
+              <div key={activeScreen} className="flex-1 flex flex-col" style={{ animation: 'dashScreenIn 0.5s ease-out' }}>
+                {activeScreen === 0 && <DashboardScreen />}
+                {activeScreen === 1 && <StreamerExplorerScreen />}
+                {activeScreen === 2 && <StreamerListsScreen />}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

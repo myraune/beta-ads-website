@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { LiveDashboard } from "@/components/sections/LiveDashboard";
+import { Typewriter } from "@/components/ui/typewriter";
 
 interface HeroProps {
   t: any;
@@ -11,13 +12,10 @@ interface HeroProps {
 }
 
 const nordicGreetings = ["Hei", "Hej", "Moi"];
-const rotatingWords = ["skipped", "blocked", "ignored", "invisible"];
 
 export const Hero: React.FC<HeroProps> = ({ t }) => {
   const [greetingIndex, setGreetingIndex] = useState(0);
   const [greetingVisible, setGreetingVisible] = useState(true);
-  const [wordIndex, setWordIndex] = useState(0);
-  const [wordVisible, setWordVisible] = useState(true);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,17 +25,6 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
         setGreetingVisible(true);
       }, 400);
     }, 3000);
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setWordVisible(false);
-      setTimeout(() => {
-        setWordIndex((prev) => (prev + 1) % rotatingWords.length);
-        setWordVisible(true);
-      }, 300);
-    }, 2500);
     return () => clearInterval(interval);
   }, []);
 
@@ -70,17 +57,15 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-foreground mb-6 max-w-2xl">
                 Your ads shouldn't be{" "}
-                <span className="relative inline-block min-w-[120px]">
-                  <span
-                    className={`font-extralight italic text-primary transition-all duration-300 ${
-                      wordVisible
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 -translate-y-2"
-                    }`}
-                  >
-                    {rotatingWords[wordIndex]}
-                  </span>
-                </span>
+                <Typewriter
+                  text={["skipped", "blocked", "ignored", "invisible"]}
+                  speed={70}
+                  className="font-extralight italic text-primary"
+                  waitTime={1500}
+                  deleteSpeed={40}
+                  cursorChar={"_"}
+                  cursorClassName="ml-0.5 font-extralight text-primary/50"
+                />
                 <br />
                 <span className="font-extralight italic text-muted-foreground">
                   They should be part of the stream.
@@ -110,7 +95,7 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="text-muted-foreground hover:text-foreground hover:bg-secondary/30 bg-muted/20 px-6 py-2.5 text-sm font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 shadow-sm shadow-black/5"
+                    className="border-foreground/20 text-foreground/80 hover:text-foreground hover:bg-foreground/10 hover:border-foreground/30 bg-foreground/5 px-6 py-2.5 text-sm font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 shadow-sm shadow-black/5"
                   >
                     {t.streamerButton}
                     <ExternalLink className="ml-2 h-4 w-4" />
