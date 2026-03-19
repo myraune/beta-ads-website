@@ -665,7 +665,7 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
       const w = el.clientWidth;
       const h = el.clientHeight;
       if (w > 0 && h > 0) {
-        setScale(Math.max(w / DASH_W, h / DASH_H));
+        setScale(w / DASH_W);
       }
     };
 
@@ -765,8 +765,7 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
             {/* Top bar */}
             <div className="flex items-center justify-end gap-2.5 px-4 py-2.5" style={{ background: "#ffffff", borderBottom: "1px solid #eee" }}>
               <div className="bg-gray-50 border border-gray-200 rounded-lg px-2.5 py-1 text-[11px] text-gray-500 font-medium flex items-center gap-1">
-                <img src="/lovable-uploads/logo-carat.png" alt="" className="w-3.5 h-3.5" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }} />
-                WPP
+                <img src="/lovable-uploads/wpp-logo.svg" alt="WPP" className="h-3 w-auto" />
               </div>
               <div className="bg-gray-50 border border-gray-200 rounded-lg px-2.5 py-1 text-[11px] text-gray-700 font-medium">Samsung</div>
               <Moon className="w-3.5 h-3.5 text-gray-400" />
