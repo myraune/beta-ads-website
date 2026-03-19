@@ -714,15 +714,12 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
         }
       `}</style>
 
-      {/* Full-size dashboard, scaled down with CSS transform */}
+      {/* Full-size dashboard, zoomed to fit container */}
       <div
         style={{
           width: DASH_W,
           height: DASH_H,
-          transform: `scale(${scale})`,
-          transformOrigin: "top left",
-          willChange: "transform",
-          backfaceVisibility: "hidden",
+          zoom: scale,
         }}
       >
         {/* App shell */}
