@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { BarChart, Bar, ResponsiveContainer, PieChart, Pie, Cell, YAxis, XAxis, Tooltip } from "recharts";
+import { BarChart, Bar, ResponsiveContainer, PieChart, Pie, Cell, YAxis } from "recharts";
 import {
   Home, Search, ListChecks, Users,
   Download, Plus, Calendar,
-  Moon, ChevronDown
+  Moon, ChevronDown, Mail, Trash2, UserPlus
 } from "lucide-react";
 
 // ── Data ──────────────────────────────────────────────
@@ -47,14 +47,14 @@ const tableStreamers = [
 ];
 
 // ═══════════════════════════════════════════════════════
-// FULL-SIZE SCREENS (designed at 1400×900, then scaled)
+// FULL-SIZE SCREENS (designed at 1080×910, then scaled)
 // ═══════════════════════════════════════════════════════
 
 const DashboardScreen: React.FC = () => (
-  <div className="flex-1 flex flex-col gap-4">
+  <div className="flex-1 flex flex-col gap-3">
     {/* Date range + New Campaign */}
     <div className="flex items-center justify-between">
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-3">
         <div>
           <div className="text-[#e94f37] text-xs font-medium mb-1">Start Date</div>
           <div className="border border-gray-200 rounded-md px-3 py-1.5 text-sm text-gray-800 bg-white">01/19/2026</div>
@@ -63,10 +63,10 @@ const DashboardScreen: React.FC = () => (
           <div className="text-[#e94f37] text-xs font-medium mb-1">End Date</div>
           <div className="border border-gray-200 rounded-md px-3 py-1.5 text-sm text-gray-800 bg-white">03/17/2026</div>
         </div>
-        <div className="border border-gray-200 rounded-md px-4 py-1.5 text-sm text-gray-800 font-medium bg-white mt-5 cursor-pointer hover:bg-gray-50">Apply</div>
+        <div className="border border-gray-200 rounded-md px-3 py-1.5 text-sm text-gray-800 font-medium bg-white mt-5">Apply</div>
       </div>
-      <div className="bg-[#e94f37] text-white rounded-lg px-4 py-2 text-sm font-medium flex items-center gap-2 cursor-pointer hover:bg-[#d4432d]">
-        <Plus className="w-4 h-4" /> New Campaign
+      <div className="bg-[#e94f37] text-white rounded-lg px-3 py-1.5 text-sm font-medium flex items-center gap-1.5">
+        <Plus className="w-3.5 h-3.5" /> New Campaign
       </div>
     </div>
 
@@ -81,10 +81,10 @@ const DashboardScreen: React.FC = () => (
           { label: "Exposure Time", value: "142.6 hrs" },
           { label: "Watch Time", value: "8,412 hrs" },
         ].map((s, i) => (
-          <div key={s.label} className={`px-5 py-3 ${i > 0 ? "border-l border-gray-100" : ""}`}>
-            <div className={`text-[11px] font-semibold uppercase tracking-wider ${s.red ? "text-[#e94f37]" : "text-gray-400"}`}>{s.label}</div>
-            <div className="text-xl font-bold text-gray-900 leading-tight mt-1">{s.value}</div>
-            {s.red && <div className="h-[2px] bg-[#e94f37] mt-1.5 w-full rounded-full" />}
+          <div key={s.label} className={`px-3 py-2.5 ${i > 0 ? "border-l border-gray-100" : ""}`}>
+            <div className={`text-[10px] font-semibold uppercase tracking-wider ${s.red ? "text-[#e94f37]" : "text-gray-400"}`}>{s.label}</div>
+            <div className="text-lg font-bold text-gray-900 leading-tight mt-0.5">{s.value}</div>
+            {s.red && <div className="h-[2px] bg-[#e94f37] mt-1 w-full rounded-full" />}
           </div>
         ))}
       </div>
@@ -94,63 +94,63 @@ const DashboardScreen: React.FC = () => (
     <div className="border border-gray-100 rounded-xl overflow-hidden bg-white shadow-sm">
       <div className="grid grid-cols-6">
         {[
-          { label: "Sponsored Streamers", value: "100" },
-          { label: "Sponsored Streams", value: "1,247" },
-          { label: "Total Followers", value: "2.1M" },
+          { label: "Streamers", value: "100" },
+          { label: "Streams", value: "1,247" },
+          { label: "Followers", value: "2.1M" },
           { label: "Categories", value: "63" },
-          { label: "Cost / Hr Watched", value: "€5.74" },
-          { label: "Brand Mentions", value: "24,319" },
+          { label: "Cost/Hr", value: "€5.74" },
+          { label: "Mentions", value: "24,319" },
         ].map((s, i) => (
-          <div key={s.label} className={`px-5 py-3 ${i > 0 ? "border-l border-gray-100" : ""}`}>
-            <div className="text-[11px] font-semibold uppercase tracking-wider text-gray-400">{s.label}</div>
-            <div className="text-xl font-bold text-gray-900 leading-tight mt-1">{s.value}</div>
+          <div key={s.label} className={`px-3 py-2.5 ${i > 0 ? "border-l border-gray-100" : ""}`}>
+            <div className="text-[10px] font-semibold uppercase tracking-wider text-gray-400">{s.label}</div>
+            <div className="text-lg font-bold text-gray-900 leading-tight mt-0.5">{s.value}</div>
           </div>
         ))}
       </div>
     </div>
 
     {/* Charts row */}
-    <div className="grid grid-cols-5 gap-4 flex-1 min-h-0">
+    <div className="grid grid-cols-5 gap-3 flex-1 min-h-0">
       {/* Bar chart */}
-      <div className="col-span-3 border border-gray-100 rounded-xl bg-white p-4 shadow-sm flex flex-col">
-        <div className="flex justify-between items-center mb-2">
+      <div className="col-span-3 border border-gray-100 rounded-xl bg-white p-3 shadow-sm flex flex-col">
+        <div className="flex justify-between items-center mb-1.5">
           <span className="text-sm font-semibold text-gray-700">Views Over Time</span>
-          <span className="text-xs text-gray-400 flex items-center gap-1 cursor-pointer hover:text-gray-600"><Download className="w-3.5 h-3.5" /> Export as .CSV</span>
+          <span className="text-xs text-gray-400 flex items-center gap-1"><Download className="w-3 h-3" /> Export</span>
         </div>
         <div className="flex-1 min-h-0">
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={barData} barSize={14} margin={{ left: 0, right: 4, top: 4, bottom: 0 }}>
-              <YAxis tick={{ fontSize: 11, fill: '#aaa' }} axisLine={false} tickLine={false} width={40} />
+            <BarChart data={barData} barSize={12} margin={{ left: 0, right: 4, top: 4, bottom: 0 }}>
+              <YAxis tick={{ fontSize: 10, fill: '#aaa' }} axisLine={false} tickLine={false} width={36} />
               <Bar dataKey="v" fill="#e94f37" radius={[3, 3, 0, 0]} opacity={0.85} />
             </BarChart>
           </ResponsiveContainer>
         </div>
-        <div className="flex justify-between mt-2 text-[10px] text-gray-400 pl-10">
-          <span>Jan 19</span><span>Jan 28</span><span>Feb 06</span><span>Feb 15</span><span>Feb 24</span><span>Mar 05</span><span>Mar 14</span>
+        <div className="flex justify-between mt-1 text-[9px] text-gray-400 pl-9">
+          <span>Jan 19</span><span>Jan 28</span><span>Feb 06</span><span>Feb 15</span><span>Feb 24</span><span>Mar 05</span>
         </div>
       </div>
 
       {/* Donut chart */}
-      <div className="col-span-2 border border-gray-100 rounded-xl bg-white p-4 shadow-sm flex flex-col">
-        <div className="flex gap-2 mb-3">
+      <div className="col-span-2 border border-gray-100 rounded-xl bg-white p-3 shadow-sm flex flex-col">
+        <div className="flex gap-1.5 mb-2">
           {["Streamers", "Campaigns", "Categories"].map((t, i) => (
-            <span key={t} className={`text-xs font-medium px-3 py-1 rounded-full cursor-pointer ${i === 0 ? "bg-[#e94f37]/10 text-[#e94f37] ring-1 ring-[#e94f37]/20" : "text-gray-400 hover:text-gray-600"}`}>{t}</span>
+            <span key={t} className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${i === 0 ? "bg-[#e94f37]/10 text-[#e94f37] ring-1 ring-[#e94f37]/20" : "text-gray-400"}`}>{t}</span>
           ))}
         </div>
-        <div className="flex items-center gap-4 flex-1 min-h-0">
-          <div className="space-y-1">
+        <div className="flex items-center gap-3 flex-1 min-h-0">
+          <div className="space-y-0.5">
             {donutData.map((d) => (
-              <div key={d.name} className="flex items-center gap-2">
-                <div className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: d.color }} />
-                <span className="text-xs text-gray-700">{d.name}</span>
+              <div key={d.name} className="flex items-center gap-1.5">
+                <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: d.color }} />
+                <span className="text-[10px] text-gray-700 leading-tight">{d.name}</span>
               </div>
             ))}
           </div>
           <div className="flex-1 flex items-center justify-center">
-            <div className="w-[160px] h-[160px]">
+            <div className="w-[140px] h-[140px]">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
-                  <Pie data={donutData} cx="50%" cy="50%" innerRadius={40} outerRadius={72} paddingAngle={1.5} dataKey="value" stroke="none">
+                  <Pie data={donutData} cx="50%" cy="50%" innerRadius={35} outerRadius={64} paddingAngle={1.5} dataKey="value" stroke="none">
                     {donutData.map((entry, i) => <Cell key={i} fill={entry.color} />)}
                   </Pie>
                 </PieChart>
@@ -163,53 +163,50 @@ const DashboardScreen: React.FC = () => (
 
     {/* Campaigns table */}
     <div className="border border-gray-100 rounded-xl bg-white overflow-hidden shadow-sm">
-      <div className="flex items-center gap-3 px-5 py-3 border-b border-gray-100">
+      <div className="flex items-center gap-2 px-3 py-2 border-b border-gray-100">
         {["Campaigns", "Categories", "Streamers"].map((t, i) => (
-          <span key={t} className={`text-xs font-medium px-3 py-1 rounded-full cursor-pointer ${i === 0 ? "bg-[#e94f37]/10 text-[#e94f37] ring-1 ring-[#e94f37]/20" : "text-gray-400 hover:text-gray-600"}`}>{t}</span>
+          <span key={t} className={`text-[10px] font-medium px-2 py-0.5 rounded-full ${i === 0 ? "bg-[#e94f37]/10 text-[#e94f37] ring-1 ring-[#e94f37]/20" : "text-gray-400"}`}>{t}</span>
         ))}
-        <div className="ml-auto text-xs text-gray-400 flex items-center gap-1 cursor-pointer hover:text-gray-600"><Download className="w-3.5 h-3.5" /> Export as .CSV</div>
+        <div className="ml-auto text-[10px] text-gray-400 flex items-center gap-1"><Download className="w-3 h-3" /> Export</div>
       </div>
       <table className="w-full">
         <thead>
           <tr className="border-b border-gray-100 bg-gray-50/50">
-            {["Campaign", "Status", "Start", "End", "Budget", "Views", "Clicks", "CTR", "Ad Spend"].map((h) => (
-              <th key={h} className="px-5 py-2.5 text-left text-[10px] uppercase tracking-wider text-gray-400 font-semibold whitespace-nowrap">{h}</th>
+            {["Campaign", "Status", "Start", "End", "Budget", "Views", "Clicks", "CTR"].map((h) => (
+              <th key={h} className="px-3 py-2 text-left text-[9px] uppercase tracking-wider text-gray-400 font-semibold whitespace-nowrap">{h}</th>
             ))}
           </tr>
         </thead>
         <tbody>
-          <tr className="border-b border-gray-50 hover:bg-gray-50/50">
-            <td className="px-5 py-3 text-sm font-semibold text-gray-900 whitespace-nowrap">Gokstad Akademiet</td>
-            <td className="px-5 py-3"><span className="text-[10px] bg-green-100 text-green-700 px-2.5 py-1 rounded-full font-semibold">Active</span></td>
-            <td className="px-5 py-3 text-sm text-gray-500">2026-01-19</td>
-            <td className="px-5 py-3 text-sm text-gray-500">2026-03-17</td>
-            <td className="px-5 py-3 text-sm text-gray-500">€ 48,320</td>
-            <td className="px-5 py-3 text-sm font-medium text-gray-900">1,312,847</td>
-            <td className="px-5 py-3 text-sm text-gray-500">15,754</td>
-            <td className="px-5 py-3 text-sm text-gray-500">1.20%</td>
-            <td className="px-5 py-3 text-sm text-gray-500">€ 48,320.50</td>
+          <tr className="border-b border-gray-50">
+            <td className="px-3 py-2 text-sm font-semibold text-gray-900 whitespace-nowrap">Gokstad Akademiet</td>
+            <td className="px-3 py-2"><span className="text-[9px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-semibold">Active</span></td>
+            <td className="px-3 py-2 text-xs text-gray-500">2026-01-19</td>
+            <td className="px-3 py-2 text-xs text-gray-500">2026-03-17</td>
+            <td className="px-3 py-2 text-xs text-gray-500">€48,320</td>
+            <td className="px-3 py-2 text-xs font-medium text-gray-900">1,312,847</td>
+            <td className="px-3 py-2 text-xs text-gray-500">15,754</td>
+            <td className="px-3 py-2 text-xs text-gray-500">1.20%</td>
           </tr>
-          <tr className="border-b border-gray-50 hover:bg-gray-50/50">
-            <td className="px-5 py-3 text-sm font-semibold text-gray-900 whitespace-nowrap">Foodora Spring</td>
-            <td className="px-5 py-3"><span className="text-[10px] bg-blue-100 text-blue-700 px-2.5 py-1 rounded-full font-semibold">Scheduled</span></td>
-            <td className="px-5 py-3 text-sm text-gray-500">2026-03-20</td>
-            <td className="px-5 py-3 text-sm text-gray-500">2026-04-20</td>
-            <td className="px-5 py-3 text-sm text-gray-500">€ 35,000</td>
-            <td className="px-5 py-3 text-sm text-gray-400">—</td>
-            <td className="px-5 py-3 text-sm text-gray-400">—</td>
-            <td className="px-5 py-3 text-sm text-gray-400">—</td>
-            <td className="px-5 py-3 text-sm text-gray-400">—</td>
+          <tr className="border-b border-gray-50">
+            <td className="px-3 py-2 text-sm font-semibold text-gray-900 whitespace-nowrap">Foodora Spring</td>
+            <td className="px-3 py-2"><span className="text-[9px] bg-blue-100 text-blue-700 px-2 py-0.5 rounded-full font-semibold">Scheduled</span></td>
+            <td className="px-3 py-2 text-xs text-gray-500">2026-03-20</td>
+            <td className="px-3 py-2 text-xs text-gray-500">2026-04-20</td>
+            <td className="px-3 py-2 text-xs text-gray-500">€35,000</td>
+            <td className="px-3 py-2 text-xs text-gray-400">—</td>
+            <td className="px-3 py-2 text-xs text-gray-400">—</td>
+            <td className="px-3 py-2 text-xs text-gray-400">—</td>
           </tr>
-          <tr className="hover:bg-gray-50/50">
-            <td className="px-5 py-3 text-sm font-semibold text-gray-900 whitespace-nowrap">Samsung S25 Ultra</td>
-            <td className="px-5 py-3"><span className="text-[10px] bg-gray-100 text-gray-500 px-2.5 py-1 rounded-full font-semibold">Past</span></td>
-            <td className="px-5 py-3 text-sm text-gray-500">2025-11-01</td>
-            <td className="px-5 py-3 text-sm text-gray-500">2025-12-15</td>
-            <td className="px-5 py-3 text-sm text-gray-500">€ 25,000</td>
-            <td className="px-5 py-3 text-sm font-medium text-gray-900">524,310</td>
-            <td className="px-5 py-3 text-sm text-gray-500">6,842</td>
-            <td className="px-5 py-3 text-sm text-gray-500">1.30%</td>
-            <td className="px-5 py-3 text-sm text-gray-500">€ 24,850.00</td>
+          <tr>
+            <td className="px-3 py-2 text-sm font-semibold text-gray-900 whitespace-nowrap">Samsung S25 Ultra</td>
+            <td className="px-3 py-2"><span className="text-[9px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-semibold">Past</span></td>
+            <td className="px-3 py-2 text-xs text-gray-500">2025-11-01</td>
+            <td className="px-3 py-2 text-xs text-gray-500">2025-12-15</td>
+            <td className="px-3 py-2 text-xs text-gray-500">€25,000</td>
+            <td className="px-3 py-2 text-xs font-medium text-gray-900">524,310</td>
+            <td className="px-3 py-2 text-xs text-gray-500">6,842</td>
+            <td className="px-3 py-2 text-xs text-gray-500">1.30%</td>
           </tr>
         </tbody>
       </table>
@@ -220,45 +217,45 @@ const DashboardScreen: React.FC = () => (
 // ── Screen: Streamer Explorer ─────────────────────────
 
 const StreamerExplorerScreen: React.FC = () => (
-  <div className="flex-1 flex flex-col gap-4">
+  <div className="flex-1 flex flex-col gap-3">
     {/* Top bar */}
-    <div className="flex items-center gap-3">
+    <div className="flex items-center gap-2">
       <span className="text-[#e94f37] text-sm font-semibold">Filter by</span>
-      <span className="text-xs text-gray-400 cursor-pointer hover:text-gray-600">✕ Clear</span>
-      <div className="flex-1 border border-gray-200 rounded-lg bg-white flex items-center gap-2 px-4 py-2">
-        <Search className="w-4 h-4 text-gray-300" />
+      <span className="text-xs text-gray-400">✕ Clear</span>
+      <div className="flex-1 border border-gray-200 rounded-lg bg-white flex items-center gap-2 px-3 py-1.5">
+        <Search className="w-3.5 h-3.5 text-gray-300" />
         <span className="text-sm text-gray-400">Search by name...</span>
       </div>
-      <div className="text-sm text-gray-500 flex items-center gap-1">Sort by: <span className="font-medium">Default</span> <ChevronDown className="w-3.5 h-3.5" /></div>
-      <div className="text-xs text-gray-500 flex items-center gap-1.5 border border-gray-200 rounded-lg px-3 py-2 bg-white cursor-pointer hover:bg-gray-50">
-        <Download className="w-3.5 h-3.5" /> Export as .CSV
+      <div className="text-xs text-gray-500 flex items-center gap-1">Sort: <span className="font-medium">Default</span> <ChevronDown className="w-3 h-3" /></div>
+      <div className="text-[10px] text-gray-500 flex items-center gap-1 border border-gray-200 rounded-lg px-2 py-1.5 bg-white">
+        <Download className="w-3 h-3" /> Export
       </div>
-      <div className="text-xs text-gray-500 border border-gray-200 rounded-lg px-3 py-2 bg-white cursor-pointer hover:bg-gray-50">+ Add All to List</div>
+      <div className="text-[10px] text-gray-500 border border-gray-200 rounded-lg px-2 py-1.5 bg-white">+ Add All</div>
     </div>
 
-    <div className="flex gap-4 flex-1 min-h-0">
+    <div className="flex gap-3 flex-1 min-h-0">
       {/* Sidebar filters */}
-      <div className="w-[140px] shrink-0 space-y-5 overflow-y-auto">
+      <div className="w-[130px] shrink-0 space-y-4 overflow-y-auto">
         <div>
-          <div className="text-xs font-semibold text-gray-700 mb-2">Stream Activity</div>
-          <label className="flex items-center gap-2 cursor-pointer"><div className="w-4 h-4 rounded bg-[#e94f37] flex items-center justify-center text-white text-[8px]">✓</div><span className="text-sm text-gray-600">Recently Active</span></label>
+          <div className="text-xs font-semibold text-gray-700 mb-1.5">Stream Activity</div>
+          <label className="flex items-center gap-1.5"><div className="w-3.5 h-3.5 rounded bg-[#e94f37] flex items-center justify-center text-white text-[7px]">✓</div><span className="text-xs text-gray-600">Recently Active</span></label>
         </div>
         <div>
-          <div className="text-xs font-semibold text-gray-700 mb-2">Platform</div>
+          <div className="text-xs font-semibold text-gray-700 mb-1.5">Platform</div>
           {["Twitch", "Kick", "YouTube", "Trovo"].map((p) => (
-            <label key={p} className="flex items-center gap-2 mb-1 cursor-pointer"><div className="w-4 h-4 rounded border border-gray-300" /><span className="text-sm text-gray-500">{p}</span></label>
+            <label key={p} className="flex items-center gap-1.5 mb-0.5"><div className="w-3.5 h-3.5 rounded border border-gray-300" /><span className="text-xs text-gray-500">{p}</span></label>
           ))}
         </div>
         <div>
-          <div className="text-xs font-semibold text-gray-700 mb-2">Languages</div>
+          <div className="text-xs font-semibold text-gray-700 mb-1.5">Languages</div>
           {["Arabic", "Chinese", "Czech", "Danish", "Dutch"].map((l) => (
-            <label key={l} className="flex items-center gap-2 mb-1 cursor-pointer"><div className="w-4 h-4 rounded border border-gray-300" /><span className="text-sm text-gray-500">{l}</span></label>
+            <label key={l} className="flex items-center gap-1.5 mb-0.5"><div className="w-3.5 h-3.5 rounded border border-gray-300" /><span className="text-xs text-gray-500">{l}</span></label>
           ))}
         </div>
         <div>
-          <div className="text-xs font-semibold text-gray-700 mb-2">Country</div>
+          <div className="text-xs font-semibold text-gray-700 mb-1.5">Country</div>
           {["🇳🇴 Norway", "🇸🇪 Sweden", "🇩🇰 Denmark"].map((c) => (
-            <label key={c} className="flex items-center gap-2 mb-1 cursor-pointer"><div className="w-4 h-4 rounded border border-gray-300" /><span className="text-sm text-gray-500">{c}</span></label>
+            <label key={c} className="flex items-center gap-1.5 mb-0.5"><div className="w-3.5 h-3.5 rounded border border-gray-300" /><span className="text-xs text-gray-500">{c}</span></label>
           ))}
         </div>
       </div>
@@ -269,31 +266,31 @@ const StreamerExplorerScreen: React.FC = () => (
           <thead>
             <tr className="border-b border-gray-200 bg-gray-50/50">
               {["Streamer", "Platform", "Country", "Language", "Gender", "Safety", "Engage.", "Followers"].map((h) => (
-                <th key={h} className="px-4 py-2.5 text-left text-[10px] uppercase tracking-wider text-gray-400 font-semibold whitespace-nowrap">{h}</th>
+                <th key={h} className="px-3 py-2 text-left text-[9px] uppercase tracking-wider text-gray-400 font-semibold whitespace-nowrap">{h}</th>
               ))}
             </tr>
           </thead>
           <tbody>
             {tableStreamers.map((s) => (
-              <tr key={s.name} className="border-b border-gray-50 hover:bg-gray-50/50">
-                <td className="px-4 py-2.5 whitespace-nowrap">
-                  <div className="flex items-center gap-2.5">
-                    <div className={`w-7 h-7 rounded-full ${s.color} flex items-center justify-center text-white text-[9px] font-bold shrink-0`}>{s.avatar}</div>
-                    <span className="text-sm font-medium text-gray-900">{s.name}</span>
+              <tr key={s.name} className="border-b border-gray-50">
+                <td className="px-3 py-2 whitespace-nowrap">
+                  <div className="flex items-center gap-2">
+                    <div className={`w-6 h-6 rounded-full ${s.color} flex items-center justify-center text-white text-[8px] font-bold shrink-0`}>{s.avatar}</div>
+                    <span className="text-xs font-medium text-gray-900">{s.name}</span>
                   </div>
                 </td>
-                <td className="px-4 py-2.5"><div className="flex items-center gap-1.5"><div className="w-3 h-3 rounded" style={{ backgroundColor: s.platformColor }} /><span className="text-sm text-gray-600">{s.platform}</span></div></td>
-                <td className="px-4 py-2.5 text-sm text-gray-600 whitespace-nowrap">{s.country}</td>
-                <td className="px-4 py-2.5 text-sm text-gray-600 whitespace-nowrap">{s.lang}</td>
-                <td className="px-4 py-2.5 text-sm text-gray-600">{s.gender}</td>
-                <td className="px-4 py-2.5"><span className="text-xs bg-gray-100 text-gray-700 px-2 py-1 rounded-full font-medium">{s.safety}</span></td>
-                <td className="px-4 py-2.5 text-sm text-gray-600">{s.engagement}</td>
-                <td className="px-4 py-2.5 text-sm text-gray-700 font-medium">{s.followers}</td>
+                <td className="px-3 py-2"><div className="flex items-center gap-1"><div className="w-2.5 h-2.5 rounded" style={{ backgroundColor: s.platformColor }} /><span className="text-xs text-gray-600">{s.platform}</span></div></td>
+                <td className="px-3 py-2 text-xs text-gray-600 whitespace-nowrap">{s.country}</td>
+                <td className="px-3 py-2 text-xs text-gray-600 whitespace-nowrap">{s.lang}</td>
+                <td className="px-3 py-2 text-xs text-gray-600">{s.gender}</td>
+                <td className="px-3 py-2"><span className="text-[10px] bg-gray-100 text-gray-700 px-1.5 py-0.5 rounded-full font-medium">{s.safety}</span></td>
+                <td className="px-3 py-2 text-xs text-gray-600">{s.engagement}</td>
+                <td className="px-3 py-2 text-xs text-gray-700 font-medium">{s.followers}</td>
               </tr>
             ))}
           </tbody>
         </table>
-        <div className="text-right text-xs text-gray-400 py-2 pr-4">Showing 1–50 of 39,480 streamers</div>
+        <div className="text-right text-[10px] text-gray-400 py-1.5 pr-3">Showing 1–50 of 39,480 streamers</div>
       </div>
     </div>
   </div>
@@ -302,15 +299,15 @@ const StreamerExplorerScreen: React.FC = () => (
 // ── Screen: My Streamer Lists ─────────────────────────
 
 const StreamerListsScreen: React.FC = () => (
-  <div className="flex-1 flex flex-col gap-6">
+  <div className="flex-1 flex flex-col gap-5">
     <div className="flex items-center justify-between">
       <span className="text-[#e94f37] text-xl font-bold">My Streamer Lists</span>
-      <div className="bg-[#e94f37] text-white rounded-lg px-5 py-2.5 text-sm font-medium flex items-center gap-2 cursor-pointer hover:bg-[#d4432d]">
+      <div className="bg-[#e94f37] text-white rounded-lg px-4 py-2 text-sm font-medium flex items-center gap-2">
         <Plus className="w-4 h-4" /> Create a New List
       </div>
     </div>
 
-    <div className="grid grid-cols-2 gap-5">
+    <div className="grid grid-cols-2 gap-4">
       {[
         { name: "Favorite Streamers", count: 5, date: "06/01/2026", by: "LIVAD Technologies", avatars: [
           { i: "DA", c: "bg-purple-500" }, { i: "LS", c: "bg-blue-500" }, { i: "VT", c: "bg-green-500" }, { i: "CA", c: "bg-pink-500" }, { i: "+2", c: "bg-[#e94f37]/20", text: true },
@@ -319,28 +316,28 @@ const StreamerListsScreen: React.FC = () => (
           { i: "KB", c: "bg-emerald-500" },
         ]},
       ].map((list) => (
-        <div key={list.name} className="bg-white border border-gray-100 rounded-2xl p-6 hover:shadow-md transition-shadow cursor-pointer">
-          <div className="text-base font-semibold text-gray-800 mb-4">{list.name}</div>
-          <div className="flex -space-x-2 mb-4">
+        <div key={list.name} className="bg-white border border-gray-100 rounded-2xl p-5">
+          <div className="text-sm font-semibold text-gray-800 mb-3">{list.name}</div>
+          <div className="flex -space-x-2 mb-3">
             {list.avatars.map((av, j) => (
-              <div key={j} className={`rounded-full ${av.c} border-[2.5px] border-white flex items-center justify-center text-xs font-bold shadow-sm ${av.text ? 'text-[#e94f37]' : 'text-white'}`} style={{ width: 40, height: 40 }}>
+              <div key={j} className={`rounded-full ${av.c} border-2 border-white flex items-center justify-center text-[10px] font-bold shadow-sm ${av.text ? 'text-[#e94f37]' : 'text-white'}`} style={{ width: 36, height: 36 }}>
                 {av.i}
               </div>
             ))}
           </div>
-          <div className="space-y-1.5 text-sm text-gray-400">
-            <div className="flex items-center gap-2"><Calendar className="w-4 h-4" /> Created: {list.date}</div>
-            <div className="flex items-center gap-2"><Users className="w-4 h-4" /> By: {list.by}</div>
+          <div className="space-y-1 text-xs text-gray-400">
+            <div className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" /> Created: {list.date}</div>
+            <div className="flex items-center gap-1.5"><Users className="w-3.5 h-3.5" /> By: {list.by}</div>
           </div>
         </div>
       ))}
     </div>
 
     {/* Recent Activity */}
-    <div className="flex-1 flex flex-col gap-3">
-      <div className="text-sm font-semibold text-gray-500 uppercase tracking-wider">Recent Activity</div>
-      <div className="bg-white border border-gray-100 rounded-2xl p-6 flex-1 shadow-sm">
-        <div className="space-y-4">
+    <div className="flex-1 flex flex-col gap-2">
+      <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider">Recent Activity</div>
+      <div className="bg-white border border-gray-100 rounded-2xl p-5 flex-1 shadow-sm">
+        <div className="space-y-3">
           {[
             { action: "Added Danniz to", list: "Favorite Streamers", time: "2 hours ago" },
             { action: "Created list", list: "My Streamer List", time: "1 day ago" },
@@ -348,13 +345,86 @@ const StreamerListsScreen: React.FC = () => (
             { action: "Removed FjOlsenFN from", list: "Favorite Streamers", time: "3 days ago" },
             { action: "Added LaSanias to", list: "Favorite Streamers", time: "5 days ago" },
           ].map((activity, i) => (
-            <div key={i} className="flex items-center gap-3 text-sm">
-              <div className="w-2 h-2 rounded-full bg-[#e94f37]/40 shrink-0" />
+            <div key={i} className="flex items-center gap-2.5 text-xs">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#e94f37]/40 shrink-0" />
               <span className="text-gray-600">{activity.action} <span className="font-semibold text-gray-800">{activity.list}</span></span>
-              <span className="text-gray-400 ml-auto text-xs">{activity.time}</span>
+              <span className="text-gray-400 ml-auto text-[10px]">{activity.time}</span>
             </div>
           ))}
         </div>
+      </div>
+    </div>
+  </div>
+);
+
+// ── Screen: Users ─────────────────────────────────────
+
+const UsersScreen: React.FC = () => (
+  <div className="flex-1 flex flex-col gap-5">
+    <div>
+      <div className="text-xl font-bold text-gray-900">Gokstad Akademiet Team</div>
+      <div className="text-sm text-gray-500 mt-1">Invite or manage your organization's users</div>
+    </div>
+
+    <div className="flex items-center justify-end">
+      <div className="bg-[#e94f37] text-white rounded-lg px-4 py-2 text-sm font-medium flex items-center gap-2">
+        <UserPlus className="w-4 h-4" /> Invite Member
+      </div>
+    </div>
+
+    <div className="border border-gray-100 rounded-xl bg-white overflow-hidden shadow-sm">
+      <table className="w-full">
+        <thead>
+          <tr className="border-b border-gray-100 bg-gray-50/50">
+            {["User", "Email", "Role", "Status", ""].map((h, i) => (
+              <th key={i} className="px-4 py-2.5 text-left text-[10px] uppercase tracking-wider text-gray-400 font-semibold">{h}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {[
+            { name: "Andreas Myraune", initials: "AM", email: "andreas@beta-ads.no", role: "Owner", roleColor: "bg-amber-100 text-amber-700", status: "Active", statusColor: "bg-green-100 text-green-700", canDelete: false },
+            { name: "Karoline Berggren", initials: "KB", email: "karoline@allegro.no", role: "Viewer", roleColor: "bg-gray-100 text-gray-600", status: "Active", statusColor: "bg-green-100 text-green-700", canDelete: true },
+            { name: "Sofia Lindqvist", initials: "SL", email: "sofia@beta-ads.no", role: "Admin", roleColor: "bg-blue-100 text-blue-700", status: "Active", statusColor: "bg-green-100 text-green-700", canDelete: true },
+            { name: "Alf Johansen", initials: "AJ", email: "alf@allegro.no", role: "Viewer", roleColor: "bg-gray-100 text-gray-600", status: "Invited", statusColor: "bg-yellow-100 text-yellow-700", canDelete: true },
+          ].map((user) => (
+            <tr key={user.email} className="border-b border-gray-50">
+              <td className="px-4 py-3 whitespace-nowrap">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#e94f37] to-[#d4432d] flex items-center justify-center text-white text-[10px] font-bold shrink-0">{user.initials}</div>
+                  <span className="text-sm font-medium text-gray-900">{user.name}</span>
+                </div>
+              </td>
+              <td className="px-4 py-3 text-sm text-gray-500">{user.email}</td>
+              <td className="px-4 py-3">
+                <span className={`text-[10px] ${user.roleColor} px-2.5 py-1 rounded-full font-semibold flex items-center gap-1 w-fit`}>
+                  {user.role} {user.role !== "Owner" && <ChevronDown className="w-2.5 h-2.5" />}
+                </span>
+              </td>
+              <td className="px-4 py-3">
+                <span className={`text-[10px] ${user.statusColor} px-2.5 py-1 rounded-full font-semibold`}>{user.status}</span>
+              </td>
+              <td className="px-4 py-3">
+                {user.canDelete && <Trash2 className="w-4 h-4 text-gray-300" />}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    {/* Pending invitations */}
+    <div className="bg-white border border-gray-100 rounded-xl p-5 shadow-sm">
+      <div className="text-sm font-semibold text-gray-700 mb-3">Invite via Email</div>
+      <div className="flex gap-3">
+        <div className="flex-1 border border-gray-200 rounded-lg bg-white flex items-center gap-2 px-3 py-2">
+          <Mail className="w-4 h-4 text-gray-300" />
+          <span className="text-sm text-gray-400">Enter email address...</span>
+        </div>
+        <div className="border border-gray-200 rounded-lg px-3 py-2 text-sm text-gray-500 flex items-center gap-1">
+          Viewer <ChevronDown className="w-3 h-3" />
+        </div>
+        <div className="bg-[#e94f37] text-white rounded-lg px-4 py-2 text-sm font-medium">Send Invite</div>
       </div>
     </div>
   </div>
@@ -369,15 +439,17 @@ interface LiveDashboardProps {
   compact?: boolean;
 }
 
-const screens = [
+const NAV_SCREENS = [
   { label: "Dashboard", icon: Home },
   { label: "Streamer Explorer", icon: Search },
   { label: "My Streamer Lists", icon: ListChecks },
+  { label: "Users", icon: Users },
 ];
 
-// Full-size dashboard dimensions
 const DASH_W = 1080;
 const DASH_H = 910;
+const AUTOPLAY_DURATIONS = [8000, 6000, 5000, 5000];
+const AUTOPLAY_RESUME_DELAY = 12000;
 
 export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", compact = false }) => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.05 });
@@ -385,11 +457,20 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
   const [activeScreen, setActiveScreen] = useState(0);
   const [scale, setScale] = useState(0.5);
 
+  const userInteracted = useRef(false);
+  const lastInteraction = useRef(0);
+  const autoplayTimeout = useRef<ReturnType<typeof setTimeout>>();
+
   const effectiveVisible = compact ? true : isVisible;
 
-  // Dynamic scale: use Math.max to fill both width AND height
-  // The overflow:hidden on the container clips any excess (bottom rows)
-  // This ensures NO gaps on any screen size
+  // Click handler for sidebar navigation
+  const handleScreenChange = useCallback((index: number) => {
+    setActiveScreen(index);
+    userInteracted.current = true;
+    lastInteraction.current = Date.now();
+  }, []);
+
+  // Dynamic scale via ResizeObserver
   useEffect(() => {
     if (!containerRef.current) return;
     const el = containerRef.current;
@@ -408,36 +489,45 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
     return () => ro.disconnect();
   }, []);
 
-  // Autoplay: simple chained timeouts, always starts at Dashboard
+  // Smart autoplay: pauses on user interaction, resumes after idle
   useEffect(() => {
     if (!effectiveVisible) return;
 
-    const DURATIONS = [8000, 6000, 5000];
-    let timeoutId: ReturnType<typeof setTimeout>;
     let cancelled = false;
 
     const cycle = (screenIndex: number) => {
       if (cancelled) return;
+
+      // If user recently interacted, check idle time
+      if (userInteracted.current) {
+        const idle = Date.now() - lastInteraction.current;
+        if (idle < AUTOPLAY_RESUME_DELAY) {
+          // Check again in 2 seconds
+          autoplayTimeout.current = setTimeout(() => cycle(screenIndex), 2000);
+          return;
+        }
+        // Idle long enough, resume autoplay from current screen
+        userInteracted.current = false;
+      }
+
       setActiveScreen(screenIndex);
-      timeoutId = setTimeout(() => {
-        cycle((screenIndex + 1) % 3);
-      }, DURATIONS[screenIndex]);
+      autoplayTimeout.current = setTimeout(() => {
+        cycle((screenIndex + 1) % NAV_SCREENS.length);
+      }, AUTOPLAY_DURATIONS[screenIndex]);
     };
 
-    // Start from Dashboard after a short delay to beat strict mode
-    timeoutId = setTimeout(() => cycle(0), 100);
+    autoplayTimeout.current = setTimeout(() => cycle(0), 100);
 
     return () => {
       cancelled = true;
-      clearTimeout(timeoutId);
+      if (autoplayTimeout.current) clearTimeout(autoplayTimeout.current);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Mount only
+  }, []);
 
   return (
     <div
       ref={(el) => {
-        // Merge refs
         (ref as React.MutableRefObject<HTMLDivElement | null>).current = el;
         (containerRef as React.MutableRefObject<HTMLDivElement | null>).current = el;
       }}
@@ -452,7 +542,6 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
 
       {/* Full-size dashboard, scaled down with CSS transform */}
       <div
-        className="pointer-events-none"
         style={{
           width: DASH_W,
           height: DASH_H,
@@ -465,60 +554,58 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
         {/* App shell */}
         <div className="flex h-full w-full overflow-hidden" style={{ background: "#f8f8f8" }}>
 
-          {/* Sidebar */}
-          <div className="w-[170px] shrink-0 py-5 px-3 flex flex-col gap-1" style={{ background: "#ffffff", borderRight: "1px solid #eee" }}>
-            <div className="px-2 mb-6">
+          {/* Sidebar — interactive */}
+          <div className="w-[160px] shrink-0 py-4 px-2.5 flex flex-col gap-0.5 pointer-events-auto" style={{ background: "#ffffff", borderRight: "1px solid #eee" }}>
+            <div className="px-2 mb-5">
               <img
                 src="/lovable-uploads/logo-color.png"
                 alt="Beta Ads"
-                className="h-6 w-auto"
+                className="h-5 w-auto"
               />
             </div>
 
-            {screens.map((screen, i) => (
+            {NAV_SCREENS.map((screen, i) => (
               <div
                 key={screen.label}
-                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-500 ${
+                onClick={() => handleScreenChange(i)}
+                className={`flex items-center gap-2.5 px-2.5 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer select-none ${
                   activeScreen === i
                     ? 'bg-[#e94f37]/10 text-[#e94f37]'
-                    : 'text-gray-400'
+                    : 'text-gray-400 hover:text-gray-600 hover:bg-gray-50'
                 }`}
               >
-                <screen.icon className={`w-4.5 h-4.5 shrink-0 ${activeScreen === i ? 'text-[#e94f37]' : ''}`} />
-                <span className="whitespace-nowrap">{screen.label}</span>
+                <screen.icon className={`w-4 h-4 shrink-0 ${activeScreen === i ? 'text-[#e94f37]' : ''}`} />
+                <span className="whitespace-nowrap text-[13px]">{screen.label}</span>
               </div>
             ))}
-            <div className="flex items-center gap-3 px-3 py-2.5 text-sm text-gray-400">
-              <Users className="w-4.5 h-4.5 shrink-0" />
-              <span>Users</span>
-            </div>
 
             {/* Sidebar bottom */}
-            <div className="mt-auto pt-4 border-t border-gray-100">
-              <div className="text-xs text-gray-400 px-3">Beta for Business</div>
-              <div className="text-[10px] text-gray-300 px-3 mt-1">v2.4.1</div>
+            <div className="mt-auto pt-3 border-t border-gray-100">
+              <div className="text-[10px] text-gray-400 px-2.5">Beta for Business</div>
+              <div className="text-[9px] text-gray-300 px-2.5 mt-0.5">v2.4.1</div>
             </div>
           </div>
 
-          {/* Main area */}
-          <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
+          {/* Main area — non-interactive content */}
+          <div className="flex-1 flex flex-col min-w-0 overflow-hidden pointer-events-none">
             {/* Top bar */}
-            <div className="flex items-center justify-end gap-3 px-6 py-3" style={{ background: "#ffffff", borderBottom: "1px solid #eee" }}>
-              <div className="bg-gray-50 border border-gray-200 rounded-lg px-3 py-1.5 text-xs text-gray-500 font-medium flex items-center gap-1.5">
-                <img src="/lovable-uploads/logo-carat.png" alt="" className="w-4 h-4" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }} />
+            <div className="flex items-center justify-end gap-2.5 px-4 py-2.5" style={{ background: "#ffffff", borderBottom: "1px solid #eee" }}>
+              <div className="bg-gray-50 border border-gray-200 rounded-lg px-2.5 py-1 text-[11px] text-gray-500 font-medium flex items-center gap-1">
+                <img src="/lovable-uploads/logo-carat.png" alt="" className="w-3.5 h-3.5" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none' }} />
                 Beta
               </div>
-              <div className="bg-gray-50 border border-gray-200 rounded-lg px-3 py-1.5 text-xs text-gray-700 font-medium">Gokstad Akademiet</div>
-              <Moon className="w-4 h-4 text-gray-400" />
-              <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[#e94f37] to-[#d4432d] flex items-center justify-center text-white text-[10px] font-bold">AM</div>
+              <div className="bg-gray-50 border border-gray-200 rounded-lg px-2.5 py-1 text-[11px] text-gray-700 font-medium">Gokstad Akademiet</div>
+              <Moon className="w-3.5 h-3.5 text-gray-400" />
+              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-[#e94f37] to-[#d4432d] flex items-center justify-center text-white text-[9px] font-bold">AM</div>
             </div>
 
             {/* Content area */}
-            <div className="flex-1 p-5 overflow-hidden flex flex-col" style={{ background: "#f8f8f8" }}>
+            <div className="flex-1 p-4 overflow-hidden flex flex-col" style={{ background: "#f8f8f8" }}>
               <div key={activeScreen} className="flex-1 flex flex-col" style={{ animation: 'dashScreenIn 0.5s ease-out' }}>
                 {activeScreen === 0 && <DashboardScreen />}
                 {activeScreen === 1 && <StreamerExplorerScreen />}
                 {activeScreen === 2 && <StreamerListsScreen />}
+                {activeScreen === 3 && <UsersScreen />}
               </div>
             </div>
           </div>
