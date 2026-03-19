@@ -48,11 +48,16 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
                 </span>
               </div>
 
-              {/* Full Logo */}
+              {/* Full Logo — switches for light/dark mode */}
+              <img
+                src="/lovable-uploads/logo-black.png"
+                alt="Beta Ads"
+                className="h-8 lg:h-10 w-auto mb-8 dark:hidden block"
+              />
               <img
                 src="/lovable-uploads/logo-white.png"
                 alt="Beta Ads"
-                className="h-8 lg:h-10 w-auto mb-8"
+                className="h-8 lg:h-10 w-auto mb-8 dark:block hidden"
               />
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight tracking-tight text-foreground mb-6 max-w-2xl">

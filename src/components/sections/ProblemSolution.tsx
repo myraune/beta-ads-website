@@ -7,7 +7,7 @@ export const ProblemSolution: React.FC = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-24 lg:py-32">
+    <section className="py-16 lg:py-24">
       <div 
         ref={sectionRef}
         className={`max-w-[1200px] mx-auto px-6 lg:px-12 transition-[opacity,transform] duration-700 ${
