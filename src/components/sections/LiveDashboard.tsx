@@ -4,7 +4,8 @@ import { BarChart, Bar, ResponsiveContainer, PieChart, Pie, Cell, YAxis } from "
 import {
   Home, Search, ListChecks, Users,
   Download, Plus, Calendar,
-  Moon, ChevronDown, Mail, Trash2, UserPlus
+  Moon, ChevronDown, Mail, Trash2, UserPlus,
+  ArrowLeft, Heart, Monitor, Smartphone, Shield, Zap
 } from "lucide-react";
 
 // ── Data ──────────────────────────────────────────────
@@ -32,18 +33,18 @@ const donutData = [
 ];
 
 const tableStreamers = [
-  { name: "Danniz", avatar: "DA", color: "bg-purple-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "12.4K", engagement: "Good", safety: "8.7" },
-  { name: "LaSanias", avatar: "LS", color: "bg-blue-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "8.7K", engagement: "Average", safety: "5.4" },
-  { name: "VettisTV", avatar: "VT", color: "bg-green-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "5.2K", engagement: "Good", safety: "7.7" },
-  { name: "Caisphere", avatar: "CA", color: "bg-pink-500", platform: "Kick", platformColor: "#53fc18", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♀ Female", followers: "3.8K", engagement: "Excellent", safety: "8.3" },
-  { name: "ForsteGir", avatar: "FG", color: "bg-amber-500", platform: "Kick", platformColor: "#53fc18", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "6.1K", engagement: "Average", safety: "4.6" },
-  { name: "FjOlsenFN", avatar: "FO", color: "bg-red-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "4.5K", engagement: "Average", safety: "4.1" },
-  { name: "karbells", avatar: "KB", color: "bg-emerald-500", platform: "Kick", platformColor: "#53fc18", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♀ Female", followers: "7.3K", engagement: "Good", safety: "7.3" },
-  { name: "Simontops", avatar: "SI", color: "bg-orange-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "3.1K", engagement: "Average", safety: "6.2" },
-  { name: "GOOTHAROLD", avatar: "GH", color: "bg-indigo-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "9.8K", engagement: "Good", safety: "8.1" },
-  { name: "hanne1", avatar: "HA", color: "bg-rose-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♀ Female", followers: "2.4K", engagement: "Excellent", safety: "9.2" },
-  { name: "iHenski", avatar: "IH", color: "bg-teal-500", platform: "Kick", platformColor: "#53fc18", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "5.6K", engagement: "Average", safety: "5.8" },
-  { name: "RubenGKS", avatar: "RG", color: "bg-lime-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "11.2K", engagement: "Good", safety: "7.9" },
+  { name: "Danniz", avatar: "DA", color: "bg-purple-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "12.4K", engagement: "Good", safety: "8.7", age: 27, avgViewers: 245, airTime: "112.4", watchTime: "27.8K", engScore: 7.2, safetyScore: 8.7, brandMention: 7.8, categories: ["Just Chatting", "Fortnite", "Minecraft"], interests: ["Gaming", "Music", "Travel"], audienceGender: [82, 15, 3], audienceAge: [30, 35, 20, 5, 10], desktop: 85, mobile: 15 },
+  { name: "LaSanias", avatar: "LS", color: "bg-blue-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "8.7K", engagement: "Average", safety: "5.4", age: 24, avgViewers: 134, airTime: "89.2", watchTime: "11.9K", engScore: 5.1, safetyScore: 5.4, brandMention: 6.2, categories: ["GTA V", "Valorant", "Just Chatting"], interests: ["Cars", "Fashion", "Music"], audienceGender: [78, 19, 3], audienceAge: [40, 30, 15, 8, 7], desktop: 78, mobile: 22 },
+  { name: "VettisTV", avatar: "VT", color: "bg-green-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "5.2K", engagement: "Good", safety: "7.7", age: 29, avgViewers: 98, airTime: "67.1", watchTime: "6.6K", engScore: 6.5, safetyScore: 7.7, brandMention: 7.1, categories: ["Minecraft", "Pokémon", "IRL"], interests: ["Outdoor", "Tech", "Cooking"], audienceGender: [75, 22, 3], audienceAge: [25, 35, 25, 5, 10], desktop: 88, mobile: 12 },
+  { name: "Caisphere", avatar: "CA", color: "bg-pink-500", platform: "Kick", platformColor: "#53fc18", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♀ Female", followers: "3.8K", engagement: "Excellent", safety: "8.3", age: 22, avgViewers: 76, airTime: "45.3", watchTime: "3.4K", engScore: 8.2, safetyScore: 8.3, brandMention: 8.9, categories: ["Just Chatting", "Art", "ASMR"], interests: ["Art", "Fashion", "Wellness"], audienceGender: [55, 42, 3], audienceAge: [35, 30, 20, 10, 5], desktop: 65, mobile: 35 },
+  { name: "ForsteGir", avatar: "FG", color: "bg-amber-500", platform: "Kick", platformColor: "#53fc18", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "6.1K", engagement: "Average", safety: "4.6", age: 31, avgViewers: 101, airTime: "63.6", watchTime: "6.4K", engScore: 4.2, safetyScore: 5.2, brandMention: 8.1, categories: ["Minecraft", "Pokémon TCG", "Just Chatting"], interests: ["Food", "Movies", "Tech"], audienceGender: [88, 10, 2], audienceAge: [25, 45, 20, 3, 7], desktop: 92, mobile: 8 },
+  { name: "FjOlsenFN", avatar: "FO", color: "bg-red-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "4.5K", engagement: "Average", safety: "4.1", age: 19, avgViewers: 55, airTime: "38.7", watchTime: "2.1K", engScore: 4.8, safetyScore: 4.1, brandMention: 5.5, categories: ["Fortnite", "Call of Duty", "Apex"], interests: ["Gaming", "Sneakers", "Music"], audienceGender: [90, 8, 2], audienceAge: [45, 35, 12, 5, 3], desktop: 70, mobile: 30 },
+  { name: "karbells", avatar: "KB", color: "bg-emerald-500", platform: "Kick", platformColor: "#53fc18", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♀ Female", followers: "7.3K", engagement: "Good", safety: "7.3", age: 26, avgViewers: 142, airTime: "78.9", watchTime: "11.2K", engScore: 6.8, safetyScore: 7.3, brandMention: 7.6, categories: ["Just Chatting", "Sims 4", "Stardew Valley"], interests: ["Interior Design", "Cooking", "Fitness"], audienceGender: [48, 49, 3], audienceAge: [30, 35, 20, 8, 7], desktop: 72, mobile: 28 },
+  { name: "Simontops", avatar: "SI", color: "bg-orange-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "3.1K", engagement: "Average", safety: "6.2", age: 23, avgViewers: 42, airTime: "31.5", watchTime: "1.3K", engScore: 5.5, safetyScore: 6.2, brandMention: 6.0, categories: ["League of Legends", "Valorant"], interests: ["Esports", "Anime", "Tech"], audienceGender: [85, 12, 3], audienceAge: [40, 35, 15, 5, 5], desktop: 90, mobile: 10 },
+  { name: "GOOTHAROLD", avatar: "GH", color: "bg-indigo-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "9.8K", engagement: "Good", safety: "8.1", age: 28, avgViewers: 198, airTime: "95.2", watchTime: "18.9K", engScore: 7.1, safetyScore: 8.1, brandMention: 8.3, categories: ["Just Chatting", "IRL", "Minecraft"], interests: ["Travel", "Music", "Food"], audienceGender: [72, 25, 3], audienceAge: [28, 32, 25, 7, 8], desktop: 80, mobile: 20 },
+  { name: "hanne1", avatar: "HA", color: "bg-rose-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♀ Female", followers: "2.4K", engagement: "Excellent", safety: "9.2", age: 25, avgViewers: 38, airTime: "22.1", watchTime: "0.8K", engScore: 8.8, safetyScore: 9.2, brandMention: 9.1, categories: ["Art", "Just Chatting", "Music"], interests: ["Art", "Sustainability", "Books"], audienceGender: [40, 56, 4], audienceAge: [25, 30, 25, 10, 10], desktop: 60, mobile: 40 },
+  { name: "iHenski", avatar: "IH", color: "bg-teal-500", platform: "Kick", platformColor: "#53fc18", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "5.6K", engagement: "Average", safety: "5.8", age: 20, avgViewers: 87, airTime: "52.3", watchTime: "4.5K", engScore: 5.3, safetyScore: 5.8, brandMention: 6.4, categories: ["GTA V", "FIFA", "Just Chatting"], interests: ["Football", "Cars", "Fashion"], audienceGender: [82, 15, 3], audienceAge: [42, 32, 15, 6, 5], desktop: 75, mobile: 25 },
+  { name: "RubenGKS", avatar: "RG", color: "bg-lime-500", platform: "Twitch", platformColor: "#9146ff", country: "🇳🇴 Norway", lang: "🇳🇴 Norwegian", gender: "♂ Male", followers: "11.2K", engagement: "Good", safety: "7.9", age: 26, avgViewers: 210, airTime: "104.7", watchTime: "22.0K", engScore: 6.9, safetyScore: 7.9, brandMention: 7.5, categories: ["Fortnite", "Minecraft", "Just Chatting"], interests: ["Gaming", "Music", "Fitness"], audienceGender: [80, 17, 3], audienceAge: [35, 30, 20, 8, 7], desktop: 82, mobile: 18 },
 ];
 
 // ═══════════════════════════════════════════════════════
@@ -216,7 +217,7 @@ const DashboardScreen: React.FC = () => (
 
 // ── Screen: Streamer Explorer ─────────────────────────
 
-const StreamerExplorerScreen: React.FC = () => (
+const StreamerExplorerScreen: React.FC<{ onSelectStreamer?: (s: typeof tableStreamers[0]) => void }> = ({ onSelectStreamer }) => (
   <div className="flex-1 flex flex-col gap-3">
     {/* Top bar */}
     <div className="flex items-center gap-2">
@@ -274,9 +275,9 @@ const StreamerExplorerScreen: React.FC = () => (
             {tableStreamers.map((s) => (
               <tr key={s.name} className="border-b border-gray-50">
                 <td className="px-3 py-2 whitespace-nowrap">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-2 pointer-events-auto cursor-pointer" onClick={() => onSelectStreamer?.(s)}>
                     <div className={`w-6 h-6 rounded-full ${s.color} flex items-center justify-center text-white text-[8px] font-bold shrink-0`}>{s.avatar}</div>
-                    <span className="text-xs font-medium text-gray-900">{s.name}</span>
+                    <span className="text-xs font-medium text-gray-900 hover:text-[#e94f37] transition-colors">{s.name}</span>
                   </div>
                 </td>
                 <td className="px-3 py-2"><div className="flex items-center gap-1"><div className="w-2.5 h-2.5 rounded" style={{ backgroundColor: s.platformColor }} /><span className="text-xs text-gray-600">{s.platform}</span></div></td>
@@ -295,6 +296,184 @@ const StreamerExplorerScreen: React.FC = () => (
     </div>
   </div>
 );
+
+// ── Screen: Streamer Profile ──────────────────────────
+
+const MiniDonut: React.FC<{ data: { value: number; color: string }[]; size?: number }> = ({ data, size = 60 }) => (
+  <div style={{ width: size, height: size }}>
+    <ResponsiveContainer width="100%" height="100%">
+      <PieChart>
+        <Pie data={data} cx="50%" cy="50%" innerRadius={size * 0.3} outerRadius={size * 0.48} paddingAngle={1} dataKey="value" stroke="none">
+          {data.map((d, i) => <Cell key={i} fill={d.color} />)}
+        </Pie>
+      </PieChart>
+    </ResponsiveContainer>
+  </div>
+);
+
+const StreamerProfileScreen: React.FC<{ streamer: typeof tableStreamers[0]; onBack: () => void }> = ({ streamer, onBack }) => {
+  const ageLabels = ["18-24", "25-34", "35-44", "13-17", "45+"];
+  const ageColors = ["#3b82f6", "#6366f1", "#f59e0b", "#84cc16", "#94a3b8"];
+
+  return (
+    <div className="flex-1 flex flex-col gap-3 overflow-y-auto">
+      {/* Back button */}
+      <div className="pointer-events-auto cursor-pointer flex items-center gap-1.5 text-sm text-[#e94f37] font-medium w-fit" onClick={onBack}>
+        <ArrowLeft className="w-3.5 h-3.5" /> Back
+      </div>
+
+      {/* Header banner */}
+      <div className="rounded-xl overflow-hidden bg-gradient-to-r from-[#e94f37] to-[#f59e0b] h-[50px] relative">
+        <div className="absolute -bottom-4 left-4">
+          <div className={`w-12 h-12 rounded-full ${streamer.color} border-[3px] border-white flex items-center justify-center text-white text-sm font-bold shadow-md`}>
+            {streamer.avatar}
+          </div>
+        </div>
+      </div>
+
+      {/* Identity + Summary row */}
+      <div className="flex gap-3 mt-2">
+        {/* Left: Identity */}
+        <div className="w-[200px] shrink-0 bg-white border border-gray-100 rounded-xl p-3 shadow-sm">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="text-sm font-bold text-gray-900">{streamer.name}</span>
+            <div className="w-3.5 h-3.5 rounded" style={{ backgroundColor: streamer.platformColor }} />
+          </div>
+          <div className="text-[10px] text-gray-500 mb-3">{streamer.followers} followers</div>
+          <div className="space-y-1.5 text-[10px] text-gray-600">
+            <div className="flex items-center gap-1.5">{streamer.gender}</div>
+            <div className="flex items-center gap-1.5">{streamer.lang}</div>
+            <div className="flex items-center gap-1.5">{streamer.country}</div>
+            <div className="flex items-center gap-1.5">{streamer.age} Years Old</div>
+          </div>
+          <div className="mt-3 pt-2 border-t border-gray-100">
+            <div className="text-[10px] font-semibold text-gray-700 mb-1.5">Interests</div>
+            <div className="flex flex-wrap gap-1">
+              {streamer.interests.map(i => (
+                <span key={i} className="text-[9px] bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded-full">{i}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Right: Stats grid */}
+        <div className="flex-1 flex flex-col gap-3">
+          {/* Stream stats */}
+          <div className="grid grid-cols-3 gap-2">
+            {[
+              { label: "Avg Viewers", value: streamer.avgViewers.toString() },
+              { label: "Air Time", value: streamer.airTime + " hrs" },
+              { label: "Watch Time", value: streamer.watchTime + " hrs" },
+            ].map(s => (
+              <div key={s.label} className="bg-white border border-gray-100 rounded-lg p-2.5 shadow-sm">
+                <div className="text-[9px] text-gray-400 uppercase tracking-wider">{s.label}</div>
+                <div className="text-sm font-bold text-gray-900 mt-0.5">{s.value}</div>
+                <div className="h-[2px] bg-[#e94f37]/20 mt-1 rounded-full"><div className="h-full bg-[#e94f37] rounded-full" style={{ width: '60%' }} /></div>
+              </div>
+            ))}
+          </div>
+
+          {/* Top Categories */}
+          <div className="bg-white border border-gray-100 rounded-lg p-2.5 shadow-sm">
+            <div className="text-[10px] font-semibold text-gray-700 mb-1.5">Top Categories <span className="text-gray-400 font-normal">Last 28 days</span></div>
+            <div className="flex gap-2">
+              {streamer.categories.map(cat => (
+                <span key={cat} className="text-[9px] bg-[#e94f37]/8 text-[#e94f37] px-2 py-1 rounded-lg font-medium">{cat}</span>
+              ))}
+            </div>
+          </div>
+
+          {/* Scores bar chart */}
+          <div className="bg-white border border-gray-100 rounded-lg p-2.5 shadow-sm">
+            <div className="text-[10px] font-semibold text-gray-700 mb-2">Streamer Scores</div>
+            <div className="space-y-2">
+              {[
+                { label: "Engagement", score: streamer.engScore, avg: 5.2 },
+                { label: "Brand Safety", score: streamer.safetyScore, avg: 5.2 },
+                { label: "Brand Mention", score: streamer.brandMention, avg: 8.5 },
+              ].map(m => (
+                <div key={m.label} className="flex items-center gap-2">
+                  <span className="text-[9px] text-gray-500 w-[70px] shrink-0">{m.label}</span>
+                  <div className="flex-1 flex flex-col gap-0.5">
+                    <div className="h-[6px] bg-gray-100 rounded-full overflow-hidden">
+                      <div className="h-full bg-[#e94f37] rounded-full" style={{ width: `${m.score * 10}%` }} />
+                    </div>
+                    <div className="h-[4px] bg-gray-100 rounded-full overflow-hidden">
+                      <div className="h-full bg-gray-300 rounded-full" style={{ width: `${m.avg * 10}%` }} />
+                    </div>
+                  </div>
+                  <span className="text-[9px] font-medium text-gray-700 w-[24px] text-right">{m.score}</span>
+                </div>
+              ))}
+              <div className="flex items-center gap-3 text-[8px] text-gray-400 mt-1">
+                <div className="flex items-center gap-1"><div className="w-2 h-2 bg-[#e94f37] rounded-sm" />{streamer.name}</div>
+                <div className="flex items-center gap-1"><div className="w-2 h-2 bg-gray-300 rounded-sm" />Norwegian Avg</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Audience row */}
+      <div className="grid grid-cols-3 gap-2">
+        {/* Audience Gender */}
+        <div className="bg-white border border-gray-100 rounded-lg p-2.5 shadow-sm">
+          <div className="text-[10px] font-semibold text-gray-700 mb-1">Audience Gender</div>
+          <div className="flex items-center gap-2">
+            <MiniDonut data={[
+              { value: streamer.audienceGender[0], color: "#3b82f6" },
+              { value: streamer.audienceGender[1], color: "#ec4899" },
+              { value: streamer.audienceGender[2], color: "#94a3b8" },
+            ]} size={50} />
+            <div className="space-y-0.5 text-[9px]">
+              <div className="text-gray-600">♂ {streamer.audienceGender[0]}%</div>
+              <div className="text-gray-600">♀ {streamer.audienceGender[1]}%</div>
+              <div className="text-gray-400">Other {streamer.audienceGender[2]}%</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Audience Age */}
+        <div className="bg-white border border-gray-100 rounded-lg p-2.5 shadow-sm">
+          <div className="text-[10px] font-semibold text-gray-700 mb-1">Audience Age</div>
+          <div className="flex items-center gap-2">
+            <MiniDonut data={streamer.audienceAge.map((v, i) => ({ value: v, color: ageColors[i] }))} size={50} />
+            <div className="space-y-0.5 text-[9px]">
+              {streamer.audienceAge.slice(0, 3).map((v, i) => (
+                <div key={i} className="text-gray-600">{ageLabels[i]}: {v}%</div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Device */}
+        <div className="bg-white border border-gray-100 rounded-lg p-2.5 shadow-sm">
+          <div className="text-[10px] font-semibold text-gray-700 mb-1">Device</div>
+          <div className="flex items-center gap-2">
+            <MiniDonut data={[
+              { value: streamer.desktop, color: "#1e293b" },
+              { value: streamer.mobile, color: "#e94f37" },
+            ]} size={50} />
+            <div className="space-y-0.5 text-[9px]">
+              <div className="flex items-center gap-1 text-gray-600"><Monitor className="w-2.5 h-2.5" /> {streamer.desktop}%</div>
+              <div className="flex items-center gap-1 text-gray-600"><Smartphone className="w-2.5 h-2.5" /> {streamer.mobile}%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Audience interests */}
+      <div className="bg-white border border-gray-100 rounded-lg p-2.5 shadow-sm">
+        <div className="text-[10px] font-semibold text-gray-700 mb-1.5">Audience Interests</div>
+        <div className="flex flex-wrap gap-1">
+          {["Tactical Shooters", "PC Hardware", "Norwegian Pop Culture", "Gaming News", "Health & Fitness", "Outdoor Activities"].map(i => (
+            <span key={i} className="text-[9px] bg-gray-50 border border-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{i}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
 // ── Screen: My Streamer Lists ─────────────────────────
 
@@ -456,6 +635,7 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeScreen, setActiveScreen] = useState(0);
   const [scale, setScale] = useState(0.5);
+  const [selectedStreamer, setSelectedStreamer] = useState<typeof tableStreamers[0] | null>(null);
 
   const userInteracted = useRef(false);
   const lastInteraction = useRef(0);
@@ -466,6 +646,14 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
   // Click handler for sidebar navigation
   const handleScreenChange = useCallback((index: number) => {
     setActiveScreen(index);
+    setSelectedStreamer(null);
+    userInteracted.current = true;
+    lastInteraction.current = Date.now();
+  }, []);
+
+  // Click handler for streamer name in explorer
+  const handleSelectStreamer = useCallback((s: typeof tableStreamers[0]) => {
+    setSelectedStreamer(s);
     userInteracted.current = true;
     lastInteraction.current = Date.now();
   }, []);
@@ -603,7 +791,11 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
             <div className="flex-1 p-4 overflow-hidden flex flex-col" style={{ background: "#f8f8f8" }}>
               <div key={activeScreen} className="flex-1 flex flex-col" style={{ animation: 'dashScreenIn 0.5s ease-out' }}>
                 {activeScreen === 0 && <DashboardScreen />}
-                {activeScreen === 1 && <StreamerExplorerScreen />}
+                {activeScreen === 1 && (
+                  selectedStreamer
+                    ? <StreamerProfileScreen streamer={selectedStreamer} onBack={() => setSelectedStreamer(null)} />
+                    : <StreamerExplorerScreen onSelectStreamer={handleSelectStreamer} />
+                )}
                 {activeScreen === 2 && <StreamerListsScreen />}
                 {activeScreen === 3 && <UsersScreen />}
               </div>
