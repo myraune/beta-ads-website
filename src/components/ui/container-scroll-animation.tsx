@@ -12,7 +12,7 @@ export const ContainerScroll = ({
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end end"],
+    offset: ["start start", "end start"],
   });
   const [isMobile, setIsMobile] = React.useState(false);
 
@@ -31,19 +31,21 @@ export const ContainerScroll = ({
     return isMobile ? [0.7, 0.9] : [1.05, 1];
   };
 
-  const rotate = useTransform(scrollYProgress, [0, 1], [20, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], scaleDimensions());
-  const translate = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  // Animation completes in the first 60% of scroll so it finishes
+  // before the user scrolls past the sticky content
+  const rotate = useTransform(scrollYProgress, [0, 0.6], [20, 0]);
+  const scale = useTransform(scrollYProgress, [0, 0.6], scaleDimensions());
+  const translate = useTransform(scrollYProgress, [0, 0.6], [0, -100]);
 
   return (
     <div
       className="relative"
       ref={containerRef}
-      style={{ minHeight: isMobile ? "60rem" : "200vh" }}
+      style={{ height: isMobile ? "60rem" : "150vh" }}
     >
-      <div className="sticky top-0 min-h-screen flex items-center justify-center p-2 md:p-20">
+      <div className="sticky top-0 h-screen flex items-center justify-center p-2 md:p-20 overflow-hidden">
         <div
-          className="py-10 md:py-20 w-full relative z-0"
+          className="py-10 md:py-16 w-full relative z-0"
           style={{
             perspective: "1000px",
           }}

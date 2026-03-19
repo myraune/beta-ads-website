@@ -726,7 +726,7 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
         <div className="flex h-full w-full overflow-hidden" style={{ background: "#f8f8f8" }}>
 
           {/* Sidebar — interactive */}
-          <div className="w-[160px] shrink-0 py-4 px-2.5 flex flex-col gap-0.5 pointer-events-auto" style={{ background: "#ffffff", borderRight: "1px solid #eee" }}>
+          <div className="w-[170px] shrink-0 py-4 px-2.5 flex flex-col gap-0.5 pointer-events-auto" style={{ background: "#ffffff", borderRight: "1px solid #eee" }}>
             <div className="px-2 mb-5">
               <img
                 src="/lovable-uploads/logo-color.png"
@@ -746,7 +746,7 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
                 }`}
               >
                 <screen.icon className={`w-4 h-4 shrink-0 ${activeScreen === i ? 'text-[#e94f37]' : ''}`} />
-                <span className="whitespace-nowrap text-[13px]">{screen.label}</span>
+                <span className="truncate text-[13px]">{screen.label}</span>
               </div>
             ))}
 
