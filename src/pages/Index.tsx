@@ -6,6 +6,7 @@ import { CaseStudiesSection } from "@/components/sections/CaseStudiesSection";
 import { HowItWorksSection } from "@/components/sections/HowItWorksSection";
 import { AdFormatsCarousel } from "@/components/sections/AdFormatsCarousel";
 import { Press } from "@/components/sections/Press";
+import { ClosingCTA } from "@/components/sections/ClosingCTA";
 import { Footer } from "@/components/sections/Footer";
 
 interface IndexProps {
@@ -26,6 +27,7 @@ const Index: React.FC<IndexProps> = ({ t }) => {
       <AdFormatsCarousel t={t} />
       <CaseStudiesSection t={t} />
       <Press t={t} />
+      <ClosingCTA />
       <Footer t={t} />
     </>
   );

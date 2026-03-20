@@ -18,20 +18,13 @@ import {
   Moon,
   Sun,
   ArrowRight,
-  Tv,
   BarChart3,
   Target,
   Layers,
-  Eye,
-  Mic,
-  Vote,
-  Image,
   Users,
-  TrendingUp,
   FileText,
   BookOpen,
   Newspaper,
-  MessageSquare,
   Gamepad2,
   DollarSign,
   Shield,
@@ -49,60 +42,28 @@ const forBrands: {
   description: string;
 }[] = [
   {
-    title: "Native Overlays",
+    title: "How It Works",
     href: "/how-it-works",
     icon: <Layers strokeWidth={2} />,
-    description: "Ads that blend into the stream",
+    description: "From brief to broadcast in 4 steps",
   },
-  {
-    title: "Voice Recognition",
-    href: "/how-it-works",
-    icon: <Mic strokeWidth={2} />,
-    description: "AI-triggered brand moments",
-  },
-  {
-    title: "Voting Mechanism",
-    href: "/how-it-works",
-    icon: <Vote strokeWidth={2} />,
-    description: "Interactive viewer engagement",
-  },
-  {
-    title: "Display Ads",
-    href: "/how-it-works",
-    icon: <Image strokeWidth={2} />,
-    description: "Banner and overlay formats",
-  },
-];
-
-const results: {
-  title: string;
-  icon: ReactElement;
-  href: string;
-  description: string;
-}[] = [
   {
     title: "Case Studies",
     href: "/case-studies",
     icon: <FileText strokeWidth={2} />,
-    description: "Real campaigns, real results",
+    description: "Samsung, Shure, Komplett & more",
   },
   {
-    title: "Live Dashboard",
-    href: "/demo",
+    title: "Pricing",
+    href: "/pricing",
     icon: <BarChart3 strokeWidth={2} />,
-    description: "Track performance in real-time",
+    description: "Transparent, performance-based",
   },
   {
-    title: "Audience Insights",
-    href: "/case-studies",
+    title: "Book a Demo",
+    href: "/demo",
     icon: <Target strokeWidth={2} />,
-    description: "Reach Gen Z authentically",
-  },
-  {
-    title: "Bypass Adblock",
-    href: "/how-it-works",
-    icon: <Eye strokeWidth={2} />,
-    description: "100% viewability guaranteed",
+    description: "See the platform in action",
   },
 ];
 
@@ -164,8 +125,8 @@ const resources: {
   },
   {
     title: "Contact",
-    href: "/contact",
-    icon: <MessageSquare strokeWidth={2} />,
+    href: "/demo",
+    icon: <Target strokeWidth={2} />,
     description: "Get in touch",
   },
 ];
@@ -216,27 +177,12 @@ export function BetaNavbar() {
                     For Brands
                   </NavigationMenuTrigger>
                   <NavigationMenuContent className="bg-background/95 backdrop-blur-xl">
-                    <ul className="grid w-[400px] pt-2 grid-cols-2 md:w-[550px]">
+                    <ul className="grid w-[280px] pt-2 grid-cols-1">
                       <div>
                         <span className="p-4 text-xs text-muted-foreground/60 uppercase tracking-wider">
-                          Ad Formats
+                          Platform
                         </span>
                         {forBrands.map((component) => (
-                          <ListItem
-                            key={component.title}
-                            title={component.title}
-                            icon={component.icon}
-                            href={component.href}
-                          >
-                            {component.description}
-                          </ListItem>
-                        ))}
-                      </div>
-                      <div>
-                        <span className="p-4 text-xs text-muted-foreground/60 uppercase tracking-wider">
-                          Results
-                        </span>
-                        {results.map((component) => (
                           <ListItem
                             key={component.title}
                             title={component.title}
@@ -328,7 +274,7 @@ export function BetaNavbar() {
 
           <div className="flex gap-2 items-center">
             <ThemeSwitcher />
-            <Link to="/contact">
+            <Link to="/demo">
               <Button variant="outline" size="sm" className="rounded-full h-8 text-xs font-light tracking-wide">
                 Contact
               </Button>
@@ -383,7 +329,7 @@ export function BetaNavbar() {
               <MobileLink href="/press" label="Press" />
               <MobileLink href="/about" label="About Us" />
               <MobileLink href="/pricing" label="Pricing" />
-              <MobileLink href="/contact" label="Contact" />
+              <MobileLink href="/demo" label="Contact" />
             </MobileSection>
             <div className="pt-3 space-y-2 border-t border-border">
               <Link to="/demo" className="block">

@@ -50,7 +50,7 @@ export const Footer: React.FC<FooterProps> = ({ t }) => (
               How It Works
             </Link>
             <Link to="/case-studies" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
-              Ad Formats
+              Case Studies
             </Link>
             <Link to="/pricing" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
               Pricing
@@ -65,33 +65,31 @@ export const Footer: React.FC<FooterProps> = ({ t }) => (
         <div className="space-y-6">
           <h4 className="font-light tracking-widest text-sm uppercase text-muted-foreground/60">Resources</h4>
           <div className="space-y-3">
-            <Link to="/case-studies" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
-              Case Studies
-            </Link>
             <Link to="/blog" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
               Blog
             </Link>
             <Link to="/press" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
               Press
             </Link>
+            <Link to="/about" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+              About Us
+            </Link>
           </div>
         </div>
 
-        {/* Company */}
+        {/* Contact */}
         <div className="space-y-6">
-          <h4 className="font-light tracking-widest text-sm uppercase text-muted-foreground/60">Company</h4>
+          <h4 className="font-light tracking-widest text-sm uppercase text-muted-foreground/60">Get in Touch</h4>
           <div className="space-y-3">
-            <Link to="/about" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
-              About
-            </Link>
-            <Link to="/contact" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
-              Contact
-            </Link>
             <Link to="/demo" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
               Book a Demo
             </Link>
-            <p className="text-muted-foreground text-sm font-light tracking-wide">andreas@beta-ads.no</p>
-            <p className="text-muted-foreground text-sm font-light tracking-wide">+47 46195548</p>
+            <a href="mailto:andreas@beta-ads.no" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+              andreas@beta-ads.no
+            </a>
+            <a href="tel:+4746195548" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+              +47 461 95 548
+            </a>
           </div>
         </div>
       </div>
