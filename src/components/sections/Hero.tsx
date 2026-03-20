@@ -81,7 +81,7 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
                 {t.heroDescription}
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 mb-10">
                 <Link to="/demo">
                   <Button
                     size="lg"

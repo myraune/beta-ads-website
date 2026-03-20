@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { ShaderAnimation } from "@/components/ui/shader-lines";
 
 const platforms = [
   { src: "/lovable-uploads/platform-twitch.png", alt: "Twitch" },
@@ -15,6 +16,10 @@ export const StreamerHero: React.FC = () => {
 
   return (
     <section className="relative overflow-hidden text-foreground">
+      {/* Shader background animation */}
+      <div className="absolute inset-0 opacity-30 pointer-events-none">
+        <ShaderAnimation />
+      </div>
       <div className="relative max-w-[1600px] mx-auto px-6 lg:px-12 pt-24 lg:pt-32 pb-16">
         
         {/* Asymmetric Grid Layout */}
