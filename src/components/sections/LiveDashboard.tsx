@@ -633,6 +633,8 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.05 });
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeScreen, setActiveScreen] = useState(0);
+  const [displayScreen, setDisplayScreen] = useState(0);
+  const [transitioning, setTransitioning] = useState(false);
   const [scale, setScale] = useState(0.5);
   const [selectedStreamer, setSelectedStreamer] = useState<typeof tableStreamers[0] | null>(null);
 
@@ -641,13 +643,25 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
 
   const effectiveVisible = compact ? true : isVisible;
 
+  // Cross-fade: when activeScreen changes, fade out, swap, fade in
+  useEffect(() => {
+    if (activeScreen === displayScreen) return;
+    setTransitioning(true);
+    const timer = setTimeout(() => {
+      setDisplayScreen(activeScreen);
+      setTransitioning(false);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [activeScreen, displayScreen]);
+
   // Click handler for sidebar navigation
   const handleScreenChange = useCallback((index: number) => {
+    if (index === displayScreen) return;
     setActiveScreen(index);
     setSelectedStreamer(null);
     userInteracted.current = true;
     if (autoplayTimeout.current) clearTimeout(autoplayTimeout.current);
-  }, []);
+  }, [displayScreen]);
 
   // Click handler for streamer name in explorer
   const handleSelectStreamer = useCallback((s: typeof tableStreamers[0]) => {
@@ -709,8 +723,12 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
     >
       <style>{`
         @keyframes dashScreenIn {
-          from { opacity: 0; transform: translateY(6px); }
-          to { opacity: 1; transform: translateY(0); }
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes dashScreenOut {
+          from { opacity: 1; }
+          to { opacity: 0; }
         }
       `}</style>
 
@@ -772,15 +790,15 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
 
             {/* Content area */}
             <div className="flex-1 p-4 overflow-hidden flex flex-col" style={{ background: "#f8f8f8" }}>
-              <div key={activeScreen} className="flex-1 flex flex-col" style={{ animation: 'dashScreenIn 0.5s ease-out' }}>
-                {activeScreen === 0 && <DashboardScreen />}
-                {activeScreen === 1 && (
+              <div className="flex-1 flex flex-col transition-opacity duration-300 ease-in-out" style={{ opacity: transitioning ? 0 : 1 }}>
+                {displayScreen === 0 && <DashboardScreen />}
+                {displayScreen === 1 && (
                   selectedStreamer
                     ? <StreamerProfileScreen streamer={selectedStreamer} onBack={() => setSelectedStreamer(null)} />
                     : <StreamerExplorerScreen onSelectStreamer={handleSelectStreamer} />
                 )}
-                {activeScreen === 2 && <StreamerListsScreen />}
-                {activeScreen === 3 && <UsersScreen />}
+                {displayScreen === 2 && <StreamerListsScreen />}
+                {displayScreen === 3 && <UsersScreen />}
               </div>
             </div>
           </div>

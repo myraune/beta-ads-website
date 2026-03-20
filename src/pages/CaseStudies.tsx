@@ -3,6 +3,7 @@ import { Footer } from "@/components/sections/Footer";
 import { Play, ExternalLink, ChevronLeft, ChevronRight, ArrowRight, BarChart3, Filter } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 interface CaseStudiesProps {
@@ -38,14 +39,33 @@ const pressArticles = [
 
 const VideoModal: React.FC<{ videoId: string | null; onClose: () => void }> = ({ videoId, onClose }) => (
   <Dialog open={!!videoId} onOpenChange={(open) => !open && onClose()}>
-    <DialogContent className="max-w-6xl w-[95vw] p-0 bg-black border-border/20 overflow-hidden">
+    <DialogContent className="max-w-5xl w-[95vw] p-0 bg-transparent border-none overflow-hidden shadow-none">
       <DialogTitle className="sr-only">Case Study Video</DialogTitle>
       <DialogDescription className="sr-only">Watch the full campaign breakdown</DialogDescription>
-      <div className="aspect-video w-full">
+      <AnimatePresence>
         {videoId && (
-          <iframe width="100%" height="100%" src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`} title="Case Study Video" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen className="w-full h-full" />
+          <motion.div
+            className="relative w-full rounded-xl overflow-hidden bg-[#11111198] shadow-[0_0_20px_rgba(0,0,0,0.2)] backdrop-blur-sm"
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ duration: 0.5, type: "spring" }}
+          >
+            <div className="aspect-video w-full">
+              <iframe
+                width="100%"
+                height="100%"
+                src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
+                title="Case Study Video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full"
+              />
+            </div>
+          </motion.div>
         )}
-      </div>
+      </AnimatePresence>
     </DialogContent>
   </Dialog>
 );
@@ -184,8 +204,26 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
                 <div className="relative aspect-video lg:aspect-auto cursor-pointer group" onClick={() => setModalVideoId(caseStudies[caseStudyIndex].id)}>
                   <img src={`https://img.youtube.com/vi/${caseStudies[caseStudyIndex].id}/maxresdefault.jpg`} alt={caseStudies[caseStudyIndex].campaign} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform"><Play className="w-6 h-6 text-white ml-1" /></div>
+                    <motion.div
+                      className="w-16 h-16 rounded-full bg-[#11111198] backdrop-blur-sm border border-white/10 flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.2)]"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <Play className="w-6 h-6 text-white ml-1" />
+                    </motion.div>
                   </div>
+                  {/* Bottom control bar hint */}
+                  <motion.div
+                    className="absolute bottom-0 left-0 right-0 p-3 mx-3 mb-3 bg-[#11111198] backdrop-blur-md rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Play className="w-3.5 h-3.5 text-white" />
+                      <div className="relative flex-1 h-1 bg-white/20 rounded-full">
+                        <div className="absolute top-0 left-0 h-full w-0 bg-white rounded-full" />
+                      </div>
+                      <span className="text-white/60 text-xs">Watch case study</span>
+                    </div>
+                  </motion.div>
                 </div>
                 <div className="p-8 lg:p-12 flex flex-col justify-between">
                   <div>
