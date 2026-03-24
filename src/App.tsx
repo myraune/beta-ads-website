@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "next-themes";
 import { Layout } from "@/components/Layout";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 // Critical pages — loaded eagerly
 import Index from "./pages/Index";
@@ -78,6 +79,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <Analytics />
+      <SpeedInsights />
       <Toaster />
       <Sonner />
       <BrowserRouter>
