@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { ArrowRight, ExternalLink, Loader2 } from "lucide-react";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -16,11 +17,32 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Footer } from "@/components/sections/Footer";
+import { SPFooter } from '@/components/sections/SPFooter';
 
 interface DemoProps {
-  t: any;
+  t?: any;
 }
+
+const defaults = {
+  requestDemo: "REQUEST A DEMO",
+  seeInAction: "See it in action",
+  demoFormDescription: "Fill out the form and we'll get back to you within 24 hours with a personalized walkthrough of the platform.",
+  preferTalkDirectly: "Prefer to talk directly? Book a 15-minute call and I'll show you how it works.",
+  bookCallDirect: "Book a call directly",
+  name: "Name",
+  namePlaceholder: "Your name",
+  email: "Email",
+  emailPlaceholder: "you@company.com",
+  companyOptional: "Company (optional)",
+  companyPlaceholder: "Your company",
+  message: "Message",
+  messagePlaceholder: "Tell us about your campaign goals...",
+  sendMessage: "Send message",
+  sending: "Sending...",
+  messageSent: "Message sent!",
+  wellGetBack: "We'll get back to you within 24 hours.",
+  somethingWentWrong: "Something went wrong. Please try again.",
+};
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").max(100),
@@ -31,7 +53,8 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-const Demo: React.FC<DemoProps> = ({ t }) => {
+const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
+  const t = { ...defaults, ...tProp };
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   
@@ -71,6 +94,21 @@ const Demo: React.FC<DemoProps> = ({ t }) => {
 
   return (
     <div className="min-h-screen bg-background text-foreground">
+      <SEO
+        title="Request a Demo | Beta Ads"
+        description="Book a demo with Beta Ads and see how native overlay advertising works on Twitch, YouTube and Kick livestreams. Reach Gen Z audiences across the Nordics."
+        canonical="/demo"
+        ogType="website"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Request a Demo - Beta Ads",
+          "description": "Book a demo with Beta Ads and see how native overlay advertising works on Twitch, YouTube and Kick livestreams. Reach Gen Z audiences across the Nordics.",
+          "url": "https://beta-ads.no/demo",
+          "isPartOf": { "@id": "https://beta-ads.no/#website" }
+        }}
+      />
+      <main>
       <section className="pt-32 pb-16 px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -155,7 +193,8 @@ const Demo: React.FC<DemoProps> = ({ t }) => {
           </div>
         </div>
       </section>
-      <Footer t={t} />
+      <SPFooter />
+      </main>
     </div>
   );
 };

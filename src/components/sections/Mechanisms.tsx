@@ -1,34 +1,56 @@
 import React from "react";
-import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Mic, Users } from "lucide-react";
 
-interface MechanismsProps {
-  t: any;
-}
+const mechanisms = [
+  {
+    icon: <Mic className="h-8 w-8" />,
+    title: "Voice Recognition Monitoring",
+    description:
+      "AI-powered speech detection that listens to every sponsored stream and automatically clips brand mentions in real-time.",
+    howItWorks: [
+      "Our AI monitors the audio feed of every sponsored stream",
+      "When a creator says your brand name, a timestamped clip is generated",
+      "Clips are delivered to your dashboard within minutes",
+    ],
+    whyWorthIt: [
+      "Prove organic brand mentions to clients with hard evidence",
+      "Track sentiment and context around every mention",
+      "Automatically build a clip library for social content",
+    ],
+    videoId: "UDSDYhOpci8",
+  },
+  {
+    icon: <Users className="h-8 w-8" />,
+    title: "Interactive Polls & Voting",
+    description:
+      "Real-time polls rendered directly in the stream that drive viewer engagement and deliver instant audience feedback.",
+    howItWorks: [
+      "Brands configure poll questions and options in the dashboard",
+      "Polls appear as native overlays during the live stream",
+      "Viewers vote in real-time and results update live on screen",
+    ],
+    whyWorthIt: [
+      "67% average participation rate across campaigns",
+      "Direct viewer interaction creates memorable brand moments",
+      "Collect first-party audience insights in real-time",
+    ],
+    videoId: "M_c4IcLzy04",
+  },
+];
 
-export const Mechanisms: React.FC<MechanismsProps> = ({ t }) => {
-  const mechanisms = [
-    {
-      icon: <Mic className="h-8 w-8" />,
-      title: t.vrmTitle,
-      description: t.vrmDescription,
-      howItWorks: t.vrmHowItWorks,
-      whyWorthIt: t.vrmWhyWorthIt,
-      videoId: "UDSDYhOpci8",
-    },
-    {
-      icon: <Users className="h-8 w-8" />,
-      title: t.votingTitle,
-      description: t.votingDescription,
-      howItWorks: t.votingHowItWorks,
-      whyWorthIt: t.votingWhyWorthIt,
-      videoId: "M_c4IcLzy04",
-    },
-  ];
-
+export const Mechanisms: React.FC<{ t?: any }> = () => {
   return (
     <section id="mechanisms" className="relative py-12 md:py-24">
       <div className="relative max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
+        <div className="text-center mb-12">
+          <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary mb-4">
+            AI Features
+          </span>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+            Smart features that work for you
+          </h2>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 lg:gap-16">
           {mechanisms.map((mechanism, index) => (
             <div
@@ -61,10 +83,10 @@ export const Mechanisms: React.FC<MechanismsProps> = ({ t }) => {
                     </div>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="text-lg md:text-2xl font-light text-foreground mb-1 md:mb-2 leading-tight">
+                    <h3 className="text-lg md:text-2xl font-bold text-foreground mb-1 md:mb-2 leading-tight">
                       {mechanism.title}
                     </h3>
-                    <p className="text-sm md:text-base text-muted-foreground font-light leading-snug">
+                    <p className="text-sm md:text-base text-muted-foreground leading-snug">
                       {mechanism.description}
                     </p>
                   </div>
@@ -74,15 +96,18 @@ export const Mechanisms: React.FC<MechanismsProps> = ({ t }) => {
                 <div className="bg-secondary/30 rounded-xl md:rounded-2xl p-4 md:p-6">
                   <h4 className="text-base md:text-lg font-medium text-foreground mb-3 md:mb-4 flex items-center">
                     <ArrowRight className="h-4 w-4 md:h-5 md:w-5 mr-2 text-primary flex-shrink-0" />
-                    <span className="text-sm md:text-base">{t.howItWorksTitle}</span>
+                    <span className="text-sm md:text-base">How it works</span>
                   </h4>
                   <div className="space-y-2 md:space-y-3">
-                    {mechanism.howItWorks.map((step: string, stepIndex: number) => (
-                      <div key={stepIndex} className="flex items-start space-x-2 md:space-x-3">
+                    {mechanism.howItWorks.map((step, stepIndex) => (
+                      <div
+                        key={stepIndex}
+                        className="flex items-start space-x-2 md:space-x-3"
+                      >
                         <span className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 bg-primary/20 text-primary rounded-full flex items-center justify-center text-xs md:text-sm font-medium mt-0.5">
                           {stepIndex + 1}
                         </span>
-                        <p className="text-muted-foreground font-light text-xs md:text-sm leading-relaxed">
+                        <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
                           {step}
                         </p>
                       </div>
@@ -93,13 +118,16 @@ export const Mechanisms: React.FC<MechanismsProps> = ({ t }) => {
                 {/* Why it's worth it */}
                 <div>
                   <h4 className="text-base md:text-lg font-medium text-foreground mb-2 md:mb-3">
-                    {t.whyWorthItTitle}
+                    Why it's worth it
                   </h4>
                   <ul className="space-y-1.5 md:space-y-2">
-                    {mechanism.whyWorthIt.map((benefit: string, benefitIndex: number) => (
-                      <li key={benefitIndex} className="flex items-start space-x-2 md:space-x-3">
-                        <span className="flex-shrink-0 w-1.5 h-1.5 md:w-2 md:h-2 bg-primary rounded-full mt-1.5 md:mt-2"></span>
-                        <p className="text-muted-foreground font-light text-xs md:text-sm leading-relaxed">
+                    {mechanism.whyWorthIt.map((benefit, benefitIndex) => (
+                      <li
+                        key={benefitIndex}
+                        className="flex items-start space-x-2 md:space-x-3"
+                      >
+                        <span className="flex-shrink-0 w-1.5 h-1.5 md:w-2 md:h-2 bg-primary rounded-full mt-1.5 md:mt-2" />
+                        <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
                           {benefit}
                         </p>
                       </li>

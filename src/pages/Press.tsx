@@ -1,142 +1,96 @@
 import React from "react";
-import { Helmet } from "react-helmet";
-import { Download, Mail, Phone, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Footer } from "@/components/sections/Footer";
-
-const pt = {
-  pageTitle: "Press Kit",
-  pageDescription: "Press resources, media assets, and contact information for Beta Ads Nordic.",
-  mediaContact: "Media Contact",
-  ceo: "Founder & CEO",
-  aboutTitle: "About Beta Ads",
-  aboutText: "Beta Ads is a Nordic advertising platform specialized in native advertising within live Twitch streams. The company is headquartered in Oslo and operates in Norway, Sweden, Finland, and Denmark. Founded in 2023, Beta Ads has quickly become the leading Twitch advertising agency in the Nordics, working with brands like Samsung, Surfshark, and Shure.",
-  foundedYear: "Founded",
-  headquarters: "Headquarters",
-  markets: "Markets",
-  logoAssets: "Logo Assets",
-  logoDescription: "Download our logos in various formats for press use.",
-  downloadPng: "Download PNG",
-  pressArticles: "Press Coverage",
-  pressDescription: "Beta Ads has been featured in leading Nordic media outlets.",
-  readArticle: "Read article",
-};
-
-const logos = [
-  { name: "Logo White", description: "For dark backgrounds", file: "/lovable-uploads/logo-white.png", bg: "bg-zinc-900" },
-  { name: "Logo Black", description: "For light backgrounds", file: "/lovable-uploads/logo-black.png", bg: "bg-zinc-100" },
-  { name: "Logo Color", description: "Full color version", file: "/lovable-uploads/logo-color.png", bg: "bg-zinc-800" },
-  { name: "Icon / Favicon", description: "Square icon", file: "/lovable-uploads/favicon.png", bg: "bg-zinc-900" },
-];
+import { SEO } from "@/components/SEO";
+import { ExternalLink } from "lucide-react";
+import { SPFooter } from "@/components/sections/SPFooter";
 
 const pressArticles = [
-  { title: "Andreas (22) startet byrå ved siden av studiene – Nå utvider han til Sverige og Finland", publication: "Kampanje", date: "2025", url: "https://kampanje.com/premium/mai-2025/innsikt/andreas-22-startet-byra-ved-siden-av-studiene--na-utvider-han-til-sverige-og-finland/" },
-  { title: "Andreas (21) satser på eget Twitch-byrå – Nå får han polske tech-krefter i ryggen", publication: "Kampanje", date: "2024", url: "https://kampanje.com/premium/september-2024/innsikt/andreas-21-satser-pa-eget-twtich-byra--na-far-han-polske-tech-krefter-i-ryggen---har-lagt-grunnlaget-na/" },
-  { title: "Ny kanal for mediekjøp: Beta er Norges nye Twitch-byrå", publication: "Kom24", date: "2024", url: "https://www.kom24.no/andreas-myraune-beta-influensere/ny-kanal-for-mediekjop-beta-er-norges-nye-twitch-byra/730424" },
-  { title: "Instreamly og Beta inngår partnerskap i Norge", publication: "Kom24", date: "2024", url: "https://www.kom24.no/andreas-myraune-beta-instreamly/instreamly-og-beta-inngar-partnerskap-i-norge/749907" },
+  {
+    title: "Andreas (22) startet byrå ved siden av studiene",
+    subtitle: "Nå utvider han til Sverige og Finland",
+    publication: "Kampanje",
+    url: "https://kampanje.com/premium/mai-2025/innsikt/andreas-22-startet-byra-ved-siden-av-studiene--na-utvider-han-til-sverige-og-finland/",
+    image: "/lovable-uploads/press-kampanje-expansion-new.png",
+  },
+  {
+    title: "Andreas (21) satser på eget Twitch-byrå",
+    subtitle: "Nå får han polske tech-krefter i ryggen",
+    publication: "Kampanje",
+    url: "https://kampanje.com/premium/september-2024/innsikt/andreas-21-satser-pa-eget-twtich-byra--na-far-han-polske-tech-krefter-i-ryggen---har-lagt-grunnlaget-na/",
+    image: "/lovable-uploads/press-kampanje-startup.png",
+  },
+  {
+    title: "Ny kanal for mediekjøp",
+    subtitle: "Beta er Norges nye Twitch-byrå",
+    publication: "Kom24",
+    url: "https://www.kom24.no/andreas-myraune-beta-influensere/ny-kanal-for-mediekjop-beta-er-norges-nye-twitch-byra/730424",
+    image: "/lovable-uploads/press-kom24-twitch.png",
+  },
+  {
+    title: "Instreamly og Beta inngår partnerskap",
+    subtitle: "Strategisk samarbeid i Norge",
+    publication: "Kom24",
+    url: "https://www.kom24.no/andreas-myraune-beta-instreamly/instreamly-og-beta-inngar-partnerskap-i-norge/749907",
+    image: "/lovable-uploads/press-kampanje-expansion.png",
+  },
 ];
 
 const Press: React.FC = () => {
-  const handleDownload = (file: string, name: string) => {
-    const link = document.createElement("a");
-    link.href = file;
-    link.download = name.toLowerCase().replace(/\s+/g, "-") + ".png";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   return (
     <>
-      <Helmet>
-        <title>{pt.pageTitle} | Beta Ads Nordic</title>
-        <meta name="description" content={pt.pageDescription} />
-      </Helmet>
-
-      <main className="min-h-screen pt-32 pb-20">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
-          <div className="mb-20">
-            <Badge className="mb-4 bg-primary/10 text-primary border-primary/20">Press Kit</Badge>
-            <h1 className="text-4xl lg:text-5xl font-light text-foreground mb-4">{pt.pageTitle}</h1>
-            <p className="text-muted-foreground text-lg max-w-xl">{pt.pageDescription}</p>
-          </div>
-
-          <div className="grid lg:grid-cols-3 gap-12 lg:gap-16 mb-20">
-            <div className="lg:col-span-1">
-              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-6">{pt.mediaContact}</h2>
-              <div className="bg-card/50 rounded-2xl p-6 backdrop-blur-sm">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center text-2xl font-light text-primary">AM</div>
-                  <div>
-                    <h3 className="text-lg font-medium text-foreground">Andreas Myraune</h3>
-                    <p className="text-muted-foreground text-sm">{pt.ceo}</p>
-                  </div>
-                </div>
-                <div className="space-y-3">
-                  <a href="mailto:andreas@beta-ads.no" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors group">
-                    <Mail className="h-4 w-4 text-primary" /><span className="text-sm group-hover:underline">andreas@beta-ads.no</span>
-                  </a>
-                  <a href="tel:+4746195548" className="flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors group">
-                    <Phone className="h-4 w-4 text-primary" /><span className="text-sm group-hover:underline">+47 461 95 548</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-2">
-              <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-6">{pt.aboutTitle}</h2>
-              <p className="text-foreground/80 text-lg leading-relaxed mb-8">{pt.aboutText}</p>
-              <div className="grid grid-cols-3 gap-6">
-                <div><p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{pt.foundedYear}</p><p className="text-foreground font-medium">2023</p></div>
-                <div><p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{pt.headquarters}</p><p className="text-foreground font-medium">Oslo, Norway</p></div>
-                <div><p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{pt.markets}</p><p className="text-foreground font-medium">NO, SE, FI, DK</p></div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mb-20">
-            <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-2">{pt.logoAssets}</h2>
-            <p className="text-muted-foreground mb-8">{pt.logoDescription}</p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {logos.map((logo) => (
-                <div key={logo.name} className="group">
-                  <div className={`${logo.bg} rounded-xl p-8 flex items-center justify-center h-32 mb-4 transition-transform duration-300 group-hover:scale-[1.02]`}>
-                    <img src={logo.file} alt={logo.name} className="max-h-12 w-auto object-contain" />
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <div><p className="text-foreground text-sm font-medium">{logo.name}</p><p className="text-muted-foreground text-xs">{logo.description}</p></div>
-                    <Button variant="ghost" size="sm" onClick={() => handleDownload(logo.file, logo.name)} className="h-8 w-8 p-0 text-muted-foreground hover:text-primary">
-                      <Download className="h-4 w-4" />
-                    </Button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h2 className="text-sm font-medium text-muted-foreground uppercase tracking-wider mb-2">{pt.pressArticles}</h2>
-            <p className="text-muted-foreground mb-8">{pt.pressDescription}</p>
-            <div className="space-y-4">
-              {pressArticles.map((article, index) => (
-                <a key={index} href={article.url} target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between p-4 rounded-xl bg-card/30 hover:bg-card/50 transition-colors">
-                  <div className="flex items-center gap-4">
-                    <Badge variant="outline" className={`text-xs ${article.publication === "Kampanje" ? "border-primary/30 text-primary" : "border-green-500/30 text-green-400"}`}>{article.publication}</Badge>
-                    <div>
-                      <p className="text-foreground group-hover:text-primary transition-colors">{article.title}</p>
-                      <p className="text-muted-foreground text-xs">{article.date}</p>
-                    </div>
-                  </div>
-                  <ExternalLink className="h-4 w-4 text-muted-foreground group-hover:text-primary transition-colors flex-shrink-0" />
-                </a>
-              ))}
-            </div>
-          </div>
+      <SEO
+        title="Press | Beta Ads"
+        description="Beta Ads in the media. Featured in Kampanje, Kom24, and other leading Nordic publications."
+        canonical="/press"
+      />
+      <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-32 md:pt-40 pb-20">
+        <div className="mb-14">
+          <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary mb-4">
+            Press
+          </span>
+          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+            Beta Ads in the media
+          </h1>
+          <p className="text-muted-foreground max-w-lg">
+            Featured in leading Nordic publications covering advertising,
+            technology, and media.
+          </p>
         </div>
-      </main>
 
-      <Footer t={{ footerDescription: "The future of Twitch advertising is here.", contactTitle: "CONTACT", connectTitle: "CONNECT" }} />
+        <div className="grid md:grid-cols-2 gap-6">
+          {pressArticles.map((article, i) => (
+            <a
+              key={i}
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-2xl border border-border bg-card overflow-hidden hover:shadow-lg hover:border-primary/20 transition-all duration-300"
+            >
+              <div className="aspect-[16/10] overflow-hidden">
+                <img
+                  src={article.image}
+                  alt={article.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <div className="p-5">
+                <p className="text-primary text-xs font-semibold mb-2">
+                  {article.publication}
+                </p>
+                <h3 className="text-foreground font-bold mb-1 group-hover:text-primary transition-colors line-clamp-2">
+                  {article.title}
+                </h3>
+                <p className="text-muted-foreground text-sm line-clamp-1 mb-3">
+                  {article.subtitle}
+                </p>
+                <span className="flex items-center gap-1 text-sm text-muted-foreground group-hover:text-primary transition-colors">
+                  Read article <ExternalLink className="w-3 h-3" />
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+      <SPFooter />
     </>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useEffect, lazy, Suspense } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { Footer } from "@/components/sections/Footer";
+import { SPFooter } from '@/components/sections/SPFooter';
 import { ArrowLeft, Calendar, Clock, Tag, Share2, Twitter, Linkedin, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -71,7 +71,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t }) => {
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDescription} />
         <meta name="twitter:image" content={post.image} />
-        <link rel="canonical" href={`https://betaads.com/blog/${post.slug}`} />
+        <link rel="canonical" href={`https://beta-ads.no/blog/${post.slug}`} />
         <script type="application/ld+json">
           {`{
             "@context": "https://schema.org",
@@ -196,7 +196,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t }) => {
           </section>
         )}
 
-        <Footer t={t} />
+        <SPFooter />
       </div>
     </>
   );

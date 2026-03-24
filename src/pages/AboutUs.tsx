@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { Footer } from '@/components/sections/Footer';
+import { SEO } from '@/components/SEO';
+import { SPFooter } from '@/components/sections/SPFooter';
 import MarketsSection from '@/components/sections/MarketsSection';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import founderImage from '@/assets/founder-andreas.jpeg';
@@ -20,6 +21,20 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
 
   return (
     <div className="min-h-screen text-foreground relative">
+      <SEO
+        title="About Us | Beta Ads"
+        description="Meet the team behind Beta Ads, the leading native advertising platform for Twitch and livestreams in Norway and the Nordics. Founded by Andreas Myraune in Oslo."
+        canonical="/about"
+        ogType="website"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "About Beta Ads",
+          "description": "Meet the team behind Beta Ads, the leading native advertising platform for Twitch and livestreams in Norway and the Nordics.",
+          "url": "https://beta-ads.no/about",
+          "isPartOf": { "@id": "https://beta-ads.no/#website" }
+        }}
+      />
       <div
         className="absolute inset-x-0 top-0 h-[500px] pointer-events-none z-0"
         style={{
@@ -98,7 +113,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
       </section>
 
       <MarketsSection marketsRef={marketsRef} marketsVisible={marketsVisible} />
-      <Footer t={t} />
+      <SPFooter />
     </div>
   );
 };

@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink, Check } from "lucide-react";
-import { Footer } from "@/components/sections/Footer";
+import { SPFooter } from '@/components/sections/SPFooter';
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import {
   Accordion,
@@ -62,6 +63,20 @@ const Pricing: React.FC = () => {
 
   return (
     <>
+      <SEO
+        title="Pricing | Beta Ads"
+        description="Transparent pricing for native Twitch advertising in the Nordics. Choose managed campaigns or self-service. No lock-in contracts. Start with a test campaign."
+        canonical="/pricing"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Beta Ads Pricing",
+          "description": "Pricing plans for native livestream advertising campaigns across Nordic Twitch, YouTube and Kick streams.",
+          "url": "https://beta-ads.no/pricing",
+          "isPartOf": { "@id": "https://beta-ads.no/#website" }
+        }}
+      />
+      <main>
       <section className="pt-32 lg:pt-40 pb-16">
         <div 
           ref={heroRef}
@@ -182,7 +197,8 @@ const Pricing: React.FC = () => {
         </div>
       </section>
 
-      <Footer t={t} />
+      <SPFooter />
+      </main>
     </>
   );
 };

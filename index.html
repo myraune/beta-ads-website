@@ -94,7 +94,7 @@
     <meta name="application-name" content="Beta Ads Nordic" />
     <meta name="msapplication-tooltip" content="Nordic Twitch Marketing Agency" />
     <meta name="msapplication-starturl" content="https://beta-ads.no/" />
-    <meta name="msapplication-task" content="name=Contact;action-uri=mailto:andreas@beta-ads.no;icon-uri=https://beta-ads.no/favicon.ico" />
+    <meta name="msapplication-task" content="name=Contact;action-uri=mailto:hello@betaads.no;icon-uri=https://beta-ads.no/favicon.ico" />
     
 
     <!-- Structured Data for Organization - Enhanced for Entity Differentiation -->
@@ -104,7 +104,7 @@
       "@type": "Organization",
       "@id": "https://beta-ads.no/#organization",
       "name": "Beta Ads Nordic",
-      "legalName": "Beta Ads AS",
+      "legalName": "Beta Agency AS",
       "alternateName": ["Beta Ads", "Beta Ads Norway", "Beta Ads Norge"],
       "url": "https://beta-ads.no",
       "logo": {
@@ -163,7 +163,7 @@
       "knowsAbout": ["Twitch Marketing", "Gaming Advertising", "Livestreaming", "Esports Marketing", "Influencer Marketing", "Nordic Markets", "Overlay Advertising", "Stream Sponsorships"],
       "contactPoint": {
         "@type": "ContactPoint",
-        "email": "andreas@beta-ads.no",
+        "email": "hello@betaads.no",
         "telephone": "+47-46195548",
         "contactType": "Customer Service",
         "areaServed": ["NO", "SE", "DK", "FI"],
@@ -242,7 +242,7 @@
       "@type": "LocalBusiness",
       "@id": "https://beta-ads.no/#localbusiness",
       "name": "Beta Ads Nordic",
-      "alternateName": ["Beta Ads Norge", "Beta Ads AS"],
+      "alternateName": ["Beta Ads Norge", "Beta Agency AS"],
       "image": {
         "@type": "ImageObject",
         "url": "https://beta-ads.no/lovable-uploads/f5ee9e49-8fe8-4060-b6af-1363637629c8.png",
@@ -262,7 +262,7 @@
         "longitude": "10.7522"
       },
       "telephone": "+47-46195548",
-      "email": "andreas@beta-ads.no",
+      "email": "hello@betaads.no",
       "url": "https://beta-ads.no",
       "openingHours": "Mo-Fr 09:00-17:00",
       "priceRange": "$$",
@@ -438,43 +438,7 @@
     }
     </script>
 
-    <!-- Nordic Gaming Industry Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Twitch Marketing i Norden - Komplett Guide til Gaming Reklame",
-      "description": "Læ hvordan merkevarer kan nå det nordiske gaming-publikummet gjennom profesjonell Twitch markedsføring og overlay-annonser.",
-      "author": {
-        "@type": "Organization",
-        "name": "Beta Ads"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Beta Ads",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://beta-ads.no/lovable-uploads/28870ef0-e3e7-4ea6-b706-1b3a3cd3e1a4.png"
-        }
-      },
-      "mainEntityOfPage": "https://beta-ads.no/",
-      "datePublished": "2024-01-01",
-      "dateModified": "2024-07-18",
-      "keywords": ["Twitch marketing Norge", "Gaming reklame", "Overlay annonser", "Nordisk esports", "Twitch streamere"],
-      "about": [
-        {
-          "@type": "Thing",
-          "name": "Twitch Marketing",
-          "description": "Markedsføring på Twitch-plattformen"
-        },
-        {
-          "@type": "Thing", 
-          "name": "Nordic Gaming",
-          "description": "Gaming industri i Norge, Sverige, Danmark og Finland"
-        }
-      ]
-    }
-    </script>
+    <!-- Removed Article schema from homepage (homepage is not an article; mistyped schema risks rich result issues) -->
 
     <!-- VideoObject Schema for campaign examples -->
     <script type="application/ld+json">
@@ -500,124 +464,24 @@
     }
     </script>
 
-    <!-- Enhanced WebSite Schema with Nordic search actions -->
+    <!-- WebSite Schema -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "name": "Beta Ads - Nordic Twitch Marketing",
-      "alternateName": ["Beta Ads Norge", "Twitch Marketing Norden", "Beta Nordic"],
+      "@id": "https://beta-ads.no/#website",
+      "name": "Beta Ads",
+      "alternateName": ["Beta Ads Norge", "Beta Ads Nordic"],
       "url": "https://beta-ads.no/",
-      "description": "Ledende Twitch markedsføringsbyrå i Norden. Overlay-annonser, streamer partnerships og gaming advertising i Norge, Sverige, Danmark og Finland.",
-      "inLanguage": ["no", "en", "sv", "fi"],
-      "isPartOf": {
-        "@type": "WebPage",
-        "url": "https://beta-ads.no/"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://beta-ads.no/?q={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-      },
-      "audience": {
-        "@type": "Audience",
-        "audienceType": "Gaming Companies",
-        "geographicArea": [
-          {
-            "@type": "Country",
-            "name": "Norway"
-          },
-          {
-            "@type": "Country",
-            "name": "Sweden"
-          },
-          {
-            "@type": "Country",
-            "name": "Finland"
-          },
-          {
-            "@type": "Country",
-            "name": "Denmark"
-          }
-        ]
+      "description": "Native livestream advertising platform for the Nordics. Overlay ads on Twitch, YouTube and Kick that bypass adblock and reach Gen Z.",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://beta-ads.no/#organization"
       }
     }
     </script>
 
-    <!-- Review and Rating Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "AggregateRating",
-      "itemReviewed": {
-        "@type": "Organization",
-        "name": "Beta Ads",
-        "description": "Nordic Twitch Marketing Agency"
-      },
-      "ratingValue": "4.8",
-      "bestRating": "5",
-      "worstRating": "1",
-      "ratingCount": "47",
-      "reviewCount": "23"
-    }
-    </script>
-
-    <!-- Advanced Product Schema for Overlay Technology -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Product",
-      "name": "Beta Ads Overlay Technology",
-      "description": "Advanced Twitch overlay advertising technology for non-intrusive brand integration in livestreams across Nordic markets.",
-      "brand": {
-        "@type": "Brand",
-        "name": "Beta Ads"
-      },
-      "manufacturer": {
-        "@type": "Organization",
-        "name": "Beta Ads"
-      },
-      "category": "Advertising Technology",
-      "audience": {
-        "@type": "BusinessAudience",
-        "audienceType": "Gaming Companies"
-      },
-      "offers": {
-        "@type": "Offer",
-        "availability": "https://schema.org/InStock",
-        "priceRange": "$$",
-        "priceCurrency": "NOK",
-        "seller": {
-          "@type": "Organization",
-          "name": "Beta Ads"
-        }
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "bestRating": "5",
-        "ratingCount": "47"
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
-          },
-          "author": {
-            "@type": "Organization",
-            "name": "Samsung Nordic"
-          },
-          "reviewBody": "Exceptional overlay technology that seamlessly integrates our brand into Twitch streams without disrupting the viewer experience."
-        }
-      ]
-    }
-    </script>
+    <!-- SoftwareApplication schema kept; removed AggregateRating and Product schemas (unverified reviews risk Google penalty) -->
 
     <!-- SoftwareApplication Schema -->
     <script type="application/ld+json">
@@ -650,39 +514,7 @@
     }
     </script>
 
-    <!-- Course/Tutorial Schema for Gaming Marketing Education -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Course",
-      "name": "Twitch Marketing Masterclass - Nordic Gaming Advertising",
-      "description": "Learn how to effectively market to Nordic gaming audiences through Twitch overlay advertising and streamer partnerships",
-      "provider": {
-        "@type": "Organization",
-        "name": "Beta Ads",
-        "sameAs": "https://beta-ads.no"
-      },
-      "hasCourseInstance": {
-        "@type": "CourseInstance",
-        "courseMode": "online",
-        "courseWorkload": "PT2H",
-        "instructor": {
-          "@type": "Person",
-          "name": "Beta Ads Team"
-        }
-      },
-      "educationalLevel": "Professional",
-      "teaches": [
-        "Twitch overlay advertising",
-        "Nordic gaming market insights",
-        "Gaming audience targeting",
-        "Esports marketing strategies",
-        "Streamer partnership management"
-      ],
-      "coursePrerequisites": "Basic digital marketing knowledge",
-      "educationalCredentialAwarded": "Gaming Marketing Certificate"
-    }
-    </script>
+    <!-- Removed Course schema (no actual course exists; misleading structured data risks manual action) -->
 
     <!-- HowTo Schema for Overlay Implementation -->
     <script type="application/ld+json">
@@ -789,89 +621,15 @@
         "@type": "SpeakableSpecification",
         "cssSelector": ["h1", ".hero-description", ".cta-section"]
       },
-      "lastReviewed": "2024-07-18",
+      "lastReviewed": "2026-03-23",
       "reviewedBy": {
         "@type": "Organization",
-        "name": "Beta Ads Quality Team"
+        "name": "Beta Ads"
       }
     }
     </script>
 
-    <!-- Event Schema for Gaming Industry Events -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Event",
-      "name": "Nordic Gaming Marketing Summit 2024",
-      "description": "Annual summit discussing the latest trends in Nordic gaming marketing, featuring Beta Ads' innovative overlay advertising solutions",
-      "startDate": "2024-09-15T10:00:00+02:00",
-      "endDate": "2024-09-15T17:00:00+02:00",
-      "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "location": {
-        "@type": "VirtualLocation",
-        "url": "https://beta-ads.no/summit"
-      },
-      "organizer": {
-        "@type": "Organization",
-        "name": "Beta Ads",
-        "url": "https://beta-ads.no"
-      },
-      "offers": {
-        "@type": "Offer",
-        "url": "https://beta-ads.no/summit",
-        "price": "0",
-        "priceCurrency": "NOK",
-        "availability": "https://schema.org/InStock"
-      },
-      "audience": {
-        "@type": "Audience",
-        "audienceType": "Gaming Industry Professionals"
-      }
-    }
-    </script>
-
-    <!-- JobPosting Schema for Gaming Marketing Roles -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "JobPosting",
-      "title": "Nordic Gaming Marketing Specialist",
-      "description": "Join Beta Ads as a Gaming Marketing Specialist focusing on Twitch advertising and Nordic market expansion",
-      "hiringOrganization": {
-        "@type": "Organization",
-        "name": "Beta Ads",
-        "sameAs": "https://beta-ads.no"
-      },
-      "jobLocation": {
-        "@type": "Place",
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "NO",
-          "addressRegion": "Norge"
-        }
-      },
-      "employmentType": "FULL_TIME",
-      "datePosted": "2024-07-18",
-      "validThrough": "2024-12-31",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "NOK",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 500000,
-          "maxValue": 700000,
-          "unitText": "YEAR"
-        }
-      },
-      "qualifications": "Experience in gaming marketing, knowledge of Nordic markets, familiarity with Twitch platform",
-      "responsibilities": "Develop gaming marketing strategies, manage streamer partnerships, analyze Nordic gaming market trends"
-    }
-    </script>
-    <meta property="og:title" content="Beta Ads - Twitch Markedsføring Norge | Livestreaming Marketing Nordic">
-  <meta name="twitter:title" content="Beta Ads - Twitch Markedsføring Norge | Livestreaming Marketing Nordic">
-  <meta property="og:description" content="Beta Ads is the leading Nordic Twitch marketing agency. We help brands reach gamers through automated overlay ads in livestreams across Norway, Sweden, Denmark and Finland. Twitch influencers and streamers Nordic.">
-  <meta name="twitter:description" content="Beta Ads is the leading Nordic Twitch marketing agency. We help brands reach gamers through automated overlay ads in livestreams across Norway, Sweden, Denmark and Finland. Twitch influencers and streamers Nordic.">
+    <!-- Removed expired Event (2024) and JobPosting (expired 2024-12-31) schemas to avoid Google warnings -->
 </head>
 
   <body>

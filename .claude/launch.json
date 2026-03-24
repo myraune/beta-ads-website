@@ -2,10 +2,10 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "beta-ads-nr1",
-      "runtimeExecutable": "bash",
-      "runtimeArgs": ["-c", "cd '/Users/myraune/Desktop/beta ads website nr1' && npx vite --port 3007"],
-      "port": 3007
+      "name": "redesign",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["vite", "--port", "3008"],
+      "port": 3008
     }
   ]
 }

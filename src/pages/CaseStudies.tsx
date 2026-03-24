@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Footer } from "@/components/sections/Footer";
+import { SEO } from "@/components/SEO";
+import { SPFooter } from '@/components/sections/SPFooter';
 import { Play, ExternalLink, ChevronLeft, ChevronRight, ArrowRight, BarChart3, Filter } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -93,6 +94,20 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
 
   return (
     <div className="min-h-screen relative">
+      <SEO
+        title="Case Studies & Ad Formats | Beta Ads"
+        description="See real campaign results from Samsung, Shure, Surfshark and more. Native Twitch overlay advertising case studies with impressions, CTR and ROI data."
+        canonical="/case-studies"
+        ogType="website"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Case Studies & Ad Formats - Beta Ads",
+          "description": "See real campaign results from Samsung, Shure, Surfshark and more. Native Twitch overlay advertising case studies with impressions, CTR and ROI data.",
+          "url": "https://beta-ads.no/case-studies",
+          "isPartOf": { "@id": "https://beta-ads.no/#website" }
+        }}
+      />
       <VideoModal videoId={modalVideoId} onClose={() => setModalVideoId(null)} />
 
       {/* Hero */}
@@ -299,7 +314,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
         </div>
       </section>
 
-      <Footer t={t} />
+      <SPFooter />
     </div>
   );
 };
