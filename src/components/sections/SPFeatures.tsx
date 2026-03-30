@@ -10,6 +10,9 @@ import {
   Download,
   X as XIcon,
   Zap,
+  ZoomIn,
+  ZoomOut,
+  Maximize2,
 } from "lucide-react";
 import { ChartVisual3 } from "@/components/ui/animated-card-chart";
 import {
@@ -408,11 +411,100 @@ const ReportsPreview: React.FC = () => {
 
 /* ── Report Modal — uses portal to escape DOM, locks scroll ── */
 const ReportModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
+  const [zoom, setZoom] = useState(1);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const dragRef = useRef<{ active: boolean; startX: number; startY: number; panX: number; panY: number }>({
+    active: false, startX: 0, startY: 0, panX: 0, panY: 0,
+  });
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const ZOOM_STEP = 0.4;
+  const MIN_ZOOM = 1;
+  const MAX_ZOOM = 4;
+
+  const clampZoom = (z: number) => Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, z));
+
+  const adjustZoom = useCallback((delta: number) => {
+    setZoom((z) => {
+      const next = clampZoom(z + delta);
+      if (next === MIN_ZOOM) setPan({ x: 0, y: 0 });
+      return next;
+    });
+  }, []);
+
+  const resetZoom = useCallback(() => {
+    setZoom(1);
+    setPan({ x: 0, y: 0 });
+  }, []);
+
+  // Wheel zoom
+  const handleWheel = useCallback((e: React.WheelEvent) => {
+    e.preventDefault();
+    adjustZoom(e.deltaY < 0 ? ZOOM_STEP : -ZOOM_STEP);
+  }, [adjustZoom]);
+
+  // Double-click toggle
+  const handleDoubleClick = useCallback(() => {
+    setZoom((z) => {
+      if (z > 1) { setPan({ x: 0, y: 0 }); return 1; }
+      return 2;
+    });
+  }, []);
+
+  // Mouse drag
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    if (zoom <= 1) return;
+    e.preventDefault();
+    dragRef.current = { active: true, startX: e.clientX, startY: e.clientY, panX: pan.x, panY: pan.y };
+  }, [zoom, pan]);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!dragRef.current.active) return;
+    setPan({ x: dragRef.current.panX + e.clientX - dragRef.current.startX, y: dragRef.current.panY + e.clientY - dragRef.current.startY });
+  }, []);
+
+  const handleMouseUp = useCallback(() => { dragRef.current.active = false; }, []);
+
+  // Touch pinch
+  const touchRef = useRef<{ dist: number; panX: number; panY: number } | null>(null);
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    if (e.touches.length === 2) {
+      const dx = e.touches[0].clientX - e.touches[1].clientX;
+      const dy = e.touches[0].clientY - e.touches[1].clientY;
+      touchRef.current = { dist: Math.hypot(dx, dy), panX: pan.x, panY: pan.y };
+    } else if (e.touches.length === 1 && zoom > 1) {
+      dragRef.current = { active: true, startX: e.touches[0].clientX, startY: e.touches[0].clientY, panX: pan.x, panY: pan.y };
+    }
+  }, [pan, zoom]);
+
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    if (e.touches.length === 2 && touchRef.current) {
+      e.preventDefault();
+      const dx = e.touches[0].clientX - e.touches[1].clientX;
+      const dy = e.touches[0].clientY - e.touches[1].clientY;
+      const dist = Math.hypot(dx, dy);
+      const scale = dist / touchRef.current.dist;
+      setZoom((z) => clampZoom(z * scale));
+      touchRef.current.dist = dist;
+    } else if (e.touches.length === 1 && dragRef.current.active) {
+      setPan({ x: dragRef.current.panX + e.touches[0].clientX - dragRef.current.startX, y: dragRef.current.panY + e.touches[0].clientY - dragRef.current.startY });
+    }
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    dragRef.current.active = false;
+    touchRef.current = null;
+    setZoom((z) => { if (z < 1.05) { setPan({ x: 0, y: 0 }); return 1; } return z; });
+  }, []);
+
   useEffect(() => {
     document.body.style.overflow = "hidden";
     document.documentElement.style.overflow = "hidden";
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
+      if (e.key === "+" || e.key === "=") adjustZoom(ZOOM_STEP);
+      if (e.key === "-") adjustZoom(-ZOOM_STEP);
+      if (e.key === "0") resetZoom();
     };
     document.addEventListener("keydown", handleKey);
     return () => {
@@ -420,35 +512,66 @@ const ReportModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       document.documentElement.style.overflow = "";
       document.removeEventListener("keydown", handleKey);
     };
-  }, [onClose]);
+  }, [onClose, adjustZoom, resetZoom]);
 
   return ReactDOM.createPortal(
     <div
       className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
       onClick={onClose}
     >
-      {/* Fully opaque backdrop */}
       <div className="absolute inset-0 bg-black/95" />
 
-      {/* Modal */}
       <div
-        className="relative w-full max-w-lg max-h-[85vh] overflow-y-auto rounded-2xl shadow-2xl bg-[#0a0a0a]"
+        className="relative w-full max-w-lg max-h-[90vh] flex flex-col rounded-2xl shadow-2xl bg-[#0a0a0a]"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="sticky top-0 z-10 flex items-center justify-between p-4 bg-[#0a0a0a] border-b border-white/10 rounded-t-2xl">
+        {/* Header */}
+        <div className="flex items-center justify-between px-4 py-3 bg-[#0a0a0a] border-b border-white/10 rounded-t-2xl shrink-0">
           <span className="text-white text-sm font-semibold">Campaign Report — Glorious Gaming</span>
-          <button
-            onClick={onClose}
-            className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
-          >
-            <XIcon className="w-4 h-4" />
-          </button>
+          <div className="flex items-center gap-1">
+            <button onClick={() => adjustZoom(-ZOOM_STEP)} disabled={zoom <= MIN_ZOOM} className="w-7 h-7 rounded-lg bg-white/10 hover:bg-white/20 disabled:opacity-30 flex items-center justify-center text-white transition-colors">
+              <ZoomOut className="w-3.5 h-3.5" />
+            </button>
+            <button onClick={resetZoom} className="px-2.5 h-7 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-medium transition-colors tabular-nums min-w-[44px] text-center">
+              {Math.round(zoom * 100)}%
+            </button>
+            <button onClick={() => adjustZoom(ZOOM_STEP)} disabled={zoom >= MAX_ZOOM} className="w-7 h-7 rounded-lg bg-white/10 hover:bg-white/20 disabled:opacity-30 flex items-center justify-center text-white transition-colors">
+              <ZoomIn className="w-3.5 h-3.5" />
+            </button>
+            <div className="w-px h-4 bg-white/15 mx-1" />
+            <button onClick={onClose} className="w-7 h-7 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
+              <XIcon className="w-3.5 h-3.5" />
+            </button>
+          </div>
         </div>
-        <img
-          src="/lovable-uploads/campaign-report-preview.png"
-          alt="Full Campaign Report"
-          className="w-full h-auto"
-        />
+
+        {/* Zoomable image area */}
+        <div
+          ref={containerRef}
+          className="overflow-hidden rounded-b-2xl flex-1"
+          style={{ cursor: zoom > 1 ? "grab" : "zoom-in" }}
+          onWheel={handleWheel}
+          onMouseDown={handleMouseDown}
+          onMouseMove={handleMouseMove}
+          onMouseUp={handleMouseUp}
+          onMouseLeave={handleMouseUp}
+          onDoubleClick={handleDoubleClick}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <img
+            src="/lovable-uploads/campaign-report-preview.png"
+            alt="Full Campaign Report"
+            draggable={false}
+            className="w-full h-auto block select-none"
+            style={{
+              transform: `scale(${zoom}) translate(${pan.x / zoom}px, ${pan.y / zoom}px)`,
+              transformOrigin: "top center",
+              transition: dragRef.current.active ? "none" : "transform 0.15s ease",
+            }}
+          />
+        </div>
       </div>
     </div>,
     document.body
