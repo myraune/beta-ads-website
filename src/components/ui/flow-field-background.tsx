@@ -113,7 +113,7 @@ export default function NeuralBackground({
         if (trailLength > 0 && this.trail.length > 1) {
           for (let i = 0; i < this.trail.length; i++) {
             const t = this.trail[i];
-            const trailAlpha = (i / this.trail.length) * lifeAlpha * 0.3;
+            const trailAlpha = (i / this.trail.length) * lifeAlpha * 0.6;
             context.globalAlpha = trailAlpha;
             context.fillStyle = color;
             const size = 1 + (i / this.trail.length) * 0.5;
@@ -122,9 +122,9 @@ export default function NeuralBackground({
         }
 
         // Draw particle head
-        context.globalAlpha = lifeAlpha * 0.6;
+        context.globalAlpha = lifeAlpha * 0.9;
         context.fillStyle = color;
-        context.fillRect(this.x, this.y, 1.5, 1.5);
+        context.fillRect(this.x, this.y, 2, 2);
       }
     }
 

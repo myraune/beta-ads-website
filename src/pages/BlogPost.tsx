@@ -1,16 +1,30 @@
-import React, { useEffect, lazy, Suspense } from "react";
+import React, { useEffect, useMemo, lazy, Suspense } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { SPFooter } from '@/components/sections/SPFooter';
-import { ArrowLeft, Calendar, Clock, Tag, Share2, Twitter, Linkedin, Facebook } from "lucide-react";
+import { ArrowLeft, Calendar, Clock, Tag, Share2, Twitter, Linkedin, Facebook, List } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { getBlogPostBySlug, getRelatedPosts } from "@/data/blogPosts";
-import { Helmet } from "react-helmet";
+import { SEO } from "@/components/SEO";
 import { ReadingProgress } from "@/components/blog/ReadingProgress";
 import { TableOfContents, dashboardTocItems } from "@/components/blog/TableOfContents";
-import { StickyCTA, InlineCTA } from "@/components/blog/StickyCTA";
+import { StickyCTA, StreamerStickyCTA, InlineCTA, StreamerInlineCTA } from "@/components/blog/StickyCTA";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+
+// Auto-generate TOC items from markdown content
+function extractTocFromMarkdown(content: string) {
+  const headingRegex = /^(#{2,3})\s+(.+)$/gm;
+  const items: { id: string; title: string; level: number }[] = [];
+  let match;
+  while ((match = headingRegex.exec(content)) !== null) {
+    const level = match[1].length;
+    const title = match[2].replace(/[*_`\[\]]/g, "").trim();
+    const id = title.toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").slice(0, 60);
+    items.push({ id, title, level });
+  }
+  return items;
+}
 
 const TwitchStatsDashboard = lazy(() => import("@/components/blog/TwitchStatsDashboard"));
 const NorwegianStreamersDashboard = lazy(() => import("@/components/blog/NorwegianStreamersDashboard"));
@@ -40,6 +54,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t }) => {
 
   if (!post) return null;
 
+  const isStreamerPost = post.category === "Streamer Guide";
   const seoTitle = post.seoTitle.en;
   const seoDescription = post.seoDescription.en;
   const seoKeywords = post.seoKeywords.en;
@@ -54,59 +69,85 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t }) => {
     window.open(urls[platform], "_blank", "width=600,height=400");
   };
 
-  const tocItems = post.hasDashboard ? dashboardTocItems[post.hasDashboard] || [] : [];
+  const autoTocItems = useMemo(() => extractTocFromMarkdown(post.content), [post.content]);
+  const tocItems = post.hasDashboard ? dashboardTocItems[post.hasDashboard] || [] : autoTocItems;
 
   return (
     <>
       <ReadingProgress />
-      <Helmet>
-        <title>{seoTitle}</title>
-        <meta name="description" content={seoDescription} />
-        <meta name="keywords" content={seoKeywords.join(", ")} />
-        <meta property="og:title" content={seoTitle} />
-        <meta property="og:description" content={seoDescription} />
-        <meta property="og:image" content={post.image} />
-        <meta property="og:type" content="article" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={seoTitle} />
-        <meta name="twitter:description" content={seoDescription} />
-        <meta name="twitter:image" content={post.image} />
-        <link rel="canonical" href={`https://beta-ads.no/blog/${post.slug}`} />
-        <script type="application/ld+json">
-          {`{
+      <SEO
+        title={seoTitle}
+        description={seoDescription}
+        canonical={`/blog/${post.slug}`}
+        ogType="article"
+        ogImage={post.image}
+        ogImageAlt={post.title}
+        jsonLd={[
+          {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
-            "headline": ${JSON.stringify(post.title)},
-            "description": ${JSON.stringify(seoDescription)},
-            "image": ${JSON.stringify(post.image)},
-            "datePublished": "${post.dateISO}",
-            "dateModified": "${post.dateISO}",
-            "author": { "@type": "Organization", "name": "Beta Ads" },
-            "publisher": { "@type": "Organization", "name": "Beta Ads", "logo": { "@type": "ImageObject", "url": "/lovable-uploads/logo-color.png" } },
-            "mainEntityOfPage": { "@type": "WebPage", "@id": ${JSON.stringify(shareUrl)} }
-          }`}
-        </script>
-      </Helmet>
+            "headline": post.title,
+            "description": seoDescription,
+            "image": post.image.startsWith("http") ? post.image : `https://beta-ads.no${post.image}`,
+            "datePublished": post.dateISO,
+            "dateModified": post.dateISO,
+            "author": { "@type": "Organization", "name": "Beta Ads", "url": "https://beta-ads.no" },
+            "publisher": { "@type": "Organization", "name": "Beta Ads", "logo": { "@type": "ImageObject", "url": "https://beta-ads.no/lovable-uploads/logo-color.png" } },
+            "mainEntityOfPage": { "@type": "WebPage", "@id": `https://beta-ads.no/blog/${post.slug}` },
+            "keywords": seoKeywords.join(", "),
+            "inLanguage": "en",
+            "wordCount": post.content.split(/\s+/).length,
+            "articleSection": post.category
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://beta-ads.no/" },
+              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://beta-ads.no/blog" },
+              { "@type": "ListItem", "position": 3, "name": post.title, "item": `https://beta-ads.no/blog/${post.slug}` }
+            ]
+          }
+        ]}
+      />
 
       <div className="pt-16 lg:pt-20">
-        <article className="py-12 lg:py-20">
-          <div className={`${post.hasDashboard ? 'max-w-7xl' : 'max-w-4xl'} mx-auto px-4`}>
-            <Link to="/blog" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors mb-8">
-              <ArrowLeft className="w-4 h-4" /> Back to Blog
-            </Link>
+        <article>
+          {/* Hero image — full width */}
+          {!post.hasDashboard && post.image && (
+            <div className="relative w-full h-48 md:h-72 lg:h-[360px] overflow-hidden bg-muted">
+              <img
+                src={post.image}
+                alt={post.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          )}
 
-            <div className="flex flex-wrap items-center gap-4 mb-6">
-              <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20">{post.category}</Badge>
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" />{post.date}</span>
-                <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" />{post.readTime}</span>
-              </div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Back link */}
+            <div className="py-6">
+              <Link to="/blog" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+                <ArrowLeft className="w-4 h-4" /> Back to Blog
+              </Link>
             </div>
 
-            <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">{post.title}</h1>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">{post.excerpt}</p>
+            {/* Header */}
+            <div className={`${post.hasDashboard ? '' : 'max-w-4xl'} mb-10`}>
+              <div className="flex flex-wrap items-center gap-3 mb-5">
+                <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 text-sm px-3 py-0.5">{post.category}</Badge>
+                <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                  <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" />{post.date}</span>
+                  <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" />{post.readTime}</span>
+                </div>
+              </div>
 
-            <div className="flex gap-8">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-5 leading-tight">{post.title}</h1>
+              <p className="text-lg md:text-xl text-muted-foreground leading-relaxed border-l-4 border-primary/30 pl-4">{post.excerpt}</p>
+            </div>
+
+            {/* Content + Sidebar */}
+            <div className="flex gap-10 xl:gap-14 pb-12">
               <div className="flex-1 min-w-0">
                 {post.hasDashboard ? (
                   <Suspense fallback={<div className="text-center py-12 text-muted-foreground">Loading dashboard...</div>}>
@@ -122,60 +163,155 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t }) => {
                     {post.hasDashboard === "gokstad-case-study" && <GokstadCaseStudy />}
                   </Suspense>
                 ) : (
-                  <div className="prose prose-lg max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground">
+                  <div className="max-w-none">
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
                       components={{
-                        h2: ({ children }) => <h2 className="text-2xl font-bold text-foreground mt-10 mb-4">{children}</h2>,
-                        h3: ({ children }) => <h3 className="text-xl font-semibold text-foreground mt-8 mb-3">{children}</h3>,
-                        p: ({ children }) => <p className="text-muted-foreground leading-relaxed mb-4">{children}</p>,
-                        ul: ({ children }) => <ul className="list-disc pl-6 space-y-2 text-muted-foreground">{children}</ul>,
-                        ol: ({ children }) => <ol className="list-decimal pl-6 space-y-2 text-muted-foreground">{children}</ol>,
-                        li: ({ children }) => <li className="text-muted-foreground">{children}</li>,
-                        strong: ({ children }) => <strong className="text-foreground font-semibold">{children}</strong>,
-                        table: ({ children }) => <div className="overflow-x-auto my-6"><table className="w-full border-collapse">{children}</table></div>,
-                        thead: ({ children }) => <thead>{children}</thead>,
+                        h2: ({ children }) => {
+                          const text = String(children).replace(/[*_`\[\]]/g, "").trim();
+                          const id = text.toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").slice(0, 60);
+                          return (
+                            <h2 id={id} className="text-2xl md:text-3xl font-bold text-foreground mt-14 mb-5 pb-3 border-b border-border/50 scroll-mt-24">
+                              {children}
+                            </h2>
+                          );
+                        },
+                        h3: ({ children }) => {
+                          const text = String(children).replace(/[*_`\[\]]/g, "").trim();
+                          const id = text.toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").slice(0, 60);
+                          return (
+                            <h3 id={id} className="text-xl md:text-2xl font-semibold text-foreground mt-10 mb-4 scroll-mt-24">
+                              {children}
+                            </h3>
+                          );
+                        },
+                        p: ({ children }) => (
+                          <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-5">
+                            {children}
+                          </p>
+                        ),
+                        ul: ({ children }) => (
+                          <ul className="list-disc pl-6 space-y-2.5 text-foreground/80 mb-5 text-base md:text-lg">
+                            {children}
+                          </ul>
+                        ),
+                        ol: ({ children }) => (
+                          <ol className="list-decimal pl-6 space-y-2.5 text-foreground/80 mb-5 text-base md:text-lg">
+                            {children}
+                          </ol>
+                        ),
+                        li: ({ children }) => (
+                          <li className="text-foreground/80 leading-relaxed">{children}</li>
+                        ),
+                        strong: ({ children }) => (
+                          <strong className="text-foreground font-semibold">{children}</strong>
+                        ),
+                        blockquote: ({ children }) => (
+                          <blockquote className="my-6 px-5 py-4 bg-primary/10 border-l-4 border-primary rounded-r-xl text-foreground/90 italic text-lg">
+                            {children}
+                          </blockquote>
+                        ),
+                        a: ({ href, children }) => {
+                          if (href?.startsWith("/")) {
+                            return <Link to={href} className="text-primary font-medium underline underline-offset-2 hover:text-primary/80 transition-colors">{children}</Link>;
+                          }
+                          return <a href={href} target="_blank" rel="noopener noreferrer" className="text-primary font-medium underline underline-offset-2 hover:text-primary/80 transition-colors">{children}</a>;
+                        },
+                        img: ({ src, alt }) => (
+                          <figure className="my-8 -mx-4 sm:mx-0">
+                            <img
+                              src={src}
+                              alt={alt || ""}
+                              className="w-full rounded-xl object-cover shadow-md"
+                              style={{ maxHeight: "480px" }}
+                            />
+                            {alt && (
+                              <figcaption className="mt-2 text-center text-sm text-muted-foreground italic px-4">
+                                {alt}
+                              </figcaption>
+                            )}
+                          </figure>
+                        ),
+                        table: ({ children }) => (
+                          <div className="overflow-x-auto my-8 rounded-xl border border-border shadow-sm">
+                            <table className="w-full border-collapse">{children}</table>
+                          </div>
+                        ),
+                        thead: ({ children }) => (
+                          <thead className="bg-muted/60">{children}</thead>
+                        ),
                         tbody: ({ children }) => <tbody>{children}</tbody>,
-                        tr: ({ children }) => <tr className="border-b border-border/50">{children}</tr>,
-                        th: ({ children }) => <th className="text-left py-3 px-4 text-foreground font-semibold border-b border-border">{children}</th>,
-                        td: ({ children }) => <td className="py-3 px-4 text-muted-foreground">{children}</td>,
+                        tr: ({ children }) => (
+                          <tr className="border-b border-border/50 even:bg-muted/20 hover:bg-muted/40 transition-colors">
+                            {children}
+                          </tr>
+                        ),
+                        th: ({ children }) => (
+                          <th className="text-left py-3.5 px-5 text-foreground font-semibold text-sm uppercase tracking-wide">
+                            {children}
+                          </th>
+                        ),
+                        td: ({ children }) => (
+                          <td className="py-3.5 px-5 text-foreground/80 text-sm md:text-base">
+                            {children}
+                          </td>
+                        ),
                       }}
                     >
                       {post.content}
                     </ReactMarkdown>
-                    <InlineCTA language="en" />
+
+                    {isStreamerPost ? (
+                      <StreamerInlineCTA language="en" />
+                    ) : (
+                      <InlineCTA language="en" />
+                    )}
                   </div>
                 )}
               </div>
-              
-              <div className="hidden lg:flex flex-col gap-6 w-72 shrink-0">
-                {tocItems.length > 0 && <TableOfContents items={tocItems} />}
-                <StickyCTA language="en" />
+
+              {/* Sidebar — always visible on desktop */}
+              <aside className="hidden lg:block w-72 xl:w-80 shrink-0 self-start">
+                <div className="sticky top-24 flex flex-col gap-6 max-h-[calc(100vh-8rem)] overflow-y-auto">
+                  {tocItems.length > 0 && <TableOfContents items={tocItems} />}
+                  {isStreamerPost ? (
+                    <StreamerStickyCTA language="en" />
+                  ) : (
+                    <StickyCTA language="en" />
+                  )}
+                </div>
+              </aside>
+            </div>
+
+            {/* Tags + Share */}
+            <div className="border-t border-border/50 pt-8 pb-12">
+              <div className="flex flex-wrap items-center gap-2 mb-6">
+                <Tag className="w-4 h-4 text-muted-foreground" />
+                {post.tags.map((tag) => (
+                  <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
+                ))}
               </div>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-2 mt-12 pt-8">
-              <Tag className="w-4 h-4 text-muted-foreground" />
-              {post.tags.map((tag) => <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>)}
-            </div>
-
-            <div className="flex items-center gap-4 mt-8">
-              <span className="text-sm text-muted-foreground flex items-center gap-2"><Share2 className="w-4 h-4" />Share:</span>
-              <Button variant="outline" size="icon" className="h-9 w-9" onClick={() => handleShare("twitter")}><Twitter className="w-4 h-4" /></Button>
-              <Button variant="outline" size="icon" className="h-9 w-9" onClick={() => handleShare("linkedin")}><Linkedin className="w-4 h-4" /></Button>
-              <Button variant="outline" size="icon" className="h-9 w-9" onClick={() => handleShare("facebook")}><Facebook className="w-4 h-4" /></Button>
+              <div className="flex items-center gap-4">
+                <span className="text-sm text-muted-foreground flex items-center gap-2">
+                  <Share2 className="w-4 h-4" />Share:
+                </span>
+                <Button variant="outline" size="icon" className="h-9 w-9" onClick={() => handleShare("twitter")}><Twitter className="w-4 h-4" /></Button>
+                <Button variant="outline" size="icon" className="h-9 w-9" onClick={() => handleShare("linkedin")}><Linkedin className="w-4 h-4" /></Button>
+                <Button variant="outline" size="icon" className="h-9 w-9" onClick={() => handleShare("facebook")}><Facebook className="w-4 h-4" /></Button>
+              </div>
             </div>
           </div>
         </article>
 
+        {/* Related posts */}
         {relatedPosts.length > 0 && (
           <section className="py-16 lg:py-20 px-4 bg-muted/30">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-8 text-center">Related Articles</h2>
+              <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-8 text-center">Related Articles</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {relatedPosts.map((relatedPost) => (
                   <Link key={relatedPost.id} to={`/blog/${relatedPost.slug}`} className="group bg-card rounded-2xl overflow-hidden shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500">
-                    <div className="relative h-40 overflow-hidden">
+                    <div className="relative h-44 overflow-hidden">
                       <img src={relatedPost.image} alt={relatedPost.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                       <div className="absolute top-3 left-3">
                         <span className="bg-primary/90 backdrop-blur-sm text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">{relatedPost.category}</span>
@@ -186,7 +322,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t }) => {
                         <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" />{relatedPost.date}</span>
                         <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" />{relatedPost.readTime}</span>
                       </div>
-                      <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">{relatedPost.title}</h3>
+                      <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">{relatedPost.title}</h3>
                       <p className="text-sm text-muted-foreground line-clamp-2">{relatedPost.excerpt}</p>
                     </div>
                   </Link>

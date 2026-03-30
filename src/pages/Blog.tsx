@@ -3,16 +3,12 @@ import { Link } from "react-router-dom";
 import { Search, ArrowRight, X } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
 import { Input } from "@/components/ui/input";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { SEO } from "@/components/SEO";
 import { SPFooter } from "@/components/sections/SPFooter";
-
-const POSTS_PER_PAGE = 9;
 
 const Blog: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
-  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
 
   const categories = [
     { id: "all", label: "All" },
@@ -23,41 +19,49 @@ const Blog: React.FC = () => {
   ];
 
   const filteredPosts = useMemo(() => {
-    return blogPosts.filter((post) => {
-      const q = searchQuery.toLowerCase();
-      const matchesSearch =
-        !q ||
-        post.title.toLowerCase().includes(q) ||
-        post.excerpt.toLowerCase().includes(q);
+    return blogPosts
+      .filter((post) => {
+        const q = searchQuery.toLowerCase();
+        const matchesSearch =
+          !q ||
+          post.title.toLowerCase().includes(q) ||
+          post.excerpt.toLowerCase().includes(q);
 
-      const matchesCategory =
-        activeCategory === "all" ||
-        post.category?.toLowerCase().includes(activeCategory.replace("-", " "));
+        const matchesCategory =
+          activeCategory === "all" ||
+          post.category?.toLowerCase().includes(activeCategory.replace("-", " "));
 
-      return matchesSearch && matchesCategory;
-    });
+        return matchesSearch && matchesCategory;
+      })
+      .sort((a, b) => new Date(b.dateISO).getTime() - new Date(a.dateISO).getTime());
   }, [searchQuery, activeCategory]);
 
   return (
     <>
       <SEO
-        title="Blog | Beta Ads"
-        description="Data-driven insights, analytics, and advertising guides for reaching Gen Z on Twitch and streaming platforms in the Nordics."
+        title="Insights & Blog | Beta Ads"
+        description="Data-driven insights, analytics, and advertising guides for reaching Gen Z on Twitch and streaming platforms in the Nordics. Updated weekly."
         canonical="/blog"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Blog",
+          "name": "Beta Ads Insights",
+          "description": "Data-driven guides for the Nordic streaming market. Learn how to reach Gen Z through native stream advertising.",
+          "url": "https://beta-ads.no/blog",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Beta Ads",
+            "logo": { "@type": "ImageObject", "url": "https://beta-ads.no/lovable-uploads/logo-color.png" }
+          },
+          "isPartOf": { "@id": "https://beta-ads.no/#website" }
+        }}
       />
 
       <div className="min-h-screen pt-28 pb-16">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           {/* Header */}
-          <div
-            ref={headerRef}
-            className={`mb-14 transition-all duration-700 ${
-              headerVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-8"
-            }`}
-          >
-            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <div className="mb-14">
+            <h1 className="text-4xl md:text-5xl font-light tracking-tight text-foreground mb-4">
               Beta Ads Insights
             </h1>
             <p className="text-lg text-muted-foreground max-w-xl">
@@ -75,7 +79,7 @@ const Blog: React.FC = () => {
                     className={`text-sm font-medium pb-1.5 border-b-2 transition-all ${
                       activeCategory === cat.id
                         ? "text-foreground border-primary"
-                        : "text-muted-foreground border-transparent hover:text-foreground"
+                        : "text-muted-foreground border-muted-foreground/20 hover:text-foreground hover:border-muted-foreground/40"
                     }`}
                   >
                     {cat.label}
@@ -89,11 +93,13 @@ const Blog: React.FC = () => {
                   placeholder="Search articles..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
+                  aria-label="Search articles"
                   className="pl-6 bg-transparent border-0 border-b border-border/50 rounded-none focus-visible:ring-0 focus-visible:border-primary"
                 />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery("")}
+                    aria-label="Clear search"
                     className="absolute right-0 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                   >
                     <X className="h-4 w-4" />
@@ -121,7 +127,7 @@ const Blog: React.FC = () => {
             </div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.slice(0, POSTS_PER_PAGE).map((post) => (
+              {filteredPosts.map((post) => (
                 <Link
                   to={`/blog/${post.slug}`}
                   key={post.id}

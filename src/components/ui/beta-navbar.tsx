@@ -1,12 +1,8 @@
 "use client";
 import * as React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 import {
-  Monitor,
-  Moon,
-  Sun,
   ArrowRight,
   Menu,
   X,
@@ -16,8 +12,18 @@ import {
   Target,
   Tv,
   Sparkles,
+  FileText,
+  CreditCard,
+  BookOpen,
+  Newspaper,
+  Users,
+  HelpCircle,
+  Monitor,
+  Play,
+  Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ThemeSwitch } from "@/components/ui/theme-switch-button";
 import { useState, useCallback, useEffect, useRef } from "react";
 
 /* ── Product dropdown items — scroll to homepage sections ── */
@@ -47,10 +53,56 @@ const productItems = [
     scrollTo: "Features",
   },
   {
-    icon: Sparkles,
-    label: "AI Features",
-    desc: "Voice recognition & clipping",
-    href: "/how-it-works",
+    icon: Monitor,
+    label: "Twitch Ads",
+    desc: "Native overlays on Twitch",
+    href: "/twitch-advertising",
+  },
+  {
+    icon: Play,
+    label: "YouTube Ads",
+    desc: "Overlays on YouTube Live",
+    href: "/youtube-advertising",
+  },
+  {
+    icon: Zap,
+    label: "Kick Ads",
+    desc: "First-mover on Kick",
+    href: "/kick-advertising",
+  },
+];
+
+/* ── About dropdown items ── */
+const aboutItems = [
+  {
+    icon: FileText,
+    label: "Case Studies",
+    desc: "Real campaign results & ROI data",
+    href: "/case-studies",
+  },
+  {
+    icon: CreditCard,
+    label: "Pricing",
+    desc: "Plans for brands & agencies",
+    href: "/pricing",
+  },
+  {
+    icon: BookOpen,
+    label: "Blog",
+    desc: "Insights, guides & news",
+    href: "/blog",
+  },
+  {
+    icon: Newspaper,
+    label: "Press",
+    desc: "Beta in the media",
+    href: "/press",
+  },
+  {
+    icon: Users,
+    label: "About Us",
+    desc: "Our story & team",
+    href: "/about",
   },
 ];
 
@@ -58,13 +110,19 @@ export function BetaNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [productOpen, setProductOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const aboutDropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+
+  // When not scrolled and on homepage, navbar sits over the dark hero bg — use white text
+  const isOnHero = !scrolled && location.pathname === "/";
   const navigate = useNavigate();
 
   useEffect(() => {
     setMobileOpen(false);
     setProductOpen(false);
+    setAboutOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -73,7 +131,7 @@ export function BetaNavbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close dropdown on outside click
+  // Close dropdowns on outside click
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       if (
@@ -81,6 +139,12 @@ export function BetaNavbar() {
         !dropdownRef.current.contains(e.target as Node)
       ) {
         setProductOpen(false);
+      }
+      if (
+        aboutDropdownRef.current &&
+        !aboutDropdownRef.current.contains(e.target as Node)
+      ) {
+        setAboutOpen(false);
       }
     };
     document.addEventListener("mousedown", handler);
@@ -130,12 +194,12 @@ export function BetaNavbar() {
         {/* Product dropdown */}
         <div ref={dropdownRef} className="relative">
           <button
-            onClick={() => setProductOpen(!productOpen)}
+            onClick={() => { setProductOpen(!productOpen); setAboutOpen(false); }}
             className={cn(
               "flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-medium rounded-full transition-all duration-200",
               productOpen
-                ? "text-foreground bg-foreground/[0.08]"
-                : "text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05]"
+                ? isOnHero ? "text-white bg-white/15" : "text-foreground bg-foreground/[0.08]"
+                : isOnHero ? "text-white/80 hover:text-white hover:bg-white/10" : "text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05]"
             )}
           >
             Product
@@ -187,57 +251,108 @@ export function BetaNavbar() {
               })}
             </div>
             <div className="border-t border-border/50 p-2">
-              <Link
-                to="/case-studies"
-                className="flex items-center justify-between px-3 py-2 rounded-xl text-[12px] font-medium text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05] transition-colors"
+              <a
+                href="/#case-studies"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById("case-studies");
+                  if (el) el.scrollIntoView({ behavior: "smooth" });
+                  else window.location.href = "/#case-studies";
+                }}
+                className="flex items-center justify-between px-3 py-2 rounded-xl text-[12px] font-medium text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05] transition-colors cursor-pointer"
               >
-                View case studies
+                View campaign highlights
                 <ArrowRight className="w-3 h-3" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
 
-        {/* Direct links */}
-        <Link
-          to="/streamers"
-          className={cn(
-            "px-3.5 py-1.5 text-[13px] font-medium rounded-full transition-all duration-200",
-            location.pathname === "/streamers"
-              ? "text-foreground bg-foreground/[0.08]"
-              : "text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05]"
-          )}
-        >
-          Streamers
-        </Link>
-
-        <Link
-          to="/pricing"
-          className={cn(
-            "px-3.5 py-1.5 text-[13px] font-medium rounded-full transition-all duration-200",
-            location.pathname === "/pricing"
-              ? "text-foreground bg-foreground/[0.08]"
-              : "text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05]"
-          )}
-        >
-          Pricing
-        </Link>
-
-        {/* Right side: theme + CTA */}
-        <div className="flex items-center gap-2 ml-2">
-          <ThemeSwitcher />
-          <a
-            href="https://calendar.app.google/coW5NLQJtLxfRer19"
-            target="_blank"
-            rel="noopener noreferrer"
+        {/* About dropdown */}
+        <div ref={aboutDropdownRef} className="relative">
+          <button
+            onClick={() => { setAboutOpen(!aboutOpen); setProductOpen(false); }}
+            className={cn(
+              "flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-medium rounded-full transition-all duration-200",
+              aboutOpen || ["/case-studies", "/pricing", "/blog", "/press", "/about"].includes(location.pathname)
+                ? isOnHero ? "text-white bg-white/15" : "text-foreground bg-foreground/[0.08]"
+                : isOnHero ? "text-white/80 hover:text-white hover:bg-white/10" : "text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05]"
+            )}
           >
+            About
+            <ChevronDown
+              className={cn(
+                "w-3 h-3 transition-transform duration-200",
+                aboutOpen && "rotate-180"
+              )}
+            />
+          </button>
+
+          {/* Dropdown panel */}
+          <div
+            className={cn(
+              "absolute top-full right-0 mt-2 w-72 rounded-2xl border border-border/50 bg-background/95 backdrop-blur-xl shadow-xl shadow-black/[0.12] transition-all duration-200 origin-top",
+              aboutOpen
+                ? "opacity-100 scale-100 translate-y-0"
+                : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
+            )}
+          >
+            <div className="p-2">
+              {aboutItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = location.pathname === item.href;
+                return (
+                  <button
+                    key={item.label}
+                    onClick={() => {
+                      setAboutOpen(false);
+                      navigate(item.href);
+                    }}
+                    className={cn(
+                      "w-full flex items-start gap-3 px-3 py-2.5 rounded-xl text-left hover:bg-foreground/[0.05] transition-colors group",
+                      isActive && "bg-foreground/[0.05]"
+                    )}
+                  >
+                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">
+                      <Icon className="w-4 h-4 text-primary" />
+                    </div>
+                    <div>
+                      <div className="text-[13px] font-medium text-foreground">
+                        {item.label}
+                      </div>
+                      <div className="text-[11px] text-muted-foreground">
+                        {item.desc}
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+            <div className="border-t border-border/50 p-2">
+              <a
+                href="https://calendar.app.google/coW5NLQJtLxfRer19"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between px-3 py-2 rounded-xl text-[12px] font-medium text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05] transition-colors cursor-pointer"
+              >
+                Book a demo call
+                <ArrowRight className="w-3 h-3" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Right side: CTA + Theme toggle */}
+        <div className="flex items-center gap-2 ml-2">
+          <Link to="/streamers">
             <Button
               size="sm"
               className="rounded-full h-7 px-4 text-[12px] font-semibold bg-primary text-white hover:bg-primary/90"
             >
-              Book a Demo
+              I am a Streamer
             </Button>
-          </a>
+          </Link>
+          <ThemeSwitch className={isOnHero ? "text-white" : "text-foreground"} />
         </div>
       </nav>
 
@@ -259,10 +374,10 @@ export function BetaNavbar() {
             />
           </Link>
           <div className="flex items-center gap-2">
-            <ThemeSwitcher />
+            <ThemeSwitch className={isOnHero && !mobileOpen ? "text-white" : "text-foreground"} />
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="p-1.5 text-foreground rounded-full hover:bg-foreground/5 transition-colors"
+              className={cn("p-1.5 rounded-full transition-colors", isOnHero && !mobileOpen ? "text-white hover:bg-white/10" : "text-foreground hover:bg-foreground/5")}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
             >
               {mobileOpen ? (
@@ -308,43 +423,35 @@ export function BetaNavbar() {
 
             <div className="h-px bg-border/50 my-2" />
 
-            {/* Pages */}
-            <Link
-              to="/streamers"
-              className={cn(
-                "block px-4 py-2.5 text-sm font-semibold rounded-xl transition-colors",
-                location.pathname === "/streamers"
-                  ? "text-foreground bg-foreground/[0.08]"
-                  : "text-foreground hover:bg-foreground/[0.05]"
-              )}
-            >
-              For Streamers
-            </Link>
-            <Link
-              to="/pricing"
-              className="block px-4 py-2.5 text-sm font-medium rounded-xl text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05] transition-colors"
-            >
-              Pricing
-            </Link>
-            <Link
-              to="/about"
-              className="block px-4 py-2.5 text-sm font-medium rounded-xl text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05] transition-colors"
-            >
+            <p className="px-4 pt-2 pb-1 text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">
               About
-            </Link>
+            </p>
+            {aboutItems.map((item) => {
+              const Icon = item.icon;
+              return (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className={cn(
+                    "flex items-center gap-3 px-4 py-2.5 text-sm font-medium rounded-xl transition-colors",
+                    location.pathname === item.href
+                      ? "text-foreground bg-foreground/[0.08]"
+                      : "text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05]"
+                  )}
+                >
+                  <Icon className="w-4 h-4 text-primary" />
+                  {item.label}
+                </Link>
+              );
+            })}
 
             <div className="px-4 pt-2 pb-1">
-              <a
-                href="https://calendar.app.google/coW5NLQJtLxfRer19"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block"
-              >
+              <Link to="/streamers" className="block">
                 <Button className="w-full rounded-xl h-10 text-sm font-semibold bg-primary text-white hover:bg-primary/90">
-                  Book a Demo
+                  I am a Streamer
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -353,58 +460,3 @@ export function BetaNavbar() {
   );
 }
 
-/* ── Theme Switcher ── */
-
-const themes = [
-  { key: "system", icon: Monitor, label: "System theme" },
-  { key: "light", icon: Sun, label: "Light theme" },
-  { key: "dark", icon: Moon, label: "Dark theme" },
-];
-
-const ThemeSwitcher = ({ className }: { className?: string }) => {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  const handleThemeClick = useCallback(
-    (themeKey: "light" | "dark" | "system") => setTheme(themeKey),
-    [setTheme]
-  );
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
-  return (
-    <div
-      className={cn(
-        "relative isolate flex h-7 rounded-full bg-background/50 p-1 ring-1 ring-border/50",
-        className
-      )}
-    >
-      {themes.map(({ key, icon: Icon, label }) => {
-        const isActive = theme === key;
-        return (
-          <button
-            aria-label={label}
-            className="relative h-5 w-6 rounded-full"
-            key={key}
-            onClick={() => handleThemeClick(key as "light" | "dark" | "system")}
-            type="button"
-          >
-            {isActive && (
-              <div className="absolute inset-0 rounded-full bg-foreground/10" />
-            )}
-            <Icon
-              className={cn(
-                "relative z-10 m-auto h-3.5 w-3.5 transition-colors",
-                isActive ? "text-foreground" : "text-muted-foreground"
-              )}
-            />
-          </button>
-        );
-      })}
-    </div>
-  );
-};

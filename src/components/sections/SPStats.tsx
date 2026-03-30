@@ -38,9 +38,7 @@ export const SPStats: React.FC = () => {
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
               >
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Icon className="w-5 h-5 text-primary" aria-hidden="true" />
-                </div>
+                <Icon className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <div>
                   <h3 className="text-sm font-semibold text-foreground mb-1">{item.title}</h3>
                   <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
@@ -56,7 +54,7 @@ export const SPStats: React.FC = () => {
             <Link to="/demo">
               <Button
                 size="lg"
-                className="bg-foreground text-background hover:bg-foreground/90 rounded-full h-12 px-8 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                className="bg-foreground text-background hover:bg-foreground/90 rounded-full h-12 px-8 text-sm font-semibold transition-[transform,box-shadow,background-color] duration-300 hover:-translate-y-0.5 hover:shadow-lg"
               >
                 Book a Demo
                 <ArrowRight className="ml-2 h-4 w-4" />
@@ -66,7 +64,7 @@ export const SPStats: React.FC = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="rounded-full h-12 px-8 text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5"
+                className="rounded-full h-12 px-8 text-sm font-semibold transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5"
               >
                 View Case Studies
               </Button>

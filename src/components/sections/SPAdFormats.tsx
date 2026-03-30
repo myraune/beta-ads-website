@@ -88,7 +88,7 @@ const formats = [
     description: "Full-screen takeover for premium brand moments.",
     image: "/lovable-uploads/richMediaDemo1.png",
     features: [
-      "842K impressions / week",
+      "500K+ completed views per campaign",
       "Animated overlays (webm/mp4)",
       "Maximum brand impact",
     ],
@@ -251,8 +251,8 @@ const FormatCard: React.FC<{
         >
           <span>Learn more</span>
           <span className="relative w-3.5 h-3.5 overflow-hidden">
-            <ArrowRight className="w-3.5 h-3.5 absolute transition-all duration-300 group-hover/btn:translate-x-5 group-hover/btn:opacity-0" />
-            <ArrowRight className="w-3.5 h-3.5 absolute transition-all duration-300 -translate-x-5 opacity-0 group-hover/btn:translate-x-0 group-hover/btn:opacity-100" />
+            <ArrowRight className="w-3.5 h-3.5 absolute transition-[transform,box-shadow,border-color] duration-300 group-hover/btn:translate-x-5 group-hover/btn:opacity-0" />
+            <ArrowRight className="w-3.5 h-3.5 absolute transition-[transform,box-shadow,border-color] duration-300 -translate-x-5 opacity-0 group-hover/btn:translate-x-0 group-hover/btn:opacity-100" />
           </span>
         </button>
       </div>

@@ -5,7 +5,7 @@ const GokstadCaseStudy: React.FC = () => {
   return (
     <div className="space-y-8">
       <img
-        src="https://storage.googleapis.com/ad-gifs/3818527.gif"
+        src="https://storage.googleapis.com/ad-gifs/3790920.gif"
         alt="Gokstad Akademiet campaign header"
         className="w-full h-auto rounded-xl"
       />
@@ -30,7 +30,7 @@ const GokstadCaseStudy: React.FC = () => {
             className="max-w-[48%] rounded-lg shadow-lg shadow-black/10"
           />
           <img
-            src="https://storage.googleapis.com/ad-gifs/3819116.gif"
+            src="https://storage.googleapis.com/ad-gifs/3818527.gif"
             alt="Campaign GIF Right Column"
             className="max-w-[48%] rounded-lg shadow-lg shadow-black/10"
           />

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
-import { CheckCircle, XCircle, Loader2, ArrowLeft } from "lucide-react";
+import { CheckCircle, XCircle, ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 
 type UnsubscribeStatus = "loading" | "success" | "already_unsubscribed" | "error" | "invalid_token";
 
@@ -52,18 +53,19 @@ const Unsubscribe = () => {
     processUnsubscribe();
   }, [token]);
 
+  if (status === "loading") {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-muted-foreground text-sm">Processing...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
+      <SEO title="Unsubscribe | Beta Ads" description="Manage your email preferences." noindex={true} />
       <div className="max-w-md w-full text-center space-y-6">
-        {status === "loading" && (
-          <>
-            <Loader2 className="w-16 h-16 mx-auto text-primary animate-spin" />
-            <h1 className="text-2xl font-bold text-foreground">Processing...</h1>
-            <p className="text-muted-foreground">
-              Please wait while we process your request.
-            </p>
-          </>
-        )}
+        {status === "loading" && null}
 
         {status === "success" && (
           <>

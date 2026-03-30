@@ -1,19 +1,22 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { ThemeProvider } from "next-themes";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { ThemeProvider, useTheme } from "next-themes";
 import { Layout } from "@/components/Layout";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
-// Critical pages — loaded eagerly
-import Index from "./pages/Index";
-import Streamers from "./pages/Streamers";
+// Entry pages
+const Index = lazy(() => import("./pages/Index"));
+const Streamers = lazy(() => import("./pages/Streamers"));
 
-// Non-critical pages — lazy loaded
+// Other pages — lazy, no forced delay
 const CaseStudies = lazy(() => import("./pages/CaseStudies"));
-const HowItWorks = lazy(() => import("./pages/HowItWorks"));
+const TwitchAdvertising = lazy(() => import("./pages/TwitchAdvertising"));
+const YouTubeAdvertising = lazy(() => import("./pages/YouTubeAdvertising"));
+const KickAdvertising = lazy(() => import("./pages/KickAdvertising"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
@@ -21,6 +24,8 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Demo = lazy(() => import("./pages/Demo"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
+const CaseStudyGlorious = lazy(() => import("./pages/CaseStudyGlorious"));
+const CaseStudyGokstad = lazy(() => import("./pages/CaseStudyGokstad"));
 const Press = lazy(() => import("./pages/Press"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const Terms = lazy(() => import("./pages/Terms"));
@@ -67,26 +72,38 @@ const t = {
   mechanismsDescription: "Our platform uses advanced technology to deliver ads that feel natural and drive real results.",
 };
 
-// Loading fallback
-const PageLoader = () => (
-  <div className="min-h-[60vh] flex items-center justify-center">
-    <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
-  </div>
-);
+
+/* Force dark on /streamers only — all other pages follow system preference.
+   Also scrolls to top on every route change. */
+const RouteThemeEnforcer = () => {
+  const { setTheme } = useTheme();
+  const location = useLocation();
+
+  useEffect(() => {
+    setTheme(location.pathname === "/streamers" ? "dark" : "system");
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  }, [location.pathname, setTheme]);
+
+  return null;
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem forcedTheme={undefined}>
       <Analytics />
+      <SpeedInsights />
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Suspense fallback={<PageLoader />}>
+        <RouteThemeEnforcer />
+        <Suspense fallback={null}>
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Index />} />
-              <Route path="/case-studies" element={<Navigate to="/#case-studies" replace />} />
-              <Route path="/how-it-works" element={<HowItWorks t={t} />} />
+              <Route path="/case-studies" element={<CaseStudies t={t} />} />
+              <Route path="/twitch-advertising" element={<TwitchAdvertising />} />
+              <Route path="/youtube-advertising" element={<YouTubeAdvertising />} />
+              <Route path="/kick-advertising" element={<KickAdvertising />} />
               <Route path="/streamers" element={<Streamers t={t} />} />
               <Route path="/about" element={<AboutUs t={t} />} />
               <Route path="/blog" element={<Blog />} />
@@ -97,6 +114,8 @@ const App = () => (
               <Route path="/pricing" element={<Pricing t={t} />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/privacy" element={<Privacy />} />
+              <Route path="/case-study/glorious" element={<CaseStudyGlorious />} />
+              <Route path="/case-study/gokstad" element={<CaseStudyGokstad />} />
               <Route path="/unsubscribe" element={<Unsubscribe />} />
               <Route path="*" element={<NotFound />} />
             </Route>

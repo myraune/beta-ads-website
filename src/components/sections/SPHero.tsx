@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,7 +20,7 @@ import {
 const streamerBreakdown = [
   { name: "Danniz", color: "#ef4444" },
   { name: "LaSanias", color: "#84cc16" },
-  { name: "RubenGKS", color: "#f97316" },
+  { name: "RubenGKS", color: "#ef4444" },
   { name: "Calsiphere", color: "#b91c1c" },
   { name: "sneakjeks1x", color: "#06b6d4" },
   { name: "ForsteGir", color: "#3b82f6" },
@@ -62,6 +62,29 @@ const MiniDonut = ({ segments, size = 32 }: { segments: { pct: number; color: st
 };
 
 /* ───────── DASHBOARD VIEW ───────── */
+/* ── Animated bar chart for hero dashboard ── */
+const HeroChart = () => {
+  const [show, setShow] = useState(false);
+  useEffect(() => { setTimeout(() => setShow(true), 500); }, []);
+  const bars = [28,35,32,45,42,55,52,65,72,78,85,92,88,95,90,82,78,85,90,88,92,86,80,75,70,68,72,78];
+  return (
+    <div className="h-24 flex items-end justify-between gap-[2px] px-1">
+      {bars.map((h, i) => (
+        <div
+          key={i}
+          className="flex-1 bg-red-400 rounded-t-[1px] transition-all ease-out"
+          style={{
+            height: show ? `${Math.max(h * 1.1, 3)}%` : '0%',
+            transitionDuration: `${400 + i * 20}ms`,
+            transitionDelay: `${i * 20}ms`,
+          }}
+        />
+      ))}
+    </div>
+  );
+};
+
+
 const DashboardView = () => (
   <div className="p-4">
     <div className="grid grid-cols-6 gap-2 mb-3">
@@ -73,7 +96,7 @@ const DashboardView = () => (
         { label: "Exposure Time", value: "42.3 hrs" },
         { label: "Watch Time", value: "2,841 hrs" },
       ].map((s) => (
-        <div key={s.label} className={`px-2.5 py-2 bg-white rounded-lg border border-gray-100 ${s.hl ? "border-l-2 border-l-red-400" : ""}`}>
+        <div key={s.label} className="px-2.5 py-2 bg-white rounded-lg border border-gray-100">
           <p className={`text-[8px] font-medium uppercase ${s.hl ? "text-red-500" : "text-gray-400"}`}>{s.label}</p>
           <p className="text-sm font-bold text-gray-900">{s.value}</p>
         </div>
@@ -99,11 +122,7 @@ const DashboardView = () => (
         <div className="flex items-center justify-end mb-2">
           <div className="px-2 py-0.5 border border-gray-200 rounded text-[8px] text-gray-500">Export as .CSV</div>
         </div>
-        <div className="h-24 flex items-end justify-between gap-[2px] px-1">
-          {[5,8,12,18,22,28,35,42,48,52,45,38,42,48,55,60,52,45,38,32,28,22,18,15,12,8,5,3].map((h, i) => (
-            <div key={i} className="flex-1 bg-red-400 rounded-t-[1px]" style={{ height: `${Math.max(h * 1.6, 1)}%` }} />
-          ))}
-        </div>
+        <HeroChart />
         <div className="flex justify-between mt-1 text-[7px] text-gray-400 px-1">
           <span>Mon,Jan 06</span><span>Thu,Jan 23</span><span>Sun,Feb 08</span><span>Wed,Feb 25</span><span>Sat,Mar 14</span>
         </div>
@@ -475,39 +494,56 @@ export const SPHero: React.FC = () => {
 
   return (
     <section className="relative overflow-hidden" aria-label="Hero">
-      <div className="absolute inset-0 dark:bg-gradient-to-b dark:from-transparent dark:via-[#1a0a0a]/80 dark:to-[#1a0a0a]">
-        <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-background to-transparent" />
+      {/* Oslo aurora background — both modes */}
+      <div className="absolute inset-0">
+        <img
+          src="/lovable-uploads/hero-bg-oslo.jpg"
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 w-full h-full object-cover object-top"
+        />
+        {/* Dark overlay for text readability + fade to page bg */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-white dark:to-[#0c0c0f]" />
+        {/* Film grain texture overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.12] mix-blend-overlay pointer-events-none"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+            backgroundRepeat: "repeat",
+            backgroundSize: "128px 128px",
+          }}
+        />
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center pt-28 pb-12">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight text-foreground dark:text-white mb-6">
-          Find, Launch & Scale<br />
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight text-white mb-6">
+          Run, Launch & Scale<br />
           Native Ads on Streams
         </h1>
-        <p className="text-base md:text-lg text-muted-foreground dark:text-white/60 leading-relaxed max-w-2xl mx-auto mb-10">
+        <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-2xl mx-auto mb-10">
           Native overlays on Twitch, YouTube & Kick that bypass adblock, reach Gen Z, and deliver 3-5x higher engagement than traditional ads.
         </p>
-        <div className="relative flex flex-col sm:flex-row gap-3 justify-center mb-16">
+        <div className="relative flex flex-row gap-3 justify-center mb-16">
           {/* Soft radial glow behind CTA buttons */}
           <div className="absolute inset-0 -inset-y-8 flex items-center justify-center pointer-events-none" aria-hidden="true">
             <div className="w-80 h-24 rounded-full bg-primary/15 dark:bg-primary/20 blur-3xl" />
           </div>
           <Link to="/demo" className="relative">
-            <Button size="lg" className="bg-foreground text-background hover:bg-foreground/90 dark:bg-white dark:text-[#1a0a0a] dark:hover:bg-white/90 h-12 px-7 text-sm font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 animate-glow-pulse">
+            <Button size="lg" className="bg-primary text-white hover:bg-primary/90 h-12 px-7 text-sm font-semibold rounded-full shadow-lg hover:shadow-xl transition-[transform,box-shadow,background-color] duration-300 hover:-translate-y-0.5">
               Book a Demo <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
           <Link to="/case-studies" className="relative">
-            <Button size="lg" variant="outline" className="border-border dark:border-white/20 text-foreground dark:text-white hover:bg-muted dark:hover:bg-white/10 h-12 px-7 text-sm font-semibold rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md">
-              View Case Studies
+            <Button size="lg" className="bg-white/15 border border-white/30 text-white hover:bg-white hover:text-black backdrop-blur-sm h-12 px-7 text-sm font-semibold rounded-full transition-[transform,box-shadow,background-color,color,border-color] duration-300 hover:-translate-y-0.5 hover:shadow-md">
+              Case Studies
             </Button>
           </Link>
         </div>
       </div>
 
       {/* Tab bar */}
-      <div className="relative z-10 flex justify-center mb-0 px-6">
-        <div className="inline-flex items-center gap-1 px-2 py-1.5 rounded-full bg-black/5 border border-black/10 dark:bg-white/10 dark:border-white/10 backdrop-blur-sm">
+      <div className="relative z-10 flex justify-center mb-0 px-4">
+        <div className="inline-flex items-center gap-0.5 sm:gap-1 px-1.5 sm:px-2 py-1.5 rounded-full bg-muted/60 border border-border/50 backdrop-blur-sm">
           {topTabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -518,14 +554,14 @@ export const SPHero: React.FC = () => {
                 role="tab"
                 aria-selected={isActive}
                 aria-label={tab.label}
-                className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
-                  isActive ? "bg-white text-foreground shadow-sm dark:text-[#1a0a0a]" : "text-muted-foreground hover:text-foreground hover:bg-black/5 dark:text-white/60 dark:hover:text-white dark:hover:bg-white/5"
+                className={`flex items-center gap-1.5 px-2.5 sm:px-4 py-2 rounded-full text-xs font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
+                  isActive ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground hover:bg-foreground/5"
                 }`}
               >
                 <Icon className="w-3.5 h-3.5" />
-                {tab.label}
+                <span className="hidden sm:inline">{tab.label}</span>
                 {"badge" in tab && tab.badge && (
-                  <span className="text-[7px] font-bold bg-red-500 text-white px-1 py-0.5 rounded ml-0.5">{tab.badge}</span>
+                  <span className="text-[7px] font-bold bg-red-500 text-white px-1 py-0.5 rounded ml-0.5">NEW</span>
                 )}
               </button>
             );
@@ -534,10 +570,10 @@ export const SPHero: React.FC = () => {
       </div>
 
       {/* Dashboard preview */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 mt-6 animate-float-slow">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 mt-6 animate-float-slow">
         <div className="relative">
           <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background via-background/80 to-transparent z-20 pointer-events-none" />
-          <div className="rounded-t-2xl border border-border dark:border-white/10 bg-white shadow-2xl shadow-black/10 dark:shadow-black/30 overflow-hidden">
+          <div className="rounded-t-2xl border border-border dark:border-white/[0.08] bg-white shadow-2xl shadow-black/10 dark:shadow-black/50 dark:ring-1 dark:ring-white/[0.06] overflow-hidden">
             <div className="flex">
               <div className="w-44 border-r border-gray-200 bg-white p-3 hidden md:flex flex-col">
                 <div className="mb-5">

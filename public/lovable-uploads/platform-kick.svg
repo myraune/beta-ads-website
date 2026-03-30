@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60"><text x="10" y="45" font-family="Arial Black,Arial,sans-serif" font-size="50" font-weight="900" fill="currentColor">kick</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" fill="currentColor">
+  <path d="M10 4h8v12l8-12h10l-10 14 11 18h-10l-9-14v14h-8V4z"/>
+  <path d="M49 4h8v32h-8V4z"/>
+  <path d="M72 36c-8.8 0-16-7.2-16-16s7.2-16 16-16c5.5 0 10.4 2.8 13.3 7.1l-6.6 4.2c-1.5-2.3-4-3.7-6.7-3.7-4.4 0-8 3.6-8 8s3.6 8 8 8c2.7 0 5.2-1.4 6.7-3.7l6.6 4.2C82.4 33.2 77.5 36 72 36z"/>
+  <path d="M90 4h8v12l8-12h10l-10 14 11 18h-10l-9-14v14h-8V4z"/>
+</svg>

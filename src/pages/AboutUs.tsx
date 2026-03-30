@@ -38,7 +38,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
       <div
         className="absolute inset-x-0 top-0 h-[500px] pointer-events-none z-0"
         style={{
-          background: 'radial-gradient(ellipse 80% 70% at 30% 0%, hsl(0, 80%, 50%, 0.12), transparent 70%)',
+          background: 'radial-gradient(ellipse 80% 70% at 30% 0%, hsl(var(--primary) / 0.08), transparent 70%)',
         }}
       />
 

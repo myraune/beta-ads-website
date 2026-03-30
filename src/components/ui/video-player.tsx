@@ -44,6 +44,28 @@ const CustomSlider = ({
   );
 };
 
+/** Convert any Google Drive share URL to an embeddable /preview URL */
+function toEmbedUrl(src: string): string | null {
+  const match = src.match(/drive\.google\.com\/file\/d\/([^/?]+)/)
+    || src.match(/drive\.google\.com\/open\?id=([^&]+)/)
+    || src.match(/drive\.google\.com\/uc\?.*id=([^&]+)/);
+  if (match) return `https://drive.google.com/file/d/${match[1]}/preview`;
+  return null;
+}
+
+/** Renders Google Drive video via responsive iframe */
+const DriveEmbed = ({ embedUrl, className }: { embedUrl: string; className?: string }) => (
+  <div className={cn("relative w-full aspect-video rounded-xl overflow-hidden bg-black", className)}>
+    <iframe
+      src={embedUrl}
+      allow="autoplay"
+      allowFullScreen
+      className="absolute inset-0 w-full h-full border-0"
+      title="Campaign video"
+    />
+  </div>
+);
+
 const VideoPlayer = ({
   src,
   className,
@@ -51,6 +73,10 @@ const VideoPlayer = ({
   src: string;
   className?: string;
 }) => {
+  // Google Drive? Use iframe embed — custom controls don't work inside iframes
+  const driveEmbed = toEmbedUrl(src);
+  if (driveEmbed) return <DriveEmbed embedUrl={driveEmbed} className={className} />;
+
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(1);

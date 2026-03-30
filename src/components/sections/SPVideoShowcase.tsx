@@ -7,7 +7,6 @@ import {
   VolumeX,
   Sparkles,
   Eye,
-  MousePointerClick,
   MessageSquare,
 } from "lucide-react";
 
@@ -88,7 +87,7 @@ const VideoCard: React.FC<{
         </div>
       </div>
       <div className="p-5">
-        <h3 className="text-lg font-bold text-foreground mb-1">{title}</h3>
+        <h3 className="text-base font-semibold text-foreground mb-1">{title}</h3>
         <p className="text-sm text-muted-foreground leading-relaxed">
           {description}
         </p>
@@ -100,11 +99,13 @@ const VideoCard: React.FC<{
 /* ── Live Stream + Overlay Demo ── */
 
 const LiveStreamDemo: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const streamRef = useRef<HTMLVideoElement>(null);
+  const overlayRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
   const [muted, setMuted] = useState(true);
-  const [showOverlay, setShowOverlay] = useState(true);
   const [viewerCount, setViewerCount] = useState(2847);
+  const hasAutoPlayed = useRef(false);
   const [chatMessages, setChatMessages] = useState<
     { user: string; msg: string; color: string }[]
   >([
@@ -112,6 +113,38 @@ const LiveStreamDemo: React.FC = () => {
     { user: "techviking", msg: "!shure", color: "text-green-400" },
     { user: "melissahitreskog", msg: "good stream!", color: "text-pink-400" },
   ]);
+
+  // Auto-play when scrolled into view, pause when scrolled out
+  useEffect(() => {
+    const el = containerRef.current;
+    if (!el) return;
+
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          // Sync both to start together
+          if (streamRef.current) {
+            if (!hasAutoPlayed.current) {
+              streamRef.current.currentTime = 0;
+              if (overlayRef.current) overlayRef.current.currentTime = 0;
+              hasAutoPlayed.current = true;
+            }
+            streamRef.current.play().catch(() => {});
+            overlayRef.current?.play().catch(() => {});
+            setPlaying(true);
+          }
+        } else {
+          // Pause when out of view
+          streamRef.current?.pause();
+          overlayRef.current?.pause();
+          setPlaying(false);
+        }
+      },
+      { threshold: 0.35 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   // Simulate live viewer count fluctuation
   useEffect(() => {
@@ -143,186 +176,147 @@ const LiveStreamDemo: React.FC = () => {
     if (!streamRef.current) return;
     if (playing) {
       streamRef.current.pause();
+      overlayRef.current?.pause();
     } else {
       streamRef.current.play();
+      overlayRef.current?.play();
     }
     setPlaying(!playing);
   };
 
   return (
-    <div
-      className="rounded-2xl overflow-hidden shadow-2xl"
-      style={{
-        background: "linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary)/0.4) 50%, hsl(var(--primary)) 100%)",
-        padding: "1.5px",
-      }}
-    >
-      <div className="rounded-2xl overflow-hidden bg-gray-950">
-        {/* Stream viewport */}
-        <div className="relative aspect-video cursor-pointer" onClick={togglePlay}>
-          {/* Base stream video */}
+    <div ref={containerRef} className="rounded-xl overflow-hidden shadow-2xl border border-[#2f2f35]">
+      {/* ── Video player area ── */}
+      <div className="relative aspect-video cursor-pointer bg-black" onClick={togglePlay}>
+        <video
+          ref={streamRef}
+          src="/lovable-uploads/rubengks-stream.mp4"
+          muted={muted}
+          loop
+          playsInline
+          preload="metadata"
+          className="w-full h-full object-cover"
+          onPlay={() => setPlaying(true)}
+          onPause={() => setPlaying(false)}
+        />
+
+        {/* Samsung overlay — bottom-left, synced with stream */}
+        <div className="absolute bottom-10 left-3 w-[35%] max-w-[260px] pointer-events-none z-10">
           <video
-            ref={streamRef}
-            src="/lovable-uploads/rubengks-stream.mp4"
-            muted={muted}
-            loop
-            playsInline
-            preload="metadata"
-            className="w-full h-full object-cover"
-            onPlay={() => setPlaying(true)}
-            onPause={() => setPlaying(false)}
+            ref={overlayRef}
+            src="/lovable-uploads/samsung-zfold7-overlay.webm"
+            loop muted playsInline
+            className="w-full h-auto rounded shadow-xl"
           />
+        </div>
 
-          {/* Samsung overlay — pops up in bottom-left corner of stream */}
-          <div
-            className={`absolute bottom-12 left-3 w-[40%] max-w-[280px] pointer-events-none z-10 transition-all duration-500 ${
-              showOverlay
-                ? "opacity-100 translate-y-0 scale-100"
-                : "opacity-0 translate-y-4 scale-95"
-            }`}
-          >
-            <div
-              className="relative"
-              style={{
-                filter: showOverlay ? "drop-shadow(0 0 20px hsl(var(--primary)/0.4)) drop-shadow(0 0 40px hsl(var(--primary)/0.15))" : "none",
-                transition: "filter 0.5s ease",
-              }}
-            >
-              <video
-                src="/lovable-uploads/samsung-zfold7-overlay.webm"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-auto rounded-lg shadow-2xl"
-              />
-            </div>
+        {/* LIVE badge + viewers — Twitch style */}
+        <div className="absolute top-3 left-3 flex items-center gap-2 pointer-events-none">
+          <div className="flex items-center gap-1 bg-[#eb0400] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-[3px] uppercase tracking-wide">
+            Live
           </div>
-
-          {/* Twitch-style UI chrome */}
-          <div className="absolute top-3 left-3 flex items-center gap-2 pointer-events-none">
-            <div className="flex items-center gap-1.5 bg-red-600 text-white text-[10px] font-bold px-2 py-0.5 rounded">
-              <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-              LIVE
-            </div>
-            <div className="flex items-center gap-1 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded backdrop-blur-sm">
-              <Eye className="w-3 h-3" />
-              {viewerCount.toLocaleString()}
-            </div>
+          <div className="flex items-center gap-1 bg-black/70 text-white text-[10px] px-1.5 py-0.5 rounded-[3px]">
+            {viewerCount.toLocaleString()} viewers
           </div>
+        </div>
 
-          {/* Play button */}
-          <div
-            className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
-              playing ? "opacity-0 hover:opacity-100" : "opacity-100"
-            }`}
-          >
-            <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
-              {playing ? (
-                <Pause className="w-7 h-7 text-gray-900" />
-              ) : (
-                <Play className="w-7 h-7 text-gray-900 ml-1" />
-              )}
-            </div>
+        {/* Play overlay */}
+        <div className={`absolute inset-0 flex items-center justify-center bg-black/10 transition-opacity duration-200 ${
+          playing ? "opacity-0 hover:opacity-100" : "opacity-100"
+        }`}>
+          <div className="w-14 h-14 rounded-full bg-black/60 flex items-center justify-center backdrop-blur-sm">
+            {playing ? (
+              <Pause className="w-6 h-6 text-white" />
+            ) : (
+              <Play className="w-6 h-6 text-white ml-0.5" />
+            )}
           </div>
+        </div>
 
-          {/* Bottom bar */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-3 flex items-end justify-between pointer-events-none">
-            <div className="text-white text-xs">
-              <span className="font-semibold">RubenGKS</span>
-              <span className="text-white/60 ml-2">Playing: Fortnite</span>
-            </div>
-            <div className="flex items-center gap-2 pointer-events-auto">
+        {/* Bottom controls bar — Twitch style */}
+        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent px-3 pb-2 pt-8 pointer-events-none">
+          <div className="flex items-center justify-between">
+            <div className="pointer-events-auto flex items-center gap-2">
               <button
                 onClick={(e) => {
                   e.stopPropagation();
                   setMuted(!muted);
                   if (streamRef.current) streamRef.current.muted = !muted;
                 }}
-                className="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center text-white hover:bg-white/30 transition-colors"
+                className="text-white/80 hover:text-white transition-colors"
               >
-                {muted ? (
-                  <VolumeX className="w-3.5 h-3.5" />
-                ) : (
-                  <Volume2 className="w-3.5 h-3.5" />
-                )}
+                {muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
               </button>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Controls bar */}
-        <div className="flex items-center justify-between px-4 py-3 bg-gray-900 border-t border-white/10">
-          <div className="flex items-center gap-3">
-            <span className="text-white text-sm font-semibold">
-              Samsung Galaxy Z Fold7
-            </span>
-            <span
-              className={`text-[10px] px-2 py-0.5 rounded font-medium transition-all duration-300 ${
-                showOverlay
-                  ? "bg-primary/20 text-primary"
-                  : "bg-white/10 text-white/40"
-              }`}
-            >
-              {showOverlay ? "Overlay Active" : "Overlay Inactive"}
+      {/* ── Channel info bar — like Twitch ── */}
+      <div className="bg-[#0e0e10] px-4 py-3">
+        <div className="flex items-start gap-3">
+          {/* Avatar */}
+          <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 ring-2 ring-[#9146ff]">
+            <img src="/lovable-uploads/rubengks-profile.png" alt="RubenGKS" className="w-full h-full object-cover" />
+          </div>
+          {/* Channel info */}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center gap-2">
+              <span className="text-white text-sm font-semibold">RubenGKS</span>
+              <svg className="w-3.5 h-3.5 text-[#9146ff]" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M16.403 12.652a3 3 0 010-5.304 3 3 0 00-1.75-1.75 3 3 0 01-5.304 0 3 3 0 00-1.75 1.75 3 3 0 010 5.304 3 3 0 001.75 1.75 3 3 0 015.304 0 3 3 0 001.75-1.75zm-7.403-2.652a1 1 0 112 0 1 1 0 01-2 0z" clipRule="evenodd" /></svg>
+            </div>
+            <div className="text-[12px] text-[#adadb8] truncate">Playing Fortnite for 2.8K viewers</div>
+          </div>
+          {/* Sponsored badge */}
+          <div className="shrink-0">
+            <span className="text-[10px] font-medium px-2 py-0.5 rounded bg-primary/20 text-primary">
+              Sponsored
             </span>
           </div>
-          <div className="flex items-center gap-2">
-            {/* Polished toggle button */}
-            <button
-              onClick={() => setShowOverlay(!showOverlay)}
-              className="relative flex items-center h-8 rounded-full transition-all duration-300 overflow-hidden"
-              style={{
-                width: "110px",
-                background: showOverlay
-                  ? "linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary)/0.8))"
-                  : "rgba(255,255,255,0.1)",
-              }}
+        </div>
+        {/* Tags */}
+        <div className="flex items-center gap-1.5 mt-2 ml-[52px]">
+          {["English", "Fortnite", "Sponsored"].map((tag) => (
+            <span
+              key={tag}
+              className={`text-[10px] px-2 py-0.5 rounded-full ${
+                tag === "Sponsored" ? "bg-primary/20 text-primary" : "bg-[#2f2f35] text-[#adadb8]"
+              }`}
             >
-              {/* Sliding knob */}
-              <div
-                className="absolute w-6 h-6 rounded-full bg-white shadow-md transition-all duration-300 ease-out"
-                style={{
-                  left: showOverlay ? "calc(100% - 28px)" : "2px",
-                  boxShadow: showOverlay ? "0 0 8px hsl(var(--primary)/0.5)" : "0 1px 3px rgba(0,0,0,0.3)",
-                }}
-              />
-              {/* Label text */}
-              <span
-                className={`absolute text-[11px] font-medium transition-all duration-300 ${
-                  showOverlay
-                    ? "left-3 text-white"
-                    : "right-3 text-white/50"
-                }`}
-              >
-                {showOverlay ? "ON" : "OFF"}
-              </span>
-            </button>
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* ── Chat ── */}
+      <div className="bg-[#18181b] px-4 py-2.5 border-t border-[#2f2f35]">
+        <div className="flex items-center justify-between mb-2">
+          <span className="text-[11px] text-[#adadb8] font-semibold uppercase tracking-wide">Stream Chat</span>
+          <span className="text-[10px] text-[#adadb8]">{viewerCount.toLocaleString()} chatters</span>
+        </div>
+
+        {/* Pinned CTA message — the auto-sent sponsored message */}
+        <div className="mb-2 px-3 py-2 rounded-md bg-[#1f1f23] border-l-2 border-[#9146ff]">
+          <div className="flex items-center gap-1.5 mb-1">
+            <div className="w-4 h-4 rounded-full bg-[#9146ff] flex items-center justify-center">
+              <span className="text-[8px] text-white font-bold">β</span>
+            </div>
+            <span className="text-[11px] font-semibold text-[#9146ff]">BetaAdsBot</span>
+            <span className="text-[9px] text-[#adadb8] bg-[#2f2f35] px-1 rounded">BOT</span>
+          </div>
+          <div className="text-[11px] text-[#efeff1] leading-relaxed">
+            📱 Check out the NEW Samsung Galaxy S25 Ultra → <span className="text-[#9146ff] underline cursor-pointer">samsung.com/s25ultra</span> #ad
           </div>
         </div>
 
-        {/* Live chat simulation */}
-        <div className="px-4 py-3 bg-gray-900/80 border-t border-white/5 max-h-28 overflow-hidden">
-          <div className="flex items-center gap-1.5 mb-2">
-            <MessageSquare className="w-3 h-3 text-white/40" />
-            <span className="text-[10px] text-white/40 font-medium">
-              Stream Chat
-            </span>
-          </div>
-          <div className="space-y-1">
-            {chatMessages.slice(-4).map((msg, i) => (
-              <div
-                key={`${msg.user}-${i}`}
-                className="text-[11px] animate-fade-in"
-                style={{ animationDelay: `${i * 50}ms` }}
-              >
-                <span className={`font-semibold ${msg.color}`}>
-                  {msg.user}
-                </span>
-                <span className="text-white/70">: {msg.msg}</span>
-              </div>
-            ))}
-          </div>
+        <div className="space-y-0.5">
+          {chatMessages.slice(-4).map((msg, i) => (
+            <div key={`${msg.user}-${i}`} className="text-[12px] leading-relaxed">
+              <span className={`font-semibold ${msg.color}`}>{msg.user}</span>
+              <span className="text-[#efeff1]">: {msg.msg}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -374,61 +368,7 @@ const AnimCounter: React.FC<{ value: string; label: string }> = ({
   );
 };
 
-/* ── Hover-reveal stat card ── */
-
-const InteractiveStat: React.FC<{
-  icon: React.ElementType;
-  value: string;
-  label: string;
-  detail: string;
-}> = ({ icon: Icon, value, label, detail }) => {
-  const [hovered, setHovered] = useState(false);
-
-  return (
-    <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="relative p-5 rounded-xl border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 cursor-default group overflow-hidden"
-      style={{
-        background: hovered
-          ? "linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--primary)/0.05) 100%)"
-          : "hsl(var(--card))",
-      }}
-    >
-      {/* Subtle top gradient line */}
-      <div
-        className="absolute top-0 left-0 right-0 h-[2px] transition-opacity duration-300"
-        style={{
-          background: "linear-gradient(90deg, transparent, hsl(var(--primary)/0.5), transparent)",
-          opacity: hovered ? 1 : 0,
-        }}
-      />
-      <div className="flex items-center gap-3">
-        <div
-          className="w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300"
-          style={{
-            background: hovered
-              ? "linear-gradient(135deg, hsl(var(--primary)/0.2), hsl(var(--primary)/0.1))"
-              : "hsl(var(--primary)/0.1)",
-          }}
-        >
-          <Icon className="w-4.5 h-4.5 text-primary" />
-        </div>
-        <div>
-          <div className="text-xl font-bold text-foreground">{value}</div>
-          <div className="text-[10px] text-muted-foreground uppercase tracking-wider">{label}</div>
-        </div>
-      </div>
-      <div
-        className={`mt-3 text-xs text-muted-foreground leading-relaxed transition-all duration-300 overflow-hidden ${
-          hovered ? "max-h-20 opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        {detail}
-      </div>
-    </div>
-  );
-};
+/* ── Clean inline stat — Samsung S25 Ultra campaign numbers ── */
 
 /* ===================================================
    VIDEO SHOWCASE SECTION
@@ -439,7 +379,7 @@ export const SPVideoShowcase: React.FC = () => {
 
   return (
     <section ref={ref} className="py-20 md:py-32" aria-label="See it in action">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         {/* Header */}
         <div
           className={`text-center max-w-3xl mx-auto mb-14 transition-all duration-700 ${
@@ -449,12 +389,12 @@ export const SPVideoShowcase: React.FC = () => {
           <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary mb-4">
             See It Live
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
             This is what it looks like
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            Real overlay running on a real stream. Toggle the overlay on and off
-            to see the difference. Click play to watch.
+            Real Samsung overlay running on a real Twitch stream.
+            No mockups — this is what viewers actually see.
           </p>
         </div>
 
@@ -467,36 +407,24 @@ export const SPVideoShowcase: React.FC = () => {
           <LiveStreamDemo />
         </div>
 
-        {/* Interactive stats row */}
+        {/* Stats strip — clean, no hover */}
         <div
-          className={`grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 transition-all duration-700 delay-200 ${
+          className={`flex flex-wrap items-center justify-center gap-x-10 gap-y-3 mb-12 py-4 transition-all duration-700 delay-200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <InteractiveStat
-            icon={Eye}
-            value="842K"
-            label="Impressions"
-            detail="Delivered across 48 Nordic streamers in the first 3 months of the Samsung campaign."
-          />
-          <InteractiveStat
-            icon={MousePointerClick}
-            value="4.8%"
-            label="Avg CTR"
-            detail="3-5x higher than traditional display ads. Overlays feel native to viewers."
-          />
-          <InteractiveStat
-            icon={MessageSquare}
-            value="5,219"
-            label="Chat Mentions"
-            detail="Organic brand mentions in Twitch chat during sponsored streams."
-          />
-          <InteractiveStat
-            icon={Sparkles}
-            value="0%"
-            label="Adblock Rate"
-            detail="Overlays render inside the stream itself — adblock can't touch them."
-          />
+          {[
+            { value: "500K+", label: "completed views" },
+            { value: "2.93%", label: "avg CTR" },
+            { value: "3,819", label: "verified clicks" },
+            { value: "43", label: "streamers" },
+            { value: "0%", label: "adblock rate" },
+          ].map((s) => (
+            <div key={s.label} className="flex items-baseline gap-1.5">
+              <span className="text-lg md:text-xl font-bold text-foreground tabular-nums">{s.value}</span>
+              <span className="text-xs text-muted-foreground">{s.label}</span>
+            </div>
+          ))}
         </div>
 
         {/* AI Clip + smaller video */}
@@ -515,10 +443,8 @@ export const SPVideoShowcase: React.FC = () => {
           {/* AI clipping detail card */}
           <div className="rounded-2xl border border-border bg-card p-6 flex flex-col justify-between">
             <div>
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                <Sparkles className="w-6 h-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold text-foreground mb-3">
+              <div className="text-primary mb-4 text-2xl font-bold tracking-tight">AI</div>
+              <h3 className="text-xl font-semibold text-foreground mb-3">
                 Every brand mention. Clipped automatically.
               </h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-6">
@@ -543,7 +469,7 @@ export const SPVideoShowcase: React.FC = () => {
                     RubenGKS
                   </span>
                   <p className="text-[11px] text-muted-foreground italic truncate">
-                    "...the Samsung S26 camera is insane for streaming..."
+                    "...the Samsung S25 Ultra camera is insane for streaming..."
                   </p>
                 </div>
                 <span className="text-[10px] text-primary font-semibold whitespace-nowrap px-2 py-0.5 bg-primary/10 rounded-full">

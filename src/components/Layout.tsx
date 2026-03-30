@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from "react";
 import { Outlet } from "react-router-dom";
 import { Navbar } from "./Navbar";
-import { PageTransition } from "./PageTransition";
 import { AnimatedBackground } from "./AnimatedBackground";
+import { CursorGlow } from "./CursorGlow";
 import { useKonamiCode } from "@/hooks/useEasterEggs";
 
 export const Layout: React.FC = () => {
@@ -18,12 +18,11 @@ export const Layout: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background relative" style={{ overflowX: 'clip' }}>
+      <CursorGlow />
       <AnimatedBackground />
       <Navbar />
       <main className="relative z-10">
-        <PageTransition>
-          <Outlet />
-        </PageTransition>
+        <Outlet />
       </main>
 
       {/* Konami code easter egg — party mode overlay */}

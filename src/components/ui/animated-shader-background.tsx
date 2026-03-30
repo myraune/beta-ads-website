@@ -1,23 +1,25 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
-const AnimatedShaderBackground = () => {
+const AnimatedShaderBackground = ({ heightFactor = 0.6 }: { heightFactor?: number }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
+    const getHeight = () => window.innerHeight * heightFactor;
+
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight * 0.6);
+    renderer.setSize(window.innerWidth, getHeight());
     container.appendChild(renderer.domElement);
 
     const material = new THREE.ShaderMaterial({
       uniforms: {
         iTime: { value: 0 },
-        iResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight * 0.6) }
+        iResolution: { value: new THREE.Vector2(window.innerWidth, getHeight()) }
       },
       vertexShader: `
         void main() {
@@ -103,7 +105,7 @@ const AnimatedShaderBackground = () => {
     animate();
 
     const handleResize = () => {
-      const h = window.innerHeight * 0.6;
+      const h = getHeight();
       renderer.setSize(window.innerWidth, h);
       material.uniforms.iResolution.value.set(window.innerWidth, h);
     };

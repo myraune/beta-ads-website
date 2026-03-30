@@ -4,7 +4,7 @@ import {
   Zap,
   DollarSign,
   BarChart3,
-  Clock,
+
   ChevronLeft,
   Eye,
   Play,
@@ -12,20 +12,21 @@ import {
   TrendingDown,
   ArrowUpRight,
 } from "lucide-react";
+import AnimatedShaderBackground from "@/components/ui/animated-shader-background";
 
 /* ── Sponsor offers ── */
 const offers = [
   {
     brand: "Samsung",
     icon: "/lovable-uploads/icon-samsung.svg",
-    campaign: "Galaxy S26 Launch",
+    campaign: "Galaxy S25 Ultra Launch",
     format: "Rich Media",
     payout: "€320",
     duration: "2 wk",
     preview: "/lovable-uploads/overlay-samsung.webm",
     streamBg: "/lovable-uploads/stream-placeholder.jpg",
     description:
-      "Animated overlay promoting the Samsung Galaxy S26. Renders directly in OBS — viewers see it as part of the stream.",
+      "Animated overlay promoting the Samsung Galaxy S25 Ultra. Renders directly in OBS — viewers see it as part of the stream.",
     overlayStyle: "absolute bottom-2 left-2 w-[35%] h-auto rounded shadow-lg",
   },
   {
@@ -366,9 +367,9 @@ const AnalyticsView: React.FC = () => {
       <div className="text-[10px] text-white/40 mb-2">Top performing campaigns</div>
       <div className="space-y-1.5">
         {[
-          { name: "Samsung Galaxy S26", impressions: "68.2K", ctr: "4.8%", revenue: "€320" },
-          { name: "Surfshark VPN Q2", impressions: "31.4K", ctr: "3.2%", revenue: "€250" },
-          { name: "Logitech G Pro X", impressions: "18.1K", ctr: "2.9%", revenue: "€180" },
+          { name: "Samsung Galaxy S25 Ultra", impressions: "150.6K", ctr: "2.93%", revenue: "€320" },
+          { name: "Surfshark VPN", impressions: "32.1K", ctr: "4.73%", revenue: "€250" },
+          { name: "Foodora Rider", impressions: "33.7K", ctr: "3.42%", revenue: "€180" },
         ].map((c) => (
           <div
             key={c.name}
@@ -474,7 +475,7 @@ const OffersView: React.FC<{
 const DashboardMockup: React.FC = () => {
   const [earnings, setEarnings] = useState(0);
   const [selectedOffer, setSelectedOffer] = useState<number | null>(null);
-  const [activeTab, setActiveTab] = useState<"offers" | "earnings" | "analytics" | "history">("offers");
+  const [activeTab, setActiveTab] = useState<"offers" | "earnings" | "analytics">("offers");
 
   useEffect(() => {
     const target = 2847;
@@ -493,7 +494,6 @@ const DashboardMockup: React.FC = () => {
     { id: "offers" as const, icon: Zap, label: "Offers" },
     { id: "earnings" as const, icon: DollarSign, label: "Earnings" },
     { id: "analytics" as const, icon: BarChart3, label: "Analytics" },
-    { id: "history" as const, icon: Clock, label: "History" },
   ];
 
   const handleTabClick = (id: typeof activeTab) => {
@@ -563,14 +563,7 @@ const DashboardMockup: React.FC = () => {
           <EarningsView />
         ) : activeTab === "analytics" ? (
           <AnalyticsView />
-        ) : (
-          <div className="flex-1 p-4 lg:p-6 xl:p-8 flex items-center justify-center">
-            <div className="text-center">
-              <Clock className="w-8 h-8 text-white/10 mx-auto mb-2" />
-              <p className="text-xs text-white/25">Campaign history coming soon</p>
-            </div>
-          </div>
-        )}
+        ) : null}
       </div>
     </div>
   );
@@ -579,9 +572,14 @@ const DashboardMockup: React.FC = () => {
 /* ═══════════════════════════════════════════════ */
 
 export const StreamerHero: React.FC = () => (
-  <section className="relative" aria-label="Streamer hero">
+  <section className="relative overflow-hidden" aria-label="Streamer hero">
+    {/* Aurora shader background */}
+    <AnimatedShaderBackground heightFactor={1} />
+    {/* Bottom fade to page background */}
+    <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
+
     {/* Hero text */}
-    <div className="max-w-4xl mx-auto px-6 lg:px-8">
+    <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8">
       <div className="text-center pt-32 md:pt-40 pb-12">
         <p className="text-xs tracking-widest uppercase text-muted-foreground mb-6">
           For streamers on Twitch, YouTube &amp; Kick
@@ -625,7 +623,7 @@ export const StreamerHero: React.FC = () => (
     </div>
 
     {/* Dashboard preview */}
-    <div className="max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-6 lg:px-8 pb-20">
+    <div className="relative z-10 max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-6 lg:px-8 pb-24">
       <DashboardMockup />
     </div>
   </section>

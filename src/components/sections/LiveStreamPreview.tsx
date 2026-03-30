@@ -99,7 +99,7 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
                 
                 {/* More normal chat */}
                 <div className="flex gap-2">
-                  <span className="text-orange-400 font-medium shrink-0">ProGamer:</span>
+                  <span className="text-red-400 font-medium shrink-0">ProGamer:</span>
                   <span className="text-white/80">!glorious</span>
                 </div>
                 <div className="flex gap-2">

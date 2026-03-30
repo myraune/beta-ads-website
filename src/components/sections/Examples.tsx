@@ -96,8 +96,8 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
               ))}
             </CarouselContent>
 
-            <CarouselPrevious className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -left-1 md:-left-3 h-10 w-10 transition-all duration-300 hover:scale-110 hover:shadow-lg" />
-            <CarouselNext className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -right-1 md:-right-3 h-10 w-10 transition-all duration-300 hover:scale-110 hover:shadow-lg" />
+            <CarouselPrevious className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -left-1 md:-left-3 h-10 w-10 transition-[transform,box-shadow] duration-300 hover:scale-110 hover:shadow-lg" />
+            <CarouselNext className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -right-1 md:-right-3 h-10 w-10 transition-[transform,box-shadow] duration-300 hover:scale-110 hover:shadow-lg" />
           </Carousel>
 
           {/* Dot indicators */}

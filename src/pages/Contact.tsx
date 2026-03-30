@@ -7,9 +7,27 @@ const Contact: React.FC = () => {
   return (
     <>
       <SEO
-        title="Contact | Beta Ads"
-        description="Get in touch with Beta Ads. Book a demo, ask a question, or explore partnership opportunities for native livestream advertising."
+        title="Contact Us | Beta Ads"
+        description="Get in touch with Beta Ads. Book a demo, ask a question, or explore partnership opportunities for native livestream advertising in the Nordics."
         canonical="/contact"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "Contact Beta Ads",
+          "description": "Get in touch with Beta Ads for native livestream advertising inquiries, demos, and partnership opportunities.",
+          "url": "https://beta-ads.no/contact",
+          "isPartOf": { "@id": "https://beta-ads.no/#website" },
+          "mainEntity": {
+            "@type": "Organization",
+            "name": "Beta Ads",
+            "email": "hello@betaads.no",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Oslo",
+              "addressCountry": "NO"
+            }
+          }
+        }}
       />
       <div className="max-w-4xl mx-auto px-6 lg:px-8 pt-32 md:pt-40 pb-20">
         <div className="text-center mb-14">
@@ -35,7 +53,7 @@ const Contact: React.FC = () => {
             <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
               <Calendar className="w-5 h-5 text-primary" />
             </div>
-            <h3 className="text-lg font-bold text-foreground mb-2">Book a Demo</h3>
+            <h2 className="text-lg font-bold text-foreground mb-2">Book a Demo</h2>
             <p className="text-sm text-muted-foreground mb-4">
               See the platform live. 15-minute walkthrough of how native stream ads work.
             </p>
@@ -52,7 +70,7 @@ const Contact: React.FC = () => {
             <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
               <Mail className="w-5 h-5 text-primary" />
             </div>
-            <h3 className="text-lg font-bold text-foreground mb-2">Email Us</h3>
+            <h2 className="text-lg font-bold text-foreground mb-2">Email Us</h2>
             <p className="text-sm text-muted-foreground mb-4">
               Questions, partnerships, or press inquiries — drop us a line.
             </p>
@@ -66,7 +84,7 @@ const Contact: React.FC = () => {
             <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
               <MapPin className="w-5 h-5 text-primary" />
             </div>
-            <h3 className="text-lg font-bold text-foreground mb-2">Visit Us</h3>
+            <h2 className="text-lg font-bold text-foreground mb-2">Visit Us</h2>
             <p className="text-sm text-muted-foreground mb-4">
               Based in Oslo, operating across the Nordics.
             </p>

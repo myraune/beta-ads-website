@@ -180,7 +180,7 @@ const DashboardScreen: React.FC = () => (
         </thead>
         <tbody>
           <tr className="border-b border-gray-50">
-            <td className="px-3 py-2 text-sm font-semibold text-gray-900 whitespace-nowrap">Samsung Galaxy S26</td>
+            <td className="px-3 py-2 text-sm font-semibold text-gray-900 whitespace-nowrap">Samsung Galaxy S25 Ultra</td>
             <td className="px-3 py-2"><span className="text-[9px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-semibold">Active</span></td>
             <td className="px-3 py-2 text-xs text-gray-500">2026-01-19</td>
             <td className="px-3 py-2 text-xs text-gray-500">2026-03-17</td>

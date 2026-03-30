@@ -4,19 +4,18 @@ import { SPHero } from "@/components/sections/SPHero";
 import { SPBrands } from "@/components/sections/SPBrands";
 import { SPFeatures } from "@/components/sections/SPFeatures";
 import { SPVideoShowcase } from "@/components/sections/SPVideoShowcase";
-import { SPHowItWorks } from "@/components/sections/SPHowItWorks";
 import { SPUseCases } from "@/components/sections/SPUseCases";
-import { SPStats } from "@/components/sections/SPStats";
-import { SPStreamers } from "@/components/sections/SPStreamers";
-import { SPAdFormats } from "@/components/sections/SPAdFormats";
+import { SPGlobalNetwork } from "@/components/sections/SPGlobalNetwork";
 import { SPCTA } from "@/components/sections/SPCTA";
 import { SPFooter } from "@/components/sections/SPFooter";
+import { DecoCluster } from "@/components/ui/decorative-shapes";
+import { GeometricBackground } from "@/components/ui/shape-landing-hero";
 
 const Index: React.FC = () => {
   return (
     <>
       <SEO
-        title="Beta Ads | Native Twitch & Livestream Advertising in the Nordics"
+        title="Beta Ads | Native Twitch & Livestream Advertising"
         description="Native advertising platform for Twitch, YouTube and Kick livestreams in Norway, Sweden, Finland and Denmark. Overlay ads that bypass adblock and deliver 3-5x higher engagement with Gen Z audiences."
         canonical="/"
         jsonLd={{
@@ -34,8 +33,8 @@ const Index: React.FC = () => {
             addressCountry: "NO",
           },
           sameAs: [
-            "https://www.linkedin.com/company/betaads/",
-            "https://discord.gg/betaads",
+            "https://www.linkedin.com/company/beta-nordic/",
+            "https://discord.gg/tSmM6XMEkn",
           ],
           contactPoint: {
             "@type": "ContactPoint",
@@ -47,14 +46,44 @@ const Index: React.FC = () => {
       <main className="min-h-screen">
         <SPHero />
         <SPBrands />
-        <SPFeatures />
-        <SPVideoShowcase />
-        <SPHowItWorks />
-        <SPUseCases />
-        <SPStats />
-        <SPStreamers />
-        <SPAdFormats />
-        <SPCTA />
+        {/* Features + video — floating shapes add depth behind both sections */}
+        <div className="relative overflow-hidden">
+          <GeometricBackground />
+          <SPFeatures />
+          <SPVideoShowcase />
+        </div>
+
+        {/* Gradient break — cool mint/teal tint behind platforms */}
+        <div className="relative">
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse 100% 50% at 60% 50%, hsl(170 50% 50% / 0.05) 0%, transparent 60%)",
+            }}
+          />
+          <div
+            className="absolute top-1/3 left-1/4 w-72 h-72 rounded-full pointer-events-none opacity-[0.03] blur-3xl"
+            style={{ background: "hsl(357 70% 55%)" }}
+          />
+          <DecoCluster position="center-right" variant="mint" />
+          <SPUseCases />
+        </div>
+
+        <SPGlobalNetwork />
+
+        {/* Gradient break — warm again behind CTA */}
+        <div className="relative">
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              background:
+                "radial-gradient(ellipse 80% 60% at 50% 60%, hsl(357 70% 60% / 0.06) 0%, transparent 60%)",
+            }}
+          />
+          <SPCTA />
+        </div>
+
         <SPFooter />
       </main>
     </>

@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 15% 13%;
 
-    --primary: 8 80% 56%;
+    --primary: 357 70% 60%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 15% 96%;
@@ -25,7 +25,7 @@
     --muted: 220 14% 96%;
     --muted-foreground: 220 8% 46%;
 
-    --accent: 8 80% 56%;
+    --accent: 357 70% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -48,7 +48,7 @@
   }
 
   .dark {
-    --background: 220 20% 7%;
+    --background: 240 11% 5%;
     --foreground: 220 15% 93%;
 
     --card: 220 18% 11%;
@@ -57,7 +57,7 @@
     --popover: 220 18% 11%;
     --popover-foreground: 220 15% 93%;
 
-    --primary: 8 80% 58%;
+    --primary: 357 70% 62%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 220 15% 14%;
@@ -291,6 +291,88 @@ section, div, footer, header, nav, main {
 
 .skip-to-content:focus {
   top: 0;
+}
+
+/* ── Frosted Hover Image ── */
+.frosted-nav {
+  --max-a: 30;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.frosted-nav img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: url(#frost-filter);
+  transition: filter 0.3s ease;
+}
+
+.frosted-nav .hover-area {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--max-a), 1fr);
+  grid-template-rows: repeat(var(--max-a), 1fr);
+  z-index: 2;
+}
+
+.frosted-nav .hover-area i {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* When hovering a cell, create a radial clear area */
+.frosted-nav .hover-area i:hover ~ * {
+  /* no-op, needed for cascade */
+}
+
+.frosted-nav:hover img {
+  filter: url(#frost-filter);
+}
+
+/* Each cell hover removes frost in its area via clip-path trick */
+.frosted-nav .hover-area i {
+  position: relative;
+}
+
+.frosted-nav .hover-area i::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.frosted-nav .hover-area i:hover::after {
+  opacity: 1;
+}
+
+/* The real magic: on hover over the nav,
+   each <i> clears frost when hovered via CSS container tracking */
+.frosted-nav::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: 1rem;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.frosted-nav:hover::after {
+  opacity: 1;
 }
 
 /* Reduced motion — exempt marquee/scroll animations so they always run */

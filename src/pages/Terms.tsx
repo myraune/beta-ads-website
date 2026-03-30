@@ -6,9 +6,10 @@ const Terms: React.FC = () => {
   return (
     <>
       <SEO
-        title="Terms of Service"
-        description="Terms of Service for Beta Ads, a native livestream advertising platform by Beta Agency AS. Read our terms covering service usage, intellectual property, and liability."
+        title="Terms of Service | Beta Ads"
+        description="Terms of Service for Beta Ads by Beta Agency AS. Read our terms covering service usage, intellectual property, and liability."
         canonical="/terms"
+        noindex={true}
       />
 
       <div className="min-h-screen bg-background text-foreground">

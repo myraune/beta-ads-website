@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink, Check } from "lucide-react";
 import { SPFooter } from '@/components/sections/SPFooter';
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { Lightning } from "@/components/ui/lightning";
 import {
   Accordion,
   AccordionContent,
@@ -69,30 +70,51 @@ const Pricing: React.FC = () => {
         canonical="/pricing"
         jsonLd={{
           "@context": "https://schema.org",
-          "@type": "WebPage",
+          "@type": "FAQPage",
           "name": "Beta Ads Pricing",
           "description": "Pricing plans for native livestream advertising campaigns across Nordic Twitch, YouTube and Kick streams.",
           "url": "https://beta-ads.no/pricing",
-          "isPartOf": { "@id": "https://beta-ads.no/#website" }
+          "mainEntity": pricingFaqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.question,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": faq.answer
+            }
+          }))
         }}
       />
       <main>
-      <section className="pt-32 lg:pt-40 pb-16">
-        <div 
+      {/* Hero with Lightning background */}
+      <section className="relative overflow-hidden bg-[#0a0a0f] pt-32 lg:pt-44 pb-24">
+        {/* Lightning canvas */}
+        <div className="absolute inset-0">
+          <Lightning hue={10} speed={1.3} intensity={0.55} size={2.2} />
+        </div>
+        {/* Radial glow */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_60%,rgba(233,79,55,0.12),transparent)]" />
+        {/* Bottom fade to page background */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+
+        <div
           ref={heroRef}
-          className={`max-w-[800px] mx-auto px-6 lg:px-12 text-center transition-[opacity,transform] duration-700 ${
+          className={`relative z-10 max-w-[780px] mx-auto px-6 lg:px-12 text-center transition-[opacity,transform] duration-700 ${
             heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="text-xs font-light tracking-[0.3em] text-muted-foreground/60 uppercase mb-4">
+          <p className="text-xs font-light tracking-[0.3em] text-white/40 uppercase mb-5">
             Pricing
           </p>
-          <h1 className="text-4xl lg:text-5xl font-light tracking-tight mb-6">
+          <h1 className="text-4xl lg:text-6xl font-light tracking-tight mb-6 text-white">
             Simple, transparent{" "}
-            <span className="font-extralight italic text-muted-foreground">pricing.</span>
+            <span className="font-extralight italic text-white/50">pricing.</span>
           </h1>
-          <p className="text-lg text-muted-foreground font-light leading-relaxed max-w-[520px] mx-auto">
+          <p className="text-lg text-white/60 font-light leading-relaxed max-w-[520px] mx-auto mb-5">
             Whether you want a fully managed campaign or prefer to run things yourself, we have you covered.
+          </p>
+          {/* Humor line */}
+          <p className="inline-block text-sm text-white/35 font-light italic border border-white/10 rounded-full px-5 py-2 bg-white/[0.03] backdrop-blur-sm">
+            😅 Got a bit scared? Our prices are secret — only the lucky ones get to know.
           </p>
         </div>
       </section>
@@ -109,7 +131,7 @@ const Pricing: React.FC = () => {
             <div className="rounded-2xl bg-card/40 p-8 lg:p-10 space-y-8">
               <div className="space-y-3">
                 <p className="text-xs font-light tracking-[0.2em] text-primary/70 uppercase">Recommended</p>
-                <h3 className="text-2xl font-light tracking-tight">Managed Service</h3>
+                <h2 className="text-2xl font-light tracking-tight">Managed Service</h2>
                 <p className="text-muted-foreground font-light">
                   Custom campaigns run by our team. From brief to broadcast — we handle everything.
                 </p>
@@ -143,7 +165,7 @@ const Pricing: React.FC = () => {
               </div>
               <div className="space-y-3">
                 <p className="text-xs font-light tracking-[0.2em] text-muted-foreground/50 uppercase">For hands-on marketers</p>
-                <h3 className="text-2xl font-light tracking-tight">Self-Service</h3>
+                <h2 className="text-2xl font-light tracking-tight">Self-Service</h2>
                 <p className="text-muted-foreground font-light">
                   Launch campaigns yourself through our platform. Full control, flexible budgets.
                 </p>

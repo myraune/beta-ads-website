@@ -15,6 +15,14 @@ export const useScrollAnimation = <T extends HTMLElement = HTMLDivElement>(optio
     const element = ref.current;
     if (!element) return;
 
+    // If element is already in the viewport on mount, make it visible immediately
+    // without waiting for the async IntersectionObserver callback.
+    const rect = element.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

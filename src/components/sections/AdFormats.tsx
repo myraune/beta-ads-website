@@ -142,7 +142,7 @@ export const AdFormats: React.FC = () => {
 
         {/* Quick navigation dots */}
         <div className="flex justify-center gap-2 mt-10">
-          {adFormats.map((_, index) => (
+          {adFormats.map((format, index) => (
             <button
               key={index}
               onClick={() => setActiveIndex(index)}
@@ -151,7 +151,7 @@ export const AdFormats: React.FC = () => {
                   ? "bg-primary w-6"
                   : "bg-border hover:bg-muted-foreground"
               }`}
-              aria-label={`View format ${index + 1}`}
+              aria-label={`View ${format.name} format`}
             />
           ))}
         </div>

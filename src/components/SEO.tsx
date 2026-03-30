@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 interface SEOProps {
   title: string;
@@ -8,11 +8,11 @@ interface SEOProps {
   ogImage?: string;
   ogImageAlt?: string;
   noindex?: boolean;
-  jsonLd?: Record<string, unknown>;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const SITE_URL = "https://beta-ads.no";
-const DEFAULT_OG_IMAGE = `${SITE_URL}/lovable-uploads/logo-color.png`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/lovable-uploads/og-social-preview.png`;
 const SITE_NAME = "Beta Ads";
 
 export const SEO: React.FC<SEOProps> = ({
@@ -67,11 +67,11 @@ export const SEO: React.FC<SEOProps> = ({
       <meta name="twitter:site" content="@betaads" />
 
       {/* JSON-LD structured data */}
-      {jsonLd && (
-        <script type="application/ld+json">
-          {JSON.stringify(jsonLd)}
+      {jsonLd && (Array.isArray(jsonLd) ? jsonLd : [jsonLd]).map((ld, i) => (
+        <script key={i} type="application/ld+json">
+          {JSON.stringify(ld)}
         </script>
-      )}
+      ))}
     </Helmet>
   );
 };

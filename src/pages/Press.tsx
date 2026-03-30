@@ -38,16 +38,24 @@ const Press: React.FC = () => {
   return (
     <>
       <SEO
-        title="Press | Beta Ads"
-        description="Beta Ads in the media. Featured in Kampanje, Kom24, and other leading Nordic publications."
+        title="Press & Media Coverage | Beta Ads"
+        description="Beta Ads in the media. Featured in Kampanje, Kom24, and leading Nordic publications covering Twitch advertising innovation."
         canonical="/press"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Press & Media Coverage - Beta Ads",
+          "description": "Beta Ads press coverage and media mentions from leading Nordic publications.",
+          "url": "https://beta-ads.no/press",
+          "isPartOf": { "@id": "https://beta-ads.no/#website" }
+        }}
       />
       <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-32 md:pt-40 pb-20">
         <div className="mb-14">
           <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary mb-4">
             Press
           </span>
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h1 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
             Beta Ads in the media
           </h1>
           <p className="text-muted-foreground max-w-lg">
@@ -76,9 +84,9 @@ const Press: React.FC = () => {
                 <p className="text-primary text-xs font-semibold mb-2">
                   {article.publication}
                 </p>
-                <h3 className="text-foreground font-bold mb-1 group-hover:text-primary transition-colors line-clamp-2">
+                <h2 className="text-foreground font-bold mb-1 group-hover:text-primary transition-colors line-clamp-2">
                   {article.title}
-                </h3>
+                </h2>
                 <p className="text-muted-foreground text-sm line-clamp-1 mb-3">
                   {article.subtitle}
                 </p>

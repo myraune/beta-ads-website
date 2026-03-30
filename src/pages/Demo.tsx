@@ -21,6 +21,7 @@ import { SPFooter } from '@/components/sections/SPFooter';
 
 interface DemoProps {
   t?: any;
+  language?: string;
 }
 
 const defaults = {
@@ -125,7 +126,7 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
 
               <div className="p-6 bg-card/50 rounded-xl border border-border/30 mb-8">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 rounded-full overflow-hidden ring-2 ring-primary/20">
+                  <div className="w-16 h-16 rounded-full overflow-hidden ring-2 ring-primary/20 shrink-0">
                     <img
                       src="/lovable-uploads/e6d9646d-bf5f-471c-a2d8-1f06c274f570.png"
                       alt="Andreas Myraune"
