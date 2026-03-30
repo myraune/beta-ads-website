@@ -5,7 +5,6 @@ import { SPBrands } from "@/components/sections/SPBrands";
 import { SPFeatures } from "@/components/sections/SPFeatures";
 import { SPVideoShowcase } from "@/components/sections/SPVideoShowcase";
 import { SPUseCases } from "@/components/sections/SPUseCases";
-import { SPGlobalNetwork } from "@/components/sections/SPGlobalNetwork";
 import { SPCTA } from "@/components/sections/SPCTA";
 import { SPFooter } from "@/components/sections/SPFooter";
 import { DecoCluster } from "@/components/ui/decorative-shapes";
@@ -45,10 +44,13 @@ const Index: React.FC = () => {
       />
       <main className="min-h-screen">
         <SPHero />
-        <SPBrands />
-        {/* Features + video — floating shapes add depth behind both sections */}
-        <div className="relative overflow-hidden">
-          <GeometricBackground />
+<SPBrands />
+{/* Features + video — floating shapes add depth behind both sections */}
+        <div className="relative">
+          {/* Clip only the background shapes, not the whole section (overflow-hidden breaks sticky) */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none">
+            <GeometricBackground />
+          </div>
           <SPFeatures />
           <SPVideoShowcase />
         </div>
@@ -69,8 +71,6 @@ const Index: React.FC = () => {
           <DecoCluster position="center-right" variant="mint" />
           <SPUseCases />
         </div>
-
-        <SPGlobalNetwork />
 
         {/* Gradient break — warm again behind CTA */}
         <div className="relative">

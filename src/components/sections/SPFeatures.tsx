@@ -7,6 +7,8 @@ import {
   Filter,
   FileText,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   Download,
   X as XIcon,
   Zap,
@@ -15,6 +17,7 @@ import {
   Maximize2,
 } from "lucide-react";
 import { ChartVisual3 } from "@/components/ui/animated-card-chart";
+import GlobeMarketMap from "@/components/ui/wireframe-dotted-globe";
 import {
   IconStreamers,
   IconTarget,
@@ -59,17 +62,17 @@ const features = [
   },
   {
     id: "launch",
-    label: "Launch",
+    label: "Creative",
     icon: IconLaunch,
-    title: "Go live across hundreds of streams",
+    title: "Custom animated overlays, built per brand",
     description:
-      "Deploy your campaign to selected streamers in one click. Overlays render automatically inside OBS.",
+      "Every campaign gets bespoke motion design — crafted to feel native inside the stream, not bolted on top.",
     bullets: [
-      "One-click deployment to all streamers",
-      "Auto OBS integration — zero streamer effort",
-      "Schedule campaigns in advance",
+      "Frame-accurate brand animations",
+      "Designed from scratch for each campaign",
+      "Renders directly inside OBS — zero streamer setup",
     ],
-    stat: { value: "43", label: "streamers activated — Samsung S25 Ultra" },
+    stat: { value: "100%", label: "custom-designed per brand" },
   },
   {
     id: "analytics",
@@ -111,125 +114,215 @@ const streamers = [
   { name: "DannizTV", game: "CS2", viewers: "3.1K", platform: "Twitch", score: 96, avatar: null },
 ];
 
-const StreamerPreview: React.FC = () => (
-  <div className="overflow-hidden">
-    {/* Search bar */}
-    <div className="p-5 border-b border-border/50 dark:border-white/[0.08]">
-      <div className="flex items-center gap-3 mb-3">
-        <div className="flex-1 flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl border border-border/50 dark:border-white/[0.12] bg-muted/30 dark:bg-white/[0.04]">
-          <Search className="w-4 h-4 text-muted-foreground" />
-          <span className="text-sm text-muted-foreground dark:text-white/50">Search streamers...</span>
-        </div>
-        <button className="px-3.5 py-2.5 rounded-xl bg-primary/15 text-primary text-sm font-medium flex items-center gap-2">
-          <Filter className="w-3.5 h-3.5" /> Filters
-        </button>
-      </div>
-      <div className="flex items-center gap-2 flex-wrap">
-        {["Fortnite", "Valorant", "CS2", "Just Chatting", "Minecraft"].map((g, i) => (
-          <span key={g} className={`text-[11px] px-3 py-1.5 rounded-full border cursor-default ${
-            i < 2 ? "border-primary/40 bg-primary/15 text-primary font-medium" : "border-border/60 dark:border-white/[0.12] text-muted-foreground dark:text-white/40"
-          }`}>
-            {g}
-          </span>
-        ))}
-        <span className="text-[11px] text-primary/70 font-medium cursor-default">+18 more</span>
-      </div>
-    </div>
+const GAMES = ["Fortnite", "Valorant", "CS2", "Just Chatting", "Minecraft"];
 
-    {/* Stats bar */}
-    <div className="px-5 py-2.5 border-b border-border/40 dark:border-white/[0.07] bg-muted/20 dark:bg-white/[0.03] flex items-center gap-6">
-      <span className="text-[11px] text-muted-foreground">Showing <strong className="text-foreground font-semibold">39,445</strong> streamers</span>
-      <span className="text-[11px] text-muted-foreground">Avg viewers: <strong className="text-foreground font-semibold">1,247</strong></span>
-      <span className="text-[11px] text-muted-foreground ml-auto">Sort: <strong className="text-foreground font-semibold">Match score ↓</strong></span>
-    </div>
+const StreamerPreview: React.FC = () => {
+  const [activeGames, setActiveGames] = useState<string[]>(["Fortnite", "Valorant"]);
+  const [added, setAdded] = useState<Record<string, boolean>>({});
 
-    {/* Table header */}
-    <div className="px-5 py-2.5 border-b border-border/50 dark:border-white/[0.08] grid grid-cols-[36px_1fr_72px_72px_60px_52px] gap-3 items-center">
-      <div />
-      <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Streamer</span>
-      <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Platform</span>
-      <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Viewers</span>
-      <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Match</span>
-      <div />
-    </div>
+  const toggle = (g: string) =>
+    setActiveGames((prev) => prev.includes(g) ? prev.filter((x) => x !== g) : [...prev, g]);
 
-    {/* Streamer rows */}
-    <div>
-      {streamers.map((s, idx) => (
-        <motion.div
-          key={s.name}
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: idx * 0.06, duration: 0.3 }}
-          className="px-5 py-3 grid grid-cols-[36px_1fr_72px_72px_60px_52px] gap-3 items-center hover:bg-muted/30 dark:hover:bg-white/[0.05] transition-all duration-200 group border-b border-border/20 dark:border-white/[0.06] last:border-b-0"
-        >
-          <div className="w-9 h-9 rounded-full bg-muted/40 overflow-hidden ring-1 ring-white/10">
-            {s.avatar ? (
-              <img src={s.avatar} alt={s.name} className="w-full h-full object-cover" />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center text-xs font-bold text-muted-foreground">{s.name[0]}</div>
-            )}
+  const handleAdd = (name: string) => {
+    setAdded((prev) => ({ ...prev, [name]: true }));
+    setTimeout(() => setAdded((prev) => ({ ...prev, [name]: false })), 1800);
+  };
+
+  const visible = activeGames.length === 0
+    ? streamers
+    : streamers.filter((s) => activeGames.includes(s.game));
+
+  return (
+    <div className="overflow-hidden">
+      {/* Search bar */}
+      <div className="p-5 border-b border-border/50 dark:border-white/[0.08]">
+        <div className="flex items-center gap-3 mb-3">
+          <div className="flex-1 flex items-center gap-2.5 px-3.5 py-2.5 rounded-xl border border-border/50 dark:border-white/[0.12] bg-muted/30 dark:bg-white/[0.04]">
+            <Search className="w-4 h-4 text-muted-foreground" />
+            <span className="text-sm text-muted-foreground dark:text-white/50">Search streamers...</span>
           </div>
-          <div>
-            <div className="text-[13px] font-semibold text-foreground">{s.name}</div>
-            <div className="text-[11px] text-muted-foreground">{s.game}</div>
-          </div>
-          <div className="text-[11px] text-muted-foreground">{s.platform}</div>
-          <div className="text-[13px] font-medium text-foreground tabular-nums">{s.viewers}</div>
-          <div className={`text-[13px] font-bold tabular-nums ${s.score >= 90 ? "text-[#5adbb5]" : "text-amber-400"}`}>
-            {s.score}%
-          </div>
-          <button className="opacity-0 group-hover:opacity-100 transition-all duration-200 text-[10px] px-2.5 py-1.5 rounded-lg bg-primary text-white font-medium">
-            Add
+          <button className="px-3.5 py-2.5 rounded-xl bg-primary/15 text-primary text-sm font-medium flex items-center gap-2">
+            <Filter className="w-3.5 h-3.5" /> Filters
           </button>
-        </motion.div>
-      ))}
+        </div>
+        <div className="flex items-center gap-2 flex-wrap">
+          {GAMES.map((g) => {
+            const active = activeGames.includes(g);
+            return (
+              <button
+                key={g}
+                onClick={() => toggle(g)}
+                className={`text-[11px] px-3 py-1.5 rounded-full border transition-all duration-200 ${
+                  active
+                    ? "border-primary/40 bg-primary/15 text-primary font-medium scale-[1.04]"
+                    : "border-border/60 dark:border-white/[0.12] text-muted-foreground dark:text-white/40 hover:border-primary/30 hover:text-primary/70"
+                }`}
+              >
+                {g}
+              </button>
+            );
+          })}
+          <span className="text-[11px] text-primary/70 font-medium">+18 more</span>
+        </div>
+      </div>
+
+      {/* Stats bar */}
+      <div className="px-5 py-2.5 border-b border-border/40 dark:border-white/[0.07] bg-muted/20 dark:bg-white/[0.03] flex items-center gap-6">
+        <span className="text-[11px] text-muted-foreground">
+          Showing <strong className="text-foreground font-semibold tabular-nums">
+            {activeGames.length === 0 ? "39,445" : `${visible.length * 3_412 + visible.length * 211}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+          </strong> streamers
+        </span>
+        <span className="text-[11px] text-muted-foreground">Avg viewers: <strong className="text-foreground font-semibold">1,247</strong></span>
+        <span className="text-[11px] text-muted-foreground ml-auto">Sort: <strong className="text-foreground font-semibold">Match score ↓</strong></span>
+      </div>
+
+      {/* Table header */}
+      <div className="px-5 py-2.5 border-b border-border/50 dark:border-white/[0.08] grid grid-cols-[36px_1fr_72px_72px_60px_52px] gap-3 items-center">
+        <div />
+        <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Streamer</span>
+        <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Platform</span>
+        <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Viewers</span>
+        <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Match</span>
+        <div />
+      </div>
+
+      {/* Streamer rows */}
+      <div>
+        {visible.length === 0 ? (
+          <div className="px-5 py-8 text-center text-[12px] text-muted-foreground">No streamers match selected filters</div>
+        ) : (
+          visible.map((s, idx) => (
+            <motion.div
+              key={s.name}
+              layout
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -4 }}
+              transition={{ delay: idx * 0.05, duration: 0.25 }}
+              className={`px-5 py-3 grid grid-cols-[36px_1fr_72px_72px_60px_52px] gap-3 items-center transition-all duration-200 group border-b border-border/20 dark:border-white/[0.06] last:border-b-0 ${
+                added[s.name] ? "bg-[#5adbb5]/8" : "hover:bg-muted/30 dark:hover:bg-white/[0.05]"
+              }`}
+            >
+              <div className="w-9 h-9 rounded-full bg-muted/40 overflow-hidden ring-1 ring-white/10">
+                {s.avatar ? (
+                  <img src={s.avatar} alt={s.name} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center text-xs font-bold text-muted-foreground">{s.name[0]}</div>
+                )}
+              </div>
+              <div>
+                <div className="text-[13px] font-semibold text-foreground">{s.name}</div>
+                <div className="text-[11px] text-muted-foreground">{s.game}</div>
+              </div>
+              <div className="text-[11px] text-muted-foreground">{s.platform}</div>
+              <div className="text-[13px] font-medium text-foreground tabular-nums">{s.viewers}</div>
+              <div className={`text-[13px] font-bold tabular-nums ${s.score >= 90 ? "text-[#5adbb5]" : "text-amber-400"}`}>
+                {s.score}%
+              </div>
+              <motion.button
+                onClick={() => handleAdd(s.name)}
+                whileTap={{ scale: 0.92 }}
+                className={`transition-all duration-300 text-[10px] px-2.5 py-1.5 rounded-lg font-medium ${
+                  added[s.name]
+                    ? "bg-[#5adbb5]/20 text-[#5adbb5] opacity-100"
+                    : "opacity-0 group-hover:opacity-100 bg-primary text-white"
+                }`}
+              >
+                {added[s.name] ? "✓ Added" : "Add"}
+              </motion.button>
+            </motion.div>
+          ))
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 /* ── Targeting Preview ── */
 
-const TargetingPreview: React.FC = () => (
+const FILTER_OPTIONS: Record<string, string[]> = {
+  "Game Genre": ["FPS, Battle Royale", "MOBA, Strategy", "RPG, Adventure", "Sports, Racing"],
+  "Region": ["Norway, Sweden", "Denmark, Finland", "Germany, UK", "All Nordic"],
+  "Age Range": ["18–34", "25–44", "13–24", "All Ages"],
+  "Min Viewers": ["500+", "1,000+", "2,500+", "100+"],
+};
+
+const MATCH_PROFILES = [
+  { total: "2,847", high: 342, highPct: 80, good: 1205, goodPct: 60, low: 1300 },
+  { total: "2,050", high: 180, highPct: 44, good: 890, goodPct: 72, low: 980 },
+  { total: "1,595", high: 215, highPct: 52, good: 760, goodPct: 65, low: 620 },
+  { total: "1,195", high: 95, highPct: 24, good: 420, goodPct: 55, low: 680 },
+];
+
+const FILTER_ICONS: Record<string, React.FC<{ className?: string }>> = {
+  "Game Genre": IconGlobe,
+  "Region": IconGlobe,
+  "Age Range": IconStreamers,
+  "Min Viewers": Eye,
+};
+
+const TargetingPreview: React.FC = () => {
+  const [indices, setIndices] = useState<Record<string, number>>({ "Game Genre": 0, "Region": 0, "Age Range": 0, "Min Viewers": 0 });
+  const profileIdx = indices["Game Genre"] % MATCH_PROFILES.length;
+  const profile = MATCH_PROFILES[profileIdx];
+
+  const cycle = (label: string) =>
+    setIndices((prev) => ({ ...prev, [label]: (prev[label] + 1) % FILTER_OPTIONS[label].length }));
+
+  return (
   <div className="overflow-hidden">
     <div className="p-5 border-b border-border/50 dark:border-white/[0.08]">
       <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">Audience Targeting</div>
       <div className="space-y-4">
-        {[
-          { label: "Game Genre", value: "FPS, Battle Royale", icon: IconGlobe },
-          { label: "Region", value: "Norway, Sweden", icon: IconGlobe },
-          { label: "Age Range", value: "18–34", icon: IconStreamers },
-          { label: "Min Viewers", value: "500+", icon: Eye },
-        ].map((f, idx) => (
-          <motion.div
-            key={f.label}
+        {Object.entries(FILTER_OPTIONS).map(([label, options], idx) => {
+          const Icon = FILTER_ICONS[label];
+          return (
+          <motion.button
+            key={label}
+            onClick={() => cycle(label)}
             initial={{ opacity: 0, x: -8 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: idx * 0.08, duration: 0.3 }}
-            className="flex items-center justify-between p-3 rounded-xl bg-muted/40 dark:bg-white/[0.06] hover:bg-muted/60 dark:hover:bg-white/[0.09] border border-transparent dark:border-white/[0.06] transition-all duration-200"
+            whileTap={{ scale: 0.98 }}
+            className="w-full flex items-center justify-between p-3 rounded-xl bg-muted/40 dark:bg-white/[0.06] hover:bg-primary/8 dark:hover:bg-white/[0.09] border border-transparent hover:border-primary/20 dark:border-white/[0.06] transition-all duration-200 text-left cursor-pointer"
           >
             <div className="flex items-center gap-2.5">
               <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center">
-                <f.icon className="w-3.5 h-3.5 text-primary" />
+                <Icon className="w-3.5 h-3.5 text-primary" />
               </div>
-              <span className="text-[12px] text-muted-foreground">{f.label}</span>
+              <span className="text-[12px] text-muted-foreground">{label}</span>
             </div>
-            <div className="flex items-center gap-1.5 text-[12px] font-medium text-foreground">
-              {f.value} <ChevronDown className="w-3 h-3 text-muted-foreground" />
-            </div>
-          </motion.div>
-        ))}
+            <motion.div
+              key={options[indices[label]]}
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.2 }}
+              className="flex items-center gap-1.5 text-[12px] font-medium text-foreground"
+            >
+              {options[indices[label]]} <ChevronDown className="w-3 h-3 text-muted-foreground" />
+            </motion.div>
+          </motion.button>
+          );
+        })}
       </div>
     </div>
     <div className="p-5">
       <div className="flex items-center justify-between mb-4">
         <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">ICP Match Results</span>
-        <span className="text-[11px] text-primary font-semibold">2,847 streamers</span>
+        <motion.span
+          key={profile.total}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="text-[11px] text-primary font-semibold"
+        >
+          {profile.total} streamers
+        </motion.span>
       </div>
       {[
-        { label: "High match (90%+)", count: 342, pct: 80, color: "bg-[#5adbb5]" },
-        { label: "Good match (70-90%)", count: 1205, pct: 60, color: "bg-amber-400" },
-        { label: "Low match (<70%)", count: 1300, pct: 40, color: "bg-muted/50" },
+        { label: "High match (90%+)", count: profile.high, pct: profile.highPct, color: "bg-[#5adbb5]" },
+        { label: "Good match (70-90%)", count: profile.good, pct: profile.goodPct, color: "bg-amber-400" },
+        { label: "Low match (<70%)", count: profile.low, pct: 40, color: "bg-muted/50" },
       ].map((m, idx) => (
         <motion.div
           key={m.label}
@@ -240,83 +333,147 @@ const TargetingPreview: React.FC = () => (
         >
           <div className="flex items-center justify-between mb-1.5">
             <span className="text-[11px] text-muted-foreground">{m.label}</span>
-            <span className="text-[11px] font-semibold text-foreground tabular-nums">{m.count}</span>
+            <motion.span
+              key={m.count}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-[11px] font-semibold text-foreground tabular-nums"
+            >
+              {m.count}
+            </motion.span>
           </div>
           <div className="h-2 rounded-full bg-muted/50 dark:bg-white/[0.08] overflow-hidden">
             <motion.div
               className={`h-full rounded-full ${m.color}`}
               initial={{ width: 0 }}
               animate={{ width: `${m.pct}%` }}
-              transition={{ duration: 0.8, delay: 0.4 + idx * 0.15, ease: "easeOut" }}
+              whileInView={{ width: `${m.pct}%` }}
+              viewport={{ once: false, margin: "0px 0px -80px 0px" }}
+              transition={{ duration: 0.7, delay: idx * 0.1, ease: "easeOut" }}
             />
           </div>
         </motion.div>
       ))}
     </div>
   </div>
-);
+  );
+};
 
-/* ── Launch Preview ── */
+/* ── Ad Artwork Carousel ── */
+
+// format: "fullscreen" = 1920x1080 transparent overlay (fills frame)
+//         "widget"     = 450x450 positioned overlay (shown as corner element)
+const ARTWORK = [
+  { brand: "Burger King", campaign: "Gaming Promotion", src: "/lovable-uploads/overlay-burgerking.webm", format: "fullscreen" },
+  { brand: "Samsung", campaign: "Galaxy S25 Ultra", src: "/lovable-uploads/overlay-samsung.webm", format: "widget" },
+  { brand: "Foodora", campaign: "Delivery Campaign", src: "/lovable-uploads/overlay-foodora.webm", format: "fullscreen" },
+  { brand: "Ben & Jerry's", campaign: "Gaming Promotion", src: "/lovable-uploads/overlay-benjerrys.webm", format: "fullscreen" },
+  { brand: "Disney", campaign: "Streaming Launch", src: "/lovable-uploads/overlay-disney.webm", format: "fullscreen" },
+  { brand: "Glorious", campaign: "Gaming Mouse", src: "/lovable-uploads/overlay-glorious.webm", format: "widget" },
+  { brand: "Fanta", campaign: "Gaming Engagement", src: "/lovable-uploads/overlay-fanta.webm", format: "fullscreen" },
+  { brand: "Shark Gaming", campaign: "PC Hardware", src: "/lovable-uploads/overlay-sharkgaming.webm", format: "widget" },
+  { brand: "Samsung", campaign: "Galaxy ZFold7", src: "/lovable-uploads/samsung-zfold7-overlay.webm", format: "widget" },
+  { brand: "Logitech", campaign: "Gaming Peripherals", src: "/lovable-uploads/overlay-logitech.webm", format: "fullscreen" },
+];
 
 const LaunchPreview: React.FC = () => {
-  const [launched, setLaunched] = useState(false);
+  const [current, setCurrent] = useState(0);
+  const [hovered, setHovered] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const go = useCallback((dir: 1 | -1) => {
+    setCurrent(c => (c + dir + ARTWORK.length) % ARTWORK.length);
+  }, []);
+
+  useEffect(() => {
+    if (hovered) { if (timerRef.current) clearInterval(timerRef.current); return; }
+    timerRef.current = setInterval(() => go(1), 5000);
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [hovered, go]);
+
+  const item = ARTWORK[current];
+
   return (
-    <div className="overflow-hidden">
-      <div className="p-5 border-b border-border/50 dark:border-white/[0.08]">
-        <div className="flex items-center justify-between mb-4">
-          <div>
-            <div className="text-[13px] font-semibold text-foreground">Samsung Galaxy S25 Ultra</div>
-            <div className="text-[11px] text-muted-foreground mt-0.5">Rich Media Overlay Campaign</div>
-          </div>
-          <span className={`text-[10px] px-3 py-1 rounded-full font-semibold transition-all duration-500 ${
-            launched ? "bg-[#5adbb5]/15 text-[#5adbb5] ring-1 ring-[#5adbb5]/20" : "bg-amber-400/15 text-amber-400 ring-1 ring-amber-400/20"
-          }`}>
-            {launched ? "● Live" : "○ Ready"}
-          </span>
+    <div className="overflow-hidden" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
+      {/* Video stage — Valorant stream as background */}
+      <div className="relative group" style={{ aspectRatio: '16/9' }}>
+        {/* Stream background */}
+        <img
+          src="/lovable-uploads/stream-bg-valorant.jpg"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
+          aria-hidden
+        />
+        {/* Dark overlay so ad animation pops */}
+        <div className="absolute inset-0 bg-black/25" aria-hidden />
+
+        {item.format === "fullscreen" ? (
+          /* Fullscreen transparent overlay — fills the entire frame */
+          <motion.video
+            key={item.src}
+            src={item.src}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.35 }}
+          />
+        ) : (
+          /* Widget overlay — 450x450 corner element, shown bottom-right like in OBS */
+          <motion.video
+            key={item.src}
+            src={item.src}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute"
+            style={{ width: '32%', aspectRatio: '1/1', bottom: '8%', right: '4%' }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.35 }}
+          />
+        )}
+
+        {/* Brand label */}
+        <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md rounded-lg px-3 py-1.5">
+          <div className="text-white text-[12px] font-semibold leading-tight">{item.brand}</div>
+          <div className="text-white/55 text-[10px]">{item.campaign}</div>
         </div>
-        <div className="grid grid-cols-3 gap-3">
-          {[
-            { label: "Streamers", value: "48", icon: IconStreamers },
-            { label: "Format", value: "Rich Media", icon: Zap },
-            { label: "Duration", value: "2 weeks", icon: IconTarget },
-          ].map((s) => (
-            <div key={s.label} className="text-center p-3 rounded-xl bg-muted/40 dark:bg-white/[0.06] border border-border/40 dark:border-white/[0.10]">
-              <s.icon className="w-4 h-4 text-primary mx-auto mb-1.5" />
-              <div className="text-[13px] font-bold text-foreground">{s.value}</div>
-              <div className="text-[9px] text-muted-foreground mt-0.5">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="p-5">
-        <div className="space-y-2.5 mb-5">
-          {["RubenGKS", "Aienia", "DannizTV"].map((name, idx) => (
-            <motion.div
-              key={name}
-              initial={{ opacity: 0, x: -6 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: idx * 0.08 }}
-              className="flex items-center gap-3 p-2.5 rounded-lg hover:bg-muted/40 dark:hover:bg-white/[0.06] transition-colors"
-            >
-              <div className={`w-2.5 h-2.5 rounded-full transition-all duration-500 ${launched ? "bg-[#5adbb5] shadow-[0_0_8px_rgba(90,219,181,0.4)]" : "bg-muted/60"}`} />
-              <span className="text-[12px] font-medium text-foreground">{name}</span>
-              <span className={`text-[10px] ml-auto transition-colors duration-500 ${launched ? "text-[#5adbb5] font-medium" : "text-muted-foreground"}`}>
-                {launched ? "Overlay active" : "Pending"}
-              </span>
-            </motion.div>
-          ))}
-          <div className="text-[10px] text-muted-foreground pl-5">+45 more streamers</div>
-        </div>
+
+        {/* Nav arrows — visible on hover */}
         <button
-          onClick={() => setLaunched(!launched)}
-          className={`w-full py-3 rounded-xl text-[13px] font-semibold transition-all duration-500 ${
-            launched
-              ? "bg-muted/40 text-muted-foreground hover:bg-muted/50"
-              : "bg-primary text-white shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:brightness-110"
-          }`}
+          onClick={() => go(-1)}
+          className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70"
         >
-          {launched ? "Pause Campaign" : "Launch Campaign →"}
+          <ChevronLeft className="w-4 h-4" />
         </button>
+        <button
+          onClick={() => go(1)}
+          className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70"
+        >
+          <ChevronRight className="w-4 h-4" />
+        </button>
+      </div>
+
+      {/* Dot navigation + counter */}
+      <div className="flex items-center justify-between px-4 py-3 border-t border-border/30 dark:border-white/[0.08]">
+        <span className="text-[11px] text-muted-foreground tabular-nums">{current + 1} / {ARTWORK.length}</span>
+        <div className="flex items-center gap-1.5">
+          {ARTWORK.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`rounded-full transition-all duration-300 ${
+                i === current ? "w-5 h-1.5 bg-primary" : "w-1.5 h-1.5 bg-muted-foreground/25 hover:bg-muted-foreground/50"
+              }`}
+            />
+          ))}
+        </div>
+        <span className="text-[11px] text-muted-foreground">{hovered ? "Paused" : "Auto"}</span>
       </div>
     </div>
   );
@@ -327,8 +484,8 @@ const LaunchPreview: React.FC = () => {
 
 const AnalyticsPreview: React.FC = () => (
   <div className="overflow-hidden">
-    <div className="relative w-full overflow-hidden" style={{ height: 280 }}>
-      <div className="absolute inset-0 flex items-center justify-center" style={{ transform: 'scale(1.4)', transformOrigin: 'center center' }}>
+    <div className="relative w-full overflow-hidden" style={{ height: 240 }}>
+      <div className="absolute inset-0 flex items-center justify-center" style={{ transform: 'scale(1.85)', transformOrigin: 'center 42%' }}>
         <ChartVisual3 mainColor="#e94f37" secondaryColor="#5adbb5" />
       </div>
     </div>
@@ -595,7 +752,13 @@ const FeatureSection: React.FC<{
   const Preview = previewComponents[feature.id];
 
   return (
-    <div className="py-12 md:py-24 border-b border-border/20 last:border-b-0">
+    <div className="relative py-12 md:py-24 border-b border-border/20 last:border-b-0">
+      {/* Globe Easter egg — decorative, targeting section only */}
+      {feature.id === "targeting" && (
+        <div className="pointer-events-none absolute left-[-480px] top-1/2 -translate-y-1/2 w-[480px] opacity-[0.18] hidden lg:block" aria-hidden>
+          <GlobeMarketMap />
+        </div>
+      )}
       <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
         {/* Left: text content */}
         <div className="lg:w-[30%] lg:sticky lg:top-32 space-y-5">
@@ -740,7 +903,7 @@ export const SPFeatures: React.FC = () => {
                     onClick={() => scrollToSection(f.id)}
                     className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-all duration-200 ${
                       isActive
-                        ? "bg-primary/15 dark:bg-primary/20 text-foreground border-l-2 border-primary"
+                        ? "bg-primary/15 dark:bg-primary/20 text-foreground"
                         : "text-muted-foreground dark:text-white/45 hover:text-foreground hover:bg-muted/40 dark:hover:bg-white/[0.06]"
                     }`}
                   >

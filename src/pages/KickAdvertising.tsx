@@ -57,7 +57,7 @@ const KickAdvertising: React.FC = () => {
     >
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden" style={{ background: 'hsl(240 11% 5%)' }}>
         <AnimatedShaderBackground heightFactor={0.85} />
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
 
