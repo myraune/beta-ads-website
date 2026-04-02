@@ -7,6 +7,9 @@ interface SEOProps {
   ogType?: string;
   ogImage?: string;
   ogImageAlt?: string;
+  // Explicit dimensions avoid social crawlers having to download the image to detect size
+  ogImageWidth?: number;
+  ogImageHeight?: number;
   noindex?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
@@ -22,6 +25,8 @@ export const SEO: React.FC<SEOProps> = ({
   ogType = "website",
   ogImage,
   ogImageAlt = "Beta Ads - Native Twitch Advertising Platform for the Nordics",
+  ogImageWidth = 1200,
+  ogImageHeight = 630,
   noindex = false,
   jsonLd,
 }) => {
@@ -54,6 +59,8 @@ export const SEO: React.FC<SEOProps> = ({
       <meta property="og:type" content={ogType} />
       {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
       <meta property="og:image" content={resolvedOgImage} />
+      <meta property="og:image:width" content={String(ogImageWidth)} />
+      <meta property="og:image:height" content={String(ogImageHeight)} />
       <meta property="og:image:alt" content={ogImageAlt} />
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:locale" content="en_US" />

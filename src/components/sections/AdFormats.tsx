@@ -87,6 +87,7 @@ export const AdFormats: React.FC = () => {
             <button
               key={format.name}
               onClick={() => setActiveIndex(index)}
+              aria-pressed={activeIndex === index}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                 activeIndex === index
                   ? "bg-primary text-primary-foreground"

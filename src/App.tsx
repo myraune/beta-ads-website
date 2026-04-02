@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect } from "react";
+import React, { lazy, Suspense, useEffect, useRef } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -7,6 +7,11 @@ import { ThemeProvider, useTheme } from "next-themes";
 import { Layout } from "@/components/Layout";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import blogPhotos from "virtual:blog-photos";
+import { registerPhotos } from "@/lib/blogImage";
+
+// Register user-uploaded blog photos from /public/blog-photos/ folders
+registerPhotos(blogPhotos);
 
 // Entry pages
 const Index = lazy(() => import("./pages/Index"));
@@ -26,6 +31,9 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const Unsubscribe = lazy(() => import("./pages/Unsubscribe"));
 const CaseStudyGlorious = lazy(() => import("./pages/CaseStudyGlorious"));
 const CaseStudyGokstad = lazy(() => import("./pages/CaseStudyGokstad"));
+const CaseStudySamsungFold7 = lazy(() => import("./pages/CaseStudySamsungFold7"));
+const CaseStudySamsung = lazy(() => import("./pages/CaseStudySamsung"));
+const HowItWorks = lazy(() => import("./pages/HowItWorks"));
 const Press = lazy(() => import("./pages/Press"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const Terms = lazy(() => import("./pages/Terms"));
@@ -73,14 +81,30 @@ const t = {
 };
 
 
-/* Force dark on /streamers only — all other pages follow system preference.
-   Also scrolls to top on every route change. */
+/* Force dark only on /streamers. All other pages preserve whatever theme the user
+   has set (or system default on first visit). Restores the previous theme when
+   navigating away from /streamers. */
 const RouteThemeEnforcer = () => {
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const location = useLocation();
+  const prevPathnameRef = useRef<string | null>(null);
+  const savedThemeRef = useRef<string>("system");
+  // Keep a always-current ref so the effect can read the latest theme without
+  // adding it as a dependency (which would cause unnecessary re-runs).
+  const currentThemeRef = useRef<string>(theme || "system");
+  currentThemeRef.current = theme || "system";
 
   useEffect(() => {
-    setTheme(location.pathname === "/streamers" ? "dark" : "system");
+    const prev = prevPathnameRef.current;
+    prevPathnameRef.current = location.pathname;
+
+    if (location.pathname === "/streamers" && prev !== "/streamers") {
+      savedThemeRef.current = currentThemeRef.current;
+      setTheme("dark");
+    } else if (location.pathname !== "/streamers" && prev === "/streamers") {
+      setTheme(savedThemeRef.current);
+    }
+
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, [location.pathname, setTheme]);
 
@@ -109,6 +133,7 @@ const App = () => (
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/how-it-works" element={<HowItWorks t={t} />} />
               <Route path="/demo" element={<Demo t={t} language="en" />} />
               <Route path="/press" element={<Press />} />
               <Route path="/pricing" element={<Pricing t={t} />} />
@@ -116,6 +141,8 @@ const App = () => (
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/case-study/glorious" element={<CaseStudyGlorious />} />
               <Route path="/case-study/gokstad" element={<CaseStudyGokstad />} />
+              <Route path="/case-study/samsung" element={<CaseStudySamsung />} />
+              <Route path="/case-study/samsung-fold7" element={<CaseStudySamsungFold7 />} />
               <Route path="/unsubscribe" element={<Unsubscribe />} />
               <Route path="*" element={<NotFound />} />
             </Route>

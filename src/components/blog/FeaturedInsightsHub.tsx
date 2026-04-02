@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BarChart3, ArrowRight, TrendingUp } from "lucide-react";
 import { blogPosts, BlogPost } from "@/data/blogPosts";
+import { getBlogImage } from "@/lib/blogImage";
 
 interface FeaturedInsightsHubProps {
   language: string;
@@ -81,7 +82,7 @@ export const FeaturedInsightsHub: React.FC<FeaturedInsightsHubProps> = ({ langua
             {/* Image */}
             <div className="aspect-video overflow-hidden relative">
               <img
-                src={post.image}
+                src={getBlogImage(post.slug)}
                 alt={post.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />

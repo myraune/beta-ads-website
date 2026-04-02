@@ -24,7 +24,6 @@ import {
   IconLaunch,
   IconAnalytics,
   IconReports,
-  IconGlobe,
 } from "@/components/icons/BetaIcons";
 
 /* ═══════════════════════════════════════════════════════════
@@ -109,9 +108,12 @@ const features = [
 const streamers = [
   { name: "RubenGKS", game: "Fortnite", viewers: "2.8K", platform: "Twitch", score: 94, avatar: "/lovable-uploads/rubengks-profile.png" },
   { name: "Aienia", game: "Valorant", viewers: "1.2K", platform: "Twitch", score: 91, avatar: "/lovable-uploads/streamer-aienia.jpg" },
+  { name: "FjolsenFN", game: "Fortnite", viewers: "2.1K", platform: "Twitch", score: 88, avatar: "https://unavatar.io/twitch/fjolsenfn" },
+  { name: "sneakjeks1x", game: "Valorant", viewers: "980", platform: "Twitch", score: 86, avatar: "https://unavatar.io/twitch/sneakjeks1x" },
+  { name: "Calsiphere", game: "Fortnite", viewers: "1.6K", platform: "Twitch", score: 83, avatar: "https://unavatar.io/twitch/calsiphere" },
   { name: "Emmelie", game: "Just Chatting", viewers: "890", platform: "YouTube", score: 87, avatar: "/lovable-uploads/streamer-emmelie.jpg" },
   { name: "Pernataia", game: "League of Legends", viewers: "1.5K", platform: "Kick", score: 89, avatar: "/lovable-uploads/streamer-pernataia.jpg" },
-  { name: "DannizTV", game: "CS2", viewers: "3.1K", platform: "Twitch", score: 96, avatar: null },
+  { name: "DannizTV", game: "CS2", viewers: "3.1K", platform: "Twitch", score: 96, avatar: "https://unavatar.io/twitch/danniztv" },
 ];
 
 const GAMES = ["Fortnite", "Valorant", "CS2", "Just Chatting", "Minecraft"];
@@ -167,24 +169,24 @@ const StreamerPreview: React.FC = () => {
       </div>
 
       {/* Stats bar */}
-      <div className="px-5 py-2.5 border-b border-border/40 dark:border-white/[0.07] bg-muted/20 dark:bg-white/[0.03] flex items-center gap-6">
+      <div className="px-5 py-2.5 border-b border-border/40 dark:border-white/[0.07] bg-muted/20 dark:bg-white/[0.03] flex flex-wrap items-center gap-x-4 gap-y-1">
         <span className="text-[11px] text-muted-foreground">
           Showing <strong className="text-foreground font-semibold tabular-nums">
             {activeGames.length === 0 ? "39,445" : `${visible.length * 3_412 + visible.length * 211}`.replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
           </strong> streamers
         </span>
         <span className="text-[11px] text-muted-foreground">Avg viewers: <strong className="text-foreground font-semibold">1,247</strong></span>
-        <span className="text-[11px] text-muted-foreground ml-auto">Sort: <strong className="text-foreground font-semibold">Match score ↓</strong></span>
+        <span className="text-[11px] text-muted-foreground sm:ml-auto">Sort: <strong className="text-foreground font-semibold">Match score ↓</strong></span>
       </div>
 
       {/* Table header */}
-      <div className="px-5 py-2.5 border-b border-border/50 dark:border-white/[0.08] grid grid-cols-[36px_1fr_72px_72px_60px_52px] gap-3 items-center">
+      <div className="px-5 py-2.5 border-b border-border/50 dark:border-white/[0.08] grid grid-cols-[32px_1fr_64px_52px] sm:grid-cols-[36px_1fr_72px_72px_60px_52px] gap-2 sm:gap-3 items-center">
         <div />
         <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Streamer</span>
-        <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Platform</span>
+        <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider hidden sm:block">Platform</span>
         <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Viewers</span>
         <span className="text-[10px] font-semibold text-muted-foreground uppercase tracking-wider">Match</span>
-        <div />
+        <div className="hidden sm:block" />
       </div>
 
       {/* Streamer rows */}
@@ -200,22 +202,30 @@ const StreamerPreview: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -4 }}
               transition={{ delay: idx * 0.05, duration: 0.25 }}
-              className={`px-5 py-3 grid grid-cols-[36px_1fr_72px_72px_60px_52px] gap-3 items-center transition-all duration-200 group border-b border-border/20 dark:border-white/[0.06] last:border-b-0 ${
+              className={`px-5 py-3 grid grid-cols-[32px_1fr_64px_52px] sm:grid-cols-[36px_1fr_72px_72px_60px_52px] gap-2 sm:gap-3 items-center transition-all duration-200 group border-b border-border/20 dark:border-white/[0.06] last:border-b-0 ${
                 added[s.name] ? "bg-[#5adbb5]/8" : "hover:bg-muted/30 dark:hover:bg-white/[0.05]"
               }`}
             >
-              <div className="w-9 h-9 rounded-full bg-muted/40 overflow-hidden ring-1 ring-white/10">
-                {s.avatar ? (
-                  <img src={s.avatar} alt={s.name} className="w-full h-full object-cover" />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center text-xs font-bold text-muted-foreground">{s.name[0]}</div>
-                )}
+              <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-muted/40 overflow-hidden ring-1 ring-white/10 shrink-0">
+                <img
+                  src={s.avatar}
+                  alt={s.name}
+                  className="w-full h-full object-cover"
+                  onError={(e) => {
+                    const t = e.currentTarget;
+                    t.style.display = 'none';
+                    const parent = t.parentElement;
+                    if (parent) {
+                      parent.innerHTML = `<div class="w-full h-full flex items-center justify-center text-xs font-bold text-muted-foreground">${s.name[0]}</div>`;
+                    }
+                  }}
+                />
               </div>
-              <div>
-                <div className="text-[13px] font-semibold text-foreground">{s.name}</div>
-                <div className="text-[11px] text-muted-foreground">{s.game}</div>
+              <div className="min-w-0">
+                <div className="text-[13px] font-semibold text-foreground truncate">{s.name}</div>
+                <div className="text-[11px] text-muted-foreground truncate">{s.game}</div>
               </div>
-              <div className="text-[11px] text-muted-foreground">{s.platform}</div>
+              <div className="text-[11px] text-muted-foreground hidden sm:block">{s.platform}</div>
               <div className="text-[13px] font-medium text-foreground tabular-nums">{s.viewers}</div>
               <div className={`text-[13px] font-bold tabular-nums ${s.score >= 90 ? "text-[#5adbb5]" : "text-amber-400"}`}>
                 {s.score}%
@@ -223,7 +233,7 @@ const StreamerPreview: React.FC = () => {
               <motion.button
                 onClick={() => handleAdd(s.name)}
                 whileTap={{ scale: 0.92 }}
-                className={`transition-all duration-300 text-[10px] px-2.5 py-1.5 rounded-lg font-medium ${
+                className={`hidden sm:block transition-all duration-300 text-[10px] px-2.5 py-1.5 rounded-lg font-medium ${
                   added[s.name]
                     ? "bg-[#5adbb5]/20 text-[#5adbb5] opacity-100"
                     : "opacity-0 group-hover:opacity-100 bg-primary text-white"
@@ -255,12 +265,6 @@ const MATCH_PROFILES = [
   { total: "1,195", high: 95, highPct: 24, good: 420, goodPct: 55, low: 680 },
 ];
 
-const FILTER_ICONS: Record<string, React.FC<{ className?: string }>> = {
-  "Game Genre": IconGlobe,
-  "Region": IconGlobe,
-  "Age Range": IconStreamers,
-  "Min Viewers": Eye,
-};
 
 const TargetingPreview: React.FC = () => {
   const [indices, setIndices] = useState<Record<string, number>>({ "Game Genre": 0, "Region": 0, "Age Range": 0, "Min Viewers": 0 });
@@ -276,7 +280,6 @@ const TargetingPreview: React.FC = () => {
       <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">Audience Targeting</div>
       <div className="space-y-4">
         {Object.entries(FILTER_OPTIONS).map(([label, options], idx) => {
-          const Icon = FILTER_ICONS[label];
           return (
           <motion.button
             key={label}
@@ -287,12 +290,7 @@ const TargetingPreview: React.FC = () => {
             whileTap={{ scale: 0.98 }}
             className="w-full flex items-center justify-between p-3 rounded-xl bg-muted/40 dark:bg-white/[0.06] hover:bg-primary/8 dark:hover:bg-white/[0.09] border border-transparent hover:border-primary/20 dark:border-white/[0.06] transition-all duration-200 text-left cursor-pointer"
           >
-            <div className="flex items-center gap-2.5">
-              <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center">
-                <Icon className="w-3.5 h-3.5 text-primary" />
-              </div>
-              <span className="text-[12px] text-muted-foreground">{label}</span>
-            </div>
+            <span className="text-[12px] text-muted-foreground">{label}</span>
             <motion.div
               key={options[indices[label]]}
               initial={{ opacity: 0, y: -6 }}
@@ -361,8 +359,8 @@ const TargetingPreview: React.FC = () => {
 
 /* ── Ad Artwork Carousel ── */
 
-// format: "fullscreen" = 1920x1080 transparent overlay (fills frame)
-//         "widget"     = 450x450 positioned overlay (shown as corner element)
+// format: "fullscreen" = fills entire frame
+//         "widget"     = 450x450 corner element, always bottom-left
 const ARTWORK = [
   { brand: "Burger King", campaign: "Gaming Promotion", src: "/lovable-uploads/overlay-burgerking.webm", format: "fullscreen" },
   { brand: "Samsung", campaign: "Galaxy S25 Ultra", src: "/lovable-uploads/overlay-samsung.webm", format: "widget" },
@@ -378,102 +376,99 @@ const ARTWORK = [
 
 const LaunchPreview: React.FC = () => {
   const [current, setCurrent] = useState(0);
-  const [hovered, setHovered] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const go = useCallback((dir: 1 | -1) => {
     setCurrent(c => (c + dir + ARTWORK.length) % ARTWORK.length);
   }, []);
 
-  useEffect(() => {
-    if (hovered) { if (timerRef.current) clearInterval(timerRef.current); return; }
-    timerRef.current = setInterval(() => go(1), 5000);
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, [hovered, go]);
+  // Advance to next slide when video ends (so user sees full animation)
+  const handleEnded = useCallback(() => {
+    setCurrent(c => (c + 1) % ARTWORK.length);
+  }, []);
 
   const item = ARTWORK[current];
 
   return (
-    <div className="overflow-hidden" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
-      {/* Video stage — Valorant stream as background */}
+    <div className="overflow-hidden">
+      {/* Video stage */}
       <div className="relative group" style={{ aspectRatio: '16/9' }}>
-        {/* Stream background */}
         <img
           src="/lovable-uploads/stream-bg-valorant.jpg"
           alt=""
           className="absolute inset-0 w-full h-full object-cover"
           aria-hidden
         />
-        {/* Dark overlay so ad animation pops */}
         <div className="absolute inset-0 bg-black/25" aria-hidden />
 
         {item.format === "fullscreen" ? (
-          /* Fullscreen transparent overlay — fills the entire frame */
           <motion.video
             key={item.src}
+            ref={videoRef}
             src={item.src}
             autoPlay
-            loop
             muted
             playsInline
+            onEnded={handleEnded}
             className="absolute inset-0 w-full h-full object-cover"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.35 }}
           />
         ) : (
-          /* Widget overlay — 450x450 corner element, shown bottom-right like in OBS */
+          /* Widget — always bottom-left, 30% wide */
           <motion.video
             key={item.src}
+            ref={videoRef}
             src={item.src}
             autoPlay
-            loop
             muted
             playsInline
+            onEnded={handleEnded}
             className="absolute"
-            style={{ width: '32%', aspectRatio: '1/1', bottom: '8%', right: '4%' }}
+            style={{ width: '30%', aspectRatio: '1/1', bottom: '3%', left: '3%' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.35 }}
           />
         )}
 
-        {/* Brand label */}
-        <div className="absolute bottom-3 left-3 bg-black/60 backdrop-blur-md rounded-lg px-3 py-1.5">
-          <div className="text-white text-[12px] font-semibold leading-tight">{item.brand}</div>
-          <div className="text-white/55 text-[10px]">{item.campaign}</div>
-        </div>
-
-        {/* Nav arrows — visible on hover */}
+        {/* Prev/next arrows — always visible */}
         <button
           onClick={() => go(-1)}
-          className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70"
+          aria-label="Previous ad example"
+          className="absolute left-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/80 transition-colors"
         >
           <ChevronLeft className="w-4 h-4" />
         </button>
         <button
           onClick={() => go(1)}
-          className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70"
+          aria-label="Next ad example"
+          className="absolute right-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/80 transition-colors"
         >
           <ChevronRight className="w-4 h-4" />
         </button>
+
+        {/* Brand badge — bottom center overlay */}
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1.5">
+          <span className="text-[11px] font-semibold text-white">{item.brand}</span>
+          <span className="text-[10px] text-white/50">{item.campaign}</span>
+        </div>
       </div>
 
-      {/* Dot navigation + counter */}
-      <div className="flex items-center justify-between px-4 py-3 border-t border-border/30 dark:border-white/[0.08]">
-        <span className="text-[11px] text-muted-foreground tabular-nums">{current + 1} / {ARTWORK.length}</span>
-        <div className="flex items-center gap-1.5">
-          {ARTWORK.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setCurrent(i)}
-              className={`rounded-full transition-all duration-300 ${
-                i === current ? "w-5 h-1.5 bg-primary" : "w-1.5 h-1.5 bg-muted-foreground/25 hover:bg-muted-foreground/50"
-              }`}
-            />
-          ))}
-        </div>
-        <span className="text-[11px] text-muted-foreground">{hovered ? "Paused" : "Auto"}</span>
+      {/* Progress dots */}
+      <div className="flex items-center justify-center gap-1.5 py-3 border-t border-border/30 dark:border-white/[0.08]">
+        {ARTWORK.map((a, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrent(i)}
+            aria-label={`Show ${a.brand} ${a.campaign}`}
+            aria-current={i === current ? "true" : undefined}
+            className={`rounded-full transition-all duration-300 ${
+              i === current ? "w-6 h-1.5 bg-primary" : "w-1.5 h-1.5 bg-muted-foreground/25 hover:bg-muted-foreground/50"
+            }`}
+          />
+        ))}
       </div>
     </div>
   );
@@ -484,8 +479,8 @@ const LaunchPreview: React.FC = () => {
 
 const AnalyticsPreview: React.FC = () => (
   <div className="overflow-hidden">
-    <div className="relative w-full overflow-hidden" style={{ height: 240 }}>
-      <div className="absolute inset-0 flex items-center justify-center" style={{ transform: 'scale(1.85)', transformOrigin: 'center 42%' }}>
+    <div className="relative w-full overflow-hidden" style={{ height: 220, maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }}>
+      <div className="absolute inset-0 flex items-center justify-center" style={{ transform: 'scale(1.85)', transformOrigin: 'center 38%' }}>
         <ChartVisual3 mainColor="#e94f37" secondaryColor="#5adbb5" />
       </div>
     </div>
@@ -686,17 +681,18 @@ const ReportModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         <div className="flex items-center justify-between px-4 py-3 bg-[#0a0a0a] border-b border-white/10 rounded-t-2xl shrink-0">
           <span className="text-white text-sm font-semibold">Campaign Report — Glorious Gaming</span>
           <div className="flex items-center gap-1">
-            <button onClick={() => adjustZoom(-ZOOM_STEP)} disabled={zoom <= MIN_ZOOM} className="w-7 h-7 rounded-lg bg-white/10 hover:bg-white/20 disabled:opacity-30 flex items-center justify-center text-white transition-colors">
+            {/* aria-labels added for accessibility — icon-only buttons need descriptive names for screen readers */}
+            <button aria-label="Zoom out" onClick={() => adjustZoom(-ZOOM_STEP)} disabled={zoom <= MIN_ZOOM} className="w-7 h-7 rounded-lg bg-white/10 hover:bg-white/20 disabled:opacity-30 flex items-center justify-center text-white transition-colors">
               <ZoomOut className="w-3.5 h-3.5" />
             </button>
-            <button onClick={resetZoom} className="px-2.5 h-7 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-medium transition-colors tabular-nums min-w-[44px] text-center">
+            <button aria-label={`Zoom level ${Math.round(zoom * 100)}%, click to reset`} onClick={resetZoom} className="px-2.5 h-7 rounded-lg bg-white/10 hover:bg-white/20 text-white text-xs font-medium transition-colors tabular-nums min-w-[44px] text-center">
               {Math.round(zoom * 100)}%
             </button>
-            <button onClick={() => adjustZoom(ZOOM_STEP)} disabled={zoom >= MAX_ZOOM} className="w-7 h-7 rounded-lg bg-white/10 hover:bg-white/20 disabled:opacity-30 flex items-center justify-center text-white transition-colors">
+            <button aria-label="Zoom in" onClick={() => adjustZoom(ZOOM_STEP)} disabled={zoom >= MAX_ZOOM} className="w-7 h-7 rounded-lg bg-white/10 hover:bg-white/20 disabled:opacity-30 flex items-center justify-center text-white transition-colors">
               <ZoomIn className="w-3.5 h-3.5" />
             </button>
             <div className="w-px h-4 bg-white/15 mx-1" />
-            <button onClick={onClose} className="w-7 h-7 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
+            <button aria-label="Close report viewer" onClick={onClose} className="w-7 h-7 rounded-lg bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors">
               <XIcon className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -752,7 +748,7 @@ const FeatureSection: React.FC<{
   const Preview = previewComponents[feature.id];
 
   return (
-    <div className="relative py-12 md:py-24 border-b border-border/20 last:border-b-0">
+    <div className="relative py-10 md:py-16 border-b border-border/20 last:border-b-0 last:pb-8 md:last:pb-12">
       {/* Globe Easter egg — decorative, targeting section only */}
       {feature.id === "targeting" && (
         <div className="pointer-events-none absolute left-[-480px] top-1/2 -translate-y-1/2 w-[480px] opacity-[0.18] hidden lg:block" aria-hidden>
@@ -843,30 +839,30 @@ export const SPFeatures: React.FC = () => {
     const idx = features.findIndex((f) => f.id === id);
     const el = sectionRefs.current[idx];
     if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      // Account for fixed navbar (~64px) + mobile sticky tab bar (~60px)
+      const isDesktop = window.innerWidth >= 1024;
+      const offset = isDesktop ? 112 : 140;
+      const top = el.getBoundingClientRect().top + window.scrollY - offset;
+      window.scrollTo({ top, behavior: "smooth" });
     }
   }, []);
 
   return (
-    <section aria-label="Features" className="relative z-10">
+    <section aria-label="Features" className="relative z-10" style={{ overflowX: 'clip' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8 2xl:max-w-[1400px]">
         {/* Section header */}
-        <div className="text-center max-w-3xl mx-auto pt-20 md:pt-28 pb-8">
-          <span className="inline-block text-[11px] font-semibold px-3.5 py-1.5 rounded-full bg-primary/15 text-primary mb-5 uppercase tracking-wider">
-            Platform
-          </span>
-          <h2 className="text-3xl md:text-[2.75rem] font-bold text-foreground leading-tight mb-4 tracking-tight">
-            Everything you need to
-            <br />
-            <span className="text-primary">run campaigns at scale</span>
+        <div className="pt-20 md:pt-28 pb-8 border-t border-border">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Platform</span>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-3 max-w-xl">
+            Everything you need to run campaigns at scale
           </h2>
-          <p className="text-muted-foreground text-[15px]">
+          <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
             From finding streamers to tracking ROI — one platform for everything.
           </p>
         </div>
 
         {/* Mobile tab bar */}
-        <div className="lg:hidden sticky top-16 z-20 py-3 bg-background/80 backdrop-blur-xl border-b border-border/30 mb-4">
+        <div className="lg:hidden sticky top-16 z-[100] py-3 bg-background/95 backdrop-blur-xl border-b border-border/30 mb-4">
           <div className="flex gap-1 overflow-x-auto pb-1">
             {features.map((f) => {
               const Icon = f.icon;
@@ -875,7 +871,7 @@ export const SPFeatures: React.FC = () => {
                 <button
                   key={f.id}
                   onClick={() => scrollToSection(f.id)}
-                  className={`flex items-center gap-2 px-3.5 py-2 rounded-xl whitespace-nowrap text-xs font-medium transition-all duration-200 ${
+                  className={`flex items-center gap-2 px-3.5 py-2.5 min-h-[44px] rounded-xl whitespace-nowrap text-xs font-medium transition-all duration-200 ${
                     isActive
                       ? "bg-primary/10 text-foreground"
                       : "text-muted-foreground hover:text-foreground"
@@ -892,7 +888,7 @@ export const SPFeatures: React.FC = () => {
         {/* Content area with sticky sidebar */}
         <div ref={containerRef} className="relative flex gap-0 lg:gap-8">
           {/* Sticky sidebar nav */}
-          <div className="hidden lg:block w-48 shrink-0">
+          <div className="hidden lg:block w-48 shrink-0 self-stretch">
             <div className="sticky top-28 space-y-1">
               {features.map((f) => {
                 const Icon = f.icon;
@@ -921,6 +917,7 @@ export const SPFeatures: React.FC = () => {
               <div
                 key={feature.id}
                 ref={(el) => { sectionRefs.current[i] = el; }}
+                className="scroll-mt-36 lg:scroll-mt-28"
               >
                 <FeatureSection feature={feature} isActive={feature.id === activeId} />
               </div>

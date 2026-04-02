@@ -72,9 +72,10 @@ const adFormatTabs: Tab[] = adFormats.map((format) => ({
       />
       <div className="flex flex-col gap-y-2">
         <div className="flex items-center gap-2 flex-wrap">
-          <h2 className="text-2xl font-bold text-white !m-0">
+          {/* h3: sub-heading under the section h2 "Ad Formats" for correct heading hierarchy */}
+          <h3 className="text-2xl font-bold text-white !m-0">
             {format.name}
-          </h2>
+          </h3>
           <span className="text-xs font-mono text-primary/80 bg-primary/15 px-2 py-0.5 rounded">
             {format.dimensions}
           </span>
@@ -96,8 +97,13 @@ export const AdFormatsCarousel: React.FC<AdFormatsCarouselProps> = ({ t }) => {
   return (
     <section
       ref={sectionRef}
-      className={`py-16 lg:py-24 transition-[opacity,transform] duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+      className={`py-16 lg:py-24 relative transition-[opacity,transform] duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
     >
+      {/* Red depth glow behind the carousel */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[600px] rounded-full bg-primary/20 blur-[120px]" />
+        <div className="absolute left-1/3 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[400px] rounded-full bg-primary/10 blur-[80px]" />
+      </div>
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <div className="mb-10">

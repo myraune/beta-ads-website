@@ -46,9 +46,13 @@ const PressCard: React.FC<{ article: PressArticle; t: any }> = ({ article, t }) 
   const isKampanje = article.publication === "Kampanje";
 
   return (
-    <div
+    // SEO fix: use <a> instead of div+onClick so press links are crawlable and keyboard-accessible
+    <a
+      href={article.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${article.title} — ${article.publication}`}
       className="flex-shrink-0 w-[280px] sm:w-[340px] lg:w-[400px] group cursor-pointer"
-      onClick={() => window.open(article.url, "_blank")}
     >
       <div className="relative rounded-xl overflow-hidden bg-card/50 backdrop-blur-sm shadow-lg shadow-black/10 transition-[box-shadow,background-color] duration-500 group-hover:shadow-xl group-hover:shadow-primary/15">
         {/* Article image */}
@@ -98,7 +102,7 @@ const PressCard: React.FC<{ article: PressArticle; t: any }> = ({ article, t }) 
           </Badge>
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 
@@ -138,10 +142,12 @@ export const Press: React.FC<PressProps> = ({ t }) => {
           {pressArticles.map((article, index) => (
             <PressCard key={`press-${index}`} article={article} t={t} />
           ))}
-          {/* Duplicate for seamless loop */}
-          {pressArticles.map((article, index) => (
-            <PressCard key={`press-dup-${index}`} article={article} t={t} />
-          ))}
+          {/* Duplicate for seamless loop — hidden from screen readers to avoid repeated announcements */}
+          <div aria-hidden="true" className="contents">
+            {pressArticles.map((article, index) => (
+              <PressCard key={`press-dup-${index}`} article={article} t={t} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

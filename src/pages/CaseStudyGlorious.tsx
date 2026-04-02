@@ -25,7 +25,7 @@ const CaseStudyGlorious: React.FC = () => {
       />
       <div className="max-w-4xl mx-auto px-6 lg:px-8 pt-28 md:pt-36 pb-20">
         <Link
-          to="/#case-studies"
+          to="/case-studies"
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
         >
           <ArrowLeft className="w-4 h-4" />

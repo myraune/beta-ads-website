@@ -18,10 +18,17 @@ export const Layout: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background relative" style={{ overflowX: 'clip' }}>
+      {/* Skip to main content — accessibility: lets keyboard users bypass the navbar */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[300] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-background focus:text-foreground focus:border focus:border-border focus:shadow-lg focus:text-sm focus:font-medium"
+      >
+        Skip to main content
+      </a>
       <CursorGlow />
       <AnimatedBackground />
       <Navbar />
-      <main className="relative z-10">
+      <main id="main-content" className="relative z-10">
         <Outlet />
       </main>
 

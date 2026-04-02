@@ -44,7 +44,7 @@ export function TableOfContents({ items }: TableOfContentsProps) {
   if (items.length === 0) return null;
 
   return (
-    <nav className="hidden xl:block sticky top-24 w-64 shrink-0">
+    <nav className="hidden xl:block w-64 shrink-0">
       <div className="bg-card/50 border border-border/50 rounded-xl p-5">
         <h4 className="flex items-center gap-2 text-sm font-semibold text-foreground mb-4">
           <List className="w-4 h-4" />
@@ -129,5 +129,17 @@ export const dashboardTocItems: Record<string, TocItem[]> = {
     { id: 'leaderboard', title: 'Leaderboard', level: 2 },
     { id: 'avg-viewers', title: 'Average Viewers', level: 2 },
     { id: 'hours-streamed', title: 'Hours Streamed', level: 2 },
+  ],
+  'clipping-economy': [
+    { id: 'overview', title: 'By the Numbers', level: 2 },
+    { id: 'cpm', title: 'CPM Comparison', level: 2 },
+    { id: 'roi', title: 'The $9K Math', level: 2 },
+    { id: 'case-studies', title: 'Case Studies', level: 2 },
+    { id: 'platforms', title: 'Platform Landscape', level: 2 },
+    { id: 'adoption', title: 'Industry Adoption', level: 2 },
+    { id: 'risks', title: 'Brand Safety', level: 2 },
+    { id: 'earners', title: 'Clipper Earnings', level: 2 },
+    { id: 'regulation', title: 'Legal Gray Area', level: 2 },
+    { id: 'live-streaming', title: 'The Full Loop', level: 2 },
   ],
 };

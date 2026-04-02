@@ -34,7 +34,7 @@ const Contact: React.FC = () => {
           <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary mb-4">
             Contact
           </span>
-          <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h1 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
             Let's talk
           </h1>
           <p className="text-muted-foreground max-w-lg mx-auto">
@@ -53,7 +53,7 @@ const Contact: React.FC = () => {
             <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
               <Calendar className="w-5 h-5 text-primary" />
             </div>
-            <h2 className="text-lg font-bold text-foreground mb-2">Book a Demo</h2>
+            <h2 className="text-base font-semibold text-foreground mb-2">Book a Demo</h2>
             <p className="text-sm text-muted-foreground mb-4">
               See the platform live. 15-minute walkthrough of how native stream ads work.
             </p>
@@ -70,7 +70,7 @@ const Contact: React.FC = () => {
             <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
               <Mail className="w-5 h-5 text-primary" />
             </div>
-            <h2 className="text-lg font-bold text-foreground mb-2">Email Us</h2>
+            <h2 className="text-base font-semibold text-foreground mb-2">Email Us</h2>
             <p className="text-sm text-muted-foreground mb-4">
               Questions, partnerships, or press inquiries — drop us a line.
             </p>
@@ -84,7 +84,7 @@ const Contact: React.FC = () => {
             <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
               <MapPin className="w-5 h-5 text-primary" />
             </div>
-            <h2 className="text-lg font-bold text-foreground mb-2">Visit Us</h2>
+            <h2 className="text-base font-semibold text-foreground mb-2">Visit Us</h2>
             <p className="text-sm text-muted-foreground mb-4">
               Based in Oslo, operating across the Nordics.
             </p>

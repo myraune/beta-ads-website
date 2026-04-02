@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { blogPosts } from "@/data/blogPosts";
+import { getBlogImage } from "@/lib/blogImage";
 
 const latestPosts = blogPosts.slice(0, 2);
 
@@ -17,7 +18,7 @@ export const SPCTA: React.FC = () => {
         {/* Header row */}
         <div className={`flex items-end justify-between mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           <div>
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">
+            <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary mb-4">
               Blog
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
@@ -39,7 +40,7 @@ export const SPCTA: React.FC = () => {
                 {/* Cover image */}
                 <div className="aspect-[16/9] overflow-hidden bg-muted">
                   <img
-                    src={post.image}
+                    src={getBlogImage(post.slug)}
                     alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     loading="lazy"

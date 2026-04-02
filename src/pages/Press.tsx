@@ -84,7 +84,7 @@ const Press: React.FC = () => {
                 <p className="text-primary text-xs font-semibold mb-2">
                   {article.publication}
                 </p>
-                <h2 className="text-foreground font-bold mb-1 group-hover:text-primary transition-colors line-clamp-2">
+                <h2 className="text-base font-semibold text-foreground mb-1 group-hover:text-primary transition-colors line-clamp-2">
                   {article.title}
                 </h2>
                 <p className="text-muted-foreground text-sm line-clamp-1 mb-3">

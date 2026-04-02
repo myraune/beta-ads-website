@@ -26,12 +26,14 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ t }) => {
           "isPartOf": { "@id": "https://beta-ads.no/#website" }
         }}
       />
-      <main>
+      {/* Accessibility fix: Layout.tsx already provides <main> — nested <main> is invalid HTML (WCAG 1.3.6) */}
+      <div>
+        <h1 className="sr-only">How It Works — Beta Ads Native Livestream Advertising</h1>
         <LiveStreamPreview />
         <AdFormats />
         <Mechanisms t={t} />
         <SPFooter />
-      </main>
+      </div>
     </div>
   );
 };

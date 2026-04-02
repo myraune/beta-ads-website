@@ -35,9 +35,14 @@ const VideoCard: React.FC<{
 
   return (
     <div className="rounded-2xl overflow-hidden border border-border bg-card shadow-lg group hover:shadow-xl transition-shadow duration-500">
+      {/* role/aria-label/onKeyDown added so keyboard users and screen readers can toggle playback */}
       <div
         className="relative aspect-video bg-muted cursor-pointer"
         onClick={togglePlay}
+        role="button"
+        tabIndex={0}
+        aria-label={playing ? "Pause video" : "Play video"}
+        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); togglePlay(); } }}
       >
         <video
           ref={videoRef}
@@ -64,14 +69,16 @@ const VideoCard: React.FC<{
             )}
           </div>
         </div>
+        {/* aria-label added for accessibility — icon-only button needs a descriptive name for screen readers */}
         {playing && (
           <button
+            aria-label={muted ? "Unmute video" : "Mute video"}
             onClick={(e) => {
               e.stopPropagation();
               setMuted(!muted);
               if (videoRef.current) videoRef.current.muted = !muted;
             }}
-            className="absolute bottom-3 right-3 w-8 h-8 rounded-full bg-black/50 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
+            className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-black/50 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
           >
             {muted ? (
               <VolumeX className="w-4 h-4" />
@@ -238,6 +245,7 @@ const LiveStreamDemo: React.FC = () => {
           <div className="flex items-center justify-between">
             <div className="pointer-events-auto flex items-center gap-2">
               <button
+                aria-label={muted ? "Unmute stream" : "Mute stream"}
                 onClick={(e) => {
                   e.stopPropagation();
                   setMuted(!muted);
@@ -378,11 +386,11 @@ export const SPVideoShowcase: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   return (
-    <section ref={ref} className="py-20 md:py-32" aria-label="See it in action">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section ref={ref} className="py-16 md:py-24 border-t border-border" aria-label="See it in action">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div
-          className={`text-center max-w-3xl mx-auto mb-14 transition-all duration-700 ${
+          className={`text-center max-w-3xl mx-auto mb-8 md:mb-14 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
@@ -409,7 +417,7 @@ export const SPVideoShowcase: React.FC = () => {
 
         {/* Stats strip — clean, no hover */}
         <div
-          className={`flex flex-wrap items-center justify-center gap-x-10 gap-y-3 mb-12 py-4 transition-all duration-700 delay-200 ${
+          className={`flex flex-wrap items-center justify-center gap-x-6 md:gap-x-10 gap-y-3 mb-12 py-4 transition-all duration-700 delay-200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
@@ -476,7 +484,7 @@ export const SPVideoShowcase: React.FC = () => {
                   Auto-clipped
                 </span>
               </div>
-              <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-muted/50 border border-border opacity-60">
+              <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-muted/50 border border-border">
                 <div className="w-8 h-8 rounded-full bg-muted shrink-0" />
                 <div className="flex-1 min-w-0">
                   <span className="text-xs font-semibold text-foreground">

@@ -12,7 +12,15 @@ const AnimatedShaderBackground = ({ heightFactor = 0.6 }: { heightFactor?: numbe
 
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+
+    // Guard: WebGL may be unavailable in headless/pre-render environments.
+    // Return early so the rest of the page renders fine without the background.
+    let renderer: THREE.WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    } catch {
+      return;
+    }
     renderer.setSize(window.innerWidth, getHeight());
     container.appendChild(renderer.domElement);
 
@@ -124,7 +132,7 @@ const AnimatedShaderBackground = ({ heightFactor = 0.6 }: { heightFactor?: numbe
   }, []);
 
   return (
-    <div ref={containerRef} className="fixed top-0 left-0 right-0 z-0 pointer-events-none overflow-hidden" style={{ height: '60vh' }} />
+    <div ref={containerRef} className="absolute inset-0 z-0 pointer-events-none overflow-hidden" />
   );
 };
 

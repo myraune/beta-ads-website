@@ -50,6 +50,19 @@ const detailedCaseStudies = [
     image: "https://storage.googleapis.com/ad-gifs/3790920.gif",
     link: "/case-study/gokstad",
   },
+  {
+    brand: "Samsung",
+    title: "Galaxy Z Fold7 Launch - Norwegian Twitch",
+    description: "Two campaigns in 2025 - Galaxy S25 Ultra and Galaxy Z Fold7 - reaching Norwegian gamers on Twitch with native overlay ads. 800,000+ combined views, zero adblock impact.",
+    stats: [
+      { label: "Views", value: "~800K" },
+      { label: "CTR", value: "2.34–2.93%" },
+      { label: "Streamers", value: "71" },
+      { label: "Adblock %", value: "0%" },
+    ],
+    image: "/lovable-uploads/blog-samsung-twitch-campaign-hero.jpg",
+    link: "/case-study/samsung",
+  },
 ];
 
 const VideoModal: React.FC<{ videoId: string | null; onClose: () => void }> = ({ videoId, onClose }) => (
@@ -140,7 +153,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
         <div className="container mx-auto px-6 lg:px-16 xl:px-24">
           <div className="mb-12 max-w-2xl">
             <h2 className="text-3xl lg:text-4xl font-light mb-4">Campaign Highlights</h2>
-            <p className="text-lg text-muted-foreground">Watch real campaigns in action — native overlays running live on Twitch streams.</p>
+            <p className="text-lg text-muted-foreground">Watch real campaigns in action - native overlays running live on Twitch streams.</p>
           </div>
           <div className="relative">
             <div className="bg-card/30 backdrop-blur-sm rounded-2xl overflow-hidden shadow-xl shadow-black/10">

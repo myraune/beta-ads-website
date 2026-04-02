@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { useTheme } from "next-themes";
 
@@ -15,7 +15,7 @@ const logos: Array<{ src: string; alt: string; scale?: string }> = [
   { src: "/lovable-uploads/logo-logitech.png", alt: "Logitech", scale: "scale-100" },
   { src: "/lovable-uploads/logo-client-10.png", alt: "Komplett", scale: "scale-90" },
   { src: "/lovable-uploads/logo-dentsu.png", alt: "Dentsu", scale: "scale-75" },
-  { src: "/lovable-uploads/logo-carat.png", alt: "Firi", scale: "scale-80" },
+  { src: "/lovable-uploads/logo-carat.png", alt: "Carat", scale: "scale-80" }, // SEO fix: corrected mislabeled alt text (was "Firi", matches SPBrands.tsx)
   { src: "/lovable-uploads/logo-steelseries.png", alt: "SteelSeries", scale: "scale-110" },
   { src: "/lovable-uploads/logo-surfshark.png", alt: "Surfshark", scale: "scale-100" },
 ];
@@ -36,9 +36,9 @@ const LogoItem: React.FC<LogoItemProps> = ({ src, alt, scale = "scale-100", isLi
         loading="lazy"
         decoding="async"
         className={`max-h-12 max-w-36 w-auto h-auto object-contain transition-all duration-300 ${scale} ${
-          isLightTheme 
-            ? "invert brightness-0 opacity-60 hover:opacity-80" 
-            : "opacity-60 hover:opacity-90"
+          isLightTheme
+            ? "brightness-0 opacity-60 hover:opacity-80"
+            : "brightness-0 invert opacity-60 hover:opacity-90"
         }`}
       />
     </div>
@@ -51,8 +51,8 @@ interface LogoType {
   scale?: string;
 }
 
-const LogoSet: React.FC<{ logos: LogoType[]; keyPrefix?: string; isLightTheme: boolean }> = ({ logos, keyPrefix = "", isLightTheme }) => (
-  <div className="flex items-center gap-16 px-8 shrink-0">
+const LogoSet: React.FC<{ logos: LogoType[]; keyPrefix?: string; isLightTheme: boolean; ariaHidden?: boolean }> = ({ logos, keyPrefix = "", isLightTheme, ariaHidden }) => (
+  <div className="flex items-center gap-16 px-8 shrink-0" aria-hidden={ariaHidden}>
     {logos.map((logo) => (
       <LogoItem key={`${keyPrefix}${logo.alt}`} {...logo} isLightTheme={isLightTheme} />
     ))}
@@ -61,8 +61,10 @@ const LogoSet: React.FC<{ logos: LogoType[]; keyPrefix?: string; isLightTheme: b
 
 export const TrustedBy: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
-  const { theme } = useTheme();
-  const isLightTheme = theme === "light";
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const isLightTheme = !mounted || resolvedTheme !== "dark";
 
   // Don't render section if no logos
   if (logos.length === 0) {
@@ -85,7 +87,8 @@ export const TrustedBy: React.FC = () => {
               style={{ width: 'max-content' }}
             >
               <LogoSet logos={logos} isLightTheme={isLightTheme} />
-              <LogoSet logos={logos} keyPrefix="dup-" isLightTheme={isLightTheme} />
+              {/* Duplicate set for seamless infinite scroll — hidden from screen readers */}
+              <LogoSet logos={logos} keyPrefix="dup-" isLightTheme={isLightTheme} ariaHidden={true} />
             </div>
           </div>
         </div>

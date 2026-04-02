@@ -241,8 +241,9 @@ const FormatCard: React.FC<{
           ))}
         </ul>
 
-        {/* CTA button with slide-in arrow */}
+        {/* CTA button with slide-in arrow — aria-label added so screen readers get context ("Learn more about Overlay") instead of generic "Learn more" */}
         <button
+          aria-label={`Learn more about ${format.name}`}
           className={`group/btn w-full flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 overflow-hidden ${
             format.highlight
               ? "bg-primary text-white hover:bg-primary/90"
@@ -307,7 +308,7 @@ export const SPAdFormats: React.FC = () => {
                   <div className="w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-bold flex items-center justify-center">
                     {i + 1}
                   </div>
-                  <span className="text-xs font-medium text-muted-foreground">
+                  <span className="hidden sm:inline text-xs font-medium text-muted-foreground">
                     {step}
                   </span>
                 </div>

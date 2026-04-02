@@ -26,14 +26,39 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
         description="Meet the team behind Beta Ads, the leading native advertising platform for Twitch and livestreams in Norway and the Nordics. Founded by Andreas Myraune in Oslo."
         canonical="/about"
         ogType="website"
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "AboutPage",
-          "name": "About Beta Ads",
-          "description": "Meet the team behind Beta Ads, the leading native advertising platform for Twitch and livestreams in Norway and the Nordics.",
-          "url": "https://beta-ads.no/about",
-          "isPartOf": { "@id": "https://beta-ads.no/#website" }
-        }}
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "name": "About Beta Ads",
+            "description": "Meet the team behind Beta Ads, the leading native advertising platform for Twitch and livestreams in Norway and the Nordics.",
+            "url": "https://beta-ads.no/about",
+            "isPartOf": { "@id": "https://beta-ads.no/#website" },
+            "about": { "@id": "https://beta-ads.no/#organization" }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "@id": "https://beta-ads.no/#founder",
+            "name": "Andreas Myraune",
+            "givenName": "Andreas",
+            "familyName": "Myraune",
+            "jobTitle": "Founder & CEO",
+            "description": "Founder and CEO of Beta Ads (Beta Agency AS), a Nordic livestream advertising platform based in Oslo. Connects brands with Nordic streamers on Twitch, YouTube, and Kick through native overlay advertising.",
+            "url": "https://beta-ads.no/about",
+            "image": "https://beta-ads.no/lovable-uploads/e6d9646d-bf5f-471c-a2d8-1f06c274f570.png",
+            "worksFor": { "@id": "https://beta-ads.no/#organization" },
+            "nationality": { "@type": "Country", "name": "Norway" },
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Oslo",
+              "addressCountry": "NO"
+            },
+            "sameAs": [
+              "https://www.linkedin.com/in/andreasmyraune"
+            ]
+          }
+        ]}
       />
       <div
         className="absolute inset-x-0 top-0 h-[500px] pointer-events-none z-0"

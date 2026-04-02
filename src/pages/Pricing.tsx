@@ -84,7 +84,8 @@ const Pricing: React.FC = () => {
           }))
         }}
       />
-      <main>
+      {/* Accessibility fix: Layout.tsx already provides <main> — nested <main> is invalid HTML (WCAG 1.3.6) */}
+      <div>
       {/* Hero with Lightning background */}
       <section className="relative overflow-hidden bg-[#0a0a0f] pt-32 lg:pt-44 pb-24">
         {/* Lightning canvas */}
@@ -149,7 +150,7 @@ const Pricing: React.FC = () => {
                 ))}
               </ul>
               <Link to="/demo">
-                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-light tracking-wide shadow-md shadow-primary/20">
+                <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full font-light tracking-wide">
                   Book a Demo
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -197,7 +198,7 @@ const Pricing: React.FC = () => {
       {/* Pricing FAQ */}
       <section className="pb-24 lg:pb-32">
         <div className="max-w-[700px] mx-auto px-6 lg:px-12">
-          <h2 className="text-2xl font-light tracking-tight text-center mb-12">
+          <h2 className="text-3xl font-light tracking-tight text-center mb-12">
             Pricing questions
           </h2>
           <Accordion type="single" collapsible className="space-y-2">
@@ -220,7 +221,7 @@ const Pricing: React.FC = () => {
       </section>
 
       <SPFooter />
-      </main>
+      </div>
     </>
   );
 };

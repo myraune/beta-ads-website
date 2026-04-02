@@ -259,7 +259,7 @@ const EarningsView: React.FC = () => {
   return (
     <div className="flex-1 p-3 lg:p-5 xl:p-6 animate-fade-in overflow-hidden flex flex-col">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="text-sm lg:text-base font-semibold text-white">Earnings</h3>
+        <p className="text-sm lg:text-base font-semibold text-white">Earnings</p>
         <span className="text-[10px] text-white/30 bg-white/5 px-2 py-0.5 rounded">Last 12 months</span>
       </div>
 
@@ -267,7 +267,7 @@ const EarningsView: React.FC = () => {
       <div className="grid grid-cols-3 gap-2 lg:gap-3 mb-3">
         <div className="bg-white/[0.04] rounded-xl p-3 lg:p-4 border border-white/5">
           <div className="text-[10px] text-white/40 mb-1">Total earned</div>
-          <div className="text-xl lg:text-2xl font-bold text-white tabular-nums">€4,034</div>
+          <div className="text-base sm:text-xl lg:text-2xl font-bold text-white tabular-nums">€4,034</div>
           <div className="flex items-center gap-1 mt-1">
             <TrendingUp className="w-3 h-3 text-emerald-400" />
             <span className="text-[10px] text-emerald-400">+24%</span>
@@ -275,7 +275,7 @@ const EarningsView: React.FC = () => {
         </div>
         <div className="bg-white/[0.04] rounded-xl p-3 lg:p-4 border border-white/5">
           <div className="text-[10px] text-white/40 mb-1">This month</div>
-          <div className="text-xl lg:text-2xl font-bold text-white tabular-nums">€847</div>
+          <div className="text-base sm:text-xl lg:text-2xl font-bold text-white tabular-nums">€847</div>
           <div className="flex items-center gap-1 mt-1">
             <TrendingUp className="w-3 h-3 text-emerald-400" />
             <span className="text-[10px] text-emerald-400">+12%</span>
@@ -283,8 +283,8 @@ const EarningsView: React.FC = () => {
         </div>
         <div className="bg-white/[0.04] rounded-xl p-3 lg:p-4 border border-white/5">
           <div className="text-[10px] text-white/40 mb-1">Pending</div>
-          <div className="text-xl lg:text-2xl font-bold text-amber-400 tabular-nums">€320</div>
-          <div className="text-[10px] text-white/30 mt-1">Next payout: Apr 1</div>
+          <div className="text-base sm:text-xl lg:text-2xl font-bold text-amber-400 tabular-nums">€320</div>
+          <div className="text-[10px] text-white/30 mt-1 truncate">Next payout: Apr 1</div>
         </div>
       </div>
 
@@ -326,7 +326,7 @@ const AnalyticsView: React.FC = () => {
   return (
     <div className="flex-1 p-3 lg:p-5 xl:p-6 animate-fade-in overflow-hidden flex flex-col">
       <div className="flex items-center justify-between mb-3">
-        <h3 className="text-sm lg:text-base font-semibold text-white">Analytics</h3>
+        <p className="text-sm lg:text-base font-semibold text-white">Analytics</p>
         <span className="text-[10px] text-white/30 bg-white/5 px-2 py-0.5 rounded">Last 30 days</span>
       </div>
 
@@ -375,8 +375,8 @@ const AnalyticsView: React.FC = () => {
             key={c.name}
             className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5"
           >
-            <div className="flex-1">
-              <div className="text-[11px] font-medium text-white">{c.name}</div>
+            <div className="flex-1 min-w-0">
+              <div className="text-[11px] font-medium text-white truncate">{c.name}</div>
             </div>
             <div className="text-center">
               <div className="text-[10px] text-white/30">Impr.</div>
@@ -404,7 +404,7 @@ const OffersView: React.FC<{
 }> = ({ earnings, onSelectOffer }) => (
   <div className="flex-1 p-3 lg:p-5 xl:p-6 overflow-hidden flex flex-col">
     {/* Stats row */}
-    <div className="grid grid-cols-3 gap-3 lg:gap-4 mb-5 lg:mb-7">
+    <div className="grid grid-cols-3 gap-2 lg:gap-4 mb-5 lg:mb-7">
       {[
         { label: "This month", value: `€${earnings.toLocaleString()}`, color: "text-white", spark: [120, 180, 95, 220, 310, 280, 420], sparkColor: "#E05159" },
         { label: "Active campaigns", value: "3", color: "text-white", spark: [1, 1, 2, 2, 3, 3, 3], sparkColor: "#5adbb5" },
@@ -519,8 +519,26 @@ const DashboardMockup: React.FC = () => {
         </div>
       </div>
 
+      {/* Mobile tab bar — visible below md, replaces sidebar */}
+      <div className="flex md:hidden items-center gap-1 px-3 py-2 bg-[#111111] border-b border-white/[0.06]">
+        {sidebarItems.map((item) => (
+          <button
+            key={item.id}
+            onClick={() => handleTabClick(item.id)}
+            className={`flex-1 flex items-center justify-center gap-1.5 py-2 min-h-[44px] rounded-lg text-[11px] font-medium transition-all ${
+              activeTab === item.id
+                ? "bg-primary/10 text-primary"
+                : "text-white/35"
+            }`}
+          >
+            <item.icon className="w-3.5 h-3.5" />
+            {item.label}
+          </button>
+        ))}
+      </div>
+
       {/* Dashboard body */}
-      <div className="flex h-[420px] lg:h-[520px] xl:h-[580px] bg-[#0d0d0d]">
+      <div className="flex h-[360px] sm:h-[420px] lg:h-[520px] xl:h-[580px] bg-[#0d0d0d]">
         {/* Sidebar */}
         <div className="hidden md:flex flex-col w-40 lg:w-48 border-r border-white/[0.06] bg-[#111111] p-3 lg:p-4 gap-0.5">
           {/* Logo */}
@@ -579,8 +597,8 @@ export const StreamerHero: React.FC = () => (
     <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
 
     {/* Hero text */}
-    <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8">
-      <div className="text-center pt-32 md:pt-40 pb-12">
+    <div className="relative z-10 max-w-4xl mx-auto px-5 sm:px-6 lg:px-8">
+      <div className="text-center pt-28 md:pt-40 pb-12">
         <p className="text-xs tracking-widest uppercase text-muted-foreground mb-6">
           For streamers on Twitch, YouTube &amp; Kick
         </p>
@@ -601,7 +619,7 @@ export const StreamerHero: React.FC = () => (
             href="https://beta.streamer.livad.stream/login"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-lg bg-foreground text-background text-sm font-semibold hover:opacity-90 transition-opacity"
+            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3 min-h-[44px] rounded-lg bg-foreground text-background text-sm font-semibold hover:opacity-90 transition-opacity"
           >
             Apply now
             <ArrowRight className="w-4 h-4" />
@@ -610,7 +628,7 @@ export const StreamerHero: React.FC = () => (
             href="https://discord.gg/tSmM6XMEkn"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors py-3 px-4"
+            className="inline-flex items-center justify-center text-sm text-muted-foreground hover:text-foreground transition-colors min-h-[44px] px-4"
           >
             Join our Discord →
           </a>
@@ -623,7 +641,7 @@ export const StreamerHero: React.FC = () => (
     </div>
 
     {/* Dashboard preview */}
-    <div className="relative z-10 max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-6 lg:px-8 pb-24">
+    <div className="relative z-10 max-w-5xl lg:max-w-6xl xl:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 md:pb-12">
       <DashboardMockup />
     </div>
   </section>

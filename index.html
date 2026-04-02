@@ -6,27 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Beta Ads | Native Livestream Advertising for Nordic Brands</title>
     <meta name="description" content="Reach 40+ Nordic streamers on Twitch, YouTube & Kick. Native overlay ads that bypass adblock — 3-5x higher engagement. Book a free demo.">
-    <meta name="keywords" content="Beta Ads, Andreas Myraune, Myraune, twitch marketing norway, twitch markedsføring norge, twitch streamere norge, twitch influencere norge, livestreaming norge, twitch marketing nordic, twitch marketing sweden, twitch marketing finland, twitch marketing denmark, nordic esports marketing, twitch overlay ads, gaming advertising norway, nordic livestream advertising, twitch byrå norge, livestream markedsføring, gaming influencere norge, esports norge, twitch reklame norge, streaming marketing nordic, twitch agency scandinavia, nordic gaming marketing, twitch sponsorship norway, andreas myraune beta ads, myraune twitch, spill markedsføring norge, gaming reklame sverige, pelimainonta suomi, spillannonsering danmark, nordisk gaming byrå, twitch streamer nettverk norden, influencer markedsføring gaming, overlay reklame twitch, automatiserte annonser livestream, twitch partnership nordic, gaming publikum norden, esports advertising scandinavia, twitch monetization nordic, stream overlay advertising, nordic twitch streamers, gaming content creators nordic, twitch brand integration, livestream sponsorships nordic, digital marketing gaming norway, esports marketing agency scandinavia, gaming industry advertising nordic, video game marketing norway, spillreklame norge, gaming annonsering sverige, pelimarkkinointi suomi, spilreklame danmark, twitch kampanjer norge, gaming kampanjer norden, esports sponsorering, livestream branding, twitch overlay teknologi, gaming audience targeting, nordisk spillerindustri, competitive gaming advertising, esports team sponsorship, gaming influencer campaigns, twitch streamer management nordic, online gaming marketing, interactive advertising gaming, programmatic gaming ads, gaming display advertising, video game promotion nordic, gaming brand partnerships, esports event marketing, gaming community management, twitch analytics nordic, gaming marketing automation, livestream audience insights, nordic gaming demographics, twitch viewer behavior, gaming content strategy, esports content marketing, gaming social media marketing, twitch growth hacking, gaming SEO nordic, esports digital strategy, gaming lead generation, twitch conversion optimization, gaming remarketing campaigns, esports funnel optimization, gaming customer acquisition nordic, twitch retention strategies, gaming loyalty programs nordic, esports community building, gaming user engagement, twitch subscriber growth, gaming revenue optimization, esports monetization strategies, gaming business development nordic, twitch partnership programs, gaming affiliate marketing, esports brand ambassadors, gaming product placement, twitch native advertising, gaming sponsored content, esports collaboration marketing, gaming cross-promotion, twitch multi-channel campaigns, gaming omnichannel marketing, esports integrated campaigns, gaming 360 marketing solutions, twitch full-service agency nordic">
     <meta name="author" content="Andreas Myraune" />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
     <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-    <link rel="canonical" href="https://beta-ads.no/" />
-    
-    <!-- Advanced Link Relations for SEO Authority -->
+    <!-- canonical set per-page by react-helmet-async -->
+
+    <!-- Pre-render: force all scroll-gated / framer-motion elements visible
+         so their text is present in the static HTML captured by Puppeteer.
+         The .prerendering class is injected only during the build step. -->
+    <style>
+      html.prerendering [data-animation],
+      html.prerendering [data-scroll],
+      html.prerendering .opacity-0 {
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+      }
+    </style>
+
+    <!-- Fonts & performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://www.youtube.com" />
-    <link rel="preconnect" href="https://www.linkedin.com" />
+    <link rel="dns-prefetch" href="//www.youtube.com" />
     <link rel="dns-prefetch" href="//discord.com" />
     <link rel="dns-prefetch" href="//twitch.tv" />
-    <link rel="dns-prefetch" href="//googleapis.com" />
-    <link rel="dns-prefetch" href="//youtube.com" />
-    <link rel="preload" as="font" type="font/woff2" crossorigin />
-    <link rel="publisher" href="https://beta-ads.no/" />
-    <link rel="author" href="https://beta-ads.no/team" />
-    <link rel="help" href="https://beta-ads.no/#contact" />
-    <link rel="search" type="application/opensearchdescription+xml" href="https://beta-ads.no/opensearch.xml" title="Beta Ads Nordic Search" />
 
     <!-- Hreflang — multi-language content signals -->
     <link rel="alternate" hreflang="en" href="https://beta-ads.no/" />
@@ -36,11 +40,6 @@
     <link rel="alternate" hreflang="da" href="https://beta-ads.no/" />
     <link rel="alternate" hreflang="x-default" href="https://beta-ads.no/" />
 
-    <!-- Performance optimizations -->
-    <link rel="dns-prefetch" href="//www.youtube.com" />
-    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-    <link rel="preconnect" href="https://www.youtube.com" crossorigin />
-
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/lovable-uploads/favicon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/lovable-uploads/favicon-16.png">
@@ -48,15 +47,17 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/lovable-uploads/apple-touch-icon.png">
     <link rel="shortcut icon" href="/lovable-uploads/favicon-32.png">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://beta-ads.no/" />
-    <meta property="og:title" content="Beta Ads | Native Livestream Advertising for Nordic Brands" />
-    <meta property="og:description" content="Reach 40+ Nordic streamers on Twitch, YouTube & Kick. Native overlay ads that bypass adblock — 3-5x higher engagement. Book a free demo." />
-    <meta property="og:image" content="https://beta-ads.no/lovable-uploads/og-social-preview.png">
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Beta Ads - Nordic Twitch Marketing Agency" />
+    <!-- PWA / theme -->
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+    <!-- Geographic targeting -->
+    <meta name="geo.region" content="NO" />
+    <meta name="geo.placename" content="Oslo, Norway" />
+
+    <!-- Open Graph — per-page title/description/url/image/type set by react-helmet-async.
+         Only global/unchanging properties live here. -->
     <meta property="og:locale" content="no_NO" />
     <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:locale:alternate" content="sv_SE" />
@@ -64,43 +65,10 @@
     <meta property="og:locale:alternate" content="fi_FI" />
     <meta property="og:site_name" content="Beta Ads" />
 
-    <!-- Twitter -->
+    <!-- Twitter Card — per-page title/description/image set by react-helmet-async -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://beta-ads.no/" />
-    <meta name="twitter:title" content="Beta Ads | Native Livestream Advertising for Nordic Brands" />
-    <meta name="twitter:description" content="Reach 40+ Nordic streamers on Twitch, YouTube & Kick. Native overlay ads that bypass adblock — 3-5x higher engagement. Book a free demo." />
-    <meta name="twitter:image" content="https://beta-ads.no/lovable-uploads/og-social-preview.png">
-    <meta name="twitter:image:alt" content="Beta Ads - Nordic Twitch Marketing Agency" />
     <meta name="twitter:site" content="@betaads" />
     <meta name="twitter:creator" content="@betaads" />
-
-    <!-- Geographic and language targeting -->
-    <meta name="geo.region" content="NO" />
-    <meta name="geo.region" content="SE" />
-    <meta name="geo.region" content="DK" />
-    <meta name="geo.region" content="FI" />
-    <meta name="geo.placename" content="Norge" />
-    <meta name="geo.placename" content="Nordic Region" />
-    <meta name="geo.placename" content="Scandinavia" />
-    <meta name="language" content="English" />
-    <meta name="DC.coverage" content="Norden" />
-
-    <!-- Advanced Technical SEO Meta Tags -->
-    <meta name="subject" content="Twitch Marketing Agency Norway" />
-    <meta name="copyright" content="Beta Ads" />
-    <meta name="revisit-after" content="7 days" />
-    <meta name="distribution" content="web" />
-    <meta name="rating" content="general" />
-    <meta name="theme-color" content="#ffffff" />
-    <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="application-name" content="Beta Ads Nordic" />
-    <meta name="msapplication-tooltip" content="Nordic Twitch Marketing Agency" />
-    <meta name="msapplication-starturl" content="https://beta-ads.no/" />
-    <meta name="msapplication-task" content="name=Contact;action-uri=mailto:hello@betaads.no;icon-uri=https://beta-ads.no/favicon.ico" />
 
     <!-- Core structured data — page-specific schemas handled by React SEO component -->
     <script type="application/ld+json">
@@ -143,29 +111,12 @@
         ]
       },
       "areaServed": [
-        {
-          "@type": "Country",
-          "name": "Norway",
-          "alternateName": "Norge"
-        },
-        {
-          "@type": "Country", 
-          "name": "Sweden",
-          "alternateName": "Sverige"
-        },
-        {
-          "@type": "Country",
-          "name": "Denmark", 
-          "alternateName": "Danmark"
-        },
-        {
-          "@type": "Country",
-          "name": "Finland",
-          "alternateName": "Suomi"
-        }
+        { "@type": "Country", "name": "Norway", "alternateName": "Norge" },
+        { "@type": "Country", "name": "Sweden", "alternateName": "Sverige" },
+        { "@type": "Country", "name": "Denmark", "alternateName": "Danmark" },
+        { "@type": "Country", "name": "Finland", "alternateName": "Suomi" }
       ],
       "serviceType": ["Digital Marketing Agency", "Twitch Marketing", "Gaming Advertising", "Influencer Marketing", "Livestream Advertising", "Esports Marketing"],
-      "knowsAbout": ["Twitch Marketing", "Gaming Advertising", "Livestreaming", "Esports Marketing", "Influencer Marketing", "Nordic Markets", "Overlay Advertising", "Stream Sponsorships"],
       "contactPoint": {
         "@type": "ContactPoint",
         "email": "hello@betaads.no",
@@ -205,7 +156,7 @@
             }
           },
           {
-            "@type": "Offer", 
+            "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
               "name": "Streamer Partnerships",
@@ -290,7 +241,7 @@
     }
     </script>
 
-    <!-- FAQ schema for homepage — appears in Google "People also ask" and rich snippets -->
+    <!-- FAQ schema — appears in Google "People also ask" and rich snippets -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",

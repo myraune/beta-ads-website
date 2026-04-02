@@ -43,7 +43,12 @@ export function WaveAnimation({
     const dist = h / 2 / Math.tan(fovRad)
     const startTime = performance.now()
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+    let renderer: THREE.WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    } catch {
+      return;
+    }
     renderer.setSize(w, h)
     renderer.setClearColor(0x000000, 0)
     renderer.setPixelRatio(dpr)

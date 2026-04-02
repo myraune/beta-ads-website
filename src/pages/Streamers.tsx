@@ -9,7 +9,7 @@ interface StreamersProps {
 
 const Streamers: React.FC<StreamersProps> = ({ t }) => {
   return (
-    <div className="pt-16 lg:pt-20">
+    <div>
       <SEO
         title="For Streamers | Beta Ads"
         description="Earn passive income as a Twitch, YouTube or Kick streamer with Beta Ads. Automated overlay ads, no shoutouts required. Join 40+ Nordic streamers already earning."
@@ -24,10 +24,11 @@ const Streamers: React.FC<StreamersProps> = ({ t }) => {
           "isPartOf": { "@id": "https://beta-ads.no/#website" }
         }}
       />
-      <main>
+      {/* Accessibility fix: Layout.tsx already provides <main> — nested <main> is invalid HTML (WCAG 1.3.6) */}
+      <div>
         <StreamerSection t={t} language="en" />
         <SPFooter />
-      </main>
+      </div>
     </div>
   );
 };

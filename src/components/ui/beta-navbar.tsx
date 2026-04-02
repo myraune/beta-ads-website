@@ -169,9 +169,11 @@ export function BetaNavbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pointer-events-none">
+    <header className="fixed top-0 left-0 right-0 z-[200] flex justify-center pointer-events-none">
       {/* ── Desktop ── */}
+      {/* aria-label identifies this as the primary nav landmark for screen readers */}
       <nav
+        aria-label="Main navigation"
         className={cn(
           "hidden lg:flex items-center gap-1 pointer-events-auto transition-all duration-500 ease-out mt-4 px-2 py-1.5 rounded-full",
           scrolled
@@ -193,8 +195,11 @@ export function BetaNavbar() {
 
         {/* Product dropdown */}
         <div ref={dropdownRef} className="relative">
+          {/* aria-haspopup + aria-expanded: screen readers announce this as a menu button and its open/closed state */}
           <button
             onClick={() => { setProductOpen(!productOpen); setAboutOpen(false); }}
+            aria-haspopup="true"
+            aria-expanded={productOpen}
             className={cn(
               "flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-medium rounded-full transition-all duration-200",
               productOpen
@@ -270,8 +275,11 @@ export function BetaNavbar() {
 
         {/* About dropdown */}
         <div ref={aboutDropdownRef} className="relative">
+          {/* aria-haspopup + aria-expanded: screen readers announce this as a menu button and its open/closed state */}
           <button
             onClick={() => { setAboutOpen(!aboutOpen); setProductOpen(false); }}
+            aria-haspopup="true"
+            aria-expanded={aboutOpen}
             className={cn(
               "flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-medium rounded-full transition-all duration-200",
               aboutOpen || ["/case-studies", "/pricing", "/blog", "/press", "/about"].includes(location.pathname)
@@ -379,6 +387,8 @@ export function BetaNavbar() {
               onClick={() => setMobileOpen(!mobileOpen)}
               className={cn("p-1.5 rounded-full transition-colors", isOnHero && !mobileOpen ? "text-white hover:bg-white/10" : "text-foreground hover:bg-foreground/5")}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-nav"
             >
               {mobileOpen ? (
                 <X className="h-5 w-5" />
@@ -389,8 +399,11 @@ export function BetaNavbar() {
           </div>
         </div>
 
-        {/* Mobile dropdown */}
-        <div
+        {/* Mobile dropdown — wrapped in <nav> for screen reader landmark support */}
+        <nav
+          id="mobile-nav"
+          aria-label="Mobile navigation"
+          aria-hidden={!mobileOpen}
           className={cn(
             "mx-3 mt-1 overflow-hidden transition-all duration-300 ease-out rounded-2xl",
             mobileOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
@@ -454,7 +467,7 @@ export function BetaNavbar() {
               </Link>
             </div>
           </div>
-        </div>
+        </nav>
       </div>
     </header>
   );

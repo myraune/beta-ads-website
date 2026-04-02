@@ -26,7 +26,7 @@ export const StreamerBrands: React.FC = () => {
   return (
     <section
       ref={ref}
-      className="pt-28 pb-10 overflow-hidden"
+      className="pt-12 pb-10 overflow-hidden border-t border-border"
       aria-label="Brands on platform"
     >
       <div

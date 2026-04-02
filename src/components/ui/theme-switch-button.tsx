@@ -22,8 +22,10 @@ export function ThemeSwitch({ className = '' }: ThemeSwitchProps) {
   if (!mounted) return <div className="h-8 w-8" />
 
   return (
+    // aria-label describes the action for screen readers (icon-only button)
     <button
       onClick={toggleTheme}
+      aria-label={resolvedTheme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
       className={`relative flex h-8 w-8 items-center justify-center rounded-full hover:opacity-80 transition-opacity overflow-hidden ${className}`}
     >
       <Sun

@@ -97,6 +97,8 @@ export const SPHowItWorks: React.FC = () => {
   const [videoId, setVideoId] = useState<string | null>(null);
 
   const current = campaigns[index];
+  // Look up the campaign for the open video so modal title/description are specific (accessibility)
+  const activeCampaign = videoId ? campaigns.find((c) => c.id === videoId) : null;
 
   const navigate = (dir: "prev" | "next") => {
     if (dir === "prev")
@@ -138,10 +140,14 @@ export const SPHowItWorks: React.FC = () => {
           }`}
         >
           <div className="flex flex-col lg:flex-row">
-            {/* Video thumbnail */}
+            {/* Video thumbnail — accessible button for keyboard and screen reader users */}
             <div
               className="lg:w-[55%] relative aspect-video lg:aspect-auto cursor-pointer group"
+              role="button"
+              tabIndex={0}
+              aria-label={`Play campaign video: ${current.campaign}`}
               onClick={() => setVideoId(current.id)}
+              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setVideoId(current.id); } }}
             >
               <img
                 src={`https://img.youtube.com/vi/${current.id}/maxresdefault.jpg`}
@@ -150,7 +156,7 @@ export const SPHowItWorks: React.FC = () => {
               />
               <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                 <div className="w-16 h-16 rounded-full bg-black/50 backdrop-blur-sm border border-white/10 flex items-center justify-center hover:scale-110 transition-transform">
-                  <Play className="w-6 h-6 text-white ml-1" />
+                  <Play className="w-6 h-6 text-white ml-1" aria-hidden="true" />
                 </div>
               </div>
             </div>
@@ -238,9 +244,12 @@ export const SPHowItWorks: React.FC = () => {
         onOpenChange={(open) => !open && setVideoId(null)}
       >
         <DialogContent className="max-w-5xl w-[95vw] p-0 bg-transparent border-none overflow-hidden shadow-none">
-          <DialogTitle className="sr-only">Campaign Video</DialogTitle>
+          {/* sr-only title/description include campaign name so screen readers announce which video is playing */}
+          <DialogTitle className="sr-only">
+            {activeCampaign ? `${activeCampaign.brand} — ${activeCampaign.campaign}` : "Campaign Video"}
+          </DialogTitle>
           <DialogDescription className="sr-only">
-            Watch the campaign recap
+            {activeCampaign ? `Watch the recap for the ${activeCampaign.campaign} campaign by ${activeCampaign.brand}` : "Watch the campaign recap"}
           </DialogDescription>
           {videoId && (
             <div className="relative w-full rounded-xl overflow-hidden bg-black/90 backdrop-blur-sm shadow-2xl">
@@ -249,7 +258,7 @@ export const SPHowItWorks: React.FC = () => {
                   width="100%"
                   height="100%"
                   src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
-                  title="Campaign Video"
+                  title={activeCampaign ? `${activeCampaign.brand} — ${activeCampaign.campaign}` : "Campaign Video"}
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen

@@ -114,13 +114,13 @@ const MarketsSection: React.FC<MarketsSectionProps> = ({ marketsRef, marketsVisi
                       d={pathD}
                       className="transition-all duration-200 cursor-pointer"
                       style={{
-                        fill: country.active ? 'hsl(var(--primary))' : 'rgba(255, 255, 255, 0.04)',
+                        fill: country.active ? 'hsl(var(--primary))' : 'hsl(var(--muted))',
                         opacity: country.active
                           ? hoveredCountry === key ? 1 : 0.5
-                          : 0.08,
+                          : 0.6,
                         stroke: country.active
                           ? hoveredCountry === key ? '#e64646' : '#993333'
-                          : 'rgba(255, 255, 255, 0.1)',
+                          : 'hsl(var(--border))',
                         strokeWidth: hoveredCountry === key ? 0.8 : 0.3,
                       }}
                       onMouseEnter={() => country.active && setHoveredCountry(key)}

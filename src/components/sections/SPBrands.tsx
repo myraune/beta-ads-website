@@ -208,8 +208,10 @@ const CampaignReportModal: React.FC<{
               <p className="text-[11px] text-muted-foreground">{report.dateRange}</p>
             </div>
           </div>
+          {/* aria-label added: icon-only button needs accessible label for screen readers */}
           <button
             onClick={onClose}
+            aria-label="Close report"
             className="p-1.5 rounded-full hover:bg-foreground/5 transition-colors text-muted-foreground hover:text-foreground"
           >
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -361,10 +363,10 @@ const LogoWithBadge: React.FC<{
         }`}
         style={{ filter: logoFilter }}
       />
-      {logo.badge && (
+      {logo.badge && isHovered && (
         <button
           onClick={handleClick}
-          className="mt-1.5 px-2 py-0.5 rounded-full text-[9px] font-medium tracking-wide transition-[transform,background-color] duration-200 hover:scale-105 bg-primary/10 text-primary border-none cursor-pointer"
+          className="mt-1.5 px-2 py-0.5 rounded-full text-[9px] font-medium tracking-wide transition-[transform,opacity,background-color] duration-200 hover:scale-105 bg-primary/10 text-primary border-none cursor-pointer animate-fade-in"
         >
           {badgeLabels[logo.badge]}
         </button>
@@ -466,9 +468,10 @@ export const SPBrands: React.FC = () => {
         <div
           className={`transition-opacity duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}
         >
-          <p className="text-center text-xs font-medium text-muted-foreground mb-4 tracking-widest uppercase">
+          {/* SEO fix: h2 instead of p for proper heading hierarchy — visually unchanged */}
+          <h2 className="text-center text-xs font-medium text-muted-foreground mb-4 tracking-widest uppercase">
             Trusted by 50+ brands & agencies
-          </p>
+          </h2>
 
           <div className="relative">
             <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />

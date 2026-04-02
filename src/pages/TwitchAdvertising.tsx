@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MarketingPageLayout } from "@/components/layout/MarketingPageLayout";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { ArrowRight, Monitor, Zap, Eye, MessageSquare, Shield, Users, BarChart3, TrendingUp } from "lucide-react";
+import { ArrowRight, Monitor, Zap, Eye, MessageSquare, Shield, Users, BarChart3, TrendingUp, Gamepad2, Music, Mic, Trophy, Sword, Car, Globe2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedShaderBackground from "@/components/ui/animated-shader-background";
 
@@ -16,10 +16,10 @@ const stats = [
 ];
 
 const formats = [
-  { icon: Monitor, title: "Static Overlay", desc: "Persistent branded graphic displayed throughout the stream. Always visible, always on brand." },
-  { icon: Zap, title: "Animated Overlay", desc: "Motion graphics triggered by game events or schedule. Attention-catching without interrupting." },
+  { icon: Monitor, title: "Static Overlay", desc: "Persistent branded graphic displayed throughout the stream. Always visible, always on brand. Best for awareness campaigns." },
+  { icon: Zap, title: "Animated Overlay", desc: "Motion graphics triggered by game events or on schedule. Attention-catching without interrupting the stream content." },
   { icon: MessageSquare, title: "AI Voice-Triggered", desc: "Appears when the streamer naturally mentions your brand — powered by real-time voice recognition." },
-  { icon: Eye, title: "Rich Media", desc: "Interactive full-screen branded content. Video, animation, clickable elements. The most engaging format." },
+  { icon: Eye, title: "Rich Media", desc: "Interactive full-screen branded content. Video, animation, clickable elements. The most immersive format." },
 ];
 
 const why = [
@@ -29,9 +29,23 @@ const why = [
   { icon: BarChart3, title: "Real-time analytics", desc: "Views, exposure time, chat mentions, CTR — tracked live. Full report delivered post-campaign." },
 ];
 
+const categories = [
+  { icon: Sword, label: "FPS & Shooters", streamers: "9,200+" },
+  { icon: Trophy, label: "Esports & Tournaments", streamers: "4,100+" },
+  { icon: Gamepad2, label: "RPG & Open World", streamers: "7,400+" },
+  { icon: Car, label: "Sports & Racing", streamers: "3,800+" },
+  { icon: Mic, label: "Just Chatting", streamers: "6,300+" },
+  { icon: Music, label: "Music & DJ", streamers: "2,100+" },
+  { icon: Globe2, label: "IRL & Travel", streamers: "1,900+" },
+  { icon: Monitor, label: "Other & Variety", streamers: "4,200+" },
+];
+
 const TwitchAdvertising: React.FC = () => {
   const { ref: formatsRef, isVisible: formatsVisible } = useScrollAnimation();
+  const { ref: mockupRef, isVisible: mockupVisible } = useScrollAnimation();
   const { ref: whyRef, isVisible: whyVisible } = useScrollAnimation();
+  const { ref: catRef, isVisible: catVisible } = useScrollAnimation();
+  const { ref: caseRef, isVisible: caseVisible } = useScrollAnimation();
   const { ref: howRef, isVisible: howVisible } = useScrollAnimation();
   const { ref: faqRef, isVisible: faqVisible } = useScrollAnimation();
 
@@ -101,8 +115,51 @@ const TwitchAdvertising: React.FC = () => {
         </div>
       </section>
 
+      {/* ── What it looks like ── */}
+      <section className="py-20 md:py-28 border-t border-border">
+        <div ref={mockupRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${mockupVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">In-Stream</span>
+              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">
+                Ads that live inside the stream — not around it
+              </h2>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-md">
+                Unlike banner ads placed beside the player or pre-roll video interruptions, overlay ads are rendered directly into the stream feed. Viewers see your brand as part of the content — not an interruption to skip.
+              </p>
+              <div className="space-y-3">
+                {[
+                  "Visible on every platform where viewers watch: browser, app, TV",
+                  "Can't be blocked — rendered server-side into the video feed",
+                  "Stays on screen for the full session, not just a 6-second slot",
+                ].map((point, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0 mt-2" />
+                    <p className="text-sm text-muted-foreground leading-relaxed">{point}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Real Twitch screenshot */}
+            <div className="relative">
+              <div className="rounded-xl overflow-hidden shadow-2xl shadow-black/40 border border-[#9146ff]/20">
+                <img
+                  src="/lovable-uploads/screenshot-twitch-stream.jpg"
+                  alt="Real Twitch stream showing a live overlay ad"
+                  className="w-full h-auto block"
+                  loading="lazy"
+                />
+              </div>
+              <p className="text-[10px] text-muted-foreground mt-2 text-right">Real Twitch stream — overlay ad visible bottom-left</p>
+              <div className="absolute -inset-4 -z-10 rounded-2xl opacity-10 blur-2xl" style={{ background: "radial-gradient(ellipse at center, #9146ff, transparent 70%)" }} />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Ad Formats ── */}
-      <section className="py-20 md:py-28">
+      <section className="py-20 md:py-28 border-t border-border">
         <div ref={formatsRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${formatsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="mb-12">
             <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Ad Formats</span>
@@ -131,14 +188,17 @@ const TwitchAdvertising: React.FC = () => {
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
                 Where the next generation of consumers lives
               </h2>
-              <p className="text-muted-foreground text-base leading-relaxed mb-8">
-                Nordic Twitch communities are smaller and more engaged than US or UK equivalents. A Norwegian streamer with 1,000 concurrent viewers has built a community where brand integrations carry genuine social weight. The audience is there. The engagement is real. Traditional ads can't reach them.
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                Nordic Twitch communities are smaller and more tightly-knit than US or UK equivalents. A Norwegian streamer with 1,000 concurrent viewers has built a community where brand integrations carry genuine social weight — viewers trust creator recommendations at a rate traditional ads never achieve.
+              </p>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-8">
+                With 80% ad-blocker adoption among Nordic 18–34 year olds, traditional digital formats simply don't reach this demographic. Overlay ads are the only format that reliably reaches the Gen Z audience where they actually spend their time.
               </p>
               <div className="space-y-3">
                 {[
                   "80% ad-blocker rate among Nordic 18–34s — overlay ads bypass this entirely",
-                  "90+ minute average sessions — your brand gets sustained exposure, not a 6-second skip",
-                  "79% of Twitch viewers support ads that help creators — native formats earn goodwill",
+                  "90+ minute average sessions — sustained brand exposure, not a 6-second skip",
+                  "79% of Twitch viewers support ads that directly help their favorite creator",
                 ].map((point, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <span className="w-5 h-5 rounded-full bg-primary/10 text-primary text-[10px] font-bold flex items-center justify-center shrink-0 mt-0.5">{i + 1}</span>
@@ -158,6 +218,126 @@ const TwitchAdvertising: React.FC = () => {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Content Categories ── */}
+      <section className="py-20 md:py-28 border-t border-border">
+        <div ref={catRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${catVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Content Categories</span>
+              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">
+                Target by category, not just by platform
+              </h2>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-md">
+                Not all Twitch viewers are the same. A FPS gaming community responds to different brands than a Just Chatting lifestyle audience. Our targeting lets you select exactly the right streamer categories for your campaign goals.
+              </p>
+              <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
+                All streamers in our network are verified Nordic creators — Norwegian, Swedish, Finnish, and Danish. You can target one market or run pan-Nordic campaigns from a single brief.
+              </p>
+            </div>
+            <div className="grid grid-cols-2 gap-3">
+              {categories.map((cat) => (
+                <div key={cat.label} className="flex items-center gap-3 p-4 rounded-xl border border-border bg-card hover:border-primary/20 transition-colors">
+                  <cat.icon className="w-4 h-4 text-primary shrink-0" />
+                  <div>
+                    <p className="text-sm font-medium text-foreground">{cat.label}</p>
+                    <p className="text-xs text-muted-foreground">{cat.streamers} streamers</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Case Study Preview ── */}
+      <section className="py-20 md:py-28 border-t border-border">
+        <div ref={caseRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${caseVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="mb-10">
+            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Results</span>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
+              Real campaigns. Real numbers.
+            </h2>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Samsung case */}
+            <div className="rounded-2xl border border-border bg-card overflow-hidden">
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&q=80"
+                  alt="Samsung campaign"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <span className="text-[10px] font-semibold bg-primary text-white px-2 py-1 rounded-full">Samsung</span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-base font-semibold text-foreground mb-2">Samsung Galaxy S25 — Nordic Launch</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                  Overlay campaign across 48 Nordic Twitch streamers. 10-week run targeting gaming and tech audiences in Norway, Sweden, and Denmark.
+                </p>
+                <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
+                  <div>
+                    <p className="text-2xl font-bold text-foreground tracking-tight">412K</p>
+                    <p className="text-xs text-muted-foreground">Total views</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-foreground tracking-tight">1.41%</p>
+                    <p className="text-xs text-muted-foreground">CTR</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-foreground tracking-tight">4,291</p>
+                    <p className="text-xs text-muted-foreground">Chat mentions</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* Glorious case */}
+            <div className="rounded-2xl border border-border bg-card overflow-hidden">
+              <div className="relative aspect-[16/9] overflow-hidden">
+                <img
+                  src="https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=800&q=80"
+                  alt="Glorious gaming campaign"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <span className="text-[10px] font-semibold bg-primary text-white px-2 py-1 rounded-full">Glorious Gaming</span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-base font-semibold text-foreground mb-2">Glorious Model O — FPS Streamer Campaign</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-5">
+                  Targeted FPS and competitive gaming streamers across 3 Nordic markets. Rich media overlays with product showcase during peak gaming hours.
+                </p>
+                <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
+                  <div>
+                    <p className="text-2xl font-bold text-foreground tracking-tight">287K</p>
+                    <p className="text-xs text-muted-foreground">Total views</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-foreground tracking-tight">2.3%</p>
+                    <p className="text-xs text-muted-foreground">CTR</p>
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-foreground tracking-tight">34</p>
+                    <p className="text-xs text-muted-foreground">Streamers</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 text-center">
+            <Link to="/case-studies">
+              <Button variant="ghost" className="text-primary hover:text-primary rounded-full">
+                View all case studies <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -192,14 +372,16 @@ const TwitchAdvertising: React.FC = () => {
       {/* ── FAQ ── */}
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={faqRef} className={`max-w-3xl mx-auto px-6 lg:px-12 transition-all duration-700 ${faqVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <h2 className="text-3xl font-light tracking-tight text-foreground mb-10">Common questions</h2>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-10">Common questions</h2>
           <div className="space-y-px">
             {[
-              { q: "How much does Twitch advertising cost?", a: "Costs vary by campaign scope, number of streamers, and duration. We offer flexible pricing with no long-term contracts. Contact us for a custom quote." },
+              { q: "How much does Twitch advertising cost?", a: "Costs vary by campaign scope, number of streamers, and duration. We offer flexible pricing with no long-term contracts. Contact us for a custom quote based on your goals." },
               { q: "How do overlay ads bypass ad blockers?", a: "Overlay ads are rendered inside the stream itself as part of the video feed — not browser-injected elements. Ad blocking software has nothing to detect or remove." },
               { q: "Can I target specific countries or languages?", a: "Yes. Target by country (Norway, Sweden, Finland, Denmark), language, content category, audience size, and engagement metrics. Our database covers 39,000+ Nordic streamers." },
               { q: "What results can I expect?", a: "Native overlay ads typically deliver 3–5× higher engagement than traditional display ads. Twitch sessions average 90+ minutes of sustained brand exposure." },
               { q: "Do I need to create the ad creatives?", a: "No. Our managed service includes creative production. We design overlay graphics that match your brand and fit naturally in livestream content." },
+              { q: "What is the minimum number of streamers for a campaign?", a: "We run campaigns with as few as 5 streamers for focused niche campaigns, up to 100+ streamers for large brand awareness pushes. We'll recommend the right reach for your goal." },
+              { q: "Can I approve which streamers carry my brand?", a: "Yes. You receive a shortlist of matched streamers before the campaign launches. You approve the final selection — no streamer goes live with your brand without your sign-off." },
             ].map((faq, i) => (
               <details key={i} className="group border-b border-border last:border-b-0">
                 <summary className="flex items-center justify-between py-5 cursor-pointer text-sm font-medium text-foreground hover:text-primary transition-colors select-none">

@@ -109,7 +109,8 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
           "isPartOf": { "@id": "https://beta-ads.no/#website" }
         }}
       />
-      <main>
+      {/* Accessibility fix: Layout.tsx already provides <main> — nested <main> is invalid HTML (WCAG 1.3.6) */}
+      <div>
       <section className="pt-32 pb-16 px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -185,7 +186,7 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
                       <FormMessage />
                     </FormItem>
                   )} />
-                  <Button type="submit" size="lg" disabled={isSubmitting} className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12">
+                  <Button type="submit" size="lg" disabled={isSubmitting} className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full h-12">
                     {isSubmitting ? (<><Loader2 className="mr-2 h-4 w-4 animate-spin" />{t.sending}</>) : (<>{t.sendMessage}<ArrowRight className="ml-2 h-4 w-4" /></>)}
                   </Button>
                 </form>
@@ -195,7 +196,7 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
         </div>
       </section>
       <SPFooter />
-      </main>
+      </div>
     </div>
   );
 };

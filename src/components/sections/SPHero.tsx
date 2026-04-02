@@ -87,7 +87,7 @@ const HeroChart = () => {
 
 const DashboardView = () => (
   <div className="p-4">
-    <div className="grid grid-cols-6 gap-2 mb-3">
+    <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-3">
       {[
         { label: "Views", value: "412,847", hl: true },
         { label: "Clicks", value: "5,842", hl: true },
@@ -102,7 +102,7 @@ const DashboardView = () => (
         </div>
       ))}
     </div>
-    <div className="grid grid-cols-6 gap-2 mb-3">
+    <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-3">
       {[
         { label: "Sponsored Streamers", value: "48" },
         { label: "Sponsored Streams", value: "612" },
@@ -127,7 +127,7 @@ const DashboardView = () => (
           <span>Mon,Jan 06</span><span>Thu,Jan 23</span><span>Sun,Feb 08</span><span>Wed,Feb 25</span><span>Sat,Mar 14</span>
         </div>
       </div>
-      <div className="w-56 bg-white rounded-lg border border-gray-100 p-3">
+      <div className="hidden sm:block w-56 bg-white rounded-lg border border-gray-100 p-3">
         <div className="flex items-center gap-1.5 mb-2">
           <span className="text-[9px] font-medium text-white bg-red-500 px-2 py-0.5 rounded-full">Streamers</span>
           <span className="text-[9px] text-gray-400">Campaigns</span>
@@ -146,8 +146,8 @@ const DashboardView = () => (
         </div>
       </div>
     </div>
-    {/* Campaign table */}
-    <div className="bg-white rounded-lg border border-gray-100">
+    {/* Campaign table — hidden on mobile: too wide for 375px viewports */}
+    <div className="hidden sm:block bg-white rounded-lg border border-gray-100 overflow-hidden">
       <div className="flex items-center justify-between px-3 py-2 border-b border-gray-100">
         <div className="flex items-center gap-2">
           <span className="text-[9px] font-medium text-white bg-red-500 px-2 py-0.5 rounded-full">Campaigns</span>
@@ -191,7 +191,7 @@ const DashboardView = () => (
 const StreamerExplorerView = () => (
   <div className="p-4">
     {/* Top stats row — 5 cards like real app */}
-    <div className="grid grid-cols-5 gap-2 mb-3">
+    <div className="grid grid-cols-3 md:grid-cols-5 gap-2 mb-3">
       {[
         { label: "Streamers", value: "39,456", icon: "👥", color: "border-l-blue-400" },
         { label: "Total Followers", value: "2.0B", icon: "❤️", color: "border-l-pink-400" },
@@ -207,7 +207,7 @@ const StreamerExplorerView = () => (
     </div>
 
     {/* Second row: category donut, air time, watch time, gender, audience */}
-    <div className="grid grid-cols-4 gap-2 mb-3">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mb-3">
       <div className="bg-white rounded-lg border border-gray-100 p-2">
         <p className="text-[7px] text-gray-400 uppercase mb-1">Most Streamed Categories</p>
         <div className="flex items-center gap-2">
@@ -246,13 +246,13 @@ const StreamerExplorerView = () => (
         <span className="text-[9px] text-gray-400">Search by name...</span>
       </div>
       <div className="h-7 px-2 bg-white border border-gray-200 rounded flex items-center text-[9px] text-gray-500">Sort by: Default <ChevronDown className="w-2.5 h-2.5 ml-1" /></div>
-      <div className="h-7 px-2 bg-white border border-gray-200 rounded text-[9px] text-gray-500">Export as .CSV</div>
-      <div className="h-7 px-2 bg-white border border-gray-200 rounded text-[9px] text-gray-500">+ Add All to List</div>
+      <div className="hidden sm:flex h-7 px-2 bg-white border border-gray-200 rounded text-[9px] text-gray-500">Export as .CSV</div>
+      <div className="hidden sm:flex h-7 px-2 bg-white border border-gray-200 rounded text-[9px] text-gray-500">+ Add All to List</div>
     </div>
 
     {/* Streamer table — matching real columns */}
-    <div className="bg-white rounded-lg border border-gray-100 overflow-hidden">
-      <table className="w-full">
+    <div className="bg-white rounded-lg border border-gray-100 overflow-x-auto">
+      <table className="min-w-max w-full">
         <thead>
           <tr className="border-b border-gray-100">
             {["","Streamer","Platform","Country","Language","Gender","Brand Safety","Engagement","Followers"].map((h) => (
@@ -315,12 +315,12 @@ const CategoryExplorerView = () => (
         <span className="text-[9px] text-gray-400">Search by name...</span>
       </div>
       <div className="h-7 px-2 bg-white border border-gray-200 rounded flex items-center text-[9px] text-gray-500">Sort by: Watch Time <ChevronDown className="w-2.5 h-2.5 ml-1" /></div>
-      <div className="h-7 px-2 bg-white border border-gray-200 rounded text-[9px] text-gray-500">Export as .CSV</div>
+      <div className="hidden sm:flex h-7 px-2 bg-white border border-gray-200 rounded items-center text-[9px] text-gray-500">Export as .CSV</div>
     </div>
 
     {/* Category table — matching real columns */}
-    <div className="bg-white rounded-lg border border-gray-100 overflow-hidden">
-      <table className="w-full">
+    <div className="bg-white rounded-lg border border-gray-100 overflow-x-auto">
+      <table className="min-w-max w-full">
         <thead>
           <tr className="border-b border-gray-100">
             {["Category","Genres","Active Streamers","Total Views","Avg. Viewers","Live Viewers","Air Time","Watch Time"].map((h) => (
@@ -387,9 +387,9 @@ const StreamerListsView = () => (
         { name: "My Streamer List", avatars: 1, date: "12/02/2026", by: "Andreas Myraune" },
       ].map((list) => (
         <div key={list.name} className="bg-white rounded-xl border border-gray-100 p-4 hover:border-red-200 transition-colors relative">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-[11px] font-semibold text-gray-900">{list.name}</span>
-            <MoreHorizontal className="w-4 h-4 text-gray-400" />
+          <div className="flex items-center justify-between mb-3 gap-2">
+            <span className="text-[11px] font-semibold text-gray-900 truncate min-w-0">{list.name}</span>
+            <MoreHorizontal className="w-4 h-4 text-gray-400 shrink-0" />
           </div>
           {/* Avatar stack */}
           <div className="flex -space-x-2 mb-3">
@@ -423,8 +423,8 @@ const UsersView = () => (
         <Plus className="w-3 h-3" /> Invite User
       </div>
     </div>
-    <div className="bg-white rounded-lg border border-gray-100 overflow-hidden">
-      <table className="w-full">
+    <div className="bg-white rounded-lg border border-gray-100 overflow-x-auto">
+      <table className="min-w-[450px] w-full">
         <thead>
           <tr className="border-b border-gray-100 bg-gray-50/50">
             {["User","Email","Role","Last Active","Status"].map((h) => (
@@ -496,14 +496,18 @@ export const SPHero: React.FC = () => {
     <section className="relative overflow-hidden" aria-label="Hero">
       {/* Oslo aurora background — both modes */}
       <div className="absolute inset-0">
+        {/* fetchpriority="high": above-the-fold hero bg is the visual LCP candidate — tell the browser to prioritize it */}
         <img
           src="/lovable-uploads/hero-bg-oslo.jpg"
           alt=""
           aria-hidden="true"
+          fetchpriority="high"
+          loading="eager"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover object-top"
         />
         {/* Dark overlay for text readability + fade to page bg */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-white dark:to-[#0c0c0f]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-white/95 dark:to-[#0c0c0f]" />
         {/* Film grain texture overlay */}
         <div
           className="absolute inset-0 opacity-[0.12] mix-blend-overlay pointer-events-none"
@@ -515,35 +519,34 @@ export const SPHero: React.FC = () => {
         />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center pt-28 pb-12">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight text-white mb-6">
-          Run, Launch & Scale<br />
-          Native Ads on Streams
-        </h1>
-        <p className="text-base md:text-lg text-white/70 leading-relaxed max-w-2xl mx-auto mb-10">
-          Native overlays on Twitch, YouTube & Kick that bypass adblock, reach Gen Z, and deliver 3-5x higher engagement than traditional ads.
-        </p>
-        <div className="relative flex flex-row gap-3 justify-center mb-16">
-          {/* Soft radial glow behind CTA buttons */}
-          <div className="absolute inset-0 -inset-y-8 flex items-center justify-center pointer-events-none" aria-hidden="true">
-            <div className="w-80 h-24 rounded-full bg-primary/15 dark:bg-primary/20 blur-3xl" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-28 md:pt-32 lg:pt-36 pb-12">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight text-white mb-5">
+            Run, Launch & Scale<br />
+            <span style={{ fontFamily: "'Instrument Serif', serif" }} className="italic font-normal">Native Ads</span> on Streams
+          </h1>
+          <p className="text-base md:text-lg text-white/70 leading-relaxed mb-10 max-w-lg mx-auto">
+            Overlays on Twitch, YouTube & Kick that bypass adblock, reach Gen Z, and deliver 3-5x higher engagement than traditional ads.
+          </p>
+          <div className="flex flex-wrap gap-3 mb-8 md:mb-16 justify-center">
+            <Link to="/demo">
+              <Button size="lg" className="bg-primary text-white hover:bg-primary/90 h-12 px-7 text-sm font-semibold rounded-full shadow-lg hover:shadow-xl transition-[transform,box-shadow,background-color] duration-300 hover:-translate-y-0.5">
+                Book a Demo <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+            <Link to="/case-studies">
+              <Button size="lg" className="bg-white/15 border border-white/30 text-white hover:bg-white hover:text-black backdrop-blur-sm h-12 px-7 text-sm font-semibold rounded-full transition-[transform,box-shadow,background-color,color,border-color] duration-300 hover:-translate-y-0.5 hover:shadow-md">
+                Case Studies
+              </Button>
+            </Link>
           </div>
-          <Link to="/demo" className="relative">
-            <Button size="lg" className="bg-primary text-white hover:bg-primary/90 h-12 px-7 text-sm font-semibold rounded-full shadow-lg hover:shadow-xl transition-[transform,box-shadow,background-color] duration-300 hover:-translate-y-0.5">
-              Book a Demo <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </Link>
-          <Link to="/case-studies" className="relative">
-            <Button size="lg" className="bg-white/15 border border-white/30 text-white hover:bg-white hover:text-black backdrop-blur-sm h-12 px-7 text-sm font-semibold rounded-full transition-[transform,box-shadow,background-color,color,border-color] duration-300 hover:-translate-y-0.5 hover:shadow-md">
-              Case Studies
-            </Button>
-          </Link>
         </div>
       </div>
 
       {/* Tab bar */}
-      <div className="relative z-10 flex justify-center mb-0 px-4">
-        <div className="inline-flex items-center gap-0.5 sm:gap-1 px-1.5 sm:px-2 py-1.5 rounded-full bg-muted/60 border border-border/50 backdrop-blur-sm">
+      <div className="relative z-10 flex justify-center mb-0 px-3 sm:px-4 overflow-x-auto">
+        {/* Accessibility fix: role="tablist" required as parent container of role="tab" buttons (WCAG 1.3.1 / ARIA spec) */}
+        <div role="tablist" aria-label="Dashboard views" className="inline-flex items-center gap-0.5 sm:gap-1 px-1.5 sm:px-2 py-1.5 rounded-full bg-muted/60 border border-border/50 backdrop-blur-sm">
           {topTabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -554,7 +557,7 @@ export const SPHero: React.FC = () => {
                 role="tab"
                 aria-selected={isActive}
                 aria-label={tab.label}
-                className={`flex items-center gap-1.5 px-2.5 sm:px-4 py-2 rounded-full text-xs font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
+                className={`flex items-center gap-1.5 px-2.5 sm:px-4 py-2 min-h-[44px] min-w-[44px] rounded-full text-xs font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
                   isActive ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground hover:bg-foreground/5"
                 }`}
               >
@@ -570,12 +573,12 @@ export const SPHero: React.FC = () => {
       </div>
 
       {/* Dashboard preview */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 mt-6 animate-float-slow">
+      <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-6 mt-6 animate-float-slow overflow-x-hidden">
         <div className="relative">
           <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-background via-background/80 to-transparent z-20 pointer-events-none" />
-          <div className="rounded-t-2xl border border-border dark:border-white/[0.08] bg-white shadow-2xl shadow-black/10 dark:shadow-black/50 dark:ring-1 dark:ring-white/[0.06] overflow-hidden">
-            <div className="flex">
-              <div className="w-44 border-r border-gray-200 bg-white p-3 hidden md:flex flex-col">
+          <div className="w-full rounded-t-2xl border border-border dark:border-white/[0.08] bg-white shadow-2xl shadow-black/10 dark:shadow-black/50 dark:ring-1 dark:ring-white/[0.06] overflow-hidden">
+            <div className="flex min-w-0">
+              <div className="w-44 border-r border-gray-200 bg-white p-3 hidden md:flex flex-col shrink-0">
                 <div className="mb-5">
                   <img src="/lovable-uploads/logo-color.png" alt="Beta Ads" className="h-5 w-auto" />
                 </div>
@@ -599,20 +602,20 @@ export const SPHero: React.FC = () => {
                   );
                 })}
               </div>
-              <div className="flex-1 bg-gray-50">
-                <div className="flex items-center justify-between px-4 py-2.5 bg-white border-b border-gray-200">
-                  <div className="flex items-center gap-2 text-xs text-gray-500">
+              <div className="flex-1 min-w-0 bg-gray-50">
+                <div className="flex items-center justify-between px-4 py-2.5 bg-white border-b border-gray-200 gap-2">
+                  <div className="hidden sm:flex items-center gap-2 text-xs text-gray-500 shrink-0">
                     <span className="text-red-500 text-[9px] font-medium">Start Date</span>
                     <div className="px-2 py-0.5 border border-gray-200 rounded text-gray-700 bg-white text-[9px]">01/06/2026</div>
                     <span className="text-red-500 text-[9px] font-medium">End Date</span>
                     <div className="px-2 py-0.5 border border-gray-200 rounded text-gray-700 bg-white text-[9px]">03/22/2026</div>
                     <div className="px-2 py-0.5 bg-gray-100 rounded text-gray-700 text-[9px] font-medium">Apply</div>
                   </div>
-                  <div className="px-2.5 py-1 bg-red-500 text-white rounded-lg text-[9px] font-semibold flex items-center gap-1">
+                  <div className="px-2.5 py-1 bg-red-500 text-white rounded-lg text-[9px] font-semibold flex items-center gap-1 ml-auto shrink-0">
                     <Plus className="w-2.5 h-2.5" /> New Campaign
                   </div>
                 </div>
-                <div className="h-[520px] overflow-hidden">
+                <div className="h-[400px] sm:h-[520px] overflow-hidden">
                   <ActiveView />
                 </div>
               </div>

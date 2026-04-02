@@ -26,25 +26,31 @@ export const Footer: React.FC<FooterProps> = ({ t }) => (
           <p className="text-muted-foreground font-extralight leading-relaxed text-base tracking-wide">
             {t.footerDescription}
           </p>
+          {/* Use proper <a> tags so links are keyboard-navigable, crawlable, and accessible */}
           <div className="flex gap-4">
-            <span
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer text-sm font-light"
-              onClick={() => window.open("https://www.linkedin.com/company/beta-nordic", "_blank")}
+            <a
+              href="https://www.linkedin.com/company/beta-nordic"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light"
             >
               LinkedIn
-            </span>
-            <span
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200 cursor-pointer text-sm font-light"
-              onClick={() => window.open("https://discord.gg/hNgHCbQUvb", "_blank")}
+            </a>
+            <a
+              href="https://discord.gg/hNgHCbQUvb"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light"
             >
               Discord
-            </span>
+            </a>
           </div>
         </div>
 
         {/* Product */}
         <div className="space-y-6">
-          <h4 className="font-light tracking-widest text-sm uppercase text-muted-foreground/60">Product</h4>
+          {/* h3: highest heading level within the footer landmark — no h2 precedes these */}
+          <h3 className="font-light tracking-widest text-sm uppercase text-muted-foreground/60">Product</h3>
           <div className="space-y-3">
             <Link to="/how-it-works" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
               How It Works
@@ -63,7 +69,7 @@ export const Footer: React.FC<FooterProps> = ({ t }) => (
 
         {/* Resources */}
         <div className="space-y-6">
-          <h4 className="font-light tracking-widest text-sm uppercase text-muted-foreground/60">Resources</h4>
+          <h3 className="font-light tracking-widest text-sm uppercase text-muted-foreground/60">Resources</h3>
           <div className="space-y-3">
             <Link to="/blog" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
               Blog
@@ -79,7 +85,7 @@ export const Footer: React.FC<FooterProps> = ({ t }) => (
 
         {/* Contact */}
         <div className="space-y-6">
-          <h4 className="font-light tracking-widest text-sm uppercase text-muted-foreground/60">Get in Touch</h4>
+          <h3 className="font-light tracking-widest text-sm uppercase text-muted-foreground/60">Get in Touch</h3>
           <div className="space-y-3">
             <Link to="/demo" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
               Book a Demo

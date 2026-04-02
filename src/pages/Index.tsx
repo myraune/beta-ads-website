@@ -7,6 +7,8 @@ import { SPVideoShowcase } from "@/components/sections/SPVideoShowcase";
 import { SPUseCases } from "@/components/sections/SPUseCases";
 import { SPCTA } from "@/components/sections/SPCTA";
 import { SPFooter } from "@/components/sections/SPFooter";
+// SEO fix: FAQ section added so FAQPage JSON-LD schema matches visible page content
+import { HomepageFAQ } from "@/components/sections/HomepageFAQ";
 import { DecoCluster } from "@/components/ui/decorative-shapes";
 import { GeometricBackground } from "@/components/ui/shape-landing-hero";
 
@@ -42,7 +44,8 @@ const Index: React.FC = () => {
           },
         }}
       />
-      <main className="min-h-screen">
+      {/* Accessibility fix: Layout.tsx already provides <main> — nested <main> is invalid HTML (WCAG 1.3.6) */}
+      <div className="min-h-screen">
         <SPHero />
 <SPBrands />
 {/* Features + video — floating shapes add depth behind both sections */}
@@ -72,6 +75,7 @@ const Index: React.FC = () => {
           <SPUseCases />
         </div>
 
+
         {/* Gradient break — warm again behind CTA */}
         <div className="relative">
           <div
@@ -85,7 +89,7 @@ const Index: React.FC = () => {
         </div>
 
         <SPFooter />
-      </main>
+      </div>
     </>
   );
 };

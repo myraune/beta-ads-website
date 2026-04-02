@@ -16,7 +16,7 @@ export const StreamerCTA: React.FC = () => {
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
           <div className="max-w-xl">
-            <h2 className="text-2xl lg:text-3xl font-light text-foreground mb-3">
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-3">
               Ready to start earning?
             </h2>
             <p className="text-muted-foreground text-base">
@@ -32,7 +32,7 @@ export const StreamerCTA: React.FC = () => {
             >
               <Button
                 size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-sm font-light tracking-wide h-auto border-0 shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-12"
               >
                 Apply now
                 <ArrowRight className="ml-2 h-4 w-4" />

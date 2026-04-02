@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     question: "What's the minimum campaign budget?",
-    answer: "We work with budgets starting from €2,000 for single-market campaigns. Multi-market Nordic campaigns typically start at €5,000. Contact us for custom pricing based on your goals.",
+    answer: "Campaign budgets vary based on reach, duration, and market. Contact us directly for a custom quote — we'll match the right streamers and format to your goals and budget.",
   },
   {
     question: "How do you ensure brand safety?",
@@ -39,7 +39,7 @@ export const HomepageFAQ: React.FC = () => {
   const { ref: sectionRef, isVisible } = useScrollAnimation();
 
   return (
-    <section className="py-24 lg:py-32">
+    <section className="py-24 lg:py-32" aria-label="Frequently asked questions">
       <div 
         ref={sectionRef}
         className={`max-w-[800px] mx-auto px-6 lg:px-12 transition-[opacity,transform] duration-700 ${

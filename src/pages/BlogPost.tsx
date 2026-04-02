@@ -5,6 +5,7 @@ import { ArrowLeft, Calendar, Clock, Tag, Share2, Twitter, Linkedin, Facebook, L
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { getBlogPostBySlug, getRelatedPosts } from "@/data/blogPosts";
+import { getBlogImage } from "@/lib/blogImage";
 import { SEO } from "@/components/SEO";
 import { ReadingProgress } from "@/components/blog/ReadingProgress";
 import { TableOfContents, dashboardTocItems } from "@/components/blog/TableOfContents";
@@ -36,12 +37,9 @@ const SwedishStreamersDashboard = lazy(() => import("@/components/blog/SwedishSt
 const FinnishStreamersDashboard = lazy(() => import("@/components/blog/FinnishStreamersDashboard"));
 const GloriousCaseStudy = lazy(() => import("@/components/blog/GloriousCaseStudy"));
 const GokstadCaseStudy = lazy(() => import("@/components/blog/GokstadCaseStudy"));
+const ClippingEconomyDashboard = lazy(() => import("@/components/blog/ClippingEconomyDashboard"));
 
-interface BlogPostPageProps {
-  t: any;
-}
-
-const BlogPostPage: React.FC<BlogPostPageProps> = ({ t }) => {
+const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const post = slug ? getBlogPostBySlug(slug) : undefined;
@@ -111,15 +109,18 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t }) => {
         ]}
       />
 
-      <div className="pt-16 lg:pt-20">
+      <div className="pt-16 lg:pt-20 overflow-x-clip">
         <article>
           {/* Hero image — full width */}
-          {!post.hasDashboard && post.image && (
+          {!post.hasDashboard && (
             <div className="relative w-full h-48 md:h-72 lg:h-[360px] overflow-hidden bg-muted">
+              {/* fetchpriority="high": this is the LCP element on blog post pages — signals browser to load it early, improving Core Web Vitals score */}
               <img
-                src={post.image}
+                src={getBlogImage(post.slug)}
                 alt={post.title}
                 className="w-full h-full object-cover"
+                fetchPriority="high"
+                decoding="async"
               />
             </div>
           )}
@@ -161,6 +162,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t }) => {
                     {post.hasDashboard === "finnish-streamers" && <FinnishStreamersDashboard />}
                     {post.hasDashboard === "glorious-case-study" && <GloriousCaseStudy />}
                     {post.hasDashboard === "gokstad-case-study" && <GokstadCaseStudy />}
+                    {post.hasDashboard === "clipping-economy" && <ClippingEconomyDashboard />}
                   </Suspense>
                 ) : (
                   <div className="max-w-none">
@@ -271,7 +273,7 @@ const BlogPostPage: React.FC<BlogPostPageProps> = ({ t }) => {
               </div>
 
               {/* Sidebar — always visible on desktop */}
-              <aside className="hidden lg:block w-72 xl:w-80 shrink-0 self-start">
+              <aside className="hidden lg:block w-72 xl:w-80 shrink-0">
                 <div className="sticky top-24 flex flex-col gap-6 max-h-[calc(100vh-8rem)] overflow-y-auto">
                   {tocItems.length > 0 && <TableOfContents items={tocItems} />}
                   {isStreamerPost ? (

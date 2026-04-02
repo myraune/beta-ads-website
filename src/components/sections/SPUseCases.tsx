@@ -1,5 +1,7 @@
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 /* ── Count-up animation hook ── */
@@ -30,19 +32,133 @@ function useCountUp(target: string, isVisible: boolean) {
   return display;
 }
 
-/* ── Tilt card wrapper ── */
-const TiltCard: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = "" }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [style, setStyle] = useState<React.CSSProperties>({});
-  const onMove = (e: React.MouseEvent) => {
-    if (!ref.current) return;
-    const r = ref.current.getBoundingClientRect();
-    const x = (e.clientX - r.left) / r.width - 0.5;
-    const y = (e.clientY - r.top) / r.height - 0.5;
-    setStyle({ transform: `perspective(600px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) scale(1.02)`, transition: "transform 0.1s ease-out" });
-  };
-  const onLeave = () => setStyle({ transform: "perspective(600px) rotateY(0) rotateX(0) scale(1)", transition: "transform 0.4s ease-out" });
-  return <div ref={ref} style={style} onMouseMove={onMove} onMouseLeave={onLeave} className={className}>{children}</div>;
+/* ── Ad Format Carousel ── */
+const AdFormatCarousel: React.FC = () => {
+  const [active, setActive] = useState(0);
+  const [hovered, setHovered] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const n = adFormats.length;
+
+  const go = useCallback((dir: 1 | -1) => {
+    setActive(a => (a + dir + n) % n);
+  }, [n]);
+
+  const goTo = useCallback((idx: number) => setActive(idx), []);
+
+  useEffect(() => {
+    if (hovered) { if (timerRef.current) clearInterval(timerRef.current); return; }
+    timerRef.current = setInterval(() => go(1), 5000);
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [hovered, go]);
+
+  const fmt = adFormats[active];
+
+  // Each slide is 60% wide; we offset so active is centered with neighbours peeking in
+  const slideW = 60; // percent of container width
+  const gap = 2; // percent
+
+  return (
+    <div
+      className="relative w-full"
+      style={{ background: "hsl(var(--background))" }}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+    >
+      {/* Slides track */}
+      <div className="relative overflow-hidden" style={{ height: "min(420px, 45vw)" }}>
+        {adFormats.map((f, i) => {
+          // Position relative to active: -1, 0, +1, wrap around
+          let offset = i - active;
+          if (offset > n / 2) offset -= n;
+          if (offset < -n / 2) offset += n;
+
+          const xPercent = offset * (slideW + gap);
+          const isActive = offset === 0;
+
+          return (
+            <motion.div
+              key={f.image}
+              className="absolute top-0 rounded-2xl overflow-hidden cursor-pointer"
+              style={{ width: `${slideW}%`, height: "100%", left: "20%" }}
+              animate={{
+                x: `${xPercent}%`,
+                scale: isActive ? 1 : 0.92,
+                filter: isActive ? "brightness(1)" : "brightness(0.45)",
+                zIndex: isActive ? 10 : 5,
+              }}
+              transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
+              onClick={() => !isActive && goTo(i)}
+            >
+              {/* Blurred backdrop fills the letterbox gaps */}
+              <img
+                src={f.image}
+                alt=""
+                aria-hidden
+                className="absolute inset-0 w-full h-full object-cover scale-110"
+                style={{ filter: "blur(24px) brightness(0.4)" }}
+              />
+              {/* Actual image — full format visible */}
+              <img
+                src={f.image}
+                alt={f.name}
+                className="relative w-full h-full object-contain"
+              />
+            </motion.div>
+          );
+        })}
+      </div>
+
+      {/* Info + controls below the track */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={fmt.name}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -6 }}
+            transition={{ duration: 0.25 }}
+          >
+            <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">Ad Format</p>
+            {/* h4: nested under section h3 "6 formats. Zero adblock." — fixes h2>h3>h3 hierarchy skip */}
+            <h4 className="text-2xl md:text-3xl font-light tracking-tight text-foreground">{fmt.name}</h4>
+            <p className="text-sm text-muted-foreground mt-1 max-w-sm">{fmt.desc}</p>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Arrows + dots — aria-labels added for screen reader accessibility */}
+        <div className="flex items-center gap-4 shrink-0">
+          <button
+            onClick={() => go(-1)}
+            aria-label="Previous ad format"
+            className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-muted transition-colors"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <div className="flex items-center gap-1.5" role="tablist" aria-label="Ad format slides">
+            {adFormats.map((f, i) => (
+              <button
+                key={i}
+                onClick={() => goTo(i)}
+                role="tab"
+                aria-selected={i === active}
+                aria-label={`Show ${f.name} ad format`}
+                className={`rounded-full transition-all duration-300 ${
+                  i === active ? "w-5 h-1.5 bg-foreground" : "w-1.5 h-1.5 bg-muted-foreground/30 hover:bg-muted-foreground/60"
+                }`}
+              />
+            ))}
+          </div>
+          <button
+            onClick={() => go(1)}
+            aria-label="Next ad format"
+            className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-muted transition-colors"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 /* ── Platform data ── */
@@ -143,18 +259,20 @@ export const SPUseCases: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   return (
-    <section ref={ref} className="py-20 md:py-32" aria-label="Platforms and ad formats">
+    <section ref={ref} className="pt-20 md:pt-32 pb-0 relative" aria-label="Platforms and ad formats">
+      {/* Red depth glow behind the ad format carousel */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 overflow-hidden" style={{ height: "600px" }} aria-hidden>
+        <div className="absolute left-1/2 bottom-[10%] -translate-x-1/2 w-[120%] h-full rounded-full" style={{ background: "radial-gradient(ellipse at center, rgba(233,79,55,0.30) 0%, rgba(233,79,55,0.12) 45%, transparent 70%)" }} />
+      </div>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 
         {/* ── Header ── */}
-        <div className={`text-center max-w-3xl mx-auto mb-4 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary mb-5">
-            Platform Reach
-          </span>
-          <h2 className="text-4xl md:text-5xl font-light tracking-tight text-foreground mb-4">
-            39,445 streamers.<br />4 platforms. One dashboard.
+        <div className={`mb-4 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Platform Reach</span>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-3 max-w-xl">
+            39,445 streamers. 4 platforms. One dashboard.
           </h2>
-          <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
+          <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
             Browse recently active streamers across all major platforms and launch native overlay ads from a single dashboard.
           </p>
         </div>
@@ -171,38 +289,22 @@ export const SPUseCases: React.FC = () => {
         <div className={`border-t border-border my-16 transition-all duration-700 delay-300 ${isVisible ? "opacity-100" : "opacity-0"}`} />
 
         {/* ── Ad Formats header ── */}
-        <div className={`text-center max-w-3xl mx-auto mb-12 transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary mb-5">
-            Ad Formats
-          </span>
-          <h2 className="text-4xl md:text-5xl font-light tracking-tight text-foreground mb-4">
+        <div className={`mb-12 transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Ad Formats</span>
+          {/* h3: sub-section within same page section — preserves h1 > h2 > h3 heading hierarchy */}
+          <h3 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-3 max-w-xl">
             6 formats. Zero adblock.
-          </h2>
-          <p className="text-muted-foreground leading-relaxed max-w-xl mx-auto">
+          </h3>
+          <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
             Every format renders directly inside the stream — invisible to blockers, impossible to skip.
           </p>
         </div>
 
-        {/* ── Ad format cards ── */}
-        <div className={`grid grid-cols-2 md:grid-cols-3 gap-4 transition-all duration-700 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          {adFormats.map((format) => (
-            <TiltCard key={format.name}>
-              <div className="group rounded-2xl border border-border bg-card overflow-hidden hover:shadow-lg hover:border-primary/20 transition-all duration-300">
-                <div className="aspect-video overflow-hidden bg-muted">
-                  <img
-                    src={format.image}
-                    alt={`${format.name} ad format demo`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-4">
-                  <p className="text-sm font-semibold text-foreground">{format.name}</p>
-                  <p className="text-xs text-muted-foreground mt-0.5">{format.desc}</p>
-                </div>
-              </div>
-            </TiltCard>
-          ))}
-        </div>
+      </div>
+
+      {/* ── Ad format carousel — full bleed, outside max-w container ── */}
+      <div className={`transition-all duration-700 delay-400 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+        <AdFormatCarousel />
       </div>
     </section>
   );

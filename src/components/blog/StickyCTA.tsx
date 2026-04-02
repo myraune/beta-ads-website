@@ -77,7 +77,7 @@ export const StickyCTA: React.FC<StickyCTAProps> = ({ language }) => {
   const t = ctaTranslations[language as keyof typeof ctaTranslations] || ctaTranslations.en;
 
   return (
-    <div className="sticky top-24 p-6 rounded-2xl bg-card/60 backdrop-blur-sm border border-border/50 shadow-lg shadow-black/5">
+    <div className="p-6 rounded-2xl bg-card/60 backdrop-blur-sm border border-border/50 shadow-lg shadow-black/5">
       <h3 className="text-lg font-semibold text-foreground mb-2">
         {t.headline}
       </h3>
@@ -117,7 +117,7 @@ export const StreamerStickyCTA: React.FC<StickyCTAProps> = ({ language }) => {
   const t = streamerCtaTranslations[language as keyof typeof streamerCtaTranslations] || streamerCtaTranslations.en;
 
   return (
-    <div className="sticky top-24 rounded-2xl overflow-hidden border border-border/50 shadow-lg shadow-black/5">
+    <div className="rounded-2xl overflow-hidden border border-border/50 shadow-lg shadow-black/5">
       <div className="bg-gradient-to-br from-primary to-primary/80 p-5">
         <span className="inline-block text-xs font-semibold bg-white/20 text-white px-2.5 py-0.5 rounded-full mb-3">
           {t.badge}

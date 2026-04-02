@@ -2,6 +2,7 @@ import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Search, ArrowRight, X } from "lucide-react";
 import { blogPosts } from "@/data/blogPosts";
+import { getBlogImage } from "@/lib/blogImage";
 import { Input } from "@/components/ui/input";
 import { SEO } from "@/components/SEO";
 import { SPFooter } from "@/components/sections/SPFooter";
@@ -69,13 +70,14 @@ const Blog: React.FC = () => {
               reach Gen Z through native stream advertising.
             </p>
 
-            {/* Filters */}
+            {/* Filters — aria-label + aria-pressed so screen readers announce active filter */}
             <div className="mt-10 flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
-              <div className="flex flex-wrap gap-5">
+              <div className="flex flex-wrap gap-5" role="group" aria-label="Filter articles by category">
                 {categories.map((cat) => (
                   <button
                     key={cat.id}
                     onClick={() => setActiveCategory(cat.id)}
+                    aria-pressed={activeCategory === cat.id}
                     className={`text-sm font-medium pb-1.5 border-b-2 transition-all ${
                       activeCategory === cat.id
                         ? "text-foreground border-primary"
@@ -109,7 +111,7 @@ const Blog: React.FC = () => {
             </div>
           </div>
 
-          {/* Posts grid */}
+          {/* Posts */}
           {filteredPosts.length === 0 ? (
             <div className="text-center py-20">
               <p className="text-lg text-muted-foreground mb-2">
@@ -126,53 +128,74 @@ const Blog: React.FC = () => {
               </button>
             </div>
           ) : (
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredPosts.map((post) => (
-                <Link
-                  to={`/blog/${post.slug}`}
-                  key={post.id}
-                  className="group"
-                >
-                  <article>
-                    <div className="aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-muted">
-                      {post.image ? (
-                        <img
-                          src={post.image}
-                          alt={post.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          loading="lazy"
-                        />
-                      ) : (
-                        <div className="w-full h-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
-                          <span className="text-xs text-muted-foreground">
-                            Beta Ads Blog
-                          </span>
-                        </div>
-                      )}
+            <>
+              {/* Featured first post */}
+              {filteredPosts.length > 0 && (
+                <Link to={`/blog/${filteredPosts[0].slug}`} className="group block mb-14">
+                  <article className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+                    <div className="aspect-[16/9] rounded-2xl overflow-hidden bg-muted">
+                      <img
+                        src={getBlogImage(filteredPosts[0].slug)}
+                        alt={filteredPosts[0].title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        loading="eager"
+                      />
                     </div>
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-[11px] font-semibold text-primary">
-                        {post.category}
+                    <div>
+                      <div className="flex items-center gap-2 mb-4">
+                        <span className="text-xs font-semibold text-primary">{filteredPosts[0].category}</span>
+                        <span className="text-xs text-muted-foreground">· {filteredPosts[0].date}</span>
+                        {filteredPosts[0].readTime && (
+                          <span className="text-xs text-muted-foreground">· {filteredPosts[0].readTime}</span>
+                        )}
+                      </div>
+                      <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-4 group-hover:text-primary transition-colors leading-snug">
+                        {filteredPosts[0].title}
+                      </h2>
+                      <p className="text-base text-muted-foreground leading-relaxed line-clamp-3 mb-5">
+                        {filteredPosts[0].excerpt}
+                      </p>
+                      <span className="inline-flex items-center gap-1.5 text-sm font-medium text-primary">
+                        Read article <ArrowRight className="w-3.5 h-3.5" />
                       </span>
-                      <span className="text-[11px] text-muted-foreground">
-                        · {post.date}
-                      </span>
-                      {post.readTime && (
-                        <span className="text-[11px] text-muted-foreground">
-                          · {post.readTime}
-                        </span>
-                      )}
                     </div>
-                    <h2 className="text-base font-bold text-foreground mb-1.5 group-hover:text-primary transition-colors leading-snug">
-                      {post.title}
-                    </h2>
-                    <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
-                      {post.excerpt}
-                    </p>
                   </article>
                 </Link>
-              ))}
-            </div>
+              )}
+
+              {/* Remaining posts grid */}
+              {filteredPosts.length > 1 && (
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 border-t border-border pt-14">
+                  {filteredPosts.slice(1).map((post) => (
+                    <Link to={`/blog/${post.slug}`} key={post.id} className="group">
+                      <article>
+                        <div className="aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-muted">
+                          <img
+                            src={getBlogImage(post.slug)}
+                            alt={post.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            loading="lazy"
+                          />
+                        </div>
+                        <div className="flex items-center gap-2 mb-2">
+                          <span className="text-[11px] font-semibold text-primary">{post.category}</span>
+                          <span className="text-[11px] text-muted-foreground">· {post.date}</span>
+                          {post.readTime && (
+                            <span className="text-[11px] text-muted-foreground">· {post.readTime}</span>
+                          )}
+                        </div>
+                        <h2 className="text-base font-bold text-foreground mb-1.5 group-hover:text-primary transition-colors leading-snug">
+                          {post.title}
+                        </h2>
+                        <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
+                          {post.excerpt}
+                        </p>
+                      </article>
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>

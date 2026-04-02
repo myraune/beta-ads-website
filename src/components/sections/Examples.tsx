@@ -15,6 +15,7 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [activeVideoId, setActiveVideoId] = useState<string | null>(null);
+  const [activeVideoLabel, setActiveVideoLabel] = useState<string>("");
 
   useEffect(() => {
     if (!api) {
@@ -52,12 +53,17 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
             <CarouselContent className="-ml-1 md:-ml-2">
               {caseVideos.map((video) => (
                 <CarouselItem key={video.id} className="pl-1 md:pl-2 basis-full">
+                  {/* Accessibility fix: role="button" + tabIndex + onKeyDown make video cards keyboard-accessible */}
                   <motion.div
                     className="relative rounded-xl overflow-hidden bg-[#11111198] shadow-[0_0_20px_rgba(0,0,0,0.2)] backdrop-blur-sm cursor-pointer group"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    onClick={() => setActiveVideoId(video.id)}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Play video: ${video.brand} — ${video.title}`}
+                    onClick={() => { setActiveVideoId(video.id); setActiveVideoLabel(`${video.brand} — ${video.title}`); }}
+                    onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setActiveVideoId(video.id); setActiveVideoLabel(`${video.brand} — ${video.title}`); } }}
                   >
                     <div className="aspect-video rounded-lg overflow-hidden bg-black relative">
                       <img
@@ -100,11 +106,13 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
             <CarouselNext className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -right-1 md:-right-3 h-10 w-10 transition-[transform,box-shadow] duration-300 hover:scale-110 hover:shadow-lg" />
           </Carousel>
 
-          {/* Dot indicators */}
+          {/* Dot indicators — aria-label + aria-current added for accessibility */}
           <div className="flex justify-center mt-6 space-x-2">
-            {caseVideos.map((_, index) => (
+            {caseVideos.map((video, index) => (
               <button
                 key={index}
+                aria-label={`Go to slide ${index + 1}: ${video.brand} — ${video.title}`}
+                aria-current={index === current ? "true" : undefined}
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                   index === current
                     ? 'bg-primary shadow-lg scale-125'
@@ -129,7 +137,7 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
       {/* Video Modal */}
       <Dialog open={!!activeVideoId} onOpenChange={(open) => !open && setActiveVideoId(null)}>
         <DialogContent className="max-w-5xl w-[95vw] p-0 bg-transparent border-none overflow-hidden shadow-none">
-          <DialogTitle className="sr-only">Case Study Video</DialogTitle>
+          <DialogTitle className="sr-only">{activeVideoLabel || "Case Study Video"}</DialogTitle>
           <DialogDescription className="sr-only">Watch the full campaign video</DialogDescription>
           <AnimatePresence>
             {activeVideoId && (
