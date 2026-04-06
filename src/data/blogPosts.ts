@@ -8742,6 +8742,7 @@ Ta kontakt for en gratis demo og se hvordan Beta Ads Dashboard gir deg full over
     dateISO: "2026-04-02",
     readTime: "9 min read",
     image: "/lovable-uploads/blog-twitch-overview.webp",
+    hasDashboard: "twitch-analytics-tools",
     category: "Guider",
     tags: ["twitch-statistikk", "analytics", "verktøy", "twitch", "annonsering", "nordisk", "tracking"],
     relatedSlugs: ["twitch-statistics-2025-global-insights", "twitch-advertising-benchmarks-2025", "norwegian-twitch-streamers-2025-analytics"],

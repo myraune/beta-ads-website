@@ -1,133 +1,236 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+const stats = [
+  { value: "137K+", label: "Total views" },
+  { value: "25", label: "Creators" },
+  { value: "112", label: "Categories" },
+  { value: "3", label: "Countries" },
+];
+
+const results = [
+  { value: "137K+", label: "Total views" },
+  { value: "25", label: "Creators participated" },
+  { value: "112", label: "Live stream categories" },
+  { value: "3", label: "Countries (FI, NO, SE)" },
+];
 
 const GloriousCaseStudy: React.FC = () => {
-  return (
-    <div className="space-y-8">
-      {/* Header Cover */}
-      <img
-        src="https://storage.googleapis.com/livad-blog/3292/3669942.gif"
-        alt="Glorious campaign header"
-        className="w-full h-auto rounded-xl"
-      />
+  const { ref: bodyRef, isVisible: bodyVisible } = useScrollAnimation<HTMLDivElement>();
+  const { ref: solutionRef, isVisible: solutionVisible } = useScrollAnimation<HTMLDivElement>();
+  const { ref: resultsRef, isVisible: resultsVisible } = useScrollAnimation<HTMLDivElement>();
 
-      {/* Challenge Section */}
-      <section>
-        <h2 className="text-2xl font-bold text-foreground border-b-2 border-border pb-3 mb-6">
-          Challenge
-        </h2>
-        <p className="text-muted-foreground leading-relaxed text-lg">
-          How Glorious Empowered the Nordic Gaming Community with Beta's Rich Media
-          Overlays. Glorious O3 Mouse NO, a global leader in high-performance PC gaming peripherals,
-          has consistently delighted customers with its focus on ergonomic excellence and
-          cutting-edge hardware. In the competitive landscape of gaming gear, Glorious has
-          stood out for its unique ability to blend enthusiast-grade quality with accessible
-          design, catering to the needs of professional players and casual hobbyists alike
-          through an expansive portfolio of products.
-        </p>
-        <p className="text-muted-foreground leading-relaxed text-lg mt-4">
-          The goal was to promote the new Glorious O3 mouse while maintaining a strong
-          presence in the competitive Northern European gaming market. Glorious aimed to
-          build awareness and boost giveaway entries, but standard digital ads often struggle
-          with tech-savvy gamers. This audience frequently uses ad-blockers and prefers native
-          content over intrusive formats.
-        </p>
+  return (
+    <div>
+      {/* ── HERO ── */}
+      <style>{`
+        @keyframes glorious-glow {
+          0%   { opacity: 0.6; transform: scale(1); }
+          100% { opacity: 1;   transform: scale(1.1); }
+        }
+      `}</style>
+      <section className="relative overflow-clip" style={{ background: "hsl(240 11% 5%)" }}>
+        <div className="absolute inset-0 pointer-events-none" aria-hidden>
+          <div className="absolute inset-0" style={{
+            background: "radial-gradient(ellipse 80% 60% at 65% 35%, rgba(233,79,55,0.18) 0%, transparent 60%)",
+            animation: "glorious-glow 10s ease-in-out infinite alternate",
+            willChange: "opacity, transform",
+          }} />
+        </div>
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 md:pt-36 pb-20">
+          <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white/80 transition-colors mb-10">
+            <ArrowLeft className="w-4 h-4" /> Back to campaigns
+          </Link>
+
+          <div className="max-w-3xl">
+            <div className="flex items-center gap-3 mb-6">
+              <img src="/lovable-uploads/logo-glorious.png" alt="Glorious" className="h-6 w-auto object-contain" style={{ filter: "brightness(0) invert(1)", opacity: 0.7 }} />
+              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/70 tracking-wider uppercase">Case Study</span>
+            </div>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
+              Glorious<br />
+              <span style={{ fontFamily: "'Instrument Serif', serif" }} className="italic font-normal">× Beta Ads</span>
+            </h1>
+            <p className="text-lg text-white/60 leading-relaxed max-w-xl">
+              How Glorious reached the Nordic gaming community with native rich media overlays to promote the O3 mouse across Finland, Norway, and Sweden.
+            </p>
+          </div>
+
+          {/* Stat strip */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-16 border border-white/10 rounded-2xl overflow-hidden bg-white/10">
+            {stats.map((s) => (
+              <div key={s.label} className="bg-black/30 backdrop-blur-sm px-6 py-5">
+                <div className="text-2xl font-bold text-white tracking-tight">{s.value}</div>
+                <div className="text-xs text-white/50 mt-0.5">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
-      {/* Solution Section */}
-      <section>
-        <h2 className="text-2xl font-bold text-foreground border-b-2 border-border pb-3 mb-6">
-          Solution
-        </h2>
-        
-        {/* GIF Gallery */}
-        <div className="flex flex-col md:flex-row gap-4 justify-center my-8">
+      {/* ── HEADER IMAGE ── */}
+      <section className="border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <img
-            src="https://storage.googleapis.com/livad-blog/3292/3637484.gif"
-            alt="Campaign GIF Left Column"
-            className="w-full md:w-[48%] rounded-lg shadow-lg shadow-black/10"
-          />
-          <img
-            src="https://storage.googleapis.com/livad-blog/3292/3644839.gif"
-            alt="Campaign GIF Right Column"
-            className="w-full md:w-[48%] rounded-lg shadow-lg shadow-black/10"
+            src="https://storage.googleapis.com/livad-blog/3292/3669942.gif"
+            alt="Glorious O3 Mouse campaign overlay on Twitch stream"
+            className="w-full h-auto rounded-2xl"
           />
         </div>
-
-        <p className="text-muted-foreground leading-relaxed text-lg">
-          Glorious used Beta's Rich Media Overlays to connect with audiences across Finland,
-          Norway, and Sweden. The team implemented a scalable, automated sponsorship model
-          featuring localized creative assets in Finnish, Norwegian, and English. These sleek
-          overlays appeared naturally during live broadcasts, prompting viewers to explore the
-          mouse and join the giveaway through a link in the streamer's banner. By collaborating
-          with 25 creators, Glorious shared its message during high-engagement moments across
-          112 categories without interrupting the viewing experience.
-        </p>
       </section>
 
-      {/* Impact Section */}
-      <section>
-        <h2 className="text-2xl font-bold text-foreground border-b-2 border-border pb-3 mb-6">
-          Impact
-        </h2>
-        <p className="text-muted-foreground leading-relaxed text-lg mb-6">
-          This international campaign successfully established a multi-market presence across
-          the Nordic region. The message reached gamers in 112 different live stream categories,
-          ensuring Glorious found its audience regardless of what they watched. Using Beta's automated
-          distribution allowed the brand to keep a consistent voice while meeting local linguistic
-          needs. This approach bypassed traditional advertising hurdles and generated significant
-          engagement for the product launch.
-        </p>
-
-        {/* Performance Analysis Image */}
-        <img
-          src="https://storage.googleapis.com/livad-blog/3292/analysis_campaigns_3292_3315_3317.png"
-          alt="Campaign Performance Analysis"
-          className="w-full h-auto rounded-lg my-6"
-        />
-      </section>
-
-      {/* Results Section */}
-      <section>
-        <h2 className="text-2xl font-bold text-foreground border-b-2 border-border pb-3 mb-6">
-          Results
-        </h2>
-        
-        {/* Results List */}
-        <ul className="space-y-3 mb-8">
-          <li className="text-lg text-muted-foreground flex items-start gap-3">
-            <span className="text-primary font-bold text-2xl leading-none">•</span>
-            <span><strong className="text-foreground">137K+</strong> Total Views</span>
-          </li>
-          <li className="text-lg text-muted-foreground flex items-start gap-3">
-            <span className="text-primary font-bold text-2xl leading-none">•</span>
-            <span><strong className="text-foreground">25</strong> Creators Participated</span>
-          </li>
-          <li className="text-lg text-muted-foreground flex items-start gap-3">
-            <span className="text-primary font-bold text-2xl leading-none">•</span>
-            <span><strong className="text-foreground">112</strong> Categories</span>
-          </li>
-          <li className="text-lg text-muted-foreground flex items-start gap-3">
-            <span className="text-primary font-bold text-2xl leading-none">•</span>
-            <span><strong className="text-foreground">3 Countries</strong> Reached (Finland, Norway, Sweden)</span>
-          </li>
-        </ul>
-
-        <p className="text-muted-foreground leading-relaxed text-lg mb-8">
-          Reach your target audience with fun and engaging virtual experiences, start today.
-        </p>
-
-        {/* Video Container */}
-        <div className="relative w-full pb-[56.25%] h-0 overflow-hidden bg-black rounded-xl">
-          <video 
-            controls 
-            className="absolute top-0 left-0 w-full h-full"
+      {/* ── CHALLENGE ── */}
+      <section className="py-20 md:py-28 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div
+            ref={bodyRef}
+            className={`grid lg:grid-cols-2 gap-16 items-start transition-all duration-700 ${bodyVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           >
-            <source
-              src="https://storage.googleapis.com/livad-blog/3292/combined_campaign_3292_20260127_010350.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
+            <div>
+              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">The Challenge</span>
+              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
+                Reaching gamers who block everything
+              </h2>
+              <p className="text-base text-muted-foreground leading-relaxed mb-4">
+                Glorious needed to promote the new O3 mouse to tech-savvy gamers across the Nordics — an audience that blocks pre-roll ads on sight and has learned to ignore banner placements entirely.
+              </p>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                Standard digital formats couldn't penetrate this audience. Glorious needed something that felt native to the stream, was invisible to adblock software, and could scale across three languages and three markets simultaneously.
+              </p>
+            </div>
+            <div className="space-y-4 pt-2">
+              {[
+                { label: "Target markets", value: "Finland, Norway, Sweden" },
+                { label: "Product", value: "Glorious O3 Mouse" },
+                { label: "Primary challenge", value: "Adblock-heavy gaming audience" },
+                { label: "Format used", value: "Rich Media Overlays" },
+              ].map((row) => (
+                <div key={row.label} className="flex justify-between items-baseline py-3 border-b border-border last:border-0">
+                  <span className="text-sm text-muted-foreground">{row.label}</span>
+                  <span className="text-sm font-semibold text-foreground">{row.value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SOLUTION / GIFs ── */}
+      <section className="py-20 md:py-28 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div
+            ref={solutionRef}
+            className={`transition-all duration-700 ${solutionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+          >
+            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">The Solution</span>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4 max-w-2xl">
+              Localised overlays across 25 creators, 3 markets
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-12">
+              Beta deployed rich media overlay ads across 25 Nordic streamers. Creative assets were localised in Finnish, Norwegian, and English — appearing naturally during live broadcasts and prompting viewers to explore the O3 mouse through a link in the streamer's banner.
+            </p>
+
+            {/* Full-width GIF duo */}
+            <div className="grid md:grid-cols-2 gap-5 mb-5">
+              <img
+                src="https://storage.googleapis.com/livad-blog/3292/3637484.gif"
+                alt="Glorious O3 overlay – Norwegian stream"
+                className="w-full h-auto rounded-2xl"
+              />
+              <img
+                src="https://storage.googleapis.com/livad-blog/3292/3644839.gif"
+                alt="Glorious O3 overlay – Finnish stream"
+                className="w-full h-auto rounded-2xl"
+              />
+            </div>
+
+            <p className="text-sm text-muted-foreground mt-4">
+              By collaborating with 25 creators across 112 categories, Glorious reached its audience regardless of what game they were watching — without interrupting the experience.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── PERFORMANCE ANALYSIS ── */}
+      <section className="py-20 md:py-28 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Campaign Data</span>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-10">Performance breakdown</h2>
+          <img
+            src="https://storage.googleapis.com/livad-blog/3292/analysis_campaigns_3292_3315_3317.png"
+            alt="Campaign performance analysis across Finland, Norway, Sweden"
+            className="w-full h-auto rounded-2xl"
+          />
+        </div>
+      </section>
+
+      {/* ── RESULTS ── */}
+      <section
+        ref={resultsRef}
+        className={`py-20 md:py-28 border-t border-border transition-all duration-700 ${resultsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div>
+              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Impact</span>
+              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
+                A multi-market presence, built in one campaign
+              </h2>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                The international campaign established Glorious across three Nordic markets simultaneously. The message reached gamers in 112 different live stream categories — gaming, IRL, Just Chatting — bypassing traditional advertising hurdles and generating significant engagement for the O3 launch.
+              </p>
+            </div>
+            <div>
+              <div className="grid grid-cols-2 gap-px rounded-2xl overflow-hidden bg-border">
+                {results.map((s) => (
+                  <div key={s.label} className="bg-background px-6 py-5">
+                    <div className="text-2xl font-bold text-foreground tracking-tight">{s.value}</div>
+                    <div className="text-xs text-muted-foreground mt-0.5">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── VIDEO ── */}
+      <section className="border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Campaign Footage</span>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-8">See it live on stream</h2>
+          <div className="relative w-full rounded-2xl overflow-hidden bg-black" style={{ aspectRatio: "16/9" }}>
+            <video controls className="absolute inset-0 w-full h-full">
+              <source src="https://storage.googleapis.com/livad-blog/3292/combined_campaign_3292_20260127_010350.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
+            <div>
+              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Run a Similar Campaign</span>
+              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">Reach Nordic gamers natively</h2>
+            </div>
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12 shrink-0">
+              <Link to="/contact">Book a demo <ArrowRight className="ml-2 w-4 h-4" /></Link>
+            </Button>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 border-t border-border pt-6">
+            {stats.map((s, i) => (
+              <div key={s.label} className={`py-4 ${i < 3 ? "pr-6 border-r border-border" : ""} ${i > 0 ? "pl-6" : ""}`}>
+                <div className="text-2xl font-bold text-foreground tracking-tight">{s.value}</div>
+                <div className="text-xs text-muted-foreground mt-1">{s.label}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>

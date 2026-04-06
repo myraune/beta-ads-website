@@ -58,12 +58,12 @@ export const MarketingPageLayout: React.FC<MarketingPageLayoutProps> = ({
       {/* ── End-of-page CTA ── */}
       <section className="py-20 md:py-28 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="rounded-3xl bg-foreground text-background p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="rounded-3xl border border-border p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-3">
                 {cta.heading}
               </h2>
-              <p className="text-background/60 max-w-md text-sm leading-relaxed">
+              <p className="text-muted-foreground max-w-md text-sm leading-relaxed">
                 {cta.subtext}
               </p>
             </div>
@@ -82,7 +82,7 @@ export const MarketingPageLayout: React.FC<MarketingPageLayoutProps> = ({
                   <Button
                     size="lg"
                     variant="ghost"
-                    className="text-background hover:bg-background/10 rounded-full px-8 border border-background/20"
+                    className="text-foreground hover:bg-muted rounded-full px-8 border border-border"
                   >
                     {cta.secondaryLabel}
                   </Button>

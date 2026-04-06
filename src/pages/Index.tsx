@@ -9,8 +9,6 @@ import { SPCTA } from "@/components/sections/SPCTA";
 import { SPFooter } from "@/components/sections/SPFooter";
 // SEO fix: FAQ section added so FAQPage JSON-LD schema matches visible page content
 import { HomepageFAQ } from "@/components/sections/HomepageFAQ";
-import { DecoCluster } from "@/components/ui/decorative-shapes";
-import { GeometricBackground } from "@/components/ui/shape-landing-hero";
 
 const Index: React.FC = () => {
   return (
@@ -48,45 +46,10 @@ const Index: React.FC = () => {
       <div className="min-h-screen">
         <SPHero />
 <SPBrands />
-{/* Features + video — floating shapes add depth behind both sections */}
-        <div className="relative">
-          {/* Clip only the background shapes, not the whole section (overflow-hidden breaks sticky) */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <GeometricBackground />
-          </div>
-          <SPFeatures />
-          <SPVideoShowcase />
-        </div>
-
-        {/* Gradient break — cool mint/teal tint behind platforms */}
-        <div className="relative">
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                "radial-gradient(ellipse 100% 50% at 60% 50%, hsl(170 50% 50% / 0.05) 0%, transparent 60%)",
-            }}
-          />
-          <div
-            className="absolute top-1/3 left-1/4 w-72 h-72 rounded-full pointer-events-none opacity-[0.03] blur-3xl"
-            style={{ background: "hsl(357 70% 55%)" }}
-          />
-          <DecoCluster position="center-right" variant="mint" />
-          <SPUseCases />
-        </div>
-
-
-        {/* Gradient break — warm again behind CTA */}
-        <div className="relative">
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                "radial-gradient(ellipse 80% 60% at 50% 60%, hsl(357 70% 60% / 0.06) 0%, transparent 60%)",
-            }}
-          />
-          <SPCTA />
-        </div>
+        <SPFeatures />
+        <SPVideoShowcase />
+        <SPUseCases />
+        <SPCTA />
 
         <SPFooter />
       </div>

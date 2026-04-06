@@ -38,6 +38,7 @@ const FinnishStreamersDashboard = lazy(() => import("@/components/blog/FinnishSt
 const GloriousCaseStudy = lazy(() => import("@/components/blog/GloriousCaseStudy"));
 const GokstadCaseStudy = lazy(() => import("@/components/blog/GokstadCaseStudy"));
 const ClippingEconomyDashboard = lazy(() => import("@/components/blog/ClippingEconomyDashboard"));
+const TwitchAnalyticsToolsDashboard = lazy(() => import("@/components/blog/TwitchAnalyticsToolsDashboard"));
 
 const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -69,6 +70,7 @@ const BlogPostPage: React.FC = () => {
 
   const autoTocItems = useMemo(() => extractTocFromMarkdown(post.content), [post.content]);
   const tocItems = post.hasDashboard ? dashboardTocItems[post.hasDashboard] || [] : autoTocItems;
+  const wideLayout = post.hasDashboard === "twitch-analytics-tools";
 
   return (
     <>
@@ -125,7 +127,7 @@ const BlogPostPage: React.FC = () => {
             </div>
           )}
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={`${wideLayout ? 'max-w-[1400px]' : 'max-w-7xl'} mx-auto px-4 sm:px-6 lg:px-8`}>
             {/* Back link */}
             <div className="py-6">
               <Link to="/blog" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
@@ -147,7 +149,15 @@ const BlogPostPage: React.FC = () => {
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed border-l-4 border-primary/30 pl-4">{post.excerpt}</p>
             </div>
 
-            {/* Content + Sidebar */}
+            {/* Wide layout: no sidebar, full width dashboard */}
+            {wideLayout ? (
+              <div className="pb-12">
+                <Suspense fallback={<div className="text-center py-12 text-muted-foreground">Loading dashboard...</div>}>
+                  <TwitchAnalyticsToolsDashboard />
+                </Suspense>
+              </div>
+            ) : (
+            /* Content + Sidebar */
             <div className="flex gap-10 xl:gap-14 pb-12">
               <div className="flex-1 min-w-0">
                 {post.hasDashboard ? (
@@ -284,6 +294,7 @@ const BlogPostPage: React.FC = () => {
                 </div>
               </aside>
             </div>
+            )}
 
             {/* Tags + Share */}
             <div className="border-t border-border/50 pt-8 pb-12">
@@ -307,7 +318,7 @@ const BlogPostPage: React.FC = () => {
 
         {/* Related posts */}
         {relatedPosts.length > 0 && (
-          <section className="py-16 lg:py-20 px-4 bg-muted/30">
+          <section className="py-16 lg:py-20 px-4 border-t border-border">
             <div className="max-w-6xl mx-auto">
               <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-8 text-center">Related Articles</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -34,7 +34,7 @@ const VideoCard: React.FC<{
   };
 
   return (
-    <div className="rounded-2xl overflow-hidden border border-border bg-card shadow-lg group hover:shadow-xl transition-shadow duration-500">
+    <div className="rounded-2xl overflow-hidden border border-border shadow-lg group hover:shadow-xl transition-shadow duration-500">
       {/* role/aria-label/onKeyDown added so keyboard users and screen readers can toggle playback */}
       <div
         className="relative aspect-video bg-muted cursor-pointer"
@@ -394,7 +394,7 @@ export const SPVideoShowcase: React.FC = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary mb-4">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
             See It Live
           </span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
@@ -424,7 +424,7 @@ export const SPVideoShowcase: React.FC = () => {
           {[
             { value: "500K+", label: "completed views" },
             { value: "2.93%", label: "avg CTR" },
-            { value: "3,819", label: "verified clicks" },
+            { value: "14,642", label: "link clicks" },
             { value: "43", label: "streamers" },
             { value: "0%", label: "adblock rate" },
           ].map((s) => (
@@ -449,7 +449,7 @@ export const SPVideoShowcase: React.FC = () => {
           />
 
           {/* AI clipping detail card */}
-          <div className="rounded-2xl border border-border bg-card p-6 flex flex-col justify-between">
+          <div className="rounded-2xl border border-border p-6 flex flex-col justify-between">
             <div>
               <div className="text-primary mb-4 text-2xl font-bold tracking-tight">AI</div>
               <h3 className="text-xl font-semibold text-foreground mb-3">

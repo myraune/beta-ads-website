@@ -507,7 +507,8 @@ export const SPHero: React.FC = () => {
           className="absolute inset-0 w-full h-full object-cover object-top"
         />
         {/* Dark overlay for text readability + fade to page bg */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-white/95 dark:to-[#0c0c0f]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-background to-transparent" />
         {/* Film grain texture overlay */}
         <div
           className="absolute inset-0 opacity-[0.12] mix-blend-overlay pointer-events-none"

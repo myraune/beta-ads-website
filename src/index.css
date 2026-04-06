@@ -102,6 +102,57 @@
   }
 }
 
+/* ── Ambient background — two slow-drifting radial glows ──
+   Sits behind all content, gives the whole site a living feel.
+   Compositor-only (opacity + transform), zero layout cost.    */
+@keyframes ambient-drift-a {
+  0%   { transform: translate(0%, 0%) scale(1); opacity: 0.45; }
+  33%  { transform: translate(4%, -3%) scale(1.05); opacity: 0.6; }
+  66%  { transform: translate(-2%, 2%) scale(0.97); opacity: 0.5; }
+  100% { transform: translate(0%, 0%) scale(1); opacity: 0.45; }
+}
+@keyframes ambient-drift-b {
+  0%   { transform: translate(0%, 0%) scale(1); opacity: 0.3; }
+  33%  { transform: translate(-3%, 4%) scale(0.95); opacity: 0.5; }
+  66%  { transform: translate(3%, -2%) scale(1.04); opacity: 0.35; }
+  100% { transform: translate(0%, 0%) scale(1); opacity: 0.3; }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 50% at 70% 20%, hsl(357 70% 60% / 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 20% 80%, hsl(357 70% 60% / 0.03) 0%, transparent 55%);
+  animation: ambient-drift-a 25s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 50% 35% at 40% 50%, hsl(220 15% 50% / 0.025) 0%, transparent 50%);
+  animation: ambient-drift-b 30s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Dark mode: stronger glow for visual presence */
+.dark body::before {
+  background:
+    radial-gradient(ellipse 80% 50% at 70% 20%, hsl(357 70% 60% / 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 20% 80%, hsl(357 70% 60% / 0.06) 0%, transparent 55%);
+}
+.dark body::after {
+  background:
+    radial-gradient(ellipse 50% 35% at 40% 50%, hsl(220 15% 50% / 0.04) 0%, transparent 50%);
+}
+
 @layer components {
   /* Glass card styles */
   .glass-card {

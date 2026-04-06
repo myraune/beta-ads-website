@@ -130,6 +130,17 @@ export const dashboardTocItems: Record<string, TocItem[]> = {
     { id: 'avg-viewers', title: 'Average Viewers', level: 2 },
     { id: 'hours-streamed', title: 'Hours Streamed', level: 2 },
   ],
+  'twitch-analytics-tools': [
+    { id: 'why-analytics', title: 'Hvorfor statistikk?', level: 2 },
+    { id: 'market-overview', title: 'Markedsoversikt', level: 2 },
+    { id: 'tool-reviews', title: 'Verktøy-gjennomgang', level: 2 },
+    { id: 'feature-comparison', title: 'Funksjonssammenligning', level: 2 },
+    { id: 'radar-comparison', title: 'Styrke-profiler', level: 2 },
+    { id: 'use-cases', title: 'Bruksscenarioer', level: 2 },
+    { id: 'links', title: 'Lenker', level: 2 },
+    { id: 'twitch-native', title: 'Twitchs egne verktøy', level: 2 },
+    { id: 'verdict', title: 'Vår anbefaling', level: 2 },
+  ],
   'clipping-economy': [
     { id: 'overview', title: 'By the Numbers', level: 2 },
     { id: 'cpm', title: 'CPM Comparison', level: 2 },

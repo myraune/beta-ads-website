@@ -85,7 +85,7 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
                 <Link to="/demo">
                   <Button
                     size="lg"
-                    className="bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-2.5 text-sm font-light tracking-wide h-auto border-0 shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105"
+                    className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-sm font-light tracking-wide h-auto border-0 shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105"
                   >
                     {t.brandButton}
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -100,7 +100,7 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
                   <Button
                     size="lg"
                     variant="outline"
-                    className="border-foreground/20 text-foreground/80 hover:text-foreground hover:bg-foreground/10 hover:border-foreground/30 bg-foreground/5 px-6 py-2.5 text-sm font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 shadow-sm shadow-black/5"
+                    className="border-foreground/20 text-foreground/80 hover:text-foreground hover:bg-foreground/10 hover:border-foreground/30 bg-foreground/5 px-8 py-3 text-sm font-light tracking-wide h-auto backdrop-blur-sm transition-all duration-300 shadow-sm shadow-black/5"
                   >
                     {t.streamerButton}
                     <ExternalLink className="ml-2 h-4 w-4" />

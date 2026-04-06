@@ -619,7 +619,7 @@ export const StreamerHero: React.FC = () => (
             href="https://beta.streamer.livad.stream/login"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3 min-h-[44px] rounded-lg bg-foreground text-background text-sm font-semibold hover:opacity-90 transition-opacity"
+            className="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3 min-h-[44px] rounded-lg bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
           >
             Apply now
             <ArrowRight className="w-4 h-4" />

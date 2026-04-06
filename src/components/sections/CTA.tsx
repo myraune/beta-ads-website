@@ -59,10 +59,10 @@ export const CTA: React.FC<CTAProps> = ({ t }) => (
           >
             <Button
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 px-10 py-6 text-lg font-light tracking-wide h-auto shadow-xl shadow-primary/20 transition-all duration-300 hover:scale-105"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 text-sm font-light tracking-wide h-auto shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-105"
             >
               {t.ctaButton || "Get in Touch"}
-              <ArrowRight className="ml-3 h-5 w-5" />
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </a>
         </div>

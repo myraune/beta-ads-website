@@ -11,10 +11,10 @@ export const SPStats: React.FC = () => {
     <section ref={ref} className="py-20 md:py-32" aria-label="Get started">
       <div className="max-w-4xl mx-auto px-6 lg:px-8">
         <div className={`text-center transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary mb-4">
-            Let's Talk
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
+            Get Started
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
             Ready to reach Gen Z on their favorite streams?
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto mb-12 leading-relaxed">
@@ -34,7 +34,7 @@ export const SPStats: React.FC = () => {
             return (
               <div
                 key={item.title}
-                className={`flex items-start gap-4 p-5 rounded-xl border border-border bg-card hover:border-primary/20 hover:shadow-sm transition-all duration-300 delay-${index * 50} ${
+                className={`flex items-start gap-4 py-5 border-b border-border last:border-0 transition-all duration-300 delay-${index * 50} ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
               >

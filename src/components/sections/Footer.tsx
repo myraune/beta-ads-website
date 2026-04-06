@@ -37,7 +37,7 @@ export const Footer: React.FC<FooterProps> = ({ t }) => (
               LinkedIn
             </a>
             <a
-              href="https://discord.gg/hNgHCbQUvb"
+              href="https://discord.gg/tSmM6XMEkn"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light"

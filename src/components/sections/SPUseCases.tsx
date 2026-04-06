@@ -60,7 +60,6 @@ const AdFormatCarousel: React.FC = () => {
   return (
     <div
       className="relative w-full"
-      style={{ background: "hsl(var(--background))" }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -83,19 +82,20 @@ const AdFormatCarousel: React.FC = () => {
               animate={{
                 x: `${xPercent}%`,
                 scale: isActive ? 1 : 0.92,
-                filter: isActive ? "brightness(1)" : "brightness(0.45)",
+                filter: isActive ? "brightness(1)" : "brightness(0.65)",
                 zIndex: isActive ? 10 : 5,
               }}
               transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
               onClick={() => !isActive && goTo(i)}
             >
               {/* Blurred backdrop fills the letterbox gaps */}
+              <div className="absolute inset-0 bg-background" />
               <img
                 src={f.image}
                 alt=""
                 aria-hidden
                 className="absolute inset-0 w-full h-full object-cover scale-110"
-                style={{ filter: "blur(24px) brightness(0.4)" }}
+                style={{ filter: "blur(20px) brightness(0.15)", opacity: 0.6 }}
               />
               {/* Actual image — full format visible */}
               <img
@@ -262,7 +262,7 @@ export const SPUseCases: React.FC = () => {
     <section ref={ref} className="pt-20 md:pt-32 pb-0 relative" aria-label="Platforms and ad formats">
       {/* Red depth glow behind the ad format carousel */}
       <div className="pointer-events-none absolute inset-x-0 bottom-0 overflow-hidden" style={{ height: "600px" }} aria-hidden>
-        <div className="absolute left-1/2 bottom-[10%] -translate-x-1/2 w-[120%] h-full rounded-full" style={{ background: "radial-gradient(ellipse at center, rgba(233,79,55,0.30) 0%, rgba(233,79,55,0.12) 45%, transparent 70%)" }} />
+        <div className="absolute left-1/2 bottom-[10%] -translate-x-1/2 w-[120%] h-full rounded-full" style={{ background: "radial-gradient(ellipse at center, rgba(233,79,55,0.12) 0%, rgba(233,79,55,0.05) 45%, transparent 65%)" }} />
       </div>
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
 

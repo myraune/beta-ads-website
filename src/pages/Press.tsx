@@ -52,7 +52,7 @@ const Press: React.FC = () => {
       />
       <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-32 md:pt-40 pb-20">
         <div className="mb-14">
-          <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary mb-4">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
             Press
           </span>
           <h1 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">

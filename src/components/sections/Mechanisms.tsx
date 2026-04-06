@@ -43,7 +43,7 @@ export const Mechanisms: React.FC<{ t?: any }> = () => {
     <section id="mechanisms" className="relative py-12 md:py-24">
       <div className="relative max-w-7xl mx-auto px-4 md:px-8 lg:px-12">
         <div className="text-center mb-12">
-          <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary mb-4">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
             AI Features
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">

@@ -36,7 +36,7 @@ export const SPStreamers: React.FC = () => {
       <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
         <div className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           {/* Glass-style card wrapper for premium feel */}
-          <div className="relative mx-auto max-w-3xl rounded-3xl border border-border/50 dark:border-white/10 bg-card/40 dark:bg-white/[0.03] backdrop-blur-sm p-10 md:p-14 shadow-sm hover:shadow-md transition-shadow duration-500">
+          <div className="relative mx-auto max-w-3xl p-10 md:p-14">
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
               Built for{" "}
               <span

@@ -18,7 +18,7 @@ export const SPCTA: React.FC = () => {
         {/* Header row */}
         <div className={`flex items-end justify-between mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           <div>
-            <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary mb-4">
+            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
               Blog
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
@@ -36,7 +36,7 @@ export const SPCTA: React.FC = () => {
         <div className={`grid md:grid-cols-2 gap-6 transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           {latestPosts.map((post) => (
             <Link key={post.slug} to={`/blog/${post.slug}`} className="group">
-              <article className="rounded-2xl overflow-hidden border border-border bg-card transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-black/[0.06] group-hover:border-border/60">
+              <article className="rounded-2xl overflow-hidden border border-border transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-black/[0.06] group-hover:border-foreground/20">
                 {/* Cover image */}
                 <div className="aspect-[16/9] overflow-hidden bg-muted">
                   <img

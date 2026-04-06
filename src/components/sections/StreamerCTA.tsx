@@ -32,7 +32,7 @@ export const StreamerCTA: React.FC = () => {
             >
               <Button
                 size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 h-12"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg px-8 h-12"
               >
                 Apply now
                 <ArrowRight className="ml-2 h-4 w-4" />

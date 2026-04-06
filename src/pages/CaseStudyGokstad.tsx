@@ -33,7 +33,7 @@ const CaseStudyGokstad: React.FC = () => {
         </Link>
 
         <div className="mb-6">
-          <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary mb-4">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
             Case Study
           </span>
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3">

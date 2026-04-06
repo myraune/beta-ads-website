@@ -56,7 +56,7 @@ const badgeLabels: Record<BadgeType, string> = {
 };
 
 const row1: LogoData[] = [
-  { src: "/lovable-uploads/logo-client-1.png", alt: "Samsung" },
+  { src: "/lovable-uploads/logo-client-1.png", alt: "Samsung", badge: "case-study", caseStudyLink: "/case-study/samsung" },
   { src: "/lovable-uploads/wpp-media-logo.png", alt: "WPP Media" },
   {
     src: "/lovable-uploads/logo-foodora.png", alt: "Foodora",
@@ -363,10 +363,10 @@ const LogoWithBadge: React.FC<{
         }`}
         style={{ filter: logoFilter }}
       />
-      {logo.badge && isHovered && (
+      {logo.badge && (
         <button
-          onClick={handleClick}
-          className="mt-1.5 px-2 py-0.5 rounded-full text-[9px] font-medium tracking-wide transition-[transform,opacity,background-color] duration-200 hover:scale-105 bg-primary/10 text-primary border-none cursor-pointer animate-fade-in"
+          onClick={hasAction ? handleClick : undefined}
+          className="mt-1.5 px-2 py-0.5 rounded-full text-[9px] font-semibold tracking-wide transition-[transform,opacity,background-color] duration-200 hover:scale-105 bg-primary text-white border-none cursor-pointer"
         >
           {badgeLabels[logo.badge]}
         </button>

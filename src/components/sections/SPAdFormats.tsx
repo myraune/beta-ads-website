@@ -277,7 +277,7 @@ export const SPAdFormats: React.FC = () => {
             visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary mb-4">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
             Ad Formats
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
