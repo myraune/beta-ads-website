@@ -22,21 +22,23 @@ const TODAY     = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
 // Static pages
 // ---------------------------------------------------------------------------
 const STATIC_PAGES = [
-  { path: "/",                       priority: "1.0", changefreq: "weekly"  },
-  { path: "/streamers",              priority: "0.9", changefreq: "weekly"  },
+  { path: "/",                       priority: "1.0",  changefreq: "weekly"  },
+  // Featured sitelinks — highest priority for Google sitelinks
+  { path: "/case-studies",           priority: "0.95", changefreq: "weekly"  },
+  { path: "/twitch-advertising",     priority: "0.95", changefreq: "monthly" },
+  { path: "/kick-advertising",       priority: "0.95", changefreq: "monthly" },
+  { path: "/press",                  priority: "0.95", changefreq: "monthly" },
+  // Secondary high-priority pages
+  { path: "/youtube-advertising",    priority: "0.9",  changefreq: "monthly" },
+  { path: "/streamers",              priority: "0.9",  changefreq: "weekly"  },
   { path: "/pricing",                priority: "0.85", changefreq: "monthly" },
-  { path: "/twitch-advertising",     priority: "0.85", changefreq: "monthly" },
-  { path: "/youtube-advertising",    priority: "0.85", changefreq: "monthly" },
-  { path: "/kick-advertising",       priority: "0.85", changefreq: "monthly" },
-  { path: "/case-studies",           priority: "0.8",  changefreq: "monthly" },
+  { path: "/case-study/samsung",     priority: "0.85", changefreq: "monthly" },
   { path: "/case-study/glorious",    priority: "0.8",  changefreq: "monthly" },
   { path: "/case-study/gokstad",     priority: "0.8",  changefreq: "monthly" },
   { path: "/blog",                   priority: "0.75", changefreq: "weekly"  },
   { path: "/demo",                   priority: "0.7",  changefreq: "monthly" },
-  { path: "/how-it-works",           priority: "0.7",  changefreq: "monthly" },
-  { path: "/about",                  priority: "0.6",  changefreq: "monthly" },
   { path: "/contact",                priority: "0.6",  changefreq: "monthly" },
-  { path: "/press",                  priority: "0.5",  changefreq: "monthly" },
+  { path: "/about",                  priority: "0.5",  changefreq: "monthly" },
   { path: "/terms",                  priority: "0.2",  changefreq: "yearly"  },
   { path: "/privacy",                priority: "0.2",  changefreq: "yearly"  },
 ];

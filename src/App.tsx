@@ -33,7 +33,6 @@ const CaseStudyGlorious = lazy(() => import("./pages/CaseStudyGlorious"));
 const CaseStudyGokstad = lazy(() => import("./pages/CaseStudyGokstad"));
 const CaseStudySamsungFold7 = lazy(() => import("./pages/CaseStudySamsungFold7"));
 const CaseStudySamsung = lazy(() => import("./pages/CaseStudySamsung"));
-const HowItWorks = lazy(() => import("./pages/HowItWorks"));
 const Press = lazy(() => import("./pages/Press"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const Terms = lazy(() => import("./pages/Terms"));
@@ -133,7 +132,7 @@ const App = () => (
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/contact" element={<Contact />} />
-              <Route path="/how-it-works" element={<HowItWorks t={t} />} />
+              <Route path="/how-it-works" element={<Navigate to="/case-studies" replace />} />
               <Route path="/demo" element={<Demo t={t} language="en" />} />
               <Route path="/press" element={<Press />} />
               <Route path="/pricing" element={<Pricing t={t} />} />

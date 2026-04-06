@@ -5,9 +5,18 @@ import { SPFooter } from "@/components/sections/SPFooter";
 
 const pressArticles = [
   {
+    title: "Odelsgutten Andreas (22) satser på Twitch-reklame fra Chicago",
+    subtitle: "– Vil tjene penger",
+    publication: "Frostingen",
+    date: "April 2026",
+    url: "https://www.frostingen.no/odelsgutten-andreas-22-satser-pa-twitch-reklame-fra-chicago-vil-tjene-penger/s/5-166-56722",
+    image: "/lovable-uploads/press-frostingen-chicago.jpg",
+  },
+  {
     title: "Andreas (22) startet byrå ved siden av studiene",
     subtitle: "Nå utvider han til Sverige og Finland",
     publication: "Kampanje",
+    date: "May 2025",
     url: "https://kampanje.com/premium/mai-2025/innsikt/andreas-22-startet-byra-ved-siden-av-studiene--na-utvider-han-til-sverige-og-finland/",
     image: "/lovable-uploads/press-kampanje-expansion-new.png",
   },
@@ -15,6 +24,7 @@ const pressArticles = [
     title: "Andreas (21) satser på eget Twitch-byrå",
     subtitle: "Nå får han polske tech-krefter i ryggen",
     publication: "Kampanje",
+    date: "September 2024",
     url: "https://kampanje.com/premium/september-2024/innsikt/andreas-21-satser-pa-eget-twtich-byra--na-far-han-polske-tech-krefter-i-ryggen---har-lagt-grunnlaget-na/",
     image: "/lovable-uploads/press-kampanje-startup.png",
   },
@@ -22,6 +32,7 @@ const pressArticles = [
     title: "Ny kanal for mediekjøp",
     subtitle: "Beta er Norges nye Twitch-byrå",
     publication: "Kom24",
+    date: "2024",
     url: "https://www.kom24.no/andreas-myraune-beta-influensere/ny-kanal-for-mediekjop-beta-er-norges-nye-twitch-byra/730424",
     image: "/lovable-uploads/press-kom24-twitch.png",
   },
@@ -29,6 +40,7 @@ const pressArticles = [
     title: "Instreamly og Beta inngår partnerskap",
     subtitle: "Strategisk samarbeid i Norge",
     publication: "Kom24",
+    date: "2024",
     url: "https://www.kom24.no/andreas-myraune-beta-instreamly/instreamly-og-beta-inngar-partnerskap-i-norge/749907",
     image: "/lovable-uploads/press-kampanje-expansion.png",
   },
@@ -81,9 +93,16 @@ const Press: React.FC = () => {
                 />
               </div>
               <div className="p-5">
-                <p className="text-primary text-xs font-semibold mb-2">
-                  {article.publication}
-                </p>
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-primary text-xs font-semibold uppercase tracking-widest">
+                    {article.publication}
+                  </p>
+                  {article.date && (
+                    <p className="text-muted-foreground text-[10px] uppercase tracking-widest">
+                      {article.date}
+                    </p>
+                  )}
+                </div>
                 <h2 className="text-base font-semibold text-foreground mb-1 group-hover:text-primary transition-colors line-clamp-2">
                   {article.title}
                 </h2>

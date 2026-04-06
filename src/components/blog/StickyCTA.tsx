@@ -150,7 +150,7 @@ export const StreamerStickyCTA: React.FC<StickyCTAProps> = ({ language }) => {
           </Button>
         </a>
         <a
-          href="https://beta-ads.no/how-it-works"
+          href="https://beta-ads.no/case-studies"
           target="_blank"
           rel="noopener noreferrer"
           className="block"

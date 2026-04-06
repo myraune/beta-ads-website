@@ -52,11 +52,14 @@ export const Footer: React.FC<FooterProps> = ({ t }) => (
           {/* h3: highest heading level within the footer landmark — no h2 precedes these */}
           <h3 className="font-light tracking-widest text-sm uppercase text-muted-foreground/60">Product</h3>
           <div className="space-y-3">
-            <Link to="/how-it-works" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
-              How It Works
-            </Link>
             <Link to="/case-studies" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
               Case Studies
+            </Link>
+            <Link to="/twitch-advertising" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+              Twitch Advertising
+            </Link>
+            <Link to="/kick-advertising" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+              Kick Advertising
             </Link>
             <Link to="/pricing" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
               Pricing

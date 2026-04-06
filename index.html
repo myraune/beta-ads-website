@@ -299,6 +299,45 @@
     }
     </script>
 
+    <!-- SiteNavigationElement schema — tells Google which pages are top-level
+         navigation. Heavy hint for Google Sitelinks selection. The four featured
+         pages here are the ones we want to appear under our search result. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "SiteNavigationElement",
+          "@id": "https://beta-ads.no/#nav-case-studies",
+          "name": "Case Studies",
+          "description": "Real campaign results from Samsung, Glorious, Surfshark and more — Norwegian Twitch overlay advertising case studies with verified CTR, click-through, and viewer data.",
+          "url": "https://beta-ads.no/case-studies"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "@id": "https://beta-ads.no/#nav-twitch-advertising",
+          "name": "Twitch Advertising",
+          "description": "Native overlay advertising on Twitch livestreams across Norway, Sweden, Finland and Denmark. Bypass adblock, reach Gen Z, deliver 3-5× higher engagement than display ads.",
+          "url": "https://beta-ads.no/twitch-advertising"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "@id": "https://beta-ads.no/#nav-kick-advertising",
+          "name": "Kick Advertising",
+          "description": "Native ads on Kick — the fastest-growing streaming platform in the Nordics. Reach IRL streamers, gambling, and unrestricted creators that Twitch can't.",
+          "url": "https://beta-ads.no/kick-advertising"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "@id": "https://beta-ads.no/#nav-press",
+          "name": "Press",
+          "description": "Beta Ads media coverage and press features — featured in leading Norwegian and Nordic media outlets for our work on native Twitch advertising.",
+          "url": "https://beta-ads.no/press"
+        }
+      ]
+    }
+    </script>
+
     <!-- Page-specific schemas (Article, BreadcrumbList, etc.) handled by React SEO component on each page -->
 </head>
 

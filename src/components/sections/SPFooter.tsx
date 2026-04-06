@@ -8,20 +8,21 @@ const WaveAnimation = lazy(() =>
 
 const footerLinks = {
   PLATFORM: [
-    { label: "How It Works", to: "/how-it-works" },
-    { label: "Streamer Explorer", to: "/streamers" },
     { label: "Case Studies", to: "/case-studies" },
+    { label: "Twitch Advertising", to: "/twitch-advertising" },
+    { label: "Kick Advertising", to: "/kick-advertising" },
+    { label: "YouTube Advertising", to: "/youtube-advertising" },
+    { label: "Streamer Explorer", to: "/streamers" },
+  ],
+  RESOURCES: [
+    { label: "Press", to: "/press" },
+    { label: "Blog", to: "/blog" },
     { label: "Pricing", to: "/pricing" },
     { label: "Contact", to: "/contact" },
   ],
-  RESOURCES: [
-    { label: "Blog", to: "/blog" },
-    { label: "Press", to: "/press" },
-    { label: "Twitch Advertising", to: "/twitch-advertising" },
-  ],
   COMPANY: [
-    { label: "Contact Us", to: "/contact" },
     { label: "About Us", to: "/about" },
+    { label: "Contact Us", to: "/contact" },
     { label: "Partnership Contact", to: "/contact" },
     { label: "LinkedIn", href: "https://www.linkedin.com/company/beta-nordic/" },
   ],

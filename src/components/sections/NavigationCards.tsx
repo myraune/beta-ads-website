@@ -41,9 +41,9 @@ export const NavigationCards: React.FC<NavigationCardsProps> = ({ t }) => {
 
   const items = [
     { title: "Case Studies", link: "/case-studies" },
-    { title: "How It Works", link: "/how-it-works" },
-    { title: "For Streamers", link: "/streamers" },
-    { title: "Contact", link: "/contact" },
+    { title: "Twitch Advertising", link: "/twitch-advertising" },
+    { title: "Kick Advertising", link: "/kick-advertising" },
+    { title: "Press", link: "/press" },
   ];
 
   return (
