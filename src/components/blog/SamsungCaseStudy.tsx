@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useScrollAnimation, useMultipleScrollAnimations } from "@/hooks/useScrollAnimation";
 import AnimatedShaderBackground from "@/components/ui/animated-shader-background";
 import { WeeklyCTRAreaChart, CategoryDonut, CampaignComparisonChart, AdblockGauge } from "./SamsungCharts";
-import founderImage from "@/assets/founder-andreas.jpeg";
+import founderImage from "@/assets/founder-andreas-2.jpg";
 
 const DRIVE_VIDEO_EMBED = "https://drive.google.com/file/d/1FxgGtpweqtrJ-gCRPp38PX_iVenr0gLt/preview";
 
