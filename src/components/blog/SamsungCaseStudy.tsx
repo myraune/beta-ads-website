@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp, Mail, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation, useMultipleScrollAnimations } from "@/hooks/useScrollAnimation";
 import AnimatedShaderBackground from "@/components/ui/animated-shader-background";
 import { WeeklyCTRAreaChart, CategoryDonut, CampaignComparisonChart, AdblockGauge } from "./SamsungCharts";
+import founderImage from "@/assets/founder-andreas.jpeg";
 
 const DRIVE_VIDEO_EMBED = "https://drive.google.com/file/d/1FxgGtpweqtrJ-gCRPp38PX_iVenr0gLt/preview";
 
@@ -841,6 +842,64 @@ const SamsungCaseStudy: React.FC = () => {
           <p className="text-xs text-muted-foreground mt-6 max-w-2xl">
             Streamer slots are counted per campaign — 43 streamers ran on the S25 Ultra campaign and 28 on the Z Fold7. Some creators appeared in both, so the unique-streamer count is lower than the sum.
           </p>
+        </div>
+      </section>
+
+      {/* ── CONTACT PERSON ── */}
+      <section className="py-20 md:py-28 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+            <div>
+              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Contact Person</span>
+              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
+                Want a campaign<br />like this?
+              </h2>
+              <p className="text-base text-muted-foreground leading-relaxed mb-10 max-w-md">
+                I personally handle every Samsung-tier engagement. Send me a note about your launch window, target market, and rough budget — I'll come back with a tailored proposal within 24 hours.
+              </p>
+
+              <div className="border-t border-border pt-8 max-w-md">
+                <p className="text-base font-semibold text-foreground">Andreas Myraune</p>
+                <p className="text-sm text-muted-foreground mt-1">Founder & CEO · Beta Ads</p>
+
+                <div className="mt-6 space-y-3">
+                  <a
+                    href="mailto:andreas@beta-ads.no"
+                    className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors"
+                  >
+                    <Mail className="w-4 h-4 text-primary" />
+                    andreas@beta-ads.no
+                  </a>
+                  <a
+                    href="https://www.linkedin.com/in/andreasmyraune"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors"
+                  >
+                    <Linkedin className="w-4 h-4 text-primary" />
+                    linkedin.com/in/andreasmyraune
+                  </a>
+                </div>
+
+                <div className="mt-8">
+                  <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12">
+                    <Link to="/contact">Book a 15-min intro call <ArrowRight className="ml-2 w-4 h-4" /></Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:pl-8">
+              <div className="rounded-3xl overflow-hidden border border-border">
+                <img
+                  src={founderImage}
+                  alt="Andreas Myraune, founder of Beta Ads"
+                  className="w-full aspect-[4/5] object-cover object-[center_30%]"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
