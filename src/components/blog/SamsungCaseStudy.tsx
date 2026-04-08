@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useScrollAnimation, useMultipleScrollAnimations } from "@/hooks/useScrollAnimation";
 import AnimatedShaderBackground from "@/components/ui/animated-shader-background";
 import { WeeklyCTRAreaChart, CategoryDonut, CampaignComparisonChart, AdblockGauge } from "./SamsungCharts";
-import founderImage from "@/assets/founder-andreas-2.jpg";
+import founderImage from "@/assets/founder-andreas-portrait.jpg";
 
 const DRIVE_VIDEO_EMBED = "https://drive.google.com/file/d/1FxgGtpweqtrJ-gCRPp38PX_iVenr0gLt/preview";
 
@@ -846,57 +846,44 @@ const SamsungCaseStudy: React.FC = () => {
       </section>
 
       {/* ── CONTACT PERSON ── */}
-      <section className="py-20 md:py-28 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Contact Person</span>
-              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
-                Want a campaign<br />like this?
-              </h2>
-              <p className="text-base text-muted-foreground leading-relaxed mb-10 max-w-md">
-                I personally handle every Samsung-tier engagement. Send me a note about your launch window, target market, and rough budget — I'll come back with a tailored proposal within 24 hours.
-              </p>
-
-              <div className="border-t border-border pt-8 max-w-md">
-                <p className="text-base font-semibold text-foreground">Andreas Myraune</p>
-                <p className="text-sm text-muted-foreground mt-1">Founder & CEO · Beta Ads</p>
-
-                <div className="mt-6 space-y-3">
-                  <a
-                    href="mailto:andreas@beta-ads.no"
-                    className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors"
-                  >
-                    <Mail className="w-4 h-4 text-primary" />
-                    andreas@beta-ads.no
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/andreasmyraune"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-sm text-foreground hover:text-primary transition-colors"
-                  >
-                    <Linkedin className="w-4 h-4 text-primary" />
-                    linkedin.com/in/andreasmyraune
-                  </a>
-                </div>
-
-                <div className="mt-8">
-                  <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12">
-                    <Link to="/contact">Book a 15-min intro call <ArrowRight className="ml-2 w-4 h-4" /></Link>
-                  </Button>
-                </div>
-              </div>
+      <section className="py-14 md:py-20 border-t border-border">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12">
+          <div className="grid sm:grid-cols-[160px_1fr] gap-6 sm:gap-8 items-center">
+            <div className="rounded-2xl overflow-hidden border border-border w-[140px] sm:w-[160px] aspect-[4/5]">
+              <img
+                src={founderImage}
+                alt="Andreas Myraune, founder of Beta Ads"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
 
-            <div className="lg:pl-8">
-              <div className="rounded-3xl overflow-hidden border border-border">
-                <img
-                  src={founderImage}
-                  alt="Andreas Myraune, founder of Beta Ads"
-                  className="w-full aspect-[4/5] object-cover object-[center_30%]"
-                  loading="lazy"
-                />
+            <div>
+              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-2 block">Contact Person</span>
+              <p className="text-lg font-semibold text-foreground">Andreas Myraune</p>
+              <p className="text-sm text-muted-foreground mb-4">Founder & CEO · Beta Ads</p>
+
+              <p className="text-sm text-muted-foreground leading-relaxed mb-5 max-w-md">
+                I personally handle every Samsung-tier engagement. Send me a note about your launch window, target market, and rough budget — I'll come back within 24 hours.
+              </p>
+
+              <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                <a
+                  href="mailto:andreas@beta-ads.no"
+                  className="flex items-center gap-2 text-sm text-foreground hover:text-primary transition-colors"
+                >
+                  <Mail className="w-4 h-4 text-primary" />
+                  andreas@beta-ads.no
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/andreasmyraune"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-foreground hover:text-primary transition-colors"
+                >
+                  <Linkedin className="w-4 h-4 text-primary" />
+                  LinkedIn
+                </a>
               </div>
             </div>
           </div>
