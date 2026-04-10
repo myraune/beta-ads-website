@@ -105,6 +105,8 @@ const MarketsSection: React.FC<MarketsSectionProps> = ({ marketsRef, marketsVisi
               viewBox="415 275 55 110"
               className="h-full"
               xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="Map of the Nordic region highlighting Beta Ads' active markets"
             >
               {Object.entries(COUNTRIES).map(([key, country]) => (
                 <g key={key}>

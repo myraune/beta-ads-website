@@ -130,7 +130,7 @@ const AdFormatCarousel: React.FC = () => {
           <button
             onClick={() => go(-1)}
             aria-label="Previous ad format"
-            className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-muted transition-colors"
+            className="w-10 h-10 rounded-full border border-foreground/60 flex items-center justify-center text-foreground hover:bg-muted hover:border-foreground/80 transition-colors"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -151,7 +151,7 @@ const AdFormatCarousel: React.FC = () => {
           <button
             onClick={() => go(1)}
             aria-label="Next ad format"
-            className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-foreground hover:bg-muted transition-colors"
+            className="w-10 h-10 rounded-full border border-foreground/60 flex items-center justify-center text-foreground hover:bg-muted hover:border-foreground/80 transition-colors"
           >
             <ChevronRight className="w-5 h-5" />
           </button>

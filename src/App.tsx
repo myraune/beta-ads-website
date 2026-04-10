@@ -9,6 +9,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import blogPhotos from "virtual:blog-photos";
 import { registerPhotos } from "@/lib/blogImage";
+import { installLucideA11yPatch } from "@/lib/a11y-icons";
 
 // Register user-uploaded blog photos from /public/blog-photos/ folders
 registerPhotos(blogPhotos);
@@ -110,7 +111,12 @@ const RouteThemeEnforcer = () => {
   return null;
 };
 
-const App = () => (
+const App = () => {
+  useEffect(() => {
+    installLucideA11yPatch();
+  }, []);
+
+  return (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem forcedTheme={undefined}>
       <Analytics />
@@ -150,6 +156,7 @@ const App = () => (
       </BrowserRouter>
     </ThemeProvider>
   </QueryClientProvider>
-);
+  );
+};
 
 export default App;

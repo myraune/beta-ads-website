@@ -156,8 +156,8 @@ const StreamerPreview: React.FC = () => {
                 onClick={() => toggle(g)}
                 className={`text-[11px] px-3 py-1.5 rounded-full border transition-all duration-200 ${
                   active
-                    ? "border-primary/40 bg-primary/15 text-primary font-medium scale-[1.04]"
-                    : "border-border/60 dark:border-white/[0.12] text-muted-foreground dark:text-white/40 hover:border-primary/30 hover:text-primary/70"
+                    ? "border-primary bg-primary/15 text-primary font-medium scale-[1.04]"
+                    : "border-foreground/60 dark:border-white/60 text-muted-foreground hover:border-primary hover:text-primary/70"
                 }`}
               >
                 {g}
@@ -756,8 +756,8 @@ const FeatureSection: React.FC<{
         </div>
       )}
       <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
-        {/* Left: text content */}
-        <div className="lg:w-[30%] lg:sticky lg:top-32 space-y-5">
+        {/* Left: text content — top-aligned with the preview, scrolls together */}
+        <div className="lg:w-[30%] space-y-5">
           <div className="flex items-center gap-2">
             <feature.icon className="w-5 h-5 text-primary" size={20} />
             <span className="text-sm font-semibold text-primary">{feature.label}</span>

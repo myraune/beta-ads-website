@@ -264,12 +264,15 @@ const TwitchAdvertising: React.FC = () => {
           </div>
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Samsung case */}
-            <div className="rounded-2xl border border-border bg-card overflow-hidden">
+            <Link
+              to="/case-study/samsung"
+              className="group rounded-2xl border border-border bg-card overflow-hidden block hover:border-primary/40 hover:-translate-y-1 transition-all duration-300"
+            >
               <div className="relative aspect-[16/9] overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&q=80"
                   alt="Samsung campaign"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4">
@@ -277,7 +280,7 @@ const TwitchAdvertising: React.FC = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-base font-semibold text-foreground mb-2">Samsung Galaxy S25 — Nordic Launch</h3>
+                <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">Samsung Galaxy S25 — Nordic Launch</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                   Overlay campaign across 48 Nordic Twitch streamers. 10-week run targeting gaming and tech audiences in Norway, Sweden, and Denmark.
                 </p>
@@ -296,14 +299,17 @@ const TwitchAdvertising: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
             {/* Glorious case */}
-            <div className="rounded-2xl border border-border bg-card overflow-hidden">
+            <Link
+              to="/case-study/glorious"
+              className="group rounded-2xl border border-border bg-card overflow-hidden block hover:border-primary/40 hover:-translate-y-1 transition-all duration-300"
+            >
               <div className="relative aspect-[16/9] overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=800&q=80"
                   alt="Glorious gaming campaign"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4">
@@ -311,7 +317,7 @@ const TwitchAdvertising: React.FC = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-base font-semibold text-foreground mb-2">Glorious Model O — FPS Streamer Campaign</h3>
+                <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">Glorious Model O — FPS Streamer Campaign</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                   Targeted FPS and competitive gaming streamers across 3 Nordic markets. Rich media overlays with product showcase during peak gaming hours.
                 </p>
@@ -330,7 +336,7 @@ const TwitchAdvertising: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
           <div className="mt-8 text-center">
             <Link to="/case-studies">

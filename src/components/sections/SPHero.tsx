@@ -536,7 +536,7 @@ export const SPHero: React.FC = () => {
               </Button>
             </Link>
             <Link to="/case-studies">
-              <Button size="lg" className="bg-white/15 border border-white/30 text-white hover:bg-white hover:text-black backdrop-blur-sm h-12 px-7 text-sm font-semibold rounded-full transition-[transform,box-shadow,background-color,color,border-color] duration-300 hover:-translate-y-0.5 hover:shadow-md">
+              <Button size="lg" className="bg-white/15 border border-white/60 text-white hover:bg-white hover:text-black backdrop-blur-sm h-12 px-7 text-sm font-semibold rounded-full transition-[transform,box-shadow,background-color,color,border-color] duration-300 hover:-translate-y-0.5 hover:shadow-md">
                 Case Studies
               </Button>
             </Link>
@@ -557,6 +557,9 @@ export const SPHero: React.FC = () => {
                 onClick={() => setActiveTab(tab.id)}
                 role="tab"
                 aria-selected={isActive}
+                // On mobile the label span is hidden, so fall back to aria-label;
+                // on desktop we let the visible text be the accessible name (with the
+                // badge announced as part of it) — keeps WCAG 2.5.3 happy.
                 aria-label={tab.label}
                 className={`flex items-center gap-1.5 px-2.5 sm:px-4 py-2 min-h-[44px] min-w-[44px] rounded-full text-xs font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
                   isActive ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground hover:bg-foreground/5"
@@ -565,7 +568,7 @@ export const SPHero: React.FC = () => {
                 <Icon className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">{tab.label}</span>
                 {"badge" in tab && tab.badge && (
-                  <span className="text-[7px] font-bold bg-red-500 text-white px-1 py-0.5 rounded ml-0.5">NEW</span>
+                  <span aria-hidden="true" className="text-[7px] font-bold bg-red-500 text-white px-1 py-0.5 rounded ml-0.5">{tab.badge}</span>
                 )}
               </button>
             );

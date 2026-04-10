@@ -46,6 +46,8 @@ const NordicMap: React.FC = () => {
               viewBox="60 10 130 270"
               className="w-full max-w-[320px] lg:max-w-[380px]"
               xmlns="http://www.w3.org/2000/svg"
+              role="img"
+              aria-label="Interactive map of the Nordic countries"
             >
               {Object.entries(COUNTRIES).map(([key, country]) => (
                 <path
