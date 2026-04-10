@@ -2,10 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ExternalLink, Check } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { SPFooter } from '@/components/sections/SPFooter';
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { Lightning } from "@/components/ui/lightning";
 import {
   Accordion,
   AccordionContent,
@@ -59,9 +57,6 @@ const pricingFaqs = [
 ];
 
 const Pricing: React.FC = () => {
-  const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
-  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation();
-
   return (
     <>
       <SEO
@@ -86,23 +81,12 @@ const Pricing: React.FC = () => {
       />
       {/* Accessibility fix: Layout.tsx already provides <main> — nested <main> is invalid HTML (WCAG 1.3.6) */}
       <div>
-      {/* Hero with Lightning background */}
-      <section className="relative overflow-hidden bg-[#0a0a0f] pt-32 lg:pt-44 pb-24">
-        {/* Lightning canvas */}
-        <div className="absolute inset-0">
-          <Lightning hue={10} speed={1.3} intensity={0.55} size={2.2} />
-        </div>
-        {/* Radial glow */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_60%,rgba(233,79,55,0.12),transparent)]" />
-        {/* Bottom fade to page background */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+      {/* Hero — subtle ambient glow */}
+      <section className="relative overflow-hidden bg-[#0a0a0f] pt-32 lg:pt-44 pb-20">
+        {/* Ambient primary glow — subtle, won't overpower text */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_40%_at_50%_40%,rgba(233,79,55,0.10),transparent)]" />
 
-        <div
-          ref={heroRef}
-          className={`relative z-10 max-w-[780px] mx-auto px-6 lg:px-12 text-center transition-[opacity,transform] duration-700 ${
-            heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
+        <div className="relative z-10 max-w-[780px] mx-auto px-6 lg:px-12 text-center">
           <p className="text-xs font-light tracking-[0.3em] text-white/40 uppercase mb-5">
             Pricing
           </p>
@@ -115,18 +99,13 @@ const Pricing: React.FC = () => {
           </p>
           {/* Humor line */}
           <p className="inline-block text-sm text-white/35 font-light italic border border-white/10 rounded-full px-5 py-2 bg-white/[0.03] backdrop-blur-sm">
-            😅 Got a bit scared? Our prices are secret — only the lucky ones get to know.
+            Our prices are secret — only the lucky ones get to know.
           </p>
         </div>
       </section>
 
-      <section className="pb-24 lg:pb-32">
-        <div 
-          ref={cardsRef}
-          className={`max-w-[1000px] mx-auto px-6 lg:px-12 transition-[opacity,transform] duration-700 delay-200 ${
-            cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
+      <section className="pt-16 pb-24 lg:pb-32">
+        <div className="max-w-[1000px] mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-8">
             {/* Managed Service */}
             <div className="rounded-2xl bg-card/40 p-8 lg:p-10 space-y-8">
