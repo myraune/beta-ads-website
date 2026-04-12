@@ -35,6 +35,7 @@ const STATIC_PAGES = [
   { path: "/case-study/samsung",     priority: "0.85", changefreq: "monthly" },
   { path: "/case-study/glorious",    priority: "0.8",  changefreq: "monthly" },
   { path: "/case-study/gokstad",     priority: "0.8",  changefreq: "monthly" },
+  { path: "/case-study/samsung-fold7", priority: "0.8", changefreq: "monthly" },
   { path: "/blog",                   priority: "0.75", changefreq: "weekly"  },
   { path: "/demo",                   priority: "0.7",  changefreq: "monthly" },
   { path: "/contact",                priority: "0.6",  changefreq: "monthly" },
