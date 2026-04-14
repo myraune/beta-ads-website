@@ -34,6 +34,84 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "twitch-2026-ad-products-nordic-brands",
+    slug: "twitch-2026-ad-products-nordic-brands",
+    title: "Twitch's 2026 Ad Product Shift: AI Sponsored Replays, Dual-Format Streams, and the Nordic Brief",
+    excerpt: "Twitch's April 2026 Stream Rewind expansion, AI sponsored replays, and dual-format streaming are reshaping livestream ad inventory. What Nordic planners should change before the next campaign cycle.",
+    content: `
+## A quiet but significant ad infrastructure update
+
+In April 2026, Twitch expanded its Stream Rewind feature — originally released in late 2025 for Turbo subscribers and channel subs only — and moved several ad products first teased at TwitchCon into early pilot. For brands running or evaluating livestream campaigns in the Nordics, the changes are worth understanding now rather than after budgets are locked for the next quarter.
+
+Twitch still holds roughly 54% of gaming-category watch time globally as of March 2026, down from 71% in late 2023, but the platform remains the default for Nordic gaming audiences. Finland, Norway, and Sweden over-index on Twitch usage relative to their population, and local streamers like Lasse "Lassulus," Jimbo, and Herkules continue to draw reliable concurrent viewers from brand-relevant demos.
+
+What changed recently: the platform's ad product roadmap is moving away from pure pre-roll and mid-roll interruption toward AI-assisted native placement. Here is what to expect.
+
+## AI sponsored instant replays — native ads without the interruption
+
+The headline product is Twitch's AI-generated sponsored instant replay, first previewed at TwitchCon in October 2025 and now entering limited pilots. The system uses computer-vision analysis to identify high-excitement moments in gameplay — kills, wins, clutch plays — and packages them as branded instant replays within the stream itself.
+
+Unlike a pre-roll, which triggers before content and is often skipped or blocked, a sponsored replay runs in-context: viewers see the moment they just missed with a brand watermark and short brand frame. Twitch-side positioning suggests CPM ranges comparable to mid-roll video inventory, but without the drop-off associated with interruption. Campaigns running through Twitch's direct sales channels are reporting completion rates above 85% in closed pilots, compared with roughly 30–45% for skippable pre-roll.
+
+For Nordic brands, the implication is strategic. If AI replay inventory scales to Tier 2 streamers — the 5K–15K average concurrent viewer bracket where most Norwegian and Swedish streamers sit — it will compete directly with the overlay and rich-media formats currently dominating the region. That does not make overlays obsolete, but it does change the competitive set.
+
+## Dual-format streaming opens a vertical inventory layer
+
+![Twitch streaming](/lovable-uploads/blog-twitch-browse.webp)
+
+Twitch's dual-format streaming, rolling out in phases starting summer 2026, lets creators broadcast horizontal and vertical feeds simultaneously from a single scene. Vertical feeds will be surfaced in a mobile-first discovery tab — Twitch's answer to TikTok Live and YouTube Shorts Live.
+
+For advertisers, this creates a second inventory surface from the same stream: ad overlays can render differently on the horizontal desktop feed versus the vertical mobile feed. A brand that previously bought one overlay placement now, in principle, has access to two distinct creative slots per stream hour.
+
+The practical catch: most Nordic creatives are still sized for 16:9. Brands planning Q3 and Q4 2026 campaigns should brief their overlay and rich-media partners to deliver vertical-safe variants by default. Resizing in post is cheaper than losing mobile impressions — and the vertical feed is where Twitch expects its next audience growth, particularly in the 18–24 demo that already consumes most of its social video vertically.
+
+## Stream Rewind, ad integrity, and the subscriber wall
+
+Stream Rewind's April 2026 expansion is narrower than some headlines suggest. The feature is still gated to paying users — Turbo subscribers and individual channel subs — primarily because Twitch CEO Dan Clancy has been explicit that unrestricted rewind would let free viewers skip past ad breaks. "We need to make sure that the feature doesn't become a way to get around ads," Clancy said during a company livestream.
+
+The advertising relevance is indirect but real. Every time a platform like Twitch creates a two-tier experience — one for paying users, one for ad-supported users — brand inventory consolidates on the free tier. That means ad-supported viewers are watching longer unbroken live sessions without rewind, which makes mid-stream native placements (overlays, sponsored alerts, integrated chatbot messages) more valuable relative to pre-roll. It also means the viewers most engaged enough to pay are, by design, the ones least exposed to ads.
+
+For Nordic brand planners, the takeaway is to stop buying on assumptions about total reach and start buying on exposed reach — the free-tier audience actually receiving the creative.
+
+## What this means for Nordic campaign planning
+
+Three shifts are worth bringing into the next planning cycle.
+
+First, inventory is getting more native, not less. AI-sponsored replays and dual-format overlays reward brands that produce context-sensitive creative. Generic 30-second video spots will travel poorly across the new formats, and most Nordic agencies will need to update their deliverable specs before Q3 to avoid last-minute creative rework.
+
+Second, creator-tier economics are compressing. With YouTube Gaming at 24% category share and Kick at around 11% in early 2026, Nordic mid-tier streamers are negotiating multi-platform contracts as a default. Brand deals that require platform exclusivity will either cost meaningfully more or lose out on first-choice talent — a shift worth flagging with procurement before the next renewal.
+
+Third, measurement is diverging by platform. Twitch's move toward in-stream native inventory makes conventional video completion rate a less useful benchmark. Brand-lift studies and engaged-impression metrics — already standard at Beta Ads — will matter more in vendor comparisons than pure impression counts.
+
+None of this makes livestream advertising more complicated to buy. Campaigns that worked in 2025 still work. But the inventory mix is changing, and the brands that update their briefs and creative specs in the next quarter will secure better placements at better prices than those that wait for the changes to fully land.
+    `,
+    date: "Apr 14, 2026",
+    dateISO: "2026-04-14",
+    readTime: "5 min read",
+    image: "/lovable-uploads/blog-twitch-streamer.jpg",
+    category: "Industry",
+    tags: ["twitch", "ad-products", "nordic", "ai-advertising", "dual-format", "stream-rewind"],
+    relatedSlugs: ["twitch-advertising-benchmarks-2025", "twitch-vs-youtube-gaming-2025", "rise-of-streamer-first-advertising"],
+    seoTitle: {
+      en: "Twitch 2026 Ad Products: AI Replays & Dual-Format for Nordic Brands",
+      no: "Twitch 2026 Annonseprodukter: AI-repriser og dualformat for nordiske merker",
+      sv: "Twitch 2026 annonsprodukter: AI-repriser och dualformat för nordiska varumärken",
+      fi: "Twitchin 2026 mainostuotteet: AI-uusinnat ja dualformat Pohjolan brändeille"
+    },
+    seoDescription: {
+      en: "Twitch's April 2026 Stream Rewind expansion, AI sponsored replays and dual-format streaming change Nordic livestream ad planning. What to update in your brief now.",
+      no: "Twitchs utvidelse av Stream Rewind i april 2026, AI-sponsede repriser og dualformat endrer nordisk live-annonsering. Hva du bør oppdatere i briefen nå.",
+      sv: "Twitchs Stream Rewind-utökning i april 2026, AI-sponsrade repriser och dualformat förändrar nordisk livestream-annonsering. Så uppdaterar du briefen nu.",
+      fi: "Twitchin huhtikuun 2026 Stream Rewind -laajennus, AI-sponsoroidut uusinnat ja dualformat muuttavat Pohjolan livemainontaa. Näin päivität briefisi nyt."
+    },
+    seoKeywords: {
+      en: ["twitch 2026 ads", "ai sponsored replays", "dual-format streaming", "nordic livestream advertising", "twitch stream rewind", "twitch ad products"],
+      no: ["twitch 2026 annonser", "ai sponsede repriser", "dualformat streaming", "nordisk live-annonsering", "twitch stream rewind", "twitch annonseprodukter"],
+      sv: ["twitch 2026 annonser", "ai sponsrade repriser", "dualformat streaming", "nordisk livestream-reklam", "twitch stream rewind", "twitch annonsprodukter"],
+      fi: ["twitch 2026 mainokset", "ai-sponsoroidut uusinnat", "dualformat streaming", "pohjolan livemainonta", "twitch stream rewind", "twitch mainostuotteet"]
+    }
+  },
+  {
     id: "gokstad-akademiet-gamer-recruitment",
     slug: "gokstad-akademiet-gamer-recruitment",
     title: "Case Study: Gokstad Akademiet Recruits Gamers",
