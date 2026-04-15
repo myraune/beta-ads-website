@@ -34,6 +34,112 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "twitch-sponsored-campaigns-open-to-affiliates-2026",
+    slug: "twitch-sponsored-campaigns-open-to-affiliates-2026",
+    title: "Twitch Opens Sponsored Campaigns to Affiliates: What the Minecraft Tiny Takeover Means for Nordic Brand Advertising",
+    excerpt: "On April 6, 2026, Twitch ran its first sponsored campaign that Affiliates could opt into, not just Partners. The change widens the creator pool for brand-funded integrations by an order of magnitude - and reshapes the economics of sponsored inventory in markets like the Nordics, where most streamers sit below the Partner threshold.",
+    content: `## A Structural Change Dressed Up as a Minecraft Promotion
+
+On April 6, 2026, Twitch launched a Minecraft-branded sponsored campaign called Tiny Takeover. Streamers who opted in through the Sponsorship Portal, broadcast at least one hour of Minecraft gameplay in the Minecraft category, and passed moderation earned up to $1,000, with viewers receiving three in-game Drops after five minutes of watching a participating channel, according to the [Twitch Blog announcement](https://blog.twitch.tv/en/2026/04/06/minecrafts-tiny-takeover/).
+
+On its face, this reads like another platform-led promotion attached to a popular game. The more important detail is in the eligibility list. For the first time in the history of Twitch's sponsored campaign product, Affiliates were included - not just Partners. As [Tubefilter reported on April 7](https://www.tubefilter.com/2026/04/07/twitch-minecraft-tiny-takeover-affiliate-sponsored-campaign/amp/), sponsored campaigns had been an exclusive Partner benefit since the program began. Tiny Takeover was the quiet announcement that the wall between those two tiers just came down for brand-funded campaigns.
+
+For brands thinking about how to reach Nordic audiences on Twitch, this matters more than the Minecraft tie-in suggests.
+
+![A streamer's broadcast setup with a Twitch interface visible on screen](/lovable-uploads/blog-streaming-sponsorship-creator-economy-hero.jpg)
+
+## Who the Affiliate Tier Actually Includes in the Nordics
+
+The gap between Affiliate and Partner status is structural. Affiliate requires 50 followers, 500 broadcast minutes, 7 unique broadcast days, and an average of 3 concurrent viewers over 30 days, according to the [official Twitch help documentation](https://help.twitch.tv/s/article/joining-the-affiliate-program). Partner requires 75 average concurrent viewers over 30 days and 25 hours of streaming across 12 days.
+
+In practice, the Affiliate tier is where the vast majority of working streamers live. It includes side-income streamers with loyal communities of a few dozen viewers, emerging creators on their way up, and mid-tier streamers who have not crossed the Partner bar because their 30-day average hovers just under 75 CCV. A Nordic streamer who averages 50 concurrent viewers in Norwegian-language Just Chatting content - a category that translates into reliable brand trust even at modest scale - has historically been ineligible for sponsored campaign inventory on Twitch regardless of engagement quality.
+
+The Tiny Takeover change means that pool is now addressable. For a region like the Nordics, where audience segmentation is narrower and vernacular streams concentrate engaged local viewership, this is a meaningful widening of the eligible inventory. Research from [Streams Charts on platform creator economics](https://streamscharts.com/news/kick-reaches-100-million-users) has consistently shown that the creators below the "top 1%" line drive a disproportionate share of community engagement per viewer - because their chats are still small enough to function as conversations.
+
+## Why Widening the Creator Pool Changes the Math for Brands
+
+Sponsored campaigns as Twitch has operated them were functionally reserved inventory. A brand's budget bought access to a tier of creators that the platform had pre-qualified against a CCV threshold. That worked for large global campaigns where the goal was reach, but it created a structural mismatch for brands that wanted engagement density rather than pure impressions.
+
+Opening sponsored campaigns to Affiliates changes two things for the brand buyer.
+
+The first is the composition of the creator list. A campaign that is only available to Partners gets a creator list weighted toward full-time streamers playing the games and categories that sustain 75+ CCV averages. A campaign that includes Affiliates pulls in a much wider range of content - part-time creators in non-gaming categories, vernacular-language streamers, niche community leaders - and produces a creator list that looks demographically closer to the actual composition of the audience Twitch wants to sell.
+
+The second is the bargaining position for the brand. Sponsored campaign economics have historically been shaped by the scarcity of Partner inventory. When the number of creators eligible for a given campaign increases by roughly an order of magnitude, the per-creator rate for brand-funded activations flattens. Tiny Takeover's $1,000 cap is uniform across Partners and Affiliates, which is the first formal signal from Twitch that the platform intends to flatten rather than stratify sponsored rates.
+
+For Nordic brands that have been priced out of Partner-only campaigns on games where English-language Partners dominate the top of the creator list, this is a cost structure shift worth paying attention to. Campaigns that target Nordic viewership benefit from inventory that skews toward Nordic creators - and the Nordic creator base is disproportionately in the Affiliate tier.
+
+## What the Tiny Takeover Model Gets Right - and Where It Falls Short for Brands
+
+The Minecraft campaign is a useful proof of concept for what opt-in, front-page-shelf sponsored campaigns can do for awareness. As [Streams Charts noted in its campaign breakdown](https://streamscharts.com/news/twitch-x-minecraft-presents-tiny-takeover-everything-you-need-know), participating streamers received dedicated front-page shelf placement from April 6 through April 8. That kind of discovery surface is something no individual brand-streamer deal can replicate, and it is one of the genuine advantages of running a campaign through the platform rather than negotiating directly.
+
+![Analytics dashboard displaying live campaign performance metrics](/lovable-uploads/blog-streaming-sponsorship-creator-economy-1.jpg)
+
+The weaknesses are equally worth naming. The Tiny Takeover brief is almost purely game-playing: stream Minecraft for an hour in the right category and the activation is satisfied. There is no content direction, no brief framework for how the brand should show up in the stream, no quality control beyond the moderation gate. From the streamer's side, that is a feature. From the brand's side, it is a limitation: you are buying time spent in a game category, not a specific integration quality.
+
+For brands that need defined creative elements - a specific message, a verbal mention, a named URL, a call-to-action tied to a promotion - Tiny Takeover's structure doesn't deliver it. What it delivers is category saturation during the campaign window. The question for any brand planning around this model is whether category saturation is what the campaign needs, or whether the campaign needs the kind of directed integration that only direct brand-streamer arrangements produce. [Digiday has previously reported](https://digiday.com/marketing/why-twitchs-push-to-woo-publishers-is-facing-challenges-in-2024/) on the structural tension between Twitch's platform-led ad products and brands that want direct creative control, and Tiny Takeover does not resolve that tension.
+
+## How This Intersects With Native Overlay Inventory
+
+The expansion of sponsored campaigns to Affiliates does not replace direct brand-streamer work or native overlay advertising. It overlaps with them.
+
+Sponsored campaigns are a reach mechanic. They get the brand in front of a large volume of viewers inside a category for a short window, with minimal creative customization. Native overlay advertising - the kind of in-stream graphic ad that platforms like Beta Ads coordinate across Nordic creators - operates on a different axis. Overlays run continuously during normal streaming, carry bespoke creative, and survive as a persistent visual brand presence rather than a category-linked burst.
+
+The practical implication for brands in 2026 is that these layers are increasingly stackable. A brand can run a sponsored category campaign to drive front-page visibility during a launch window, then sustain presence through the rest of the quarter with native overlays on a curated creator list. The structural advantage of opening sponsored campaigns to Affiliates is that the creator lists for both layers now converge. The same mid-tier Nordic streamer who runs your overlay ad can also participate in the next category-based sponsored campaign the platform runs, and the brand ends up with coherent creator coverage rather than two disjointed campaigns targeting different creator tiers.
+
+## What to Watch Over the Next Two Quarters
+
+Tiny Takeover is a single data point. Whether it represents a permanent expansion of sponsored campaigns to Affiliates or a one-off experiment will be clear by Q3. The signals worth watching are straightforward.
+
+The first is campaign cadence. If Twitch runs two or three more sponsored campaigns through mid-2026 with Affiliate eligibility included by default, the expansion is structural. If Tiny Takeover turns out to be a Minecraft-specific exception, Affiliates return to the previous exclusion.
+
+The second is the payout ceiling. The $1,000 cap works as an entry-level amount, but to attract meaningful brand spend the ceiling needs to scale with creator size. Watch whether future campaigns introduce tiered payouts based on CCV or broadcast volume, and whether the cap rises toward the kind of per-creator rates that mid-tier brand deals already pay in the Nordic market.
+
+The third is adjacent-platform response. Kick [announced on April 10, 2026](https://streamscharts.com/news/kick-reaches-100-million-users) that it had crossed 100 million users. [Creator Handbook has reported](https://www.creatorhandbook.net/kick-confirms-advertising-features-are-in-development/) that Kick is actively developing advertising features. If Twitch's sponsored campaign product becomes the reference model for how platform-led brand campaigns work with Affiliate-tier creators, Kick's equivalent will arrive faster. That is how the platform becomes competitive, and how brand-side media budgets for 2026 and 2027 get allocated across the livestream category.
+
+For Nordic brand teams planning livestream campaigns, the Tiny Takeover announcement is the most concrete signal in months that the economics of sponsored inventory on Twitch are shifting in a direction that favors brands buying access to deep, regionally-specific creator pools rather than premium global names. The spreadsheet that assumed Partners-only eligibility needs to be redrawn.
+
+---
+
+**Sources:**
+- [Twitch Blog - Minecraft's Tiny Takeover (April 6, 2026)](https://blog.twitch.tv/en/2026/04/06/minecrafts-tiny-takeover/)
+- [Tubefilter - Twitch opens sponsored campaigns to Affiliates for the first time](https://www.tubefilter.com/2026/04/07/twitch-minecraft-tiny-takeover-affiliate-sponsored-campaign/amp/)
+- [Streams Charts - Tiny Takeover campaign breakdown](https://streamscharts.com/news/twitch-x-minecraft-presents-tiny-takeover-everything-you-need-know)
+- [Streams Charts - Kick reaches 100 million users](https://streamscharts.com/news/kick-reaches-100-million-users)
+- [Creator Handbook - Kick confirms advertising features in development](https://www.creatorhandbook.net/kick-confirms-advertising-features-are-in-development/)
+- [Twitch Help - Joining the Affiliate Program](https://help.twitch.tv/s/article/joining-the-affiliate-program)
+- [Digiday - Twitch's push to woo publishers](https://digiday.com/marketing/why-twitchs-push-to-woo-publishers-is-facing-challenges-in-2024/)
+- [Minecraft - Tiny Takeover on Twitch](https://www.minecraft.net/en-us/article/tiny-takeover-on-twitch)`,
+    date: "Apr 15, 2026",
+    dateISO: "2026-04-15",
+    readTime: "9 min read",
+    image: "/lovable-uploads/blog-streaming-sponsorship-creator-economy-hero.jpg",
+    category: "Twitch Insights",
+    tags: ["Twitch", "sponsored campaigns", "Affiliate program", "Minecraft", "Nordic brands", "creator economy", "brand advertising"],
+    relatedSlugs: [
+      "affiliate-sponsored-brand-deal-twitch-content-differences-2026",
+      "mid-tier-streamer-sweet-spot-live-advertising-2026",
+      "poll-sponsorship-model-twitch-interactive-ads-2026",
+    ],
+    seoTitle: {
+      en: "Twitch Opens Sponsored Campaigns to Affiliates: Minecraft Tiny Takeover 2026",
+      no: "Twitch apner sponsede kampanjer for Affiliates: Minecraft Tiny Takeover 2026",
+      sv: "Twitch oppnar sponsrade kampanjer for Affiliates: Minecraft Tiny Takeover 2026",
+      fi: "Twitch avaa sponsoroidut kampanjat Affiliate-tasolle: Minecraft Tiny Takeover 2026",
+    },
+    seoDescription: {
+      en: "Twitch's April 2026 Minecraft Tiny Takeover was the first sponsored campaign open to Affiliates, not just Partners. What the shift means for Nordic brand advertising and sponsored inventory economics.",
+      no: "Twitch sin Minecraft Tiny Takeover i april 2026 var den forste sponsede kampanjen apen for Affiliates, ikke bare Partners. Hva endringen betyr for nordisk merkevareannonsering og sponset inventar.",
+      sv: "Twitchs Minecraft Tiny Takeover i april 2026 var den forsta sponsrade kampanjen oppen for Affiliates, inte bara Partners. Vad forandringen betyder for nordisk varumarkesreklam och sponsrat inventar.",
+      fi: "Twitchin huhtikuun 2026 Minecraft Tiny Takeover oli ensimmainen sponsoroitu kampanja Affiliate-tasolle, ei vain Partner-tasolle. Mita muutos tarkoittaa pohjoismaiselle brändimainonnalle ja sponsoroidun inventaarin taloudelle.",
+    },
+    seoKeywords: {
+      en: ["Twitch sponsored campaigns Affiliates", "Minecraft Tiny Takeover Twitch", "Twitch brand advertising 2026", "Nordic Twitch advertising", "Twitch Affiliate sponsorship", "sponsored campaign inventory"],
+      no: ["Twitch sponsede kampanjer Affiliates", "Minecraft Tiny Takeover Twitch", "Twitch merkevareannonsering 2026", "nordisk Twitch-annonsering", "Twitch Affiliate sponsorat"],
+      sv: ["Twitch sponsrade kampanjer Affiliates", "Minecraft Tiny Takeover Twitch", "Twitch varumarkesreklam 2026", "nordisk Twitch-reklam", "Twitch Affiliate sponsring"],
+      fi: ["Twitch sponsoroidut kampanjat Affiliate", "Minecraft Tiny Takeover Twitch", "Twitch brändimainonta 2026", "pohjoismainen Twitch-mainonta", "Twitch Affiliate sponsorointi"],
+    },
+  },
+  {
     id: "adblock-gen-z-overlay-ads-twitch-2026",
     slug: "adblock-gen-z-overlay-ads-twitch-2026",
     title: "Adblock gjor digital annonsering usynlig for Gen Z: Slik loser overlay ads pa Twitch problemet",
