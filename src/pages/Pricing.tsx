@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ExternalLink, Check } from "lucide-react";
@@ -62,6 +63,18 @@ const Pricing: React.FC = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Pricing | Beta Ads – Twitch Advertising Plans</title>
+        <meta name="description" content="Flexible Twitch advertising plans for Nordic brands. Managed service with full campaign strategy or self-serve with pay-per-impression pricing and real-time analytics." />
+        <link rel="canonical" href="https://beta-ads.no/pricing" />
+        <meta property="og:title" content="Pricing | Beta Ads – Twitch Advertising Plans" />
+        <meta property="og:description" content="Managed or self-serve Twitch advertising plans for Nordic brands. Pay-per-impression, real-time analytics, 40+ streamers." />
+        <meta property="og:url" content="https://beta-ads.no/pricing" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Pricing | Beta Ads – Twitch Advertising Plans" />
+        <meta name="twitter:description" content="Managed or self-serve Twitch advertising plans for Nordic brands. Pay-per-impression, real-time analytics, 40+ streamers." />
+      </Helmet>
       <section className="pt-32 lg:pt-40 pb-16">
         <div 
           ref={heroRef}

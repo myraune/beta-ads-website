@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Helmet } from "react-helmet";
 import { Footer } from "@/components/sections/Footer";
 import { Play, ExternalLink, ChevronLeft, ChevronRight, ArrowRight, BarChart3, Filter } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -93,6 +94,18 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
 
   return (
     <div className="min-h-screen relative">
+      <Helmet>
+        <title>Case Studies | Beta Ads – Nordic Twitch Ad Campaigns</title>
+        <meta name="description" content="See how Samsung, Surfshark, Kristiania and more ran native Twitch overlay campaigns in the Nordics. Real results: 150K–600K impressions, 2–3.5% CTR." />
+        <link rel="canonical" href="https://beta-ads.no/case-studies" />
+        <meta property="og:title" content="Case Studies | Beta Ads – Nordic Twitch Ad Campaigns" />
+        <meta property="og:description" content="See how top Nordic brands ran native Twitch overlay campaigns. Real campaign results with 150K–600K impressions and 2–3.5% CTR." />
+        <meta property="og:url" content="https://beta-ads.no/case-studies" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Case Studies | Beta Ads – Nordic Twitch Ad Campaigns" />
+        <meta name="twitter:description" content="See how top Nordic brands ran native Twitch overlay campaigns. Real results: 150K–600K impressions, 2–3.5% CTR." />
+      </Helmet>
       <VideoModal videoId={modalVideoId} onClose={() => setModalVideoId(null)} />
 
       {/* Hero */}
@@ -205,7 +218,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
                   <img src={`https://img.youtube.com/vi/${caseStudies[caseStudyIndex].id}/maxresdefault.jpg`} alt={caseStudies[caseStudyIndex].campaign} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                     <motion.div
-                      className="w-16 h-16 rounded-full bg-[#11111198] backdrop-blur-sm border border-white/10 flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.2)]"
+                      className="w-16 h-16 rounded-full bg-[#11111198] backdrop-blur-sm border border-white/40 flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.2)]"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                     >
