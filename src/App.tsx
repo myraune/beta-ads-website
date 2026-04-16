@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider, useTheme } from "next-themes";
 import { Layout } from "@/components/Layout";
-import { BetaLoader } from "@/components/ui/beta-loader";
+import { Component as AILoader } from "@/components/ui/ai-loader";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import blogPhotos from "virtual:blog-photos";
@@ -126,7 +126,13 @@ const App = () => {
       <Sonner />
       <BrowserRouter>
         <RouteThemeEnforcer />
-        <Suspense fallback={<BetaLoader fullscreen />}>
+        <Suspense
+          fallback={
+            <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/80 backdrop-blur-sm pointer-events-none">
+              <AILoader />
+            </div>
+          }
+        >
           <Routes>
             <Route element={<Layout />}>
               <Route path="/" element={<Index />} />
