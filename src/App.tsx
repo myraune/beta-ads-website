@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider, useTheme } from "next-themes";
 import { Layout } from "@/components/Layout";
 import { BetaLoader } from "@/components/ui/beta-loader";
-import { RouteTransition } from "@/components/RouteTransition";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import blogPhotos from "virtual:blog-photos";
@@ -127,7 +126,6 @@ const App = () => {
       <Sonner />
       <BrowserRouter>
         <RouteThemeEnforcer />
-        <RouteTransition />
         <Suspense fallback={<BetaLoader fullscreen />}>
           <Routes>
             <Route element={<Layout />}>

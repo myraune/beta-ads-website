@@ -1,48 +1,40 @@
 import { cn } from "@/lib/utils";
 
 interface BetaLoaderProps {
-  /** Full-viewport overlay (used for route transitions). Default: false (inline) */
+  /** Full-viewport overlay (used for Suspense fallback). Default: false (inline) */
   fullscreen?: boolean;
-  /** Size in pixels of the ring + logo. Default: 96 */
-  size?: number;
   className?: string;
 }
 
-/**
- * BetaLoader — brand-colored spinning ring with the Beta Ads mark centered.
- * Used as Suspense fallback for lazy-loaded routes and during page transitions.
- *
- * Uses keyframes `beta-loader-rotate` defined in `src/index.css`.
- */
-export const BetaLoader = ({
-  fullscreen = false,
-  size = 96,
-  className,
-}: BetaLoaderProps) => {
-  const ringSize = size;
-  const logoSize = Math.round(size * 0.42);
+const LETTERS = ["B", "E", "T", "A", "\u00A0", "A", "D", "S"];
 
+/**
+ * BetaLoader — animated "BETA ADS" wordmark with a rotating brand-colored
+ * ring behind it. Each letter pulses in sequence. Used as the Suspense
+ * fallback for lazy-loaded routes.
+ *
+ * Animations are defined in `src/index.css`:
+ *  - `beta-loader-ring-spin`   → the ring
+ *  - `beta-loader-letter-pulse` → individual letters
+ */
+export const BetaLoader = ({ fullscreen = false, className }: BetaLoaderProps) => {
   const inner = (
     <div
-      className="relative flex items-center justify-center"
-      style={{ width: ringSize, height: ringSize }}
+      className="beta-loader-wrapper"
       role="status"
       aria-label="Loading"
     >
-      {/* Spinning ring */}
-      <div
-        className="absolute inset-0 rounded-full beta-loader-ring"
-        style={{ width: ringSize, height: ringSize }}
-      />
-      {/* Static logo in the center */}
-      <img
-        src="/lovable-uploads/favicon.png"
-        alt=""
-        aria-hidden="true"
-        className="relative z-10 select-none"
-        style={{ width: logoSize, height: logoSize }}
-        draggable={false}
-      />
+      {LETTERS.map((char, i) => (
+        <span
+          key={i}
+          className="beta-loader-letter"
+          style={{ animationDelay: `${i * 0.1}s` }}
+          aria-hidden="true"
+        >
+          {char}
+        </span>
+      ))}
+      <div className="beta-loader-ring" aria-hidden="true" />
       <span className="sr-only">Loading</span>
     </div>
   );
@@ -56,7 +48,7 @@ export const BetaLoader = ({
       className={cn(
         "fixed inset-0 z-[100] flex items-center justify-center",
         "bg-background/80 backdrop-blur-sm",
-        "animate-in fade-in duration-200",
+        "pointer-events-none",
         className
       )}
     >
