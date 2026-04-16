@@ -426,9 +426,11 @@ section, div, footer, header, nav, main {
   opacity: 1;
 }
 
-/* Reduced motion — exempt marquee/scroll animations so they always run */
+/* Reduced motion — exempt marquee/scroll + loader animations so they always run.
+ * The loader is essential feedback (not decorative), so it runs even with
+ * prefers-reduced-motion: reduce. */
 @media (prefers-reduced-motion: reduce) {
-  *:not(.animate-marquee):not(.animate-marquee-reverse):not(.animate-scroll-left):not(.animate-scroll-smooth),
+  *:not(.animate-marquee):not(.animate-marquee-reverse):not(.animate-scroll-left):not(.animate-scroll-smooth):not(.loader):not(.loader-letter):not(.loader-wrapper),
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
