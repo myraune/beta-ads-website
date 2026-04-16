@@ -430,7 +430,7 @@ section, div, footer, header, nav, main {
  * The loader is essential feedback (not decorative), so it runs even with
  * prefers-reduced-motion: reduce. */
 @media (prefers-reduced-motion: reduce) {
-  *:not(.animate-marquee):not(.animate-marquee-reverse):not(.animate-scroll-left):not(.animate-scroll-smooth):not(.loader-spinner):not(.loader-brandmark):not(.loader-wrapper),
+  *:not(.animate-marquee):not(.animate-marquee-reverse):not(.animate-scroll-left):not(.animate-scroll-smooth):not(.loader-spinner):not(.loader-brandmark):not(.loader-wrapper):not(.route-transition-overlay),
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
