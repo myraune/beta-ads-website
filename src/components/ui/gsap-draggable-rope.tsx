@@ -22,7 +22,7 @@ interface DraggableRopeProps {
 
 export function DraggableRope({
   className,
-  minAngle = 8,
+  minAngle = 4,
   initialAngle = 8,
   gravity = 18,
   ropeHeight = 290,
@@ -31,57 +31,76 @@ export function DraggableRope({
 }: DraggableRopeProps) {
   const ropeRef = useRef<HTMLDivElement>(null);
   const swingAnimationRef = useRef<gsap.core.Tween | null>(null);
+  // `gravity` is accepted for backwards-compat but no longer used — the new
+  // model uses multiplicative damping (see DAMPING below).
+  void gravity;
 
   useEffect(() => {
     if (!ropeRef.current) return;
 
     const rope = ropeRef.current;
 
-    // Settings from props
     const MIN_ANGLE = minAngle;
-    let ANGLE = initialAngle;
-    let DIRECTION = -1;
-    const GRAVITY = gravity;
+    // Multiplicative damping per half-swing. 0.72 gives a natural pendulum
+    // decay: e.g. 70° → 50° → 36° → 26° → 19° → 13° → 10° → settle.
+    const DAMPING = 0.72;
 
-    // Start Swing Animation
-    function startSwing() {
+    /**
+     * Run a single half-swing: tween from the rope's CURRENT rotation to
+     * `targetAngle`, easing like a pendulum (slow at the edges, fast through
+     * centre). On complete, flip direction and apply damping, recursing until
+     * amplitude falls below MIN_ANGLE, then settle into a gentle idle sway.
+     */
+    function swingTo(targetAngle: number, idle = false) {
+      const currentRotation = (gsap.getProperty(rope, "rotation") as number) || 0;
+      const amplitude = Math.abs(targetAngle - currentRotation);
+      // Pendulum period scales with sqrt of amplitude; clamp to a pleasing range
+      const duration = Math.min(2.6, Math.max(0.9, 0.9 + amplitude / 60));
+
       swingAnimationRef.current = gsap.to(rope, {
-        rotation: DIRECTION * ANGLE,
-        duration: 1.8 + ANGLE / 50,
-        ease: "power1.inOut",
+        rotation: targetAngle,
+        duration,
+        ease: "sine.inOut",
         onComplete: () => {
-          // Update swing angle for the next animation
-          ANGLE = Math.max(ANGLE - GRAVITY, MIN_ANGLE);
-          // Alternate swing direction
-          DIRECTION *= -1;
-          // Start the next swing
-          startSwing();
+          const nextAmp = Math.abs(targetAngle) * DAMPING;
+          const nextDir = targetAngle >= 0 ? -1 : 1;
+
+          if (nextAmp > MIN_ANGLE) {
+            swingTo(nextDir * nextAmp, false);
+          } else if (!idle) {
+            // Enter gentle idle sway
+            swingTo(nextDir * MIN_ANGLE, true);
+          } else {
+            // Continue idle sway indefinitely
+            swingTo(-targetAngle, true);
+          }
         },
       });
     }
 
-    // Start swinging
-    startSwing();
+    // Kick off initial idle sway
+    swingTo(-initialAngle, true);
 
-    // Make Rope Draggable
+    // Make Rope Draggable (no `inertia` — that requires GSAP's paid
+    // InertiaPlugin which isn't registered; silently ignored otherwise)
     const draggable = Draggable.create(rope, {
       type: "rotation",
-      inertia: true,
       bounds: { minRotation: -85, maxRotation: 85 },
-      dragResistance: 0.5,
-      throwResistance: 1600,
-      edgeResistance: 1,
+      dragResistance: 0.15,
+      edgeResistance: 0.65,
       onPress: function () {
         if (swingAnimationRef.current) {
           swingAnimationRef.current.kill();
         }
       },
       onRelease: function (this: any) {
-        setTimeout(() => {
-          DIRECTION = this.rotation >= 0 ? -1 : 1;
-          ANGLE = Math.max(Math.abs(this.rotation) - GRAVITY, MIN_ANGLE);
-          startSwing();
-        }, (this.tween?.duration() || 0.5) * 900);
+        // Start the pendulum immediately from wherever the user released.
+        // First target is the mirror of release rotation, damped slightly so
+        // the very first swing already shows decay (feels more physical).
+        const releaseRotation = this.rotation || 0;
+        const firstTarget =
+          Math.sign(releaseRotation) * Math.max(Math.abs(releaseRotation) * DAMPING, MIN_ANGLE) * -1;
+        swingTo(firstTarget, false);
       },
     });
 
@@ -94,7 +113,7 @@ export function DraggableRope({
         draggable[0].kill();
       }
     };
-  }, [minAngle, initialAngle, gravity]);
+  }, [minAngle, initialAngle]);
 
   const Icon = (
     <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="#000000">
