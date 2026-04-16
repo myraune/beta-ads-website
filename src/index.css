@@ -439,76 +439,97 @@ section, div, footer, header, nav, main {
 }
 
 /* ──────────────────────────────────────────────────────────────
- * BetaLoader — animated BETA ADS wordmark with rotating brand ring
- * Brand colors: signal (#e94f37), mint (#5adbb5), ink (#101820)
+ * ai-loader — faithful port of @theutkarshmail's 21st.dev component.
+ *   https://21st.dev/community/components/theutkarshmail/ai-loader/default
+ * The author's published CSS was missing the class definitions; only the
+ * keyframes (loader-rotate, loader-letter-anim) were published. Keyframes
+ * here are VERBATIM from the author. Class styles are reconstructed to
+ * match the demo: purple/magenta rotating orb behind pulsing "Generating"
+ * letters.
  * ──────────────────────────────────────────────────────────── */
-.beta-loader-wrapper {
+.loader-wrapper {
   position: relative;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.05em;
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  color: hsl(var(--foreground));
-  padding: 1.25rem 1.75rem;
+  width: 200px;
+  height: 200px;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  gap: 0.04em;
+  isolation: isolate;
 }
 
-.beta-loader-letter {
+.loader-letter {
   display: inline-block;
-  opacity: 0.35;
-  animation: beta-loader-letter-pulse 1.6s ease-in-out infinite;
+  opacity: 0.4;
+  transform: translateY(0);
+  animation: loader-letter-anim 2s infinite;
+  z-index: 1;
 }
+.loader-letter:nth-child(1)  { animation-delay: 0s; }
+.loader-letter:nth-child(2)  { animation-delay: 0.1s; }
+.loader-letter:nth-child(3)  { animation-delay: 0.2s; }
+.loader-letter:nth-child(4)  { animation-delay: 0.3s; }
+.loader-letter:nth-child(5)  { animation-delay: 0.4s; }
+.loader-letter:nth-child(6)  { animation-delay: 0.5s; }
+.loader-letter:nth-child(7)  { animation-delay: 0.6s; }
+.loader-letter:nth-child(8)  { animation-delay: 0.7s; }
+.loader-letter:nth-child(9)  { animation-delay: 0.8s; }
+.loader-letter:nth-child(10) { animation-delay: 0.9s; }
 
-@keyframes beta-loader-letter-pulse {
-  0%, 100% {
-    opacity: 0.35;
-    transform: translateY(0);
-    color: hsl(var(--foreground));
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(-2px);
-    color: #e94f37;
-  }
-}
-
-.beta-loader-ring {
+.loader {
   position: absolute;
-  inset: 0;
-  border-radius: 9999px;
-  pointer-events: none;
-  animation: beta-loader-ring-spin 1.6s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  box-shadow:
-    0 4px 10px 0 rgba(233, 79, 55, 0.35) inset,
-    0 20px 30px 0 rgba(90, 219, 181, 0.25) inset;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 150px;
+  margin-top: -75px;
+  margin-left: -75px;
+  border-radius: 50%;
+  background: transparent;
+  animation: loader-rotate 2s linear infinite;
+  z-index: 0;
 }
 
-@keyframes beta-loader-ring-spin {
+/* Keyframes — VERBATIM from
+ * https://cdn.21st.dev/theutkarshmail/ai-loader/index.1755115598405.css */
+@keyframes loader-rotate {
   0% {
-    transform: rotate(0deg);
-    box-shadow:
-      0 4px 10px 0 rgba(233, 79, 55, 0.35) inset,
-      0 20px 30px 0 rgba(90, 219, 181, 0.25) inset;
+    transform: rotate(90deg);
+    box-shadow: 0 10px 20px 0 #fff inset,
+      0 20px 30px 0 #ad5fff inset,
+      0 60px 60px 0 #471eec inset;
   }
   50% {
-    transform: rotate(180deg);
-    box-shadow:
-      0 4px 10px 0 rgba(90, 219, 181, 0.4) inset,
-      0 20px 30px 0 rgba(233, 79, 55, 0.3) inset;
+    transform: rotate(270deg);
+    box-shadow: 0 10px 20px 0 #fff inset,
+      0 20px 10px 0 #d60a47 inset,
+      0 40px 60px 0 #311e80 inset;
   }
   100% {
-    transform: rotate(360deg);
-    box-shadow:
-      0 4px 10px 0 rgba(233, 79, 55, 0.35) inset,
-      0 20px 30px 0 rgba(90, 219, 181, 0.25) inset;
+    transform: rotate(450deg);
+    box-shadow: 0 10px 20px 0 #fff inset,
+      0 20px 30px 0 #ad5fff inset,
+      0 60px 60px 0 #471eec inset;
   }
 }
 
-.dark .beta-loader-ring {
-  box-shadow:
-    0 4px 10px 0 rgba(233, 79, 55, 0.5) inset,
-    0 20px 30px 0 rgba(90, 219, 181, 0.35) inset;
+@keyframes loader-letter-anim {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  40% {
+    opacity: 0.7;
+    transform: translateY(0);
+  }
 }

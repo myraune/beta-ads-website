@@ -3,38 +3,38 @@ import { cn } from "@/lib/utils";
 interface BetaLoaderProps {
   /** Full-viewport overlay (used for Suspense fallback). Default: false (inline) */
   fullscreen?: boolean;
+  /** Override the word that animates letter-by-letter. Default: "Generating" */
+  text?: string;
   className?: string;
 }
 
-const LETTERS = ["B", "E", "T", "A", "\u00A0", "A", "D", "S"];
-
 /**
- * BetaLoader — animated "BETA ADS" wordmark with a rotating brand-colored
- * ring behind it. Each letter pulses in sequence. Used as the Suspense
- * fallback for lazy-loaded routes.
+ * BetaLoader — faithful port of the 21st.dev `ai-loader` by @theutkarshmail:
+ *   https://21st.dev/community/components/theutkarshmail/ai-loader/default
  *
- * Animations are defined in `src/index.css`:
- *  - `beta-loader-ring-spin`   → the ring
- *  - `beta-loader-letter-pulse` → individual letters
+ * The author published only the keyframes (loader-rotate, loader-letter-anim)
+ * and the HTML structure — the class styles (.loader-wrapper, .loader-letter,
+ * .loader) were missing from the published CSS. Those classes are defined
+ * locally in `src/index.css` so the component actually renders.
+ *
+ * Original palette preserved: purple (#ad5fff) → indigo (#471eec) → magenta
+ * (#d60a47) → deep-purple (#311e80). Do not re-brand without explicit ask.
  */
-export const BetaLoader = ({ fullscreen = false, className }: BetaLoaderProps) => {
+export const BetaLoader = ({
+  fullscreen = false,
+  text = "Generating",
+  className,
+}: BetaLoaderProps) => {
+  const letters = Array.from(text);
+
   const inner = (
-    <div
-      className="beta-loader-wrapper"
-      role="status"
-      aria-label="Loading"
-    >
-      {LETTERS.map((char, i) => (
-        <span
-          key={i}
-          className="beta-loader-letter"
-          style={{ animationDelay: `${i * 0.1}s` }}
-          aria-hidden="true"
-        >
-          {char}
+    <div className="loader-wrapper" role="status" aria-label="Loading">
+      {letters.map((char, i) => (
+        <span key={i} className="loader-letter" aria-hidden="true">
+          {char === " " ? "\u00A0" : char}
         </span>
       ))}
-      <div className="beta-loader-ring" aria-hidden="true" />
+      <div className="loader" aria-hidden="true" />
       <span className="sr-only">Loading</span>
     </div>
   );
