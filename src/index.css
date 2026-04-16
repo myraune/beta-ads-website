@@ -437,3 +437,76 @@ section, div, footer, header, nav, main {
     scroll-behavior: auto !important;
   }
 }
+
+/* ──────────────────────────────────────────────────────────────
+ * BetaLoader — route transition spinner
+ * Brand colors: signal (#e94f37), mint (#5adbb5), ink (#101820)
+ * ──────────────────────────────────────────────────────────── */
+.beta-loader-ring {
+  border-radius: 9999px;
+  animation: beta-loader-rotate 1.6s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  /* Ring effect via inset box-shadow — lighter highlight + colored glow */
+  box-shadow:
+    0 8px 16px 0 rgba(255, 255, 255, 0.6) inset,
+    0 16px 24px 0 rgba(233, 79, 55, 0.7) inset,
+    0 48px 48px 0 rgba(90, 219, 181, 0.55) inset;
+}
+
+@keyframes beta-loader-rotate {
+  0% {
+    transform: rotate(90deg);
+    box-shadow:
+      0 8px 16px 0 rgba(255, 255, 255, 0.6) inset,
+      0 16px 24px 0 rgba(233, 79, 55, 0.7) inset,
+      0 48px 48px 0 rgba(90, 219, 181, 0.55) inset;
+  }
+  50% {
+    transform: rotate(270deg);
+    box-shadow:
+      0 8px 16px 0 rgba(255, 255, 255, 0.6) inset,
+      0 16px 10px 0 rgba(90, 219, 181, 0.8) inset,
+      0 40px 48px 0 rgba(233, 79, 55, 0.55) inset;
+  }
+  100% {
+    transform: rotate(450deg);
+    box-shadow:
+      0 8px 16px 0 rgba(255, 255, 255, 0.6) inset,
+      0 16px 24px 0 rgba(233, 79, 55, 0.7) inset,
+      0 48px 48px 0 rgba(90, 219, 181, 0.55) inset;
+  }
+}
+
+/* Dark mode: soften the white highlight since ink background is dark */
+.dark .beta-loader-ring {
+  box-shadow:
+    0 8px 16px 0 rgba(255, 255, 255, 0.15) inset,
+    0 16px 24px 0 rgba(233, 79, 55, 0.85) inset,
+    0 48px 48px 0 rgba(90, 219, 181, 0.65) inset;
+}
+.dark .beta-loader-ring,
+.dark .beta-loader-ring * {
+  animation-name: beta-loader-rotate-dark;
+}
+@keyframes beta-loader-rotate-dark {
+  0% {
+    transform: rotate(90deg);
+    box-shadow:
+      0 8px 16px 0 rgba(255, 255, 255, 0.15) inset,
+      0 16px 24px 0 rgba(233, 79, 55, 0.85) inset,
+      0 48px 48px 0 rgba(90, 219, 181, 0.65) inset;
+  }
+  50% {
+    transform: rotate(270deg);
+    box-shadow:
+      0 8px 16px 0 rgba(255, 255, 255, 0.15) inset,
+      0 16px 10px 0 rgba(90, 219, 181, 0.9) inset,
+      0 40px 48px 0 rgba(233, 79, 55, 0.65) inset;
+  }
+  100% {
+    transform: rotate(450deg);
+    box-shadow:
+      0 8px 16px 0 rgba(255, 255, 255, 0.15) inset,
+      0 16px 24px 0 rgba(233, 79, 55, 0.85) inset,
+      0 48px 48px 0 rgba(90, 219, 181, 0.65) inset;
+  }
+}
