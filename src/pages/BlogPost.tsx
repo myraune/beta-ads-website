@@ -118,7 +118,7 @@ const BlogPostPage: React.FC = () => {
             <div className="relative w-full h-48 md:h-72 lg:h-[360px] overflow-hidden bg-muted">
               {/* fetchpriority="high": this is the LCP element on blog post pages — signals browser to load it early, improving Core Web Vitals score */}
               <img
-                src={getBlogImage(post.slug)}
+                src={getBlogImage(post)}
                 alt={post.title}
                 className="w-full h-full object-cover"
                 fetchPriority="high"

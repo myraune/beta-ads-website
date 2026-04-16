@@ -135,10 +135,14 @@ const Blog: React.FC = () => {
                   <article className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                     <div className="aspect-[16/9] rounded-2xl overflow-hidden bg-muted">
                       <img
-                        src={getBlogImage(filteredPosts[0].slug)}
+                        src={getBlogImage(filteredPosts[0])}
                         alt={filteredPosts[0].title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         loading="eager"
+                        fetchPriority="high"
+                        width={1200}
+                        height={675}
+                        decoding="async"
                       />
                     </div>
                     <div>
@@ -171,10 +175,14 @@ const Blog: React.FC = () => {
                       <article>
                         <div className="aspect-[16/10] rounded-xl overflow-hidden mb-4 bg-muted">
                           <img
-                            src={getBlogImage(post.slug)}
+                            src={getBlogImage(post)}
                             alt={post.title}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                             loading="lazy"
+                            decoding="async"
+                            width={480}
+                            height={300}
+                            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                           />
                         </div>
                         <div className="flex items-center gap-2 mb-2">

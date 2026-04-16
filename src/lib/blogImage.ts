@@ -25,7 +25,19 @@
  *   4. If no custom photos exist, falls back to post.image from blogPosts.ts
  */
 
-import { blogPosts, type BlogPost } from "@/data/blogPosts";
+// Minimal post shape the image resolver needs. Using a structural type here
+// (instead of importing BlogPost from @/data/blogPosts) keeps the giant
+// blogPosts array OUT of the main bundle. blogPosts.ts is ~872KB of inlined
+// markdown — bundling it with the entry chunk (via App.tsx → blogImage ->
+// blogPosts) made the initial JS payload balloon to 1.2 MB. With this
+// structural type the main bundle drops ~400-500KB.
+export interface BlogImagePost {
+  slug: string;
+  title: string;
+  category: string;
+  tags: string[];
+  image?: string;
+}
 
 // Photo registry: populated by the build-time scan script or at runtime
 // Maps folder name → array of filenames
@@ -105,7 +117,7 @@ function hashSlug(slug: string): number {
 /**
  * Score how well a folder matches a post's tags and category.
  */
-function scoreFolders(post: BlogPost): string[] {
+function scoreFolders(post: BlogImagePost): string[] {
   const scores: Record<string, number> = {};
 
   // Score from tags
@@ -147,7 +159,7 @@ function scoreFolders(post: BlogPost): string[] {
  * Try to pick a photo from the registry for a given post.
  * Returns null if no custom photos are available.
  */
-function pickPhoto(post: BlogPost): string | null {
+function pickPhoto(post: BlogImagePost): string | null {
   if (!registryLoaded || Object.keys(photoRegistry).length === 0) {
     return null;
   }
@@ -174,24 +186,28 @@ function pickPhoto(post: BlogPost): string | null {
 }
 
 /**
- * Main image resolver.
+ * Main image resolver. Pass the full post object (callers already have it).
+ * Passing just a slug string is still supported for legacy callers but only
+ * returns the picsum fallback — no tag-based scoring possible without tags.
  */
-export function getBlogImage(slug: string): string {
-  const post = blogPosts.find(p => p.slug === slug);
-
-  // 1. Try custom photo from /blog-photos/ (if any are registered)
-  if (post) {
-    const customPhoto = pickPhoto(post);
-    if (customPhoto) return customPhoto;
+export function getBlogImage(postOrSlug: BlogImagePost | string): string {
+  if (typeof postOrSlug === "string") {
+    return `https://picsum.photos/seed/${encodeURIComponent(postOrSlug)}/800/450`;
   }
 
-  // 2. Image from blogPosts.ts
-  if (post?.image) {
+  const post = postOrSlug;
+
+  // 1. Try custom photo from /blog-photos/ (if any are registered)
+  const customPhoto = pickPhoto(post);
+  if (customPhoto) return customPhoto;
+
+  // 2. Image from the post's own `image` field
+  if (post.image) {
     return post.image;
   }
 
   // 3. Deterministic fallback
-  return `https://picsum.photos/seed/${encodeURIComponent(slug)}/800/450`;
+  return `https://picsum.photos/seed/${encodeURIComponent(post.slug)}/800/450`;
 }
 
 /**

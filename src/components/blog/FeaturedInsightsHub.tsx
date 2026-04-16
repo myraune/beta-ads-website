@@ -82,7 +82,7 @@ export const FeaturedInsightsHub: React.FC<FeaturedInsightsHubProps> = ({ langua
             {/* Image */}
             <div className="aspect-video overflow-hidden relative">
               <img
-                src={getBlogImage(post.slug)}
+                src={getBlogImage(post)}
                 alt={post.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />

@@ -40,7 +40,7 @@ export const SPCTA: React.FC = () => {
                 {/* Cover image */}
                 <div className="aspect-[16/9] overflow-hidden bg-muted">
                   <img
-                    src={getBlogImage(post.slug)}
+                    src={getBlogImage(post)}
                     alt={post.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     loading="lazy"
