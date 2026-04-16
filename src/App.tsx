@@ -128,7 +128,7 @@ const App = () => {
         <RouteThemeEnforcer />
         <Suspense
           fallback={
-            <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background/80 backdrop-blur-sm pointer-events-none">
+            <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background pointer-events-none">
               <AILoader />
             </div>
           }
