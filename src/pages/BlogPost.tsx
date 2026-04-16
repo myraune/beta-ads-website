@@ -308,9 +308,9 @@ const BlogPostPage: React.FC = () => {
                 <span className="text-sm text-muted-foreground flex items-center gap-2">
                   <Share2 className="w-4 h-4" />Share:
                 </span>
-                <Button variant="outline" size="icon" className="h-9 w-9" onClick={() => handleShare("twitter")}><Twitter className="w-4 h-4" /></Button>
-                <Button variant="outline" size="icon" className="h-9 w-9" onClick={() => handleShare("linkedin")}><Linkedin className="w-4 h-4" /></Button>
-                <Button variant="outline" size="icon" className="h-9 w-9" onClick={() => handleShare("facebook")}><Facebook className="w-4 h-4" /></Button>
+                <Button variant="outline" size="icon" className="h-9 w-9" onClick={() => handleShare("twitter")} aria-label="Share on X (Twitter)"><Twitter className="w-4 h-4" /></Button>
+                <Button variant="outline" size="icon" className="h-9 w-9" onClick={() => handleShare("linkedin")} aria-label="Share on LinkedIn"><Linkedin className="w-4 h-4" /></Button>
+                <Button variant="outline" size="icon" className="h-9 w-9" onClick={() => handleShare("facebook")} aria-label="Share on Facebook"><Facebook className="w-4 h-4" /></Button>
               </div>
             </div>
           </div>

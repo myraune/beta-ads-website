@@ -239,7 +239,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
                 <div className="aspect-video overflow-hidden bg-muted">
                   <img
                     src={cs.image}
-                    alt={cs.brand}
+                    alt={`${cs.brand} — ${cs.title}`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>

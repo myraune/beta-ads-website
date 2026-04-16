@@ -849,7 +849,7 @@ export const SPFeatures: React.FC = () => {
 
   return (
     <section aria-label="Features" className="relative z-10" style={{ overflowX: 'clip' }}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 2xl:max-w-[1400px]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 2xl:max-w-[1400px]">
         {/* Section header */}
         <div className="pt-20 md:pt-28 pb-8 border-t border-border">
           <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Platform</span>

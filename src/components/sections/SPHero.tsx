@@ -97,7 +97,7 @@ const DashboardView = () => (
         { label: "Watch Time", value: "2,841 hrs" },
       ].map((s) => (
         <div key={s.label} className="px-2.5 py-2 bg-white rounded-lg border border-gray-100">
-          <p className={`text-[8px] font-medium uppercase ${s.hl ? "text-red-500" : "text-gray-400"}`}>{s.label}</p>
+          <p className={`text-[8px] font-medium uppercase truncate ${s.hl ? "text-red-500" : "text-gray-400"}`}>{s.label}</p>
           <p className="text-sm font-bold text-gray-900">{s.value}</p>
         </div>
       ))}
@@ -112,7 +112,7 @@ const DashboardView = () => (
         { label: "Chat Mentions", value: "4,291" },
       ].map((s) => (
         <div key={s.label} className="px-2.5 py-2 bg-white rounded-lg border border-gray-100">
-          <p className="text-[8px] text-gray-400 uppercase">{s.label}</p>
+          <p className="text-[8px] text-gray-400 uppercase truncate">{s.label}</p>
           <p className="text-sm font-bold text-gray-900">{s.value}</p>
         </div>
       ))}
@@ -200,7 +200,7 @@ const StreamerExplorerView = () => (
         { label: "Avg. Brand Safety", value: "6.8 / 10", icon: "🛡️", color: "border-l-purple-400" },
       ].map((s) => (
         <div key={s.label} className={`px-2.5 py-2 bg-white rounded-lg border border-gray-100 border-l-2 ${s.color}`}>
-          <p className="text-[7px] text-gray-400 uppercase flex items-center gap-1"><span className="text-[9px]">{s.icon}</span> {s.label}</p>
+          <p className="text-[7px] text-gray-400 uppercase flex items-center gap-1 truncate"><span className="text-[9px] shrink-0">{s.icon}</span> <span className="truncate">{s.label}</span></p>
           <p className="text-sm font-bold text-gray-900">{s.value}</p>
         </div>
       ))}
