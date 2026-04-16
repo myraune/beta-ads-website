@@ -34,6 +34,136 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "kick-100-million-users-milestone-nordic-advertisers-2026",
+    slug: "kick-100-million-users-milestone-nordic-advertisers-2026",
+    title: "Kick Just Hit 100 Million Users. Its Co-Founder Called It a Vanity Metric. Here Is What Nordic Advertisers Should Take From That.",
+    excerpt: "On April 10, Kick announced 100 million users in three years. The same week, co-founder Bijan Tehrani called the milestone a vanity achievement and listed what is still broken. For Nordic media planners, the honest version of the number matters more than the number itself.",
+    content: `## The headline is real, but the honest version of it matters more
+
+On April 10, 2026, Kick co-founder Bijan Tehrani confirmed that the livestreaming platform had passed 100 million total users in the three years since its 2022 launch, as reported by [Gambling News](https://www.gamblingnews.com/news/kick-surpasses-100m-users-founder-talks-about-the-hurdles-to-get-to-this-point/) and [Streams Charts](https://streamscharts.com/news/kick-reaches-100-million-users). That is the kind of number that ends up in a quarterly board deck.
+
+What is unusual is how Tehrani framed it. In the same round of interviews, he told [win.gg](https://win.gg/kick-hits-100-million-users-co-founder-talks-future/) that "we aren't where we need to or should be," described the platform's early infrastructure as "weak plumbing" with unreliable streaming, and said plainly that "the Kick app sucks." [Vegas Slots Online](https://www.vegasslotsonline.com/news/2026/04/10/kick-hits-100-million-users-although-its-co-founder-admits-major-problems/) reported Tehrani referring to the milestone itself as a "vanity achievement."
+
+For Nordic brand marketers and media agencies, this is a rare moment where the platform is doing the skeptical analysis for you. The question is not whether Kick is big enough to matter. It clearly is. The question is what kind of media plan a platform at this stage of maturity actually supports.
+
+![A livestream studio with multi-platform broadcasting setup](/lovable-uploads/blog-kick-q3-2025-growth-nordic-advertising-opportunity-hero.jpg)
+
+## What the hours-watched data actually says
+
+Total users is a soft number. A more useful lens is engaged viewing hours, which is where Kick's traffic actually monetizes.
+
+According to [Streams Charts' March 2026 report](https://streamscharts.com/news/kick-reaches-over-500-million-hours-watched-march-2026), Kick recorded over 500 million Hours Watched in March, its strongest month since October 2025. Average concurrent viewership was up 2% month-over-month, active streamers were up 1%, and the platform hosted streams in 5,734 distinct categories, an all-time record.
+
+Category growth was uneven but revealing:
+
+- **Counter-Strike** up 35%, driven by case-opening content and competitive play
+- **Survival games** up 19%, with Rust, Minecraft, and Resident Evil Requiem leading
+- **League of Legends** up 17% on the back of esports co-streaming
+- **Dota 2** down 21% as esports co-streams dried up
+- **Mobile gaming** down 7%
+
+The peak of the entire quarter was not a gaming stream. It was Luis "WestCOL" Álvarez hosting Colombian President Gustavo Petro at 841,000 concurrent viewers. Top creators now include Adin Ross, WestCOL, BaianoTV, and Andrea Valdiri, a pattern [Stream Charts' Q1 2026 landscape report](https://streamscharts.com/news/q1-2026-global-livestreaming-landscape) attributes to deepening localization away from North America.
+
+That is the shape of Kick today: a large, diversifying platform with meaningful reach in Latin America, MENA, and Japan, and a growing long-tail of non-gaming content. It is also a platform whose top peaks still skew toward high-variance personality streams. Both of those facts matter for media planning.
+
+## The honest list of what is still broken
+
+Tehrani's interviews functioned as a risk disclosure. Stripping out the quotable bits, the admitted issues are:
+
+1. **Discovery does not work well**, and the new "V1 algorithm" is only now rolling out to improve what Kick calls "authentic engagement" for long-form streams.
+2. **The mobile app is being rebuilt from scratch** because the existing one is not fit for purpose. Mobile is where a large share of younger Nordic Twitch and YouTube viewing already lives.
+3. **Fraud hygiene was historically loose**. Kick has now [removed thousands of accounts for viewbotting and purged tens of millions of fake spam accounts](https://win.gg/kick-hits-100-million-users-co-founder-talks-future/), per Tehrani's own account.
+4. **The early growth playbook is being reversed.** Massive guaranteed creator contracts, including the [xQc $100 million deal in June 2023](https://streamscharts.com/news/kick-reaches-100-million-users) and the Amouranth signing, are being replaced with performance-linked payouts under the Kick Creator Incentive Program.
+5. **Advertising infrastructure is still young**. As [Digiday has reported](https://digiday.com/marketing/why-kick-is-rolling-out-ads-even-though-it-doesnt-care-about-ad-revenue/), Kick is beginning to roll out ads, but the company's stated focus is direct brand-creator sponsorships rather than ad-load optimization, and the ad stack is not comparable to Twitch's in terms of targeting, measurement, or IAB-aligned brand-safety controls.
+
+None of those issues are fatal. All of them are relevant inputs when you are deciding whether to run a 7-figure Nordic campaign on Kick versus Twitch versus YouTube Live.
+
+## The ad product question: what Kick is and is not building
+
+This is the part that is easy to get wrong. Kick is not positioning itself as a head-to-head replacement for Twitch's ad stack.
+
+[Creator Handbook](https://www.creatorhandbook.net/kick-confirms-advertising-features-are-in-development/) and [Digiday](https://digiday.com/marketing/why-kick-is-rolling-out-ads-even-though-it-doesnt-care-about-ad-revenue/) both report the same direction: a lighter ad load, optional participation for creators, and a strategic preference for sponsor-led and creator-led brand integrations over programmatic ad slots. [Famesters' Kick vs. Twitch comparison](https://famesters.com/blog/kick-vs-twitch-which-is-better-for-advertisers/) makes the same point — Kick's advertiser-facing proposition is closer to an influencer marketing surface than a CTV-style media buy.
+
+For a Nordic media buyer, this has two practical consequences:
+
+- **Platform-direct ad buys on Kick are not yet a like-for-like alternative to Twitch's IAB-style inventory.** Treat any 2026 Kick ad test as a learning budget, not a scaled channel.
+- **The real opportunity on Kick today is creator-led integrations**, either with a streamer who multistreams to Kick plus Twitch or YouTube, or with Kick-native creators whose audience you can reach through native overlays and segments inside their broadcast.
+
+That second option is where a Nordic brand can get meaningful value today without waiting for Kick's ad infrastructure to mature.
+
+![Overlay ad integrated into a live gameplay stream](/lovable-uploads/blog-kick-q3-2025-growth-nordic-advertising-opportunity-1.jpg)
+
+## Brand safety is mainstreaming, but slowly
+
+Kick's early reputation problem was real. The platform grew on the back of crypto and casino streaming, it has close ties to the online casino Stake, and its co-founders have publicly invested roughly \$1 billion of their own capital in the platform, largely financed through Stake-linked backing, according to [Streams Charts](https://streamscharts.com/news/kick-reaches-100-million-users).
+
+The direction of travel, though, is toward a more defensible brand-safety posture. Kick has ended the largest guaranteed creator contracts, tightened account hygiene, and is publicly courting mainstream categories. Sports sponsorships — [title sponsorship of the Stake F1 Team Kick Sauber](https://streamscharts.com/news/kick-reaches-100-million-users), a sleeve deal with Everton FC, and the UFC behind-the-scenes partnership — are a visible part of that push.
+
+That does not make Kick a safe default for every Nordic brand category. A children's brand, a regulated alcohol advertiser in Sweden, or a Finnish bank should still approach Kick with a careful allowlist of streamers and contextual controls. But the platform is closer to workable for mainstream Nordic advertisers in April 2026 than it was six months ago, and that shift is likely to continue across the year.
+
+## What Nordic advertisers should actually do in Q2 and Q3 2026
+
+A realistic posture from here looks like this:
+
+- **Do not abandon Twitch to chase the headline.** Twitch remains the dominant engaged-viewing platform in the Nordics, with stronger ad infrastructure, cleaner measurement, and a much deeper Nordic streamer ecosystem. [Stream Charts' Q1 2026 data](https://streamscharts.com/news/q1-2026-global-livestreaming-landscape) shows Twitch and Kick both growing while YouTube Live and TikTok Live declined, but Twitch still leads on Hours Watched at scale.
+- **Budget a Kick test, not a Kick bet.** A reasonable 2026 split for a brand that is curious about Kick is 80–90% Twitch-led creator and overlay activity, with 10–20% routed to Kick via multistream-friendly creators or Kick-native sponsorships in vetted categories. Treat it as an information investment.
+- **Prioritize creator-led integrations on Kick over platform ad buys.** The ad product is immature, but the creator economics are genuinely favorable because of the 95/5 split. A sponsorship or native overlay inside a trusted streamer's broadcast is the best unit of value Kick offers today.
+- **Use TwitchCon Rotterdam as a calibration point.** [TwitchCon Europe](https://twitchcon.com/rotterdam-2026) returns to Rotterdam Ahoy on May 30–31, 2026. It is the single biggest moment for European creator–brand conversations this year, and several sessions — including "Why Brands Say No: The Mistakes That Impact Sponsorships" — are directly useful for Nordic marketers planning H2 media.
+- **Keep the overlay layer consistent across platforms.** If your creator sponsorship travels from Twitch to Kick to YouTube Live through multistreaming, your overlay format, call-to-action, and tracking should travel with it. That is the portable unit of value across a fragmenting ecosystem.
+
+## Where Beta Ads fits
+
+The pattern that keeps playing out through this cycle — Kick's rise, Trovo's wind-down, YouTube Live's wobble, Twitch holding — is that platform volatility is now a structural fact of Nordic livestream media planning. The brands that come out of 2026 with sustainable reach are the ones whose creative unit is portable across platforms and whose creator relationships are not tied to a single surface.
+
+Beta Ads operates a network of 40+ Nordic Twitch streamers with native overlay ads that travel with the creator across whichever platforms they multistream to. That is the same posture this Kick moment recommends: invest in the creator and the creative, not in the chart position of any single platform.
+
+If you are sizing a 2026 Nordic livestream budget and want a second opinion on the Twitch-Kick split, [reach out to Beta Ads](https://beta-ads.no/contact) for a walkthrough of the current ecosystem.
+
+---
+
+**Sources:**
+- [Gambling News: Kick Surpasses 100M Users, Founder Talks About the Hurdles to Get to This Point](https://www.gamblingnews.com/news/kick-surpasses-100m-users-founder-talks-about-the-hurdles-to-get-to-this-point/)
+- [Streams Charts: Kick's Rise: From Newcomer to Livestreaming Powerhouse](https://streamscharts.com/news/kick-reaches-100-million-users)
+- [win.gg: Kick hits 100 million users, co-founder talks future](https://win.gg/kick-hits-100-million-users-co-founder-talks-future/)
+- [Vegas Slots Online: Kick Hits 100m Users, Co-Founder Admits to Big Problems](https://www.vegasslotsonline.com/news/2026/04/10/kick-hits-100-million-users-although-its-co-founder-admits-major-problems/)
+- [Streams Charts: Kick reaches over 500 million hours watched in March 2026](https://streamscharts.com/news/kick-reaches-over-500-million-hours-watched-march-2026)
+- [Streams Charts: Q1 2026 Global Livestreaming Landscape](https://streamscharts.com/news/q1-2026-global-livestreaming-landscape)
+- [Digiday: Why Kick is rolling out ads — even though it doesn't care about ad revenue](https://digiday.com/marketing/why-kick-is-rolling-out-ads-even-though-it-doesnt-care-about-ad-revenue/)
+- [Creator Handbook: Kick confirms advertising features are in development](https://www.creatorhandbook.net/kick-confirms-advertising-features-are-in-development/)
+- [Famesters: Kick vs. Twitch: which is better for advertisers?](https://famesters.com/blog/kick-vs-twitch-which-is-better-for-advertisers/)
+- [TwitchCon Rotterdam 2026](https://twitchcon.com/rotterdam-2026)`,
+    date: "Apr 16, 2026",
+    dateISO: "2026-04-16",
+    readTime: "9 min read",
+    image: "/lovable-uploads/blog-kick-q3-2025-growth-nordic-advertising-opportunity-hero.jpg",
+    category: "Industry Insights",
+    tags: ["Kick", "platform strategy", "Nordic advertisers", "livestreaming", "brand safety", "media planning"],
+    relatedSlugs: [
+      "kick-vs-twitch-nordics-brand-comparison-2026",
+      "kick-q3-2025-growth-nordic-advertising-opportunity",
+      "platform-diversification-nordic-advertisers-2026",
+      "streaming-shakeout-trovo-shutdown-platform-risk-advertisers-2026",
+    ],
+    seoTitle: {
+      en: "Kick Hits 100M Users: What Nordic Advertisers Should Do in 2026",
+      no: "Kick passerer 100 millioner brukere: Hva nordiske annonsorer bor gjore i 2026",
+      sv: "Kick nar 100 miljoner anvandare: Vad nordiska annonsorer bor gora 2026",
+      fi: "Kick ylitti 100 miljoonaa kayttajaa: Mita pohjoismaisten mainostajien tulisi tehda 2026",
+    },
+    seoDescription: {
+      en: "Kick hit 100M users on April 10, 2026 — but its co-founder called it a vanity metric. A Nordic media-planning guide to what the milestone means for Twitch, Kick, and creator budgets in 2026.",
+      no: "Kick passerte 100 millioner brukere 10. april 2026, men medgrunderen kalte det et fafengt tall. En nordisk mediaplanleggers guide til hva dette betyr for Twitch, Kick og creator-budsjetter i 2026.",
+      sv: "Kick nadde 100 miljoner anvandare 10 april 2026, men medgrundaren kallade det en fafang siffra. En nordisk mediaplanerares guide till vad milstolpen betyder for Twitch, Kick och creator-budgetar 2026.",
+      fi: "Kick ylitti 100 miljoonaa kayttajaa 10. huhtikuuta 2026, mutta perustaja kutsui sita turhamaisuusluvuksi. Pohjoismainen mediasuunnittelijan opas Twitchin, Kickin ja creator-budjettien jakoon 2026.",
+    },
+    seoKeywords: {
+      en: ["Kick 100 million users", "Kick vs Twitch 2026", "Nordic streaming advertising", "Kick brand safety", "livestream media planning", "Kick advertising products"],
+      no: ["Kick 100 millioner brukere", "Kick vs Twitch 2026", "nordisk streaming-annonsering", "Kick merkevaresikkerhet", "livestream mediaplanlegging", "Kick annonseprodukter"],
+      sv: ["Kick 100 miljoner anvandare", "Kick vs Twitch 2026", "nordisk streaming-annonsering", "Kick varumarkessakerhet", "livestream mediaplanering", "Kick annonsprodukter"],
+      fi: ["Kick 100 miljoonaa kayttajaa", "Kick vs Twitch 2026", "pohjoismainen streaming-mainonta", "Kick brandi-turvallisuus", "livestream-mediasuunnittelu", "Kick-mainostuotteet"],
+    },
+  },
+  {
     id: "adblock-gen-z-overlay-ads-twitch-2026",
     slug: "adblock-gen-z-overlay-ads-twitch-2026",
     title: "Adblock gjor digital annonsering usynlig for Gen Z: Slik loser overlay ads pa Twitch problemet",
