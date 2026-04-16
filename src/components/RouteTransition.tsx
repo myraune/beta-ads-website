@@ -40,8 +40,13 @@ function NavOverlay() {
   const [phase, setPhase] = useState<"showing" | "fading" | "done">("showing");
 
   useEffect(() => {
-    const fadeTimer = window.setTimeout(() => setPhase("fading"), 400);
-    const doneTimer = window.setTimeout(() => setPhase("done"), 580);
+    // Hold the overlay long enough that heavy routes (home with animated
+    // shader, /streamers with dark-theme swap) finish their initial mount
+    // underneath before we start uncovering. 700ms solid + 240ms fade
+    // handles the theme flip (e.g. /streamers → / triggers dark → light)
+    // without the underlying change leaking through during the fade.
+    const fadeTimer = window.setTimeout(() => setPhase("fading"), 700);
+    const doneTimer = window.setTimeout(() => setPhase("done"), 940);
     return () => {
       window.clearTimeout(fadeTimer);
       window.clearTimeout(doneTimer);
@@ -55,7 +60,7 @@ function NavOverlay() {
       className="route-transition-overlay fixed inset-0 z-[100] flex items-center justify-center bg-background pointer-events-none"
       style={{
         opacity: phase === "showing" ? 1 : 0,
-        transition: "opacity 180ms ease-out",
+        transition: "opacity 240ms ease-out",
       }}
       aria-hidden="true"
     >
