@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
+import { SPFooter } from "@/components/sections/SPFooter";
 
 const Privacy: React.FC = () => {
   return (
@@ -446,6 +447,7 @@ const Privacy: React.FC = () => {
           </div>
         </div>
       </div>
+      <SPFooter />
     </>
   );
 };

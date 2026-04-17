@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 
 interface SEOProps {
@@ -45,6 +46,55 @@ export const SEO: React.FC<SEOProps> = ({
       ? ogImage
       : `${SITE_URL}${ogImage.startsWith("/") ? ogImage : `/${ogImage}`}`
     : DEFAULT_OG_IMAGE;
+
+  // Imperative fallback — react-helmet-async@3 has a known React 18 StrictMode
+  // issue where Helmet updates don't propagate reliably on route changes, so
+  // every page ended up with the static title from index.html. Setting these
+  // directly via useEffect guarantees the browser tab, social crawlers that
+  // re-fetch the DOM, and any analytics that read document.title see the
+  // correct per-page values immediately.
+  useEffect(() => {
+    document.title = fullTitle;
+
+    const upsertMeta = (selector: string, attr: "name" | "property", key: string, content: string) => {
+      let tag = document.head.querySelector(selector) as HTMLMetaElement | null;
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute(attr, key);
+        document.head.appendChild(tag);
+      }
+      tag.setAttribute("content", content);
+    };
+
+    upsertMeta('meta[name="description"]', "name", "description", description);
+    upsertMeta('meta[property="og:title"]', "property", "og:title", fullTitle);
+    upsertMeta('meta[property="og:description"]', "property", "og:description", description);
+    upsertMeta('meta[property="og:type"]', "property", "og:type", ogType);
+    upsertMeta('meta[property="og:image"]', "property", "og:image", resolvedOgImage);
+    upsertMeta('meta[name="twitter:title"]', "name", "twitter:title", fullTitle);
+    upsertMeta('meta[name="twitter:description"]', "name", "twitter:description", description);
+    upsertMeta('meta[name="twitter:image"]', "name", "twitter:image", resolvedOgImage);
+
+    if (canonicalUrl) {
+      let link = document.head.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
+      if (!link) {
+        link = document.createElement("link");
+        link.setAttribute("rel", "canonical");
+        document.head.appendChild(link);
+      }
+      link.setAttribute("href", canonicalUrl);
+      upsertMeta('meta[property="og:url"]', "property", "og:url", canonicalUrl);
+    }
+
+    if (noindex) {
+      upsertMeta('meta[name="robots"]', "name", "robots", "noindex, nofollow");
+    } else {
+      const robots = document.head.querySelector('meta[name="robots"]');
+      if (robots?.getAttribute("content")?.includes("noindex")) {
+        robots.setAttribute("content", "index, follow");
+      }
+    }
+  }, [fullTitle, description, canonicalUrl, resolvedOgImage, ogType, noindex]);
 
   return (
     <Helmet>

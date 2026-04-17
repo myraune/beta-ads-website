@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react";
 import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
+import { SPFooter } from "@/components/sections/SPFooter";
 
 const SamsungFold7CaseStudy = lazy(() => import("@/components/blog/SamsungFold7CaseStudy"));
 
@@ -73,6 +74,7 @@ const CaseStudySamsungFold7: React.FC = () => {
           <SamsungFold7CaseStudy />
         </Suspense>
       </div>
+      <SPFooter />
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
+import { SPFooter } from "@/components/sections/SPFooter";
 
 const Terms: React.FC = () => {
   return (
@@ -295,6 +296,7 @@ const Terms: React.FC = () => {
           </div>
         </div>
       </div>
+      <SPFooter />
     </>
   );
 };

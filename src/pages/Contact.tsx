@@ -3,6 +3,7 @@ import { SEO } from "@/components/SEO";
 import { ArrowRight, Mail, MapPin, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedShaderBackground from "@/components/ui/animated-shader-background";
+import { SPFooter } from "@/components/sections/SPFooter";
 
 const Contact: React.FC = () => {
   return (
@@ -159,6 +160,7 @@ const Contact: React.FC = () => {
         </div>
       </section>
 
+      <SPFooter />
     </>
   );
 };

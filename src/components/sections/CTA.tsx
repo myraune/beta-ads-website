@@ -24,7 +24,7 @@ export const CTA: React.FC<CTAProps> = ({ t }) => (
               <div className="relative">
                 <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden shadow-2xl shadow-black/30">
                   <img
-                    src="/lovable-uploads/e6d9646d-bf5f-471c-a2d8-1f06c274f570.png"
+                    src="/lovable-uploads/founder-andreas.jpg"
                     alt="Andreas Myraune"
                     className="w-full h-full object-cover"
                   />

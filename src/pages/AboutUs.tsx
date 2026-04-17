@@ -46,7 +46,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
             "jobTitle": "Founder & CEO",
             "description": "Founder and CEO of Beta Ads (Beta Agency AS), a Nordic livestream advertising platform based in Oslo. Connects brands with Nordic streamers on Twitch, YouTube, and Kick through native overlay advertising.",
             "url": "https://beta-ads.no/about",
-            "image": "https://beta-ads.no/lovable-uploads/e6d9646d-bf5f-471c-a2d8-1f06c274f570.png",
+            "image": "https://beta-ads.no/lovable-uploads/founder-andreas.jpg",
             "worksFor": { "@id": "https://beta-ads.no/#organization" },
             "nationality": { "@type": "Country", "name": "Norway" },
             "address": {
