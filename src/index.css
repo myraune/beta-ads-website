@@ -426,16 +426,20 @@ section, div, footer, header, nav, main {
   opacity: 1;
 }
 
-/* Reduced motion — exempt marquee/scroll + loader animations so they always run.
- * The loader is essential feedback (not decorative), so it runs even with
- * prefers-reduced-motion: reduce. */
+/* Reduced motion — only kill large keyframe animations and auto-scroll.
+ * Keep CSS transitions intact: hover color fades, 2-4px card lifts,
+ * opacity transitions etc. are essential UI feedback, not vestibular
+ * triggers. WCAG 2.1 SC 2.3.3 is about preventing motion sickness
+ * from parallax / large zooms / auto-playing animation — not about
+ * removing every hint of movement. The previous rule clamped every
+ * transition-duration to 0.01ms and made the whole site feel dead on
+ * hover. */
 @media (prefers-reduced-motion: reduce) {
   *:not(.animate-marquee):not(.animate-marquee-reverse):not(.animate-scroll-left):not(.animate-scroll-smooth):not(.loader-spinner):not(.loader-brandmark):not(.loader-wrapper):not(.route-transition-overlay),
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }

@@ -216,14 +216,20 @@ export function BetaNavbar() {
             />
           </button>
 
-          {/* Dropdown panel */}
+          {/* Dropdown panel — Tailwind's CSS-variable-based transform
+           * utilities don't reliably transition with class toggles (computed
+           * transform gets stuck at the initial matrix even when class flips
+           * to scale-100). Use inline styles for transform+opacity instead. */}
           <div
-            className={cn(
-              "absolute top-full left-1/2 -translate-x-1/2 mt-2 w-72 rounded-2xl border border-border/50 bg-background/95 backdrop-blur-xl shadow-xl shadow-black/[0.12] transition-all duration-200 origin-top",
-              productOpen
-                ? "opacity-100 scale-100 translate-y-0"
-                : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
-            )}
+            className="absolute top-full left-1/2 mt-2 w-72 rounded-2xl border border-border/50 bg-background/95 backdrop-blur-xl shadow-xl shadow-black/[0.12] origin-top"
+            style={{
+              transform: productOpen
+                ? "translateX(-50%) translateY(0) scale(1)"
+                : "translateX(-50%) translateY(-8px) scale(0.95)",
+              opacity: productOpen ? 1 : 0,
+              pointerEvents: productOpen ? "auto" : "none",
+              transition: "transform 200ms ease-out, opacity 200ms ease-out",
+            }}
           >
             <div className="p-2">
               {productItems.map((item) => {
@@ -296,14 +302,16 @@ export function BetaNavbar() {
             />
           </button>
 
-          {/* Dropdown panel */}
+          {/* Dropdown panel — inline styles for reliable transition
+           * (see matching comment on Product dropdown above). */}
           <div
-            className={cn(
-              "absolute top-full right-0 mt-2 w-72 rounded-2xl border border-border/50 bg-background/95 backdrop-blur-xl shadow-xl shadow-black/[0.12] transition-all duration-200 origin-top",
-              aboutOpen
-                ? "opacity-100 scale-100 translate-y-0"
-                : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
-            )}
+            className="absolute top-full right-0 mt-2 w-72 rounded-2xl border border-border/50 bg-background/95 backdrop-blur-xl shadow-xl shadow-black/[0.12] origin-top"
+            style={{
+              transform: aboutOpen ? "translateY(0) scale(1)" : "translateY(-8px) scale(0.95)",
+              opacity: aboutOpen ? 1 : 0,
+              pointerEvents: aboutOpen ? "auto" : "none",
+              transition: "transform 200ms ease-out, opacity 200ms ease-out",
+            }}
           >
             <div className="p-2">
               {aboutItems.map((item) => {
