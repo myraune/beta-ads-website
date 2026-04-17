@@ -177,7 +177,7 @@ const Pricing: React.FC = () => {
       {/* Pricing FAQ */}
       <section className="pb-24 lg:pb-32">
         <div className="max-w-[700px] mx-auto px-6 lg:px-12">
-          <h2 className="text-3xl font-light tracking-tight text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-center mb-12">
             Pricing questions
           </h2>
           <Accordion type="single" collapsible className="space-y-2">

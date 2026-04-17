@@ -50,7 +50,7 @@ export const HomepageFAQ: React.FC = () => {
           <p className="text-xs font-light tracking-[0.3em] text-muted-foreground/60 uppercase mb-4">
             Frequently asked
           </p>
-          <h2 className="text-3xl lg:text-4xl font-light tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight">
             Common questions
           </h2>
         </div>
