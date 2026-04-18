@@ -42,9 +42,9 @@ export const blogPosts: BlogPost[] = [
 
 On April 17, the [IAB and PwC](https://www.iab.com/insights/internet-advertising-revenue-report-full-year-2025/) released their annual Internet Advertising Revenue Report. Total U.S. digital ad revenue hit $294.6 billion in 2025, up 13.9% year-over-year. That headline number was expected. The creator economy number was not.
 
-Creator advertising spend reached [$37 billion in 2025](https://www.iab.com/news/creator-economy-ad-spend-to-reach-37-billion-in-2025-growing-4x-faster-than-total-media-industry-according-to-iab/), growing 26% year-over-year. That growth rate is roughly four times faster than the total media industry's 5.7%. The IAB now projects creator spend will reach [$44 billion in 2026](https://www.writtenlyhub.com/news/creator-economy-ad-spend-2026-brand-budgets).
+Creator advertising spend reached [$37 billion in 2025](https://www.iab.com/news/creator-economy-ad-spend-to-reach-37-billion-in-2025-growing-4x-faster-than-total-media-industry-according-to-iab/), growing 26% year-over-year — roughly four times faster than the total media industry's 5.7%. The IAB now projects creator spend will reach [$44 billion in 2026](https://www.writtenlyhub.com/news/creator-economy-ad-spend-2026-brand-budgets).
 
-To put that in context: creator advertising in 2025 was larger than the entire U.S. digital audio ad market ($8.4 billion) and the entire U.S. podcast ad market combined. It is approaching the scale of connected TV.
+> 📊 **The shift in one line:** creator advertising in 2025 was larger than the entire U.S. digital audio market, bigger than podcast ad spend, and is now approaching the scale of connected TV.
 
 The IAB's own framing shifted accordingly. [48% of ad spenders now consider creators a "must buy"](https://www.iab.com/insights/2025-creator-economy-ad-spend-strategy-report/), ranking behind only social media and paid search. That is not an influencer marketing statistic. That is a media planning statistic.
 
@@ -54,23 +54,30 @@ The language matters. When an industry body like the IAB classifies something as
 
 [Advanced Television reported](https://www.advanced-television.com/2026/04/17/report-creator-advertising-now-a-core-media-channel) that brands are now embedding creators into long-term media strategies, operational workflows, and even product development. What was once campaign-based influencer marketing is evolving into always-on creator programs.
 
-This distinction matters operationally. A campaign-based approach means a brand runs a creator activation for four weeks, measures results, and moves on. An always-on approach means creators are woven into the media plan the same way search or programmatic display is: continuously active, continuously measured, continuously optimized.
+This distinction matters operationally:
 
-For media buyers at Nordic agencies, the shift requires a different planning cadence. You do not brief a creator campaign the way you brief a display campaign. The inventory is not fungible. The lead times are longer. And the best placements go to brands that commit early and maintain relationships, not those that show up with budget two weeks before launch.
+| Model | Cadence | Typical brief | Measurement |
+|---|---|---|---|
+| Campaign-based (old) | One activation, 2–8 weeks | Flight dates, deliverables | Post-campaign report |
+| Always-on (new) | Continuous, quarterly optimized | Content calendar, KPI bands | Weekly performance review |
 
-![Brand team reviewing creator campaign performance data on screen](/lovable-uploads/blog-creator-first-brand-strategies-2026-2.jpg)
+For media buyers at Nordic agencies 🇳🇴 🇸🇪 🇩🇰 🇫🇮, the shift requires a different planning cadence. You do not brief a creator campaign the way you brief a display campaign. The inventory is not fungible. The lead times are longer. And the best placements go to brands that commit early and maintain relationships, not those that show up with budget two weeks before launch.
+
+![Four people planning a media calendar with sticky notes on a whiteboard in a brick-walled studio](/lovable-uploads/blog-creator-first-brand-strategies-2026-1.jpg)
 
 ## Three budget lines are replacing the old "influencer" line
 
-The IAB report breaks creator advertising into three distinct spend categories, and the distribution tells you where the market is heading.
+The IAB report breaks creator advertising into three distinct spend categories. The distribution tells you where the market is heading — and which line is moving fastest.
 
-**Direct creator partnerships: $11.6 billion in 2026 (+21%).** This is the traditional model. A brand pays a creator for sponsored content, integrations, or endorsements. Growth is steady but no longer the fastest-moving segment.
+| Budget line | 2026 spend | YoY growth | What it is |
+|---|---|---|---|
+| Direct creator partnerships | $11.6B | +21% | Sponsored content, integrations, endorsements paid directly to the creator |
+| Paid amplification on social | $13.2B | +48% | Creator-made content distributed as paid social media |
+| Paid amplification beyond social | $11.1B | +56% | Creator content running on CTV, programmatic display, in-stream overlays, DOOH |
 
-**Paid amplification of creator content on social: $13.2 billion in 2026 (+48%).** This is where brands take creator-produced content and run it as paid media through platform ad systems. The creator makes the content. The brand distributes it at scale through paid targeting. Growth here is explosive because it combines creator authenticity with media buying precision.
+The traditional model — direct creator partnerships — is steady but no longer the fastest-moving segment. The action is in amplification. Brands have figured out that pairing creator-produced content with paid-media targeting precision outperforms either approach alone.
 
-**Paid amplification beyond social platforms: $11.1 billion in 2026 (+56%).** This is the newest and fastest-growing category. Brands are taking creator content and distributing it through CTV, programmatic display, digital out-of-home, and other non-social channels. A streamer's content clip running as a pre-roll on a CTV app is one example. An overlay ad featuring creator branding inside a live Twitch stream is another.
-
-The third category is the one Nordic advertisers should watch most closely. It represents the point where creator content escapes the social media feed and enters the broader media ecosystem. Live streaming, with its real-time content production and built-in audience engagement, is a natural source of material for this distribution model.
+The third category is the one Nordic advertisers should watch most closely. It represents the point where creator content escapes the social media feed and enters the broader media ecosystem. Live streaming, with its real-time content production and built-in audience engagement, is a natural source of material for this distribution model. An overlay ad appearing inside a live Twitch broadcast sits exactly in this budget line.
 
 ## Why live streaming creators sit at the top of the value chain
 
@@ -82,11 +89,20 @@ The measurement story is also stronger. Live streaming platforms provide real-ti
 
 [Digiday has reported](https://digiday.com/marketing/in-graphic-detail-heres-what-the-creator-economy-is-expected-to-look-like-in-2026/) that the growing emphasis on measurable business outcomes is one of the key challenges in creator advertising. Live streaming, with its granular analytics and real-time delivery verification, addresses this challenge more directly than any other creator format.
 
-![Professional streaming setup with overlay advertising visible during live broadcast](/lovable-uploads/blog-from-flat-fee-to-performance-pay-streamer-deals-2026-2.jpg)
+![A live Twitch broadcast in progress showing a Valorant player with 503 viewers, stream chat, follow and subscribe buttons, and the pinned bot announcement on the right-hand panel](/lovable-uploads/blog-long-term-streamer-partnerships-2026-hero.jpg)
 
-## The Nordic calculation
+## The Nordic calculation 🇳🇴 🇸🇪 🇩🇰 🇫🇮
 
-The Nordic digital advertising market is maturing rapidly. Sweden's programmatic ad spend reached approximately [$3.86 billion in 2024](https://www.statista.com/statistics/734027/forecasted-revenue-of-the-programmatic-video-market-in-the-nordics/), followed by Norway at $1.91 billion and Denmark at $1.75 billion. The total Nordic digital advertising market is projected to reach [$13 billion by 2028](https://www.statista.com/outlook/dmo/digital-advertising/nordics).
+The Nordic digital advertising market is maturing rapidly. Programmatic ad spend by country in 2024 looked like this:
+
+| Country | 2024 programmatic spend |
+|---|---|
+| 🇸🇪 Sweden | ~$3.86B |
+| 🇳🇴 Norway | ~$1.91B |
+| 🇩🇰 Denmark | ~$1.75B |
+| 🇫🇮 Finland | inside the pan-Nordic total |
+
+The total Nordic digital advertising market is projected to reach [$13 billion by 2028](https://www.statista.com/outlook/dmo/digital-advertising/nordics), per [Statista](https://www.statista.com/statistics/734027/forecasted-revenue-of-the-programmatic-video-market-in-the-nordics/).
 
 Within that market, the creator advertising share is still underweight relative to the global average. This is partly a market size issue and partly a structural lag. Most Nordic media agencies still classify creator spend under "social media" or "influencer marketing" in their planning tools. The IAB's reclassification is a signal to Nordic agencies to break that spending out and manage it with the same rigor applied to search and programmatic.
 
@@ -100,7 +116,9 @@ The IAB data makes the case in numbers that many live streaming advertisers have
 
 For Nordic brands, the practical takeaway is straightforward. If your 2026 media plan still classifies live streaming creators under "social media" or "influencer marketing," you are likely underinvesting and undermeasuring. The brands that are pulling ahead are those treating creator advertising, and live streaming in particular, as a distinct budget line with its own KPIs, its own planning calendar, and its own dedicated team.
 
-The $37 billion to $44 billion growth trajectory is not going to slow down. The question for Nordic advertisers is not whether to invest in creator advertising. It is whether their planning infrastructure is ready for the scale at which this channel is now operating.
+> **The question for 2026 is no longer whether to invest in creator advertising.** It is whether your planning infrastructure is ready for the scale at which this channel is now operating.
+
+The $37B → $44B trajectory is not going to slow down. Nordic brands that break creator advertising out of the "influencer" folder in Q2 are the ones that will have something measurable to show by year-end.
 
 ---
 
@@ -116,7 +134,7 @@ The $37 billion to $44 billion growth trajectory is not going to slow down. The 
     date: "Apr 18, 2026",
     dateISO: "2026-04-18",
     readTime: "7 min read",
-    image: "/lovable-uploads/blog-livestream-ad-spend-50b-nordic-hero.jpg",
+    image: "/lovable-uploads/blog-creator-first-brand-strategies-2026-hero.jpg",
     category: "Industry Insights",
     tags: ["creator advertising", "IAB report", "media buying", "Nordic advertising", "live streaming", "ad spend"],
     relatedSlugs: [
@@ -164,7 +182,7 @@ Research from the creator economy space found that 55% of burned-out creators id
 
 Brands that rely on verbal integrations and host-read sponsorships face an additional layer of exposure. A streamer who is emotionally depleted will produce integrations that feel flat, rushed, or off-brand. Even if the campaign runs as planned, the quality gap between a motivated creator and an exhausted one is audible and visible to their audience.
 
-![Two brand professionals reviewing campaign performance data with streamer analytics on screen](/lovable-uploads/blog-streamer-burnout-brand-risk-2026-1.jpg)
+![Two people at laptops annotating a hand-drawn campaign plan on paper at a shared desk](/lovable-uploads/blog-streamer-burnout-brand-risk-2026-1.jpg)
 
 ## Why the Nordic market makes this more acute
 
@@ -194,7 +212,7 @@ Native overlay ads operate differently. They appear as a visual element within t
 
 For brands, this means the advertising runs whether the streamer is at peak energy or having a quieter session. For the streamer, it removes a layer of performance pressure that host-read formats carry.
 
-![A live gaming setup with stream overlay visible during active broadcast](/lovable-uploads/blog-twitch-streamer.jpg)
+![A split branded image showing the Twitch logo beside a smiling streamer at an RGB keyboard with a LIVE 8,068 viewer counter overlay](/lovable-uploads/blog-twitch-streamer.jpg)
 
 Platforms focused on overlay ad delivery across Nordic live streams are built on exactly this logic. The ad format works with the creator's content flow, not against it. A curated network of Nordic streamers paired with real-time analytics showing exactly when and where an ad ran gives brands both the reach and the verification that traditional integration formats rarely provide. Beta Ads runs campaigns across a database of over 39,000 streamers in Norway, Sweden, Finland, and Denmark, using native formats specifically designed to minimize the creative burden on individual creators.
 
@@ -392,7 +410,7 @@ This is fundamentally different from what happens during a standard mid-roll ad.
 
 Seventy-two percent of Twitch viewers, according to Amazon Ads research, agree that the platform's interactivity makes advertising more interesting. That figure is easy to nod at and then ignore when planning a campaign. But it describes something real: audiences on Twitch have a higher baseline tolerance for brand presence when that presence is woven into the things they actually want to do on the platform.
 
-![A packed esports arena with viewers watching a live competitive gaming event on a giant screen](/lovable-uploads/blog-poll-sponsorship-twitch-2026-1.jpg)
+> 🎯 **Why this format hits differently:** in a mid-roll ad, the viewer's task is to wait. In a prediction sponsorship, the viewer's task is to engage. Opposite psychological postures, opposite brand-recall curves.
 
 ## How the Sponsorship Model Actually Works
 
@@ -418,7 +436,7 @@ This is qualitative brand intelligence that traditional ad formats cannot genera
 
 Beta Ads' real-time analytics dashboard surfaces engagement velocity during live campaigns. For brands experimenting with interactive formats, being able to see chat activity spikes and engagement timing within the broadcast -- rather than waiting for a post-campaign report -- is the difference between adjusting mid-flight and reviewing results too late to act.
 
-![A streamer at their PC setup with dual monitors showing a live broadcast in progress](/lovable-uploads/blog-poll-sponsorship-twitch-2026-2.jpg)
+![A live Twitch broadcast in progress showing a Valorant streamer with 503 viewers, stream chat, follow and subscribe buttons, and a pinned bot announcement on the right-hand panel](/lovable-uploads/blog-long-term-streamer-partnerships-2026-hero.jpg)
 
 ## What Nordic Brands Are Testing
 
@@ -438,9 +456,7 @@ Some of the most successful creator-brand integrations in 2025 and early 2026 ha
 
 This is the logic behind long-term streamer partnerships rather than campaign-by-campaign activations. A brand that runs a prediction sponsorship with the same streamer six times over a quarter builds a Pavlovian association: when this brand appears, something interesting is about to happen in the stream.
 
-Beta Ads' network of 39,000+ Nordic streamers includes engagement history and format affinity data that helps match brands to streamers whose communities are already responsive to interactive content. Not every streamer runs predictions regularly. Finding the ones that do -- and whose audiences participate enthusiastically -- is the variable that determines whether the format performs or falls flat.
-
-![Performance analytics showing live engagement data, chat activity, and viewer metrics on a dashboard screen](/lovable-uploads/blog-poll-sponsorship-twitch-2026-3.jpg)
+Beta Ads' network of 39,000+ Nordic streamers 🇳🇴 🇸🇪 🇩🇰 🇫🇮 includes engagement history and format affinity data that helps match brands to streamers whose communities are already responsive to interactive content. Not every streamer runs predictions regularly. Finding the ones that do -- and whose audiences participate enthusiastically -- is the variable that determines whether the format performs or falls flat.
 
 ## The Format the Algorithm Favors
 
@@ -698,7 +714,7 @@ In 2025, global live streaming reached 36.4 billion hours watched, matching the 
 
 For Nordic advertisers still treating live streaming as an experimental line item, the math deserves a second look.
 
-![Esports arena with competitive gaming setups and screens](/lovable-uploads/blog-live-streaming-market-growth-2026-1.jpg)
+![A gamer at a LAN event playing a shooter on a red-backlit laptop with a can of Pringles on the desk in the low light](/lovable-uploads/blog-live-streaming-market-growth-2026-1.jpg)
 
 ## What 23% Compounded Actually Means
 
