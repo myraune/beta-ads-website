@@ -714,9 +714,10 @@ const ReportModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           onTouchEnd={handleTouchEnd}
         >
           <img
-            src="/lovable-uploads/campaign-report-preview.png"
+            src="/lovable-uploads/campaign-report-preview.jpg"
             alt="Full Campaign Report"
             draggable={false}
+            decoding="async"
             className="w-full h-auto block select-none"
             style={{
               transform: `scale(${zoom}) translate(${pan.x / zoom}px, ${pan.y / zoom}px)`,
