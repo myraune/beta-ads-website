@@ -13,16 +13,22 @@ interface CaseStudiesProps {
   t: any;
 }
 
-// Samsung is first — most prominent campaign
+// Samsung is first — most prominent campaign. Numbers below are pulled from the
+// verified Beta campaign reports (Drive: /Kampanjer) where available; "+" suffix
+// indicates self-reported aggregate where the verified number underrepresents
+// total reach (e.g. multi-quarter runs).
+//
+// `caseLink` is set when a detailed case-study page exists — the card becomes
+// a link instead of just opening the YouTube video.
 const caseStudies = [
-  { id: "Uw7IIecicB4", brand: "Samsung", campaign: "S25 Ultra Awareness Norway", impressions: "500,131", impressionsNum: 500131, ctr: "2.93%", ctrNum: 2.93, description: "Premium awareness campaign for Samsung's flagship smartphone launch across Norwegian Twitch streamers. Zero adblock impact." },
-  { id: "IZOx_VMdJJg", brand: "Shure", campaign: "MV7+ Microphone Launch", impressions: "320,000+", impressionsNum: 320000, ctr: "2.45%", ctrNum: 2.45, description: "Creator-focused campaign showcasing premium audio equipment to streaming audiences." },
-  { id: "ufNq-A4d7iA", brand: "Komplett", campaign: "Monthly Gaming Deals", impressions: "150,000+", impressionsNum: 150000, ctr: "3.24%", ctrNum: 3.24, description: "Recurring promotion campaign driving traffic to gaming hardware deals." },
-  { id: "DMz-NV1W_Is", brand: "Saily", campaign: "E-SIM Campaign Norway", impressions: "280,000+", impressionsNum: 280000, ctr: "2.67%", ctrNum: 2.67, description: "Travel-focused campaign targeting young, mobile-first audiences." },
-  { id: "U6i5uvhk2Sw", brand: "Surfshark", campaign: "VPN Awareness Nordic", impressions: "420,000+", impressionsNum: 420000, ctr: "2.81%", ctrNum: 2.81, description: "Privacy and security messaging tailored for gaming communities." },
+  { id: "Uw7IIecicB4", brand: "Samsung", campaign: "S25 Ultra Awareness Norway", impressions: "500,131", impressionsNum: 500131, ctr: "2.93%", ctrNum: 2.93, description: "Premium awareness campaign for Samsung's flagship smartphone launch across Norwegian Twitch streamers. Zero adblock impact.", caseLink: "/case-study/samsung" },
+  { id: "IZOx_VMdJJg", brand: "Shure", campaign: "MV7+ Microphone Launch", impressions: "182,554", impressionsNum: 182554, ctr: "1.31%", ctrNum: 1.31, description: "Concentrated two-creator launch for the MV7+ microphone with a 9.12% peak-day CTR — depth over breadth.", caseLink: "/case-study/shure" },
+  { id: "ufNq-A4d7iA", brand: "Komplett", campaign: "Gaming Deals (Flex)", impressions: "150,000+", impressionsNum: 150000, ctr: "3.24%", ctrNum: 3.24, description: "Recurring tactical campaign for Komplett's Flex rent-to-own concept, targeting Norwegian gaming buyers." },
+  { id: "DMz-NV1W_Is", brand: "Saily", campaign: "Travel eSIM Norway (Surfshark)", impressions: "102,794", impressionsNum: 102794, ctr: "1.08%", ctrNum: 1.08, description: "Travel-intent campaign — 65% of screen time inside Travel & Outdoors streams during peak summer travel season.", caseLink: "/case-study/saily" },
+  { id: "U6i5uvhk2Sw", brand: "Surfshark", campaign: "VPN Awareness Norway", impressions: "90,473", impressionsNum: 90473, ctr: "1.39%", ctrNum: 1.39, description: "Six-week VPN awareness run across 25 streamers, 704 hours of on-screen presence, 37,614 unique viewers.", caseLink: "/case-study/surfshark" },
   { id: "GwE4dagRm_k", brand: "Kristiania", campaign: "University Recruitment", impressions: "600,000+", impressionsNum: 600000, ctr: "2.00%", ctrNum: 2.0, description: "Student recruitment campaign reaching Gen Z through their favorite streamers." },
   { id: "aE0-S8GC1Iw", brand: "M3panel", campaign: "Research Panel Signup", impressions: "180,000+", impressionsNum: 180000, ctr: "3.45%", ctrNum: 3.45, description: "Direct response campaign driving panel signups with incentive offers." },
-  { id: "swu_ye12IHs", brand: "Norstat", campaign: "Survey Participation Drive", impressions: "210,000+", impressionsNum: 210000, ctr: "2.92%", ctrNum: 2.92, description: "Engagement campaign encouraging survey participation among young demographics." },
+  { id: "swu_ye12IHs", brand: "Norstat", campaign: "Survey Participation Drive", impressions: "140,000", impressionsNum: 140000, ctr: "3.34%", ctrNum: 3.34, description: "10-streamer June 2024 panel-survey campaign — 70K kr media spend, 4,667 verified clicks." },
 ];
 
 const detailedCaseStudies = [
@@ -38,6 +44,45 @@ const detailedCaseStudies = [
     ],
     image: "https://img.youtube.com/vi/Uw7IIecicB4/maxresdefault.jpg",
     link: "/case-study/samsung",
+  },
+  {
+    brand: "Surfshark",
+    title: "VPN Awareness on Norwegian Twitch",
+    description: "Six-week privacy-messaging run across 25 Norwegian streamers — 704 hours of on-screen presence, contextual placement inside Travel & Outdoors and Just Chatting streams.",
+    stats: [
+      { label: "Completed views", value: "90,473" },
+      { label: "Verified CTR", value: "1.39%" },
+      { label: "Streamers", value: "25" },
+      { label: "Screen time", value: "704 h" },
+    ],
+    image: "https://img.youtube.com/vi/U6i5uvhk2Sw/maxresdefault.jpg",
+    link: "/case-study/surfshark",
+  },
+  {
+    brand: "Saily",
+    title: "Travel-Intent eSIM Campaign Norway",
+    description: "Surfshark's travel-eSIM brand placed contextually inside Travel & Outdoors streams during peak June travel-planning season — 65% of screen time inside travel content.",
+    stats: [
+      { label: "Completed views", value: "102,794" },
+      { label: "Verified CTR", value: "1.08%" },
+      { label: "Streamers", value: "22" },
+      { label: "Unique viewers", value: "53,229" },
+    ],
+    image: "https://img.youtube.com/vi/DMz-NV1W_Is/maxresdefault.jpg",
+    link: "/case-study/saily",
+  },
+  {
+    brand: "Shure",
+    title: "MV7+ Microphone — Concentrated Creator Launch",
+    description: "Two-streamer concentrated run for the MV7+ premium microphone — depth over breadth strategy delivering 761 hours of screen time and 9.12% peak-day CTR.",
+    stats: [
+      { label: "Completed views", value: "182,554" },
+      { label: "Verified clicks", value: "2,378" },
+      { label: "Peak CTR", value: "9.12%" },
+      { label: "Screen time", value: "761 h" },
+    ],
+    image: "https://img.youtube.com/vi/IZOx_VMdJJg/maxresdefault.jpg",
+    link: "/case-study/shure",
   },
   {
     brand: "Glorious",
@@ -196,6 +241,16 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
                   </div>
                 </div>
               </div>
+              {/* Read full breakdown link — only when a detailed case study page exists */}
+              {caseStudies[caseStudyIndex].caseLink && (
+                <Link
+                  to={caseStudies[caseStudyIndex].caseLink!}
+                  className="inline-flex items-center gap-2 mt-6 text-sm font-medium text-primary hover:gap-3 transition-all duration-300"
+                >
+                  Read full breakdown <ArrowRight className="w-4 h-4" />
+                </Link>
+              )}
+
               <div className="flex items-center justify-between mt-8 pt-6 border-t border-border">
                 <div className="flex gap-2">
                   <button
