@@ -1,5 +1,5 @@
 {
-  "buildCommand": "node scripts/generate-sitemap.mjs && vite build && node scripts/prerender.mjs",
+  "buildCommand": "node scripts/generate-sitemap.mjs && vite build && npx puppeteer browsers install chrome && node scripts/prerender.mjs",
   "outputDirectory": "dist",
   "redirects": [
     {
