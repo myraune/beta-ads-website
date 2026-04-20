@@ -159,16 +159,20 @@ const LiveStreamDemo: React.FC = () => {
     return () => obs.disconnect();
   }, []);
 
-  // Simulate live viewer count fluctuation
+  // Simulate live viewer count fluctuation — only tick while playing
+  // (IntersectionObserver above sets `playing` true when in view). No point
+  // burning main-thread work simulating a stream nobody is watching.
   useEffect(() => {
+    if (!playing) return;
     const interval = setInterval(() => {
       setViewerCount((v) => v + Math.floor(Math.random() * 11) - 4);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [playing]);
 
-  // Simulate new chat messages
+  // Simulate new chat messages — same visibility gate
   useEffect(() => {
+    if (!playing) return;
     const messages = [
       { user: "streamerlife", msg: "need this phone!!", color: "text-blue-400" },
       { user: "nordicgamer", msg: "samsung > apple", color: "text-yellow-400" },
@@ -183,7 +187,7 @@ const LiveStreamDemo: React.FC = () => {
       i++;
     }, 3500);
     return () => clearInterval(interval);
-  }, []);
+  }, [playing]);
 
   const togglePlay = () => {
     if (!streamRef.current) return;
