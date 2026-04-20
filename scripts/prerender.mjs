@@ -68,7 +68,10 @@ function getBlogSlugs() {
 // Helpers
 // ---------------------------------------------------------------------------
 function startPreviewServer() {
-  const child = spawn("/Users/myraune/.nvm/versions/node/v24.13.0/bin/node", ["node_modules/.bin/vite", "preview", "--port", String(PORT), "--host"], {
+  // Use `process.execPath` so this works on any machine (previously hardcoded
+  // to a local NVM path which broke on Vercel's build environment — the main
+  // reason the prerender step was excluded from vercel.json's buildCommand).
+  const child = spawn(process.execPath, ["node_modules/.bin/vite", "preview", "--port", String(PORT), "--host"], {
     cwd: ROOT,
     stdio: ["ignore", "pipe", "pipe"],
     detached: false,
