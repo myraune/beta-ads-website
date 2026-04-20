@@ -346,7 +346,7 @@ const TargetingPreview: React.FC = () => {
               initial={{ width: 0 }}
               animate={{ width: `${m.pct}%` }}
               whileInView={{ width: `${m.pct}%` }}
-              viewport={{ once: false, margin: "0px 0px -80px 0px" }}
+              viewport={{ once: true, margin: "0px 0px -80px 0px" }}
               transition={{ duration: 0.7, delay: idx * 0.1, ease: "easeOut" }}
             />
           </div>
