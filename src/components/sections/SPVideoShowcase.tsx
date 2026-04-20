@@ -44,6 +44,12 @@ const VideoCard: React.FC<{
         aria-label={playing ? "Pause video" : "Play video"}
         onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); togglePlay(); } }}
       >
+        {/* preload="none" — the video is ~7MB and below the fold; we only
+         * start fetching when the user actually clicks play. onLoadStart sets
+         * preload to metadata briefly so dimensions/duration resolve before
+         * playback begins. Saves ~7MB of wasted bandwidth on every homepage
+         * visit and pays back LCP/TTI by not blocking the main thread on
+         * a long-running video fetch. */}
         <video
           ref={videoRef}
           src={src}
@@ -51,7 +57,7 @@ const VideoCard: React.FC<{
           muted={muted}
           loop
           playsInline
-          preload="auto"
+          preload="none"
           className="w-full h-full object-cover"
           onPlay={() => setPlaying(true)}
           onPause={() => setPlaying(false)}
@@ -213,6 +219,7 @@ const LiveStreamDemo: React.FC = () => {
             ref={overlayRef}
             src="/lovable-uploads/samsung-zfold7-overlay.webm"
             loop muted playsInline
+            preload="metadata"
             className="w-full h-auto rounded shadow-xl"
           />
         </div>
