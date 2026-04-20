@@ -56,6 +56,9 @@ const STATIC_ROUTES = [
   "/case-study/surfshark",
   "/case-study/saily",
   "/case-study/shure",
+  "/case-study/kristiania",
+  "/case-study/komplett",
+  "/case-study/nki",
   "/terms",
   "/privacy",
 ];

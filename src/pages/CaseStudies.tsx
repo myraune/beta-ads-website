@@ -22,12 +22,12 @@ interface CaseStudiesProps {
 // a link instead of just opening the YouTube video.
 const caseStudies = [
   { id: "Uw7IIecicB4", brand: "Samsung", campaign: "S25 Ultra Awareness Norway", impressions: "500,131", impressionsNum: 500131, ctr: "2.93%", ctrNum: 2.93, description: "Premium awareness campaign for Samsung's flagship smartphone launch across Norwegian Twitch streamers. Zero adblock impact.", caseLink: "/case-study/samsung" },
+  { id: "GwE4dagRm_k", brand: "Kristiania", campaign: "University Recruitment Norway", impressions: "459,237", impressionsNum: 459237, ctr: "1.53%", ctrNum: 1.53, description: "8-week Gen Z student recruitment campaign — 31 streamers, 67 categories, 136,828 unique viewers across the Feb-Apr 2025 application window.", caseLink: "/case-study/kristiania" },
   { id: "IZOx_VMdJJg", brand: "Shure", campaign: "MV7+ Microphone Launch", impressions: "182,554", impressionsNum: 182554, ctr: "1.31%", ctrNum: 1.31, description: "Concentrated two-creator launch for the MV7+ microphone with a 9.12% peak-day CTR — depth over breadth.", caseLink: "/case-study/shure" },
-  { id: "ufNq-A4d7iA", brand: "Komplett", campaign: "Gaming Deals (Flex)", impressions: "150,000+", impressionsNum: 150000, ctr: "3.24%", ctrNum: 3.24, description: "Recurring tactical campaign for Komplett's Flex rent-to-own concept, targeting Norwegian gaming buyers." },
+  { id: "ufNq-A4d7iA", brand: "Komplett", campaign: "Månedens Gaming Deal", impressions: "151,278", impressionsNum: 151278, ctr: "1.17%", ctrNum: 1.17, description: "17-day tactical retail run for Norway's #3 electronics retailer — peak 4.48% CTR across 34 streamers on Twitch + Kick.", caseLink: "/case-study/komplett" },
   { id: "DMz-NV1W_Is", brand: "Saily", campaign: "Travel eSIM Norway (Surfshark)", impressions: "102,794", impressionsNum: 102794, ctr: "1.08%", ctrNum: 1.08, description: "Travel-intent campaign — 65% of screen time inside Travel & Outdoors streams during peak summer travel season.", caseLink: "/case-study/saily" },
   { id: "U6i5uvhk2Sw", brand: "Surfshark", campaign: "VPN Awareness Norway", impressions: "90,473", impressionsNum: 90473, ctr: "1.39%", ctrNum: 1.39, description: "Six-week VPN awareness run across 25 streamers, 704 hours of on-screen presence, 37,614 unique viewers.", caseLink: "/case-study/surfshark" },
-  { id: "GwE4dagRm_k", brand: "Kristiania", campaign: "University Recruitment", impressions: "600,000+", impressionsNum: 600000, ctr: "2.00%", ctrNum: 2.0, description: "Student recruitment campaign reaching Gen Z through their favorite streamers." },
-  { id: "aE0-S8GC1Iw", brand: "M3panel", campaign: "Research Panel Signup", impressions: "180,000+", impressionsNum: 180000, ctr: "3.45%", ctrNum: 3.45, description: "Direct response campaign driving panel signups with incentive offers." },
+  { id: "aE0-S8GC1Iw", brand: "NKI", campaign: "Distance Learning Quiz Funnel", impressions: "220,003", impressionsNum: 220003, ctr: "0.72%", ctrNum: 0.72, description: '"Hva slags type student er du?" interactive quiz — 19 streamers, 90,356 unique viewers, 1,595 verified clicks into the lead-capture funnel.', caseLink: "/case-study/nki" },
   { id: "swu_ye12IHs", brand: "Norstat", campaign: "Survey Participation Drive", impressions: "140,000", impressionsNum: 140000, ctr: "3.34%", ctrNum: 3.34, description: "10-streamer June 2024 panel-survey campaign — 70K kr media spend, 4,667 verified clicks." },
 ];
 
@@ -83,6 +83,45 @@ const detailedCaseStudies = [
     ],
     image: "https://img.youtube.com/vi/IZOx_VMdJJg/maxresdefault.jpg",
     link: "/case-study/shure",
+  },
+  {
+    brand: "Kristiania",
+    title: "Norwegian Gen Z University Recruitment",
+    description: "Høyskolen Kristiania ran an 8-week native overlay campaign across 31 streamers and 67 categories during the Feb-Apr 2025 application window — 459K display views.",
+    stats: [
+      { label: "Display views", value: "459,237" },
+      { label: "Verified CTR", value: "1.53%" },
+      { label: "Streamers", value: "31" },
+      { label: "Unique viewers", value: "136,828" },
+    ],
+    image: "https://img.youtube.com/vi/GwE4dagRm_k/maxresdefault.jpg",
+    link: "/case-study/kristiania",
+  },
+  {
+    brand: "Komplett",
+    title: "Tactical Retail — Månedens Gaming Deal",
+    description: "Norway's #3 electronics retailer ran a 17-day tactical campaign that peaked at 4.48% verified CTR — proof that 'home for gamers' positioning converts when it lands inside the moment.",
+    stats: [
+      { label: "Display views", value: "151,278" },
+      { label: "Verified CTR", value: "1.17%" },
+      { label: "Peak CTR", value: "4.48%" },
+      { label: "Streamers", value: "34" },
+    ],
+    image: "https://img.youtube.com/vi/ufNq-A4d7iA/maxresdefault.jpg",
+    link: "/case-study/komplett",
+  },
+  {
+    brand: "NKI",
+    title: "Distance Learning — Quiz Funnel Lead-Gen",
+    description: '"Hva slags type student er du?" interactive quiz drove 90,356 unique Norwegian viewers into NKI\'s lead-capture funnel over 4 weeks. Long-form content, not banner clicks.',
+    stats: [
+      { label: "Completed views", value: "220,003" },
+      { label: "Verified clicks", value: "1,595" },
+      { label: "Streamers", value: "19" },
+      { label: "Screen time", value: "1,528 h" },
+    ],
+    image: "https://img.youtube.com/vi/aE0-S8GC1Iw/maxresdefault.jpg",
+    link: "/case-study/nki",
   },
   {
     brand: "Glorious",

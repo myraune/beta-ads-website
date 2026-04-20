@@ -39,6 +39,9 @@ const CaseStudySamsung = lazy(() => import("./pages/CaseStudySamsung"));
 const CaseStudySurfshark = lazy(() => import("./pages/CaseStudySurfshark"));
 const CaseStudySaily = lazy(() => import("./pages/CaseStudySaily"));
 const CaseStudyShure = lazy(() => import("./pages/CaseStudyShure"));
+const CaseStudyKristiania = lazy(() => import("./pages/CaseStudyKristiania"));
+const CaseStudyKomplett = lazy(() => import("./pages/CaseStudyKomplett"));
+const CaseStudyNki = lazy(() => import("./pages/CaseStudyNki"));
 const Press = lazy(() => import("./pages/Press"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const Terms = lazy(() => import("./pages/Terms"));
@@ -162,6 +165,9 @@ const App = () => {
               <Route path="/case-study/surfshark" element={<CaseStudySurfshark />} />
               <Route path="/case-study/saily" element={<CaseStudySaily />} />
               <Route path="/case-study/shure" element={<CaseStudyShure />} />
+              <Route path="/case-study/kristiania" element={<CaseStudyKristiania />} />
+              <Route path="/case-study/komplett" element={<CaseStudyKomplett />} />
+              <Route path="/case-study/nki" element={<CaseStudyNki />} />
               <Route path="/unsubscribe" element={<Unsubscribe />} />
               <Route path="*" element={<NotFound />} />
             </Route>
