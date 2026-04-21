@@ -89,6 +89,30 @@ const SurfsharkCaseStudy: React.FC = () => {
         </div>
       </section>
 
+      {/* ── CREATIVE PREVIEW ── */}
+      <section className="border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+            The creative
+          </span>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-8 max-w-2xl">
+            Native overlay shown live in-stream
+          </h2>
+          <div className="rounded-2xl overflow-hidden bg-black border border-border max-w-3xl">
+            <video
+              src="/lovable-uploads/case-studies/surfshark-overlay.webm"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              className="w-full h-auto"
+              aria-label="Surfshark overlay creative as displayed on Norwegian Twitch streams"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* ── CHALLENGE ── */}
       <section className="py-20 md:py-28 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">

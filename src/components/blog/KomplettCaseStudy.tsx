@@ -89,6 +89,41 @@ const KomplettCaseStudy: React.FC = () => {
         </div>
       </section>
 
+      {/* ── CREATIVE PREVIEW ── */}
+      <section className="border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+            The creative
+          </span>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-8 max-w-2xl">
+            Månedens Gaming Deal — 30s overlay creative
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl">
+            <div className="rounded-2xl overflow-hidden bg-black border border-border">
+              <video
+                src="/lovable-uploads/case-studies/komplett-overlay.webm"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                className="w-full h-auto"
+                aria-label="Komplett Månedens Gaming Deal overlay creative as displayed on Twitch + Kick streams"
+              />
+            </div>
+            <div className="rounded-2xl overflow-hidden bg-card border border-border">
+              <img
+                src="/lovable-uploads/case-studies/komplett-preview.jpg"
+                alt="Komplett Månedens Gaming Deal — static preview"
+                className="w-full h-auto"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 md:py-28 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div
