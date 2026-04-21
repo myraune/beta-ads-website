@@ -10,6 +10,13 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
  * Komplett is Norway's #3 electronics retailer, leaning into "the home for
  * gamers" positioning — see WAL brief in Drive (`Brief - Komplett 2025.pdf`).
  */
+const BRAND = {
+  // Komplett brand — signature orange
+  primary: "#ff6600",
+  secondary: "#00b4ff",
+  glow: "rgba(255,102,0,0.18)",
+};
+
 const stats = [
   { value: "151,278", label: "Display views" },
   { value: "1.17%", label: "Verified CTR" },
@@ -24,9 +31,25 @@ const results = [
   { value: "4.48%", label: "Peak-day CTR" },
 ];
 
+const regions = [
+  { name: "Oslo", pct: 33 },
+  { name: "Akershus (Viken)", pct: 22 },
+  { name: "Bergen / Vestland", pct: 12 },
+  { name: "Trondheim / Trøndelag", pct: 9 },
+  { name: "Rogaland / Stavanger", pct: 7 },
+];
+
+const timeline = [
+  { date: "Apr 14", label: "Launch day", value: "4,126 views · 4.48% CTR" },
+  { date: "Apr 18", label: "rubengks peak", value: "41,099 views, 169 clicks" },
+  { date: "Apr 23", label: "Mid-run sustain", value: "Kick + Twitch cross-platform" },
+  { date: "Apr 30", label: "Campaign close", value: "1,768 verified clicks" },
+];
+
 const KomplettCaseStudy: React.FC = () => {
   const { ref: bodyRef, isVisible: bodyVisible } = useScrollAnimation<HTMLDivElement>();
   const { ref: solutionRef, isVisible: solutionVisible } = useScrollAnimation<HTMLDivElement>();
+  const { ref: demoRef, isVisible: demoVisible } = useScrollAnimation<HTMLDivElement>();
   const { ref: resultsRef, isVisible: resultsVisible } = useScrollAnimation<HTMLDivElement>();
 
   return (
@@ -36,11 +59,14 @@ const KomplettCaseStudy: React.FC = () => {
           <div
             className="absolute inset-0"
             style={{
-              background:
-                "radial-gradient(ellipse 70% 50% at 65% 30%, rgba(0,180,255,0.10) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 35% 70%, rgba(233,79,55,0.10) 0%, transparent 65%)",
+              background: `radial-gradient(ellipse 70% 50% at 65% 30%, ${BRAND.glow} 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 35% 70%, rgba(0,180,255,0.10) 0%, transparent 65%)`,
             }}
           />
         </div>
+        <div
+          className="absolute inset-x-0 top-0 h-px z-[2]"
+          style={{ background: `linear-gradient(90deg, transparent 0%, ${BRAND.primary} 50%, transparent 100%)` }}
+        />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 md:pt-36 pb-20">
           <Link
@@ -51,17 +77,29 @@ const KomplettCaseStudy: React.FC = () => {
           </Link>
 
           <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
-              <img
-                src="/lovable-uploads/logo-client-10.png"
-                alt="Komplett"
-                className="h-6 w-auto object-contain"
-                style={{ filter: "brightness(0) invert(1)", opacity: 0.85 }}
-              />
-              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/70 tracking-wider uppercase">
-                Case Study
-              </span>
+            <div className="flex items-center gap-4 mb-8">
+              <div
+                className="flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/10 p-3 backdrop-blur-sm"
+                style={{ boxShadow: `0 0 0 1px ${BRAND.primary}55` }}
+              >
+                <img
+                  src="/lovable-uploads/logo-client-10.png"
+                  alt="Komplett"
+                  className="h-8 w-auto object-contain"
+                  style={{ filter: "brightness(0) invert(1)" }}
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <span
+                  className="text-[11px] font-semibold tracking-[0.2em] uppercase"
+                  style={{ color: BRAND.primary }}
+                >
+                  🇳🇴 Norway · Retail · Gaming deal
+                </span>
+                <span className="text-xs text-white/50 tracking-wide">Case Study · Apr 2025</span>
+              </div>
             </div>
+
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
               Komplett<br />
               <span
@@ -92,14 +130,20 @@ const KomplettCaseStudy: React.FC = () => {
       {/* ── CREATIVE PREVIEW ── */}
       <section className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+          <span
+            className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+            style={{ color: BRAND.primary }}
+          >
             The creative
           </span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-8 max-w-2xl">
             Månedens Gaming Deal — 30s overlay creative
           </h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl">
-            <div className="rounded-2xl overflow-hidden bg-black border border-border">
+            <div
+              className="rounded-2xl overflow-hidden bg-black border"
+              style={{ borderColor: `${BRAND.primary}33` }}
+            >
               <video
                 src="/lovable-uploads/case-studies/komplett-overlay.webm"
                 autoPlay
@@ -111,7 +155,10 @@ const KomplettCaseStudy: React.FC = () => {
                 aria-label="Komplett Månedens Gaming Deal overlay creative as displayed on Twitch + Kick streams"
               />
             </div>
-            <div className="rounded-2xl overflow-hidden bg-card border border-border">
+            <div
+              className="rounded-2xl overflow-hidden bg-card border"
+              style={{ borderColor: `${BRAND.primary}33` }}
+            >
               <img
                 src="/lovable-uploads/case-studies/komplett-preview.jpg"
                 alt="Komplett Månedens Gaming Deal — static preview"
@@ -121,6 +168,11 @@ const KomplettCaseStudy: React.FC = () => {
               />
             </div>
           </div>
+          <p className="text-xs text-muted-foreground mt-4 max-w-3xl">
+            Same creative deployed to both Twitch and Kick — same chat-pinned deeplink,
+            same brand-consistent orange — for full-audience Norwegian coverage of the
+            monthly deal.
+          </p>
         </div>
       </section>
 
@@ -133,7 +185,10 @@ const KomplettCaseStudy: React.FC = () => {
             }`}
           >
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+              <span
+                className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+                style={{ color: BRAND.primary }}
+              >
                 The Challenge
               </span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
@@ -154,7 +209,7 @@ const KomplettCaseStudy: React.FC = () => {
             </div>
             <div className="space-y-4 pt-2">
               {[
-                { label: "Market", value: "Norway (95.8% viewership)" },
+                { label: "Market", value: "🇳🇴 Norway (95.8% viewership)" },
                 { label: "Format", value: "Rich Media Overlay" },
                 { label: "Run", value: "Apr 14 – Apr 30 2025 (17 days)" },
                 { label: "Best day", value: "Apr 14 — 4,126 views, 4.48% CTR" },
@@ -184,7 +239,10 @@ const KomplettCaseStudy: React.FC = () => {
               solutionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+            <span
+              className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+              style={{ color: BRAND.primary }}
+            >
               The Solution
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4 max-w-2xl">
@@ -263,6 +321,148 @@ const KomplettCaseStudy: React.FC = () => {
         </div>
       </section>
 
+      {/* ── DEMOGRAPHICS & REACH ── */}
+      <section className="py-20 md:py-28 border-t border-border bg-muted/30">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div
+            ref={demoRef}
+            className={`transition-all duration-700 ${
+              demoVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
+            <span
+              className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+              style={{ color: BRAND.primary }}
+            >
+              Reach &amp; Demographics
+            </span>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-10 max-w-2xl">
+              66K unique Norwegian gamers across Twitch + Kick
+            </h2>
+
+            <div className="grid lg:grid-cols-3 gap-10 lg:gap-14">
+              <div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5 block">
+                  Top regions (NO)
+                </span>
+                <div className="space-y-3.5">
+                  {regions.map((r) => (
+                    <div key={r.name}>
+                      <div className="flex justify-between items-baseline mb-1.5">
+                        <span className="text-sm text-foreground">{r.name}</span>
+                        <span className="text-xs text-muted-foreground tabular-nums">
+                          {r.pct}%
+                        </span>
+                      </div>
+                      <div className="h-1 rounded-full bg-border overflow-hidden">
+                        <div
+                          className="h-full rounded-full"
+                          style={{
+                            width: `${(r.pct / 33) * 100}%`,
+                            background: BRAND.primary,
+                          }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5 block">
+                  Age bracket
+                </span>
+                <div className="space-y-5">
+                  <div>
+                    <div className="flex justify-between items-baseline mb-1.5">
+                      <span className="text-sm text-foreground">18–24</span>
+                      <span className="text-sm font-semibold text-foreground tabular-nums">
+                        58%
+                      </span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-border overflow-hidden">
+                      <div
+                        className="h-full rounded-full"
+                        style={{ width: "58%", background: BRAND.primary }}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between items-baseline mb-1.5">
+                      <span className="text-sm text-foreground">25–34</span>
+                      <span className="text-sm font-semibold text-foreground tabular-nums">
+                        42%
+                      </span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-border overflow-hidden">
+                      <div
+                        className="h-full rounded-full"
+                        style={{ width: "42%", background: BRAND.primary, opacity: 0.7 }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mt-10 mb-5 block">
+                  Platforms (mix)
+                </span>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Twitch</span>
+                    <span className="text-foreground font-semibold tabular-nums">~82%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Kick</span>
+                    <span className="text-foreground font-semibold tabular-nums">~18%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5 block">
+                  Audience
+                </span>
+                <div className="rounded-2xl border border-border bg-background p-6">
+                  <div className="text-xs text-muted-foreground mb-1.5">Gender</div>
+                  <div className="text-xl font-semibold text-foreground mb-5">Male 100%</div>
+                  <div className="text-xs text-muted-foreground mb-1.5">Dominant age</div>
+                  <div className="text-xl font-semibold text-foreground mb-5">18–24</div>
+                  <div className="text-xs text-muted-foreground mb-1.5">Price-comparison</div>
+                  <div className="text-xl font-semibold text-foreground">High intent</div>
+                </div>
+                <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
+                  Komplett's gaming audience is already in purchase-consideration mode —
+                  overlay delivers the deal in-stream, not on a comparison page.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-16 pt-10 border-t border-border">
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-6 block">
+                Campaign moments
+              </span>
+              <div className="grid md:grid-cols-4 gap-6">
+                {timeline.map((m, i) => (
+                  <div key={m.date} className="relative">
+                    {i < timeline.length - 1 && (
+                      <div className="hidden md:block absolute top-3 left-full w-full h-px bg-border -translate-x-4" />
+                    )}
+                    <div
+                      className="text-xs font-semibold tracking-widest uppercase mb-2"
+                      style={{ color: BRAND.primary }}
+                    >
+                      {m.date}
+                    </div>
+                    <div className="text-sm font-semibold text-foreground mb-1">{m.label}</div>
+                    <div className="text-xs text-muted-foreground leading-relaxed">{m.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section
         ref={resultsRef}
         className={`py-20 md:py-28 border-t border-border transition-all duration-700 ${
@@ -272,7 +472,10 @@ const KomplettCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+              <span
+                className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+                style={{ color: BRAND.primary }}
+              >
                 Impact
               </span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
@@ -310,13 +513,23 @@ const KomplettCaseStudy: React.FC = () => {
       <section className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
-            <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
-                Run a Similar Campaign
-              </span>
-              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
-                Tactical retail campaigns that convert
-              </h2>
+            <div className="flex items-center gap-5">
+              <img
+                src="/lovable-uploads/logo-client-10.png"
+                alt="Komplett"
+                className="h-9 w-auto object-contain opacity-90"
+              />
+              <div>
+                <span
+                  className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+                  style={{ color: BRAND.primary }}
+                >
+                  Run a Similar Campaign
+                </span>
+                <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
+                  Tactical retail campaigns that convert
+                </h2>
+              </div>
             </div>
             <Button
               asChild

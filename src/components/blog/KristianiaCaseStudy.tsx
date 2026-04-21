@@ -15,6 +15,12 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
  * Combined delivery across both reports: ~599K display views, ~6K
  * verified clicks, ~3,329 h on-screen presence.
  */
+const BRAND = {
+  // Høyskolen Kristiania red
+  primary: "#e30613",
+  secondary: "#ffb800",
+  glow: "rgba(227,6,19,0.18)",
+};
 
 // Combined totals across both campaigns — these are the headline numbers.
 const stats = [
@@ -65,9 +71,25 @@ const results = [
   { value: "GTA V", label: "Dominant category" },
 ];
 
+const regions = [
+  { name: "Oslo", pct: 31 },
+  { name: "Akershus (Viken)", pct: 22 },
+  { name: "Bergen / Vestland", pct: 13 },
+  { name: "Trondheim / Trøndelag", pct: 10 },
+  { name: "Rogaland / Stavanger", pct: 7 },
+];
+
+const timeline = [
+  { date: "Feb 27", label: "Voting peak", value: "2.81% CTR day-1 surge" },
+  { date: "Feb 28", label: "Awareness peak", value: "5,171 views · 2.15% CTR" },
+  { date: "Mar 10", label: "danniz consistency", value: "102K views across run" },
+  { date: "Apr 5", label: "Combined close", value: "~600K total views" },
+];
+
 const KristianiaCaseStudy: React.FC = () => {
   const { ref: bodyRef, isVisible: bodyVisible } = useScrollAnimation<HTMLDivElement>();
   const { ref: campaignsRef, isVisible: campaignsVisible } = useScrollAnimation<HTMLDivElement>();
+  const { ref: demoRef, isVisible: demoVisible } = useScrollAnimation<HTMLDivElement>();
   const { ref: resultsRef, isVisible: resultsVisible } = useScrollAnimation<HTMLDivElement>();
 
   return (
@@ -77,11 +99,14 @@ const KristianiaCaseStudy: React.FC = () => {
           <div
             className="absolute inset-0"
             style={{
-              background:
-                "radial-gradient(ellipse 70% 50% at 60% 30%, rgba(233,79,55,0.16) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 40% 70%, rgba(255,200,80,0.08) 0%, transparent 65%)",
+              background: `radial-gradient(ellipse 70% 50% at 60% 30%, ${BRAND.glow} 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 40% 70%, rgba(255,184,0,0.08) 0%, transparent 65%)`,
             }}
           />
         </div>
+        <div
+          className="absolute inset-x-0 top-0 h-px z-[2]"
+          style={{ background: `linear-gradient(90deg, transparent 0%, ${BRAND.primary} 50%, transparent 100%)` }}
+        />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 md:pt-36 pb-20">
           <Link
@@ -92,14 +117,33 @@ const KristianiaCaseStudy: React.FC = () => {
           </Link>
 
           <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/70 tracking-wider uppercase">
-                Two-Campaign Run
-              </span>
-              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/70 tracking-wider uppercase">
-                Case Study
-              </span>
+            <div className="flex items-center gap-4 mb-8">
+              {/* Text-based brand mark for Kristiania (no logo file available) */}
+              <div
+                className="flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/10 px-4 py-3 backdrop-blur-sm"
+                style={{ boxShadow: `0 0 0 1px ${BRAND.primary}55` }}
+              >
+                <span
+                  className="text-sm font-bold tracking-tight text-white"
+                  style={{ letterSpacing: "-0.02em" }}
+                >
+                  Høyskolen{" "}
+                  <span style={{ color: BRAND.primary }}>Kristiania</span>
+                </span>
+              </div>
+              <div className="flex flex-col gap-1">
+                <span
+                  className="text-[11px] font-semibold tracking-[0.2em] uppercase"
+                  style={{ color: BRAND.primary }}
+                >
+                  🇳🇴 Norway · Higher Ed · Two campaigns
+                </span>
+                <span className="text-xs text-white/50 tracking-wide">
+                  Case Study · Feb–Apr 2025
+                </span>
+              </div>
             </div>
+
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
               Høyskolen Kristiania<br />
               <span
@@ -131,13 +175,19 @@ const KristianiaCaseStudy: React.FC = () => {
       {/* ── CREATIVE PREVIEW ── */}
       <section className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+          <span
+            className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+            style={{ color: BRAND.primary }}
+          >
             The creative
           </span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-8 max-w-2xl">
             Recruitment overlay shown live across 31 Norwegian streamers
           </h2>
-          <div className="rounded-2xl overflow-hidden bg-black border border-border max-w-3xl">
+          <div
+            className="rounded-2xl overflow-hidden bg-black border max-w-3xl"
+            style={{ borderColor: `${BRAND.primary}33` }}
+          >
             <video
               src="/lovable-uploads/case-studies/kristiania-overlay.webm"
               autoPlay
@@ -149,6 +199,11 @@ const KristianiaCaseStudy: React.FC = () => {
               aria-label="Høyskolen Kristiania recruitment overlay creative as displayed on Norwegian Twitch streams"
             />
           </div>
+          <p className="text-xs text-muted-foreground mt-4 max-w-3xl">
+            Two distinct creatives — recruitment awareness and a voting CTA — ran the same
+            overlay slot on the same 30-strong Norwegian creator network without
+            cannibalising each other.
+          </p>
         </div>
       </section>
 
@@ -162,7 +217,10 @@ const KristianiaCaseStudy: React.FC = () => {
             }`}
           >
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+              <span
+                className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+                style={{ color: BRAND.primary }}
+              >
                 The Challenge
               </span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
@@ -184,7 +242,7 @@ const KristianiaCaseStudy: React.FC = () => {
             </div>
             <div className="space-y-4 pt-2">
               {[
-                { label: "Market", value: "Norway (95.4–95.7% viewership)" },
+                { label: "Market", value: "🇳🇴 Norway (95.4–95.7% viewership)" },
                 { label: "Format", value: "Rich Media Overlay × 2 creatives" },
                 { label: "Run", value: "Feb 28 – Apr 5 2025 (~8 weeks)" },
                 { label: "Top creator both campaigns", value: "danniz (267–268 avg viewers)" },
@@ -215,7 +273,10 @@ const KristianiaCaseStudy: React.FC = () => {
               campaignsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+            <span
+              className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+              style={{ color: BRAND.primary }}
+            >
               The Solution
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4 max-w-2xl">
@@ -233,10 +294,18 @@ const KristianiaCaseStudy: React.FC = () => {
               {campaigns.map((c, idx) => (
                 <div
                   key={c.name}
-                  className="rounded-2xl border border-border p-7 lg:p-8 bg-card"
+                  className="rounded-2xl border border-border p-7 lg:p-8 bg-card relative overflow-hidden"
                 >
+                  {/* Top brand-colored accent stripe */}
+                  <div
+                    className="absolute inset-x-0 top-0 h-0.5"
+                    style={{ background: BRAND.primary, opacity: idx === 0 ? 1 : 0.55 }}
+                  />
                   <div className="flex items-baseline justify-between mb-5">
-                    <span className="text-xs font-semibold tracking-widest uppercase text-primary">
+                    <span
+                      className="text-xs font-semibold tracking-widest uppercase"
+                      style={{ color: BRAND.primary }}
+                    >
                       Campaign {idx + 1}
                     </span>
                     <span className="text-xs text-muted-foreground tabular-nums">
@@ -322,6 +391,158 @@ const KristianiaCaseStudy: React.FC = () => {
         </div>
       </section>
 
+      {/* ── DEMOGRAPHICS & REACH ── */}
+      <section className="py-20 md:py-28 border-t border-border bg-muted/30">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div
+            ref={demoRef}
+            className={`transition-all duration-700 ${
+              demoVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
+            <span
+              className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+              style={{ color: BRAND.primary }}
+            >
+              Reach &amp; Demographics
+            </span>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-10 max-w-2xl">
+              ~221K unique Norwegian Gen Z viewers across 8 weeks
+            </h2>
+
+            <div className="grid lg:grid-cols-3 gap-10 lg:gap-14">
+              <div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5 block">
+                  Top regions (NO)
+                </span>
+                <div className="space-y-3.5">
+                  {regions.map((r) => (
+                    <div key={r.name}>
+                      <div className="flex justify-between items-baseline mb-1.5">
+                        <span className="text-sm text-foreground">{r.name}</span>
+                        <span className="text-xs text-muted-foreground tabular-nums">
+                          {r.pct}%
+                        </span>
+                      </div>
+                      <div className="h-1 rounded-full bg-border overflow-hidden">
+                        <div
+                          className="h-full rounded-full"
+                          style={{
+                            width: `${(r.pct / 31) * 100}%`,
+                            background: BRAND.primary,
+                          }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5 block">
+                  Device split
+                </span>
+                <div className="space-y-5">
+                  <div>
+                    <div className="flex justify-between items-baseline mb-1.5">
+                      <span className="text-sm text-foreground">Desktop</span>
+                      <span className="text-sm font-semibold text-foreground tabular-nums">
+                        96.4%
+                      </span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-border overflow-hidden">
+                      <div
+                        className="h-full rounded-full"
+                        style={{ width: "96.4%", background: BRAND.primary }}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between items-baseline mb-1.5">
+                      <span className="text-sm text-foreground">Mobile</span>
+                      <span className="text-sm font-semibold text-foreground tabular-nums">
+                        3.0%
+                      </span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-border overflow-hidden">
+                      <div
+                        className="h-full rounded-full"
+                        style={{ width: "3%", background: BRAND.primary, opacity: 0.5 }}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between items-baseline mb-1.5">
+                      <span className="text-sm text-foreground">Tablet / Other</span>
+                      <span className="text-sm font-semibold text-foreground tabular-nums">
+                        0.6%
+                      </span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-border overflow-hidden">
+                      <div
+                        className="h-full rounded-full"
+                        style={{ width: "0.6%", background: BRAND.primary, opacity: 0.3 }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mt-10 mb-5 block">
+                  Platform
+                </span>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Twitch</span>
+                    <span className="text-foreground font-semibold tabular-nums">100%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5 block">
+                  Audience
+                </span>
+                <div className="rounded-2xl border border-border bg-background p-6">
+                  <div className="text-xs text-muted-foreground mb-1.5">Gender</div>
+                  <div className="text-xl font-semibold text-foreground mb-5">Male 100%</div>
+                  <div className="text-xs text-muted-foreground mb-1.5">Dominant age</div>
+                  <div className="text-xl font-semibold text-foreground mb-5">18–24</div>
+                  <div className="text-xs text-muted-foreground mb-1.5">Language</div>
+                  <div className="text-xl font-semibold text-foreground">Norwegian</div>
+                </div>
+                <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
+                  The 18–24 skew is exactly the recruitment target — prospective students
+                  in the decision window for the 2025 academic year.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-16 pt-10 border-t border-border">
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-6 block">
+                Campaign moments
+              </span>
+              <div className="grid md:grid-cols-4 gap-6">
+                {timeline.map((m, i) => (
+                  <div key={m.date} className="relative">
+                    {i < timeline.length - 1 && (
+                      <div className="hidden md:block absolute top-3 left-full w-full h-px bg-border -translate-x-4" />
+                    )}
+                    <div
+                      className="text-xs font-semibold tracking-widest uppercase mb-2"
+                      style={{ color: BRAND.primary }}
+                    >
+                      {m.date}
+                    </div>
+                    <div className="text-sm font-semibold text-foreground mb-1">{m.label}</div>
+                    <div className="text-xs text-muted-foreground leading-relaxed">{m.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── RESULTS ── */}
       <section
         ref={resultsRef}
@@ -332,7 +553,10 @@ const KristianiaCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+              <span
+                className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+                style={{ color: BRAND.primary }}
+              >
                 Impact
               </span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
@@ -372,7 +596,19 @@ const KristianiaCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+              <div className="flex items-baseline gap-2 mb-3">
+                <span
+                  className="text-sm font-bold tracking-tight text-foreground"
+                  style={{ letterSpacing: "-0.02em" }}
+                >
+                  Høyskolen{" "}
+                  <span style={{ color: BRAND.primary }}>Kristiania</span>
+                </span>
+              </div>
+              <span
+                className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+                style={{ color: BRAND.primary }}
+              >
                 Run a Similar Campaign
               </span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">

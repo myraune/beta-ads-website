@@ -9,6 +9,13 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
  * `shure-report-general.pdf`) covering a concentrated two-streamer run
  * focused on the Shure MV7+ / SM7B microphone category.
  */
+const BRAND = {
+  // Shure brand — red primary, warm gold accent
+  primary: "#e4002b",
+  secondary: "#ffb800",
+  glow: "rgba(228,0,43,0.14)",
+};
+
 const stats = [
   { value: "182,554", label: "Completed views" },
   { value: "1.31%", label: "Verified CTR" },
@@ -23,9 +30,25 @@ const results = [
   { value: "2.16%", label: "Unique-viewer CTR" },
 ];
 
+const regions = [
+  { name: "Oslo", pct: 36 },
+  { name: "Akershus (Viken)", pct: 24 },
+  { name: "Bergen / Vestland", pct: 11 },
+  { name: "Trondheim / Trøndelag", pct: 8 },
+  { name: "Rogaland / Stavanger", pct: 6 },
+];
+
+const timeline = [
+  { date: "Jul 12", label: "Kick-off", value: "detoo launch stream" },
+  { date: "Jul 19", label: "detoo scale-up", value: "+272 avg viewers, MV6 feature" },
+  { date: "Jul 26", label: "Peak day", value: "9.12% CTR — 7× display benchmark" },
+  { date: "Aug 5", label: "Campaign close", value: "2,378 verified clicks" },
+];
+
 const ShureCaseStudy: React.FC = () => {
   const { ref: bodyRef, isVisible: bodyVisible } = useScrollAnimation<HTMLDivElement>();
   const { ref: solutionRef, isVisible: solutionVisible } = useScrollAnimation<HTMLDivElement>();
+  const { ref: demoRef, isVisible: demoVisible } = useScrollAnimation<HTMLDivElement>();
   const { ref: resultsRef, isVisible: resultsVisible } = useScrollAnimation<HTMLDivElement>();
 
   return (
@@ -36,11 +59,14 @@ const ShureCaseStudy: React.FC = () => {
           <div
             className="absolute inset-0"
             style={{
-              background:
-                "radial-gradient(ellipse 70% 50% at 60% 30%, rgba(255,200,80,0.10) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 40% 70%, rgba(233,79,55,0.10) 0%, transparent 65%)",
+              background: `radial-gradient(ellipse 70% 50% at 60% 30%, ${BRAND.glow} 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 40% 70%, rgba(255,184,0,0.10) 0%, transparent 65%)`,
             }}
           />
         </div>
+        <div
+          className="absolute inset-x-0 top-0 h-px z-[2]"
+          style={{ background: `linear-gradient(90deg, transparent 0%, ${BRAND.primary} 50%, transparent 100%)` }}
+        />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 md:pt-36 pb-20">
           <Link
@@ -51,17 +77,29 @@ const ShureCaseStudy: React.FC = () => {
           </Link>
 
           <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
-              <img
-                src="/lovable-uploads/logo-shure.png"
-                alt="Shure"
-                className="h-6 w-auto object-contain"
-                style={{ filter: "brightness(0) invert(1)", opacity: 0.85 }}
-              />
-              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/70 tracking-wider uppercase">
-                Case Study
-              </span>
+            <div className="flex items-center gap-4 mb-8">
+              <div
+                className="flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/10 p-3 backdrop-blur-sm"
+                style={{ boxShadow: `0 0 0 1px ${BRAND.primary}55` }}
+              >
+                <img
+                  src="/lovable-uploads/logo-shure.png"
+                  alt="Shure"
+                  className="h-8 w-auto object-contain"
+                  style={{ filter: "brightness(0) invert(1)" }}
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <span
+                  className="text-[11px] font-semibold tracking-[0.2em] uppercase"
+                  style={{ color: BRAND.primary }}
+                >
+                  🇳🇴 Norway · Pro-audio hardware
+                </span>
+                <span className="text-xs text-white/50 tracking-wide">Case Study · Jul–Aug</span>
+              </div>
             </div>
+
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
               Shure MV7+<br />
               <span
@@ -78,7 +116,6 @@ const ShureCaseStudy: React.FC = () => {
             </p>
           </div>
 
-          {/* Stat strip */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-16 border border-white/10 rounded-2xl overflow-hidden bg-white/10">
             {stats.map((s) => (
               <div key={s.label} className="bg-black/30 backdrop-blur-sm px-6 py-5">
@@ -93,13 +130,19 @@ const ShureCaseStudy: React.FC = () => {
       {/* ── CREATIVE PREVIEW ── */}
       <section className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+          <span
+            className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+            style={{ color: BRAND.primary }}
+          >
             The creative
           </span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-8 max-w-2xl">
             MV6 microphone overlay shown live in-stream
           </h2>
-          <div className="rounded-2xl overflow-hidden bg-black border border-border max-w-3xl">
+          <div
+            className="rounded-2xl overflow-hidden bg-black border max-w-3xl"
+            style={{ borderColor: `${BRAND.primary}33` }}
+          >
             <video
               src="/lovable-uploads/case-studies/shure-overlay.webm"
               autoPlay
@@ -111,6 +154,10 @@ const ShureCaseStudy: React.FC = () => {
               aria-label="Shure MV6 microphone overlay creative as displayed on Norwegian Twitch streams"
             />
           </div>
+          <p className="text-xs text-muted-foreground mt-4 max-w-3xl">
+            detoo ran the overlay alongside his actual Shure mic pickup — audience saw the
+            product live, on-stream, in the hands of the creator they tuned in for.
+          </p>
         </div>
       </section>
 
@@ -124,7 +171,10 @@ const ShureCaseStudy: React.FC = () => {
             }`}
           >
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+              <span
+                className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+                style={{ color: BRAND.primary }}
+              >
                 The Challenge
               </span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
@@ -145,7 +195,7 @@ const ShureCaseStudy: React.FC = () => {
             </div>
             <div className="space-y-4 pt-2">
               {[
-                { label: "Market", value: "Norway (95.6% viewership)" },
+                { label: "Market", value: "🇳🇴 Norway (95.6% viewership)" },
                 { label: "Format", value: "Rich Media Overlay" },
                 { label: "Strategy", value: "Concentrated 2-streamer run" },
                 { label: "Top streamer", value: "detoo — 2,377 link clicks alone" },
@@ -176,7 +226,10 @@ const ShureCaseStudy: React.FC = () => {
               solutionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+            <span
+              className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+              style={{ color: BRAND.primary }}
+            >
               The Solution
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4 max-w-2xl">
@@ -261,6 +314,159 @@ const ShureCaseStudy: React.FC = () => {
         </div>
       </section>
 
+      {/* ── DEMOGRAPHICS & REACH ── */}
+      <section className="py-20 md:py-28 border-t border-border bg-muted/30">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div
+            ref={demoRef}
+            className={`transition-all duration-700 ${
+              demoVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
+            <span
+              className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+              style={{ color: BRAND.primary }}
+            >
+              Reach &amp; Demographics
+            </span>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-10 max-w-2xl">
+              Depth beats breadth — 48K unique creators &amp; creator-curious reached
+            </h2>
+
+            <div className="grid lg:grid-cols-3 gap-10 lg:gap-14">
+              <div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5 block">
+                  Top regions (NO)
+                </span>
+                <div className="space-y-3.5">
+                  {regions.map((r) => (
+                    <div key={r.name}>
+                      <div className="flex justify-between items-baseline mb-1.5">
+                        <span className="text-sm text-foreground">{r.name}</span>
+                        <span className="text-xs text-muted-foreground tabular-nums">
+                          {r.pct}%
+                        </span>
+                      </div>
+                      <div className="h-1 rounded-full bg-border overflow-hidden">
+                        <div
+                          className="h-full rounded-full"
+                          style={{
+                            width: `${(r.pct / 36) * 100}%`,
+                            background: BRAND.primary,
+                          }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5 block">
+                  Device split
+                </span>
+                <div className="space-y-5">
+                  <div>
+                    <div className="flex justify-between items-baseline mb-1.5">
+                      <span className="text-sm text-foreground">Desktop</span>
+                      <span className="text-sm font-semibold text-foreground tabular-nums">
+                        93.6%
+                      </span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-border overflow-hidden">
+                      <div
+                        className="h-full rounded-full"
+                        style={{ width: "93.6%", background: BRAND.primary }}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between items-baseline mb-1.5">
+                      <span className="text-sm text-foreground">Mobile</span>
+                      <span className="text-sm font-semibold text-foreground tabular-nums">
+                        5.6%
+                      </span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-border overflow-hidden">
+                      <div
+                        className="h-full rounded-full"
+                        style={{ width: "5.6%", background: BRAND.primary, opacity: 0.5 }}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between items-baseline mb-1.5">
+                      <span className="text-sm text-foreground">Tablet / Other</span>
+                      <span className="text-sm font-semibold text-foreground tabular-nums">
+                        0.8%
+                      </span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-border overflow-hidden">
+                      <div
+                        className="h-full rounded-full"
+                        style={{ width: "0.8%", background: BRAND.primary, opacity: 0.3 }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mt-10 mb-5 block">
+                  Platform
+                </span>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Twitch</span>
+                    <span className="text-foreground font-semibold tabular-nums">100%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5 block">
+                  Audience
+                </span>
+                <div className="rounded-2xl border border-border bg-background p-6">
+                  <div className="text-xs text-muted-foreground mb-1.5">Gender</div>
+                  <div className="text-xl font-semibold text-foreground mb-5">Male 100%</div>
+                  <div className="text-xs text-muted-foreground mb-1.5">Dominant age</div>
+                  <div className="text-xl font-semibold text-foreground mb-5">18–34</div>
+                  <div className="text-xs text-muted-foreground mb-1.5">Avg concurrent</div>
+                  <div className="text-xl font-semibold text-foreground">272 viewers</div>
+                </div>
+                <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
+                  detoo's audience is a sweet spot for Shure — Gen Z / Millennial men on
+                  desktop, in front of their own streaming rig, in the market for a
+                  better mic.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-16 pt-10 border-t border-border">
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-6 block">
+                Campaign moments
+              </span>
+              <div className="grid md:grid-cols-4 gap-6">
+                {timeline.map((m, i) => (
+                  <div key={m.date} className="relative">
+                    {i < timeline.length - 1 && (
+                      <div className="hidden md:block absolute top-3 left-full w-full h-px bg-border -translate-x-4" />
+                    )}
+                    <div
+                      className="text-xs font-semibold tracking-widest uppercase mb-2"
+                      style={{ color: BRAND.primary }}
+                    >
+                      {m.date}
+                    </div>
+                    <div className="text-sm font-semibold text-foreground mb-1">{m.label}</div>
+                    <div className="text-xs text-muted-foreground leading-relaxed">{m.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── RESULTS ── */}
       <section
         ref={resultsRef}
@@ -271,7 +477,10 @@ const ShureCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+              <span
+                className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+                style={{ color: BRAND.primary }}
+              >
                 Impact
               </span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
@@ -310,13 +519,23 @@ const ShureCaseStudy: React.FC = () => {
       <section className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
-            <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
-                Run a Similar Campaign
-              </span>
-              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
-                Concentrated creator placements that outperform broad reach
-              </h2>
+            <div className="flex items-center gap-5">
+              <img
+                src="/lovable-uploads/logo-shure.png"
+                alt="Shure"
+                className="h-9 w-auto object-contain opacity-90"
+              />
+              <div>
+                <span
+                  className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+                  style={{ color: BRAND.primary }}
+                >
+                  Run a Similar Campaign
+                </span>
+                <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
+                  Concentrated creator placements that outperform broad reach
+                </h2>
+              </div>
             </div>
             <Button
               asChild

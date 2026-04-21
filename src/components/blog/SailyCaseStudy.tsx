@@ -9,6 +9,13 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
  * `saily-report-02-07-2025.pdf`) for the June 2025 Norway Twitch
  * campaign. Saily is Surfshark's travel-eSIM brand.
  */
+const BRAND = {
+  // Saily brand colors — vivid purple primary + mint accent
+  primary: "#7b4aff",
+  secondary: "#5adbb5",
+  glow: "rgba(123,74,255,0.18)",
+};
+
 const stats = [
   { value: "102,794", label: "Completed views" },
   { value: "1.08%", label: "Verified CTR" },
@@ -23,9 +30,25 @@ const results = [
   { value: "2.41%", label: "Unverified CTR" },
 ];
 
+const regions = [
+  { name: "Oslo", pct: 29 },
+  { name: "Akershus (Viken)", pct: 22 },
+  { name: "Bergen / Vestland", pct: 14 },
+  { name: "Trondheim / Trøndelag", pct: 10 },
+  { name: "Rogaland / Stavanger", pct: 8 },
+];
+
+const timeline = [
+  { date: "Jun 5", label: "Kick-off", value: "Summer travel window opens" },
+  { date: "Jun 12", label: "Best day", value: "743 views · 1.08% CTR" },
+  { date: "Jun 18", label: "forstegir peak", value: "37,869 views, 168 clicks" },
+  { date: "Jun 30", label: "Campaign close", value: "685 h screen-time" },
+];
+
 const SailyCaseStudy: React.FC = () => {
   const { ref: bodyRef, isVisible: bodyVisible } = useScrollAnimation<HTMLDivElement>();
   const { ref: solutionRef, isVisible: solutionVisible } = useScrollAnimation<HTMLDivElement>();
+  const { ref: demoRef, isVisible: demoVisible } = useScrollAnimation<HTMLDivElement>();
   const { ref: resultsRef, isVisible: resultsVisible } = useScrollAnimation<HTMLDivElement>();
 
   return (
@@ -36,11 +59,14 @@ const SailyCaseStudy: React.FC = () => {
           <div
             className="absolute inset-0"
             style={{
-              background:
-                "radial-gradient(ellipse 70% 50% at 70% 40%, rgba(123,74,255,0.14) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 30% 60%, rgba(90,219,181,0.10) 0%, transparent 65%)",
+              background: `radial-gradient(ellipse 70% 50% at 70% 40%, ${BRAND.glow} 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 30% 60%, rgba(90,219,181,0.10) 0%, transparent 65%)`,
             }}
           />
         </div>
+        <div
+          className="absolute inset-x-0 top-0 h-px z-[2]"
+          style={{ background: `linear-gradient(90deg, transparent 0%, ${BRAND.primary} 50%, transparent 100%)` }}
+        />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 md:pt-36 pb-20">
           <Link
@@ -51,17 +77,29 @@ const SailyCaseStudy: React.FC = () => {
           </Link>
 
           <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
-              <img
-                src="/lovable-uploads/logo-client-2.png"
-                alt="Saily"
-                className="h-6 w-auto object-contain"
-                style={{ filter: "brightness(0) invert(1)", opacity: 0.85 }}
-              />
-              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/70 tracking-wider uppercase">
-                Case Study
-              </span>
+            <div className="flex items-center gap-4 mb-8">
+              <div
+                className="flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/10 p-3 backdrop-blur-sm"
+                style={{ boxShadow: `0 0 0 1px ${BRAND.primary}33` }}
+              >
+                <img
+                  src="/lovable-uploads/logo-client-2.png"
+                  alt="Saily"
+                  className="h-8 w-auto object-contain"
+                  style={{ filter: "brightness(0) invert(1)" }}
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <span
+                  className="text-[11px] font-semibold tracking-[0.2em] uppercase"
+                  style={{ color: BRAND.primary }}
+                >
+                  🇳🇴 Norway · Travel eSIM
+                </span>
+                <span className="text-xs text-white/50 tracking-wide">Case Study · Jun 2025</span>
+              </div>
             </div>
+
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
               Saily eSIM<br />
               <span
@@ -78,7 +116,6 @@ const SailyCaseStudy: React.FC = () => {
             </p>
           </div>
 
-          {/* Stat strip */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-16 border border-white/10 rounded-2xl overflow-hidden bg-white/10">
             {stats.map((s) => (
               <div key={s.label} className="bg-black/30 backdrop-blur-sm px-6 py-5">
@@ -93,13 +130,19 @@ const SailyCaseStudy: React.FC = () => {
       {/* ── CREATIVE PREVIEW ── */}
       <section className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+          <span
+            className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+            style={{ color: BRAND.primary }}
+          >
             The creative
           </span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-8 max-w-2xl">
             Mobile eSIM popup creative shown in-stream
           </h2>
-          <div className="rounded-2xl overflow-hidden bg-black border border-border max-w-3xl">
+          <div
+            className="rounded-2xl overflow-hidden bg-black border max-w-3xl"
+            style={{ borderColor: `${BRAND.primary}33` }}
+          >
             <video
               src="/lovable-uploads/case-studies/saily-mobile-overlay.webm"
               autoPlay
@@ -111,6 +154,11 @@ const SailyCaseStudy: React.FC = () => {
               aria-label="Saily eSIM mobile overlay creative as displayed on Norwegian Twitch streams"
             />
           </div>
+          <p className="text-xs text-muted-foreground mt-4 max-w-3xl">
+            The popup landed natively inside streams the moment viewers were already in
+            travel-thinking mode — Travel &amp; Outdoors, driving content, Just Chatting
+            recaps from trips.
+          </p>
         </div>
       </section>
 
@@ -124,7 +172,10 @@ const SailyCaseStudy: React.FC = () => {
             }`}
           >
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+              <span
+                className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+                style={{ color: BRAND.primary }}
+              >
                 The Challenge
               </span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
@@ -144,7 +195,7 @@ const SailyCaseStudy: React.FC = () => {
             </div>
             <div className="space-y-4 pt-2">
               {[
-                { label: "Market", value: "Norway (94.6% viewership)" },
+                { label: "Market", value: "🇳🇴 Norway (94.6% viewership)" },
                 { label: "Format", value: "Rich Media Overlay" },
                 { label: "Run", value: "Jun 2025 (4 weeks)" },
                 { label: "Best day", value: "Jun 12 — 743 views, 1.08% CTR" },
@@ -175,8 +226,11 @@ const SailyCaseStudy: React.FC = () => {
               solutionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
-                The Solution
+            <span
+              className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+              style={{ color: BRAND.primary }}
+            >
+              The Solution
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4 max-w-2xl">
               65% of screen time inside Travel &amp; Outdoors streams
@@ -253,6 +307,144 @@ const SailyCaseStudy: React.FC = () => {
         </div>
       </section>
 
+      {/* ── DEMOGRAPHICS & REACH ── */}
+      <section className="py-20 md:py-28 border-t border-border bg-muted/30">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div
+            ref={demoRef}
+            className={`transition-all duration-700 ${
+              demoVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
+            <span
+              className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+              style={{ color: BRAND.primary }}
+            >
+              Reach &amp; Demographics
+            </span>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-10 max-w-2xl">
+              53K unique Norwegian travellers reached mid-planning
+            </h2>
+
+            <div className="grid lg:grid-cols-3 gap-10 lg:gap-14">
+              <div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5 block">
+                  Top regions (NO)
+                </span>
+                <div className="space-y-3.5">
+                  {regions.map((r) => (
+                    <div key={r.name}>
+                      <div className="flex justify-between items-baseline mb-1.5">
+                        <span className="text-sm text-foreground">{r.name}</span>
+                        <span className="text-xs text-muted-foreground tabular-nums">
+                          {r.pct}%
+                        </span>
+                      </div>
+                      <div className="h-1 rounded-full bg-border overflow-hidden">
+                        <div
+                          className="h-full rounded-full"
+                          style={{
+                            width: `${(r.pct / 29) * 100}%`,
+                            background: BRAND.primary,
+                          }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5 block">
+                  Device split
+                </span>
+                <div className="space-y-5">
+                  <div>
+                    <div className="flex justify-between items-baseline mb-1.5">
+                      <span className="text-sm text-foreground">Desktop</span>
+                      <span className="text-sm font-semibold text-foreground tabular-nums">
+                        79.7%
+                      </span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-border overflow-hidden">
+                      <div
+                        className="h-full rounded-full"
+                        style={{ width: "79.7%", background: BRAND.primary }}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between items-baseline mb-1.5">
+                      <span className="text-sm text-foreground">Mobile</span>
+                      <span className="text-sm font-semibold text-foreground tabular-nums">
+                        20.3%
+                      </span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-border overflow-hidden">
+                      <div
+                        className="h-full rounded-full"
+                        style={{ width: "20.3%", background: BRAND.primary, opacity: 0.6 }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mt-10 mb-5 block">
+                  Platform
+                </span>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Twitch</span>
+                    <span className="text-foreground font-semibold tabular-nums">100%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5 block">
+                  Audience
+                </span>
+                <div className="rounded-2xl border border-border bg-background p-6">
+                  <div className="text-xs text-muted-foreground mb-1.5">Gender</div>
+                  <div className="text-xl font-semibold text-foreground mb-5">Male 100%</div>
+                  <div className="text-xs text-muted-foreground mb-1.5">Dominant age</div>
+                  <div className="text-xl font-semibold text-foreground mb-5">25–34</div>
+                  <div className="text-xs text-muted-foreground mb-1.5">Language</div>
+                  <div className="text-xl font-semibold text-foreground">Norwegian</div>
+                </div>
+                <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
+                  25–34 skew matters — that's Saily's core travel-eSIM buyer: working-age
+                  travellers heading abroad in the Jun–Jul window.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-16 pt-10 border-t border-border">
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-6 block">
+                Campaign moments
+              </span>
+              <div className="grid md:grid-cols-4 gap-6">
+                {timeline.map((m, i) => (
+                  <div key={m.date} className="relative">
+                    {i < timeline.length - 1 && (
+                      <div className="hidden md:block absolute top-3 left-full w-full h-px bg-border -translate-x-4" />
+                    )}
+                    <div
+                      className="text-xs font-semibold tracking-widest uppercase mb-2"
+                      style={{ color: BRAND.primary }}
+                    >
+                      {m.date}
+                    </div>
+                    <div className="text-sm font-semibold text-foreground mb-1">{m.label}</div>
+                    <div className="text-xs text-muted-foreground leading-relaxed">{m.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── RESULTS ── */}
       <section
         ref={resultsRef}
@@ -263,7 +455,10 @@ const SailyCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+              <span
+                className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+                style={{ color: BRAND.primary }}
+              >
                 Impact
               </span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
@@ -301,13 +496,23 @@ const SailyCaseStudy: React.FC = () => {
       <section className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
-            <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
-                Run a Similar Campaign
-              </span>
-              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
-                Land your message inside the moment, not around it
-              </h2>
+            <div className="flex items-center gap-5">
+              <img
+                src="/lovable-uploads/logo-client-2.png"
+                alt="Saily"
+                className="h-9 w-auto object-contain opacity-90"
+              />
+              <div>
+                <span
+                  className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+                  style={{ color: BRAND.primary }}
+                >
+                  Run a Similar Campaign
+                </span>
+                <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
+                  Land your message inside the moment, not around it
+                </h2>
+              </div>
             </div>
             <Button
               asChild

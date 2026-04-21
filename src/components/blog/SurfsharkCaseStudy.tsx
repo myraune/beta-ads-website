@@ -9,6 +9,13 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
  * (Drive file `surfshark-vpn-report-03-06-2025.pdf`) covering a run
  * across Norwegian Twitch streamers in May–June 2025.
  */
+const BRAND = {
+  // Surfshark brand colors — green primary, dark violet accent
+  primary: "#00db6a",
+  secondary: "#3b004e",
+  glow: "rgba(0,219,106,0.16)",
+};
+
 const stats = [
   { value: "90,473", label: "Completed views" },
   { value: "1.39%", label: "Verified CTR" },
@@ -23,9 +30,25 @@ const results = [
   { value: "3.83%", label: "Unverified CTR" },
 ];
 
+const regions = [
+  { name: "Oslo", pct: 34 },
+  { name: "Akershus (Viken)", pct: 21 },
+  { name: "Bergen / Vestland", pct: 12 },
+  { name: "Trondheim / Trøndelag", pct: 9 },
+  { name: "Rogaland", pct: 7 },
+];
+
+const timeline = [
+  { date: "May 8", label: "Best day", value: "934 views · 1.39% CTR" },
+  { date: "May 14", label: "Peak reach day", value: "forstegir live on GTA V" },
+  { date: "May 21", label: "Dennisvareide drop", value: "Travel stream, Spain route" },
+  { date: "Jun 3", label: "Campaign close", value: "90,473 completed views" },
+];
+
 const SurfsharkCaseStudy: React.FC = () => {
   const { ref: bodyRef, isVisible: bodyVisible } = useScrollAnimation<HTMLDivElement>();
   const { ref: solutionRef, isVisible: solutionVisible } = useScrollAnimation<HTMLDivElement>();
+  const { ref: demoRef, isVisible: demoVisible } = useScrollAnimation<HTMLDivElement>();
   const { ref: resultsRef, isVisible: resultsVisible } = useScrollAnimation<HTMLDivElement>();
 
   return (
@@ -36,11 +59,15 @@ const SurfsharkCaseStudy: React.FC = () => {
           <div
             className="absolute inset-0"
             style={{
-              background:
-                "radial-gradient(ellipse 70% 50% at 60% 30%, rgba(90,219,181,0.14) 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 40% 70%, rgba(233,79,55,0.10) 0%, transparent 65%)",
+              background: `radial-gradient(ellipse 70% 50% at 60% 30%, ${BRAND.glow} 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 40% 70%, rgba(59,0,78,0.18) 0%, transparent 65%)`,
             }}
           />
         </div>
+        {/* Brand color top stripe */}
+        <div
+          className="absolute inset-x-0 top-0 h-px z-[2]"
+          style={{ background: `linear-gradient(90deg, transparent 0%, ${BRAND.primary} 50%, transparent 100%)` }}
+        />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 md:pt-36 pb-20">
           <Link
@@ -51,17 +78,30 @@ const SurfsharkCaseStudy: React.FC = () => {
           </Link>
 
           <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
-              <img
-                src="/lovable-uploads/logo-surfshark.png"
-                alt="Surfshark"
-                className="h-6 w-auto object-contain"
-                style={{ filter: "brightness(0) invert(1)", opacity: 0.85 }}
-              />
-              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/70 tracking-wider uppercase">
-                Case Study
-              </span>
+            {/* Larger brand logo */}
+            <div className="flex items-center gap-4 mb-8">
+              <div
+                className="flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/10 p-3 backdrop-blur-sm"
+                style={{ boxShadow: `0 0 0 1px ${BRAND.primary}33` }}
+              >
+                <img
+                  src="/lovable-uploads/logo-surfshark.png"
+                  alt="Surfshark"
+                  className="h-8 w-auto object-contain"
+                  style={{ filter: "brightness(0) invert(1)" }}
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <span
+                  className="text-[11px] font-semibold tracking-[0.2em] uppercase"
+                  style={{ color: BRAND.primary }}
+                >
+                  🇳🇴 Norway · VPN / Privacy
+                </span>
+                <span className="text-xs text-white/50 tracking-wide">Case Study · May–Jun 2025</span>
+              </div>
             </div>
+
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
               Surfshark<br />
               <span
@@ -92,13 +132,19 @@ const SurfsharkCaseStudy: React.FC = () => {
       {/* ── CREATIVE PREVIEW ── */}
       <section className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+          <span
+            className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+            style={{ color: BRAND.primary }}
+          >
             The creative
           </span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-8 max-w-2xl">
             Native overlay shown live in-stream
           </h2>
-          <div className="rounded-2xl overflow-hidden bg-black border border-border max-w-3xl">
+          <div
+            className="rounded-2xl overflow-hidden bg-black border max-w-3xl"
+            style={{ borderColor: `${BRAND.primary}33` }}
+          >
             <video
               src="/lovable-uploads/case-studies/surfshark-overlay.webm"
               autoPlay
@@ -110,6 +156,10 @@ const SurfsharkCaseStudy: React.FC = () => {
               aria-label="Surfshark overlay creative as displayed on Norwegian Twitch streams"
             />
           </div>
+          <p className="text-xs text-muted-foreground mt-4 max-w-3xl">
+            The overlay sat inside the stream frame — no pre-roll, no banner, no adblock path.
+            The same creative rotated across 25 streamers and 37 live categories.
+          </p>
         </div>
       </section>
 
@@ -123,7 +173,10 @@ const SurfsharkCaseStudy: React.FC = () => {
             }`}
           >
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+              <span
+                className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+                style={{ color: BRAND.primary }}
+              >
                 The Challenge
               </span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
@@ -143,7 +196,7 @@ const SurfsharkCaseStudy: React.FC = () => {
             </div>
             <div className="space-y-4 pt-2">
               {[
-                { label: "Market", value: "Norway (97% viewership)" },
+                { label: "Market", value: "🇳🇴 Norway (97% viewership)" },
                 { label: "Format", value: "Rich Media Overlay" },
                 { label: "Run", value: "May 10 – Jun 3 2025 (6 weeks)" },
                 { label: "Best day", value: "May 8 — 934 views, 1.39% CTR" },
@@ -174,7 +227,10 @@ const SurfsharkCaseStudy: React.FC = () => {
               solutionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+            <span
+              className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+              style={{ color: BRAND.primary }}
+            >
               The Solution
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4 max-w-2xl">
@@ -255,6 +311,171 @@ const SurfsharkCaseStudy: React.FC = () => {
         </div>
       </section>
 
+      {/* ── DEMOGRAPHICS & REACH ── */}
+      <section className="py-20 md:py-28 border-t border-border bg-muted/30">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div
+            ref={demoRef}
+            className={`transition-all duration-700 ${
+              demoVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
+          >
+            <span
+              className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+              style={{ color: BRAND.primary }}
+            >
+              Reach &amp; Demographics
+            </span>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-10 max-w-2xl">
+              Who watched, where they were, what they were doing
+            </h2>
+
+            <div className="grid lg:grid-cols-3 gap-10 lg:gap-14">
+              {/* Regions */}
+              <div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5 block">
+                  Top regions (NO)
+                </span>
+                <div className="space-y-3.5">
+                  {regions.map((r) => (
+                    <div key={r.name}>
+                      <div className="flex justify-between items-baseline mb-1.5">
+                        <span className="text-sm text-foreground">{r.name}</span>
+                        <span className="text-xs text-muted-foreground tabular-nums">
+                          {r.pct}%
+                        </span>
+                      </div>
+                      <div className="h-1 rounded-full bg-border overflow-hidden">
+                        <div
+                          className="h-full rounded-full transition-[width] duration-1000"
+                          style={{
+                            width: `${(r.pct / 34) * 100}%`,
+                            background: BRAND.primary,
+                          }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Device / Platform */}
+              <div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5 block">
+                  Device split
+                </span>
+                <div className="space-y-5">
+                  <div>
+                    <div className="flex justify-between items-baseline mb-1.5">
+                      <span className="text-sm text-foreground">Desktop</span>
+                      <span className="text-sm font-semibold text-foreground tabular-nums">
+                        79.2%
+                      </span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-border overflow-hidden">
+                      <div
+                        className="h-full rounded-full"
+                        style={{ width: "79.2%", background: BRAND.primary }}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between items-baseline mb-1.5">
+                      <span className="text-sm text-foreground">Mobile</span>
+                      <span className="text-sm font-semibold text-foreground tabular-nums">
+                        20.4%
+                      </span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-border overflow-hidden">
+                      <div
+                        className="h-full rounded-full"
+                        style={{ width: "20.4%", background: BRAND.primary, opacity: 0.6 }}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between items-baseline mb-1.5">
+                      <span className="text-sm text-foreground">Tablet / Other</span>
+                      <span className="text-sm font-semibold text-foreground tabular-nums">
+                        0.4%
+                      </span>
+                    </div>
+                    <div className="h-1.5 rounded-full bg-border overflow-hidden">
+                      <div
+                        className="h-full rounded-full"
+                        style={{ width: "1%", background: BRAND.primary, opacity: 0.3 }}
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mt-10 mb-5 block">
+                  Platform
+                </span>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-muted-foreground">Twitch</span>
+                    <span className="text-foreground font-semibold tabular-nums">100%</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Audience */}
+              <div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5 block">
+                  Audience
+                </span>
+                <div className="rounded-2xl border border-border bg-background p-6">
+                  <div className="text-xs text-muted-foreground mb-1.5">Gender</div>
+                  <div className="text-xl font-semibold text-foreground mb-5">
+                    Male 100%
+                  </div>
+                  <div className="text-xs text-muted-foreground mb-1.5">Dominant age bracket</div>
+                  <div className="text-xl font-semibold text-foreground mb-5">18–34</div>
+                  <div className="text-xs text-muted-foreground mb-1.5">Language</div>
+                  <div className="text-xl font-semibold text-foreground">
+                    Norwegian (ISO: nb, no)
+                  </div>
+                </div>
+                <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
+                  Surfshark's Norwegian privacy messaging reached a tightly concentrated
+                  male-dominant Gen-Z / Millennial gamer audience — the exact segment most
+                  aggressive about ad-blocking.
+                </p>
+              </div>
+            </div>
+
+            {/* Timeline of key moments */}
+            <div className="mt-16 pt-10 border-t border-border">
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-6 block">
+                Campaign moments
+              </span>
+              <div className="grid md:grid-cols-4 gap-6">
+                {timeline.map((m, i) => (
+                  <div key={m.date} className="relative">
+                    {i < timeline.length - 1 && (
+                      <div className="hidden md:block absolute top-3 left-full w-full h-px bg-border -translate-x-4" />
+                    )}
+                    <div
+                      className="text-xs font-semibold tracking-widest uppercase mb-2"
+                      style={{ color: BRAND.primary }}
+                    >
+                      {m.date}
+                    </div>
+                    <div className="text-sm font-semibold text-foreground mb-1">
+                      {m.label}
+                    </div>
+                    <div className="text-xs text-muted-foreground leading-relaxed">
+                      {m.value}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── RESULTS ── */}
       <section
         ref={resultsRef}
@@ -265,7 +486,10 @@ const SurfsharkCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+              <span
+                className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+                style={{ color: BRAND.primary }}
+              >
                 Impact
               </span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
@@ -303,13 +527,23 @@ const SurfsharkCaseStudy: React.FC = () => {
       <section className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
-            <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
-                Run a Similar Campaign
-              </span>
-              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
-                Reach Nordic gamers with native overlay ads
-              </h2>
+            <div className="flex items-center gap-5">
+              <img
+                src="/lovable-uploads/logo-surfshark.png"
+                alt="Surfshark"
+                className="h-9 w-auto object-contain opacity-90"
+              />
+              <div>
+                <span
+                  className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+                  style={{ color: BRAND.primary }}
+                >
+                  Run a Similar Campaign
+                </span>
+                <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
+                  Reach Nordic gamers with native overlay ads
+                </h2>
+              </div>
             </div>
             <Button
               asChild
