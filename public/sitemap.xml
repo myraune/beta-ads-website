@@ -172,6 +172,34 @@
 
   <!-- ── Blog posts ── -->
   <url>
+    <loc>https://beta-ads.no/blog/twitch-2026-ad-products-nordic-brands</loc>
+    <lastmod>2026-04-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+
+  <url>
+    <loc>https://beta-ads.no/blog/twitch-sponsored-campaigns-open-to-affiliates-2026</loc>
+    <lastmod>2026-04-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+
+  <url>
+    <loc>https://beta-ads.no/blog/kick-100-million-users-milestone-nordic-advertisers-2026</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+
+  <url>
+    <loc>https://beta-ads.no/blog/paid-amplification-creator-content-beyond-social-2026</loc>
+    <lastmod>2026-04-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+  </url>
+
+  <url>
     <loc>https://beta-ads.no/blog/twitch-april-2026-platform-overhaul-advertiser-guide</loc>
     <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
