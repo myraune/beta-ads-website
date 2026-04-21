@@ -63,8 +63,13 @@ const AdFormatCarousel: React.FC = () => {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Slides track */}
-      <div className="relative overflow-hidden" style={{ height: "min(420px, 45vw)" }}>
+      {/* Slides track — aspect ratio sized so the 60%-wide slides land at exactly 16:9,
+          matching the source image dimensions (800×450) and removing the letterbox
+          gaps that previously required a blurred backdrop. */}
+      <div
+        className="relative overflow-hidden"
+        style={{ aspectRatio: "80 / 27" }}
+      >
         {adFormats.map((f, i) => {
           // Position relative to active: -1, 0, +1, wrap around
           let offset = i - active;
@@ -77,7 +82,7 @@ const AdFormatCarousel: React.FC = () => {
           return (
             <motion.div
               key={f.image}
-              className="absolute top-0 rounded-2xl overflow-hidden cursor-pointer"
+              className="absolute top-0 rounded-2xl overflow-hidden cursor-pointer bg-muted/40 dark:bg-white/[0.04] ring-1 ring-border/40 dark:ring-white/[0.06]"
               style={{ width: `${slideW}%`, height: "100%", left: "20%" }}
               animate={{
                 x: `${xPercent}%`,
@@ -88,20 +93,12 @@ const AdFormatCarousel: React.FC = () => {
               transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
               onClick={() => !isActive && goTo(i)}
             >
-              {/* Blurred backdrop fills the letterbox gaps */}
-              <div className="absolute inset-0 bg-background" />
-              <img
-                src={f.image}
-                alt=""
-                aria-hidden
-                className="absolute inset-0 w-full h-full object-cover scale-110"
-                style={{ filter: "blur(20px) brightness(0.15)", opacity: 0.6 }}
-              />
-              {/* Actual image — full format visible */}
               <img
                 src={f.image}
                 alt={f.name}
-                className="relative w-full h-full object-contain"
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </motion.div>
           );

@@ -106,14 +106,18 @@ const features = [
 /* ── Streamer Explorer Preview ── */
 
 const streamers = [
-  { name: "RubenGKS", game: "Fortnite", viewers: "2.8K", platform: "Twitch", score: 94, avatar: "/lovable-uploads/rubengks-profile.png" },
-  { name: "Aienia", game: "Valorant", viewers: "1.2K", platform: "Twitch", score: 91, avatar: "/lovable-uploads/streamer-aienia.jpg" },
-  { name: "FjolsenFN", game: "Fortnite", viewers: "2.1K", platform: "Twitch", score: 88, avatar: "https://unavatar.io/twitch/fjolsenfn" },
-  { name: "sneakjeks1x", game: "Valorant", viewers: "980", platform: "Twitch", score: 86, avatar: "https://unavatar.io/twitch/sneakjeks1x" },
-  { name: "Calsiphere", game: "Fortnite", viewers: "1.6K", platform: "Twitch", score: 83, avatar: "https://unavatar.io/twitch/calsiphere" },
-  { name: "Emmelie", game: "Just Chatting", viewers: "890", platform: "YouTube", score: 87, avatar: "/lovable-uploads/streamer-emmelie.jpg" },
-  { name: "Pernataia", game: "League of Legends", viewers: "1.5K", platform: "Kick", score: 89, avatar: "/lovable-uploads/streamer-pernataia.jpg" },
+  // Mix of major international Twitch creators + the Nordic names Beta Ads actually works with.
+  // Bigger Twitch streamers added per design feedback — avatars load from unavatar.io (Twitch-keyed).
+  { name: "Ninja", game: "Fortnite", viewers: "4.2K", platform: "Twitch", score: 96, avatar: "https://unavatar.io/twitch/ninja" },
   { name: "DannizTV", game: "CS2", viewers: "3.1K", platform: "Twitch", score: 96, avatar: "https://unavatar.io/twitch/danniztv" },
+  { name: "RubenGKS", game: "Fortnite", viewers: "2.8K", platform: "Twitch", score: 94, avatar: "/lovable-uploads/rubengks-profile.png" },
+  { name: "TenZ", game: "Valorant", viewers: "7.8K", platform: "Twitch", score: 92, avatar: "https://unavatar.io/twitch/tenz" },
+  { name: "Aienia", game: "Valorant", viewers: "1.2K", platform: "Twitch", score: 91, avatar: "https://unavatar.io/twitch/aienia" },
+  { name: "Clix", game: "Fortnite", viewers: "5.4K", platform: "Twitch", score: 90, avatar: "https://unavatar.io/twitch/clix" },
+  { name: "Shroud", game: "Valorant", viewers: "11.2K", platform: "Twitch", score: 89, avatar: "https://unavatar.io/twitch/shroud" },
+  { name: "Pernataia", game: "League of Legends", viewers: "1.5K", platform: "Kick", score: 89, avatar: "/lovable-uploads/streamer-pernataia.jpg" },
+  { name: "FjolsenFN", game: "Fortnite", viewers: "2.1K", platform: "Twitch", score: 88, avatar: "https://unavatar.io/twitch/fjolsenfn" },
+  { name: "Emmelie", game: "Just Chatting", viewers: "890", platform: "YouTube", score: 87, avatar: "/lovable-uploads/streamer-emmelie.jpg" },
 ];
 
 const GAMES = ["Fortnite", "Valorant", "CS2", "Just Chatting", "Minecraft"];
