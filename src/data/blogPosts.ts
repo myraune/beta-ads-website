@@ -34,6 +34,118 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "twitch-april-2026-platform-overhaul-advertiser-guide",
+    slug: "twitch-april-2026-platform-overhaul-advertiser-guide",
+    title: "Twitch Just Rewrote Its Data-Sharing Rules and Launched Vertical Streaming. Here Is What Changed for Advertisers.",
+    excerpt: "Twitch updated its Monetized Streamer Agreement to share user data with advertisers, rolled out dual-format vertical streaming, and killed its Combos experiment. A breakdown of what each change means for brands buying live stream inventory.",
+    content: `## The April 13 MSA update: Twitch now shares viewer data with advertisers
+
+On April 13, 2026, Twitch quietly updated its [Monetized Streamer Agreement](https://legal.twitch.com/legal/monetized-streamer-agreement/) to include new language about how it shares user data with advertisers. The change was first spotted by streaming industry reporter [Zach Bussey](https://x.com/zachbussey/status/2043773101364650085), and it marks a significant shift in how the platform handles the relationship between viewer behavior and ad targeting.
+
+The updated agreement states that by accepting the MSA, streamers consent to data sharing with Amazon, advertisers, and service providers. Twitch may share personal information with Amazon.com, Inc. to "offer and facilitate monetization opportunities and tools, including running Advertisements on your Twitch Channel." Streamers who want to withdraw consent must terminate the agreement entirely and offboard from the monetization program.
+
+For advertisers, the practical implication is straightforward: Twitch is moving toward richer targeting data. The platform has historically lagged behind YouTube and Meta in the granularity of audience data available to media buyers. This update signals that Twitch is building the infrastructure to close that gap, likely by leveraging Amazon's broader retail and behavioral data graph.
+
+![Gamer competing at a gaming event with headset and monitor](/lovable-uploads/blog-first-party-data-streaming-hero.jpg)
+
+## What this means for Nordic advertisers under GDPR
+
+The data-sharing update carries particular weight for brands operating in the European Economic Area. GDPR requires that any processing of personal data has a lawful basis, and the transfer of viewer data to third-party advertisers triggers obligations around transparency, consent, and data minimization.
+
+Twitch's [Privacy Notice](https://legal.twitch.com/en/legal/privacy-notice/) covers its own data processing, but the chain of responsibility does not stop there. Nordic brands receiving targeting data derived from Twitch viewer behavior need to ensure their own data processing agreements account for the origin of that data. If Twitch is sharing viewer watch patterns, chat activity, or Bits spending history with Amazon's ad platform, and that data is then used to target a Norwegian or Swedish audience, the brand sitting at the end of that chain has its own compliance obligations.
+
+This is not theoretical. The Norwegian Data Protection Authority (Datatilsynet) has been [increasingly active](https://www.datatilsynet.no/) in scrutinizing ad-tech data flows, and Sweden's IMY has issued guidance specifically on behavioral advertising. Brands working with Twitch ad inventory through Amazon Ads should confirm with their legal teams that the data pipeline from viewer to targeting parameter to ad impression is documented and defensible.
+
+## Dual-format streaming: the vertical feed changes ad inventory math
+
+Alongside the MSA update, Twitch has been rolling out its most significant format change since the platform launched: dual-format streaming. Creators can now broadcast horizontal and vertical video simultaneously, serving desktop viewers the traditional widescreen layout while mobile viewers get a vertical feed optimized for phone screens.
+
+The vertical format is not just a layout option. Twitch has built a mobile-first Discovery Feed around it, a TikTok-style vertical scroll that serves clip previews and live snippets based on viewer interests. According to [What's Trending](https://whatstrending.com/twitch-previews-2026-updates-focused-on-streaming-moderation-and-monetization/), the feed has fundamentally changed how new viewers find content on the platform.
+
+For advertisers, this creates a new inventory surface. Vertical pre-rolls and mid-rolls in the Discovery Feed are a different product than the traditional horizontal stream ad unit. The viewing context is different (quick-scroll discovery versus lean-back watching), the attention window is shorter, and the creative requirements are different. Brands running campaigns on Twitch now need to decide whether their existing 16:9 creative works in a 9:16 context, or whether they need dedicated vertical assets.
+
+The timing matters because Twitch's market share has dropped to roughly 54%, down from 71% in late [2023](https://streamscharts.com/news/twitch-still-good-new-streamers-data-based-answer-2026). YouTube Gaming and Kick have captured mid-tier and frustrated creators respectively. The vertical feed is Twitch's play to recapture mobile-first viewers who might otherwise scroll TikTok or YouTube Shorts. If it works, the new inventory will be significant. If it does not, the fragmentation problem gets worse.
+
+![Analytics dashboard showing user metrics and session data](/lovable-uploads/blog-first-party-data-streaming-1.jpg)
+
+## 2K streaming and what higher resolution means for overlay ads
+
+Twitch has also expanded streaming support to 2K (1440p) resolution for eligible Affiliates and Partners, using more efficient codecs like HEVC to deliver sharper video without proportionally increasing bandwidth requirements. The upgrade from 1080p to 1440p is incremental for most viewers, but it has a specific implication for brands using overlay ad formats.
+
+Overlay ads, the semi-transparent branded elements that appear during a stream without interrupting content, depend on visual clarity. At 1080p, a small overlay in the corner of the screen has limited real estate for text or product detail. At 1440p, the same proportional area contains roughly 78% more pixels. That is enough to make a product shot legible, a URL readable, or a QR code scannable from a typical viewing distance.
+
+For Nordic brands running native overlay campaigns through agencies like Beta Ads, the 2K rollout means creative assets designed for 1080p may look soft on streams that have upgraded. It is worth reviewing overlay templates and ensuring text and logos are rendered at sufficient resolution for both output targets.
+
+## Combos is dead: what a failed Bits experiment tells us about Twitch's monetization direction
+
+On March 31, 2026, Twitch shut down Combos, a feature that let viewers chain Bits together to trigger escalating visual animations during streams. The feature borrowed heavily from TikTok's gifting playbook and was meant to convert first-time spenders. According to [StreamChat AI](https://streamchatai.com/blog/twitch-just-killed-combos-heres-what-that-tells-us-about-the-future-of-bits), Twitch quietly admitted the experiment did not work: it failed to bring in new spenders, which was the entire premise.
+
+The quick shutdown, just 11 months after beta launch, is actually a positive signal about Twitch's product discipline. But for advertisers, the lesson is more specific. Bits-based interactive features are not reliable as campaign mechanics. Brands that built activations around Bits interactions (polls, predictions, combo triggers) are building on a feature set that Twitch is willing to deprecate on short notice.
+
+The more durable interactive tools on Twitch remain Channel Points, Predictions, and Polls, which are viewer-funded through watch time rather than direct spending. For brands designing interactive campaign elements, these engagement-funded mechanics have a larger user base and a longer track record than anything in the Bits ecosystem.
+
+## The lower affiliate threshold expands the creator pool
+
+Twitch has reduced its Affiliate requirements to 25 followers, 4 hours streamed, 4 unique broadcast days, and 3 average concurrent viewers. The previous threshold was 50 followers. The change roughly doubles the number of creators who can run ads on their channels.
+
+For the Nordic market specifically, this matters because the region's creator pool has always been constrained. The number of Norwegian, Swedish, or Finnish-language streamers with meaningful audiences is finite, and brands competing for sponsorship slots with the same top-tier creators face both limited inventory and premium pricing.
+
+The lower threshold means a new layer of micro-creators, streamers with 25 to 100 followers and tight-knit communities, can now carry ad inventory. These channels will not deliver scale individually, but a portfolio approach across 20 to 30 Nordic micro-streamers could deliver aggregated reach with higher engagement rates and lower CPMs than a single mid-tier partnership. It is the same logic that has driven micro-influencer strategy on Instagram and TikTok, now arriving on Twitch.
+
+![Twitch category browse page showing live channels and an Amazon display ad](/lovable-uploads/blog-brand-safety-live-streaming-2026-hero.jpg)
+
+## What brands should do now
+
+The April 2026 updates are not a single story. They are five parallel shifts that compound:
+
+| Change | Advertiser action |
+|--------|-------------------|
+| MSA data sharing | Confirm GDPR compliance for any Amazon Ads targeting derived from Twitch viewer data |
+| Vertical Discovery Feed | Audit creative assets for 9:16 compatibility; decide whether to buy vertical inventory separately |
+| 2K streaming | Review overlay ad templates for 1440p clarity |
+| Combos shutdown | Avoid building campaign mechanics on Bits-based features |
+| Lower affiliate threshold | Explore micro-creator portfolio strategies for Nordic-language campaigns |
+
+None of these changes individually reshape the market. Together, they describe a Twitch that is becoming more data-rich, more mobile-first, and more creator-dense, while simultaneously pruning features that do not convert. For Nordic advertisers, the platform is getting more capable as a media buy but also more complex to operate. The brands that will benefit most are the ones that update their playbook now, before the new inventory types and targeting options become table stakes.
+
+---
+
+**Sources:**
+- [Twitch Monetized Streamer Agreement](https://legal.twitch.com/legal/monetized-streamer-agreement/)
+- [Zach Bussey on Twitch MSA data sharing update](https://x.com/zachbussey/status/2043773101364650085)
+- [What's Trending — Twitch 2026 Updates](https://whatstrending.com/twitch-previews-2026-updates-focused-on-streaming-moderation-and-monetization/)
+- [StreamChat AI — Twitch Killed Combos](https://streamchatai.com/blog/twitch-just-killed-combos-heres-what-that-tells-us-about-the-future-of-bits)
+- [Streams Charts — Twitch for New Streamers in 2026](https://streamscharts.com/news/twitch-still-good-new-streamers-data-based-answer-2026)
+- [Gaming Careers — Vertical Video, 2K Streams & Monetization Overhaul](https://gamingcareers.com/newsletters/twitchs-future-vertical-video-2k-streams-monetization-overhaul/)
+- [Streaming Media — Twitch Dual-Layout Streaming](https://www.streamingmedia.com/Articles/News/Online-Video-News/Twitchs-Dual-Layout-Streaming-Technical-Innovation-or-Industry-Revolution-170053.aspx)
+- [Twitch Privacy Notice](https://legal.twitch.com/en/legal/privacy-notice/)`,
+    date: "Apr 21, 2026",
+    dateISO: "2026-04-21",
+    readTime: "8 min read",
+    image: "/lovable-uploads/blog-first-party-data-streaming-hero.jpg",
+    category: "Twitch Insights",
+    tags: ["Twitch", "data privacy", "GDPR", "vertical streaming", "ad formats", "Nordic advertising"],
+    relatedSlugs: ["first-party-data-live-streaming-nordic-advertisers-2026", "pause-ad-revolution-twitch-native-formats-2026", "twitch-cpm-media-buying-guide-2026"],
+    seoTitle: {
+      en: "Twitch April 2026 Update: Data Sharing, Vertical Streaming & Ad Changes",
+      no: "Twitch april 2026: Datadeling, vertikalstrømming og endringer for annonsører",
+      sv: "Twitch april 2026: Datadelning, vertikalströmning och annonsförändringar",
+      fi: "Twitch huhtikuu 2026: Tietojen jakaminen, pystysuora striimaus ja mainosmuutokset",
+    },
+    seoDescription: {
+      en: "Twitch updated its Monetized Streamer Agreement to share viewer data with advertisers, launched vertical streaming, and killed Combos. What each change means for brands.",
+      no: "Twitch oppdaterte avtalen for å dele seerdata med annonsører, lanserte vertikalstrømming og avsluttet Combos. Hva endringene betyr for merkevarer.",
+      sv: "Twitch uppdaterade sitt avtal för att dela tittardata med annonsörer, lanserade vertikalströmning och avslutade Combos. Vad förändringarna innebär för varumärken.",
+      fi: "Twitch päivitti sopimuksensa jakaakseen katsojatietoja mainostajille, julkaisi pystysuoran striimauksen ja lopetti Combosin. Mitä muutokset tarkoittavat brändeille.",
+    },
+    seoKeywords: {
+      en: ["Twitch advertising 2026", "Twitch data sharing", "vertical streaming ads", "Twitch GDPR", "live stream ad formats", "Nordic Twitch advertising"],
+      no: ["Twitch annonsering 2026", "Twitch datadeling", "vertikal strømming annonser", "Twitch GDPR", "livestream annonseformater", "nordisk Twitch-annonsering"],
+      sv: ["Twitch annonsering 2026", "Twitch datadelning", "vertikal strömning annonser", "Twitch GDPR", "livestream annonsformat", "nordisk Twitch-annonsering"],
+      fi: ["Twitch mainonta 2026", "Twitch tietojen jakaminen", "pystysuora striimaus mainokset", "Twitch GDPR", "livestriimaus mainosmuodot", "pohjoismainen Twitch-mainonta"],
+    },
+  },
+  {
     id: "streamer-burnout-brand-risk-2026",
     slug: "streamer-burnout-brand-risk-2026",
     title: "Streamer Burnout in 2026: The Campaign Risk Nordic Brands Aren't Accounting For",
