@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 /* ── Count-up animation hook ── */
@@ -32,127 +31,152 @@ function useCountUp(target: string, isVisible: boolean) {
   return display;
 }
 
-/* ── Ad Format Carousel ── */
+/* ── Ad Format Showcase — single 16:9 preview with crossfade + thumbnail strip ── */
 const AdFormatCarousel: React.FC = () => {
   const [active, setActive] = useState(0);
   const [hovered, setHovered] = useState(false);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const n = adFormats.length;
 
-  const go = useCallback((dir: 1 | -1) => {
-    setActive(a => (a + dir + n) % n);
-  }, [n]);
-
   const goTo = useCallback((idx: number) => setActive(idx), []);
 
   useEffect(() => {
-    if (hovered) { if (timerRef.current) clearInterval(timerRef.current); return; }
-    timerRef.current = setInterval(() => go(1), 5000);
-    return () => { if (timerRef.current) clearInterval(timerRef.current); };
-  }, [hovered, go]);
+    if (hovered) {
+      if (timerRef.current) clearInterval(timerRef.current);
+      return;
+    }
+    timerRef.current = setInterval(() => setActive((a) => (a + 1) % n), 5000);
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current);
+    };
+  }, [hovered, n]);
 
   const fmt = adFormats[active];
 
-  // Each slide is 60% wide; we offset so active is centered with neighbours peeking in
-  const slideW = 60; // percent of container width
-  const gap = 2; // percent
-
   return (
     <div
-      className="relative w-full"
+      className="max-w-6xl mx-auto px-6 lg:px-8"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Slides track — aspect ratio sized so the 60%-wide slides land at exactly 16:9,
-          matching the source image dimensions (800×450) and removing the letterbox
-          gaps that previously required a blurred backdrop. */}
+      {/* Preview — single 16:9 frame, clean crossfade between formats */}
       <div
-        className="relative overflow-hidden"
-        style={{ aspectRatio: "80 / 27" }}
+        className="relative w-full rounded-2xl overflow-hidden bg-muted/30 dark:bg-white/[0.04] ring-1 ring-border/40 dark:ring-white/[0.06]"
+        style={{ aspectRatio: "16 / 9" }}
       >
-        {adFormats.map((f, i) => {
-          // Position relative to active: -1, 0, +1, wrap around
-          let offset = i - active;
-          if (offset > n / 2) offset -= n;
-          if (offset < -n / 2) offset += n;
-
-          const xPercent = offset * (slideW + gap);
-          const isActive = offset === 0;
-
-          return (
-            <motion.div
-              key={f.image}
-              className="absolute top-0 rounded-2xl overflow-hidden cursor-pointer bg-muted/40 dark:bg-white/[0.04] ring-1 ring-border/40 dark:ring-white/[0.06]"
-              style={{ width: `${slideW}%`, height: "100%", left: "20%" }}
-              animate={{
-                x: `${xPercent}%`,
-                scale: isActive ? 1 : 0.92,
-                filter: isActive ? "brightness(1)" : "brightness(0.65)",
-                zIndex: isActive ? 10 : 5,
-              }}
-              transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
-              onClick={() => !isActive && goTo(i)}
-            >
-              <img
-                src={f.image}
-                alt={f.name}
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </motion.div>
-          );
-        })}
-      </div>
-
-      {/* Info + controls below the track */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-6">
         <AnimatePresence mode="wait">
-          <motion.div
-            key={fmt.name}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.25 }}
-          >
-            <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">Ad Format</p>
-            {/* h4: nested under section h3 "6 formats. Zero adblock." — fixes h2>h3>h3 hierarchy skip */}
-            <h4 className="text-2xl md:text-3xl font-light tracking-tight text-foreground">{fmt.name}</h4>
-            <p className="text-sm text-muted-foreground mt-1 max-w-sm">{fmt.desc}</p>
-          </motion.div>
+          <motion.img
+            key={fmt.image}
+            src={fmt.image}
+            alt={fmt.name}
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+            decoding="async"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+          />
         </AnimatePresence>
 
-        {/* Arrows + dots — aria-labels added for screen reader accessibility */}
-        <div className="flex items-center gap-4 shrink-0">
-          <button
-            onClick={() => go(-1)}
-            aria-label="Previous ad format"
-            className="w-10 h-10 rounded-full border border-foreground/60 flex items-center justify-center text-foreground hover:bg-muted hover:border-foreground/80 transition-colors"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <div className="flex items-center gap-1.5" role="tablist" aria-label="Ad format slides">
-            {adFormats.map((f, i) => (
-              <button
-                key={i}
-                onClick={() => goTo(i)}
-                role="tab"
-                aria-selected={i === active}
-                aria-label={`Show ${f.name} ad format`}
-                className={`rounded-full transition-all duration-300 ${
-                  i === active ? "w-5 h-1.5 bg-foreground" : "w-1.5 h-1.5 bg-muted-foreground/30 hover:bg-muted-foreground/60"
-                }`}
-              />
-            ))}
-          </div>
-          <button
-            onClick={() => go(1)}
-            aria-label="Next ad format"
-            className="w-10 h-10 rounded-full border border-foreground/60 flex items-center justify-center text-foreground hover:bg-muted hover:border-foreground/80 transition-colors"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
+        {/* Live indicator — small status pill bottom-left */}
+        <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1.5">
+          <span
+            className="w-1.5 h-1.5 rounded-full bg-[#5adbb5]"
+            style={{ boxShadow: "0 0 6px rgba(90,219,181,0.6)" }}
+          />
+          <span className="text-[10px] font-semibold tracking-widest uppercase text-white">
+            Live preview
+          </span>
         </div>
+
+        {/* Format name pill — bottom-right, fades in on change */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={fmt.name + "-pill"}
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.25 }}
+            className="absolute bottom-4 right-4 bg-black/60 backdrop-blur-sm rounded-full px-3.5 py-1.5"
+          >
+            <span className="text-[11px] font-semibold text-white">
+              {fmt.name}
+            </span>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+
+      {/* Active format description — clean text strip below the preview */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={fmt.name + "-desc"}
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -4 }}
+          transition={{ duration: 0.25 }}
+          className="mt-6 flex items-baseline gap-4"
+        >
+          <p className="text-xs font-semibold tracking-widest uppercase text-primary shrink-0">
+            Ad Format
+          </p>
+          <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+            <span className="text-foreground font-medium">{fmt.name}</span>
+            <span className="mx-2 text-muted-foreground/40">·</span>
+            {fmt.desc}
+          </p>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Thumbnail strip — 6 format cards, click to switch.
+          Serves as both the navigator and a visual index of every format. */}
+      <div
+        className="mt-8 grid grid-cols-3 md:grid-cols-6 gap-3"
+        role="tablist"
+        aria-label="Ad format thumbnails"
+      >
+        {adFormats.map((f, i) => {
+          const isActive = i === active;
+          return (
+            <button
+              key={f.name}
+              onClick={() => goTo(i)}
+              role="tab"
+              aria-selected={isActive}
+              aria-label={`Show ${f.name} ad format`}
+              className={`group relative flex flex-col rounded-xl overflow-hidden text-left transition-all duration-300 ${
+                isActive
+                  ? "ring-2 ring-primary ring-offset-2 ring-offset-background"
+                  : "ring-1 ring-border/40 dark:ring-white/[0.08] hover:ring-foreground/30"
+              }`}
+            >
+              <div
+                className="relative w-full bg-muted/30 dark:bg-white/[0.04]"
+                style={{ aspectRatio: "16 / 9" }}
+              >
+                <img
+                  src={f.image}
+                  alt=""
+                  aria-hidden
+                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-300 ${
+                    isActive ? "" : "opacity-70 group-hover:opacity-100"
+                  }`}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div
+                className={`px-3 py-2 text-[11px] md:text-xs font-medium transition-colors duration-300 ${
+                  isActive
+                    ? "text-foreground bg-primary/10"
+                    : "text-muted-foreground bg-transparent group-hover:text-foreground"
+                }`}
+              >
+                {f.name}
+              </div>
+            </button>
+          );
+        })}
       </div>
     </div>
   );
