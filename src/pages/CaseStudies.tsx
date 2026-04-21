@@ -22,7 +22,7 @@ interface CaseStudiesProps {
 // a link instead of just opening the YouTube video.
 const caseStudies = [
   { id: "Uw7IIecicB4", brand: "Samsung", campaign: "S25 Ultra Awareness Norway", impressions: "500,131", impressionsNum: 500131, ctr: "2.93%", ctrNum: 2.93, description: "Premium awareness campaign for Samsung's flagship smartphone launch across Norwegian Twitch streamers. Zero adblock impact.", caseLink: "/case-study/samsung" },
-  { id: "GwE4dagRm_k", brand: "Kristiania", campaign: "University Recruitment Norway", impressions: "459,237", impressionsNum: 459237, ctr: "1.53%", ctrNum: 1.53, description: "8-week Gen Z student recruitment campaign — 31 streamers, 67 categories, 136,828 unique viewers across the Feb-Apr 2025 application window.", caseLink: "/case-study/kristiania" },
+  { id: "GwE4dagRm_k", brand: "Kristiania", campaign: "Twitch — 2 parallel campaigns", impressions: "599,252", impressionsNum: 599252, ctr: "1.00%", ctrNum: 1.0, description: "Two parallel Norwegian Twitch campaigns (awareness + voting) on the same creator network — combined ~600K views, ~6,000 verified clicks across the Feb-Apr 2025 application window.", caseLink: "/case-study/kristiania" },
   { id: "IZOx_VMdJJg", brand: "Shure", campaign: "MV7+ Microphone Launch", impressions: "182,554", impressionsNum: 182554, ctr: "1.31%", ctrNum: 1.31, description: "Concentrated two-creator launch for the MV7+ microphone with a 9.12% peak-day CTR — depth over breadth.", caseLink: "/case-study/shure" },
   { id: "ufNq-A4d7iA", brand: "Komplett", campaign: "Månedens Gaming Deal", impressions: "151,278", impressionsNum: 151278, ctr: "1.17%", ctrNum: 1.17, description: "17-day tactical retail run for Norway's #3 electronics retailer — peak 4.48% CTR across 34 streamers on Twitch + Kick.", caseLink: "/case-study/komplett" },
   { id: "DMz-NV1W_Is", brand: "Saily", campaign: "Travel eSIM Norway (Surfshark)", impressions: "102,794", impressionsNum: 102794, ctr: "1.08%", ctrNum: 1.08, description: "Travel-intent campaign — 65% of screen time inside Travel & Outdoors streams during peak summer travel season.", caseLink: "/case-study/saily" },
@@ -86,13 +86,13 @@ const detailedCaseStudies = [
   },
   {
     brand: "Kristiania",
-    title: "Norwegian Gen Z University Recruitment",
-    description: "Høyskolen Kristiania ran an 8-week native overlay campaign across 31 streamers and 67 categories during the Feb-Apr 2025 application window — 459K display views.",
+    title: "Two Parallel Twitch Campaigns — ~600K Combined Views",
+    description: "Høyskolen Kristiania ran two parallel campaigns (recruitment awareness + voting activation) across the same Norwegian creator network during the Feb-Apr 2025 application window.",
     stats: [
-      { label: "Display views", value: "459,237" },
-      { label: "Verified CTR", value: "1.53%" },
+      { label: "Combined views", value: "599,252" },
+      { label: "Verified clicks", value: "5,997" },
       { label: "Streamers", value: "31" },
-      { label: "Unique viewers", value: "136,828" },
+      { label: "Screen time", value: "3,329 h" },
     ],
     image: "https://img.youtube.com/vi/GwE4dagRm_k/maxresdefault.jpg",
     link: "/case-study/kristiania",

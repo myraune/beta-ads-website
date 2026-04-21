@@ -5,27 +5,69 @@ import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 /**
- * Data sourced from the verified Kristiania campaign report (Drive file
- * `kristiania-report-14-04-2025.pdf`) — Høyskolen Kristiania's national
- * student-recruitment run on Norwegian Twitch, Feb–Apr 2025.
+ * Data sourced from TWO verified Kristiania campaign reports (Drive):
+ *
+ *   1. `kristiania-report-14-04-2025-08-46-58.pdf` — main awareness /
+ *      student-recruitment run (Feb–Apr 2025)
+ *   2. `kristiania-voting-report-14-04-2025-08-47-09.pdf` — parallel
+ *      voting / engagement campaign run on the same talent pool
+ *
+ * Combined delivery across both reports: ~599K display views, ~6K
+ * verified clicks, ~3,329 h on-screen presence.
  */
+
+// Combined totals across both campaigns — these are the headline numbers.
 const stats = [
-  { value: "459,237", label: "Display views" },
-  { value: "1.53%", label: "Verified CTR" },
-  { value: "4,372", label: "Verified clicks" },
-  { value: "2,551 h", label: "Screen time" },
+  { value: "599,252", label: "Combined views" },
+  { value: "5,997", label: "Verified clicks" },
+  { value: "31", label: "Streamers" },
+  { value: "3,329 h", label: "Screen time" },
+];
+
+// Per-campaign rows shown in the comparison block below.
+const campaigns = [
+  {
+    name: "Awareness / Recruitment",
+    file: "kristiania-report-14-04-2025-08-46-58.pdf",
+    views: "459,237",
+    verifiedClicks: "4,372",
+    verifiedCTR: "1.53%",
+    bestDay: "Feb 28 — 5,171 views, 2.15% CTR",
+    artworkWatchTime: "28 h 7 m",
+    screenTime: "2,551 h",
+    streamers: "31",
+    categories: "67",
+    uniqueViewers: "136,828",
+    topCreator: "danniz · 102,696 views · 519 clicks",
+    topCategory: "Grand Theft Auto V (49.02%)",
+  },
+  {
+    name: "Voting Campaign",
+    file: "kristiania-voting-report-14-04-2025-08-47-09.pdf",
+    views: "140,015",
+    verifiedClicks: "1,625",
+    verifiedCTR: "1.16%",
+    bestDay: "Feb 27 — 1,461 views, 2.81% CTR",
+    artworkWatchTime: "8 h 30 m",
+    screenTime: "778 h",
+    streamers: "30",
+    categories: "49",
+    uniqueViewers: "84,615",
+    topCreator: "danniz · 34,430 views · 217 clicks",
+    topCategory: "Grand Theft Auto V (56.69%)",
+  },
 ];
 
 const results = [
-  { value: "31", label: "Streamers" },
-  { value: "67", label: "Categories" },
-  { value: "136,828", label: "Unique viewers" },
-  { value: "2.15%", label: "Peak-day CTR" },
+  { value: "~600K", label: "Combined views" },
+  { value: "Norway", label: "95.4% viewership" },
+  { value: "danniz", label: "Top creator both campaigns" },
+  { value: "GTA V", label: "Dominant category" },
 ];
 
 const KristianiaCaseStudy: React.FC = () => {
   const { ref: bodyRef, isVisible: bodyVisible } = useScrollAnimation<HTMLDivElement>();
-  const { ref: solutionRef, isVisible: solutionVisible } = useScrollAnimation<HTMLDivElement>();
+  const { ref: campaignsRef, isVisible: campaignsVisible } = useScrollAnimation<HTMLDivElement>();
   const { ref: resultsRef, isVisible: resultsVisible } = useScrollAnimation<HTMLDivElement>();
 
   return (
@@ -52,14 +94,14 @@ const KristianiaCaseStudy: React.FC = () => {
           <div className="max-w-3xl">
             <div className="flex items-center gap-3 mb-6">
               <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/70 tracking-wider uppercase">
-                University Recruitment
+                Two-Campaign Run
               </span>
               <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/70 tracking-wider uppercase">
                 Case Study
               </span>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
-              Kristiania<br />
+              Høyskolen Kristiania<br />
               <span
                 style={{ fontFamily: "'Instrument Serif', serif" }}
                 className="italic font-normal"
@@ -68,9 +110,10 @@ const KristianiaCaseStudy: React.FC = () => {
               </span>
             </h1>
             <p className="text-lg text-white/60 leading-relaxed max-w-xl">
-              Høyskolen Kristiania reached 136,828 unique Norwegian Gen Z viewers across
-              31 streamers — 459K display views and 28 hours of artwork-on-screen time
-              over an 8-week recruitment window.
+              Two parallel Twitch campaigns — recruitment awareness + a voting
+              activation — running across the same Norwegian creator network.
+              Combined delivery: <strong className="text-white">~600,000 views</strong>,
+              ~6,000 verified clicks, 3,329 hours of on-screen presence.
             </p>
           </div>
 
@@ -85,6 +128,7 @@ const KristianiaCaseStudy: React.FC = () => {
         </div>
       </section>
 
+      {/* ── CHALLENGE ── */}
       <section className="py-20 md:py-28 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div
@@ -98,28 +142,30 @@ const KristianiaCaseStudy: React.FC = () => {
                 The Challenge
               </span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
-                Reach Norwegian 18–24 year-olds at the moment they're choosing a university
+                Two parallel Gen Z asks. Same audience. Same window.
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                Kristiania needed presence inside a window that traditional university
-                marketing struggles to reach: Gen Z evenings, on Twitch, where Norwegian
-                students actually spend their attention. Application season runs Feb–Apr;
-                after that, the window closes for a year.
+                Kristiania needed presence inside a window traditional university
+                marketing can't reach: Gen Z evenings, on Twitch, where Norwegian
+                students actually spend their attention. Application season runs
+                Feb–Apr; after that, the window closes for a year.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
-                The brand had national TV money but needed a complementary channel that
-                landed inside the moment — and not as a 30-second pre-roll that gets
-                skipped.
+                Two campaigns ran in parallel — a broad awareness / recruitment
+                push and a tighter voting activation — both targeting the same
+                gamer-adjacent demographic. Coordinating them on a single
+                creator network meant the brand stayed consistently present
+                without burning out the audience with repetition.
               </p>
             </div>
             <div className="space-y-4 pt-2">
               {[
-                { label: "Market", value: "Norway (95.4% viewership)" },
-                { label: "Format", value: "Rich Media Overlay" },
+                { label: "Market", value: "Norway (95.4–95.7% viewership)" },
+                { label: "Format", value: "Rich Media Overlay × 2 creatives" },
                 { label: "Run", value: "Feb 28 – Apr 5 2025 (~8 weeks)" },
-                { label: "Best day", value: "Feb 28 — 5,171 views, 2.15% CTR" },
-                { label: "Audience", value: "Skews Akershus + Oslo, mobile/desktop mix" },
-                { label: "Device split", value: "Desktop 96.5% / Mobile 3.2%" },
+                { label: "Top creator both campaigns", value: "danniz (267–268 avg viewers)" },
+                { label: "Combined unique viewers", value: "~221K (some overlap)" },
+                { label: "Device split", value: "Desktop 96.4% / Mobile 3.0%" },
               ].map((row) => (
                 <div
                   key={row.label}
@@ -136,94 +182,123 @@ const KristianiaCaseStudy: React.FC = () => {
         </div>
       </section>
 
+      {/* ── TWO CAMPAIGNS BREAKDOWN ── */}
       <section className="py-20 md:py-28 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div
-            ref={solutionRef}
+            ref={campaignsRef}
             className={`transition-all duration-700 ${
-              solutionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              campaignsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
           >
             <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
               The Solution
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4 max-w-2xl">
-              Native overlays across 31 creators, 67 live categories
+              Two campaigns, one creator network, ~600K combined views
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-12">
-              Beta deployed Kristiania creative across a curated roster of Norwegian
-              streamers spanning gaming and lifestyle content. The overlay spent 2,551
-              hours on screen across the campaign — and 28 hours of focused
-              artwork-watch-time, which is what actually drives recall.
+              Beta deployed two distinct Kristiania creatives across the same
+              roster of Norwegian streamers. Both ran inside the same 8-week
+              window — the awareness creative carrying recruitment messaging,
+              the voting creative driving a parallel campaign action. Same
+              talent, two outcomes.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-12 mb-12">
-              <div>
-                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4 block">
-                  Top 5 creators
-                </span>
-                <div className="space-y-3">
-                  {[
-                    { name: "danniz", views: "102,696", clicks: "519", avgViewers: "268" },
-                    { name: "detoo", views: "—", clicks: "—", avgViewers: "—" },
-                    { name: "mystixx", views: "—", clicks: "—", avgViewers: "—" },
-                    { name: "texazrexaz", views: "—", clicks: "—", avgViewers: "—" },
-                    { name: "Linnea", views: "—", clicks: "—", avgViewers: "—" },
-                  ].map((s, i) => (
-                    <div
-                      key={s.name}
-                      className="flex items-center justify-between py-3 border-b border-border last:border-0"
-                    >
-                      <div className="flex items-center gap-3">
-                        <span className="text-xs text-muted-foreground tabular-nums w-4">
-                          {i + 1}
-                        </span>
-                        <span className="text-sm font-semibold text-foreground">{s.name}</span>
-                      </div>
-                      {s.views !== "—" && (
-                        <span className="text-xs text-muted-foreground tabular-nums">
-                          {s.views} views · {s.clicks} clicks
-                        </span>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <div className="grid lg:grid-cols-2 gap-6">
+              {campaigns.map((c, idx) => (
+                <div
+                  key={c.name}
+                  className="rounded-2xl border border-border p-7 lg:p-8 bg-card"
+                >
+                  <div className="flex items-baseline justify-between mb-5">
+                    <span className="text-xs font-semibold tracking-widest uppercase text-primary">
+                      Campaign {idx + 1}
+                    </span>
+                    <span className="text-xs text-muted-foreground tabular-nums">
+                      Verified report
+                    </span>
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-1 leading-snug">
+                    {c.name}
+                  </h3>
+                  <p className="text-xs text-muted-foreground mb-7 font-mono break-all">
+                    {c.file}
+                  </p>
 
-              <div>
-                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4 block">
-                  Top 5 live categories
-                </span>
-                <div className="space-y-3">
-                  {[
-                    { cat: "Grand Theft Auto V", pct: "49.02%" },
-                    { cat: "Just Chatting", pct: "21.47%" },
-                    { cat: "Minecraft", pct: "6.30%" },
-                    { cat: "Fortnite", pct: "6.06%" },
-                    { cat: "Travel & Outdoors", pct: "4.28%" },
-                  ].map((c) => (
-                    <div
-                      key={c.cat}
-                      className="flex items-center justify-between py-3 border-b border-border last:border-0"
-                    >
-                      <span className="text-sm font-semibold text-foreground">{c.cat}</span>
-                      <span className="text-xs text-muted-foreground tabular-nums">{c.pct}</span>
+                  <div className="grid grid-cols-2 gap-px bg-border rounded-xl overflow-hidden mb-6">
+                    <div className="bg-background px-5 py-4">
+                      <div className="text-2xl font-bold text-foreground tabular-nums tracking-tight">
+                        {c.views}
+                      </div>
+                      <div className="text-[11px] text-muted-foreground mt-0.5">
+                        Display views
+                      </div>
                     </div>
-                  ))}
+                    <div className="bg-background px-5 py-4">
+                      <div className="text-2xl font-bold text-foreground tabular-nums tracking-tight">
+                        {c.verifiedClicks}
+                      </div>
+                      <div className="text-[11px] text-muted-foreground mt-0.5">
+                        Verified clicks
+                      </div>
+                    </div>
+                    <div className="bg-background px-5 py-4">
+                      <div className="text-2xl font-bold text-foreground tabular-nums tracking-tight">
+                        {c.verifiedCTR}
+                      </div>
+                      <div className="text-[11px] text-muted-foreground mt-0.5">
+                        Verified CTR
+                      </div>
+                    </div>
+                    <div className="bg-background px-5 py-4">
+                      <div className="text-2xl font-bold text-foreground tabular-nums tracking-tight">
+                        {c.uniqueViewers}
+                      </div>
+                      <div className="text-[11px] text-muted-foreground mt-0.5">
+                        Unique viewers
+                      </div>
+                    </div>
+                  </div>
+
+                  <dl className="space-y-2.5 text-sm">
+                    {[
+                      ["Best day", c.bestDay],
+                      ["Streamers", c.streamers],
+                      ["Categories", c.categories],
+                      ["Screen time", c.screenTime],
+                      ["Artwork watch time", c.artworkWatchTime],
+                      ["Top creator", c.topCreator],
+                      ["Top category", c.topCategory],
+                    ].map(([label, value]) => (
+                      <div
+                        key={label}
+                        className="flex justify-between items-baseline gap-6 py-1.5 border-b border-border last:border-0"
+                      >
+                        <dt className="text-muted-foreground shrink-0">{label}</dt>
+                        <dd className="text-foreground font-medium text-right">
+                          {value}
+                        </dd>
+                      </div>
+                    ))}
+                  </dl>
                 </div>
-              </div>
+              ))}
             </div>
 
-            <p className="text-sm text-muted-foreground max-w-2xl">
-              Half the screen time happened inside GTA V — a category dominated by exactly
-              the audience Kristiania needed to reach. Just Chatting (21%) gave the brand
-              host-read style mentions in the moments creators were already talking
-              directly to their audience.
+            <p className="text-sm text-muted-foreground max-w-2xl mt-10">
+              Both campaigns shared the same lead creator (danniz) and the same
+              dominant category (GTA V — 49% awareness, 57% voting). The voting
+              creative ran lighter total volume but landed a higher peak-day
+              CTR (2.81% vs 2.15%) — a useful pattern: clear-action creatives
+              spike harder on launch day, awareness creatives sustain over the
+              campaign window.
             </p>
           </div>
         </div>
       </section>
 
+      {/* ── RESULTS ── */}
       <section
         ref={resultsRef}
         className={`py-20 md:py-28 border-t border-border transition-all duration-700 ${
@@ -237,24 +312,26 @@ const KristianiaCaseStudy: React.FC = () => {
                 Impact
               </span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
-                459K display views and 4,372 verified clicks during application season
+                ~600K combined views during the window that mattered
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                Kristiania's campaign covered 31 Norwegian streamers and 67 live
-                categories — landing the recruitment message in front of 136,828 unique
-                Gen Z viewers across exactly the application window that matters.
+                Across both campaigns, Kristiania reached ~221,000 unique
+                Norwegian Gen Z viewers and racked up 5,997 verified clicks —
+                inside an 8-week application-season window where recruitment
+                outcomes for an entire academic year are decided.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Verified CTR landed at 1.53% with peak days hitting 2.15% — well above
-                the typical 0.3–0.5% benchmark for higher-education display creative on
-                conventional Nordic networks.
+                Combined verified CTR of ~1.0% (weighted across both runs) and
+                peak-day CTRs of 2.15% (awareness) and 2.81% (voting) sit
+                comfortably above conventional higher-ed display benchmarks
+                in the Nordic market.
               </p>
             </div>
             <div>
               <div className="grid grid-cols-2 gap-px rounded-2xl overflow-hidden bg-border">
                 {results.map((s) => (
                   <div key={s.label} className="bg-background px-6 py-5">
-                    <div className="text-2xl font-bold text-foreground tracking-tight">
+                    <div className="text-xl font-bold text-foreground tracking-tight">
                       {s.value}
                     </div>
                     <div className="text-xs text-muted-foreground mt-0.5">{s.label}</div>
@@ -266,6 +343,7 @@ const KristianiaCaseStudy: React.FC = () => {
         </div>
       </section>
 
+      {/* ── CTA ── */}
       <section className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">

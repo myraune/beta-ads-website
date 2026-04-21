@@ -8,15 +8,15 @@ const CaseStudyKristiania: React.FC = () => {
     <>
       <SEO
         title="Høyskolen Kristiania Case Study | Beta Ads"
-        description="How Kristiania reached 136,828 unique Norwegian Gen Z viewers across 31 streamers — 459K display views and 4,372 verified clicks during the Feb-Apr 2025 application window."
+        description="Two parallel Kristiania Twitch campaigns (recruitment awareness + voting activation) — combined ~600K display views, ~6,000 verified clicks, 31 Norwegian streamers, 8-week Feb-Apr 2025 application window."
         canonical="/case-study/kristiania"
         ogType="article"
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Article",
-          "headline": "Kristiania × Beta Ads: Norwegian Gen Z University Recruitment",
+          "headline": "Høyskolen Kristiania × Beta Ads: Two-Campaign Twitch Run, ~600K Combined Views",
           "description":
-            "Høyskolen Kristiania ran an 8-week native overlay campaign across 31 Norwegian streamers, delivering 459,237 display views and a 1.53% verified CTR.",
+            "Høyskolen Kristiania ran two parallel native overlay campaigns (awareness + voting) across the same Norwegian creator network, delivering ~600K combined display views and ~6,000 verified clicks across an 8-week recruitment window.",
           "url": "https://beta-ads.no/case-study/kristiania",
           "author": { "@type": "Organization", "name": "Beta Ads" },
           "publisher": {
