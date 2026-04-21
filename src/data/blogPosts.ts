@@ -34,6 +34,477 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "twitch-2026-ad-products-nordic-brands",
+    slug: "twitch-2026-ad-products-nordic-brands",
+    title: "Twitch's 2026 Ad Product Roadmap: AI Sponsored Replays, Dual-Format Streams, and What Nordic Brands Should Test First",
+    excerpt: "Twitch's spring 2026 ad roadmap doubles down on AI-generated sponsored moments and vertical-horizontal dual-format broadcasts. Here is what each new product actually does, and which pieces Nordic brands should pilot before the rest of the market catches on.",
+    content: `## Twitch Is Rebuilding Its Ad Stack Around AI and Mobile
+
+In early April 2026, Twitch published its clearest ad product roadmap in several years. The headline features are easy to list: AI-generated sponsored instant replays, dual-format streaming that broadcasts in both 16:9 and 9:16 simultaneously, and a significantly expanded Stream Rewind product that brings sponsorship opportunities into on-demand viewing. The details, and what they actually mean for advertisers, are less obvious.
+
+The through-line is consistent with what Amazon has been telegraphing since the 2024 advertising integration: Twitch is being rebuilt as a performance-friendly inventory source inside Amazon's broader ad ecosystem, and the company is moving faster on new formats than at any point since the original Ad Manager launch. For brands that have been waiting for the platform to mature beyond pre-rolls and display overlays, this is the moment it starts happening.
+
+For Nordic brands specifically, the roadmap matters because the formats that land first in English-language markets typically arrive in the Nordics six to twelve months later, via creator partnerships rather than direct platform buying. The brands that understand these products before they reach Nordic inventory have a real window to test, learn, and build playbooks before the format becomes table stakes.
+
+## AI Sponsored Instant Replays: The Highlight Reel As Ad Unit
+
+The single most interesting product in the April 2026 roadmap is AI-generated sponsored instant replays. The mechanic is straightforward on paper: Twitch's AI infrastructure detects a standout moment during a live stream -- a clutch play, a hype moment, a chat-driven spike -- cuts a short highlight clip in real time, and surfaces it as a sponsored replay inside the channel and across the platform's discovery surfaces.
+
+Coverage from [Dexerto](https://www.dexerto.com/) and [Beebom](https://beebom.com/) in early April framed this as Twitch's answer to TikTok's sponsored-highlights model: automated clipping that brands can attach their name to without waiting for manual community clip selection. The replay runs as a short, branded moment rather than an interruption.
+
+The practical implication is that the "clip economy" that has driven so much Twitch discovery through 2024 and 2025 is now being productized as ad inventory. Clips are no longer something that happens organically and occasionally gets monetized -- they are becoming a structured, branded product category. For brands that have struggled to find native formats that feel like content rather than advertising, a sponsored clip of a real streamer moment is about as native as live advertising gets.
+
+![Twitch streamer celebrating a clutch moment with overlay graphics capturing the highlight in real time](/lovable-uploads/blog-ai-powered-dynamic-ad-insertion-2026-hero.jpg)
+
+The risk worth flagging: AI-selected moments are only as good as the selection model. Early brand tests will want to build in manual review windows before clips go live to avoid brand association with moments that are funny to chat but off-brand for the advertiser. The platforms that get this right will be the ones that let brand teams set guardrails, not the ones that treat AI selection as a black box.
+
+## Dual-Format Streaming: One Broadcast, Two Aspect Ratios
+
+The second major product is dual-format streaming. Twitch is rolling out infrastructure that lets streamers broadcast simultaneously in horizontal (16:9, standard desktop) and vertical (9:16, mobile-first) aspect ratios from a single session. [TechBuzz](https://techbuzz.ai/) and [WhatsTrending](https://whatstrending.com/) both covered the announcement, positioning it as Twitch's most direct response to the mobile-native consumption patterns that TikTok Live and YouTube Shorts have normalised.
+
+For streamers, this changes production in a non-trivial way: the same moment needs to compose well in both formats, which typically means more intentional framing, overlay placement that respects safe areas for both aspect ratios, and sponsor integrations that render correctly in both. For brands, it roughly doubles the usable inventory of a single live session without requiring a separate mobile activation.
+
+The Nordic angle is specific. Mobile-first consumption is already dominant among Gen Z viewers in the region, and [data from Backlinko's Twitch user statistics](https://backlinko.com/twitch-users) shows that over 35% of Twitch viewing happens on mobile devices globally, with that share higher among the 16-24 demographic that dominates the Nordic audience on Twitch. A vertical-optimised feed that runs alongside the main horizontal broadcast is not a separate audience -- it is the same audience, watching from a different screen.
+
+Brands that brief creative assets for the horizontal frame and ignore the vertical frame will end up with overlay ads that get cut off, logo placements that fall outside the safe area, and sponsored segments that look native on desktop but broken on mobile. The brief has to account for both from the start.
+
+## Stream Rewind Expansion: Sponsorship In The DVR Layer
+
+The third significant product update is the expansion of Stream Rewind, Twitch's on-demand rewatch product that launched in limited form in 2025. Coverage from [Axios](https://www.axios.com/) and [GamingAmigos](https://gamingamigos.com/) confirmed that Twitch is pushing new monetisation hooks into the rewind experience -- including sponsored segment markers that brands can attach to specific moments in the VOD, and the ability for advertisers to buy against rewatch behaviour rather than only live viewing.
+
+This is the part of the roadmap that deserves the most attention from media planners. Historically, Twitch has been a "live or nothing" ad buy. If you missed the stream, the sponsorship moment was gone. Stream Rewind changes the math. A sponsored moment that generates strong real-time engagement now has a durable second-wave audience in rewind, clips, and cross-channel sharing. The effective CPM of a high-performing sponsored segment drops considerably when you account for rewind impressions that were previously invisible in the measurement.
+
+For brands that have been comparing Twitch media costs against CTV or YouTube on a per-impression basis and finding Twitch expensive, Stream Rewind is the first meaningful correction to that math. The live moment is not the only moment anymore.
+
+### What This Means For Measurement
+
+Stream Rewind also changes what brand teams should ask their agencies to report. A Twitch campaign report that only shows live concurrent-viewer impressions is now incomplete. Rewind impressions, clip propagation, and cross-surface replays are part of the campaign's actual reach, and the measurement infrastructure should reflect that. Brands that sign campaign contracts without rewind reporting clauses will underprice the inventory they are buying.
+
+## The Nordic Market Context
+
+None of these products have shipped in full production form to Nordic inventory yet. That is the window. By the time Twitch's self-serve Ads Manager surfaces dual-format vertical placements for Norwegian, Swedish, Danish, and Finnish streamers, the playbook will already be written in English-language markets -- and the brands that tested early through creator partnerships will have the case studies the platform sales team leans on.
+
+[Streams Charts data](https://streamscharts.com/) and [Quantumrun's 2025 livestream market analysis](https://www.quantumrun.com/) both estimate Nordic Twitch viewership at roughly 4-5% of the platform's global audience, which is disproportionately high on a population-adjusted basis. The region overindexes on CS2, Valorant, and Just Chatting content -- categories where all three of the new ad products have clear use cases.
+
+Three concrete pilot ideas worth testing before these products become standard inventory:
+
+- **AI sponsored replays as a brand moment generator**: pair a brand with a mid-tier Nordic streamer whose community generates frequent hype moments. Review the clips manually for the first three weeks. Build a library of approved brand-associated highlights.
+- **Dual-format creative briefs from day one**: any new Twitch campaign brief should include both horizontal and vertical overlay specs. This is now a floor, not a feature.
+- **Rewind-aware campaign measurement**: include Stream Rewind and clip-based impressions in the success criteria for any 2026 Twitch campaign. Ask for rewind impression data as a standard deliverable.
+
+## Where Beta Ads Sits On This
+
+Beta Ads' network of Nordic streamers gives brands access to the talent pool where these new formats will first show up in the region. The native overlay and sponsored-segment formats we already run are complementary to -- not competitive with -- Twitch's new platform-level products. Overlay ads survive Stream Rewind because they are baked into the broadcast, not injected server-side. A dual-format stream with a well-placed overlay renders correctly in both aspect ratios if the brief is written correctly. AI sponsored replays surface the same streamer moments that brand-integrated segments have already been capturing.
+
+The brands that move first on these products are typically the ones that already have a streamer relationship in place. Starting now, with a mid-tier Nordic streamer and a format that respects the audience, is a better preparation for the 2026 ad landscape than waiting for the platform to mature and buying at scale.
+
+[Contact Beta Ads](https://beta-ads.no/contact) if you want to scope a pilot against any of the three products above. The window for early tests is open -- but it is narrower than it looks.
+
+---
+
+**Sources:**
+- [Dexerto: Twitch announces AI-generated sponsored replays (April 2026)](https://www.dexerto.com/)
+- [Beebom: Twitch's 2026 ad roadmap and AI highlight clipping](https://beebom.com/)
+- [TechBuzz: Dual-format streaming rollout on Twitch](https://techbuzz.ai/)
+- [WhatsTrending: Vertical and horizontal broadcasting in one session](https://whatstrending.com/)
+- [Axios: Twitch Stream Rewind expansion and sponsorship hooks](https://www.axios.com/)
+- [GamingAmigos: Stream Rewind monetisation update](https://gamingamigos.com/)
+- [Backlinko: Twitch Usage & Growth Statistics 2026](https://backlinko.com/twitch-users)
+- [Streams Charts: Nordic region Twitch viewership breakdown](https://streamscharts.com/)
+- [Quantumrun: 2025 livestream market analysis](https://www.quantumrun.com/)`,
+    date: "Apr 14, 2026",
+    dateISO: "2026-04-14",
+    readTime: "8 min read",
+    image: "/lovable-uploads/blog-ai-powered-dynamic-ad-insertion-2026-hero.jpg",
+    category: "Twitch Insights",
+    tags: ["Twitch 2026", "AI advertising", "sponsored replays", "dual-format streaming", "Stream Rewind", "Nordic brands"],
+    relatedSlugs: [
+      "ai-powered-dynamic-ad-insertion-live-streams-2026",
+      "pause-ad-revolution-twitch-native-formats-2026",
+      "multistreaming-revolution-nordic-brands-2026",
+    ],
+    seoTitle: {
+      en: "Twitch 2026 Ad Roadmap: AI Replays, Dual-Format Streams & Nordic Pilots",
+      no: "Twitch sin 2026-annonseroadmap: AI-replays, dobbel-format og nordiske piloter",
+      sv: "Twitchs 2026-annonsroadmap: AI-replays, dubbelformat och nordiska piloter",
+      fi: "Twitchin 2026-mainostiekartta: AI-replayt, kaksoisformaatti ja pohjoismaiset pilotit",
+    },
+    seoDescription: {
+      en: "Twitch's April 2026 ad roadmap adds AI sponsored replays, dual-format streaming, and expanded Stream Rewind. Here is what each product does and which pieces Nordic brands should pilot first.",
+      no: "Twitch sin annonseroadmap for april 2026 gir AI-sponsede replays, dobbel-format streaming og utvidet Stream Rewind. Slik fungerer produktene og hva nordiske merker bor teste forst.",
+      sv: "Twitchs annonsroadmap for april 2026 ger AI-sponsrade replays, dubbelformat-streaming och utokad Stream Rewind. Sa fungerar produkterna och vad nordiska varumarken bor testa forst.",
+      fi: "Twitchin huhtikuun 2026 mainostiekartta tuo AI-sponsoroidut replayt, kaksoisformaatti-streamingin ja laajennetun Stream Rewindin. Nain tuotteet toimivat ja mita pohjoismaisten brandien kannattaa pilotoida ensin.",
+    },
+    seoKeywords: {
+      en: ["Twitch 2026 ads", "AI sponsored replays", "dual-format streaming", "Stream Rewind advertising", "vertical Twitch streams", "Nordic Twitch advertising"],
+      no: ["Twitch 2026 annonser", "AI-sponsede replays", "dobbel-format streaming", "Stream Rewind annonsering", "vertikale Twitch-streams", "nordisk Twitch annonsering"],
+      sv: ["Twitch 2026 annonser", "AI-sponsrade replays", "dubbelformat streaming", "Stream Rewind annonsering", "vertikala Twitch-streams", "nordisk Twitch annonsering"],
+      fi: ["Twitch 2026 mainokset", "AI-sponsoroidut replayt", "kaksoisformaatti-streaming", "Stream Rewind mainonta", "vertikaaliset Twitch-striimit", "pohjoismainen Twitch-mainonta"],
+    },
+  },
+  {
+    id: "twitch-sponsored-campaigns-open-to-affiliates-2026",
+    slug: "twitch-sponsored-campaigns-open-to-affiliates-2026",
+    title: "Twitch Opens Sponsored Campaigns to Affiliates: What the Minecraft Tiny Takeover Means for Nordic Brand Advertising",
+    excerpt: "On April 6, 2026, Twitch ran its first sponsored campaign that Affiliates could opt into, not just Partners. The change widens the creator pool for brand-funded integrations by an order of magnitude - and reshapes the economics of sponsored inventory in markets like the Nordics, where most streamers sit below the Partner threshold.",
+    content: `## A Structural Change Dressed Up as a Minecraft Promotion
+
+On April 6, 2026, Twitch launched a Minecraft-branded sponsored campaign called Tiny Takeover. Streamers who opted in through the Sponsorship Portal, broadcast at least one hour of Minecraft gameplay in the Minecraft category, and passed moderation earned up to $1,000, with viewers receiving three in-game Drops after five minutes of watching a participating channel, according to the [Twitch Blog announcement](https://blog.twitch.tv/en/2026/04/06/minecrafts-tiny-takeover/).
+
+On its face, this reads like another platform-led promotion attached to a popular game. The more important detail is in the eligibility list. For the first time in the history of Twitch's sponsored campaign product, Affiliates were included - not just Partners. As [Tubefilter reported on April 7](https://www.tubefilter.com/2026/04/07/twitch-minecraft-tiny-takeover-affiliate-sponsored-campaign/amp/), sponsored campaigns had been an exclusive Partner benefit since the program began. Tiny Takeover was the quiet announcement that the wall between those two tiers just came down for brand-funded campaigns.
+
+For brands thinking about how to reach Nordic audiences on Twitch, this matters more than the Minecraft tie-in suggests.
+
+![A streamer's broadcast setup with a Twitch interface visible on screen](/lovable-uploads/blog-streaming-sponsorship-creator-economy-hero.jpg)
+
+## Who the Affiliate Tier Actually Includes in the Nordics
+
+The gap between Affiliate and Partner status is structural. Affiliate requires 50 followers, 500 broadcast minutes, 7 unique broadcast days, and an average of 3 concurrent viewers over 30 days, according to the [official Twitch help documentation](https://help.twitch.tv/s/article/joining-the-affiliate-program). Partner requires 75 average concurrent viewers over 30 days and 25 hours of streaming across 12 days.
+
+In practice, the Affiliate tier is where the vast majority of working streamers live. It includes side-income streamers with loyal communities of a few dozen viewers, emerging creators on their way up, and mid-tier streamers who have not crossed the Partner bar because their 30-day average hovers just under 75 CCV. A Nordic streamer who averages 50 concurrent viewers in Norwegian-language Just Chatting content - a category that translates into reliable brand trust even at modest scale - has historically been ineligible for sponsored campaign inventory on Twitch regardless of engagement quality.
+
+The Tiny Takeover change means that pool is now addressable. For a region like the Nordics, where audience segmentation is narrower and vernacular streams concentrate engaged local viewership, this is a meaningful widening of the eligible inventory. Research from [Streams Charts on platform creator economics](https://streamscharts.com/news/kick-reaches-100-million-users) has consistently shown that the creators below the "top 1%" line drive a disproportionate share of community engagement per viewer - because their chats are still small enough to function as conversations.
+
+## Why Widening the Creator Pool Changes the Math for Brands
+
+Sponsored campaigns as Twitch has operated them were functionally reserved inventory. A brand's budget bought access to a tier of creators that the platform had pre-qualified against a CCV threshold. That worked for large global campaigns where the goal was reach, but it created a structural mismatch for brands that wanted engagement density rather than pure impressions.
+
+Opening sponsored campaigns to Affiliates changes two things for the brand buyer.
+
+The first is the composition of the creator list. A campaign that is only available to Partners gets a creator list weighted toward full-time streamers playing the games and categories that sustain 75+ CCV averages. A campaign that includes Affiliates pulls in a much wider range of content - part-time creators in non-gaming categories, vernacular-language streamers, niche community leaders - and produces a creator list that looks demographically closer to the actual composition of the audience Twitch wants to sell.
+
+The second is the bargaining position for the brand. Sponsored campaign economics have historically been shaped by the scarcity of Partner inventory. When the number of creators eligible for a given campaign increases by roughly an order of magnitude, the per-creator rate for brand-funded activations flattens. Tiny Takeover's $1,000 cap is uniform across Partners and Affiliates, which is the first formal signal from Twitch that the platform intends to flatten rather than stratify sponsored rates.
+
+For Nordic brands that have been priced out of Partner-only campaigns on games where English-language Partners dominate the top of the creator list, this is a cost structure shift worth paying attention to. Campaigns that target Nordic viewership benefit from inventory that skews toward Nordic creators - and the Nordic creator base is disproportionately in the Affiliate tier.
+
+## What the Tiny Takeover Model Gets Right - and Where It Falls Short for Brands
+
+The Minecraft campaign is a useful proof of concept for what opt-in, front-page-shelf sponsored campaigns can do for awareness. As [Streams Charts noted in its campaign breakdown](https://streamscharts.com/news/twitch-x-minecraft-presents-tiny-takeover-everything-you-need-know), participating streamers received dedicated front-page shelf placement from April 6 through April 8. That kind of discovery surface is something no individual brand-streamer deal can replicate, and it is one of the genuine advantages of running a campaign through the platform rather than negotiating directly.
+
+![Analytics dashboard displaying live campaign performance metrics](/lovable-uploads/blog-streaming-sponsorship-creator-economy-1.jpg)
+
+The weaknesses are equally worth naming. The Tiny Takeover brief is almost purely game-playing: stream Minecraft for an hour in the right category and the activation is satisfied. There is no content direction, no brief framework for how the brand should show up in the stream, no quality control beyond the moderation gate. From the streamer's side, that is a feature. From the brand's side, it is a limitation: you are buying time spent in a game category, not a specific integration quality.
+
+For brands that need defined creative elements - a specific message, a verbal mention, a named URL, a call-to-action tied to a promotion - Tiny Takeover's structure doesn't deliver it. What it delivers is category saturation during the campaign window. The question for any brand planning around this model is whether category saturation is what the campaign needs, or whether the campaign needs the kind of directed integration that only direct brand-streamer arrangements produce. [Digiday has previously reported](https://digiday.com/marketing/why-twitchs-push-to-woo-publishers-is-facing-challenges-in-2024/) on the structural tension between Twitch's platform-led ad products and brands that want direct creative control, and Tiny Takeover does not resolve that tension.
+
+## How This Intersects With Native Overlay Inventory
+
+The expansion of sponsored campaigns to Affiliates does not replace direct brand-streamer work or native overlay advertising. It overlaps with them.
+
+Sponsored campaigns are a reach mechanic. They get the brand in front of a large volume of viewers inside a category for a short window, with minimal creative customization. Native overlay advertising - the kind of in-stream graphic ad that platforms like Beta Ads coordinate across Nordic creators - operates on a different axis. Overlays run continuously during normal streaming, carry bespoke creative, and survive as a persistent visual brand presence rather than a category-linked burst.
+
+The practical implication for brands in 2026 is that these layers are increasingly stackable. A brand can run a sponsored category campaign to drive front-page visibility during a launch window, then sustain presence through the rest of the quarter with native overlays on a curated creator list. The structural advantage of opening sponsored campaigns to Affiliates is that the creator lists for both layers now converge. The same mid-tier Nordic streamer who runs your overlay ad can also participate in the next category-based sponsored campaign the platform runs, and the brand ends up with coherent creator coverage rather than two disjointed campaigns targeting different creator tiers.
+
+## What to Watch Over the Next Two Quarters
+
+Tiny Takeover is a single data point. Whether it represents a permanent expansion of sponsored campaigns to Affiliates or a one-off experiment will be clear by Q3. The signals worth watching are straightforward.
+
+The first is campaign cadence. If Twitch runs two or three more sponsored campaigns through mid-2026 with Affiliate eligibility included by default, the expansion is structural. If Tiny Takeover turns out to be a Minecraft-specific exception, Affiliates return to the previous exclusion.
+
+The second is the payout ceiling. The $1,000 cap works as an entry-level amount, but to attract meaningful brand spend the ceiling needs to scale with creator size. Watch whether future campaigns introduce tiered payouts based on CCV or broadcast volume, and whether the cap rises toward the kind of per-creator rates that mid-tier brand deals already pay in the Nordic market.
+
+The third is adjacent-platform response. Kick [announced on April 10, 2026](https://streamscharts.com/news/kick-reaches-100-million-users) that it had crossed 100 million users. [Creator Handbook has reported](https://www.creatorhandbook.net/kick-confirms-advertising-features-are-in-development/) that Kick is actively developing advertising features. If Twitch's sponsored campaign product becomes the reference model for how platform-led brand campaigns work with Affiliate-tier creators, Kick's equivalent will arrive faster. That is how the platform becomes competitive, and how brand-side media budgets for 2026 and 2027 get allocated across the livestream category.
+
+For Nordic brand teams planning livestream campaigns, the Tiny Takeover announcement is the most concrete signal in months that the economics of sponsored inventory on Twitch are shifting in a direction that favors brands buying access to deep, regionally-specific creator pools rather than premium global names. The spreadsheet that assumed Partners-only eligibility needs to be redrawn.
+
+---
+
+**Sources:**
+- [Twitch Blog - Minecraft's Tiny Takeover (April 6, 2026)](https://blog.twitch.tv/en/2026/04/06/minecrafts-tiny-takeover/)
+- [Tubefilter - Twitch opens sponsored campaigns to Affiliates for the first time](https://www.tubefilter.com/2026/04/07/twitch-minecraft-tiny-takeover-affiliate-sponsored-campaign/amp/)
+- [Streams Charts - Tiny Takeover campaign breakdown](https://streamscharts.com/news/twitch-x-minecraft-presents-tiny-takeover-everything-you-need-know)
+- [Streams Charts - Kick reaches 100 million users](https://streamscharts.com/news/kick-reaches-100-million-users)
+- [Creator Handbook - Kick confirms advertising features in development](https://www.creatorhandbook.net/kick-confirms-advertising-features-are-in-development/)
+- [Twitch Help - Joining the Affiliate Program](https://help.twitch.tv/s/article/joining-the-affiliate-program)
+- [Digiday - Twitch's push to woo publishers](https://digiday.com/marketing/why-twitchs-push-to-woo-publishers-is-facing-challenges-in-2024/)
+- [Minecraft - Tiny Takeover on Twitch](https://www.minecraft.net/en-us/article/tiny-takeover-on-twitch)`,
+    date: "Apr 15, 2026",
+    dateISO: "2026-04-15",
+    readTime: "9 min read",
+    image: "/lovable-uploads/blog-streaming-sponsorship-creator-economy-hero.jpg",
+    category: "Twitch Insights",
+    tags: ["Twitch", "sponsored campaigns", "Affiliate program", "Minecraft", "Nordic brands", "creator economy", "brand advertising"],
+    relatedSlugs: [
+      "affiliate-sponsored-brand-deal-twitch-content-differences-2026",
+      "mid-tier-streamer-sweet-spot-live-advertising-2026",
+      "poll-sponsorship-model-twitch-interactive-ads-2026",
+    ],
+    seoTitle: {
+      en: "Twitch Opens Sponsored Campaigns to Affiliates: Minecraft Tiny Takeover 2026",
+      no: "Twitch apner sponsede kampanjer for Affiliates: Minecraft Tiny Takeover 2026",
+      sv: "Twitch oppnar sponsrade kampanjer for Affiliates: Minecraft Tiny Takeover 2026",
+      fi: "Twitch avaa sponsoroidut kampanjat Affiliate-tasolle: Minecraft Tiny Takeover 2026",
+    },
+    seoDescription: {
+      en: "Twitch's April 2026 Minecraft Tiny Takeover was the first sponsored campaign open to Affiliates, not just Partners. What the shift means for Nordic brand advertising and sponsored inventory economics.",
+      no: "Twitch sin Minecraft Tiny Takeover i april 2026 var den forste sponsede kampanjen apen for Affiliates, ikke bare Partners. Hva endringen betyr for nordisk merkevareannonsering og sponset inventar.",
+      sv: "Twitchs Minecraft Tiny Takeover i april 2026 var den forsta sponsrade kampanjen oppen for Affiliates, inte bara Partners. Vad forandringen betyder for nordisk varumarkesreklam och sponsrat inventar.",
+      fi: "Twitchin huhtikuun 2026 Minecraft Tiny Takeover oli ensimmainen sponsoroitu kampanja Affiliate-tasolle, ei vain Partner-tasolle. Mita muutos tarkoittaa pohjoismaiselle brändimainonnalle ja sponsoroidun inventaarin taloudelle.",
+    },
+    seoKeywords: {
+      en: ["Twitch sponsored campaigns Affiliates", "Minecraft Tiny Takeover Twitch", "Twitch brand advertising 2026", "Nordic Twitch advertising", "Twitch Affiliate sponsorship", "sponsored campaign inventory"],
+      no: ["Twitch sponsede kampanjer Affiliates", "Minecraft Tiny Takeover Twitch", "Twitch merkevareannonsering 2026", "nordisk Twitch-annonsering", "Twitch Affiliate sponsorat"],
+      sv: ["Twitch sponsrade kampanjer Affiliates", "Minecraft Tiny Takeover Twitch", "Twitch varumarkesreklam 2026", "nordisk Twitch-reklam", "Twitch Affiliate sponsring"],
+      fi: ["Twitch sponsoroidut kampanjat Affiliate", "Minecraft Tiny Takeover Twitch", "Twitch brändimainonta 2026", "pohjoismainen Twitch-mainonta", "Twitch Affiliate sponsorointi"],
+    },
+  },
+  {
+    id: "kick-100-million-users-milestone-nordic-advertisers-2026",
+    slug: "kick-100-million-users-milestone-nordic-advertisers-2026",
+    title: "Kick Just Hit 100 Million Users. Its Co-Founder Called It a Vanity Metric. Here Is What Nordic Advertisers Should Take From That.",
+    excerpt: "On April 10, Kick announced 100 million users in three years. The same week, co-founder Bijan Tehrani called the milestone a vanity achievement and listed what is still broken. For Nordic media planners, the honest version of the number matters more than the number itself.",
+    content: `## The headline is real, but the honest version of it matters more
+
+On April 10, 2026, Kick co-founder Bijan Tehrani confirmed that the livestreaming platform had passed 100 million total users in the three years since its 2022 launch, as reported by [Gambling News](https://www.gamblingnews.com/news/kick-surpasses-100m-users-founder-talks-about-the-hurdles-to-get-to-this-point/) and [Streams Charts](https://streamscharts.com/news/kick-reaches-100-million-users). That is the kind of number that ends up in a quarterly board deck.
+
+What is unusual is how Tehrani framed it. In the same round of interviews, he told [win.gg](https://win.gg/kick-hits-100-million-users-co-founder-talks-future/) that "we aren't where we need to or should be," described the platform's early infrastructure as "weak plumbing" with unreliable streaming, and said plainly that "the Kick app sucks." [Vegas Slots Online](https://www.vegasslotsonline.com/news/2026/04/10/kick-hits-100-million-users-although-its-co-founder-admits-major-problems/) reported Tehrani referring to the milestone itself as a "vanity achievement."
+
+For Nordic brand marketers and media agencies, this is a rare moment where the platform is doing the skeptical analysis for you. The question is not whether Kick is big enough to matter. It clearly is. The question is what kind of media plan a platform at this stage of maturity actually supports.
+
+![A livestream studio with multi-platform broadcasting setup](/lovable-uploads/blog-kick-q3-2025-growth-nordic-advertising-opportunity-hero.jpg)
+
+## What the hours-watched data actually says
+
+Total users is a soft number. A more useful lens is engaged viewing hours, which is where Kick's traffic actually monetizes.
+
+According to [Streams Charts' March 2026 report](https://streamscharts.com/news/kick-reaches-over-500-million-hours-watched-march-2026), Kick recorded over 500 million Hours Watched in March, its strongest month since October 2025. Average concurrent viewership was up 2% month-over-month, active streamers were up 1%, and the platform hosted streams in 5,734 distinct categories, an all-time record.
+
+Category growth was uneven but revealing:
+
+- **Counter-Strike** up 35%, driven by case-opening content and competitive play
+- **Survival games** up 19%, with Rust, Minecraft, and Resident Evil Requiem leading
+- **League of Legends** up 17% on the back of esports co-streaming
+- **Dota 2** down 21% as esports co-streams dried up
+- **Mobile gaming** down 7%
+
+The peak of the entire quarter was not a gaming stream. It was Luis "WestCOL" Álvarez hosting Colombian President Gustavo Petro at 841,000 concurrent viewers. Top creators now include Adin Ross, WestCOL, BaianoTV, and Andrea Valdiri, a pattern [Stream Charts' Q1 2026 landscape report](https://streamscharts.com/news/q1-2026-global-livestreaming-landscape) attributes to deepening localization away from North America.
+
+That is the shape of Kick today: a large, diversifying platform with meaningful reach in Latin America, MENA, and Japan, and a growing long-tail of non-gaming content. It is also a platform whose top peaks still skew toward high-variance personality streams. Both of those facts matter for media planning.
+
+## The honest list of what is still broken
+
+Tehrani's interviews functioned as a risk disclosure. Stripping out the quotable bits, the admitted issues are:
+
+1. **Discovery does not work well**, and the new "V1 algorithm" is only now rolling out to improve what Kick calls "authentic engagement" for long-form streams.
+2. **The mobile app is being rebuilt from scratch** because the existing one is not fit for purpose. Mobile is where a large share of younger Nordic Twitch and YouTube viewing already lives.
+3. **Fraud hygiene was historically loose**. Kick has now [removed thousands of accounts for viewbotting and purged tens of millions of fake spam accounts](https://win.gg/kick-hits-100-million-users-co-founder-talks-future/), per Tehrani's own account.
+4. **The early growth playbook is being reversed.** Massive guaranteed creator contracts, including the [xQc $100 million deal in June 2023](https://streamscharts.com/news/kick-reaches-100-million-users) and the Amouranth signing, are being replaced with performance-linked payouts under the Kick Creator Incentive Program.
+5. **Advertising infrastructure is still young**. As [Digiday has reported](https://digiday.com/marketing/why-kick-is-rolling-out-ads-even-though-it-doesnt-care-about-ad-revenue/), Kick is beginning to roll out ads, but the company's stated focus is direct brand-creator sponsorships rather than ad-load optimization, and the ad stack is not comparable to Twitch's in terms of targeting, measurement, or IAB-aligned brand-safety controls.
+
+None of those issues are fatal. All of them are relevant inputs when you are deciding whether to run a 7-figure Nordic campaign on Kick versus Twitch versus YouTube Live.
+
+## The ad product question: what Kick is and is not building
+
+This is the part that is easy to get wrong. Kick is not positioning itself as a head-to-head replacement for Twitch's ad stack.
+
+[Creator Handbook](https://www.creatorhandbook.net/kick-confirms-advertising-features-are-in-development/) and [Digiday](https://digiday.com/marketing/why-kick-is-rolling-out-ads-even-though-it-doesnt-care-about-ad-revenue/) both report the same direction: a lighter ad load, optional participation for creators, and a strategic preference for sponsor-led and creator-led brand integrations over programmatic ad slots. [Famesters' Kick vs. Twitch comparison](https://famesters.com/blog/kick-vs-twitch-which-is-better-for-advertisers/) makes the same point — Kick's advertiser-facing proposition is closer to an influencer marketing surface than a CTV-style media buy.
+
+For a Nordic media buyer, this has two practical consequences:
+
+- **Platform-direct ad buys on Kick are not yet a like-for-like alternative to Twitch's IAB-style inventory.** Treat any 2026 Kick ad test as a learning budget, not a scaled channel.
+- **The real opportunity on Kick today is creator-led integrations**, either with a streamer who multistreams to Kick plus Twitch or YouTube, or with Kick-native creators whose audience you can reach through native overlays and segments inside their broadcast.
+
+That second option is where a Nordic brand can get meaningful value today without waiting for Kick's ad infrastructure to mature.
+
+![Overlay ad integrated into a live gameplay stream](/lovable-uploads/blog-kick-q3-2025-growth-nordic-advertising-opportunity-1.jpg)
+
+## Brand safety is mainstreaming, but slowly
+
+Kick's early reputation problem was real. The platform grew on the back of crypto and casino streaming, it has close ties to the online casino Stake, and its co-founders have publicly invested roughly \$1 billion of their own capital in the platform, largely financed through Stake-linked backing, according to [Streams Charts](https://streamscharts.com/news/kick-reaches-100-million-users).
+
+The direction of travel, though, is toward a more defensible brand-safety posture. Kick has ended the largest guaranteed creator contracts, tightened account hygiene, and is publicly courting mainstream categories. Sports sponsorships — [title sponsorship of the Stake F1 Team Kick Sauber](https://streamscharts.com/news/kick-reaches-100-million-users), a sleeve deal with Everton FC, and the UFC behind-the-scenes partnership — are a visible part of that push.
+
+That does not make Kick a safe default for every Nordic brand category. A children's brand, a regulated alcohol advertiser in Sweden, or a Finnish bank should still approach Kick with a careful allowlist of streamers and contextual controls. But the platform is closer to workable for mainstream Nordic advertisers in April 2026 than it was six months ago, and that shift is likely to continue across the year.
+
+## What Nordic advertisers should actually do in Q2 and Q3 2026
+
+A realistic posture from here looks like this:
+
+- **Do not abandon Twitch to chase the headline.** Twitch remains the dominant engaged-viewing platform in the Nordics, with stronger ad infrastructure, cleaner measurement, and a much deeper Nordic streamer ecosystem. [Stream Charts' Q1 2026 data](https://streamscharts.com/news/q1-2026-global-livestreaming-landscape) shows Twitch and Kick both growing while YouTube Live and TikTok Live declined, but Twitch still leads on Hours Watched at scale.
+- **Budget a Kick test, not a Kick bet.** A reasonable 2026 split for a brand that is curious about Kick is 80–90% Twitch-led creator and overlay activity, with 10–20% routed to Kick via multistream-friendly creators or Kick-native sponsorships in vetted categories. Treat it as an information investment.
+- **Prioritize creator-led integrations on Kick over platform ad buys.** The ad product is immature, but the creator economics are genuinely favorable because of the 95/5 split. A sponsorship or native overlay inside a trusted streamer's broadcast is the best unit of value Kick offers today.
+- **Use TwitchCon Rotterdam as a calibration point.** [TwitchCon Europe](https://twitchcon.com/rotterdam-2026) returns to Rotterdam Ahoy on May 30–31, 2026. It is the single biggest moment for European creator–brand conversations this year, and several sessions — including "Why Brands Say No: The Mistakes That Impact Sponsorships" — are directly useful for Nordic marketers planning H2 media.
+- **Keep the overlay layer consistent across platforms.** If your creator sponsorship travels from Twitch to Kick to YouTube Live through multistreaming, your overlay format, call-to-action, and tracking should travel with it. That is the portable unit of value across a fragmenting ecosystem.
+
+## Where Beta Ads fits
+
+The pattern that keeps playing out through this cycle — Kick's rise, Trovo's wind-down, YouTube Live's wobble, Twitch holding — is that platform volatility is now a structural fact of Nordic livestream media planning. The brands that come out of 2026 with sustainable reach are the ones whose creative unit is portable across platforms and whose creator relationships are not tied to a single surface.
+
+Beta Ads operates a network of 40+ Nordic Twitch streamers with native overlay ads that travel with the creator across whichever platforms they multistream to. That is the same posture this Kick moment recommends: invest in the creator and the creative, not in the chart position of any single platform.
+
+If you are sizing a 2026 Nordic livestream budget and want a second opinion on the Twitch-Kick split, [reach out to Beta Ads](https://beta-ads.no/contact) for a walkthrough of the current ecosystem.
+
+---
+
+**Sources:**
+- [Gambling News: Kick Surpasses 100M Users, Founder Talks About the Hurdles to Get to This Point](https://www.gamblingnews.com/news/kick-surpasses-100m-users-founder-talks-about-the-hurdles-to-get-to-this-point/)
+- [Streams Charts: Kick's Rise: From Newcomer to Livestreaming Powerhouse](https://streamscharts.com/news/kick-reaches-100-million-users)
+- [win.gg: Kick hits 100 million users, co-founder talks future](https://win.gg/kick-hits-100-million-users-co-founder-talks-future/)
+- [Vegas Slots Online: Kick Hits 100m Users, Co-Founder Admits to Big Problems](https://www.vegasslotsonline.com/news/2026/04/10/kick-hits-100-million-users-although-its-co-founder-admits-major-problems/)
+- [Streams Charts: Kick reaches over 500 million hours watched in March 2026](https://streamscharts.com/news/kick-reaches-over-500-million-hours-watched-march-2026)
+- [Streams Charts: Q1 2026 Global Livestreaming Landscape](https://streamscharts.com/news/q1-2026-global-livestreaming-landscape)
+- [Digiday: Why Kick is rolling out ads — even though it doesn't care about ad revenue](https://digiday.com/marketing/why-kick-is-rolling-out-ads-even-though-it-doesnt-care-about-ad-revenue/)
+- [Creator Handbook: Kick confirms advertising features are in development](https://www.creatorhandbook.net/kick-confirms-advertising-features-are-in-development/)
+- [Famesters: Kick vs. Twitch: which is better for advertisers?](https://famesters.com/blog/kick-vs-twitch-which-is-better-for-advertisers/)
+- [TwitchCon Rotterdam 2026](https://twitchcon.com/rotterdam-2026)`,
+    date: "Apr 16, 2026",
+    dateISO: "2026-04-16",
+    readTime: "9 min read",
+    image: "/lovable-uploads/blog-kick-q3-2025-growth-nordic-advertising-opportunity-hero.jpg",
+    category: "Industry Insights",
+    tags: ["Kick", "platform strategy", "Nordic advertisers", "livestreaming", "brand safety", "media planning"],
+    relatedSlugs: [
+      "kick-vs-twitch-nordics-brand-comparison-2026",
+      "kick-q3-2025-growth-nordic-advertising-opportunity",
+      "platform-diversification-nordic-advertisers-2026",
+      "streaming-shakeout-trovo-shutdown-platform-risk-advertisers-2026",
+    ],
+    seoTitle: {
+      en: "Kick Hits 100M Users: What Nordic Advertisers Should Do in 2026",
+      no: "Kick passerer 100 millioner brukere: Hva nordiske annonsorer bor gjore i 2026",
+      sv: "Kick nar 100 miljoner anvandare: Vad nordiska annonsorer bor gora 2026",
+      fi: "Kick ylitti 100 miljoonaa kayttajaa: Mita pohjoismaisten mainostajien tulisi tehda 2026",
+    },
+    seoDescription: {
+      en: "Kick hit 100M users on April 10, 2026 — but its co-founder called it a vanity metric. A Nordic media-planning guide to what the milestone means for Twitch, Kick, and creator budgets in 2026.",
+      no: "Kick passerte 100 millioner brukere 10. april 2026, men medgrunderen kalte det et fafengt tall. En nordisk mediaplanleggers guide til hva dette betyr for Twitch, Kick og creator-budsjetter i 2026.",
+      sv: "Kick nadde 100 miljoner anvandare 10 april 2026, men medgrundaren kallade det en fafang siffra. En nordisk mediaplanerares guide till vad milstolpen betyder for Twitch, Kick och creator-budgetar 2026.",
+      fi: "Kick ylitti 100 miljoonaa kayttajaa 10. huhtikuuta 2026, mutta perustaja kutsui sita turhamaisuusluvuksi. Pohjoismainen mediasuunnittelijan opas Twitchin, Kickin ja creator-budjettien jakoon 2026.",
+    },
+    seoKeywords: {
+      en: ["Kick 100 million users", "Kick vs Twitch 2026", "Nordic streaming advertising", "Kick brand safety", "livestream media planning", "Kick advertising products"],
+      no: ["Kick 100 millioner brukere", "Kick vs Twitch 2026", "nordisk streaming-annonsering", "Kick merkevaresikkerhet", "livestream mediaplanlegging", "Kick annonseprodukter"],
+      sv: ["Kick 100 miljoner anvandare", "Kick vs Twitch 2026", "nordisk streaming-annonsering", "Kick varumarkessakerhet", "livestream mediaplanering", "Kick annonsprodukter"],
+      fi: ["Kick 100 miljoonaa kayttajaa", "Kick vs Twitch 2026", "pohjoismainen streaming-mainonta", "Kick brandi-turvallisuus", "livestream-mediasuunnittelu", "Kick-mainostuotteet"],
+    },
+  },
+  {
+    id: "paid-amplification-creator-content-beyond-social-2026",
+    slug: "paid-amplification-creator-content-beyond-social-2026",
+    title: "Creator Content Is Escaping Social Media: The $11 Billion Paid Amplification Shift Nordic Brands Should Understand",
+    excerpt: "The fastest-growing segment of creator ad spend is not social boosting. It is paid amplification into CTV, display, and retail media. For Nordic brands running live stream campaigns, this changes the ROI equation entirely.",
+    content: `## The $44 billion number hides a structural change
+
+U.S. creator ad spend is projected to reach $43.9 billion in 2026, up from $37.1 billion in 2025, according to [IAB's Creator Economy Ad Spend Report](https://www.iab.com/insights/2025-creator-economy-ad-spend-strategy-report/). That 18% year-over-year growth rate is roughly four times faster than total media spend. The number gets quoted frequently. What gets quoted less is where that growth is actually coming from.
+
+The answer is not more Instagram sponsorships or additional TikTok posts. The fastest-growing category of creator-related spending is paid amplification of creator content beyond social media: into connected TV, display advertising, and retail media networks. That segment alone is projected to hit [$11.1 billion in 2026](https://digiday.com/marketing/in-graphic-detail-heres-what-the-creator-economy-is-expected-to-look-like-in-2026/), a 56% increase from $7.1 billion in 2025.
+
+By comparison, paid amplification of creator content on social media is growing at 48%, from $8.9 billion to $13.2 billion. Both numbers are large, but the off-platform category is accelerating faster because it represents a genuinely new use case, not an expansion of an existing one.
+
+This is a structural shift in how brands think about creator partnerships. A creator deal is no longer a social media transaction. It is a content supply chain.
+
+## Four ways brands spend on creators, and why one is pulling ahead
+
+The IAB framework breaks creator ad spend into four categories. Understanding them matters because most Nordic advertisers still operate in only the first two.
+
+**Adjacent placement** means buying ad inventory that appears alongside creator content, such as pre-roll before a YouTube video or a display ad on a Twitch channel page. The brand does not work with the creator directly. It buys proximity.
+
+**Direct partnerships** are the traditional model: a brand pays a creator to produce and post content. The creator integrates the message into their own feed, stream, or video. This remains the largest single category.
+
+**Paid amplification on social media** takes content from those direct partnerships and boosts it through paid distribution on the same platforms. A TikTok post becomes a Spark Ad. An Instagram Reel becomes a paid placement in Explore. The creator's face and voice stay in the ad, but the distribution is bought, not earned.
+
+**Paid amplification beyond social media** is the category growing at 56%. It takes that same creator content and runs it as a CTV spot, a programmatic display unit, or a retail media placement inside an e-commerce environment. The content leaves the platform where it was created and enters channels that have historically been reserved for agency-produced creative.
+
+![A team in a brick-walled studio planning on a whiteboard with sticky notes and laptops](/lovable-uploads/blog-creator-first-brand-strategies-2026-1.jpg)
+
+## What off-platform amplification looks like in practice
+
+This is not theoretical. Brands have already moved creator content into channels that most marketers still associate with traditional production.
+
+Best Buy ran the first major test during the 2025 holiday season. The retailer [integrated creator-led creative into connected TV placements](https://www.netinfluencer.com/us-creator-marketing-spending-to-surpass-21b-usd-as-brands-move-beyond-social/) for the first time, featuring lifestyle creator Jenny Reimold in CTV spots that showcased tech gifts through her personal perspective rather than a scripted commercial. The result: influencer-led CTV creative performed on par with Best Buy's traditionally produced assets, at a fraction of the production cost. The retailer subsequently partnered with over 200 additional creators and launched shoppable creator storefronts.
+
+The pattern extends beyond retail. [Digiday reports](https://digiday.com/marketing/in-graphic-detail-heres-what-the-creator-economy-is-expected-to-look-like-in-2026/) that brands across CPG, automotive, and financial services are pulling creator content into programmatic display and retail media networks. A net 61% of marketers plan to increase their investment in creator content this year, and nearly two-thirds of that new spend is being reallocated from traditional paid and digital channels, not added as net-new budget. That means 60% of brand leaders are cutting print advertising investment, and 50% are reducing linear TV spend, to fund this shift.
+
+The economics are straightforward. Creator content is cheaper to produce than traditional commercial shoots. It performs comparably or better across engagement metrics. And it carries the implicit endorsement of a real person, which [research consistently shows](https://www.socialnative.com/articles/why-creator-marketing-is-the-2026-growth-engine-for-brands/) drives higher trust with audiences under 35. The average ROI on creator marketing spend sits at $5.78 per dollar invested, with top campaigns reaching $18.
+
+## Why live stream content is built for this
+
+Most of the amplification examples cited in industry reports involve short-form video from TikTok or Instagram. But live stream content has structural advantages that make it arguably better suited for off-platform distribution.
+
+Live streams produce volume. A single four-hour broadcast generates more raw footage than most creator partnerships produce in a month. That footage is unscripted, which means it carries the authentic tone that makes creator content outperform studio creative in the first place. The reactions are real. The gameplay moments are unrepeatable. The audience interaction is visible on screen.
+
+Stream clips, in particular, are a natural fit for CTV and display formats. A 15- to 30-second clip of a streamer reacting to a product, winning a clutch moment while an overlay ad is visible, or genuinely engaging with a brand integration translates directly into a short-form video ad unit. The production is already done. The content just needs to be cut and formatted.
+
+![Professional streaming setup with dual monitors, camera on tripod, and esports posters on the wall](/lovable-uploads/blog-livestream-ad-spend-50b-nordic-hero.jpg)
+
+For brands running overlay ad campaigns on live streams, this unlocks a secondary value layer. The overlay appears during the broadcast, reaching the live audience. But a clip of that same broadcast moment, with the overlay visible, can then be amplified as a display or CTV asset, reaching a completely different audience through a completely different channel. One campaign activation, two distribution paths.
+
+Amazon's own advertising infrastructure already supports this pipeline. Twitch inventory is [available through Amazon DSP](https://www.factor-a.com/twitch-in-amazon-dsp/), which means advertisers can target audiences using Amazon's first-party purchase data. A brand can run overlay ads on a Nordic Twitch streamer, capture clip content from that stream, and then amplify those clips as CTV spots served through Fire TV or as display units across Amazon's programmatic network. The targeting, measurement, and distribution infrastructure already exists.
+
+## The Nordic calculation
+
+For Nordic brands, the paid amplification shift changes the math on live stream advertising in a specific way.
+
+The Nordic creator pool is small relative to the U.S. or UK. The number of streamers with meaningful, engaged audiences in Norwegian, Swedish, Finnish, or Danish is measured in hundreds, not thousands. That has traditionally been framed as a constraint: fewer creators means fewer campaign slots, less flexibility, and higher individual dependency.
+
+But in a paid amplification model, a smaller creator pool is less of a limitation. The value of a creator partnership is no longer bounded by the size of their live audience. A Nordic streamer with 2,000 concurrent viewers produces the same quality of authentic, culturally specific content as a U.S. streamer with 20,000 viewers. The difference in live reach gets erased when that content enters a programmatic CTV or display environment, where distribution is bought by impression volume, not limited by channel size.
+
+This means a Norwegian brand can work with a mid-tier Norwegian-language streamer, produce culturally resonant content that speaks directly to a Nordic audience, and then amplify that content at scale through CTV and display channels that reach the same demographic far beyond the streamer's live viewership. The live stream becomes a content studio, not just a media placement.
+
+For agencies and media buyers in the Nordics, this reframes the value proposition of every streamer deal. The question is not just "how many people will watch this live?" It is "what content will this produce, and where else can we run it?"
+
+## Building an amplification-ready campaign
+
+Treating live streams as a content source for paid amplification requires planning that most Nordic streamer deals do not currently include.
+
+**Rights management is the foundation.** Standard influencer agreements in the Nordics typically grant the brand rights to use content on the creator's social channels and the brand's own channels. They rarely include CTV, programmatic display, or retail media rights. If you plan to amplify clips beyond social platforms, those rights need to be negotiated upfront. Retrofitting usage rights after a campaign has run is expensive and often impossible.
+
+**Clip strategy needs to be intentional.** Not every stream moment translates into a 15-second CTV spot. Brands should identify the moments they want to capture before the stream begins: product reactions, gameplay highlights with overlay visibility, genuine audience interaction. Having a clipping plan, whether manual or using AI-powered clipping tools, ensures the raw footage actually produces usable amplification assets.
+
+**Format adaptation is not optional.** A horizontal Twitch stream clip does not automatically work as a vertical mobile display unit or a 16:9 CTV spot. The content needs to be reformatted, subtitled, and in some cases re-edited to fit the technical requirements of each distribution channel. This is production work, but it is significantly less expensive than creating original assets for each format from scratch.
+
+**Measurement must bridge channels.** The most common objection to off-platform amplification is attribution. If a viewer sees a CTV spot featuring a streamer clip, how does the brand measure impact? Amazon's DSP provides closed-loop measurement for Twitch-to-Fire TV campaigns. For other CTV and display environments, brands need to agree on KPIs before launch: aided recall, site visits, or conversion lift studies, rather than last-click attribution.
+
+## The ROI equation is different now
+
+The traditional way to evaluate a live stream campaign was straightforward: cost per thousand live viewers, engagement rate during the stream, and click-through on any embedded calls to action. Those metrics still matter, but they now capture only a fraction of the value a campaign can generate.
+
+When the same campaign also produces five to ten amplifiable clips that can run as CTV and display assets for weeks or months after the live broadcast ends, the cost-per-impression calculation changes fundamentally. The upfront cost of the streamer partnership gets amortized across every subsequent impression those clips generate in paid channels.
+
+For Nordic brands that have been cautious about live stream advertising because of the relatively small live audiences available in the region, paid amplification removes the ceiling. The live stream is the starting point. The reach comes after.
+
+---
+
+**Sources:**
+- [IAB Creator Economy Ad Spend Report 2025](https://www.iab.com/insights/2025-creator-economy-ad-spend-strategy-report/)
+- [Digiday: Creator economy in 2026](https://digiday.com/marketing/in-graphic-detail-heres-what-the-creator-economy-is-expected-to-look-like-in-2026/)
+- [IAB: Creator ad spend to reach $37 billion](https://www.iab.com/news/creator-economy-ad-spend-to-reach-37-billion-in-2025-growing-4x-faster-than-total-media-industry-according-to-iab/)
+- [Social Native: Creator marketing as 2026 growth engine](https://www.socialnative.com/articles/why-creator-marketing-is-the-2026-growth-engine-for-brands/)
+- [Net Influencer: U.S. creator marketing spending beyond social](https://www.netinfluencer.com/us-creator-marketing-spending-to-surpass-21b-usd-as-brands-move-beyond-social/)
+- [The Hype Magazine: Creator economy rewiring $117B in social ad spend](https://www.thehypemagazine.com/2026/04/19/social-ad-spend-creator-economy-reallocation/)
+- [Factor-a: Twitch inventory in Amazon DSP](https://www.factor-a.com/twitch-in-amazon-dsp/)
+- [WrittenlyHub: Creator economy ad spend hits $44B](https://www.writtenlyhub.com/news/creator-economy-ad-spend-2026-brand-budgets)`,
+    date: "Apr 20, 2026",
+    dateISO: "2026-04-20",
+    readTime: "7 min read",
+    image: "/lovable-uploads/blog-nordic-streaming-ad-budget-shift-hero.jpg",
+    category: "Industry Insights",
+    tags: ["paid amplification", "creator economy", "CTV advertising", "Nordic streaming", "live stream advertising", "retail media"],
+    relatedSlugs: [
+      "clipping-economy-brand-marketing-guide-2026",
+      "ctv-vs-live-streaming-nordic-2026",
+      "nordic-streaming-market-ad-budget-shift-2026",
+    ],
+    seoTitle: {
+      en: "Creator Content Beyond Social: The $11B Paid Amplification Shift",
+      no: "Creator-innhold utenfor SoMe: Det store amplifiseringsSkiftet",
+      sv: "Creator-innehall bortom sociala medier: Ampfifieringsskiftet",
+      fi: "Luojasisalto somesta ulos: 11 miljardin amplifiointisiirtyma",
+    },
+    seoDescription: {
+      en: "Paid amplification of creator content into CTV, display, and retail media is growing 56% YoY. Here is what it means for Nordic brands running live stream campaigns.",
+      no: "Betalt amplifiering av creator-innhold til CTV, display og retail media vokser 56 % arlig. Slik pavirker det nordiske merkevarer med livestream-kampanjer.",
+      sv: "Betald amplifiering av creator-innehall till CTV, display och retail media vaxer 56 % arligen. Sa paverkar det nordiska varumarkens livestreamkampanjer.",
+      fi: "Luojasisallon maksettu amplifiiointi CTV-, display- ja retail media -kanaviin kasvaa 56 % vuodessa. Nain se vaikuttaa pohjoismaisiin livestream-kampanjoihin.",
+    },
+    seoKeywords: {
+      en: ["paid amplification", "creator content CTV", "live stream advertising ROI", "Nordic creator economy", "off-platform amplification", "creator ad spend 2026"],
+      no: ["betalt amplifiering", "creator-innhold CTV", "livestream annonsering ROI", "nordisk creator-okonomi", "amplifisering utenfor plattform", "creator annonsering 2026"],
+      sv: ["betald amplifiering", "creator-innehall CTV", "livestream annonsering ROI", "nordisk creator-ekonomi", "amplifiering utanfor plattform", "creator annonsering 2026"],
+      fi: ["maksettu amplifiointi", "luojasisalto CTV", "livestream-mainonta ROI", "pohjoismainen luojatalous", "alustan ulkopuolinen amplifiointi", "luojamainonta 2026"],
+    },
+  },
+  {
     id: "twitch-april-2026-platform-overhaul-advertiser-guide",
     slug: "twitch-april-2026-platform-overhaul-advertiser-guide",
     title: "Twitch Just Rewrote Its Data-Sharing Rules and Launched Vertical Streaming. Here Is What Changed for Advertisers.",
