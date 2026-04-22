@@ -4,14 +4,44 @@ import { SPFooter } from '@/components/sections/SPFooter';
 import { ArrowLeft, Calendar, Clock, Tag, Share2, Twitter, Linkedin, Facebook, List } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { getBlogPostBySlug, getRelatedPosts } from "@/data/blogPosts";
+import { getBlogPostBySlug, getRelatedPosts, type BlogPost } from "@/data/blogPosts";
 import { getBlogImage } from "@/lib/blogImage";
-import { SEO } from "@/components/SEO";
+import { SEO, type PageLocale } from "@/components/SEO";
 import { ReadingProgress } from "@/components/blog/ReadingProgress";
 import { TableOfContents, dashboardTocItems } from "@/components/blog/TableOfContents";
 import { StickyCTA, StreamerStickyCTA, InlineCTA, StreamerInlineCTA } from "@/components/blog/StickyCTA";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+
+/**
+ * Detect a post's language from its category + slug so we can emit the correct
+ * hreflang / og:locale / localized seoTitle. Kept as a pure function rather
+ * than tagging each post — the signals are reliable and new Nordic posts
+ * inherit the right language automatically based on their category.
+ *
+ * Norwegian categories (Guider, Innsikt, Strategi) and the Streamer Guide
+ * category when the post title contains Norwegian words cover ~14 of our 15
+ * Nordic posts. Swedish + Finnish fall out of slug substring matches.
+ */
+const NORWEGIAN_CATEGORIES = new Set(["Guider", "Innsikt", "Strategi"]);
+const FINNISH_CATEGORIES = new Set(["Oppaat"]);
+
+function detectPostLanguage(post: BlogPost): PageLocale {
+  if (FINNISH_CATEGORIES.has(post.category) || /\b(suomi|mainonta|opas)\b/i.test(post.slug)) {
+    return "fi";
+  }
+  if (/\b(sverige|reklam-sverige|svensk)\b/i.test(post.slug)) {
+    return "sv";
+  }
+  if (NORWEGIAN_CATEGORIES.has(post.category)) return "no";
+  // Streamer Guide category has mixed language; detect from title characters.
+  if (post.category === "Streamer Guide" && /[æøå]/i.test(post.title)) return "no";
+  // Catch-all — any Norwegian character in title signals Norwegian content.
+  if (/[æøå]/i.test(post.title) && /\b(hvordan|slik|norge|norsk|annonser|markedsf)\b/i.test(post.title.toLowerCase() + " " + post.excerpt.toLowerCase())) {
+    return "no";
+  }
+  return "en";
+}
 
 // Auto-generate TOC items from markdown content
 function extractTocFromMarkdown(content: string) {
@@ -54,9 +84,10 @@ const BlogPostPage: React.FC = () => {
   if (!post) return null;
 
   const isStreamerPost = post.category === "Streamer Guide";
-  const seoTitle = post.seoTitle.en;
-  const seoDescription = post.seoDescription.en;
-  const seoKeywords = post.seoKeywords.en;
+  const postLocale = detectPostLanguage(post);
+  const seoTitle = post.seoTitle[postLocale] || post.seoTitle.en;
+  const seoDescription = post.seoDescription[postLocale] || post.seoDescription.en;
+  const seoKeywords = post.seoKeywords[postLocale] || post.seoKeywords.en;
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
 
   const handleShare = (platform: string) => {
@@ -82,6 +113,7 @@ const BlogPostPage: React.FC = () => {
         ogType="article"
         ogImage={post.image}
         ogImageAlt={post.title}
+        locale={postLocale}
         jsonLd={[
           {
             "@context": "https://schema.org",
@@ -95,7 +127,7 @@ const BlogPostPage: React.FC = () => {
             "publisher": { "@type": "Organization", "name": "Beta Ads", "logo": { "@type": "ImageObject", "url": "https://beta-ads.no/lovable-uploads/logo-color.png" } },
             "mainEntityOfPage": { "@type": "WebPage", "@id": `https://beta-ads.no/blog/${post.slug}` },
             "keywords": seoKeywords.join(", "),
-            "inLanguage": "en",
+            "inLanguage": postLocale,
             "wordCount": post.content.split(/\s+/).length,
             "articleSection": post.category
           },

@@ -28,6 +28,7 @@ const STATIC_PAGES = [
   { path: "/twitch-advertising",     priority: "0.95", changefreq: "monthly" },
   { path: "/kick-advertising",       priority: "0.95", changefreq: "monthly" },
   { path: "/press",                  priority: "0.95", changefreq: "monthly" },
+  { path: "/norge",                  priority: "0.9",  changefreq: "monthly" },
   // Secondary high-priority pages
   { path: "/youtube-advertising",    priority: "0.9",  changefreq: "monthly" },
   { path: "/streamers",              priority: "0.9",  changefreq: "weekly"  },

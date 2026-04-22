@@ -7127,7 +7127,7 @@ As Gen Z becomes the dominant consumer demographic, brands that fail to adapt wi
   {
     id: "twitch-annonsering-norge-guide",
     slug: "twitch-annonsering-norge-guide",
-    title: "Twitch-annonsering i Norge: Komplett Guide 2024",
+    title: "Twitch-annonsering i Norge: Komplett Guide 2026",
     excerpt: "Alt du trenger å vite om å annonsere på Twitch i det norske markedet. Fra streamer-partnerskap til overlay-annonser.",
     content: `
 ## Introduksjon til Twitch-annonsering i Norge
@@ -7188,10 +7188,10 @@ Ta kontakt med vårt nordiske team for en gratis konsultasjon og skreddersydd ka
     category: "Guider",
     tags: ["norge", "twitch", "annonsering", "guide", "nordisk"],
     seoTitle: {
-      en: "Twitch Advertising in Norway: Complete Guide 2024 | Beta Ads",
-      no: "Twitch-annonsering i Norge: Komplett Guide 2024 | Beta Ads",
-      sv: "Twitch-reklam i Norge: Komplett Guide 2024 | Beta Ads",
-      fi: "Twitch-mainonta Norjassa: Täydellinen opas 2024 | Beta Ads"
+      en: "Twitch Advertising in Norway: Complete Guide 2026 | Beta Ads",
+      no: "Twitch-annonsering i Norge: Komplett Guide 2026 | Beta Ads",
+      sv: "Twitch-reklam i Norge: Komplett Guide 2026 | Beta Ads",
+      fi: "Twitch-mainonta Norjassa: Täydellinen opas 2026 | Beta Ads"
     },
     seoDescription: {
       en: "Complete guide to Twitch advertising in Norway. Learn about Norwegian streamer partnerships, overlay ads, and native marketing strategies for the Nordic market.",
@@ -7209,7 +7209,7 @@ Ta kontakt med vårt nordiske team for en gratis konsultasjon og skreddersydd ka
   {
     id: "twitch-reklam-sverige-guide",
     slug: "twitch-reklam-sverige-guide",
-    title: "Twitch-reklam i Sverige: Komplett Guide 2024",
+    title: "Twitch-reklam i Sverige: Komplett Guide 2026",
     excerpt: "Allt du behöver veta om att annonsera på Twitch på den svenska marknaden. Från streamer-partnerskap till overlay-annonser.",
     content: `
 ## Introduktion till Twitch-reklam i Sverige
@@ -7270,10 +7270,10 @@ Kontakta vårt nordiska team för en gratis konsultation och skräddarsydd kampa
     category: "Guider",
     tags: ["sverige", "twitch", "reklam", "guide", "nordisk"],
     seoTitle: {
-      en: "Twitch Advertising in Sweden: Complete Guide 2024 | Beta Ads",
-      no: "Twitch-reklam i Sverige: Komplett guide 2024 | Beta Ads",
-      sv: "Twitch-reklam i Sverige: Komplett Guide 2024 | Beta Ads",
-      fi: "Twitch-mainonta Ruotsissa: Täydellinen opas 2024 | Beta Ads"
+      en: "Twitch Advertising in Sweden: Complete Guide 2026 | Beta Ads",
+      no: "Twitch-reklam i Sverige: Komplett guide 2026 | Beta Ads",
+      sv: "Twitch-reklam i Sverige: Komplett Guide 2026 | Beta Ads",
+      fi: "Twitch-mainonta Ruotsissa: Täydellinen opas 2026 | Beta Ads"
     },
     seoDescription: {
       en: "Complete guide to Twitch advertising in Sweden. Learn about Swedish streamer partnerships, overlay ads, and native marketing strategies for the Nordic market.",
@@ -7291,7 +7291,7 @@ Kontakta vårt nordiska team för en gratis konsultation och skräddarsydd kampa
   {
     id: "twitch-mainonta-suomi-opas",
     slug: "twitch-mainonta-suomi-opas",
-    title: "Twitch-mainonta Suomessa: Täydellinen opas 2024",
+    title: "Twitch-mainonta Suomessa: Täydellinen opas 2026",
     excerpt: "Kaikki mitä sinun tarvitsee tietää Twitch-mainonnasta Suomen markkinoilla. Streamaaja-kumppanuuksista overlay-mainoksiin.",
     content: `
 ## Johdanto Twitch-mainontaan Suomessa
@@ -7352,10 +7352,10 @@ Ota yhteyttä pohjoismaiseen tiimiimme saadaksesi ilmaisen konsultaation ja rä�
     category: "Oppaat",
     tags: ["suomi", "twitch", "mainonta", "opas", "pohjoismainen"],
     seoTitle: {
-      en: "Twitch Advertising in Finland: Complete Guide 2024 | Beta Ads",
-      no: "Twitch-reklam i Finland: Komplett guide 2024 | Beta Ads",
-      sv: "Twitch-reklam i Finland: Komplett guide 2024 | Beta Ads",
-      fi: "Twitch-mainonta Suomessa: Täydellinen opas 2024 | Beta Ads"
+      en: "Twitch Advertising in Finland: Complete Guide 2026 | Beta Ads",
+      no: "Twitch-reklam i Finland: Komplett guide 2026 | Beta Ads",
+      sv: "Twitch-reklam i Finland: Komplett guide 2026 | Beta Ads",
+      fi: "Twitch-mainonta Suomessa: Täydellinen opas 2026 | Beta Ads"
     },
     seoDescription: {
       en: "Complete guide to Twitch advertising in Finland. Learn about Finnish streamer partnerships, overlay ads, and native marketing strategies for the Nordic market.",
@@ -10159,6 +10159,102 @@ Med et nettverk på over 40 nordiske streamere i Norge, Sverige, Danmark og Finl
       no: ["merkevarer utenfor gaming twitch", "twitch annonsering fmcg", "livestream annonsering retail", "twitch overlay ads", "gen z annonsering twitch"],
       sv: ["varumärken utanför gaming twitch", "twitch annonsering fmcg", "livestream annonsering retail", "twitch overlay ads", "gen z annonsering twitch"],
       fi: ["ei-pelibrändit twitch", "twitch-mainonta fmcg", "livestriimaus mainonta retail", "twitch overlay-mainokset", "gen z mainonta twitch"]
+    }
+  },
+  {
+    id: "norges-storste-streamer-merkevare-samarbeid",
+    slug: "norges-storste-streamer-merkevare-samarbeid",
+    title: "Norges største Twitch-streamer jobber med Shure og Samsung. Her er hvordan samarbeidene ble bygget.",
+    excerpt: "detoo er Norges mest sette Twitch-streamer ifølge TwitchTracker. Beta Ads har kjørt kampanjer med ham for Shure MV6 (182 554 visninger, 2 378 verifiserte klikk) og Samsung Galaxy. Slik ser et norsk streamer-merkevare-samarbeid ut i praksis.",
+    content: `
+## Hvem er detoo?
+
+detoo (Andreas "detoo" Kahrs) topper rangeringen over **mest sette norske Twitch-streamere** på [TwitchTracker](https://twitchtracker.com/channels/viewership/norwegian) i april 2026. Han driver en Just Chatting- og FIFA-basert kanal med et gjennomsnitt på rundt 270 samtidige seere på toppdagene — et publikum som er tett, lojalt og nesten fullstendig norsk.
+
+Det gjør detoo til en av de mest verdifulle kanalene et nordisk merke kan plassere en livestream-kampanje på. Og han er ikke teoretisk: Beta Ads har allerede kjørt to merkevare-kampanjer over kanalen hans.
+
+## Case 1: Shure MV6 — 182 554 visninger, 2 378 verifiserte klikk
+
+I 2025 lanserte Shure den nye MV6-mikrofonen i Norge. Målgruppen var gaming-streamere og audio-entusiaster — mennesker som allerede sammenligner mikrofon-spesifikasjoner i hverdagen.
+
+Sammen med detoo og én sekundær kanal (BetaNorway) kjørte Beta Ads en native overlay-kampanje der mikrofonen ble integrert direkte i streamen:
+
+- **182 554 totale visninger** (verifisert via Twitch-platformen)
+- **1.31% verifisert CTR** — og **9.12% CTR på toppdagen**
+- **2 378 verifiserte klikk** til Shures landingsside
+- **67.91%** av visningene kom i Just Chatting — der mikrofonen faktisk er i bildet
+- **0%** adblock-tap (overlays rendres inne i selve streamen)
+
+Les hele den publiserte [Shure-kampanjeanalysen](/case-study/shure).
+
+## Case 2: Samsung Galaxy Z Fold7 — 300 000+ fullførte visninger
+
+Samsung kjørte to separate kampanjer med Beta Ads i 2025: Galaxy S25 Ultra (43 streamer-slots) og Galaxy Z Fold7 (28 slots). detoo var del av begge som en av topp-kanalene. Kombinert:
+
+- **800 000+ live fullførte visninger** (ytterligere 558 000 på VOD)
+- **2.34–2.93% CTR** på tvers av begge kampanjer
+- **Null adblock-impact** — en av grunnene til at Samsung kjørte to rundabout kampanjer på samme plattform
+
+Les hele den publiserte [Samsung-kampanjeanalysen](/case-study/samsung).
+
+## Hva dette faktisk betyr for et norsk merke
+
+Dersom merket ditt ønsker å nå norske 18–34-åringer gjennom 2026, er dette kjernepoenget: **den største norske Twitch-streameren bruker Beta Ads for å monetisere kanalen sin**. Det gir deg en direkte vei inn uten å forhandle direkte med streameren, uten å bekymre deg for kontraktsstruktur, og med **verifisert rapportering på visninger og klikk** på platform-nivå.
+
+Konkret ser en typisk detoo-inkluderende kampanje slik ut:
+
+| Parameter | Typisk verdi |
+|---|---|
+| Format | Native overlay (Snipe eller Rich Media) |
+| Varighet | 2–6 uker live-placement |
+| Typiske kanaler inkludert | detoo + 4–15 andre norske kanaler |
+| Verifisert CTR-intervall | 1.1% – 2.9% |
+| Adblock-impact | 0% |
+| Rapportering | Platform-verifiserte visninger, klikk og on-screen-tid |
+
+## Hvorfor detoo + Beta Ads fungerer bedre enn en direkte deal
+
+En tradisjonell sponsor-avtale direkte mellom et merke og en streamer gir deg én kanal, ofte ingen verifisert målepunkt, og all kontraktrisiko hos merket. Beta Ads-modellen bytter inn:
+
+1. **Ett kjøp dekker detoo + resten av det norske nettverket** (47 aktive norske kanaler i 2026).
+2. **Platform-verifiserte tall** i rapporteringen — ikke streamerens egne screenshots.
+3. **Kreativet produseres av Beta Ads** som en native overlay, ikke som en host-lest produkt-omtale. Dermed overlever den også når streameren slutter å nevne merket muntlig.
+4. **Null adblock-tap**. Overlay rendres inne i Twitch-streamen selv — ikke browser-levert.
+
+## Kom i gang
+
+Dersom bestiller for 2026 planlegger et norsk Twitch-spor, er detoo-inkluderte kampanjer booket på ukentlig basis. Typiske kampanjestørrelser går fra ca. 5–50 000 € per runde.
+
+👉 [Bestill en 20-minutters konsultasjon](/contact) eller se [alle publiserte kampanje-analyser](/case-studies).
+`,
+    date: "April 22, 2026",
+    dateISO: "2026-04-22",
+    readTime: "6 min",
+    image: "/lovable-uploads/case-studies/nki-detoo.png",
+    category: "Innsikt",
+    tags: ["norge", "detoo", "twitch", "streamer", "merkevare", "case study", "shure", "samsung"],
+    relatedSlugs: [
+      "twitch-annonsering-norge-guide",
+      "merkevarer-utenfor-gaming-twitch-annonsering",
+      "overlay-ads-kreativ-design-beste-praksis"
+    ],
+    seoTitle: {
+      en: "Norway's #1 Twitch Streamer × Shure and Samsung: How Beta Ads Builds the Deals",
+      no: "Norges største Twitch-streamer jobber med Shure og Samsung | Beta Ads",
+      sv: "Norges största Twitch-streamer arbetar med Shure och Samsung | Beta Ads",
+      fi: "Norjan suurin Twitch-striimaaja ja Shure + Samsung | Beta Ads"
+    },
+    seoDescription: {
+      en: "detoo is Norway's most-watched Twitch streamer. Beta Ads has run Shure MV6 (182,554 views, 2,378 verified clicks) and Samsung Galaxy campaigns on his channel. Here's what a real Norwegian streamer-brand deal looks like.",
+      no: "detoo er Norges mest sette Twitch-streamer. Beta Ads har kjørt Shure MV6-kampanje (182 554 visninger, 2 378 verifiserte klikk) og Samsung Galaxy-kampanjer på kanalen hans. Her er hvordan et norsk streamer-merkevare-samarbeid faktisk ser ut.",
+      sv: "detoo är Norges mest sedda Twitch-streamer. Beta Ads har kört Shure MV6 (182 554 visningar, 2 378 verifierade klick) och Samsung Galaxy-kampanjer på hans kanal. Så ser ett norskt streamer-varumärke-samarbete ut.",
+      fi: "detoo on Norjan katsotuin Twitch-striimaaja. Beta Ads on toteuttanut Shure MV6 (182 554 katselua, 2 378 varmistettua klikkausta) ja Samsung Galaxy -kampanjat hänen kanavallaan."
+    },
+    seoKeywords: {
+      en: ["norwegian twitch streamer brand deal", "detoo shure samsung", "nordic streamer sponsorship", "norway twitch advertising case study"],
+      no: ["norske twitch streamere merkevare", "norges største streamer", "twitch sponsor norge", "norske streamer samarbeid", "shure samsung norge twitch", "detoo twitch norge"],
+      sv: ["norska twitch streamer varumärke", "norges största streamer", "twitch sponsor norge"],
+      fi: ["norjan twitch-striimaaja brändit", "norjan suurin striimaaja", "twitch-sponsorointi norja"]
     }
   }
 ];

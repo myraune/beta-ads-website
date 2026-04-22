@@ -1,6 +1,12 @@
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 
+/**
+ * Supported page locales. `x-default` is emitted automatically as the
+ * hreflang fallback when the page declares any locale.
+ */
+export type PageLocale = "en" | "no" | "sv" | "fi";
+
 interface SEOProps {
   title: string;
   description: string;
@@ -13,11 +19,41 @@ interface SEOProps {
   ogImageHeight?: number;
   noindex?: boolean;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  /**
+   * Page language code. Sets <html lang>, og:locale, and (when combined with
+   * `alternates` or a canonical URL) emits the matching self-referential
+   * hreflang link so Google can geo/language-target properly.
+   */
+  locale?: PageLocale;
+  /**
+   * Explicit alternate-language URLs for the same content. Pass absolute or
+   * root-relative URLs. If provided, a self-referential entry for the
+   * current locale and an x-default fallback are added automatically.
+   *
+   * Example:
+   *   alternates={[
+   *     { hreflang: "en", href: "/blog/my-post" },
+   *     { hreflang: "no", href: "/blog/innlegget-mitt" },
+   *   ]}
+   */
+  alternates?: Array<{ hreflang: PageLocale | "x-default"; href: string }>;
 }
+
+const OG_LOCALES: Record<PageLocale, string> = {
+  en: "en_US",
+  no: "nb_NO",
+  sv: "sv_SE",
+  fi: "fi_FI",
+};
 
 const SITE_URL = "https://beta-ads.no";
 const DEFAULT_OG_IMAGE = `${SITE_URL}/lovable-uploads/og-social-preview.png`;
 const SITE_NAME = "Beta Ads";
+
+const toAbsolute = (href: string): string =>
+  href.startsWith("http")
+    ? href
+    : `${SITE_URL}${href.startsWith("/") ? href : `/${href}`}`;
 
 export const SEO: React.FC<SEOProps> = ({
   title,
@@ -30,22 +66,43 @@ export const SEO: React.FC<SEOProps> = ({
   ogImageHeight = 630,
   noindex = false,
   jsonLd,
+  locale = "en",
+  alternates,
 }) => {
   const fullTitle = title.includes("Beta Ads") ? title : `${title} | Beta Ads`;
 
-  // Build absolute canonical URL: if already absolute keep it, otherwise prepend SITE_URL
-  const canonicalUrl = canonical
-    ? canonical.startsWith("http")
-      ? canonical
-      : `${SITE_URL}${canonical.startsWith("/") ? canonical : `/${canonical}`}`
-    : undefined;
+  const canonicalUrl = canonical ? toAbsolute(canonical) : undefined;
 
-  // Build absolute OG image URL
-  const resolvedOgImage = ogImage
-    ? ogImage.startsWith("http")
-      ? ogImage
-      : `${SITE_URL}${ogImage.startsWith("/") ? ogImage : `/${ogImage}`}`
-    : DEFAULT_OG_IMAGE;
+  const resolvedOgImage = ogImage ? toAbsolute(ogImage) : DEFAULT_OG_IMAGE;
+
+  // Build the hreflang list. If explicit alternates are passed, use them;
+  // otherwise emit just a self-referential entry for the current locale plus
+  // x-default (both point at the canonical URL). We only emit hreflang if the
+  // caller gave us a canonical URL to anchor against — without one, Google
+  // can't trust the mapping anyway.
+  const hreflangTags: Array<{ hreflang: string; href: string }> = [];
+  if (canonicalUrl) {
+    if (alternates && alternates.length > 0) {
+      alternates.forEach((alt) => {
+        hreflangTags.push({ hreflang: alt.hreflang, href: toAbsolute(alt.href) });
+      });
+      // Ensure self-referential entry exists for the current locale.
+      if (!alternates.some((a) => a.hreflang === locale)) {
+        hreflangTags.push({ hreflang: locale, href: canonicalUrl });
+      }
+      // Ensure x-default exists (falls back to the current canonical).
+      if (!alternates.some((a) => a.hreflang === "x-default")) {
+        hreflangTags.push({ hreflang: "x-default", href: canonicalUrl });
+      }
+    } else if (locale !== "en") {
+      // Single-language page that's not English — still worth signalling the
+      // language explicitly plus an x-default fallback.
+      hreflangTags.push({ hreflang: locale, href: canonicalUrl });
+      hreflangTags.push({ hreflang: "x-default", href: canonicalUrl });
+    }
+  }
+
+  const ogLocale = OG_LOCALES[locale];
 
   // Imperative fallback — react-helmet-async@3 has a known React 18 StrictMode
   // issue where Helmet updates don't propagate reliably on route changes, so
@@ -55,6 +112,7 @@ export const SEO: React.FC<SEOProps> = ({
   // correct per-page values immediately.
   useEffect(() => {
     document.title = fullTitle;
+    document.documentElement.setAttribute("lang", locale);
 
     const upsertMeta = (selector: string, attr: "name" | "property", key: string, content: string) => {
       let tag = document.head.querySelector(selector) as HTMLMetaElement | null;
@@ -71,6 +129,7 @@ export const SEO: React.FC<SEOProps> = ({
     upsertMeta('meta[property="og:description"]', "property", "og:description", description);
     upsertMeta('meta[property="og:type"]', "property", "og:type", ogType);
     upsertMeta('meta[property="og:image"]', "property", "og:image", resolvedOgImage);
+    upsertMeta('meta[property="og:locale"]', "property", "og:locale", ogLocale);
     upsertMeta('meta[name="twitter:title"]', "name", "twitter:title", fullTitle);
     upsertMeta('meta[name="twitter:description"]', "name", "twitter:description", description);
     upsertMeta('meta[name="twitter:image"]', "name", "twitter:image", resolvedOgImage);
@@ -86,6 +145,19 @@ export const SEO: React.FC<SEOProps> = ({
       upsertMeta('meta[property="og:url"]', "property", "og:url", canonicalUrl);
     }
 
+    // Replace any existing hreflang links — simpler than tracking individual
+    // entries because route changes can add/remove languages per page.
+    document.head
+      .querySelectorAll('link[rel="alternate"][hreflang]')
+      .forEach((el) => el.remove());
+    hreflangTags.forEach(({ hreflang, href }) => {
+      const link = document.createElement("link");
+      link.setAttribute("rel", "alternate");
+      link.setAttribute("hreflang", hreflang);
+      link.setAttribute("href", href);
+      document.head.appendChild(link);
+    });
+
     if (noindex) {
       upsertMeta('meta[name="robots"]', "name", "robots", "noindex, nofollow");
     } else {
@@ -94,14 +166,25 @@ export const SEO: React.FC<SEOProps> = ({
         robots.setAttribute("content", "index, follow");
       }
     }
-  }, [fullTitle, description, canonicalUrl, resolvedOgImage, ogType, noindex]);
+  }, [fullTitle, description, canonicalUrl, resolvedOgImage, ogType, noindex, locale, ogLocale, hreflangTags]);
 
   return (
     <Helmet>
+      <html lang={locale} />
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       {noindex && <meta name="robots" content="noindex, nofollow" />}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+      {/* hreflang alternates — signals language/region targeting to Google */}
+      {hreflangTags.map(({ hreflang, href }) => (
+        <link
+          key={`hreflang-${hreflang}`}
+          rel="alternate"
+          hrefLang={hreflang}
+          href={href}
+        />
+      ))}
 
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
@@ -113,7 +196,7 @@ export const SEO: React.FC<SEOProps> = ({
       <meta property="og:image:height" content={String(ogImageHeight)} />
       <meta property="og:image:alt" content={ogImageAlt} />
       <meta property="og:site_name" content={SITE_NAME} />
-      <meta property="og:locale" content="en_US" />
+      <meta property="og:locale" content={ogLocale} />
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
