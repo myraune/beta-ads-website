@@ -66,8 +66,8 @@ const TwitchAdvertising: React.FC = () => {
         subtext: "Book a free demo call and we'll show you what your brand looks like live on Nordic Twitch streams.",
         primaryLabel: "Book a Demo",
         primaryHref: "/demo",
-        secondaryLabel: "View Pricing",
-        secondaryHref: "/pricing",
+        secondaryLabel: "See case studies",
+        secondaryHref: "/case-studies",
       }}
     >
 

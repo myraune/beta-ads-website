@@ -22,11 +22,6 @@ const STATIC_PAGES = [
     description: 'Get real brand deals on Twitch, YouTube & Kick. Accept offers you like, skip the rest. No follower minimum, no contracts. Join 40+ Nordic streamers earning monthly.'
   },
   {
-    route: '/pricing',
-    title: 'Pricing | Beta Ads Livestream Advertising',
-    description: 'Transparent pricing for native livestream advertising in the Nordics. Pay per impression, no setup fees. Start with any budget — see plans and get a free demo.'
-  },
-  {
     route: '/blog',
     title: 'Blog | Livestream Advertising Insights — Beta Ads',
     description: 'Expert insights on Twitch advertising, Nordic streaming trends, influencer marketing and live commerce. Data-driven articles for brands and agencies.'

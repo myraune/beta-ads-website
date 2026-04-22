@@ -13,7 +13,6 @@ import {
   Tv,
   Sparkles,
   FileText,
-  CreditCard,
   BookOpen,
   Newspaper,
   Users,
@@ -79,12 +78,6 @@ const aboutItems = [
     label: "Case Studies",
     desc: "Real campaign results & ROI data",
     href: "/case-studies",
-  },
-  {
-    icon: CreditCard,
-    label: "Pricing",
-    desc: "Plans for brands & agencies",
-    href: "/pricing",
   },
   {
     icon: BookOpen,
@@ -288,7 +281,7 @@ export function BetaNavbar() {
             aria-expanded={aboutOpen}
             className={cn(
               "flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-medium rounded-full transition-all duration-200",
-              aboutOpen || ["/case-studies", "/pricing", "/blog", "/press", "/about"].includes(location.pathname)
+              aboutOpen || ["/case-studies", "/blog", "/press", "/about"].includes(location.pathname)
                 ? isOnHero ? "text-white bg-white/15" : "text-foreground bg-foreground/[0.08]"
                 : isOnHero ? "text-white/80 hover:text-white hover:bg-white/10" : "text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05]"
             )}

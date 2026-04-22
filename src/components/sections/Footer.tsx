@@ -61,9 +61,6 @@ export const Footer: React.FC<FooterProps> = ({ t }) => (
             <Link to="/kick-advertising" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
               Kick Advertising
             </Link>
-            <Link to="/pricing" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
-              Pricing
-            </Link>
             <Link to="/streamers" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
               For Streamers
             </Link>

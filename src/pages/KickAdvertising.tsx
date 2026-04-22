@@ -81,8 +81,8 @@ const KickAdvertising: React.FC = () => {
         subtext: "The window for first-mover advantage won't stay open forever. Book a demo to see Kick overlay ads in action.",
         primaryLabel: "Book a Demo",
         primaryHref: "/demo",
-        secondaryLabel: "View Pricing",
-        secondaryHref: "/pricing",
+        secondaryLabel: "See case studies",
+        secondaryHref: "/case-studies",
       }}
     >
 

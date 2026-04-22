@@ -17,7 +17,6 @@ const footerLinks = {
   RESOURCES: [
     { label: "Press", to: "/press" },
     { label: "Blog", to: "/blog" },
-    { label: "Pricing", to: "/pricing" },
     { label: "Contact", to: "/contact" },
   ],
   COMPANY: [

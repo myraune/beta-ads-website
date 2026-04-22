@@ -31,7 +31,6 @@ const STATIC_PAGES = [
   // Secondary high-priority pages
   { path: "/youtube-advertising",    priority: "0.9",  changefreq: "monthly" },
   { path: "/streamers",              priority: "0.9",  changefreq: "weekly"  },
-  { path: "/pricing",                priority: "0.85", changefreq: "monthly" },
   { path: "/case-study/samsung",     priority: "0.85", changefreq: "monthly" },
   { path: "/case-study/glorious",    priority: "0.8",  changefreq: "monthly" },
   { path: "/case-study/gokstad",     priority: "0.8",  changefreq: "monthly" },

@@ -43,7 +43,6 @@ const CaseStudyKristiania = lazy(() => import("./pages/CaseStudyKristiania"));
 const CaseStudyKomplett = lazy(() => import("./pages/CaseStudyKomplett"));
 const CaseStudyNki = lazy(() => import("./pages/CaseStudyNki"));
 const Press = lazy(() => import("./pages/Press"));
-const Pricing = lazy(() => import("./pages/Pricing"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 
@@ -155,7 +154,6 @@ const App = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/demo" element={<Demo t={t} language="en" />} />
               <Route path="/press" element={<Press />} />
-              <Route path="/pricing" element={<Pricing t={t} />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/case-study/glorious" element={<CaseStudyGlorious />} />

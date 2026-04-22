@@ -48,7 +48,6 @@ const STATIC_ROUTES = [
   "/contact",
   "/demo",
   "/press",
-  "/pricing",
   "/case-studies",
   "/case-study/samsung",
   "/case-study/glorious",
