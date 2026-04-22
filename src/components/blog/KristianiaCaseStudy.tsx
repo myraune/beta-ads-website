@@ -118,25 +118,24 @@ const KristianiaCaseStudy: React.FC = () => {
 
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-8">
-              {/* Text-based brand mark for Kristiania (no logo file available) */}
+              {/* Kristiania's signature "K" mark — extracted from their official brand sprite */}
               <div
-                className="flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/10 px-4 py-3 backdrop-blur-sm"
+                className="flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/10 p-3 backdrop-blur-sm"
                 style={{ boxShadow: `0 0 0 1px ${BRAND.primary}55` }}
               >
-                <span
-                  className="text-sm font-bold tracking-tight text-white"
-                  style={{ letterSpacing: "-0.02em" }}
-                >
-                  Høyskolen{" "}
-                  <span style={{ color: BRAND.primary }}>Kristiania</span>
-                </span>
+                <img
+                  src="/lovable-uploads/logo-kristiania-mark.svg"
+                  alt="Høyskolen Kristiania"
+                  className="h-8 w-8 object-contain"
+                  style={{ color: BRAND.primary }}
+                />
               </div>
               <div className="flex flex-col gap-1">
                 <span
                   className="text-[11px] font-semibold tracking-[0.2em] uppercase"
                   style={{ color: BRAND.primary }}
                 >
-                  🇳🇴 Norway · Higher Ed · Two campaigns
+                  Norway · Higher Ed · Two campaigns
                 </span>
                 <span className="text-xs text-white/50 tracking-wide">
                   Case Study · Feb–Apr 2025

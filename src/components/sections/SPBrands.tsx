@@ -69,7 +69,7 @@ const row1: LogoData[] = [
     videoSrc: "/lovable-uploads/shure-campaign-video.mp4",
   },
   {
-    src: "/lovable-uploads/logo-client-2.png", alt: "Saily",
+    src: "/lovable-uploads/logo-saily.png", alt: "Saily",
     badge: "video",
     videoSrc: "/lovable-uploads/saily-campaign-video.mp4",
   },
@@ -98,7 +98,7 @@ const row2: LogoData[] = [
     quoteName: "Recruitment Team",
     quoteTitle: "Gokstad Akademiet",
   },
-  { src: "/lovable-uploads/logo-client-10.png", alt: "Komplett" },
+  { src: "/lovable-uploads/logo-komplett.png", alt: "Komplett" },
   { src: "/lovable-uploads/logo-dentsu.png", alt: "Dentsu" },
   { src: "/lovable-uploads/logo-carat.png", alt: "Carat" },
   {

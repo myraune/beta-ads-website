@@ -4,6 +4,12 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
+/** Glorious brand palette — white + gold accent `#D4AF37` per their identity */
+const BRAND = {
+  primary: "#D4AF37",
+  glow: "rgba(212,175,55,0.14)",
+};
+
 const stats = [
   { value: "137K+", label: "Total views" },
   { value: "25", label: "Creators" },
@@ -35,11 +41,16 @@ const GloriousCaseStudy: React.FC = () => {
       <section className="relative overflow-clip" style={{ background: "hsl(240 11% 5%)" }}>
         <div className="absolute inset-0 pointer-events-none" aria-hidden>
           <div className="absolute inset-0" style={{
-            background: "radial-gradient(ellipse 80% 60% at 65% 35%, rgba(233,79,55,0.18) 0%, transparent 60%)",
+            background: `radial-gradient(ellipse 80% 60% at 65% 35%, ${BRAND.glow} 0%, transparent 60%)`,
             animation: "glorious-glow 10s ease-in-out infinite alternate",
             willChange: "opacity, transform",
           }} />
         </div>
+        {/* Brand gold top stripe */}
+        <div
+          className="absolute inset-x-0 top-0 h-px z-[2]"
+          style={{ background: `linear-gradient(90deg, transparent 0%, ${BRAND.primary} 50%, transparent 100%)` }}
+        />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 md:pt-36 pb-20">
           <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white/80 transition-colors mb-10">
@@ -47,9 +58,29 @@ const GloriousCaseStudy: React.FC = () => {
           </Link>
 
           <div className="max-w-3xl">
-            <div className="flex items-center gap-3 mb-6">
-              <img src="/lovable-uploads/logo-glorious.png" alt="Glorious" className="h-6 w-auto object-contain" style={{ filter: "brightness(0) invert(1)", opacity: 0.7 }} />
-              <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/70 tracking-wider uppercase">Case Study</span>
+            <div className="flex items-center gap-4 mb-8">
+              <div
+                className="flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/10 p-3 backdrop-blur-sm"
+                style={{ boxShadow: `0 0 0 1px ${BRAND.primary}44` }}
+              >
+                <img
+                  src="/lovable-uploads/logo-glorious.png"
+                  alt="Glorious"
+                  className="h-8 w-auto object-contain"
+                  style={{ filter: "brightness(0) invert(1)" }}
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <span
+                  className="text-[11px] font-semibold tracking-[0.2em] uppercase"
+                  style={{ color: BRAND.primary }}
+                >
+                  Nordics · Gaming peripherals · Product launch
+                </span>
+                <span className="text-xs text-white/50 tracking-wide">
+                  Case Study · O3 Mouse campaign
+                </span>
+              </div>
             </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
               Glorious<br />

@@ -83,7 +83,7 @@ const SailyCaseStudy: React.FC = () => {
                 style={{ boxShadow: `0 0 0 1px ${BRAND.primary}33` }}
               >
                 <img
-                  src="/lovable-uploads/logo-client-2.png"
+                  src="/lovable-uploads/logo-saily.png"
                   alt="Saily"
                   className="h-8 w-auto object-contain"
                   style={{ filter: "brightness(0) invert(1)" }}
@@ -498,7 +498,7 @@ const SailyCaseStudy: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
             <div className="flex items-center gap-5">
               <img
-                src="/lovable-uploads/logo-client-2.png"
+                src="/lovable-uploads/logo-saily.png"
                 alt="Saily"
                 className="h-9 w-auto object-contain opacity-90"
               />

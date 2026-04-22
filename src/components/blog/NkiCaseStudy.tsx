@@ -10,10 +10,11 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
  * an interactive "what type of student are you?" quiz format Oct–Nov 2025.
  */
 const BRAND = {
-  // NKI distance learning — deep blue + fresh violet accent
-  primary: "#0066cc",
+  // NKI brand palette — aubergine is the primary per their official assets
+  // (see logo-nki-aubergine-RGB.png sourced from nki.no). Violet accent for chart variety.
+  primary: "#5C2D56",
   secondary: "#8c5adc",
-  glow: "rgba(0,102,204,0.18)",
+  glow: "rgba(92,45,86,0.28)",
 };
 
 const stats = [
@@ -77,23 +78,23 @@ const NkiCaseStudy: React.FC = () => {
 
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-8">
+              {/* NKI's official "nKi" wordmark — white variant from nki.no */}
               <div
                 className="flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/10 px-4 py-3 backdrop-blur-sm"
                 style={{ boxShadow: `0 0 0 1px ${BRAND.primary}55` }}
               >
-                <span
-                  className="text-base font-bold tracking-tight text-white"
-                  style={{ letterSpacing: "-0.02em" }}
-                >
-                  <span style={{ color: BRAND.primary }}>NKI</span>
-                </span>
+                <img
+                  src="/lovable-uploads/logo-nki.svg"
+                  alt="NKI"
+                  className="h-6 w-auto object-contain"
+                />
               </div>
               <div className="flex flex-col gap-1">
                 <span
                   className="text-[11px] font-semibold tracking-[0.2em] uppercase"
                   style={{ color: BRAND.primary }}
                 >
-                  🇳🇴 Norway · Distance Learning · Quiz
+                  Norway · Distance Learning · Quiz
                 </span>
                 <span className="text-xs text-white/50 tracking-wide">
                   Case Study · Oct–Nov 2025

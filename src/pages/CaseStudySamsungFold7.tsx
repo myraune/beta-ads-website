@@ -6,6 +6,9 @@ import { SPFooter } from "@/components/sections/SPFooter";
 
 const SamsungFold7CaseStudy = lazy(() => import("@/components/blog/SamsungFold7CaseStudy"));
 
+/** Samsung brand blue — sampled from their official brand guidelines. */
+const SAMSUNG_BLUE = "#1428A0";
+
 const CaseStudySamsungFold7: React.FC = () => {
   return (
     <>
@@ -27,6 +30,12 @@ const CaseStudySamsungFold7: React.FC = () => {
           "isPartOf": { "@id": "https://beta-ads.no/#website" }
         }}
       />
+      {/* Samsung-blue top accent stripe */}
+      <div
+        className="h-px w-full"
+        style={{ background: `linear-gradient(90deg, transparent 0%, ${SAMSUNG_BLUE} 50%, transparent 100%)` }}
+        aria-hidden
+      />
       <div className="max-w-4xl mx-auto px-6 lg:px-8 pt-28 md:pt-36 pb-20">
         <Link
           to="/case-studies"
@@ -37,15 +46,22 @@ const CaseStudySamsungFold7: React.FC = () => {
         </Link>
 
         <div className="mb-8">
-          <div className="flex items-center gap-3 mb-4">
-            <img
-              src="/lovable-uploads/icon-samsung.svg"
-              alt="Samsung"
-              className="h-6 w-auto"
-            />
-            <span className="inline-block text-xs font-semibold px-3 py-1 rounded-full bg-primary/10 text-primary">
-              Case Study
-            </span>
+          <div className="flex items-center gap-4 mb-5">
+            <div
+              className="flex items-center justify-center rounded-xl border bg-background p-2.5"
+              style={{ borderColor: `${SAMSUNG_BLUE}33`, boxShadow: `0 0 0 1px ${SAMSUNG_BLUE}1a` }}
+            >
+              <img src="/lovable-uploads/icon-samsung.svg" alt="Samsung" className="h-7 w-auto" />
+            </div>
+            <div className="flex flex-col gap-0.5">
+              <span
+                className="text-[11px] font-semibold tracking-[0.2em] uppercase"
+                style={{ color: SAMSUNG_BLUE }}
+              >
+                Norway · Galaxy Z Fold7 launch
+              </span>
+              <span className="text-xs text-muted-foreground tracking-wide">Case Study · 2025</span>
+            </div>
           </div>
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-3">
             Samsung × Beta Ads

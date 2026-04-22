@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 // Client logos for the carousel with individual scale adjustments
 const logos: Array<{ src: string; alt: string; scale?: string }> = [
   { src: "/lovable-uploads/logo-client-1.png", alt: "Samsung", scale: "scale-100" },
-  { src: "/lovable-uploads/logo-client-2.png", alt: "Saily", scale: "scale-90" },
+  { src: "/lovable-uploads/logo-saily.png", alt: "Saily", scale: "scale-90" },
   { src: "/lovable-uploads/logo-foodora.png", alt: "Foodora", scale: "scale-100" },
   { src: "/lovable-uploads/logo-shure.png", alt: "Shure", scale: "scale-100" },
   { src: "/lovable-uploads/logo-client-5.png", alt: "Client 5", scale: "scale-75" },
@@ -13,7 +13,7 @@ const logos: Array<{ src: string; alt: string; scale?: string }> = [
   { src: "/lovable-uploads/logo-glorious.png", alt: "Glorious", scale: "scale-100" },
   { src: "/lovable-uploads/logo-client-8.png", alt: "Publicis", scale: "scale-75" },
   { src: "/lovable-uploads/logo-logitech.png", alt: "Logitech", scale: "scale-100" },
-  { src: "/lovable-uploads/logo-client-10.png", alt: "Komplett", scale: "scale-90" },
+  { src: "/lovable-uploads/logo-komplett.png", alt: "Komplett", scale: "scale-90" },
   { src: "/lovable-uploads/logo-dentsu.png", alt: "Dentsu", scale: "scale-75" },
   { src: "/lovable-uploads/logo-carat.png", alt: "Carat", scale: "scale-80" }, // SEO fix: corrected mislabeled alt text (was "Firi", matches SPBrands.tsx)
   { src: "/lovable-uploads/logo-steelseries.png", alt: "SteelSeries", scale: "scale-110" },

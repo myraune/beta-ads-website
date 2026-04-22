@@ -306,6 +306,12 @@ const SamsungCaseStudy: React.FC = () => {
       {/* ── HERO ── */}
       <section className="relative overflow-hidden" style={{ background: "hsl(240 11% 5%)" }}>
         <AnimatedShaderBackground heightFactor={0.85} />
+        {/* Samsung blue top accent stripe */}
+        <div
+          className="absolute inset-x-0 top-0 h-px z-[2]"
+          style={{ background: "linear-gradient(90deg, transparent 0%, #1428A0 50%, transparent 100%)" }}
+          aria-hidden
+        />
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 md:pt-36 pb-20">
 
@@ -316,11 +322,27 @@ const SamsungCaseStudy: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left: headline */}
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <img src="/lovable-uploads/icon-samsung.svg" alt="Samsung" className="h-5 w-auto opacity-70" />
-                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/70 backdrop-blur-sm tracking-wider uppercase">
-                  Case Study
-                </span>
+              <div className="flex items-center gap-4 mb-8">
+                <div
+                  className="flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/10 p-3 backdrop-blur-sm"
+                  style={{ boxShadow: "0 0 0 1px #1428A044" }}
+                >
+                  <img
+                    src="/lovable-uploads/icon-samsung.svg"
+                    alt="Samsung"
+                    className="h-7 w-auto"
+                    style={{ filter: "brightness(0) invert(1)" }}
+                  />
+                </div>
+                <div className="flex flex-col gap-1">
+                  <span
+                    className="text-[11px] font-semibold tracking-[0.2em] uppercase"
+                    style={{ color: "#5B7AE5" }}
+                  >
+                    Norway · Smartphone launch · 2 campaigns
+                  </span>
+                  <span className="text-xs text-white/50 tracking-wide">Case Study · Galaxy S25 Ultra + Z Fold7</span>
+                </div>
               </div>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6">
                 Samsung<br />

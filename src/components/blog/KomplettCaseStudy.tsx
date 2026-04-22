@@ -83,7 +83,7 @@ const KomplettCaseStudy: React.FC = () => {
                 style={{ boxShadow: `0 0 0 1px ${BRAND.primary}55` }}
               >
                 <img
-                  src="/lovable-uploads/logo-client-10.png"
+                  src="/lovable-uploads/logo-komplett.png"
                   alt="Komplett"
                   className="h-8 w-auto object-contain"
                   style={{ filter: "brightness(0) invert(1)" }}
@@ -515,7 +515,7 @@ const KomplettCaseStudy: React.FC = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
             <div className="flex items-center gap-5">
               <img
-                src="/lovable-uploads/logo-client-10.png"
+                src="/lovable-uploads/logo-komplett.png"
                 alt="Komplett"
                 className="h-9 w-auto object-contain opacity-90"
               />
