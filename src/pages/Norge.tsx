@@ -95,6 +95,11 @@ const norwegianBlogPosts = [
     desc: "Alt du trenger å vite om å annonsere på Twitch i det norske markedet.",
   },
   {
+    slug: "twitch-sponsor-priser-norge-2026",
+    title: "Twitch-sponsor-priser i Norge 2026: Hva koster en kampanje?",
+    desc: "CPM-intervaller, pakke-priser og hva som driver kostnaden — basert på 9 publiserte kampanjer.",
+  },
+  {
     slug: "norges-storste-streamer-merkevare-samarbeid",
     title: "Norges største Twitch-streamer jobber med Shure og Samsung",
     desc: "detoo topper TwitchTracker. Slik ser et ekte streamer-merkevare-samarbeid ut.",

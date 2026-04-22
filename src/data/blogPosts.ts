@@ -10256,6 +10256,143 @@ Dersom bestiller for 2026 planlegger et norsk Twitch-spor, er detoo-inkluderte k
       sv: ["norska twitch streamer varumärke", "norges största streamer", "twitch sponsor norge"],
       fi: ["norjan twitch-striimaaja brändit", "norjan suurin striimaaja", "twitch-sponsorointi norja"]
     }
+  },
+  {
+    id: "twitch-sponsor-priser-norge-2026",
+    slug: "twitch-sponsor-priser-norge-2026",
+    title: "Twitch-sponsor-priser i Norge 2026: Hva koster en kampanje faktisk?",
+    excerpt: "Hvor mye koster det å kjøre en Twitch-kampanje i Norge? Vi går gjennom CPM-intervaller, pakke-priser, hva som driver kostnadene og hvordan verdien sammenlignes med TV, YouTube og display — basert på 9 publiserte kampanjer.",
+    content: `
+## Kort svar for de travle
+
+En native Twitch-kampanje for et norsk merke går typisk på **5 000–50 000 € per runde**, avhengig av varighet, antall streamere og kreativformat. CPM-intervallet for det norske markedet ligger i **6–14 € per 1 000 fullførte visninger** i 2026, noe som er konkurransedyktig mot YouTube pre-roll og dyrere enn display, men med **null adblock-tap**.
+
+Det er den strukturelle forklaringen. Resten av artikkelen går gjennom hva som driver prisen i hver kampanje, og hvordan du bør sammenligne det med andre kanaler i mediemiksen.
+
+## Hva avgjør prisen på en norsk Twitch-kampanje?
+
+Fem variabler bestemmer totalen:
+
+### 1. Antall streamer-slots
+Typiske kampanjer vi kjører inkluderer **15–50 norske streamere** samtidig. Samsung Galaxy Z Fold7 brukte 28 slots. Høyskolen Kristiania sin rekrutterings-kampanje brukte 25. Flere slots gir bredere dekning — og høyere totalpris.
+
+### 2. Varighet (run-tid)
+Kampanjer kjører typisk i **2–6 uker**. En kort "burst" (1 uke) er billigere men henter inn færre visninger. Saily sin eSIM-kampanje kjørte i 4 uker og leverte 102 794 fullførte visninger.
+
+### 3. Kreativformat
+- **Snipe Ad** (banner, 400×200 px): lavest produksjonskostnad
+- **Sidebar** (persistent placement): middels
+- **Rich Media** (1920×1080 takeover): høyest produksjonskostnad, men også høyest visuell impact
+- **Interactive / Klikk-trackede overlay**: inkluderer verifisert klikkmåling — brukes når kampanjen skal vise ROI
+
+Kreativproduksjon gjøres av Beta Ads per merke, og kostnaden er innebygget i kampanjen.
+
+### 4. Sesong
+Q4 (Black Friday + jul) er dyrere enn Q1. Nordic Game (mai) og norsk esports-sesongens startukene er også etterspurte vinduer.
+
+### 5. Profil på inkluderte kanaler
+Å ha detoo (Norges #1 på TwitchTracker) i miksen koster mer enn et rent mid-tier-utvalg. Rich-media på high-profile kanaler gir høyest CTR — Shure MV6 leverte **9.12% CTR på toppdagen** når detoo nevnte produktet muntlig samtidig som overlayen kjørte.
+
+## CPM-intervaller for Norge 2026
+
+CPM (Cost Per Mille, kostnad per 1 000 visninger) for det norske markedet i 2026 ligger typisk i dette båndet:
+
+| Format | CPM-intervall (€) | Kommentar |
+|---|---|---|
+| Snipe Ad | 6–9 | Mest kostnadseffektivt per visning |
+| Sidebar | 7–11 | Lengst eksponering per seer |
+| Rich Media | 10–14 | Inkluderer kreativproduksjon |
+| Video (15–60s) | 12–18 | Mest sammenlignbart med TV-spot |
+| Interactive + Klikk-tracking | 11–15 | Inkluderer verifisert måling |
+
+Dette er verifiserte tall fra vår pipeline. Amazon Ads (Twitch-programmatic) publiserer ingen lokale norske tall.
+
+## Eksempler fra publiserte kampanjer
+
+| Kampanje | Streamere | Visninger | Verifisert CTR |
+|---|---|---|---|
+| [Samsung Galaxy S25 Ultra](/case-study/samsung) | 43 slots | 500 000+ live | 2.93% |
+| [Samsung Galaxy Z Fold7](/case-study/samsung) | 28 slots | 300 000+ live | 2.34% |
+| [Shure MV6](/case-study/shure) | 2 (inkl. detoo) | 182 554 | 1.31% (9.12% peak) |
+| [Komplett retail](/case-study/komplett) | 34 (Twitch + Kick) | 151 278 | 1.17% (4.48% peak) |
+| [NKI quiz](/case-study/nki) | 19 | 220 003 | 0.72% |
+| [Høyskolen Kristiania](/case-study/kristiania) | 25+ | 599 252 (kombinert) | 1.53% / 1.16% |
+
+## Hvordan sammenligner du verdien mot andre kanaler?
+
+Nøkkelen er **adblock-justert CPM**. Twitch-overlay leverer 0% adblock-tap fordi overlayen rendres inne i selve videostrømmen — ikke levert av browser. Sammenlignet med:
+
+- **YouTube pre-roll**: 12–22% tap til adblock-brukere (høyere blant 18–24-åringer)
+- **Display / bannerannonser**: 35–55% tap til adblock
+- **Lineær-TV i Norge**: 18–34-segmentet ser 40% mindre TV i 2026 enn i 2020 (SSB)
+- **Podcast host-read**: sammenlignbar reach, men skalerer dårligere per kampanje
+
+Det betyr at Twitch-CPM på 10 € for et 18–34 norsk publikum **i praksis** tilsvarer en lavere CPM enn YouTube pre-roll på 8 € når du korrigerer for hvem som faktisk ser annonsen.
+
+## Hva du bør spørre om før du signerer
+
+Uansett om du vurderer Beta Ads, en annen Nordic-agentur, eller en direkte streamer-deal, still disse spørsmålene:
+
+1. **Hvordan verifiseres visninger og klikk?** Plattformverifisert eller streamer-screenshot?
+2. **Er CPM basert på fullførte visninger eller utleveringer?** Vi rapporterer fullførte (bruker må ha vært til stede).
+3. **Hvilken adblock-test er kjørt?** Skal være 0% for overlay-formater.
+4. **Hvor mange kanaler er i nettverket?** Beta Ads har 47 aktive norske kanaler i april 2026; sammenligning-diverse agentur har <10.
+5. **Hvem eier kreativet etter kampanjen?** Hos oss: dere.
+
+## Når er Twitch-annonsering IKKE riktig?
+
+Ærlig svar: hvis målgruppen din er **primært 55+**, hvis du trenger dekning i **hele befolkningen innen 48 timer**, eller hvis **kjøret skjer i en kategori med full programmatic-dekning** (store auto-brands, reise-brands i peak-season), kan TV fortsatt være billigere per bruttoeksponering.
+
+Twitch er sterkt når målgruppen er **18–44, digital-native, ad-block-bruker, og du trenger engagement-drevet ROI** snarere enn rent reach-basert.
+
+## Få et konkret estimat for ditt merke
+
+Siden priser varierer såpass mye på de fem variablene ovenfor, sender vi et konkret tilbud innen 24 timer basert på:
+
+- Målmarked (Norge alene / Nordisk)
+- Kategori og produkttype
+- Ønsket kampanjestørrelse (visninger eller budsjett)
+- Brand-safety-krav
+- Ønsket rapporterings-cadens (ukentlig vs. sluttrapport)
+
+👉 [Bestill en 20-minutters konsultasjon](/contact) eller se [alle publiserte kampanje-analyser](/case-studies).
+
+---
+
+Relaterte guider:
+- [Twitch-annonsering i Norge: Komplett Guide 2026](/blog/twitch-annonsering-norge-guide)
+- [Norges største Twitch-streamer jobber med Shure og Samsung](/blog/norges-storste-streamer-merkevare-samarbeid)
+- [Gaming-markedsføring for merkevarer](/blog/gaming-markedsforing-forste-kampanje-guide)
+`,
+    date: "April 22, 2026",
+    dateISO: "2026-04-22",
+    readTime: "8 min",
+    image: "/lovable-uploads/blog-twitch-cpm-media-buying-guide-2026-hero.jpg",
+    category: "Guider",
+    tags: ["norge", "priser", "cpm", "twitch", "annonsering", "kostnad", "media buying"],
+    relatedSlugs: [
+      "twitch-annonsering-norge-guide",
+      "norges-storste-streamer-merkevare-samarbeid",
+      "gaming-markedsforing-forste-kampanje-guide"
+    ],
+    seoTitle: {
+      en: "Twitch Sponsor Pricing in Norway 2026: What Does a Campaign Actually Cost? | Beta Ads",
+      no: "Twitch-sponsor-priser i Norge 2026: Hva koster en kampanje? | Beta Ads",
+      sv: "Twitch-sponsor-priser i Norge 2026: Vad kostar en kampanj? | Beta Ads",
+      fi: "Twitch-sponsorointihinnat Norjassa 2026: Mitä kampanja maksaa? | Beta Ads"
+    },
+    seoDescription: {
+      en: "What does a Twitch campaign in Norway actually cost in 2026? CPM ranges, package pricing, cost drivers, and how it compares to TV, YouTube and display — based on 9 published Beta Ads campaigns.",
+      no: "Hva koster en Twitch-kampanje i Norge i 2026? CPM-intervaller, pakkepriser, kostnadsdrivere og hvordan verdien sammenlignes med TV, YouTube og display — basert på 9 publiserte Beta Ads-kampanjer.",
+      sv: "Vad kostar en Twitch-kampanj i Norge 2026? CPM-intervall, paketpriser, kostnadsdrivare och jämförelse mot TV, YouTube och display — baserat på 9 publicerade Beta Ads-kampanjer.",
+      fi: "Mitä Twitch-kampanja maksaa Norjassa vuonna 2026? CPM-vaihteluvälit, pakettihinnat, kustannusajurit — yhdeksään julkaistuun Beta Ads -kampanjaan perustuen."
+    },
+    seoKeywords: {
+      en: ["twitch advertising cost norway", "twitch sponsor pricing norway 2026", "twitch cpm norway", "nordic twitch campaign cost", "what does twitch advertising cost"],
+      no: ["twitch sponsor pris norge", "twitch annonsering pris norge", "twitch kampanje kostnad", "twitch cpm norge", "hva koster twitch reklame", "twitch annonser pris 2026", "twitch sponsor pris 2026 norge"],
+      sv: ["twitch sponsor pris norge", "twitch annonsering kostnad norge", "twitch cpm norge"],
+      fi: ["twitch-mainonnan hinta norja", "twitch cpm norja", "twitch-kampanjan hinta"]
+    }
   }
 ];
 

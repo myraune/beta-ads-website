@@ -18,6 +18,9 @@ const footerLinks = {
     { label: "Press", to: "/press" },
     { label: "Blog", to: "/blog" },
     { label: "Contact", to: "/contact" },
+    // Norwegian-market landing page — surfaces Norwegian content (hreflang="no")
+    // to English-page visitors and provides an internal link Google can crawl.
+    { label: "Norge (norsk)", to: "/norge" },
   ],
   COMPANY: [
     { label: "About Us", to: "/about" },
