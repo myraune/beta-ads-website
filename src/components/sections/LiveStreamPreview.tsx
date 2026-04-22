@@ -10,9 +10,9 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
       <div className="max-w-5xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-10">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3">
             Native ads inside live streams
-          </h2>
+          </h1>
           <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto">
             Ads appear as part of the stream, not interruptions
           </p>
