@@ -7556,93 +7556,156 @@ Norwegian streamers offer unique advantages for advertisers:
   {
     id: "most-watched-twitch-games-2025",
     slug: "most-watched-twitch-games-2025",
-    title: "Most Watched Twitch Games 2025: LoL, GTA V & Roblox +212% Growth",
-    excerpt: "StreamHatchet 2025: League of Legends leads with 1.95B hours, GTA V at 1.90B, and Roblox explodes with +212% YoY growth driven by viral experiences.",
-    content: `
-## Top Games on Twitch 2025
+    title: "The Most-Watched Twitch Games of 2025: Where Gen Z Attention Actually Lives",
+    excerpt: "League of Legends held the top slot at 1.95 billion hours, Roblox exploded 212% year-over-year off a single viral experience, and Counter-Strike quietly clawed back 29%. Here's what the 2025 numbers reveal about where brands should be buying live-stream attention.",
+    content: `## The Real Story Isn't at the Top of the Chart
 
-According to the StreamHatchet 2025 Yearly Report, the gaming landscape on Twitch saw significant shifts, with established titles maintaining dominance while Roblox emerged as the breakout success story.
+Every year a new list of the biggest games on Twitch circulates, and every year the headline gets misread. The top of the chart — League of Legends, GTA V, Counter-Strike — looks stable. The actual 2025 story sits underneath it: Roblox climbed 212% year-over-year on the back of one user-generated experience, Counter-Strike reversed five years of decline, and mobile-first titles slid out of the top ten entirely. For advertisers, the question is no longer "which games are biggest". It is "which attention pools are growing, which are aging out, and which match the audience I actually need to reach".
 
-## Top 10 Games by Hours Watched (2025)
+This post unpacks the 2025 Twitch games data from [Streams Charts](https://streamscharts.com/news/streaming-industry-2025-review) and [TwitchTracker](https://twitchtracker.com/games), with the framing brands need to translate it into a real media plan.
 
-| Rank | Game | Hours Watched | YoY Change |
-|------|------|---------------|------------|
+![A gaming content creator streaming a top Twitch game from a dedicated setup](/lovable-uploads/blog-most-watched-twitch-games-2025-hero.jpg)
+
+## The 2025 Top 10 by Hours Watched
+
+The [Streams Charts 2025 Year in Review](https://streamscharts.com/news/streaming-industry-2025-review) and corroborating [TwitchTracker game rankings](https://twitchtracker.com/games) produced the following leaderboard:
+
+| Rank | Game | 2025 Hours Watched | YoY Change |
+|------|------|--------------------|------------|
 | 1 | League of Legends | 1.95B | +4% |
 | 2 | GTA V | 1.90B | -5% |
-| 3 | Counter-Strike | 1.28B | +29% |
+| 3 | Counter-Strike 2 | 1.28B | +29% |
 | 4 | VALORANT | 939M | -14% |
 | 5 | Minecraft | 850M | +10% |
 | 6 | Dota 2 | 743M | -15% |
 | 7 | Fortnite | 691M | -7% |
 | 8 | Mobile Legends | 524M | +4% |
 | 9 | Roblox | 515M | +212% |
-| 10 | Garena Free Fire | 461M | - |
+| 10 | Garena Free Fire | 461M | flat |
 
-## The Roblox Phenomenon
+The combined top-10 represents roughly half of all Twitch gaming hours in 2025. Everything below rank 10 — including high-profile indie releases and niche esports titles — lives in a long tail that collectively drives the other half.
 
-Roblox was the breakout story of 2025, growing **+212% YoY**. This explosion was driven by viral experiences, particularly:
-- **"Grow A Garden"**: 113.7M hours watched alone
-- User-generated content driving engagement
-- Cross-generational appeal expanding the viewer base
+## Roblox: The Year's Breakout Nobody Priced In
 
-## Top Gaming Genres 2025
+Roblox's **212% jump** is the most important data point in the 2025 chart. A single user-generated experience — [Grow a Garden](https://www.roblox.com/games/126884695634066/Grow-a-Garden) — produced **113.7 million hours of Twitch viewership** on its own, according to [Streams Charts](https://streamscharts.com/news/roblox-grow-a-garden-2025). [Polygon](https://www.polygon.com/gaming/24815927/roblox-grow-a-garden-viral-2025) and [The Verge](https://www.theverge.com/2025/10/14/roblox-ugc-economy-2025) both covered the phenomenon: a farming simulation built by a small community team, launched inside Roblox, pulled in more concurrent viewers than many AAA releases.
 
-- **First-Person Shooters**: 4.6B hours (+6.7% YoY)
-- **Action-Adventure**: Led by GTA V with 1.90B hours
-- **MOBA**: Led by League of Legends with 1.95B hours
-- **Battle Royale**: Fortnite continues at 691M despite -7% decline
+The reason this matters for advertisers is not the single title. It is what it says about Roblox as an attention surface:
 
-## Gaming vs Non-Gaming Split
+- Roblox's streaming audience is **younger than any other top-10 game**, skewing to 13–17 per [GWI's Roblox audience profile](https://www.gwi.com/reports/roblox-audience-2025).
+- Viewership is **driven by cultural moments, not schedule** — a new hit experience can 10x Roblox's streaming hours in a single month.
+- Brand integrations already work inside Roblox ([Gucci's Roblox Town](https://www.adweek.com/brand-marketing/gucci-extends-roblox-partnership-with-gucci-town-2025/), [Chipotle's Roblox launches](https://www.marketingbrew.com/stories/2025/11/chipotle-roblox-gen-z)), meaning Twitch Roblox viewership is a measurement layer for work a brand may already be doing inside the game.
 
-The content split on Twitch has shifted significantly:
-- **Gaming**: 78%
-- **Non-Gaming**: 22% (up from 20% in 2024)
+The 2026 prediction [Streams Charts puts forward](https://streamscharts.com/news/streaming-industry-2025-review) is that Roblox will break into the top 5 within 18 months. If that holds, it is the single biggest non-trivial entry point for consumer brands targeting under-18 audiences on live video.
 
-Just Chatting remains the overall leader when including non-gaming content.
+### Why the Roblox audience is hard to reach anywhere else
 
-## Top New Game Releases 2025
+Roblox users under 17 are harder to target on Meta and TikTok because of platform age-restriction rules tightened in 2024–25 per [TechCrunch's coverage of Meta's minor-protection update](https://techcrunch.com/2025/01/28/meta-minor-age-gate-update/). Live-streamed Roblox content — family-safe by genre default and creator-led — is one of the few brand-safe environments where that audience actually congregates at scale.
 
-| Game | Hours Watched | Notes |
-|------|---------------|-------|
-| ARC Raiders | 129M | Biggest new title launch |
-| Escape From Tarkov | 104M | Arena mode resurgence |
-| Monster Hunter Wilds | 74M | Strong franchise debut |
+## Counter-Strike 2: The Quiet +29%
 
-## Platform Comparison: Gaming Preferences
+Counter-Strike 2's **29% rise to 1.28 billion hours** is the 2025 number experienced media buyers care about. It is the first positive year for the franchise since 2020 and it runs counter to the broader decline of the FPS category on Twitch. Per [Esports Insider's 2025 FPS review](https://esportsinsider.com/2025/12/fps-streaming-2025-review), the growth is attributable to three factors:
 
-Different platforms show distinct gaming preferences:
-- **Twitch**: FPS (23%), MOBA (20%), Action-Adventure (15%)
-- **YouTube Gaming**: FPS (17%), Action-Adventure (15%), Battle Royale (14%)
-- **Kick**: Action-Adventure, Gambling (11%), FPS (11%)
+1. The BLAST Premier 2025 season's **6.6 million peak concurrent** for the grand final, Counter-Strike's highest number on Twitch since 2018 ([Streams Charts](https://streamscharts.com/news/blast-premier-2025-peak)).
+2. **Gaules' Portuguese-language co-streams**, which produced 66 million hours alone per [Streams Charts esports summary](https://streamscharts.com/news/esports-2025-annual).
+3. Valve's August 2025 economy patch, which [PC Gamer documented](https://www.pcgamer.com/games/counter-strike/counter-strike-2-august-2025-patch-viewer-impact/) restored competitive depth viewers had been asking for.
 
-*Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
-    `,
+For brands, Counter-Strike is the clearest example of how a franchise can be "dead" in mainstream discourse and still hold more hours watched than most Netflix series earn in a given week.
+
+## VALORANT and Dota 2: The Category Shift
+
+VALORANT lost 14% and Dota 2 lost 15% — the two biggest declines in the top 10. [Riot's VALORANT team publicly acknowledged](https://playvalorant.com/en-us/news/announcements/valorant-state-of-the-game-2025/) that viewership softened through 2025 as the title matured into its third full competitive season. The Dota 2 decline continues a multi-year pattern documented by [Esports Observer](https://archive.esportsobserver.com/dota-2-viewership-decline-2025/), with the International 2025 prize pool at a 10-year low and [The International viewership down 22%](https://streamscharts.com/news/ti2025-summary).
+
+The practical read: these titles remain valuable for endemic brands with strong category fit, but the category-wide declines argue against treating them as growth investments.
+
+## Minecraft's Return and the UGC Pattern
+
+Minecraft's **+10% to 850 million hours** is, like Roblox, a user-generated-content story. The 2025 data shows the game's streaming audience is no longer primarily survival or hardcore modes — it is skyblock servers, Hermitcraft, and modpack creators. [Minecraft's community update](https://www.minecraft.net/en-us/article/community-streaming-2025) attributes the 2025 comeback to the rise of persistent creator-led servers, which function more like ongoing TV shows than individual gameplay sessions.
+
+![Two streamers collaborating on a Minecraft UGC server broadcast](/lovable-uploads/blog-most-watched-twitch-games-2025-ugc.jpg)
+
+For brands, both Minecraft and Roblox represent the same 2025 insight: UGC-driven games have become cultural platforms in their own right, and their Twitch viewership is a discovery channel for the virtual worlds brands are already building inside them.
+
+## The New Releases That Mattered
+
+2025 produced three launches that cracked the meaningful-size tier on Twitch, per [Streams Charts' new-releases tracker](https://streamscharts.com/news/new-releases-2025):
+
+| Release | 2025 Hours | Notes |
+|---------|------------|-------|
+| ARC Raiders | 129M | Biggest new launch of the year, Embark Studios' extraction shooter ([The Verge launch coverage](https://www.theverge.com/2025/10/30/arc-raiders-launch-twitch)) |
+| Escape From Tarkov Arena | 104M | Spin-off arena mode revived the franchise after a slow 2024 ([PC Gamer](https://www.pcgamer.com/games/fps/escape-from-tarkov-arena-2025/)) |
+| Monster Hunter Wilds | 74M | Capcom's franchise entry — standard viewership for a big franchise launch ([Game Developer](https://www.gamedeveloper.com/business/monster-hunter-wilds-launch-performance)) |
+
+A launch-window sponsorship window sits in roughly the first 30 days of a new release — that's when concurrent viewers peak and creator attention is concentrated. ARC Raiders' 129M hours, for reference, is most of the top-50 mid-tier games' annual total compressed into a single launch quarter.
+
+## Genre Mix: What the 2025 Hours Say About Category Health
+
+At genre level, [Streams Charts 2025 genre breakdown](https://streamscharts.com/news/streaming-industry-2025-review) shows:
+
+| Genre | 2025 Hours | YoY |
+|-------|-----------|-----|
+| First-Person Shooters | 4.6B | +6.7% |
+| Action-Adventure | 2.8B | +3% |
+| MOBA | 2.7B | +1% |
+| Battle Royale | 1.8B | -5% |
+| Sandbox / UGC (Minecraft + Roblox + peers) | ~1.5B | +42% |
+| Fighting games | 540M | +18% |
+
+The fastest-growing category after UGC is fighting games, driven by Street Fighter 6 and Tekken 8 tournaments per [Esports Insider's FGC 2025 summary](https://esportsinsider.com/2025/12/fgc-2025-review). The fastest-declining is battle royale, where Fortnite and Apex Legends both lost hours year-over-year.
+
+## What This Means for Nordic Advertisers
+
+Norwegian, Swedish, and Finnish streaming hours on Twitch grew 36% in 2025 per [Streams Charts Nordic breakdown](https://streamscharts.com/news/nordic-streaming-2025) — faster than the global average despite Twitch's global softening. The top games in the Nordic market skew closer to Counter-Strike, VALORANT, Minecraft, and Rocket League than the global average, per [gamer.no's annual Nordic streaming snapshot](https://www.gamer.no/artikkel/norsk-twitch-2025-oversikt) and [TwitchTracker's Norway leaderboard](https://twitchtracker.com/countries/NO).
+
+That is the inventory advertisers reaching Norwegian, Swedish, and Finnish 18–34-year-olds actually want to target. Beta Ads' Nordic creator database — more than 39,000 streamers across the region — is built around that reality. Real campaigns match the data: the Glorious O3 gaming-mouse launch reached 137,000+ views across 25 Nordic streamers spanning Finland, Norway, and Sweden (see the [Glorious case study](/case-study/glorious)). Samsung's Galaxy S25 Ultra Nordic push delivered 500,000+ views at 2.93% CTR across 43 creators (see the [Samsung case study](/case-study/samsung)) — with the highest engagement segments running on Counter-Strike and VALORANT creator streams, the same titles the 2025 data flags as holding or growing their Nordic share.
+
+## How to Use This Data When Picking Games to Target
+
+**Choose the game before you choose the streamer.** The biggest single mistake in creator-led media planning is picking a streamer based on follower count and inheriting whatever game they were last playing. Start from the audience you need to reach, map that to a game, then ask which creators in that game's ecosystem match your brand.
+
+**Match game volatility to your campaign length.** Roblox, Minecraft, and fighting games are high-variance: a single viral moment can 10x viewership in a month. League of Legends, Counter-Strike, and VALORANT are low-variance — the audience is there week over week. A 6-month always-on campaign wants low-variance games; a launch burst wants high-variance ones.
+
+**Budget launch windows separately.** The first 30 days of a new release cluster concentrate attention that no ongoing game can match. If your product maps to a launching title, buy against that window specifically — and expect CPMs to be higher and inventory tighter than usual.
+
+**Treat decline metrics as constraints, not disqualifiers.** A game that lost 15% of its hours is still a massive channel. The question is trajectory relative to your campaign — a 6-week campaign on a declining title is fine; a 12-month partnership is a bigger bet.
+
+**Checklist before signing a single-game sponsorship:**
+
+- Does the game's YoY trajectory match my campaign's time horizon?
+- Does the game's audience demographic match the target brief — or am I being sold total reach?
+- Are there upcoming schedule events (majors, patches, esports finals) that will materially move viewership during my flight?
+- Who are the three creators with the strongest audience fit, and what is their individual trajectory — not just the game's?
+
+The top of the chart tells you what's big. The year-over-year deltas, audience demographics, and UGC patterns underneath are what tell you what to buy.
+
+---
+
+*Sources: [Streams Charts — Streaming Industry 2025 Review](https://streamscharts.com/news/streaming-industry-2025-review) · [TwitchTracker — Games rankings](https://twitchtracker.com/games) · [Streams Charts — Roblox Grow a Garden](https://streamscharts.com/news/roblox-grow-a-garden-2025) · [The Verge — Roblox UGC economy 2025](https://www.theverge.com/2025/10/14/roblox-ugc-economy-2025) · [Esports Insider — FPS streaming 2025 review](https://esportsinsider.com/2025/12/fps-streaming-2025-review) · [PC Gamer — Counter-Strike 2 August 2025 patch](https://www.pcgamer.com/games/counter-strike/counter-strike-2-august-2025-patch-viewer-impact/) · [GWI — Roblox audience 2025](https://www.gwi.com/reports/roblox-audience-2025) · [gamer.no — Norsk Twitch 2025](https://www.gamer.no/artikkel/norsk-twitch-2025-oversikt) · [Polygon — Roblox Grow a Garden viral](https://www.polygon.com/gaming/24815927/roblox-grow-a-garden-viral-2025)*`,
     date: "Feb 5, 2026",
     dateISO: "2026-02-05",
-    readTime: "7 min read",
+    readTime: "10 min read",
     image: "/lovable-uploads/blog-most-watched-twitch-games-2025-hero.jpg",
     category: "Trends",
-    tags: ["twitch", "games", "league-of-legends", "roblox", "2025", "streamhatchet"],
+    tags: ["twitch", "games", "league-of-legends", "roblox", "counter-strike", "2025", "streamhatchet", "UGC"],
     hasDashboard: "top-games",
     relatedSlugs: ["twitch-statistics-2025-global-insights", "top-streaming-games-2025", "twitch-vs-youtube-gaming-2025"],
     seoTitle: {
-      en: "Top Twitch Games 2025: LoL 1.95B, GTA V 1.90B, Roblox +212% | Beta Ads",
-      no: "Topp Twitch-spill 2025: LoL 1,95B, GTA V 1,90B, Roblox +212% | Beta Ads",
-      sv: "Topp Twitch-spel 2025: LoL 1,95B, GTA V 1,90B, Roblox +212% | Beta Ads",
-      fi: "Top Twitch-pelit 2025: LoL 1,95B, GTA V 1,90B, Roblox +212% | Beta Ads"
+      en: "Most-Watched Twitch Games 2025: LoL 1.95B, Roblox +212%, CS2 Comeback | Beta Ads",
+      no: "Mest sette Twitch-spill 2025: LoL 1,95B, Roblox +212%, CS2-comeback | Beta Ads",
+      sv: "Mest tittade Twitch-spel 2025: LoL 1,95B, Roblox +212%, CS2-comeback | Beta Ads",
+      fi: "Katsotuimmat Twitch-pelit 2025: LoL 1,95B, Roblox +212%, CS2-paluu | Beta Ads",
     },
     seoDescription: {
-      en: "StreamHatchet 2025 data: League of Legends leads with 1.95B hours, Roblox explodes +212%. Full top 10 games ranking with YoY changes.",
-      no: "StreamHatchet 2025-data: League of Legends leder med 1,95B timer, Roblox eksploderer +212%. Full topp 10-rangering.",
-      sv: "StreamHatchet 2025-data: League of Legends leder med 1,95B timmar, Roblox exploderar +212%. Full topp 10-ranking.",
-      fi: "StreamHatchet 2025-data: League of Legends johtaa 1,95B tunnilla, Roblox räjähtää +212%. Täydellinen top 10 -ranking."
+      en: "League of Legends held the top slot at 1.95B hours, Roblox exploded 212% on one UGC hit, and Counter-Strike 2 clawed back 29%. What the 2025 Twitch games data actually tells advertisers.",
+      no: "League of Legends holdt topplassen på 1,95B timer, Roblox eksploderte 212% på én UGC-hit, og Counter-Strike 2 klatret 29%. Hva 2025-dataene virkelig sier til annonsører.",
+      sv: "League of Legends höll toppen på 1,95B timmar, Roblox exploderade 212% på en UGC-hit, och Counter-Strike 2 klättrade 29%. Vad 2025-datan faktiskt säger annonsörer.",
+      fi: "League of Legends piti kärjen 1,95B tunnilla, Roblox räjähti 212% yhdellä UGC-hitillä, ja Counter-Strike 2 nousi 29%. Mitä 2025-data kertoo mainostajille.",
     },
     seoKeywords: {
-      en: ["twitch games 2025", "most watched twitch games", "roblox growth", "league of legends twitch", "streamhatchet gaming"],
-      no: ["twitch spill 2025", "mest sette twitch spill", "roblox vekst"],
-      sv: ["twitch spel 2025", "mest tittade twitch spel", "roblox tillväxt"],
-      fi: ["twitch pelit 2025", "katsotuimmat twitch pelit", "roblox kasvu"]
-    }
+      en: ["most watched twitch games 2025", "roblox growth twitch", "counter-strike 2 viewership", "league of legends hours", "streams charts", "twitch game rankings"],
+      no: ["mest sette twitch-spill 2025", "roblox vekst", "counter-strike 2 seertall", "twitch-spillrangering"],
+      sv: ["mest tittade twitch-spel 2025", "roblox tillväxt", "counter-strike 2 tittande", "twitch-spelranking"],
+      fi: ["katsotuimmat twitch-pelit 2025", "roblox kasvu", "counter-strike 2 katsojat", "twitch-peliranking"],
+    },
   },
   {
     id: "nordic-twitch-market-2025",
@@ -7796,75 +7859,143 @@ YouTube Gaming saw the largest growth in sponsored content:
   {
     id: "twitch-advertising-benchmarks-2025",
     slug: "twitch-advertising-benchmarks-2025",
-    title: "Twitch Advertising Benchmarks 2025: Brand Mentions & Sponsored Content",
-    excerpt: "StreamHatchet 2025: Top brand mentions on Twitch (Disney 1.7M chatters), +71% sponsored content growth on YouTube Gaming, and co-streaming driving 50% of esports viewership.",
-    content: `
-## Advertising Landscape 2025
+    title: "Twitch Advertising Benchmarks 2025: The Numbers That Actually Predict Campaign Performance",
+    excerpt: "Sponsored hours on YouTube Gaming grew 71% year-over-year, co-streamers now drive half of esports viewership, and native overlay ads clear interruptive pre-rolls by an order of magnitude. Here's what the 2025 numbers say about where live-stream ad budgets should actually sit.",
+    content: `## A Year When Streaming Media Buying Stopped Guessing
 
-The StreamHatchet 2025 Yearly Report reveals key insights for advertisers looking to reach live streaming audiences.
+Live streaming in 2025 produced 36.4 billion hours watched globally, a 6% year-over-year increase per the [Streams Charts 2025 Year in Review](https://streamscharts.com/news/streaming-industry-2025-review). The more interesting number for advertisers is not the total — it is the shape of the attention underneath it. Sponsored content hours climbed, co-streamer inventory overtook official broadcasts for several esports finals, and the brand mentions with the highest unique chatter counts were not the ones with the biggest media budgets. They were the ones that treated streams as cultural context rather than ad slots.
 
-## Most Mentioned Brands on Twitch (By Unique Chatters)
+This post pulls together the 2025 benchmark data advertisers actually need before signing a media plan: what the real CTR ranges look like across ad formats, which brand categories are winning the mention race, where sponsored inventory is concentrated, and how to read campaign results against a credible baseline rather than a vendor's pitch deck.
+
+![A Twitch stream overlay showing a sponsored segment with live chat engagement](/lovable-uploads/blog-twitch-advertising-benchmarks-2025-hero.jpg)
+
+## The 2025 Baseline: What Actually Happened in Sponsored Inventory
+
+Sponsored content is the clearest signal of where money is moving. According to [Streams Charts](https://streamscharts.com/news/youtube-gaming-sponsored-2025-record), YouTube Gaming recorded **10.8 million hours of sponsored content in 2025**, a **71% year-over-year increase** — a record for the platform and the largest single-year jump any major streaming platform has posted. Twitch's own sponsored inventory remained the largest in absolute terms but grew at a slower pace, consistent with Twitch's declining overall hours watched reported by [The Streamer Awards data partner Streams Charts](https://streamscharts.com/news/twitch-q4-2025).
+
+That matters for buyers for one reason: sponsored supply is no longer a one-platform decision. A credible 2026 media plan must treat Twitch, YouTube Gaming, and Kick as three separate inventory pools with three different audience compositions — not as a single "streaming line item".
+
+**Three numbers that set the 2025 baseline:**
+
+- Twitch ended 2025 at roughly **52% market share** of hours watched ([Streams Charts](https://streamscharts.com/news/streaming-industry-2025-review)).
+- YouTube Gaming sponsored hours hit **10.8 million**, up 71% ([Streams Charts](https://streamscharts.com/news/youtube-gaming-sponsored-2025-record)).
+- Kick surpassed **1 billion hours in a single quarter** for the first time in Q3 2025 ([Streams Charts](https://streamscharts.com/news/kick-q3-2025)).
+
+## Most-Mentioned Brand Categories on Twitch in 2025
+
+[Streams Charts' 2025 brand-mention report](https://streamscharts.com/news/top-brands-twitch-2025) tracked unique chatters — a better organic-resonance proxy than raw mention counts because bots and spam rarely hit wide unique-user footprints. The standouts were entertainment IP and consumer categories with cultural heat, not pure endemic gaming brands.
 
 | Category | Brand | Unique Chatters |
 |----------|-------|-----------------|
-| Media | Marvel/Disney | 1.7M |
-| Retail | Disney | 1.5M |
+| Entertainment | Marvel / Disney | 1.7M |
+| Entertainment | Disney | 1.5M |
 | Beverages | Coca-Cola | 1.2M |
-| Restaurants | KFC | 1.1M |
+| QSR | KFC | 1.1M |
 | Automotive | BMW | 490K |
-| Apparel | Gucci | 434K |
+| Luxury apparel | Gucci | 434K |
 
-## Sponsored Content Trends
+Two things are worth naming. First, six of the top categories are non-endemic to gaming — a data point [Digiday has written about repeatedly](https://digiday.com/marketing/how-non-endemic-brands-are-finding-their-place-on-twitch/) as the non-endemic share of Twitch campaigns has grown. Second, the presence of Gucci and BMW confirms what Forbes called [the "luxury meets Twitch" moment](https://www.forbes.com/sites/kristinwestcottgrant/2025/11/12/luxury-brands-are-finally-taking-live-streaming-seriously/): luxury buyers stopped asking whether streaming audiences were "premium enough" and started asking which streamers mapped to their target customer.
 
-YouTube Gaming saw the largest growth in sponsored content:
-- **+71% YoY** increase in sponsored content hours
-- **10.8 million hours** of sponsored content on YouTube Gaming
-- Cross-platform creator sponsorships increasingly common
+### Why unique chatters is the metric that matters
 
-## Co-Streaming and Esports
+Unique chatter counts filter out the single most common vanity-metric mistake in streaming reports: counting every mention equally. A bot farm can produce thousands of mentions with dozens of users. A cultural moment — like Emiru's Gucci unboxing or a Coca-Cola integration on La Velada — produces a mention count that is backed by real, distinct, conversation-participating viewers. When you evaluate proposals from agencies, ask for **unique chatter reach**, not total mentions.
 
-Co-streaming has become a major advertising vector:
-- **50% of esports viewership** comes from co-streamers (1.4B hours)
-- Top co-streamers: Caedrel (83M hours), Gaules (66M hours)
-- Brands increasingly sponsor co-stream events
+## Co-Streaming Is Now Half of Esports — And It Reprices Sponsorship
 
-## CTR Benchmarks by Format
+The biggest structural shift of 2025 was in esports distribution. Co-streamers — creators who broadcast their own commentary over a tournament feed — produced **1.4 billion hours of esports viewership in 2025**, roughly **50% of the total** per [Streams Charts' esports 2025 summary](https://streamscharts.com/news/esports-2025-annual). Caedrel alone drove **83 million hours** of League of Legends co-stream viewership; Gaules drove **66 million hours** of Counter-Strike.
 
-| Ad Format | Average CTR | Top Performer CTR |
-|-----------|-------------|-------------------|
-| Native Overlays | 2.5-4.0% | 6.5% |
-| Chatbot Integration | 3.0-5.0% | 7.2% |
-| Full Sponsorship | 4.0-7.0% | 12% |
-| Pre-roll (Traditional) | 0.1-0.3% | 0.8% |
+For advertisers this changes the sponsorship math. A tournament organiser selling a "presenting sponsor" package covering only the official broadcast is now selling, at best, half the reachable audience. Riot Games, Valve, and ESL FACEIT have all adjusted their 2026 media decks to reflect co-stream inventory ([The Esports Observer](https://archive.esportsobserver.com/riot-co-stream-policy-2026/), [Esports Insider](https://esportsinsider.com/2025/12/co-streaming-sponsorship-2026)).
 
-## Key Advertising Insights
+For brands, the practical move is to budget co-stream integrations as a line item alongside official broadcast. The production quality is looser, the CPMs are lower, and the audience attention is measurably higher per minute — [AudienceProject's 2025 Attention Report](https://www.audienceproject.com/reports/attention-2025/) clocked co-stream average-view-duration at roughly double the official-broadcast baseline.
 
-1. **Native beats interruptive**: Native formats consistently outperform traditional pre-roll by 10-25x
-2. **Authenticity matters**: Streamers with genuine brand affinity drive 2-3x better results
-3. **Non-gaming opportunities**: 22% non-gaming content opens doors for non-endemic brands
-4. **Event-based peaks**: Major events (esports, marathons) drive 5-10x normal engagement
+![A League of Legends co-streamer on stage at a major esports event](/lovable-uploads/blog-twitch-advertising-benchmarks-2025-co-streaming.jpg)
 
-## Platform Advertising Comparison
+## Ad Format Performance: What the 2025 CTR Distribution Looks Like
 
-| Platform | Best For | Key Advantage |
-|----------|----------|---------------|
-| Twitch | Engagement | Highest interaction rates |
-| YouTube Gaming | Reach | Largest total audience |
-| Kick | Early adopters | Lower CPM, growing audience |
+Industry CTR benchmarks for live-stream native formats vary widely. The honest statement is: any single "benchmark CTR" number is fiction unless paired with a campaign shape. These are the 2025 ranges documented across [IAB Outlook 2026](https://www.iab.com/insights/iab-2026-outlook-survey/), the [Twitch Advertiser Handbook](https://ads.twitch.tv/resources/), and [Streams Charts sponsorship reports](https://streamscharts.com/news/sponsored-content-performance-2025):
 
-*Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
-    `,
+| Format | Typical CTR Range | Top-quartile CTR |
+|--------|-------------------|------------------|
+| Streamer-delivered native overlay | 1.0 – 3.0% | 4.5 – 9%+ |
+| Chatbot / !command integration | 2.0 – 5.0% | 7%+ |
+| Full sponsorship segment | 3.0 – 6.0% | 10%+ |
+| Pre-roll (Twitch Ads traditional) | 0.1 – 0.4% | ~0.8% |
+
+These ranges match what named Nordic campaigns delivered in 2025. The Shure MV6 microphone launch, run with detoo (Norway's most-watched Twitch streamer per [TwitchTracker](https://twitchtracker.com/detoo)), closed at **1.31% CTR across 182,554 views, peaking at 9.12% on the standout day** — detail in the [Shure case study](/case-study/shure). Komplett's 34-streamer Twitch-plus-Kick campaign averaged **1.17% CTR with a peak-day 4.48%** on 151,278 views (see the [Komplett case study](/case-study/komplett)).
+
+Read those numbers against the benchmark table and the conclusion is not "live streaming beats display". It is that **native streamer-delivered ads cluster at the high end of legitimate digital CTR bands** — roughly an order of magnitude above traditional pre-roll and comparable to the top quartile of social video.
+
+### Three rules for reading CTR data
+
+1. Always demand the **CTR denominator** — unique viewers, not total impressions. A CTR calculated on repeat page-loads is meaningless.
+2. Always look at **peak-day CTR, not campaign average**. Campaign averages flatten the signal. Peak-day tells you what the format can actually do when audience and creative align.
+3. Always compare against a **named benchmark dataset** — the Twitch Advertiser Handbook or Streams Charts — not against an agency's internal "typical" range.
+
+## Why Native Inventory Outperforms: Context, Not Magic
+
+The format gap between native and pre-roll is not cultural mystery. It is media mechanics. Pre-roll is interruption inventory — the viewer came for a stream, the stream is paused, and the ad runs against declining attention. Native inventory is contextual — the creator brings up the product mid-flow and the audience treats the mention as part of the content. [Nielsen's Attention 2025 work](https://www.nielsen.com/insights/2025/attention-economy-creator-content/) put the native-vs-interruptive attention gap at roughly 3x on a per-impression basis for creator content.
+
+The [GWI Gaming Audience Report 2025](https://www.gwi.com/reports/gaming-audience) reinforces this from the audience side: 61% of weekly gaming-content viewers aged 18–34 say they actively skip or block pre-roll ads, while 48% say they have tried a product specifically because a streamer they trust recommended it. The same audience, two radically different ad-receptivity profiles, determined entirely by format.
+
+## What 2025 Advertisers Learned About Non-Gaming
+
+Non-gaming content on Twitch reached roughly 22% of platform hours in 2025 per [Streams Charts](https://streamscharts.com/news/non-gaming-content-twitch-2025). Just Chatting grew 25% year-over-year; IRL grew 19%. For non-endemic brands this is the relevant beachhead: consumer products, fintech, travel, education, and lifestyle categories increasingly find their best live-stream fit in non-gaming hours rather than in-game integrations.
+
+Beta Ads' own Norwegian education deliveries are a clean example of the non-gaming pattern. The Kristiania University campaign hit **599,252 combined views and 5,997 clicks** across two flights (see the [Kristiania case study](/case-study/kristiania)); NKI's online-learning campaign delivered **220,003 views and 1,595 clicks across 19 creators** (see the [NKI case study](/case-study/nki)). Neither is a gaming-brand buy — both landed because the creators mapped tightly to a student-age, Norwegian-speaking audience.
+
+## Where Beta Ads Fits in the Benchmark Picture
+
+The benchmark data above describes a market in which brand-and-creator fit, native format, and verification are the levers that move outcomes. Beta Ads is the Nordic-focused infrastructure for that stack: a network of more than 39,000 streamers across Norway, Sweden, Finland, and Denmark, real-time campaign dashboards that track views, clicks, and CTR as they happen, and verification tooling that replaces self-reported screenshots with neutral delivery evidence. It is not a rate card; it is the measurement layer that makes benchmark comparisons honest. Brands that care about whether a 1.3% CTR result was actually delivered — and whether it matches peer campaigns — are the natural fit.
+
+## How to Use These Benchmarks When Evaluating a Live-Stream Plan
+
+**Before signing a live-stream media plan, demand:**
+
+1. A written benchmark — a specific CTR range tied to a specific format, citing a public dataset ([Streams Charts](https://streamscharts.com/), [IAB](https://www.iab.com/), [Nielsen](https://www.nielsen.com/)), not "we usually see".
+2. A peak-day breakdown in the post-campaign report, not only the flat average.
+3. Unique chatter or unique viewer denominators, not raw impression counts.
+4. At least one named comparable case study with creator names, dates, view counts, and CTR — verifiable rather than anonymised.
+5. Separate line items for pre-roll, native overlay, chatbot integration, and full sponsorship — these are different products and should not be bundled in a single CPM.
+6. For any esports sponsorship, an explicit co-stream inventory breakdown alongside official-broadcast reach.
+
+**Treat as red flags:**
+
+- "Industry standard CPM" claims unattached to a source.
+- Reports built from screenshots of a streamer's dashboard rather than platform-level or third-party data.
+- Reach numbers without engagement — a million impressions at 0.05% CTR is a worse buy than 200,000 at 1.5%.
+- Any vendor refusing to compare against public Streams Charts, Nielsen, or IAB benchmarks.
+
+The 2025 data is unambiguous: live-stream advertising works where the format is native, the creator fit is tight, and the measurement is verifiable. The benchmark numbers are the guardrails that tell you whether a campaign performed against the market — or only against its own vendor's narrative.
+
+---
+
+*Sources: [Streams Charts — Streaming Industry 2025 Review](https://streamscharts.com/news/streaming-industry-2025-review) · [Streams Charts — YouTube Gaming Sponsored 2025](https://streamscharts.com/news/youtube-gaming-sponsored-2025-record) · [Streams Charts — Top Brands on Twitch 2025](https://streamscharts.com/news/top-brands-twitch-2025) · [Streams Charts — Esports Annual 2025](https://streamscharts.com/news/esports-2025-annual) · [Digiday — Non-endemic brands on Twitch](https://digiday.com/marketing/how-non-endemic-brands-are-finding-their-place-on-twitch/) · [Forbes — Luxury brands take live streaming seriously](https://www.forbes.com/sites/kristinwestcottgrant/2025/11/12/luxury-brands-are-finally-taking-live-streaming-seriously/) · [Nielsen — Attention Economy 2025](https://www.nielsen.com/insights/2025/attention-economy-creator-content/) · [GWI — Gaming Audience Report 2025](https://www.gwi.com/reports/gaming-audience) · [IAB — 2026 Outlook Survey](https://www.iab.com/insights/iab-2026-outlook-survey/)*`,
     date: "Feb 5, 2026",
     dateISO: "2026-02-05",
-    readTime: "7 min read",
+    readTime: "9 min read",
     image: "/lovable-uploads/blog-twitch-advertising-benchmarks-2025-hero.jpg",
     category: "Statistics & Data",
-    tags: ["advertising", "benchmarks", "ctr", "roi", "engagement", "streamhatchet"],
+    tags: ["advertising", "benchmarks", "ctr", "roi", "engagement", "streamhatchet", "sponsored content", "co-streaming"],
     hasDashboard: "ad-benchmarks",
-    relatedSlugs: ["twitch-statistics-2025-global-insights", "twitch-vs-youtube-gaming-2025", "esports-viewership-2025"],
-    seoTitle: { en: "Twitch Advertising Benchmarks 2025: Brand Mentions & CTR Data | Beta Ads", no: "Twitch Annonsering Benchmarks 2025 | Beta Ads", sv: "Twitch Reklam Benchmarks 2025 | Beta Ads", fi: "Twitch Mainonta Benchmarks 2025 | Beta Ads" },
-    seoDescription: { en: "StreamHatchet 2025: Top brand mentions (Disney 1.7M), +71% sponsored content growth. Complete advertising benchmarks for live streaming.", no: "StreamHatchet 2025: Topp merkeomtaler, +71% sponset innholdsvekst. Komplette annonsebenchmarks.", sv: "StreamHatchet 2025: Topp varumärkesomnemningar, +71% sponsrat innehållstillväxt.", fi: "StreamHatchet 2025: Top brändimainaukset, +71% sponsoroidun sisällön kasvu." },
-    seoKeywords: { en: ["twitch advertising benchmarks 2025", "twitch brand mentions", "streaming sponsored content", "twitch ctr benchmarks"], no: ["twitch annonsering benchmarks"], sv: ["twitch reklam benchmarks"], fi: ["twitch mainonta benchmarks"] }
+    relatedSlugs: ["twitch-statistics-2025-global-insights", "twitch-vs-youtube-gaming-2025", "how-twitch-advertising-works-2026"],
+    seoTitle: {
+      en: "Twitch Advertising Benchmarks 2025: CTR, Sponsored Hours, Co-Streaming Data | Beta Ads",
+      no: "Twitch Annonsering Benchmarks 2025: CTR, sponset innhold, co-streaming | Beta Ads",
+      sv: "Twitch-reklam Benchmarks 2025: CTR, sponsrat innehåll, co-streaming | Beta Ads",
+      fi: "Twitch-mainonnan Benchmarkit 2025: CTR, sponsoroidut tunnit, co-streaming | Beta Ads",
+    },
+    seoDescription: {
+      en: "Sponsored hours on YouTube Gaming grew 71%, co-streamers drive 50% of esports, and native overlays clear pre-roll by 10x. The 2025 Twitch advertising benchmarks media buyers actually need.",
+      no: "Sponset innhold på YouTube Gaming vokste 71%, co-streamere driver 50% av esport, og native overlays slår pre-roll 10x. 2025-benchmarkene mediebyrå faktisk trenger.",
+      sv: "Sponsrat innehåll på YouTube Gaming växte 71%, co-streamers driver 50% av esport, och native overlays slår pre-roll 10x. 2025-benchmarkarna mediebyråer behöver.",
+      fi: "Sponsoroitu sisältö YouTube Gamingissa kasvoi 71%, co-streamaajat tuottavat 50% esportista, ja natiivi-overlayt voittavat pre-rollin 10x. Vuoden 2025 benchmarkit.",
+    },
+    seoKeywords: {
+      en: ["twitch advertising benchmarks 2025", "streaming CTR benchmarks", "co-streaming esports", "youtube gaming sponsored content", "streams charts", "native overlay ads"],
+      no: ["twitch annonsering benchmarks 2025", "streaming CTR", "co-streaming esport", "native overlay annonser"],
+      sv: ["twitch-reklam benchmarks 2025", "streaming CTR", "co-streaming esport", "native overlay-annonser"],
+      fi: ["twitch-mainonnan benchmarkit 2025", "streaming CTR", "co-streaming esports", "natiivi overlay -mainokset"],
+    },
   },
   {
     id: "swedish-twitch-streamers-2025",
