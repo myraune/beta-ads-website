@@ -176,15 +176,9 @@ export const SEO: React.FC<SEOProps> = ({
       {noindex && <meta name="robots" content="noindex, nofollow" />}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
-      {/* hreflang alternates — signals language/region targeting to Google */}
-      {hreflangTags.map(({ hreflang, href }) => (
-        <link
-          key={`hreflang-${hreflang}`}
-          rel="alternate"
-          hrefLang={hreflang}
-          href={href}
-        />
-      ))}
+      {/* hreflang alternates are emitted imperatively by useEffect above —
+           rendering them via Helmet here too caused duplicates because
+           Helmet's tags survive the useEffect cleanup pass on re-renders. */}
 
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
