@@ -32,13 +32,10 @@
     <link rel="dns-prefetch" href="//discord.com" />
     <link rel="dns-prefetch" href="//twitch.tv" />
 
-    <!-- Hreflang — multi-language content signals -->
-    <link rel="alternate" hreflang="en" href="https://beta-ads.no/" />
-    <link rel="alternate" hreflang="no" href="https://beta-ads.no/" />
-    <link rel="alternate" hreflang="sv" href="https://beta-ads.no/" />
-    <link rel="alternate" hreflang="fi" href="https://beta-ads.no/" />
-    <link rel="alternate" hreflang="da" href="https://beta-ads.no/" />
-    <link rel="alternate" hreflang="x-default" href="https://beta-ads.no/" />
+    <!-- hreflang is emitted per-page by <SEO> (src/components/SEO.tsx) with the
+         correct locale + canonical URL. Static wildcard tags would send
+         conflicting signals (every language pointing to /) so they must not
+         live here. -->
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/lovable-uploads/favicon-32.png">
