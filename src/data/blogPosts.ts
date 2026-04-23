@@ -2179,9 +2179,9 @@ The data on this is consistent: native ads are viewed 53 percent more than banne
 
 ## What the CPM Comparison Misses
 
-A common mistake in media planning is evaluating CTV and live streaming on the same CPM axis. CTV CPMs in the Nordics have stabilized in the range of €12 to €22 for premium inventory. Live streaming CPMs vary by platform and format, but are generally competitive within that range for engaged audiences.
+A common mistake in media planning is evaluating CTV and live streaming on the same CPM axis. The two formats look similar on a spreadsheet but the economics behind the numbers diverge once you dig in.
 
-The problem with this comparison is that CPM measures cost per impression, and not all impressions carry the same weight. A passive impression during a CTV pre-roll against a viewer who is half-present is a different product than a native brand mention during a live stream where the viewer is actively watching and has a strong affiliation with the presenter.
+The problem with a pure CPM comparison is that it measures cost per impression, and not all impressions carry the same weight. A passive impression during a CTV pre-roll against a viewer who is half-present is a different product than a native brand mention during a live stream where the viewer is actively watching and has a strong affiliation with the presenter.
 
 Measuring both in CPM is like comparing the cost per square meter of an airport billboard against the cost per square meter of a direct conversation with a trusted friend. The unit of measurement is technically the same. The actual impact is not.
 
@@ -2514,19 +2514,17 @@ CPM is an input cost, not an outcome metric. The benchmarks that actually matter
 
 This is where platforms like Beta Ads change the economics. Access to a database of 39,000+ streamers across the Nordics - filtered by language, category, viewership size, and engagement rate - means finding the right inventory no longer requires a manual outreach campaign. Campaign verification, clip capture, and real-time analytics close the measurement gap that has historically made live stream advertising feel opaque compared to programmatic display.
 
-## What Should Nordic Brands Budget?
+## How Nordic Brands Should Think About Budget
 
-As a practical starting point:
+The right budget shape depends on goals, market, and campaign structure. A few practical frames:
 
-- **Testing phase** (1–2 streamers, 4–6 weeks): €3,000–€8,000 - enough to generate meaningful data without material risk
-- **Always-on mid-tier program** (8–15 streamers, quarterly): €15,000–€40,000 - the level at which frequency and reach effects become statistically visible
-- **Integrated campaign** (programmatic overlay + creator integrations): €40,000–€100,000+ - full-funnel execution combining impression volume with conversion-driving native content
+- **Testing phase** — 1–2 streamers, 4–6 weeks. Enough signal to make a second-round decision without material risk.
+- **Always-on mid-tier program** — 8–15 streamers, quarterly cadence. The point at which frequency and reach effects become statistically visible in brand tracking.
+- **Integrated campaign** — programmatic overlay + creator integrations combined. Full-funnel execution matching impression volume with conversion-driving native content.
 
-These ranges assume the Nordic market. International campaigns or top-tier creator partnerships command higher investment.
+Actual campaign sizing varies widely by category, market, and integration format. Brands serious about 2026 Nordic livestream spend should scope their first campaign with a partner rather than anchor on a benchmark number.
 
-The floor cost for meaningful live stream advertising is lower than most brand managers assume. The ceiling for what the channel can deliver - for brands that invest properly, measure rigorously, and iterate - is higher than almost any other digital channel available to them in 2026.
-
-The CPM is just the starting price. The question is what you do with the time you've bought.`,
+The question worth asking is not "what's the CPM" — it's what you do with the attention you've bought.`,
     date: "Mar 31, 2026",
     dateISO: "2026-03-31",
     readTime: "7 min read",
@@ -8424,7 +8422,7 @@ Donasjoner - også kalt tips - er direkte betalinger fra seere til streameren, t
 - **Vipps** - godt kjent blant norske seere og enkel å sette opp
 - **StreamElements** - integrert tipping med overlay-alertstøtte
 
-Donasjoner er uforutsigbare, men kan være betydelige. Topp-streamere mottar jevnlig firesifrede enkeltdonasjoner. For mindre streamere kan tilbakevendende "sub-jubileum"-donasjoner fra lojale seere legge til 500–5 000 kr per måned fra et lite, men dedikert community.
+Donasjoner er uforutsigbare, men kan være betydelige for streamere med lojale communities. Størrelsen varierer mye basert på kanalstørrelse og hvor tett forholdet er til seerne.
 
 Å sette opp en synlig, animert donasjonsvarsling - slik at hele streamen ser og feirer bidraget - er ett av de viktigste oppsettstegene for enhver ny streamer.
 
@@ -8446,17 +8444,7 @@ Mer lukrative affiliateavtaler er tilgjengelige fra gaming-utstyrsprodusenter, p
 
 Merkevaresponsing er den høyest betalende kategorien for etablerte streamere, men de krever et publikum før merker vil engasjere seg seriøst. Den typiske strukturen er en betalt integrasjon der merkevaren betaler deg for å nevne produktet, demonstrere det, eller kjøre en dedikert branded stream.
 
-**Sponsoratpriser varierer sterkt etter publikumsstørrelse og engasjement:**
-
-| Gjennomsnittlige samtidige seere | Typisk sponsoratpris (per stream) |
-|---|---|
-| 50–100 | 500–2 000 kr |
-| 100–500 | 2 000–10 000 kr |
-| 500–2 000 | 10 000–50 000 kr |
-| 2 000–10 000 | 50 000–250 000 kr |
-| 10 000+ | 250 000 kr–1 mill kr+ |
-
-Dette er grove referansepunkter - prisene varierer betydelig basert på kategori, merkevarebudsjett, eksklusivitet og formatet på integrasjonen.
+**Sponsoratpriser varierer sterkt etter publikumsstørrelse og engasjement.** En streamer med 100 samtidige seere og et dedikert norsk-språklig community kan tjene vesentlig mer per sponset stream enn en større internasjonal kanal uten kategori-fokus. Faktorer som avgjør prisen: publikumsstørrelse, engasjement (chat-aktivitet, retensjon), kategori, eksklusivitet, og hvor nativ integrasjonen er. Konkrete avtaler avtales mellom streamer og merke (eller via en agent/plattform) per kampanje.
 
 **Slik tiltrekker du deg sponsorater:** De fleste sponsoratavtaler for små-til-mellomstore streamere kommer ikke gjennom inngående forespørsler - du må selv ta initiativet. Bygg et enkelt mediekort med gjennomsnittlig seerbarhet, viktig demografi, typisk streamlengde og eksempelinnhold. Kontakt merker hvis produkter du genuint bruker og hvis publikumsettertrykk gir mening.
 
@@ -10223,7 +10211,7 @@ En tradisjonell sponsor-avtale direkte mellom et merke og en streamer gir deg é
 
 ## Kom i gang
 
-Dersom bestiller for 2026 planlegger et norsk Twitch-spor, er detoo-inkluderte kampanjer booket på ukentlig basis. Typiske kampanjestørrelser går fra ca. 5–50 000 € per runde.
+Dersom bestiller for 2026 planlegger et norsk Twitch-spor, er detoo-inkluderte kampanjer booket på ukentlig basis. Vi setter opp en konsultasjon for å kartlegge mål, kategori og ønsket leveranse — og kommer tilbake med et skreddersydd forslag.
 
 👉 [Bestill en 20-minutters konsultasjon](/contact) eller se [alle publiserte kampanje-analyser](/case-studies).
 `,
@@ -10257,143 +10245,6 @@ Dersom bestiller for 2026 planlegger et norsk Twitch-spor, er detoo-inkluderte k
       fi: ["norjan twitch-striimaaja brändit", "norjan suurin striimaaja", "twitch-sponsorointi norja"]
     }
   },
-  {
-    id: "twitch-sponsor-priser-norge-2026",
-    slug: "twitch-sponsor-priser-norge-2026",
-    title: "Twitch-sponsor-priser i Norge 2026: Hva koster en kampanje faktisk?",
-    excerpt: "Hvor mye koster det å kjøre en Twitch-kampanje i Norge? Vi går gjennom CPM-intervaller, pakke-priser, hva som driver kostnadene og hvordan verdien sammenlignes med TV, YouTube og display — basert på 9 publiserte kampanjer.",
-    content: `
-## Kort svar for de travle
-
-En native Twitch-kampanje for et norsk merke går typisk på **5 000–50 000 € per runde**, avhengig av varighet, antall streamere og kreativformat. CPM-intervallet for det norske markedet ligger i **6–14 € per 1 000 fullførte visninger** i 2026, noe som er konkurransedyktig mot YouTube pre-roll og dyrere enn display, men med **null adblock-tap**.
-
-Det er den strukturelle forklaringen. Resten av artikkelen går gjennom hva som driver prisen i hver kampanje, og hvordan du bør sammenligne det med andre kanaler i mediemiksen.
-
-## Hva avgjør prisen på en norsk Twitch-kampanje?
-
-Fem variabler bestemmer totalen:
-
-### 1. Antall streamer-slots
-Typiske kampanjer vi kjører inkluderer **15–50 norske streamere** samtidig. Samsung Galaxy Z Fold7 brukte 28 slots. Høyskolen Kristiania sin rekrutterings-kampanje brukte 25. Flere slots gir bredere dekning — og høyere totalpris.
-
-### 2. Varighet (run-tid)
-Kampanjer kjører typisk i **2–6 uker**. En kort "burst" (1 uke) er billigere men henter inn færre visninger. Saily sin eSIM-kampanje kjørte i 4 uker og leverte 102 794 fullførte visninger.
-
-### 3. Kreativformat
-- **Snipe Ad** (banner, 400×200 px): lavest produksjonskostnad
-- **Sidebar** (persistent placement): middels
-- **Rich Media** (1920×1080 takeover): høyest produksjonskostnad, men også høyest visuell impact
-- **Interactive / Klikk-trackede overlay**: inkluderer verifisert klikkmåling — brukes når kampanjen skal vise ROI
-
-Kreativproduksjon gjøres av Beta Ads per merke, og kostnaden er innebygget i kampanjen.
-
-### 4. Sesong
-Q4 (Black Friday + jul) er dyrere enn Q1. Nordic Game (mai) og norsk esports-sesongens startukene er også etterspurte vinduer.
-
-### 5. Profil på inkluderte kanaler
-Å ha detoo (Norges #1 på TwitchTracker) i miksen koster mer enn et rent mid-tier-utvalg. Rich-media på high-profile kanaler gir høyest CTR — Shure MV6 leverte **9.12% CTR på toppdagen** når detoo nevnte produktet muntlig samtidig som overlayen kjørte.
-
-## CPM-intervaller for Norge 2026
-
-CPM (Cost Per Mille, kostnad per 1 000 visninger) for det norske markedet i 2026 ligger typisk i dette båndet:
-
-| Format | CPM-intervall (€) | Kommentar |
-|---|---|---|
-| Snipe Ad | 6–9 | Mest kostnadseffektivt per visning |
-| Sidebar | 7–11 | Lengst eksponering per seer |
-| Rich Media | 10–14 | Inkluderer kreativproduksjon |
-| Video (15–60s) | 12–18 | Mest sammenlignbart med TV-spot |
-| Interactive + Klikk-tracking | 11–15 | Inkluderer verifisert måling |
-
-Dette er verifiserte tall fra vår pipeline. Amazon Ads (Twitch-programmatic) publiserer ingen lokale norske tall.
-
-## Eksempler fra publiserte kampanjer
-
-| Kampanje | Streamere | Visninger | Verifisert CTR |
-|---|---|---|---|
-| [Samsung Galaxy S25 Ultra](/case-study/samsung) | 43 slots | 500 000+ live | 2.93% |
-| [Samsung Galaxy Z Fold7](/case-study/samsung) | 28 slots | 300 000+ live | 2.34% |
-| [Shure MV6](/case-study/shure) | 2 (inkl. detoo) | 182 554 | 1.31% (9.12% peak) |
-| [Komplett retail](/case-study/komplett) | 34 (Twitch + Kick) | 151 278 | 1.17% (4.48% peak) |
-| [NKI quiz](/case-study/nki) | 19 | 220 003 | 0.72% |
-| [Høyskolen Kristiania](/case-study/kristiania) | 25+ | 599 252 (kombinert) | 1.53% / 1.16% |
-
-## Hvordan sammenligner du verdien mot andre kanaler?
-
-Nøkkelen er **adblock-justert CPM**. Twitch-overlay leverer 0% adblock-tap fordi overlayen rendres inne i selve videostrømmen — ikke levert av browser. Sammenlignet med:
-
-- **YouTube pre-roll**: 12–22% tap til adblock-brukere (høyere blant 18–24-åringer)
-- **Display / bannerannonser**: 35–55% tap til adblock
-- **Lineær-TV i Norge**: 18–34-segmentet ser 40% mindre TV i 2026 enn i 2020 (SSB)
-- **Podcast host-read**: sammenlignbar reach, men skalerer dårligere per kampanje
-
-Det betyr at Twitch-CPM på 10 € for et 18–34 norsk publikum **i praksis** tilsvarer en lavere CPM enn YouTube pre-roll på 8 € når du korrigerer for hvem som faktisk ser annonsen.
-
-## Hva du bør spørre om før du signerer
-
-Uansett om du vurderer Beta Ads, en annen Nordic-agentur, eller en direkte streamer-deal, still disse spørsmålene:
-
-1. **Hvordan verifiseres visninger og klikk?** Plattformverifisert eller streamer-screenshot?
-2. **Er CPM basert på fullførte visninger eller utleveringer?** Vi rapporterer fullførte (bruker må ha vært til stede).
-3. **Hvilken adblock-test er kjørt?** Skal være 0% for overlay-formater.
-4. **Hvor mange kanaler er i nettverket?** Beta Ads har 47 aktive norske kanaler i april 2026; sammenligning-diverse agentur har <10.
-5. **Hvem eier kreativet etter kampanjen?** Hos oss: dere.
-
-## Når er Twitch-annonsering IKKE riktig?
-
-Ærlig svar: hvis målgruppen din er **primært 55+**, hvis du trenger dekning i **hele befolkningen innen 48 timer**, eller hvis **kjøret skjer i en kategori med full programmatic-dekning** (store auto-brands, reise-brands i peak-season), kan TV fortsatt være billigere per bruttoeksponering.
-
-Twitch er sterkt når målgruppen er **18–44, digital-native, ad-block-bruker, og du trenger engagement-drevet ROI** snarere enn rent reach-basert.
-
-## Få et konkret estimat for ditt merke
-
-Siden priser varierer såpass mye på de fem variablene ovenfor, sender vi et konkret tilbud innen 24 timer basert på:
-
-- Målmarked (Norge alene / Nordisk)
-- Kategori og produkttype
-- Ønsket kampanjestørrelse (visninger eller budsjett)
-- Brand-safety-krav
-- Ønsket rapporterings-cadens (ukentlig vs. sluttrapport)
-
-👉 [Bestill en 20-minutters konsultasjon](/contact) eller se [alle publiserte kampanje-analyser](/case-studies).
-
----
-
-Relaterte guider:
-- [Twitch-annonsering i Norge: Komplett Guide 2026](/blog/twitch-annonsering-norge-guide)
-- [Norges største Twitch-streamer jobber med Shure og Samsung](/blog/norges-storste-streamer-merkevare-samarbeid)
-- [Gaming-markedsføring for merkevarer](/blog/gaming-markedsforing-forste-kampanje-guide)
-`,
-    date: "April 22, 2026",
-    dateISO: "2026-04-22",
-    readTime: "8 min",
-    image: "/lovable-uploads/blog-twitch-cpm-media-buying-guide-2026-hero.jpg",
-    category: "Guider",
-    tags: ["norge", "priser", "cpm", "twitch", "annonsering", "kostnad", "media buying"],
-    relatedSlugs: [
-      "twitch-annonsering-norge-guide",
-      "norges-storste-streamer-merkevare-samarbeid",
-      "gaming-markedsforing-forste-kampanje-guide"
-    ],
-    seoTitle: {
-      en: "Twitch Sponsor Pricing in Norway 2026: What Does a Campaign Actually Cost? | Beta Ads",
-      no: "Twitch-sponsor-priser i Norge 2026: Hva koster en kampanje? | Beta Ads",
-      sv: "Twitch-sponsor-priser i Norge 2026: Vad kostar en kampanj? | Beta Ads",
-      fi: "Twitch-sponsorointihinnat Norjassa 2026: Mitä kampanja maksaa? | Beta Ads"
-    },
-    seoDescription: {
-      en: "What does a Twitch campaign in Norway actually cost in 2026? CPM ranges, package pricing, cost drivers, and how it compares to TV, YouTube and display — based on 9 published Beta Ads campaigns.",
-      no: "Hva koster en Twitch-kampanje i Norge i 2026? CPM-intervaller, pakkepriser, kostnadsdrivere og hvordan verdien sammenlignes med TV, YouTube og display — basert på 9 publiserte Beta Ads-kampanjer.",
-      sv: "Vad kostar en Twitch-kampanj i Norge 2026? CPM-intervall, paketpriser, kostnadsdrivare och jämförelse mot TV, YouTube och display — baserat på 9 publicerade Beta Ads-kampanjer.",
-      fi: "Mitä Twitch-kampanja maksaa Norjassa vuonna 2026? CPM-vaihteluvälit, pakettihinnat, kustannusajurit — yhdeksään julkaistuun Beta Ads -kampanjaan perustuen."
-    },
-    seoKeywords: {
-      en: ["twitch advertising cost norway", "twitch sponsor pricing norway 2026", "twitch cpm norway", "nordic twitch campaign cost", "what does twitch advertising cost"],
-      no: ["twitch sponsor pris norge", "twitch annonsering pris norge", "twitch kampanje kostnad", "twitch cpm norge", "hva koster twitch reklame", "twitch annonser pris 2026", "twitch sponsor pris 2026 norge"],
-      sv: ["twitch sponsor pris norge", "twitch annonsering kostnad norge", "twitch cpm norge"],
-      fi: ["twitch-mainonnan hinta norja", "twitch cpm norja", "twitch-kampanjan hinta"]
-    }
-  }
 ];
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {

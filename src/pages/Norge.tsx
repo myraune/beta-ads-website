@@ -95,11 +95,6 @@ const norwegianBlogPosts = [
     desc: "Alt du trenger å vite om å annonsere på Twitch i det norske markedet.",
   },
   {
-    slug: "twitch-sponsor-priser-norge-2026",
-    title: "Twitch-sponsor-priser i Norge 2026: Hva koster en kampanje?",
-    desc: "CPM-intervaller, pakke-priser og hva som driver kostnaden — basert på 9 publiserte kampanjer.",
-  },
-  {
     slug: "norges-storste-streamer-merkevare-samarbeid",
     title: "Norges største Twitch-streamer jobber med Shure og Samsung",
     desc: "detoo topper TwitchTracker. Slik ser et ekte streamer-merkevare-samarbeid ut.",
@@ -372,11 +367,11 @@ const Norge: React.FC = () => {
                 Skal du kjøre en norsk Twitch-kampanje i 2026?
               </h2>
               <p className="text-base text-muted-foreground mt-6 leading-relaxed">
-                Typiske kampanjer starter på 5 000–50 000 € per runde. Vi
-                booker 4–6 uker i forveien i de mest ettertraktede vinduene
-                (Black Friday, Nordic Game, juleuka). Bestill en
-                20-minutters konsultasjon så tar vi en gjennomgang av
-                kategori, brief og anslått CTR-bånd.
+                Vi booker 4–6 uker i forveien i de mest ettertraktede vinduene
+                (Black Friday, Nordic Game, juleuka). Bestill en 20-minutters
+                konsultasjon så tar vi en gjennomgang av kategori, brief og
+                anslått leveranse — og kommer tilbake med et skreddersydd
+                forslag innen 24 timer.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">

@@ -137,7 +137,7 @@ const Contact: React.FC = () => {
                   What's the minimum campaign budget?
                   <ArrowRight className="w-4 h-4 shrink-0 ml-4 transition-transform group-open:rotate-90 text-muted-foreground" />
                 </summary>
-                <p className="pt-3 text-sm text-muted-foreground leading-relaxed">We recommend a minimum of $10,000 USD. This ensures enough reach, streamer variety, and creative quality to generate meaningful results. Smaller tests are possible — book a call to discuss.</p>
+                <p className="pt-3 text-sm text-muted-foreground leading-relaxed">Budgets vary by goals, market, and campaign duration. Book a call and we'll scope the right shape — including smaller tests when appropriate.</p>
               </details>
               <details className="group py-5">
                 <summary className="flex items-center justify-between cursor-pointer text-sm font-medium text-foreground hover:text-primary transition-colors select-none list-none">

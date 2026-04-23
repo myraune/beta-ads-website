@@ -21,7 +21,7 @@ const offers = [
     icon: "/lovable-uploads/icon-samsung.svg",
     campaign: "Galaxy S25 Ultra Launch",
     format: "Rich Media",
-    payout: "€320",
+    payout: "View offer",
     duration: "2 wk",
     preview: "/lovable-uploads/overlay-samsung.webm",
     streamBg: "/lovable-uploads/stream-placeholder.jpg",
@@ -34,7 +34,7 @@ const offers = [
     icon: "/lovable-uploads/icon-logitech.png",
     campaign: "G Pro X Superlight",
     format: "Side Bar",
-    payout: "€180",
+    payout: "View offer",
     duration: "1 wk",
     preview: "/lovable-uploads/overlay-logitech.webm",
     streamBg: "/lovable-uploads/stream-placeholder.jpg",
@@ -47,7 +47,7 @@ const offers = [
     icon: "/lovable-uploads/icon-foodora.svg",
     campaign: "Summer Promo",
     format: "Snipe Banner",
-    payout: "€95",
+    payout: "View offer",
     duration: "3 d",
     preview: "/lovable-uploads/overlay-foodora.webm",
     streamBg: "/lovable-uploads/stream-placeholder.jpg",
@@ -60,7 +60,7 @@ const offers = [
     icon: "/lovable-uploads/icon-surfshark.png",
     campaign: "VPN Awareness Q2",
     format: "Video",
-    payout: "€250",
+    payout: "View offer",
     duration: "1 wk",
     preview: "/lovable-uploads/overlay-surfshark.webm",
     streamBg: "/lovable-uploads/stream-placeholder.jpg",
@@ -263,27 +263,28 @@ const EarningsView: React.FC = () => {
         <span className="text-[10px] text-white/30 bg-white/5 px-2 py-0.5 rounded">Last 12 months</span>
       </div>
 
-      {/* Earnings stats */}
+      {/* Earnings stats — illustrative dashboard only. Real amounts reflect the
+          offers a streamer has accepted and vary per campaign. */}
       <div className="grid grid-cols-3 gap-2 lg:gap-3 mb-3">
         <div className="bg-white/[0.04] rounded-xl p-3 lg:p-4 border border-white/5">
           <div className="text-[10px] text-white/40 mb-1">Total earned</div>
-          <div className="text-base sm:text-xl lg:text-2xl font-bold text-white tabular-nums">€4,034</div>
+          <div className="text-base sm:text-xl lg:text-2xl font-bold text-white tabular-nums">—</div>
           <div className="flex items-center gap-1 mt-1">
             <TrendingUp className="w-3 h-3 text-emerald-400" />
-            <span className="text-[10px] text-emerald-400">+24%</span>
+            <span className="text-[10px] text-emerald-400">Trending up</span>
           </div>
         </div>
         <div className="bg-white/[0.04] rounded-xl p-3 lg:p-4 border border-white/5">
           <div className="text-[10px] text-white/40 mb-1">This month</div>
-          <div className="text-base sm:text-xl lg:text-2xl font-bold text-white tabular-nums">€847</div>
+          <div className="text-base sm:text-xl lg:text-2xl font-bold text-white tabular-nums">—</div>
           <div className="flex items-center gap-1 mt-1">
             <TrendingUp className="w-3 h-3 text-emerald-400" />
-            <span className="text-[10px] text-emerald-400">+12%</span>
+            <span className="text-[10px] text-emerald-400">On track</span>
           </div>
         </div>
         <div className="bg-white/[0.04] rounded-xl p-3 lg:p-4 border border-white/5">
           <div className="text-[10px] text-white/40 mb-1">Pending</div>
-          <div className="text-base sm:text-xl lg:text-2xl font-bold text-amber-400 tabular-nums">€320</div>
+          <div className="text-base sm:text-xl lg:text-2xl font-bold text-amber-400 tabular-nums">—</div>
           <div className="text-[10px] text-white/30 mt-1 truncate">Next payout: Apr 1</div>
         </div>
       </div>
@@ -298,9 +299,9 @@ const EarningsView: React.FC = () => {
       <div className="text-[10px] text-white/40 mb-1.5">Recent payouts</div>
       <div className="space-y-1.5">
         {[
-          { date: "Mar 1, 2026", amount: "€610", status: "Paid" },
-          { date: "Feb 1, 2026", amount: "€380", status: "Paid" },
-          { date: "Jan 1, 2026", amount: "€450", status: "Paid" },
+          { date: "Mar 1, 2026", amount: "Paid out", status: "Complete" },
+          { date: "Feb 1, 2026", amount: "Paid out", status: "Complete" },
+          { date: "Jan 1, 2026", amount: "Paid out", status: "Complete" },
         ].map((p) => (
           <div
             key={p.date}
@@ -367,9 +368,9 @@ const AnalyticsView: React.FC = () => {
       <div className="text-[10px] text-white/40 mb-2">Top performing campaigns</div>
       <div className="space-y-1.5">
         {[
-          { name: "Samsung Galaxy S25 Ultra", impressions: "150.6K", ctr: "2.93%", revenue: "€320" },
-          { name: "Surfshark VPN", impressions: "32.1K", ctr: "4.73%", revenue: "€250" },
-          { name: "Foodora Rider", impressions: "33.7K", ctr: "3.42%", revenue: "€180" },
+          { name: "Samsung Galaxy S25 Ultra", impressions: "150.6K", ctr: "2.93%", revenue: "Paid" },
+          { name: "Surfshark VPN", impressions: "32.1K", ctr: "4.73%", revenue: "Paid" },
+          { name: "Foodora Rider", impressions: "33.7K", ctr: "3.42%", revenue: "Paid" },
         ].map((c) => (
           <div
             key={c.name}

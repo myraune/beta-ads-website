@@ -92,7 +92,7 @@ const DashboardView = () => (
         { label: "Views", value: "412,847", hl: true },
         { label: "Clicks", value: "5,842", hl: true },
         { label: "CTR", value: "1.41 %", hl: true },
-        { label: "Spend", value: "€18,450", hl: true },
+        { label: "Delivery", value: "On track", hl: true },
         { label: "Exposure Time", value: "42.3 hrs" },
         { label: "Watch Time", value: "2,841 hrs" },
       ].map((s) => (
@@ -108,7 +108,7 @@ const DashboardView = () => (
         { label: "Sponsored Streams", value: "612" },
         { label: "Total Followers", value: "2.1M" },
         { label: "Categories", value: "34" },
-        { label: "Cost per Hour", value: "€6.49" },
+        { label: "Peak Concurrency", value: "3,214" },
         { label: "Chat Mentions", value: "4,291" },
       ].map((s) => (
         <div key={s.label} className="px-2.5 py-2 bg-white rounded-lg border border-gray-100">
@@ -159,26 +159,26 @@ const DashboardView = () => (
       <table className="w-full">
         <thead>
           <tr className="border-b border-gray-50">
-            {["Campaign","Status","Start Date","End Date","Budget","Views","Clicks","CTR","Ad Spend"].map((h) => (
+            {["Campaign","Status","Start Date","End Date","Streamers","Views","Clicks","CTR","Screen Time"].map((h) => (
               <th key={h} className="text-left text-[8px] font-medium text-gray-400 uppercase px-3 py-1.5">{h}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           {[
-            { name: "Samsung Galaxy S25", status: "active", start: "2026-01-06", end: "2026-03-22", budget: "€20,000", views: "412,847", clicks: "5,842", ctr: "%1.41", spend: "€18,450" },
-            { name: "Samsung Galaxy Tab", status: "draft", start: "2026-03-25", end: "2026-04-30", budget: "€12,000", views: "-", clicks: "-", ctr: "-", spend: "-" },
+            { name: "Samsung Galaxy S25", status: "active", start: "2026-01-06", end: "2026-03-22", streamers: "43", views: "412,847", clicks: "5,842", ctr: "1.41 %", screenTime: "2,841 h" },
+            { name: "Samsung Galaxy Tab", status: "draft", start: "2026-03-25", end: "2026-04-30", streamers: "18", views: "-", clicks: "-", ctr: "-", screenTime: "-" },
           ].map((r) => (
             <tr key={r.name} className="border-b border-gray-50 last:border-0">
               <td className="px-3 py-2 text-[9px] font-medium text-gray-900">{r.name}</td>
               <td className="px-3 py-2"><span className={`text-[8px] font-medium ${r.status === "active" ? "text-green-600" : "text-gray-400"}`}>{r.status}</span></td>
               <td className="px-3 py-2 text-[9px] text-gray-500">{r.start}</td>
               <td className="px-3 py-2 text-[9px] text-gray-500">{r.end}</td>
-              <td className="px-3 py-2 text-[9px] text-gray-500">{r.budget}</td>
+              <td className="px-3 py-2 text-[9px] text-gray-500">{r.streamers}</td>
               <td className="px-3 py-2 text-[9px] text-gray-900 font-medium">{r.views}</td>
               <td className="px-3 py-2 text-[9px] text-gray-500">{r.clicks}</td>
               <td className="px-3 py-2 text-[9px] text-gray-500">{r.ctr}</td>
-              <td className="px-3 py-2 text-[9px] text-gray-500">{r.spend}</td>
+              <td className="px-3 py-2 text-[9px] text-gray-500">{r.screenTime}</td>
             </tr>
           ))}
         </tbody>
