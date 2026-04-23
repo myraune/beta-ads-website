@@ -6,6 +6,11 @@
       "source": "/how-it-works",
       "destination": "/case-studies",
       "permanent": true
+    },
+    {
+      "source": "/blog/how-twitch-advertising-works-2024",
+      "destination": "/blog/how-twitch-advertising-works-2026",
+      "permanent": true
     }
   ],
   "rewrites": [
