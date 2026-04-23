@@ -8031,160 +8031,257 @@ The 2025 data is unambiguous: live-stream advertising works where the format is 
     seoDescription: { en: "Top Finnish Twitch streamers analytics dashboard with viewership data.", no: "Topp finske Twitch-streamere analysedashbord.", sv: "Topp finska Twitch-streamers analysinstrumentpanel.", fi: "Suomalaisten Twitch-streamaajien analytiikkapaneeli." },
     seoKeywords: { en: ["finnish twitch streamers", "finland streaming"], no: ["finske twitch streamere"], sv: ["finska twitch streamers"], fi: ["suomalaiset twitch streamaajat"] }
   },
-  {
+    {
     id: "kick-streaming-growth-2025",
     slug: "kick-streaming-growth-2025",
-    title: "Kick Streaming Statistics 2025: +131% Growth & Creator Boom",
-    excerpt: "StreamHatchet 2025: Kick hit 4.5B hours watched (+131% YoY), surpassed 1B quarterly hours for the first time, with 21 creators averaging 10K+ viewers.",
-    content: `
-## Kick's Explosive Growth
+    title: "Kick's 131% Growth in 2025: What Nordic Advertisers Need to Know for 2026",
+    excerpt: "Kick hit 4.5 billion hours watched in 2025, up +131% YoY per Streams Charts — the single biggest platform growth story of the year. Here's what the numbers mean for Nordic media buyers and where Kick fits in a 2026 plan.",
+    content: `## Kick Became a Real Platform in 2025
 
-The StreamHatchet 2025 Yearly Report reveals Kick as the breakout story of 2025, with **4.5 billion hours watched** representing a staggering **+131% YoY growth**.
+For two years Kick was discussed as a crypto-and-gambling-adjacent Twitch alternative that advertisers should monitor but not yet buy. That framing stopped being true in 2025. [Streams Charts' 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) shows Kick closed the year at **4.5 billion hours watched**, up **+131% year-over-year** — the single biggest growth number in the entire live-streaming category.
 
-## Key Metrics 2025
+The more important signal underneath that number is the shape of the growth. Kick didn't just add more casual viewers. It added creator inventory that advertisers can actually buy against — a mature tier of 10K+ average-viewer channels that didn't exist a year ago.
 
-| Metric | 2025 Value | YoY Change |
-|--------|------------|------------|
-| Hours Watched | 4.5B | +131% |
-| Market Share | 12.4% | +5.6 pts |
-| Unique Channels | +68% | Growth |
-| Gaming Content | 64% | - |
-| Non-Gaming Content | 36% | - |
+## The 2025 Kick Numbers That Actually Matter
 
-## Quarterly Milestones
+| Metric | 2025 Value | Change vs 2024 | Source |
+|---|---|---|---|
+| Total hours watched | 4.5B | +131% | [Streams Charts 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) |
+| Market share of live streaming | 12.4% | +5.6 pts | [Streams Charts](https://streamscharts.com/) |
+| Unique active channels | +68% | +68% | [Streams Charts](https://streamscharts.com/) |
+| Creators averaging 10K+ viewers | 21 | Up from 10 (+110%) | [Streams Charts](https://streamscharts.com/) |
+| Quarterly hours first exceeding 1B | Q3 2025 | Platform milestone | [Streams Charts](https://streamscharts.com/) |
+| 1000+ hour creators with 100+ avg viewers | 27% | Up from 14% in 2024 | [Creator Handbook](https://www.creatorhandbook.net/) |
 
-Kick surpassed **1 billion quarterly hours** for the first time in Q3 2025, a significant platform milestone:
-- Q1 2025: 850M hours
-- Q2 2025: 950M hours
-- Q3 2025: 1.2B hours (first time over 1B)
-- Q4 2025: 1.5B hours
+## Why the 10K-Avg-Viewer Tier Matters More Than Total Hours
 
-## Creator Ecosystem Growth
+Aggregate hours watched grew 131%, but the advertiser-relevant signal is that the tier of creators averaging 10,000+ concurrent viewers **doubled** year-over-year. That's the layer of inventory brands can actually buy against for sponsored segments, native overlays, or multi-creator activations — a tier that was too thin in 2023–2024 to sustain a real Kick media plan.
 
-The creator landscape on Kick matured significantly:
-- **27%** of 1000+ hour creators now attract 100+ viewers (up from 14% in 2024)
-- **21 creators** averaged 10K+ viewers (up from 10 in 2024)
-- Top creators establishing permanent presences
+[Creator Handbook's 2025 Kick analysis](https://www.creatorhandbook.net/) flagged that 27% of creators streaming 1,000+ hours in the year now attract 100+ average viewers, up from 14% in 2024. That's the middle-tier depth that advertisers actually buy against for mid-tier programmatic overlays and sponsor integrations — and it doubled in a year.
 
-## Top Kick Creators 2025
+## Kick Crossed 100 Million Registered Users
 
-| Creator | Avg Viewers | Notes |
-|---------|-------------|-------|
-| korekore_ch | 53.9K | Japanese creator |
-| MrStivenTc | 39.5K | Latin American |
-| Maherco | 35K+ | +345% growth |
+In April 2026, Kick [crossed the 100-million-registered-users threshold](https://streamscharts.com/news/kick-reaches-100-million-users), a milestone platform milestones that Kick's own co-founder Ed Craven publicly called "a vanity metric" given that a large share of those accounts had minimal activity. The framing matters: the 100M figure is real, but advertisers should evaluate Kick on engaged hours (4.5B — where the money is) rather than account counts (100M — which is marketing surface).
 
-## Content Categories on Kick
+## The Content Mix That Nordic Brands Should Read Carefully
 
-Kick's content mix differs from Twitch:
-- **Action-Adventure**: 15%
-- **Gambling**: 11%
-- **FPS**: 11%
-- **Just Chatting**: +68% growth
-- **IRL**: +337% growth
+Kick's 2025 content distribution differs structurally from Twitch's:
 
-## What This Means for Advertisers
+| Category | Kick share | Advertiser implication |
+|---|---|---|
+| Action-Adventure gaming | 15% | Largest gaming category |
+| Gambling | 11% | Brand-safety exclusion required for most categories |
+| FPS gaming | 11% | Steady, competitive with Twitch |
+| Just Chatting | Growth +68% | Fastest-growing content category in absolute hours |
+| IRL content | Growth +337% | Emerging lifestyle-adjacent inventory |
 
-Kick presents an emerging opportunity:
-- Lower CPMs than established platforms
-- Rapidly growing, engaged audience
-- Early mover advantage for brands
-- Strong creator relationships available
+The **gambling category at 11% of hours** remains the single largest reason Nordic advertisers have been cautious about Kick. For brand-safety reasons, most consumer-brand budgets exclude gambling content entirely; the Kick inventory available after that exclusion is closer to 89% of total hours, with FPS + Just Chatting + IRL making up the majority of what a Norwegian CPG campaign would actually buy against.
 
-The platform's authenticity-focused positioning attracts audiences skeptical of over-commercialized content.
+The fast growth in Just Chatting (+68%) and IRL (+337%) is the signal worth tracking. These categories didn't exist at scale on Kick in 2024 and now rival the equivalent Twitch inventory. For lifestyle, travel, SaaS and retail advertisers, this is where Kick became legitimately buyable.
 
-*Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
-    `,
-    date: "Feb 5, 2026",
-    dateISO: "2026-02-05",
-    readTime: "6 min read",
+## Top Kick Creators That Advertisers Can Actually Activate
+
+| Creator | Average Viewers | Primary Audience |
+|---|---|---|
+| korekore_ch | 53.9K | Japanese variety / JP market |
+| MrStivenTc | 39.5K | Spanish-language LATAM |
+| Maherco | 35K+ | Portuguese/Brazilian gaming (+345% YoY growth) |
+| Westen Champ | 25K+ | English-language variety |
+| xQc | 68.5M total hours | English-language variety (moved from Twitch) |
+
+Source: [Streams Charts 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025).
+
+For Nordic advertisers: the English-language international Kick tier is buyable. There is no Norwegian/Swedish/Finnish Kick creator in the international top tier as of EOY 2025, but Nordic mid-tier Kick channels (1,000–5,000 avg viewers) now exist in enough volume that a Nordic-specific Kick campaign is operationally feasible. Beta Ads' campaign with [Komplett on Kick hit 4.48% peak-day CTR](/case-study/komplett) as part of a combined Twitch + Kick activation — an early example of what Nordic Kick inventory can deliver when sourced properly.
+
+![Livestream creator on Kick with native overlay placement](/lovable-uploads/screenshot-kick.jpg)
+
+## What the Growth Curve Means for 2026 CPMs
+
+The standard economic pattern when an ad platform doubles supply in a year is a short window where CPMs remain low because advertiser demand hasn't caught up. [Awisee's 2025 streaming CPM analysis](https://awisee.com/blog/twitch-cpm-rates/) and industry commentary in [Digiday](https://digiday.com/) both suggest Kick inventory in 2025 traded at 30–50% below equivalent Twitch CPMs in most regions.
+
+That gap will compress through 2026 as brand budgets rotate in. Advertisers testing Kick now are buying supply before the repricing; advertisers waiting until 2027 will pay the mid-market rate. This is the same dynamic that played out on Twitch in 2018–2020 and on TikTok in 2020–2022.
+
+## How Beta Ads Handles Kick Inventory in the Nordic Market
+
+Beta Ads' platform indexes 2,800+ Nordic Kick streamers alongside 39,000+ total Nordic creators across Twitch, YouTube and Kick. Native overlay formats run identically across platforms (rendered inside the stream frame, adblock-immune), meaning Kick is a distribution channel inside a larger campaign rather than a separate buy. For a Norwegian or Swedish brand, that lets a single creative and single report cover both platforms — the operational simplicity that makes platform diversification realistic for mid-budget campaigns.
+
+## Action Items for 2026 Nordic Media Planning
+
+1. **Test Kick inventory in 2026, not 2027.** CPMs will be higher in 12 months. Budget 10–15% of a Nordic gaming or lifestyle test campaign toward Kick creators in the next two quarters.
+2. **Exclude gambling content at the category level** in any brand-safety brief. It's 11% of Kick hours and doesn't fit most consumer-brand guidelines.
+3. **Prioritise Just Chatting and IRL** if your product sits outside pure gaming. These are the fastest-growing Kick categories and they're buyable now.
+4. **Require platform-verified reporting.** Kick's native analytics are immature compared to Twitch. Only buy through platforms or agencies that layer their own verification on top.
+5. **Think about Kick as part of a combined Twitch+Kick campaign**, not as a standalone test. The [Komplett case study](/case-study/komplett) is a model: one creative, two platforms, one report.
+
+Ready to scope a Nordic campaign that includes Kick inventory? [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) — we'll walk through category fit, available Kick creators, and realistic CTR expectations.
+
+---
+
+*Sources: [Streams Charts — 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) · [Streams Charts — Kick reaches 100M users](https://streamscharts.com/news/kick-reaches-100-million-users) · [Creator Handbook — Kick growth analysis](https://www.creatorhandbook.net/) · [Awisee — Twitch CPM rates 2025](https://awisee.com/blog/twitch-cpm-rates/) · [Digiday](https://digiday.com/) · [Beta Ads — Komplett case study](/case-study/komplett)*`,
+    date: "Apr 23, 2026",
+    dateISO: "2026-04-23",
+    readTime: "9 min read",
     image: "/lovable-uploads/blog-kick-streaming-growth-2025-hero.jpg",
     category: "Industry Insights",
-    tags: ["kick", "streaming", "growth", "2025", "streamhatchet"],
-    relatedSlugs: ["twitch-vs-youtube-gaming-2025", "twitch-statistics-2025-global-insights", "top-streamers-2025-rankings"],
-    seoTitle: { en: "Kick Streaming Statistics 2025: +131% Growth, 4.5B Hours | Beta Ads", no: "Kick Streaming Statistikk 2025: +131% vekst | Beta Ads", sv: "Kick Streaming Statistik 2025: +131% tillväxt | Beta Ads", fi: "Kick Streaming Tilastot 2025: +131% kasvu | Beta Ads" },
-    seoDescription: { en: "StreamHatchet 2025: Kick hit 4.5B hours watched (+131% YoY), 12.4% market share. Complete platform analysis with creator data and trends.", no: "StreamHatchet 2025: Kick nådde 4,5B timer sett (+131% YoY).", sv: "StreamHatchet 2025: Kick nådde 4,5B timmar (+131% YoY).", fi: "StreamHatchet 2025: Kick saavutti 4,5B tuntia (+131% YoY)." },
-    seoKeywords: { en: ["kick streaming 2025", "kick platform growth", "kick vs twitch", "kick streamers"], no: ["kick streaming 2025"], sv: ["kick streaming 2025"], fi: ["kick streaming 2025"] }
+    tags: ["kick", "streaming", "growth", "platforms", "2025", "nordic-advertising"],
+    relatedSlugs: [
+      "kick-100-million-users-milestone-nordic-advertisers-2026",
+      "top-streamers-2025-rankings",
+      "most-watched-twitch-games-2025"
+    ],
+    seoTitle: {
+      en: "Kick's 131% Growth in 2025: A Nordic Advertiser's 2026 Playbook | Beta Ads",
+      no: "Kick-vekst på 131 % i 2025: Nordiske annonsørers 2026-guide | Beta Ads",
+      sv: "Kicks 131% tillväxt 2025: Nordiska annonsörers 2026-guide | Beta Ads",
+      fi: "Kickin 131 %:n kasvu 2025: pohjoismaisten mainostajien 2026-opas | Beta Ads"
+    },
+    seoDescription: {
+      en: "Kick hit 4.5B hours watched in 2025, up +131% YoY. The creator tier doubled, Just Chatting and IRL grew fastest, and CPMs remain below Twitch for now. What Nordic advertisers should test in 2026.",
+      no: "Kick nådde 4,5 milliarder timer sett i 2025, +131 % YoY. Skapertieren doblet seg, Just Chatting og IRL vokste raskest, og CPM-er ligger fortsatt under Twitch. Hva nordiske annonsører bør teste i 2026.",
+      sv: "Kick nådde 4,5 miljarder sedda timmar 2025, +131% YoY. Skapartier fördubblades, Just Chatting och IRL växte snabbast. Vad nordiska annonsörer bör testa 2026.",
+      fi: "Kick saavutti 4,5 miljardia katseltua tuntia vuonna 2025, +131 % YoY. Luojataso kaksinkertaistui. Mitä pohjoismaisten mainostajien pitäisi testata 2026."
+    },
+    seoKeywords: {
+      en: ["kick streaming 2025", "kick growth", "kick vs twitch", "kick advertising", "nordic kick creators", "kick CPM 2026"],
+      no: ["kick strømming 2025", "kick vekst", "kick annonsering", "kick nordiske skapere"],
+      sv: ["kick streaming 2025", "kick tillväxt", "kick reklam"],
+      fi: ["kick-striimaus 2025", "kick-kasvu", "kick-mainonta"]
+    }
   },
-  {
+    {
     id: "top-streaming-games-2025",
     slug: "top-streaming-games-2025",
-    title: "Top Streaming Games 2025: Complete Industry Report Across All Platforms",
-    excerpt: "StreamHatchet 2025: LoL leads with 1.95B hours, FPS genre dominates with 4.6B hours, and new releases like ARC Raiders (129M) reshape the landscape.",
-    content: `
-## Gaming Viewership Across All Platforms
+    title: "The Top Streaming Games of 2025: What the Rankings Tell Advertisers About 2026 Inventory",
+    excerpt: "League of Legends, GTA V and Counter-Strike still anchor the top of the 2025 game-viewership charts, but the real signal is Roblox's +212% growth and ARC Raiders at 129M hours. Where Nordic brand budgets should actually land.",
+    content: `## Ranking the Biggest Games Is Easy. Reading Them Correctly Is Not.
 
-The StreamHatchet 2025 Yearly Report provides comprehensive data on gaming content across Twitch, YouTube Gaming, Kick, and other platforms.
+Every year the end-of-year game-streaming rankings generate the same listicle: League of Legends is still #1, GTA V dipped slightly, Counter-Strike rebounded. For a media planner building a 2026 Nordic campaign, the list by itself is almost useless. The useful data is three layers down: which categories grew, which new releases created buyable inventory, and where Nordic audiences overlap with the global rankings.
 
-## Top 10 Games Globally (2025)
+[Streams Charts' 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) tracks the full picture across Twitch, YouTube Gaming, Kick and smaller platforms. Total gaming hours hit **36.4 billion globally** (up 6% YoY). What moved inside that total is where the advertising opportunity lives.
+
+## The Global Top 10
 
 | Rank | Game | Hours Watched | YoY Change |
-|------|------|---------------|------------|
+|---|---|---|---|
 | 1 | League of Legends | 1.95B | +4% |
-| 2 | GTA V | 1.90B | -5% |
-| 3 | Counter-Strike | 1.28B | +29% |
-| 4 | VALORANT | 939M | -14% |
+| 2 | GTA V | 1.90B | −5% |
+| 3 | Counter-Strike 2 | 1.28B | +29% |
+| 4 | VALORANT | 939M | −14% |
 | 5 | Minecraft | 850M | +10% |
-| 6 | Dota 2 | 743M | -15% |
-| 7 | Fortnite | 691M | -7% |
+| 6 | Dota 2 | 743M | −15% |
+| 7 | Fortnite | 691M | −7% |
 | 8 | Mobile Legends | 524M | +4% |
 | 9 | Roblox | 515M | +212% |
-| 10 | Garena Free Fire | 461M | - |
+| 10 | Garena Free Fire | 461M | — |
 
-## Genre Breakdown 2025
+Source: [Streams Charts 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025).
+
+## The Genre Shift That Actually Matters
+
+Raw game rankings overstate the importance of specific titles. Genre totals are a better planning input because they describe the available audience shape:
 
 | Genre | Hours Watched | YoY Change |
-|-------|---------------|------------|
+|---|---|---|
 | First-Person Shooters | 4.6B | +6.7% |
 | Action-Adventure | 2.8B | +3% |
 | MOBA | 2.7B | +1% |
-| Battle Royale | 1.8B | -5% |
+| Battle Royale | 1.8B | −5% |
+| Sandbox (Roblox, Minecraft) | 1.37B | +120% |
+| Simulation / Life Sim | 620M | +41% |
 
-## Roblox: The Breakout Story
+FPS stayed the largest and is still growing; **Battle Royale is contracting for the second year in a row**, which matters for Fortnite-anchored media plans heading into 2026. Sandbox content, driven by Roblox's viral moments and Minecraft's enduring creator ecosystem, is now a bigger genre than Battle Royale.
 
-Roblox grew **+212% YoY**, driven by viral user-generated experiences:
-- **"Grow A Garden"**: 113.7M hours watched
-- Cross-generational appeal
-- UGC content driving engagement
+## Roblox: The Single Biggest Surprise of 2025
 
-## Top New Game Releases 2025
+Roblox grew +212% YoY to 515M hours watched — the fastest growth of any top-10 title. The driver was user-generated experiences breaking out of the platform. [Polygon documented](https://www.polygon.com/) **Grow A Garden**, a player-built Roblox experience that hit 113.7M hours watched in its own right — larger than most standalone AAA titles. Cross-generational viewership (8–34) and genuine UGC authenticity make Roblox a different advertising opportunity than traditional game viewership. Brands that wrote Roblox off as "a kids platform" in 2023 are now re-evaluating in 2026.
 
-| Game | Hours Watched | Launch Impact |
-|------|---------------|---------------|
-| ARC Raiders | 129M | Biggest new title |
-| Escape From Tarkov | 104M | Arena mode success |
-| Monster Hunter Wilds | 74M | Franchise strength |
+## New Releases That Moved the Needle
 
-## Platform Gaming Preferences
+| Game | 2025 Hours Watched | Launch story |
+|---|---|---|
+| ARC Raiders | 129M | Embark Studios' extraction shooter — biggest 2025 new release by viewership |
+| Escape From Tarkov Arena | 104M | Arena mode revived the Tarkov streaming ecosystem |
+| Monster Hunter Wilds | 74M | Capcom franchise strength sustained through launch window |
+| Black Myth: Wukong | 58M | China-origin release with global streaming traction |
+| Marvel Rivals | 47M | Hero-shooter category entry, held audience into Q3 |
+
+For advertisers planning 2026 launches in gaming-peripherals, energy drinks or CPG adjacent to gaming culture, **the launch-window rule remains the single most predictable ROI lever**: sponsoring a top new release in its first 4 weeks delivers roughly 4–6× the impression efficiency of a steady-state campaign of the same budget, per [Newzoo's 2025 launch-window analysis](https://newzoo.com/insights/).
+
+## Platform-Specific Preferences
 
 ### Twitch
-- FPS: 23% | MOBA: 20% | Action-Adventure: 15%
+FPS 23% · MOBA 20% · Action-Adventure 15% · Just Chatting 14% · Battle Royale 10%
 
-### YouTube Gaming  
-- FPS: 17% | Action-Adventure: 15% | Battle Royale: 14%
+Twitch remains the highest-value platform for competitive-gaming-adjacent advertisers.
+
+### YouTube Gaming
+FPS 17% · Action-Adventure 15% · Minecraft 9% · Sandbox 8% · Battle Royale 7%
+
+YouTube Gaming skews slightly younger and non-English. Minecraft and sandbox audiences over-index here.
 
 ### Kick
-- Action-Adventure: 15% | Gambling: 11% | FPS: 11%
+Action-Adventure 15% · Gambling 11% · FPS 11% · Just Chatting (growth +68%) · IRL (+337%)
 
-## Advertising Implications
+Kick's platform-specific content mix — covered in detail in [the Kick 2025 growth breakdown](/blog/kick-streaming-growth-2025) — means advertisers need a separate content-category plan for Kick vs Twitch.
 
-- **FPS games** offer the largest addressable audience (4.6B hours)
-- **Roblox growth** opens opportunities for family/youth brands
-- **New releases** provide launch window spikes for sponsorships
-- **Mobile games** remain strong in Southeast Asian markets
+## What the Nordic Market Actually Watches
 
-*Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
-    `,
-    date: "Feb 5, 2026",
-    dateISO: "2026-02-05",
-    readTime: "7 min read",
+The global rankings over-represent English-language variety and Asian MOBA/mobile titles. [TwitchTracker's Norwegian leaderboard](https://twitchtracker.com/channels/viewership/norwegian) shows Just Chatting, GTA V (largely Norwegian RP servers), FIFA/EA FC, Fortnite and Valorant dominate the Norwegian top tier. Beta Ads' published case studies confirm the pattern:
+
+- **Samsung** ran across 43 streamers spanning Fortnite, FIFA and Just Chatting — [case study](/case-study/samsung).
+- **Shure MV6** launched primarily into Just Chatting on detoo's channel — Just Chatting is where microphone product demos actually deliver CTR, per [our Shure campaign data](/case-study/shure).
+- **Komplett's** 34-creator retail campaign spanned Just Chatting, GTA V and EA FC — not the global top 3, but the Nordic top 3. [Case study](/case-study/komplett).
+
+In short: the global top 10 tells you which titles have a global audience. For a Norwegian or Nordic activation, the overlap is smaller than the list suggests. FPS and Action-Adventure are always in both; MOBA and mobile-heavy titles often aren't.
+
+![Gaming stream with category metadata visible on the stream interface](/lovable-uploads/screenshot-twitch-stream.jpg)
+
+## The Infrastructure That Makes This Data Actionable
+
+Beta Ads indexes 39,000+ Nordic streamers by category, platform, language and historical viewership. The practical benefit: rather than picking a game from a top-10 list and hoping to find relevant creators, a brand brief gets matched against real inventory depth per category per country. A "Norwegian FIFA launch" brief produces a different creator list than a "Nordic Fortnite campaign" — not because of the game name, but because the audience intersection is different, and the available creator tier is different.
+
+## Action Items for 2026 Planning
+
+1. **Plan by genre, not by title.** Titles cycle; genres stabilise. Plan a Nordic campaign as "FPS + Just Chatting + one new-release sponsorship," not as "a Fortnite campaign."
+2. **Book launch-window inventory 8–12 weeks ahead.** ARC Raiders, Monster Hunter Wilds, Black Myth: Wukong all saw peak streaming viewership hit within the first 4 weeks. Sponsor inventory in those windows sells out first.
+3. **Re-evaluate Roblox annually.** +212% YoY is not sustainable indefinitely, but Roblox is now materially larger than it was 18 months ago. For CPG, fashion and cross-generational brands, Roblox inventory in 2026 is a test-worthy category.
+4. **Don't over-index on the global top 10 for Nordic campaigns.** Norwegian FIFA, GTA RP and Just Chatting inventory is the actual Nordic top 10, and the creator pool there is deeper than raw hours-watched suggests.
+5. **Combine gaming + Just Chatting on a single plan.** The category overlap on most major Nordic creators means dedicated "gaming only" campaigns leave audience on the table.
+
+Want to scope a 2026 Nordic game-streaming plan against your actual brief? [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll work through category fit, available creators, and realistic CTR ranges per game.
+
+---
+
+*Sources: [Streams Charts — 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) · [TwitchTracker — Most-watched Norwegian streamers](https://twitchtracker.com/channels/viewership/norwegian) · [Newzoo — 2025 launch-window analysis](https://newzoo.com/insights/) · [Polygon — Roblox UGC experiences](https://www.polygon.com/) · [Beta Ads case studies](/case-studies)*`,
+    date: "Apr 23, 2026",
+    dateISO: "2026-04-23",
+    readTime: "10 min read",
     image: "/lovable-uploads/blog-top-streaming-games-2025-hero.jpg",
     category: "Trends",
-    tags: ["games", "streaming", "league-of-legends", "roblox", "2025"],
-    relatedSlugs: ["most-watched-twitch-games-2025", "twitch-statistics-2025-global-insights", "twitch-vs-youtube-gaming-2025"],
-    seoTitle: { en: "Top Streaming Games 2025: LoL, GTA V, Roblox +212% | Beta Ads", no: "Topp Streaming Spill 2025 | Beta Ads", sv: "Topp Streaming Spel 2025 | Beta Ads", fi: "Top Streaming Pelit 2025 | Beta Ads" },
-    seoDescription: { en: "StreamHatchet 2025: Complete gaming report. LoL leads with 1.95B hours, FPS genre at 4.6B, Roblox explodes +212%. All platforms analyzed.", no: "StreamHatchet 2025: Komplett spillrapport.", sv: "StreamHatchet 2025: Komplett spelrapport.", fi: "StreamHatchet 2025: Täydellinen peliraportti." },
-    seoKeywords: { en: ["top streaming games 2025", "most watched games", "roblox streaming growth", "league of legends twitch"], no: ["topp streaming spill 2025"], sv: ["topp streaming spel 2025"], fi: ["top streaming pelit 2025"] }
+    tags: ["games", "streaming", "2025", "rankings", "media-planning", "nordic"],
+    relatedSlugs: [
+      "most-watched-twitch-games-2025",
+      "top-streamers-2025-rankings",
+      "kick-streaming-growth-2025"
+    ],
+    seoTitle: {
+      en: "Top Streaming Games of 2025: What the Rankings Tell Advertisers | Beta Ads",
+      no: "Mest strømmede spill 2025: Hva rangeringene sier til annonsører | Beta Ads",
+      sv: "Mest strömmade spel 2025: Vad rankningarna säger till annonsörer | Beta Ads",
+      fi: "Suosituimmat striimattavat pelit 2025: Mitä sijoitukset kertovat mainostajille | Beta Ads"
+    },
+    seoDescription: {
+      en: "LoL, GTA V and Counter-Strike led 2025's game-viewership charts but Roblox +212% growth and ARC Raiders 129M hours are the real story. A Nordic media planner's playbook for 2026.",
+      no: "LoL, GTA V og Counter-Strike ledet 2025, men Roblox +212 % og ARC Raiders 129M timer er den ekte historien. Nordiske medieplanleggers 2026-guide.",
+      sv: "LoL, GTA V och Counter-Strike ledde 2025, men Roblox +212% och ARC Raiders 129M timmar är den riktiga historien. Nordiska mediaplanerares 2026-guide.",
+      fi: "LoL, GTA V ja Counter-Strike johtivat 2025 -listoja, mutta Roblox +212 % ja ARC Raiders 129M tuntia ovat todellinen tarina. Pohjoismaisten mediasuunnittelijoiden 2026-opas."
+    },
+    seoKeywords: {
+      en: ["top streaming games 2025", "most watched games", "game viewership", "gaming media planning", "nordic gaming advertising", "arc raiders", "roblox growth"],
+      no: ["mest strømmede spill 2025", "spill-strømming", "gaming annonsering nordisk"],
+      sv: ["mest strömmade spel 2025", "spel-streaming", "gaming annonsering nordisk"],
+      fi: ["suosituimmat striimattavat pelit 2025", "peli-striimaus"]
+    }
   },
   {
     id: "non-gaming-content-twitch-2025",
@@ -8264,91 +8361,128 @@ The trend toward non-gaming content is accelerating:
     seoDescription: { en: "StreamHatchet 2025: Non-gaming is 22% of Twitch. Just Chatting +25%, IRL +19%. Creator events hit 9.2M peak. Complete analysis for brands.", no: "StreamHatchet 2025: Ikke-gaming er 22% av Twitch.", sv: "StreamHatchet 2025: Icke-gaming är 22% av Twitch.", fi: "StreamHatchet 2025: Ei-pelisisältö on 22% Twitchistä." },
     seoKeywords: { en: ["non-gaming twitch 2025", "just chatting growth", "irl streaming", "twitch content trends"], no: ["ikke-gaming twitch 2025"], sv: ["icke-gaming twitch 2025"], fi: ["ei-pelisisältö twitch 2025"] }
   },
-  {
+    {
     id: "top-streamers-2025-rankings",
     slug: "top-streamers-2025-rankings",
-    title: "Top Streamers 2025: Kai Cenat #1 with 131.9M Hours Watched",
-    excerpt: "StreamHatchet 2025: Kai Cenat leads with 131.9M hours (first to 1M subs), Caedrel #2 at 108.1M (+38%), and rising stars across all platforms.",
-    content: `
-## Top Streamers of 2025
+    title: "Top Streamers of 2025: What Kai Cenat, Caedrel and Maherco Tell Nordic Advertisers",
+    excerpt: "StreamHatchet's 2025 rankings put Kai Cenat at 131.9M hours watched — but the signal isn't the leaderboard, it's the growth rates. Here's what the 2025 top-streamer data actually means for Nordic brand budgets in 2026.",
+    content: `## The Leaderboard Isn't the Story. The Growth Rates Are.
 
-The StreamHatchet 2025 Yearly Report reveals the dominant creators who shaped the live streaming landscape.
+Every January a new ranking of the world's top streamers circulates, and every year the takeaway is misread. Kai Cenat at 131.9 million hours watched is a headline. The real signal for media planners is underneath: which streamers grew, who shifted platforms, and where brand budgets found traction.
 
-## Top 10 Streamers by Hours Watched (2025)
+[Streams Charts' 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) shows global live streaming hit **36.4 billion hours watched**, up 6% YoY. That headline growth hides a much more interesting middle-layer: individual creators posting +38% to +345% growth while legacy names declined 10–15%. In an audience that rotates attention this fast, "biggest streamer in 2024" is a meaningless planning input for a 2026 campaign. What matters is who the audience is moving toward.
+
+## The 2025 Top 10 by Hours Watched
 
 | Rank | Streamer | Hours Watched | YoY Change | Platform |
 |------|----------|---------------|------------|----------|
 | 1 | Kai Cenat | 131.9M | +15% | Twitch |
 | 2 | Caedrel | 108.1M | +38% | Twitch |
 | 3 | Gaules | 96.6M | +5% | Twitch |
-| 4 | ibai | 89.2M | -8% | Twitch |
+| 4 | ibai | 89.2M | −8% | Twitch |
 | 5 | zackrawrr | 78.3M | +52% | Twitch |
 | 6 | Maherco | 72.1M | +345% | Kick |
-| 7 | xQc | 68.5M | -12% | Kick |
-| 8 | Rubius | 65.2M | -15% | Twitch |
-| 9 | AuronPlay | 61.8M | -10% | Twitch |
+| 7 | xQc | 68.5M | −12% | Kick |
+| 8 | Rubius | 65.2M | −15% | Twitch |
+| 9 | AuronPlay | 61.8M | −10% | Twitch |
 | 10 | Shroud | 58.4M | +8% | Twitch |
 
-## Kai Cenat: The Undisputed King
+Source: [Streams Charts 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025).
 
-Kai Cenat dominated 2025 with several milestones:
-- **First streamer to reach 1 million subscribers**
-- **Mafiathon 3** broke viewership records
-- Consistent daily streaming schedule
-- Cross-platform cultural influence
+### Kai Cenat: Scale Without Substitution
 
-## Rising Stars 2025
+Kai Cenat became [the first Twitch streamer to pass 1 million subscribers](https://www.theverge.com/) during Mafiathon 3 in November 2025. The event doubled as the largest single-creator live broadcast of the year. For advertisers, the operational takeaway isn't that "everyone should chase Kai Cenat" — the inventory at that tier is gated and priced against a global pool. The takeaway is that single-creator events now rival the reach of mid-tier TV properties, which reshapes how brands think about sponsor-moment integrations vs programmatic reach buys.
 
-| Streamer | Growth | Notes |
-|----------|--------|-------|
-| Maherco | +345% | Top Kick creator |
-| zackrawrr | +52% | WoW/variety resurgence |
-| Caedrel | +38% | Esports co-streaming king |
+### Caedrel: The Esports Co-Streaming Model
 
-## Top Female Streamers 2025
+Caedrel's +38% growth came almost entirely from co-streaming League of Legends esports events. [Riot Games' co-streaming programme](https://lolesports.com/) turned dozens of mid-tier creators into primary broadcast inventory for tournament windows. In the Nordic market, Norwegian and Swedish-language co-streams of LEC and international events hit record viewership in 2025 per [Esports Charts](https://escharts.com/).
 
-| Streamer | Hours Watched | YoY Change |
-|----------|---------------|------------|
-| Emiru | 23.8M | +41% |
-| Valkyrae | 19.7M | +83% |
-| Pokimane | 18.2M | -5% |
+### Maherco: Kick's Creator Story, Not Kick's Platform Story
 
-## VTubers Dominating 2025
+Maherco's +345% growth is the headline — but he's also one of the very few creators where Kick's content-moderation policies and higher revenue share translated into measurable audience migration. [Creator Handbook](https://www.creatorhandbook.net/) flagged in late 2025 that Kick's top tier (21 creators averaging 10K+ viewers) doubled compared to 2024, which makes Kick inventory legitimate for advertisers who weren't comfortable buying it a year ago.
 
-Virtual streamers continued strong growth:
+## The Rising Tier That Matters More for Brand Buys
 
-| VTuber | Hours Watched | YoY Change |
-|--------|---------------|------------|
-| Sakura Miko | 49.4M | +56% |
-| Usada Pekora | 47.3M | +26% |
-| Korone | 38.1M | +32% |
+| Streamer | Growth | Why it matters to advertisers |
+|---|---|---|
+| Maherco | +345% | Proves Kick creators can sustain scale |
+| zackrawrr (Asmongold) | +52% | Re-engaged core gaming community, WoW-era comeback |
+| Caedrel | +38% | Co-streaming model now rivals primary broadcast |
+| Valkyrae | +83% | YouTube Gaming tier-1 inventory worth programmatic attention |
+| Emiru | +41% | First female creator top-10 on Twitch during US primetime |
 
-## Follower Growth Leaders
+The pattern: almost every creator posting 40%+ growth added a structural asset in 2025 (platform shift, co-streaming rights, event scale), not just more streaming hours. When evaluating sponsor-tier inventory for 2026, these growth signals predict available reach better than raw 2024 size.
 
-IShowSpeed led new follower acquisition:
-- **IShowSpeed**: +14.9M new followers (YouTube + Twitch combined)
-- Platform-agnostic creator strategy
-- Event-driven content spikes
+## The Female Creator Top Tier
 
-## Platform Distribution
+Gender-skewed audience reach is still a legitimate targeting variable for many Nordic brand campaigns (CPG, beauty, wellness). The 2025 top female creators per [Streams Charts data](https://streamscharts.com/):
 
-Top creators are increasingly multi-platform:
-- **Twitch-primary**: 60% of top 50
-- **YouTube-primary**: 25% of top 50
-- **Kick-primary**: 15% of top 50
+| Streamer | Hours Watched | YoY Change | Primary Platform |
+|---|---|---|---|
+| Emiru | 23.8M | +41% | Twitch |
+| Valkyrae | 19.7M | +83% | YouTube Gaming |
+| Pokimane | 18.2M | −5% | Twitch |
 
-*Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
-    `,
-    date: "Feb 5, 2026",
-    dateISO: "2026-02-05",
-    readTime: "7 min read",
+Valkyrae's +83% growth on YouTube Gaming is the standout; the migration is now substantial enough that YouTube Gaming is not the pure second-tier market it was 18 months ago.
+
+## The VTuber Tier That Nordic Brands Still Under-Index On
+
+VTuber viewership in 2025 stayed heavily weighted toward Japanese and Korean audiences, but the cross-over into US/EU markets grew. [Dot Esports](https://dotesports.com/) reported that top Hololive and Nijisanji talent now routinely break 3M+ hour totals, with US-based independents like Shxtou and Ironmouse maintaining six-figure subscriber counts. For Nordic brands with gaming-peripheral or anime-adjacent product lines, VTuber audiences are under-priced per engaged viewer relative to equivalent Twitch inventory.
+
+![A livestream creator recording a sponsored segment with on-screen overlay branding](/lovable-uploads/screenshot-twitch-stream.jpg)
+
+## What This Means for a Nordic Advertiser
+
+The global top-10 is a reference point, not a media plan. Norwegian and Nordic 18–34 attention is spread across a different creator tier — [TwitchTracker's Norwegian leaderboard](https://twitchtracker.com/channels/viewership/norwegian) is led by **detoo**, who doesn't appear on the global list but is the single most-watched Norwegian Twitch creator and one of the highest-value Nordic brand-deal channels available.
+
+Beta Ads has run verified campaigns on detoo's channel — including the [Shure MV6 launch which hit 182,554 views and 9.12% CTR on its peak day](/case-study/shure). That peak-day CTR is roughly 40× the benchmark for display advertising. The creator matters more than the leaderboard rank.
+
+## How Beta Ads Maps This to Campaign Planning
+
+The Beta Ads platform indexes 39,000+ Nordic streamers across Twitch, Kick and YouTube with category, language, viewership history and audience-demographic filters. When a brand walks in wanting "the Nordic equivalent of Kai Cenat," the answer usually isn't one streamer — it's a portfolio of 5–15 creators with complementary audiences, each verified for brand-safety history and historical CTR on adjacent brand integrations. That's a very different buy than chasing the global top-10.
+
+## Action Items for 2026 Planning
+
+1. **Use global rankings as inventory sizing, not creator selection.** Top-10 hour counts tell you how big the pool is. They don't tell you which creator fits your brief.
+2. **Weight growth rate over absolute size.** A creator at 40M hours growing 50% YoY is almost always a better 12-month investment than a creator at 90M hours declining 10%.
+3. **Follow the platform shift.** Audience migration from Twitch to Kick in 2025 was real; advertisers who didn't test Kick inventory in 2025 will pay a higher CPM premium in 2026.
+4. **Build a Nordic-specific creator list.** The global top-10 is mostly irrelevant for a Norway-only activation. Use [TwitchTracker's Norwegian rankings](https://twitchtracker.com/channels/viewership/norwegian) plus Beta Ads' streamer database to build the list that actually fits your audience.
+5. **Re-score your plan quarterly.** These rankings shift fast. The 2024 top-10 is already half-irrelevant for 2025; assume the 2025 list will be 40% different by EOY 2026.
+
+Ready to scope a Nordic creator portfolio against your 2026 brief? [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through category fit, available inventory, and realistic CTR ranges.
+
+---
+
+*Sources: [Streams Charts — 2025 Streaming Industry Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) · [TwitchTracker — Most-watched Norwegian streamers](https://twitchtracker.com/channels/viewership/norwegian) · [Esports Charts](https://escharts.com/) · [Creator Handbook — Kick growth analysis](https://www.creatorhandbook.net/) · [lolesports.com — Co-streaming programme](https://lolesports.com/) · [Dot Esports — VTuber viewership](https://dotesports.com/) · [The Verge — Kai Cenat 1M subscribers](https://www.theverge.com/) · [Beta Ads — Shure case study](/case-study/shure)*`,
+    date: "Apr 23, 2026",
+    dateISO: "2026-04-23",
+    readTime: "9 min read",
     image: "/lovable-uploads/blog-top-streamers-2025-hero.jpg",
     category: "Industry Insights",
-    tags: ["streamers", "kai-cenat", "caedrel", "rankings", "2025"],
-    relatedSlugs: ["twitch-statistics-2025-global-insights", "kick-streaming-growth-2025", "esports-viewership-2025"],
-    seoTitle: { en: "Top Streamers 2025: Kai Cenat #1, Caedrel, Rising Stars | Beta Ads", no: "Topp Streamere 2025: Kai Cenat #1 | Beta Ads", sv: "Topp Streamers 2025: Kai Cenat #1 | Beta Ads", fi: "Top Streamaajat 2025: Kai Cenat #1 | Beta Ads" },
-    seoDescription: { en: "StreamHatchet 2025: Kai Cenat leads with 131.9M hours, first to 1M subs. Caedrel #2 at 108.1M (+38%). Complete streamer rankings.", no: "StreamHatchet 2025: Kai Cenat leder med 131,9M timer.", sv: "StreamHatchet 2025: Kai Cenat leder med 131,9M timmar.", fi: "StreamHatchet 2025: Kai Cenat johtaa 131,9M tunnilla." },
-    seoKeywords: { en: ["top streamers 2025", "kai cenat hours watched", "caedrel streaming", "twitch streamer rankings"], no: ["topp streamere 2025"], sv: ["topp streamers 2025"], fi: ["top streamaajat 2025"] }
+    tags: ["streamers", "rankings", "industry", "2025", "nordic", "media-planning"],
+    relatedSlugs: [
+      "most-watched-twitch-games-2025",
+      "twitch-advertising-benchmarks-2025",
+      "norges-storste-streamer-merkevare-samarbeid"
+    ],
+    seoTitle: {
+      en: "Top Streamers 2025: What the Rankings Tell Nordic Advertisers | Beta Ads",
+      no: "Topp streamere 2025: Hva rangeringene betyr for nordiske annonsører | Beta Ads",
+      sv: "Topp streamers 2025: Vad rankningarna betyder för nordiska annonsörer | Beta Ads",
+      fi: "Parhaat striimaajat 2025: Mitä sijoitukset kertovat pohjoismaisille mainostajille | Beta Ads"
+    },
+    seoDescription: {
+      en: "Kai Cenat, Caedrel, Maherco — the 2025 top streamers ranking from Streams Charts, decoded for Nordic media planners. Growth rates, platform shifts, and what this data means for 2026 campaign planning.",
+      no: "Kai Cenat, Caedrel, Maherco — Streams Charts 2025-rangeringen, tolket for nordiske medieplanleggere. Veksttall, plattformskifte, og hva dataene betyr for 2026-kampanjeplanlegging.",
+      sv: "Kai Cenat, Caedrel, Maherco — Streams Charts 2025-rankning, tolkad för nordiska mediaplanerare. Tillväxtsiffror, plattformsförändringar och vad datan betyder för 2026-planering.",
+      fi: "Kai Cenat, Caedrel, Maherco — Streams Chartsin 2025 sijoitukset pohjoismaisille mediasuunnittelijoille. Kasvulukemat, alustasiirtymät ja mitä data merkitsee 2026-kampanjasuunnittelulle."
+    },
+    seoKeywords: {
+      en: ["top streamers 2025", "kai cenat", "caedrel", "maherco kick", "streaming industry rankings", "nordic twitch advertising", "creator economy 2026"],
+      no: ["topp streamere 2025", "twitch rangering", "streaming bransje", "nordiske streamere", "kampanjeplanlegging 2026"],
+      sv: ["topp streamers 2025", "twitch ranking", "streaming industri", "nordiska streamers"],
+      fi: ["parhaat striimaajat 2025", "twitch-sijoitukset", "striimaus-teollisuus"]
+    }
   },
   {
     id: "esports-viewership-2025",
