@@ -17,6 +17,12 @@ const Index: React.FC = () => {
         title="Beta Ads | Native Twitch & Livestream Advertising"
         description="Native advertising platform for Twitch, YouTube and Kick livestreams in Norway, Sweden, Finland and Denmark. Overlay ads that bypass adblock and deliver 3-5x higher engagement with Gen Z audiences."
         canonical="/"
+        locale="en"
+        alternates={[
+          { hreflang: "en", href: "/" },
+          { hreflang: "no", href: "/norge" },
+          { hreflang: "x-default", href: "/" },
+        ]}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Organization",
