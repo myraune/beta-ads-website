@@ -1282,7 +1282,7 @@ The only variable is whether a brand decides this year is the year it stops bein
 
 For three years after the pandemic, the conventional media buying narrative described live streaming as a temporary behavior change. Audiences would return to scheduled television. Gaming streams were a niche. The numbers said otherwise.
 
-In 2025, global live streaming reached 36.4 billion hours watched, matching the 2021 pandemic peak and surpassing every year in between. The market is now worth $87.5 billion and growing at 23% annually. By 2030, analysts project it will reach $345 billion. These are not the numbers of a format fading back to niche status.
+In 2025, global live streaming reached [36.4 billion hours watched per Streams Charts' 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025), matching the 2021 pandemic peak and surpassing every year in between. The market is now worth $87.5 billion and growing at 23% annually. By 2030, analysts project it will reach [$345 billion per Grand View Research](https://www.grandviewresearch.com/industry-analysis/video-streaming-market). These are not the numbers of a format fading back to niche status.
 
 For Nordic advertisers still treating live streaming as an experimental line item, the math deserves a second look.
 
@@ -1336,7 +1336,19 @@ Platforms like Beta Ads give Nordic brands direct access to more than 39,000 str
 
 Live streaming advertising is not emerging. It is established, growing, and increasingly competitive. The $87.5 billion market will reach $345 billion by 2030. The brands entering now are building creative templates, streamer relationships, and audience familiarity during a period when those assets are still relatively affordable.
 
-The question for Nordic brands is less "should we try live streaming advertising" and more "how much ground do we want to make up later?" The numbers for the latter are already on a 23% annual upward trajectory.`,
+The question for Nordic brands is less "should we try live streaming advertising" and more "how much ground do we want to make up later?" The numbers for the latter are already on a 23% annual upward trajectory.
+
+## Action Items for 2026 Nordic Media Planners
+
+1. **Allocate a defensible line item to live streaming.** Treating it as "experimental" when the category is growing 23% annually no longer matches reality.
+2. **Start with native overlay formats, not pre-roll.** Adblock rates among Nordic 18-34 make pre-roll inefficient spend per [AudienceProject Nordic data](https://www.audienceproject.com/).
+3. **Lock in Q3/Q4 2026 creator inventory early.** The strongest Nordic creators book 6-8 weeks ahead in competitive seasons.
+4. **Use multi-platform creator portfolios.** Twitch, Kick and YouTube Gaming all have viable Nordic inventory now; single-platform plans leave CTR on the table.
+5. **Scope your first campaign against a specific brief.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through category fit, creator availability, and a realistic 2026 test-campaign shape.
+
+---
+
+*Sources: [Streams Charts — 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) · [Grand View Research — Video Streaming Market](https://www.grandviewresearch.com/industry-analysis/video-streaming-market) · [IAB — Creator economy ad spend 2026](https://www.iab.com/insights/) · [AudienceProject Nordic Device Study](https://www.audienceproject.com/) · [Newzoo — Games market insights](https://newzoo.com/insights/) · [Digiday — Creator economy 2026 forecast](https://digiday.com/marketing/in-graphic-detail-heres-what-the-creator-economy-is-expected-to-look-like-in-2026/) · [Beta Ads case studies](/case-studies)*`,
     date: "Apr 1, 2026",
     dateISO: "2026-04-01",
     readTime: "7 min read",
@@ -4763,7 +4775,7 @@ In 2026, that trade-off is changing.
 
 ## What AI-Powered Dynamic Ad Insertion Actually Does
 
-Dynamic ad insertion (DAI) has existed in video-on-demand for years - it's how streaming services replace broadcast commercials with targeted alternatives. Applied to live streaming, the technology is meaningfully different. Live streams have no pre-defined ad breaks, no fixed scripts, and no post-production window.
+Dynamic ad insertion (DAI) has existed in video-on-demand [per IAB's video advertising specs](https://www.iab.com/insights/) for years - it's how streaming services replace broadcast commercials with targeted alternatives. Applied to live streaming, the technology is meaningfully different. Live streams have no pre-defined ad breaks, no fixed scripts, and no post-production window.
 
 AI-powered systems designed for live streams work by analyzing the stream in real time: detecting natural pauses, monitoring audio content, tracking scene changes, and identifying contextually appropriate moments to surface brand messages. The result is an overlay or branded element that appears when the stream is naturally in a lower-intensity moment - a menu screen, a pause between rounds, a conversational lull - rather than interrupting action.
 
@@ -4809,7 +4821,19 @@ Three years ago, AI-powered ad insertion in live streams was an experiment discu
 
 For Nordic brands that have been watching native live stream advertising from a distance, the operational barriers that once justified waiting have largely been removed. The technology that makes native formats scale is here. The audience is engaged and growing. The window for early-mover advantage is real but not unlimited.
 
-The question is no longer whether this approach is technically viable. It is whether your media plan reflects what the technology now makes possible.`,
+The question is no longer whether this approach is technically viable. It is whether your media plan reflects what the technology now makes possible.
+
+## Action Items for Nordic Media Planners Evaluating AI DAI
+
+1. **Require platform-verified delivery reporting.** AI-driven ad insertion makes delivery measurable at the per-stream level; accept nothing less.
+2. **Start with native overlay formats.** Dynamic overlays are the clearest early-win use case — they scale cleanly and don't require creator voice work.
+3. **Budget for creative iteration during the campaign window.** AI DAI lets creative be swapped mid-flight based on early performance data; bake that into the planning cycle.
+4. **Match DAI to category fit.** Fast-moving consumer categories (retail, food delivery, seasonal launches) benefit more from in-flight optimisation than slow-burn brand awareness.
+5. **Test with a platform partner that has verified reporting.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through what AI-driven native delivery looks like for your specific brief.
+
+---
+
+*Sources: [IAB — Video advertising specifications](https://www.iab.com/insights/) · [Streams Charts — 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) · [The Verge — Twitch server-side ad insertion](https://www.theverge.com/) · [Digiday — AI in advertising](https://digiday.com/) · [Awisee — Twitch CPM rates 2025](https://awisee.com/blog/twitch-cpm-rates/) · [Beta Ads case studies](/case-studies)*`,
     date: "Mar 26, 2026",
     dateISO: "2026-03-26",
     readTime: "6 min read",
@@ -5679,7 +5703,25 @@ Nordic consumers have consistently high trust in people they perceive as authent
 
 Nordic streamers who build genuine communities around authentic personalities are particularly valuable brand partners in this market. The relationship their audiences have built with them is the asset - not just the eyeballs.
 
-Understanding parasocial psychology does not mean manipulating it. It means building brand partnerships that respect the trust viewers have placed in their favorite creators, and that earn their own place in those communities through genuine value and fit.`,
+Understanding parasocial psychology does not mean manipulating it. It means building brand partnerships that respect the trust viewers have placed in their favorite creators, and that earn their own place in those communities through genuine value and fit.
+
+## How Beta Ads Operationalises Parasocial Trust
+
+The practical implication of parasocial-based advertising is that creator selection becomes the single largest determinant of campaign performance — more than creative quality, more than platform, more than budget size. A creator whose audience has a strong parasocial relationship converts at dramatically higher rates than an equivalent-size creator whose audience is less bonded.
+
+Beta Ads' platform indexes 39,000+ Nordic creators with historical brand-integration performance, audience demographic data, and engagement-quality signals that let campaign teams identify which creators carry the deepest audience trust for a given brand category. The published [Beta Ads case studies](/case-studies) — including [Shure's 9.12% peak-day CTR on detoo's channel](/case-study/shure) — demonstrate what happens when a brand campaign is built around parasocial-strength creators rather than raw reach.
+
+## Action Items for Brands Leveraging Parasocial Trust
+
+1. **Treat creator selection as a first-order variable.** Match your brand to creators whose audience trust is high in your category, even if it means a smaller reach per channel.
+2. **Prioritise long-tenure creators.** The depth of parasocial bond scales with years, not follower count. A 4-year creator with 1,500 viewers beats a 6-month creator with 5,000.
+3. **Avoid scripted reads.** Parasocial trust is broken the moment the viewer perceives the creator is performing an ad. Give the creator latitude on delivery.
+4. **Test in categories where trust compounds.** Skincare, finance, nutrition, education — categories where trust matters most — benefit most from parasocial advertising.
+5. **Book a campaign brief that matches creator portfolios to your category.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) to scope a parasocial-aligned creator list against your brief.
+
+---
+
+*Sources: [Edelman — 2025 Trust Barometer](https://www.edelman.com/trust/2025/trust-barometer) · [Pew Research — Parasocial relationships and social media](https://www.pewresearch.org/) · [Sharethrough + IPG Media Lab — Native advertising research](https://www.sharethrough.com/resources) · [Streams Charts — 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) · [Beta Ads case studies](/case-studies)*`,
     date: "Mar 25, 2026",
     dateISO: "2026-03-25",
     readTime: "8 min read",
