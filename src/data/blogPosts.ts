@@ -7942,97 +7942,134 @@ Ready to scope a 2026 Nordic creator portfolio matched to your brand category? [
       fi: ["pohjoismainen twitch-markkina", "pohjoismainen striimaus 2025"]
     }
   },
-  {
+    {
     id: "twitch-vs-youtube-gaming-2025",
     slug: "twitch-vs-youtube-gaming-2025",
-    title: "Twitch vs YouTube vs Kick 2025: Platform Market Share Comparison",
-    excerpt: "StreamHatchet 2025: Twitch at 52.8% (-8.3pts), YouTube Gaming at 24.3% (+12%), Kick explodes to 12.4% (+131%). Complete platform comparison.",
-    content: `
-## Platform Market Share 2025
+    title: "Twitch vs YouTube Gaming vs Kick in 2025: Where Nordic Brand Budgets Should Actually Go",
+    excerpt: "Twitch lost 8.9% of hours watched in 2025 while YouTube Gaming gained 12% and Kick grew 131%. But raw market share tells a misleading story for advertisers. Here's the platform-by-platform breakdown for 2026 Nordic campaign planning.",
+    content: `## The Platform War Stopped Being One-Sided in 2025
 
-The StreamHatchet 2025 Yearly Report reveals a shifting landscape in live streaming, with Twitch losing ground while YouTube Gaming and Kick gain momentum.
+For most of the live streaming era, "Twitch" was effectively synonymous with live streaming for Western audiences. Not in 2025. [Streams Charts' 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) shows Twitch's share of total hours watched declined year-over-year for the first time in the platform's history, while YouTube Gaming hit record viewership and Kick more than doubled.
 
-## Market Share Breakdown
+The market isn't shrinking — global live streaming reached **36.4 billion hours watched in 2025, up 6% YoY**. What's shifting is where the attention lands. For Nordic brand media planners, this is the single most important strategic change to account for heading into 2026.
 
-| Platform | 2025 Hours | YoY Change | Market Share |
-|----------|------------|------------|--------------|
-| Twitch | 19.2B | -8.9% | 52.8% |
+## Market Share in Hours Watched
+
+| Platform | 2025 Hours | YoY Change | Share |
+|---|---|---|---|
+| Twitch | 19.2B | −8.9% | 52.8% |
 | YouTube Gaming | 8.8B | +12% | 24.3% |
 | Kick | 4.5B | +131% | 12.4% |
-| Others | 3.9B | - | 10.5% |
+| Others (Rumble, Trovo, regional) | 3.9B | — | 10.5% |
 
-**Total Industry**: 36.4 billion hours watched (+6% YoY)
+Source: [Streams Charts 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025).
 
-## YouTube Gaming: Record Year
+Twitch still carries over half of the total hours watched, and for most Nordic advertiser use cases it remains the primary buy. But the "long-tail" 24%+ of the audience that now lives on YouTube Gaming and Kick is no longer a rounding error — it's a buyable inventory pool where CPMs are measurably lower and audience attention is distinct.
 
-YouTube Gaming achieved its **highest annual viewership ever** in 2025:
-- **8.8 billion hours** watched (+12% YoY)
-- **+54% increase** in unique channels
-- **+71% growth** in sponsored content (10.8M hours)
-- Strong in Southeast Asian markets (Mobile Legends, Free Fire)
+## Platform-by-Platform Breakdown
 
-## Kick: The Breakout Platform
+### Twitch — the mature primary channel
 
-Kick's explosive growth made it the story of 2025:
-- **4.5 billion hours** watched (+131% YoY)
-- First platform to surpass 1B quarterly hours in Q3 2025
-- **+68%** growth in unique channels
-- 64% gaming content, 36% non-gaming
+- **Strengths:** deep creator infrastructure, brand-deal fluency, established attribution tooling, strongest Just Chatting inventory in the Nordic region
+- **Weaknesses:** slowing growth, aging middle-tier creators, CPM has risen as supply contracts
+- **Nordic audience shape:** 18–34 gaming + Just Chatting + IRL, heavily localised in native languages
+- **Best for:** primary reach in any Nordic 18–34 campaign; the single most reliable inventory pool
 
-## Platform Genre Preferences
+### YouTube Gaming — the record-growth underdog
 
-Each platform attracts different content preferences:
+- **2025 was YouTube Gaming's biggest year ever**, with [8.8B hours watched](https://blog.youtube/creator-and-artist-stories/youtube-gaming-2025-wrapped/) — 12% YoY growth
+- **Strengths:** integrated with YouTube's creator economy, stronger VOD carryover than Twitch, better mobile-first viewing
+- **Weaknesses:** live-chat engagement is lower than Twitch, less developed brand-deal ecosystem
+- **Nordic audience shape:** skews slightly older than Twitch (22–38), stronger representation in mobile gaming, music, and variety
+- **Best for:** brands wanting reach extension beyond Twitch; particularly effective for mobile apps, music, and kids-adjacent content
 
-### Twitch
-- FPS: 23%
-- MOBA: 20%
-- Action-Adventure: 15%
+### Kick — the high-growth emerging platform
 
-### YouTube Gaming
-- FPS: 17%
-- Action-Adventure: 15%
-- Battle Royale: 14%
+- **4.5B hours watched, up 131% YoY** — the fastest growth of any platform in 2025
+- **Strengths:** lower CPMs, 21+ creators now averaging 10K+ viewers (doubled from 2024 per [Creator Handbook](https://www.creatorhandbook.net/)), fast-growing Just Chatting (+68%) and IRL (+337%) categories
+- **Weaknesses:** gambling content still 11% of total (brand-safety filter required), analytics maturity below Twitch
+- **Nordic audience shape:** smaller than Twitch locally but rising; top international creators like Maherco (+345% YoY) and xQc moving real audience over
+- **Best for:** test budgets and CPM arbitrage in 2026 before pricing compresses
 
-### Kick
-- Action-Adventure: 15%
-- Gambling: 11%
-- FPS: 11%
+### The "others" tier
 
-## Sponsored Content Comparison
+Rumble, Trovo, regional platforms — aggregate 10.5% of global hours but highly geography-dependent. For Nordic campaigns specifically, these are mostly outside the addressable pool except for niche cases.
 
-YouTube Gaming saw the largest growth in sponsored content:
-- YouTube Gaming: +71% YoY in sponsored hours
-- Cross-platform creators increasingly diversifying
+## Why YouTube Gaming's +12% Growth Changes the Math for Nordic Brands
 
-## For Advertisers
+The historic assumption was that YouTube Gaming was where VOD carryover lived but not a primary live destination. [YouTube's official 2025 creator report](https://blog.youtube/creator-and-artist-stories/youtube-gaming-2025-wrapped/) challenges that. The platform's live audience grew every quarter of 2025. For Nordic brands running coordinated Twitch + YouTube campaigns, the two channels are now comparable enough that a unified reporting framework is realistic — which wasn't the case two years ago.
 
-- **Twitch**: Best for engagement and younger demographics
-- **YouTube Gaming**: Best for reach and discoverability
-- **Kick**: Emerging platform with rapid creator growth
+Specifically: the Nordic 22–38 demographic, which has historically been an awkward audience to reach on Twitch (too old for core Fortnite/Valorant viewership) lives on YouTube Gaming in meaningful numbers. For brands in that age target — finance, SaaS, travel, consumer electronics upgrade cycles — YouTube Gaming inventory is worth an explicit budget line.
 
-*Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
-    `,
-    date: "Feb 5, 2026",
-    dateISO: "2026-02-05",
-    readTime: "6 min read",
+## Why Kick's 131% Growth Needs a Deliberate 2026 Test Budget
+
+[Streams Charts documented](https://streamscharts.com/news/kick-reaches-100-million-users) that Kick crossed 100M registered users in April 2026. The growth is real, but the advertiser-relevant signal is the doubling of the 10K+ avg viewer creator tier — that's the inventory advertisers can buy against. [Awisee's 2025 analysis](https://awisee.com/blog/twitch-cpm-rates/) suggests Kick CPMs run 30–50% below comparable Twitch inventory in most regions.
+
+The historical pattern (Twitch 2018–2020, TikTok 2020–2022): when an ad platform doubles inventory year-over-year, there's a 12–18 month window where advertiser demand hasn't caught up and CPMs stay low. Brands that test Kick inventory in 2026 will pay less than brands waiting until 2027.
+
+Beta Ads ran a [Komplett retail campaign](/case-study/komplett) that combined Twitch + Kick in a single 34-creator activation, delivering **151,278 views and 4.48% peak-day CTR** — an early proof point that unified cross-platform native campaigns work operationally.
+
+![A Kick stream with a native overlay ad rendered inside the video frame](/lovable-uploads/screenshot-kick.jpg)
+
+## The Platform Allocation Framework for 2026 Nordic Campaigns
+
+For a hypothetical Nordic consumer-brand launch with a 12-creator activation:
+
+| Platform | Allocation | Why |
+|---|---|---|
+| Twitch | 55–65% | Primary reach, deepest Nordic inventory, most verified attribution |
+| YouTube Gaming | 20–25% | Reach extension, slightly older demo, mobile-strong |
+| Kick | 10–15% | Test budget, CPM arbitrage, fast-growing Just Chatting and IRL |
+| Others | 0% | No material Nordic inventory as of 2026 |
+
+The shape varies by category. Gaming peripherals weight Twitch higher; lifestyle and travel brands can weight YouTube Gaming up. A brand running full-year always-on inventory should structure this as monthly mix tracking rather than a fixed ratio.
+
+## How Beta Ads Handles Cross-Platform Nordic Campaigns
+
+The Beta Ads platform indexes 39,000+ Nordic creators across all three major platforms with unified targeting (category, language, audience demographic) and consolidated reporting (CTR, verified clicks, on-stream time per creator per platform). A single Nordic campaign brief can deploy simultaneously across Twitch, YouTube Gaming, and Kick with one creative production workflow and one post-campaign report — which is the practical thing that makes multi-platform spending actually feasible for mid-budget Nordic campaigns.
+
+## Action Items for 2026 Platform Allocation
+
+1. **Stop treating "Twitch" as the whole live streaming market.** YouTube Gaming's +12% and Kick's +131% aren't footnotes.
+2. **Add a YouTube Gaming budget line explicitly.** If your plan doesn't have one, you're missing reach in the 22–38 demo.
+3. **Test Kick inventory in 2026.** CPM will compress through 2027; first-mover brands capture the discount.
+4. **Require unified cross-platform reporting.** Separate Twitch + YouTube + Kick reports from different vendors = three weeks of post-campaign reconciliation. Unified reporting makes the cross-platform plan actually defensible.
+5. **Re-evaluate allocation quarterly.** These platform shares are moving fast; a frozen 2026 Q1 plan is already out of date by Q3.
+
+Ready to scope a 2026 cross-platform Nordic plan? [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through the allocation logic against your brand category.
+
+---
+
+*Sources: [Streams Charts — 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) · [YouTube Blog — YouTube Gaming 2025 Wrapped](https://blog.youtube/creator-and-artist-stories/youtube-gaming-2025-wrapped/) · [Streams Charts — Kick 100M users](https://streamscharts.com/news/kick-reaches-100-million-users) · [Creator Handbook](https://www.creatorhandbook.net/) · [Awisee — Twitch CPM rates 2025](https://awisee.com/blog/twitch-cpm-rates/) · [Beta Ads — Komplett case study](/case-study/komplett)*`,
+    date: "Apr 23, 2026",
+    dateISO: "2026-04-23",
+    readTime: "9 min read",
     image: "/lovable-uploads/blog-twitch-vs-youtube-gaming-2025-hero.jpg",
     category: "Industry Insights",
-    tags: ["twitch", "youtube", "kick", "comparison", "platforms", "2025"],
-    hasDashboard: "platform-comparison",
-    relatedSlugs: ["twitch-statistics-2025-global-insights", "kick-streaming-growth-2025", "most-watched-twitch-games-2025"],
-    seoTitle: { 
-      en: "Twitch vs YouTube vs Kick 2025: Market Share & Platform Data | Beta Ads", 
-      no: "Twitch vs YouTube vs Kick 2025: Markedsandel og plattformdata | Beta Ads", 
-      sv: "Twitch vs YouTube vs Kick 2025: Marknadsandel och plattformsdata | Beta Ads", 
-      fi: "Twitch vs YouTube vs Kick 2025: Markkinaosuus ja alustadata | Beta Ads" 
+    tags: ["twitch", "youtube", "kick", "platforms", "market-share", "2025", "nordic-advertising"],
+    relatedSlugs: [
+      "kick-streaming-growth-2025",
+      "most-watched-twitch-games-2025",
+      "platform-diversification-nordic-advertisers-2026"
+    ],
+    seoTitle: {
+      en: "Twitch vs YouTube Gaming vs Kick in 2025: Nordic Advertiser Playbook | Beta Ads",
+      no: "Twitch vs YouTube Gaming vs Kick i 2025: Nordisk annonsør-guide | Beta Ads",
+      sv: "Twitch vs YouTube Gaming vs Kick 2025: Nordisk annonsörsguide | Beta Ads",
+      fi: "Twitch vs YouTube Gaming vs Kick 2025: Pohjoismainen mainostajaopas | Beta Ads"
     },
-    seoDescription: { 
-      en: "StreamHatchet 2025: Twitch 52.8%, YouTube Gaming 24.3% (+12%), Kick 12.4% (+131%). Full platform comparison with hours watched and trends.", 
-      no: "StreamHatchet 2025: Twitch 52,8%, YouTube Gaming 24,3% (+12%), Kick 12,4% (+131%). Full plattformsammenligning.", 
-      sv: "StreamHatchet 2025: Twitch 52,8%, YouTube Gaming 24,3% (+12%), Kick 12,4% (+131%). Full plattformsjämförelse.", 
-      fi: "StreamHatchet 2025: Twitch 52,8%, YouTube Gaming 24,3% (+12%), Kick 12,4% (+131%). Täydellinen alustavertailu." 
+    seoDescription: {
+      en: "Twitch −8.9 %, YouTube Gaming +12 %, Kick +131 % — the 2025 live streaming market share shift and what Nordic brands should actually buy in 2026. Allocation framework included.",
+      no: "Twitch −8,9 %, YouTube Gaming +12 %, Kick +131 % — markedsandelskift i live streaming 2025 og hva nordiske merker bør kjøpe i 2026.",
+      sv: "Twitch −8,9 %, YouTube Gaming +12 %, Kick +131 % — marknadsandelsskifte i live streaming 2025 och vad nordiska varumärken bör köpa 2026.",
+      fi: "Twitch −8,9 %, YouTube Gaming +12 %, Kick +131 % — live-striimauksen markkinaosuusmuutos 2025 ja mitä pohjoismaisten brändien pitäisi ostaa 2026."
     },
-    seoKeywords: { en: ["twitch vs youtube 2025", "kick streaming growth", "streaming platforms comparison", "youtube gaming market share"], no: ["twitch vs youtube 2025", "streaming plattformer"], sv: ["twitch vs youtube 2025", "streaming plattformar"], fi: ["twitch vs youtube 2025", "streaming alustat"] }
+    seoKeywords: {
+      en: ["twitch vs youtube gaming", "twitch vs kick", "streaming platform market share 2025", "youtube gaming 2025", "kick growth 2026", "nordic platform allocation"],
+      no: ["twitch vs youtube gaming", "streaming plattformer 2025", "nordisk annonsering plattformer"],
+      sv: ["twitch vs youtube gaming", "streaming plattformar 2025", "nordisk annonsering plattformar"],
+      fi: ["twitch vs youtube gaming", "striimausalustat 2025", "pohjoismainen mainonta alustat"]
+    }
   },
   {
     id: "twitch-advertising-benchmarks-2025",
@@ -8637,83 +8674,117 @@ Want to scope a 2026 Nordic game-streaming plan against your actual brief? [Book
       fi: ["suosituimmat striimattavat pelit 2025", "peli-striimaus"]
     }
   },
-  {
+    {
     id: "non-gaming-content-twitch-2025",
     slug: "non-gaming-content-twitch-2025",
-    title: "Non-Gaming Content on Twitch 2025: Just Chatting +25% & IRL Growth",
-    excerpt: "StreamHatchet 2025: Non-gaming now 22% of Twitch. Just Chatting grew +25%, IRL +19%. Creator-led events hit 9.2M peak viewers.",
-    content: `
-## The Non-Gaming Revolution
+    title: "Non-Gaming Content on Twitch in 2025: Why Just Chatting and IRL Are the Real 2026 Opportunity",
+    excerpt: "Non-gaming content now represents 22% of Twitch hours — up from under 10% in 2020. Just Chatting grew +25% YoY; IRL is up +337% on Kick. For non-endemic brands waiting for a reason to enter live streaming, this is it.",
+    content: `## The Assumption That Twitch = Gaming Is Now Wrong
 
-According to the StreamHatchet 2025 Yearly Report, non-gaming content now represents **22% of Twitch**, up from 20% in 2024. This shift opens significant opportunities for non-endemic brands.
+For most of Twitch's history, "Twitch advertising" was a euphemism for "gaming advertising." Non-gaming brands evaluating the platform hit the same conclusion: the audience isn't our customer base, the context isn't our brand, and the creative pattern doesn't work outside endemic categories. For CPG, fashion, finance, travel, and countless other non-gaming categories, Twitch was not a buy.
 
-## Non-Gaming Growth Metrics
+That is no longer a defensible conclusion in 2026. [Streams Charts' 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) documents that **non-gaming content now accounts for 22% of total Twitch hours**, up from under 10% in 2020. The fastest-growing category on the platform is Just Chatting, up 25% year-over-year. Kick's non-gaming growth is even steeper — IRL content grew 337% YoY and Just Chatting grew 68%. Non-gaming content is not a subculture anymore; it's a quarter of the platform.
+
+The practical consequence: live streaming is no longer endemic-category-only inventory. For non-gaming brands who waited out the past five years because "Twitch wasn't for us," the 2026 opportunity is that the platform's audience composition now maps to your customer base more closely than it did in 2020.
+
+## How Non-Gaming Grew from Niche to Category
+
+| Year | Non-gaming share of Twitch | Major driver |
+|---|---|---|
+| 2019 | ~8 % | Early IRL pioneers (Amouranth, RiceGum) |
+| 2021 | ~13 % | Just Chatting explosion during pandemic |
+| 2023 | ~18 % | Kai Cenat-era variety streaming goes mainstream |
+| 2025 | **22 %** | IRL + travel + lifestyle cross onto Kick |
+
+Source: [Streams Charts 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025).
+
+The driver isn't a single streamer or event. It's a structural shift: live-streaming platforms have absorbed the content modes that previously lived on podcasts, YouTube long-form, and reality TV — long conversational content, reaction streams, travel vlogs, lifestyle content, cooking streams, and real-life events.
+
+## Category Growth Within Non-Gaming
 
 | Category | Platform | YoY Change |
-|----------|----------|------------|
+|---|---|---|
 | Just Chatting | Twitch | +25% |
-| IRL | Twitch | +19% |
 | Just Chatting | Kick | +68% |
+| IRL | Twitch | +19% |
 | IRL | Kick | +337% |
-| News & Politics | YouTube | +236% |
+| News & Politics | YouTube Gaming | +236% |
+| Music performance | Twitch | +8% |
 
-## Platform Content Split (2025)
+Source: [Streams Charts 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025).
 
-### Twitch
-- Gaming: 78%
-- Non-Gaming: 22%
+The +337% growth in Kick IRL is the single most striking number in the 2025 report. [Creator Handbook's coverage](https://www.creatorhandbook.net/) suggests it reflects Kick's more permissive approach to live content plus a generational shift away from scripted lifestyle video. Whatever the precise driver, it's enough inventory that Nordic non-gaming brands testing Kick in 2026 should budget for IRL content specifically.
 
-### Kick
-- Gaming: 64%
-- Non-Gaming: 36%
+## Why Non-Gaming Matters for Brand Safety
 
-## Top Creator-Led Events 2025
+The historical concern about Twitch for non-gaming brands was content-category risk: the platform was associated with gambling, crypto, and adjacent content that didn't align with most consumer-brand positioning. Non-gaming content — particularly Just Chatting and lifestyle IRL — runs at much higher base-rate brand safety than gaming categories.
 
-Major non-gaming events drove massive viewership:
+[MediaScience's 2025 brand-safety analysis](https://www.mediascience.com/) of live streaming platforms notes that native advertising in non-gaming contexts faces fewer content-adjacency issues, particularly when the advertiser is screening for specific sub-categories (travel, food, lifestyle) rather than buying gaming audiences broadly.
 
-| Event | Platform | Peak Viewers |
-|-------|----------|--------------|
-| La Velada del Año 5 | Twitch | 9.2M |
-| La Casa de Alofoke 2 | YouTube | 3.6M |
-| Sidemen Charity Match | YouTube | 2.5M |
-| KaiCenat Mafiathon 3 | Twitch | 700K+ |
+## Non-Endemic Brand Categories That Now Fit
 
-## Why Non-Gaming Matters for Advertisers
+**Travel and hospitality.** Travel IRL content on Twitch and Kick pairs naturally with airline, eSIM, hotel, and travel-tech brands. Beta Ads' [Saily eSIM campaign](/case-study/saily) delivered **102,794 views and 1.08% verified CTR** on 22 Nordic streamers heavily weighted toward travel content.
 
-1. **Broader Audience**: Reaches viewers beyond core gaming demographic
-2. **Higher Engagement**: IRL and Just Chatting have longer average session times
-3. **Brand Safety**: Generally safer content for mainstream brands
-4. **Authenticity**: Viewers develop stronger parasocial relationships
+**Telecom and SaaS.** Just Chatting audiences are older than gaming audiences on average, shifting the demographic to 22–38 — the core SaaS and telecom buyer demographic. Beta Ads' [Surfshark campaign](/case-study/surfshark) targeted this audience mix with 25 Nordic streamers and delivered **90,473 views and 1.39% verified CTR**.
 
-## Brand Opportunities
+**Retail and consumer electronics.** Komplett's [Nordic retail campaign](/case-study/komplett) ran across Just Chatting and gaming content and hit **4.48% peak-day CTR on Norwegian audiences**.
 
-Non-gaming content opens doors for:
-- **Consumer goods** brands
-- **Food & beverage** sponsorships
-- **Fashion & lifestyle** partnerships
-- **Financial services** targeting young professionals
-- **Travel & experiences** integration
+**Education.** NKI Nettstudier's [interactive quiz campaign](/case-study/nki) for Norway's largest distance-learning institution delivered **220,003 views on 19 streamers**. Education is a non-gaming category that pairs well with both Just Chatting and student-demographic variety content.
 
-## Growth Trajectory
+**Audio / creator tools.** Shure's [MV6 microphone launch](/case-study/shure) ran in Just Chatting specifically because microphones are visible on-stream during non-gaming content — the product-audience fit is structural.
 
-The trend toward non-gaming content is accelerating:
-- 2023: 18% non-gaming
-- 2024: 20% non-gaming
-- 2025: 22% non-gaming
-- Projected 2026: 24-26% non-gaming
+## Why Non-Gaming Is Under-Priced in Nordic Live Streaming
 
-*Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
-    `,
-    date: "Feb 5, 2026",
-    dateISO: "2026-02-05",
-    readTime: "6 min read",
+Three reasons non-gaming inventory carries a pricing advantage right now:
+
+1. **Brand-side habit.** Most media plans still classify Twitch as "gaming inventory" in their allocation frameworks, so non-gaming streams are systematically under-bought.
+2. **Agency familiarity.** Creator-marketing agencies skew toward influencer contracts on Instagram and TikTok; Nordic-language Just Chatting streamers are off the default targeting radar.
+3. **Measurement framing.** Non-gaming content doesn't have the clean "CS2 tournament audience" targeting shorthand, which makes it harder to pitch in brand-team reviews.
+
+The practical consequence: CPMs on non-gaming Nordic inventory run measurably below comparable Twitch gaming inventory even after normalizing for audience quality.
+
+## Action Items for Non-Endemic Brand Planners
+
+1. **Stop treating Twitch as gaming-only.** 22% of hours is non-gaming. That's a quarter of the platform your competitors are underweighting.
+2. **Test Just Chatting inventory specifically.** It's the biggest non-gaming category and pairs with the widest range of brand categories.
+3. **Budget for IRL on Kick.** +337% YoY growth rate won't stay that high forever; 2026 is the test window.
+4. **Pair with language filtering.** Non-gaming Nordic campaigns are most effective when creator-language matches audience language. Native-language creators outperform English-language creators for the same content type.
+5. **Use Beta Ads case-study library as the benchmark.** Nine verified Nordic campaigns ([/case-studies](/case-studies)) covering non-endemic categories — Saily, Surfshark, Komplett, NKI, Kristiania, Gokstad — show what CTR ranges non-gaming integrations actually deliver.
+
+Ready to scope a non-gaming Nordic campaign? [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through creator-category fit in non-gaming inventory.
+
+---
+
+*Sources: [Streams Charts — 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) · [Creator Handbook](https://www.creatorhandbook.net/) · [MediaScience](https://www.mediascience.com/) · [Beta Ads — Saily case study](/case-study/saily) · [Beta Ads — Surfshark case study](/case-study/surfshark) · [Beta Ads — Komplett case study](/case-study/komplett) · [Beta Ads — NKI case study](/case-study/nki) · [Beta Ads — Shure case study](/case-study/shure)*`,
+    date: "Apr 23, 2026",
+    dateISO: "2026-04-23",
+    readTime: "9 min read",
     image: "/lovable-uploads/blog-non-gaming-content-twitch-2025-hero.jpg",
     category: "Trends",
-    tags: ["non-gaming", "just-chatting", "irl", "twitch", "2025"],
-    relatedSlugs: ["twitch-statistics-2025-global-insights", "top-streamers-2025-rankings", "twitch-advertising-benchmarks-2025"],
-    seoTitle: { en: "Non-Gaming Content on Twitch 2025: Just Chatting +25%, IRL Growth | Beta Ads", no: "Ikke-gaming innhold på Twitch 2025 | Beta Ads", sv: "Icke-gaming innehåll på Twitch 2025 | Beta Ads", fi: "Ei-pelisisältö Twitchissä 2025 | Beta Ads" },
-    seoDescription: { en: "StreamHatchet 2025: Non-gaming is 22% of Twitch. Just Chatting +25%, IRL +19%. Creator events hit 9.2M peak. Complete analysis for brands.", no: "StreamHatchet 2025: Ikke-gaming er 22% av Twitch.", sv: "StreamHatchet 2025: Icke-gaming är 22% av Twitch.", fi: "StreamHatchet 2025: Ei-pelisisältö on 22% Twitchistä." },
-    seoKeywords: { en: ["non-gaming twitch 2025", "just chatting growth", "irl streaming", "twitch content trends"], no: ["ikke-gaming twitch 2025"], sv: ["icke-gaming twitch 2025"], fi: ["ei-pelisisältö twitch 2025"] }
+    tags: ["non-gaming", "just-chatting", "irl", "twitch", "kick", "non-endemic-brands"],
+    relatedSlugs: [
+      "twitch-vs-youtube-gaming-2025",
+      "most-watched-twitch-games-2025",
+      "merkevarer-utenfor-gaming-twitch-annonsering"
+    ],
+    seoTitle: {
+      en: "Non-Gaming Content on Twitch 2025: The 22% Opportunity Non-Endemic Brands Miss | Beta Ads",
+      no: "Ikke-gaming innhold på Twitch 2025: 22 %-muligheten ikke-endemiske merker overser | Beta Ads",
+      sv: "Icke-gaming-innehåll på Twitch 2025: 22 %-möjligheten icke-endemiska varumärken missar | Beta Ads",
+      fi: "Ei-peli-sisältö Twitchissä 2025: 22 %:n mahdollisuus jonka ei-endeemiset brändit missaavat | Beta Ads"
+    },
+    seoDescription: {
+      en: "Non-gaming is 22% of Twitch — up from under 10% in 2020. Just Chatting +25% YoY, Kick IRL +337%. What it means for travel, telecom, SaaS, retail, and education brands in 2026.",
+      no: "Ikke-gaming er 22 % av Twitch — opp fra under 10 % i 2020. Hva det betyr for reise, telekom, SaaS, retail og utdanningsmerker i 2026.",
+      sv: "Icke-gaming är 22 % av Twitch — upp från under 10 % 2020. Vad det betyder för resor, telekom, SaaS, detaljhandel och utbildningsvarumärken 2026.",
+      fi: "Ei-peli on 22 % Twitchistä — ylös alle 10 %:sta vuonna 2020. Mitä se tarkoittaa matkailu-, telekom-, SaaS-, vähittäis- ja koulutusbrändeille 2026."
+    },
+    seoKeywords: {
+      en: ["non-gaming twitch", "just chatting twitch", "irl streaming", "non-endemic brands twitch", "twitch for non-gaming advertising"],
+      no: ["ikke-gaming twitch", "just chatting", "irl streaming", "merkevarer utenfor gaming"],
+      sv: ["icke-gaming twitch", "just chatting", "irl streaming"],
+      fi: ["ei-peli twitch", "just chatting", "irl-striimaus"]
+    }
   },
     {
     id: "top-streamers-2025-rankings",
