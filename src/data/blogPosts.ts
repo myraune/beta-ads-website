@@ -2334,7 +2334,19 @@ For community-level trust, consideration-stage engagement, and the kind of brand
 
 The most sophisticated Nordic advertisers are not choosing between the two. They are running CTV for reach and live streaming for depth. CTV builds the awareness. Live streaming converts it.
 
-The $45 billion question is not whether to be on CTV. It is whether that budget is doing all the work it could be, or whether a portion of it belongs somewhere the audience is actually paying attention.`,
+The $45 billion question is not whether to be on CTV. It is whether that budget is doing all the work it could be, or whether a portion of it belongs somewhere the audience is actually paying attention.
+
+## Action Items for Nordic Media Planners
+
+1. **Stop using CPM as the sole comparison variable.** CTV and live streaming have different attention economics per [AudienceProject's Nordic Device Study](https://www.audienceproject.com/); comparable CPMs hide unequal impression value.
+2. **Use CTV for reach, live streaming for engagement.** CTV reaches broad demos passively; live streaming reaches engaged 18-34 audiences actively. Match the format to the campaign goal.
+3. **Run parallel campaigns when possible.** CTV + native Twitch overlay on the same brief captures both ends of the attention spectrum without channel cannibalisation.
+4. **Measure brand lift, not just reach.** Engagement quality on live streaming outperforms CTV for mid-funnel brand lift per [Nielsen gaming advertising studies](https://www.nielsen.com/).
+5. **Book a strategic call to allocate across formats.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through the CTV-vs-live-streaming allocation framework against your 2026 plan.
+
+---
+
+*Sources: [AudienceProject Nordic Device Study](https://www.audienceproject.com/) · [Nordicom — Mediebarometern 2024](https://www.nordicom.gu.se/sv/mediebarometer) · [Nielsen — Gaming advertising research](https://www.nielsen.com/) · [IAB — CTV advertising spend](https://www.iab.com/insights/) · [Streams Charts — 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) · [Beta Ads case studies](/case-studies)*`,
     date: "Mar 31, 2026",
     dateISO: "2026-03-31",
     readTime: "6 min read",
@@ -5270,7 +5282,19 @@ For campaign planning purposes, Beta Ads includes Discord community size and eng
 
 The Discord amplification benefit compounds with the length of a creator partnership. Over time, the brand becomes part of the community's identity - referenced in memes, inside jokes, community traditions. This level of brand integration is entirely organic and impossible to manufacture through traditional advertising.
 
-Brands that invest in long-term streaming partnerships with creators who have active Discord communities are building something that one-off sponsorships never can: genuine community brand membership. That is an asset with a lifetime value that extends far beyond the campaign period.`,
+Brands that invest in long-term streaming partnerships with creators who have active Discord communities are building something that one-off sponsorships never can: genuine community brand membership. That is an asset with a lifetime value that extends far beyond the campaign period.
+
+## Action Items for Brands Leveraging Discord Community Amplification
+
+1. **Ask about Discord member counts during creator selection.** A creator with 10K Twitch viewers and a 50K-member Discord has structurally higher sponsorship value than the viewer count alone suggests.
+2. **Time sponsored activations around Discord community events.** AMAs, tournaments and member-only streams produce amplification spikes that carry into broader Twitch reach.
+3. **Use Discord Stage for sponsored creator conversations.** Audio-first community events are an under-utilised sponsorship format.
+4. **Track community sentiment as a campaign KPI.** Discord discussion post-campaign is a stronger signal than social reach alone.
+5. **Book a sponsorship that includes Discord community activation.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll scope community-layer reach against your brief.
+
+---
+
+*Sources: [Discord — Community engagement research](https://discord.com/) · [Streams Charts](https://streamscharts.com/) · [Creator Handbook — Discord community growth](https://www.creatorhandbook.net/) · [Digiday — Community-based marketing](https://digiday.com/) · [Edelman 2025 Trust Barometer](https://www.edelman.com/trust/2025/trust-barometer) · [Beta Ads case studies](/case-studies)*`,
     date: "Mar 25, 2026",
     dateISO: "2026-03-25",
     readTime: "7 min read",
@@ -5476,7 +5500,19 @@ Campaign briefs in 2026 should include:
 - What the creator's social following looks like on clip-distribution platforms (TikTok, Shorts, Reels)
 - Whether clip rights are included in the partnership terms
 
-The streaming partnership is no longer just a live event. With AI tools, it is a content production arrangement that delivers value long after the stream ends.`,
+The streaming partnership is no longer just a live event. With AI tools, it is a content production arrangement that delivers value long after the stream ends.
+
+## Action Items for Brands Sponsoring AI-Enhanced Creators
+
+1. **Ask about creator AI-tool usage during creator selection.** AI-assisted editing, clip generation and moderation signal a creator operating at modern production quality.
+2. **Budget for AI-driven clip amplification.** Sponsored content with AI-generated short-form clips delivers 3-4× the organic reach of the live moment alone per [Whop clip-amplification data](https://whop.com).
+3. **Use AI translation for multi-market Nordic campaigns.** A Swedish-language creator stream can reach Norwegian and Finnish audiences via AI-generated subtitles with minimal production cost.
+4. **Screen for AI-detection tools in brand-safety vetting.** Some platforms now use AI to flag problematic creator content in real-time.
+5. **Book a campaign with AI-tool-enabled creators.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll scope an AI-enhanced native activation against your brief.
+
+---
+
+*Sources: [Whop — Clipping campaigns](https://whop.com) · [Variety — Clipping in music marketing](https://variety.com/2026/music/news/clipping-marketing-tool-took-over-music-industry-1236699705/) · [Digiday — AI in creator workflow](https://digiday.com/) · [StreamElements — AI moderation](https://streamelements.com/) · [Streams Charts — 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) · [Beta Ads case studies](/case-studies)*`,
     date: "Mar 25, 2026",
     dateISO: "2026-03-25",
     readTime: "7 min read",
@@ -5817,7 +5853,19 @@ The key metric to watch is **total unique viewers across the co-streaming networ
 
 For Nordic brands, the co-streaming opportunity is particularly strong around Counter-Strike events (given Norway and Sweden's deep CS roots), major LoL regional tournaments, and Twitch's own platform events. Brands that have campaigns live and optimized heading into these windows capture reach at a scale that no single channel partnership could deliver.
 
-The reach calculation for streaming advertising is evolving. Brands that update their measurement models to account for co-streaming dynamics will find that streaming's actual reach is consistently higher than the simple channel-by-channel math suggests.`,
+The reach calculation for streaming advertising is evolving. Brands that update their measurement models to account for co-streaming dynamics will find that streaming's actual reach is consistently higher than the simple channel-by-channel math suggests.
+
+## Action Items for Brands Planning Co-Stream Campaigns
+
+1. **Use co-stream windows for amplification.** Esports events, major game launches and community tournaments all produce co-streaming waves where one sponsored creator placement can reach 2-4x the individual audience.
+2. **Don't double-count overlap viewers.** Squad streams share significant audience overlap — use Streams Charts or TwitchTracker de-duplicated reach numbers, not aggregated sums.
+3. **Sponsor the host, not every co-streamer.** A sponsored overlay on the primary streamer's feed gets carried into the co-stream feeds automatically in most configurations.
+4. **Check IP/broadcast rights before buying.** Not all co-streams have the legal right to carry sponsored content — [Riot's co-streaming programme](https://lolesports.com/) for example has specific brand-safety requirements.
+5. **Book with a platform partner that tracks co-stream attribution.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through co-stream opportunities in your Nordic campaign window.
+
+---
+
+*Sources: [Streams Charts — Co-streaming analysis](https://streamscharts.com/) · [Esports Charts](https://escharts.com/) · [lolesports.com — Co-streaming programme](https://lolesports.com/) · [TwitchTracker](https://twitchtracker.com/) · [Creator Handbook](https://www.creatorhandbook.net/) · [Beta Ads case studies](/case-studies)*`,
     date: "Mar 25, 2026",
     dateISO: "2026-03-25",
     readTime: "7 min read",
