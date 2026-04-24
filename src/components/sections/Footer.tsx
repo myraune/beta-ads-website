@@ -32,7 +32,7 @@ export const Footer: React.FC<FooterProps> = ({ t }) => (
               href="https://www.linkedin.com/company/beta-nordic"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light focus-visible:outline-none focus-visible:underline"
             >
               LinkedIn
             </a>
@@ -40,7 +40,7 @@ export const Footer: React.FC<FooterProps> = ({ t }) => (
               href="https://discord.gg/tSmM6XMEkn"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light"
+              className="text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light focus-visible:outline-none focus-visible:underline"
             >
               Discord
             </a>
@@ -52,16 +52,16 @@ export const Footer: React.FC<FooterProps> = ({ t }) => (
           {/* h3: highest heading level within the footer landmark — no h2 precedes these */}
           <h3 className="font-light tracking-widest text-sm uppercase text-muted-foreground/60">Product</h3>
           <div className="space-y-3">
-            <Link to="/case-studies" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+            <Link to="/case-studies" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide focus-visible:outline-none focus-visible:underline">
               Case Studies
             </Link>
-            <Link to="/twitch-advertising" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+            <Link to="/twitch-advertising" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide focus-visible:outline-none focus-visible:underline">
               Twitch Advertising
             </Link>
-            <Link to="/kick-advertising" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+            <Link to="/kick-advertising" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide focus-visible:outline-none focus-visible:underline">
               Kick Advertising
             </Link>
-            <Link to="/streamers" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+            <Link to="/streamers" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide focus-visible:outline-none focus-visible:underline">
               For Streamers
             </Link>
           </div>
@@ -71,13 +71,13 @@ export const Footer: React.FC<FooterProps> = ({ t }) => (
         <div className="space-y-6">
           <h3 className="font-light tracking-widest text-sm uppercase text-muted-foreground/60">Resources</h3>
           <div className="space-y-3">
-            <Link to="/blog" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+            <Link to="/blog" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide focus-visible:outline-none focus-visible:underline">
               Blog
             </Link>
-            <Link to="/press" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+            <Link to="/press" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide focus-visible:outline-none focus-visible:underline">
               Press
             </Link>
-            <Link to="/about" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+            <Link to="/about" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide focus-visible:outline-none focus-visible:underline">
               About Us
             </Link>
           </div>
@@ -87,13 +87,13 @@ export const Footer: React.FC<FooterProps> = ({ t }) => (
         <div className="space-y-6">
           <h3 className="font-light tracking-widest text-sm uppercase text-muted-foreground/60">Get in Touch</h3>
           <div className="space-y-3">
-            <Link to="/demo" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+            <Link to="/demo" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide focus-visible:outline-none focus-visible:underline">
               Book a Demo
             </Link>
-            <a href="mailto:andreas@beta-ads.no" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+            <a href="mailto:andreas@beta-ads.no" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide focus-visible:outline-none focus-visible:underline">
               andreas@beta-ads.no
             </a>
-            <a href="tel:+4746195548" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">
+            <a href="tel:+4746195548" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide focus-visible:outline-none focus-visible:underline">
               +47 461 95 548
             </a>
           </div>
