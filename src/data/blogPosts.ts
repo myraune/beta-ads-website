@@ -6871,7 +6871,7 @@ The infrastructure is in place. The audiences are engaged. The ad format works. 
     image: "/lovable-uploads/blog-livestream-commerce-nordic-2026-hero.jpg",
     category: "Industry Insights",
     tags: ["livestream-commerce", "e-commerce", "nordic-brands", "samsung", "shure", "twitch-ads", "youtube-gaming", "gen-z", "overlay-ads", "case-study"],
-    relatedSlugs: ["why-native-stream-ads-outperform-3-to-1", "samsung-twitch-campaign-case-study", "beyond-banner-blindness-nordic-stream-advertising"],
+    relatedSlugs: ["why-native-stream-ads-outperform-3-to-1", "beyond-banner-blindness-nordic-stream-advertising"],
     seoTitle: {
       en: "The Rise of Livestream Commerce: What Nordic Brands Need to Know in 2026 | Beta Ads",
       no: "Fremveksten av Livestream Commerce: Hva nordiske merkevarer må vite i 2026 | Beta Ads",
@@ -7152,94 +7152,7 @@ For Norwegian brands specifically, [Beta Ads' Norwegian content hub](/norge) and
       fi: ["kuinka twitch-mainonta toimii", "twitch mainonta 2026", "native twitch mainokset"]
     }
   },
-  {
-    id: "samsung-twitch-campaign-case-study",
-    slug: "samsung-twitch-campaign-case-study",
-    title: "Case Study: Samsung's Twitch Campaign Success",
-    excerpt: "How Samsung reached 2.5M unique viewers through native overlay ads without interrupting the stream.",
-    content: `
-## Campaign Overview
-
-Samsung partnered with Beta Ads to launch their Galaxy S24 Ultra campaign targeting Nordic gamers and tech enthusiasts on Twitch. The goal was to reach 2 million unique viewers while maintaining positive brand sentiment.
-
-## The Challenge
-
-Samsung faced a unique challenge: how to effectively promote a premium smartphone to an audience notorious for rejecting traditional advertising. Previous campaigns using pre-roll ads had resulted in:
-
-- High ad-blocker usage
-- Negative social media sentiment
-- Low conversion rates
-
-## Our Approach
-
-We developed a multi-layered native advertising strategy:
-
-### Phase 1: Streamer Selection
-We identified 47 Nordic streamers whose audiences aligned with Samsung's target demographic. Key criteria included:
-- Minimum 1,000 average concurrent viewers
-- Gaming and tech-focused content
-- Strong community engagement
-
-### Phase 2: Custom Overlay Design
-Our creative team designed stream overlays that:
-- Triggered during exciting gameplay moments
-- Featured the Galaxy S24 Ultra's camera capabilities
-- Included interactive elements for viewer engagement
-
-### Phase 3: Chatbot Integration
-We deployed AI chatbots that could:
-- Answer viewer questions about the device
-- Provide exclusive discount codes
-- Track real-time engagement metrics
-
-## The Results
-
-The campaign exceeded all expectations:
-
-| Metric | Goal | Achieved |
-|--------|------|----------|
-| Unique Viewers | 2M | 2.5M |
-| Engagement Rate | 2% | 4.7% |
-| Brand Sentiment | Neutral | 89% Positive |
-| CTR | 1% | 3.2% |
-
-## Key Learnings
-
-1. **Timing is everything** - Ads shown during peak excitement moments had 3x higher engagement
-2. **Authenticity matters** - Streamers who genuinely used the product saw 2x better results
-3. **Interactive beats passive** - Chatbot-driven engagement converted 5x better than static overlays
-
-## Conclusion
-
-Samsung's campaign demonstrates that Twitch advertising works when it respects the platform's unique culture and audience expectations.
-    `,
-    date: "Dec 5, 2024",
-    dateISO: "2024-12-05",
-    readTime: "4 min read",
-    image: "/lovable-uploads/blog-samsung-twitch-campaign-hero.jpg",
-    category: "Case Studies",
-    tags: ["samsung", "case-study", "twitch", "campaign", "nordic"],
-    relatedSlugs: ["twitch-statistics-2025-global-insights", "twitch-advertising-benchmarks-2025"],
-    seoTitle: {
-      en: "Samsung Twitch Case Study: 2.5M Viewers, 89% Positive Sentiment | Beta Ads",
-      no: "Samsung Twitch Case Study: 2,5M seere, 89% positiv sentiment | Beta Ads",
-      sv: "Samsung Twitch Case Study: 2,5M tittare, 89% positiv sentiment | Beta Ads",
-      fi: "Samsung Twitch Case Study: 2,5M katsojaa, 89% positiivinen sentimentti | Beta Ads"
-    },
-    seoDescription: {
-      en: "How Samsung achieved 4.7% engagement and 3.2% CTR with native overlay ads. Full campaign breakdown with results and learnings.",
-      no: "Hvordan Samsung oppnådde 4,7% engasjement og 3,2% CTR med native overlay-annonser. Full kampanjegjennomgang med resultater.",
-      sv: "Hur Samsung uppnådde 4,7% engagemang och 3,2% CTR med native overlay-annonser. Full kampanjgenomgång med resultat.",
-      fi: "Miten Samsung saavutti 4,7% sitoutumisen ja 3,2% CTR:n native overlay-mainoksilla. Täydellinen kampanja-analyysi tuloksineen."
-    },
-    seoKeywords: {
-      en: ["samsung twitch campaign", "twitch case study", "gaming advertising", "nordic marketing", "overlay ads"],
-      no: ["samsung twitch kampanje", "twitch case study", "gaming annonsering", "nordisk markedsføring", "overlay annonser"],
-      sv: ["samsung twitch kampanj", "twitch case study", "gaming reklam", "nordisk marknadsföring", "overlay annonser"],
-      fi: ["samsung twitch kampanja", "twitch case study", "gaming mainonta", "pohjoismainen markkinointi", "overlay mainokset"]
-    }
-  },
-    {
+      {
     id: "rise-of-streamer-first-advertising",
     slug: "rise-of-streamer-first-advertising",
     title: "The Rise of Streamer-First Advertising: Why the Creator Now Sets the Brief",
@@ -10096,7 +10009,18 @@ Mens konkurrentene dine setter markedsbudsjettet på pause, vokser publikummet p
 Sommerkampanjer på Twitch er ikke bare et supplement til den tradisjonelle mediemiksen. For merkevarer som vil bygge relasjoner med unge nordiske forbrukere, kan det være den mest effektive kanalen du har tilgang til i hele andre kvartal.
 
 **Vil du vite mer om hvordan en sommerkampanje kan se ut for din merkevare?** Ta kontakt med Beta Ads for en uforpliktende gjennomgang av mulighetene. Vi hjelper deg med å finne de rette streamerne, sette opp kampanjen, og levere resultater som faktisk betyr noe.
-    `,
+
+## Handlingspunkter for merkevarer som planlegger sommerkampanjer
+
+1. **Start plannleggingen i mai for juli-oppstart.** De mest etterspurte norske streamerene bookes 6-8 uker i forveien i sommervinduet.
+2. **Test kategori-skifte.** Sommeren endrer seervaner — gaming-streamere med vanligvis gaming-innhold skifter ofte til IRL/travel i sommermånedene.
+3. **Bygg for utendørskontekst.** Annonser som refererer til utendørs, reise eller sol presterer bedre i sommersegmentet enn vanlig gaming-kreativ.
+4. **Utnytt lange sesjonstider.** Sommerstreams varer ofte lengre enn gjennomsnittet — [ifølge Streams Charts](https://streamscharts.com/) ligger norsk session-lengde over internasjonalt snitt i juli-august.
+5. **Bestill en strategisk gjennomgang.** [Bestill en 20-minutters konsultasjon](https://calendar.app.google/coW5NLQJtLxfRer19) for å tilpasse sommerkampanjen til din kategori og budsjett.
+
+---
+
+*Kilder: [Streams Charts — Sesongtrender](https://streamscharts.com/) · [TwitchTracker — Norwegian streamers](https://twitchtracker.com/channels/viewership/norwegian) · [Nordicom — Mediebarometern](https://www.nordicom.gu.se/sv/mediebarometer) · [AudienceProject Nordic Device Study](https://www.audienceproject.com/) · [Medietilsynet](https://www.medietilsynet.no/) · [Beta Ads case studies](/case-studies)*`,
     date: "Apr 1, 2026",
     dateISO: "2026-04-01",
     readTime: "7 min read",
@@ -10431,7 +10355,18 @@ Fordelen med native overlay ads er at de fungerer uavhengig av hvilket spill str
 Livestreaming-data som dette gir annonsører en fordel som er vanskelig å oppnå gjennom tradisjonelle kanaler: du kan se nøyaktig hvor oppmerksomheten er, i sanntid.
 
 Vil du vite hvordan du kan utnytte spilltrender og seertall i dine egne kampanjer? [Kontakt Beta Ads](https://beta-ads.no) for en uforpliktende gjennomgang av mulighetene i det nordiske streaming-markedet.
-    `,
+
+## Handlingspunkter for annonsører som vil utnytte spillanseringer
+
+1. **Book inventar 8–12 uker før en Nintendo-lansering.** De største spilltitlene skaper forutsigbare seer-topper som bookes ut tidlig.
+2. **Prioriter co-streaming-vinduer.** Store lanseringer produserer co-stream-bølger hvor sponsorinventar på én kanal bæres videre til flere kanaler samtidig.
+3. **Bruk Just Chatting + gaming-kombinasjon.** Nintendo-fans veksler mellom gameplay og kommentarstream — native overlays i begge kategoriene fanger hele sesjonen.
+4. **Mål on-stream-tid, ikke bare CTR.** Nintendo-titler har lange sesjoner, noe som driver høyere eksponeringstid enn snittet per [Streams Charts](https://streamscharts.com/).
+5. **Bestill en analyse av kommende spillanseringer.** [Bestill en 20-minutters konsultasjon](https://calendar.app.google/coW5NLQJtLxfRer19) så vi setter opp kampanjen mot neste utvikler-vindu som passer din kategori.
+
+---
+
+*Kilder: [Streams Charts — 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) · [Newzoo — Games market insights](https://newzoo.com/insights/) · [TwitchTracker](https://twitchtracker.com/) · [Esports Charts](https://escharts.com/) · [Nintendo — Official press](https://www.nintendo.com/) · [Beta Ads case studies](/case-studies)*`,
     date: "Apr 10, 2026",
     dateISO: "2026-04-10",
     readTime: "8 min read",
@@ -10731,7 +10666,18 @@ Overlay-annonsene bypasser adblock, noe som er avgjørende i Norden der over 55%
 Å forstå hvilke utgivere som dominerer livestreaming, og hvorfor, gir deg et bedre grunnlag for å planlegge kampanjer som treffer riktig publikum i riktig kontekst.
 
 **Vil du vite hvilke spillkategorier og streamere som passer din merkevare?** [Kontakt Beta Ads](https://beta-ads.no) for en datadrevet gjennomgang av det nordiske streaming-landskapet.
-    `,
+
+## Handlingspunkter for merkevarer som planlegger mot spillutgiver-økosystemer
+
+1. **Følg utgivernes lanseringsvinduer.** Riot, Valve, Activision, Ubisoft og Nintendo driver forutsigbare seer-topper rundt major release-vinduer; book inventar 6-10 uker i forveien.
+2. **Match kreativet til utgiver-kultur.** Riot-publikummet reagerer annerledes på creative enn Activision-publikummet; gjør en kategorispesifikk briefing.
+3. **Utnytt co-streaming-rettigheter.** [Riot's co-streaming program](https://lolesports.com/) lar et stort antall mindre streamere kringkaste offisielle events — med riktige rettigheter multipliseres sponsor-eksponeringen.
+4. **Kjøp på tvers av plattformer.** Utgiver-publikum er spredt over Twitch, YouTube Gaming og Kick; single-platform planer fanger ikke hele publikummet.
+5. **Bestill utgiver-fokusert kampanje.** [Bestill en 20-minutters konsultasjon](https://calendar.app.google/coW5NLQJtLxfRer19) for å planlegge mot spesifikke utgiver-vinduer.
+
+---
+
+*Kilder: [Streams Charts — 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) · [Newzoo — Publisher market share](https://newzoo.com/insights/) · [Esports Charts](https://escharts.com/) · [lolesports.com](https://lolesports.com/) · [TwitchTracker](https://twitchtracker.com/) · [Beta Ads case studies](/case-studies)*`,
     date: "Apr 10, 2026",
     dateISO: "2026-04-10",
     readTime: "8 min read",
@@ -10948,7 +10894,18 @@ Kreativ kvalitet er den mest undervurderte faktoren i livestream-annonsering. Du
 Native overlay ads gjennom Beta Ads gir deg tilgang til 40+ nordiske streamere, adblock-sikker distribusjon og 3 til 5 ganger høyere engagement enn tradisjonelle digitale annonser. Men engagementet starter med kreativet.
 
 **Vil du ha hjelp med å designe overlay ads som faktisk fungerer?** [Kontakt Beta Ads](https://beta-ads.no) for en gjennomgang av kreative beste praksis og en uforpliktende kampanjeplan.
-    `,
+
+## Handlingspunkter for kreativ-teamet
+
+1. **Bygg for 1920×1080 fra starten.** Native overlay rendres i full stream-oppløsning; skalering ned fra lavere source gir artefakter.
+2. **Kort animasjonsvindu.** 3–8 sekunder er sweet spot for snipe-formatet per data fra [Beta Ads publiserte kampanjer](/case-studies).
+3. **Tydelig call-to-action.** Overlays uten synlig CTA-element leverer konsistent lavere CTR enn overlays med ett klart handlingspunkt.
+4. **Test muntlig integrasjon.** Overlay alene leverer 1–2 % CTR; overlay kombinert med at streameren nevner merket løfter CTR 3–5 %, som i [Shure MV6 peak-day på 9,12 %](/case-study/shure).
+5. **Bestill kreativ gjennomgang.** [Bestill en 20-minutters konsultasjon](https://calendar.app.google/coW5NLQJtLxfRer19) for gjennomgang av overlay-utkast mot beste praksis.
+
+---
+
+*Kilder: [Beta Ads — Shure case study](/case-study/shure) · [Beta Ads case studies](/case-studies) · [Sharethrough — Native advertising research](https://www.sharethrough.com/resources) · [IAB — Creative best practices](https://www.iab.com/insights/) · [Streams Charts](https://streamscharts.com/) · [The Verge — Twitch SSAI rollout](https://www.theverge.com/)*`,
     date: "Apr 12, 2026",
     dateISO: "2026-04-12",
     readTime: "7 min read",
