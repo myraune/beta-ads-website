@@ -306,6 +306,7 @@ function parseBlogPosts() {
       pickLocale(seoDescBlock, locale) ||
       pickLocale(seoDescBlock, "en") ||
       excerpt;
+    const image = chunk.match(/image:\s*["']([^"']+)["']/)?.[1] || null;
 
     posts.push({
       slug,
@@ -313,6 +314,7 @@ function parseBlogPosts() {
       description: seoDescription,
       locale,
       category,
+      image,
     });
   }
   return posts;
@@ -342,10 +344,11 @@ function buildHreflangBlock(alternates) {
   return `${MARKER_START}\n${tags}\n    ${MARKER_END}`;
 }
 
-function injectMeta(shellHtml, { title, description, canonical, locale, alternates }) {
+function injectMeta(shellHtml, { title, description, canonical, locale, alternates, image }) {
   let html = shellHtml;
   const canonicalUrl = toAbsolute(canonical);
   const ogLocale = OG_LOCALES[locale] || "en_US";
+  const ogImage = image ? toAbsolute(image) : null;
 
   const escapedTitle = escapeHtmlAttr(title);
   const escapedDesc = escapeHtmlAttr(description);
@@ -404,6 +407,30 @@ function injectMeta(shellHtml, { title, description, canonical, locale, alternat
     html = html.replace(/<meta\s+property="og:locale"\s+content="[^"]*"\s*\/?>/, ogLocaleTag);
   } else {
     html = html.replace("</head>", `    ${ogLocaleTag}\n  </head>`);
+  }
+
+  // og:image + twitter:image — critical for social share cards. Inject the
+  // per-page image so non-JS social crawlers (LinkedIn, some Slack/Teams
+  // previewers) see the right image on first fetch instead of the default shell.
+  if (ogImage) {
+    const imageTags = [
+      `<meta property="og:image" content="${ogImage}" />`,
+      `<meta property="og:image:alt" content="${escapedTitle}" />`,
+      `<meta name="twitter:image" content="${ogImage}" />`,
+      `<meta name="twitter:card" content="summary_large_image" />`,
+    ];
+    for (const tag of imageTags) {
+      const [, propOrName, key] = tag.match(/<meta\s+(property|name)="([^"]+)"/) || [];
+      if (!key) continue;
+      const existingRe = new RegExp(
+        `<meta\\s+${propOrName}="${key.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\\\$&")}"\\s+content="[^"]*"\\s*\\/?>`,
+      );
+      if (existingRe.test(html)) {
+        html = html.replace(existingRe, tag);
+      } else {
+        html = html.replace("</head>", `    ${tag}\n  </head>`);
+      }
+    }
   }
 
   // hreflang alternates (in a stable marker-delimited block)
@@ -502,6 +529,7 @@ function main() {
       canonical,
       locale: post.locale,
       alternates,
+      image: post.image,
     });
     writeShell(path.join(DIST, "blog", post.slug, "index.html"), html);
     blogCount++;
