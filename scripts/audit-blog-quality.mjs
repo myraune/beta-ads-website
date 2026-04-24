@@ -73,9 +73,27 @@ function score(post) {
   const tables = (c.match(/^\s*\|[^|]+\|/gm) || []).length;
   const tableCount = tables > 0 ? 1 : 0; // count distinct tables roughly
   const bold = (c.match(/\*\*[^*]+\*\*/g) || []).length;
-  const hasSources = /^\*?Sources?[:\s]/mi.test(c) || /---\s*\n\s*\*?Sources/mi.test(c);
-  const hasActionable =
-    /(How to|When to|What to do|Checklist|Playbook|Action items|What brands should do)/i.test(c);
+  // Recognize Sources footer in English, Norwegian, Swedish, Finnish
+  const hasSources =
+    /^\*?(Sources?|Kilder|Källor|Lähteet)[:\s]/mi.test(c) ||
+    /---\s*\n\s*\*?(Sources?|Kilder|Källor|Lähteet)/mi.test(c);
+  // Recognize actionable closing section across languages
+  const hasActionable = new RegExp(
+    [
+      // English
+      "How to", "When to", "What to do", "Checklist", "Playbook",
+      "Action items", "What brands should do",
+      // Norwegian
+      "Slik kommer du i gang", "Slik gjør du", "Slik bruker",
+      "Handlingsliste", "Sjekkliste",
+      // Swedish
+      "Så kommer du igång", "Så här gör du", "Handlingslista",
+      "Checklista",
+      // Finnish
+      "Näin pääset alkuun", "Näin teet", "Tarkistuslista",
+    ].join("|"),
+    "i",
+  ).test(c);
   const hasBetaTieIn = /Beta Ads/.test(c);
 
   // simple weighted quality score for ranking
