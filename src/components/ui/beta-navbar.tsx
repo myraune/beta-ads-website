@@ -194,7 +194,7 @@ export function BetaNavbar() {
             aria-haspopup="true"
             aria-expanded={productOpen}
             className={cn(
-              "flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-medium rounded-full transition-all duration-200",
+              "flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-medium rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50",
               productOpen
                 ? isOnHero ? "text-white bg-white/15" : "text-foreground bg-foreground/[0.08]"
                 : isOnHero ? "text-white/80 hover:text-white hover:bg-white/10" : "text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05]"
@@ -237,7 +237,7 @@ export function BetaNavbar() {
                         scrollToSection(item.scrollTo);
                       }
                     }}
-                    className="w-full flex items-start gap-3 px-3 py-2.5 rounded-xl text-left hover:bg-foreground/[0.05] transition-colors group"
+                    className="w-full flex items-start gap-3 px-3 py-2.5 rounded-xl text-left hover:bg-foreground/[0.05] transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
                   >
                     <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">
                       <Icon className="w-4 h-4 text-primary" />
@@ -263,7 +263,7 @@ export function BetaNavbar() {
                   if (el) el.scrollIntoView({ behavior: "smooth" });
                   else window.location.href = "/#case-studies";
                 }}
-                className="flex items-center justify-between px-3 py-2 rounded-xl text-[12px] font-medium text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05] transition-colors cursor-pointer"
+                className="flex items-center justify-between px-3 py-2 rounded-xl text-[12px] font-medium text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05] transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
               >
                 View campaign highlights
                 <ArrowRight className="w-3 h-3" />
@@ -280,7 +280,7 @@ export function BetaNavbar() {
             aria-haspopup="true"
             aria-expanded={aboutOpen}
             className={cn(
-              "flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-medium rounded-full transition-all duration-200",
+              "flex items-center gap-1 px-3.5 py-1.5 text-[13px] font-medium rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50",
               aboutOpen || ["/case-studies", "/blog", "/press", "/about"].includes(location.pathname)
                 ? isOnHero ? "text-white bg-white/15" : "text-foreground bg-foreground/[0.08]"
                 : isOnHero ? "text-white/80 hover:text-white hover:bg-white/10" : "text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05]"
@@ -318,7 +318,7 @@ export function BetaNavbar() {
                       navigate(item.href);
                     }}
                     className={cn(
-                      "w-full flex items-start gap-3 px-3 py-2.5 rounded-xl text-left hover:bg-foreground/[0.05] transition-colors group",
+                      "w-full flex items-start gap-3 px-3 py-2.5 rounded-xl text-left hover:bg-foreground/[0.05] transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50",
                       isActive && "bg-foreground/[0.05]"
                     )}
                   >
@@ -342,7 +342,7 @@ export function BetaNavbar() {
                 href="https://calendar.app.google/coW5NLQJtLxfRer19"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between px-3 py-2 rounded-xl text-[12px] font-medium text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05] transition-colors cursor-pointer"
+                className="flex items-center justify-between px-3 py-2 rounded-xl text-[12px] font-medium text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05] transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
               >
                 Book a demo call
                 <ArrowRight className="w-3 h-3" />
@@ -386,7 +386,7 @@ export function BetaNavbar() {
             <ThemeSwitch className={isOnHero && !mobileOpen ? "text-white" : "text-foreground"} />
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={cn("p-1.5 rounded-full transition-colors", isOnHero && !mobileOpen ? "text-white hover:bg-white/10" : "text-foreground hover:bg-foreground/5")}
+              className={cn("p-1.5 rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50", isOnHero && !mobileOpen ? "text-white hover:bg-white/10" : "text-foreground hover:bg-foreground/5")}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
@@ -427,7 +427,7 @@ export function BetaNavbar() {
                       scrollToSection(item.scrollTo);
                     }
                   }}
-                  className="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium rounded-xl text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05] transition-colors"
+                  className="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium rounded-xl text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
                 >
                   <Icon className="w-4 h-4 text-primary" />
                   {item.label}
@@ -447,7 +447,7 @@ export function BetaNavbar() {
                   key={item.label}
                   to={item.href}
                   className={cn(
-                    "flex items-center gap-3 px-4 py-2.5 text-sm font-medium rounded-xl transition-colors",
+                    "flex items-center gap-3 px-4 py-2.5 text-sm font-medium rounded-xl transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50",
                     location.pathname === item.href
                       ? "text-foreground bg-foreground/[0.08]"
                       : "text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05]"
