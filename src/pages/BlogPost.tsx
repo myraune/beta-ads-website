@@ -69,6 +69,7 @@ const GloriousCaseStudy = lazy(() => import("@/components/blog/GloriousCaseStudy
 const GokstadCaseStudy = lazy(() => import("@/components/blog/GokstadCaseStudy"));
 const ClippingEconomyDashboard = lazy(() => import("@/components/blog/ClippingEconomyDashboard"));
 const TwitchAnalyticsToolsDashboard = lazy(() => import("@/components/blog/TwitchAnalyticsToolsDashboard"));
+const BetaAds2FormatPreview = lazy(() => import("@/components/blog/BetaAds2FormatPreview"));
 
 const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -261,21 +262,31 @@ const BlogPostPage: React.FC = () => {
                           }
                           return <a href={href} target="_blank" rel="noopener noreferrer" className="text-primary font-medium underline underline-offset-2 hover:text-primary/80 transition-colors">{children}</a>;
                         },
-                        img: ({ src, alt }) => (
-                          <figure className="my-8 -mx-4 sm:mx-0">
-                            <img
-                              src={src}
-                              alt={alt || ""}
-                              className="w-full rounded-xl object-cover shadow-md"
-                              style={{ maxHeight: "480px" }}
-                            />
-                            {alt && (
-                              <figcaption className="mt-2 text-center text-sm text-muted-foreground italic px-4">
-                                {alt}
-                              </figcaption>
-                            )}
-                          </figure>
-                        ),
+                        img: ({ src, alt }) => {
+                          if (src?.startsWith("/preview/") || alt?.startsWith("preview:")) {
+                            const key = (alt?.startsWith("preview:") ? alt.replace("preview:", "") : src?.replace("/preview/", "")) ?? "";
+                            return (
+                              <Suspense fallback={null}>
+                                {key === "ad-formats" && <BetaAds2FormatPreview />}
+                              </Suspense>
+                            );
+                          }
+                          return (
+                            <figure className="my-8 -mx-4 sm:mx-0">
+                              <img
+                                src={src}
+                                alt={alt || ""}
+                                className="w-full rounded-xl object-cover shadow-md"
+                                style={{ maxHeight: "480px" }}
+                              />
+                              {alt && (
+                                <figcaption className="mt-2 text-center text-sm text-muted-foreground italic px-4">
+                                  {alt}
+                                </figcaption>
+                              )}
+                            </figure>
+                          );
+                        },
                         table: ({ children }) => (
                           <div className="overflow-x-auto my-8 rounded-xl border border-border shadow-sm">
                             <table className="w-full border-collapse">{children}</table>

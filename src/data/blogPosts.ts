@@ -11314,6 +11314,8 @@ That last one is underrated. When a streamer reads your brand message live to ch
 
 The charts break down daily view volume and show share-of-voice by streamer and by campaign — both exportable to CSV for your own reporting stack.
 
+![Beta Ads 2.0 campaign dashboard showing views, CTR, spend, watch time and streamer breakdown](/lovable-uploads/beta-ads-2-dashboard.png)
+
 ### Streamer Explorer: 39,000 Creators, Fully Searchable
 
 This is the biggest database of bookable live streamers available to European brands. As of April 2026: 39,081 streamers, 2.0 billion combined followers, and 7.7 million average concurrent viewers across the network.
@@ -11321,6 +11323,8 @@ This is the biggest database of bookable live streamers available to European br
 Every streamer in the explorer has a profile built from real streaming data: average engagement score (network average: 6.2/10), brand safety score (network average: 6.8/10), audience gender split, top content categories, platform (Twitch or Kick), and country. You filter by any combination of these and save the result as a named list — Norway, Finland, FPS shooters, female-majority audiences, whatever your brief says.
 
 Brands we work with use Streamer Explorer to build shortlists before a campaign kick-off rather than relying on us to recommend names. The result is faster briefs, fewer back-and-forths, and campaigns that actually reflect the brand's own category knowledge.
+
+![Streamer Explorer showing 39,081 creators with engagement scores, brand safety, filters and audience data](/lovable-uploads/beta-ads-2-streamer-explorer.png)
 
 ### Category Explorer: Find the Audience, Not Just the Streamer
 
@@ -11330,6 +11334,34 @@ The answer turns out to be more nuanced than most media plans assume. Just Chatt
 
 Filter by genre (Shooter, MOBA, Racing, Simulator, etc.), by platform, by active streamer count, or by total view volume. You can build a category-first media plan — find the audience, then find the streamers who own that audience.
 
+![Category Explorer showing categories by active streamers and total views](/lovable-uploads/beta-ads-2-category-explorer.png)
+
+### My Streamer Lists: Save Your Shortlists
+
+Once you've identified your target categories and explored individual streamers, you can save them to named lists — Norway, Finland, Favourite Streamers, or any custom label. Lists persist across campaigns and can be shared with teammates or clients. Instead of rebuilding a shortlist from scratch every brief, you start from a curated set you already trust.
+
+![My Streamer Lists showing saved creator shortlists organised by market and preference](/lovable-uploads/beta-ads-2-streamer-lists.png)
+
+### Ad Formats
+
+Five formats. Each renders directly inside the live stream — no pre-roll, no banner blindness, no ad blocker that catches it.
+
+**Snipe** — a timed corner or bottom banner. Appears at a chosen moment during gameplay. Fastest to produce, lowest budget floor (from €3,500), and the right entry point for most brands testing the channel for the first time.
+
+![Snipe format — a branded corner banner appearing at a timed moment during a live stream](/lovable-uploads/format-snipe.jpg)
+
+**Rich Media** — a full 1920×1080 animated overlay with images, video, and interactive elements rendered directly in the broadcast frame. The highest-impact format on the platform. Peak-day CTRs of 2.81% on Gokstad Akademiet and 1.16% average across a full campaign run. Minimum budget: €4,243.
+
+![Rich Media format — a full-screen animated overlay rendered inside a live stream](/lovable-uploads/format-rich-media.jpg)
+
+**Poll** — an interactive poll overlay. Viewers vote on branded questions in real time with results shown live. The engagement metric here isn't CTR — it's participation rate, typically 3–8% of concurrent viewers. Best for brands that want active audience involvement rather than passive exposure.
+
+![Poll format — interactive branded poll overlay with live vote counts inside a stream](/lovable-uploads/format-poll.jpg)
+
+**Interactive** — the premium tier. A full overlay combining rich media with live chat integration, CTAs, and real-time participation elements. Minimum budget: €10,000. Best for product launches or activations that need maximum audience engagement.
+
+![Interactive format — premium overlay combining rich media and viewer participation](/lovable-uploads/format-interactive.jpg)
+
 ### Campaign Builder: Five Steps from Brief to Live
 
 The campaign creation wizard walks through five screens:
@@ -11338,11 +11370,13 @@ The campaign creation wizard walks through five screens:
 
 **2. Target Audience** — Define geography, language, platform, and content category targeting. Nordic brands typically target Norway + Sweden + Finland together; pan-European clients can run across 15+ markets simultaneously.
 
-**3. Campaign Format** — Choose from the available ad formats: overlay ads rendered directly into the streamer's broadcast frame, chat-pinned CTAs the streamer reads aloud, or branded segments. Each format has different performance characteristics depending on objective.
+**3. Campaign Format** — Select from the five formats above. Each has a different minimum budget, creative requirement, and expected CTR range. The platform shows a live preview of how your creative will render inside a stream before you submit.
 
 **4. Campaign Asset** — Upload your creative: image for overlay ads, script or talking points for chat CTAs, video or brand guidelines for branded segments. The platform previews how the creative will render in a live stream context.
 
 **5. Campaign Review** — Final check on targeting, format, budget, and schedule before submission. The campaign is then matched to available streamers in your target market.
+
+![New Campaign wizard with 5-step process: objective, audience, format, asset, review](/lovable-uploads/beta-ads-2-new-campaign.png)
 
 ### AI Clipping: Turn Every Stream into Social Content
 
