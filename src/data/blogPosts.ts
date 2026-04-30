@@ -11292,6 +11292,130 @@ Dersom bestiller for 2026 planlegger et norsk Twitch-spor, er detoo-inkluderte k
       fi: ["norjan twitch-striimaaja brändit", "norjan suurin striimaaja", "twitch-sponsorointi norja"]
     }
   },
+  {
+    slug: "beta-ads-2-0-platform-launch",
+    title: "Beta Ads 2.0: Self-Serve Live Streaming Advertising Is Here",
+    excerpt: "We built a platform that lets brands book, manage, and measure live streaming ad campaigns without an agency in the loop. Here's what it does, how it works, and why it matters.",
+    content: `## The Problem We Were Solving
+
+Every brand we've worked with had the same gap in their media plan: live streaming. They knew their target audience was on Twitch, Kick, and YouTube Gaming. They saw the numbers — the average Nordic 18–34-year-old watches more live streaming than linear TV. But booking a campaign meant calling an agency, waiting for a proposal, haggling over rates, and hoping the reporting was accurate.
+
+We ran that process manually for three years. We delivered results for Samsung, Surfshark, Shure, Komplett, and Høyskolen Kristiania. And we hit a ceiling — not because the channel doesn't work, but because the operational layer was entirely human.
+
+Beta Ads 2.0 is the platform we built to fix that.
+
+## What's Actually in the Platform
+
+### Dashboard: One Number That Matters
+
+The first screen any brand sees after login is a campaign dashboard that surfaces the metrics that actually correlate with business outcomes — not just impressions. You get views, clicks, CTR, spend, exposure time, and watch time in a single strip. Below that: sponsored streamers count, sponsored streams, total follower reach, content categories covered, cost per hour watched, and chat brand mentions.
+
+That last one is underrated. When a streamer reads your brand message live to chat and chat responds, that reaction gets logged. It's the closest thing to a real attention signal that exists in digital advertising.
+
+The charts break down daily view volume and show share-of-voice by streamer and by campaign — both exportable to CSV for your own reporting stack.
+
+### Streamer Explorer: 39,000 Creators, Fully Searchable
+
+This is the biggest database of bookable live streamers available to European brands. As of April 2026: 39,081 streamers, 2.0 billion combined followers, and 7.7 million average concurrent viewers across the network.
+
+Every streamer in the explorer has a profile built from real streaming data: average engagement score (network average: 6.2/10), brand safety score (network average: 6.8/10), audience gender split, top content categories, platform (Twitch or Kick), and country. You filter by any combination of these and save the result as a named list — Norway, Finland, FPS shooters, female-majority audiences, whatever your brief says.
+
+Brands we work with use Streamer Explorer to build shortlists before a campaign kick-off rather than relying on us to recommend names. The result is faster briefs, fewer back-and-forths, and campaigns that actually reflect the brand's own category knowledge.
+
+### Category Explorer: Find the Audience, Not Just the Streamer
+
+New in 2.0. Category Explorer flips the question. Instead of "which streamers do I want?", it asks: "which content categories does my target audience watch?"
+
+The answer turns out to be more nuanced than most media plans assume. Just Chatting has 17,095 active streamers and 1.6 billion total views — it's the single largest category on either platform. Counter-Strike has 2,862 active streamers with 405.8 million views and an average of 565 concurrent viewers per stream. League of Legends: 2,826 streamers, 569.5 million views. Fortnite: 2,411 streamers, 219.5 million views.
+
+Filter by genre (Shooter, MOBA, Racing, Simulator, etc.), by platform, by active streamer count, or by total view volume. You can build a category-first media plan — find the audience, then find the streamers who own that audience.
+
+### Campaign Builder: Five Steps from Brief to Live
+
+The campaign creation wizard walks through five screens:
+
+**1. Campaign Objective** — Awareness (maximise verified views) or Traffic (optimise for clicks and link visits). Both are tracked with verified delivery — you pay for what's confirmed delivered, not what was scheduled.
+
+**2. Target Audience** — Define geography, language, platform, and content category targeting. Nordic brands typically target Norway + Sweden + Finland together; pan-European clients can run across 15+ markets simultaneously.
+
+**3. Campaign Format** — Choose from the available ad formats: overlay ads rendered directly into the streamer's broadcast frame, chat-pinned CTAs the streamer reads aloud, or branded segments. Each format has different performance characteristics depending on objective.
+
+**4. Campaign Asset** — Upload your creative: image for overlay ads, script or talking points for chat CTAs, video or brand guidelines for branded segments. The platform previews how the creative will render in a live stream context.
+
+**5. Campaign Review** — Final check on targeting, format, budget, and schedule before submission. The campaign is then matched to available streamers in your target market.
+
+### AI Clipping: Turn Every Stream into Social Content
+
+One of the persistent complaints from brands running live stream campaigns: the content disappears after the stream ends. A viewer who wasn't watching live never sees it.
+
+AI Clipping automatically identifies the highest-attention moments from sponsored streams — the segments where your brand got mentioned, the overlay got maximum exposure, or chat engagement spiked — and packages them as short-form clips. These can be repurposed for Instagram Reels, TikTok, or YouTube Shorts, extending the reach of a live stream placement into your owned and earned channels.
+
+For brands already running clipping campaigns (see our guide to the [clipping economy](/blog/clipping-economy-brand-marketing-guide-2026)), this closes the loop between live streaming and short-form performance.
+
+## What the Numbers Look Like
+
+Gokstad Akademiet ran a campaign through the platform from January to February 2026. Final numbers: 66,696 verified views, 771 clicks, 1.16% CTR, €2,841.46 total spend. Cost per hour watched: €7.51. Watch time generated: 378.4 hours. Chat brand mentions: 1,266 — across 193 sponsored streams with 19 streamers.
+
+A 1.16% CTR from a non-interruptive, non-skippable format running inside a live gaming stream is not a typical display number. It reflects an audience that is already engaged and has built a relationship with the streamer delivering the message.
+
+## How It Compares to the Alternatives
+
+| Channel | Format | Skippable | Avg CTR | Viewability |
+|---------|--------|-----------|---------|-------------|
+| Live streaming overlay | Native in-stream | No | 0.8–1.4% | ~100% |
+| YouTube pre-roll | Video | Yes (after 5s) | 0.3–0.5% | ~80% |
+| Display (programmatic) | Banner | N/A | 0.05–0.1% | ~50–60% |
+| TikTok in-feed | Video | Yes | 0.5–1.0% | ~70% |
+| Podcast mid-roll | Audio | No | 0.5–1.5% | ~85% |
+
+Live streaming overlays are not skippable. They render into the stream frame. Viewers who are watching are watching — there is no "below-the-fold" problem and no ad blocker that catches them. The only comparable formats in terms of pure attention are podcast mid-rolls and direct sponsorships.
+
+## Getting Access
+
+Beta Ads 2.0 is in active beta. Access is by application — if you manage campaigns for a brand active in Norway, Sweden, Finland, Denmark, or the broader European gaming and streaming market, you can request access through [beta.business.livad.stream](https://beta.business.livad.stream/dashboard).
+
+Brands we already work with have direct login access. Agency partners managing multiple brands get a multi-account view with separate campaign reporting per brand.
+
+## Action Items
+
+- **If you run campaigns for a Nordic brand:** Apply for platform access and run Streamer Explorer with your target market and content category filters. The database is real data — not estimated audience.
+- **If you're already spending on display or pre-roll:** Pull your last quarter's CTR and CPM. Compare against the Gokstad Akademiet numbers above. The math is usually uncomfortable.
+- **If you manage social content:** Talk to whoever runs your media buying about AI Clipping. Live stream inventory and short-form social inventory are the same asset if you have the right clip workflow.
+- **If you're new to live streaming advertising:** Start with Category Explorer. Find the two or three content categories that map to your target audience before you look at individual streamers.
+
+## Sources and Further Reading
+
+- [Twitch Advertising Statistics 2025](/blog/twitch-advertising-benchmarks-2025)
+- [The Clipping Economy: How Brands Are Using Live Stream Clips](/blog/clipping-economy-brand-marketing-guide-2026)
+- [How Twitch Advertising Works in 2026](/blog/how-twitch-advertising-works-2026)
+- [Gokstad Akademiet × Twitch: Campaign Case Study](/blog/norges-storste-streamer-merkevare-samarbeid)
+- [Twitch Statistics — TwitchTracker](https://twitchtracker.com/statistics)
+- [Live Streaming Ad Spend Growth 2024–2026](/blog/live-streaming-ad-spend-growth-2025)`,
+    date: "April 30, 2026",
+    dateISO: "2026-04-30",
+    readTime: "8 min read",
+    category: "Platform",
+    image: "/blog-photos/analytics/analytics-003.jpg",
+    tags: ["beta ads", "platform", "self-serve", "live streaming", "streamer explorer", "category explorer", "campaign builder", "AI clipping"],
+    seoTitle: {
+      en: "Beta Ads 2.0: Self-Serve Live Streaming Ad Platform | Beta Ads",
+      no: "Beta Ads 2.0: Selvbetjent annonsering i live streaming | Beta Ads",
+      sv: "Beta Ads 2.0: Självbetjänad livestream-annonsering | Beta Ads",
+      fi: "Beta Ads 2.0: Itsepalvelu-live-streaming-mainosalusta | Beta Ads"
+    },
+    seoDescription: {
+      en: "Beta Ads 2.0 lets brands book, manage, and measure live streaming ad campaigns without an agency. Streamer Explorer (39K creators), Category Explorer, AI Clipping, and a 5-step campaign builder — all in one platform.",
+      no: "Beta Ads 2.0 lar merkevarer booke, administrere og måle live streaming-kampanjer uten byrå. Streamer Explorer (39K streamere), Category Explorer, AI Clipping og kampanjebygger i én plattform.",
+      sv: "Beta Ads 2.0 låter varumärken boka, hantera och mäta livestream-kampanjer utan byrå. Streamer Explorer (39K skapare), Category Explorer, AI Clipping och kampanjbyggaren i en plattform.",
+      fi: "Beta Ads 2.0 antaa brändien varata, hallita ja mitata live-streaming-mainoskampanjoita ilman toimistoa. Streamer Explorer (39K tekijää), Category Explorer, AI Clipping ja kampanjanrakentaja yhdessä alustassa."
+    },
+    seoKeywords: {
+      en: ["beta ads 2.0", "self-serve live streaming advertising", "streamer explorer", "category explorer", "twitch ad platform", "live streaming ad campaign", "AI clipping", "live stream advertising software"],
+      no: ["beta ads plattform", "live streaming annonsering", "twitch annonsering selvbetjent", "streamer explorer nordic"],
+      sv: ["beta ads plattform", "live streaming annonsering", "twitch annonsering självbetjänt"],
+      fi: ["beta ads alusta", "live-streaming-mainonta", "twitch-mainonta itsepalvelu"]
+    }
+  },
 ];
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {

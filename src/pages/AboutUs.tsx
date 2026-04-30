@@ -175,7 +175,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
             </div>
             <div className="space-y-6 max-w-2xl">
               <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-                Nordic 18\u201334s spend more time on Twitch, YouTube Gaming
+                Nordic 18–34s spend more time on Twitch, YouTube Gaming
                 and Kick than on any single broadcaster — yet most ad budgets
                 still flow to formats that audience actively blocks or
                 skips. Pre-roll gets muted. Display gets filtered. Podcast
