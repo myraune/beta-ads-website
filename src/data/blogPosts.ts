@@ -11427,7 +11427,7 @@ Brands we already work with have direct login access. Agency partners managing m
     dateISO: "2026-04-30",
     readTime: "8 min read",
     category: "Platform",
-    image: "/lovable-uploads/beta-ads-2-dashboard.png",
+    image: "/lovable-uploads/twitch-ad-example.png",
     tags: ["beta ads", "platform", "self-serve", "live streaming", "streamer explorer", "category explorer", "campaign builder", "AI clipping"],
     seoTitle: {
       en: "Beta Ads 2.0: Self-Serve Live Streaming Ad Platform | Beta Ads",
