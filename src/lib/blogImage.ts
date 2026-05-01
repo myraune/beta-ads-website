@@ -197,21 +197,29 @@ export function getBlogImage(postOrSlug: BlogImagePost | string): string {
 
   const post = postOrSlug;
 
-  // 1. Explicit /blog-photos/ path: use it directly (only for deliberate per-post overrides)
+  // 1. Explicit /blog-photos/ path: use it directly (deliberate per-post override)
   if (post.image?.startsWith("/blog-photos/")) {
     return post.image;
   }
 
-  // 2. Auto-resolver always runs first — clean /blog-photos/ stock photos beat raw screenshots
+  // 2. Proper editorial hero images (blog-*, format-*, beta-ads-*, rubengks-*) — use directly
+  //    Raw screenshots (screenshot-*, blog-twitch-overview*, etc.) fall through to auto-resolver
+  if (post.image?.startsWith("/lovable-uploads/")) {
+    const filename = post.image.split("/").pop() ?? "";
+    const isEditorial =
+      filename.startsWith("blog-") ||
+      filename.startsWith("format-") ||
+      filename.startsWith("beta-ads-") ||
+      filename.startsWith("rubengks-");
+    if (isEditorial) return post.image;
+  }
+
+  // 3. Auto-resolver for anything else (raw screenshots, unknown images)
   const customPhoto = pickPhoto(post);
   if (customPhoto) return customPhoto;
 
-  // 3. Fall back to whatever the post has in its image field
-  if (post.image) {
-    return post.image;
-  }
-
-  // 4. Final fallback
+  // 4. Last resort: raw post.image or picsum fallback
+  if (post.image) return post.image;
   return `https://picsum.photos/seed/${encodeURIComponent(post.slug)}/800/450`;
 }
 

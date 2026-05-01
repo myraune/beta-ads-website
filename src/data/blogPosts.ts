@@ -11363,17 +11363,19 @@ Five formats. Each renders directly inside the live stream. No pre-roll, no bann
 
 ![Interactive format, premium overlay combining rich media and viewer participation](/lovable-uploads/format-interactive.jpg)
 
+**Chat CTA:** a sponsored message pinned in stream chat. The streamer reads it aloud as a personal recommendation. Authentic, scripted by the brand, delivered by a creator the audience already trusts. From €3,500.
+
 ### Campaign Builder: Five Steps from Brief to Live
 
-**1. Campaign Objective:** Awareness (maximise verified views) or Traffic (optimise for clicks). Both tracked with verified delivery. You pay for what's confirmed delivered, not what was scheduled.
+**Campaign Objective:** Awareness (maximise verified views) or Traffic (optimise for clicks). Both tracked with verified delivery. You pay for what's confirmed delivered, not what was scheduled.
 
-**2. Target Audience:** Geography, language, platform, and content category targeting. Nordic brands typically run Norway, Sweden, and Finland together. Pan-European clients can run across 15+ markets simultaneously.
+**Target Audience:** Geography, language, platform, and content category targeting. Nordic brands typically run Norway, Sweden, and Finland together. Pan-European clients can run across 15+ markets simultaneously.
 
-**3. Campaign Format:** Select from the five formats above. Each has a different minimum budget, creative requirement, and expected CTR range. The platform shows a live preview of how your creative renders inside a stream before you submit.
+**Campaign Format:** Select from the formats above. Each has a different minimum budget, creative requirement, and expected CTR range. The platform shows a live preview of how your creative renders inside a stream before you submit.
 
-**4. Campaign Asset:** Upload your creative: image for overlay ads, script for chat CTAs, video or brand guidelines for branded segments.
+**Campaign Asset:** Upload your creative: image for overlay ads, script for chat CTAs, video or brand guidelines for branded segments.
 
-**5. Campaign Review:** Final check on targeting, format, budget, and schedule before submission. The campaign is matched to available streamers in your target market.
+**Campaign Review:** Final check on targeting, format, budget, and schedule before submission. The campaign is matched to available streamers in your target market.
 
 ![New Campaign wizard with 5-step process: objective, audience, format, asset, review](/lovable-uploads/beta-ads-2-new-campaign.png)
 
