@@ -202,23 +202,11 @@ export function getBlogImage(postOrSlug: BlogImagePost | string): string {
     return post.image;
   }
 
-  // 2. Proper editorial hero images (blog-*, format-*, beta-ads-*, rubengks-*) — use directly
-  //    Raw screenshots (screenshot-*, blog-twitch-overview*, etc.) fall through to auto-resolver
-  if (post.image?.startsWith("/lovable-uploads/")) {
-    const filename = post.image.split("/").pop() ?? "";
-    const isEditorial =
-      filename.startsWith("blog-") ||
-      filename.startsWith("format-") ||
-      filename.startsWith("beta-ads-") ||
-      filename.startsWith("rubengks-");
-    if (isEditorial) return post.image;
-  }
-
-  // 3. Auto-resolver for anything else (raw screenshots, unknown images)
+  // 2. Auto-resolver: pick a real stock photo from /blog-photos/ based on tags/category
   const customPhoto = pickPhoto(post);
   if (customPhoto) return customPhoto;
 
-  // 4. Last resort: raw post.image or picsum fallback
+  // 3. Last resort: raw post.image or picsum fallback
   if (post.image) return post.image;
   return `https://picsum.photos/seed/${encodeURIComponent(post.slug)}/800/450`;
 }
