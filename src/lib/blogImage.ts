@@ -197,11 +197,16 @@ export function getBlogImage(postOrSlug: BlogImagePost | string): string {
 
   const post = postOrSlug;
 
-  // 1. Try custom photo from /blog-photos/ (if any are registered)
+  // 1. Explicit override: if the post sets its own image in /lovable-uploads/, use it directly
+  if (post.image?.startsWith("/lovable-uploads/")) {
+    return post.image;
+  }
+
+  // 2. Try custom photo from /blog-photos/ (if any are registered)
   const customPhoto = pickPhoto(post);
   if (customPhoto) return customPhoto;
 
-  // 2. Image from the post's own `image` field
+  // 3. Image from the post's own `image` field
   if (post.image) {
     return post.image;
   }
