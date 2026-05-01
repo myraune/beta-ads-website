@@ -197,21 +197,21 @@ export function getBlogImage(postOrSlug: BlogImagePost | string): string {
 
   const post = postOrSlug;
 
-  // 1. Explicit override: if the post sets its own image path directly, use it as-is
-  if (post.image?.startsWith("/lovable-uploads/") || post.image?.startsWith("/blog-photos/")) {
+  // 1. Explicit /blog-photos/ path: use it directly (only for deliberate per-post overrides)
+  if (post.image?.startsWith("/blog-photos/")) {
     return post.image;
   }
 
-  // 2. Try custom photo from /blog-photos/ (if any are registered)
+  // 2. Auto-resolver always runs first — clean /blog-photos/ stock photos beat raw screenshots
   const customPhoto = pickPhoto(post);
   if (customPhoto) return customPhoto;
 
-  // 3. Image from the post's own `image` field
+  // 3. Fall back to whatever the post has in its image field
   if (post.image) {
     return post.image;
   }
 
-  // 3. Deterministic fallback
+  // 4. Final fallback
   return `https://picsum.photos/seed/${encodeURIComponent(post.slug)}/800/450`;
 }
 
