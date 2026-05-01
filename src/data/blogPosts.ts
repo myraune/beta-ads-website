@@ -11293,6 +11293,7 @@ Dersom bestiller for 2026 planlegger et norsk Twitch-spor, er detoo-inkluderte k
     }
   },
   {
+    id: "beta-ads-2-0-platform-launch",
     slug: "beta-ads-2-0-platform-launch",
     title: "Beta Ads 2.0: Self-Serve Live Streaming Advertising Is Here",
     excerpt: "We built a platform that lets brands book, manage, and measure live streaming ad campaigns without an agency in the loop. Here's what it does, how it works, and why it matters.",
@@ -11427,7 +11428,7 @@ Brands we already work with have direct login access. Agency partners managing m
     dateISO: "2026-04-30",
     readTime: "8 min read",
     category: "Platform",
-    image: "/lovable-uploads/twitch-ad-example.png",
+    image: "/blog-photos/gaming/gaming-001.jpg",
     tags: ["beta ads", "platform", "self-serve", "live streaming", "streamer explorer", "category explorer", "campaign builder", "AI clipping"],
     seoTitle: {
       en: "Beta Ads 2.0: Self-Serve Live Streaming Ad Platform | Beta Ads",

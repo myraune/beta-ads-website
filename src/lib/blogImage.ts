@@ -197,8 +197,8 @@ export function getBlogImage(postOrSlug: BlogImagePost | string): string {
 
   const post = postOrSlug;
 
-  // 1. Explicit override: if the post sets its own image in /lovable-uploads/, use it directly
-  if (post.image?.startsWith("/lovable-uploads/")) {
+  // 1. Explicit override: if the post sets its own image path directly, use it as-is
+  if (post.image?.startsWith("/lovable-uploads/") || post.image?.startsWith("/blog-photos/")) {
     return post.image;
   }
 
