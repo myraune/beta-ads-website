@@ -190,6 +190,49 @@ function pickPhoto(post: BlogImagePost): string | null {
  * Passing just a slug string is still supported for legacy callers but only
  * returns the picsum fallback — no tag-based scoring possible without tags.
  */
+/**
+ * Platform UI screenshots and irrelevant images — these fall through to the
+ * auto-resolver so posts get a matching brand photo instead of a raw screenshot.
+ */
+const SCREENSHOT_BLOCKLIST = new Set([
+  // Platform UI screenshots (confirmed bad)
+  "blog-top-twitch-gaming-categories-2026-hero.jpg",
+  "blog-youtube-live-advertising-nordic-2026-hero.jpg",
+  "blog-how-twitch-advertising-works-2024-hero.jpg",
+  "blog-ai-powered-dynamic-ad-insertion-2026-hero.jpg",
+  "blog-twitch-overview.webp",
+  "blog-twitch-browse.webp",
+  "blog-twitch-browsing.webp",
+  "blog-dj-streaming.webp",
+  "blog-gaming-setup.jpg",
+  // Raw screenshot files
+  "screenshot-kick.jpg",
+  "screenshot-kick2.jpg",
+  "screenshot-kick3.jpg",
+  "screenshot-twitch.jpg",
+  "screenshot-twitch-browse.jpg",
+  "screenshot-twitch-stream.jpg",
+  "screenshot-youtube.jpg",
+  "screenshot-youtube2.jpg",
+  "screenshot-youtube-live.jpg",
+  "screenshot-streamscharts.jpg",
+  "screenshot-streamscharts-channels.jpg",
+  "screenshot-streamhatchet.jpg",
+  "screenshot-sullygnome.jpg",
+  "screenshot-twitchtracker.jpg",
+  "screenshot-twitchtracker-channel.jpg",
+  "twitch-ad-example.png",
+  // Twitch.tv website screenshots (same stream, reused across multiple posts)
+  "blog-rise-of-streamer-first-advertising-hero.jpg",
+  "blog-twitch-annonsering-norge-hero.jpg",
+  "blog-twitch-reklam-sverige-hero.jpg",
+  "blog-twitch-mainonta-suomi-hero.jpg",
+  "blog-norwegian-twitch-streamers-2025-hero.jpg",
+  "blog-nordic-twitch-market-2025-hero.jpg",
+  "blog-most-watched-twitch-games-2025-hero.jpg",
+  "blog-twitch-vs-youtube-gaming-2025-hero.jpg",
+]);
+
 export function getBlogImage(postOrSlug: BlogImagePost | string): string {
   if (typeof postOrSlug === "string") {
     return `https://picsum.photos/seed/${encodeURIComponent(postOrSlug)}/800/450`;
@@ -197,17 +240,26 @@ export function getBlogImage(postOrSlug: BlogImagePost | string): string {
 
   const post = postOrSlug;
 
-  // 1. Explicit /blog-photos/ path: use it directly (deliberate per-post override)
+  // 1. Explicit /blog-photos/ path: use directly (deliberate per-post override)
   if (post.image?.startsWith("/blog-photos/")) {
     return post.image;
   }
 
-  // 2. Auto-resolver: pick a real stock photo from /blog-photos/ based on tags/category
+  // 2. Editorial images in /lovable-uploads/: use directly unless it's a blocked screenshot
+  if (post.image?.startsWith("/lovable-uploads/")) {
+    const filename = post.image.split("/").pop() ?? "";
+    if (!SCREENSHOT_BLOCKLIST.has(filename)) {
+      return post.image;
+    }
+  }
+
+  // 3. Auto-resolver: blocked/missing images get a brand-matched photo from /blog-photos/
   const customPhoto = pickPhoto(post);
   if (customPhoto) return customPhoto;
 
-  // 3. Last resort: raw post.image or picsum fallback
-  if (post.image) return post.image;
+  // 4. Last resort: use post.image only if it isn't a blocked screenshot
+  const fallbackFilename = post.image?.split("/").pop() ?? "";
+  if (post.image && !SCREENSHOT_BLOCKLIST.has(fallbackFilename)) return post.image;
   return `https://picsum.photos/seed/${encodeURIComponent(post.slug)}/800/450`;
 }
 
