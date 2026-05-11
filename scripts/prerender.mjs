@@ -39,6 +39,7 @@ const SITE   = "https://beta-ads.no";
 // ---------------------------------------------------------------------------
 const STATIC_ROUTES = [
   "/",
+  "/norge",
   "/twitch-advertising",
   "/youtube-advertising",
   "/kick-advertising",
@@ -50,6 +51,7 @@ const STATIC_ROUTES = [
   "/press",
   "/case-studies",
   "/case-study/samsung",
+  "/case-study/samsung-fold7",
   "/case-study/glorious",
   "/case-study/gokstad",
   "/case-study/surfshark",
