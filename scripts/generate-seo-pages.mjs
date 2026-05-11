@@ -366,18 +366,30 @@ function buildBlogPostingJsonLd({ slug, rawTitle, description, image, dateISO, k
     {
       "@context": "https://schema.org",
       "@type": "BlogPosting",
+      "@id": `${pageUrl}#article`,
       "headline": rawTitle,
       "description": description,
       "url": pageUrl,
       ...(imageUrl ? { "image": imageUrl } : {}),
       ...(dateISO ? { "datePublished": dateISO, "dateModified": dateISO } : {}),
-      "author": { "@type": "Organization", "name": "Beta Ads", "url": BASE_URL },
+      "author": {
+        "@type": "Organization",
+        "name": "Beta Ads",
+        "url": BASE_URL,
+        "sameAs": ["https://www.linkedin.com/company/beta-nordic/", "https://discord.gg/tSmM6XMEkn"]
+      },
       "publisher": {
         "@type": "Organization",
         "name": "Beta Ads",
-        "logo": { "@type": "ImageObject", "url": `${BASE_URL}/lovable-uploads/logo-color.png` }
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${BASE_URL}/lovable-uploads/logo-color.png`,
+          "width": 200,
+          "height": 50
+        }
       },
       "mainEntityOfPage": { "@type": "WebPage", "@id": pageUrl },
+      "isPartOf": { "@id": `${BASE_URL}/#website` },
       "inLanguage": locale,
       ...(keywords ? { "keywords": keywords } : {}),
     },
@@ -412,18 +424,30 @@ function buildCaseStudyJsonLd({ route, title, description, image, datePublished 
     {
       "@context": "https://schema.org",
       "@type": "Article",
+      "@id": `${pageUrl}#article`,
       "headline": headline,
       "description": description,
       "url": pageUrl,
       ...(imageUrl ? { "image": imageUrl } : {}),
       ...(datePublished ? { "datePublished": datePublished, "dateModified": "2026-05-11" } : {}),
-      "author": { "@type": "Organization", "name": "Beta Ads", "url": BASE_URL },
+      "author": {
+        "@type": "Organization",
+        "name": "Beta Ads",
+        "url": BASE_URL,
+        "sameAs": ["https://www.linkedin.com/company/beta-nordic/", "https://discord.gg/tSmM6XMEkn"]
+      },
       "publisher": {
         "@type": "Organization",
         "name": "Beta Ads",
-        "logo": { "@type": "ImageObject", "url": `${BASE_URL}/lovable-uploads/logo-color.png` },
+        "logo": {
+          "@type": "ImageObject",
+          "url": `${BASE_URL}/lovable-uploads/logo-color.png`,
+          "width": 200,
+          "height": 50
+        },
       },
       "mainEntityOfPage": { "@type": "WebPage", "@id": pageUrl },
+      "isPartOf": { "@id": `${BASE_URL}/#website` },
       "inLanguage": "en",
     },
     {

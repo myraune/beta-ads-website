@@ -118,14 +118,30 @@ const BlogPostPage: React.FC = () => {
           {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
+            "@id": `https://beta-ads.no/blog/${post.slug}#article`,
             "headline": post.title,
             "description": seoDescription,
             "image": post.image.startsWith("http") ? post.image : `https://beta-ads.no${post.image}`,
             "datePublished": post.dateISO,
             "dateModified": post.dateISO,
-            "author": { "@type": "Organization", "name": "Beta Ads", "url": "https://beta-ads.no" },
-            "publisher": { "@type": "Organization", "name": "Beta Ads", "logo": { "@type": "ImageObject", "url": "https://beta-ads.no/lovable-uploads/logo-color.png" } },
+            "author": {
+              "@type": "Organization",
+              "name": "Beta Ads",
+              "url": "https://beta-ads.no",
+              "sameAs": ["https://www.linkedin.com/company/beta-nordic/", "https://discord.gg/tSmM6XMEkn"]
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Beta Ads",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://beta-ads.no/lovable-uploads/logo-color.png",
+                "width": 200,
+                "height": 50
+              }
+            },
             "mainEntityOfPage": { "@type": "WebPage", "@id": `https://beta-ads.no/blog/${post.slug}` },
+            "isPartOf": { "@id": "https://beta-ads.no/#website" },
             "keywords": seoKeywords.join(", "),
             "inLanguage": postLocale,
             "wordCount": post.content.split(/\s+/).length,

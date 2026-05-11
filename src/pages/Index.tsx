@@ -63,8 +63,10 @@ const Index: React.FC = () => {
           {
             "@context": "https://schema.org",
             "@type": "WebSite",
+            "@id": "https://beta-ads.no/#website",
             name: "Beta Ads",
             url: "https://beta-ads.no",
+            publisher: { "@id": "https://beta-ads.no/#organization" },
             potentialAction: {
               "@type": "SearchAction",
               target: {

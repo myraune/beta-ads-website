@@ -16,19 +16,27 @@ const CaseStudyShure: React.FC = () => {
           {
             "@context": "https://schema.org",
             "@type": "Article",
+            "@id": "https://beta-ads.no/case-study/shure#article",
             "headline": "Shure MV6 × Beta Ads: Concentrated Creator Launch",
             "description":
-              "Shure used a concentrated two-streamer Beta Rich Media Overlay run for the MV7+ microphone, driving 182,554 views and a 9.12% peak-day CTR across 761 hours of on-screen presence.",
+              "Shure used a concentrated two-streamer Beta Rich Media Overlay run for the MV6 microphone, driving 182,554 views and a 9.12% peak-day CTR across 761 hours of on-screen presence.",
             "url": "https://beta-ads.no/case-study/shure",
             "datePublished": "2025-07-01",
             "dateModified": "2026-05-11",
-            "author": { "@type": "Organization", "name": "Beta Ads" },
+            "author": {
+              "@type": "Organization",
+              "name": "Beta Ads",
+              "url": "https://beta-ads.no",
+              "sameAs": ["https://www.linkedin.com/company/beta-nordic/"],
+            },
             "publisher": {
               "@type": "Organization",
               "name": "Beta Ads",
               "logo": {
                 "@type": "ImageObject",
                 "url": "https://beta-ads.no/lovable-uploads/logo-color.png",
+                "width": 200,
+                "height": 50,
               },
             },
             "isPartOf": { "@id": "https://beta-ads.no/#website" },
