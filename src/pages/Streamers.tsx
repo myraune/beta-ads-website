@@ -12,7 +12,7 @@ const Streamers: React.FC<StreamersProps> = ({ t }) => {
     <div>
       <SEO
         title="For Streamers | Beta Ads"
-        description="Earn passive income as a Twitch, YouTube or Kick streamer with Beta Ads. Automated overlay ads, no shoutouts required. Join 40+ Nordic streamers already earning."
+        description="Earn passive income as a Twitch, YouTube or Kick streamer with Beta Ads. Automated overlay ads, no shoutouts required. Join 40+ Nordic streamers."
         canonical="/streamers"
         ogType="website"
         jsonLd={{

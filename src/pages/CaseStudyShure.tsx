@@ -8,7 +8,7 @@ const CaseStudyShure: React.FC = () => {
     <>
       <SEO
         title="Shure MV7+ Case Study | Beta Ads"
-        description="How Shure reached 48,617 unique Norwegian viewers with a concentrated two-creator MV7+ microphone campaign. 182,554 completed views, 2,378 verified clicks, 9.12% peak CTR."
+        description="Shure MV6 on Norwegian Twitch: 182,554 completed views, 2,378 verified clicks, 9.12% peak CTR — with just 2 streamers. 48,617 unique Norwegian viewers."
         canonical="/case-study/shure"
         ogType="article"
         jsonLd={{

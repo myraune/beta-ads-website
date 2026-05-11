@@ -15,7 +15,7 @@ const Index: React.FC = () => {
     <>
       <SEO
         title="Beta Ads | Native Twitch & Livestream Advertising"
-        description="Native advertising platform for Twitch, YouTube and Kick livestreams in Norway, Sweden, Finland and Denmark. Overlay ads that bypass adblock and deliver 3-5x higher engagement with Gen Z audiences."
+        description="Native advertising platform for Twitch, YouTube and Kick livestreams in the Nordics. Overlay ads that bypass adblock and deliver 3-5x higher engagement."
         canonical="/"
         locale="en"
         alternates={[

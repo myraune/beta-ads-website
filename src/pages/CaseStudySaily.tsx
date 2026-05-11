@@ -8,7 +8,7 @@ const CaseStudySaily: React.FC = () => {
     <>
       <SEO
         title="Saily eSIM Case Study | Beta Ads"
-        description="How Saily reached 53,229 unique Norwegian viewers during peak summer travel season. 102,794 completed views, 518 verified clicks across 22 streamers in June 2025."
+        description="Saily on Norwegian Twitch: 102,794 completed views, 518 verified clicks, 1.08% CTR across 22 streamers. 53,229 unique viewers reached in peak travel season."
         canonical="/case-study/saily"
         ogType="article"
         jsonLd={{

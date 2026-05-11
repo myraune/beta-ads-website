@@ -50,7 +50,7 @@ const STATIC_PAGES = [
     route: "/",
     title: "Beta Ads | Native Twitch & Livestream Advertising",
     description:
-      "Native advertising platform for Twitch, YouTube and Kick livestreams in Norway, Sweden, Finland and Denmark. Overlay ads that bypass adblock and deliver 3-5x higher engagement with Gen Z audiences.",
+      "Native advertising platform for Twitch, YouTube and Kick livestreams in the Nordics. Overlay ads that bypass adblock and deliver 3-5x higher engagement.",
     locale: "en",
     alternates: [
       { hreflang: "en", href: "/" },
@@ -62,7 +62,7 @@ const STATIC_PAGES = [
     route: "/norge",
     title: "Twitch-annonsering Norge | Beta Ads",
     description:
-      "Native Twitch-annonsering for norske merkevarer. Samsung, Shure, Komplett, Kristiania og NKI har kjørt verifiserte kampanjer gjennom Beta Ads på tvers av 39 000+ aktive norske streamere. Bestill en 20-minutters konsultasjon.",
+      "Twitch-annonsering for norske merkevarer. Samsung, Shure, Komplett og NKI har kjørt kampanjer via Beta Ads på 39 000+ norske streamere. Book en samtale.",
     locale: "no",
     alternates: [
       { hreflang: "no", href: "/norge" },
@@ -74,7 +74,7 @@ const STATIC_PAGES = [
     route: "/streamers",
     title: "Earn from Your Stream | Beta Ads Streamer Program",
     description:
-      "Get real brand deals on Twitch, YouTube & Kick. Accept offers you like, skip the rest. No follower minimum, no contracts. Join 40+ Nordic streamers earning monthly.",
+      "Get real brand deals on Twitch, YouTube & Kick. Accept offers you like, skip the rest. No minimum followers, no contracts. Join 40+ Nordic streamers.",
     locale: "en",
   },
   {
@@ -162,42 +162,42 @@ const CASE_STUDIES = [
     route: "/case-study/samsung",
     title: "Samsung x Beta Ads Case Study | Beta Ads",
     description:
-      "How Samsung launched the Galaxy S25 Ultra and Galaxy Z Fold7 to Norwegian gamers on Twitch. 800K+ live and 1.35M+ including VOD, 2.34-2.93% CTR, across 43 + 28 streamer slots, zero adblock impact on both 2025 campaigns.",
+      "Samsung Galaxy S25 Ultra and Z Fold7 on Norwegian Twitch: 800K+ live views, 1.35M+ with VOD, 2.93% CTR, 71 streamer slots, zero adblock impact.",
     locale: "en",
   },
   {
     route: "/case-study/samsung-fold7",
     title: "Samsung Galaxy Z Fold7 Case Study | Beta Ads",
     description:
-      "How Samsung launched the Galaxy Z Fold7 to Norwegian gamers through native Twitch overlay ads and streamer integrations - achieving a 2.47% CTR across 19 streamers.",
+      "Samsung Galaxy Z Fold7 on Norwegian Twitch: native overlay ads and streamer integrations, 2.47% CTR across 19 streamers.",
     locale: "en",
   },
   {
     route: "/case-study/surfshark",
     title: "Surfshark VPN Case Study | Beta Ads",
     description:
-      "How Surfshark ran a verified Norwegian Twitch campaign: 90,473 completed views, 1.39% CTR, 552 verified clicks, 704h screen time across 25 Norwegian streamers — zero adblock impact.",
+      "Surfshark on Norwegian Twitch: 90,473 views, 1.39% CTR, 552 verified clicks, 704h screen time across 25 streamers — zero adblock impact.",
     locale: "en",
   },
   {
     route: "/case-study/saily",
     title: "Saily eSIM Case Study | Beta Ads",
     description:
-      "Saily's eSIM launch campaign on Norwegian Twitch — 102,794 completed views, 1.08% verified CTR, 518 clicks across 22 creators. Travel audience targeting via native overlays.",
+      "Saily eSIM launch on Norwegian Twitch: 102,794 views, 1.08% CTR, 518 verified clicks across 22 creators. Travel audience targeting via native overlays.",
     locale: "en",
   },
   {
     route: "/case-study/shure",
     title: "Shure MV6 Case Study | Beta Ads",
     description:
-      "How Shure launched the MV6 microphone on Norwegian Twitch: 182,554 views, 1.31% CTR (9.12% peak day), 2,378 verified clicks — with just 2 streamers including Norway's #1 detoo.",
+      "Shure MV6 launch on Norwegian Twitch: 182,554 views, 1.31% CTR, 9.12% peak CTR, 2,378 verified clicks — with just 2 streamers including Norway's #1 detoo.",
     locale: "en",
   },
   {
     route: "/case-study/glorious",
     title: "Glorious Gaming Case Study | Beta Ads",
     description:
-      "How Glorious reached the Nordic gaming community with native rich media overlays to promote the O3 mouse across Finland, Norway, and Sweden — 137K+ total views across 25 creators.",
+      "Glorious O3 mouse launch across Finland, Norway, and Sweden via native rich media overlays. 137K+ total views across 25 creators.",
     locale: "en",
   },
   {
@@ -211,21 +211,21 @@ const CASE_STUDIES = [
     route: "/case-study/komplett",
     title: "Komplett Retail Case Study | Beta Ads",
     description:
-      "Komplett's Norwegian retail campaign on Twitch + Kick — 151,278 views, 1.17% CTR (4.48% peak day) across 34 creators. Black Friday-style retail activation that bypassed adblock.",
+      "Komplett on Twitch + Kick: 151,278 views, 1.17% CTR, 4.48% peak CTR across 34 creators. Black Friday retail activation that bypassed adblock.",
     locale: "en",
   },
   {
     route: "/case-study/kristiania",
     title: "Høyskolen Kristiania Case Study | Beta Ads",
     description:
-      "Two parallel Twitch campaigns for Norwegian private university Høyskolen Kristiania — combined 599,252 views, 5,997 clicks, 3,329h screen time across awareness + voting activations.",
+      "Høyskolen Kristiania on Twitch: two parallel campaigns, 599,252 combined views, 5,997 clicks, 3,329h screen time across awareness and voting activations.",
     locale: "en",
   },
   {
     route: "/case-study/nki",
     title: "NKI Distance Learning Case Study | Beta Ads",
     description:
-      'An interactive "what type of student are you?" quiz campaign for Norway\'s largest distance-learning university NKI — 220,003 completed views, 1,595 clicks, 19 streamers.',
+      "NKI's interactive quiz campaign on Norwegian Twitch: 220,003 completed views, 1,595 clicks across 19 streamers. Personalized ads for distance-learning recruitment.",
     locale: "en",
   },
 ];

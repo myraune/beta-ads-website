@@ -11,7 +11,7 @@ const CaseStudySamsungPage: React.FC = () => {
     <>
       <SEO
         title="Samsung x Beta Ads Case Study | Beta Ads"
-        description="How Samsung launched the Galaxy S25 Ultra and Galaxy Z Fold7 to Norwegian gamers on Twitch. 800K+ live and 1.35M+ including VOD, 2.34-2.93% CTR, across 43 + 28 streamer slots, zero adblock impact on both 2025 campaigns."
+        description="Samsung Galaxy S25 Ultra and Z Fold7 on Norwegian Twitch: 800K+ live views, 1.35M+ with VOD, 2.93% CTR, 71 streamer slots, zero adblock impact."
         canonical="/case-study/samsung"
         ogType="article"
         ogImage="/lovable-uploads/samsung-zfold7-banner.png"

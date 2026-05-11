@@ -8,7 +8,7 @@ const CaseStudyKristiania: React.FC = () => {
     <>
       <SEO
         title="Høyskolen Kristiania Case Study | Beta Ads"
-        description="Two parallel Kristiania Twitch campaigns (recruitment awareness + voting activation) — combined ~600K display views, ~6,000 verified clicks, 31 Norwegian streamers, 8-week Feb-Apr 2025 application window."
+        description="Høyskolen Kristiania on Twitch: two parallel campaigns, ~600K display views, ~6,000 verified clicks across 31 Norwegian streamers over 8 weeks."
         canonical="/case-study/kristiania"
         ogType="article"
         jsonLd={{

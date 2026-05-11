@@ -8,7 +8,7 @@ const CaseStudyNki: React.FC = () => {
     <>
       <SEO
         title="NKI Distance Learning Case Study | Beta Ads"
-        description='How NKI drove 90,356 unique Norwegian viewers into a "what type of student are you?" quiz. 220,003 completed views, 1,595 verified clicks across 19 streamers in Oct-Nov 2025.'
+        description='NKI's quiz campaign on Norwegian Twitch: 220,003 completed views, 1,595 verified clicks, 90,356 unique viewers across 19 streamers in Oct-Nov 2025.'
         canonical="/case-study/nki"
         ogType="article"
         jsonLd={{

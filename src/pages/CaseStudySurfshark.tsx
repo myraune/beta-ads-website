@@ -8,7 +8,7 @@ const CaseStudySurfshark: React.FC = () => {
     <>
       <SEO
         title="Surfshark VPN Case Study | Beta Ads"
-        description="How Surfshark reached 37,614 unique Norwegian Twitch viewers with 704 hours of on-screen presence. 90,473 verified views, 1.39% CTR across 25 streamers in May-June 2025."
+        description="Surfshark on Norwegian Twitch: 90,473 verified views, 704h on-screen, 1.39% CTR across 25 streamers. 37,614 unique viewers, zero adblock impact."
         canonical="/case-study/surfshark"
         ogType="article"
         jsonLd={{

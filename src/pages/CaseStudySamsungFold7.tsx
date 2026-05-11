@@ -14,7 +14,7 @@ const CaseStudySamsungFold7: React.FC = () => {
     <>
       <SEO
         title="Samsung Galaxy Z Fold7 Case Study | Beta Ads"
-        description="How Samsung launched the Galaxy Z Fold7 to Norwegian gamers through native Twitch overlay ads and streamer integrations - achieving a 2.47% CTR across 19 streamers."
+        description="Samsung Galaxy Z Fold7 on Norwegian Twitch: native overlay ads and streamer integrations achieving a 2.47% CTR across 19 streamers."
         canonical="/case-study/samsung-fold7"
         ogType="article"
         ogImage="/lovable-uploads/blog-samsung-twitch-campaign-hero.jpg"

@@ -205,7 +205,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
       <DraggableRope ropeHeight={200} iconSize={80} />
       <SEO
         title="Case Studies | Beta Ads"
-        description="See real campaign results from Samsung, Shure, Surfshark, Glorious, Gokstad Akademiet and more. Native Twitch overlay advertising case studies with impressions, CTR and ROI data."
+        description="Real campaign results from Samsung, Shure, Surfshark, Glorious, and more. Native Twitch overlay case studies with verified impressions, CTR, and ROI data."
         canonical="/case-studies"
         ogType="website"
         jsonLd={{
