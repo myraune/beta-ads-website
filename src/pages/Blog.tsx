@@ -40,7 +40,7 @@ const Blog: React.FC = () => {
   return (
     <>
       <SEO
-        title="Insights & Blog | Beta Ads"
+        title="Blog | Livestream Advertising Insights | Beta Ads"
         description="Data-driven insights, analytics, and advertising guides for reaching Gen Z on Twitch and streaming platforms in the Nordics. Updated weekly."
         canonical="/blog"
         jsonLd={[

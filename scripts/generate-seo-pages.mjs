@@ -79,7 +79,7 @@ const STATIC_PAGES = [
   },
   {
     route: "/blog",
-    title: "Blog | Livestream Advertising Insights — Beta Ads",
+    title: "Blog | Livestream Advertising Insights | Beta Ads",
     description:
       "Expert insights on Twitch advertising, Nordic streaming trends, influencer marketing and live commerce. Data-driven articles for brands and agencies.",
     locale: "en",

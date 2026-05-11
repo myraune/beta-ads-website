@@ -9,7 +9,7 @@ const Contact: React.FC = () => {
   return (
     <>
       <SEO
-        title="Contact Us | Beta Ads"
+        title="Contact Beta Ads | Start a Livestream Campaign"
         description="Get in touch with Beta Ads. Book a demo, ask a question, or explore partnership opportunities for native livestream advertising in the Nordics."
         canonical="/contact"
         jsonLd={{

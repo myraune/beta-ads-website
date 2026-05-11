@@ -96,7 +96,7 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Request a Demo | Beta Ads"
+        title="Book a Demo | Beta Ads Livestream Advertising"
         description="Book a demo with Beta Ads and see how native overlay advertising works on Twitch, YouTube and Kick livestreams. Reach Gen Z audiences across the Nordics."
         canonical="/demo"
         ogType="website"
