@@ -1494,7 +1494,7 @@ The question for Nordic brands is less "should we try live streaming advertising
     excerpt: "64% of digital viewers block traditional pre-roll ads. Yet native overlay ads during live streams generate 2 to 3 times the recall of standard display formats. The difference is not the ad. It is the type of viewing.",
     content: `## The Attention Paradox in Modern Advertising
 
-Sixty-four percent of viewers on Twitch block traditional pre-roll ads. The same figure applies, roughly, across most digital video environments. Ad blocking has become so normalized among younger audiences that brands have learned to treat it as a baseline condition rather than a problem to solve.
+Sixty-four percent of viewers on [Twitch](/twitch-advertising) block traditional pre-roll ads. The same figure applies, roughly, across most digital video environments. Ad blocking has become so normalized among younger audiences that brands have learned to treat it as a baseline condition rather than a problem to solve.
 
 What makes live streaming unusual is not that ad blockers are absent -- they are not -- but that native, integrated ad formats within live streams achieve engagement rates that traditional digital formats have not seen since the early web. Overlay ads during active live streams generate two to three times the recall of equivalent display units. Streamer integrations produce purchase intent lifts that standard video pre-roll rarely approaches. Forty-four percent of Twitch viewers, according to Dentsu's 2025 Gaming Trends Report, have purchased a product because a streamer recommended it.
 
@@ -2091,7 +2091,7 @@ Live streaming works completely differently.
 
 When a viewer opens a stream about competitive VALORANT gameplay, they have explicitly navigated to that content. They have declared their interest. When they type in a chat about the pro scene, they are demonstrating active engagement. When they subscribe to a gaming channel, they are signaling sustained investment in that category. None of this requires a cookie. All of it is first-party behavioral data, observed in real time, within a single platform.
 
-The contextual signal from live streaming is dense. A viewer watching a Twitch channel categorized under "VALORANT" at 9 PM on a weekday, who has been in the channel for 45 minutes and is actively chatting, tells a brand campaign significantly more about intent than a behavioral profile assembled from cross-site cookie tracking — and it does so without any of the legal complexity.
+The contextual signal from live streaming is dense. A viewer watching a [Twitch](/twitch-advertising) channel categorized under "VALORANT" at 9 PM on a weekday, who has been in the channel for 45 minutes and is actively chatting, tells a brand campaign significantly more about intent than a behavioral profile assembled from cross-site cookie tracking — and it does so without any of the legal complexity.
 
 ![Gaming setup with multiple monitors showing live stream data and analytics](/lovable-uploads/blog-first-party-data-streaming-1.jpg)
 
@@ -3913,7 +3913,7 @@ The 2025–2026 data backs this up: 52% of Gen Z streamers now use ad-supported 
 
 But AVOD has a limitation that's rarely discussed openly: it's still fundamentally a passive medium. The viewer is watching content someone else created. The relationship between brand and viewer runs through the platform, not through a person. The trust equation is different.
 
-This matters because trust is the variable that most strongly predicts conversion in streaming environments. Twitch research consistently finds that 54% of viewers trust their favourite streamer's brand recommendations. That level of trust doesn't exist between a viewer and a streaming platform running a mid-roll ad. It's a personal relationship - built over hundreds of hours of live interaction, not passive viewing.
+This matters because trust is the variable that most strongly predicts conversion in streaming environments. [Twitch](/twitch-advertising) research consistently finds that 54% of viewers trust their favourite streamer's brand recommendations. That level of trust doesn't exist between a viewer and a streaming platform running a mid-roll ad. It's a personal relationship - built over hundreds of hours of live interaction, not passive viewing.
 
 ![Nordic ad-supported streaming tiers growth 2025–2026](/lovable-uploads/blog-avod-nordic-streaming-2026-1.jpg)
 
@@ -4736,7 +4736,7 @@ The streaming hierarchy has changed. The fundamentals of effective live stream a
     excerpt: "Gen Z watches 6.5 hours of streaming content daily and 81% would act on a relevant ad. Yet 73% say current streaming ads don't match their interests. Here's what the data reveals - and what Nordic brands should do differently.",
     content: `## The Most Willing Audience in Advertising Is Also the Most Underserved
 
-There is a paradox at the center of streaming advertising right now. Gen Z - the generation that grew up on YouTube, Twitch, and TikTok - watches more streaming content than any other demographic. They average **6.5 hours of video streaming per day**, outpacing even Millennials at 5.7 hours. They are the most digitally native, the most platform-savvy, and statistically among the most purchase-ready audiences advertisers can reach.
+There is a paradox at the center of streaming advertising right now. Gen Z - the generation that grew up on [YouTube](/youtube-advertising), [Twitch](/twitch-advertising), and TikTok - watches more streaming content than any other demographic. They average **6.5 hours of video streaming per day**, outpacing even Millennials at 5.7 hours. They are the most digitally native, the most platform-savvy, and statistically among the most purchase-ready audiences advertisers can reach.
 
 And yet **73% of Gen Z say current streaming ads don't match their interests**.
 
@@ -5734,7 +5734,7 @@ Brand safety in live streaming operates across three distinct risk dimensions:
 
 ## Twitch's Brand Safety Infrastructure
 
-Twitch has invested significantly in moderation infrastructure that makes the platform safer for advertisers than many alternatives. Key systems include:
+[Twitch advertising](/twitch-advertising) comes with robust moderation infrastructure that makes the platform safer for brands than many alternatives. Key systems include:
 
 ### Content Classification Labels (CCLs)
 
@@ -9902,7 +9902,7 @@ The brands winning on Twitch aren't the biggest spenders. They're the most creat
     excerpt: "Global search interest in iGaming has surged 8x since 2023. With Stake dominating Kick, prediction markets exploding on Twitch, and sports betting content finding massive audiences, the intersection of gambling and live streaming offers lessons for every industry.",
     content: `## The Fastest-Growing Entertainment Category on Live Streaming
 
-iGaming - the umbrella term for online gambling and betting - has become one of the fastest-growing categories on live streaming platforms. Global search interest in iGaming has increased eightfold from 2023 to 2026, driven in no small part by the spread of gambling content across Twitch, Kick, and YouTube.
+iGaming - the umbrella term for online gambling and betting - has become one of the fastest-growing categories on live streaming platforms. Global search interest in iGaming has increased eightfold from 2023 to 2026, driven in no small part by the spread of gambling content across [Twitch](/twitch-advertising), [Kick](/kick-advertising), and [YouTube](/youtube-advertising).
 
 The connection is natural. Live streaming is the home for sports, esports, and competitive community viewership. Audiences are already emotionally invested in outcomes and primed to engage with betting and prediction content in real time. But while food brands, apparel companies, and media platforms have been launching much-publicized creator marketing activations on live streaming, iGaming brands have operated with less spotlight - despite generating enormous numbers.
 
@@ -10253,7 +10253,7 @@ Sommerkampanjer på Twitch er ikke bare et supplement til den tradisjonelle medi
     excerpt: "Er du markedssjef og nysgjerrig på gaming-markedsføring, men usikker på hvor du skal starte? Her er en praktisk guide til hvordan merkevarer kan lansere sin første Twitch-kampanje med native overlay ads i Norden.",
     content: `# Gaming-markedsføring for merkevarer: Slik lager du din første Twitch-kampanje
 
-Gaming-markedsføring er ikke lenger forbeholdt spillselskaper. I 2026 bruker merkevarer innen telekom, mat og drikke, finans og utdanning Twitch og livestreaming for å nå målgrupper de ellers aldri ville truffet. Likevel nøler mange markedssjefer fordi de ikke kjenner plattformen godt nok.
+Gaming-markedsføring er ikke lenger forbeholdt spillselskaper. I 2026 bruker merkevarer innen telekom, mat og drikke, finans og utdanning [Twitch-annonsering](/norge) og livestreaming for å nå målgrupper de ellers aldri ville truffet. Likevel nøler mange markedssjefer fordi de ikke kjenner plattformen godt nok.
 
 Denne guiden er skrevet for deg som vurderer å bruke deler av mediebudsjettet på gaming-markedsføring, men som aldri har kjørt en Twitch-kampanje før.
 
@@ -10365,7 +10365,7 @@ Ta kontakt med oss for en gratis konsultasjon og se hvordan en Twitch-kampanje k
     excerpt: "Vil du vite hvilke streamere som faktisk leverer resultater? Her er en oversikt over de viktigste verktøyene for Twitch-statistikk, og hvordan merkevarer kan bruke dem til å ta smartere beslutninger.",
     content: `# Twitch-statistikk: De beste verktøyene for å tracke streamere og kampanjer i 2026
 
-Twitch-statistikk er grunnlaget for enhver vellykket kampanje. Enten du vurderer hvilken streamer du skal samarbeide med, eller du vil måle resultatene av en pågående kampanje, trenger du tilgang til pålitelig data. Problemet? Det finnes et titalls ulike verktøy, og ikke alle gir deg det du faktisk trenger.
+Twitch-statistikk er grunnlaget for enhver vellykket [Twitch-kampanje i Norden](/norge). Enten du vurderer hvilken streamer du skal samarbeide med, eller du vil måle resultatene av en pågående kampanje, trenger du tilgang til pålitelig data. Problemet? Det finnes et titalls ulike verktøy, og ikke alle gir deg det du faktisk trenger.
 
 Denne guiden gir deg en oversikt over de viktigste plattformene for Twitch-statistikk i 2026, hva de er gode på, og hvordan du bruker dem som merkevare.
 
@@ -11334,7 +11334,7 @@ Dersom bestiller for 2026 planlegger et norsk Twitch-spor, er detoo-inkluderte k
 
 Every brand we've worked with had the same gap in their media plan: live streaming. The average Nordic 18–34-year-old watches more live streaming than linear TV. But booking a campaign meant calling an agency, waiting for a proposal, haggling over rates, and hoping the reporting was accurate.
 
-We ran that process manually for three years. We delivered results for Samsung, Surfshark, Shure, Komplett, and Høyskolen Kristiania. And we hit a ceiling. Not because the channel doesn't work, but because the operational layer was entirely human.
+We ran that process manually for three years. We delivered results for Samsung, Surfshark, Shure, Komplett, and Høyskolen Kristiania. And we hit a ceiling. Not because the channel doesn't work — [Twitch advertising](/twitch-advertising), [YouTube Live advertising](/youtube-advertising), and [Kick advertising](/kick-advertising) all deliver — but because the operational layer was entirely human.
 
 Beta Ads 2.0 is the platform we built to fix that.
 

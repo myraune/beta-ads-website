@@ -27,10 +27,16 @@ const Index: React.FC = () => {
           {
             "@context": "https://schema.org",
             "@type": "Organization",
+            "@id": "https://beta-ads.no/#organization",
             name: "Beta Ads",
             legalName: "Beta Agency AS",
             url: "https://beta-ads.no",
-            logo: "https://beta-ads.no/lovable-uploads/logo-color.png",
+            logo: {
+              "@type": "ImageObject",
+              url: "https://beta-ads.no/lovable-uploads/logo-color.png",
+              width: 200,
+              height: 50,
+            },
             description: "Native advertising platform for Twitch, YouTube and Kick livestreams in the Nordics. Overlay ads that bypass adblock and deliver 3-5x higher engagement.",
             foundingDate: "2023",
             address: {
