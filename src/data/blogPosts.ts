@@ -1782,7 +1782,7 @@ The live streaming advertising channel is large and growing. The brands that fig
 
 The logical follow-up question is: which people? Brands tend to default to the biggest names, the streamers with hundreds of thousands or millions of followers. The assumption is that bigger audiences mean better returns. In almost every other media format, that assumption holds. In live streaming, it does not.
 
-The segment that consistently outperforms on ROI is the mid-tier: streamers with 10,000 to 50,000 concurrent or subscribed followers. The engagement rates are higher, the communities are tighter, and the cost-per-meaningful-interaction is lower. Understanding why this happens, and how to act on it systematically, is one of the more underutilized advantages available to brands advertising on live streaming platforms today.
+The segment that consistently outperforms on ROI is the mid-tier: streamers with 10,000 to 50,000 concurrent or subscribed followers. The engagement rates are higher, the communities are tighter, and the cost-per-meaningful-interaction is lower. Understanding why this happens, and how to act on it systematically, is one of the more underutilized advantages available to brands running [Twitch advertising](/twitch-advertising) today.
 
 ![A streamer at a professional gaming setup with dual monitors and live viewer count visible](/lovable-uploads/blog-mid-tier-streamer-sweet-spot-1.jpg)
 
@@ -2419,7 +2419,7 @@ Live streaming has a structurally different relationship with its audience.
 
 ## The Lean-Forward Audience
 
-When someone opens Twitch, Kick, or YouTube Live, they are not settling in for recorded content. They are entering a live, interactive space. The streamer is broadcasting right now. Chat is moving. Community events are happening in real time. Viewers lean forward in a way that recorded content never produces.
+When someone opens [Twitch](/twitch-advertising), [Kick](/kick-advertising), or [YouTube Live](/youtube-advertising), they are not settling in for recorded content. They are entering a live, interactive space. The streamer is broadcasting right now. Chat is moving. Community events are happening in real time. Viewers lean forward in a way that recorded content never produces.
 
 This engagement difference is not marginal. Twitch session length averages 90 minutes per visit, compared to roughly 30 minutes for most video-on-demand platforms. A viewer who stays for 90 minutes is not passively absorbing content in the background. They are participating. They watch, they chat, they respond to polls, they trigger events with channel points.
 
@@ -2509,7 +2509,7 @@ The $45 billion question is not whether to be on CTV. It is whether that budget 
 
 In Q3 2025, Kick logged 1.7 billion hours watched. That is a 55 percent increase from Q1 2025. To put that rate of change in perspective, it took Twitch several years to move from 1 billion to 1.7 billion quarterly hours during its peak growth period. Kick did it in two quarters.
 
-This is not a niche signal. It is a platform entering a growth phase with the kind of momentum that reshapes where audiences spend their live viewing time. And yet, if you look at how Nordic advertising budgets are currently distributed across live streaming platforms, Kick barely registers. Most brands have Twitch on the plan, some are beginning to think about YouTube Live, and Kick is still treated as a footnote.
+This is not a niche signal. It is a platform entering a growth phase with the kind of momentum that reshapes where audiences spend their live viewing time. And yet, if you look at how Nordic advertising budgets are currently distributed across live streaming platforms, [Kick advertising](/kick-advertising) barely registers. Most brands have [Twitch advertising](/twitch-advertising) on the plan, some are beginning to think about [YouTube Live](/youtube-advertising), and Kick is still treated as a footnote.
 
 That gap between where audiences are going and where ad budgets are sitting is where the opportunity lives right now.
 
@@ -3796,7 +3796,7 @@ On Twitch, this logic breaks down quickly.
 
 The data from 2025–2026 consistently shows that micro-streamers - creators with 50 to 500 concurrent viewers - frequently outperform their mega-counterpart colleagues on every metric that actually predicts advertising success: engagement rate, chat responsiveness, brand mention recall, and purchase intent lift. The creator with 300 viewers who all know each other by username is doing something fundamentally different from the creator with 30,000 viewers scrolling through a chat that moves too fast to read.
 
-For Nordic brands targeting a young, highly engaged audience, this distinction has significant implications for how streaming budgets should be allocated.
+For Nordic brands targeting a young, highly engaged audience, this distinction has significant implications for how [Twitch advertising](/twitch-advertising) budgets should be allocated.
 
 ## What the Engagement Curve Actually Looks Like
 
@@ -4015,7 +4015,7 @@ The audiences moving away from traditional TV are not randomly distributed. They
 
 This is the crux of the advertiser challenge in 2026. Reach hasn't disappeared from the Nordic market - it has migrated. But it has migrated to environments where traditional advertising formats have significantly lower tolerance. The viewers are there. The attention is there. What's changed is the contract between the audience and the content, and by extension between the audience and advertising.
 
-Live streaming sits at the most demanding end of this spectrum. Twitch viewers in particular have among the highest ad-block rates of any digital audience - estimates range from 40% to over 60%. They actively resist intrusive formats. At the same time, those same viewers demonstrate remarkable loyalty to streamers they trust, willingness to engage with brand mentions made by the streamer in their own voice, and measurable purchase intent when sponsorships are handled authentically.
+Live streaming sits at the most demanding end of this spectrum. [Twitch advertising](/twitch-advertising) audiences in particular have among the highest ad-block rates of any digital audience - estimates range from 40% to over 60%. They actively resist intrusive formats. At the same time, those same viewers demonstrate remarkable loyalty to streamers they trust, willingness to engage with brand mentions made by the streamer in their own voice, and measurable purchase intent when sponsorships are handled authentically.
 
 The gap between ad-block rate and purchase intent is only a paradox if you're using the wrong ad format.
 
@@ -4444,9 +4444,9 @@ In 2025, Twitch became the only major live streaming platform to post negative g
 
 The platforms gaining on Twitch are not interchangeable, and their growth stories have different implications for advertisers.
 
-**YouTube Live** is the most significant challenger by raw audience size. YouTube already accounts for over **47% of total live streaming hours watched** globally, and its gaming content specifically grew **12% year-over-year** in 2025. The combination of Google's advertising infrastructure, YouTube's recommendation engine, and the platform's cross-format capabilities (live streams, VOD, Shorts) creates a uniquely powerful environment for brands. The same creator can be discovered through a YouTube Short, retain viewers with a long-form VOD, and engage an audience in real-time via live stream - all within a single platform.
+**[YouTube Live advertising](/youtube-advertising)** is the most significant challenger by raw audience size. YouTube already accounts for over **47% of total live streaming hours watched** globally, and its gaming content specifically grew **12% year-over-year** in 2025. The combination of Google's advertising infrastructure, YouTube's recommendation engine, and the platform's cross-format capabilities (live streams, VOD, Shorts) creates a uniquely powerful environment for brands. The same creator can be discovered through a YouTube Short, retain viewers with a long-form VOD, and engage an audience in real-time via live stream - all within a single platform.
 
-**Kick**, the challenger platform that emerged as a creator-friendly alternative to Twitch, is the highest-growth story in the space. Kick grew **125% year-over-year**, rising to approximately **11% of gaming livestream time** globally. (For a detailed comparison, see our [Kick vs Twitch: Brand Comparison for Nordic Advertisers](/blog/kick-vs-twitch-nordics-brand-comparison-2026).) Its model of higher revenue splits for creators has attracted a growing roster of established streamers, and its audience skews toward the core gaming demographics that advertisers value most. For brands, Kick represents underpriced inventory in a rapidly maturing platform - the opportunity that Twitch represented in 2018, before CPMs normalized to reflect audience value.
+**[Kick advertising](/kick-advertising)**, the challenger platform that emerged as a creator-friendly alternative to Twitch, is the highest-growth story in the space. Kick grew **125% year-over-year**, rising to approximately **11% of gaming livestream time** globally. (For a detailed comparison, see our [Kick vs Twitch: Brand Comparison for Nordic Advertisers](/blog/kick-vs-twitch-nordics-brand-comparison-2026).) Its model of higher revenue splits for creators has attracted a growing roster of established streamers, and its audience skews toward the core gaming demographics that advertisers value most. For brands, Kick represents underpriced inventory in a rapidly maturing platform - the opportunity that Twitch represented in 2018, before CPMs normalized to reflect audience value.
 
 **TikTok Live** continues its expansion as a cross-genre live destination, blending gaming content with lifestyle, music, and e-commerce - particularly relevant for brands targeting the younger end of the Gen Z bracket. (Read our analysis: [TikTok Live Overtakes Twitch](/blog/tiktok-live-overtakes-twitch-streaming-hierarchy-2026).)
 
@@ -4556,7 +4556,7 @@ Esports is the tip of a much larger iceberg. The total Nordic games market - enc
 
 This broader market matters for advertisers because the esports viewer is embedded in a wider gaming culture ecosystem. An esports fan also watches gaming streams outside tournament windows, follows streamers who cover multiple titles, and engages with gaming-adjacent content across creator and social platforms. The advertising opportunity isn't limited to formal esports events - it extends to the entire live streaming ecosystem that surrounds gaming culture.
 
-In practical terms, this means a brand entering "esports advertising" doesn't need to buy sponsorships at major tournaments to reach the esports audience. The same viewers who watch major tournament events also watch their favorite streamers on Twitch the rest of the year. That Twitch audience is accessible through native advertising tools that don't require the major sponsorship budgets that tier-one esports event packages command.
+In practical terms, this means a brand entering "esports advertising" doesn't need to buy sponsorships at major tournaments to reach the esports audience. The same viewers who watch major tournament events also watch their favorite streamers on Twitch the rest of the year. That audience is accessible through [Twitch native advertising](/twitch-advertising) tools that don't require the major sponsorship budgets that tier-one esports event packages command.
 
 ## How Native Live Stream Advertising Fits
 
