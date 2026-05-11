@@ -932,7 +932,7 @@ Sustainable campaigns and sustainable creators are not separate goals. They are 
       fi: "Striimaajien burnout 2026: Kampanjariski, jonka pohjoismaiset brändit unohtavat",
     },
     seoDescription: {
-      en: "Creator burnout is disrupting live stream campaigns. For Nordic brands in a smaller creator ecosystem, the risk is real and manageable.",
+      en: "Creator burnout causes mid-campaign dropoffs that hurt brand recall. Nordic brands face higher risk in smaller creator pools — plus mitigation strategies.",
       no: "Creator-burnout forstyrrer livestream-kampanjer. For nordiske merkevarer i et mindre creator-okosystem er risikoen ekte og handterbar.",
       sv: "Creator-utbranning skapar problem for livestreamkampanjer. For nordiska varumarken i ett mindre creator-ekosystem ar risken real och hanterbar.",
       fi: "Luojien burnout hairitsee livestream-kampanjoita. Pohjoismaisille brändeille pienemmässä luojaekosysteemissä riski on todellinen ja hallittavissa.",
@@ -1759,7 +1759,7 @@ The live streaming advertising channel is large and growing. The brands that fig
       fi: "Hybridit Streamaajasopimukset: Kiinteasta Palkkiosta Suoritusperusteiseen Maksuun | Beta Ads",
     },
     seoDescription: {
-      en: "Flat-rate streamer deals are giving way to hybrid performance structures that align brand and creator incentives. How the model works.",
+      en: "Flat-rate Twitch deals are giving way to hybrid CPM + performance structures. How Nordic brands tie streamer payout to verified clicks and conversions.",
       no: "Faste honorarer for streamere erstattes av hybride prestasjonsstrukturer som samordner merkevare- og kreatorinsentiver. Her er hvordan modellen fungerer og hvorfor nordiske merkevarer tar den i bruk.",
       sv: "Fasta arvodesavtal for streamers ersatts av hybridprestandastrukturer som samordnar varumárkes- och skaparincentiv. Har ar hur modellen fungerar och varfor nordiska varumarken anammar den.",
       fi: "Kiinteat streamaajamaksut korvautuvat hybridisilla suoritusrakenteilla, jotka yhdistävät brändin ja luojan kannustimet. Tassa miten malli toimii ja miksi pohjoismaiset brandit ottavat sen kayttoon.",
@@ -3028,7 +3028,7 @@ In live streaming, as in television before it, the showrunners who move first bu
       fi: "Brändit showrunnereina: Serialisoitu livestream-sisältöstrategia | Beta Ads",
     },
     seoDescription: {
-      en: "Gaming streamer sponsorship hit $4.8B in 2025. Why brands are moving from one-off campaigns to serialized livestream content.",
+      en: "Gaming streamer sponsorship hit $4.8B in 2025. Brands shifting from one-off Twitch activations to serialized content series with 3-5x higher recurring recall rates.",
       no: "Merkevaresponsing av gamingstrømmere nådde 4,8 milliarder dollar i 2025. Oppdag hvorfor ledende merker går fra enkeltcampanjer til serialisert livestream-innhold - og hva det betyr for nordiske annonsører.",
       sv: "Varumärkessponsring av gaming-streamers nådde 4,8 miljarder dollar 2025. Upptäck varför ledande varumärken går från engångskampanjer till serialiserat livestream-innehåll - och vad det betyder för nordiska annonsörer.",
       fi: "Pelistriimaajien brändituki saavutti 4,8 miljardia dollaria vuonna 2025. Opi, miksi johtavat brändit siirtyvät kertaluonteisista kampanjoista serialisoituun livestream-sisältöön - ja mitä se tarkoittaa pohjoismaisille mainostajille.",
@@ -8830,7 +8830,7 @@ Ready to scope a Nordic campaign that includes Kick inventory? [Book a 20-minute
       fi: "Kickin 131 %:n kasvu 2025: pohjoismaisten mainostajien 2026-opas | Beta Ads"
     },
     seoDescription: {
-      en: "Kick hit 4.5B hours in 2025, up 131% YoY. Creator tier doubled, Just Chatting and IRL grew fastest. What Nordic advertisers should test.",
+      en: "Kick hit 4.5B watch hours in 2025, up 131% YoY. Creator count doubled, Just Chatting and IRL grew fastest. Nordic advertisers can enter now before CPM rates rise.",
       no: "Kick nådde 4,5 milliarder timer sett i 2025, +131 % YoY. Skapertieren doblet seg, Just Chatting og IRL vokste raskest, og CPM-er ligger fortsatt under Twitch. Hva nordiske annonsører bør teste i 2026.",
       sv: "Kick nådde 4,5 miljarder sedda timmar 2025, +131% YoY. Skapartier fördubblades, Just Chatting och IRL växte snabbast. Vad nordiska annonsörer bör testa 2026.",
       fi: "Kick saavutti 4,5 miljardia katseltua tuntia vuonna 2025, +131 % YoY. Luojataso kaksinkertaistui. Mitä pohjoismaisten mainostajien pitäisi testata 2026."
@@ -9314,7 +9314,7 @@ The StreamHatchet data points to two trends accelerating in 2026: the continued 
     tags: ["esports", "league-of-legends", "world-cup", "co-streaming", "2025"],
     relatedSlugs: ["twitch-statistics-2025-global-insights", "top-streamers-2025-rankings", "twitch-advertising-benchmarks-2025", "inside-the-tournament-window-esports-advertising-guide-2026", "women-esports-streaming-advertising-audience-2026"],
     seoTitle: { en: "Esports Viewership 2025: 2.8B Hours, World Cup +73% | Beta Ads", no: "Esport Seertall 2025: 2,8B timer | Beta Ads", sv: "Esport Tittarsiffror 2025: 2,8B timmar | Beta Ads", fi: "Esports Katsojaluvut 2025: 2,8B tuntia | Beta Ads" },
-    seoDescription: { en: "StreamHatchet 2025: Esports hit 2.8B hours (+6%), 50% from co-streamers. LoL Worlds 6.6M peak, Esports World Cup +73% growth.", no: "StreamHatchet 2025: Esport nådde 2,8B timer (+6%).", sv: "StreamHatchet 2025: Esport nådde 2,8B timmar (+6%).", fi: "StreamHatchet 2025: Esports saavutti 2,8B tuntia (+6%)." },
+    seoDescription: { en: "StreamHatchet 2025: Esports hit 2.8B hours watched, up 6% YoY. Half came from co-streamers. LoL Worlds peaked at 6.6M viewers, Esports World Cup grew 73%.", no: "StreamHatchet 2025: Esport nådde 2,8B timer (+6%).", sv: "StreamHatchet 2025: Esport nådde 2,8B timmar (+6%).", fi: "StreamHatchet 2025: Esports saavutti 2,8B tuntia (+6%)." },
     seoKeywords: { en: ["esports viewership 2025", "lol worlds 2025", "esports world cup", "co-streaming esports"], no: ["esport seertall 2025"], sv: ["esport tittarsiffror 2025"], fi: ["esports katsojaluvut 2025"] }
   },
   {
@@ -10580,7 +10580,7 @@ Vil du vite hvordan du kan utnytte spilltrender og seertall i dine egne kampanje
       fi: "Nintendo hallitsee livestriimausta: Opetuksia mainostajille"
     },
     seoDescription: {
-      en: "Nintendo games get 10x more viewership than competitors on Twitch. Learn what Nordic advertisers can take from game streaming data.",
+      en: "Nintendo titles average 10x the Twitch viewership of competitors. Pokemon and Zelda drive the gap. What Nordic gaming advertisers can take from streaming data.",
       no: "Nintendo-spill får 10x mer seertid enn konkurrentene på Twitch. Her er hva nordiske annonsører kan lære av streaming-dataen.",
       sv: "Nintendo-spel får 10x mer tittartid än konkurrenterna på Twitch. Här är vad nordiska annonsörer kan lära av streaming-datan.",
       fi: "Nintendo-pelit saavat 10x enemmän katseluaikaa kuin kilpailijat Twitchissä. Näin pohjoismaiset mainostajat voivat hyödyntää dataa."
@@ -10679,7 +10679,7 @@ For nordiske merkevarer som vil komme i gang med streamer-markedsføring uten å
       fi: "Creator-yhteisöt: Vaikuttajamarkkinoinnin tulevaisuus"
     },
     seoDescription: {
-      en: "Creator community platforms solve fragmented influencer marketing on Twitch. Learn how Nordic brands can streamline streamer campaigns.",
+      en: "Creator community platforms consolidate streamer scouting, briefing, and reporting. How Nordic brands reduce Twitch campaign coordination time and cost.",
       no: "Creator community-plattformer løser fragmentert influencer-markedsføring på Twitch. Slik strømliner nordiske merkevarer streamer-kampanjer.",
       sv: "Creator community-plattformar löser fragmenterad influencer-marknadsföring på Twitch. Så effektiviserar nordiska varumärken streamer-kampanjer.",
       fi: "Creator community -alustat ratkaisevat pirstoutuneen vaikuttajamarkkinoinnin Twitchissä. Näin pohjoismaiset brändit tehostavat striimaaja-kampanjat."
@@ -10775,7 +10775,7 @@ Native overlay ads bypasser adblock og leverer 3 til 5 ganger høyere engagement
       fi: "Shadow dropit ja livestriimaus: Riski mainostajille"
     },
     seoDescription: {
-      en: "Shadow drops create massive viewership spikes but 77% drop-off by day 2. Learn how Nordic advertisers should handle surprise game launches.",
+      en: "Shadow drops spike Twitch viewership overnight but 77% of viewers leave by day 2. Nordic brands get a narrow 48-hour activation window — here is the playbook.",
       no: "Shadow drops skaper enorme seerspiker, men 77% faller bort etter dag 1. Slik bør nordiske annonsører håndtere overraskelseslanseringer.",
       sv: "Shadow drops skapar enorma tittartoppar, men 77% försvinner efter dag 1. Så bör nordiska annonsörer hantera överraskningslanseringar.",
       fi: "Shadow dropit luovat valtavia katsojapiikkejä, mutta 77% katoaa päivän 1 jälkeen. Näin pohjoismaisten mainostajien tulisi käsitellä yllätysjulkaisuja."
