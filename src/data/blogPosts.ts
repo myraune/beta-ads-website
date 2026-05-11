@@ -2185,7 +2185,7 @@ The Nordic region's strict data protection environment has made some digital adv
 
 Something has quietly changed about how streamers broadcast in 2026. Many of the most effective mid-size creators in the Nordic region are no longer streaming exclusively to one platform. They are live on Twitch, YouTube, and sometimes Kick simultaneously, routing a single stream to multiple platforms and pulling chat feeds from all three into a single interface. Multistreaming has moved from niche behavior to mainstream practice, and the advertising infrastructure most brands rely on has not caught up.
 
-The practical consequence is significant. A brand that negotiates a streamer integration assuming the campaign runs on Twitch may find that a third of the actual live audience watched on YouTube, and that the overlay assets showing the brand message were never configured for YouTube's live player. The campaign ran. The impression count came in. The ROI calculation was wrong from the start.
+The practical consequence is significant. A brand that negotiates a streamer integration assuming the campaign runs on [Twitch](/twitch-advertising) may find that a third of the actual live audience watched on YouTube, and that the overlay assets showing the brand message were never configured for YouTube's live player. The campaign ran. The impression count came in. The ROI calculation was wrong from the start.
 
 ## How the Platform Landscape Shifted
 
@@ -3426,7 +3426,7 @@ While Trovo exits, YouTube is investing heavily in making its platform the prefe
 
 The key change: brands can now search for creators and pitch them directly, instead of waiting for creator outreach. YouTube has also confirmed it won't take a percentage cut of brand deal revenue facilitated through the platform. That's a meaningful statement of intent. YouTube is positioning itself as infrastructure for the creator economy, not a rent-collector on top of it.
 
-For advertisers, this creates a new pathway to YouTube Live talent. But it also raises a structural question: should your brand's creator discovery and deal-making be mediated entirely by the platform whose interests don't perfectly align with yours? YouTube's "no cut" policy is current - not guaranteed to be permanent. Platform-controlled marketplaces have a way of eventually extracting value from the transactions they enable.
+For advertisers, this creates a new pathway to [YouTube Live](/youtube-advertising) talent. But it also raises a structural question: should your brand's creator discovery and deal-making be mediated entirely by the platform whose interests don't perfectly align with yours? YouTube's "no cut" policy is current - not guaranteed to be permanent. Platform-controlled marketplaces have a way of eventually extracting value from the transactions they enable.
 
 ![Gaming and streaming workspace showing multiple platform dashboards and analytics side by side](/lovable-uploads/blog-streaming-shakeout-trovo-2.jpg)
 
@@ -3587,7 +3587,7 @@ The audience has already made its choice. The question for Nordic brands in 2026
 
 For decades, the marketing funnel has been a useful fiction: awareness, consideration, intent, purchase, separated by days or weeks and multiple touchpoints. In live streaming, that sequence is now happening in minutes - sometimes seconds.
 
-Amazon recently launched shoppable in-stream ads on Twitch, enabling viewers to purchase products directly from a livestream without navigating away from the broadcast. Interactive product cards appear during sponsored content, purchases flow through Amazon checkout with Prime shipping benefits, and the viewer stays inside the stream throughout. The format debuted with e.l.f. Cosmetics as the launch partner - a brand that has been building presence on Twitch since 2020, with over 43 million cumulative minutes watched on the platform.
+Amazon recently launched shoppable in-stream ads on [Twitch](/twitch-advertising), enabling viewers to purchase products directly from a livestream without navigating away from the broadcast. Interactive product cards appear during sponsored content, purchases flow through Amazon checkout with Prime shipping benefits, and the viewer stays inside the stream throughout. The format debuted with e.l.f. Cosmetics as the launch partner - a brand that has been building presence on Twitch since 2020, with over 43 million cumulative minutes watched on the platform.
 
 The combination of creator trust, live entertainment context, and frictionless checkout is producing conversion metrics that no other digital format comes close to matching. Live commerce globally is generating conversion rates between 9% and 30%, compared to 2–3% for standard e-commerce platforms. The funnel hasn't just shortened - for certain product categories and audiences, it has effectively collapsed into a single moment.
 
@@ -4122,7 +4122,7 @@ Pringles didn't grow by running pre-roll ads. They created novelty gaming headse
 
 Crocs reduced their total advertising budget by a third but increased online video and streaming activations by 387%. They ran TikTok livestreams, partnered with creators for collaborative storytelling, and leaned into the absurdist humor that had already made Crocs a cult brand online. They spent less money by spending it better - in formats that rewarded creativity and cultural fit rather than pure reach.
 
-SoundCloud's growth came from a "creator-first" positioning strategy: artist accelerator programs, Twitch affiliate partnerships, and a visible commitment to the creator economy that resonated deeply with an audience that self-identifies as makers, not just consumers.
+SoundCloud's growth came from a "creator-first" positioning strategy: artist accelerator programs, [Twitch](/twitch-advertising) affiliate partnerships, and a visible commitment to the creator economy that resonated deeply with an audience that self-identifies as makers, not just consumers.
 
 ![A streamer engaging live with their gaming community in a darkened gaming room](/lovable-uploads/blog-creator-first-brand-strategies-2026-1.jpg)
 
@@ -4236,7 +4236,7 @@ When a viewer settles into a 90-minute session, they're not passively consuming 
 
 ![A Twitch streamer engaging with their community during a live gaming session](/lovable-uploads/blog-twitch-session-length-2026-1.jpg)
 
-The data backs this up. Twitch's 240 million monthly active users average over 90 minutes per session - far above any short-form platform. And according to Dentsu's 2025 Gaming Trends Report, 44% of Twitch viewers have purchased a product because their favorite streamer recommended it. That's not passive brand awareness - that's active purchase intent generated by a sustained, trusted relationship.
+The data backs this up. [Twitch's](/twitch-advertising) 240 million monthly active users average over 90 minutes per session - far above any short-form platform. And according to Dentsu's 2025 Gaming Trends Report, 44% of Twitch viewers have purchased a product because their favorite streamer recommended it. That's not passive brand awareness - that's active purchase intent generated by a sustained, trusted relationship.
 
 Compare that to the average TikTok ad, which competes for attention in a feed optimized to keep users swiping past anything that doesn't hook them in under two seconds.
 
@@ -4634,7 +4634,7 @@ For Nordic brands evaluating where to spend their live streaming ad budgets, thi
 
 ## How the Rankings Changed
 
-The 2025 streaming data tells a clear story. YouTube maintains its dominant lead with approximately 47% of all streaming hours. Behind it, TikTok Live has moved into second place, surpassing Twitch for the first time. Twitch lost 8.3 percentage points of market share over 2025. And Kick - the upstart platform built around creator-favorable economics - grew 131% year-over-year to reach 4.5 billion hours watched.
+The 2025 streaming data tells a clear story. [YouTube](/youtube-advertising) maintains its dominant lead with approximately 47% of all streaming hours. Behind it, TikTok Live has moved into second place, surpassing Twitch for the first time. Twitch lost 8.3 percentage points of market share over 2025. And Kick - the upstart platform built around creator-favorable economics - grew 131% year-over-year to reach 4.5 billion hours watched.
 
 Total hours watched across all live streaming platforms hit **36.4 billion in 2025** - the highest level since the pandemic peak, up 6% year-over-year. The market is growing. The question is which platforms are capturing that growth.
 
@@ -4642,7 +4642,7 @@ Total hours watched across all live streaming platforms hit **36.4 billion in 20
 
 TikTok Live's ascent to #2 might seem like just another platform milestone, but it represents something structurally distinct from the Kick growth story.
 
-Kick grew primarily by attracting creators who either migrated from Twitch or chose it as an alternative, built on its 95/5 revenue split. The Kick audience is still largely a gaming and creator-culture audience - similar demographics to Twitch, different economics.
+[Kick](/kick-advertising) grew primarily by attracting creators who either migrated from Twitch or chose it as an alternative, built on its 95/5 revenue split. The Kick audience is still largely a gaming and creator-culture audience - similar demographics to Twitch, different economics.
 
 TikTok Live brings a meaningfully different audience and content mix. TikTok's user base is broader, younger, and more diverse across interest categories. The content on TikTok Live skews toward music, lifestyle, beauty, e-commerce live selling, and entertainment - not primarily gaming. That audience - Gen Z users who moved from TikTok's short-form feed into live watching - has different content habits and different advertiser affinities than the traditional Twitch demographic.
 
@@ -4853,7 +4853,7 @@ When a streamer mentions a product once, their audience has no baseline for whet
 
 When a streamer has mentioned the same brand across multiple streams over several months - organically integrating it into their workflow, referencing it in off-script moments, returning to it without prompting - the calculus changes. The product becomes part of the streamer's world, which means it becomes part of the viewer's picture of that world.
 
-This is why **44% of Twitch viewers have made a purchase directly because of a streamer recommendation** (Dentsu Gaming Trends Report, 2025). That figure is extraordinary for an advertising channel. It reflects an audience that has built genuine trust with creators - and extends that trust to the brands those creators consistently represent. (We explore this trust dynamic in depth in [How Parasocial Relationships Drive Purchase Intent](/blog/parasocial-relationships-streamers-purchase-intent-brands).)
+This is why **44% of [Twitch](/twitch-advertising) viewers have made a purchase directly because of a streamer recommendation** (Dentsu Gaming Trends Report, 2025). That figure is extraordinary for an advertising channel. It reflects an audience that has built genuine trust with creators - and extends that trust to the brands those creators consistently represent. (We explore this trust dynamic in depth in [How Parasocial Relationships Drive Purchase Intent](/blog/parasocial-relationships-streamers-purchase-intent-brands).)
 
 ## The Numbers Behind the Gap
 
@@ -4945,7 +4945,7 @@ Campaign bursts get noticed once. Sustained presence gets remembered.
     excerpt: "AI-powered dynamic ad insertion is bridging the gap between programmatic scale and native performance - allowing brands to run contextually triggered overlay campaigns across hundreds of streamers simultaneously.",
     content: `## The Scale Problem Native Advertising Had Until Now
 
-Native advertising in live streams has always had a fundamental tension: the formats that perform best - creator read-alouds, seamless overlays, contextual product mentions - require human coordination, manual negotiation, and careful timing. They scale poorly.
+Native advertising on [Twitch](/twitch-advertising) and [Kick](/kick-advertising) has always had a fundamental tension: the formats that perform best - creator read-alouds, seamless overlays, contextual product mentions - require human coordination, manual negotiation, and careful timing. They scale poorly.
 
 A brand that wants to run a native campaign across fifty streamers faces fifty separate conversations, fifty different activation timelines, and fifty uncoordinated executions. Pre-roll inventory, by contrast, can be bought programmatically at scale in minutes. The [performance gap between native and traditional formats](/blog/why-native-stream-ads-outperform-3-to-1) is enormous, but the operational gap has historically pushed brands toward what's easy rather than what works.
 
@@ -5151,7 +5151,7 @@ If your 2026 media plan does not include a line for native livestream advertisin
     excerpt: "Affiliate links, sponsored segments, and full brand deals are three very different commercial arrangements on Twitch - with different economics, disclosure requirements, and audience dynamics. Here's what brands need to know.",
     content: `## Three Models, Three Different Relationships
 
-When a streamer promotes a brand on Twitch, they might be doing one of at least three fundamentally different things - and the commercial, legal, and audience dynamics of each are distinct enough that treating them as interchangeable is a mistake brands regularly make.
+When a streamer promotes a brand on [Twitch](/twitch-advertising), they might be doing one of at least three fundamentally different things - and the commercial, legal, and audience dynamics of each are distinct enough that treating them as interchangeable is a mistake brands regularly make.
 
 Understanding the difference between affiliate content, sponsored content, and brand deal content is not just academic. It determines how much you pay, what you can expect in terms of exclusivity and message control, what disclosure requirements apply, and how the audience is likely to respond.
 
@@ -5267,7 +5267,7 @@ Beta Ads structures campaigns across all these models, often combining native ov
     excerpt: "The quality of your creator brief is the single biggest variable in whether a streaming campaign feels authentic or forced. Here's how to write briefs that get great integrations - and protect the brand.",
     content: `## The Brief Is Where Campaigns Win or Lose
 
-In traditional advertising, the creative brief goes to an agency or in-house team that will produce the finished asset. In streaming advertising, the brief goes to a human being who will improvise your brand message in real time, in front of a live audience, in a way that has to feel completely natural.
+In traditional advertising, the creative brief goes to an agency or in-house team that will produce the finished asset. In [Twitch](/twitch-advertising) or [Kick](/kick-advertising) advertising, the brief goes to a human being who will improvise your brand message in real time, in front of a live audience, in a way that has to feel completely natural.
 
 The stakes of a bad streaming brief are different from a bad agency brief. A bad agency brief produces a mediocre ad that can be revised. A bad streamer brief produces a live broadcast moment that cannot be undone - and may be clipped and shared in exactly the wrong context.
 
@@ -5392,7 +5392,7 @@ That is the entire brief. Anything longer is probably scripting. Anything shorte
     excerpt: "Discord users spend 94 minutes daily on the platform - more than Instagram and TikTok combined. Here's how streamers' Discord communities extend the reach and impact of Twitch brand partnerships.",
     content: `## The Channel Brands Forget to Count
 
-When a brand negotiates a Twitch sponsorship, they are typically thinking about live viewership numbers: how many people watch the stream, what the concurrent viewer count is, how long the stream runs. These are reasonable metrics. But they systematically undercount the full audience that a streaming partnership reaches.
+When a brand negotiates a [Twitch](/twitch-advertising) sponsorship, they are typically thinking about live viewership numbers: how many people watch the stream, what the concurrent viewer count is, how long the stream runs. These are reasonable metrics. But they systematically undercount the full audience that a streaming partnership reaches.
 
 For streamers with active Discord communities, the sponsored content from a live stream does not stay on Twitch. It ripples into Discord - discussed in general channels, clipped and shared in media channels, referenced in conversations that happen hours or days after the stream. The Discord community is an amplification layer that most advertising contracts have never accounted for.
 
@@ -5520,7 +5520,7 @@ Understanding which categories and formats draw female viewers is essential for 
 
 ### Just Chatting and Lifestyle IRL
 
-These are the categories with the highest female viewership ratios on Twitch. Conversational, personality-driven content attracts a broader demographic than competitive gaming. For lifestyle, fashion, wellness, and beauty brands, this is the most natural entry point into the streaming advertising space.
+These are the categories with the highest female viewership ratios on [Twitch](/twitch-advertising). Conversational, personality-driven content attracts a broader demographic than competitive gaming. For lifestyle, fashion, wellness, and beauty brands, this is the most natural entry point into the streaming advertising space.
 
 ### Creative Categories
 
@@ -5602,7 +5602,7 @@ The data is clear. The audience is here. The opportunity is in building the adve
 
 A typical streamer used to spend 4+ hours per week manually clipping, editing, and formatting their best moments for TikTok, YouTube Shorts, and Instagram Reels. In 2026, that work can be largely automated.
 
-AI-powered tools like Eklipse, OpusClip, Mootion, and StreamLadder's ClipGPT can take a full 3-4 hour Twitch stream and identify the most engaging moments, cut them to appropriate lengths, add captions, reframe for vertical video, and schedule them for posting - all without manual editing. Mootion benchmarks at generating a 3-minute highlight video in under 2 minutes, outperforming manual workflows by a factor of 3:1 on speed.
+AI-powered tools like Eklipse, OpusClip, Mootion, and StreamLadder's ClipGPT can take a full 3-4 hour [Twitch](/twitch-advertising) stream and identify the most engaging moments, cut them to appropriate lengths, add captions, reframe for vertical video, and schedule them for posting - all without manual editing. Mootion benchmarks at generating a 3-minute highlight video in under 2 minutes, outperforming manual workflows by a factor of 3:1 on speed.
 
 This matters enormously for the advertising value of streaming partnerships, for reasons that go beyond efficiency.
 
@@ -5841,7 +5841,7 @@ The goal of brand safety management is not to achieve zero theoretical risk - th
     excerpt: "Research consistently shows parasocial relationships boost purchase intent, impulsive buying, and brand loyalty. Here's the psychology behind why streamer recommendations work - and how brands can leverage it responsibly.",
     content: `## The Relationship That Isn't - But Feels Like It Is
 
-A viewer watches the same Twitch streamer for 90 minutes every Tuesday and Thursday. They know the streamer's opinions on games, their coffee preferences, their cat's name, and the ongoing drama with a rival streamer. The streamer does not know the viewer exists.
+A viewer watches the same [Twitch](/twitch-advertising) streamer for 90 minutes every Tuesday and Thursday. They know the streamer's opinions on games, their coffee preferences, their cat's name, and the ongoing drama with a rival streamer. The streamer does not know the viewer exists.
 
 This is a parasocial relationship - a one-sided emotional bond that functions psychologically like a genuine social connection, even though the interaction is entirely mediated by a screen. The concept was first described by sociologists Horton and Wohl in 1956, originally applied to television hosts and radio personalities. Seventy years later, it has become one of the most commercially significant psychological phenomena in digital media.
 
@@ -5969,7 +5969,7 @@ For brands, this creates both an opportunity and a measurement challenge. The op
 
 ## From Squad Stream to Stream Together
 
-Twitch originally launched Squad Stream in 2019 - a feature allowing up to four streamers to broadcast together in a single interface. The feature had elegant intentions but low adoption, with less than 1% of Partner streams ever using it.
+[Twitch](/twitch-advertising) originally launched Squad Stream in 2019 - a feature allowing up to four streamers to broadcast together in a single interface. The feature had elegant intentions but low adoption, with less than 1% of Partner streams ever using it.
 
 In 2024, Twitch retired Squad Stream and replaced it with **Stream Together**, a more flexible system that allows any streamer (Partner, Affiliate, or otherwise) to stream collaboratively with merged chat, combined viewership signals, and cross-promotion built in. The feature is particularly well-suited for organic creator collaborations, gaming friend groups, and event co-watching.
 
@@ -6195,7 +6195,7 @@ The key is matching your brand's audience profile to the category's viewer demog
     excerpt: "40% of brands cannot measure sponsorship ROI - but 90% of sponsorship spend goes untracked. Here's the measurement framework that separates successful streaming campaigns from budget black holes.",
     content: `## The Measurement Problem Nobody Wants to Admit
 
-Streaming sponsorships and creator brand deals are growing fast, but the measurement infrastructure has not kept pace. An uncomfortable industry fact: **40% of brands cannot measure sponsorship ROI**, and **90% of sponsorship spend goes untracked** in any meaningful way. For a channel that is capturing a growing share of marketing budgets, this is a serious problem.
+[Twitch](/twitch-advertising) sponsorships and creator brand deals are growing fast, but the measurement infrastructure has not kept pace. An uncomfortable industry fact: **40% of brands cannot measure sponsorship ROI**, and **90% of sponsorship spend goes untracked** in any meaningful way. For a channel that is capturing a growing share of marketing budgets, this is a serious problem.
 
 The result is that most post-campaign reports lean on vanity metrics - impressions, reach, and views - that look plausible in a spreadsheet but rarely answer the question finance teams actually care about: did this investment generate returns?
 
@@ -6424,7 +6424,7 @@ The platform war between Kick and Twitch is not over, and the outcome is not cer
     excerpt: "Just Chatting has become Twitch's most-watched category with 1.49 billion hours in 2026, and IRL streaming is exploding. Here's why brands are missing out by focusing only on gaming content.",
     content: `## Twitch Is No Longer Just a Gaming Platform
 
-The conventional wisdom about Twitch - that it is primarily a destination for competitive gaming and esports - needs a serious update. In 2026, **Just Chatting is the most-watched category on the entire platform**, accounting for more hours viewed than Counter-Strike, League of Legends, and Fortnite combined.
+The conventional wisdom about [Twitch](/twitch-advertising) - that it is primarily a destination for competitive gaming and esports - needs a serious update. In 2026, **Just Chatting is the most-watched category on the entire platform**, accounting for more hours viewed than Counter-Strike, League of Legends, and Fortnite combined.
 
 The numbers are stark. Just Chatting generated **1.49 billion watch hours** in 2026, with January alone hitting a record of approximately **218 million hours** in a single month. Average viewership in the category has grown from roughly 32,000 concurrent viewers in 2018 to over **307,000 in 2025** - nearly a 10x increase in seven years. Non-gaming content broadly (including IRL, Creative, and Music) now accounts for approximately **32% of total platform watch time**.
 
@@ -6523,7 +6523,7 @@ The gaming-only mental model of Twitch advertising is leaving money on the table
     excerpt: "Twitch's algorithm has evolved into a real-time machine learning system that rewards community engagement over follower count. Here's how it shapes discoverability - and why it matters for every brand running campaigns on the platform.",
     content: `## The Algorithm That Decides Who Gets Seen
 
-Every marketer who runs campaigns on Twitch is, in some way, competing with the algorithm. It decides which streamers surface on the homepage, which channels appear in the Browse tab, and which creators end up in the all-important "For You" feed. Understanding how that system works is not just useful for streamers trying to grow - it is essential information for advertisers trying to choose who to partner with and how.
+Every marketer who runs campaigns on [Twitch](/twitch-advertising) is, in some way, competing with the algorithm. It decides which streamers surface on the homepage, which channels appear in the Browse tab, and which creators end up in the all-important "For You" feed. Understanding how that system works is not just useful for streamers trying to grow - it is essential information for advertisers trying to choose who to partner with and how.
 
 The short version: Twitch's recommendation engine has moved far beyond simple follower counts. By 2026, it is a sophisticated, real-time machine learning system that prioritizes live engagement signals, community behavior, and audience-content fit. That shift has major implications for how brands should evaluate and select streaming partners.
 
@@ -6962,8 +6962,8 @@ For Nordic brands, this is not a future trend to monitor. It is a present opport
 
 Livestream commerce in the Nordics does not look like a Chinese mega-influencer selling 10,000 units of lipstick in 30 seconds. It looks like this:
 
-- **A gaming peripherals brand** running overlay ads during popular Twitch streams that link directly to product pages, driving immediate purchase intent among viewers who just watched the product in use
-- **A fashion retailer** sponsoring a lifestyle streamer on YouTube who showcases outfits during an IRL stream, with clickable overlays linking to each item
+- **A gaming peripherals brand** running overlay ads during popular [Twitch](/twitch-advertising) streams that link directly to product pages, driving immediate purchase intent among viewers who just watched the product in use
+- **A fashion retailer** sponsoring a lifestyle streamer on [YouTube](/youtube-advertising) who showcases outfits during an IRL stream, with clickable overlays linking to each item
 - **An electronics company** launching a new product with coordinated overlay campaigns across 50 Nordic streamers, creating a launch event that feels organic rather than corporate
 - **A food delivery service** running time-limited promotional overlays during peak streaming hours, driving orders during the exact moments viewers are hungry and watching content
 
@@ -7393,7 +7393,7 @@ Brands still running 2019-era creative through 2026 media plans are paying for i
 
 ## The Infrastructure That Makes Streamer-First Operational at Scale
 
-Streamer-first advertising is easy to describe and hard to execute. A Norwegian CPG brand running a Q3 2026 campaign across 15–50 streamers across Twitch, YouTube and Kick needs: verified creator availability, category-matched audience data, contract coordination, creative approval workflows, OBS integration tooling, platform-verified reporting, and a single dashboard that aggregates it all.
+Streamer-first advertising is easy to describe and hard to execute. A Norwegian CPG brand running a Q3 2026 campaign across 15–50 streamers across [Twitch](/twitch-advertising), [YouTube](/youtube-advertising) and [Kick](/kick-advertising) needs: verified creator availability, category-matched audience data, contract coordination, creative approval workflows, OBS integration tooling, platform-verified reporting, and a single dashboard that aggregates it all.
 
 Platforms like Beta Ads index 39,000+ Nordic streamers with category, language, audience demographic, engagement history, and platform-specific performance data — turning what used to be a five-vendor coordination problem into a single brief-to-launch workflow. The reason Samsung, Shure, Komplett, Kristiania, NKI and Gokstad each ran verified campaigns in 2025 wasn't that they solved the operational problem themselves; it was that the infrastructure layer existed by the time they arrived.
 
@@ -7449,7 +7449,7 @@ Ready to scope a streamer-first campaign for your brand? [Book a 20-minute consu
 
 Norske 18–34-åringer ser mindre tradisjonell TV for hvert kvartal og mer livestreaming. [Medietilsynets Barn og medier 2024](https://www.medietilsynet.no/globalassets/publikasjoner/barn-og-medier-undersokelser/2024/barn-og-medier-2024-rapport.pdf) rapporterer at **71 % av norske 9–18-åringer spiller dataspill daglig**, mens [SSBs Mediebruk-statistikk 2024](https://www.ssb.no/kultur-og-fritid/tids-og-mediebruk/statistikk/norsk-mediebarometer) viser at gjennomsnittlig TV-seing i aldersgruppen 16–24 år har falt nesten 60 % siden 2015.
 
-Twitch er den enkeltkanalen som har vokst mest i samme periode. I april 2026 står norskspråklig innhold for en stadig større andel av Twitchs regionale vekst, ifølge [Streams Charts' Nordic Report](https://streamscharts.com/). detoo topper rangeringen over [mest sette norske Twitch-streamere](https://twitchtracker.com/channels/viewership/norwegian), foran HaukenTTV og en ny generasjon skapere under 25.
+[Twitch](/twitch-advertising) er den enkeltkanalen som har vokst mest i samme periode. I april 2026 står norskspråklig innhold for en stadig større andel av Twitchs regionale vekst, ifølge [Streams Charts' Nordic Report](https://streamscharts.com/). detoo topper rangeringen over [mest sette norske Twitch-streamere](https://twitchtracker.com/channels/viewership/norwegian), foran HaukenTTV og en ny generasjon skapere under 25.
 
 For norske merkevarer betyr dette en strukturell endring: målgruppen som historisk kjøpte via TV-annonser bruker nå mer tid på én plattform enn på alle lineære kanaler kombinert. Men svært få norske merker har en konkret plan for hvordan de skal nå den målgruppen der hvor hun faktisk er.
 
@@ -7567,7 +7567,7 @@ For norske merker betyr det at Twitch-annonsering ikke lenger krever manuell out
 
 Svenska 18–34-åringar tittar mindre på traditionell TV för varje kvartal och mer på livestreaming. [Mediebarometern 2024](https://www.nordicom.gu.se/sv/mediebarometer) från Nordicom visar att andelen svenskar 16–24 år som ser linjär TV dagligen har fallit från 67 % 2015 till under 28 % 2024. [Statens medieråd](https://www.statensmedierad.se/) rapporterar att **84 % av svenska 13–16-åringar** spelar dataspel varje vecka.
 
-Tillväxten har gått till live streaming, och Twitch är den enskilt största kanalen. I april 2026 rapporterar [Streams Charts](https://streamscharts.com/) att svenskspråkigt innehåll är den snabbast växande regionala kategorin på plattformen efter spanskspråkigt. Ändå har få svenska varumärken en konkret plan för hur de ska nå målgruppen där den faktiskt finns.
+Tillväxten har gått till live streaming, och [Twitch](/twitch-advertising) är den enskilt största kanalen. I april 2026 rapporterar [Streams Charts](https://streamscharts.com/) att svenskspråkigt innehåll är den snabbast växande regionala kategorin på plattformen efter spanskspråkigt. Ändå har få svenska varumärken en konkret plan för hur de ska nå målgruppen där den faktiskt finns.
 
 ## Den svenska Twitch-marknaden i siffror
 
@@ -7679,7 +7679,7 @@ För svenska varumärken innebär det att Twitch-reklam inte längre kräver man
 
 Suomalaiset 18–34-vuotiaat katsovat yhä vähemmän perinteistä televisiota ja yhä enemmän livestriimausta. [Suomen virallisen tilaston (SVT) Joukkoviestintä-julkaisun](https://www.stat.fi/til/jvie/index.html) mukaan 18–34-ikäryhmän päivittäinen TV-katseluaika on laskenut yli 50 % vuodesta 2015. [Tilastokeskuksen 2024 vapaa-aika-tutkimus](https://www.stat.fi/til/vpa/index.html) raportoi, että **79 % suomalaisista 15–24-vuotiaista pelaa digitaalisia pelejä viikoittain**.
 
-Kasvu on siirtynyt livestriimaukseen ja Twitch on siitä selvästi suurin kanava. Huhtikuussa 2026 [Streams Charts](https://streamscharts.com/) raportoi suomenkielisen sisällön olevan yksi nopeimmin kasvavista kielikategorioista alustalla. Silti harvalla suomalaisella brändillä on konkreettista suunnitelmaa tavoittaa tämä yleisö siellä missä se tosiasiallisesti on.
+Kasvu on siirtynyt livestriimaukseen ja [Twitch](/twitch-advertising) on siitä selvästi suurin kanava. Huhtikuussa 2026 [Streams Charts](https://streamscharts.com/) raportoi suomenkielisen sisällön olevan yksi nopeimmin kasvavista kielikategorioista alustalla. Silti harvalla suomalaisella brändillä on konkreettista suunnitelmaa tavoittaa tämä yleisö siellä missä se tosiasiallisesti on.
 
 ## Suomalainen Twitch-markkina numeroina
 
@@ -7878,7 +7878,7 @@ Despite the viewership decline, Twitch remains the most engaged live streaming a
     excerpt: "detoo leads the Norwegian Twitch leaderboard, followed by Komplettno, DennisVareide and a mid-tier that's doubled since 2023. Here's who watches them, which brand categories they pair with, and how to read the Norwegian Twitch ranking as a media planner.",
     content: `## Why the Norwegian Twitch Ranking Matters More Than the Global List
 
-The global Twitch top-10 is dominated by English-language streamers running 8-hour variety streams. For a Norwegian brand activating against 18–34 at home, the global list is almost irrelevant. The people actually watching in Norwegian, on Norwegian time, are ranked below — and they are the creators that convert Norwegian attention into measurable campaign delivery.
+The global [Twitch](/twitch-advertising) top-10 is dominated by English-language streamers running 8-hour variety streams. For a Norwegian brand activating against 18–34 at home, the global list is almost irrelevant. The people actually watching in Norwegian, on Norwegian time, are ranked below — and they are the creators that convert Norwegian attention into measurable campaign delivery.
 
 [TwitchTracker's Norwegian leaderboard](https://twitchtracker.com/channels/viewership/norwegian) ranks Norwegian-language channels by hours watched, and [Streams Charts' Nordic reporting](https://streamscharts.com/) confirms the same pattern: **the Norwegian middle tier has roughly doubled in average-viewer count between 2023 and 2025**, creating deep enough inventory that 20–50 Nordic-only campaigns are now operationally feasible.
 
@@ -7980,7 +7980,7 @@ Beta Ads has run [nine verified Norwegian campaigns in 2025](/case-studies) draw
     excerpt: "League of Legends held the top slot at 1.95 billion hours, Roblox exploded 212% year-over-year off a single viral experience, and Counter-Strike quietly clawed back 29%. Here's what the 2025 numbers reveal about where brands should be buying live-stream attention.",
     content: `## The Real Story Isn't at the Top of the Chart
 
-Every year a new list of the biggest games on Twitch circulates, and every year the headline gets misread. The top of the chart — League of Legends, GTA V, Counter-Strike — looks stable. The actual 2025 story sits underneath it: Roblox climbed 212% year-over-year on the back of one user-generated experience, Counter-Strike reversed five years of decline, and mobile-first titles slid out of the top ten entirely. For advertisers, the question is no longer "which games are biggest". It is "which attention pools are growing, which are aging out, and which match the audience I actually need to reach".
+Every year a new list of the biggest games on [Twitch](/twitch-advertising) circulates, and every year the headline gets misread. The top of the chart — League of Legends, GTA V, Counter-Strike — looks stable. The actual 2025 story sits underneath it: Roblox climbed 212% year-over-year on the back of one user-generated experience, Counter-Strike reversed five years of decline, and mobile-first titles slid out of the top ten entirely. For advertisers, the question is no longer "which games are biggest". It is "which attention pools are growing, which are aging out, and which match the audience I actually need to reach".
 
 This post unpacks the 2025 Twitch games data from [Streams Charts](https://streamscharts.com/news/streaming-industry-2025-review) and [TwitchTracker](https://twitchtracker.com/games), with the framing brands need to translate it into a real media plan.
 
@@ -8134,7 +8134,7 @@ The top of the chart tells you what's big. The year-over-year deltas, audience d
     excerpt: "The Nordic region accounted for ~2.3 % of global Twitch traffic in 2025 but above-average engagement per viewer. Here's how Norway, Sweden, Finland and Denmark compare on creator depth, category mix, and advertiser opportunity — and where the 2026 budget should actually land.",
     content: `## The Nordic Opportunity Is About Concentration, Not Scale
 
-In global terms, the Nordic region is a secondary Twitch market. [Streams Charts' 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) puts global live streaming at **36.4 billion hours watched**, with the Nordics accounting for roughly 2.3 % of traffic — approximately 837 million hours across the four countries.
+In global terms, the Nordic region is a secondary [Twitch](/twitch-advertising) market. [Streams Charts' 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) puts global live streaming at **36.4 billion hours watched**, with the Nordics accounting for roughly 2.3 % of traffic — approximately 837 million hours across the four countries.
 
 The region's advertising opportunity isn't scale. It's audience quality and brand-safety density. Nordic Twitch viewers over-index against the global average on:
 
@@ -8252,7 +8252,7 @@ Ready to scope a 2026 Nordic creator portfolio matched to your brand category? [
     excerpt: "Twitch lost 8.9% of hours watched in 2025 while YouTube Gaming gained 12% and Kick grew 131%. But raw market share tells a misleading story for advertisers. Here's the platform-by-platform breakdown for 2026 Nordic campaign planning.",
     content: `## The Platform War Stopped Being One-Sided in 2025
 
-For most of the live streaming era, "Twitch" was effectively synonymous with live streaming for Western audiences. Not in 2025. [Streams Charts' 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) shows Twitch's share of total hours watched declined year-over-year for the first time in the platform's history, while YouTube Gaming hit record viewership and Kick more than doubled.
+For most of the live streaming era, "[Twitch](/twitch-advertising)" was effectively synonymous with live streaming for Western audiences. Not in 2025. [Streams Charts' 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) shows Twitch's share of total hours watched declined year-over-year for the first time in the platform's history, while YouTube Gaming hit record viewership and Kick more than doubled.
 
 The market isn't shrinking — global live streaming reached **36.4 billion hours watched in 2025, up 6% YoY**. What's shifting is where the attention lands. For Nordic brand media planners, this is the single most important strategic change to account for heading into 2026.
 
@@ -8391,7 +8391,7 @@ This post pulls together the 2025 benchmark data advertisers actually need befor
 
 Sponsored content is the clearest signal of where money is moving. According to [Streams Charts](https://streamscharts.com/news/youtube-gaming-sponsored-2025-record), YouTube Gaming recorded **10.8 million hours of sponsored content in 2025**, a **71% year-over-year increase** — a record for the platform and the largest single-year jump any major streaming platform has posted. Twitch's own sponsored inventory remained the largest in absolute terms but grew at a slower pace, consistent with Twitch's declining overall hours watched reported by [The Streamer Awards data partner Streams Charts](https://streamscharts.com/news/twitch-q4-2025).
 
-That matters for buyers for one reason: sponsored supply is no longer a one-platform decision. A credible 2026 media plan must treat Twitch, YouTube Gaming, and Kick as three separate inventory pools with three different audience compositions — not as a single "streaming line item".
+That matters for buyers for one reason: sponsored supply is no longer a one-platform decision. A credible 2026 media plan must treat [Twitch](/twitch-advertising), [YouTube Gaming](/youtube-advertising), and [Kick](/kick-advertising) as three separate inventory pools with three different audience compositions — not as a single "streaming line item".
 
 **Three numbers that set the 2025 baseline:**
 
@@ -8522,7 +8522,7 @@ The 2025 data is unambiguous: live-stream advertising works where the format is 
     excerpt: "Sweden has one of the oldest Twitch communities in Europe and a creator tier that international brands consistently underweight. Here's the Swedish top streamer ranking for 2025 — who watches, which brand categories pair, and what the depth means for 2026 Nordic campaigns.",
     content: `## Sweden Built Its Twitch Audience Before the Rest of the Nordic Region
 
-Sweden's Twitch community predates most of its Nordic neighbours. By 2018, [Streams Charts regional data](https://streamscharts.com/) shows Swedish-language streams were already hitting 1M+ cumulative hours per quarter — a level Norway and Finland didn't reach until 2021–2022. That depth of tenure translates into deeper creator infrastructure, longer-running channels, and brand-deal fluency that younger Nordic markets are still catching up to.
+Sweden's [Twitch](/twitch-advertising) community predates most of its Nordic neighbours. By 2018, [Streams Charts regional data](https://streamscharts.com/) shows Swedish-language streams were already hitting 1M+ cumulative hours per quarter — a level Norway and Finland didn't reach until 2021–2022. That depth of tenure translates into deeper creator infrastructure, longer-running channels, and brand-deal fluency that younger Nordic markets are still catching up to.
 
 [Nordicom's Mediebarometern 2024](https://www.nordicom.gu.se/sv/mediebarometer) reports that Swedes 16–24 spend more time on video streaming (including live) than any other age group spends on linear TV. [Statens medieråd's latest survey](https://www.statensmedierad.se/) puts **weekly gaming among Swedish 13–16-year-olds at 84 %** — the highest in the Nordics. Which means the Swedish Twitch viewership isn't an emerging audience; it's an established channel that international brands still treat as secondary to UK and DACH buys.
 
@@ -8641,7 +8641,7 @@ At the same time, Finnish 15–24 participation in gaming is the highest in the 
 
 ## What the Dashboard Below Shows
 
-The dashboard ranks top Finnish-language Twitch creators by average concurrent viewers, peak viewership, hours streamed, and primary category, with 2025 performance data from [TwitchTracker](https://twitchtracker.com/).
+The dashboard ranks top Finnish-language [Twitch](/twitch-advertising) creators by average concurrent viewers, peak viewership, hours streamed, and primary category, with 2025 performance data from [TwitchTracker](https://twitchtracker.com/).
 
 ## Finnish Creator Tiers That Pair with Brand Campaigns
 
@@ -8732,7 +8732,7 @@ Want to scope a Finnish or pan-Nordic creator portfolio against your brief? [Boo
     excerpt: "Kick hit 4.5 billion hours watched in 2025, up +131% YoY per Streams Charts — the single biggest platform growth story of the year. Here's what the numbers mean for Nordic media buyers and where Kick fits in a 2026 plan.",
     content: `## Kick Became a Real Platform in 2025
 
-For two years Kick was discussed as a crypto-and-gambling-adjacent Twitch alternative that advertisers should monitor but not yet buy. That framing stopped being true in 2025. [Streams Charts' 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) shows Kick closed the year at **4.5 billion hours watched**, up **+131% year-over-year** — the single biggest growth number in the entire live-streaming category.
+For two years Kick was discussed as a crypto-and-gambling-adjacent [Twitch](/twitch-advertising) alternative that advertisers should monitor but not yet buy. That framing stopped being true in 2025. [Streams Charts' 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) shows Kick closed the year at **4.5 billion hours watched**, up **+131% year-over-year** — the single biggest growth number in the entire live-streaming category.
 
 The more important signal underneath that number is the shape of the growth. Kick didn't just add more casual viewers. It added creator inventory that advertisers can actually buy against — a mature tier of 10K+ average-viewer channels that didn't exist a year ago.
 
@@ -8906,7 +8906,7 @@ For advertisers planning 2026 launches in gaming-peripherals, energy drinks or C
 ### Twitch
 FPS 23% · MOBA 20% · Action-Adventure 15% · Just Chatting 14% · Battle Royale 10%
 
-Twitch remains the highest-value platform for competitive-gaming-adjacent advertisers.
+[Twitch](/twitch-advertising) remains the highest-value platform for competitive-gaming-adjacent advertisers.
 
 ### YouTube Gaming
 FPS 17% · Action-Adventure 15% · Minecraft 9% · Sandbox 8% · Battle Royale 7%
@@ -8984,7 +8984,7 @@ Want to scope a 2026 Nordic game-streaming plan against your actual brief? [Book
     excerpt: "Non-gaming content now represents 22% of Twitch hours — up from under 10% in 2020. Just Chatting grew +25% YoY; IRL is up +337% on Kick. For non-endemic brands waiting for a reason to enter live streaming, this is it.",
     content: `## The Assumption That Twitch = Gaming Is Now Wrong
 
-For most of Twitch's history, "Twitch advertising" was a euphemism for "gaming advertising." Non-gaming brands evaluating the platform hit the same conclusion: the audience isn't our customer base, the context isn't our brand, and the creative pattern doesn't work outside endemic categories. For CPG, fashion, finance, travel, and countless other non-gaming categories, Twitch was not a buy.
+For most of [Twitch's](/twitch-advertising) history, "Twitch advertising" was a euphemism for "gaming advertising." Non-gaming brands evaluating the platform hit the same conclusion: the audience isn't our customer base, the context isn't our brand, and the creative pattern doesn't work outside endemic categories. For CPG, fashion, finance, travel, and countless other non-gaming categories, Twitch was not a buy.
 
 That is no longer a defensible conclusion in 2026. [Streams Charts' 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) documents that **non-gaming content now accounts for 22% of total Twitch hours**, up from under 10% in 2020. The fastest-growing category on the platform is Just Chatting, up 25% year-over-year. Kick's non-gaming growth is even steeper — IRL content grew 337% YoY and Just Chatting grew 68%. Non-gaming content is not a subculture anymore; it's a quarter of the platform.
 
@@ -9167,7 +9167,7 @@ Beta Ads has run verified campaigns on detoo's channel — including the [Shure 
 
 ## How Beta Ads Maps This to Campaign Planning
 
-The Beta Ads platform indexes 39,000+ Nordic streamers across Twitch, Kick and YouTube with category, language, viewership history and audience-demographic filters. When a brand walks in wanting "the Nordic equivalent of Kai Cenat," the answer usually isn't one streamer — it's a portfolio of 5–15 creators with complementary audiences, each verified for brand-safety history and historical CTR on adjacent brand integrations. That's a very different buy than chasing the global top-10.
+The Beta Ads platform indexes 39,000+ Nordic streamers across [Twitch](/twitch-advertising), [Kick](/kick-advertising) and [YouTube](/youtube-advertising) with category, language, viewership history and audience-demographic filters. When a brand walks in wanting "the Nordic equivalent of Kai Cenat," the answer usually isn't one streamer — it's a portfolio of 5–15 creators with complementary audiences, each verified for brand-safety history and historical CTR on adjacent brand integrations. That's a very different buy than chasing the global top-10.
 
 ## Action Items for 2026 Planning
 
@@ -9322,7 +9322,7 @@ The StreamHatchet data points to two trends accelerating in 2026: the continued 
     slug: "hvordan-tjene-penger-pa-twitch-guide-2026",
     title: "Hvordan tjene penger på Twitch: Den ultimate guiden (2026)",
     excerpt: "En grundig gjennomgang av alle måter Twitch-streamere tjener penger på – fra abonnementer og Bits til sponsorater og native annonsering. Med realistiske inntektstall og steg-for-steg-råd for nybegynnere.",
-    content: `Twitch har stille blitt en av de kraftigste inntektsplattformene for innholdsskapere i verden. Over 240 millioner unike besøkende ankommer plattformen hver måned. De største streamerne tjener millioner av kroner per år. Men den mer interessante historien er ikke toppen av 0,1 % - det er de titusenvis av streamere i midtsjiktet som bygger ekte, bærekraftig inntekt fra community-er på noen hundre til noen tusen seere.
+    content: `[Twitch](/twitch-advertising) har stille blitt en av de kraftigste inntektsplattformene for innholdsskapere i verden. Over 240 millioner unike besøkende ankommer plattformen hver måned. De største streamerne tjener millioner av kroner per år. Men den mer interessante historien er ikke toppen av 0,1 % - det er de titusenvis av streamere i midtsjiktet som bygger ekte, bærekraftig inntekt fra community-er på noen hundre til noen tusen seere.
 
 Denne guiden dekker alle realistiske veier til å tjene penger på Twitch i 2026. Fra de første kronene du låser opp som Affiliate til femsifrede merkevaredeal og passiv inntekt fra native annonsepartnere - her er det som faktisk fungerer, hva tallene ser ut som, og hvordan du kommer deg dit.
 
@@ -9758,7 +9758,7 @@ This centralization creates three compounding advantages:
 
 The future of creator marketing isn't just about finding creators more efficiently. It's about platforms that move from passive discovery to active intelligence - continuously surfacing smarter recommendations based on accumulated campaign data and real activation outcomes.
 
-For Nordic brands running campaigns across Twitch, YouTube, Kick, and Trovo, this means a platform that doesn't just help you find streamers, but helps you understand which streamers will actually drive results for your specific brand, in your specific market, at your specific scale.
+For Nordic brands running campaigns across [Twitch](/twitch-advertising), [YouTube](/youtube-advertising), [Kick](/kick-advertising), and Trovo, this means a platform that doesn't just help you find streamers, but helps you understand which streamers will actually drive results for your specific brand, in your specific market, at your specific scale.
 
 Beta Ads was built for exactly this workflow. With access to 39,000+ Nordic streamers, native overlay ad tools, AI-powered voice recognition, real-time analytics, and end-to-end campaign infrastructure, it's designed to make running 50 creator partnerships as manageable as running one.
 
@@ -9799,7 +9799,7 @@ The creator marketing lifecycle doesn't have to be broken. It just needs to be b
 
 There's a persistent assumption that live streaming is primarily a gaming and tech brand channel. The data tells a dramatically different story.
 
-In 2025, some of the world's biggest non-endemic brands generated serious organic conversation on Twitch. Marvel led media brands with 1.7 million unique chatters mentioning the brand. Amazon held firm at the top of retail with 1.5 million. Coca-Cola dominated beverages at 1.2 million, McDonald's led restaurants at 1.1 million, and Gucci held its ground as the top apparel brand at 434,000 unique chatters.
+In 2025, some of the world's biggest non-endemic brands generated serious organic conversation on [Twitch](/twitch-advertising). Marvel led media brands with 1.7 million unique chatters mentioning the brand. Amazon held firm at the top of retail with 1.5 million. Coca-Cola dominated beverages at 1.2 million, McDonald's led restaurants at 1.1 million, and Gucci held its ground as the top apparel brand at 434,000 unique chatters.
 
 These aren't gaming companies running native strategies. They're mainstream brands so deeply embedded in everyday culture that Twitch chat brings them up organically. The question for Nordic advertisers isn't whether non-gaming brands belong on live streaming - it's whether you're showing up in a way that captures this attention.
 
@@ -10013,7 +10013,7 @@ Live streaming offers a real-time window into how audiences engage with brands. 
     excerpt: "When Twitch pulled out of South Korea, Naver launched Chzzk in 19 days flat. Two years later it commands 39% of Korean streaming hours, has exclusive LCK rights through 2030, and is reshaping how brands think about regional platform strategy.",
     content: `## The Platform That Replaced Twitch in Korea - And What It Means for Global Streaming Strategy
 
-In December 2023, Twitch announced it would shut down operations in South Korea, citing network costs that made the market unviable. Within 19 days, Naver - Korea's dominant search engine and tech conglomerate - had launched Chzzk, an entirely new streaming platform built to fill the void.
+In December 2023, [Twitch](/twitch-advertising) announced it would shut down operations in South Korea, citing network costs that made the market unviable. Within 19 days, Naver - Korea's dominant search engine and tech conglomerate - had launched Chzzk, an entirely new streaming platform built to fill the void.
 
 Two years later, Chzzk commands 39% of all Korean live streaming viewership and has secured exclusive broadcasting rights for the League of Legends Champions Korea (LCK) through 2030. For anyone tracking the live streaming industry, Chzzk's rise isn't just a local Korean story. It's a case study in how quickly a well-resourced regional platform can capture a market - and what that means for brands planning multi-platform advertising strategies.
 
@@ -10495,7 +10495,7 @@ Ta kontakt for en gratis demo og se hvordan Beta Ads Dashboard gir deg full over
     excerpt: "Nintendo-spill genererer 10 ganger mer seertid enn konkurrentene på Twitch og YouTube. Her er hva tallene forteller nordiske annonsører om spillvalg, publikumsoverlapp og timing.",
     content: `# Nintendo dominerer livestreaming: Hva annonsører kan lære av spillgigantens seertall
 
-Nintendo er ikke bare et spillselskap. På livestreaming er de et fenomen. Ferske tall fra Stream Hatchet viser at Nintendo-spill genererer opptil 10 ganger mer seertid enn konkurrerende titler i samme sjanger. For nordiske annonsører som vurderer kampanjer på Twitch og YouTube, er dette data verdt å forstå.
+Nintendo er ikke bare et spillselskap. På livestreaming er de et fenomen. Ferske tall fra Stream Hatchet viser at Nintendo-spill genererer opptil 10 ganger mer seertid enn konkurrerende titler i samme sjanger. For nordiske annonsører som vurderer kampanjer på [Twitch](/twitch-advertising) og [YouTube](/youtube-advertising), er dette data verdt å forstå.
 
 For det handler ikke bare om hvem som lager de mest populære spillene. Det handler om hvor publikummet er, hva de ser på, og hvordan du treffer dem i riktig øyeblikk.
 
@@ -10605,7 +10605,7 @@ Creator community-plattformer er svaret på dette problemet, og de er i ferd med
 
 ## Problemet: Fragmentert influencer-markedsføring
 
-De fleste merkevarer som driver influencer-markedsføring på Twitch, YouTube Gaming eller Kick i dag, bruker en kombinasjon av manuelle prosesser og ulike verktøy som ikke snakker sammen.
+De fleste merkevarer som driver influencer-markedsføring på [Twitch](/twitch-advertising), [YouTube Gaming](/youtube-advertising) eller [Kick](/kick-advertising) i dag, bruker en kombinasjon av manuelle prosesser og ulike verktøy som ikke snakker sammen.
 
 En typisk kampanjeprosess ser slik ut:
 
@@ -10751,7 +10751,7 @@ For nordiske annonsører som kjører native overlay-kampanjer, er planlagte lans
 
 ## Slik håndterer du volatile lanseringsvinduer
 
-Nøkkelen er fleksibilitet. Beta Ads sitt system gjør det mulig å aktivere og deaktivere kampanjer i sanntid, på tvers av 40+ nordiske streamere. Det betyr at du kan:
+Nøkkelen er fleksibilitet. Beta Ads sitt system gjør det mulig å aktivere og deaktivere kampanjer i sanntid, på tvers av 40+ nordiske [Twitch](/twitch-advertising)-streamere. Det betyr at du kan:
 
 - Kjøre en kampanje under de første timene av en shadow drop, og pause hvis sentimentet snur
 - Skalere opp eksponering under positive øyeblikk og ned under negative
@@ -10871,7 +10871,7 @@ Overlay-annonsene bypasser adblock, noe som er avgjørende i Norden der over 55%
 1. **Følg utgivernes lanseringsvinduer.** Riot, Valve, Activision, Ubisoft og Nintendo driver forutsigbare seer-topper rundt major release-vinduer; book inventar 6-10 uker i forveien.
 2. **Match kreativet til utgiver-kultur.** Riot-publikummet reagerer annerledes på creative enn Activision-publikummet; gjør en kategorispesifikk briefing.
 3. **Utnytt co-streaming-rettigheter.** [Riot's co-streaming program](https://lolesports.com/) lar et stort antall mindre streamere kringkaste offisielle events — med riktige rettigheter multipliseres sponsor-eksponeringen.
-4. **Kjøp på tvers av plattformer.** Utgiver-publikum er spredt over Twitch, YouTube Gaming og Kick; single-platform planer fanger ikke hele publikummet.
+4. **Kjøp på tvers av plattformer.** Utgiver-publikum er spredt over [Twitch](/twitch-advertising), [YouTube Gaming](/youtube-advertising) og [Kick](/kick-advertising); single-platform planer fanger ikke hele publikummet.
 5. **Bestill utgiver-fokusert kampanje.** [Bestill en 20-minutters konsultasjon](https://calendar.app.google/coW5NLQJtLxfRer19) for å planlegge mot spesifikke utgiver-vinduer.
 
 ---
@@ -10910,7 +10910,7 @@ Overlay-annonsene bypasser adblock, noe som er avgjørende i Norden der over 55%
     excerpt: "De fleste medieplaner i Norden ignorerer fortsatt livestreaming. Her er en praktisk guide til hvordan du legger til Twitch som kanal, hva du bør budsjettere, og hvorfor overlay ads gjør integrasjonen enklere enn du tror.",
     content: `# Medieplanlegging for Twitch: Slik integrerer du livestreaming i den nordiske mediemiksen
 
-Livestreaming er ikke lenger en nisjekanal for gaming-entusiaster. I 2026 er det en av de raskest voksende medieformene i Norden, med millioner av daglige seere på tvers av Norge, Sverige, Danmark og Finland. Likevel er Twitch fraværende i de aller fleste medieplaner.
+Livestreaming er ikke lenger en nisjekanal for gaming-entusiaster. I 2026 er det en av de raskest voksende medieformene i Norden, med millioner av daglige seere på tvers av Norge, Sverige, Danmark og Finland. Likevel er [Twitch](/twitch-advertising) fraværende i de aller fleste medieplaner.
 
 Grunnen er sjelden motvilje. Det er usikkerhet. Medieplannere vet at unge målgrupper er på Twitch, men de vet ikke hvordan de skal få kanalen inn i en eksisterende medieplan uten å komplisere innkjøpet eller miste kontroll over frekvens og eksponering.
 
@@ -11024,7 +11024,7 @@ Native overlay ads gjør denne integrasjonen praktisk. Du får skalerbar, adbloc
 
 De fleste markedsførere som vurderer Twitch for første gang, bruker mesteparten av tiden på mediestrategi, målgruppeinnsikt og budsjettfordeling. Det er fornuftig. Men når kampanjen faktisk går live, er det én ting som avgjør om den leverer resultater: selve annonsen.
 
-Overlay ads på Twitch er et unikt format. De er ikke pre-roll som tvinger seg på seeren. De er ikke bannerannonser som lever i margen. De er visuelle elementer som dukker opp inne i selve livestreamen, side om side med innholdet seeren allerede er engasjert i. Det betyr at designreglene fra tradisjonell digital annonsering ikke gjelder direkte.
+Overlay ads på [Twitch](/twitch-advertising) er et unikt format. De er ikke pre-roll som tvinger seg på seeren. De er ikke bannerannonser som lever i margen. De er visuelle elementer som dukker opp inne i selve livestreamen, side om side med innholdet seeren allerede er engasjert i. Det betyr at designreglene fra tradisjonell digital annonsering ikke gjelder direkte.
 
 Denne guiden gir deg konkrete designprinsipper for overlay ads som faktisk engasjerer, basert på hundrevis av nordiske kampanjer.
 
@@ -11138,7 +11138,7 @@ Native overlay ads gjennom Beta Ads gir deg tilgang til 40+ nordiske streamere, 
     excerpt: "Twitch er ikke bare for spillselskaper. Stadig flere merkevarer utenfor gaming, fra dagligvare til bank, oppdager at livestreaming gir tilgang til et ungt, engasjert publikum de ikke når andre steder.",
     content: `# Merkevarer utenfor gaming på Twitch: Hvorfor FMCG, finans og retail lykkes med livestream-annonsering
 
-Når mange markedsførere hører "Twitch-annonsering", tenker de umiddelbart på gaming-headset, energidrikk og spillutgivere. Det er forståelig. Twitch ble bygget rundt gaming, og plattformens DNA er fortsatt tett knyttet til spillkultur.
+Når mange markedsførere hører "[Twitch-annonsering](/twitch-advertising)", tenker de umiddelbart på gaming-headset, energidrikk og spillutgivere. Det er forståelig. Twitch ble bygget rundt gaming, og plattformens DNA er fortsatt tett knyttet til spillkultur.
 
 Men i 2026 er virkeligheten en helt annen. De merkene som vokser raskest på Twitch, er ikke spillselskaper. Det er merkevarer fra dagligvare, finans, retail og telekom som har forstått noe viktig: publikummet på Twitch er ikke bare gamere. De er forbrukere med kjøpekraft, lojalitet og en tilnærming til reklame som er fundamentalt annerledes enn det du finner på andre plattformer.
 
@@ -11236,7 +11236,7 @@ Med et nettverk på over 40 nordiske streamere i Norge, Sverige, Danmark og Finl
     content: `
 ## Hvem er detoo?
 
-detoo (Andreas "detoo" Kahrs) topper rangeringen over **mest sette norske Twitch-streamere** på [TwitchTracker](https://twitchtracker.com/channels/viewership/norwegian) i april 2026. Han driver en Just Chatting- og FIFA-basert kanal med et gjennomsnitt på rundt 270 samtidige seere på toppdagene — et publikum som er tett, lojalt og nesten fullstendig norsk.
+detoo (Andreas "detoo" Kahrs) topper rangeringen over **mest sette norske [Twitch](/twitch-advertising)-streamere** på [TwitchTracker](https://twitchtracker.com/channels/viewership/norwegian) i april 2026. Han driver en Just Chatting- og FIFA-basert kanal med et gjennomsnitt på rundt 270 samtidige seere på toppdagene — et publikum som er tett, lojalt og nesten fullstendig norsk.
 
 Det gjør detoo til en av de mest verdifulle kanalene et nordisk merke kan plassere en livestream-kampanje på. Og han er ikke teoretisk: Beta Ads har allerede kjørt to merkevare-kampanjer over kanalen hans.
 
