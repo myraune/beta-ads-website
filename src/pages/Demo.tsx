@@ -100,14 +100,24 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
         description="See exactly how native overlay ads work on Twitch, YouTube and Kick. Book a 20-minute demo with our Nordic advertising team — free, no commitment."
         canonical="/demo"
         ogType="website"
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "WebPage",
-          "name": "Request a Demo - Beta Ads",
-          "description": "Book a demo with Beta Ads and see how native overlay advertising works on Twitch, YouTube and Kick livestreams. Reach Gen Z audiences across the Nordics.",
-          "url": "https://beta-ads.no/demo",
-          "isPartOf": { "@id": "https://beta-ads.no/#website" }
-        }}
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Request a Demo - Beta Ads",
+            "description": "Book a demo with Beta Ads and see how native overlay advertising works on Twitch, YouTube and Kick livestreams. Reach Gen Z audiences across the Nordics.",
+            "url": "https://beta-ads.no/demo",
+            "isPartOf": { "@id": "https://beta-ads.no/#website" }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://beta-ads.no/" },
+              { "@type": "ListItem", "position": 2, "name": "Book a Demo", "item": "https://beta-ads.no/demo" }
+            ]
+          }
+        ]}
       />
       {/* Accessibility fix: Layout.tsx already provides <main> — nested <main> is invalid HTML (WCAG 1.3.6) */}
       <div>

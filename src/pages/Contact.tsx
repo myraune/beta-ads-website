@@ -12,24 +12,34 @@ const Contact: React.FC = () => {
         title="Contact Beta Ads | Start a Livestream Campaign"
         description="Talk to our team about running native overlay ads on Nordic Twitch, YouTube & Kick streams. Get a free campaign proposal within 24 hours."
         canonical="/contact"
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "ContactPage",
-          "name": "Contact Beta Ads",
-          "description": "Get in touch with Beta Ads for native livestream advertising inquiries, demos, and partnership opportunities.",
-          "url": "https://beta-ads.no/contact",
-          "isPartOf": { "@id": "https://beta-ads.no/#website" },
-          "mainEntity": {
-            "@type": "Organization",
-            "name": "Beta Ads",
-            "email": "andreas@beta-ads.no",
-            "address": {
-              "@type": "PostalAddress",
-              "addressLocality": "Chicago",
-              "addressCountry": "US"
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "ContactPage",
+            "name": "Contact Beta Ads",
+            "description": "Get in touch with Beta Ads for native livestream advertising inquiries, demos, and partnership opportunities.",
+            "url": "https://beta-ads.no/contact",
+            "isPartOf": { "@id": "https://beta-ads.no/#website" },
+            "mainEntity": {
+              "@type": "Organization",
+              "name": "Beta Ads",
+              "email": "andreas@beta-ads.no",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Chicago",
+                "addressCountry": "US"
+              }
             }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://beta-ads.no/" },
+              { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://beta-ads.no/contact" }
+            ]
           }
-        }}
+        ]}
       />
 
       {/* Hero */}

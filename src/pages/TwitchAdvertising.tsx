@@ -56,7 +56,7 @@ const TwitchAdvertising: React.FC = () => {
         description: "Native overlay ads on Twitch that bypass ad blockers and reach Gen Z. 39,000+ Nordic streamers, 3-5x higher engagement, real-time analytics.",
         canonical: "/twitch-advertising",
         jsonLd: [
-          { "@context": "https://schema.org", "@type": "Service", name: "Twitch Advertising - Beta Ads", provider: { "@id": "https://beta-ads.no/#organization" }, areaServed: ["Norway", "Sweden", "Denmark", "Finland"], url: "https://beta-ads.no/twitch-advertising" },
+          { "@context": "https://schema.org", "@type": "Service", "@id": "https://beta-ads.no/twitch-advertising#service", name: "Twitch Advertising - Beta Ads", serviceType: "Native Livestream Advertising", description: "Native overlay ads on 39,000+ Nordic Twitch streams. 0% adblock rate, CTRs up to 9.12%. Managed campaigns from brief to broadcast.", provider: { "@id": "https://beta-ads.no/#organization" }, areaServed: ["Norway", "Sweden", "Denmark", "Finland"], url: "https://beta-ads.no/twitch-advertising" },
           { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://beta-ads.no/" }, { "@type": "ListItem", position: 2, name: "Twitch Advertising", item: "https://beta-ads.no/twitch-advertising" }] },
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [
             { "@type": "Question", name: "How much does Twitch advertising cost in Norway?", acceptedAnswer: { "@type": "Answer", text: "Pricing varies by campaign scope and duration. We offer flexible pricing with no long-term contracts. Contact us for a custom quote based on your target audience and goals." } },

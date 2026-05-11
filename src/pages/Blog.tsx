@@ -47,13 +47,20 @@ const Blog: React.FC = () => {
           {
             "@context": "https://schema.org",
             "@type": "Blog",
+            "@id": "https://beta-ads.no/blog#blog",
             "name": "Beta Ads Insights",
             "description": "Data-driven guides for the Nordic streaming market. Learn how to reach Gen Z through native stream advertising.",
             "url": "https://beta-ads.no/blog",
             "publisher": {
               "@type": "Organization",
+              "@id": "https://beta-ads.no/#organization",
               "name": "Beta Ads",
-              "logo": { "@type": "ImageObject", "url": "https://beta-ads.no/lovable-uploads/logo-color.png" }
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://beta-ads.no/lovable-uploads/logo-color.png",
+                "width": 200,
+                "height": 50
+              }
             },
             "isPartOf": { "@id": "https://beta-ads.no/#website" }
           },

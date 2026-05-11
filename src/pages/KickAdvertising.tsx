@@ -71,7 +71,7 @@ const KickAdvertising: React.FC = () => {
         description: "Advertise on Kick — the fastest-growing streaming platform with 125% viewership growth in 2025. Native overlay ads across 2,800+ Nordic Kick streamers.",
         canonical: "/kick-advertising",
         jsonLd: [
-          { "@context": "https://schema.org", "@type": "Service", name: "Kick Advertising - Beta Ads", provider: { "@id": "https://beta-ads.no/#organization" }, areaServed: ["Norway", "Sweden", "Denmark", "Finland"], url: "https://beta-ads.no/kick-advertising" },
+          { "@context": "https://schema.org", "@type": "Service", "@id": "https://beta-ads.no/kick-advertising#service", name: "Kick Advertising - Beta Ads", serviceType: "Native Livestream Advertising", description: "Native overlay ads on 2,800+ Nordic Kick streamers. 125% viewership growth in 2025, 120+ minute average sessions, 0% adblock.", provider: { "@id": "https://beta-ads.no/#organization" }, areaServed: ["Norway", "Sweden", "Denmark", "Finland"], url: "https://beta-ads.no/kick-advertising" },
           { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://beta-ads.no/" }, { "@type": "ListItem", position: 2, name: "Kick Advertising", item: "https://beta-ads.no/kick-advertising" }] },
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [
             { "@type": "Question", name: "Can you advertise on Kick?", acceptedAnswer: { "@type": "Answer", text: "Yes. Beta Ads supports native overlay advertising on Kick streams through direct creator partnerships. Overlay ads appear inside the stream content with 0% adblock impact and 120+ minute average session exposure." } },
