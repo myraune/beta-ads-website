@@ -10,7 +10,7 @@ const Contact: React.FC = () => {
     <>
       <SEO
         title="Contact Beta Ads | Start a Livestream Campaign"
-        description="Get in touch with Beta Ads. Book a demo, ask a question, or explore partnership opportunities for native livestream advertising in the Nordics."
+        description="Talk to our team about running native overlay ads on Nordic Twitch, YouTube & Kick streams. Get a free campaign proposal within 24 hours."
         canonical="/contact"
         jsonLd={{
           "@context": "https://schema.org",

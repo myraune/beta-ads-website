@@ -97,7 +97,7 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Book a Demo | Beta Ads Livestream Advertising"
-        description="Book a demo with Beta Ads and see how native overlay advertising works on Twitch, YouTube and Kick livestreams. Reach Gen Z audiences across the Nordics."
+        description="See exactly how native overlay ads work on Twitch, YouTube and Kick. Book a 20-minute demo with our Nordic advertising team — free, no commitment."
         canonical="/demo"
         ogType="website"
         jsonLd={{
