@@ -21,6 +21,11 @@ const ROOT      = path.resolve(__dirname, "..");
 const BASE_URL  = "https://beta-ads.no";
 const TODAY     = new Date().toISOString().split("T")[0]; // YYYY-MM-DD
 
+// Update this whenever significant site-wide content changes happen (e.g.
+// internal links added to all posts, schema overhaul, etc.). Blog post lastmod
+// will be max(dateISO, GLOBAL_MODIFIED_DATE) so Google recrawls updated posts.
+const GLOBAL_MODIFIED_DATE = "2026-05-11";
+
 // ---------------------------------------------------------------------------
 // Static pages
 // ---------------------------------------------------------------------------
@@ -124,7 +129,9 @@ function main() {
   const blogEntries = blogPosts.map((p) =>
     urlEntry({
       loc:        `${BASE_URL}/blog/${p.slug}`,
-      lastmod:    p.dateISO,
+      // Use max(dateISO, GLOBAL_MODIFIED_DATE) so site-wide content changes
+      // (internal links, schema updates, etc.) trigger a recrawl signal.
+      lastmod:    p.dateISO > GLOBAL_MODIFIED_DATE ? p.dateISO : GLOBAL_MODIFIED_DATE,
       changefreq: "monthly",
       priority:   "0.65",
       image:      p.image,
