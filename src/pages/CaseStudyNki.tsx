@@ -11,6 +11,8 @@ const CaseStudyNki: React.FC = () => {
         description='NKI's quiz campaign on Norwegian Twitch: 220,003 completed views, 1,595 verified clicks, 90,356 unique viewers across 19 streamers in Oct-Nov 2025.'
         canonical="/case-study/nki"
         ogType="article"
+        articlePublishedTime="2025-10-01"
+        articleModifiedTime="2026-05-11"
         ogImage="/lovable-uploads/case-studies/nki-detoo.png"
         ogImageAlt="NKI quiz campaign on Norwegian Twitch - detoo streamer overlay"
         ogImageWidth={1065}

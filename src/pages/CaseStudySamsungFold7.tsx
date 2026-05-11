@@ -17,6 +17,8 @@ const CaseStudySamsungFold7: React.FC = () => {
         description="Samsung Galaxy Z Fold7 on Norwegian Twitch: native overlay ads and streamer integrations achieving a 2.47% CTR across 19 streamers."
         canonical="/case-study/samsung-fold7"
         ogType="article"
+        articlePublishedTime="2026-01-01"
+        articleModifiedTime="2026-05-11"
         ogImage="/lovable-uploads/blog-samsung-twitch-campaign-hero.jpg"
         jsonLd={[
           {

@@ -11,6 +11,8 @@ const CaseStudyKristiania: React.FC = () => {
         description="Høyskolen Kristiania on Twitch: two parallel campaigns, ~600K display views, ~6,000 verified clicks across 31 Norwegian streamers over 8 weeks."
         canonical="/case-study/kristiania"
         ogType="article"
+        articlePublishedTime="2025-09-01"
+        articleModifiedTime="2026-05-11"
         jsonLd={[
           {
             "@context": "https://schema.org",

@@ -18,6 +18,10 @@ interface SEOProps {
   ogImageWidth?: number;
   ogImageHeight?: number;
   noindex?: boolean;
+  /** ISO 8601 date string — emits article:published_time when ogType="article" */
+  articlePublishedTime?: string;
+  /** ISO 8601 date string — emits article:modified_time when ogType="article" */
+  articleModifiedTime?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   /**
    * Page language code. Sets <html lang>, og:locale, and (when combined with
@@ -65,6 +69,8 @@ export const SEO: React.FC<SEOProps> = ({
   ogImageWidth = 1200,
   ogImageHeight = 630,
   noindex = false,
+  articlePublishedTime,
+  articleModifiedTime,
   jsonLd,
   locale = "en",
   alternates,
@@ -191,6 +197,17 @@ export const SEO: React.FC<SEOProps> = ({
       <meta property="og:image:alt" content={ogImageAlt} />
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:locale" content={ogLocale} />
+
+      {/* Article namespace — LinkedIn/Facebook show pub date & author when these are present */}
+      {ogType === "article" && articlePublishedTime && (
+        <meta property="article:published_time" content={articlePublishedTime} />
+      )}
+      {ogType === "article" && articleModifiedTime && (
+        <meta property="article:modified_time" content={articleModifiedTime} />
+      )}
+      {ogType === "article" && (
+        <meta property="article:author" content="https://www.linkedin.com/company/beta-nordic/" />
+      )}
 
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />

@@ -113,6 +113,8 @@ const BlogPostPage: React.FC = () => {
         ogType="article"
         ogImage={post.image}
         ogImageAlt={post.title}
+        articlePublishedTime={post.dateISO}
+        articleModifiedTime={post.dateISO}
         locale={postLocale}
         jsonLd={[
           {

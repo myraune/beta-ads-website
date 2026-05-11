@@ -13,6 +13,8 @@ const CaseStudyGokstad: React.FC = () => {
         description="How Gokstad Akademiet recruited IT students through native Twitch overlays with 22 creators, 100K+ views, and 1.22% CTR across 49 categories."
         canonical="/case-study/gokstad"
         ogType="article"
+        articlePublishedTime="2025-06-01"
+        articleModifiedTime="2026-05-11"
         jsonLd={[
           {
             "@context": "https://schema.org",

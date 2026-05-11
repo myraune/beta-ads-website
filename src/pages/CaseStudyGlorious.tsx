@@ -11,6 +11,8 @@ const CaseStudyGlorious: React.FC = () => {
         description="How Glorious used rich media overlays to promote the O3 mouse across 25 Nordic Twitch streamers, reaching 137K+ views in Finland, Norway, and Sweden."
         canonical="/case-study/glorious"
         ogType="article"
+        articlePublishedTime="2025-04-01"
+        articleModifiedTime="2026-05-11"
         jsonLd={[
           {
             "@context": "https://schema.org",

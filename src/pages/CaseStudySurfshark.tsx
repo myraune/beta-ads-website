@@ -11,6 +11,8 @@ const CaseStudySurfshark: React.FC = () => {
         description="Surfshark on Norwegian Twitch: 90,473 verified views, 704h on-screen, 1.39% CTR across 25 streamers. 37,614 unique viewers, zero adblock impact."
         canonical="/case-study/surfshark"
         ogType="article"
+        articlePublishedTime="2025-03-01"
+        articleModifiedTime="2026-05-11"
         jsonLd={[
           {
             "@context": "https://schema.org",

@@ -14,6 +14,8 @@ const CaseStudySamsungPage: React.FC = () => {
         description="Samsung Galaxy S25 Ultra and Z Fold7 on Norwegian Twitch: 800K+ live views, 1.35M+ with VOD, 2.93% CTR, 71 streamer slots, zero adblock impact."
         canonical="/case-study/samsung"
         ogType="article"
+        articlePublishedTime="2025-12-01"
+        articleModifiedTime="2026-05-11"
         ogImage="/lovable-uploads/samsung-zfold7-banner.png"
         jsonLd={[
           {

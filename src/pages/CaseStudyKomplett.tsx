@@ -11,6 +11,8 @@ const CaseStudyKomplett: React.FC = () => {
         description="How Komplett's tactical retail campaign hit a 4.48% peak-day CTR across 34 Norwegian gaming streamers. 151,278 display views, 1,768 verified clicks in 17 days."
         canonical="/case-study/komplett"
         ogType="article"
+        articlePublishedTime="2025-08-01"
+        articleModifiedTime="2026-05-11"
         ogImage="/lovable-uploads/case-studies/komplett-preview.jpg"
         jsonLd={[
           {

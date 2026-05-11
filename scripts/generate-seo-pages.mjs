@@ -490,7 +490,7 @@ function buildHreflangBlock(alternates) {
   return `${MARKER_START}\n${tags}\n    ${MARKER_END}`;
 }
 
-function injectMeta(shellHtml, { title, description, canonical, locale, alternates, image, ogType = "website" }) {
+function injectMeta(shellHtml, { title, description, canonical, locale, alternates, image, ogType = "website", articlePublishedTime = null }) {
   let html = shellHtml;
   const canonicalUrl = toAbsolute(canonical);
   const ogLocale = OG_LOCALES[locale] || "en_US";
@@ -598,6 +598,18 @@ function injectMeta(shellHtml, { title, description, canonical, locale, alternat
     }
   }
 
+  // article:published_time + article:author — improves LinkedIn/Facebook share cards
+  if (ogType === "article" && articlePublishedTime) {
+    const pubTag = `<meta property="article:published_time" content="${articlePublishedTime}" />`;
+    const authorTag = `<meta property="article:author" content="https://www.linkedin.com/company/beta-nordic/" />`;
+    if (!html.includes('article:published_time')) {
+      html = html.replace("</head>", `    ${pubTag}\n  </head>`);
+    }
+    if (!html.includes('article:author')) {
+      html = html.replace("</head>", `    ${authorTag}\n  </head>`);
+    }
+  }
+
   // twitter:title / twitter:description (mirror og values)
   if (/<meta\s+name="twitter:title"/.test(html)) {
     html = html.replace(
@@ -663,6 +675,7 @@ function main() {
       locale,
       image,
       ogType: "article",
+      articlePublishedTime: datePublished || null,
     });
     // Inject Article + BreadcrumbList JSON-LD for first-pass Googlebot crawl.
     const jsonLdBlock = buildCaseStudyJsonLd({ route, title, description, image, datePublished });
@@ -698,6 +711,7 @@ function main() {
       alternates,
       image: post.image,
       ogType: "article",
+      articlePublishedTime: post.dateISO || null,
     });
     // Inject BlogPosting + BreadcrumbList JSON-LD into the static shell so
     // Googlebot sees structured data on first-pass crawl (before JS hydration).

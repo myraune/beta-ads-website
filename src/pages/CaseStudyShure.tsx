@@ -11,6 +11,8 @@ const CaseStudyShure: React.FC = () => {
         description="Shure MV6 on Norwegian Twitch: 182,554 completed views, 2,378 verified clicks, 9.12% peak CTR — with just 2 streamers. 48,617 unique Norwegian viewers."
         canonical="/case-study/shure"
         ogType="article"
+        articlePublishedTime="2025-07-01"
+        articleModifiedTime="2026-05-11"
         ogImage="/lovable-uploads/shure-mv6-banner.jpg"
         jsonLd={[
           {
