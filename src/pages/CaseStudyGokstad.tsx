@@ -13,16 +13,29 @@ const CaseStudyGokstad: React.FC = () => {
         description="How Gokstad Akademiet recruited IT students through native Twitch overlays with 22 creators, 100K+ views, and 1.22% CTR across 49 categories."
         canonical="/case-study/gokstad"
         ogType="article"
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "Article",
-          "headline": "Gokstad Akademiet x Beta Ads: Student Recruitment Campaign",
-          "description": "How Gokstad Akademiet recruited IT and design students through native Twitch stream overlays with 22 creators across 49 categories.",
-          "url": "https://beta-ads.no/case-study/gokstad",
-          "author": { "@type": "Organization", "name": "Beta Ads" },
-          "publisher": { "@type": "Organization", "name": "Beta Ads", "logo": { "@type": "ImageObject", "url": "https://beta-ads.no/lovable-uploads/logo-color.png" } },
-          "isPartOf": { "@id": "https://beta-ads.no/#website" }
-        }}
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Gokstad Akademiet x Beta Ads: Student Recruitment Campaign",
+            "description": "How Gokstad Akademiet recruited IT and design students through native Twitch stream overlays with 22 creators across 49 categories.",
+            "url": "https://beta-ads.no/case-study/gokstad",
+            "datePublished": "2025-06-01",
+            "dateModified": "2026-05-11",
+            "author": { "@type": "Organization", "name": "Beta Ads" },
+            "publisher": { "@type": "Organization", "name": "Beta Ads", "logo": { "@type": "ImageObject", "url": "https://beta-ads.no/lovable-uploads/logo-color.png" } },
+            "isPartOf": { "@id": "https://beta-ads.no/#website" }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://beta-ads.no/" },
+              { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://beta-ads.no/case-studies" },
+              { "@type": "ListItem", "position": 3, "name": "Gokstad", "item": "https://beta-ads.no/case-study/gokstad" }
+            ]
+          }
+        ]}
       />
       {/* Gokstad brand accent — navy + red nods to Sandefjord's viking heritage */}
       <div

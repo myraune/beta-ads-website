@@ -11,24 +11,37 @@ const CaseStudyKomplett: React.FC = () => {
         description="How Komplett's tactical retail campaign hit a 4.48% peak-day CTR across 34 Norwegian gaming streamers. 151,278 display views, 1,768 verified clicks in 17 days."
         canonical="/case-study/komplett"
         ogType="article"
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "Article",
-          "headline": "Komplett × Beta Ads: Tactical Norwegian Gaming Retail Campaign",
-          "description":
-            "Komplett ran the Månedens Gaming Deal across 34 Norwegian streamers and 46 categories, delivering 151,278 display views with a 4.48% peak-day CTR.",
-          "url": "https://beta-ads.no/case-study/komplett",
-          "author": { "@type": "Organization", "name": "Beta Ads" },
-          "publisher": {
-            "@type": "Organization",
-            "name": "Beta Ads",
-            "logo": {
-              "@type": "ImageObject",
-              "url": "https://beta-ads.no/lovable-uploads/logo-color.png",
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "Komplett × Beta Ads: Tactical Norwegian Gaming Retail Campaign",
+            "description":
+              "Komplett ran the Månedens Gaming Deal across 34 Norwegian streamers and 46 categories, delivering 151,278 display views with a 4.48% peak-day CTR.",
+            "url": "https://beta-ads.no/case-study/komplett",
+            "datePublished": "2025-08-01",
+            "dateModified": "2026-05-11",
+            "author": { "@type": "Organization", "name": "Beta Ads" },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Beta Ads",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://beta-ads.no/lovable-uploads/logo-color.png",
+              },
             },
+            "isPartOf": { "@id": "https://beta-ads.no/#website" },
           },
-          "isPartOf": { "@id": "https://beta-ads.no/#website" },
-        }}
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://beta-ads.no/" },
+              { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://beta-ads.no/case-studies" },
+              { "@type": "ListItem", "position": 3, "name": "Komplett", "item": "https://beta-ads.no/case-study/komplett" }
+            ],
+          },
+        ]}
       />
       <KomplettCaseStudy />
       <SPFooter />
