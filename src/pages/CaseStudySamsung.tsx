@@ -19,14 +19,25 @@ const CaseStudySamsungPage: React.FC = () => {
           {
             "@context": "https://schema.org",
             "@type": "Article",
+            "@id": "https://beta-ads.no/case-study/samsung#article",
             "headline": "Samsung x Beta Ads: Two Twitch Campaigns in Norway 2025",
             "description": "How Samsung launched the Galaxy S25 Ultra and Galaxy Z Fold7 to Norwegian gamers through native Twitch overlay ads and streamer integrations.",
             "url": "https://beta-ads.no/case-study/samsung",
             "image": "https://beta-ads.no/lovable-uploads/samsung-zfold7-banner.png",
             "datePublished": "2025-12-01",
             "dateModified": "2026-05-11",
-            "author": { "@type": "Organization", "name": "Beta Ads" },
-            "publisher": { "@type": "Organization", "name": "Beta Ads", "logo": { "@type": "ImageObject", "url": "https://beta-ads.no/lovable-uploads/logo-color.png" } },
+            "author": {
+              "@type": "Organization",
+              "name": "Beta Ads",
+              "url": "https://beta-ads.no",
+              "sameAs": ["https://www.linkedin.com/company/beta-nordic/"],
+            },
+            "publisher": { "@type": "Organization", "name": "Beta Ads", "logo": {
+                "@type": "ImageObject",
+                "url": "https://beta-ads.no/lovable-uploads/logo-color.png",
+                "width": 200,
+                "height": 50,
+              } },
             "isPartOf": { "@id": "https://beta-ads.no/#website" }
           },
           {

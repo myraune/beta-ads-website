@@ -15,19 +15,27 @@ const CaseStudySaily: React.FC = () => {
           {
             "@context": "https://schema.org",
             "@type": "Article",
+            "@id": "https://beta-ads.no/case-study/saily#article",
             "headline": "Saily eSIM × Beta Ads: Travel-Intent Twitch Campaign",
             "description":
               "Saily used Beta's Rich Media Overlays across 22 Norwegian Twitch streamers, delivering 102,794 completed views with 65% of screen time inside Travel & Outdoors streams.",
             "url": "https://beta-ads.no/case-study/saily",
             "datePublished": "2025-11-01",
             "dateModified": "2026-05-11",
-            "author": { "@type": "Organization", "name": "Beta Ads" },
+            "author": {
+              "@type": "Organization",
+              "name": "Beta Ads",
+              "url": "https://beta-ads.no",
+              "sameAs": ["https://www.linkedin.com/company/beta-nordic/"],
+            },
             "publisher": {
               "@type": "Organization",
               "name": "Beta Ads",
               "logo": {
                 "@type": "ImageObject",
                 "url": "https://beta-ads.no/lovable-uploads/logo-color.png",
+                "width": 200,
+                "height": 50,
               },
             },
             "isPartOf": { "@id": "https://beta-ads.no/#website" },

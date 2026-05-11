@@ -17,13 +17,24 @@ const CaseStudyGokstad: React.FC = () => {
           {
             "@context": "https://schema.org",
             "@type": "Article",
+            "@id": "https://beta-ads.no/case-study/gokstad#article",
             "headline": "Gokstad Akademiet x Beta Ads: Student Recruitment Campaign",
             "description": "How Gokstad Akademiet recruited IT and design students through native Twitch stream overlays with 22 creators across 49 categories.",
             "url": "https://beta-ads.no/case-study/gokstad",
             "datePublished": "2025-06-01",
             "dateModified": "2026-05-11",
-            "author": { "@type": "Organization", "name": "Beta Ads" },
-            "publisher": { "@type": "Organization", "name": "Beta Ads", "logo": { "@type": "ImageObject", "url": "https://beta-ads.no/lovable-uploads/logo-color.png" } },
+            "author": {
+              "@type": "Organization",
+              "name": "Beta Ads",
+              "url": "https://beta-ads.no",
+              "sameAs": ["https://www.linkedin.com/company/beta-nordic/"],
+            },
+            "publisher": { "@type": "Organization", "name": "Beta Ads", "logo": {
+                "@type": "ImageObject",
+                "url": "https://beta-ads.no/lovable-uploads/logo-color.png",
+                "width": 200,
+                "height": 50,
+              } },
             "isPartOf": { "@id": "https://beta-ads.no/#website" }
           },
           {

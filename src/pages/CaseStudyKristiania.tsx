@@ -15,19 +15,27 @@ const CaseStudyKristiania: React.FC = () => {
           {
             "@context": "https://schema.org",
             "@type": "Article",
+            "@id": "https://beta-ads.no/case-study/kristiania#article",
             "headline": "Høyskolen Kristiania × Beta Ads: Two-Campaign Twitch Run, ~600K Combined Views",
             "description":
               "Høyskolen Kristiania ran two parallel native overlay campaigns (awareness + voting) across the same Norwegian creator network, delivering ~600K combined display views and ~6,000 verified clicks across an 8-week recruitment window.",
             "url": "https://beta-ads.no/case-study/kristiania",
             "datePublished": "2025-09-01",
             "dateModified": "2026-05-11",
-            "author": { "@type": "Organization", "name": "Beta Ads" },
+            "author": {
+              "@type": "Organization",
+              "name": "Beta Ads",
+              "url": "https://beta-ads.no",
+              "sameAs": ["https://www.linkedin.com/company/beta-nordic/"],
+            },
             "publisher": {
               "@type": "Organization",
               "name": "Beta Ads",
               "logo": {
                 "@type": "ImageObject",
                 "url": "https://beta-ads.no/lovable-uploads/logo-color.png",
+                "width": 200,
+                "height": 50,
               },
             },
             "isPartOf": { "@id": "https://beta-ads.no/#website" },

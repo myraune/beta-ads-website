@@ -15,19 +15,27 @@ const CaseStudyNki: React.FC = () => {
           {
             "@context": "https://schema.org",
             "@type": "Article",
+            "@id": "https://beta-ads.no/case-study/nki#article",
             "headline": "NKI × Beta Ads: Distance-Learning Quiz Lead-Gen Campaign",
             "description":
               "NKI ran a four-week interactive quiz campaign across 19 Norwegian streamers, driving 220,003 completed views and 90,356 unique viewers into the lead-capture funnel.",
             "url": "https://beta-ads.no/case-study/nki",
             "datePublished": "2025-10-01",
             "dateModified": "2026-05-11",
-            "author": { "@type": "Organization", "name": "Beta Ads" },
+            "author": {
+              "@type": "Organization",
+              "name": "Beta Ads",
+              "url": "https://beta-ads.no",
+              "sameAs": ["https://www.linkedin.com/company/beta-nordic/"],
+            },
             "publisher": {
               "@type": "Organization",
               "name": "Beta Ads",
               "logo": {
                 "@type": "ImageObject",
                 "url": "https://beta-ads.no/lovable-uploads/logo-color.png",
+                "width": 200,
+                "height": 50,
               },
             },
             "isPartOf": { "@id": "https://beta-ads.no/#website" },

@@ -15,19 +15,27 @@ const CaseStudySurfshark: React.FC = () => {
           {
             "@context": "https://schema.org",
             "@type": "Article",
+            "@id": "https://beta-ads.no/case-study/surfshark#article",
             "headline": "Surfshark × Beta Ads: VPN Awareness on Norwegian Twitch",
             "description":
               "Surfshark used Beta's Rich Media Overlays across 25 Norwegian Twitch streamers, delivering 90,473 completed views and 552 verified clicks over six weeks.",
             "url": "https://beta-ads.no/case-study/surfshark",
             "datePublished": "2025-03-01",
             "dateModified": "2026-05-11",
-            "author": { "@type": "Organization", "name": "Beta Ads" },
+            "author": {
+              "@type": "Organization",
+              "name": "Beta Ads",
+              "url": "https://beta-ads.no",
+              "sameAs": ["https://www.linkedin.com/company/beta-nordic/"],
+            },
             "publisher": {
               "@type": "Organization",
               "name": "Beta Ads",
               "logo": {
                 "@type": "ImageObject",
                 "url": "https://beta-ads.no/lovable-uploads/logo-color.png",
+                "width": 200,
+                "height": 50,
               },
             },
             "isPartOf": { "@id": "https://beta-ads.no/#website" },

@@ -15,13 +15,24 @@ const CaseStudyGlorious: React.FC = () => {
           {
             "@context": "https://schema.org",
             "@type": "Article",
+            "@id": "https://beta-ads.no/case-study/glorious#article",
             "headline": "Glorious x Beta Ads: Nordic Gaming Community Campaign",
             "description": "How Glorious used rich media overlays to promote the O3 mouse across 25 Nordic Twitch streamers, reaching 137K+ views.",
             "url": "https://beta-ads.no/case-study/glorious",
             "datePublished": "2025-04-01",
             "dateModified": "2026-05-11",
-            "author": { "@type": "Organization", "name": "Beta Ads" },
-            "publisher": { "@type": "Organization", "name": "Beta Ads", "logo": { "@type": "ImageObject", "url": "https://beta-ads.no/lovable-uploads/logo-color.png" } },
+            "author": {
+              "@type": "Organization",
+              "name": "Beta Ads",
+              "url": "https://beta-ads.no",
+              "sameAs": ["https://www.linkedin.com/company/beta-nordic/"],
+            },
+            "publisher": { "@type": "Organization", "name": "Beta Ads", "logo": {
+                "@type": "ImageObject",
+                "url": "https://beta-ads.no/lovable-uploads/logo-color.png",
+                "width": 200,
+                "height": 50,
+              } },
             "isPartOf": { "@id": "https://beta-ads.no/#website" }
           },
           {
