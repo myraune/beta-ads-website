@@ -41,7 +41,7 @@ const Blog: React.FC = () => {
     <>
       <SEO
         title="Blog | Livestream Advertising Insights | Beta Ads"
-        description="Data-driven insights, analytics, and advertising guides for reaching Gen Z on Twitch and streaming platforms in the Nordics. Updated weekly."
+        description="Expert insights on Twitch advertising, Nordic streaming trends, influencer marketing and live commerce. Data-driven articles for brands and agencies."
         canonical="/blog"
         jsonLd={[
           {
