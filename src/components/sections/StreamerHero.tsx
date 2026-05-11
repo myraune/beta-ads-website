@@ -201,7 +201,7 @@ const CampaignPreview: React.FC<{
     <div className="flex items-center gap-2 mb-2">
       <button
         onClick={onBack}
-        className="flex items-center gap-1 text-[10px] text-white/40 hover:text-white/70 transition-colors"
+        className="flex items-center gap-1 min-h-[44px] min-w-[44px] -ml-2 px-2 text-[10px] text-white/40 hover:text-white/70 transition-colors"
       >
         <ChevronLeft className="w-3 h-3" />
         Back
@@ -240,13 +240,13 @@ const CampaignPreview: React.FC<{
 
     {/* Bottom: actions */}
     <div className="flex items-center gap-2">
-      <button className="flex-1 py-2 rounded-lg bg-primary text-white text-[11px] font-semibold hover:bg-primary/90 transition-colors">
+      <button className="flex-1 min-h-[44px] py-2 rounded-lg bg-primary text-white text-[11px] font-semibold hover:bg-primary/90 transition-colors">
         Accept offer
       </button>
-      <button className="px-3 py-2 rounded-lg border border-white/10 text-[11px] text-white/50 hover:text-white/80 transition-colors">
+      <button className="min-h-[44px] px-4 py-2 rounded-lg border border-white/10 text-[11px] text-white/50 hover:text-white/80 transition-colors">
         Decline
       </button>
-      <span className="text-[8px] text-white/15 ml-auto">Demo preview</span>
+      <span className="hidden sm:inline text-[8px] text-white/15 ml-auto">Demo preview</span>
     </div>
   </div>
 );
@@ -285,7 +285,10 @@ const EarningsView: React.FC = () => {
         <div className="bg-white/[0.04] rounded-xl p-3 lg:p-4 border border-white/5">
           <div className="text-[10px] text-white/40 mb-1">Pending</div>
           <div className="text-base sm:text-xl lg:text-2xl font-bold text-amber-400 tabular-nums">—</div>
-          <div className="text-[10px] text-white/30 mt-1 truncate">Next payout: Apr 1</div>
+          <div className="text-[10px] text-white/30 mt-1 truncate">
+            <span className="sm:hidden">Next: Apr 1</span>
+            <span className="hidden sm:inline">Next payout: Apr 1</span>
+          </div>
         </div>
       </div>
 
@@ -374,20 +377,24 @@ const AnalyticsView: React.FC = () => {
         ].map((c) => (
           <div
             key={c.name}
-            className="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5"
+            className="flex items-center gap-2 sm:gap-3 px-3 py-2.5 rounded-lg bg-white/[0.02] border border-white/5"
           >
             <div className="flex-1 min-w-0">
               <div className="text-[11px] font-medium text-white truncate">{c.name}</div>
+              <div className="flex items-center gap-3 mt-0.5 sm:hidden">
+                <span className="text-[10px] text-white/40 tabular-nums">{c.impressions} impr.</span>
+                <span className="text-[10px] text-white/40 tabular-nums">{c.ctr} CTR</span>
+              </div>
             </div>
-            <div className="text-center">
+            <div className="hidden sm:block text-center">
               <div className="text-[10px] text-white/30">Impr.</div>
               <div className="text-[11px] text-white/70 tabular-nums">{c.impressions}</div>
             </div>
-            <div className="text-center">
+            <div className="hidden sm:block text-center">
               <div className="text-[10px] text-white/30">CTR</div>
               <div className="text-[11px] text-white/70 tabular-nums">{c.ctr}</div>
             </div>
-            <div className="text-center">
+            <div className="text-center shrink-0">
               <div className="text-[10px] text-white/30">Revenue</div>
               <div className="text-[11px] font-medium text-emerald-400 tabular-nums">{c.revenue}</div>
             </div>
@@ -538,8 +545,10 @@ const DashboardMockup: React.FC = () => {
         ))}
       </div>
 
-      {/* Dashboard body */}
-      <div className="flex h-[360px] sm:h-[420px] lg:h-[520px] xl:h-[580px] bg-[#0d0d0d]">
+      {/* Dashboard body — sized to fit the tallest view (analytics, with its 2x2 stat grid +
+       * 3-row campaign list) at each breakpoint. Mobile at 540 prevents the last campaign row
+       * from clipping at 375px width. */}
+      <div className="flex h-[540px] sm:h-[460px] lg:h-[520px] xl:h-[580px] bg-[#0d0d0d]">
         {/* Sidebar */}
         <div className="hidden md:flex flex-col w-40 lg:w-48 border-r border-white/[0.06] bg-[#111111] p-3 lg:p-4 gap-0.5">
           {/* Logo */}

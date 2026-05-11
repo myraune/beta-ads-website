@@ -2,7 +2,7 @@ import React, { lazy, Suspense, useEffect, useRef } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { ThemeProvider, useTheme } from "next-themes";
 import { Layout } from "@/components/Layout";
 import { Component as AILoader } from "@/components/ui/ai-loader";
@@ -169,6 +169,9 @@ const App = () => {
               <Route path="/case-study/komplett" element={<CaseStudyKomplett />} />
               <Route path="/case-study/nki" element={<CaseStudyNki />} />
               <Route path="/unsubscribe" element={<Unsubscribe />} />
+              {/* SEO redirects — mirrors vercel.json edge redirects for client-side nav */}
+              <Route path="/how-it-works" element={<Navigate to="/case-studies" replace />} />
+              <Route path="/blog/samsung-twitch-campaign-case-study" element={<Navigate to="/case-study/samsung" replace />} />
               <Route path="*" element={<NotFound />} />
             </Route>
           </Routes>

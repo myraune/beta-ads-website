@@ -158,7 +158,7 @@ const StreamerPreview: React.FC = () => {
               <button
                 key={g}
                 onClick={() => toggle(g)}
-                className={`text-[11px] px-3 py-1.5 rounded-full border transition-all duration-200 ${
+                className={`text-[11px] px-3 py-2 sm:py-1.5 rounded-full border transition-all duration-200 ${
                   active
                     ? "border-primary bg-primary/15 text-primary font-medium scale-[1.04]"
                     : "border-foreground/60 dark:border-white/60 text-muted-foreground hover:border-primary hover:text-primary/70"
@@ -441,37 +441,41 @@ const LaunchPreview: React.FC = () => {
         <button
           onClick={() => go(-1)}
           aria-label="Previous ad example"
-          className="absolute left-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/80 transition-colors"
+          className="absolute left-2.5 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-9 sm:h-9 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/80 transition-colors"
         >
           <ChevronLeft className="w-4 h-4" />
         </button>
         <button
           onClick={() => go(1)}
           aria-label="Next ad example"
-          className="absolute right-2.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/80 transition-colors"
+          className="absolute right-2.5 top-1/2 -translate-y-1/2 w-11 h-11 sm:w-9 sm:h-9 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center text-white hover:bg-black/80 transition-colors"
         >
           <ChevronRight className="w-4 h-4" />
         </button>
 
-        {/* Brand badge — bottom center overlay */}
-        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1.5">
-          <span className="text-[11px] font-semibold text-white">{item.brand}</span>
-          <span className="text-[10px] text-white/50">{item.campaign}</span>
+        {/* Brand badge — bottom center overlay. max-w + flex-wrap keeps the pill from spilling past the 44px arrow buttons on either side at 375px. */}
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 max-w-[calc(100%-7rem)] flex flex-wrap items-center justify-center gap-x-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1.5">
+          <span className="text-[11px] font-semibold text-white whitespace-nowrap">{item.brand}</span>
+          <span className="text-[10px] text-white/50 whitespace-nowrap">{item.campaign}</span>
         </div>
       </div>
 
-      {/* Progress dots */}
-      <div className="flex items-center justify-center gap-1.5 py-3 border-t border-border/30 dark:border-white/[0.08]">
+      {/* Progress dots — visible indicator nested in a larger invisible hit area for mobile touch */}
+      <div className="flex items-center justify-center gap-0.5 py-2 border-t border-border/30 dark:border-white/[0.08]">
         {ARTWORK.map((a, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
             aria-label={`Show ${a.brand} ${a.campaign}`}
             aria-current={i === current ? "true" : undefined}
-            className={`rounded-full transition-all duration-300 ${
-              i === current ? "w-6 h-1.5 bg-primary" : "w-1.5 h-1.5 bg-muted-foreground/25 hover:bg-muted-foreground/50"
-            }`}
-          />
+            className="group flex items-center justify-center min-w-[32px] h-[32px] px-1"
+          >
+            <span
+              className={`block rounded-full transition-all duration-300 ${
+                i === current ? "w-6 h-1.5 bg-primary" : "w-1.5 h-1.5 bg-muted-foreground/25 group-hover:bg-muted-foreground/50"
+              }`}
+            />
+          </button>
         ))}
       </div>
     </div>
@@ -784,7 +788,10 @@ const FeatureSection: React.FC<{
 
           {feature.stat && (
             <div className="pt-5 border-t border-border/30">
-              <div className="flex items-baseline gap-2">
+              {/* flex-wrap: at 375px long labels like "avg CTR — Samsung S25 Ultra campaign"
+                  previously squeezed next to the value with awkward mid-phrase breaks; now
+                  the label cleanly drops to a second line when it can't fit. */}
+              <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
                 <span className="text-3xl font-bold text-foreground tracking-tight">{feature.stat.value}</span>
                 <span className="text-sm text-muted-foreground">{feature.stat.label}</span>
               </div>

@@ -104,15 +104,18 @@ const DashboardView = () => (
     </div>
     <div className="grid grid-cols-3 md:grid-cols-6 gap-2 mb-3">
       {[
-        { label: "Sponsored Streamers", value: "48" },
-        { label: "Sponsored Streams", value: "612" },
-        { label: "Total Followers", value: "2.1M" },
-        { label: "Categories", value: "34" },
-        { label: "Peak Concurrency", value: "3,214" },
-        { label: "Chat Mentions", value: "4,291" },
+        { label: "Sponsored Streamers", shortLabel: "Streamers", value: "48" },
+        { label: "Sponsored Streams", shortLabel: "Streams", value: "612" },
+        { label: "Total Followers", shortLabel: "Followers", value: "2.1M" },
+        { label: "Categories", shortLabel: "Categories", value: "34" },
+        { label: "Peak Concurrency", shortLabel: "Peak CCV", value: "3,214" },
+        { label: "Chat Mentions", shortLabel: "Chat", value: "4,291" },
       ].map((s) => (
         <div key={s.label} className="px-2.5 py-2 bg-white rounded-lg border border-gray-100">
-          <p className="text-[8px] text-gray-400 uppercase truncate">{s.label}</p>
+          <p className="text-[8px] text-gray-400 uppercase truncate">
+            <span className="md:hidden">{s.shortLabel}</span>
+            <span className="hidden md:inline">{s.label}</span>
+          </p>
           <p className="text-sm font-bold text-gray-900">{s.value}</p>
         </div>
       ))}
@@ -193,14 +196,18 @@ const StreamerExplorerView = () => (
     {/* Top stats row — 5 cards like real app */}
     <div className="grid grid-cols-3 md:grid-cols-5 gap-2 mb-3">
       {[
-        { label: "Streamers", value: "39,456", icon: "👥", color: "border-l-blue-400" },
-        { label: "Total Followers", value: "2.0B", icon: "❤️", color: "border-l-pink-400" },
-        { label: "Total Avg. Concurrent Viewers", value: "7.5M", icon: "👁️", color: "border-l-green-400" },
-        { label: "Avg. Engagement", value: "6 / 10", icon: "⚡", color: "border-l-yellow-400" },
-        { label: "Avg. Brand Safety", value: "6.8 / 10", icon: "🛡️", color: "border-l-purple-400" },
+        { label: "Streamers", shortLabel: "Streamers", value: "39,456", icon: "👥", color: "border-l-blue-400" },
+        { label: "Total Followers", shortLabel: "Followers", value: "2.0B", icon: "❤️", color: "border-l-pink-400" },
+        { label: "Total Avg. Concurrent Viewers", shortLabel: "Avg. CCV", value: "7.5M", icon: "👁️", color: "border-l-green-400" },
+        { label: "Avg. Engagement", shortLabel: "Engagement", value: "6 / 10", icon: "⚡", color: "border-l-yellow-400" },
+        { label: "Avg. Brand Safety", shortLabel: "Brand Safety", value: "6.8 / 10", icon: "🛡️", color: "border-l-purple-400" },
       ].map((s) => (
         <div key={s.label} className={`px-2.5 py-2 bg-white rounded-lg border border-gray-100 border-l-2 ${s.color}`}>
-          <p className="text-[7px] text-gray-400 uppercase flex items-center gap-1 truncate"><span className="text-[9px] shrink-0">{s.icon}</span> <span className="truncate">{s.label}</span></p>
+          <p className="text-[7px] text-gray-400 uppercase flex items-center gap-1 truncate">
+            <span className="text-[9px] shrink-0">{s.icon}</span>
+            <span className="truncate md:hidden">{s.shortLabel}</span>
+            <span className="truncate hidden md:inline">{s.label}</span>
+          </p>
           <p className="text-sm font-bold text-gray-900">{s.value}</p>
         </div>
       ))}
@@ -424,12 +431,18 @@ const UsersView = () => (
       </div>
     </div>
     <div className="bg-white rounded-lg border border-gray-100 overflow-x-auto">
-      <table className="min-w-[450px] w-full">
+      {/* Email column hidden below sm: at 375px, full table (5 cols) exceeds the
+          viewport and clips Role/Last Active/Status mid-cell. Hiding the widest
+          column lets the remaining 4 fit naturally without horizontal scroll. */}
+      <table className="w-full">
         <thead>
           <tr className="border-b border-gray-100 bg-gray-50/50">
-            {["User","Email","Role","Last Active","Status"].map((h) => (
-              <th key={h} className="text-left text-[9px] font-medium text-gray-400 uppercase px-3 py-2">{h}</th>
-            ))}
+            <th className="text-left text-[9px] font-medium text-gray-400 uppercase px-2 sm:px-3 py-2">User</th>
+            <th className="hidden sm:table-cell text-left text-[9px] font-medium text-gray-400 uppercase px-3 py-2">Email</th>
+            <th className="text-left text-[9px] font-medium text-gray-400 uppercase px-2 sm:px-3 py-2">Role</th>
+            <th className="text-left text-[9px] font-medium text-gray-400 uppercase px-2 sm:px-3 py-2">Last Active</th>
+            {/* Status hidden on mobile — the green dot on the avatar already conveys online state. */}
+            <th className="hidden sm:table-cell text-left text-[9px] font-medium text-gray-400 uppercase px-2 sm:px-3 py-2">Status</th>
           </tr>
         </thead>
         <tbody>
@@ -441,19 +454,21 @@ const UsersView = () => (
             { name: "Thomas Berg", initials: "TB", email: "t.berg@essencemediacom.com", role: "Viewer", lastActive: "Mar 18, 2026", online: false },
           ].map((u) => (
             <tr key={u.name} className="border-b border-gray-50 last:border-0 hover:bg-gray-50/50">
-              <td className="px-3 py-2.5 text-[10px] font-medium text-gray-900 flex items-center gap-2">
-                <div className="w-6 h-6 rounded-full bg-red-50 flex items-center justify-center relative">
-                  <span className="text-[7px] font-bold text-red-500">{u.initials}</span>
-                  {u.online && <span className="absolute -bottom-0 -right-0 w-2 h-2 bg-green-500 rounded-full border border-white" />}
+              <td className="px-2 sm:px-3 py-2.5 text-[10px] font-medium text-gray-900">
+                <div className="flex items-center gap-2">
+                  <div className="w-6 h-6 rounded-full bg-red-50 flex items-center justify-center relative shrink-0">
+                    <span className="text-[7px] font-bold text-red-500">{u.initials}</span>
+                    {u.online && <span className="absolute -bottom-0 -right-0 w-2 h-2 bg-green-500 rounded-full border border-white" />}
+                  </div>
+                  <span className="truncate">{u.name}</span>
                 </div>
-                {u.name}
               </td>
-              <td className="px-3 py-2.5 text-[10px] text-gray-500">{u.email}</td>
-              <td className="px-3 py-2.5">
-                <span className={`text-[9px] font-medium px-2 py-0.5 rounded-full ${u.role === "Admin" ? "bg-red-50 text-red-600" : "bg-gray-50 text-gray-600"}`}>{u.role}</span>
+              <td className="hidden sm:table-cell px-3 py-2.5 text-[10px] text-gray-500">{u.email}</td>
+              <td className="px-2 sm:px-3 py-2.5">
+                <span className={`text-[9px] font-medium px-1.5 sm:px-2 py-0.5 rounded-full whitespace-nowrap ${u.role === "Admin" ? "bg-red-50 text-red-600" : "bg-gray-50 text-gray-600"}`}>{u.role}</span>
               </td>
-              <td className="px-3 py-2.5 text-[10px] text-gray-500">{u.lastActive}</td>
-              <td className="px-3 py-2.5">
+              <td className="px-2 sm:px-3 py-2.5 text-[10px] text-gray-500 whitespace-nowrap">{u.lastActive}</td>
+              <td className="hidden sm:table-cell px-2 sm:px-3 py-2.5">
                 <span className={`text-[9px] font-medium ${u.online ? "text-green-500" : "text-gray-400"}`}>{u.online ? "Online" : "Offline"}</span>
               </td>
             </tr>
@@ -619,7 +634,8 @@ export const SPHero: React.FC = () => {
                     <Plus className="w-2.5 h-2.5" /> New Campaign
                   </div>
                 </div>
-                <div className="h-[400px] sm:h-[520px] overflow-hidden">
+                {/* h-[450px] on mobile fits the Dashboard tab (default) tightly — content runs ~447px; Streamer Explorer/Category tabs scroll horizontally on overflow */}
+                <div className="h-[450px] sm:h-[520px] overflow-hidden">
                   <ActiveView />
                 </div>
               </div>

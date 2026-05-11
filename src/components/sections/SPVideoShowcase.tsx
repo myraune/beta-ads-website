@@ -84,7 +84,7 @@ const VideoCard: React.FC<{
               setMuted(!muted);
               if (videoRef.current) videoRef.current.muted = !muted;
             }}
-            className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-black/50 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
+            className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-black/50 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
           >
             {muted ? (
               <VolumeX className="w-4 h-4" />
@@ -230,10 +230,10 @@ const LiveStreamDemo: React.FC = () => {
 
         {/* LIVE badge + viewers — Twitch style */}
         <div className="absolute top-3 left-3 flex items-center gap-2 pointer-events-none">
-          <div className="flex items-center gap-1 bg-[#eb0400] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-[3px] uppercase tracking-wide">
+          <div className="flex items-center gap-1 bg-[#eb0400] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-[3px] uppercase tracking-wide whitespace-nowrap">
             Live
           </div>
-          <div className="flex items-center gap-1 bg-black/70 text-white text-[10px] px-1.5 py-0.5 rounded-[3px]">
+          <div className="flex items-center gap-1 bg-black/70 text-white text-[10px] px-1.5 py-0.5 rounded-[3px] whitespace-nowrap">
             {viewerCount.toLocaleString()} viewers
           </div>
         </div>
@@ -262,7 +262,7 @@ const LiveStreamDemo: React.FC = () => {
                   setMuted(!muted);
                   if (streamRef.current) streamRef.current.muted = !muted;
                 }}
-                className="text-white/80 hover:text-white transition-colors"
+                className="w-11 h-11 -ml-2 flex items-center justify-center text-white/80 hover:text-white transition-colors"
               >
                 {muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
               </button>

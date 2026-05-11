@@ -95,7 +95,7 @@ const AdFormatRow: React.FC<{
 
 const AdFormatShowcase: React.FC = () => (
   <div className="max-w-7xl mx-auto px-6 lg:px-12">
-    <div className="space-y-24 lg:space-y-36">
+    <div className="space-y-14 md:space-y-24 lg:space-y-36">
       {adFormats.map((fmt, i) => (
         <AdFormatRow key={fmt.name} fmt={fmt} index={i} />
       ))}

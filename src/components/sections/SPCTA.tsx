@@ -3,10 +3,24 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { blogPosts } from "@/data/blogPosts";
+import { blogPosts, getBlogPostBySlug } from "@/data/blogPosts";
 import { getBlogImage } from "@/lib/blogImage";
 
-const latestPosts = blogPosts.slice(0, 2);
+// Curated editorial picks — mix of high-traffic posts and core value-prop content.
+// Falls back to the 4 most recent posts if a slug is ever removed.
+const FEATURED_SLUGS = [
+  "how-twitch-advertising-works-2026",
+  "twitch-vs-youtube-gaming-2025",
+  "ad-blocker-crisis-livestream-native-ads-2026",
+  "most-watched-twitch-games-2025",
+];
+const featuredPosts = FEATURED_SLUGS
+  .map((s) => getBlogPostBySlug(s))
+  .filter(Boolean)
+  .concat(blogPosts.slice(0, 4))
+  // deduplicate and take first 4
+  .filter((post, idx, arr) => arr.findIndex((p) => p!.slug === post!.slug) === idx)
+  .slice(0, 4) as (typeof blogPosts)[number][];
 
 export const SPCTA: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
@@ -33,8 +47,8 @@ export const SPCTA: React.FC = () => {
         </div>
 
         {/* Post grid */}
-        <div className={`grid md:grid-cols-2 gap-6 transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          {latestPosts.map((post) => (
+        <div className={`grid sm:grid-cols-2 lg:grid-cols-4 gap-6 transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+          {featuredPosts.map((post) => (
             <Link key={post.slug} to={`/blog/${post.slug}`} className="group rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background">
               <article className="rounded-2xl overflow-hidden border border-border transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-black/[0.06] group-hover:border-foreground/20">
                 {/* Cover image */}
@@ -48,13 +62,16 @@ export const SPCTA: React.FC = () => {
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-[11px] font-semibold text-primary uppercase tracking-wider">
+                <div className="p-5 sm:p-6">
+                  {/* flex-wrap + whitespace-nowrap: long category names ("INDUSTRY INSIGHTS")
+                      previously broke mid-word at 375px because flex items shrank; now each
+                      pill keeps its words together and the row wraps cleanly to a second line. */}
+                  <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-3">
+                    <span className="text-[11px] font-semibold text-primary uppercase tracking-wider whitespace-nowrap">
                       {post.category}
                     </span>
-                    <span className="text-[11px] text-muted-foreground">· {post.date}</span>
-                    <span className="text-[11px] text-muted-foreground">· {post.readTime}</span>
+                    <span className="text-[11px] text-muted-foreground whitespace-nowrap">· {post.date}</span>
+                    <span className="text-[11px] text-muted-foreground whitespace-nowrap">· {post.readTime}</span>
                   </div>
                   <h3 className="text-base font-semibold text-foreground leading-snug mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2">
                     {post.title}

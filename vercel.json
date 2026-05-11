@@ -11,6 +11,41 @@
       "source": "/blog/how-twitch-advertising-works-2024",
       "destination": "/blog/how-twitch-advertising-works-2026",
       "permanent": true
+    },
+    {
+      "source": "/blog/samsung-twitch-campaign-case-study",
+      "destination": "/case-study/samsung",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "lang", "value": "no" }],
+      "destination": "/norge",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "lang", "value": "sv" }],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "lang", "value": "fi" }],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "lang", "value": "da" }],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "lang", "value": "en" }],
+      "destination": "/",
+      "permanent": true
     }
   ],
   "rewrites": [

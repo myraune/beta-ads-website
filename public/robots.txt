@@ -3,19 +3,20 @@
 
 User-agent: *
 Allow: /
+Disallow: /unsubscribe
 
-# Major search engines
+# Major search engines — no Crawl-delay: Google ignores it, Bing/DDG handle it themselves
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
+Disallow: /unsubscribe
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 1
+Disallow: /unsubscribe
 
 User-agent: DuckDuckBot
 Allow: /
-Crawl-delay: 1
+Disallow: /unsubscribe
 
 # SEO tools
 User-agent: SemrushBot
@@ -33,6 +34,3 @@ Disallow: /
 
 # Sitemap location
 Sitemap: https://beta-ads.no/sitemap.xml
-
-# Host preference
-Host: beta-ads.no
