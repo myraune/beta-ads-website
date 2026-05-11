@@ -9290,6 +9290,20 @@ Key opportunities for brands:
 - **Team partnerships**: Endemic and non-endemic growing
 - **Player endorsements**: Individual creator deals
 
+## What These Numbers Mean for Advertisers
+
+The co-streaming shift is the most significant advertising story in esports 2025. When 50% of LoL Worlds viewership flows through Caedrel rather than the official Riot broadcast, brands that partner with co-streamers reach the same audience at a fraction of the cost of official sponsorships — and with far more authentic integration.
+
+The Esports World Cup's 73% growth signals that multi-game tournament formats are the next major advertising window. These events concentrate massive audiences around a fixed calendar event, giving brands predictable reach with strong cultural relevance. For Nordic advertisers, this matters: the EWC format includes Nordic-popular titles like CS2 and VALORANT, and major Nordic streamers co-streamed EWC content to their local audiences.
+
+Counter-Strike's 15% growth is particularly relevant for the Nordic market. CS has historically over-indexed in Norway, Sweden, Finland, and Denmark relative to global averages. Brands running gaming-adjacent campaigns in the Nordics should consider CS tournament windows as a high-affinity targeting opportunity.
+
+The -11% decline in mobile esports has a direct implication for media planning: budget allocated to mobile gaming sponsorships in Southeast Asia would likely see better returns redirected to Twitch-native PC esports in Western markets where session length is longer and ad receptivity is higher.
+
+## What to Watch in 2026
+
+The StreamHatchet data points to two trends accelerating in 2026: the continued dominance of co-streaming as the primary esports discovery mechanism, and the growing importance of multi-game event formats like EWC. Brands that invest in co-streamer partnerships before these formats fully mainstream will capture the most efficient CPMs in the space.
+
 *Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
     `,
     date: "Feb 5, 2026",

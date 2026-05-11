@@ -225,7 +225,7 @@ const CASE_STUDIES = [
     route: "/case-study/nki",
     title: "NKI Distance Learning Case Study | Beta Ads",
     description:
-      "NKI's interactive quiz campaign on Norwegian Twitch: 220,003 completed views, 1,595 clicks across 19 streamers. Personalized ads for distance-learning recruitment.",
+      "NKI on Twitch: interactive quiz campaign, 220,003 completed views, 1,595 clicks across 19 streamers. Personalized ads for distance-learning recruitment.",
     locale: "en",
   },
 ];
