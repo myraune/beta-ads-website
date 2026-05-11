@@ -40,16 +40,17 @@ const STATIC_PAGES = [
   // Secondary high-priority pages
   { path: "/youtube-advertising",    priority: "0.9",  changefreq: "monthly" },
   { path: "/streamers",              priority: "0.9",  changefreq: "weekly"  },
-  { path: "/case-study/samsung",     priority: "0.85", changefreq: "monthly" },
-  { path: "/case-study/glorious",    priority: "0.8",  changefreq: "monthly" },
-  { path: "/case-study/gokstad",     priority: "0.8",  changefreq: "monthly" },
-  { path: "/case-study/samsung-fold7", priority: "0.8", changefreq: "monthly" },
-  { path: "/case-study/surfshark",   priority: "0.8",  changefreq: "monthly" },
-  { path: "/case-study/saily",       priority: "0.8",  changefreq: "monthly" },
-  { path: "/case-study/shure",       priority: "0.8",  changefreq: "monthly" },
-  { path: "/case-study/kristiania",  priority: "0.8",  changefreq: "monthly" },
-  { path: "/case-study/komplett",    priority: "0.8",  changefreq: "monthly" },
-  { path: "/case-study/nki",         priority: "0.8",  changefreq: "monthly" },
+  // Case studies — include image:image for Google Image Search eligibility
+  { path: "/case-study/samsung",     priority: "0.85", changefreq: "monthly", image: "/lovable-uploads/samsung-zfold7-banner.png",           imageTitle: "Samsung Galaxy S25 Ultra x Beta Ads — Norwegian Twitch campaign overlay" },
+  { path: "/case-study/samsung-fold7", priority: "0.8", changefreq: "monthly", image: "/lovable-uploads/blog-samsung-twitch-campaign-hero.jpg", imageTitle: "Samsung Galaxy Z Fold7 x Beta Ads — Twitch advertising campaign" },
+  { path: "/case-study/surfshark",   priority: "0.8",  changefreq: "monthly", image: "/lovable-uploads/og-social-preview.png",                imageTitle: "Surfshark VPN x Beta Ads — Norwegian Twitch advertising case study" },
+  { path: "/case-study/saily",       priority: "0.8",  changefreq: "monthly", image: "/lovable-uploads/og-social-preview.png",                imageTitle: "Saily eSIM x Beta Ads — Norwegian Twitch advertising case study" },
+  { path: "/case-study/shure",       priority: "0.8",  changefreq: "monthly", image: "/lovable-uploads/shure-mv6-banner.jpg",                 imageTitle: "Shure MV6 x Beta Ads — Norwegian Twitch campaign, 9.12% CTR" },
+  { path: "/case-study/glorious",    priority: "0.8",  changefreq: "monthly", image: "/lovable-uploads/og-social-preview.png",                imageTitle: "Glorious Gaming x Beta Ads — Nordic Twitch campaign case study" },
+  { path: "/case-study/gokstad",     priority: "0.8",  changefreq: "monthly", image: "/lovable-uploads/og-social-preview.png",                imageTitle: "Gokstad Akademiet x Beta Ads — Twitch student recruitment campaign" },
+  { path: "/case-study/kristiania",  priority: "0.8",  changefreq: "monthly", image: "/lovable-uploads/og-social-preview.png",                imageTitle: "Høyskolen Kristiania x Beta Ads — 600K views Twitch recruitment campaign" },
+  { path: "/case-study/komplett",    priority: "0.8",  changefreq: "monthly", image: "/lovable-uploads/case-studies/komplett-preview.jpg",    imageTitle: "Komplett Gaming Deal x Beta Ads — Twitch retail advertising campaign" },
+  { path: "/case-study/nki",         priority: "0.8",  changefreq: "monthly", image: "/lovable-uploads/case-studies/nki-detoo.png",           imageTitle: "NKI Distance Learning x Beta Ads — 220,003 views Twitch quiz campaign" },
   { path: "/blog",                   priority: "0.75", changefreq: "weekly"  },
   { path: "/demo",                   priority: "0.7",  changefreq: "monthly" },
   { path: "/contact",                priority: "0.6",  changefreq: "monthly" },
@@ -123,6 +124,8 @@ function main() {
       lastmod:    TODAY,
       changefreq: p.changefreq,
       priority:   p.priority,
+      image:      p.image || undefined,
+      imageTitle: p.imageTitle,
     })
   );
 

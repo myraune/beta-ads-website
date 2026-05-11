@@ -64,20 +64,10 @@
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/case-study/glorious</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/case-study/gokstad</loc>
-    <lastmod>2026-05-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/samsung-zfold7-banner.png</image:loc>
+      <image:title>Samsung Galaxy S25 Ultra x Beta Ads — Norwegian Twitch campaign overlay</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -85,6 +75,10 @@
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-samsung-twitch-campaign-hero.jpg</image:loc>
+      <image:title>Samsung Galaxy Z Fold7 x Beta Ads — Twitch advertising campaign</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -92,6 +86,10 @@
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
+      <image:title>Surfshark VPN x Beta Ads — Norwegian Twitch advertising case study</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -99,6 +97,10 @@
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
+      <image:title>Saily eSIM x Beta Ads — Norwegian Twitch advertising case study</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -106,6 +108,32 @@
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/shure-mv6-banner.jpg</image:loc>
+      <image:title>Shure MV6 x Beta Ads — Norwegian Twitch campaign, 9.12% CTR</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://beta-ads.no/case-study/glorious</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
+      <image:title>Glorious Gaming x Beta Ads — Nordic Twitch campaign case study</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://beta-ads.no/case-study/gokstad</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
+      <image:title>Gokstad Akademiet x Beta Ads — Twitch student recruitment campaign</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -113,6 +141,10 @@
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
+      <image:title>Høyskolen Kristiania x Beta Ads — 600K views Twitch recruitment campaign</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -120,6 +152,10 @@
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/case-studies/komplett-preview.jpg</image:loc>
+      <image:title>Komplett Gaming Deal x Beta Ads — Twitch retail advertising campaign</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -127,6 +163,10 @@
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/case-studies/nki-detoo.png</image:loc>
+      <image:title>NKI Distance Learning x Beta Ads — 220,003 views Twitch quiz campaign</image:title>
+    </image:image>
   </url>
 
   <url>
