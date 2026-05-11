@@ -159,6 +159,27 @@ const Norge: React.FC = () => {
             areaServed: { "@type": "Country", name: "Norway" },
             inLanguage: "no",
           },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            inLanguage: "no",
+            mainEntity: [
+              { "@type": "Question", name: "Hva koster en Twitch-kampanje i Norge?", acceptedAnswer: { "@type": "Answer", text: "Kampanjekostnader varierer basert på antall streamere, kampanjevarighet og format. Vi tilbyr fleksibel prising uten bindingstid – kontakt oss for et skreddersydd tilbud basert på dine mål og budsjett." } },
+              { "@type": "Question", name: "Hvordan fungerer overlay-annonsering på Twitch?", acceptedAnswer: { "@type": "Answer", text: "Overlay-annonser er grafiske elementer som vises direkte i streamen – ikke som en pause eller avbrudd. De vises som en del av innholdet og omgår adblock helt. Seere ser annonsen mens de ser på favorittstreameren sin." } },
+              { "@type": "Question", name: "Hvilke norske merkevarer har annonsert på Twitch?", acceptedAnswer: { "@type": "Answer", text: "Samsung, Shure, Komplett, Høyskolen Kristiania, NKI og Surfshark er blant merkene som har kjørt kampanjer via Beta Ads på norske Twitch-streamere. Se våre case studies for verifiserte resultater." } },
+              { "@type": "Question", name: "Hvem er Twitch-publikummet i Norge?", acceptedAnswer: { "@type": "Answer", text: "Norske Twitch-seere er primært mellom 18–34 år, med høy kjøpekraft og lav eksponering for tradisjonell TV-reklame. Over 70 % bruker adblock på ordinære annonseformater, noe som gjør native streaming-annonsering spesielt effektivt." } },
+              { "@type": "Question", name: "Hvor raskt kan en kampanje gå live?", acceptedAnswer: { "@type": "Answer", text: "Fra godkjent brief til live kampanje tar det vanligvis 5–10 virkedager. Vi håndterer streamervalg, kreativproduksjon og teknisk oppsett – du godkjenner streamerlisten og designet." } },
+              { "@type": "Question", name: "Hva slags rapportering får vi?", acceptedAnswer: { "@type": "Answer", text: "Du får tilgang til sanntidsdata på visninger, klikkrate (CTR), skjermtid og engasjement via vårt dashboard. Ukentlige rapporter leveres under aktive kampanjer." } },
+            ],
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Hjem", item: "https://beta-ads.no/" },
+              { "@type": "ListItem", position: 2, name: "Twitch-annonsering Norge", item: "https://beta-ads.no/norge" },
+            ],
+          },
         ]}
       />
 
@@ -348,6 +369,56 @@ const Norge: React.FC = () => {
             >
               Se hele bloggen <ArrowRight size={14} />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="relative border-t border-foreground/[0.06]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
+          <div className="max-w-3xl">
+            <p className="text-[11px] uppercase tracking-[0.22em] text-primary mb-4 font-semibold">
+              Spørsmål og svar
+            </p>
+            <h2 className="text-3xl lg:text-4xl font-light tracking-tight text-foreground mb-10" style={serifFont}>
+              Vanlige spørsmål om Twitch-annonsering
+            </h2>
+            <div className="divide-y divide-border/50">
+              {[
+                {
+                  q: "Hva koster en Twitch-kampanje i Norge?",
+                  a: "Kampanjekostnader varierer basert på antall streamere, kampanjevarighet og format. Vi tilbyr fleksibel prising uten bindingstid – kontakt oss for et skreddersydd tilbud basert på dine mål og budsjett.",
+                },
+                {
+                  q: "Hvordan fungerer overlay-annonsering på Twitch?",
+                  a: "Overlay-annonser er grafiske elementer som vises direkte i streamen – ikke som en pause eller avbrudd. De vises som en del av innholdet og omgår adblock helt. Seere ser annonsen mens de ser på favorittstreameren sin.",
+                },
+                {
+                  q: "Hvilke norske merkevarer har annonsert på Twitch?",
+                  a: "Samsung, Shure, Komplett, Høyskolen Kristiania, NKI og Surfshark er blant merkene som har kjørt kampanjer via Beta Ads på norske Twitch-streamere. Se våre case studies for verifiserte resultater.",
+                },
+                {
+                  q: "Hvem er Twitch-publikummet i Norge?",
+                  a: "Norske Twitch-seere er primært mellom 18–34 år, med høy kjøpekraft og lav eksponering for tradisjonell TV-reklame. Over 70 % bruker adblock på ordinære annonseformater, noe som gjør native streaming-annonsering spesielt effektivt.",
+                },
+                {
+                  q: "Hvor raskt kan en kampanje gå live?",
+                  a: "Fra godkjent brief til live kampanje tar det vanligvis 5–10 virkedager. Vi håndterer streamervalgvelge, kreativproduksjon og teknisk oppsett – du godkjenner streamerlisten og designet.",
+                },
+                {
+                  q: "Hva slags rapportering får vi?",
+                  a: "Du får tilgang til sanntidsdata på visninger, klikkrate (CTR), skjermtid og engasjement via vårt dashboard. Ukentlige rapporter leveres under aktive kampanjer.",
+                },
+              ].map(({ q, a }) => (
+                <details key={q} className="group py-5">
+                  <summary className="flex items-center justify-between cursor-pointer text-sm font-medium text-foreground hover:text-primary transition-colors select-none list-none">
+                    {q}
+                    <ArrowRight className="w-4 h-4 shrink-0 ml-4 transition-transform group-open:rotate-90 text-muted-foreground" />
+                  </summary>
+                  <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{a}</p>
+                </details>
+              ))}
+            </div>
           </div>
         </div>
       </section>
