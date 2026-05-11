@@ -33,6 +33,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const DIST = path.join(ROOT, "dist");
 const BASE_URL = "https://beta-ads.no";
+// Build date used as dateModified on all generated schemas — reflects the most
+// recent deploy (which is when content + schema changes actually go live).
+const BUILD_DATE = new Date().toISOString().split("T")[0];
 
 const OG_LOCALES = {
   en: "en_US",
@@ -249,6 +252,8 @@ const CASE_STUDIES = [
     locale: "en",
     datePublished: "2025-10-01",
     image: "/lovable-uploads/case-studies/nki-detoo.png",
+    ogImageWidth: 1065,
+    ogImageHeight: 583,
   },
 ];
 
@@ -371,7 +376,7 @@ function buildBlogPostingJsonLd({ slug, rawTitle, description, image, dateISO, k
       "description": description,
       "url": pageUrl,
       ...(imageUrl ? { "image": imageUrl } : {}),
-      ...(dateISO ? { "datePublished": dateISO, "dateModified": dateISO } : {}),
+      ...(dateISO ? { "datePublished": dateISO, "dateModified": BUILD_DATE } : {}),
       "author": {
         "@type": "Organization",
         "name": "Beta Ads",
@@ -429,7 +434,7 @@ function buildCaseStudyJsonLd({ route, title, description, image, datePublished 
       "description": description,
       "url": pageUrl,
       ...(imageUrl ? { "image": imageUrl } : {}),
-      ...(datePublished ? { "datePublished": datePublished, "dateModified": "2026-05-11" } : {}),
+      ...(datePublished ? { "datePublished": datePublished, "dateModified": BUILD_DATE } : {}),
       "author": {
         "@type": "Organization",
         "name": "Beta Ads",
@@ -490,7 +495,7 @@ function buildHreflangBlock(alternates) {
   return `${MARKER_START}\n${tags}\n    ${MARKER_END}`;
 }
 
-function injectMeta(shellHtml, { title, description, canonical, locale, alternates, image, ogType = "website", articlePublishedTime = null }) {
+function injectMeta(shellHtml, { title, description, canonical, locale, alternates, image, ogType = "website", articlePublishedTime = null, ogImageWidth = 1200, ogImageHeight = 630 }) {
   let html = shellHtml;
   const canonicalUrl = toAbsolute(canonical);
   const ogLocale = OG_LOCALES[locale] || "en_US";
@@ -569,6 +574,8 @@ function injectMeta(shellHtml, { title, description, canonical, locale, alternat
   if (ogImage) {
     const imageTags = [
       `<meta property="og:image" content="${ogImage}" />`,
+      `<meta property="og:image:width" content="${ogImageWidth}" />`,
+      `<meta property="og:image:height" content="${ogImageHeight}" />`,
       `<meta property="og:image:alt" content="${escapedTitle}" />`,
       `<meta name="twitter:image" content="${ogImage}" />`,
       `<meta name="twitter:card" content="summary_large_image" />`,
@@ -667,7 +674,7 @@ function main() {
 
   // Case studies
   for (const page of CASE_STUDIES) {
-    const { route, title, description, locale, datePublished, image } = page;
+    const { route, title, description, locale, datePublished, image, ogImageWidth, ogImageHeight } = page;
     let html = injectMeta(shell, {
       title,
       description,
@@ -676,6 +683,8 @@ function main() {
       image,
       ogType: "article",
       articlePublishedTime: datePublished || null,
+      ogImageWidth: ogImageWidth || 1200,
+      ogImageHeight: ogImageHeight || 630,
     });
     // Inject Article + BreadcrumbList JSON-LD for first-pass Googlebot crawl.
     const jsonLdBlock = buildCaseStudyJsonLd({ route, title, description, image, datePublished });
