@@ -2627,7 +2627,7 @@ But the most strategically interesting growth engine for 2026 is live.
 
 YouTube has launched a series of live-specific ad formats that did not exist 18 months ago.
 
-The most significant is the side-by-side live stream ad: an advertisement runs visually adjacent to the broadcast without pausing or interrupting it. The stream continues. The ad sits beside it. Viewers are not pulled out of the moment. This is the same instinct that drives native overlay advertising on platforms like Twitch, and its arrival on YouTube confirms a broader industry consensus: interruptive formats are losing to integrated ones.
+The most significant is the side-by-side live stream ad: an advertisement runs visually adjacent to the broadcast without pausing or interrupting it. The stream continues. The ad sits beside it. Viewers are not pulled out of the moment. This is the same instinct that drives [native overlay advertising on YouTube Live](/youtube-advertising), and its arrival as a standard format confirms a broader industry consensus: interruptive formats are losing to integrated ones.
 
 YouTube has also launched "Cultural Moments Sponsorship" packages that let brands own specific live events, including sports broadcasts, awards coverage, and seasonal shopping moments like Black Friday. The packaging is designed to give brands the same kind of premium placement that television used to offer, but with digital targeting precision and real-time performance data layered on top.
 
@@ -2710,7 +2710,7 @@ In the Nordics, that audience is larger and more engaged than most brand media p
     excerpt: "Twitch overlay CPMs run $4–$12+ depending on season and category. Here's how those numbers compare to other channels, what drives variance, and how Nordic brands can use the data to plan smarter live stream campaigns.",
     content: `## What Does It Actually Cost to Advertise on Twitch in 2026?
 
-Ask most media buyers what a Twitch CPM looks like and you'll get either a shrug or a number pulled from a 2021 blog post. Live stream advertising has spent years sitting in the "experimental" budget line - tested once, not properly measured, and rarely scaled. That's changing fast. As the format matures, actual benchmark data is finally available, and the numbers make a compelling case for any Nordic brand that's still treating live streaming as optional.
+Ask most media buyers what a Twitch CPM looks like and you'll get either a shrug or a number pulled from a 2021 blog post. [Live stream advertising](/twitch-advertising) has spent years sitting in the "experimental" budget line - tested once, not properly measured, and rarely scaled. That's changing fast. As the format matures, actual benchmark data is finally available, and the numbers make a compelling case for any Nordic brand that's still treating live streaming as optional.
 
 This is the guide we wish existed when we started placing buys.
 
@@ -4346,7 +4346,7 @@ The global numbers are compelling, but Nordic brands have specific structural ad
 
 The Nordic games and streaming market reached $5.64 billion in 2025 and is projected to grow to $8.06 billion by 2030 - a 7.4% CAGR that outpaces many Western European counterparts. Sweden leads the region with $1.86 billion in gaming revenue, with cloud gaming growing 63% year-over-year. Norway, Denmark, and Finland round out a market that is collectively young, high-income, and deeply digital-native.
 
-The demographics line up well for live streaming advertising. Gen Z - the cohort that grew up watching streamers before they ever watched traditional TV - represents a disproportionate share of Twitch, YouTube Live, and Kick audiences in the Nordics. And while 99% of Gen Z skips digital ads when given the option, research shows that 52% regularly watch ad-supported streams, and 73% are more receptive to advertising when in a positive emotional state - exactly the state that live streaming reliably produces.
+The demographics line up well for live streaming advertising. Gen Z - the cohort that grew up watching streamers before they ever watched traditional TV - represents a disproportionate share of [Twitch](/twitch-advertising), [YouTube Live](/youtube-advertising), and [Kick](/kick-advertising) audiences in the Nordics. And while 99% of Gen Z skips digital ads when given the option, research shows that 52% regularly watch ad-supported streams, and 73% are more receptive to advertising when in a positive emotional state - exactly the state that live streaming reliably produces.
 
 This isn't a coincidence. It's a structural property of the medium.
 
@@ -5049,7 +5049,7 @@ The question is no longer whether this approach is technically viable. It is whe
     excerpt: "Interactive overlay ads hit 1.94% engagement in Q2 2025 - nearly double the prior year - while 44% of Twitch viewers report buying products based on streamer recommendations. The numbers are in, and they point in one direction.",
     content: `## The Numbers That Should Change Your Media Plan
 
-There is a moment in every advertising cycle when the data catches up to the hype. For native overlay ads in live streaming, that moment arrived in 2025 - and the results are harder to ignore than ever.
+There is a moment in every advertising cycle when the data catches up to the hype. For [native overlay ads on Twitch and live streaming platforms](/twitch-advertising), that moment arrived in 2025 - and the results are harder to ignore than ever.
 
 Interactive overlay ad engagement reached **1.94% in Q2 2025**, according to data from BrightLine and eMarketer. One year earlier, the same metric sat at 1%. That is not incremental improvement - it is a **94% year-over-year lift** in a channel that already outperformed pre-roll and banner formats by a wide margin.
 
@@ -6069,7 +6069,7 @@ The reach calculation for streaming advertising is evolving. Brands that update 
     excerpt: "Counter-Strike, League of Legends, and GTA V dominate Twitch viewership in 2026, but advertiser fit varies enormously by category. Here's the data brands need to make smarter placement decisions.",
     content: `## What the Viewership Data Actually Shows
 
-Every advertiser running campaigns on Twitch needs to understand one counterintuitive fact before they start: **the biggest categories are not always the best fit for every brand**. Understanding who watches what - and why - is the difference between wasted impressions and high-quality engagements.
+Every advertiser running [Twitch advertising](/twitch-advertising) campaigns needs to understand one counterintuitive fact before they start: **the biggest categories are not always the best fit for every brand**. Understanding who watches what - and why - is the difference between wasted impressions and high-quality engagements.
 
 The March 2026 data from TwitchTracker gives a clear picture of where viewers are spending their time. Just Chatting leads with **294,000 average concurrent viewers** and a 14.42% platform share. Among gaming categories, Counter-Strike follows at 126,000, League of Legends at 118,000, Grand Theft Auto V at 79,000, and VALORANT at 57,000.
 
@@ -6325,7 +6325,7 @@ Two years ago, Kick was an interesting experiment. In 2026, it is a legitimate p
 
 The latest data shows the gap between the platforms clearly: between February 23 and March 24, 2026, Twitch generated **1.4 billion hours** of watch time versus Kick's **473 million hours**. Twitch holds **54% of gaming content hours watched** globally, while Kick has grown to **11%** in the gaming vertical - having crossed 1 billion hours watched in Q2 2025 with 112% year-over-year growth.
 
-For Nordic brands deciding where to run campaigns, this is not a binary choice. It is a strategic allocation question that depends on your audience, your brand positioning, and what you are trying to achieve.
+For Nordic brands deciding where to run campaigns, this is not a binary choice. It is a strategic allocation question. Both [Twitch advertising](/twitch-advertising) and [Kick advertising](/kick-advertising) have distinct strengths depending on your audience, brand positioning, and campaign goals.
 
 ## Understanding the Platforms
 
@@ -6640,7 +6640,7 @@ The bottom line is straightforward: Twitch's recommendation system rewards what 
 
 There is a number that every digital marketer should have somewhere visible: **64%**.
 
-That is the share of live stream viewers who use ad-blocking software, according to 2026 research from inStreamly. Not general internet users - specifically people watching live streams on Twitch, YouTube Live, and Kick. The same demographic that brands are most eager to reach: young, engaged, digitally native, and fiercely resistant to being interrupted.
+That is the share of live stream viewers who use ad-blocking software, according to 2026 research from inStreamly. Not general internet users - specifically people watching live streams on [Twitch](/twitch-advertising), [YouTube Live](/youtube-advertising), and [Kick](/kick-advertising). The same demographic that brands are most eager to reach: young, engaged, digitally native, and fiercely resistant to being interrupted.
 
 The broader picture is even starker. Over **900 million people** now use ad blockers globally, a figure expected to surpass one billion before the end of 2026. Among 18-34 year olds - Twitch's core demographic - ad blocker adoption runs at 61% of all users. And Gen Z? They are 41% more likely to use ad blockers than the average internet user.
 
@@ -6743,7 +6743,7 @@ For over a decade, pre-roll and mid-roll video ads have been the default for dig
 
 According to Statista and GWI research, **47% of Gen Z internet users now run ad blockers** on at least one device. Among 18-24 year olds in the Nordics, that figure climbs above 55%. Pre-roll ads on YouTube are skipped within 5 seconds by **76% of viewers** when the option is available. And traditional banner ads? The average click-through rate has fallen to **0.06%**, a number that rounds to zero in any meaningful campaign report.
 
-Native stream ads, the overlay graphics that appear within live broadcasts on Twitch, YouTube Gaming, and Kick, are delivering results that look like they belong to a different era of digital marketing. The engagement gap is not small. It is a 3:1 ratio, and in some campaigns it reaches 5:1 or higher.
+Native stream ads, the overlay graphics that appear within live broadcasts on [Twitch](/twitch-advertising), [YouTube Gaming](/youtube-advertising), and [Kick](/kick-advertising), are delivering results that look like they belong to a different era of digital marketing. The engagement gap is not small. It is a 3:1 ratio, and in some campaigns it reaches 5:1 or higher.
 
 ## What the Numbers Actually Show
 
@@ -6843,9 +6843,9 @@ The 3:1 performance gap is not a fluke. It reflects a fundamental shift in how y
 
 When marketers think about advertising in the Nordics, they typically picture display campaigns on local news sites or programmatic buys across Scandinavian publisher networks. What many overlook is that live streaming has become one of the dominant entertainment formats for consumers under 35 in Norway, Sweden, Finland, and Denmark.
 
-The numbers tell the story. **Twitch averages 2.5 million concurrent viewers globally**, and the Nordic countries punch well above their weight in per-capita viewership. Sweden alone has more Twitch viewers per capita than any country outside South Korea. In Norway, Twitch's monthly active user base grew by 31% between 2023 and 2025. Finland's gaming community, fueled by a strong esports culture, drives some of the highest engagement rates on the platform.
+The numbers tell the story. **[Twitch](/twitch-advertising) averages 2.5 million concurrent viewers globally**, and the Nordic countries punch well above their weight in per-capita viewership. Sweden alone has more Twitch viewers per capita than any country outside South Korea. In Norway, Twitch's monthly active user base grew by 31% between 2023 and 2025. Finland's gaming community, fueled by a strong esports culture, drives some of the highest engagement rates on the platform.
 
-YouTube Gaming and Kick are adding to this picture. YouTube's live streaming hours watched grew 45% year-over-year in 2025, with Nordic creators like LevelCapGaming and TheViper pulling consistent five-figure concurrent viewership. Kick, while newer, has attracted Nordic streamers with its favorable revenue splits and is growing its Scandinavian audience rapidly.
+[YouTube Gaming](/youtube-advertising) and [Kick](/kick-advertising) are adding to this picture. YouTube's live streaming hours watched grew 45% year-over-year in 2025, with Nordic creators like LevelCapGaming and TheViper pulling consistent five-figure concurrent viewership. Kick, while newer, has attracted Nordic streamers with its favorable revenue splits and is growing its Scandinavian audience rapidly.
 
 ## Why Traditional Digital Ads Fail with Nordic Gen Z
 
@@ -7081,7 +7081,7 @@ The infrastructure is in place. The audiences are engaged. The ad format works. 
 
 Digital advertising spent over $600 billion globally in 2025. Yet most marketers will quietly admit that a huge slice of that budget was wasted. Banner blindness, ad blockers, and bot traffic have turned traditional display ads into an expensive habit rather than a genuine growth driver.
 
-Live stream advertising is rewriting these rules. Native overlay ads that appear within Twitch, YouTube, and Kick streams are delivering engagement rates that make display campaigns look obsolete. Here is a data-driven look at why.
+Live stream advertising is rewriting these rules. [Native overlay ads](/twitch-advertising) that appear within Twitch, YouTube, and Kick streams are delivering engagement rates that make display campaigns look obsolete. Here is a data-driven look at why.
 
 ## Display Ads by the Numbers: A Declining Channel
 
@@ -7840,7 +7840,7 @@ Esports remains a major driver of Twitch viewership, averaging **654 million hou
 
 ## What This Means for Advertisers
 
-Despite the viewership decline, Twitch remains the most engaged live streaming audience. The shift toward non-gaming content opens opportunities for brands outside gaming, while the viewbotting cleanup means more authentic reach metrics. With 73% of viewers under 35 and session times 8x longer than on-demand video, Twitch offers unmatched access to Gen Z audiences.
+Despite the viewership decline, Twitch remains the most engaged live streaming audience. The shift toward non-gaming content opens opportunities for brands outside gaming, while the viewbotting cleanup means more authentic reach metrics. With 73% of viewers under 35 and session times 8x longer than on-demand video, [Twitch advertising](/twitch-advertising) offers unmatched access to Gen Z audiences in the Nordics.
 
 *Data sources: StreamHatchet 2025 Yearly Live Streaming Trends Report, TwitchTracker, Esports Charts*
     `,
@@ -9302,7 +9302,7 @@ The -11% decline in mobile esports has a direct implication for media planning: 
 
 ## What to Watch in 2026
 
-The StreamHatchet data points to two trends accelerating in 2026: the continued dominance of co-streaming as the primary esports discovery mechanism, and the growing importance of multi-game event formats like EWC. Brands that invest in co-streamer partnerships before these formats fully mainstream will capture the most efficient CPMs in the space.
+The StreamHatchet data points to two trends accelerating in 2026: the continued dominance of co-streaming as the primary esports discovery mechanism, and the growing importance of multi-game event formats like EWC. Brands that invest in [co-streamer partnerships on Twitch](/twitch-advertising) before these formats fully mainstream will capture the most efficient CPMs in the space.
 
 *Data source: StreamHatchet 2025 Yearly Live Streaming Trends Report*
     `,
@@ -10141,7 +10141,7 @@ The platforms will keep fragmenting. The brands that build infrastructure to adv
     excerpt: "Sommeren er høysesong for gaming og streaming i Norden. Mens tradisjonelle medier mister seere, øker Twitch-seertallene. Slik utnytter smarte merkevarer sommerens gaming-boom.",
     content: `# Sommerkampanjer på Twitch: Hvorfor gaming-annonsering fungerer når alt annet stopper opp
 
-Hver sommer skjer det samme: TV-seertallene faller, avisopplaget synker, og markedsavdelinger over hele Norden kutter budsjetter i påvente av høstsesongen. Men det finnes én kanal som faktisk vokser om sommeren. Twitch og live streaming opplever noen av årets sterkeste seertall mellom juni og august. For merkevarer som vil nå unge målgrupper, er sommeren på Twitch en gyllen mulighet de fleste overser.
+Hver sommer skjer det samme: TV-seertallene faller, avisopplaget synker, og markedsavdelinger over hele Norden kutter budsjetter i påvente av høstsesongen. Men det finnes én kanal som faktisk vokser om sommeren. Twitch og live streaming opplever noen av årets sterkeste seertall mellom juni og august. For [norske merkevarer som vil nå unge målgrupper](/norge), er sommeren på Twitch en gyllen mulighet de fleste overser.
 
 ## Sommeren er høysesong for Twitch-annonsering i Norden
 

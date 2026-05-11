@@ -156,6 +156,8 @@ const STATIC_PAGES = [
 
 // ---------------------------------------------------------------------------
 // CASE STUDIES — mirror of src/pages/CaseStudy*.tsx <SEO> calls.
+// datePublished mirrors datePublished in each page's Article JSON-LD.
+// image is the og:image set on the <SEO> component (null if none).
 // ---------------------------------------------------------------------------
 const CASE_STUDIES = [
   {
@@ -164,6 +166,8 @@ const CASE_STUDIES = [
     description:
       "Samsung Galaxy S25 Ultra and Z Fold7 on Norwegian Twitch: 800K+ live views, 1.35M+ with VOD, 2.93% CTR, 71 streamer slots, zero adblock impact.",
     locale: "en",
+    datePublished: "2025-12-01",
+    image: "/lovable-uploads/samsung-zfold7-banner.png",
   },
   {
     route: "/case-study/samsung-fold7",
@@ -171,13 +175,17 @@ const CASE_STUDIES = [
     description:
       "Samsung Galaxy Z Fold7 on Norwegian Twitch: native overlay ads and streamer integrations, 2.47% CTR across 19 streamers.",
     locale: "en",
+    datePublished: "2026-01-01",
+    image: "/lovable-uploads/blog-samsung-twitch-campaign-hero.jpg",
   },
   {
     route: "/case-study/surfshark",
     title: "Surfshark VPN Case Study | Beta Ads",
     description:
-      "Surfshark on Norwegian Twitch: 90,473 views, 1.39% CTR, 552 verified clicks, 704h screen time across 25 streamers — zero adblock impact.",
+      "Surfshark on Norwegian Twitch: 90,473 views, 1.39% CTR, 552 verified clicks, 704h screen time across 25 streamers. Zero adblock impact.",
     locale: "en",
+    datePublished: "2025-03-01",
+    image: null,
   },
   {
     route: "/case-study/saily",
@@ -185,13 +193,17 @@ const CASE_STUDIES = [
     description:
       "Saily eSIM launch on Norwegian Twitch: 102,794 views, 1.08% CTR, 518 verified clicks across 22 creators. Travel audience targeting via native overlays.",
     locale: "en",
+    datePublished: "2025-11-01",
+    image: null,
   },
   {
     route: "/case-study/shure",
     title: "Shure MV6 Case Study | Beta Ads",
     description:
-      "Shure MV6 launch on Norwegian Twitch: 182,554 views, 1.31% CTR, 9.12% peak CTR, 2,378 verified clicks — with just 2 streamers including Norway's #1 detoo.",
+      "Shure MV6 on Norwegian Twitch: 182,554 completed views, 2,378 verified clicks, 9.12% peak CTR with just 2 streamers. 48,617 unique Norwegian viewers.",
     locale: "en",
+    datePublished: "2025-07-01",
+    image: "/lovable-uploads/shure-mv6-banner.jpg",
   },
   {
     route: "/case-study/glorious",
@@ -199,6 +211,8 @@ const CASE_STUDIES = [
     description:
       "Glorious O3 mouse launch across Finland, Norway, and Sweden via native rich media overlays. 137K+ total views across 25 creators.",
     locale: "en",
+    datePublished: "2025-04-01",
+    image: null,
   },
   {
     route: "/case-study/gokstad",
@@ -206,13 +220,17 @@ const CASE_STUDIES = [
     description:
       "How Gokstad Akademiet recruited IT students through native Twitch overlays with 22 creators, 100K+ views, and 1.22% CTR across 49 categories.",
     locale: "en",
+    datePublished: "2025-06-01",
+    image: null,
   },
   {
     route: "/case-study/komplett",
-    title: "Komplett Retail Case Study | Beta Ads",
+    title: "Komplett Månedens Gaming Deal Case Study | Beta Ads",
     description:
       "Komplett on Twitch + Kick: 151,278 views, 1.17% CTR, 4.48% peak CTR across 34 creators. Black Friday retail activation that bypassed adblock.",
     locale: "en",
+    datePublished: "2025-08-01",
+    image: "/lovable-uploads/case-studies/komplett-preview.jpg",
   },
   {
     route: "/case-study/kristiania",
@@ -220,6 +238,8 @@ const CASE_STUDIES = [
     description:
       "Høyskolen Kristiania on Twitch: two parallel campaigns, 599,252 combined views, 5,997 clicks, 3,329h screen time across awareness and voting activations.",
     locale: "en",
+    datePublished: "2025-09-01",
+    image: null,
   },
   {
     route: "/case-study/nki",
@@ -227,6 +247,8 @@ const CASE_STUDIES = [
     description:
       "NKI on Twitch: interactive quiz campaign, 220,003 completed views, 1,595 clicks across 19 streamers. Personalized ads for distance-learning recruitment.",
     locale: "en",
+    datePublished: "2025-10-01",
+    image: "/lovable-uploads/case-studies/nki-detoo.png",
   },
 ];
 
@@ -368,6 +390,51 @@ function buildBlogPostingJsonLd({ slug, rawTitle, description, image, dateISO, k
         { "@type": "ListItem", "position": 3, "name": rawTitle, "item": pageUrl }
       ]
     }
+  ];
+
+  return schema.map(s =>
+    `  <script type="application/ld+json">\n  ${JSON.stringify(s, null, 2).replace(/\n/g, "\n  ")}\n  </script>`
+  ).join("\n");
+}
+
+// ---------------------------------------------------------------------------
+// JSON-LD builder for case study pages
+// Injects Article + BreadcrumbList so Googlebot sees structured data on
+// first-pass crawl without needing React/JS hydration.
+// ---------------------------------------------------------------------------
+function buildCaseStudyJsonLd({ route, title, description, image, datePublished }) {
+  const pageUrl = `${BASE_URL}${route}`;
+  const imageUrl = image ? (image.startsWith("http") ? image : `${BASE_URL}${image}`) : null;
+  // Strip " | Beta Ads" suffix for the Article headline
+  const headline = title.replace(/\s*\|\s*Beta Ads\s*$/, "");
+
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": headline,
+      "description": description,
+      "url": pageUrl,
+      ...(imageUrl ? { "image": imageUrl } : {}),
+      ...(datePublished ? { "datePublished": datePublished, "dateModified": "2026-05-11" } : {}),
+      "author": { "@type": "Organization", "name": "Beta Ads", "url": BASE_URL },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Beta Ads",
+        "logo": { "@type": "ImageObject", "url": `${BASE_URL}/lovable-uploads/logo-color.png` },
+      },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": pageUrl },
+      "inLanguage": "en",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": `${BASE_URL}/case-studies` },
+        { "@type": "ListItem", "position": 3, "name": headline, "item": pageUrl },
+      ],
+    },
   ];
 
   return schema.map(s =>
@@ -556,13 +623,25 @@ function main() {
 
   // Case studies
   for (const page of CASE_STUDIES) {
-    const { route, title, description, locale } = page;
-    const html = injectMeta(shell, {
+    const { route, title, description, locale, datePublished, image } = page;
+    let html = injectMeta(shell, {
       title,
       description,
       canonical: route,
       locale,
+      image,
     });
+    // Inject Article + BreadcrumbList JSON-LD for first-pass Googlebot crawl.
+    const jsonLdBlock = buildCaseStudyJsonLd({ route, title, description, image, datePublished });
+    const MARKER = "<!-- beta-ads:case-study-jsonld -->";
+    if (html.includes(MARKER)) {
+      html = html.replace(
+        new RegExp(`${MARKER}[\\s\\S]*?<!-- beta-ads:case-study-jsonld-end -->`),
+        `${MARKER}\n${jsonLdBlock}\n  <!-- beta-ads:case-study-jsonld-end -->`
+      );
+    } else {
+      html = html.replace("</head>", `    ${MARKER}\n${jsonLdBlock}\n  <!-- beta-ads:case-study-jsonld-end -->\n  </head>`);
+    }
     writeShell(path.join(DIST, route.replace(/^\//, ""), "index.html"), html);
     caseStudyCount++;
   }

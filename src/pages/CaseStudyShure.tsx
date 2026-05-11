@@ -7,15 +7,16 @@ const CaseStudyShure: React.FC = () => {
   return (
     <>
       <SEO
-        title="Shure MV7+ Case Study | Beta Ads"
+        title="Shure MV6 Case Study | Beta Ads"
         description="Shure MV6 on Norwegian Twitch: 182,554 completed views, 2,378 verified clicks, 9.12% peak CTR — with just 2 streamers. 48,617 unique Norwegian viewers."
         canonical="/case-study/shure"
         ogType="article"
+        ogImage="/lovable-uploads/shure-mv6-banner.jpg"
         jsonLd={[
           {
             "@context": "https://schema.org",
             "@type": "Article",
-            "headline": "Shure MV7+ × Beta Ads: Concentrated Creator Launch",
+            "headline": "Shure MV6 × Beta Ads: Concentrated Creator Launch",
             "description":
               "Shure used a concentrated two-streamer Beta Rich Media Overlay run for the MV7+ microphone, driving 182,554 views and a 9.12% peak-day CTR across 761 hours of on-screen presence.",
             "url": "https://beta-ads.no/case-study/shure",
