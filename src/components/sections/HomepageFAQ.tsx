@@ -77,7 +77,7 @@ export const HomepageFAQ: React.FC = () => {
             href="https://calendar.app.google/coW5NLQJtLxfRer19"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-light tracking-wide text-primary hover:text-primary/80 transition-colors duration-200"
+            className="inline-flex items-center gap-2 text-sm font-light tracking-wide text-primary hover:text-primary/80 transition-colors duration-200 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Still have questions? Book a 15-minute call
             <ArrowRight className="h-4 w-4" />

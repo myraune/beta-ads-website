@@ -35,7 +35,7 @@ export const SPCTA: React.FC = () => {
         {/* Post grid */}
         <div className={`grid md:grid-cols-2 gap-6 transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           {latestPosts.map((post) => (
-            <Link key={post.slug} to={`/blog/${post.slug}`} className="group">
+            <Link key={post.slug} to={`/blog/${post.slug}`} className="group rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background">
               <article className="rounded-2xl overflow-hidden border border-border transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-xl group-hover:shadow-black/[0.06] group-hover:border-foreground/20">
                 {/* Cover image */}
                 <div className="aspect-[16/9] overflow-hidden bg-muted">
