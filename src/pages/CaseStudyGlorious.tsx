@@ -19,6 +19,7 @@ const CaseStudyGlorious: React.FC = () => {
             "headline": "Glorious x Beta Ads: Nordic Gaming Community Campaign",
             "description": "How Glorious used rich media overlays to promote the O3 mouse across 25 Nordic Twitch streamers, reaching 137K+ views.",
             "url": "https://beta-ads.no/case-study/glorious",
+            "image": "https://beta-ads.no/lovable-uploads/og-social-preview.png",
             "datePublished": "2025-04-01",
             "dateModified": "2026-05-11",
             "author": {

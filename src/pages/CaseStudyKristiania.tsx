@@ -20,6 +20,7 @@ const CaseStudyKristiania: React.FC = () => {
             "description":
               "Høyskolen Kristiania ran two parallel native overlay campaigns (awareness + voting) across the same Norwegian creator network, delivering ~600K combined display views and ~6,000 verified clicks across an 8-week recruitment window.",
             "url": "https://beta-ads.no/case-study/kristiania",
+            "image": "https://beta-ads.no/lovable-uploads/og-social-preview.png",
             "datePublished": "2025-09-01",
             "dateModified": "2026-05-11",
             "author": {

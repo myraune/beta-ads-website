@@ -185,7 +185,7 @@ const CASE_STUDIES = [
       "Surfshark on Norwegian Twitch: 90,473 views, 1.39% CTR, 552 verified clicks, 704h screen time across 25 streamers. Zero adblock impact.",
     locale: "en",
     datePublished: "2025-03-01",
-    image: null,
+    image: "/lovable-uploads/og-social-preview.png",
   },
   {
     route: "/case-study/saily",
@@ -194,7 +194,7 @@ const CASE_STUDIES = [
       "Saily eSIM launch on Norwegian Twitch: 102,794 views, 1.08% CTR, 518 verified clicks across 22 creators. Travel audience targeting via native overlays.",
     locale: "en",
     datePublished: "2025-11-01",
-    image: null,
+    image: "/lovable-uploads/og-social-preview.png",
   },
   {
     route: "/case-study/shure",
@@ -212,7 +212,7 @@ const CASE_STUDIES = [
       "Glorious O3 mouse launch across Finland, Norway, and Sweden via native rich media overlays. 137K+ total views across 25 creators.",
     locale: "en",
     datePublished: "2025-04-01",
-    image: null,
+    image: "/lovable-uploads/og-social-preview.png",
   },
   {
     route: "/case-study/gokstad",
@@ -221,7 +221,7 @@ const CASE_STUDIES = [
       "How Gokstad Akademiet recruited IT students through native Twitch overlays with 22 creators, 100K+ views, and 1.22% CTR across 49 categories.",
     locale: "en",
     datePublished: "2025-06-01",
-    image: null,
+    image: "/lovable-uploads/og-social-preview.png",
   },
   {
     route: "/case-study/komplett",
@@ -239,7 +239,7 @@ const CASE_STUDIES = [
       "Høyskolen Kristiania on Twitch: two parallel campaigns, 599,252 combined views, 5,997 clicks, 3,329h screen time across awareness and voting activations.",
     locale: "en",
     datePublished: "2025-09-01",
-    image: null,
+    image: "/lovable-uploads/og-social-preview.png",
   },
   {
     route: "/case-study/nki",
@@ -490,7 +490,7 @@ function buildHreflangBlock(alternates) {
   return `${MARKER_START}\n${tags}\n    ${MARKER_END}`;
 }
 
-function injectMeta(shellHtml, { title, description, canonical, locale, alternates, image }) {
+function injectMeta(shellHtml, { title, description, canonical, locale, alternates, image, ogType = "website" }) {
   let html = shellHtml;
   const canonicalUrl = toAbsolute(canonical);
   const ogLocale = OG_LOCALES[locale] || "en_US";
@@ -545,6 +545,14 @@ function injectMeta(shellHtml, { title, description, canonical, locale, alternat
     html = html.replace(/<meta\s+property="og:url"\s+content="[^"]*"\s*\/?>/, ogUrlTag);
   } else {
     html = html.replace("</head>", `    ${ogUrlTag}\n  </head>`);
+  }
+
+  // og:type
+  const ogTypeTag = `<meta property="og:type" content="${ogType}" />`;
+  if (/<meta\s+property="og:type"/.test(html)) {
+    html = html.replace(/<meta\s+property="og:type"\s+content="[^"]*"\s*\/?>/, ogTypeTag);
+  } else {
+    html = html.replace("</head>", `    ${ogTypeTag}\n  </head>`);
   }
 
   // og:locale
@@ -654,6 +662,7 @@ function main() {
       canonical: route,
       locale,
       image,
+      ogType: "article",
     });
     // Inject Article + BreadcrumbList JSON-LD for first-pass Googlebot crawl.
     const jsonLdBlock = buildCaseStudyJsonLd({ route, title, description, image, datePublished });
@@ -688,6 +697,7 @@ function main() {
       locale: post.locale,
       alternates,
       image: post.image,
+      ogType: "article",
     });
     // Inject BlogPosting + BreadcrumbList JSON-LD into the static shell so
     // Googlebot sees structured data on first-pass crawl (before JS hydration).

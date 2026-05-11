@@ -11,6 +11,10 @@ const CaseStudyNki: React.FC = () => {
         description='NKI's quiz campaign on Norwegian Twitch: 220,003 completed views, 1,595 verified clicks, 90,356 unique viewers across 19 streamers in Oct-Nov 2025.'
         canonical="/case-study/nki"
         ogType="article"
+        ogImage="/lovable-uploads/case-studies/nki-detoo.png"
+        ogImageAlt="NKI quiz campaign on Norwegian Twitch - detoo streamer overlay"
+        ogImageWidth={1065}
+        ogImageHeight={583}
         jsonLd={[
           {
             "@context": "https://schema.org",
@@ -20,6 +24,7 @@ const CaseStudyNki: React.FC = () => {
             "description":
               "NKI ran a four-week interactive quiz campaign across 19 Norwegian streamers, driving 220,003 completed views and 90,356 unique viewers into the lead-capture funnel.",
             "url": "https://beta-ads.no/case-study/nki",
+            "image": "https://beta-ads.no/lovable-uploads/case-studies/nki-detoo.png",
             "datePublished": "2025-10-01",
             "dateModified": "2026-05-11",
             "author": {

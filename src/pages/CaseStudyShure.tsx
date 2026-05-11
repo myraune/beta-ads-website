@@ -21,6 +21,7 @@ const CaseStudyShure: React.FC = () => {
             "description":
               "Shure used a concentrated two-streamer Beta Rich Media Overlay run for the MV6 microphone, driving 182,554 views and a 9.12% peak-day CTR across 761 hours of on-screen presence.",
             "url": "https://beta-ads.no/case-study/shure",
+            "image": "https://beta-ads.no/lovable-uploads/shure-mv6-banner.jpg",
             "datePublished": "2025-07-01",
             "dateModified": "2026-05-11",
             "author": {

@@ -20,6 +20,7 @@ const CaseStudySaily: React.FC = () => {
             "description":
               "Saily used Beta's Rich Media Overlays across 22 Norwegian Twitch streamers, delivering 102,794 completed views with 65% of screen time inside Travel & Outdoors streams.",
             "url": "https://beta-ads.no/case-study/saily",
+            "image": "https://beta-ads.no/lovable-uploads/og-social-preview.png",
             "datePublished": "2025-11-01",
             "dateModified": "2026-05-11",
             "author": {
