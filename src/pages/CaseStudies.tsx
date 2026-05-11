@@ -208,14 +208,34 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
         description="Real campaign results from Samsung, Shure, Surfshark, Glorious, and more. Native Twitch overlay case studies with verified impressions, CTR, and ROI data."
         canonical="/case-studies"
         ogType="website"
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "WebPage",
-          "name": "Case Studies - Beta Ads",
-          "description": "See real campaign results from Samsung, Shure, Surfshark and more. Native Twitch overlay advertising case studies.",
-          "url": "https://beta-ads.no/case-studies",
-          "isPartOf": { "@id": "https://beta-ads.no/#website" }
-        }}
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "CollectionPage",
+            "name": "Case Studies - Beta Ads",
+            "description": "See real campaign results from Samsung, Shure, Surfshark and more. Native Twitch overlay advertising case studies.",
+            "url": "https://beta-ads.no/case-studies",
+            "isPartOf": { "@id": "https://beta-ads.no/#website" },
+            "hasPart": [
+              { "@type": "Article", "name": "Samsung x Beta Ads", "url": "https://beta-ads.no/case-study/samsung" },
+              { "@type": "Article", "name": "Surfshark x Beta Ads", "url": "https://beta-ads.no/case-study/surfshark" },
+              { "@type": "Article", "name": "Shure x Beta Ads", "url": "https://beta-ads.no/case-study/shure" },
+              { "@type": "Article", "name": "Glorious x Beta Ads", "url": "https://beta-ads.no/case-study/glorious" },
+              { "@type": "Article", "name": "Komplett x Beta Ads", "url": "https://beta-ads.no/case-study/komplett" },
+              { "@type": "Article", "name": "Kristiania x Beta Ads", "url": "https://beta-ads.no/case-study/kristiania" },
+              { "@type": "Article", "name": "NKI x Beta Ads", "url": "https://beta-ads.no/case-study/nki" },
+              { "@type": "Article", "name": "Saily x Beta Ads", "url": "https://beta-ads.no/case-study/saily" }
+            ]
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://beta-ads.no/" },
+              { "@type": "ListItem", "position": 2, "name": "Case Studies", "item": "https://beta-ads.no/case-studies" }
+            ]
+          }
+        ]}
       />
       <VideoModal videoId={modalVideoId} onClose={() => setModalVideoId(null)} />
 

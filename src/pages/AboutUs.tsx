@@ -86,6 +86,14 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
             },
             sameAs: ['https://www.linkedin.com/in/andreasmyraune'],
           },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://beta-ads.no/' },
+              { '@type': 'ListItem', position: 2, name: 'About Us', item: 'https://beta-ads.no/about' },
+            ],
+          },
         ]}
       />
 

@@ -3,7 +3,10 @@
  *
  * Generates public/sitemap.xml dynamically from:
  *   - A hard-coded list of static pages with their priorities
- *   - All blog post slugs parsed from src/data/blogPosts.ts
+ *   - All blog post slugs parsed from src/data/blogPosts.ts (with image data)
+ *
+ * Includes Google Image Sitemap extension so hero images from blog posts
+ * are eligible for Google Image Search, driving additional organic traffic.
  *
  * Run: node scripts/generate-sitemap.mjs
  * (called automatically as part of `npm run build`)
@@ -51,7 +54,7 @@ const STATIC_PAGES = [
 ];
 
 // ---------------------------------------------------------------------------
-// Parse blog post slugs + dates from blogPosts.ts
+// Parse blog post slugs + dates + images from blogPosts.ts
 // ---------------------------------------------------------------------------
 function parseBlogPosts() {
   const src = fs.readFileSync(
@@ -59,17 +62,21 @@ function parseBlogPosts() {
     "utf-8"
   );
 
-  // Capture blocks between array elements to pair slug + dateISO
+  // Capture blocks between array elements to pair slug + dateISO + image + title
   const posts = [];
   const blocks = src.split(/(?=^\s*\{)/m);
 
   for (const block of blocks) {
     const slugMatch   = block.match(/^\s+slug:\s*["']([^"']+)["']/m);
     const dateMatch   = block.match(/^\s+dateISO:\s*["']([^"']+)["']/m);
+    const imageMatch  = block.match(/^\s+image:\s*["']([^"']+)["']/m);
+    const titleMatch  = block.match(/^\s+title:\s*["']([^"']+)["']/m);
     if (slugMatch) {
       posts.push({
         slug:    slugMatch[1],
         dateISO: dateMatch ? dateMatch[1].split("T")[0] : TODAY,
+        image:   imageMatch ? imageMatch[1] : null,
+        title:   titleMatch ? titleMatch[1].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") : null,
       });
     }
   }
@@ -80,15 +87,26 @@ function parseBlogPosts() {
 // ---------------------------------------------------------------------------
 // Build XML
 // ---------------------------------------------------------------------------
-function urlEntry({ loc, lastmod, changefreq, priority }) {
-  return [
+function urlEntry({ loc, lastmod, changefreq, priority, image, imageTitle }) {
+  const lines = [
     "  <url>",
     `    <loc>${loc}</loc>`,
     `    <lastmod>${lastmod}</lastmod>`,
     `    <changefreq>${changefreq}</changefreq>`,
     `    <priority>${priority}</priority>`,
-    "  </url>",
-  ].join("\n");
+  ];
+  // Add image sitemap extension data when image is present
+  if (image) {
+    const imageUrl = image.startsWith("http") ? image : `${BASE_URL}${image}`;
+    lines.push(`    <image:image>`);
+    lines.push(`      <image:loc>${imageUrl}</image:loc>`);
+    if (imageTitle) {
+      lines.push(`      <image:title>${imageTitle}</image:title>`);
+    }
+    lines.push(`    </image:image>`);
+  }
+  lines.push("  </url>");
+  return lines.join("\n");
 }
 
 function main() {
@@ -109,17 +127,20 @@ function main() {
       lastmod:    p.dateISO,
       changefreq: "monthly",
       priority:   "0.65",
+      image:      p.image,
+      imageTitle: p.title,
     })
   );
 
   const xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
-    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+    '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
     "",
     "  <!-- ── Static pages ── -->",
     staticEntries.join("\n\n"),
     "",
-    "  <!-- ── Blog posts ── -->",
+    "  <!-- ── Blog posts (with image sitemap data) ── -->",
     blogEntries.join("\n\n"),
     "",
     "</urlset>",

@@ -43,19 +43,29 @@ const Blog: React.FC = () => {
         title="Insights & Blog | Beta Ads"
         description="Data-driven insights, analytics, and advertising guides for reaching Gen Z on Twitch and streaming platforms in the Nordics. Updated weekly."
         canonical="/blog"
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "Blog",
-          "name": "Beta Ads Insights",
-          "description": "Data-driven guides for the Nordic streaming market. Learn how to reach Gen Z through native stream advertising.",
-          "url": "https://beta-ads.no/blog",
-          "publisher": {
-            "@type": "Organization",
-            "name": "Beta Ads",
-            "logo": { "@type": "ImageObject", "url": "https://beta-ads.no/lovable-uploads/logo-color.png" }
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "Blog",
+            "name": "Beta Ads Insights",
+            "description": "Data-driven guides for the Nordic streaming market. Learn how to reach Gen Z through native stream advertising.",
+            "url": "https://beta-ads.no/blog",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Beta Ads",
+              "logo": { "@type": "ImageObject", "url": "https://beta-ads.no/lovable-uploads/logo-color.png" }
+            },
+            "isPartOf": { "@id": "https://beta-ads.no/#website" }
           },
-          "isPartOf": { "@id": "https://beta-ads.no/#website" }
-        }}
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://beta-ads.no/" },
+              { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://beta-ads.no/blog" }
+            ]
+          }
+        ]}
       />
 
       <div className="min-h-screen pt-28 pb-16">

@@ -53,14 +53,24 @@ const Press: React.FC = () => {
         title="Press & Media Coverage | Beta Ads"
         description="Beta Ads in the media. Featured in Kampanje, Kom24, and leading Nordic publications covering Twitch advertising innovation."
         canonical="/press"
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "WebPage",
-          "name": "Press & Media Coverage - Beta Ads",
-          "description": "Beta Ads press coverage and media mentions from leading Nordic publications.",
-          "url": "https://beta-ads.no/press",
-          "isPartOf": { "@id": "https://beta-ads.no/#website" }
-        }}
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Press & Media Coverage - Beta Ads",
+            "description": "Beta Ads press coverage and media mentions from leading Nordic publications.",
+            "url": "https://beta-ads.no/press",
+            "isPartOf": { "@id": "https://beta-ads.no/#website" }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://beta-ads.no/" },
+              { "@type": "ListItem", "position": 2, "name": "Press", "item": "https://beta-ads.no/press" }
+            ]
+          }
+        ]}
       />
       <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-32 md:pt-40 pb-20">
         <div className="mb-14">

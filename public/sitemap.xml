@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <!-- ── Static pages ── -->
   <url>
@@ -170,12 +171,16 @@
     <priority>0.2</priority>
   </url>
 
-  <!-- ── Blog posts ── -->
+  <!-- ── Blog posts (with image sitemap data) ── -->
   <url>
     <loc>https://beta-ads.no/blog/twitch-game-lift-playable-demos-advertisers-2026</loc>
     <lastmod>2026-04-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-top-twitch-gaming-categories-2026-hero.jpg</image:loc>
+      <image:title>Twitch Game Lift Turns Livestreams Into Playable Demos. Here Is What That Means for Game Advertisers.</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -183,6 +188,10 @@
     <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/blog-photos/youtube/youtube-003.jpg</image:loc>
+      <image:title>YouTube Now Pauses Ads to Protect the Vibe: What Livestream Ad Timing Means for Brands in 2026</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -190,6 +199,10 @@
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/blog-photos/twitch/twitch-005.jpg</image:loc>
+      <image:title>Twitch</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -197,6 +210,10 @@
     <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-streaming-sponsorship-creator-economy-hero.jpg</image:loc>
+      <image:title>Twitch Opens Sponsored Campaigns to Affiliates: What the Minecraft Tiny Takeover Means for Nordic Brand Advertising</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -204,6 +221,10 @@
     <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-kick-q3-2025-growth-nordic-advertising-opportunity-hero.jpg</image:loc>
+      <image:title>Kick Just Hit 100 Million Users. Its Co-Founder Called It a Vanity Metric. Here Is What Nordic Advertisers Should Take From That.</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -211,6 +232,10 @@
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-nordic-streaming-ad-budget-shift-hero.jpg</image:loc>
+      <image:title>Creator Content Is Escaping Social Media: The $11 Billion Paid Amplification Shift Nordic Brands Should Understand</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -218,6 +243,10 @@
     <lastmod>2026-04-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-first-party-data-streaming-hero.jpg</image:loc>
+      <image:title>Twitch Just Rewrote Its Data-Sharing Rules and Launched Vertical Streaming. Here Is What Changed for Advertisers.</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -225,6 +254,10 @@
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-streamer-burnout-brand-risk-2026-hero.jpg</image:loc>
+      <image:title>Streamer Burnout in 2026: The Campaign Risk Nordic Brands Aren</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -232,6 +265,10 @@
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-adblock-gen-z-overlay-twitch-hero.jpg</image:loc>
+      <image:title>Adblock gjor digital annonsering usynlig for Gen Z: Slik loser overlay ads pa Twitch problemet</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -239,6 +276,10 @@
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-poll-sponsorship-twitch-2026-hero.jpg</image:loc>
+      <image:title>The Poll Sponsorship Model: How Brands Are Turning Twitch Predictions Into Their Most Interactive Ad Format</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -246,6 +287,10 @@
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-inside-tournament-window-esports-2026-hero.jpg</image:loc>
+      <image:title>Inside the Tournament Window: A Nordic Brand</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -253,6 +298,10 @@
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-gaming-advertising-blind-spot-2026-hero.jpg</image:loc>
+      <image:title>3.4 Billion Gamers, Less Than 5% of Ad Spend: The Blind Spot Costing Nordic Brands</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -260,6 +309,10 @@
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-live-streaming-market-growth-2026-hero.jpg</image:loc>
+      <image:title>Why $87.5 Billion Is Just the Beginning: What Live Streaming</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -267,6 +320,10 @@
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-live-stream-ad-receptivity-hero.jpg</image:loc>
+      <image:title>The Attention Compact: Why Live Streaming Viewers Accept Ads That Audiences of Every Other Format Reject</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -274,6 +331,10 @@
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-launch-window-event-advertising-hero.jpg</image:loc>
+      <image:title>The Launch Window Advantage: How Game Releases and Esports Events Create Live Streaming Ad Opportunities Most Brands Miss</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -281,6 +342,10 @@
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-from-flat-fee-to-performance-pay-streamer-deals-2026-hero.jpg</image:loc>
+      <image:title>From Flat Fee to Performance Pay: How Hybrid Streamer Deal Structures Are Changing Nordic Advertising</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -288,6 +353,10 @@
     <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-mid-tier-streamer-sweet-spot-hero.jpg</image:loc>
+      <image:title>The Mid-Tier Sweet Spot: Why Streamers With 10,000 to 50,000 Followers Deliver the Highest Advertising ROI</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -295,6 +364,10 @@
     <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-nordic-game-2026-streaming-advertising-hero.jpg</image:loc>
+      <image:title>Nordic Game 2026 Is Eight Weeks Away. Here Is What the Region</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -302,6 +375,10 @@
     <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-gen-z-creator-trust-2026-hero.jpg</image:loc>
+      <image:title>61% of Gen Z Trust Creators More Than Brand Ads. The $12.6 Trillion Spending Shift Has Already Begun.</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -309,6 +386,10 @@
     <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/blog-photos/analytics/analytics-005.jpg</image:loc>
+      <image:title>The First-Party Data Advantage: How Live Streaming Lets Nordic Brands Target Without Third-Party Cookies</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -316,6 +397,10 @@
     <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-multistreaming-revolution-hero.jpg</image:loc>
+      <image:title>The Multistreaming Revolution: Why Nordic Brands Can No Longer Assume Their Campaign Runs on Just One Platform</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -323,6 +408,10 @@
     <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-gen-z-interactive-ads-hero.jpg</image:loc>
+      <image:title>One in Three Gen Z Viewers Want to Interact With Ads on Stream. Most Brands Are Not Ready.</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -330,6 +419,10 @@
     <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-ctv-vs-live-streaming-nordic-2026-hero.jpg</image:loc>
+      <image:title>CTV Is Growing at Record Speed. It Is Also Describing a Different Problem Than Live Streaming Solves.</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -337,6 +430,10 @@
     <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/screenshot-kick.jpg</image:loc>
+      <image:title>Kick</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -344,6 +441,10 @@
     <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/blog-photos/youtube/youtube-007.jpg</image:loc>
+      <image:title>YouTube Crossed $60 Billion in 2025: What the World</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -351,6 +452,10 @@
     <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-twitch-cpm-media-buying-guide-2026-hero.jpg</image:loc>
+      <image:title>Twitch CPMs in 2026: A Media Buyer</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -358,6 +463,10 @@
     <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-pause-ad-revolution-twitch-2026-hero.jpg</image:loc>
+      <image:title>The Pause Ad Revolution: Why Twitch and YouTube Are Abandoning Pre-Roll - and What It Means for Nordic Brands</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -365,6 +474,10 @@
     <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-brands-as-showrunners-serialized-livestream-content-2026-hero.jpg</image:loc>
+      <image:title>Why Brands Are Becoming Showrunners: The Serialized Livestream Strategy Behind $4.8 Billion in Sponsorships</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -372,6 +485,10 @@
     <lastmod>2026-03-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-clipping-economy-hero.webp</image:loc>
+      <image:title>The Clipping Economy: The Marketing Channel 99% of Brands Haven</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -379,6 +496,10 @@
     <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-sponsorship-verification-hero.jpg</image:loc>
+      <image:title>The Sponsorship Verification Gap: Why Most Brands Still Can</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -386,6 +507,10 @@
     <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-gaming-setup.jpg</image:loc>
+      <image:title>After the Stream: How AI Clipping Turns Live Broadcasts into Always-On Brand Exposure</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -393,6 +518,10 @@
     <lastmod>2026-03-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-streaming-shakeout-trovo-shutdown-hero.jpg</image:loc>
+      <image:title>The Streaming Shakeout: Trovo Shuts Down and What Platform Exits Mean for Live Advertisers</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -400,6 +529,10 @@
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-nordic-streaming-market-ad-budget-shift-2026-hero.jpg</image:loc>
+      <image:title>The €10.7 Billion Nordic Streaming Market Is Reshaping Ad Budgets - And Live Content Is Getting the Biggest Share</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -407,6 +540,10 @@
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-twitch-shoppable-ads-hero.jpg</image:loc>
+      <image:title>From Click to Cart: How Twitch</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -414,6 +551,10 @@
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-community-casting-esports-2026-hero.jpg</image:loc>
+      <image:title>Community Casting Is Rewriting Esports Viewership - and Opening a New Advertising Frontier in 2026</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -421,6 +562,10 @@
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-micro-streamer-roi-nordic-brands-2026-hero.jpg</image:loc>
+      <image:title>The Micro-Streamer Advantage: Why Small Creators Drive Outsized ROI for Nordic Brands</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -428,6 +573,10 @@
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-avod-nordic-streaming-2026-hero.jpg</image:loc>
+      <image:title>Why 80% of New Nordic Streaming Subscriptions Are Ad-Supported - and What Brands Should Do About It</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -435,6 +584,10 @@
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-nordic-streaming-tipping-point-2026-hero.jpg</image:loc>
+      <image:title>The Nordic Streaming Tipping Point: What 80% Household Penetration Means for Advertisers in 2026</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -442,6 +595,10 @@
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-creator-first-brand-strategies-2026-hero.jpg</image:loc>
+      <image:title>Creator-First Brand Strategies: What Pringles, Crocs, and SoundCloud Teach Nordic Advertisers About Live Streaming</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -449,6 +606,10 @@
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-twitch-session-length-brand-recall-2026-hero.jpg</image:loc>
+      <image:title>The 90-Minute Advantage: Why Twitch Session Length Creates Brand Recall No Other Platform Can Match</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -456,6 +617,10 @@
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-livestream-ad-spend-50b-nordic-hero.jpg</image:loc>
+      <image:title>Live Streaming Ad Spend Crosses $50 Billion in 2026: The Nordic Opportunity Brands Can</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -463,6 +628,10 @@
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-platform-diversification-nordic-2026-hero.jpg</image:loc>
+      <image:title>The Platform Diversification Imperative: Why Nordic Advertisers Can</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -470,6 +639,10 @@
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-nordic-esports-advertising-2026-hero.jpg</image:loc>
+      <image:title>The Nordic Esports Advertising Opportunity: Why Brands Are Entering a $212M Market</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -477,6 +650,10 @@
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-tiktok-live-overtakes-twitch-2026-hero.jpg</image:loc>
+      <image:title>TikTok Live Overtakes Twitch: What the New Streaming Hierarchy Means for Nordic Advertisers in 2026</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -484,6 +661,10 @@
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-gen-z-streaming-ad-relevance-gap-2026-hero.jpg</image:loc>
+      <image:title>The Gen Z Streaming Ad Gap: Why 73% of Ads Miss - and How Native Formats Bridge It</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -491,6 +672,10 @@
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-long-term-streamer-partnerships-2026-hero.jpg</image:loc>
+      <image:title>Long-Term Streamer Partnerships vs One-Off Campaigns: The Performance Gap Nordic Brands Need to Know</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -498,6 +683,10 @@
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/screenshot-twitch-stream.jpg</image:loc>
+      <image:title>AI-Powered Dynamic Ad Insertion: The Technology Scaling Native Live Stream Advertising</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -505,6 +694,10 @@
     <lastmod>2026-03-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-overlay-ad-engagement-doubled-2025-hero.jpg</image:loc>
+      <image:title>Overlay Ad Engagement Nearly Doubled in 2025: The Data Case for Native Livestream Advertising</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -512,6 +705,10 @@
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-affiliate-sponsored-brand-deal-twitch-hero.jpg</image:loc>
+      <image:title>Affiliate, Sponsored, and Brand Deal Content on Twitch: What</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -519,6 +716,10 @@
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-how-to-brief-streamer-native-ad-2026-hero.jpg</image:loc>
+      <image:title>How to Brief a Streamer for a Native Ad Integration: The Complete Guide</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -526,6 +727,10 @@
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-discord-communities-amplify-twitch-hero.jpg</image:loc>
+      <image:title>Why Discord Communities Amplify the Value of a Twitch Sponsorship</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -533,6 +738,10 @@
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-women-esports-streaming-advertising-2026-hero.jpg</image:loc>
+      <image:title>The Growth of Women in Esports and Streaming: The Ad Audience Brands Are Underserving</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -540,6 +749,10 @@
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-ai-tools-streamers-content-creation-2026-hero.jpg</image:loc>
+      <image:title>How AI Tools Are Changing Content Creation for Streamers - and What It Means for Advertisers</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -547,6 +760,10 @@
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-brand-safety-live-streaming-2026-hero.jpg</image:loc>
+      <image:title>Brand Safety in Live Streaming: What It Means and How to Manage It in 2026</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -554,6 +771,10 @@
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-parasocial-relationships-streamers-hero.jpg</image:loc>
+      <image:title>The Psychology of Parasocial Relationships: Why Streamer Trust Drives Real Purchase Intent</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -561,6 +782,10 @@
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-co-streaming-squad-streams-2026-hero.jpg</image:loc>
+      <image:title>Why Co-Streaming and Squad Streams Are Changing Reach Calculations for Brands</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -568,6 +793,10 @@
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-top-twitch-gaming-categories-2026-hero.jpg</image:loc>
+      <image:title>Top Gaming Categories on Twitch in 2026: Hours Watched and Advertiser Fit</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -575,6 +804,10 @@
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-streamer-sponsorship-roi-metrics-2026-hero.jpg</image:loc>
+      <image:title>How to Measure ROI on Streamer Sponsorships: The Metrics That Actually Matter</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -582,6 +815,10 @@
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-kick-vs-twitch-nordics-2026-hero.jpg</image:loc>
+      <image:title>Kick vs Twitch in the Nordics: A Platform Comparison for Brands in 2026</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -589,6 +826,10 @@
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-just-chatting-irl-streaming-2026-hero.jpg</image:loc>
+      <image:title>The Rise of Just Chatting and IRL Streaming: Why Non-Gaming Content Is Twitch</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -596,6 +837,10 @@
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-twitch-recommendation-algorithm-2026-hero.jpg</image:loc>
+      <image:title>How Twitch</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -603,6 +848,10 @@
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-ad-blocker-crisis-livestream-2026-hero.jpg</image:loc>
+      <image:title>The Ad Blocker Crisis in Live Streaming: Why 64% of Viewers Block Ads - and What Actually Works</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -610,6 +859,10 @@
     <lastmod>2026-03-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-why-native-stream-ads-outperform-hero.jpg</image:loc>
+      <image:title>Why Native Stream Ads Outperform Traditional Video Ads 3:1</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -617,6 +870,10 @@
     <lastmod>2026-03-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-beyond-banner-blindness-nordic-hero.jpg</image:loc>
+      <image:title>Beyond Banner Blindness: How to Scale Stream Advertising in the Nordics</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -624,6 +881,10 @@
     <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-livestream-commerce-nordic-2026-hero.jpg</image:loc>
+      <image:title>The Rise of Livestream Commerce: What Nordic Brands Need to Know in 2026</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -631,6 +892,10 @@
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-native-stream-ads-vs-display-ads-hero.jpg</image:loc>
+      <image:title>Why Native Stream Ads Outperform Traditional Display Ads in 2026</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -638,6 +903,10 @@
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/blog-photos/twitch/twitch-008.jpg</image:loc>
+      <image:title>How Twitch Advertising Actually Works in 2026</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -645,6 +914,10 @@
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/blog-photos/streamers/streamers-003.jpg</image:loc>
+      <image:title>The Rise of Streamer-First Advertising: Why the Creator Now Sets the Brief</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -652,6 +925,10 @@
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/blog-photos/twitch/twitch-002.jpg</image:loc>
+      <image:title>Twitch-annonsering i Norge: Komplett Guide 2026</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -659,6 +936,10 @@
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/blog-photos/twitch/twitch-006.jpg</image:loc>
+      <image:title>Twitch-reklam i Sverige: Komplett Guide 2026</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -666,6 +947,10 @@
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/blog-photos/twitch/twitch-011.jpg</image:loc>
+      <image:title>Twitch-mainonta Suomessa: Täydellinen opas 2026</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -673,6 +958,10 @@
     <lastmod>2026-02-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-twitch-statistics-2025-hero.jpg</image:loc>
+      <image:title>Twitch Statistics 2025: 19.2B Hours, Market Share &amp; Platform Trends</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -680,6 +969,10 @@
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/blog-photos/streamers/streamers-007.jpg</image:loc>
+      <image:title>Top Norwegian Twitch Streamers 2025: The Creators Actually Moving Norwegian 18-34 Attention</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -687,6 +980,10 @@
     <lastmod>2026-02-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/blog-photos/gaming/gaming-005.jpg</image:loc>
+      <image:title>The Most-Watched Twitch Games of 2025: Where Gen Z Attention Actually Lives</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -694,6 +991,10 @@
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/blog-photos/nordic/nordic-004.jpg</image:loc>
+      <image:title>The Nordic Twitch Market in 2025: Regional Performance, Creator Depth, and What Advertisers Should Actually Buy</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -701,6 +1002,10 @@
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/blog-photos/twitch/twitch-010.jpg</image:loc>
+      <image:title>Twitch vs YouTube Gaming vs Kick in 2025: Where Nordic Brand Budgets Should Actually Go</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -708,6 +1013,10 @@
     <lastmod>2026-02-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-twitch-advertising-benchmarks-2025-hero.jpg</image:loc>
+      <image:title>Twitch Advertising Benchmarks 2025: The Numbers That Actually Predict Campaign Performance</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -715,6 +1024,10 @@
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-swedish-twitch-streamers-2025-hero.jpg</image:loc>
+      <image:title>Top Swedish Twitch Streamers 2025: Who Actually Holds Swedish 18-34 Attention</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -722,6 +1035,10 @@
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-finnish-twitch-streamers-2025-hero.jpg</image:loc>
+      <image:title>Top Finnish Twitch Streamers 2025: The Esports-Heritage Market Advertisers Miss</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -729,6 +1046,10 @@
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-kick-streaming-growth-2025-hero.jpg</image:loc>
+      <image:title>Kick</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -736,6 +1057,10 @@
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-top-streaming-games-2025-hero.jpg</image:loc>
+      <image:title>The Top Streaming Games of 2025: What the Rankings Tell Advertisers About 2026 Inventory</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -743,6 +1068,10 @@
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-non-gaming-content-twitch-2025-hero.jpg</image:loc>
+      <image:title>Non-Gaming Content on Twitch in 2025: Why Just Chatting and IRL Are the Real 2026 Opportunity</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -750,6 +1079,10 @@
     <lastmod>2026-04-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-top-streamers-2025-hero.jpg</image:loc>
+      <image:title>Top Streamers of 2025: What Kai Cenat, Caedrel and Maherco Tell Nordic Advertisers</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -757,6 +1090,10 @@
     <lastmod>2026-02-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-esports-viewership-2025-hero.jpg</image:loc>
+      <image:title>Esports Viewership 2025: 2.8B Hours &amp; World Cup +73% Growth</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -764,6 +1101,10 @@
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-tjene-penger-twitch-hero.jpg</image:loc>
+      <image:title>Hvordan tjene penger på Twitch: Den ultimate guiden (2026)</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -771,6 +1112,10 @@
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-creator-marketing-lifecycle-hero.jpg</image:loc>
+      <image:title>Why the Creator Marketing Lifecycle Is Broken - And How Smart Brands Are Fixing It</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -778,6 +1123,10 @@
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-brands-winning-live-streaming-hero.jpg</image:loc>
+      <image:title>Non-Gaming Brands Are Dominating Twitch Chat - Here</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -785,6 +1134,10 @@
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-igaming-betting-streaming-hero.jpg</image:loc>
+      <image:title>iGaming Brands Are Betting Big on Live Streaming - What Nordic Advertisers Can Learn</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -792,6 +1145,10 @@
     <lastmod>2026-03-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-chzzk-korea-streaming-hero.jpg</image:loc>
+      <image:title>Chzzk Explained: How Korea</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -799,6 +1156,10 @@
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/screenshot-kick2.jpg</image:loc>
+      <image:title>Sommerkampanjer på Twitch: Hvorfor gaming-annonsering fungerer når alt annet stopper opp</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -806,6 +1167,10 @@
     <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/screenshot-twitch-browse.jpg</image:loc>
+      <image:title>Gaming-markedsføring for merkevarer: Slik lager du din første Twitch-kampanje</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -813,6 +1178,10 @@
     <lastmod>2026-04-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-twitch-overview.webp</image:loc>
+      <image:title>Twitch-statistikk: De beste verktøyene for å tracke streamere og kampanjer i 2026</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -820,6 +1189,10 @@
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-nintendo-livestreaming-hero.jpg</image:loc>
+      <image:title>Nintendo dominerer livestreaming: Hva annonsører kan lære av spillgigantens seertall</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -827,6 +1200,10 @@
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-creator-communities-hero.webp</image:loc>
+      <image:title>Creator communities: Fremtiden for influencer-markedsføring på livestreaming</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -834,6 +1211,10 @@
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-highguard-shadow-drop-hero.jpg</image:loc>
+      <image:title>Shadow drops og livestreaming: Hvorfor overraskelseslanseringer er en risikosport for annonsører</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -841,6 +1222,10 @@
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-game-publishers-livestreaming-hero.webp</image:loc>
+      <image:title>De mest sette spillutgiverne på livestreaming i 2026: Hva annonsører bør vite</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -848,6 +1233,10 @@
     <lastmod>2026-04-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/screenshot-streamscharts.jpg</image:loc>
+      <image:title>Medieplanlegging for Twitch: Slik integrerer du livestreaming i den nordiske mediemiksen</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -855,6 +1244,10 @@
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/twitch-ad-example.png</image:loc>
+      <image:title>Slik designer du overlay ads som fungerer: Beste praksis for kreativ Twitch-annonsering</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -862,6 +1255,10 @@
     <lastmod>2026-04-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-twitch-streamer.jpg</image:loc>
+      <image:title>Merkevarer utenfor gaming på Twitch: Hvorfor FMCG, finans og retail lykkes med livestream-annonsering</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -869,6 +1266,10 @@
     <lastmod>2026-04-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/rubengks-profile.png</image:loc>
+      <image:title>Norges største Twitch-streamer jobber med Shure og Samsung. Her er hvordan samarbeidene ble bygget.</image:title>
+    </image:image>
   </url>
 
   <url>
@@ -876,6 +1277,10 @@
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/blog-photos/gaming/gaming-001.jpg</image:loc>
+      <image:title>Beta Ads 2.0: Self-Serve Live Streaming Advertising Is Here</image:title>
+    </image:image>
   </url>
 
 </urlset>
