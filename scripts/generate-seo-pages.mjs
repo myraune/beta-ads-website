@@ -307,17 +307,72 @@ function parseBlogPosts() {
       pickLocale(seoDescBlock, "en") ||
       excerpt;
     const image = chunk.match(/image:\s*["']([^"']+)["']/)?.[1] || null;
+    const dateISO = chunk.match(/dateISO:\s*["']([^"']+)["']/)?.[1] || null;
+    const rawTitle = chunk.match(/^\s*title:\s*["']([^"']+)["']/m)?.[1] || seoTitle;
+    const seoKeywordsBlock = chunk.match(/seoKeywords:\s*\{([\s\S]*?)\n\s*\}/)?.[1] || "";
+    const keywords = (seoKeywordsBlock.match(/["']([^"']+)["']/g) || [])
+      .map(k => k.replace(/["']/g, ""))
+      .filter(k => !["en", "no", "sv", "fi"].includes(k))
+      .slice(0, 8)
+      .join(", ");
 
     posts.push({
       slug,
       title: seoTitle,
+      rawTitle,
       description: seoDescription,
       locale,
       category,
       image,
+      dateISO,
+      keywords,
     });
   }
   return posts;
+}
+
+// ---------------------------------------------------------------------------
+// JSON-LD builder for blog posts
+// Injected into static shells so Googlebot sees it on first-pass crawl
+// without needing to execute React's useEffect-driven react-helmet-async.
+// ---------------------------------------------------------------------------
+function buildBlogPostingJsonLd({ slug, rawTitle, description, image, dateISO, keywords, locale }) {
+  const pageUrl = `${BASE_URL}/blog/${slug}`;
+  const imageUrl = image ? (image.startsWith("http") ? image : `${BASE_URL}${image}`) : null;
+
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": rawTitle,
+      "description": description,
+      "url": pageUrl,
+      ...(imageUrl ? { "image": imageUrl } : {}),
+      ...(dateISO ? { "datePublished": dateISO, "dateModified": dateISO } : {}),
+      "author": { "@type": "Organization", "name": "Beta Ads", "url": BASE_URL },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Beta Ads",
+        "logo": { "@type": "ImageObject", "url": `${BASE_URL}/lovable-uploads/logo-color.png` }
+      },
+      "mainEntityOfPage": { "@type": "WebPage", "@id": pageUrl },
+      "inLanguage": locale,
+      ...(keywords ? { "keywords": keywords } : {}),
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": `${BASE_URL}/` },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${BASE_URL}/blog` },
+        { "@type": "ListItem", "position": 3, "name": rawTitle, "item": pageUrl }
+      ]
+    }
+  ];
+
+  return schema.map(s =>
+    `  <script type="application/ld+json">\n  ${JSON.stringify(s, null, 2).replace(/\n/g, "\n  ")}\n  </script>`
+  ).join("\n");
 }
 
 // ---------------------------------------------------------------------------
@@ -523,7 +578,7 @@ function main() {
             { hreflang: post.locale, href: canonical },
             { hreflang: "x-default", href: canonical },
           ];
-    const html = injectMeta(shell, {
+    let html = injectMeta(shell, {
       title: post.title,
       description: post.description,
       canonical,
@@ -531,6 +586,16 @@ function main() {
       alternates,
       image: post.image,
     });
+    // Inject BlogPosting + BreadcrumbList JSON-LD into the static shell so
+    // Googlebot sees structured data on first-pass crawl (before JS hydration).
+    const jsonLdBlock = buildBlogPostingJsonLd(post);
+    // Insert before </head> using a marker to avoid duplicates on re-runs.
+    const MARKER = "<!-- beta-ads:blog-jsonld -->";
+    if (html.includes(MARKER)) {
+      html = html.replace(new RegExp(`${MARKER}[\\s\\S]*?<!-- beta-ads:blog-jsonld-end -->`), `${MARKER}\n${jsonLdBlock}\n  <!-- beta-ads:blog-jsonld-end -->`);
+    } else {
+      html = html.replace("</head>", `    ${MARKER}\n${jsonLdBlock}\n  <!-- beta-ads:blog-jsonld-end -->\n  </head>`);
+    }
     writeShell(path.join(DIST, "blog", post.slug, "index.html"), html);
     blogCount++;
   }
