@@ -264,7 +264,7 @@ The streaming ad market is moving from "how many eyeballs" to "which eyeballs, a
 
 In early April 2026, Twitch published its clearest ad product roadmap in several years. The headline features are easy to list: AI-generated sponsored instant replays, dual-format streaming that broadcasts in both 16:9 and 9:16 simultaneously, and a significantly expanded Stream Rewind product that brings sponsorship opportunities into on-demand viewing. The details, and what they actually mean for advertisers, are less obvious.
 
-The through-line is consistent with what Amazon has been telegraphing since the 2024 advertising integration: Twitch is being rebuilt as a performance-friendly inventory source inside Amazon's broader ad ecosystem, and the company is moving faster on new formats than at any point since the original Ad Manager launch. For brands that have been waiting for the platform to mature beyond pre-rolls and display overlays, this is the moment it starts happening.
+The through-line is consistent with what Amazon has been telegraphing since the 2024 advertising integration: [Twitch advertising](/twitch-advertising) is being rebuilt as a performance-friendly inventory source inside Amazon's broader ad ecosystem, and the company is moving faster on new formats than at any point since the original Ad Manager launch. For brands that have been waiting for the platform to mature beyond pre-rolls and display overlays, this is the moment it starts happening.
 
 For Nordic brands specifically, the roadmap matters because the formats that land first in English-language markets typically arrive in the Nordics six to twelve months later, via creator partnerships rather than direct platform buying. The brands that understand these products before they reach Nordic inventory have a real window to test, learn, and build playbooks before the format becomes table stakes.
 
@@ -619,7 +619,7 @@ This is a structural shift in how brands think about creator partnerships. A cre
 
 The IAB framework breaks creator ad spend into four categories. Understanding them matters because most Nordic advertisers still operate in only the first two.
 
-**Adjacent placement** means buying ad inventory that appears alongside creator content, such as pre-roll before a YouTube video or a display ad on a Twitch channel page. The brand does not work with the creator directly. It buys proximity.
+**Adjacent placement** means buying ad inventory that appears alongside creator content, such as pre-roll before a [YouTube Live](/youtube-advertising) video or a display ad on a [Twitch](/twitch-advertising) channel page. The brand does not work with the creator directly. It buys proximity.
 
 **Direct partnerships** are the traditional model: a brand pays a creator to produce and post content. The creator integrates the message into their own feed, stream, or video. This remains the largest single category.
 
@@ -845,7 +845,7 @@ None of these changes individually reshape the market. Together, they describe a
     excerpt: "Creator burnout is disrupting live stream campaigns across the industry. For Nordic brands operating in a smaller creator ecosystem, the risk is sharper than most realize.",
     content: `## The crisis no brand manager sees coming
 
-Streaming in 2026 has become a pressure cooker. The platforms that host live content reward consistency above everything else, pushing creators to produce daily or risk losing the algorithmic momentum it took months to build. Twitch, YouTube Live, and Kick all optimize for watch time and viewer retention, which means streamers who step away, even briefly, watch their audience numbers drop.
+Streaming in 2026 has become a pressure cooker. The platforms that host live content reward consistency above everything else, pushing creators to produce daily or risk losing the algorithmic momentum it took months to build. [Twitch](/twitch-advertising), [YouTube Live](/youtube-advertising), and [Kick](/kick-advertising) all optimize for watch time and viewer retention, which means streamers who step away, even briefly, watch their audience numbers drop.
 
 The result is predictable. A growing number of creators are hitting their limits. Streamer burnout, once a topic discussed in hushed tones on creator forums, is now a widely documented problem. Major streamers have taken extended breaks mid-partnership. Some have exited the scene entirely. The conversation has shifted from "is this real?" to "how bad is it getting?"
 
@@ -1197,7 +1197,7 @@ The Nordic region's esports audience follows a fairly predictable concentration 
 
 **Q3**: Nordic Game in Gothenburg (August) is not a broadcast esports event in the traditional sense. It is a B2B and B2C gaming conference. But the cultural moment it creates generates significant streaming activity, developer reveals, and community content. Brands that activate during Nordic Game have access to an audience that skews industry professional and enthusiast.
 
-**Q4**: The League of Legends World Championship is the single biggest annual event for Nordic live streaming. Korean and Chinese dominance in recent years has slightly dampened Nordic-team enthusiasm, but the spectacle viewership remains enormous. The Grand Finals consistently produce the year's highest concurrent viewer counts on both Twitch and YouTube.
+**Q4**: The League of Legends World Championship is the single biggest annual event for Nordic live streaming. Korean and Chinese dominance in recent years has slightly dampened Nordic-team enthusiasm, but the spectacle viewership remains enormous. The Grand Finals consistently produce the year's highest concurrent viewer counts on both [Twitch](/twitch-advertising) and [YouTube](/youtube-advertising).
 
 ![Esports arena during a major competitive gaming event](/lovable-uploads/blog-inside-tournament-window-esports-2026-1.jpg)
 
@@ -1306,7 +1306,7 @@ New research from dentsu frames this as one of the most significant structural b
 
 The dentsu Gaming Trends Report puts the scale of the opportunity in direct terms. Time spent gaming is up 6% year-on-year. 70% of players say games help them connect socially, making gaming a primary social network, not just an entertainment format. Gen Z gamers are 32% more likely than average to play specifically for social reasons.
 
-The purchase data is equally direct. 44% of Twitch viewers have purchased products recommended by streamers. 45% of Gen Z and Millennial gamers say they are interested in buying physical products while gaming. Gen Z and Millennials are 64% more likely than older generations to discover new brands through gaming-adjacent content.
+The purchase data is equally direct. 44% of [Twitch](/twitch-advertising) viewers have purchased products recommended by streamers. 45% of Gen Z and Millennial gamers say they are interested in buying physical products while gaming. Gen Z and Millennials are 64% more likely than older generations to discover new brands through gaming-adjacent content.
 
 On the attention side, 61% of consumers say they skip or ignore traditional advertising. But 56% say they are more favorable toward brands that engage meaningfully with entertainment and gaming. The audience is not unreachable. It is selectively reachable, and the selectivity is based on whether the brand has earned a place in the environment.
 
@@ -1590,7 +1590,7 @@ Moment marketing, the practice of timing campaign activity to coincide with high
 
 ## What Happens When a Major Game Launches
 
-When a significant game title releases, the streaming audience behavior follows a recognizable pattern. In the days before launch, anticipation content floods Twitch, YouTube Live, and Kick. Early access streams from larger creators draw millions of viewers. Release day itself generates a sustained surge that typically peaks across multiple streaming platforms simultaneously. The week following release keeps viewership elevated as audiences watch others explore content they are also playing, or deciding whether to buy.
+When a significant game title releases, the streaming audience behavior follows a recognizable pattern. In the days before launch, anticipation content floods [Twitch](/twitch-advertising), [YouTube Live](/youtube-advertising), and [Kick](/kick-advertising). Early access streams from larger creators draw millions of viewers. Release day itself generates a sustained surge that typically peaks across multiple streaming platforms simultaneously. The week following release keeps viewership elevated as audiences watch others explore content they are also playing, or deciding whether to buy.
 
 This window is valuable for brands in ways that standard advertising cannot replicate. The viewer who spent four hours watching launch streams for a major title is not casually browsing. They are deeply engaged with exactly the kind of content and culture that the most commercially responsive streaming audience inhabits. An overlay ad or integrated mention during this window reaches an audience that is alert, involved, and spending time and money on the category.
 
@@ -1714,7 +1714,7 @@ The assumption that streamers resist performance deals does not hold up in pract
 
 A mid-tier Nordic streamer with 15,000 dedicated viewers and a community that trusts their recommendations might earn 800 euros on a flat deal. On a hybrid structure with a reasonable promo code bonus, the same integration could earn 1,800 euros if their audience converts at its historical rate. The performance deal is not a risk for this streamer. It is an upside.
 
-The selection effect is also valuable for brands. Streamers who accept performance-based structures are signaling something meaningful about their confidence in their audience relationship. The 44 percent of Twitch viewers who have purchased a product because a streamer recommended it, per Dentsu's 2025 Gaming Trends Report, are concentrated in exactly these communities, where the streamer-viewer relationship is strong enough that the creator is willing to put their earnings on the line.
+The selection effect is also valuable for brands. Streamers who accept performance-based structures are signaling something meaningful about their confidence in their audience relationship. The 44 percent of [Twitch](/twitch-advertising) viewers who have purchased a product because a streamer recommended it, per Dentsu's 2025 Gaming Trends Report, are concentrated in exactly these communities, where the streamer-viewer relationship is strong enough that the creator is willing to put their earnings on the line.
 
 ## What the Data Shows
 
@@ -1891,7 +1891,7 @@ For advertisers, the question is not whether to be in this market. It is how to 
 
 ## The Live Streaming Layer
 
-Nordic gaming culture and live streaming are essentially inseparable at this point. The platforms that carry streaming in the region — Twitch, YouTube Gaming, Kick — aggregate the audiences that gaming culture produces and make them reachable to advertisers in real time.
+Nordic gaming culture and live streaming are essentially inseparable at this point. The platforms that carry streaming in the region — [Twitch advertising](/twitch-advertising), [YouTube Gaming](/youtube-advertising), [Kick advertising](/kick-advertising) — aggregate the audiences that gaming culture produces and make them reachable to advertisers in real time.
 
 The global numbers from 2025 give a sense of the scale. Livestreaming hit 36.4 billion hours watched globally, matching pandemic-era peaks and confirming that live video is a permanent behavioral fixture, not a temporary phenomenon. Twitch still leads gaming livestream hours in the Nordics, though its global share has moved from around 70% to 54% as YouTube Gaming posted its strongest year ever (8.8 billion hours, up 12% year-on-year) and Kick grew 55% in Q3 2025 alone.
 
@@ -2007,7 +2007,7 @@ Live streaming is structurally resistant to this problem. A streamer going live 
 
 ## 42.8% of Gen Z Watch Livestreams. Most Ad Budgets Are Not Allocated Accordingly.
 
-Current research puts Gen Z livestream viewership at 42.8% - meaningfully higher than the general population average. Among that group, 52% are on ad-supported streaming tiers, and 43% of those viewers report above-average weekly spending. The audience that brands most want to reach is disproportionately present in live streaming environments, in an ad-supported context, at a moment in their financial lives when spending habits are forming.
+Current research puts Gen Z livestream viewership at 42.8% - meaningfully higher than the general population average. Among that group, 52% are on ad-supported streaming tiers, and 43% of those viewers report above-average weekly spending. The audience that brands most want to reach is disproportionately present on [Twitch](/twitch-advertising), [YouTube Live](/youtube-advertising), and [Kick](/kick-advertising) — in an ad-supported context, at a moment in their financial lives when spending habits are forming.
 
 Compare this to where Gen Z advertising budgets are actually concentrated. Search and social display, formats that Gen Z has had nearly their entire lives to develop resistance to, still capture the majority of digital spend. The 30% livestream conversion rate - roughly ten times the rate of traditional e-commerce channels - is a number that should reorient budget allocations. It mostly has not.
 
@@ -2293,7 +2293,7 @@ There is a statistic making the rounds in media planning circles that deserves m
 
 That number sits alongside another data point that seems, on the surface, to tell the opposite story: 37% of Gen Z streamers canceled at least one streaming subscription in the past year due to ad fatigue, and another 29% say they are planning to. The two facts look contradictory until you understand what kind of ads Gen Z is actually rejecting.
 
-They are not rejecting advertising. They are rejecting interruption.
+They are not rejecting advertising. They are rejecting interruption. This is why [native overlay advertising on Twitch](/twitch-advertising) resonates where pre-rolls fail.
 
 ## The Format Failure, Not the Category Failure
 
@@ -2941,7 +2941,7 @@ In short: brands are becoming showrunners.
 
 ## What Serialized Branded Content Actually Looks Like
 
-The showrunner model isn't theoretical. It's playing out right now across Twitch, YouTube Live, and Kick, and Nordic advertisers are increasingly part of the story.
+The showrunner model isn't theoretical. It's playing out right now across [Twitch](/twitch-advertising), [YouTube Live](/youtube-advertising), and [Kick](/kick-advertising), and Nordic advertisers are increasingly part of the story.
 
 Here's what it looks like in practice:
 
@@ -3136,7 +3136,7 @@ The legitimate platforms - [Clipping.net](https://clipping.net), [Vyro](https://
 
 Clipping doesn't exist in isolation. It's one part of a larger shift in how brands reach streaming and gaming audiences - an audience that blocks ads, skips pre-rolls, and tunes out anything that feels manufactured.
 
-The same reason native overlay ads on Twitch outperform banner ads is the same reason organic-looking clipped content outperforms paid social: authenticity and context. Viewers on short-form platforms don't want to be advertised to. They want to be entertained.
+The same reason [native overlay ads on Twitch](/twitch-advertising) outperform banner ads is the same reason organic-looking clipped content outperforms paid social: authenticity and context. Viewers on short-form platforms don't want to be advertised to. They want to be entertained.
 
 Platforms like Beta Ads are building the infrastructure for the live streaming side of this equation, where brands connect with 39,000+ streamers in the Nordic network through native, real-time ad formats. Clipping is the short-form distribution layer that sits on top - taking the best moments from live content and extending their reach across TikTok, Reels, and Shorts long after the stream ends.
 
@@ -3217,7 +3217,7 @@ The result is a systematic gap between what brands contract for and what they ca
 
 ## The Scale Problem in Nordic Campaigns
 
-Nordic streaming is growing faster than the global average in some metrics. Nordic-language hours of streaming are up 36% year-over-year on Twitch - even as the platform's global hours declined - and 71% of Norwegian teenagers play video games daily. The audience is large, engaged, and growing.
+Nordic streaming is growing faster than the global average in some metrics. Nordic-language hours of streaming are up 36% year-over-year on [Twitch](/twitch-advertising) - even as the platform's global hours declined - and 71% of Norwegian teenagers play video games daily. The audience is large, engaged, and growing.
 
 But campaign verification at scale in this market is particularly difficult. A mid-range Nordic streaming campaign might involve 20–100 streamers across Norway, Sweden, Finland, and Denmark. Each streamer streams on their own schedule, in their own language, with their own style of delivering brand integrations. Watching every VOD manually is not feasible. Collecting self-reported timestamps from 80 streamers is not reliable.
 
@@ -3307,7 +3307,7 @@ This is the clip economy - and in 2026, it has become one of the most significan
 
 ## What the Clip Economy Looks Like in 2026
 
-Every major streaming platform has a built-in clipping mechanic. On Twitch, viewers can create clips of any broadcast moment with a single button; streamers and their communities share these clips to YouTube, TikTok, Twitter/X, and Discord. The best moments from a single stream can generate dozens of clips, each accumulating views independently and indefinitely.
+Every major streaming platform has a built-in clipping mechanic. On [Twitch](/twitch-advertising), viewers can create clips of any broadcast moment with a single button; streamers and their communities share these clips to YouTube, TikTok, Twitter/X, and Discord. The best moments from a single stream can generate dozens of clips, each accumulating views independently and indefinitely.
 
 The numbers behind this secondary distribution are significant. Live streaming generated 36.4 billion hours watched globally in 2025 - nearly matching the pandemic peak. But that figure only captures live concurrent viewership. Clips, replays, and highlights represent an entirely separate layer of consumption that traditional live stream metrics do not account for.
 
@@ -3699,7 +3699,7 @@ The official Riot Games broadcast of Worlds 2024 was, by any production standard
 
 Community casters offer something official broadcasts structurally cannot: intimacy, authenticity, and direct audience participation. A community caster with 5,000 concurrent viewers is doing what the most effective streamers always do - building a room, not broadcasting to a crowd. Viewers show up specifically to experience the match with that creator, through their voice, their analysis, their reactions. The match itself is just the shared content object. The community is the product.
 
-The parasocial relationship that drives purchase intent on Twitch - the sense that the streamer is a trusted friend - applies in exactly the same way to community casters. Viewers who spend four hours watching a community caster call a tournament final are deeply invested in that person. Their endorsements land differently than an official broadcast sponsor announcement.
+The parasocial relationship that drives purchase intent on [Twitch](/twitch-advertising) - the sense that the streamer is a trusted friend - applies in exactly the same way to community casters. Viewers who spend four hours watching a community caster call a tournament final are deeply invested in that person. Their endorsements land differently than an official broadcast sponsor announcement.
 
 For advertisers, this is the difference between an interruptive placement in a high-production broadcast and a native integration inside a community event that viewers actively chose. The audience self-selected based on affinity for that specific creator. The advertiser is joining a gathering, not inserting themselves into a programme.
 
