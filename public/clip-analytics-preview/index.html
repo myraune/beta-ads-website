@@ -335,7 +335,7 @@
 
   <!-- ─── Dark mode overrides ─── -->
   <style>
-    html[data-theme="dark"] { --c-s1: #c03020; --c-s2: #8a2118; --c-s3: #5e1610; }
+    /* secondary palette same in dark — light rose reads well on dark cards */
     html[data-theme="dark"] body {
       background: #0c0c10 !important;
       background-image: none !important;
@@ -777,7 +777,7 @@
     // ── Theme-aware colors ──────────────────────────────────────────
     function tc(dark) {
       return dark ? {
-        p: '#e94f37', s1: '#c03020', s2: '#8a2118', s3: '#5e1610',
+        p: '#e94f37', s1: '#f09080', s2: '#f4a59b', s3: '#fbd5cf',
         grid: 'rgba(255,255,255,0.05)', tick: '#3e3e48',
         tipBg: '#1e1e27', tipBorder: 'rgba(255,255,255,0.10)',
         tipTitle: '#ededf0', tipBody: '#8a8a95',
