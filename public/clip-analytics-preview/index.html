@@ -11,6 +11,8 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+    :root { --c-s1: #f09080; --c-s2: #f4a59b; --c-s3: #fbd5cf; }
+
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
@@ -333,6 +335,7 @@
 
   <!-- ─── Dark mode overrides ─── -->
   <style>
+    html[data-theme="dark"] { --c-s1: #c03020; --c-s2: #8a2118; --c-s3: #5e1610; }
     html[data-theme="dark"] body {
       background: #0c0c10 !important;
       background-image: none !important;
@@ -340,6 +343,7 @@
       padding: 0 !important;
     }
     html[data-theme="dark"] .topbar-org img { filter: brightness(0) invert(1); }
+    html[data-theme="dark"] .sidebar-logo img { filter: brightness(0) invert(1); }
     html[data-theme="dark"] .browser-toolbar {
       background: linear-gradient(180deg, #252530 0%, #1c1c26 100%) !important;
       border-bottom-color: rgba(255,255,255,0.08) !important;
@@ -504,7 +508,6 @@
       <div class="main">
         <div class="topbar">
           <div class="topbar-org">
-            <img src="/lovable-uploads/brandmark-black.png" alt="" />
             Beta Ads
           </div>
           <div class="user-avatar">AM</div>
@@ -562,7 +565,7 @@
                   <div class="pie-wrapper"><canvas id="chart-general"></canvas><div class="pie-center-label"><span class="number">97.1%</span><span class="label">Recorded</span></div></div>
                   <div class="legend">
                     <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> Clip Recorded <span class="legend-value">97.10%</span></div>
-                    <div class="legend-item"><span class="legend-dot" style="background:#fbd5cf"></span> No Clip <span class="legend-value">2.90%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:var(--c-s3)"></span> No Clip <span class="legend-value">2.90%</span></div>
                   </div>
                 </div>
               </div>
@@ -572,8 +575,8 @@
                   <div class="pie-wrapper"><canvas id="chart-ad-detection"></canvas><div class="pie-center-label"><span class="number">98.0%</span><span class="label">Correct</span></div></div>
                   <div class="legend">
                     <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> Displayed Correctly <span class="legend-value">98.00%</span></div>
-                    <div class="legend-item"><span class="legend-dot" style="background:#f4a59b"></span> Displayed Incorrectly <span class="legend-value">1.00%</span></div>
-                    <div class="legend-item"><span class="legend-dot" style="background:#fbd5cf"></span> Not Displayed <span class="legend-value">1.00%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:var(--c-s2)"></span> Displayed Incorrectly <span class="legend-value">1.00%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:var(--c-s3)"></span> Not Displayed <span class="legend-value">1.00%</span></div>
                   </div>
                 </div>
               </div>
@@ -583,9 +586,9 @@
                   <div class="pie-wrapper"><canvas id="chart-brand-safety"></canvas><div class="pie-center-label"><span class="number">80.0%</span><span class="label">No Risk</span></div></div>
                   <div class="legend">
                     <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> No Risk <span class="legend-value">80.00%</span></div>
-                    <div class="legend-item"><span class="legend-dot" style="background:#f09080"></span> Low Risk <span class="legend-value">10.00%</span></div>
-                    <div class="legend-item"><span class="legend-dot" style="background:#f4a59b"></span> Medium Risk <span class="legend-value">5.00%</span></div>
-                    <div class="legend-item"><span class="legend-dot" style="background:#fbd5cf"></span> High Risk <span class="legend-value">5.00%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:var(--c-s1)"></span> Low Risk <span class="legend-value">10.00%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:var(--c-s2)"></span> Medium Risk <span class="legend-value">5.00%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:var(--c-s3)"></span> High Risk <span class="legend-value">5.00%</span></div>
                   </div>
                 </div>
               </div>
@@ -598,7 +601,7 @@
                   <div class="pie-wrapper"><canvas id="chart-brand-mention"></canvas><div class="pie-center-label"><span class="number">15.9%</span><span class="label">Mentioned</span></div></div>
                   <div class="legend">
                     <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> Mentioned <span class="legend-value">15.91%</span></div>
-                    <div class="legend-item"><span class="legend-dot" style="background:#fbd5cf"></span> Not Mentioned <span class="legend-value">84.09%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:var(--c-s3)"></span> Not Mentioned <span class="legend-value">84.09%</span></div>
                   </div>
                 </div>
               </div>
@@ -608,7 +611,7 @@
                   <div class="pie-wrapper"><canvas id="chart-streamer-mention"></canvas><div class="pie-center-label"><span class="number">34.5%</span><span class="label">Mentioned</span></div></div>
                   <div class="legend">
                     <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> Mentioned <span class="legend-value">34.45%</span></div>
-                    <div class="legend-item"><span class="legend-dot" style="background:#fbd5cf"></span> Not Mentioned <span class="legend-value">65.55%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:var(--c-s3)"></span> Not Mentioned <span class="legend-value">65.55%</span></div>
                   </div>
                 </div>
               </div>
@@ -620,8 +623,8 @@
                   <div class="distribution-title">Ad Detection Distribution</div>
                   <div class="distribution-legend">
                     <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#e94f37"></span> Displayed Correctly</div>
-                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#f4a59b"></span> Displayed Incorrectly</div>
-                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#fbd5cf"></span> Not Displayed</div>
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--c-s2)"></span> Displayed Incorrectly</div>
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--c-s3)"></span> Not Displayed</div>
                   </div>
                 </div>
                 <div class="period-toggle">
@@ -637,9 +640,9 @@
                   <div class="distribution-title">Brand Safety Distribution</div>
                   <div class="distribution-legend">
                     <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#e94f37"></span> No Risk</div>
-                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#f09080"></span> Low Risk</div>
-                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#f4a59b"></span> Medium Risk</div>
-                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#fbd5cf"></span> High Risk</div>
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--c-s1)"></span> Low Risk</div>
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--c-s2)"></span> Medium Risk</div>
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--c-s3)"></span> High Risk</div>
                   </div>
                 </div>
                 <div class="period-toggle">
@@ -655,7 +658,7 @@
                   <div class="distribution-title">Brand Mention Distribution</div>
                   <div class="distribution-legend">
                     <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#e94f37"></span> Mentioned</div>
-                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#fbd5cf"></span> Not Mentioned</div>
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--c-s3)"></span> Not Mentioned</div>
                   </div>
                 </div>
                 <div class="period-toggle">
@@ -774,7 +777,7 @@
     // ── Theme-aware colors ──────────────────────────────────────────
     function tc(dark) {
       return dark ? {
-        p: '#e94f37', s1: '#6b2319', s2: '#4a1710', s3: '#2e0f09',
+        p: '#e94f37', s1: '#c03020', s2: '#8a2118', s3: '#5e1610',
         grid: 'rgba(255,255,255,0.05)', tick: '#3e3e48',
         tipBg: '#1e1e27', tipBorder: 'rgba(255,255,255,0.10)',
         tipTitle: '#ededf0', tipBody: '#8a8a95',
