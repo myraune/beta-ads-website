@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp, Mail, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation, useMultipleScrollAnimations } from "@/hooks/useScrollAnimation";
-import AnimatedShaderBackground from "@/components/ui/animated-shader-background";
+import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 import { WeeklyCTRAreaChart, CategoryDonut, CampaignComparisonChart, AdblockGauge } from "./SamsungCharts";
 import founderImage from "@/assets/founder-andreas-portrait.jpg";
 
@@ -331,7 +331,6 @@ const SamsungCaseStudy: React.FC = () => {
                     src="/lovable-uploads/icon-samsung.svg"
                     alt="Samsung"
                     className="h-7 w-auto"
-                    style={{ filter: "brightness(0) invert(1)" }}
                   />
                 </div>
                 <div className="flex flex-col gap-1">
