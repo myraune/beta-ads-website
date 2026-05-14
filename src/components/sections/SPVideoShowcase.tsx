@@ -5,109 +5,7 @@ import {
   Pause,
   Volume2,
   VolumeX,
-  Sparkles,
-  Eye,
-  MessageSquare,
 } from "lucide-react";
-
-/* ── Video Card with play/mute controls ── */
-
-const VideoCard: React.FC<{
-  src: string;
-  poster?: string;
-  title: string;
-  description: string;
-  badge: string;
-}> = ({ src, poster, title, description, badge }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(false);
-  const [muted, setMuted] = useState(true);
-
-  const togglePlay = () => {
-    if (!videoRef.current) return;
-    if (playing) {
-      videoRef.current.pause();
-    } else {
-      videoRef.current.play();
-    }
-    setPlaying(!playing);
-  };
-
-  return (
-    <div className="rounded-2xl overflow-hidden border border-border shadow-lg group hover:shadow-xl transition-shadow duration-500">
-      {/* role/aria-label/onKeyDown added so keyboard users and screen readers can toggle playback */}
-      <div
-        className="relative aspect-video bg-muted cursor-pointer"
-        onClick={togglePlay}
-        role="button"
-        tabIndex={0}
-        aria-label={playing ? "Pause video" : "Play video"}
-        onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); togglePlay(); } }}
-      >
-        {/* preload="none" — the video is ~7MB and below the fold; we only
-         * start fetching when the user actually clicks play. onLoadStart sets
-         * preload to metadata briefly so dimensions/duration resolve before
-         * playback begins. Saves ~7MB of wasted bandwidth on every homepage
-         * visit and pays back LCP/TTI by not blocking the main thread on
-         * a long-running video fetch. */}
-        <video
-          ref={videoRef}
-          src={src}
-          poster={poster}
-          muted={muted}
-          loop
-          playsInline
-          preload="none"
-          className="w-full h-full object-cover"
-          onPlay={() => setPlaying(true)}
-          onPause={() => setPlaying(false)}
-        />
-        <div
-          className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-300 ${
-            playing ? "opacity-0 group-hover:opacity-100" : "opacity-100"
-          }`}
-        >
-          <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
-            {playing ? (
-              <Pause className="w-6 h-6 text-gray-900" />
-            ) : (
-              <Play className="w-6 h-6 text-gray-900 ml-0.5" />
-            )}
-          </div>
-        </div>
-        {/* aria-label added for accessibility — icon-only button needs a descriptive name for screen readers */}
-        {playing && (
-          <button
-            aria-label={muted ? "Unmute video" : "Mute video"}
-            onClick={(e) => {
-              e.stopPropagation();
-              setMuted(!muted);
-              if (videoRef.current) videoRef.current.muted = !muted;
-            }}
-            className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-black/50 flex items-center justify-center text-white hover:bg-black/70 transition-colors"
-          >
-            {muted ? (
-              <VolumeX className="w-4 h-4" />
-            ) : (
-              <Volume2 className="w-4 h-4" />
-            )}
-          </button>
-        )}
-        <div className="absolute top-3 left-3">
-          <span className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-black/50 text-white backdrop-blur-sm">
-            {badge}
-          </span>
-        </div>
-      </div>
-      <div className="p-5">
-        <h3 className="text-base font-semibold text-foreground mb-1">{title}</h3>
-        <p className="text-sm text-muted-foreground leading-relaxed">
-          {description}
-        </p>
-      </div>
-    </div>
-  );
-};
 
 /* ── Live Stream + Overlay Demo ── */
 
@@ -342,53 +240,6 @@ const LiveStreamDemo: React.FC = () => {
   );
 };
 
-/* ── Animated counter that counts up on scroll ── */
-
-const AnimCounter: React.FC<{ value: string; label: string }> = ({
-  value,
-  label,
-}) => {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.5 });
-  const [display, setDisplay] = useState("0");
-  const numericPart = value.replace(/[^0-9.]/g, "");
-  const suffix = value.replace(/[0-9.]/g, "");
-
-  useEffect(() => {
-    if (!isVisible) return;
-    const target = parseFloat(numericPart);
-    const duration = 1500;
-    const start = performance.now();
-
-    const tick = (now: number) => {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-      const current = target * eased;
-
-      if (target >= 100) {
-        setDisplay(Math.floor(current).toLocaleString());
-      } else {
-        setDisplay(current.toFixed(target % 1 !== 0 ? 1 : 0));
-      }
-
-      if (progress < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
-  }, [isVisible, numericPart]);
-
-  return (
-    <div ref={ref as React.RefObject<HTMLDivElement>}>
-      <div className="text-2xl font-bold text-foreground tabular-nums">
-        {display}
-        {suffix}
-      </div>
-      <div className="text-[10px] text-muted-foreground">{label}</div>
-    </div>
-  );
-};
-
-/* ── Clean inline stat — Samsung S25 Ultra campaign numbers ── */
-
 /* ===================================================
    VIDEO SHOWCASE SECTION
    =================================================== */
@@ -426,9 +277,9 @@ export const SPVideoShowcase: React.FC = () => {
           <LiveStreamDemo />
         </div>
 
-        {/* Stats strip — clean, no hover */}
+        {/* Samsung campaign stats — from live data */}
         <div
-          className={`flex flex-wrap items-center justify-center gap-x-6 md:gap-x-10 gap-y-3 mb-12 py-4 transition-all duration-700 delay-200 ${
+          className={`flex flex-wrap items-center justify-center gap-x-8 md:gap-x-12 gap-y-3 py-6 transition-all duration-700 delay-200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
@@ -439,78 +290,11 @@ export const SPVideoShowcase: React.FC = () => {
             { value: "43", label: "streamers" },
             { value: "0%", label: "adblock rate" },
           ].map((s) => (
-            <div key={s.label} className="flex items-baseline gap-1.5">
-              <span className="text-lg md:text-xl font-bold text-foreground tabular-nums">{s.value}</span>
-              <span className="text-xs text-muted-foreground">{s.label}</span>
+            <div key={s.label} className="text-center">
+              <div className="text-lg md:text-xl font-bold text-foreground tabular-nums">{s.value}</div>
+              <div className="text-xs text-muted-foreground mt-0.5">{s.label}</div>
             </div>
           ))}
-        </div>
-
-        {/* AI Clip + smaller video */}
-        <div
-          className={`grid grid-cols-1 md:grid-cols-2 gap-6 transition-all duration-700 delay-300 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-          }`}
-        >
-          <VideoCard
-            src="/lovable-uploads/ai-clip.mp4"
-            title="AI-Powered Brand Mention Clipping"
-            description="Our AI detects when creators say your brand name and automatically generates timestamped clips — delivered to your dashboard."
-            badge="AI Feature"
-          />
-
-          {/* AI clipping detail card */}
-          <div className="rounded-2xl border border-border p-6 flex flex-col justify-between">
-            <div>
-              <div className="text-primary mb-4 text-2xl font-bold tracking-tight">AI</div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">
-                Every brand mention. Clipped automatically.
-              </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                Our AI monitors every sponsored stream in real-time, detects
-                when the creator says your brand name, and generates a
-                timestamped clip — delivered to your dashboard within minutes.
-              </p>
-            </div>
-
-            {/* Example clip quote */}
-            <div className="space-y-3">
-              <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-muted/50 border border-border">
-                <div className="w-8 h-8 rounded-full overflow-hidden shrink-0">
-                  <img
-                    src="/lovable-uploads/rubengks-profile.png"
-                    alt="RubenGKS"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <span className="text-xs font-semibold text-foreground">
-                    RubenGKS
-                  </span>
-                  <p className="text-[11px] text-muted-foreground italic truncate">
-                    "...the Samsung S25 Ultra camera is insane for streaming..."
-                  </p>
-                </div>
-                <span className="text-[10px] text-primary font-semibold whitespace-nowrap px-2 py-0.5 bg-primary/10 rounded-full">
-                  Auto-clipped
-                </span>
-              </div>
-              <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-muted/50 border border-border">
-                <div className="w-8 h-8 rounded-full bg-muted shrink-0" />
-                <div className="flex-1 min-w-0">
-                  <span className="text-xs font-semibold text-foreground">
-                    DannizTV
-                  </span>
-                  <p className="text-[11px] text-muted-foreground italic truncate">
-                    "...shout out to Shure for the MV6 mic, sounds amazing..."
-                  </p>
-                </div>
-                <span className="text-[10px] text-primary font-semibold whitespace-nowrap px-2 py-0.5 bg-primary/10 rounded-full">
-                  Auto-clipped
-                </span>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
