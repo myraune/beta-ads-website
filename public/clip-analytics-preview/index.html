@@ -335,7 +335,7 @@
 
   <!-- ─── Dark mode overrides ─── -->
   <style>
-    /* secondary palette same in dark — light rose reads well on dark cards */
+    html[data-theme="dark"] { --c-s1: rgba(233,79,55,0.55); --c-s2: rgba(233,79,55,0.32); --c-s3: rgba(233,79,55,0.16); }
     html[data-theme="dark"] body {
       background: #0c0c10 !important;
       background-image: none !important;
@@ -782,7 +782,7 @@
         tipBg: '#1e1e27', tipBorder: 'rgba(255,255,255,0.10)',
         tipTitle: '#ededf0', tipBody: '#8a8a95',
       } : {
-        p: '#e94f37', s1: '#f09080', s2: '#f4a59b', s3: '#fbd5cf',
+        p: '#e94f37', s1: 'rgba(233,79,55,0.55)', s2: 'rgba(233,79,55,0.32)', s3: 'rgba(233,79,55,0.16)',
         grid: 'rgba(0,0,0,0.03)', tick: '#c7c7cc',
         tipBg: '#ffffff', tipBorder: 'rgba(0,0,0,0.08)',
         tipTitle: '#1d1d1f', tipBody: '#86868b',
