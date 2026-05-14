@@ -489,12 +489,27 @@ const LaunchPreview: React.FC = () => {
 
 /* ── Analytics Preview — live Clip Analytics dashboard iframe ── */
 
-const AnalyticsPreview: React.FC = () => {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-  const { resolvedTheme } = useTheme();
+const IFRAME_W = 1280; // render at desktop viewport width
+const IFRAME_H = 832;  // dashboard internal height
 
-  /* Sync parent theme → iframe via postMessage.
-   * Fires on mount and whenever the user toggles dark/light. */
+const AnalyticsPreview: React.FC = () => {
+  const iframeRef  = useRef<HTMLIFrameElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const { resolvedTheme } = useTheme();
+  const [scale, setScale] = useState<number | null>(null);
+
+  /* Compute scale so the 1280-wide iframe fills the wrapper exactly */
+  useEffect(() => {
+    const wrapper = wrapperRef.current;
+    if (!wrapper) return;
+    const obs = new ResizeObserver(([entry]) => {
+      setScale(entry.contentRect.width / IFRAME_W);
+    });
+    obs.observe(wrapper);
+    return () => obs.disconnect();
+  }, []);
+
+  /* Sync parent theme → iframe via postMessage */
   useEffect(() => {
     const iframe = iframeRef.current;
     if (!iframe) return;
@@ -504,7 +519,6 @@ const AnalyticsPreview: React.FC = () => {
         "*"
       );
     };
-    // If already loaded, send immediately; otherwise wait for load event
     if (iframe.contentDocument?.readyState === "complete") {
       send();
     } else {
@@ -514,17 +528,28 @@ const AnalyticsPreview: React.FC = () => {
   }, [resolvedTheme]);
 
   return (
-    /* Fixed height matches the dashboard's internal layout (780px app + 52px toolbar).
-     * On mobile, overflow-x-auto lets users swipe to see the full dashboard. */
-    <div className="overflow-hidden rounded-2xl border border-border/30 shadow-xl">
-      <iframe
-        ref={iframeRef}
-        src="/clip-analytics-preview/index.html"
-        title="Clip Analytics Dashboard"
-        className="block border-0 w-full"
-        style={{ height: 832 }}
-        loading="lazy"
-      />
+    /* Outer wrapper: measures available width, clips overflow, shows nothing
+     * until scale is known (avoids layout flash). */
+    <div
+      ref={wrapperRef}
+      className="overflow-hidden rounded-2xl border border-border/30 shadow-xl"
+      style={{ height: scale != null ? IFRAME_H * scale : 0 }}
+    >
+      {scale != null && (
+        <iframe
+          ref={iframeRef}
+          src="/clip-analytics-preview/index.html"
+          title="Clip Analytics Dashboard"
+          className="block border-0"
+          style={{
+            width:  IFRAME_W,
+            height: IFRAME_H,
+            transform: `scale(${scale})`,
+            transformOrigin: "top left",
+          }}
+          loading="lazy"
+        />
+      )}
     </div>
   );
 };
