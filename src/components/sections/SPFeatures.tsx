@@ -516,13 +516,13 @@ const AnalyticsPreview: React.FC = () => {
   return (
     /* Fixed height matches the dashboard's internal layout (780px app + 52px toolbar).
      * On mobile, overflow-x-auto lets users swipe to see the full dashboard. */
-    <div className="overflow-x-auto sm:overflow-hidden rounded-2xl border border-border/30 shadow-xl">
+    <div className="overflow-hidden rounded-2xl border border-border/30 shadow-xl">
       <iframe
         ref={iframeRef}
         src="/clip-analytics-preview/index.html"
         title="Clip Analytics Dashboard"
-        className="block border-0"
-        style={{ width: "100%", minWidth: 860, height: 860 }}
+        className="block border-0 w-full"
+        style={{ height: 832 }}
         loading="lazy"
       />
     </div>
