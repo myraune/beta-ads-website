@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
+import { useTheme } from "next-themes";
 import ReactDOM from "react-dom";
 import { motion } from "framer-motion";
 import {
@@ -77,15 +78,15 @@ const features = [
     id: "analytics",
     label: "Analytics",
     icon: IconAnalytics,
-    title: "Track everything in real-time",
+    title: "Full visibility across every campaign",
     description:
-      "Live dashboards show impressions, CTR, engagement, and conversions as they happen.",
+      "Real-time dashboards track impressions, ad delivery, brand safety, and streamer mentions — automatically, across every stream.",
     bullets: [
-      "Real-time impression & CTR tracking",
-      "Per-streamer performance breakdown",
-      "ROI attribution & conversion tracking",
+      "Live impression & CTR tracking per streamer",
+      "Automated ad delivery and brand safety scoring",
+      "Brand mention detection across all captured clips",
     ],
-    stat: { value: "1.4M+", label: "completed views tracked" },
+    stat: { value: "1.4M+", label: "verified impressions tracked" },
   },
   {
     id: "reporting",
@@ -158,7 +159,7 @@ const StreamerPreview: React.FC = () => {
               <button
                 key={g}
                 onClick={() => toggle(g)}
-                className={`text-[11px] px-3 py-2 sm:py-1.5 rounded-full border transition-all duration-200 ${
+                className={`text-[11px] px-3 py-3 sm:py-1.5 rounded-full border transition-all duration-200 ${
                   active
                     ? "border-primary bg-primary/15 text-primary font-medium scale-[1.04]"
                     : "border-foreground/60 dark:border-white/60 text-muted-foreground hover:border-primary hover:text-primary/70"
@@ -363,15 +364,15 @@ const TargetingPreview: React.FC = () => {
 
 /* ── Ad Artwork Carousel ── */
 
-// format: "fullscreen" = fills entire frame
-//         "widget"     = 450x450 corner element, always bottom-left
+// format: "fullscreen" = 1920×1080 transparent frame, animation fills the whole canvas
+//         "widget"     = 450×450 square element, rendered bottom-left at proportional scale
 const ARTWORK = [
   { brand: "Burger King", campaign: "Gaming Promotion", src: "/lovable-uploads/overlay-burgerking.webm", format: "fullscreen" },
   { brand: "Samsung", campaign: "Galaxy S25 Ultra", src: "/lovable-uploads/overlay-samsung.webm", format: "widget" },
   { brand: "Foodora", campaign: "Delivery Campaign", src: "/lovable-uploads/overlay-foodora.webm", format: "fullscreen" },
   { brand: "Ben & Jerry's", campaign: "Gaming Promotion", src: "/lovable-uploads/overlay-benjerrys.webm", format: "fullscreen" },
   { brand: "Disney", campaign: "Streaming Launch", src: "/lovable-uploads/overlay-disney.webm", format: "fullscreen" },
-  { brand: "Glorious", campaign: "Gaming Mouse", src: "/lovable-uploads/overlay-glorious.webm", format: "widget" },
+  { brand: "Glorious", campaign: "Gaming Mouse", src: "/lovable-uploads/overlay-glorious.webm", format: "fullscreen" },
   { brand: "Fanta", campaign: "Gaming Engagement", src: "/lovable-uploads/overlay-fanta.webm", format: "fullscreen" },
   { brand: "Shark Gaming", campaign: "PC Hardware", src: "/lovable-uploads/overlay-sharkgaming.webm", format: "widget" },
   { brand: "Samsung", campaign: "Galaxy ZFold7", src: "/lovable-uploads/samsung-zfold7-overlay.webm", format: "widget" },
@@ -405,7 +406,25 @@ const LaunchPreview: React.FC = () => {
         />
         <div className="absolute inset-0 bg-black/25" aria-hidden />
 
-        {item.format === "fullscreen" ? (
+        {item.format === "widget" ? (
+          /* 450×450 square widget — bottom-left corner, sized relative to a 1920×1080 stream.
+             Width = 450/1920 ≈ 23.44% of container; aspect-ratio enforces square. */
+          <motion.video
+            key={item.src}
+            ref={videoRef}
+            src={item.src}
+            autoPlay
+            muted
+            playsInline
+            onEnded={handleEnded}
+            className="absolute bottom-0 left-0"
+            style={{ width: `${(450 / 1920) * 100}%`, aspectRatio: "1 / 1" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.35 }}
+          />
+        ) : (
+          /* 1920×1080 full-frame transparent overlay — covers the entire stream bg. */
           <motion.video
             key={item.src}
             ref={videoRef}
@@ -415,22 +434,6 @@ const LaunchPreview: React.FC = () => {
             playsInline
             onEnded={handleEnded}
             className="absolute inset-0 w-full h-full object-cover"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.35 }}
-          />
-        ) : (
-          /* Widget — always bottom-left, 30% wide */
-          <motion.video
-            key={item.src}
-            ref={videoRef}
-            src={item.src}
-            autoPlay
-            muted
-            playsInline
-            onEnded={handleEnded}
-            className="absolute"
-            style={{ width: '30%', aspectRatio: '1/1', bottom: '3%', left: '3%' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.35 }}
@@ -460,15 +463,17 @@ const LaunchPreview: React.FC = () => {
         </div>
       </div>
 
-      {/* Progress dots — visible indicator nested in a larger invisible hit area for mobile touch */}
-      <div className="flex items-center justify-center gap-0.5 py-2 border-t border-border/30 dark:border-white/[0.08]">
+      {/* Progress dots — visible indicator nested in a larger invisible hit area for mobile touch.
+       * 10 dots × 44px overflows a 341px feature-card column at 375px viewport, so we use a
+       * 30px touch target on mobile (still ≥24px WCAG 2.5.5 Level AA) and restore 44px at sm+. */}
+      <div className="flex items-center justify-center gap-0.5 py-1 border-t border-border/30 dark:border-white/[0.08]">
         {ARTWORK.map((a, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
             aria-label={`Show ${a.brand} ${a.campaign}`}
             aria-current={i === current ? "true" : undefined}
-            className="group flex items-center justify-center min-w-[32px] h-[32px] px-1"
+            className="group flex items-center justify-center min-w-[30px] h-[30px] sm:min-w-[44px] sm:h-[44px] px-0.5 sm:px-1"
           >
             <span
               className={`block rounded-full transition-all duration-300 ${
@@ -482,24 +487,47 @@ const LaunchPreview: React.FC = () => {
   );
 };
 
-/* ── Analytics Preview — Interactive Charts ── */
+/* ── Analytics Preview — live Clip Analytics dashboard iframe ── */
 
+const AnalyticsPreview: React.FC = () => {
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const { resolvedTheme } = useTheme();
 
-const AnalyticsPreview: React.FC = () => (
-  <div className="overflow-hidden">
-    <div className="relative w-full overflow-hidden" style={{ height: 220, maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)' }}>
-      <div className="absolute inset-0 flex items-center justify-center" style={{ transform: 'scale(1.85)', transformOrigin: 'center 38%' }}>
-        <ChartVisual3 mainColor="#e94f37" secondaryColor="#5adbb5" />
-      </div>
+  /* Sync parent theme → iframe via postMessage.
+   * Fires on mount and whenever the user toggles dark/light. */
+  useEffect(() => {
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+    const send = () => {
+      iframe.contentWindow?.postMessage(
+        { type: "setTheme", theme: resolvedTheme ?? "light" },
+        "*"
+      );
+    };
+    // If already loaded, send immediately; otherwise wait for load event
+    if (iframe.contentDocument?.readyState === "complete") {
+      send();
+    } else {
+      iframe.addEventListener("load", send);
+      return () => iframe.removeEventListener("load", send);
+    }
+  }, [resolvedTheme]);
+
+  return (
+    /* Fixed height matches the dashboard's internal layout (780px app + 52px toolbar).
+     * On mobile, overflow-x-auto lets users swipe to see the full dashboard. */
+    <div className="overflow-x-auto sm:overflow-hidden rounded-2xl border border-border/30 shadow-xl">
+      <iframe
+        ref={iframeRef}
+        src="/clip-analytics-preview/index.html"
+        title="Clip Analytics Dashboard"
+        className="block border-0"
+        style={{ width: "100%", minWidth: 860, height: 860 }}
+        loading="lazy"
+      />
     </div>
-    <div className="px-5 py-4 border-t border-border/30">
-      <h4 className="text-sm font-semibold text-foreground mb-1">Live Campaign Performance</h4>
-      <p className="text-[12px] text-muted-foreground leading-relaxed">
-        Hover to explore real-time metrics across all active streams.
-      </p>
-    </div>
-  </div>
-);
+  );
+};
 
 /* ── Reports Preview ── */
 

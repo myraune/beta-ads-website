@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clip Analytics - Beta Ads</title>
+  <link rel="icon" href="/lovable-uploads/favicon-192.png" />
+  <!-- Set theme before first paint to avoid flash -->
+  <script>if(window.matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.dataset.theme='dark';</script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, 'SF Pro Display', 'SF Pro Text', 'Inter', system-ui, sans-serif;
+      color: #1d1d1f;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: background 0.6s ease;
+    }
+
+    /* ─── Wallpapers (arrow keys to switch) ─── */
+    body {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    /* Sequoia-style */
+    body.wp-0 { background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=2560&q=85'); } /* snowy alps */
+    body.wp-1 { background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=2560&q=85'); } /* dramatic peaks */
+    body.wp-2 { background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=2560&q=85'); } /* starlit mountains */
+    /* Sonoma-style */
+    body.wp-3 { background-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=2560&q=85'); } /* golden rolling hills */
+    body.wp-4 { background-image: url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=2560&q=85'); } /* misty green valley */
+    body.wp-5 { background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=2560&q=85'); } /* sunlit forest canopy */
+    /* Ventura-style */
+    body.wp-6 { background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=2560&q=85'); } /* tropical beach */
+    body.wp-7 { background-image: url('https://images.unsplash.com/photo-1473116763249-2faaef81ccda?w=2560&q=85'); } /* ocean cliff sunset */
+    body.wp-8 { background-image: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=2560&q=85'); } /* calm ocean waves */
+    /* Big Sur-style */
+    body.wp-9 { background-image: url('https://images.unsplash.com/photo-1518173946687-a243cf1f327a?w=2560&q=85'); } /* desert dunes */
+    body.wp-10 { background-image: url('https://images.unsplash.com/photo-1505144808419-1957a94ca61e?w=2560&q=85'); } /* colorful coast sunrise */
+    body.wp-11 { background-image: url('https://images.unsplash.com/photo-1433086966358-54859d0ed716?w=2560&q=85'); } /* waterfall bridge */
+    /* Catalina / dark */
+    body.wp-12 { background-image: url('https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=2560&q=85'); } /* milky way night sky */
+    body.wp-13 { background-image: url('https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?w=2560&q=85'); } /* aerial turquoise lake */
+    body.wp-14 { background-image: url('https://images.unsplash.com/photo-1536431311719-398b6704d4cc?w=2560&q=85'); } /* northern lights */
+    /* Abstract / gradient */
+    body.wp-15 { background: linear-gradient(135deg, #1a1a3e 0%, #2d1b69 25%, #5b3a8c 50%, #8b5fbf 75%, #b794d6 100%); } /* purple gradient */
+    body.wp-16 { background: linear-gradient(135deg, #0f2027 0%, #203a43 30%, #2c5364 60%, #4a8b8c 100%); } /* teal aurora */
+    body.wp-17 { background: linear-gradient(135deg, #e8e8ed 0%, #d2d2d7 50%, #f5f5f7 100%); } /* minimal silver */
+
+    /* ─── Wallpaper toast (shows briefly on switch) ─── */
+    .wp-toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 20px;
+      border-radius: 20px;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      z-index: 1000;
+      pointer-events: none;
+      letter-spacing: -0.01em;
+    }
+    .wp-toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ─── Browser Chrome ─── */
+    .browser-window {
+      width: 100%;
+      max-width: 1440px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow:
+        0 25px 60px rgba(0,0,0,0.2),
+        0 8px 20px rgba(0,0,0,0.1),
+        0 0 0 1px rgba(0,0,0,0.06);
+    }
+
+    .browser-toolbar {
+      height: 52px;
+      background: linear-gradient(180deg, #f6f6f6 0%, #e8e8e8 100%);
+      border-bottom: 1px solid #d4d4d4;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 10px;
+    }
+
+    .traffic-lights { display: flex; gap: 8px; margin-right: 8px; }
+    .traffic-light { width: 12px; height: 12px; border-radius: 50%; }
+    .traffic-light.red { background: #ff5f57; border: 1px solid #e0443e; }
+    .traffic-light.yellow { background: #febc2e; border: 1px solid #dea123; }
+    .traffic-light.green { background: #28c840; border: 1px solid #1dad2b; }
+
+    .browser-nav { display: flex; gap: 6px; margin-right: 4px; }
+    .browser-nav-btn { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; color: #999; border-radius: 6px; }
+    .browser-nav-btn svg { width: 14px; height: 14px; }
+
+    .browser-address-bar {
+      flex: 1; max-width: 560px; margin: 0 auto; height: 30px;
+      background: #ffffff; border: 1px solid #d4d4d4; border-radius: 8px;
+      display: flex; align-items: center; padding: 0 12px; gap: 6px;
+    }
+    .address-lock { color: #86868b; width: 12px; height: 12px; flex-shrink: 0; }
+    .address-text { font-size: 12px; color: #1d1d1f; font-weight: 400; letter-spacing: -0.01em; }
+    .address-domain { color: #86868b; }
+
+    .app-container { display: flex; height: 780px; background: #f5f5f7; }
+
+    /* ─── Sidebar ─── */
+    .sidebar {
+      width: 220px; height: 100%; background: #ffffff; flex-shrink: 0;
+      display: flex; flex-direction: column; padding: 20px 12px;
+      border-right: 1px solid rgba(0,0,0,0.06);
+    }
+    .sidebar-logo { padding: 0 10px 28px; }
+    .sidebar-logo img { height: 18px; width: auto; }
+
+    .sidebar-item {
+      display: flex; align-items: center; gap: 10px; padding: 9px 12px;
+      border-radius: 10px; font-size: 13px; font-weight: 500; color: #86868b;
+      cursor: pointer; transition: all 0.2s ease; margin-bottom: 1px; letter-spacing: -0.01em;
+    }
+    .sidebar-item:hover { background: rgba(0,0,0,0.03); color: #1d1d1f; }
+    .sidebar-item.active { background: rgba(233,79,55,0.08); color: #e94f37; font-weight: 600; }
+    .sidebar-item svg { width: 18px; height: 18px; flex-shrink: 0; stroke-width: 1.5; }
+
+    .badge-new {
+      font-size: 9px; font-weight: 600; background: #e94f37; color: white;
+      padding: 2px 6px; border-radius: 5px; letter-spacing: 0.3px; margin-left: auto;
+    }
+
+    .sidebar-section { margin-top: 28px; }
+    .sidebar-section-title {
+      font-size: 11px; font-weight: 600; color: #aeaeb2; letter-spacing: 0.02em;
+      text-transform: uppercase; padding: 0 12px; margin-bottom: 6px;
+    }
+    .sidebar-footer { margin-top: auto; padding: 16px 12px 0; border-top: 1px solid rgba(0,0,0,0.04); }
+    .sidebar-footer-text { font-size: 11px; color: #aeaeb2; font-weight: 500; }
+    .sidebar-footer-ver { font-size: 10px; color: #c7c7cc; margin-top: 2px; }
+
+    /* ─── Main ─── */
+    .main { flex: 1; min-width: 0; display: flex; flex-direction: column; height: 100%; }
+
+    .topbar {
+      height: 48px; border-bottom: 1px solid rgba(0,0,0,0.06);
+      display: flex; align-items: center; justify-content: flex-end;
+      padding: 0 24px; background: #ffffff; gap: 12px; flex-shrink: 0;
+    }
+    .topbar-org { font-size: 13px; font-weight: 500; color: #1d1d1f; display: flex; align-items: center; gap: 6px; }
+    .topbar-org img { height: 14px; width: auto; }
+    .user-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: linear-gradient(135deg, #e94f37, #c13a27);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 600; color: white; letter-spacing: 0.02em;
+    }
+
+    .content { flex: 1; padding: 28px 32px; overflow-y: auto; background: #f5f5f7; }
+    .page-header { margin-bottom: 24px; }
+    .page-header h1 { font-size: 28px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.03em; }
+
+    /* ─── iOS Segmented Control ─── */
+    .tabs { display: inline-flex; background: rgba(0,0,0,0.04); border-radius: 10px; padding: 3px; margin-bottom: 24px; }
+    .tab {
+      padding: 7px 20px; font-size: 13px; font-weight: 500; color: #86868b;
+      cursor: pointer; border-radius: 8px; transition: all 0.2s ease; letter-spacing: -0.01em;
+    }
+    .tab:hover { color: #1d1d1f; }
+    .tab.active {
+      background: #ffffff; color: #1d1d1f; font-weight: 600;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+    }
+
+    /* ─── Filters ─── */
+    .filters-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; margin-bottom: 24px; }
+    .filter-group { display: flex; flex-direction: column; gap: 4px; }
+    .filter-label { font-size: 11px; font-weight: 600; color: #e94f37; text-transform: uppercase; letter-spacing: 0.03em; }
+    .filter-select {
+      background: #ffffff; border: 1px solid rgba(0,0,0,0.08); border-radius: 10px;
+      color: #1d1d1f; padding: 8px 32px 8px 14px; font-size: 13px; font-family: inherit;
+      font-weight: 400; cursor: pointer; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23aeaeb2' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 12px center; min-width: 140px;
+      transition: border-color 0.2s;
+    }
+    .filter-select:focus { outline: none; border-color: #e94f37; box-shadow: 0 0 0 3px rgba(233,79,55,0.1); }
+    .filter-actions { display: flex; gap: 8px; margin-left: auto; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px;
+      border-radius: 10px; font-size: 13px; font-weight: 500; font-family: inherit;
+      cursor: pointer; border: 1px solid rgba(0,0,0,0.08); background: #ffffff;
+      color: #1d1d1f; transition: all 0.2s; letter-spacing: -0.01em;
+    }
+    .btn:hover { background: #f5f5f7; }
+    .btn-primary { background: #e94f37; border-color: transparent; color: white; }
+    .btn-primary:hover { background: #d4432d; }
+    .btn svg { width: 14px; height: 14px; }
+
+    /* ─── Summary cards ─── */
+    .summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 16px; }
+    .summary-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-bottom: 28px; }
+
+    .summary-card {
+      background: #ffffff; border-radius: 16px; padding: 22px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04); border: none; transition: box-shadow 0.3s ease;
+    }
+    .summary-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+
+    .summary-card-title {
+      font-size: 15px; font-weight: 600; margin-bottom: 18px;
+      display: flex; align-items: center; gap: 6px; color: #1d1d1f; letter-spacing: -0.01em;
+    }
+    .summary-card-title .info-icon { width: 14px; height: 14px; color: #c7c7cc; }
+
+    .chart-container { display: flex; align-items: center; justify-content: center; gap: 22px; min-height: 140px; }
+    .pie-wrapper { width: 120px; height: 120px; position: relative; }
+    .pie-center-label { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; }
+    .pie-center-label .number { font-size: 20px; font-weight: 700; display: block; letter-spacing: -0.03em; color: #1d1d1f; }
+    .pie-center-label .label { font-size: 9px; color: #aeaeb2; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 500; }
+
+    .legend { display: flex; flex-direction: column; gap: 7px; }
+    .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #86868b; font-weight: 400; }
+    .legend-dot { width: 8px; height: 8px; border-radius: 3px; flex-shrink: 0; }
+    .legend-value { font-weight: 600; color: #1d1d1f; margin-left: auto; padding-left: 12px; font-variant-numeric: tabular-nums; }
+
+    /* ─── Distribution charts ─── */
+    .distribution-section {
+      background: #ffffff; border-radius: 16px; padding: 22px; margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04); border: none;
+    }
+    .distribution-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 8px; }
+    .distribution-title { font-size: 15px; font-weight: 600; display: flex; align-items: center; gap: 6px; color: #1d1d1f; letter-spacing: -0.01em; }
+    .distribution-legend { display: flex; gap: 16px; margin-top: 8px; }
+    .distribution-legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #86868b; }
+    .distribution-legend-dot { width: 8px; height: 8px; border-radius: 3px; }
+
+    .period-toggle { display: inline-flex; background: rgba(0,0,0,0.04); border-radius: 8px; padding: 2px; border: none; }
+    .period-btn {
+      padding: 5px 14px; font-size: 12px; font-weight: 500; color: #86868b;
+      cursor: pointer; border: none; background: transparent; font-family: inherit;
+      border-radius: 6px; transition: all 0.2s; letter-spacing: -0.01em;
+    }
+    .period-btn.active { background: #ffffff; color: #1d1d1f; font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,0.08); }
+    .period-btn:hover:not(.active) { color: #1d1d1f; }
+    .bar-chart-wrapper { height: 200px; position: relative; }
+
+    /* ─── Processing tab ─── */
+    .proc-cards {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 16px;
+    }
+    .proc-card {
+      background: #ffffff; border-radius: 14px; padding: 20px;
+      border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .proc-card-title {
+      font-size: 14px; font-weight: 600; color: #1d1d1f; margin-bottom: 14px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .proc-card-title .info-icon {
+      width: 14px; height: 14px; color: #c7c7cc;
+    }
+    .proc-card-type {
+      font-size: 11px; font-weight: 500; color: #aeaeb2; margin-bottom: 2px;
+    }
+    .proc-card-value {
+      font-size: 28px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.04em;
+      margin-bottom: 10px;
+    }
+    .proc-card-desc {
+      font-size: 11px; color: #aeaeb2; margin-bottom: 10px; line-height: 1.3;
+    }
+    .proc-card-progress {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .proc-card-bar-track {
+      flex: 1; height: 6px; background: #f2f4f8; border-radius: 3px; overflow: hidden;
+    }
+    .proc-card-bar-fill {
+      height: 100%; background: #e94f37; border-radius: 3px; transition: width 0.8s ease;
+    }
+    .proc-card-pct {
+      font-size: 13px; font-weight: 600; color: #1d1d1f; min-width: 50px; text-align: right;
+    }
+    .ads-per-day {
+      background: #ffffff; border-radius: 14px; padding: 20px;
+      border: 1px solid rgba(0,0,0,0.04); box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .ads-per-day-header {
+      display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px;
+    }
+    .ads-per-day-title {
+      font-size: 14px; font-weight: 600; color: #1d1d1f;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .ads-per-day-legend {
+      display: flex; align-items: center; gap: 6px; margin-top: 6px;
+    }
+    .ads-per-day-legend-dot {
+      width: 8px; height: 8px; border-radius: 50%; background: #e94f37;
+    }
+    .ads-per-day-legend-label {
+      font-size: 11px; color: #86868b;
+    }
+    .ads-chart-wrapper { height: 220px; position: relative; }
+
+    .hidden { display: none; }
+    canvas { max-width: 100%; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.2); }
+  </style>
+
+  <!-- ─── Dark mode overrides ─── -->
+  <style>
+    html[data-theme="dark"] body {
+      background: #0c0c10 !important;
+      background-image: none !important;
+      color: #ededf0;
+    }
+    html[data-theme="dark"] .browser-toolbar {
+      background: linear-gradient(180deg, #252530 0%, #1c1c26 100%) !important;
+      border-bottom-color: rgba(255,255,255,0.08) !important;
+    }
+    html[data-theme="dark"] .browser-address-bar {
+      background: #1f1f2b !important;
+      border-color: rgba(255,255,255,0.12) !important;
+    }
+    html[data-theme="dark"] .address-text { color: #ededf0 !important; }
+    html[data-theme="dark"] .browser-nav-btn { color: rgba(255,255,255,0.3) !important; }
+    html[data-theme="dark"] .app-container { background: #0c0c10 !important; }
+    html[data-theme="dark"] .sidebar {
+      background: #131318 !important;
+      border-right-color: rgba(255,255,255,0.07) !important;
+    }
+    html[data-theme="dark"] .sidebar-item:hover {
+      background: rgba(255,255,255,0.05) !important;
+      color: #ededf0 !important;
+    }
+    html[data-theme="dark"] .sidebar-section-title { color: #3e3e48 !important; }
+    html[data-theme="dark"] .sidebar-footer { border-top-color: rgba(255,255,255,0.05) !important; }
+    html[data-theme="dark"] .sidebar-footer-text { color: #404048 !important; }
+    html[data-theme="dark"] .sidebar-footer-ver  { color: #2e2e38 !important; }
+    html[data-theme="dark"] .topbar {
+      background: #131318 !important;
+      border-bottom-color: rgba(255,255,255,0.07) !important;
+    }
+    html[data-theme="dark"] .topbar-org { color: #ededf0 !important; }
+    html[data-theme="dark"] .content { background: #0c0c10 !important; }
+    html[data-theme="dark"] .page-header h1 { color: #ededf0 !important; }
+    html[data-theme="dark"] .tabs { background: rgba(255,255,255,0.06) !important; }
+    html[data-theme="dark"] .tab:hover { color: #ededf0 !important; }
+    html[data-theme="dark"] .tab.active {
+      background: #1e1e27 !important;
+      color: #ededf0 !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.4) !important;
+    }
+    html[data-theme="dark"] .filter-select {
+      background: #18181f !important;
+      border-color: rgba(255,255,255,0.10) !important;
+      color: #ededf0 !important;
+    }
+    html[data-theme="dark"] .btn {
+      background: #18181f !important;
+      border-color: rgba(255,255,255,0.10) !important;
+      color: #ededf0 !important;
+    }
+    html[data-theme="dark"] .btn:hover { background: rgba(255,255,255,0.07) !important; }
+    html[data-theme="dark"] .summary-card {
+      background: #18181f !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+    }
+    html[data-theme="dark"] .summary-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important; }
+    html[data-theme="dark"] .summary-card-title { color: #ededf0 !important; }
+    html[data-theme="dark"] .summary-card-title .info-icon { color: #2e2e38 !important; }
+    html[data-theme="dark"] .pie-center-label .number { color: #ededf0 !important; }
+    html[data-theme="dark"] .pie-center-label .label  { color: #404048 !important; }
+    html[data-theme="dark"] .legend-value { color: #ededf0 !important; }
+    html[data-theme="dark"] .distribution-section {
+      background: #18181f !important;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+    }
+    html[data-theme="dark"] .distribution-title { color: #ededf0 !important; }
+    html[data-theme="dark"] .period-toggle { background: rgba(255,255,255,0.06) !important; }
+    html[data-theme="dark"] .period-btn.active {
+      background: #1e1e27 !important;
+      color: #ededf0 !important;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.4) !important;
+    }
+    html[data-theme="dark"] .period-btn:hover:not(.active) { color: #ededf0 !important; }
+    html[data-theme="dark"] .proc-card {
+      background: #18181f !important;
+      border-color: rgba(255,255,255,0.05) !important;
+    }
+    html[data-theme="dark"] .proc-card-title { color: #ededf0 !important; }
+    html[data-theme="dark"] .proc-card-title .info-icon { color: #2e2e38 !important; }
+    html[data-theme="dark"] .proc-card-type  { color: #404048 !important; }
+    html[data-theme="dark"] .proc-card-value { color: #ededf0 !important; }
+    html[data-theme="dark"] .proc-card-desc  { color: #404048 !important; }
+    html[data-theme="dark"] .proc-card-bar-track { background: rgba(255,255,255,0.08) !important; }
+    html[data-theme="dark"] .proc-card-pct   { color: #ededf0 !important; }
+    html[data-theme="dark"] .ads-per-day {
+      background: #18181f !important;
+      border-color: rgba(255,255,255,0.05) !important;
+    }
+    html[data-theme="dark"] .ads-per-day-title { color: #ededf0 !important; }
+    html[data-theme="dark"] ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12) !important; }
+    html[data-theme="dark"] ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.22) !important; }
+  </style>
+</head>
+<body class="wp-0">
+
+  <div class="browser-window">
+    <div class="browser-toolbar">
+      <div class="traffic-lights">
+        <div class="traffic-light red"></div>
+        <div class="traffic-light yellow"></div>
+        <div class="traffic-light green"></div>
+      </div>
+      <div class="browser-nav">
+        <div class="browser-nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></div>
+        <div class="browser-nav-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></div>
+      </div>
+      <div class="browser-address-bar">
+        <svg class="address-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        <span class="address-text"><span class="address-domain">app.beta-ads.no</span>/analytics/clips</span>
+      </div>
+    </div>
+
+    <div class="app-container">
+      <aside class="sidebar">
+        <div class="sidebar-logo">
+          <img src="/lovable-uploads/logo-color.png" alt="Beta Ads" />
+        </div>
+
+        <div class="sidebar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          Dashboard
+        </div>
+        <div class="sidebar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          Streamer Explorer
+        </div>
+        <div class="sidebar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          Category Explorer
+          <span class="badge-new">NEW</span>
+        </div>
+        <div class="sidebar-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+          My Streamer Lists
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Analytics</div>
+          <div class="sidebar-item active">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M7 10l3 3 7-7"/></svg>
+            Clip Analytics
+            <span class="badge-new">NEW</span>
+          </div>
+          <div class="sidebar-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+            Campaign Analytics
+            <span class="badge-new">NEW</span>
+          </div>
+        </div>
+
+        <div class="sidebar-section">
+          <div class="sidebar-section-title">Settings</div>
+          <div class="sidebar-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+            Users
+          </div>
+        </div>
+
+        <div class="sidebar-footer">
+          <div class="sidebar-footer-text">Beta for Business</div>
+          <div class="sidebar-footer-ver">v2.4.1</div>
+        </div>
+      </aside>
+
+      <div class="main">
+        <div class="topbar">
+          <div class="topbar-org">
+            <img src="/lovable-uploads/brandmark-black.png" alt="" />
+            Beta Ads
+          </div>
+          <div class="user-avatar">AM</div>
+        </div>
+
+        <div class="content">
+          <div class="page-header">
+            <h1>Clip Analytics</h1>
+          </div>
+
+          <div class="tabs">
+            <div class="tab active" data-tab="insights" onclick="switchTab('insights')">Clip Insights</div>
+            <div class="tab" data-tab="processing" onclick="switchTab('processing')">Clip Processing</div>
+          </div>
+
+          <div id="tab-insights">
+            <div class="filters-bar">
+              <div class="filter-group">
+                <div class="filter-label">Date Range</div>
+                <select class="filter-select"><option>Jan 1 – May 7, 2026</option></select>
+              </div>
+              <div class="filter-group">
+                <div class="filter-label">Country</div>
+                <select class="filter-select"><option>All Countries</option></select>
+              </div>
+              <div class="filter-group">
+                <div class="filter-label">Language</div>
+                <select class="filter-select"><option>All Languages</option></select>
+              </div>
+              <div class="filter-group">
+                <div class="filter-label">Streamer</div>
+                <select class="filter-select"><option>All Streamers</option></select>
+              </div>
+              <div class="filter-group">
+                <div class="filter-label">Client</div>
+                <select class="filter-select"><option>All Clients</option></select>
+              </div>
+              <div class="filter-group">
+                <div class="filter-label">Campaign</div>
+                <select class="filter-select"><option>All Campaigns</option></select>
+              </div>
+              <div class="filter-actions">
+                <button class="btn btn-primary">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                  Search
+                </button>
+                <button class="btn">Clear Filters</button>
+              </div>
+            </div>
+
+            <div class="summary-grid">
+              <div class="summary-card">
+                <div class="summary-card-title">General <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>
+                <div class="chart-container">
+                  <div class="pie-wrapper"><canvas id="chart-general"></canvas><div class="pie-center-label"><span class="number">97.1%</span><span class="label">Recorded</span></div></div>
+                  <div class="legend">
+                    <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> Clip Recorded <span class="legend-value">97.10%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:#fbd5cf"></span> No Clip <span class="legend-value">2.90%</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="summary-card">
+                <div class="summary-card-title">Ad Detection <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>
+                <div class="chart-container">
+                  <div class="pie-wrapper"><canvas id="chart-ad-detection"></canvas><div class="pie-center-label"><span class="number">98.0%</span><span class="label">Correct</span></div></div>
+                  <div class="legend">
+                    <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> Displayed Correctly <span class="legend-value">98.00%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:#f4a59b"></span> Displayed Incorrectly <span class="legend-value">1.00%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:#fbd5cf"></span> Not Displayed <span class="legend-value">1.00%</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="summary-card">
+                <div class="summary-card-title">Brand Safety <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>
+                <div class="chart-container">
+                  <div class="pie-wrapper"><canvas id="chart-brand-safety"></canvas><div class="pie-center-label"><span class="number">80.0%</span><span class="label">No Risk</span></div></div>
+                  <div class="legend">
+                    <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> No Risk <span class="legend-value">80.00%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:#f09080"></span> Low Risk <span class="legend-value">10.00%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:#f4a59b"></span> Medium Risk <span class="legend-value">5.00%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:#fbd5cf"></span> High Risk <span class="legend-value">5.00%</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="summary-grid-2">
+              <div class="summary-card">
+                <div class="summary-card-title">Brand Mention <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>
+                <div class="chart-container">
+                  <div class="pie-wrapper"><canvas id="chart-brand-mention"></canvas><div class="pie-center-label"><span class="number">15.9%</span><span class="label">Mentioned</span></div></div>
+                  <div class="legend">
+                    <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> Mentioned <span class="legend-value">15.91%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:#fbd5cf"></span> Not Mentioned <span class="legend-value">84.09%</span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="summary-card">
+                <div class="summary-card-title">Streamer Brand Mention <svg class="info-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>
+                <div class="chart-container">
+                  <div class="pie-wrapper"><canvas id="chart-streamer-mention"></canvas><div class="pie-center-label"><span class="number">34.5%</span><span class="label">Mentioned</span></div></div>
+                  <div class="legend">
+                    <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> Mentioned <span class="legend-value">34.45%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:#fbd5cf"></span> Not Mentioned <span class="legend-value">65.55%</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="distribution-section">
+              <div class="distribution-header">
+                <div>
+                  <div class="distribution-title">Ad Detection Distribution</div>
+                  <div class="distribution-legend">
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#e94f37"></span> Displayed Correctly</div>
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#f4a59b"></span> Displayed Incorrectly</div>
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#fbd5cf"></span> Not Displayed</div>
+                  </div>
+                </div>
+                <div class="period-toggle">
+                  <button class="period-btn active">Day</button><button class="period-btn">Week</button><button class="period-btn">Month</button><button class="period-btn">Year</button>
+                </div>
+              </div>
+              <div class="bar-chart-wrapper"><canvas id="chart-ad-dist"></canvas></div>
+            </div>
+
+            <div class="distribution-section">
+              <div class="distribution-header">
+                <div>
+                  <div class="distribution-title">Brand Safety Distribution</div>
+                  <div class="distribution-legend">
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#e94f37"></span> No Risk</div>
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#f09080"></span> Low Risk</div>
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#f4a59b"></span> Medium Risk</div>
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#fbd5cf"></span> High Risk</div>
+                  </div>
+                </div>
+                <div class="period-toggle">
+                  <button class="period-btn active">Day</button><button class="period-btn">Week</button><button class="period-btn">Month</button><button class="period-btn">Year</button>
+                </div>
+              </div>
+              <div class="bar-chart-wrapper"><canvas id="chart-safety-dist"></canvas></div>
+            </div>
+
+            <div class="distribution-section">
+              <div class="distribution-header">
+                <div>
+                  <div class="distribution-title">Brand Mention Distribution</div>
+                  <div class="distribution-legend">
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#e94f37"></span> Mentioned</div>
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#fbd5cf"></span> Not Mentioned</div>
+                  </div>
+                </div>
+                <div class="period-toggle">
+                  <button class="period-btn active">Day</button><button class="period-btn">Week</button><button class="period-btn">Month</button><button class="period-btn">Year</button>
+                </div>
+              </div>
+              <div class="bar-chart-wrapper"><canvas id="chart-mention-dist"></canvas></div>
+            </div>
+          </div>
+
+          <div id="tab-processing" class="hidden">
+            <div class="proc-cards">
+              <div class="proc-card">
+                <div class="proc-card-title">General <svg class="info-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 7v4M8 5.5v0"/></svg></div>
+                <div class="proc-card-type">Ad</div>
+                <div class="proc-card-value">1,689</div>
+                <div class="proc-card-desc">% of Clips Captured</div>
+                <div class="proc-card-progress">
+                  <div class="proc-card-bar-track"><div class="proc-card-bar-fill" style="width:97.1%"></div></div>
+                  <div class="proc-card-pct">97.10%</div>
+                </div>
+              </div>
+              <div class="proc-card">
+                <div class="proc-card-title">Ad Detection <svg class="info-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 7v4M8 5.5v0"/></svg></div>
+                <div class="proc-card-type">Clip</div>
+                <div class="proc-card-value">1,640</div>
+                <div class="proc-card-desc">% Clips Processed for Ad Detection</div>
+                <div class="proc-card-progress">
+                  <div class="proc-card-bar-track"><div class="proc-card-bar-fill" style="width:97.1%"></div></div>
+                  <div class="proc-card-pct">97.10%</div>
+                </div>
+              </div>
+              <div class="proc-card">
+                <div class="proc-card-title">Transcript <svg class="info-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 7v4M8 5.5v0"/></svg></div>
+                <div class="proc-card-type">Clip</div>
+                <div class="proc-card-value">1,640</div>
+                <div class="proc-card-desc">% Clips with Transcript</div>
+                <div class="proc-card-progress">
+                  <div class="proc-card-bar-track"><div class="proc-card-bar-fill" style="width:100%"></div></div>
+                  <div class="proc-card-pct">100.00%</div>
+                </div>
+              </div>
+              <div class="proc-card">
+                <div class="proc-card-title">Brand Safety <svg class="info-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 7v4M8 5.5v0"/></svg></div>
+                <div class="proc-card-type">Transcript</div>
+                <div class="proc-card-value">1,640</div>
+                <div class="proc-card-desc">% Transcripts Processed for Brand Safety</div>
+                <div class="proc-card-progress">
+                  <div class="proc-card-bar-track"><div class="proc-card-bar-fill" style="width:99.27%"></div></div>
+                  <div class="proc-card-pct">99.27%</div>
+                </div>
+              </div>
+              <div class="proc-card">
+                <div class="proc-card-title">Brand Mention <svg class="info-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 7v4M8 5.5v0"/></svg></div>
+                <div class="proc-card-type">Transcript</div>
+                <div class="proc-card-value">1,640</div>
+                <div class="proc-card-desc">% Transcripts Processed for Brand Mention</div>
+                <div class="proc-card-progress">
+                  <div class="proc-card-bar-track"><div class="proc-card-bar-fill" style="width:100%"></div></div>
+                  <div class="proc-card-pct">100.00%</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ads-per-day">
+              <div class="ads-per-day-header">
+                <div>
+                  <div class="ads-per-day-title">Ads Per Day <svg class="info-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.5"/><path d="M8 7v4M8 5.5v0"/></svg></div>
+                  <div class="ads-per-day-legend">
+                    <div class="ads-per-day-legend-dot"></div>
+                    <div class="ads-per-day-legend-label">Total Ads</div>
+                  </div>
+                </div>
+                <div class="period-toggle">
+                  <button class="period-btn active">Day</button><button class="period-btn">Week</button><button class="period-btn">Month</button><button class="period-btn">Year</button>
+                </div>
+              </div>
+              <div class="ads-chart-wrapper"><canvas id="chart-ads-per-day"></canvas></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /app-container -->
+  </div><!-- /browser-window -->
+
+  <div class="wp-toast" id="wp-toast"></div>
+
+  <script>
+    // Theme sync — parent page posts { type: 'setTheme', theme: 'dark'|'light' }
+    window.addEventListener('message', function(e) {
+      if (e.data && e.data.type === 'setTheme') {
+        document.documentElement.dataset.theme = e.data.theme;
+      }
+    });
+
+    // Wallpaper switcher — arrow keys only, no on-screen buttons
+    const wpNames = ['Snowy Alps', 'Dramatic Peaks', 'Starlit Mountains', 'Golden Hills', 'Misty Valley', 'Forest Canopy', 'Tropical Beach', 'Ocean Cliff', 'Calm Waves', 'Desert Dunes', 'Coastal Sunrise', 'Waterfall Bridge', 'Milky Way', 'Turquoise Lake', 'Northern Lights', 'Purple Gradient', 'Teal Aurora', 'Minimal Silver'];
+    let wpIndex = 0;
+    let wpToastTimer;
+
+    function setWP(i) {
+      wpIndex = ((i % wpNames.length) + wpNames.length) % wpNames.length;
+      document.body.className = 'wp-' + wpIndex;
+      const toast = document.getElementById('wp-toast');
+      toast.textContent = wpNames[wpIndex] + '  (' + (wpIndex + 1) + '/' + wpNames.length + ')  ← →';
+      toast.classList.add('show');
+      clearTimeout(wpToastTimer);
+      wpToastTimer = setTimeout(() => toast.classList.remove('show'), 1800);
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); setWP(wpIndex + 1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); setWP(wpIndex - 1); }
+    });
+
+    setWP(0);
+
+    // Tab switching
+    function switchTab(tab) {
+      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+      document.getElementById('tab-insights').classList.toggle('hidden', tab !== 'insights');
+      document.getElementById('tab-processing').classList.toggle('hidden', tab !== 'processing');
+      if (tab === 'processing' && !window.processingChartInit) { initProcessingChart(); window.processingChartInit = true; }
+    }
+
+    // Chart defaults
+    Chart.defaults.color = '#aeaeb2';
+    Chart.defaults.borderColor = 'rgba(0,0,0,0.04)';
+    Chart.defaults.font.family = "-apple-system, 'SF Pro Display', 'Inter', system-ui, sans-serif";
+    Chart.defaults.font.size = 11;
+    Chart.defaults.font.weight = 500;
+
+    function createDonut(id, data, colors) {
+      new Chart(document.getElementById(id), {
+        type: 'doughnut',
+        data: { datasets: [{ data, backgroundColor: colors, borderWidth: 0, spacing: 2 }] },
+        options: { cutout: '72%', responsive: true, maintainAspectRatio: true, plugins: { legend: { display: false }, tooltip: { enabled: false } } }
+      });
+    }
+
+    // Real data from dashboard
+    createDonut('chart-general', [97.10, 2.90], ['#e94f37', '#fbd5cf']);
+    createDonut('chart-ad-detection', [98, 1, 1], ['#e94f37', '#f4a59b', '#fbd5cf']);
+    createDonut('chart-brand-safety', [80, 10, 5, 5], ['#e94f37', '#f09080', '#f4a59b', '#fbd5cf']);
+    createDonut('chart-brand-mention', [15.91, 84.09], ['#e94f37', '#fbd5cf']);
+    createDonut('chart-streamer-mention', [34.45, 65.55], ['#e94f37', '#fbd5cf']);
+
+    const dates = ['Jan','Feb','Mar','Mar','Apr','Apr','Apr','Apr','May','May','May','May','May','May'];
+
+    function createStackedBar(id, datasets) {
+      new Chart(document.getElementById(id), {
+        type: 'bar',
+        data: { labels: dates, datasets },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false }, tooltip: {
+            mode: 'index', intersect: false,
+            backgroundColor: '#ffffff', borderColor: 'rgba(0,0,0,0.08)', borderWidth: 1,
+            titleColor: '#1d1d1f', bodyColor: '#86868b', padding: 12, cornerRadius: 10,
+            titleFont: { weight: 600 },
+          }},
+          scales: {
+            x: { stacked: true, grid: { display: false }, ticks: { color: '#c7c7cc', font: { size: 10 } } },
+            y: { stacked: true, grid: { color: 'rgba(0,0,0,0.03)' }, ticks: { color: '#c7c7cc', font: { size: 10 } }, beginAtZero: true }
+          }
+        }
+      });
+    }
+
+    createStackedBar('chart-ad-dist', [
+      { label: 'Displayed Correctly', data: [92,105,88,115,128,107,118,125,113,104,121,110,100,98], backgroundColor: '#e94f37', borderRadius: 3 },
+      { label: 'Displayed Incorrectly', data: [15,18,14,21,17,16,19,15,17,14,20,16,13,14], backgroundColor: '#f4a59b', borderRadius: 3 },
+      { label: 'Not Displayed', data: [14,17,13,20,15,12,18,14,16,13,19,15,12,11], backgroundColor: '#fbd5cf', borderRadius: 3 }
+    ]);
+
+    createStackedBar('chart-safety-dist', [
+      { label: 'No Risk', data: [62,71,59,78,81,68,74,76,69,63,77,68,61,60], backgroundColor: '#e94f37', borderRadius: 3 },
+      { label: 'Low Risk', data: [11,13,11,14,16,12,14,13,15,11,15,13,10,11], backgroundColor: '#f09080', borderRadius: 3 },
+      { label: 'Medium Risk', data: [14,16,13,18,20,15,17,16,18,14,18,16,12,13], backgroundColor: '#f4a59b', borderRadius: 3 },
+      { label: 'High Risk', data: [34,40,33,44,46,38,42,43,39,35,44,38,34,33], backgroundColor: '#fbd5cf', borderRadius: 3 }
+    ]);
+
+    createStackedBar('chart-mention-dist', [
+      { label: 'Mentioned', data: [19,22,18,24,25,21,23,24,22,19,24,21,19,18], backgroundColor: '#e94f37', borderRadius: 3 },
+      { label: 'Not Mentioned', data: [102,118,97,132,140,116,128,134,122,112,132,119,108,106], backgroundColor: '#fbd5cf', borderRadius: 3 }
+    ]);
+
+    function initProcessingChart() {
+      const dayLabels = ['Apr 10','Apr 11','Apr 12','Apr 13','Apr 14','Apr 15','Apr 16','Apr 17','Apr 18','Apr 19','Apr 20','Apr 21','Apr 22','Apr 23','Apr 24','Apr 25','Apr 26','Apr 27','Apr 28','Apr 29','Apr 30','May 1','May 2','May 3','May 4','May 5','May 6','May 7'];
+      const adsData = [47, 41, 41, 41, 56, 89, 67, 70, 55, 63, 43, 69, 57, 53, 40, 59, 48, 63, 43, 89, 67, 50, 52, 77, 58, 72, 65, 81];
+      new Chart(document.getElementById('chart-ads-per-day'), {
+        type: 'bar',
+        data: {
+          labels: dayLabels,
+          datasets: [{ label: 'Total Ads', data: adsData, backgroundColor: '#e94f37', borderRadius: 4, barPercentage: 0.7, categoryPercentage: 0.8 }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: '#ffffff', borderColor: 'rgba(0,0,0,0.08)', borderWidth: 1,
+              titleColor: '#1d1d1f', bodyColor: '#86868b', padding: 12, cornerRadius: 10,
+              titleFont: { weight: 600 },
+            },
+            datalabels: false
+          },
+          scales: {
+            x: { grid: { display: false }, ticks: { color: '#c7c7cc', font: { size: 9 }, maxRotation: 45, autoSkip: true, maxTicksLimit: 14 } },
+            y: { grid: { color: 'rgba(0,0,0,0.03)' }, ticks: { color: '#c7c7cc', font: { size: 10 }, stepSize: 20 }, beginAtZero: true, max: 100 }
+          }
+        }
+      });
+    }
+
+    // Period toggle clicks
+    document.querySelectorAll('.period-toggle').forEach(toggle => {
+      toggle.querySelectorAll('.period-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          toggle.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

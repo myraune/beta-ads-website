@@ -22,7 +22,7 @@ import {
   Zap,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ThemeSwitch } from "@/components/ui/theme-switch-button";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { useState, useCallback, useEffect, useRef } from "react";
 
 /* ── Product dropdown items — scroll to homepage sections ── */
@@ -361,7 +361,7 @@ export function BetaNavbar() {
               I am a Streamer
             </Button>
           </Link>
-          <ThemeSwitch className={isOnHero ? "text-white" : "text-foreground"} />
+          <AnimatedThemeToggler iconColor={isOnHero ? "rgba(255,255,255,0.82)" : undefined} />
         </div>
       </nav>
 
@@ -383,10 +383,10 @@ export function BetaNavbar() {
             />
           </Link>
           <div className="flex items-center gap-2">
-            <ThemeSwitch className={isOnHero && !mobileOpen ? "text-white" : "text-foreground"} />
+            <AnimatedThemeToggler iconColor={isOnHero && !mobileOpen ? "rgba(255,255,255,0.82)" : undefined} />
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className={cn("p-1.5 rounded-full transition-colors", isOnHero && !mobileOpen ? "text-white hover:bg-white/10" : "text-foreground hover:bg-foreground/5")}
+              className={cn("h-11 w-11 sm:h-8 sm:w-8 flex items-center justify-center rounded-full transition-colors", isOnHero && !mobileOpen ? "text-white hover:bg-white/10" : "text-foreground hover:bg-foreground/5")}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
@@ -400,15 +400,21 @@ export function BetaNavbar() {
           </div>
         </div>
 
-        {/* Mobile dropdown — wrapped in <nav> for screen reader landmark support */}
+        {/* Mobile dropdown — wrapped in <nav> for screen reader landmark support.
+         * motion-safe gate on the transition: under prefers-reduced-motion
+         * Chromium pauses CSS transitions on max-height/opacity at
+         * currentTime=0, which leaves the menu stuck closed on first click.
+         * With motion-safe, reduced-motion users get an instant snap and
+         * everyone else gets the smooth open. */}
         <nav
           id="mobile-nav"
           aria-label="Mobile navigation"
           aria-hidden={!mobileOpen}
-          className={cn(
-            "mx-3 mt-1 overflow-hidden transition-all duration-300 ease-out rounded-2xl",
-            mobileOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
-          )}
+          className="mx-3 mt-1 overflow-hidden rounded-2xl motion-safe:transition-all motion-safe:duration-300 motion-safe:ease-out"
+          style={{
+            maxHeight: mobileOpen ? 700 : 0,
+            opacity: mobileOpen ? 1 : 0,
+          }}
         >
           <div className="bg-background/80 backdrop-blur-xl ring-1 ring-white/[0.08] dark:ring-white/[0.06] shadow-lg shadow-black/[0.08] rounded-2xl px-3 py-3 space-y-0.5">
             {/* Product section */}
@@ -427,7 +433,7 @@ export function BetaNavbar() {
                       scrollToSection(item.scrollTo);
                     }
                   }}
-                  className="w-full flex items-center gap-3 px-4 py-2.5 text-sm font-medium rounded-xl text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05] transition-colors"
+                  className="w-full flex items-center gap-3 px-4 py-3 min-h-[44px] text-sm font-medium rounded-xl text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05] transition-colors"
                 >
                   <Icon className="w-4 h-4 text-primary" />
                   {item.label}
@@ -447,7 +453,7 @@ export function BetaNavbar() {
                   key={item.label}
                   to={item.href}
                   className={cn(
-                    "flex items-center gap-3 px-4 py-2.5 text-sm font-medium rounded-xl transition-colors",
+                    "flex items-center gap-3 px-4 py-3 min-h-[44px] text-sm font-medium rounded-xl transition-colors",
                     location.pathname === item.href
                       ? "text-foreground bg-foreground/[0.08]"
                       : "text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05]"
@@ -461,7 +467,7 @@ export function BetaNavbar() {
 
             <div className="px-4 pt-2 pb-1">
               <Link to="/streamers" className="block">
-                <Button className="w-full rounded-xl h-10 text-sm font-semibold bg-primary text-white hover:bg-primary/90">
+                <Button className="w-full rounded-xl h-11 text-sm font-semibold bg-primary text-white hover:bg-primary/90">
                   I am a Streamer
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
