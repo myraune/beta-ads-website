@@ -30,7 +30,7 @@ const norwegianCaseStudies = [
     headline: "800 000+ visninger · 2.34–2.93% CTR",
     accent: "#1428A0",
     logo: "/lovable-uploads/icon-samsung.svg",
-    logoInvert: true,
+    logoInvert: false,
   },
   {
     brand: "Shure",
