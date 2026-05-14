@@ -142,11 +142,11 @@
       cursor: pointer; transition: all 0.2s ease; margin-bottom: 1px; letter-spacing: -0.01em;
     }
     .sidebar-item:hover { background: rgba(0,0,0,0.03); color: #1d1d1f; }
-    .sidebar-item.active { background: rgba(233,79,55,0.08); color: #e94f37; font-weight: 600; }
+    .sidebar-item.active { background: rgba(233,79,55,0.08); color: #dc2727; font-weight: 600; }
     .sidebar-item svg { width: 18px; height: 18px; flex-shrink: 0; stroke-width: 1.5; }
 
     .badge-new {
-      font-size: 9px; font-weight: 600; background: #e94f37; color: white;
+      font-size: 9px; font-weight: 600; background: #dc2727; color: white;
       padding: 2px 6px; border-radius: 5px; letter-spacing: 0.3px; margin-left: auto;
     }
 
@@ -171,7 +171,7 @@
     .topbar-org img { height: 14px; width: auto; }
     .user-avatar {
       width: 30px; height: 30px; border-radius: 50%;
-      background: linear-gradient(135deg, #e94f37, #c13a27);
+      background: linear-gradient(135deg, #dc2727, #c13a27);
       display: flex; align-items: center; justify-content: center;
       font-size: 10px; font-weight: 600; color: white; letter-spacing: 0.02em;
     }
@@ -195,7 +195,7 @@
     /* ─── Filters ─── */
     .filters-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; margin-bottom: 24px; }
     .filter-group { display: flex; flex-direction: column; gap: 4px; }
-    .filter-label { font-size: 11px; font-weight: 600; color: #e94f37; text-transform: uppercase; letter-spacing: 0.03em; }
+    .filter-label { font-size: 11px; font-weight: 600; color: #dc2727; text-transform: uppercase; letter-spacing: 0.03em; }
     .filter-select {
       background: #ffffff; border: 1px solid rgba(0,0,0,0.08); border-radius: 10px;
       color: #1d1d1f; padding: 8px 32px 8px 14px; font-size: 13px; font-family: inherit;
@@ -204,7 +204,7 @@
       background-repeat: no-repeat; background-position: right 12px center; min-width: 140px;
       transition: border-color 0.2s;
     }
-    .filter-select:focus { outline: none; border-color: #e94f37; box-shadow: 0 0 0 3px rgba(233,79,55,0.1); }
+    .filter-select:focus { outline: none; border-color: #dc2727; box-shadow: 0 0 0 3px rgba(233,79,55,0.1); }
     .filter-actions { display: flex; gap: 8px; margin-left: auto; }
 
     .btn {
@@ -214,7 +214,7 @@
       color: #1d1d1f; transition: all 0.2s; letter-spacing: -0.01em;
     }
     .btn:hover { background: #f5f5f7; }
-    .btn-primary { background: #e94f37; border-color: transparent; color: white; }
+    .btn-primary { background: #dc2727; border-color: transparent; color: white; }
     .btn-primary:hover { background: #d4432d; }
     .btn svg { width: 14px; height: 14px; }
 
@@ -298,7 +298,7 @@
       flex: 1; height: 6px; background: #f2f4f8; border-radius: 3px; overflow: hidden;
     }
     .proc-card-bar-fill {
-      height: 100%; background: #e94f37; border-radius: 3px; transition: width 0.8s ease;
+      height: 100%; background: #dc2727; border-radius: 3px; transition: width 0.8s ease;
     }
     .proc-card-pct {
       font-size: 13px; font-weight: 600; color: #1d1d1f; min-width: 50px; text-align: right;
@@ -318,7 +318,7 @@
       display: flex; align-items: center; gap: 6px; margin-top: 6px;
     }
     .ads-per-day-legend-dot {
-      width: 8px; height: 8px; border-radius: 50%; background: #e94f37;
+      width: 8px; height: 8px; border-radius: 50%; background: #dc2727;
     }
     .ads-per-day-legend-label {
       font-size: 11px; color: #86868b;
@@ -335,7 +335,7 @@
 
   <!-- ─── Dark mode overrides ─── -->
   <style>
-    html[data-theme="dark"] { --c-s1: rgba(233,79,55,0.55); --c-s2: rgba(233,79,55,0.32); --c-s3: rgba(233,79,55,0.16); }
+    html[data-theme="dark"] { --c-s1: rgba(220,39,39,0.55); --c-s2: rgba(220,39,39,0.32); --c-s3: rgba(220,39,39,0.16); }
     html[data-theme="dark"] body {
       background: #0c0c10 !important;
       background-image: none !important;
@@ -564,7 +564,7 @@
                 <div class="chart-container">
                   <div class="pie-wrapper"><canvas id="chart-general"></canvas><div class="pie-center-label"><span class="number">97.1%</span><span class="label">Recorded</span></div></div>
                   <div class="legend">
-                    <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> Clip Recorded <span class="legend-value">97.10%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:#dc2727"></span> Clip Recorded <span class="legend-value">97.10%</span></div>
                     <div class="legend-item"><span class="legend-dot" style="background:var(--c-s3)"></span> No Clip <span class="legend-value">2.90%</span></div>
                   </div>
                 </div>
@@ -574,7 +574,7 @@
                 <div class="chart-container">
                   <div class="pie-wrapper"><canvas id="chart-ad-detection"></canvas><div class="pie-center-label"><span class="number">98.0%</span><span class="label">Correct</span></div></div>
                   <div class="legend">
-                    <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> Displayed Correctly <span class="legend-value">98.00%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:#dc2727"></span> Displayed Correctly <span class="legend-value">98.00%</span></div>
                     <div class="legend-item"><span class="legend-dot" style="background:var(--c-s2)"></span> Displayed Incorrectly <span class="legend-value">1.00%</span></div>
                     <div class="legend-item"><span class="legend-dot" style="background:var(--c-s3)"></span> Not Displayed <span class="legend-value">1.00%</span></div>
                   </div>
@@ -585,7 +585,7 @@
                 <div class="chart-container">
                   <div class="pie-wrapper"><canvas id="chart-brand-safety"></canvas><div class="pie-center-label"><span class="number">80.0%</span><span class="label">No Risk</span></div></div>
                   <div class="legend">
-                    <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> No Risk <span class="legend-value">80.00%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:#dc2727"></span> No Risk <span class="legend-value">80.00%</span></div>
                     <div class="legend-item"><span class="legend-dot" style="background:var(--c-s1)"></span> Low Risk <span class="legend-value">10.00%</span></div>
                     <div class="legend-item"><span class="legend-dot" style="background:var(--c-s2)"></span> Medium Risk <span class="legend-value">5.00%</span></div>
                     <div class="legend-item"><span class="legend-dot" style="background:var(--c-s3)"></span> High Risk <span class="legend-value">5.00%</span></div>
@@ -600,7 +600,7 @@
                 <div class="chart-container">
                   <div class="pie-wrapper"><canvas id="chart-brand-mention"></canvas><div class="pie-center-label"><span class="number">15.9%</span><span class="label">Mentioned</span></div></div>
                   <div class="legend">
-                    <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> Mentioned <span class="legend-value">15.91%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:#dc2727"></span> Mentioned <span class="legend-value">15.91%</span></div>
                     <div class="legend-item"><span class="legend-dot" style="background:var(--c-s3)"></span> Not Mentioned <span class="legend-value">84.09%</span></div>
                   </div>
                 </div>
@@ -610,7 +610,7 @@
                 <div class="chart-container">
                   <div class="pie-wrapper"><canvas id="chart-streamer-mention"></canvas><div class="pie-center-label"><span class="number">34.5%</span><span class="label">Mentioned</span></div></div>
                   <div class="legend">
-                    <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> Mentioned <span class="legend-value">34.45%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:#dc2727"></span> Mentioned <span class="legend-value">34.45%</span></div>
                     <div class="legend-item"><span class="legend-dot" style="background:var(--c-s3)"></span> Not Mentioned <span class="legend-value">65.55%</span></div>
                   </div>
                 </div>
@@ -622,7 +622,7 @@
                 <div>
                   <div class="distribution-title">Ad Detection Distribution</div>
                   <div class="distribution-legend">
-                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#e94f37"></span> Displayed Correctly</div>
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#dc2727"></span> Displayed Correctly</div>
                     <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--c-s2)"></span> Displayed Incorrectly</div>
                     <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--c-s3)"></span> Not Displayed</div>
                   </div>
@@ -639,7 +639,7 @@
                 <div>
                   <div class="distribution-title">Brand Safety Distribution</div>
                   <div class="distribution-legend">
-                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#e94f37"></span> No Risk</div>
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#dc2727"></span> No Risk</div>
                     <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--c-s1)"></span> Low Risk</div>
                     <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--c-s2)"></span> Medium Risk</div>
                     <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--c-s3)"></span> High Risk</div>
@@ -657,7 +657,7 @@
                 <div>
                   <div class="distribution-title">Brand Mention Distribution</div>
                   <div class="distribution-legend">
-                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#e94f37"></span> Mentioned</div>
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#dc2727"></span> Mentioned</div>
                     <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--c-s3)"></span> Not Mentioned</div>
                   </div>
                 </div>
@@ -777,12 +777,12 @@
     // ── Theme-aware colors ──────────────────────────────────────────
     function tc(dark) {
       return dark ? {
-        p: '#e94f37', s1: '#f09080', s2: '#f4a59b', s3: '#fbd5cf',
+        p: '#dc2727', s1: '#f09080', s2: '#f4a59b', s3: '#fbd5cf',
         grid: 'rgba(255,255,255,0.05)', tick: '#3e3e48',
         tipBg: '#1e1e27', tipBorder: 'rgba(255,255,255,0.10)',
         tipTitle: '#ededf0', tipBody: '#8a8a95',
       } : {
-        p: '#e94f37', s1: 'rgba(233,79,55,0.55)', s2: 'rgba(233,79,55,0.32)', s3: 'rgba(233,79,55,0.16)',
+        p: '#dc2727', s1: 'rgba(220,39,39,0.55)', s2: 'rgba(220,39,39,0.32)', s3: 'rgba(220,39,39,0.16)',
         grid: 'rgba(0,0,0,0.03)', tick: '#c7c7cc',
         tipBg: '#ffffff', tipBorder: 'rgba(0,0,0,0.08)',
         tipTitle: '#1d1d1f', tipBody: '#86868b',
