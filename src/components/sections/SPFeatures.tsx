@@ -498,12 +498,27 @@ const AnalyticsPreview: React.FC = () => {
   const { resolvedTheme } = useTheme();
   const [scale, setScale] = useState<number | null>(null);
 
-  /* Compute scale so the 1280-wide iframe fills the wrapper exactly */
+  /* Compute scale so the 1280-wide iframe fills the wrapper exactly.
+   *
+   * NOTE: we MUST take a synchronous initial measurement here. Chrome's
+   * ResizeObserver does not fire for elements with zero rendered area
+   * (height: 0 + overflow: hidden), which is exactly our starting state
+   * before scale is set. Without this measurement the observer never
+   * fires, scale stays null, the iframe is never rendered and the
+   * "Full visibility across every campaign" panel appears blank on
+   * production. After we kick scale away from null once, the wrapper
+   * gets a real height and the observer behaves normally for window
+   * resizes. */
   useEffect(() => {
     const wrapper = wrapperRef.current;
     if (!wrapper) return;
+    const initialWidth = wrapper.getBoundingClientRect().width;
+    if (initialWidth > 0) {
+      setScale(initialWidth / IFRAME_W);
+    }
     const obs = new ResizeObserver(([entry]) => {
-      setScale(entry.contentRect.width / IFRAME_W);
+      const w = entry.contentRect.width;
+      if (w > 0) setScale(w / IFRAME_W);
     });
     obs.observe(wrapper);
     return () => obs.disconnect();
@@ -926,9 +941,10 @@ export const SPFeatures: React.FC = () => {
           </p>
         </div>
 
-        {/* Mobile tab bar */}
-        <div className="lg:hidden sticky top-16 z-[100] py-3 bg-background/95 backdrop-blur-xl border-b border-border/30 mb-4">
-          <div className="flex gap-1 overflow-x-auto pb-1">
+        {/* Mobile tab bar — right-edge fade hints at horizontal scroll for the
+            tabs that overflow the viewport at 375px (Analytics + Reports). */}
+        <div className="lg:hidden sticky top-16 z-[100] py-3 bg-background/95 backdrop-blur-xl border-b border-border/30 mb-4 relative">
+          <div className="flex gap-1 overflow-x-auto pb-1 pr-6">
             {features.map((f) => {
               const Icon = f.icon;
               const isActive = f.id === activeId;
@@ -948,6 +964,7 @@ export const SPFeatures: React.FC = () => {
               );
             })}
           </div>
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-background/95 to-transparent" aria-hidden="true" />
         </div>
 
         {/* Content area with sticky sidebar */}
