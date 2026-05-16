@@ -1,5 +1,5 @@
 {
-  "buildCommand": "node scripts/generate-sitemap.mjs && vite build && node scripts/generate-seo-pages.mjs",
+  "buildCommand": "node scripts/generate-blog-meta.mjs && node scripts/generate-sitemap.mjs && vite build && node scripts/generate-seo-pages.mjs",
   "outputDirectory": "dist",
   "redirects": [
     {
@@ -84,8 +84,15 @@
       "source": "/(.*)",
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/clip-analytics-preview/(.*)",
+      "headers": [
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Content-Security-Policy", "value": "frame-ancestors 'self'" }
       ]
     }
   ]
