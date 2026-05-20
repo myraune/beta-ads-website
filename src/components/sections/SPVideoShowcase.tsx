@@ -99,22 +99,20 @@ const LiveStreamDemo: React.FC = () => {
             onPause={() => setPlaying(false)}
           />
 
-          {/* ── Persistent snipe banner — full-width across bottom of stream ── */}
-          <div className="absolute bottom-12 inset-x-0 flex justify-center pointer-events-none z-10 px-3">
-            <div className="w-full max-w-[640px] rounded-md overflow-hidden shadow-2xl ring-1 ring-white/10">
+          {/* ── Persistent in-stream banner — bottom-right corner, leaves stream visible ── */}
+          <div className="absolute bottom-12 right-3 w-[36%] max-w-[300px] pointer-events-none z-10">
+            <div className="rounded-md overflow-hidden shadow-2xl ring-1 ring-white/15">
               <img
                 src="/lovable-uploads/samsung-fold7-banner.jpg"
                 alt="Samsung Galaxy S25 Ultra banner"
                 className="w-full h-auto block"
               />
             </div>
-          </div>
-
-          {/* "Sponsored" badge — top-right corner of the banner */}
-          <div className="absolute top-3 right-3 pointer-events-none z-10">
-            <span className="text-[10px] font-semibold px-2 py-1 rounded bg-black/70 text-white/90 uppercase tracking-wide backdrop-blur-sm">
-              Sponsored · Samsung
-            </span>
+            <div className="mt-1 flex justify-end">
+              <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-black/70 text-white/85 uppercase tracking-wide backdrop-blur-sm">
+                Ad · Samsung
+              </span>
+            </div>
           </div>
 
           {/* LIVE badge + viewers — Twitch style top-left */}
