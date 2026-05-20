@@ -99,6 +99,22 @@ const LiveStreamDemo: React.FC = () => {
             onPause={() => setPlaying(false)}
           />
 
+          {/* ── Animated Samsung overlay — synced with stream, in-stream banner ── */}
+          <div className="absolute bottom-12 right-3 w-[36%] max-w-[320px] pointer-events-none z-10">
+            <div className="rounded-md overflow-hidden shadow-2xl ring-1 ring-white/15">
+              <video
+                ref={overlayRef}
+                src="/lovable-uploads/samsung-zfold7-overlay.webm"
+                loop
+                muted
+                playsInline
+                preload="auto"
+                className="w-full h-auto block bg-black"
+                aria-label="Samsung Galaxy S25 Ultra animated overlay"
+              />
+            </div>
+          </div>
+
           {/* LIVE badge + viewers — Twitch style top-left */}
           <div className="absolute top-3 left-3 flex items-center gap-2 pointer-events-none">
             <div className="flex items-center gap-1 bg-[#eb0400] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-[3px] uppercase tracking-wide">
@@ -208,18 +224,12 @@ const LiveStreamDemo: React.FC = () => {
             Følg meg for daglige streams og samarbeid med merker som Samsung.
           </p>
 
-          {/* Sponsored panel — the animated Samsung banner */}
+          {/* Sponsored panel — static banner image like a real Twitch streamer panel */}
           <div className="rounded-md overflow-hidden ring-1 ring-[#2f2f35] bg-[#18181b] max-w-md">
-            <video
-              ref={overlayRef}
-              src="/lovable-uploads/samsung-zfold7-overlay.webm"
-              loop
-              muted
-              playsInline
-              preload="auto"
-              poster="/lovable-uploads/samsung-fold7-banner.jpg"
+            <img
+              src="/lovable-uploads/samsung-fold7-banner.jpg"
+              alt="Samsung Galaxy S25 Ultra banner"
               className="w-full h-auto block"
-              aria-label="Samsung Galaxy S25 Ultra animated banner"
             />
             <div className="flex items-center justify-between px-3 py-2 border-t border-[#2f2f35]">
               <span className="text-[10px] font-semibold text-white">Galaxy S25 Ultra</span>
