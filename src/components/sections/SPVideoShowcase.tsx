@@ -1,13 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import {
-  Play,
-  Pause,
-  Volume2,
-  VolumeX,
-} from "lucide-react";
+import { Play, Pause, Volume2, VolumeX, Settings, Maximize2 } from "lucide-react";
 
-/* ── Live Stream + Overlay Demo ── */
+/* ── Live Stream + Overlay Demo — true Twitch desktop layout ── */
 
 const LiveStreamDemo: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -23,17 +18,17 @@ const LiveStreamDemo: React.FC = () => {
     { user: "spacegamer98", msg: "Beste streameren!", color: "text-purple-400" },
     { user: "techviking", msg: "!shure", color: "text-green-400" },
     { user: "melissahitreskog", msg: "good stream!", color: "text-pink-400" },
+    { user: "nordicgamer", msg: "samsung > apple", color: "text-yellow-400" },
+    { user: "traingeek06", msg: "nice overlay!", color: "text-red-400" },
   ]);
 
-  // Auto-play when scrolled into view, pause when scrolled out
+  // Auto-play when scrolled into view
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
-
     const obs = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Sync both to start together
           if (streamRef.current) {
             if (!hasAutoPlayed.current) {
               streamRef.current.currentTime = 0;
@@ -45,7 +40,6 @@ const LiveStreamDemo: React.FC = () => {
             setPlaying(true);
           }
         } else {
-          // Pause when out of view
           streamRef.current?.pause();
           overlayRef.current?.pause();
           setPlaying(false);
@@ -57,183 +51,203 @@ const LiveStreamDemo: React.FC = () => {
     return () => obs.disconnect();
   }, []);
 
-  // Simulate live viewer count fluctuation — only tick while playing
-  // (IntersectionObserver above sets `playing` true when in view). No point
-  // burning main-thread work simulating a stream nobody is watching.
+  // Viewer count + chat ticker — only while playing
   useEffect(() => {
     if (!playing) return;
-    const interval = setInterval(() => {
-      setViewerCount((v) => v + Math.floor(Math.random() * 11) - 4);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [playing]);
-
-  // Simulate new chat messages — same visibility gate
-  useEffect(() => {
-    if (!playing) return;
+    const v = setInterval(() => setViewerCount((x) => x + Math.floor(Math.random() * 11) - 4), 3000);
     const messages = [
       { user: "streamerlife", msg: "need this phone!!", color: "text-blue-400" },
-      { user: "nordicgamer", msg: "samsung > apple", color: "text-yellow-400" },
-      { user: "traingeek06", msg: "nice overlay!", color: "text-red-400" },
       { user: "zeon_tv", msg: "where to buy?", color: "text-cyan-400" },
       { user: "spajKK", msg: "LET'S GO", color: "text-rose-400" },
       { user: "fjolsenfn", msg: "samsung gang", color: "text-emerald-400" },
+      { user: "elias_no", msg: "z fold ser sykt ut", color: "text-orange-400" },
+      { user: "mariekek", msg: "@RubenGKS link?", color: "text-violet-400" },
     ];
     let i = 0;
-    const interval = setInterval(() => {
-      setChatMessages((prev) => [...prev.slice(-3), messages[i % messages.length]]);
+    const c = setInterval(() => {
+      setChatMessages((prev) => [...prev.slice(-6), messages[i % messages.length]]);
       i++;
     }, 3500);
-    return () => clearInterval(interval);
+    return () => { clearInterval(v); clearInterval(c); };
   }, [playing]);
 
   const togglePlay = () => {
     if (!streamRef.current) return;
-    if (playing) {
-      streamRef.current.pause();
-      overlayRef.current?.pause();
-    } else {
-      streamRef.current.play();
-      overlayRef.current?.play();
-    }
+    if (playing) { streamRef.current.pause(); overlayRef.current?.pause(); }
+    else { streamRef.current.play(); overlayRef.current?.play(); }
     setPlaying(!playing);
   };
 
   return (
-    <div ref={containerRef} className="rounded-xl overflow-hidden shadow-2xl border border-[#2f2f35]">
-      {/* ── Video player area ── */}
-      <div className="relative aspect-video cursor-pointer bg-black" onClick={togglePlay}>
-        <video
-          ref={streamRef}
-          src="/lovable-uploads/rubengks-stream.mp4"
-          muted={muted}
-          loop
-          playsInline
-          preload="metadata"
-          className="w-full h-full object-cover"
-          onPlay={() => setPlaying(true)}
-          onPause={() => setPlaying(false)}
-        />
-
-        {/* Samsung overlay — bottom-left, synced with stream */}
-        <div className="absolute bottom-10 left-3 w-[35%] max-w-[260px] pointer-events-none z-10">
+    <div
+      ref={containerRef}
+      className="rounded-xl overflow-hidden shadow-2xl border border-[#2f2f35] bg-[#0e0e10] grid lg:grid-cols-[1fr_340px]"
+    >
+      {/* ─── LEFT: Stream player + channel info ─── */}
+      <div className="flex flex-col min-w-0">
+        {/* Player */}
+        <div className="relative aspect-video cursor-pointer bg-black" onClick={togglePlay}>
           <video
-            ref={overlayRef}
-            src="/lovable-uploads/samsung-zfold7-overlay.webm"
-            loop muted playsInline
+            ref={streamRef}
+            src="/lovable-uploads/rubengks-stream.mp4"
+            muted={muted}
+            loop
+            playsInline
             preload="metadata"
-            className="w-full h-auto rounded shadow-xl"
+            className="w-full h-full object-cover"
+            onPlay={() => setPlaying(true)}
+            onPause={() => setPlaying(false)}
           />
-        </div>
 
-        {/* LIVE badge + viewers — Twitch style */}
-        <div className="absolute top-3 left-3 flex items-center gap-2 pointer-events-none">
-          <div className="flex items-center gap-1 bg-[#eb0400] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-[3px] uppercase tracking-wide whitespace-nowrap">
-            Live
+          {/* ── Persistent snipe banner — full-width across bottom of stream ── */}
+          <div className="absolute bottom-12 inset-x-0 flex justify-center pointer-events-none z-10 px-3">
+            <div className="w-full max-w-[640px] rounded-md overflow-hidden shadow-2xl ring-1 ring-white/10">
+              <img
+                src="/lovable-uploads/samsung-fold7-banner.jpg"
+                alt="Samsung Galaxy S25 Ultra banner"
+                className="w-full h-auto block"
+              />
+            </div>
           </div>
-          <div className="flex items-center gap-1 bg-black/70 text-white text-[10px] px-1.5 py-0.5 rounded-[3px] whitespace-nowrap">
-            {viewerCount.toLocaleString()} viewers
-          </div>
-        </div>
 
-        {/* Play overlay */}
-        <div className={`absolute inset-0 flex items-center justify-center bg-black/10 transition-opacity duration-200 ${
-          playing ? "opacity-0 hover:opacity-100" : "opacity-100"
-        }`}>
-          <div className="w-14 h-14 rounded-full bg-black/60 flex items-center justify-center backdrop-blur-sm">
-            {playing ? (
-              <Pause className="w-6 h-6 text-white" />
-            ) : (
-              <Play className="w-6 h-6 text-white ml-0.5" />
-            )}
+          {/* "Sponsored" badge — top-right corner of the banner */}
+          <div className="absolute top-3 right-3 pointer-events-none z-10">
+            <span className="text-[10px] font-semibold px-2 py-1 rounded bg-black/70 text-white/90 uppercase tracking-wide backdrop-blur-sm">
+              Sponsored · Samsung
+            </span>
           </div>
-        </div>
 
-        {/* Bottom controls bar — Twitch style */}
-        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent px-3 pb-2 pt-8 pointer-events-none">
-          <div className="flex items-center justify-between">
-            <div className="pointer-events-auto flex items-center gap-2">
+          {/* LIVE badge + viewers — Twitch style top-left */}
+          <div className="absolute top-3 left-3 flex items-center gap-2 pointer-events-none">
+            <div className="flex items-center gap-1 bg-[#eb0400] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-[3px] uppercase tracking-wide">
+              <span className="w-1.5 h-1.5 rounded-full bg-white inline-block" />
+              Live
+            </div>
+            <div className="bg-black/70 text-white text-[10px] px-1.5 py-0.5 rounded-[3px]">
+              {viewerCount.toLocaleString()} viewers
+            </div>
+          </div>
+
+          {/* Play overlay */}
+          <div
+            className={`absolute inset-0 flex items-center justify-center bg-black/10 transition-opacity duration-200 ${
+              playing ? "opacity-0 hover:opacity-100" : "opacity-100"
+            }`}
+          >
+            <div className="w-14 h-14 rounded-full bg-black/60 flex items-center justify-center backdrop-blur-sm">
+              {playing ? <Pause className="w-6 h-6 text-white" /> : <Play className="w-6 h-6 text-white ml-0.5" />}
+            </div>
+          </div>
+
+          {/* Twitch-style player controls bar */}
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent px-3 pb-2 pt-8 pointer-events-none flex items-center justify-between">
+            <div className="flex items-center gap-1 pointer-events-auto">
               <button
-                aria-label={muted ? "Unmute stream" : "Mute stream"}
+                onClick={(e) => { e.stopPropagation(); togglePlay(); }}
+                className="w-9 h-9 flex items-center justify-center text-white/85 hover:text-white"
+              >
+                {playing ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
+              </button>
+              <button
                 onClick={(e) => {
                   e.stopPropagation();
                   setMuted(!muted);
                   if (streamRef.current) streamRef.current.muted = !muted;
                 }}
-                className="w-11 h-11 -ml-2 flex items-center justify-center text-white/80 hover:text-white transition-colors"
+                className="w-9 h-9 flex items-center justify-center text-white/85 hover:text-white"
               >
                 {muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+              </button>
+            </div>
+            <div className="flex items-center gap-1 pointer-events-auto">
+              <button className="w-9 h-9 flex items-center justify-center text-white/85 hover:text-white">
+                <Settings className="w-4 h-4" />
+              </button>
+              <button className="w-9 h-9 flex items-center justify-center text-white/85 hover:text-white">
+                <Maximize2 className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Channel info bar */}
+        <div className="bg-[#0e0e10] px-4 py-3 border-t border-[#2f2f35]">
+          <div className="flex items-start gap-3">
+            <div className="w-11 h-11 rounded-full overflow-hidden shrink-0 ring-2 ring-[#9146ff]">
+              <img src="/lovable-uploads/rubengks-profile.png" alt="RubenGKS" className="w-full h-full object-cover" />
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-1.5">
+                <span className="text-white text-base font-semibold">RubenGKS</span>
+                <svg className="w-3.5 h-3.5 text-[#9146ff]" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M16.403 12.652a3 3 0 010-5.304 3 3 0 00-1.75-1.75 3 3 0 01-5.304 0 3 3 0 00-1.75 1.75 3 3 0 010 5.304 3 3 0 001.75 1.75 3 3 0 015.304 0 3 3 0 001.75-1.75zm-7.403-2.652a1 1 0 112 0 1 1 0 01-2 0z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <div className="text-[13px] text-white font-medium mt-0.5">Samsung Galaxy S25 Ultra Launch — Fortnite gameplay</div>
+              <div className="text-[12px] text-[#adadb8] mt-1">Playing Fortnite for {viewerCount.toLocaleString()} viewers</div>
+              <div className="flex items-center gap-1.5 mt-2 flex-wrap">
+                {["English", "Fortnite", "Sponsored"].map((tag) => (
+                  <span
+                    key={tag}
+                    className={`text-[10px] px-2 py-0.5 rounded-full ${
+                      tag === "Sponsored" ? "bg-primary/20 text-primary" : "bg-[#2f2f35] text-[#adadb8]"
+                    }`}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div className="shrink-0 flex flex-col items-end gap-1">
+              <button className="text-[11px] font-semibold px-3 py-1 rounded bg-[#9146ff] text-white hover:bg-[#a970ff] transition-colors">
+                Follow
+              </button>
+              <button className="text-[11px] font-semibold px-3 py-1 rounded bg-[#2f2f35] text-white hover:bg-[#3f3f45] transition-colors">
+                Subscribe
               </button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* ── Channel info bar — like Twitch ── */}
-      <div className="bg-[#0e0e10] px-4 py-3">
-        <div className="flex items-start gap-3">
-          {/* Avatar */}
-          <div className="w-10 h-10 rounded-full overflow-hidden shrink-0 ring-2 ring-[#9146ff]">
-            <img src="/lovable-uploads/rubengks-profile.png" alt="RubenGKS" className="w-full h-full object-cover" />
-          </div>
-          {/* Channel info */}
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2">
-              <span className="text-white text-sm font-semibold">RubenGKS</span>
-              <svg className="w-3.5 h-3.5 text-[#9146ff]" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M16.403 12.652a3 3 0 010-5.304 3 3 0 00-1.75-1.75 3 3 0 01-5.304 0 3 3 0 00-1.75 1.75 3 3 0 010 5.304 3 3 0 001.75 1.75 3 3 0 015.304 0 3 3 0 001.75-1.75zm-7.403-2.652a1 1 0 112 0 1 1 0 01-2 0z" clipRule="evenodd" /></svg>
-            </div>
-            <div className="text-[12px] text-[#adadb8] truncate">Playing Fortnite for 2.8K viewers</div>
-          </div>
-          {/* Sponsored badge */}
-          <div className="shrink-0">
-            <span className="text-[10px] font-medium px-2 py-0.5 rounded bg-primary/20 text-primary">
-              Sponsored
-            </span>
-          </div>
-        </div>
-        {/* Tags */}
-        <div className="flex items-center gap-1.5 mt-2 ml-[52px]">
-          {["English", "Fortnite", "Sponsored"].map((tag) => (
-            <span
-              key={tag}
-              className={`text-[10px] px-2 py-0.5 rounded-full ${
-                tag === "Sponsored" ? "bg-primary/20 text-primary" : "bg-[#2f2f35] text-[#adadb8]"
-              }`}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* ── Chat ── */}
-      <div className="bg-[#18181b] px-4 py-2.5 border-t border-[#2f2f35]">
-        <div className="flex items-center justify-between mb-2">
-          <span className="text-[11px] text-[#adadb8] font-semibold uppercase tracking-wide">Stream Chat</span>
-          <span className="text-[10px] text-[#adadb8]">{viewerCount.toLocaleString()} chatters</span>
+      {/* ─── RIGHT: Chat sidebar (desktop only — stacks below on mobile) ─── */}
+      <div className="bg-[#18181b] border-t lg:border-t-0 lg:border-l border-[#2f2f35] flex flex-col min-h-0">
+        {/* Chat header */}
+        <div className="flex items-center justify-between px-4 py-3 border-b border-[#2f2f35]">
+          <span className="text-[13px] font-semibold text-white">Stream Chat</span>
+          <span className="text-[11px] text-[#adadb8]">{viewerCount.toLocaleString()} chatters</span>
         </div>
 
-        {/* Pinned CTA message — the auto-sent sponsored message */}
-        <div className="mb-2 px-3 py-2 rounded-md bg-[#1f1f23] border-l-2 border-[#9146ff]">
-          <div className="flex items-center gap-1.5 mb-1">
-            <div className="w-4 h-4 rounded-full bg-[#9146ff] flex items-center justify-center">
-              <span className="text-[8px] text-white font-bold">β</span>
-            </div>
-            <span className="text-[11px] font-semibold text-[#9146ff]">BetaAdsBot</span>
-            <span className="text-[9px] text-[#adadb8] bg-[#2f2f35] px-1 rounded">BOT</span>
-          </div>
-          <div className="text-[11px] text-[#efeff1] leading-relaxed">
-            📱 Check out the NEW Samsung Galaxy S25 Ultra → <span className="text-[#9146ff] underline cursor-pointer">samsung.com/s25ultra</span> #ad
-          </div>
-        </div>
-
-        <div className="space-y-0.5">
-          {chatMessages.slice(-4).map((msg, i) => (
-            <div key={`${msg.user}-${i}`} className="text-[12px] leading-relaxed">
+        {/* Chat messages */}
+        <div className="flex-1 px-3 py-2 space-y-1 overflow-hidden">
+          {chatMessages.slice(-8).map((msg, i) => (
+            <div key={`${msg.user}-${i}`} className="text-[12.5px] leading-relaxed">
               <span className={`font-semibold ${msg.color}`}>{msg.user}</span>
               <span className="text-[#efeff1]">: {msg.msg}</span>
             </div>
           ))}
+        </div>
+
+        {/* Pinned sponsored message — at bottom, pinned above the input */}
+        <div className="mx-3 mb-3 px-3 py-2.5 rounded-md bg-[#1f1f23] border-l-2 border-primary">
+          <div className="flex items-center gap-1.5 mb-1.5">
+            <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
+              <span className="text-[9px] text-white font-bold">β</span>
+            </div>
+            <span className="text-[11px] font-semibold text-primary">BetaAdsBot</span>
+            <span className="text-[9px] text-[#adadb8] bg-[#2f2f35] px-1 rounded">PINNED</span>
+          </div>
+          <div className="text-[12px] text-[#efeff1] leading-relaxed">
+            Check out the new Samsung Galaxy S25 Ultra →{" "}
+            <span className="text-primary underline cursor-pointer">samsung.com/s25ultra</span>
+          </div>
+        </div>
+
+        {/* Chat input mock */}
+        <div className="px-3 pb-3">
+          <div className="flex items-center gap-2 px-3 py-2 rounded-md bg-[#2f2f35] text-[12px] text-[#adadb8]">
+            Send a message
+          </div>
         </div>
       </div>
     </div>
@@ -263,8 +277,8 @@ export const SPVideoShowcase: React.FC = () => {
             This is what it looks like
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            Real Samsung overlay running on a real Twitch stream.
-            No mockups — this is what viewers actually see.
+            A Samsung snipe banner running on a real Norwegian Twitch stream.
+            No mockups — this is what 2,800+ viewers see.
           </p>
         </div>
 
@@ -279,7 +293,7 @@ export const SPVideoShowcase: React.FC = () => {
 
         {/* Samsung campaign stats — from live data */}
         <div
-          className={`flex flex-wrap items-center justify-center gap-x-8 md:gap-x-12 gap-y-3 py-6 transition-all duration-700 delay-200 ${
+          className={`flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-8 md:gap-x-12 gap-y-3 py-6 transition-all duration-700 delay-200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
