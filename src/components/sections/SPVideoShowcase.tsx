@@ -99,13 +99,19 @@ const LiveStreamDemo: React.FC = () => {
             onPause={() => setPlaying(false)}
           />
 
-          {/* ── Persistent in-stream banner — bottom-right corner, leaves stream visible ── */}
-          <div className="absolute bottom-12 right-3 w-[36%] max-w-[300px] pointer-events-none z-10">
+          {/* ── Animated Samsung overlay — synced with stream, bottom-right corner ── */}
+          <div className="absolute bottom-12 right-3 w-[36%] max-w-[320px] pointer-events-none z-10">
             <div className="rounded-md overflow-hidden shadow-2xl ring-1 ring-white/15">
-              <img
-                src="/lovable-uploads/samsung-fold7-banner.jpg"
-                alt="Samsung Galaxy S25 Ultra banner"
+              <video
+                ref={overlayRef}
+                src="/lovable-uploads/samsung-zfold7-overlay.webm"
+                loop
+                muted
+                playsInline
+                preload="auto"
+                poster="/lovable-uploads/samsung-fold7-banner.jpg"
                 className="w-full h-auto block"
+                aria-label="Samsung Galaxy S25 Ultra animated overlay"
               />
             </div>
             <div className="mt-1 flex justify-end">
