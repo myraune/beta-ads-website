@@ -207,35 +207,84 @@ const LiveStreamDemo: React.FC = () => {
           </div>
         </div>
 
-        {/* ─── About / Panels section — Samsung banner lives HERE like a real Twitch panel ─── */}
-        <div className="bg-[#0e0e10] px-4 py-5 border-t border-[#2f2f35]">
-          {/* About header */}
-          <div className="flex items-center gap-1.5 mb-3">
-            <h3 className="text-white text-sm font-semibold">Om RubenGKS</h3>
-            <svg className="w-3.5 h-3.5 text-[#9146ff]" viewBox="0 0 20 20" fill="currentColor">
+        {/* ─── About / Panels section — matches Twitch streamer page below the player ─── */}
+        <div className="bg-[#0e0e10] px-5 py-6 border-t border-[#2f2f35]">
+          {/* "Om RubenGKS" header */}
+          <div className="flex items-center gap-1.5 mb-4">
+            <h3 className="text-white text-base font-semibold">Om RubenGKS</h3>
+            <svg className="w-4 h-4 text-[#9146ff]" viewBox="0 0 20 20" fill="currentColor">
               <path fillRule="evenodd" d="M16.403 12.652a3 3 0 010-5.304 3 3 0 00-1.75-1.75 3 3 0 01-5.304 0 3 3 0 00-1.75 1.75 3 3 0 010 5.304 3 3 0 001.75 1.75 3 3 0 015.304 0 3 3 0 001.75-1.75zm-7.403-2.652a1 1 0 112 0 1 1 0 01-2 0z" clipRule="evenodd" />
             </svg>
           </div>
-          <div className="text-[11px] text-[#adadb8] mb-3">
-            <span className="text-white font-semibold">17.5K følgere</span> · <span className="text-primary">Sponsored by Samsung</span>
-          </div>
-          <p className="text-[12px] text-[#adadb8] leading-relaxed mb-4 max-w-xl">
-            Norsk Twitch-streamer fra Oslo. Spiller Fortnite, Valorant og Just Chatting.
-            Følg meg for daglige streams og samarbeid med merker som Samsung.
-          </p>
 
-          {/* Sponsored panel — static banner image like a real Twitch streamer panel */}
-          <div className="rounded-md overflow-hidden ring-1 ring-[#2f2f35] bg-[#18181b] max-w-md">
-            <img
-              src="/lovable-uploads/samsung-fold7-banner.jpg"
-              alt="Samsung Galaxy S25 Ultra banner"
-              className="w-full h-auto block"
-            />
-            <div className="flex items-center justify-between px-3 py-2 border-t border-[#2f2f35]">
-              <span className="text-[10px] font-semibold text-white">Galaxy S25 Ultra</span>
-              <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-primary/20 text-primary uppercase tracking-wide">
-                Sponsored
-              </span>
+          {/* Bio + Social links (two-column on desktop, matches detoo layout) */}
+          <div className="grid grid-cols-1 md:grid-cols-[1fr_180px] gap-6 mb-6">
+            <div>
+              <div className="text-[12px] mb-2">
+                <span className="text-white font-semibold">17.5K følgere</span>
+                <span className="text-[#adadb8]"> · </span>
+                <span className="text-primary font-medium">Goon House</span>
+              </div>
+              <p className="text-[13px] text-[#dedee3] leading-relaxed">
+                Hei, jeg er RubenGKS. Følg meg for daglige Fortnite-streams fra Oslo.
+                Alle mine socials finner du til høyre — rubengks.business@gmail.com
+              </p>
+            </div>
+            <div className="space-y-2">
+              {[
+                { label: "Instagram", icon: "📷" },
+                { label: "Discord", icon: "💬" },
+                { label: "YouTube", icon: "▶" },
+                { label: "Twitter", icon: "𝕏" },
+              ].map((s) => (
+                <div key={s.label} className="flex items-center gap-2 text-[13px] text-[#dedee3]">
+                  <span className="w-4 inline-flex justify-center">{s.icon}</span>
+                  <span>{s.label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 3-panel grid — sponsored panel + subscribe panel + socials panel (matches detoo's THIS LEGEND/SUBSCRIBE/SOCIALS row) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {/* 1. Sponsored Samsung panel — the in-stream banner equivalent */}
+            <div className="rounded-md overflow-hidden bg-[#18181b]">
+              <img
+                src="/lovable-uploads/samsung-fold7-banner.jpg"
+                alt="Samsung Galaxy S25 Ultra"
+                className="w-full h-auto block aspect-[16/10] object-cover"
+              />
+              <div className="px-3 py-2.5">
+                <div className="flex items-center justify-between mb-1">
+                  <span className="text-[11px] font-semibold text-white">Galaxy S25 Ultra</span>
+                  <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-primary/20 text-primary uppercase tracking-wide">
+                    Sponsored
+                  </span>
+                </div>
+                <p className="text-[11px] text-[#adadb8] leading-snug">samsung.com/s25ultra</p>
+              </div>
+            </div>
+
+            {/* 2. Subscribe panel */}
+            <div className="rounded-md overflow-hidden bg-[#18181b] flex flex-col">
+              <div className="aspect-[16/10] bg-gradient-to-br from-[#9146ff] to-[#5c16c5] flex items-center justify-center">
+                <span className="text-white text-2xl font-bold tracking-tight">SUBSCRIBE</span>
+              </div>
+              <div className="px-3 py-2.5">
+                <p className="text-[11px] text-[#dedee3] font-semibold mb-1">Av å subbe får du:</p>
+                <p className="text-[11px] text-[#adadb8] leading-snug">NULL reklame · Sub-emotes · Discord-rolle</p>
+              </div>
+            </div>
+
+            {/* 3. Socials panel */}
+            <div className="rounded-md overflow-hidden bg-[#18181b] flex flex-col">
+              <div className="aspect-[16/10] bg-gradient-to-br from-[#eb0400] to-[#9c0200] flex items-center justify-center">
+                <span className="text-white text-2xl font-bold tracking-tight">SOCIALS</span>
+              </div>
+              <div className="px-3 py-2.5">
+                <p className="text-[11px] text-[#dedee3] font-semibold mb-1">Følg @RubenGKS</p>
+                <p className="text-[11px] text-[#adadb8] leading-snug">Instagram · YouTube · Discord · TikTok</p>
+              </div>
             </div>
           </div>
         </div>
