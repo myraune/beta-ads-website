@@ -99,28 +99,6 @@ const LiveStreamDemo: React.FC = () => {
             onPause={() => setPlaying(false)}
           />
 
-          {/* ── Animated Samsung overlay — synced with stream, bottom-right corner ── */}
-          <div className="absolute bottom-12 right-3 w-[36%] max-w-[320px] pointer-events-none z-10">
-            <div className="rounded-md overflow-hidden shadow-2xl ring-1 ring-white/15">
-              <video
-                ref={overlayRef}
-                src="/lovable-uploads/samsung-zfold7-overlay.webm"
-                loop
-                muted
-                playsInline
-                preload="auto"
-                poster="/lovable-uploads/samsung-fold7-banner.jpg"
-                className="w-full h-auto block"
-                aria-label="Samsung Galaxy S25 Ultra animated overlay"
-              />
-            </div>
-            <div className="mt-1 flex justify-end">
-              <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-black/70 text-white/85 uppercase tracking-wide backdrop-blur-sm">
-                Ad · Samsung
-              </span>
-            </div>
-          </div>
-
           {/* LIVE badge + viewers — Twitch style top-left */}
           <div className="absolute top-3 left-3 flex items-center gap-2 pointer-events-none">
             <div className="flex items-center gap-1 bg-[#eb0400] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-[3px] uppercase tracking-wide">
@@ -209,6 +187,45 @@ const LiveStreamDemo: React.FC = () => {
               <button className="text-[11px] font-semibold px-3 py-1 rounded bg-[#2f2f35] text-white hover:bg-[#3f3f45] transition-colors">
                 Subscribe
               </button>
+            </div>
+          </div>
+        </div>
+
+        {/* ─── About / Panels section — Samsung banner lives HERE like a real Twitch panel ─── */}
+        <div className="bg-[#0e0e10] px-4 py-5 border-t border-[#2f2f35]">
+          {/* About header */}
+          <div className="flex items-center gap-1.5 mb-3">
+            <h3 className="text-white text-sm font-semibold">Om RubenGKS</h3>
+            <svg className="w-3.5 h-3.5 text-[#9146ff]" viewBox="0 0 20 20" fill="currentColor">
+              <path fillRule="evenodd" d="M16.403 12.652a3 3 0 010-5.304 3 3 0 00-1.75-1.75 3 3 0 01-5.304 0 3 3 0 00-1.75 1.75 3 3 0 010 5.304 3 3 0 001.75 1.75 3 3 0 015.304 0 3 3 0 001.75-1.75zm-7.403-2.652a1 1 0 112 0 1 1 0 01-2 0z" clipRule="evenodd" />
+            </svg>
+          </div>
+          <div className="text-[11px] text-[#adadb8] mb-3">
+            <span className="text-white font-semibold">17.5K følgere</span> · <span className="text-primary">Sponsored by Samsung</span>
+          </div>
+          <p className="text-[12px] text-[#adadb8] leading-relaxed mb-4 max-w-xl">
+            Norsk Twitch-streamer fra Oslo. Spiller Fortnite, Valorant og Just Chatting.
+            Følg meg for daglige streams og samarbeid med merker som Samsung.
+          </p>
+
+          {/* Sponsored panel — the animated Samsung banner */}
+          <div className="rounded-md overflow-hidden ring-1 ring-[#2f2f35] bg-[#18181b] max-w-md">
+            <video
+              ref={overlayRef}
+              src="/lovable-uploads/samsung-zfold7-overlay.webm"
+              loop
+              muted
+              playsInline
+              preload="auto"
+              poster="/lovable-uploads/samsung-fold7-banner.jpg"
+              className="w-full h-auto block"
+              aria-label="Samsung Galaxy S25 Ultra animated banner"
+            />
+            <div className="flex items-center justify-between px-3 py-2 border-t border-[#2f2f35]">
+              <span className="text-[10px] font-semibold text-white">Galaxy S25 Ultra</span>
+              <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded bg-primary/20 text-primary uppercase tracking-wide">
+                Sponsored
+              </span>
             </div>
           </div>
         </div>
