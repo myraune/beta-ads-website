@@ -148,7 +148,7 @@ const StreamerPreview: React.FC = () => {
             <Search className="w-4 h-4 text-muted-foreground" />
             <span className="text-sm text-muted-foreground dark:text-white/50">Search streamers...</span>
           </div>
-          <button className="px-3.5 py-2.5 rounded-xl bg-primary/15 text-primary text-sm font-medium flex items-center gap-2">
+          <button className="px-3.5 py-2.5 min-h-[44px] sm:min-h-0 rounded-xl bg-primary/15 text-primary text-sm font-medium flex items-center gap-2">
             <Filter className="w-3.5 h-3.5" /> Filters
           </button>
         </div>
@@ -159,7 +159,7 @@ const StreamerPreview: React.FC = () => {
               <button
                 key={g}
                 onClick={() => toggle(g)}
-                className={`text-[11px] px-3 py-3 sm:py-1.5 rounded-full border transition-all duration-200 ${
+                className={`text-[11px] px-3 py-3 sm:py-1.5 min-h-[44px] sm:min-h-0 rounded-full border transition-all duration-200 ${
                   active
                     ? "border-primary bg-primary/15 text-primary font-medium scale-[1.04]"
                     : "border-foreground/60 dark:border-white/60 text-muted-foreground hover:border-primary hover:text-primary/70"
@@ -490,7 +490,12 @@ const LaunchPreview: React.FC = () => {
 /* ── Analytics Preview — live Clip Analytics dashboard iframe ── */
 
 const IFRAME_W = 1280; // render at desktop viewport width
-const IFRAME_H = 832;  // dashboard internal height
+const IFRAME_H = 900;  // dashboard internal height (browser chrome 52 + topbar 56 + content)
+
+// Below this scale, dashboard text inside the iframe becomes unreadable.
+// On viewports narrower than 640px we clamp to MIN_SCALE and let the wrapper
+// scroll horizontally instead — the dashboard is intentionally a wide artifact.
+const MIN_SCALE = 0.5;
 
 const AnalyticsPreview: React.FC = () => {
   const iframeRef  = useRef<HTMLIFrameElement>(null);
@@ -511,16 +516,20 @@ const AnalyticsPreview: React.FC = () => {
    * resizes. */
   useEffect(() => {
     const wrapper = wrapperRef.current;
-    if (!wrapper) return;
-    const initialWidth = wrapper.getBoundingClientRect().width;
+    // Observe the wrapper's parent (not the wrapper itself) — the wrapper's
+    // inner sizer is set to IFRAME_W * scale, which can shrink the wrapper's
+    // own measured width and lock scale at MIN_SCALE on larger viewports.
+    const measureTarget = wrapper?.parentElement;
+    if (!measureTarget) return;
+    const initialWidth = measureTarget.getBoundingClientRect().width;
     if (initialWidth > 0) {
-      setScale(initialWidth / IFRAME_W);
+      setScale(Math.max(initialWidth / IFRAME_W, MIN_SCALE));
     }
     const obs = new ResizeObserver(([entry]) => {
       const w = entry.contentRect.width;
-      if (w > 0) setScale(w / IFRAME_W);
+      if (w > 0) setScale(Math.max(w / IFRAME_W, MIN_SCALE));
     });
-    obs.observe(wrapper);
+    obs.observe(measureTarget);
     return () => obs.disconnect();
   }, []);
 
@@ -543,31 +552,41 @@ const AnalyticsPreview: React.FC = () => {
   }, [resolvedTheme]);
 
   return (
-    /* Outer wrapper: measures available width, clips overflow, shows nothing
-     * until scale is known (avoids layout flash). */
+    /* Outer wrapper: measures available width, scrolls horizontally when the
+     * dashboard is wider than the viewport (mobile clamp at MIN_SCALE keeps
+     * text legible). Hides until scale is known to avoid layout flash. */
     <div
       ref={wrapperRef}
-      className="overflow-hidden rounded-2xl border border-border/30 shadow-xl"
+      className="overflow-x-auto overflow-y-hidden rounded-2xl border border-border/30 shadow-xl"
       style={{ height: scale != null ? IFRAME_H * scale : 0 }}
     >
       {scale != null && (
-        <iframe
-          ref={iframeRef}
-          // ?v= bumped to invalidate browser/CDN caches that captured an
-          // earlier response with X-Frame-Options: DENY, which made the
-          // iframe load to an empty document. Bump this whenever the
-          // dashboard HTML or its serving headers change.
-          src="/clip-analytics-preview/index.html?v=3"
-          title="Clip Analytics Dashboard"
-          className="block border-0"
-          style={{
-            width:  IFRAME_W,
-            height: IFRAME_H,
-            transform: `scale(${scale})`,
-            transformOrigin: "top left",
-          }}
-          loading="lazy"
-        />
+        /* Sizer wraps the iframe at its visual (scaled) dimensions so the
+         * wrapper's overflow-x reflects what's actually visible. Without
+         * this, CSS transforms don't shrink the layout box and the wrapper
+         * sees the unscaled 1280px width — giving phantom horizontal scroll
+         * room on mobile. */
+        <div
+          style={{ width: IFRAME_W * scale, height: IFRAME_H * scale, overflow: "hidden" }}
+        >
+          <iframe
+            ref={iframeRef}
+            // ?v= bumped to invalidate browser/CDN caches that captured an
+            // earlier response with X-Frame-Options: DENY, which made the
+            // iframe load to an empty document. Bump this whenever the
+            // dashboard HTML or its serving headers change.
+            src="/clip-analytics-preview/index.html?v=4"
+            title="Clip Analytics Dashboard"
+            className="block border-0"
+            style={{
+              width:  IFRAME_W,
+              height: IFRAME_H,
+              transform: `scale(${scale})`,
+              transformOrigin: "top left",
+            }}
+            loading="lazy"
+          />
+        </div>
       )}
     </div>
   );
