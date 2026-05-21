@@ -45,6 +45,19 @@ const LiveStreamDemo: React.FC = () => {
     { user: "skadewolf", msg: "tar den ASAP", color: "text-violet-400", badge: "mod" },
     { user: "lasanias_", msg: "samsung delivery er fast", color: "text-indigo-400", badge: null },
     { user: "mariekek", msg: "kjøpte fold7 i forrige uke 🔥", color: "text-fuchsia-400", badge: "sub" },
+    { user: "andrxxx", msg: "Ruben hva tenker du om kameraet?", color: "text-amber-400", badge: null },
+    { user: "elinkr", msg: "z fold7 er sjef", color: "text-sky-400", badge: "sub" },
+    { user: "jonask_no", msg: "DET ER AMOLED 2X DAMN", color: "text-emerald-400", badge: null },
+    { user: "petter12", msg: "kjøpte allerede en til mamma 😂", color: "text-teal-400", badge: "vip" },
+    { user: "sondre__", msg: "Galaxy AI features ftw", color: "text-purple-400", badge: null },
+    { user: "kasperh", msg: "samsung er bedre enn apple", color: "text-orange-400", badge: "sub" },
+    { user: "minionhead", msg: "snart payday 💰", color: "text-rose-400", badge: null },
+    { user: "vegard_n", msg: "har du fri shipping?", color: "text-cyan-400", badge: null },
+    { user: "trondhjem", msg: "elsker stream'en din", color: "text-fuchsia-400", badge: "sub" },
+    { user: "linndg", msg: "best stream of the day", color: "text-yellow-400", badge: "sub" },
+    { user: "torkilhg", msg: "kjøpte fold7 forrige måned, sykt bra", color: "text-lime-400", badge: null },
+    { user: "even_b", msg: "@noobgamer22 sølvgrå er best", color: "text-pink-400", badge: null },
+    { user: "rubenh92", msg: "hva sier du om batteriet?", color: "text-violet-400", badge: "sub" },
   ]);
 
   // Auto-play when scrolled into view
@@ -99,7 +112,7 @@ const LiveStreamDemo: React.FC = () => {
     ];
     let i = 0;
     const c = setInterval(() => {
-      setChatMessages((prev) => [...prev.slice(-14), messages[i % messages.length]]);
+      setChatMessages((prev) => [...prev.slice(-24), messages[i % messages.length]]);
       i++;
     }, 1800);
     return () => {
@@ -253,24 +266,29 @@ const LiveStreamDemo: React.FC = () => {
           </button>
         </div>
 
-        {/* About section — minimal bio + the sponsored Samsung panel */}
-        <div className="bg-[#0e0e10] px-4 py-4 border-t border-[#2f2f35]">
+        {/* About section — bio + sponsored Samsung panel. flex-1 makes this
+            column stretch to match the chat sidebar height so there's no
+            black gap below either column. The panel image scales with
+            the container, filling vertical space gracefully. */}
+        <div className="flex-1 bg-[#0e0e10] px-5 py-5 border-t border-[#2f2f35] flex flex-col">
           <div className="flex items-baseline gap-2 mb-2">
-            <h3 className="text-white text-[14px] font-semibold">Om RubenGKS</h3>
-            <span className="text-[11px] text-[#adadb8]">
+            <h3 className="text-white text-[15px] font-semibold">Om RubenGKS</h3>
+            <span className="text-[12px] text-[#adadb8]">
               17.5K følgere · <span className="text-primary">Goon House</span>
             </span>
           </div>
-          <p className="text-[12px] text-[#adadb8] leading-relaxed mb-3 max-w-2xl">
-            Daglige Fortnite-streams fra Oslo. Sponset av Samsung Galaxy S25 Ultra denne måneden.
+          <p className="text-[12.5px] text-[#dedee3] leading-relaxed mb-4 max-w-2xl">
+            Hei, jeg er RubenGKS — daglige Fortnite-streams fra Oslo. Sponset av Samsung
+            Galaxy S25 Ultra denne måneden, og du finner alle mine socials i panelene under.
           </p>
 
           {/* Sponsored panel — same Samsung creative as the in-stream banner.
-              max-w-sm so it sits like a real Twitch panel, not a giant hero. */}
+              Sized to the column width so the panel reads as a real Twitch
+              promotional panel rather than a small thumbnail card. */}
           <a
             href="#"
             onClick={(e) => e.preventDefault()}
-            className="group inline-block rounded-md overflow-hidden bg-black ring-1 ring-[#2f2f35] hover:ring-[#4f4f55] transition-colors max-w-sm"
+            className="group block rounded-md overflow-hidden bg-black ring-1 ring-[#2f2f35] hover:ring-[#4f4f55] transition-colors"
             aria-label="Samsung Galaxy S25 Ultra sponsored panel"
           >
             <div className="relative">
@@ -279,16 +297,18 @@ const LiveStreamDemo: React.FC = () => {
                 alt="Samsung Galaxy S25 Ultra"
                 className="w-full h-auto block"
               />
-              <span className="absolute top-2 right-2 text-[9px] font-semibold px-1.5 py-0.5 rounded bg-black/70 text-white/95 uppercase tracking-wide backdrop-blur-sm">
+              <span className="absolute top-3 right-3 text-[10px] font-semibold px-2 py-1 rounded bg-black/70 text-white/95 uppercase tracking-wide backdrop-blur-sm">
                 Sponsored
               </span>
             </div>
-            <div className="px-3 py-2 flex items-center justify-between bg-[#18181b]">
+            <div className="px-4 py-3 flex items-center justify-between bg-[#18181b]">
               <div className="min-w-0">
-                <div className="text-[12px] font-semibold text-white truncate">Galaxy S25 Ultra</div>
-                <div className="text-[10px] text-[#adadb8] mt-0.5 truncate">samsung.com/s25ultra</div>
+                <div className="text-[13px] font-semibold text-white truncate">
+                  Samsung Galaxy S25 Ultra
+                </div>
+                <div className="text-[11px] text-[#adadb8] mt-0.5 truncate">samsung.com/s25ultra</div>
               </div>
-              <span className="text-[10px] font-semibold text-primary group-hover:underline shrink-0 ml-3">
+              <span className="text-[11px] font-semibold text-primary group-hover:underline shrink-0 ml-3">
                 Sjekk ut →
               </span>
             </div>
@@ -305,12 +325,13 @@ const LiveStreamDemo: React.FC = () => {
           </span>
         </div>
 
-        {/* Chat messages — flex-1 fills the column height, justify-end pins the
-            feed to the bottom (real Twitch chat scrolls up from the bottom).
-            Many messages keep the column full so there's no awkward gap. */}
-        <div className="flex-1 flex flex-col justify-end px-3 py-2 overflow-hidden">
+        {/* Chat messages — flex-1 fills the column height, justify-end pins
+            the latest message to the bottom and older ones scroll off the
+            top (real Twitch chat behavior). 25 messages is enough to fill
+            the column at typical chat heights so the box never looks empty. */}
+        <div className="flex-1 flex flex-col justify-end px-3 py-2 overflow-hidden min-h-0">
           <div className="space-y-[3px]">
-            {chatMessages.slice(-14).map((msg, i) => (
+            {chatMessages.slice(-25).map((msg, i) => (
               <div key={`${msg.user}-${i}`} className="text-[12.5px] leading-snug">
                 {msg.badge === "sub" && (
                   <span className="inline-flex items-center justify-center w-3.5 h-3.5 mr-1 align-[-2px] rounded-[2px] bg-[#9146ff] text-white text-[8px] font-bold">
@@ -334,17 +355,26 @@ const LiveStreamDemo: React.FC = () => {
           </div>
         </div>
 
-        <div className="mx-3 mb-3 px-3 py-2.5 rounded-md bg-[#1f1f23] border-l-2 border-primary">
-          <div className="flex items-center gap-1.5 mb-1.5">
-            <div className="w-4 h-4 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-[9px] text-white font-bold">β</span>
-            </div>
-            <span className="text-[11px] font-semibold text-primary">BetaAdsBot</span>
-            <span className="text-[9px] text-[#adadb8] bg-[#2f2f35] px-1 rounded">PINNED</span>
+        {/* Pinned message — looks like the streamer themself pinned a chat
+            message, not an auto-bot. Has the broadcaster sword badge so
+            chat can tell it's RubenGKS. */}
+        <div className="mx-3 mb-3 px-3 py-2 rounded bg-[#1f1f23]">
+          <div className="text-[10px] text-[#adadb8] mb-1 flex items-center gap-1">
+            <svg className="w-3 h-3 fill-[#adadb8]" viewBox="0 0 20 20">
+              <path d="M3 5l4-2 4 2 4-2 4 2v10l-4 2-4-2-4 2-4-2V5z" />
+            </svg>
+            Pinned by RubenGKS
           </div>
-          <div className="text-[12px] text-[#efeff1] leading-relaxed">
-            Sjekk ut Samsung Galaxy S25 Ultra →{" "}
-            <span className="text-primary underline cursor-pointer">samsung.com/s25ultra</span>
+          <div className="text-[12.5px] leading-snug">
+            <span className="inline-flex items-center justify-center w-3.5 h-3.5 mr-1 align-[-2px] rounded-[2px] bg-[#e9113e] text-white text-[8px] font-bold">
+              ⚔
+            </span>
+            <span className="font-semibold text-[#9146ff]">RubenGKS</span>
+            <span className="text-[#efeff1]">
+              :{" "}
+              Tusen takk Samsung for at dere sponser stream'en denne måneden 🔥{" "}
+              <span className="text-[#bf94ff] underline cursor-pointer">samsung.com/s25ultra</span>
+            </span>
           </div>
         </div>
 
