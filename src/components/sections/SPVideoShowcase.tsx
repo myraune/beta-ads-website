@@ -2,26 +2,21 @@ import React, { useRef, useState, useEffect } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Play, Pause, Volume2, VolumeX, Settings, Maximize2 } from "lucide-react";
 
-/* ── See It Live: a Twitch channel page with a sponsored Samsung panel ──
+/* ── See It Live: a focused Twitch player demo ──
  *
- * Layout philosophy (matches twitch.tv channel pages):
+ * Just the essentials — player + chat sidebar + channel info row, like
+ * any live twitch.tv tab. Per CLAUDE.md "restraint is the skill" — no
+ * fake Om/About/bio/panels chrome. The marketing point is to show
+ * what the Samsung banner LOOKS LIKE in-stream; everything else is
+ * decoration.
+ *
  *  ┌──────────────────────────────────┬─────────────┐
  *  │ Stream player (16:9)             │ Chat        │
  *  │   + sponsored banner overlay     │  sidebar    │
  *  ├──────────────────────────────────┤             │
  *  │ Channel info row                 │             │
  *  │ (name · title · tags · Follow)   │             │
- *  ├──────────────────────────────────┤             │
- *  │ Om RubenGKS                      │             │
- *  │  bio + sponsored panel image     │             │
  *  └──────────────────────────────────┴─────────────┘
- *
- * The Samsung banner (`samsung-fold7-banner.jpg`) is used as ONE single ad
- * creative. It appears twice: as a small in-stream overlay in the bottom-
- * right of the player, and as a full-width panel image in the About area.
- * Both are the same image and the same aspect ratio so the campaign reads
- * as consistent. The animated webm overlays the same image so it morphs
- * into motion while staying visually identical.
  */
 
 const BANNER_IMG = "/lovable-uploads/samsung-fold7-banner.jpg";
@@ -134,9 +129,13 @@ const LiveStreamDemo: React.FC = () => {
           />
 
           {/* In-stream sponsored banner — animated webm using the same image
-              as its poster so the format is identical to the panel below */}
+              as its poster so the format is identical to the panel below.
+              On mobile the player is only ~211px tall (375 * 9/16); w-[34%]
+              would render a 127×75 banner that visually dominates the player
+              and stretches into the middle. w-[26%] keeps the in-stream feel
+              without obscuring the action, then restores to w-[34%] from sm+. */}
           <div
-            className="absolute bottom-12 right-3 w-[34%] max-w-[300px] pointer-events-none z-10 overflow-hidden rounded-md shadow-2xl ring-1 ring-white/15"
+            className="absolute bottom-12 right-3 w-[26%] sm:w-[34%] max-w-[300px] pointer-events-none z-10 overflow-hidden rounded-md shadow-2xl ring-1 ring-white/15"
             style={{ aspectRatio: "850 / 500" }}
           >
             <video
@@ -247,56 +246,6 @@ const LiveStreamDemo: React.FC = () => {
           </button>
         </div>
 
-        {/* About area — bio + sponsored panel.
-            The panel uses the SAME banner image at the SAME aspect ratio
-            as the in-stream overlay, so the campaign reads as one
-            consistent creative across both placements. */}
-        <div className="bg-[#0e0e10] px-4 py-5 border-t border-[#2f2f35]">
-          <div className="flex items-baseline gap-2 mb-2">
-            <h3 className="text-white text-[15px] font-semibold">Om RubenGKS</h3>
-            <span className="text-[12px] text-[#adadb8]">
-              17.5K følgere · <span className="text-primary">Goon House</span>
-            </span>
-          </div>
-          <p className="text-[13px] text-[#dedee3] leading-relaxed mb-4 max-w-2xl">
-            Hei, jeg er RubenGKS. Følg meg for daglige Fortnite-streams fra Oslo.
-            Sponset av Samsung Galaxy S25 Ultra denne måneden.
-          </p>
-
-          <a
-            href="#"
-            onClick={(e) => e.preventDefault()}
-            className="block group rounded-md overflow-hidden bg-black"
-            aria-label="Samsung Galaxy S25 Ultra sponsored panel"
-          >
-            <div
-              className="relative w-full overflow-hidden"
-              style={{ aspectRatio: "850 / 500" }}
-            >
-              <img
-                src={BANNER_IMG}
-                alt="Samsung Galaxy S25 Ultra"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <span className="absolute top-3 right-3 text-[10px] font-semibold px-2 py-1 rounded bg-black/70 text-white/95 uppercase tracking-wide backdrop-blur-sm">
-                Sponsored
-              </span>
-            </div>
-            <div className="px-4 py-3 flex items-center justify-between bg-[#18181b]">
-              <div className="min-w-0">
-                <div className="text-[13px] font-semibold text-white truncate">
-                  Samsung Galaxy S25 Ultra
-                </div>
-                <div className="text-[11px] text-[#adadb8] mt-0.5 truncate">
-                  samsung.com/s25ultra
-                </div>
-              </div>
-              <span className="text-[11px] font-semibold text-primary group-hover:underline shrink-0 ml-3">
-                Sjekk ut →
-              </span>
-            </div>
-          </a>
-        </div>
       </div>
 
       {/* ─── RIGHT COLUMN: chat sidebar (Twitch desktop) ─── */}
@@ -368,8 +317,8 @@ export const SPVideoShowcase: React.FC = () => {
             This is what it looks like
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            A Samsung sponsorship running on a real Norwegian Twitch channel.
-            One creative, two placements — in-stream during the broadcast and pinned to the panels area.
+            A Samsung banner running in-stream on a real Norwegian Twitch channel —
+            no mockups, no pre-rolls, no adblock interference.
           </p>
         </div>
 
