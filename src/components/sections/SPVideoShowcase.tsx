@@ -31,13 +31,20 @@ const LiveStreamDemo: React.FC = () => {
   const [viewerCount, setViewerCount] = useState(2847);
   const hasAutoPlayed = useRef(false);
   const [chatMessages, setChatMessages] = useState<
-    { user: string; msg: string; color: string }[]
+    { user: string; msg: string; color: string; badge: "sub" | "mod" | "vip" | null }[]
   >([
-    { user: "spacegamer98", msg: "Beste streameren!", color: "text-purple-400" },
-    { user: "techviking", msg: "!shure", color: "text-green-400" },
-    { user: "melissahitreskog", msg: "good stream!", color: "text-pink-400" },
-    { user: "nordicgamer", msg: "samsung > apple", color: "text-yellow-400" },
-    { user: "traingeek06", msg: "nice overlay!", color: "text-red-400" },
+    { user: "spacegamer98", msg: "Beste streameren!", color: "text-purple-400", badge: "sub" },
+    { user: "techviking", msg: "!shure", color: "text-green-400", badge: null },
+    { user: "melissahitreskog", msg: "good stream!", color: "text-pink-400", badge: "vip" },
+    { user: "nordicgamer", msg: "samsung > apple Kappa", color: "text-yellow-400", badge: null },
+    { user: "traingeek06", msg: "nice overlay!", color: "text-red-400", badge: "sub" },
+    { user: "darkwolf__", msg: "hva er priseen?", color: "text-orange-400", badge: null },
+    { user: "haakon_no", msg: "skikkelig fin design", color: "text-cyan-400", badge: "sub" },
+    { user: "kjellxx", msg: "PogChamp", color: "text-lime-400", badge: null },
+    { user: "noobgamer22", msg: "@RubenGKS hvilken farge?", color: "text-rose-400", badge: null },
+    { user: "skadewolf", msg: "tar den ASAP", color: "text-violet-400", badge: "mod" },
+    { user: "lasanias_", msg: "samsung delivery er fast", color: "text-indigo-400", badge: null },
+    { user: "mariekek", msg: "kjøpte fold7 i forrige uke 🔥", color: "text-fuchsia-400", badge: "sub" },
   ]);
 
   // Auto-play when scrolled into view
@@ -76,19 +83,25 @@ const LiveStreamDemo: React.FC = () => {
       () => setViewerCount((x) => x + Math.floor(Math.random() * 11) - 4),
       3000
     );
-    const messages = [
-      { user: "streamerlife", msg: "need this phone!!", color: "text-blue-400" },
-      { user: "zeon_tv", msg: "where to buy?", color: "text-cyan-400" },
-      { user: "spajKK", msg: "LET'S GO", color: "text-rose-400" },
-      { user: "fjolsenfn", msg: "samsung gang", color: "text-emerald-400" },
-      { user: "elias_no", msg: "z fold ser sykt ut", color: "text-orange-400" },
-      { user: "mariekek", msg: "@RubenGKS link?", color: "text-violet-400" },
+    const messages: { user: string; msg: string; color: string; badge: "sub" | "mod" | "vip" | null }[] = [
+      { user: "streamerlife", msg: "need this phone!!", color: "text-blue-400", badge: "sub" },
+      { user: "zeon_tv", msg: "where to buy?", color: "text-cyan-400", badge: null },
+      { user: "spajKK", msg: "LET'S GO", color: "text-rose-400", badge: null },
+      { user: "fjolsenfn", msg: "samsung gang PogChamp", color: "text-emerald-400", badge: "sub" },
+      { user: "elias_no", msg: "z fold ser sykt ut", color: "text-orange-400", badge: null },
+      { user: "ole_kjeldsen", msg: "@RubenGKS link?", color: "text-violet-400", badge: null },
+      { user: "ingrid_", msg: "har fold7 selv 🔥", color: "text-fuchsia-400", badge: "sub" },
+      { user: "vikingmaster", msg: "hvor mye?", color: "text-amber-400", badge: null },
+      { user: "tommy_no", msg: "samsung > apple alltid", color: "text-teal-400", badge: "vip" },
+      { user: "frkdani", msg: "kameraet er kongen", color: "text-purple-400", badge: null },
+      { user: "morten12", msg: "byttet fra iphone, ANGRER IKKE", color: "text-pink-400", badge: "sub" },
+      { user: "asbjorn_no", msg: "PRAHA tur?", color: "text-yellow-400", badge: null },
     ];
     let i = 0;
     const c = setInterval(() => {
-      setChatMessages((prev) => [...prev.slice(-6), messages[i % messages.length]]);
+      setChatMessages((prev) => [...prev.slice(-14), messages[i % messages.length]]);
       i++;
-    }, 3500);
+    }, 1800);
     return () => {
       clearInterval(v);
       clearInterval(c);
@@ -128,16 +141,10 @@ const LiveStreamDemo: React.FC = () => {
             onPause={() => setPlaying(false)}
           />
 
-          {/* In-stream sponsored banner — animated webm using the same image
-              as its poster so the format is identical to the panel below.
-              On mobile the player is only ~211px tall (375 * 9/16); w-[34%]
-              would render a 127×75 banner that visually dominates the player
-              and stretches into the middle. w-[26%] keeps the in-stream feel
-              without obscuring the action, then restores to w-[34%] from sm+. */}
-          <div
-            className="absolute bottom-12 right-3 w-[26%] sm:w-[34%] max-w-[300px] pointer-events-none z-10 overflow-hidden rounded-md shadow-2xl ring-1 ring-white/15"
-            style={{ aspectRatio: "850 / 500" }}
-          >
+          {/* In-stream sponsored banner — animated webm at its natural aspect
+              so the whole creative is visible (no cropping). w-[34%] on
+              desktop, narrower on mobile so it doesn't dominate the player. */}
+          <div className="absolute bottom-12 right-3 w-[26%] sm:w-[34%] max-w-[300px] pointer-events-none z-10 rounded-md overflow-hidden shadow-2xl ring-1 ring-white/15">
             <video
               ref={overlayRef}
               src={BANNER_WEBM}
@@ -146,7 +153,7 @@ const LiveStreamDemo: React.FC = () => {
               muted
               playsInline
               preload="auto"
-              className="absolute inset-0 w-full h-full object-cover"
+              className="w-full h-auto block"
               aria-label="Samsung Galaxy S25 Ultra in-stream banner"
             />
           </div>
@@ -246,6 +253,47 @@ const LiveStreamDemo: React.FC = () => {
           </button>
         </div>
 
+        {/* About section — minimal bio + the sponsored Samsung panel */}
+        <div className="bg-[#0e0e10] px-4 py-4 border-t border-[#2f2f35]">
+          <div className="flex items-baseline gap-2 mb-2">
+            <h3 className="text-white text-[14px] font-semibold">Om RubenGKS</h3>
+            <span className="text-[11px] text-[#adadb8]">
+              17.5K følgere · <span className="text-primary">Goon House</span>
+            </span>
+          </div>
+          <p className="text-[12px] text-[#adadb8] leading-relaxed mb-3 max-w-2xl">
+            Daglige Fortnite-streams fra Oslo. Sponset av Samsung Galaxy S25 Ultra denne måneden.
+          </p>
+
+          {/* Sponsored panel — same Samsung creative as the in-stream banner.
+              max-w-sm so it sits like a real Twitch panel, not a giant hero. */}
+          <a
+            href="#"
+            onClick={(e) => e.preventDefault()}
+            className="group inline-block rounded-md overflow-hidden bg-black ring-1 ring-[#2f2f35] hover:ring-[#4f4f55] transition-colors max-w-sm"
+            aria-label="Samsung Galaxy S25 Ultra sponsored panel"
+          >
+            <div className="relative">
+              <img
+                src={BANNER_IMG}
+                alt="Samsung Galaxy S25 Ultra"
+                className="w-full h-auto block"
+              />
+              <span className="absolute top-2 right-2 text-[9px] font-semibold px-1.5 py-0.5 rounded bg-black/70 text-white/95 uppercase tracking-wide backdrop-blur-sm">
+                Sponsored
+              </span>
+            </div>
+            <div className="px-3 py-2 flex items-center justify-between bg-[#18181b]">
+              <div className="min-w-0">
+                <div className="text-[12px] font-semibold text-white truncate">Galaxy S25 Ultra</div>
+                <div className="text-[10px] text-[#adadb8] mt-0.5 truncate">samsung.com/s25ultra</div>
+              </div>
+              <span className="text-[10px] font-semibold text-primary group-hover:underline shrink-0 ml-3">
+                Sjekk ut →
+              </span>
+            </div>
+          </a>
+        </div>
       </div>
 
       {/* ─── RIGHT COLUMN: chat sidebar (Twitch desktop) ─── */}
@@ -257,13 +305,33 @@ const LiveStreamDemo: React.FC = () => {
           </span>
         </div>
 
-        <div className="flex-1 px-3 py-2 space-y-1 overflow-hidden">
-          {chatMessages.slice(-8).map((msg, i) => (
-            <div key={`${msg.user}-${i}`} className="text-[12.5px] leading-relaxed">
-              <span className={`font-semibold ${msg.color}`}>{msg.user}</span>
-              <span className="text-[#efeff1]">: {msg.msg}</span>
-            </div>
-          ))}
+        {/* Chat messages — flex-1 fills the column height, justify-end pins the
+            feed to the bottom (real Twitch chat scrolls up from the bottom).
+            Many messages keep the column full so there's no awkward gap. */}
+        <div className="flex-1 flex flex-col justify-end px-3 py-2 overflow-hidden">
+          <div className="space-y-[3px]">
+            {chatMessages.slice(-14).map((msg, i) => (
+              <div key={`${msg.user}-${i}`} className="text-[12.5px] leading-snug">
+                {msg.badge === "sub" && (
+                  <span className="inline-flex items-center justify-center w-3.5 h-3.5 mr-1 align-[-2px] rounded-[2px] bg-[#9146ff] text-white text-[8px] font-bold">
+                    S
+                  </span>
+                )}
+                {msg.badge === "mod" && (
+                  <span className="inline-flex items-center justify-center w-3.5 h-3.5 mr-1 align-[-2px] rounded-[2px] bg-[#00ad03] text-white text-[8px] font-bold">
+                    M
+                  </span>
+                )}
+                {msg.badge === "vip" && (
+                  <span className="inline-flex items-center justify-center w-3.5 h-3.5 mr-1 align-[-2px] rounded-[2px] bg-[#e005b9] text-white text-[8px] font-bold">
+                    V
+                  </span>
+                )}
+                <span className={`font-semibold ${msg.color}`}>{msg.user}</span>
+                <span className="text-[#efeff1]">: {msg.msg}</span>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="mx-3 mb-3 px-3 py-2.5 rounded-md bg-[#1f1f23] border-l-2 border-primary">
