@@ -58,6 +58,22 @@ const LiveStreamDemo: React.FC = () => {
     { user: "torkilhg", msg: "kjøpte fold7 forrige måned, sykt bra", color: "text-lime-400", badge: null },
     { user: "even_b", msg: "@noobgamer22 sølvgrå er best", color: "text-pink-400", badge: null },
     { user: "rubenh92", msg: "hva sier du om batteriet?", color: "text-violet-400", badge: "sub" },
+    { user: "filiph", msg: "samsung pen er sjef", color: "text-amber-400", badge: null },
+    { user: "marius__", msg: "lavest pris noen vet?", color: "text-blue-400", badge: null },
+    { user: "anniken_", msg: "fold7 hvor mye gir batteriet?", color: "text-fuchsia-400", badge: "sub" },
+    { user: "trondz", msg: "tror jeg bytter til samsung", color: "text-emerald-400", badge: "vip" },
+    { user: "petter_n", msg: "kameraet er konge", color: "text-rose-400", badge: null },
+    { user: "kjellrun", msg: "stream'en er fire", color: "text-cyan-400", badge: "sub" },
+    { user: "henrikz", msg: "ruben spill litt rocket league?", color: "text-yellow-400", badge: null },
+    { user: "thorehg", msg: "har Ultra og det er gud", color: "text-sky-400", badge: "sub" },
+    { user: "amalieee", msg: "ER DEN VANNTETT?", color: "text-pink-400", badge: null },
+    { user: "andersbb", msg: "@amalieee yes IP68 ratet", color: "text-purple-400", badge: "mod" },
+    { user: "synnoeve", msg: "venter på 2026 modellen 😅", color: "text-teal-400", badge: null },
+    { user: "olav_hg", msg: "samsung overlay ftw", color: "text-orange-400", badge: null },
+    { user: "ingeborg__", msg: "ruben hvilken telefon har du", color: "text-violet-400", badge: "sub" },
+    { user: "kristoffer", msg: "tar fold7 i sommer", color: "text-indigo-400", badge: null },
+    { user: "didriksen", msg: "@kristoffer den ER sykt bra", color: "text-emerald-400", badge: "sub" },
+    { user: "anniken_", msg: "ok kjøpte akkurat 🔥", color: "text-fuchsia-400", badge: "sub" },
   ]);
 
   // Auto-play when scrolled into view
@@ -112,7 +128,7 @@ const LiveStreamDemo: React.FC = () => {
     ];
     let i = 0;
     const c = setInterval(() => {
-      setChatMessages((prev) => [...prev.slice(-24), messages[i % messages.length]]);
+      setChatMessages((prev) => [...prev.slice(-44), messages[i % messages.length]]);
       i++;
     }, 1800);
     return () => {
@@ -136,12 +152,16 @@ const LiveStreamDemo: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="rounded-xl overflow-hidden shadow-2xl border border-[#2f2f35] bg-[#0e0e10] grid lg:grid-cols-[1fr_340px]"
+      className="rounded-xl overflow-hidden shadow-2xl border border-[#2f2f35] bg-[#0e0e10]"
     >
-      {/* ─── LEFT COLUMN: stream player + channel meta + about ─── */}
-      <div className="flex flex-col min-w-0">
+      {/* ─── TOP ROW: stream player on left, chat sidebar on right.
+                     Fixed grid height locks both columns: player gets
+                     stretched to fill (cropping the video via object-cover
+                     to keep the look), chat gets capped so its messages
+                     can't push the layout out of bounds. ─── */}
+      <div className="grid lg:grid-cols-[1fr_340px] lg:h-[560px] overflow-hidden">
         {/* Player */}
-        <div className="relative aspect-video cursor-pointer bg-black" onClick={togglePlay}>
+        <div className="relative cursor-pointer bg-black h-full aspect-video lg:aspect-auto" onClick={togglePlay}>
           <video
             ref={streamRef}
             src="/lovable-uploads/rubengks-stream.mp4"
@@ -231,158 +251,155 @@ const LiveStreamDemo: React.FC = () => {
           </div>
         </div>
 
-        {/* Channel info — compact single row, matches twitch.tv */}
-        <div className="bg-[#0e0e10] px-4 py-3 border-t border-[#2f2f35] flex items-center gap-3">
-          <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 ring-2 ring-[#9146ff]">
-            <img
-              src="/lovable-uploads/rubengks-profile.png"
-              alt="RubenGKS"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-1.5">
-              <span className="text-white text-[15px] font-semibold">RubenGKS</span>
-              <svg className="w-3.5 h-3.5 text-[#9146ff]" viewBox="0 0 20 20" fill="currentColor">
-                <path
-                  fillRule="evenodd"
-                  d="M16.403 12.652a3 3 0 010-5.304 3 3 0 00-1.75-1.75 3 3 0 01-5.304 0 3 3 0 00-1.75 1.75 3 3 0 010 5.304 3 3 0 001.75 1.75 3 3 0 015.304 0 3 3 0 001.75-1.75zm-7.403-2.652a1 1 0 112 0 1 1 0 01-2 0z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-            <div className="text-[13px] text-white truncate">Samsung Galaxy S25 Ultra Launch — Fortnite</div>
-            <div className="flex items-center gap-1.5 mt-1 flex-wrap">
-              <span className="text-[10px] text-[#adadb8]">Fortnite</span>
-              <span className="text-[10px] text-[#adadb8]">·</span>
-              <span className="text-[10px] text-[#adadb8]">Norsk</span>
-              <span className="text-[10px] px-1.5 py-0.5 rounded-sm bg-primary/20 text-primary font-medium ml-1">
-                Sponsored
-              </span>
-            </div>
-          </div>
-          <button className="text-[12px] font-semibold px-3.5 py-1.5 rounded bg-[#9146ff] text-white hover:bg-[#a970ff] transition-colors shrink-0">
-            Follow
-          </button>
-        </div>
-
-        {/* About section — bio + sponsored Samsung panel. flex-1 makes this
-            column stretch to match the chat sidebar height so there's no
-            black gap below either column. The panel image scales with
-            the container, filling vertical space gracefully. */}
-        <div className="flex-1 bg-[#0e0e10] px-5 py-5 border-t border-[#2f2f35] flex flex-col">
-          <div className="flex items-baseline gap-2 mb-2">
-            <h3 className="text-white text-[15px] font-semibold">Om RubenGKS</h3>
-            <span className="text-[12px] text-[#adadb8]">
-              17.5K følgere · <span className="text-primary">Goon House</span>
+        {/* ─── Chat sidebar — INSIDE the grid so its height is locked to the
+                player's aspect-video height. No empty space, no overflow. ─── */}
+        <div className="bg-[#18181b] border-t lg:border-t-0 lg:border-l border-[#2f2f35] flex flex-col min-h-0 max-h-full">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-[#2f2f35] shrink-0">
+            <span className="text-[13px] font-semibold text-white">Stream Chat</span>
+            <span className="text-[11px] text-[#adadb8]">
+              {viewerCount.toLocaleString()} chatters
             </span>
           </div>
-          <p className="text-[12.5px] text-[#dedee3] leading-relaxed mb-4 max-w-2xl">
-            Hei, jeg er RubenGKS — daglige Fortnite-streams fra Oslo. Sponset av Samsung
-            Galaxy S25 Ultra denne måneden, og du finner alle mine socials i panelene under.
-          </p>
 
-          {/* Sponsored panel — same Samsung creative as the in-stream banner.
-              Sized to the column width so the panel reads as a real Twitch
-              promotional panel rather than a small thumbnail card. */}
-          <a
-            href="#"
-            onClick={(e) => e.preventDefault()}
-            className="group block rounded-md overflow-hidden bg-black ring-1 ring-[#2f2f35] hover:ring-[#4f4f55] transition-colors"
-            aria-label="Samsung Galaxy S25 Ultra sponsored panel"
-          >
-            <div className="relative">
-              <img
-                src={BANNER_IMG}
-                alt="Samsung Galaxy S25 Ultra"
-                className="w-full h-auto block"
-              />
-              <span className="absolute top-3 right-3 text-[10px] font-semibold px-2 py-1 rounded bg-black/70 text-white/95 uppercase tracking-wide backdrop-blur-sm">
-                Sponsored
-              </span>
-            </div>
-            <div className="px-4 py-3 flex items-center justify-between bg-[#18181b]">
-              <div className="min-w-0">
-                <div className="text-[13px] font-semibold text-white truncate">
-                  Samsung Galaxy S25 Ultra
+          {/* Messages — flex-1 between header and pinned/input, overflow-hidden
+              + justify-end keeps the latest at the bottom and trims the top
+              like real Twitch chat. Show last 22 so the messages area is
+              dense at 560px chat height without exceeding it. */}
+          <div className="flex-1 flex flex-col justify-end px-3 py-2 overflow-hidden min-h-0">
+            <div className="space-y-[3px]">
+              {chatMessages.slice(-22).map((msg, i) => (
+                <div key={`${msg.user}-${i}`} className="text-[12.5px] leading-snug">
+                  {msg.badge === "sub" && (
+                    <span className="inline-flex items-center justify-center w-3.5 h-3.5 mr-1 align-[-2px] rounded-[2px] bg-[#9146ff] text-white text-[8px] font-bold">
+                      S
+                    </span>
+                  )}
+                  {msg.badge === "mod" && (
+                    <span className="inline-flex items-center justify-center w-3.5 h-3.5 mr-1 align-[-2px] rounded-[2px] bg-[#00ad03] text-white text-[8px] font-bold">
+                      M
+                    </span>
+                  )}
+                  {msg.badge === "vip" && (
+                    <span className="inline-flex items-center justify-center w-3.5 h-3.5 mr-1 align-[-2px] rounded-[2px] bg-[#e005b9] text-white text-[8px] font-bold">
+                      V
+                    </span>
+                  )}
+                  <span className={`font-semibold ${msg.color}`}>{msg.user}</span>
+                  <span className="text-[#efeff1]">: {msg.msg}</span>
                 </div>
-                <div className="text-[11px] text-[#adadb8] mt-0.5 truncate">samsung.com/s25ultra</div>
-              </div>
-              <span className="text-[11px] font-semibold text-primary group-hover:underline shrink-0 ml-3">
-                Sjekk ut →
+              ))}
+            </div>
+          </div>
+
+          {/* Pinned message from broadcaster (not a bot) */}
+          <div className="mx-3 mb-2 px-3 py-2 rounded bg-[#1f1f23] shrink-0">
+            <div className="text-[10px] text-[#adadb8] mb-1 flex items-center gap-1">
+              <svg className="w-3 h-3 fill-[#adadb8]" viewBox="0 0 20 20">
+                <path d="M3 5l4-2 4 2 4-2 4 2v10l-4 2-4-2-4 2-4-2V5z" />
+              </svg>
+              Pinned by RubenGKS
+            </div>
+            <div className="text-[12.5px] leading-snug">
+              <span className="inline-flex items-center justify-center w-3.5 h-3.5 mr-1 align-[-2px] rounded-[2px] bg-[#e9113e] text-white text-[8px] font-bold">
+                ⚔
+              </span>
+              <span className="font-semibold text-[#9146ff]">RubenGKS</span>
+              <span className="text-[#efeff1]">
+                :{" "}
+                Tusen takk Samsung 🔥{" "}
+                <span className="text-[#bf94ff] underline cursor-pointer">samsung.com/s25ultra</span>
               </span>
             </div>
-          </a>
+          </div>
+
+          {/* Chat input */}
+          <div className="px-3 pb-3 shrink-0">
+            <div className="px-3 py-2 rounded-md bg-[#2f2f35] text-[12px] text-[#adadb8]">
+              Send a message
+            </div>
+          </div>
         </div>
       </div>
+      {/* /grid */}
 
-      {/* ─── RIGHT COLUMN: chat sidebar (Twitch desktop) ─── */}
-      <div className="bg-[#18181b] border-t lg:border-t-0 lg:border-l border-[#2f2f35] flex flex-col min-h-0">
-        <div className="flex items-center justify-between px-4 py-3 border-b border-[#2f2f35]">
-          <span className="text-[13px] font-semibold text-white">Stream Chat</span>
-          <span className="text-[11px] text-[#adadb8]">
-            {viewerCount.toLocaleString()} chatters
+      {/* ─── Channel info row — BELOW the grid, full width ─── */}
+      <div className="bg-[#0e0e10] px-4 py-3 border-t border-[#2f2f35] flex items-center gap-3">
+        <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 ring-2 ring-[#9146ff]">
+          <img
+            src="/lovable-uploads/rubengks-profile.png"
+            alt="RubenGKS"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-1.5">
+            <span className="text-white text-[15px] font-semibold">RubenGKS</span>
+            <svg className="w-3.5 h-3.5 text-[#9146ff]" viewBox="0 0 20 20" fill="currentColor">
+              <path
+                fillRule="evenodd"
+                d="M16.403 12.652a3 3 0 010-5.304 3 3 0 00-1.75-1.75 3 3 0 01-5.304 0 3 3 0 00-1.75 1.75 3 3 0 010 5.304 3 3 0 001.75 1.75 3 3 0 015.304 0 3 3 0 001.75-1.75zm-7.403-2.652a1 1 0 112 0 1 1 0 01-2 0z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </div>
+          <div className="text-[13px] text-white truncate">Samsung Galaxy S25 Ultra Launch — Fortnite</div>
+          <div className="flex items-center gap-1.5 mt-1 flex-wrap">
+            <span className="text-[10px] text-[#adadb8]">Fortnite</span>
+            <span className="text-[10px] text-[#adadb8]">·</span>
+            <span className="text-[10px] text-[#adadb8]">Norsk</span>
+            <span className="text-[10px] px-1.5 py-0.5 rounded-sm bg-primary/20 text-primary font-medium ml-1">
+              Sponsored
+            </span>
+          </div>
+        </div>
+        <button className="text-[12px] font-semibold px-3.5 py-1.5 rounded bg-[#9146ff] text-white hover:bg-[#a970ff] transition-colors shrink-0">
+          Follow
+        </button>
+      </div>
+
+      {/* ─── About section — BELOW the channel info, full width ─── */}
+      <div className="bg-[#0e0e10] px-5 py-5 border-t border-[#2f2f35]">
+        <div className="flex items-baseline gap-2 mb-2">
+          <h3 className="text-white text-[15px] font-semibold">Om RubenGKS</h3>
+          <span className="text-[12px] text-[#adadb8]">
+            17.5K følgere · <span className="text-primary">Goon House</span>
           </span>
         </div>
+        <p className="text-[12.5px] text-[#dedee3] leading-relaxed mb-4 max-w-2xl">
+          Hei, jeg er RubenGKS — daglige Fortnite-streams fra Oslo. Sponset av Samsung
+          Galaxy S25 Ultra denne måneden, og du finner alle mine socials i panelene under.
+        </p>
 
-        {/* Chat messages — flex-1 fills the column height, justify-end pins
-            the latest message to the bottom and older ones scroll off the
-            top (real Twitch chat behavior). 25 messages is enough to fill
-            the column at typical chat heights so the box never looks empty. */}
-        <div className="flex-1 flex flex-col justify-end px-3 py-2 overflow-hidden min-h-0">
-          <div className="space-y-[3px]">
-            {chatMessages.slice(-25).map((msg, i) => (
-              <div key={`${msg.user}-${i}`} className="text-[12.5px] leading-snug">
-                {msg.badge === "sub" && (
-                  <span className="inline-flex items-center justify-center w-3.5 h-3.5 mr-1 align-[-2px] rounded-[2px] bg-[#9146ff] text-white text-[8px] font-bold">
-                    S
-                  </span>
-                )}
-                {msg.badge === "mod" && (
-                  <span className="inline-flex items-center justify-center w-3.5 h-3.5 mr-1 align-[-2px] rounded-[2px] bg-[#00ad03] text-white text-[8px] font-bold">
-                    M
-                  </span>
-                )}
-                {msg.badge === "vip" && (
-                  <span className="inline-flex items-center justify-center w-3.5 h-3.5 mr-1 align-[-2px] rounded-[2px] bg-[#e005b9] text-white text-[8px] font-bold">
-                    V
-                  </span>
-                )}
-                <span className={`font-semibold ${msg.color}`}>{msg.user}</span>
-                <span className="text-[#efeff1]">: {msg.msg}</span>
+        {/* Sponsored panel — same Samsung creative as the in-stream banner.
+            max-w-sm to match a real Twitch sponsorship panel proportions. */}
+        <a
+          href="#"
+          onClick={(e) => e.preventDefault()}
+          className="group block rounded-md overflow-hidden bg-black ring-1 ring-[#2f2f35] hover:ring-[#4f4f55] transition-colors max-w-sm"
+          aria-label="Samsung Galaxy S25 Ultra sponsored panel"
+        >
+          <div className="relative">
+            <img
+              src={BANNER_IMG}
+              alt="Samsung Galaxy S25 Ultra"
+              className="w-full h-auto block"
+            />
+            <span className="absolute top-3 right-3 text-[10px] font-semibold px-2 py-1 rounded bg-black/70 text-white/95 uppercase tracking-wide backdrop-blur-sm">
+              Sponsored
+            </span>
+          </div>
+          <div className="px-4 py-3 flex items-center justify-between bg-[#18181b]">
+            <div className="min-w-0">
+              <div className="text-[13px] font-semibold text-white truncate">
+                Samsung Galaxy S25 Ultra
               </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Pinned message — looks like the streamer themself pinned a chat
-            message, not an auto-bot. Has the broadcaster sword badge so
-            chat can tell it's RubenGKS. */}
-        <div className="mx-3 mb-3 px-3 py-2 rounded bg-[#1f1f23]">
-          <div className="text-[10px] text-[#adadb8] mb-1 flex items-center gap-1">
-            <svg className="w-3 h-3 fill-[#adadb8]" viewBox="0 0 20 20">
-              <path d="M3 5l4-2 4 2 4-2 4 2v10l-4 2-4-2-4 2-4-2V5z" />
-            </svg>
-            Pinned by RubenGKS
-          </div>
-          <div className="text-[12.5px] leading-snug">
-            <span className="inline-flex items-center justify-center w-3.5 h-3.5 mr-1 align-[-2px] rounded-[2px] bg-[#e9113e] text-white text-[8px] font-bold">
-              ⚔
-            </span>
-            <span className="font-semibold text-[#9146ff]">RubenGKS</span>
-            <span className="text-[#efeff1]">
-              :{" "}
-              Tusen takk Samsung for at dere sponser stream'en denne måneden 🔥{" "}
-              <span className="text-[#bf94ff] underline cursor-pointer">samsung.com/s25ultra</span>
+              <div className="text-[11px] text-[#adadb8] mt-0.5 truncate">samsung.com/s25ultra</div>
+            </div>
+            <span className="text-[11px] font-semibold text-primary group-hover:underline shrink-0 ml-3">
+              Sjekk ut →
             </span>
           </div>
-        </div>
-
-        <div className="px-3 pb-3">
-          <div className="px-3 py-2 rounded-md bg-[#2f2f35] text-[12px] text-[#adadb8]">
-            Send a message
-          </div>
-        </div>
+        </a>
       </div>
     </div>
   );
