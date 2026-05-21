@@ -30,78 +30,111 @@ function useCountUp(target: string, isVisible: boolean) {
   return display;
 }
 
-/* ── Ad Format Showcase — stacked, alternating rows, no carousel ── */
-const AdFormatRow: React.FC<{
-  fmt: typeof adFormats[0];
-  index: number;
-}> = ({ fmt, index }) => {
+/* ── Ad Format Preview — single interactive viewer, format-switching tabs ──
+ *
+ * Replaces the previous 6 stacked text+image rows (which read as a blog post).
+ * Instead, ONE 16:9 mock-stream preview frame whose contents swap as the user
+ * picks a format from the tab strip. Spec details live in a compact row
+ * underneath the preview, not in a paragraph. Auto-rotates through formats
+ * until interacted with, then yields to manual selection. */
+const AdFormatShowcase: React.FC = () => {
+  const [active, setActive] = useState(0);
+  const [autoplay, setAutoplay] = useState(true);
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.15 });
-  // Even rows: text on left, image on right. Odd rows: reversed.
-  const imageFirst = index % 2 === 1;
+
+  // Auto-rotate the active format every 4s while in view, until user clicks
+  useEffect(() => {
+    if (!autoplay || !isVisible) return;
+    const id = setInterval(() => {
+      setActive((i) => (i + 1) % adFormats.length);
+    }, 4000);
+    return () => clearInterval(id);
+  }, [autoplay, isVisible]);
+
+  const fmt = adFormats[active];
 
   return (
     <div
       ref={ref}
-      className={`grid lg:grid-cols-2 gap-10 lg:gap-20 items-center transition-all duration-700 ${
+      className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${
         isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
       }`}
     >
-      {/* Text column */}
-      <div className={imageFirst ? "lg:order-2" : ""}>
-        <div className="flex items-baseline gap-3 mb-4">
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary tabular-nums">
-            {String(index + 1).padStart(2, "0")}
-          </span>
-          <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground">
-            {fmt.kicker}
-          </span>
+      {/* Tab strip */}
+      <div className="flex flex-wrap items-center gap-2 mb-6 md:mb-8">
+        {adFormats.map((f, i) => {
+          const isActive = i === active;
+          return (
+            <button
+              key={f.name}
+              onClick={() => { setActive(i); setAutoplay(false); }}
+              className={`group inline-flex items-center gap-2 px-3.5 py-2 rounded-full text-[12px] font-medium tracking-tight transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background ${
+                isActive
+                  ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30"
+                  : "bg-foreground/[0.04] text-muted-foreground hover:bg-foreground/[0.08] hover:text-foreground"
+              }`}
+            >
+              <span className={`text-[10px] tabular-nums font-semibold ${
+                isActive ? "text-primary-foreground/70" : "text-muted-foreground/60"
+              }`}>
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span>{f.name}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Preview frame — 16:9 with crossfade between formats */}
+      <div className="relative w-full rounded-2xl overflow-hidden bg-black ring-1 ring-border/40 dark:ring-white/[0.08] shadow-2xl shadow-black/40" style={{ aspectRatio: "16 / 9" }}>
+        {adFormats.map((f, i) => (
+          <img
+            key={f.name}
+            src={f.image}
+            alt={`${f.name} ad format preview`}
+            loading={i === 0 ? "eager" : "lazy"}
+            decoding="async"
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ease-out ${
+              i === active ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
+
+        {/* Bottom-left chip overlay — format index + kicker */}
+        <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 px-2.5 py-1.5 rounded-full bg-black/70 backdrop-blur-sm text-white text-[11px] font-medium pointer-events-none">
+          <span className="tabular-nums text-white/60">{String(active + 1).padStart(2, "0")}</span>
+          <span>{fmt.kicker}</span>
         </div>
-        <h4 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5 max-w-md">
-          {fmt.name}
-        </h4>
-        <p className="text-base text-muted-foreground leading-relaxed max-w-lg mb-8">
-          {fmt.body}
-        </p>
-        <dl className="grid grid-cols-2 gap-x-8 gap-y-4 max-w-md">
+      </div>
+
+      {/* Details — single row beneath the preview. Format name on the left,
+          four spec columns on the right. Updates with the active format. */}
+      <div className="mt-8 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 items-start">
+        <div>
+          <h4 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-2">
+            {fmt.name}
+          </h4>
+          <p className="text-sm text-muted-foreground leading-relaxed max-w-xl">
+            {fmt.body}
+          </p>
+        </div>
+
+        <dl className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 sm:gap-x-10 gap-y-3 lg:min-w-[480px]">
           {fmt.specs.map((s) => (
             <div key={s.label}>
-              <dt className="text-xs text-muted-foreground mb-1">{s.label}</dt>
-              <dd className="text-sm font-medium text-foreground tabular-nums">
+              <dt className="text-[10px] uppercase tracking-widest text-muted-foreground/70 mb-1">
+                {s.label}
+              </dt>
+              <dd className="text-[13px] font-medium text-foreground tabular-nums">
                 {s.value}
               </dd>
             </div>
           ))}
         </dl>
       </div>
-
-      {/* Image column — 16:9, object-cover, no letterbox */}
-      <div className={imageFirst ? "lg:order-1" : ""}>
-        <div
-          className="relative w-full rounded-2xl overflow-hidden bg-muted/30 dark:bg-white/[0.04] ring-1 ring-border/40 dark:ring-white/[0.06]"
-          style={{ aspectRatio: "16 / 9" }}
-        >
-          <img
-            src={fmt.image}
-            alt={`${fmt.name} ad format preview`}
-            className="absolute inset-0 w-full h-full object-cover"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      </div>
     </div>
   );
 };
-
-const AdFormatShowcase: React.FC = () => (
-  <div className="max-w-7xl mx-auto px-6 lg:px-12">
-    <div className="space-y-14 md:space-y-24 lg:space-y-36">
-      {adFormats.map((fmt, i) => (
-        <AdFormatRow key={fmt.name} fmt={fmt} index={i} />
-      ))}
-    </div>
-  </div>
-);
 
 /* ── Platform data ── */
 const platforms = [
