@@ -33,14 +33,14 @@ export const SPStreamers: React.FC = () => {
         <div className="w-[600px] h-[300px] rounded-full bg-primary/5 dark:bg-primary/10 blur-[100px]" />
       </div>
 
-      <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           {/* Glass-style card wrapper for premium feel */}
-          <div className="relative mx-auto max-w-3xl p-10 md:p-14">
+          <div className="relative mx-auto max-w-3xl p-6 sm:p-10 md:p-14">
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
               Built for{" "}
               <span
-                className={`text-primary inline-block min-w-[140px] transition-all duration-300 ${
+                className={`text-primary inline-block min-w-0 sm:min-w-[140px] transition-all duration-300 ${
                   isAnimating ? "opacity-0 translate-y-2" : "opacity-100 translate-y-0"
                 }`}
               >

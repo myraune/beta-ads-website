@@ -46,7 +46,7 @@ export const ThemeTransition: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-[999] pointer-events-none" aria-hidden>
-      {/* Panel 1 — slides from top-left */}
+      {/* Panel 1 - slides from top-left */}
       <div
         style={{
           position: "absolute",
@@ -60,7 +60,7 @@ export const ThemeTransition: React.FC = () => {
         }}
       />
 
-      {/* Panel 2 — slightly delayed, creates depth */}
+      {/* Panel 2 - slightly delayed, creates depth */}
       <div
         style={{
           position: "absolute",

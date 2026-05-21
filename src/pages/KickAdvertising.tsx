@@ -4,7 +4,7 @@ import { MarketingPageLayout } from "@/components/layout/MarketingPageLayout";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, Rocket, Users, Shield, TrendingUp, Monitor, Zap, Eye, MessageSquare, Gamepad2, Sword, Mic, Trophy, Music } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import AnimatedShaderBackground from "@/components/ui/animated-shader-background";
+import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 
 const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
@@ -18,15 +18,15 @@ const stats = [
 const formats = [
   { icon: Monitor, title: "Static Overlay", desc: "Persistent branded graphic on-screen throughout the stream. Zero disruption, constant brand visibility." },
   { icon: Zap, title: "Animated Overlay", desc: "Motion-triggered overlays synced to game events or content beats. High impact without interrupting." },
-  { icon: MessageSquare, title: "AI Voice-Triggered", desc: "Fires automatically when your brand is mentioned — real-time voice recognition, no manual timing needed." },
+  { icon: MessageSquare, title: "AI Voice-Triggered", desc: "Fires automatically when your brand is mentioned - real-time voice recognition, no manual timing needed." },
   { icon: Eye, title: "Rich Media", desc: "Full interactive branded moments. Product showcases, clickable links, video elements embedded in the stream." },
 ];
 
 const why = [
   { icon: Rocket, title: "125% growth in 2025", desc: "Kick was the only major platform with positive viewership growth last year. Twitch declined 10% in the same period." },
-  { icon: Users, title: "Longer sessions", desc: "Average Kick viewing sessions exceed 120 minutes — 30% longer than Twitch. More exposure time for your brand." },
+  { icon: Users, title: "Longer sessions", desc: "Average Kick viewing sessions exceed 120 minutes - 30% longer than Twitch. More exposure time for your brand." },
   { icon: Shield, title: "Low ad saturation", desc: "Kick has minimal built-in advertising. Native overlay ads stand out in a market with almost zero competition." },
-  { icon: TrendingUp, title: "Creator migration", desc: "Major creators are moving to Kick for better revenue splits. Their audiences follow — creating new advertising inventory." },
+  { icon: TrendingUp, title: "Creator migration", desc: "Major creators are moving to Kick for better revenue splits. Their audiences follow - creating new advertising inventory." },
 ];
 
 const kickVsTwitch = [
@@ -68,7 +68,7 @@ const KickAdvertising: React.FC = () => {
     <MarketingPageLayout
       seo={{
         title: "Kick Advertising in the Nordics | Beta Ads",
-        description: "Advertise on Kick — the fastest-growing streaming platform with 125% viewership growth in 2025. Native overlay ads across 2,800+ Nordic Kick streamers.",
+        description: "Advertise on Kick - the fastest-growing streaming platform with 125% viewership growth in 2025. Native overlay ads across 2,800+ Nordic Kick streamers.",
         canonical: "/kick-advertising",
         jsonLd: [
           { "@context": "https://schema.org", "@type": "Service", "@id": "https://beta-ads.no/kick-advertising#service", name: "Kick Advertising - Beta Ads", serviceType: "Native Livestream Advertising", description: "Native overlay ads on 2,800+ Nordic Kick streamers. 125% viewership growth in 2025, 120+ minute average sessions, 0% adblock.", provider: { "@id": "https://beta-ads.no/#organization" }, areaServed: ["Norway", "Sweden", "Denmark", "Finland"], url: "https://beta-ads.no/kick-advertising" },
@@ -108,7 +108,7 @@ const KickAdvertising: React.FC = () => {
               <br />on Kick
             </h1>
             <p className="text-lg text-white/65 leading-relaxed mb-10 max-w-lg">
-              Kick grew 125% in 2025 — the only major platform with triple-digit growth. Get your brand on the fastest-growing streaming platform before the competition arrives.
+              Kick grew 125% in 2025 - the only major platform with triple-digit growth. Get your brand on the fastest-growing streaming platform before the competition arrives.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/demo">
@@ -137,16 +137,16 @@ const KickAdvertising: React.FC = () => {
       </section>
 
       {/* ── What it looks like ── */}
-      <section className="py-20 md:py-28 border-t border-border">
+      <section className="py-20 md:py-28 border-t border-border overflow-x-clip">
         <div ref={mockupRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${mockupVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">In-Stream</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">
-                An audience with nowhere else to go — yet
+                An audience with nowhere else to go - yet
               </h2>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-md">
-                Kick viewers are highly engaged early adopters. They chose a platform with no pre-roll ads, no mid-roll interruptions, and a creator-first experience. They're not used to being advertised to — which means native overlay ads land with significantly less skepticism than on more saturated platforms.
+                Kick viewers are highly engaged early adopters. They chose a platform with no pre-roll ads, no mid-roll interruptions, and a creator-first experience. They're not used to being advertised to - which means native overlay ads land with significantly less skepticism than on more saturated platforms.
               </p>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-md">
                 Kick's 95/5 revenue split attracts major streamers from Twitch and YouTube who bring their full audiences with them. You get access to established, loyal communities in a less competitive ad environment.
@@ -179,7 +179,7 @@ const KickAdvertising: React.FC = () => {
                   loading="lazy"
                 />
               </div>
-              <p className="text-[10px] text-muted-foreground mt-2">Real Kick homepage — top live categories with engaged audiences</p>
+              <p className="text-[10px] text-muted-foreground mt-2">Real Kick homepage - top live categories with engaged audiences</p>
               <div className="absolute -inset-4 -z-10 rounded-2xl opacity-10 blur-2xl" style={{ background: "radial-gradient(ellipse at center, #53fc18, transparent 70%)" }} />
             </div>
           </div>
@@ -195,7 +195,7 @@ const KickAdvertising: React.FC = () => {
               Same overlay tech. Fresh audience.
             </h2>
             <p className="text-muted-foreground text-sm leading-relaxed mt-3 max-w-xl">
-              All four overlay formats work on Kick — the same technology that runs on Twitch and YouTube, deployed into streams where competition for attention is near zero.
+              All four overlay formats work on Kick - the same technology that runs on Twitch and YouTube, deployed into streams where competition for attention is near zero.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -304,7 +304,7 @@ const KickAdvertising: React.FC = () => {
           <div className="grid md:grid-cols-4 gap-8">
             {[
               { step: "01", title: "Brief & Strategy", desc: "Define your goals and budget. We identify the right Kick streamers and format for your brand." },
-              { step: "02", title: "Creator Selection", desc: "We match you with Nordic Kick creators whose audience demographics match your target — you approve the list." },
+              { step: "02", title: "Creator Selection", desc: "We match you with Nordic Kick creators whose audience demographics match your target - you approve the list." },
               { step: "03", title: "Creative & Launch", desc: "We produce your overlay creatives and deploy simultaneously across your selected Kick streamers." },
               { step: "04", title: "Report & Iterate", desc: "Real-time dashboard access plus a full post-campaign report: views, exposure time, CTR, and engagement." },
             ].map((s, i) => (
@@ -357,9 +357,9 @@ const KickAdvertising: React.FC = () => {
               { q: "Can you actually advertise on Kick?", a: "Yes. Beta Ads supports native overlay advertising on Kick streams through our creator partnerships. While Kick has limited built-in ad tools, our overlay technology works directly within the stream feed." },
               { q: "Why advertise on Kick instead of just Twitch?", a: "We recommend advertising on both. Kick grew 125% in 2025 while Twitch declined 10%. Kick has lower ad competition, longer average sessions (120+ min), and a rapidly growing audience." },
               { q: "Is Kick big enough to advertise on?", a: "Yes. Kick has grown to be the third-largest live streaming platform globally. In the Nordics, over 2,800 streamers are active with growing audiences. Early advertisers benefit from lower costs and higher attention." },
-              { q: "What ad formats work on Kick?", a: "The same native overlay formats as Twitch and YouTube — static, animated, rich media, and AI voice-triggered overlays. All rendered inside the stream and invisible to ad blockers." },
+              { q: "What ad formats work on Kick?", a: "The same native overlay formats as Twitch and YouTube - static, animated, rich media, and AI voice-triggered overlays. All rendered inside the stream and invisible to ad blockers." },
               { q: "What kinds of brands work best on Kick?", a: "Gaming peripherals, VPN services, energy drinks, fashion, and tech brands perform well. Kick's audience skews slightly older than Twitch (22–30) and sessions are longer, making it good for product awareness and conversion campaigns." },
-              { q: "How does Kick's audience compare to Twitch's?", a: "Kick audiences are early adopters who actively chose the platform — they tend to be more engaged and more receptive to creator-endorsed content. Average sessions are 30% longer than Twitch, and with near-zero ad competition, your overlay has undivided attention." },
+              { q: "How does Kick's audience compare to Twitch's?", a: "Kick audiences are early adopters who actively chose the platform - they tend to be more engaged and more receptive to creator-endorsed content. Average sessions are 30% longer than Twitch, and with near-zero ad competition, your overlay has undivided attention." },
             ].map((faq, i) => (
               <details key={i} className="group border-b border-border last:border-b-0">
                 <summary className="flex items-center justify-between py-5 cursor-pointer text-sm font-medium text-foreground hover:text-primary transition-colors select-none">

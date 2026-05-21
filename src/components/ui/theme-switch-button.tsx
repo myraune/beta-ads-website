@@ -30,7 +30,7 @@ export function ThemeSwitch({ className = '' }: ThemeSwitchProps) {
     }
   }, [theme, setTheme])
 
-  if (!mounted) return <div className="h-8 w-8" />
+  if (!mounted) return <div className="h-11 w-11 sm:h-8 sm:w-8" />
 
   const isSystem = theme === 'system'
   const isDark = isSystem ? resolvedTheme === 'dark' : theme === 'dark'
@@ -45,7 +45,7 @@ export function ThemeSwitch({ className = '' }: ThemeSwitchProps) {
     <button
       onClick={cycleTheme}
       aria-label={label}
-      className={`relative flex h-8 w-8 items-center justify-center rounded-full hover:opacity-80 transition-opacity overflow-hidden ${className}`}
+      className={`relative flex h-11 w-11 sm:h-8 sm:w-8 items-center justify-center rounded-full hover:opacity-80 transition-opacity overflow-hidden ${className}`}
     >
       {/* System icon */}
       <Monitor

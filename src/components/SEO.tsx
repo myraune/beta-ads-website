@@ -18,9 +18,9 @@ interface SEOProps {
   ogImageWidth?: number;
   ogImageHeight?: number;
   noindex?: boolean;
-  /** ISO 8601 date string — emits article:published_time when ogType="article" */
+  /** ISO 8601 date string - emits article:published_time when ogType="article" */
   articlePublishedTime?: string;
-  /** ISO 8601 date string — emits article:modified_time when ogType="article" */
+  /** ISO 8601 date string - emits article:modified_time when ogType="article" */
   articleModifiedTime?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   /**
@@ -84,7 +84,7 @@ export const SEO: React.FC<SEOProps> = ({
   // Build the hreflang list. If explicit alternates are passed, use them;
   // otherwise emit just a self-referential entry for the current locale plus
   // x-default (both point at the canonical URL). We only emit hreflang if the
-  // caller gave us a canonical URL to anchor against — without one, Google
+  // caller gave us a canonical URL to anchor against - without one, Google
   // can't trust the mapping anyway.
   const hreflangTags: Array<{ hreflang: string; href: string }> = [];
   if (canonicalUrl) {
@@ -101,7 +101,7 @@ export const SEO: React.FC<SEOProps> = ({
         hreflangTags.push({ hreflang: "x-default", href: canonicalUrl });
       }
     } else if (locale !== "en") {
-      // Single-language page that's not English — still worth signalling the
+      // Single-language page that's not English - still worth signalling the
       // language explicitly plus an x-default fallback.
       hreflangTags.push({ hreflang: locale, href: canonicalUrl });
       hreflangTags.push({ hreflang: "x-default", href: canonicalUrl });
@@ -110,7 +110,7 @@ export const SEO: React.FC<SEOProps> = ({
 
   const ogLocale = OG_LOCALES[locale];
 
-  // Imperative fallback — react-helmet-async@3 has a known React 18 StrictMode
+  // Imperative fallback - react-helmet-async@3 has a known React 18 StrictMode
   // issue where Helmet updates don't propagate reliably on route changes, so
   // every page ended up with the static title from index.html. Setting these
   // directly via useEffect guarantees the browser tab, social crawlers that
@@ -151,7 +151,7 @@ export const SEO: React.FC<SEOProps> = ({
       upsertMeta('meta[property="og:url"]', "property", "og:url", canonicalUrl);
     }
 
-    // Replace any existing hreflang links — simpler than tracking individual
+    // Replace any existing hreflang links - simpler than tracking individual
     // entries because route changes can add/remove languages per page.
     document.head
       .querySelectorAll('link[rel="alternate"][hreflang]')
@@ -182,7 +182,7 @@ export const SEO: React.FC<SEOProps> = ({
       {noindex && <meta name="robots" content="noindex, nofollow" />}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
-      {/* hreflang alternates are emitted imperatively by useEffect above —
+      {/* hreflang alternates are emitted imperatively by useEffect above -
            rendering them via Helmet here too caused duplicates because
            Helmet's tags survive the useEffect cleanup pass on re-renders. */}
 
@@ -198,7 +198,7 @@ export const SEO: React.FC<SEOProps> = ({
       <meta property="og:site_name" content={SITE_NAME} />
       <meta property="og:locale" content={ogLocale} />
 
-      {/* Article namespace — LinkedIn/Facebook show pub date & author when these are present */}
+      {/* Article namespace - LinkedIn/Facebook show pub date & author when these are present */}
       {ogType === "article" && articlePublishedTime && (
         <meta property="article:published_time" content={articlePublishedTime} />
       )}

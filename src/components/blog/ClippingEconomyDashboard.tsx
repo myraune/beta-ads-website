@@ -28,8 +28,8 @@ const platforms = [
     tagline: 'Founded by MrBeast & Mark Rober',
     description: 'The creator economy marketplace where fans get paid to spread content. Campaign-based model with creator approval, hourly payouts via PayPal, crypto, or bank.',
     payout: '~$3 / 1K views',
-    highlight: 'MrBeast\'s Salesforce Super Bowl campaign ran here — $10K budget, $1.00 CPM',
-    facts: ['Campaign budgets: $10K–$30K typical', 'Hourly payouts — PayPal, crypto, or bank', 'Beast Games Episode 6: $30K budget at $0.50 CPM'],
+    highlight: 'MrBeast\'s Salesforce Super Bowl campaign ran here - $10K budget, $1.00 CPM',
+    facts: ['Campaign budgets: $10K–$30K typical', 'Hourly payouts - PayPal, crypto, or bank', 'Beast Games Episode 6: $30K budget at $0.50 CPM'],
     clients: ['MrBeast', 'Mark Rober', 'Lil Yachty', 'Logan Paul'],
   },
   {
@@ -62,7 +62,7 @@ const platforms = [
     description: 'Founded March 2025 by Stanfield & Peil. Works with "top labels in the world" including campaigns for Lady Gaga, Selena Gomez, and the Rolling Stones.',
     payout: 'Agency-managed',
     highlight: 'Operator under 18 earning five figures monthly (Variety)',
-    facts: ['Lady Gaga, Selena Gomez, Rolling Stones', 'Founded March 2025', 'Full agency model — handles everything'],
+    facts: ['Lady Gaga, Selena Gomez, Rolling Stones', 'Founded March 2025', 'Full agency model - handles everything'],
     clients: ['Lady Gaga', 'Selena Gomez', 'Rolling Stones'],
   },
   {
@@ -72,7 +72,7 @@ const platforms = [
     tagline: '"#1 clipping community on the internet"',
     description: 'Community-driven distribution platform that positions itself as the largest clipping community. Curated network of digital marketers delivering short-form media at scale at a fraction of traditional costs.',
     payout: '$1–5 / 1K views',
-    highlight: 'Strong Discord community — value proposition is network effect, not just ad tech',
+    highlight: 'Strong Discord community - value proposition is network effect, not just ad tech',
     facts: ['Campaign launching for content exposure', 'Curated distribution network', 'Active Discord, X, and Instagram communities'],
     clients: [],
   },
@@ -94,7 +94,7 @@ const platforms = [
     tagline: 'AI-powered clip generation',
     description: 'Uses AI to automatically identify viral moments in long-form content and generate optimized short clips. Creators report 10M+ views in a single month using the tool.',
     payout: 'Tool (not marketplace)',
-    highlight: 'AI finds the best moments — creators hit 10M views in 1 month',
+    highlight: 'AI finds the best moments - creators hit 10M views in 1 month',
     facts: ['AI viral moment detection', 'Auto-captioning and formatting', 'One-click multi-platform publishing'],
     clients: [],
   },
@@ -109,31 +109,31 @@ const caseStudies = [
     views: '41.3M',
     budget: '~$27K',
     over: '+79%',
-    result: 'Peaked #3 on Netflix US + Canada. 23M view target reached in just 4 days. Clipping.net ran the campaign — 50–90% cheaper than comparable influencer deals.',
+    result: 'Peaked #3 on Netflix US + Canada. 23M view target reached in just 4 days. Clipping.net ran the campaign - 50–90% cheaper than comparable influencer deals.',
     source: { url: 'https://clipping.net', label: 'Clipping.net' },
     featured: true,
   },
   {
     brand: 'bbno$',
     logo: null,
-    campaign: '"Diamonds Are Forever" — music clipping',
+    campaign: '"Diamonds Are Forever" - music clipping',
     cpm: '$0.10',
     views: '190M',
     budget: '$9K',
     over: '~1B total',
-    result: 'Nearly 1 billion views across all campaigns. The $9K budget produced 190M views at $0.10 CPM — the lowest CPM on record in the clipping economy. 316× cheaper than Meta.',
+    result: 'Nearly 1 billion views across all campaigns. The $9K budget produced 190M views at $0.10 CPM - the lowest CPM on record in the clipping economy. 316× cheaper than Meta.',
     source: { url: 'https://variety.com/2026/music/news/clipping-marketing-tool-took-over-music-industry-1236699705/', label: 'Variety' },
     featured: false,
   },
   {
     brand: 'Cluely',
     logo: null,
-    campaign: 'AI coaching overlay — grassroots growth',
+    campaign: 'AI coaching overlay - grassroots growth',
     cpm: 'Custom',
     views: 'Tens of millions',
     budget: 'Undisclosed',
     over: '$7M ARR',
-    result: '700+ clippers hired to distribute product demos. Raised $15M from a16z. Reached $7M ARR through clipper-driven organic growth — no paid social needed.',
+    result: '700+ clippers hired to distribute product demos. Raised $15M from a16z. Reached $7M ARR through clipper-driven organic growth - no paid social needed.',
     source: { url: 'https://www.forbes.com/sites/boazsobrado/2026/02/11/inside-the-clipping-farms-driving-fintechs-marketing-boom/', label: 'Forbes' },
     featured: false,
   },
@@ -152,7 +152,7 @@ const caseStudies = [
   {
     brand: 'Autopilot',
     logo: null,
-    campaign: 'Investment app — ongoing Whop distribution',
+    campaign: 'Investment app - ongoing Whop distribution',
     cpm: '$1–3',
     views: '12M+',
     budget: '$12K+',
@@ -200,7 +200,7 @@ export default function ClippingEconomyDashboard() {
         <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">The basics</p>
         <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-4">How Clipping Works</h2>
         <p className="text-base text-muted-foreground mb-10 max-w-2xl">
-          Clippers aren't influencers. They're normal kids and young adults who take short clips from brands and creators, post them on TikTok, Reels, and Shorts — and get paid per 1,000 views. The brand sets the CPM, the clipper does the distribution.
+          Clippers aren't influencers. They're normal kids and young adults who take short clips from brands and creators, post them on TikTok, Reels, and Shorts - and get paid per 1,000 views. The brand sets the CPM, the clipper does the distribution.
         </p>
         <div className="grid md:grid-cols-5 gap-4">
           {[
@@ -224,7 +224,7 @@ export default function ClippingEconomyDashboard() {
         <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">Cost per 1,000 views</p>
         <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-2">Clipping vs Every Other Channel</h2>
         <p className="text-base text-muted-foreground mb-10 max-w-xl">
-          At its best, clipping delivers impressions for <strong className="text-foreground">$0.10 CPM</strong> — 100–350× cheaper than Meta or Google. Even average campaigns run at $1–3 CPM, outperforming every traditional digital channel.
+          At its best, clipping delivers impressions for <strong className="text-foreground">$0.10 CPM</strong> - 100–350× cheaper than Meta or Google. Even average campaigns run at $1–3 CPM, outperforming every traditional digital channel.
         </p>
 
         <div className="space-y-3">
@@ -398,7 +398,7 @@ export default function ClippingEconomyDashboard() {
         <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">Where campaigns run</p>
         <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">Key Platforms & Agencies</h2>
         <p className="text-base text-muted-foreground mb-10 max-w-2xl">
-          The clipping ecosystem has matured rapidly. Eight major platforms now compete for brand budgets — from MrBeast's Vyro to Netflix-trusted Clipping.net. Each has a different model, CPM range, and target market.
+          The clipping ecosystem has matured rapidly. Eight major platforms now compete for brand budgets - from MrBeast's Vyro to Netflix-trusted Clipping.net. Each has a different model, CPM range, and target market.
         </p>
 
         <div className="space-y-4">
@@ -497,9 +497,9 @@ export default function ClippingEconomyDashboard() {
       {/* ── 7. Brand Safety ───────────────────────────────────────────────── */}
       <section id="risks">
         <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">Brand safety</p>
-        <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">The Dark Side — and How to Avoid It</h2>
+        <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">The Dark Side - and How to Avoid It</h2>
         <p className="text-base text-muted-foreground mb-8 max-w-xl">
-          Clipping isn't all upside. Gambling sites run campaigns using creator clips without consent. Fake endorsements proliferate. Here's the risk landscape — and the playbook for doing it right.
+          Clipping isn't all upside. Gambling sites run campaigns using creator clips without consent. Fake endorsements proliferate. Here's the risk landscape - and the playbook for doing it right.
         </p>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="rounded-2xl bg-foreground text-background p-6">
@@ -530,7 +530,7 @@ export default function ClippingEconomyDashboard() {
               {[
                 { title: 'Use consent-based platforms', desc: 'Vyro, Clipping.net, and Whop all require creator opt-in. This protects both the brand and the original content creator.' },
                 { title: 'Require FTC disclosures', desc: 'Include disclosure requirements in every campaign brief. Make #ad or #sponsored mandatory in all clip captions.' },
-                { title: 'Set content review gates', desc: 'No auto-approval. Clipping.net\'s review-gated model is the gold standard — every clip is checked before going live.' },
+                { title: 'Set content review gates', desc: 'No auto-approval. Clipping.net\'s review-gated model is the gold standard - every clip is checked before going live.' },
                 { title: 'Track verified views only', desc: 'All major platforms (Whop, Vyro) have bot detection built in. Avoid platforms that don\'t verify view authenticity.' },
                 { title: 'Clear brand guidelines', desc: 'Specify what can and cannot appear in clips. Set explicit do/don\'t lists for brand safety.' },
               ].map((item) => (
@@ -549,7 +549,7 @@ export default function ClippingEconomyDashboard() {
         <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">The clipper perspective</p>
         <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-2">What Clippers Actually Earn</h2>
         <p className="text-base text-muted-foreground mb-8 max-w-xl">
-          The ceiling is real — but so is the competition. Most clippers in large open campaigns earn under $3 total. Niche campaigns with fewer participants yield far more consistent returns.
+          The ceiling is real - but so is the competition. Most clippers in large open campaigns earn under $3 total. Niche campaigns with fewer participants yield far more consistent returns.
         </p>
         <div className="grid md:grid-cols-3 gap-4">
           {[
@@ -570,7 +570,7 @@ export default function ClippingEconomyDashboard() {
         </div>
         <div className="mt-6 rounded-xl bg-muted/15 p-5 max-w-2xl">
           <p className="text-sm text-foreground/70 leading-relaxed">
-            <strong className="text-foreground">Reality check:</strong> Most participants in open campaigns earn very little. The economics favor early movers and dedicated clippers who build distribution networks. Think of it like ride-share — a few full-time drivers earn well, most casual participants make pocket money.
+            <strong className="text-foreground">Reality check:</strong> Most participants in open campaigns earn very little. The economics favor early movers and dedicated clippers who build distribution networks. Think of it like ride-share - a few full-time drivers earn well, most casual participants make pocket money.
           </p>
         </div>
       </section>
@@ -581,7 +581,7 @@ export default function ClippingEconomyDashboard() {
         <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-4">The Regulatory Gray Area</h2>
         <div className="rounded-2xl border border-border/40 bg-card/20 p-6 md:p-8 max-w-2xl">
           <p className="text-base text-foreground/80 leading-relaxed mb-4">
-            The FTC requires disclosure for all paid social media posts — clipping campaigns are no exception. But enforcement has been minimal. One IP lawyer told Digiday that smaller brands face "minimal enforcement risk" because the FTC lacks resources to monitor at scale.
+            The FTC requires disclosure for all paid social media posts - clipping campaigns are no exception. But enforcement has been minimal. One IP lawyer told Digiday that smaller brands face "minimal enforcement risk" because the FTC lacks resources to monitor at scale.
           </p>
           <p className="text-base text-foreground/80 leading-relaxed mb-4">
             That won't last. X (formerly Twitter) Product Head Nikita Bier has already publicly flagged suspected clipping activity, stating "the brand is likely paying a clipping agency to take over Timeline for a day." Platforms are becoming aware.
@@ -616,13 +616,13 @@ export default function ClippingEconomyDashboard() {
             <p className="text-xs font-semibold tracking-widest uppercase text-background/40 mb-1">The full picture</p>
             <h2 className="text-2xl md:text-3xl font-light tracking-tight text-background">Live Streaming + Clipping = Full Funnel</h2>
             <p className="text-background/50 text-sm mt-2 max-w-lg">
-              Live streaming creates the authentic moment. Clipping multiplies the reach. Together, they deliver what paid social can't — genuine organic distribution at scale.
+              Live streaming creates the authentic moment. Clipping multiplies the reach. Together, they deliver what paid social can't - genuine organic distribution at scale.
             </p>
           </div>
           <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-background/10">
             {[
               { step: '01', title: 'Brand Goes Live', desc: 'Native overlay ad runs on Twitch, YouTube, or Kick. Reaches Gen Z audiences that skip every other ad format. 39,000+ Nordic streamers on Beta Ads.' },
-              { step: '02', title: 'AI Finds the Moment', desc: 'Beta Ads AI clipping detects peak engagement in real time — chat velocity spikes, reaction bursts, voice recognition confirming the brand mention landed.' },
+              { step: '02', title: 'AI Finds the Moment', desc: 'Beta Ads AI clipping detects peak engagement in real time - chat velocity spikes, reaction bursts, voice recognition confirming the brand mention landed.' },
               { step: '03', title: 'Clippers Distribute It', desc: 'The highest-performing clip hits TikTok, Reels, and Shorts through a paid clipper network. One live moment becomes indefinite organic reach.' },
             ].map((s) => (
               <div key={s.step} className="px-8 py-8">
@@ -640,16 +640,16 @@ export default function ClippingEconomyDashboard() {
         <p className="text-xs font-semibold text-muted-foreground/60 uppercase tracking-widest mb-4">Sources & Further Reading</p>
         <div className="grid md:grid-cols-2 gap-x-10 gap-y-2">
           {[
-            { label: 'Variety — "How Clipping Took Over the Music Biz"', url: 'https://variety.com/2026/music/news/clipping-marketing-tool-took-over-music-industry-1236699705/' },
-            { label: 'Forbes — "Inside The Clipping Farms" (Feb 2026)', url: 'https://www.forbes.com/sites/boazsobrado/2026/02/11/inside-the-clipping-farms-driving-fintechs-marketing-boom/' },
-            { label: 'Digiday — "WTF is clipping?"', url: 'https://digiday.com/media/wtf-is-clipping-the-low-lift-creator-strategy-grabbing-advertisers-attention/' },
-            { label: 'Business Insider — "Clipping Creators Have Arrived"', url: 'https://www.businessinsider.com/clipping-creators-arrived-discord-money-earning-big-2026-3' },
-            { label: 'Influencer Marketing Hub — MrBeast Launches Vyro', url: 'https://influencermarketinghub.com/mrbeast-launches-vyro/' },
-            { label: 'Whop Blog — What Is Content Clipping?', url: 'https://whop.com/blog/what-is-content-clipping/' },
-            { label: 'Gupta Media — Clipping: Creator Economy\'s Newest Hit Job', url: 'https://thread.guptamedia.com/p/clipping-creator-economy-newest-hit-job' },
-            { label: 'OpusClip — 10M Views in 1 Month', url: 'https://www.opus.pro/how-creators-are-earning-10m-views-in-1-month' },
-            { label: 'Marketing Agent — Why Clipping Is Exploding in 2026', url: 'https://marketingagent.blog/2026/01/02/what-is-clipping-and-why-its-exploding-in-2026/' },
-            { label: 'Yahoo Finance — Clipping Agency Launches', url: 'https://finance.yahoo.com/news/clipping-agency-launches-scalable-clipping-001100690.html' },
+            { label: 'Variety - "How Clipping Took Over the Music Biz"', url: 'https://variety.com/2026/music/news/clipping-marketing-tool-took-over-music-industry-1236699705/' },
+            { label: 'Forbes - "Inside The Clipping Farms" (Feb 2026)', url: 'https://www.forbes.com/sites/boazsobrado/2026/02/11/inside-the-clipping-farms-driving-fintechs-marketing-boom/' },
+            { label: 'Digiday - "WTF is clipping?"', url: 'https://digiday.com/media/wtf-is-clipping-the-low-lift-creator-strategy-grabbing-advertisers-attention/' },
+            { label: 'Business Insider - "Clipping Creators Have Arrived"', url: 'https://www.businessinsider.com/clipping-creators-arrived-discord-money-earning-big-2026-3' },
+            { label: 'Influencer Marketing Hub - MrBeast Launches Vyro', url: 'https://influencermarketinghub.com/mrbeast-launches-vyro/' },
+            { label: 'Whop Blog - What Is Content Clipping?', url: 'https://whop.com/blog/what-is-content-clipping/' },
+            { label: 'Gupta Media - Clipping: Creator Economy\'s Newest Hit Job', url: 'https://thread.guptamedia.com/p/clipping-creator-economy-newest-hit-job' },
+            { label: 'OpusClip - 10M Views in 1 Month', url: 'https://www.opus.pro/how-creators-are-earning-10m-views-in-1-month' },
+            { label: 'Marketing Agent - Why Clipping Is Exploding in 2026', url: 'https://marketingagent.blog/2026/01/02/what-is-clipping-and-why-its-exploding-in-2026/' },
+            { label: 'Yahoo Finance - Clipping Agency Launches', url: 'https://finance.yahoo.com/news/clipping-agency-launches-scalable-clipping-001100690.html' },
           ].map((s) => (
             <a
               key={s.url}

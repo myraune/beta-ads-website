@@ -6,7 +6,7 @@ import { SPFooter } from "@/components/sections/SPFooter";
 
 const SamsungFold7CaseStudy = lazy(() => import("@/components/blog/SamsungFold7CaseStudy"));
 
-/** Samsung brand blue — sampled from their official brand guidelines. */
+/** Samsung brand blue - sampled from their official brand guidelines. */
 const SAMSUNG_BLUE = "#1428A0";
 
 const CaseStudySamsungFold7: React.FC = () => {

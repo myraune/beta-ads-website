@@ -49,7 +49,7 @@ export const Footer: React.FC<FooterProps> = ({ t }) => (
 
         {/* Product */}
         <div className="space-y-6">
-          {/* h3: highest heading level within the footer landmark — no h2 precedes these */}
+          {/* h3: highest heading level within the footer landmark - no h2 precedes these */}
           <h3 className="font-light tracking-widest text-sm uppercase text-muted-foreground/60">Product</h3>
           <div className="space-y-3">
             <Link to="/case-studies" className="block text-muted-foreground hover:text-foreground transition-colors duration-200 text-sm font-light tracking-wide">

@@ -87,7 +87,7 @@ export const TrustedBy: React.FC = () => {
               style={{ width: 'max-content' }}
             >
               <LogoSet logos={logos} isLightTheme={isLightTheme} />
-              {/* Duplicate set for seamless infinite scroll — hidden from screen readers */}
+              {/* Duplicate set for seamless infinite scroll - hidden from screen readers */}
               <LogoSet logos={logos} keyPrefix="dup-" isLightTheme={isLightTheme} ariaHidden={true} />
             </div>
           </div>

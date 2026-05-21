@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Component as AILoader } from "@/components/ui/ai-loader";
 
 /**
- * RouteTransition — shows the Beta orb loader on every in-app navigation.
+ * RouteTransition - shows the Beta orb loader on every in-app navigation.
  *
  * Implementation notes:
  *  - Outer component tracks whether ANY navigation has happened (it
@@ -27,7 +27,7 @@ export function RouteTransition() {
   const [navId, setNavId] = useState(0);
 
   useEffect(() => {
-    // Skip initial mount — Suspense fallback handles the cold page load
+    // Skip initial mount - Suspense fallback handles the cold page load
     if (pathname === firstPathRef.current) return;
     setNavId((n) => n + 1);
   }, [pathname]);

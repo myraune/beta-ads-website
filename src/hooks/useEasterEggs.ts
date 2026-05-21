@@ -29,7 +29,7 @@ export function useKonamiCode(onActivate: () => void) {
   }, [index, onActivate]);
 }
 
-// Click counter on a specific element — triggers after N clicks
+// Click counter on a specific element - triggers after N clicks
 export function useClickEasterEgg(threshold = 7) {
   const [clicks, setClicks] = useState(0);
   const [triggered, setTriggered] = useState(false);

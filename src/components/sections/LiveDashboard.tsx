@@ -195,9 +195,9 @@ const DashboardScreen: React.FC = () => (
             <td className="px-3 py-2 text-xs text-gray-500">2026-03-20</td>
             <td className="px-3 py-2 text-xs text-gray-500">2026-04-20</td>
             <td className="px-3 py-2 text-xs text-gray-500">€35,000</td>
-            <td className="px-3 py-2 text-xs text-gray-400">—</td>
-            <td className="px-3 py-2 text-xs text-gray-400">—</td>
-            <td className="px-3 py-2 text-xs text-gray-400">—</td>
+            <td className="px-3 py-2 text-xs text-gray-400">-</td>
+            <td className="px-3 py-2 text-xs text-gray-400">-</td>
+            <td className="px-3 py-2 text-xs text-gray-400">-</td>
           </tr>
           <tr>
             <td className="px-3 py-2 text-sm font-semibold text-gray-900 whitespace-nowrap">Samsung S25 Ultra</td>
@@ -610,7 +610,7 @@ const UsersScreen: React.FC = () => (
 );
 
 // ═══════════════════════════════════════════════════════
-// MAIN COMPONENT — Uses CSS transform: scale() to fit
+// MAIN COMPONENT - Uses CSS transform: scale() to fit
 // ═══════════════════════════════════════════════════════
 
 interface LiveDashboardProps {
@@ -732,7 +732,7 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
         }
       `}</style>
 
-      {/* Full-size dashboard, scaled to fit container — uses transform for crisp retina rendering */}
+      {/* Full-size dashboard, scaled to fit container - uses transform for crisp retina rendering */}
       <div
         style={{
           width: DASH_W,
@@ -744,7 +744,7 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
         {/* App shell */}
         <div className="flex h-full w-full overflow-hidden" style={{ background: "#f8f8f8" }}>
 
-          {/* Sidebar — interactive */}
+          {/* Sidebar - interactive */}
           <div className="w-[195px] shrink-0 py-4 px-2.5 flex flex-col gap-0.5 pointer-events-auto" style={{ background: "#ffffff", borderRight: "1px solid #eee" }}>
             <div className="px-2 mb-5">
               <img
@@ -776,7 +776,7 @@ export const LiveDashboard: React.FC<LiveDashboardProps> = ({ className = "", co
             </div>
           </div>
 
-          {/* Main area — non-interactive content */}
+          {/* Main area - non-interactive content */}
           <div className="flex-1 flex flex-col min-w-0 overflow-hidden pointer-events-none">
             {/* Top bar */}
             <div className="flex items-center justify-end gap-2.5 px-4 py-2.5" style={{ background: "#ffffff", borderBottom: "1px solid #eee" }}>

@@ -72,7 +72,7 @@ export const CursorGlow: React.FC = () => {
         <circle cx="9" cy="9" r="6.5" stroke="hsl(var(--primary))" strokeWidth="1.2" opacity="0.4" />
         {/* Centre dot */}
         <circle cx="9" cy="9" r="1.5" fill="hsl(var(--primary))" opacity="0.6" />
-        {/* Crosshair lines — top, bottom, left, right with gap */}
+        {/* Crosshair lines - top, bottom, left, right with gap */}
         <line x1="9" y1="0.5" x2="9" y2="4.5" stroke="hsl(var(--primary))" strokeWidth="1.2" opacity="0.45" strokeLinecap="round" />
         <line x1="9" y1="13.5" x2="9" y2="17.5" stroke="hsl(var(--primary))" strokeWidth="1.2" opacity="0.45" strokeLinecap="round" />
         <line x1="0.5" y1="9" x2="4.5" y2="9" stroke="hsl(var(--primary))" strokeWidth="1.2" opacity="0.45" strokeLinecap="round" />

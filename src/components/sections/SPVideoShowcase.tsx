@@ -4,8 +4,8 @@ import { Play, Pause, Volume2, VolumeX, Settings, Maximize2 } from "lucide-react
 
 /* ── See It Live: a focused Twitch player demo ──
  *
- * Just the essentials — player + chat sidebar + channel info row, like
- * any live twitch.tv tab. Per CLAUDE.md "restraint is the skill" — no
+ * Just the essentials - player + chat sidebar + channel info row, like
+ * any live twitch.tv tab. Per CLAUDE.md "restraint is the skill" - no
  * fake Om/About/bio/panels chrome. The marketing point is to show
  * what the Samsung banner LOOKS LIKE in-stream; everything else is
  * decoration.
@@ -105,7 +105,7 @@ const LiveStreamDemo: React.FC = () => {
     return () => obs.disconnect();
   }, []);
 
-  // Viewer count + chat ticker — only while playing
+  // Viewer count + chat ticker - only while playing
   useEffect(() => {
     if (!playing) return;
     const v = setInterval(
@@ -174,7 +174,7 @@ const LiveStreamDemo: React.FC = () => {
             onPause={() => setPlaying(false)}
           />
 
-          {/* In-stream sponsored banner — animated webm at its natural aspect
+          {/* In-stream sponsored banner - animated webm at its natural aspect
               so the whole creative is visible (no cropping). w-[34%] on
               desktop, narrower on mobile so it doesn't dominate the player. */}
           <div className="absolute bottom-12 right-3 w-[26%] sm:w-[34%] max-w-[300px] pointer-events-none z-10 rounded-md overflow-hidden shadow-2xl ring-1 ring-white/15">
@@ -251,7 +251,7 @@ const LiveStreamDemo: React.FC = () => {
           </div>
         </div>
 
-        {/* ─── Chat sidebar — INSIDE the grid so its height is locked to the
+        {/* ─── Chat sidebar - INSIDE the grid so its height is locked to the
                 player's aspect-video height. No empty space, no overflow. ─── */}
         <div className="bg-[#18181b] border-t lg:border-t-0 lg:border-l border-[#2f2f35] flex flex-col min-h-0 max-h-full">
           <div className="flex items-center justify-between px-4 py-3 border-b border-[#2f2f35] shrink-0">
@@ -261,7 +261,7 @@ const LiveStreamDemo: React.FC = () => {
             </span>
           </div>
 
-          {/* Messages — flex-1 between header and pinned/input, overflow-hidden
+          {/* Messages - flex-1 between header and pinned/input, overflow-hidden
               + justify-end keeps the latest at the bottom and trims the top
               like real Twitch chat. Show last 22 so the messages area is
               dense at 560px chat height without exceeding it. */}
@@ -322,7 +322,7 @@ const LiveStreamDemo: React.FC = () => {
       </div>
       {/* /grid */}
 
-      {/* ─── Channel info row — BELOW the grid, full width ─── */}
+      {/* ─── Channel info row - BELOW the grid, full width ─── */}
       <div className="bg-[#0e0e10] px-4 py-3 border-t border-[#2f2f35] flex items-center gap-3">
         <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 ring-2 ring-[#9146ff]">
           <img
@@ -342,7 +342,7 @@ const LiveStreamDemo: React.FC = () => {
               />
             </svg>
           </div>
-          <div className="text-[13px] text-white truncate">Samsung Galaxy S25 Ultra Launch — Fortnite</div>
+          <div className="text-[13px] text-white truncate">Samsung Galaxy S25 Ultra Launch - Fortnite</div>
           <div className="flex items-center gap-1.5 mt-1 flex-wrap">
             <span className="text-[10px] text-[#adadb8]">Fortnite</span>
             <span className="text-[10px] text-[#adadb8]">·</span>
@@ -357,7 +357,7 @@ const LiveStreamDemo: React.FC = () => {
         </button>
       </div>
 
-      {/* ─── About section — BELOW the channel info, full width ─── */}
+      {/* ─── About section - BELOW the channel info, full width ─── */}
       <div className="bg-[#0e0e10] px-5 py-5 border-t border-[#2f2f35]">
         <div className="flex items-baseline gap-2 mb-2">
           <h3 className="text-white text-[15px] font-semibold">Om RubenGKS</h3>
@@ -366,11 +366,11 @@ const LiveStreamDemo: React.FC = () => {
           </span>
         </div>
         <p className="text-[12.5px] text-[#dedee3] leading-relaxed mb-4 max-w-2xl">
-          Hei, jeg er RubenGKS — daglige Fortnite-streams fra Oslo. Sponset av Samsung
+          Hei, jeg er RubenGKS - daglige Fortnite-streams fra Oslo. Sponset av Samsung
           Galaxy S25 Ultra denne måneden, og du finner alle mine socials i panelene under.
         </p>
 
-        {/* Sponsored panel — same Samsung creative as the in-stream banner.
+        {/* Sponsored panel - same Samsung creative as the in-stream banner.
             max-w-sm to match a real Twitch sponsorship panel proportions. */}
         <a
           href="#"
@@ -432,7 +432,7 @@ export const SPVideoShowcase: React.FC = () => {
             This is what it looks like
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            A Samsung banner running in-stream on a real Norwegian Twitch channel —
+            A Samsung banner running in-stream on a real Norwegian Twitch channel -
             no mockups, no pre-rolls, no adblock interference.
           </p>
         </div>
@@ -446,7 +446,7 @@ export const SPVideoShowcase: React.FC = () => {
           <LiveStreamDemo />
         </div>
 
-        {/* Samsung campaign stats — from live data */}
+        {/* Samsung campaign stats - from live data */}
         <div
           className={`flex flex-wrap items-center justify-center gap-x-6 sm:gap-x-8 md:gap-x-12 gap-y-3 py-6 transition-all duration-700 delay-200 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"

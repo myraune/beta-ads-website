@@ -4,7 +4,7 @@ import { MarketingPageLayout } from "@/components/layout/MarketingPageLayout";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, Monitor, Zap, Eye, MessageSquare, Shield, Users, BarChart3, TrendingUp, Gamepad2, Music, Mic, Trophy, Sword, Car, Globe2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import AnimatedShaderBackground from "@/components/ui/animated-shader-background";
+import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 
 const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
@@ -18,15 +18,15 @@ const stats = [
 const formats = [
   { icon: Monitor, title: "Static Overlay", desc: "Persistent branded graphic displayed throughout the stream. Always visible, always on brand. Best for awareness campaigns." },
   { icon: Zap, title: "Animated Overlay", desc: "Motion graphics triggered by game events or on schedule. Attention-catching without interrupting the stream content." },
-  { icon: MessageSquare, title: "AI Voice-Triggered", desc: "Appears when the streamer naturally mentions your brand — powered by real-time voice recognition." },
+  { icon: MessageSquare, title: "AI Voice-Triggered", desc: "Appears when the streamer naturally mentions your brand - powered by real-time voice recognition." },
   { icon: Eye, title: "Rich Media", desc: "Interactive full-screen branded content. Video, animation, clickable elements. The most immersive format." },
 ];
 
 const why = [
-  { icon: Shield, title: "Bypasses ad blockers", desc: "Rendered inside the stream itself — not browser-injected. Ad blockers have nothing to detect." },
+  { icon: Shield, title: "Bypasses ad blockers", desc: "Rendered inside the stream itself - not browser-injected. Ad blockers have nothing to detect." },
   { icon: TrendingUp, title: "90-minute sessions", desc: "Twitch viewers average 90+ minutes per session. Your brand gets sustained, repeated exposure." },
   { icon: Users, title: "Gen Z native", desc: "73% of Twitch's audience is 18–34. The generation traditional media can't reach." },
-  { icon: BarChart3, title: "Real-time analytics", desc: "Views, exposure time, chat mentions, CTR — tracked live. Full report delivered post-campaign." },
+  { icon: BarChart3, title: "Real-time analytics", desc: "Views, exposure time, chat mentions, CTR - tracked live. Full report delivered post-campaign." },
 ];
 
 const categories = [
@@ -60,8 +60,8 @@ const TwitchAdvertising: React.FC = () => {
           { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://beta-ads.no/" }, { "@type": "ListItem", position: 2, name: "Twitch Advertising", item: "https://beta-ads.no/twitch-advertising" }] },
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [
             { "@type": "Question", name: "How much does Twitch advertising cost in Norway?", acceptedAnswer: { "@type": "Answer", text: "Pricing varies by campaign scope and duration. We offer flexible pricing with no long-term contracts. Contact us for a custom quote based on your target audience and goals." } },
-            { "@type": "Question", name: "How do Twitch overlay ads bypass ad blockers?", acceptedAnswer: { "@type": "Answer", text: "Overlay ads are rendered inside the stream itself, not injected by the browser. Ad blockers target browser-injected ad elements — they have nothing to detect or remove when the ad is part of the stream feed." } },
-            { "@type": "Question", name: "How is this different from Twitch's own pre-roll ads?", acceptedAnswer: { "@type": "Answer", text: "Twitch pre-rolls and mid-rolls interrupt the stream and are blocked by most ad blockers. Beta Ads overlay ads appear as branded graphics within the live stream — no interruption, 0% adblock impact, and sustained exposure throughout the session." } },
+            { "@type": "Question", name: "How do Twitch overlay ads bypass ad blockers?", acceptedAnswer: { "@type": "Answer", text: "Overlay ads are rendered inside the stream itself, not injected by the browser. Ad blockers target browser-injected ad elements - they have nothing to detect or remove when the ad is part of the stream feed." } },
+            { "@type": "Question", name: "How is this different from Twitch's own pre-roll ads?", acceptedAnswer: { "@type": "Answer", text: "Twitch pre-rolls and mid-rolls interrupt the stream and are blocked by most ad blockers. Beta Ads overlay ads appear as branded graphics within the live stream - no interruption, 0% adblock impact, and sustained exposure throughout the session." } },
             { "@type": "Question", name: "What results can I expect from Twitch advertising in the Nordics?", acceptedAnswer: { "@type": "Answer", text: "Our verified campaign data shows CTRs between 1.08% and 4.48% across campaigns for Samsung, Shure, Komplett, and NKI. Impressions typically range from 100,000 to 1M+ depending on campaign duration and streamer reach." } },
             { "@type": "Question", name: "How long does it take to launch a Twitch campaign?", acceptedAnswer: { "@type": "Answer", text: "From brief to broadcast in as little as 5 business days. We handle streamer matching, creative production, and deployment. You review and approve the streamer list and final artwork before anything goes live." } },
             { "@type": "Question", name: "Can I target specific game categories or audiences on Twitch?", acceptedAnswer: { "@type": "Answer", text: "Yes. You can target by game category (FPS, RPG, sports, Just Chatting, etc.), streaming schedule, audience demographics, and viewer location at country level across Norway, Sweden, Finland, and Denmark." } },
@@ -123,21 +123,21 @@ const TwitchAdvertising: React.FC = () => {
       </section>
 
       {/* ── What it looks like ── */}
-      <section className="py-20 md:py-28 border-t border-border">
+      <section className="py-20 md:py-28 border-t border-border overflow-x-clip">
         <div ref={mockupRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${mockupVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">In-Stream</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">
-                Ads that live inside the stream — not around it
+                Ads that live inside the stream - not around it
               </h2>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-md">
-                Unlike banner ads placed beside the player or pre-roll video interruptions, overlay ads are rendered directly into the stream feed. Viewers see your brand as part of the content — not an interruption to skip.
+                Unlike banner ads placed beside the player or pre-roll video interruptions, overlay ads are rendered directly into the stream feed. Viewers see your brand as part of the content - not an interruption to skip.
               </p>
               <div className="space-y-3">
                 {[
                   "Visible on every platform where viewers watch: browser, app, TV",
-                  "Can't be blocked — rendered server-side into the video feed",
+                  "Can't be blocked - rendered server-side into the video feed",
                   "Stays on screen for the full session, not just a 6-second slot",
                 ].map((point, i) => (
                   <div key={i} className="flex items-start gap-3">
@@ -158,7 +158,7 @@ const TwitchAdvertising: React.FC = () => {
                   loading="lazy"
                 />
               </div>
-              <p className="text-[10px] text-muted-foreground mt-2 text-right">Real Twitch stream — overlay ad visible bottom-left</p>
+              <p className="text-[10px] text-muted-foreground mt-2 text-right">Real Twitch stream - overlay ad visible bottom-left</p>
               <div className="absolute -inset-4 -z-10 rounded-2xl opacity-10 blur-2xl" style={{ background: "radial-gradient(ellipse at center, #9146ff, transparent 70%)" }} />
             </div>
           </div>
@@ -196,15 +196,15 @@ const TwitchAdvertising: React.FC = () => {
                 Where the next generation of consumers lives
               </h2>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                Nordic Twitch communities are smaller and more tightly-knit than US or UK equivalents. A Norwegian streamer with 1,000 concurrent viewers has built a community where brand integrations carry genuine social weight — viewers trust creator recommendations at a rate traditional ads never achieve.
+                Nordic Twitch communities are smaller and more tightly-knit than US or UK equivalents. A Norwegian streamer with 1,000 concurrent viewers has built a community where brand integrations carry genuine social weight - viewers trust creator recommendations at a rate traditional ads never achieve.
               </p>
               <p className="text-muted-foreground text-sm leading-relaxed mb-8">
                 With 80% ad-blocker adoption among Nordic 18–34 year olds, traditional digital formats simply don't reach this demographic. Overlay ads are the only format that reliably reaches the Gen Z audience where they actually spend their time.
               </p>
               <div className="space-y-3">
                 {[
-                  "80% ad-blocker rate among Nordic 18–34s — overlay ads bypass this entirely",
-                  "90+ minute average sessions — sustained brand exposure, not a 6-second skip",
+                  "80% ad-blocker rate among Nordic 18–34s - overlay ads bypass this entirely",
+                  "90+ minute average sessions - sustained brand exposure, not a 6-second skip",
                   "79% of Twitch viewers support ads that directly help their favorite creator",
                 ].map((point, i) => (
                   <div key={i} className="flex items-start gap-3">
@@ -242,7 +242,7 @@ const TwitchAdvertising: React.FC = () => {
                 Not all Twitch viewers are the same. A FPS gaming community responds to different brands than a Just Chatting lifestyle audience. Our targeting lets you select exactly the right streamer categories for your campaign goals.
               </p>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
-                All streamers in our network are verified Nordic creators — Norwegian, Swedish, Finnish, and Danish. You can target one market or run pan-Nordic campaigns from a single brief.
+                All streamers in our network are verified Nordic creators - Norwegian, Swedish, Finnish, and Danish. You can target one market or run pan-Nordic campaigns from a single brief.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-3">
@@ -287,7 +287,7 @@ const TwitchAdvertising: React.FC = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">Samsung Galaxy S25 — Nordic Launch</h3>
+                <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">Samsung Galaxy S25 - Nordic Launch</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                   Overlay campaign across 48 Nordic Twitch streamers. 10-week run targeting gaming and tech audiences in Norway, Sweden, and Denmark.
                 </p>
@@ -324,7 +324,7 @@ const TwitchAdvertising: React.FC = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">Glorious Model O — FPS Streamer Campaign</h3>
+                <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">Glorious Model O - FPS Streamer Campaign</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                   Targeted FPS and competitive gaming streamers across 3 Nordic markets. Rich media overlays with product showcase during peak gaming hours.
                 </p>
@@ -347,7 +347,7 @@ const TwitchAdvertising: React.FC = () => {
           </div>
           <div className="mt-8 text-center">
             <Link to="/case-studies">
-              <Button variant="ghost" className="text-primary hover:text-primary rounded-full">
+              <Button variant="ghost" className="text-primary hover:text-primary rounded-full min-h-[44px]">
                 View all case studies <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
@@ -369,7 +369,7 @@ const TwitchAdvertising: React.FC = () => {
               { step: "01", title: "Brief & Strategy", desc: "Tell us your goals, audience, and budget. We design a campaign strategy for the Nordic streaming market." },
               { step: "02", title: "Streamer Selection", desc: "We match your brand with the right streamers from 39,000+ Nordic creators, filtered by audience, category, and engagement." },
               { step: "03", title: "Creative & Launch", desc: "Our team creates overlay creatives that fit naturally in streams. Campaigns go live across selected streamers simultaneously." },
-              { step: "04", title: "Report & Iterate", desc: "Track performance in real time — views, exposure time, engagement, chat mentions. Full campaign report delivered post-campaign." },
+              { step: "04", title: "Report & Iterate", desc: "Track performance in real time - views, exposure time, engagement, chat mentions. Full campaign report delivered post-campaign." },
             ].map((s, i) => (
               <div key={s.step} className="relative">
                 {i < 3 && <div className="hidden md:block absolute top-4 left-full w-full h-px bg-border -translate-x-4" />}
@@ -389,12 +389,12 @@ const TwitchAdvertising: React.FC = () => {
           <div className="space-y-px">
             {[
               { q: "How much does Twitch advertising cost?", a: "Costs vary by campaign scope, number of streamers, and duration. We offer flexible pricing with no long-term contracts. Contact us for a custom quote based on your goals." },
-              { q: "How do overlay ads bypass ad blockers?", a: "Overlay ads are rendered inside the stream itself as part of the video feed — not browser-injected elements. Ad blocking software has nothing to detect or remove." },
+              { q: "How do overlay ads bypass ad blockers?", a: "Overlay ads are rendered inside the stream itself as part of the video feed - not browser-injected elements. Ad blocking software has nothing to detect or remove." },
               { q: "Can I target specific countries or languages?", a: "Yes. Target by country (Norway, Sweden, Finland, Denmark), language, content category, audience size, and engagement metrics. Our database covers 39,000+ Nordic streamers." },
               { q: "What results can I expect?", a: "Native overlay ads typically deliver 3–5× higher engagement than traditional display ads. Twitch sessions average 90+ minutes of sustained brand exposure." },
               { q: "Do I need to create the ad creatives?", a: "No. Our managed service includes creative production. We design overlay graphics that match your brand and fit naturally in livestream content." },
               { q: "What is the minimum number of streamers for a campaign?", a: "We run campaigns with as few as 5 streamers for focused niche campaigns, up to 100+ streamers for large brand awareness pushes. We'll recommend the right reach for your goal." },
-              { q: "Can I approve which streamers carry my brand?", a: "Yes. You receive a shortlist of matched streamers before the campaign launches. You approve the final selection — no streamer goes live with your brand without your sign-off." },
+              { q: "Can I approve which streamers carry my brand?", a: "Yes. You receive a shortlist of matched streamers before the campaign launches. You approve the final selection - no streamer goes live with your brand without your sign-off." },
             ].map((faq, i) => (
               <details key={i} className="group border-b border-border last:border-b-0">
                 <summary className="flex items-center justify-between py-5 cursor-pointer text-sm font-medium text-foreground hover:text-primary transition-colors select-none">

@@ -39,11 +39,11 @@ export const StreamerCTA: React.FC = () => {
               </Button>
             </a>
             
-            <a 
+            <a
               href="https://beta.streamer.livad.stream/login"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-foreground text-sm transition-colors"
+              className="inline-flex items-center min-h-[44px] text-muted-foreground hover:text-foreground text-sm transition-colors"
             >
               Already a member? Sign in
             </a>

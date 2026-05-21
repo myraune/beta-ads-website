@@ -45,7 +45,7 @@ export const SPGlobalNetwork: React.FC = () => {
             </ul>
           </div>
 
-          {/* Right: globe — constrained, easter-egg-like */}
+          {/* Right: globe - constrained, easter-egg-like */}
           <div
             className={`w-full lg:w-[420px] shrink-0 transition-all duration-700 delay-150 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"

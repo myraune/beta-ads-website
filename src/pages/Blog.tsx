@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Search, ArrowRight, X } from "lucide-react";
-import { blogPosts } from "@/data/blogPosts";
+import { blogPostsMeta } from "@/data/blogPostsMeta";
 import { getBlogImage } from "@/lib/blogImage";
 import { Input } from "@/components/ui/input";
 import { SEO } from "@/components/SEO";
@@ -16,11 +16,12 @@ const Blog: React.FC = () => {
     { id: "twitch-insights", label: "Twitch Insights" },
     { id: "case-studies", label: "Case Studies" },
     { id: "nordic-market", label: "Nordic Market" },
+    { id: "platform", label: "Platform" },
     { id: "guides", label: "Guides" },
   ];
 
   const filteredPosts = useMemo(() => {
-    return blogPosts
+    return blogPostsMeta
       .filter((post) => {
         const q = searchQuery.toLowerCase();
         const matchesSearch =
@@ -87,9 +88,9 @@ const Blog: React.FC = () => {
               reach Gen Z through native stream advertising.
             </p>
 
-            {/* Filters — aria-label + aria-pressed so screen readers announce active filter */}
+            {/* Filters - aria-label + aria-pressed so screen readers announce active filter */}
             <div className="mt-10 flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between">
-              <div className="flex flex-wrap gap-5" role="group" aria-label="Filter articles by category">
+              <div className="flex gap-5 overflow-x-auto pb-1 scrollbar-none min-w-0 w-full sm:w-auto" role="group" aria-label="Filter articles by category" style={{ WebkitOverflowScrolling: 'touch' }}>
                 {categories.map((cat) => (
                   <button
                     key={cat.id}

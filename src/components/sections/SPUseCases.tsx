@@ -30,7 +30,7 @@ function useCountUp(target: string, isVisible: boolean) {
   return display;
 }
 
-/* ── Ad Format Preview — single interactive viewer, format-switching tabs ──
+/* ── Ad Format Preview - single interactive viewer, format-switching tabs ──
  *
  * Replaces the previous 6 stacked text+image rows (which read as a blog post).
  * Instead, ONE 16:9 mock-stream preview frame whose contents swap as the user
@@ -85,7 +85,7 @@ const AdFormatShowcase: React.FC = () => {
         })}
       </div>
 
-      {/* Preview frame — 16:9 with crossfade between formats */}
+      {/* Preview frame - 16:9 with crossfade between formats */}
       <div className="relative w-full rounded-2xl overflow-hidden bg-black ring-1 ring-border/40 dark:ring-white/[0.08] shadow-2xl shadow-black/40" style={{ aspectRatio: "16 / 9" }}>
         {adFormats.map((f, i) => (
           <img
@@ -100,14 +100,14 @@ const AdFormatShowcase: React.FC = () => {
           />
         ))}
 
-        {/* Bottom-left chip overlay — format index + kicker */}
+        {/* Bottom-left chip overlay - format index + kicker */}
         <div className="absolute bottom-4 left-4 inline-flex items-center gap-2 px-2.5 py-1.5 rounded-full bg-black/70 backdrop-blur-sm text-white text-[11px] font-medium pointer-events-none">
           <span className="tabular-nums text-white/60">{String(active + 1).padStart(2, "0")}</span>
           <span>{fmt.kicker}</span>
         </div>
       </div>
 
-      {/* Details — single row beneath the preview. Format name on the left,
+      {/* Details - single row beneath the preview. Format name on the left,
           four spec columns on the right. Updates with the active format. */}
       <div className="mt-8 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-6 lg:gap-12 items-start">
         <div>
@@ -177,7 +177,7 @@ const adFormats = [
     name: "Snipe Ad",
     kicker: "Moment-triggered banner",
     body:
-      "A short animated banner that slides in at streamer-cued moments — match wins, sponsor reads, breaks between rounds. Minimal screen real-estate, high memorability. Every campaign's bread-and-butter.",
+      "A short animated banner that slides in at streamer-cued moments - match wins, sponsor reads, breaks between rounds. Minimal screen real-estate, high memorability. Every campaign's bread-and-butter.",
     specs: [
       { label: "Format", value: "400 × 200 px" },
       { label: "Duration", value: "3–8 s" },
@@ -190,7 +190,7 @@ const adFormats = [
     name: "Sidebar",
     kicker: "Always-on placement",
     body:
-      "A persistent overlay that sits inside the streamer's own layout frame for the entire broadcast. Always visible means maximum impressions — ideal when the goal is sustained brand awareness across a full session.",
+      "A persistent overlay that sits inside the streamer's own layout frame for the entire broadcast. Always visible means maximum impressions - ideal when the goal is sustained brand awareness across a full session.",
     specs: [
       { label: "Format", value: "180–240 px wide" },
       { label: "Duration", value: "Full session" },
@@ -203,7 +203,7 @@ const adFormats = [
     name: "Rich Media",
     kicker: "Full-frame takeover",
     body:
-      "The biggest single visual hit a stream can run — a full 1920 × 1080 animated takeover rendered between content beats (between matches, post-raid, or at commercial breaks). Feels cinematic, brand-first, TV-quality.",
+      "The biggest single visual hit a stream can run - a full 1920 × 1080 animated takeover rendered between content beats (between matches, post-raid, or at commercial breaks). Feels cinematic, brand-first, TV-quality.",
     specs: [
       { label: "Format", value: "1920 × 1080" },
       { label: "Duration", value: "10–30 s" },
@@ -216,7 +216,7 @@ const adFormats = [
     name: "Video",
     kicker: "TV spot, live-streamed",
     body:
-      "A 15–60 second video unit rendered via OBS browser source, with optional audio. Slotted pre-stream, mid-break, or end-of-stream — effectively a TV commercial inserted inside the live broadcast, ad-block free.",
+      "A 15–60 second video unit rendered via OBS browser source, with optional audio. Slotted pre-stream, mid-break, or end-of-stream - effectively a TV commercial inserted inside the live broadcast, ad-block free.",
     specs: [
       { label: "Format", value: "MP4 or WebM" },
       { label: "Duration", value: "15–60 s" },
@@ -229,7 +229,7 @@ const adFormats = [
     name: "Poll",
     kicker: "Chat-driven interaction",
     body:
-      "An on-screen sponsored poll tied directly to Twitch chat — results update live as viewers type !vote. Typically pulls 5–20% of concurrent viewers into active participation, doubling as a campaign recall mechanism.",
+      "An on-screen sponsored poll tied directly to Twitch chat - results update live as viewers type !vote. Typically pulls 5–20% of concurrent viewers into active participation, doubling as a campaign recall mechanism.",
     specs: [
       { label: "Format", value: "Branded poll card" },
       { label: "Input", value: "Chat (!vote)" },
@@ -242,7 +242,7 @@ const adFormats = [
     name: "Interactive",
     kicker: "Click-tracked overlays",
     body:
-      "Clickable overlay elements that resolve to brand landing pages with verified, platform-level click tracking. This is the format we use to measure conversion on every campaign — the CTR numbers in our case studies all come from here.",
+      "Clickable overlay elements that resolve to brand landing pages with verified, platform-level click tracking. This is the format we use to measure conversion on every campaign - the CTR numbers in our case studies all come from here.",
     specs: [
       { label: "Tracking", value: "Per-click, verified" },
       { label: "Destination", value: "Brand landing page" },
@@ -338,18 +338,18 @@ export const SPUseCases: React.FC = () => {
         {/* ── Ad Formats header ── */}
         <div className={`mb-12 transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Ad Formats</span>
-          {/* h3: sub-section within same page section — preserves h1 > h2 > h3 heading hierarchy */}
+          {/* h3: sub-section within same page section - preserves h1 > h2 > h3 heading hierarchy */}
           <h3 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-3 max-w-xl">
             6 formats. Zero adblock.
           </h3>
           <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
-            Every format renders directly inside the stream — invisible to blockers, impossible to skip.
+            Every format renders directly inside the stream - invisible to blockers, impossible to skip.
           </p>
         </div>
 
       </div>
 
-      {/* ── Ad format showcase — stacked rows, each scroll-reveals individually ── */}
+      {/* ── Ad format showcase - stacked rows, each scroll-reveals individually ── */}
       <div className="pb-20 md:pb-32">
         <AdFormatShowcase />
       </div>

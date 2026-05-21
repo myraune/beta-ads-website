@@ -43,7 +43,7 @@ export const MarketingPageLayout: React.FC<MarketingPageLayoutProps> = ({
   children,
 }) => {
   return (
-    /* SEO fix: changed from <main> to <div> — Layout.tsx already provides the <main> landmark;
+    /* SEO fix: changed from <main> to <div> - Layout.tsx already provides the <main> landmark;
        nested <main> elements are invalid HTML (WCAG 1.3.6) and confuse screen readers / search engines */
     <div className="min-h-screen text-foreground">
       <SEO

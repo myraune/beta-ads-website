@@ -101,7 +101,7 @@ const NordicMap: React.FC = () => {
               Active across the Nordics
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed mb-8 max-w-md">
-              We connect brands with live audiences in Norway, Sweden, and Finland — the most engaged streaming markets in Europe.
+              We connect brands with live audiences in Norway, Sweden, and Finland - the most engaged streaming markets in Europe.
             </p>
 
             <div className="flex gap-6">

@@ -143,7 +143,7 @@ export default function NeuralBackground({
     };
 
     const animate = () => {
-      // Fully clear canvas each frame — no accumulation, pure transparent
+      // Fully clear canvas each frame - no accumulation, pure transparent
       ctx.clearRect(0, 0, width, height);
 
       particles.forEach((p) => {

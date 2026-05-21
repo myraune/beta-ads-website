@@ -51,7 +51,7 @@ const CaseStudyGokstad: React.FC = () => {
           }
         ]}
       />
-      {/* Gokstad brand accent — navy + red nods to Sandefjord's viking heritage */}
+      {/* Gokstad brand accent - navy + red nods to Sandefjord's viking heritage */}
       <div
         className="h-px w-full"
         style={{ background: "linear-gradient(90deg, transparent 0%, #0d2c5e 35%, #b8212e 65%, transparent 100%)" }}

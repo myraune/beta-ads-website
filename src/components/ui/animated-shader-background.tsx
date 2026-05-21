@@ -20,7 +20,7 @@ const AnimatedShaderBackground = ({ heightFactor = 0.6 }: { heightFactor?: numbe
       return;
     }
 
-    // Cap pixel ratio at 1.5 — halves GPU work on Retina vs native 2x/3x
+    // Cap pixel ratio at 1.5 - halves GPU work on Retina vs native 2x/3x
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
     renderer.setSize(window.innerWidth, getHeight());
     container.appendChild(renderer.domElement);
@@ -100,7 +100,7 @@ const AnimatedShaderBackground = ({ heightFactor = 0.6 }: { heightFactor?: numbe
     const mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
 
-    // Only animate when visible — pause when scrolled off-screen
+    // Only animate when visible - pause when scrolled off-screen
     let frameId: number;
     let isVisible = true;
 

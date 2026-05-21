@@ -11,11 +11,11 @@ import {
 const faqs = [
   {
     question: "How is this different from Twitch's own ads?",
-    answer: "Twitch's native ads are pre-rolls and mid-rolls that viewers skip or block with adblock. Our overlay ads are built directly into the stream itself — they bypass adblock entirely and feel like part of the content, not an interruption.",
+    answer: "Twitch's native ads are pre-rolls and mid-rolls that viewers skip or block with adblock. Our overlay ads are built directly into the stream itself - they bypass adblock entirely and feel like part of the content, not an interruption.",
   },
   {
     question: "What's the minimum campaign budget?",
-    answer: "Campaign budgets vary based on reach, duration, and market. Contact us directly for a custom quote — we'll match the right streamers and format to your goals and budget.",
+    answer: "Campaign budgets vary based on reach, duration, and market. Contact us directly for a custom quote - we'll match the right streamers and format to your goals and budget.",
   },
   {
     question: "How do you ensure brand safety?",
@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     question: "How quickly can a campaign go live?",
-    answer: "From brief to broadcast in as little as 5 business days. We handle creative production, streamer matching, and deployment — you just approve the final artwork and streamer list.",
+    answer: "From brief to broadcast in as little as 5 business days. We handle creative production, streamer matching, and deployment - you just approve the final artwork and streamer list.",
   },
 ];
 
@@ -73,11 +73,11 @@ export const HomepageFAQ: React.FC = () => {
         </Accordion>
 
         <div className="text-center mt-12">
-          <a 
+          <a
             href="https://calendar.app.google/coW5NLQJtLxfRer19"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-sm font-light tracking-wide text-primary hover:text-primary/80 transition-colors duration-200 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="inline-flex items-center gap-2 min-h-[44px] px-1 py-2.5 text-sm font-light tracking-wide text-primary hover:text-primary/80 transition-colors duration-200 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Still have questions? Book a 15-minute call
             <ArrowRight className="h-4 w-4" />

@@ -16,7 +16,7 @@ import remarkGfm from "remark-gfm";
 /**
  * Detect a post's language from its category + slug so we can emit the correct
  * hreflang / og:locale / localized seoTitle. Kept as a pure function rather
- * than tagging each post — the signals are reliable and new Nordic posts
+ * than tagging each post - the signals are reliable and new Nordic posts
  * inherit the right language automatically based on their category.
  *
  * Norwegian categories (Guider, Innsikt, Strategi) and the Streamer Guide
@@ -36,7 +36,7 @@ function detectPostLanguage(post: BlogPost): PageLocale {
   if (NORWEGIAN_CATEGORIES.has(post.category)) return "no";
   // Streamer Guide category has mixed language; detect from title characters.
   if (post.category === "Streamer Guide" && /[æøå]/i.test(post.title)) return "no";
-  // Catch-all — any Norwegian character in title signals Norwegian content.
+  // Catch-all - any Norwegian character in title signals Norwegian content.
   if (/[æøå]/i.test(post.title) && /\b(hvordan|slik|norge|norsk|annonser|markedsf)\b/i.test(post.title.toLowerCase() + " " + post.excerpt.toLowerCase())) {
     return "no";
   }
@@ -69,6 +69,7 @@ const GloriousCaseStudy = lazy(() => import("@/components/blog/GloriousCaseStudy
 const GokstadCaseStudy = lazy(() => import("@/components/blog/GokstadCaseStudy"));
 const ClippingEconomyDashboard = lazy(() => import("@/components/blog/ClippingEconomyDashboard"));
 const TwitchAnalyticsToolsDashboard = lazy(() => import("@/components/blog/TwitchAnalyticsToolsDashboard"));
+const ClipAnalyticsDashboard = lazy(() => import("@/components/blog/ClipAnalyticsDashboard"));
 
 const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -88,6 +89,11 @@ const BlogPostPage: React.FC = () => {
   const seoTitle = post.seoTitle[postLocale] || post.seoTitle.en;
   const seoDescription = post.seoDescription[postLocale] || post.seoDescription.en;
   const seoKeywords = post.seoKeywords[postLocale] || post.seoKeywords.en;
+  // Use the later of the post's own publish date and the last site-wide update
+  // (schema overhaul, internal-link additions, etc.) so dateModified / sitemap
+  // lastmod signals are consistent.
+  const GLOBAL_MODIFIED = "2026-05-11";
+  const dateModified = post.dateISO > GLOBAL_MODIFIED ? post.dateISO : GLOBAL_MODIFIED;
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
 
   const handleShare = (platform: string) => {
@@ -101,7 +107,7 @@ const BlogPostPage: React.FC = () => {
 
   const autoTocItems = useMemo(() => extractTocFromMarkdown(post.content), [post.content]);
   const tocItems = post.hasDashboard ? dashboardTocItems[post.hasDashboard] || [] : autoTocItems;
-  const wideLayout = post.hasDashboard === "twitch-analytics-tools";
+  const wideLayout = post.hasDashboard === "twitch-analytics-tools" || post.hasDashboard === "clip-analytics";
 
   return (
     <>
@@ -114,7 +120,7 @@ const BlogPostPage: React.FC = () => {
         ogImage={post.image}
         ogImageAlt={post.title}
         articlePublishedTime={post.dateISO}
-        articleModifiedTime={post.dateISO}
+        articleModifiedTime={dateModified}
         locale={postLocale}
         jsonLd={[
           {
@@ -125,7 +131,7 @@ const BlogPostPage: React.FC = () => {
             "description": seoDescription,
             "image": post.image.startsWith("http") ? post.image : `https://beta-ads.no${post.image}`,
             "datePublished": post.dateISO,
-            "dateModified": post.dateISO,
+            "dateModified": dateModified,
             "author": {
               "@type": "Organization",
               "name": "Beta Ads",
@@ -163,10 +169,10 @@ const BlogPostPage: React.FC = () => {
 
       <div className="pt-16 lg:pt-20 overflow-x-clip">
         <article>
-          {/* Hero image — full width */}
+          {/* Hero image - full width */}
           {!post.hasDashboard && (
             <div className="relative w-full h-48 md:h-72 lg:h-[360px] overflow-hidden bg-muted">
-              {/* fetchpriority="high": this is the LCP element on blog post pages — signals browser to load it early, improving Core Web Vitals score */}
+              {/* fetchpriority="high": this is the LCP element on blog post pages - signals browser to load it early, improving Core Web Vitals score */}
               <img
                 src={getBlogImage(post)}
                 alt={post.title}
@@ -203,7 +209,8 @@ const BlogPostPage: React.FC = () => {
             {wideLayout ? (
               <div className="pb-12">
                 <Suspense fallback={<div className="text-center py-12 text-muted-foreground">Loading dashboard...</div>}>
-                  <TwitchAnalyticsToolsDashboard />
+                  {post.hasDashboard === "twitch-analytics-tools" && <TwitchAnalyticsToolsDashboard />}
+                  {post.hasDashboard === "clip-analytics" && <ClipAnalyticsDashboard />}
                 </Suspense>
               </div>
             ) : (
@@ -334,7 +341,7 @@ const BlogPostPage: React.FC = () => {
                 )}
               </div>
 
-              {/* Sidebar — always visible on desktop */}
+              {/* Sidebar - always visible on desktop */}
               <aside className="hidden lg:block w-72 xl:w-80 shrink-0">
                 <div className="sticky top-24 flex flex-col gap-6 max-h-[calc(100vh-8rem)] overflow-y-auto">
                   {tocItems.length > 0 && <TableOfContents items={tocItems} />}

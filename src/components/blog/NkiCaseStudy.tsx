@@ -10,7 +10,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
  * an interactive "what type of student are you?" quiz format Oct–Nov 2025.
  */
 const BRAND = {
-  // NKI brand palette — aubergine is the primary per their official assets
+  // NKI brand palette - aubergine is the primary per their official assets
   // (see logo-nki-aubergine-RGB.png sourced from nki.no). Violet accent for chart variety.
   primary: "#5C2D56",
   secondary: "#8c5adc",
@@ -78,7 +78,7 @@ const NkiCaseStudy: React.FC = () => {
 
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-8">
-              {/* NKI's official "nKi" wordmark — white variant from nki.no */}
+              {/* NKI's official "nKi" wordmark - white variant from nki.no */}
               <div
                 className="flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/10 px-4 py-3 backdrop-blur-sm"
                 style={{ boxShadow: `0 0 0 1px ${BRAND.primary}55` }}
@@ -113,7 +113,7 @@ const NkiCaseStudy: React.FC = () => {
             </h1>
             <p className="text-lg text-white/60 leading-relaxed max-w-xl">
               An interactive quiz-format campaign for Norway's largest distance-learning
-              university — 220K completed views, 1,595 verified clicks driven into the
+              university - 220K completed views, 1,595 verified clicks driven into the
               "what type of student are you?" landing experience.
             </p>
           </div>
@@ -171,7 +171,7 @@ const NkiCaseStudy: React.FC = () => {
             </div>
           </div>
           <p className="text-xs text-muted-foreground mt-4 max-w-3xl">
-            The overlay invites viewers to take a 30-second personality quiz — it's a
+            The overlay invites viewers to take a 30-second personality quiz - it's a
             softer entry point than a "start your degree" CTA, and the right register
             for Twitch-native placements.
           </p>
@@ -197,14 +197,14 @@ const NkiCaseStudy: React.FC = () => {
                 Pull young Norwegians into a quiz format that drives lead capture
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                NKI offers distance learning — a category that has to fight a perception
+                NKI offers distance learning - a category that has to fight a perception
                 problem with younger audiences who default to physical campuses. The
                 "what type of student are you?" quiz was the team's lead-gen vehicle:
                 the goal was to land enough quiz starts that the brand could re-target
                 qualified prospects further down the funnel.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
-                A long-form quiz needs more attention than a banner ad — so the creative
+                A long-form quiz needs more attention than a banner ad - so the creative
                 had to land in moments where viewers were already paying focused
                 attention to a screen and an open browser tab.
               </p>
@@ -214,7 +214,7 @@ const NkiCaseStudy: React.FC = () => {
                 { label: "Market", value: "🇳🇴 Norway (93.8% viewership)" },
                 { label: "Format", value: "Rich Media Overlay → Quiz" },
                 { label: "Run", value: "Oct 24 – Nov 21 2025 (~4 weeks)" },
-                { label: "Best day", value: "Nov 11 — 7,484 views, 1.9% CTR" },
+                { label: "Best day", value: "Nov 11 - 7,484 views, 1.9% CTR" },
                 { label: "Top region", value: "Oslo (13.8% of viewers)" },
                 { label: "Device split", value: "Desktop 78.5% / Mobile 21.1%" },
               ].map((row) => (
@@ -252,7 +252,7 @@ const NkiCaseStudy: React.FC = () => {
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-12">
               Beta concentrated NKI's run on creators with high desktop-share viewership
-              — exactly the audience that opens a quiz tab in another window. The
+              - exactly the audience that opens a quiz tab in another window. The
               campaign earned 90,356 unique viewers and 5,469 unverified clicks across
               the four-week run.
             </p>
@@ -265,10 +265,10 @@ const NkiCaseStudy: React.FC = () => {
                 <div className="space-y-3">
                   {[
                     { name: "danniz", views: "80,042", clicks: "327", avgViewers: "118" },
-                    { name: "rubengks", views: "—", clicks: "—", avgViewers: "—" },
-                    { name: "detoo", views: "—", clicks: "—", avgViewers: "—" },
-                    { name: "lasanias", views: "—", clicks: "—", avgViewers: "—" },
-                    { name: "joonieboi", views: "—", clicks: "—", avgViewers: "—" },
+                    { name: "rubengks", views: "-", clicks: "-", avgViewers: "-" },
+                    { name: "detoo", views: "-", clicks: "-", avgViewers: "-" },
+                    { name: "lasanias", views: "-", clicks: "-", avgViewers: "-" },
+                    { name: "joonieboi", views: "-", clicks: "-", avgViewers: "-" },
                   ].map((s, i) => (
                     <div
                       key={s.name}
@@ -280,7 +280,7 @@ const NkiCaseStudy: React.FC = () => {
                         </span>
                         <span className="text-sm font-semibold text-foreground">{s.name}</span>
                       </div>
-                      {s.views !== "—" && (
+                      {s.views !== "-" && (
                         <span className="text-xs text-muted-foreground tabular-nums">
                           {s.views} views · {s.clicks} clicks
                         </span>
@@ -315,7 +315,7 @@ const NkiCaseStudy: React.FC = () => {
             </div>
 
             <p className="text-sm text-muted-foreground max-w-2xl">
-              40% Just Chatting + 14% IRL gave NKI a contextual home — viewers were
+              40% Just Chatting + 14% IRL gave NKI a contextual home - viewers were
               already attentive, often multi-tabbing, and primed to engage with the
               quiz creative as a curiosity-driven moment rather than an interruption.
             </p>
@@ -444,7 +444,7 @@ const NkiCaseStudy: React.FC = () => {
                 </div>
                 <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
                   78.5% desktop-share means viewers already had a second browser tab open
-                  — the ideal landing context for a multi-step quiz funnel.
+                  - the ideal landing context for a multi-step quiz funnel.
                 </p>
               </div>
             </div>
@@ -501,7 +501,7 @@ const NkiCaseStudy: React.FC = () => {
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
                 With 1,434 unique clicks (and 5,469 raw clicks) the campaign delivered
-                meaningful top-of-funnel volume into NKI's quiz funnel — at a fraction
+                meaningful top-of-funnel volume into NKI's quiz funnel - at a fraction
                 of typical higher-ed CPL benchmarks.
               </p>
             </div>

@@ -45,7 +45,7 @@ export const CTA: React.FC<CTAProps> = ({ t }) => (
 
         {/* Right: CTA Content - Left Aligned */}
         <div className="order-1 lg:order-2">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-extralight mb-8 tracking-tight text-foreground leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight mb-8 tracking-tight text-foreground leading-tight">
             {t.ctaTitle}
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-lg font-light leading-relaxed">

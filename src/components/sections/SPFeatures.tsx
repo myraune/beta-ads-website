@@ -28,7 +28,7 @@ import {
 } from "@/components/icons/BetaIcons";
 
 /* ═══════════════════════════════════════════════════════════
-   FEATURE SECTIONS — Apple-style clean scroll-through layout
+   FEATURE SECTIONS - Apple-style clean scroll-through layout
    ═══════════════════════════════════════════════════════════ */
 
 const features = [
@@ -58,7 +58,7 @@ const features = [
       "Demographic filters (age, region, language)",
       "Match scoring with percentage",
     ],
-    stat: { value: "2.93%", label: "avg CTR — Samsung S25 Ultra campaign" },
+    stat: { value: "2.93%", label: "avg CTR - Samsung S25 Ultra campaign" },
   },
   {
     id: "launch",
@@ -66,11 +66,11 @@ const features = [
     icon: IconLaunch,
     title: "Custom animated overlays, built per brand",
     description:
-      "Every campaign gets bespoke motion design — crafted to feel native inside the stream, not bolted on top.",
+      "Every campaign gets bespoke motion design - crafted to feel native inside the stream, not bolted on top.",
     bullets: [
       "Frame-accurate brand animations",
       "Designed from scratch for each campaign",
-      "Renders directly inside OBS — zero streamer setup",
+      "Renders directly inside OBS - zero streamer setup",
     ],
     stat: { value: "100%", label: "custom-designed per brand" },
   },
@@ -80,7 +80,7 @@ const features = [
     icon: IconAnalytics,
     title: "Full visibility across every campaign",
     description:
-      "Real-time dashboards track impressions, ad delivery, brand safety, and streamer mentions — automatically, across every stream.",
+      "Real-time dashboards track impressions, ad delivery, brand safety, and streamer mentions - automatically, across every stream.",
     bullets: [
       "Live impression & CTR tracking per streamer",
       "Automated ad delivery and brand safety scoring",
@@ -108,7 +108,7 @@ const features = [
 
 const streamers = [
   // Mix of major international Twitch creators + the Nordic names Beta Ads actually works with.
-  // Bigger Twitch streamers added per design feedback — avatars load from unavatar.io (Twitch-keyed).
+  // Bigger Twitch streamers added per design feedback - avatars load from unavatar.io (Twitch-keyed).
   { name: "Ninja", game: "Fortnite", viewers: "4.2K", platform: "Twitch", score: 96, avatar: "https://unavatar.io/twitch/ninja" },
   { name: "DannizTV", game: "CS2", viewers: "3.1K", platform: "Twitch", score: 96, avatar: "https://unavatar.io/twitch/danniztv" },
   { name: "RubenGKS", game: "Fortnite", viewers: "2.8K", platform: "Twitch", score: 94, avatar: "/lovable-uploads/rubengks-profile.png" },
@@ -407,7 +407,7 @@ const LaunchPreview: React.FC = () => {
         <div className="absolute inset-0 bg-black/25" aria-hidden />
 
         {item.format === "widget" ? (
-          /* 450×450 square widget — bottom-left corner, sized relative to a 1920×1080 stream.
+          /* 450×450 square widget - bottom-left corner, sized relative to a 1920×1080 stream.
              Width = 450/1920 ≈ 23.44% of container; aspect-ratio enforces square. */
           <motion.video
             key={item.src}
@@ -424,7 +424,7 @@ const LaunchPreview: React.FC = () => {
             transition={{ duration: 0.35 }}
           />
         ) : (
-          /* 1920×1080 full-frame transparent overlay — covers the entire stream bg. */
+          /* 1920×1080 full-frame transparent overlay - covers the entire stream bg. */
           <motion.video
             key={item.src}
             ref={videoRef}
@@ -440,7 +440,7 @@ const LaunchPreview: React.FC = () => {
           />
         )}
 
-        {/* Prev/next arrows — always visible */}
+        {/* Prev/next arrows - always visible */}
         <button
           onClick={() => go(-1)}
           aria-label="Previous ad example"
@@ -456,14 +456,14 @@ const LaunchPreview: React.FC = () => {
           <ChevronRight className="w-4 h-4" />
         </button>
 
-        {/* Brand badge — bottom center overlay. max-w + flex-wrap keeps the pill from spilling past the 44px arrow buttons on either side at 375px. */}
+        {/* Brand badge - bottom center overlay. max-w + flex-wrap keeps the pill from spilling past the 44px arrow buttons on either side at 375px. */}
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 max-w-[calc(100%-7rem)] flex flex-wrap items-center justify-center gap-x-2 bg-black/60 backdrop-blur-sm rounded-full px-3 py-1.5">
           <span className="text-[11px] font-semibold text-white whitespace-nowrap">{item.brand}</span>
           <span className="text-[10px] text-white/50 whitespace-nowrap">{item.campaign}</span>
         </div>
       </div>
 
-      {/* Progress dots — visible indicator nested in a larger invisible hit area for mobile touch.
+      {/* Progress dots - visible indicator nested in a larger invisible hit area for mobile touch.
        * 10 dots × 44px overflows a 341px feature-card column at 375px viewport, so we use a
        * 30px touch target on mobile (still ≥24px WCAG 2.5.5 Level AA) and restore 44px at sm+. */}
       <div className="flex items-center justify-center gap-0.5 py-1 border-t border-border/30 dark:border-white/[0.08]">
@@ -487,14 +487,14 @@ const LaunchPreview: React.FC = () => {
   );
 };
 
-/* ── Analytics Preview — live Clip Analytics dashboard iframe ── */
+/* ── Analytics Preview - live Clip Analytics dashboard iframe ── */
 
 const IFRAME_W = 1280; // render at desktop viewport width
 const IFRAME_H = 900;  // dashboard internal height (browser chrome 52 + topbar 56 + content)
 
 // Below this scale, dashboard text inside the iframe becomes unreadable.
 // On viewports narrower than 640px we clamp to MIN_SCALE and let the wrapper
-// scroll horizontally instead — the dashboard is intentionally a wide artifact.
+// scroll horizontally instead - the dashboard is intentionally a wide artifact.
 const MIN_SCALE = 0.5;
 
 const AnalyticsPreview: React.FC = () => {
@@ -516,7 +516,7 @@ const AnalyticsPreview: React.FC = () => {
    * resizes. */
   useEffect(() => {
     const wrapper = wrapperRef.current;
-    // Observe the wrapper's parent (not the wrapper itself) — the wrapper's
+    // Observe the wrapper's parent (not the wrapper itself) - the wrapper's
     // inner sizer is set to IFRAME_W * scale, which can shrink the wrapper's
     // own measured width and lock scale at MIN_SCALE on larger viewports.
     const measureTarget = wrapper?.parentElement;
@@ -564,7 +564,7 @@ const AnalyticsPreview: React.FC = () => {
         /* Sizer wraps the iframe at its visual (scaled) dimensions so the
          * wrapper's overflow-x reflects what's actually visible. Without
          * this, CSS transforms don't shrink the layout box and the wrapper
-         * sees the unscaled 1280px width — giving phantom horizontal scroll
+         * sees the unscaled 1280px width - giving phantom horizontal scroll
          * room on mobile. */
         <div
           style={{ width: IFRAME_W * scale, height: IFRAME_H * scale, overflow: "hidden" }}
@@ -604,9 +604,9 @@ const ReportsPreview: React.FC = () => {
           <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">Generated Reports</div>
           <div className="space-y-2.5">
             {[
-              { name: "Glorious Gaming — Final Report", date: "Mar 15, 2026", hasPreview: true },
-              { name: "Samsung Galaxy S25 Ultra — Week 3", date: "Mar 21, 2026", hasPreview: false },
-              { name: "Gokstad Akademiet — Final Report", date: "Feb 19, 2026", hasPreview: false },
+              { name: "Glorious Gaming - Final Report", date: "Mar 15, 2026", hasPreview: true },
+              { name: "Samsung Galaxy S25 Ultra - Week 3", date: "Mar 21, 2026", hasPreview: false },
+              { name: "Gokstad Akademiet - Final Report", date: "Feb 19, 2026", hasPreview: false },
             ].map((r, idx) => (
               <motion.div
                 key={r.name}
@@ -646,13 +646,13 @@ const ReportsPreview: React.FC = () => {
         <div className="p-5">
           <div className="flex items-center gap-3 p-3 rounded-xl border border-border/50 dark:border-white/[0.10] bg-muted/30 dark:bg-white/[0.04]">
             <div className="w-2.5 h-2.5 rounded-full bg-[#5adbb5] shadow-[0_0_6px_rgba(90,219,181,0.4)]" />
-            <span className="text-[11px] text-foreground">Weekly report — every Monday 9:00 AM</span>
+            <span className="text-[11px] text-foreground">Weekly report - every Monday 9:00 AM</span>
             <span className="text-[10px] text-[#5adbb5] font-semibold ml-auto">Active</span>
           </div>
         </div>
       </div>
 
-      {/* Report modal — locks page scroll */}
+      {/* Report modal - locks page scroll */}
       {reportOpen && (
         <ReportModal onClose={() => setReportOpen(false)} />
       )}
@@ -660,7 +660,7 @@ const ReportsPreview: React.FC = () => {
   );
 };
 
-/* ── Report Modal — uses portal to escape DOM, locks scroll ── */
+/* ── Report Modal - uses portal to escape DOM, locks scroll ── */
 const ReportModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [zoom, setZoom] = useState(1);
   const [pan, setPan] = useState({ x: 0, y: 0 });
@@ -778,9 +778,9 @@ const ReportModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       >
         {/* Header */}
         <div className="flex items-center justify-between px-4 py-3 bg-[#0a0a0a] border-b border-white/10 rounded-t-2xl shrink-0">
-          <span className="text-white text-sm font-semibold">Campaign Report — Glorious Gaming</span>
+          <span className="text-white text-sm font-semibold">Campaign Report - Glorious Gaming</span>
           <div className="flex items-center gap-1">
-            {/* aria-labels added for accessibility — icon-only buttons need descriptive names for screen readers */}
+            {/* aria-labels added for accessibility - icon-only buttons need descriptive names for screen readers */}
             <button aria-label="Zoom out" onClick={() => adjustZoom(-ZOOM_STEP)} disabled={zoom <= MIN_ZOOM} className="w-7 h-7 rounded-lg bg-white/10 hover:bg-white/20 disabled:opacity-30 flex items-center justify-center text-white transition-colors">
               <ZoomOut className="w-3.5 h-3.5" />
             </button>
@@ -849,14 +849,14 @@ const FeatureSection: React.FC<{
 
   return (
     <div className="relative py-10 md:py-16 border-b border-border/20 last:border-b-0 last:pb-8 md:last:pb-12">
-      {/* Globe Easter egg — decorative, targeting section only */}
+      {/* Globe Easter egg - decorative, targeting section only */}
       {feature.id === "targeting" && (
         <div className="pointer-events-none absolute left-[-480px] top-1/2 -translate-y-1/2 w-[480px] opacity-[0.18] hidden lg:block" aria-hidden>
           <GlobeMarketMap />
         </div>
       )}
       <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
-        {/* Left: text content — top-aligned with the preview, scrolls together */}
+        {/* Left: text content - top-aligned with the preview, scrolls together */}
         <div className="lg:w-[30%] space-y-5">
           <div className="flex items-center gap-2">
             <feature.icon className="w-5 h-5 text-primary" size={20} />
@@ -879,7 +879,7 @@ const FeatureSection: React.FC<{
 
           {feature.stat && (
             <div className="pt-5 border-t border-border/30">
-              {/* flex-wrap: at 375px long labels like "avg CTR — Samsung S25 Ultra campaign"
+              {/* flex-wrap: at 375px long labels like "avg CTR - Samsung S25 Ultra campaign"
                   previously squeezed next to the value with awkward mid-phrase breaks; now
                   the label cleanly drops to a second line when it can't fit. */}
               <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
@@ -890,7 +890,7 @@ const FeatureSection: React.FC<{
           )}
         </div>
 
-        {/* Right: preview — wide, overflows container */}
+        {/* Right: preview - wide, overflows container */}
         <div className="lg:w-[70%] w-full relative">
           <div className="lg:-mr-12 xl:-mr-20 2xl:-mr-28">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-black/10 dark:shadow-black/60 border border-border/50 dark:border-white/[0.14] bg-card dark:bg-[#0d0d12]">
@@ -910,7 +910,7 @@ const FeatureSection: React.FC<{
 };
 
 /* ═══════════════════════════════════════════════
-   FEATURES — Scroll-through with sticky sidebar
+   FEATURES - Scroll-through with sticky sidebar
    ═══════════════════════════════════════════════ */
 
 export const SPFeatures: React.FC = () => {
@@ -960,13 +960,15 @@ export const SPFeatures: React.FC = () => {
             Everything you need to run campaigns at scale
           </h2>
           <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
-            From finding streamers to tracking ROI — one platform for everything.
+            From finding streamers to tracking ROI - one platform for everything.
           </p>
         </div>
 
-        {/* Mobile tab bar — right-edge fade hints at horizontal scroll for the
-            tabs that overflow the viewport at 375px (Analytics + Reports). */}
-        <div className="lg:hidden sticky top-16 z-[100] py-3 bg-background/95 backdrop-blur-xl border-b border-border/30 mb-4 relative">
+        {/* Mobile tab bar - right-edge fade hints at horizontal scroll for the
+            tabs that overflow the viewport at 375px (Analytics + Reports).
+            top-20 (80px) clears the floating mobile navbar - top-16 (64px) was
+            clipped by the navbar's 80px footprint. */}
+        <div className="lg:hidden sticky top-20 z-[100] py-3 bg-background/95 backdrop-blur-xl border-b border-border/30 mb-4 relative">
           <div className="flex gap-1 overflow-x-auto pb-1 pr-6">
             {features.map((f) => {
               const Icon = f.icon;

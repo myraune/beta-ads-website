@@ -13,28 +13,28 @@ interface CaseStudiesProps {
   t: any;
 }
 
-// Samsung is first — most prominent campaign. Numbers below are pulled from the
+// Samsung is first - most prominent campaign. Numbers below are pulled from the
 // verified Beta campaign reports (Drive: /Kampanjer) where available; "+" suffix
 // indicates self-reported aggregate where the verified number underrepresents
 // total reach (e.g. multi-quarter runs).
 //
-// `caseLink` is set when a detailed case-study page exists — the card becomes
+// `caseLink` is set when a detailed case-study page exists - the card becomes
 // a link instead of just opening the YouTube video.
 const caseStudies = [
   { id: "Uw7IIecicB4", brand: "Samsung", campaign: "S25 Ultra Awareness Norway", impressions: "500,131", impressionsNum: 500131, ctr: "2.93%", ctrNum: 2.93, description: "Premium awareness campaign for Samsung's flagship smartphone launch across Norwegian Twitch streamers. Zero adblock impact.", caseLink: "/case-study/samsung" },
-  { id: "GwE4dagRm_k", brand: "Kristiania", campaign: "Twitch — 2 parallel campaigns", impressions: "599,252", impressionsNum: 599252, ctr: "1.00%", ctrNum: 1.0, description: "Two parallel Norwegian Twitch campaigns (awareness + voting) on the same creator network — combined ~600K views, ~6,000 verified clicks across the Feb-Apr 2025 application window.", caseLink: "/case-study/kristiania" },
-  { id: "IZOx_VMdJJg", brand: "Shure", campaign: "MV7+ Microphone Launch", impressions: "182,554", impressionsNum: 182554, ctr: "1.31%", ctrNum: 1.31, description: "Concentrated two-creator launch for the MV7+ microphone with a 9.12% peak-day CTR — depth over breadth.", caseLink: "/case-study/shure" },
-  { id: "ufNq-A4d7iA", brand: "Komplett", campaign: "Månedens Gaming Deal", impressions: "151,278", impressionsNum: 151278, ctr: "1.17%", ctrNum: 1.17, description: "17-day tactical retail run for Norway's #3 electronics retailer — peak 4.48% CTR across 34 streamers on Twitch + Kick.", caseLink: "/case-study/komplett" },
-  { id: "DMz-NV1W_Is", brand: "Saily", campaign: "Travel eSIM Norway (Surfshark)", impressions: "102,794", impressionsNum: 102794, ctr: "1.08%", ctrNum: 1.08, description: "Travel-intent campaign — 65% of screen time inside Travel & Outdoors streams during peak summer travel season.", caseLink: "/case-study/saily" },
+  { id: "GwE4dagRm_k", brand: "Kristiania", campaign: "Twitch - 2 parallel campaigns", impressions: "599,252", impressionsNum: 599252, ctr: "1.00%", ctrNum: 1.0, description: "Two parallel Norwegian Twitch campaigns (awareness + voting) on the same creator network - combined ~600K views, ~6,000 verified clicks across the Feb-Apr 2025 application window.", caseLink: "/case-study/kristiania" },
+  { id: "IZOx_VMdJJg", brand: "Shure", campaign: "MV7+ Microphone Launch", impressions: "182,554", impressionsNum: 182554, ctr: "1.31%", ctrNum: 1.31, description: "Concentrated two-creator launch for the MV7+ microphone with a 9.12% peak-day CTR - depth over breadth.", caseLink: "/case-study/shure" },
+  { id: "ufNq-A4d7iA", brand: "Komplett", campaign: "Månedens Gaming Deal", impressions: "151,278", impressionsNum: 151278, ctr: "1.17%", ctrNum: 1.17, description: "17-day tactical retail run for Norway's #3 electronics retailer - peak 4.48% CTR across 34 streamers on Twitch + Kick.", caseLink: "/case-study/komplett" },
+  { id: "DMz-NV1W_Is", brand: "Saily", campaign: "Travel eSIM Norway (Surfshark)", impressions: "102,794", impressionsNum: 102794, ctr: "1.08%", ctrNum: 1.08, description: "Travel-intent campaign - 65% of screen time inside Travel & Outdoors streams during peak summer travel season.", caseLink: "/case-study/saily" },
   { id: "U6i5uvhk2Sw", brand: "Surfshark", campaign: "VPN Awareness Norway", impressions: "90,473", impressionsNum: 90473, ctr: "1.39%", ctrNum: 1.39, description: "Six-week VPN awareness run across 25 streamers, 704 hours of on-screen presence, 37,614 unique viewers.", caseLink: "/case-study/surfshark" },
-  { id: "aE0-S8GC1Iw", brand: "NKI", campaign: "Distance Learning Quiz Funnel", impressions: "220,003", impressionsNum: 220003, ctr: "0.72%", ctrNum: 0.72, description: '"Hva slags type student er du?" interactive quiz — 19 streamers, 90,356 unique viewers, 1,595 verified clicks into the lead-capture funnel.', caseLink: "/case-study/nki" },
-  { id: "swu_ye12IHs", brand: "Norstat", campaign: "Survey Participation Drive", impressions: "140,000", impressionsNum: 140000, ctr: "3.34%", ctrNum: 3.34, description: "10-streamer June 2024 panel-survey campaign — 70K kr media spend, 4,667 verified clicks." },
+  { id: "aE0-S8GC1Iw", brand: "NKI", campaign: "Distance Learning Quiz Funnel", impressions: "220,003", impressionsNum: 220003, ctr: "0.72%", ctrNum: 0.72, description: '"Hva slags type student er du?" interactive quiz - 19 streamers, 90,356 unique viewers, 1,595 verified clicks into the lead-capture funnel.', caseLink: "/case-study/nki" },
+  { id: "swu_ye12IHs", brand: "Norstat", campaign: "Survey Participation Drive", impressions: "140,000", impressionsNum: 140000, ctr: "3.34%", ctrNum: 3.34, description: "10-streamer June 2024 panel-survey campaign - 70K kr media spend, 4,667 verified clicks." },
 ];
 
 const detailedCaseStudies = [
   {
     brand: "Samsung",
-    title: "Galaxy S25 Ultra & Z Fold7 — Norwegian Twitch",
+    title: "Galaxy S25 Ultra & Z Fold7 - Norwegian Twitch",
     description: "Two smartphone launches in 2025. Rich media overlays across 43 + 28 Norwegian streamer slots, 800K live + 558K+ VOD views, zero adblock impact on both campaigns.",
     stats: [
       { label: "Combined views", value: "~1.35M" },
@@ -48,7 +48,7 @@ const detailedCaseStudies = [
   {
     brand: "Surfshark",
     title: "VPN Awareness on Norwegian Twitch",
-    description: "Six-week privacy-messaging run across 25 Norwegian streamers — 704 hours of on-screen presence, contextual placement inside Travel & Outdoors and Just Chatting streams.",
+    description: "Six-week privacy-messaging run across 25 Norwegian streamers - 704 hours of on-screen presence, contextual placement inside Travel & Outdoors and Just Chatting streams.",
     stats: [
       { label: "Completed views", value: "90,473" },
       { label: "Verified CTR", value: "1.39%" },
@@ -61,7 +61,7 @@ const detailedCaseStudies = [
   {
     brand: "Saily",
     title: "Travel-Intent eSIM Campaign Norway",
-    description: "Surfshark's travel-eSIM brand placed contextually inside Travel & Outdoors streams during peak June travel-planning season — 65% of screen time inside travel content.",
+    description: "Surfshark's travel-eSIM brand placed contextually inside Travel & Outdoors streams during peak June travel-planning season - 65% of screen time inside travel content.",
     stats: [
       { label: "Completed views", value: "102,794" },
       { label: "Verified CTR", value: "1.08%" },
@@ -73,8 +73,8 @@ const detailedCaseStudies = [
   },
   {
     brand: "Shure",
-    title: "MV7+ Microphone — Concentrated Creator Launch",
-    description: "Two-streamer concentrated run for the MV7+ premium microphone — depth over breadth strategy delivering 761 hours of screen time and 9.12% peak-day CTR.",
+    title: "MV7+ Microphone - Concentrated Creator Launch",
+    description: "Two-streamer concentrated run for the MV7+ premium microphone - depth over breadth strategy delivering 761 hours of screen time and 9.12% peak-day CTR.",
     stats: [
       { label: "Completed views", value: "182,554" },
       { label: "Verified clicks", value: "2,378" },
@@ -86,7 +86,7 @@ const detailedCaseStudies = [
   },
   {
     brand: "Kristiania",
-    title: "Two Parallel Twitch Campaigns — ~600K Combined Views",
+    title: "Two Parallel Twitch Campaigns - ~600K Combined Views",
     description: "Høyskolen Kristiania ran two parallel campaigns (recruitment awareness + voting activation) across the same Norwegian creator network during the Feb-Apr 2025 application window.",
     stats: [
       { label: "Combined views", value: "599,252" },
@@ -99,8 +99,8 @@ const detailedCaseStudies = [
   },
   {
     brand: "Komplett",
-    title: "Tactical Retail — Månedens Gaming Deal",
-    description: "Norway's #3 electronics retailer ran a 17-day tactical campaign that peaked at 4.48% verified CTR — proof that 'home for gamers' positioning converts when it lands inside the moment.",
+    title: "Tactical Retail - Månedens Gaming Deal",
+    description: "Norway's #3 electronics retailer ran a 17-day tactical campaign that peaked at 4.48% verified CTR - proof that 'home for gamers' positioning converts when it lands inside the moment.",
     stats: [
       { label: "Display views", value: "151,278" },
       { label: "Verified CTR", value: "1.17%" },
@@ -112,7 +112,7 @@ const detailedCaseStudies = [
   },
   {
     brand: "NKI",
-    title: "Distance Learning — Quiz Funnel Lead-Gen",
+    title: "Distance Learning - Quiz Funnel Lead-Gen",
     description: '"Hva slags type student er du?" interactive quiz drove 90,356 unique Norwegian viewers into NKI\'s lead-capture funnel over 4 weeks. Long-form content, not banner clicks.',
     stats: [
       { label: "Completed views", value: "220,003" },
@@ -217,14 +217,16 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
             "url": "https://beta-ads.no/case-studies",
             "isPartOf": { "@id": "https://beta-ads.no/#website" },
             "hasPart": [
-              { "@type": "Article", "name": "Samsung x Beta Ads", "url": "https://beta-ads.no/case-study/samsung" },
-              { "@type": "Article", "name": "Surfshark x Beta Ads", "url": "https://beta-ads.no/case-study/surfshark" },
-              { "@type": "Article", "name": "Shure x Beta Ads", "url": "https://beta-ads.no/case-study/shure" },
-              { "@type": "Article", "name": "Glorious x Beta Ads", "url": "https://beta-ads.no/case-study/glorious" },
-              { "@type": "Article", "name": "Komplett x Beta Ads", "url": "https://beta-ads.no/case-study/komplett" },
-              { "@type": "Article", "name": "Kristiania x Beta Ads", "url": "https://beta-ads.no/case-study/kristiania" },
-              { "@type": "Article", "name": "NKI x Beta Ads", "url": "https://beta-ads.no/case-study/nki" },
-              { "@type": "Article", "name": "Saily x Beta Ads", "url": "https://beta-ads.no/case-study/saily" }
+              { "@type": "Article", "name": "Samsung Galaxy S25 Ultra x Beta Ads", "url": "https://beta-ads.no/case-study/samsung" },
+              { "@type": "Article", "name": "Samsung Galaxy Z Fold7 x Beta Ads", "url": "https://beta-ads.no/case-study/samsung-fold7" },
+              { "@type": "Article", "name": "Surfshark VPN x Beta Ads", "url": "https://beta-ads.no/case-study/surfshark" },
+              { "@type": "Article", "name": "Saily eSIM x Beta Ads", "url": "https://beta-ads.no/case-study/saily" },
+              { "@type": "Article", "name": "Shure MV6 x Beta Ads", "url": "https://beta-ads.no/case-study/shure" },
+              { "@type": "Article", "name": "Glorious Gaming x Beta Ads", "url": "https://beta-ads.no/case-study/glorious" },
+              { "@type": "Article", "name": "Komplett Gaming x Beta Ads", "url": "https://beta-ads.no/case-study/komplett" },
+              { "@type": "Article", "name": "Høyskolen Kristiania x Beta Ads", "url": "https://beta-ads.no/case-study/kristiania" },
+              { "@type": "Article", "name": "NKI Distance Learning x Beta Ads", "url": "https://beta-ads.no/case-study/nki" },
+              { "@type": "Article", "name": "Gokstad Akademiet x Beta Ads", "url": "https://beta-ads.no/case-study/gokstad" }
             ]
           },
           {
@@ -249,7 +251,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
               <span style={{ fontFamily: "'Instrument Serif', serif" }} className="italic font-normal">real campaigns</span>
             </h1>
             <p className="text-lg font-light text-muted-foreground leading-relaxed">
-              How Samsung, Glorious, Surfshark, and others reached millions of viewers through native Twitch advertising — with zero adblock impact.
+              How Samsung, Glorious, Surfshark, and others reached millions of viewers through native Twitch advertising - with zero adblock impact.
             </p>
           </div>
         </div>
@@ -300,7 +302,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
                   </div>
                 </div>
               </div>
-              {/* Read full breakdown link — only when a detailed case study page exists */}
+              {/* Read full breakdown link - only when a detailed case study page exists */}
               {caseStudies[caseStudyIndex].caseLink && (
                 <Link
                   to={caseStudies[caseStudyIndex].caseLink!}
@@ -353,7 +355,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
                 <div className="aspect-video overflow-hidden bg-muted">
                   <img
                     src={cs.image}
-                    alt={`${cs.brand} — ${cs.title}`}
+                    alt={`${cs.brand} - ${cs.title}`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>

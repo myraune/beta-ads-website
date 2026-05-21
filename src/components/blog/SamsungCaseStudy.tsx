@@ -20,7 +20,7 @@ function useCountUp(target: string, isVisible: boolean) {
     const numMatch = cleaned.match(/^([\d.]+)/);
     if (!numMatch) { setDisplay(target); return; }
     const numericTarget = parseFloat(numMatch[1]);
-    // Skip animation for non-integers (e.g. "1.2M") — just show as-is
+    // Skip animation for non-integers (e.g. "1.2M") - just show as-is
     if (numericTarget !== Math.floor(numericTarget)) { setDisplay(target); return; }
     const suffix = cleaned.replace(/^[\d.]+/, "");
     const hasCommas = target.includes(",");
@@ -348,7 +348,7 @@ const SamsungCaseStudy: React.FC = () => {
                 <span style={{ fontFamily: "'Instrument Serif', serif" }} className="italic font-normal">x Beta Ads</span>
               </h1>
               <p className="text-lg text-white/60 leading-relaxed mb-10 max-w-md">
-                Two smartphone launches. One consistent audience. 800,000+ live completed views on Norwegian Twitch, plus another 558,000+ on VOD — all with zero adblock impact.
+                Two smartphone launches. One consistent audience. 800,000+ live completed views on Norwegian Twitch, plus another 558,000+ on VOD - all with zero adblock impact.
               </p>
               <div className="grid grid-cols-3 border-t border-white/10 pt-5">
                 {[
@@ -356,8 +356,9 @@ const SamsungCaseStudy: React.FC = () => {
                   { value: "43 + 28", label: "Streamer slots" },
                   { value: "0%", label: "Adblock impact" },
                 ].map((s, i) => (
-                  <div key={s.label} className={`py-2 ${i < 2 ? "pr-5 border-r border-white/10" : ""} ${i > 0 ? "pl-5" : ""}`}>
-                    <div className="text-2xl font-bold text-white tracking-tight">{s.value}</div>
+                  <div key={s.label} className={`py-2 ${i < 2 ? "pr-3 sm:pr-5 border-r border-white/10" : ""} ${i > 0 ? "pl-3 sm:pl-5" : ""}`}>
+                    {/* whitespace-nowrap + smaller font on mobile keeps "43 + 28" on one line inside the 3-col grid at 375px so the middle column doesn't stretch taller than its siblings */}
+                    <div className="text-xl sm:text-2xl font-bold text-white tracking-tight whitespace-nowrap">{s.value}</div>
                     <div className="text-xs text-white/50 mt-0.5">{s.label}</div>
                   </div>
                 ))}
@@ -423,8 +424,8 @@ const SamsungCaseStudy: React.FC = () => {
               <div className="p-5 rounded-2xl border border-border">
                 <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-2">Why it worked</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Standard display ads average 0.1% CTR. The S25 Ultra campaign delivered 2.93% — 29 times
-                  the benchmark — against an audience that actively blocks conventional advertising.
+                  Standard display ads average 0.1% CTR. The S25 Ultra campaign delivered 2.93% - 29 times
+                  the benchmark - against an audience that actively blocks conventional advertising.
                 </p>
               </div>
             </div>
@@ -462,7 +463,7 @@ const SamsungCaseStudy: React.FC = () => {
               <div className="p-5 rounded-2xl border border-border">
                 <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-2">Why it worked</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  The Fold7 campaign delivered 2.34% CTR — 23 times the display benchmark. VOD views added
+                  The Fold7 campaign delivered 2.34% CTR - 23 times the display benchmark. VOD views added
                   558,257+ additional impressions after the campaign ended, at zero extra cost.
                 </p>
               </div>
@@ -470,13 +471,13 @@ const SamsungCaseStudy: React.FC = () => {
 
           </div>
 
-          {/* Comparison — efficiency line chart (per streamer, removes budget bias) */}
+          {/* Comparison - efficiency line chart (per streamer, removes budget bias) */}
           <div className="mt-16 rounded-3xl border border-border/60 p-7 md:p-10">
             <div className="mb-2">
               <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-1">Efficiency · per streamer</p>
               <h3 className="text-lg font-semibold text-foreground tracking-tight">Two campaigns, two different strengths</h3>
               <p className="text-xs text-muted-foreground mt-2 max-w-2xl leading-relaxed">
-                Fold7 was a smaller buy (28 streamers vs S25's 43), so absolute totals don't tell the whole story. Normalised <span className="text-foreground">per streamer</span>, the two campaigns trade wins: <span className="text-foreground">Fold7 dominates reach efficiency</span> (5,069 unique viewers per streamer vs 3,224 — a 57% advantage) while <span className="text-foreground">S25 dominates engagement</span> (more clicks, higher CTR, more watch time per streamer). Index 100 = the average of both campaigns on each metric.
+                Fold7 was a smaller buy (28 streamers vs S25's 43), so absolute totals don't tell the whole story. Normalised <span className="text-foreground">per streamer</span>, the two campaigns trade wins: <span className="text-foreground">Fold7 dominates reach efficiency</span> (5,069 unique viewers per streamer vs 3,224 - a 57% advantage) while <span className="text-foreground">S25 dominates engagement</span> (more clicks, higher CTR, more watch time per streamer). Index 100 = the average of both campaigns on each metric.
               </p>
             </div>
             <div className="flex items-center gap-6 text-[11px] mb-4 mt-5">
@@ -508,7 +509,7 @@ const SamsungCaseStudy: React.FC = () => {
             </p>
           </div>
 
-          {/* Ad creative — one per campaign */}
+          {/* Ad creative - one per campaign */}
           <div className="grid md:grid-cols-2 gap-5 mb-12">
             <button
               onClick={() => setActiveTab("s25")}
@@ -520,7 +521,7 @@ const SamsungCaseStudy: React.FC = () => {
               <div className="px-5 py-4 border-t border-border bg-background flex items-center justify-between">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wider text-primary">Campaign 1 · Mar–May 2025</p>
-                  <p className="text-sm text-foreground font-medium mt-0.5">Galaxy S25 Ultra — Animated overlay</p>
+                  <p className="text-sm text-foreground font-medium mt-0.5">Galaxy S25 Ultra - Animated overlay</p>
                 </div>
                 {isS25 && <span className="text-[10px] font-semibold uppercase tracking-widest text-primary">Viewing</span>}
               </div>
@@ -535,7 +536,7 @@ const SamsungCaseStudy: React.FC = () => {
               <div className="px-5 py-4 border-t border-border bg-background flex items-center justify-between">
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-wider text-primary">Campaign 2 · Sep–Oct 2025</p>
-                  <p className="text-sm text-foreground font-medium mt-0.5">Galaxy Z Fold7 — Rich media overlay</p>
+                  <p className="text-sm text-foreground font-medium mt-0.5">Galaxy Z Fold7 - Rich media overlay</p>
                 </div>
                 {!isS25 && <span className="text-[10px] font-semibold uppercase tracking-widest text-primary">Viewing</span>}
               </div>
@@ -560,10 +561,10 @@ const SamsungCaseStudy: React.FC = () => {
             </div>
           </div>
 
-          {/* iOS-style chart cards — campaign-aware */}
+          {/* iOS-style chart cards - campaign-aware */}
           <div className="grid lg:grid-cols-2 gap-5 mb-5">
 
-            {/* Card 1 — Weekly CTR area chart (both campaigns) */}
+            {/* Card 1 - Weekly CTR area chart (both campaigns) */}
             <div className="rounded-3xl border border-border/60 p-7 md:p-8">
               <div className="flex items-baseline justify-between mb-5">
                 <div>
@@ -583,7 +584,7 @@ const SamsungCaseStudy: React.FC = () => {
               </p>
             </div>
 
-            {/* Card 2 — Top Categories donut */}
+            {/* Card 2 - Top Categories donut */}
             <div className="rounded-3xl border border-border/60 p-7 md:p-8">
               <div className="flex items-baseline justify-between mb-5">
                 <div>
@@ -632,8 +633,8 @@ const SamsungCaseStudy: React.FC = () => {
               </div>
               <p className="text-xs text-muted-foreground mt-6 leading-relaxed">
                 {isS25
-                  ? "Top regions: Innlandet (11.07%), Oslo (10.27%), Trøndelag (10.27%), Vestland (10.03%) — Samsung's key Norwegian markets."
-                  : "Top regions: Oslo (14.20%), Trøndelag (12.33%), Akershus (10.21%) — Samsung's key urban markets."}
+                  ? "Top regions: Innlandet (11.07%), Oslo (10.27%), Trøndelag (10.27%), Vestland (10.03%) - Samsung's key Norwegian markets."
+                  : "Top regions: Oslo (14.20%), Trøndelag (12.33%), Akershus (10.21%) - Samsung's key urban markets."}
               </p>
             </div>
 
@@ -693,7 +694,7 @@ const SamsungCaseStudy: React.FC = () => {
                 totalViews="500,131"
                 totalClicks="14,642"
                 totalCTR="2.93%"
-                totalFollowers="—"
+                totalFollowers="-"
                 followersLabel="Avg viewers"
               />
             ) : (
@@ -722,7 +723,7 @@ const SamsungCaseStudy: React.FC = () => {
                 Small audience.<br />Enormous engagement.
               </h2>
               <p className="text-muted-foreground text-base leading-relaxed mb-6">
-                Simmlings generated 88 clicks from 746 views — an 11.80% CTR. That is 18 times the
+                Simmlings generated 88 clicks from 746 views - an 11.80% CTR. That is 18 times the
                 campaign verified average. The pattern held across five separate micro-influencers,
                 confirming that community trust converts at a rate no reach-focused channel can match.
               </p>
@@ -731,7 +732,7 @@ const SamsungCaseStudy: React.FC = () => {
                 for brand exposure, and micro-influencers for qualified, high-intent traffic.
               </p>
             </div>
-            <div className="grid grid-cols-5 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
               {fold7HighCTR.map((s, i) => (
                 <div
                   key={s.name}
@@ -861,7 +862,7 @@ const SamsungCaseStudy: React.FC = () => {
             ))}
           </div>
           <p className="text-xs text-muted-foreground mt-6 max-w-2xl">
-            Streamer slots are counted per campaign — 43 streamers ran on the S25 Ultra campaign and 28 on the Z Fold7. Some creators appeared in both, so the unique-streamer count is lower than the sum.
+            Streamer slots are counted per campaign - 43 streamers ran on the S25 Ultra campaign and 28 on the Z Fold7. Some creators appeared in both, so the unique-streamer count is lower than the sum.
           </p>
         </div>
       </section>
@@ -885,7 +886,7 @@ const SamsungCaseStudy: React.FC = () => {
               <p className="text-sm text-muted-foreground mb-4">Founder & CEO · Beta Ads</p>
 
               <p className="text-sm text-muted-foreground leading-relaxed mb-5 max-w-md">
-                I personally handle every Samsung-tier engagement. Send me a note about your launch window, target market, and rough budget — I'll come back within 24 hours.
+                I personally handle every Samsung-tier engagement. Send me a note about your launch window, target market, and rough budget - I'll come back within 24 hours.
               </p>
 
               <div className="flex flex-wrap items-center gap-x-5 gap-y-2">

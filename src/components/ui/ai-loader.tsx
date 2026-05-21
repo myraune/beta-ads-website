@@ -1,10 +1,10 @@
 /**
- * Beta Ads loader — ported from deck.beta-ads.no
+ * Beta Ads loader - ported from deck.beta-ads.no
  *
  * Rotating pink/red orb (inset box-shadow) with the Beta Ads brandmark
  * pulsing in the center. Used as the Suspense fallback for lazy routes.
  *
- * The structure, CSS, and animations match the deck one-to-one — see
+ * The structure, CSS, and animations match the deck one-to-one - see
  * index.html lines 1078–1156 in /Users/myraune/Desktop/beta-ads-deck.
  *
  * Two brandmark images are rendered and CSS swaps between them based on

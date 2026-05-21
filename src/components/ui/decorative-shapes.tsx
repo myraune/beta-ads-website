@@ -1,7 +1,7 @@
 import React from "react";
 
 /**
- * Floating decorative shapes — scattered across the page for visual depth.
+ * Floating decorative shapes - scattered across the page for visual depth.
  * All pointer-events: none, purely aesthetic.
  */
 

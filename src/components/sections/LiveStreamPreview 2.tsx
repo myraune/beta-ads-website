@@ -22,30 +22,28 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
         <div className="relative rounded-xl overflow-hidden shadow-2xl shadow-primary/10 bg-[#18181b]">
           
           {/* Title Bar with !glorious command */}
-          <div className="flex items-center justify-between gap-2 px-3 sm:px-4 py-2.5 bg-[#18181b]">
-            <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-              <div className="flex items-center gap-1.5 shrink-0">
+          <div className="flex items-center justify-between px-4 py-2.5 bg-[#18181b]">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1.5">
                 <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
                 <span className="text-red-500 text-xs font-bold uppercase">Live</span>
               </div>
-              <span className="text-white/60 text-xs whitespace-nowrap">12.4K viewers</span>
+              <span className="text-white/60 text-xs">12.4K viewers</span>
             </div>
-            <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-              <div className="flex items-center gap-2 min-w-0">
-                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 shrink-0" />
-                <span className="text-white text-xs sm:text-sm font-medium truncate">EmmelieNova</span>
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-purple-500 to-pink-500" />
+                <span className="text-white text-sm font-medium">EmmelieNova</span>
               </div>
-              <div className="h-4 w-px bg-white/20 shrink-0 hidden sm:block" />
-              <span className="text-primary font-semibold text-xs sm:text-sm hidden sm:inline">!glorious</span>
+              <div className="h-4 w-px bg-white/20" />
+              <span className="text-primary font-semibold text-sm">!glorious</span>
             </div>
           </div>
 
           {/* Main Content Area */}
-          {/* Chat sidebar is 256px (w-64); at 375px viewport the stream+banner column
-              would have <120px to share with chrome, so stack vertically on mobile. */}
-          <div className="flex flex-col md:flex-row">
+          <div className="flex">
             {/* Stream + Banner */}
-            <div className="flex-1 min-w-0">
+            <div className="flex-1">
               {/* Rich Media Stream Background */}
               <div className="relative aspect-video bg-[#0e0e10]">
                 <img
@@ -73,7 +71,7 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
             </div>
 
             {/* Chat Section */}
-            <div className="w-full md:w-64 bg-[#0e0e10] flex flex-col border-t md:border-t-0 md:border-l border-white/5">
+            <div className="w-64 bg-[#0e0e10] flex flex-col">
               <div className="px-3 py-2">
                 <span className="text-white/80 text-xs font-semibold uppercase tracking-wide">Stream Chat</span>
               </div>
@@ -120,7 +118,7 @@ export const LiveStreamPreview: React.FC<LiveStreamPreviewProps> = ({ id }) => {
           </div>
 
           {/* Format Labels */}
-          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 md:gap-8 px-4 py-4 bg-[#0e0e10] border-t border-white/5">
+          <div className="flex items-center justify-center gap-8 py-4 bg-[#0e0e10]">
             <div className="flex items-center gap-2 text-white/60">
               <div className="w-2 h-2 rounded-full bg-primary" />
               <span className="text-xs">Rich Media Overlay</span>

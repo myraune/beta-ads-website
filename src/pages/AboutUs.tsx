@@ -25,7 +25,7 @@ const principles = [
   {
     title: 'Verified numbers, always',
     body:
-      'Every campaign we run reports back with view-counts, verified clicks and on-screen time audited against the platform feed — not rough estimates.',
+      'Every campaign we run reports back with view-counts, verified clicks and on-screen time audited against the platform feed - not rough estimates.',
   },
   {
     title: 'Native over disruptive',
@@ -35,7 +35,7 @@ const principles = [
   {
     title: 'The creator is the product',
     body:
-      'We don\u2019t treat streamers as inventory. Campaigns are built around whose audience a brand actually wants to reach — one channel at a time.',
+      'We don\u2019t treat streamers as inventory. Campaigns are built around whose audience a brand actually wants to reach - one channel at a time.',
   },
 ];
 
@@ -136,7 +136,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
             <p className="text-lg lg:text-xl text-muted-foreground/70 leading-relaxed">
               Brands get verified reach. Streamers get paid to keep making
               what their audience already tunes in for. Viewers get ads
-              that respect their attention — and that survive ad-block.
+              that respect their attention - and that survive ad-block.
             </p>
           </div>
           <div className="mt-12 flex items-center gap-5">
@@ -184,7 +184,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
             <div className="space-y-6 max-w-2xl">
               <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
                 Nordic 18–34s spend more time on Twitch, YouTube Gaming
-                and Kick than on any single broadcaster — yet most ad budgets
+                and Kick than on any single broadcaster - yet most ad budgets
                 still flow to formats that audience actively blocks or
                 skips. Pre-roll gets muted. Display gets filtered. Podcast
                 sponsorships fall back on the host-read model.
@@ -199,7 +199,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
               <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
                 Today we run campaigns for brands like Samsung, Surfshark,
                 Shure, Komplett, and Høyskolen Kristiania across Norway,
-                Sweden, Denmark, and Finland — measured, repeatable, and
+                Sweden, Denmark, and Finland - measured, repeatable, and
                 native by design.
               </p>
             </div>

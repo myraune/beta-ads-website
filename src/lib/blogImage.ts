@@ -7,16 +7,16 @@
  *
  * Upload structure:
  *   public/blog-photos/
- *     twitch/        — Twitch streams, UI, streamers
- *     kick/          — Kick platform content
- *     youtube/       — YouTube Gaming / YouTube Live
- *     esports/       — Tournaments, competitive gaming
- *     gaming/        — Gaming setups, gameplay, controllers
- *     streamers/     — Streamer photos, setups, behind-the-scenes
- *     analytics/     — Dashboards, charts, data visualizations
- *     nordic/        — Nordic-themed (offices, cities, brands)
- *     advertising/   — Ads, marketing, brand campaigns
- *     general/       — Fallback photos for any topic
+ *     twitch/        - Twitch streams, UI, streamers
+ *     kick/          - Kick platform content
+ *     youtube/       - YouTube Gaming / YouTube Live
+ *     esports/       - Tournaments, competitive gaming
+ *     gaming/        - Gaming setups, gameplay, controllers
+ *     streamers/     - Streamer photos, setups, behind-the-scenes
+ *     analytics/     - Dashboards, charts, data visualizations
+ *     nordic/        - Nordic-themed (offices, cities, brands)
+ *     advertising/   - Ads, marketing, brand campaigns
+ *     general/       - Fallback photos for any topic
  *
  * How matching works:
  *   1. Post tags + title are checked against folder names
@@ -28,7 +28,7 @@
 // Minimal post shape the image resolver needs. Using a structural type here
 // (instead of importing BlogPost from @/data/blogPosts) keeps the giant
 // blogPosts array OUT of the main bundle. blogPosts.ts is ~872KB of inlined
-// markdown — bundling it with the entry chunk (via App.tsx → blogImage ->
+// markdown - bundling it with the entry chunk (via App.tsx → blogImage ->
 // blogPosts) made the initial JS payload balloon to 1.2 MB. With this
 // structural type the main bundle drops ~400-500KB.
 export interface BlogImagePost {
@@ -188,10 +188,10 @@ function pickPhoto(post: BlogImagePost): string | null {
 /**
  * Main image resolver. Pass the full post object (callers already have it).
  * Passing just a slug string is still supported for legacy callers but only
- * returns the picsum fallback — no tag-based scoring possible without tags.
+ * returns the picsum fallback - no tag-based scoring possible without tags.
  */
 /**
- * Platform UI screenshots and irrelevant images — these fall through to the
+ * Platform UI screenshots and irrelevant images - these fall through to the
  * auto-resolver so posts get a matching brand photo instead of a raw screenshot.
  */
 const SCREENSHOT_BLOCKLIST = new Set([
@@ -221,7 +221,7 @@ const SCREENSHOT_BLOCKLIST = new Set([
   "screenshot-sullygnome.jpg",
   "screenshot-twitchtracker.jpg",
   "screenshot-twitchtracker-channel.jpg",
-  "twitch-ad-example.png",
+  "twitch-ad-example.jpg",
   // Twitch.tv website screenshots (same stream, reused across multiple posts)
   "blog-rise-of-streamer-first-advertising-hero.jpg",
   "blog-twitch-annonsering-norge-hero.jpg",

@@ -4,8 +4,8 @@
     {
       "name": "beta-ads-redesign",
       "runtimeExecutable": "/bin/bash",
-      "runtimeArgs": ["-c", "export PATH=/Users/myraune/.nvm/versions/node/v24.13.0/bin:$PATH && npm run dev -- --port 3008"],
-      "port": 3008
+      "runtimeArgs": ["-c", "export PATH=/Users/myraune/.nvm/versions/node/v24.13.0/bin:$PATH && npm run dev -- --port 3016"],
+      "port": 3016
     }
   ]
 }

@@ -10,7 +10,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
  * focused on the Shure MV7+ / SM7B microphone category.
  */
 const BRAND = {
-  // Shure brand — red primary, warm gold accent
+  // Shure brand - red primary, warm gold accent
   primary: "#e4002b",
   secondary: "#ffb800",
   glow: "rgba(228,0,43,0.14)",
@@ -41,7 +41,7 @@ const regions = [
 const timeline = [
   { date: "Jul 12", label: "Kick-off", value: "detoo launch stream" },
   { date: "Jul 19", label: "detoo scale-up", value: "+272 avg viewers, MV6 feature" },
-  { date: "Jul 26", label: "Peak day", value: "9.12% CTR — 7× display benchmark" },
+  { date: "Jul 26", label: "Peak day", value: "9.12% CTR - 7× display benchmark" },
   { date: "Aug 5", label: "Campaign close", value: "2,378 verified clicks" },
 ];
 
@@ -110,7 +110,7 @@ const ShureCaseStudy: React.FC = () => {
               </span>
             </h1>
             <p className="text-lg text-white/60 leading-relaxed max-w-xl">
-              A concentrated two-creator launch for the MV7+ microphone — 761 hours of
+              A concentrated two-creator launch for the MV7+ microphone - 761 hours of
               on-screen presence, 2,378 verified clicks, and a 9.12% best-day CTR driven by
               audio-focused Norwegian streamers.
             </p>
@@ -155,7 +155,7 @@ const ShureCaseStudy: React.FC = () => {
             />
           </div>
           <p className="text-xs text-muted-foreground mt-4 max-w-3xl">
-            detoo ran the overlay alongside his actual Shure mic pickup — audience saw the
+            detoo ran the overlay alongside his actual Shure mic pickup - audience saw the
             product live, on-stream, in the hands of the creator they tuned in for.
           </p>
         </div>
@@ -181,7 +181,7 @@ const ShureCaseStudy: React.FC = () => {
                 Reach creators who actually care about audio quality
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                Shure's MV7+ is a premium streaming microphone — the kind of product that
+                Shure's MV7+ is a premium streaming microphone - the kind of product that
                 benefits more from one demonstrated endorsement than from a million broad
                 impressions. The target wasn't casual viewers; it was creators and
                 aspiring creators who invest in gear and spread gospel to their audiences.
@@ -189,7 +189,7 @@ const ShureCaseStudy: React.FC = () => {
               <p className="text-base text-muted-foreground leading-relaxed">
                 Rather than spread paid media thin across 30+ streamers, Shure doubled down
                 on two creators whose audiences already valued production quality. Depth
-                over breadth — a radically different media-mix approach for a hardware
+                over breadth - a radically different media-mix approach for a hardware
                 launch.
               </p>
             </div>
@@ -198,7 +198,7 @@ const ShureCaseStudy: React.FC = () => {
                 { label: "Market", value: "🇳🇴 Norway (95.6% viewership)" },
                 { label: "Format", value: "Rich Media Overlay" },
                 { label: "Strategy", value: "Concentrated 2-streamer run" },
-                { label: "Top streamer", value: "detoo — 2,377 link clicks alone" },
+                { label: "Top streamer", value: "detoo - 2,377 link clicks alone" },
                 { label: "Best day CTR", value: "9.12% (Jul 26)" },
                 { label: "Device split", value: "Desktop 93.6% / Mobile 5.6%" },
               ].map((row) => (
@@ -237,7 +237,7 @@ const ShureCaseStudy: React.FC = () => {
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-12">
               The overlay ran across 11 different live categories (Just Chatting, FIFA 23,
-              GTA V, COD, Slots) — wherever detoo and BetaNorway streamed, the overlay was
+              GTA V, COD, Slots) - wherever detoo and BetaNorway streamed, the overlay was
               present. detoo's audience alone drove nearly every verified click in the
               campaign, averaging 272 concurrent viewers throughout the run.
             </p>
@@ -255,7 +255,7 @@ const ShureCaseStudy: React.FC = () => {
                       clicks: "2,377",
                       views: "182,546",
                     },
-                    { name: "BetaNorway", avgViewers: "—", clicks: "—", views: "—" },
+                    { name: "BetaNorway", avgViewers: "-", clicks: "-", views: "-" },
                   ].map((s, i) => (
                     <div
                       key={s.name}
@@ -269,7 +269,7 @@ const ShureCaseStudy: React.FC = () => {
                           {s.name}
                         </span>
                       </div>
-                      {s.views !== "—" && (
+                      {s.views !== "-" && (
                         <span className="text-xs text-muted-foreground tabular-nums">
                           {s.views} views · {s.clicks} clicks
                         </span>
@@ -306,7 +306,7 @@ const ShureCaseStudy: React.FC = () => {
             </div>
 
             <p className="text-sm text-muted-foreground max-w-2xl">
-              68% of screen time happened inside Just Chatting — exactly when streamers
+              68% of screen time happened inside Just Chatting - exactly when streamers
               were talking directly to audiences, often about their setups. The overlay
               became a conversation starter rather than an interruption.
             </p>
@@ -330,7 +330,7 @@ const ShureCaseStudy: React.FC = () => {
               Reach &amp; Demographics
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-10 max-w-2xl">
-              Depth beats breadth — 48K unique creators &amp; creator-curious reached
+              Depth beats breadth - 48K unique creators &amp; creator-curious reached
             </h2>
 
             <div className="grid lg:grid-cols-3 gap-10 lg:gap-14">
@@ -434,7 +434,7 @@ const ShureCaseStudy: React.FC = () => {
                   <div className="text-xl font-semibold text-foreground">272 viewers</div>
                 </div>
                 <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
-                  detoo's audience is a sweet spot for Shure — Gen Z / Millennial men on
+                  detoo's audience is a sweet spot for Shure - Gen Z / Millennial men on
                   desktop, in front of their own streaming rig, in the market for a
                   better mic.
                 </p>
@@ -487,7 +487,7 @@ const ShureCaseStudy: React.FC = () => {
                 Peak days outperformed benchmark CTR by 7×
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                At campaign peak (July 26), verified CTR hit 9.12% — roughly 7× a typical
+                At campaign peak (July 26), verified CTR hit 9.12% - roughly 7× a typical
                 display benchmark for audio hardware. The sustained 1.31% verified / 2.16%
                 unique-viewer CTR across 761 hours of on-stream exposure demonstrates that
                 a concentrated creator approach can outperform broad reach for
@@ -495,7 +495,7 @@ const ShureCaseStudy: React.FC = () => {
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
                 48,617 unique viewers encountered the MV7+ in the context of someone they
-                already trusted — driving the kind of product awareness that's very hard
+                already trusted - driving the kind of product awareness that's very hard
                 to buy through traditional display or pre-roll.
               </p>
             </div>

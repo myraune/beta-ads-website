@@ -26,7 +26,7 @@ const pressArticles = [
     publication: "Kampanje",
     date: "September 2024",
     url: "https://kampanje.com/premium/september-2024/innsikt/andreas-21-satser-pa-eget-twtich-byra--na-far-han-polske-tech-krefter-i-ryggen---har-lagt-grunnlaget-na/",
-    image: "/lovable-uploads/press-kampanje-startup.png",
+    image: "/lovable-uploads/press-kampanje-startup.jpg",
   },
   {
     title: "Ny kanal for mediekjøp",
@@ -34,7 +34,7 @@ const pressArticles = [
     publication: "Kom24",
     date: "2024",
     url: "https://www.kom24.no/andreas-myraune-beta-influensere/ny-kanal-for-mediekjop-beta-er-norges-nye-twitch-byra/730424",
-    image: "/lovable-uploads/press-kom24-twitch.png",
+    image: "/lovable-uploads/press-kom24-twitch.jpg",
   },
   {
     title: "Instreamly og Beta inngår partnerskap",
@@ -51,7 +51,7 @@ const Press: React.FC = () => {
     <>
       <SEO
         title="Press & Media Coverage | Beta Ads"
-        description="Beta Ads in the media. Featured in Kampanje, Kom24, and leading Nordic publications covering Twitch advertising innovation."
+        description="Beta Ads in the press. Featured in Kampanje, Kom24, and Nordic media on Twitch advertising, native overlay ads, and livestream marketing in Norway."
         canonical="/press"
         jsonLd={[
           {

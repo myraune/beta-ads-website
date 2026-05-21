@@ -10,7 +10,7 @@
 // no user-facing playback affordances, the correct fix is to mark them as
 // decorative so assistive tech can skip them.
 //
-// We never override an element the author has explicitly labeled — aria-label,
+// We never override an element the author has explicitly labeled - aria-label,
 // aria-labelledby, role="img", or a child <title> are all signals that the
 // element is meaningful and should be exposed.
 
@@ -35,7 +35,7 @@ function hideIfDecorativeVideo(video: Element) {
   if (video.hasAttribute("aria-label")) return;
   if (video.hasAttribute("aria-labelledby")) return;
   // If the author wired up native controls or a caption track, this video is
-  // interactive content the user is meant to engage with — leave it alone.
+  // interactive content the user is meant to engage with - leave it alone.
   if (video.controls) return;
   if (video.querySelector("track")) return;
   // Only hide silent autoplay/loop previews. Audible videos may carry meaning.

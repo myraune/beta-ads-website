@@ -10,7 +10,7 @@ const steps = [
   {
     num: "02",
     title: "Launch your overlay",
-    desc: "Deploy your branded overlay to any selection of streamers in one click. They need zero setup — it renders automatically inside OBS.",
+    desc: "Deploy your branded overlay to any selection of streamers in one click. They need zero setup - it renders automatically inside OBS.",
   },
   {
     num: "03",
@@ -34,7 +34,7 @@ export const SPConceptStrip: React.FC = () => {
               Your brand, live<br />inside the stream.
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed max-w-xs">
-              Not a pre-roll. Not a banner. A native overlay that renders inside the broadcast itself — bypassing every ad blocker.
+              Not a pre-roll. Not a banner. A native overlay that renders inside the broadcast itself - bypassing every ad blocker.
             </p>
           </div>
 

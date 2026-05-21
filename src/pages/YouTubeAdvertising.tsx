@@ -4,7 +4,7 @@ import { MarketingPageLayout } from "@/components/layout/MarketingPageLayout";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, Monitor, Zap, Eye, Play, Shield, Users, TrendingUp, Globe, Music, Dumbbell, BookOpen, Mic, Video, Gamepad2, HeartPulse } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import AnimatedShaderBackground from "@/components/ui/animated-shader-background";
+import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 
 const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
@@ -23,10 +23,10 @@ const formats = [
 ];
 
 const why = [
-  { icon: Shield, title: "Ad-block proof", desc: "Same overlay technology as Twitch — rendered in-stream, invisible to blockers." },
-  { icon: Users, title: "Broader demographics", desc: "YouTube reaches audiences beyond gaming — music, lifestyle, education, sports." },
+  { icon: Shield, title: "Ad-block proof", desc: "Same overlay technology as Twitch - rendered in-stream, invisible to blockers." },
+  { icon: Users, title: "Broader demographics", desc: "YouTube reaches audiences beyond gaming - music, lifestyle, education, sports." },
   { icon: TrendingUp, title: "SEO + Discovery", desc: "Live content appears in YouTube search and recommendations, extending reach beyond live viewers." },
-  { icon: Globe, title: "Nordic growth platform", desc: "YouTube Live grew while Twitch declined in 2025 — the fastest-rising streaming platform in the Nordics." },
+  { icon: Globe, title: "Nordic growth platform", desc: "YouTube Live grew while Twitch declined in 2025 - the fastest-rising streaming platform in the Nordics." },
 ];
 
 const categories = [
@@ -67,7 +67,7 @@ const YouTubeAdvertising: React.FC = () => {
           { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://beta-ads.no/" }, { "@type": "ListItem", position: 2, name: "YouTube Advertising", item: "https://beta-ads.no/youtube-advertising" }] },
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [
             { "@type": "Question", name: "Can you advertise on YouTube Live streams?", acceptedAnswer: { "@type": "Answer", text: "Yes. Beta Ads places native overlay ads directly inside YouTube Live streams as part of the video content, bypassing ad blockers entirely. The ad appears within the stream feed, not as a browser-injected element." } },
-            { "@type": "Question", name: "How is YouTube Live advertising different from regular YouTube ads?", acceptedAnswer: { "@type": "Answer", text: "Regular YouTube pre-rolls and mid-rolls can be skipped after 5 seconds and are blocked by ad blockers. Native overlay ads on YouTube Live are embedded in the stream — viewers can't skip them, and ad blockers can't detect or remove them." } },
+            { "@type": "Question", name: "How is YouTube Live advertising different from regular YouTube ads?", acceptedAnswer: { "@type": "Answer", text: "Regular YouTube pre-rolls and mid-rolls can be skipped after 5 seconds and are blocked by ad blockers. Native overlay ads on YouTube Live are embedded in the stream - viewers can't skip them, and ad blockers can't detect or remove them." } },
             { "@type": "Question", name: "How many YouTube Live streamers are there in the Nordics?", acceptedAnswer: { "@type": "Answer", text: "Beta Ads has access to 8,200+ Nordic YouTube Live streamers across Norway, Sweden, Finland, and Denmark, spanning gaming, esports, IRL, and creator content categories." } },
             { "@type": "Question", name: "How long do viewers watch YouTube Live streams?", acceptedAnswer: { "@type": "Answer", text: "YouTube Live viewers average 45+ minutes per session, with gaming streams often exceeding 90 minutes. This sustained viewing time means your brand gets repeated exposure throughout the session, not just a single impression." } },
             { "@type": "Question", name: "What game categories perform best for YouTube advertising in the Nordics?", acceptedAnswer: { "@type": "Answer", text: "Minecraft, FIFA/FC25, Fortnite, and Just Chatting content consistently generate the highest viewership on Nordic YouTube Live. Esports events and tournament streams also deliver large concentrated audiences." } },
@@ -129,7 +129,7 @@ const YouTubeAdvertising: React.FC = () => {
       </section>
 
       {/* ── What it looks like ── */}
-      <section className="py-20 md:py-28 border-t border-border">
+      <section className="py-20 md:py-28 border-t border-border overflow-x-clip">
         <div ref={mockupRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${mockupVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Real YouTube screenshot */}
@@ -142,7 +142,7 @@ const YouTubeAdvertising: React.FC = () => {
                   loading="lazy"
                 />
               </div>
-              <p className="text-[10px] text-muted-foreground mt-2">Real YouTube Gaming page — live streams across categories</p>
+              <p className="text-[10px] text-muted-foreground mt-2">Real YouTube Gaming page - live streams across categories</p>
               <div className="absolute -inset-4 -z-10 rounded-2xl opacity-10 blur-2xl" style={{ background: "radial-gradient(ellipse at center, #ff0000, transparent 70%)" }} />
             </div>
 
@@ -152,7 +152,7 @@ const YouTubeAdvertising: React.FC = () => {
                 YouTube's 2B users. Your brand inside the stream.
               </h2>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-md">
-                YouTube Live has the broadest demographic reach of any streaming platform. Unlike Twitch's gaming-heavy audience, YouTube Live viewers span every content category — from competitive gaming to live music to fitness coaching.
+                YouTube Live has the broadest demographic reach of any streaming platform. Unlike Twitch's gaming-heavy audience, YouTube Live viewers span every content category - from competitive gaming to live music to fitness coaching.
               </p>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-md">
                 The platform's search and recommendation algorithm also means your brand is discovered beyond the live audience. Streams are archived and resurface in search results for months after the campaign ends.
@@ -206,9 +206,9 @@ const YouTubeAdvertising: React.FC = () => {
                 The platform Twitch-only brands are missing
               </h2>
               <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
-                <p>YouTube Live is rapidly gaining ground in the Nordics. While Twitch viewership declined 10% in 2025, YouTube Live continues to grow — particularly in non-gaming categories like music, education, and lifestyle content.</p>
+                <p>YouTube Live is rapidly gaining ground in the Nordics. While Twitch viewership declined 10% in 2025, YouTube Live continues to grow - particularly in non-gaming categories like music, education, and lifestyle content.</p>
                 <p>For brands targeting audiences beyond core gaming, YouTube Live offers access to demographics that Twitch doesn't reach. The platform's discoverability advantage means live content surfaces in regular YouTube search results, extending your brand's reach beyond the live audience.</p>
-                <p>Combined with Twitch and Kick campaigns through Beta Ads, YouTube Live ensures your brand reaches the full Nordic streaming audience — not just one slice of it.</p>
+                <p>Combined with Twitch and Kick campaigns through Beta Ads, YouTube Live ensures your brand reaches the full Nordic streaming audience - not just one slice of it.</p>
               </div>
             </div>
             <div className="grid gap-4">
@@ -232,7 +232,7 @@ const YouTubeAdvertising: React.FC = () => {
           <div className="mb-12">
             <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Content Categories</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground max-w-2xl">
-              Beyond gaming — the broadest streaming audience in the Nordics
+              Beyond gaming - the broadest streaming audience in the Nordics
             </h2>
             <p className="text-muted-foreground text-sm leading-relaxed mt-3 max-w-xl">
               52% of YouTube Live viewing in the Nordics is non-gaming content. Reach audiences traditional advertisers consistently miss.
@@ -265,7 +265,7 @@ const YouTubeAdvertising: React.FC = () => {
               { step: "01", title: "Brief & Strategy", desc: "Define your goals, audience, and budget. We design a YouTube Live campaign strategy for the Nordic market." },
               { step: "02", title: "Creator Selection", desc: "We match your brand with YouTube Live streamers from our network, filtered by audience demographics and category." },
               { step: "03", title: "Creative & Launch", desc: "Our team creates overlay creatives optimized for YouTube Live's player. Campaigns launch across selected creators." },
-              { step: "04", title: "Report & Iterate", desc: "Real-time performance tracking with full campaign reporting — views, exposure, engagement, and audience insights." },
+              { step: "04", title: "Report & Iterate", desc: "Real-time performance tracking with full campaign reporting - views, exposure, engagement, and audience insights." },
             ].map((s, i) => (
               <div key={s.step} className="relative">
                 {i < 3 && <div className="hidden md:block absolute top-4 left-full w-full h-px bg-border -translate-x-4" />}
@@ -313,9 +313,9 @@ const YouTubeAdvertising: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-10">Common questions</h2>
           <div className="space-y-px">
             {[
-              { q: "Can you advertise on YouTube Live streams?", a: "Yes. Beta Ads places native overlay ads directly inside YouTube Live streams. They're rendered as part of the video content — bypassing ad blockers and providing sustained brand visibility." },
-              { q: "How is this different from regular YouTube ads?", a: "Regular YouTube ads (pre-roll, mid-roll) can be skipped or blocked. Native overlay ads are part of the stream — viewers can't skip them, and ad blockers can't remove them." },
-              { q: "What categories of streamers are on YouTube Live?", a: "Our 8,200+ Nordic YouTube Live streamers span gaming, music, sports, education, lifestyle, and IRL content — considerably broader than Twitch's gaming-dominant catalog." },
+              { q: "Can you advertise on YouTube Live streams?", a: "Yes. Beta Ads places native overlay ads directly inside YouTube Live streams. They're rendered as part of the video content - bypassing ad blockers and providing sustained brand visibility." },
+              { q: "How is this different from regular YouTube ads?", a: "Regular YouTube ads (pre-roll, mid-roll) can be skipped or blocked. Native overlay ads are part of the stream - viewers can't skip them, and ad blockers can't remove them." },
+              { q: "What categories of streamers are on YouTube Live?", a: "Our 8,200+ Nordic YouTube Live streamers span gaming, music, sports, education, lifestyle, and IRL content - considerably broader than Twitch's gaming-dominant catalog." },
               { q: "Can I run campaigns on both Twitch and YouTube simultaneously?", a: "Yes, and we recommend it. Beta Ads manages multi-platform campaigns from a single dashboard, giving your brand presence across the full Nordic streaming audience." },
               { q: "Does YouTube Live content stay discoverable after the campaign ends?", a: "Yes. YouTube archives live streams as VODs that continue to surface in search results. Your overlay ad is present in archived content, extending the campaign's effective reach well beyond the live audience." },
               { q: "How does audience targeting work on YouTube Live?", a: "We filter our 8,200+ Nordic YouTube Live streamers by content category, country, language, audience demographics, and average concurrent viewers. You approve the final creator list before launch." },

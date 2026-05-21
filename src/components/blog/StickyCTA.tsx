@@ -136,7 +136,7 @@ export const StreamerStickyCTA: React.FC<StickyCTAProps> = ({ language }) => {
         </div>
         <div className="flex items-center gap-2 text-xs text-muted-foreground">
           <Zap className="w-3.5 h-3.5 text-primary" />
-          <span>Ads run automatically — no effort</span>
+          <span>Ads run automatically - no effort</span>
         </div>
         <a
           href="https://beta-ads.no/streamers"
@@ -210,7 +210,7 @@ export const StreamerInlineCTA: React.FC<StickyCTAProps> = ({ language }) => {
           </div>
           <div className="flex items-center gap-2 text-xs text-muted-foreground">
             <Zap className="w-3.5 h-3.5 text-primary" />
-            <span>Ads run automatically — no effort</span>
+            <span>Ads run automatically - no effort</span>
           </div>
         </div>
         <a href="https://beta-ads.no/streamers" target="_blank" rel="noopener noreferrer">

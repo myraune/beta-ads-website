@@ -7,7 +7,7 @@ interface IconProps {
 
 const defaultProps = { size: 24 };
 
-/* ── Feature section icons — clean geometric style ── */
+/* ── Feature section icons - clean geometric style ── */
 
 export const IconStreamers: React.FC<IconProps> = ({ className, size = defaultProps.size }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" className={className}>

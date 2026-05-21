@@ -97,7 +97,7 @@ const DashboardView = () => (
         { label: "Watch Time", value: "2,841 hrs" },
       ].map((s) => (
         <div key={s.label} className="px-2.5 py-2 bg-white rounded-lg border border-gray-100">
-          <p className={`text-[8px] font-medium uppercase truncate ${s.hl ? "text-red-500" : "text-gray-400"}`}>{s.label}</p>
+          <p className={`text-[8px] font-medium uppercase truncate ${s.hl ? "text-red-700" : "text-gray-500"}`}>{s.label}</p>
           <p className="text-sm font-bold text-gray-900">{s.value}</p>
         </div>
       ))}
@@ -112,7 +112,7 @@ const DashboardView = () => (
         { label: "Chat Mentions", shortLabel: "Chat", value: "4,291" },
       ].map((s) => (
         <div key={s.label} className="px-2.5 py-2 bg-white rounded-lg border border-gray-100">
-          <p className="text-[8px] text-gray-400 uppercase truncate">
+          <p className="text-[8px] text-gray-600 uppercase truncate">
             <span className="md:hidden">{s.shortLabel}</span>
             <span className="hidden md:inline">{s.label}</span>
           </p>
@@ -132,9 +132,9 @@ const DashboardView = () => (
       </div>
       <div className="hidden sm:block w-56 bg-white rounded-lg border border-gray-100 p-3">
         <div className="flex items-center gap-1.5 mb-2">
-          <span className="text-[9px] font-medium text-white bg-red-500 px-2 py-0.5 rounded-full">Streamers</span>
-          <span className="text-[9px] text-gray-400">Campaigns</span>
-          <span className="text-[9px] text-gray-400">Categories</span>
+          <span className="text-[9px] font-medium text-white bg-red-600 px-2 py-0.5 rounded-full">Streamers</span>
+          <span className="text-[9px] text-gray-600">Campaigns</span>
+          <span className="text-[9px] text-gray-600">Categories</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="space-y-0.5">
@@ -149,7 +149,7 @@ const DashboardView = () => (
         </div>
       </div>
     </div>
-    {/* Campaign table — hidden on mobile: too wide for 375px viewports */}
+    {/* Campaign table - hidden on mobile: too wide for 375px viewports */}
     <div className="hidden sm:block bg-white rounded-lg border border-gray-100 overflow-hidden">
       <div className="flex items-center justify-between px-3 py-2 border-b border-gray-100">
         <div className="flex items-center gap-2">
@@ -193,7 +193,7 @@ const DashboardView = () => (
 /* ───────── STREAMER EXPLORER VIEW (matching real app) ───────── */
 const StreamerExplorerView = () => (
   <div className="p-4">
-    {/* Top stats row — 5 cards like real app */}
+    {/* Top stats row - 5 cards like real app */}
     <div className="grid grid-cols-3 md:grid-cols-5 gap-2 mb-3">
       {[
         { label: "Streamers", shortLabel: "Streamers", value: "39,456", icon: "👥", color: "border-l-blue-400" },
@@ -257,7 +257,11 @@ const StreamerExplorerView = () => (
       <div className="hidden sm:flex h-7 px-2 bg-white border border-gray-200 rounded text-[9px] text-gray-500">+ Add All to List</div>
     </div>
 
-    {/* Streamer table — matching real columns */}
+    {/* Streamer table - matching real columns.
+        Relative + right-edge fade hints at horizontal scroll for the 9-column
+        table that overflows the ~315px content area at 375px viewport. Matches
+        the affordance pattern used by SPFeatures mobile tab bar. */}
+    <div className="relative">
     <div className="bg-white rounded-lg border border-gray-100 overflow-x-auto">
       <table className="min-w-max w-full">
         <thead>
@@ -279,13 +283,17 @@ const StreamerExplorerView = () => (
           ].map((r) => (
             <tr key={r.name} className="border-b border-gray-50 last:border-0 hover:bg-gray-50/50">
               <td className="px-2 py-1.5"><input type="checkbox" className="w-3 h-3 rounded border-gray-300" disabled /></td>
-              <td className="px-2 py-1.5 text-[9px] font-medium text-gray-900 flex items-center gap-1.5">
-                <img src={r.avatar} alt={r.name} className="w-5 h-5 rounded-full object-cover flex-shrink-0" />
-                {r.name}
+              <td className="px-2 py-1.5 text-[9px] font-medium text-gray-900">
+                <div className="flex items-center gap-1.5">
+                  <img src={r.avatar} alt={r.name} className="w-5 h-5 rounded-full object-cover flex-shrink-0" />
+                  {r.name}
+                </div>
               </td>
-              <td className="px-2 py-1.5 text-[9px] text-gray-600 flex items-center gap-1">
-                <img src={r.platform === "Kick" ? "https://beta.business.livad.stream/assets/icons/Platforms/kick-icon.png" : "https://beta.business.livad.stream/assets/icons/Platforms/twitch-icon.png"} alt={r.platform} className="w-3 h-3" />
-                <span className={`px-1 py-0.5 rounded text-[7px] font-medium ${r.platform === "Kick" ? "bg-green-100 text-green-700" : "bg-purple-100 text-purple-700"}`}>{r.platform}</span>
+              <td className="px-2 py-1.5 text-[9px] text-gray-600">
+                <div className="flex items-center gap-1">
+                  <img src={r.platform === "Kick" ? "https://beta.business.livad.stream/assets/icons/Platforms/kick-icon.png" : "https://beta.business.livad.stream/assets/icons/Platforms/twitch-icon.png"} alt={r.platform} className="w-3 h-3" />
+                  <span className={`px-1 py-0.5 rounded text-[7px] font-medium ${r.platform === "Kick" ? "bg-green-100 text-green-700" : "bg-purple-100 text-purple-700"}`}>{r.platform}</span>
+                </div>
               </td>
               <td className="px-2 py-1.5 text-[8px] text-gray-600">{r.country}</td>
               <td className="px-2 py-1.5 text-[8px] text-gray-600">{r.lang}</td>
@@ -309,6 +317,8 @@ const StreamerExplorerView = () => (
         </tbody>
       </table>
     </div>
+    <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-6 sm:hidden bg-gradient-to-l from-white to-transparent rounded-r-lg" aria-hidden="true" />
+    </div>
   </div>
 );
 
@@ -325,7 +335,10 @@ const CategoryExplorerView = () => (
       <div className="hidden sm:flex h-7 px-2 bg-white border border-gray-200 rounded items-center text-[9px] text-gray-500">Export as .CSV</div>
     </div>
 
-    {/* Category table — matching real columns */}
+    {/* Category table - matching real columns.
+        Same right-edge fade as the streamer table to signal horizontal scroll
+        for the 8-column table at 375px. */}
+    <div className="relative">
     <div className="bg-white rounded-lg border border-gray-100 overflow-x-auto">
       <table className="min-w-max w-full">
         <thead>
@@ -346,9 +359,11 @@ const CategoryExplorerView = () => (
             { name: "IRL", genres: "-", streamers: "1,160", views: "270.4M", avg: "547", live: "12,338", air: "148.1K h", watch: "81.0M h", img: "https://files.kick.com/images/subcategories/8549/banner/conversion/3b142fca-b643-48d9-8ed0-405d454181d1-banner.webp" },
           ].map((r) => (
             <tr key={r.name} className="border-b border-gray-50 last:border-0 hover:bg-gray-50/50">
-              <td className="px-2.5 py-2 text-[9px] font-medium text-gray-900 flex items-center gap-1.5">
-                <img src={r.img} alt={r.name} className="w-5 h-7 rounded object-cover flex-shrink-0" />
-                {r.name}
+              <td className="px-2.5 py-2 text-[9px] font-medium text-gray-900">
+                <div className="flex items-center gap-1.5">
+                  <img src={r.img} alt={r.name} className="w-5 h-7 rounded object-cover flex-shrink-0" />
+                  {r.name}
+                </div>
               </td>
               <td className="px-2.5 py-2">
                 {r.genres !== "-" ? (
@@ -373,6 +388,8 @@ const CategoryExplorerView = () => (
         1–50 of 8265 &nbsp; ‹ &nbsp; ›
       </div>
     </div>
+    <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-6 sm:hidden bg-gradient-to-l from-white to-transparent rounded-r-lg" aria-hidden="true" />
+    </div>
   </div>
 );
 
@@ -380,20 +397,25 @@ const CategoryExplorerView = () => (
 const StreamerListsView = () => (
   <div className="p-4">
     <div className="flex items-center justify-between mb-5">
-      <span className="text-sm font-semibold text-red-500">My Streamer Lists</span>
-      <div className="px-3 py-1.5 bg-red-500 text-white rounded-lg text-[10px] font-semibold flex items-center gap-1">
+      <span className="text-sm font-semibold text-red-700">My Streamer Lists</span>
+      <div className="px-3 py-1.5 bg-red-600 text-white rounded-lg text-[10px] font-semibold flex items-center gap-1">
         <Plus className="w-3 h-3" /> Create a New List
       </div>
     </div>
 
-    <div className="grid grid-cols-2 gap-4">
+    {/* Single column at 375px: 2 cols here truncated names ("Favorite Strea...") and
+        wrapped the "Created by:" line. Switching to 2 cols at sm+ keeps the dense look
+        on tablets while staying readable on phones. */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
       {[
         { name: "Favorite Streamers", avatars: 5, date: "06/01/2026", by: "LIVAD Technologies" },
         { name: "Samsung Galaxy Campaign", avatars: 3, date: "01/06/2026", by: "James Crawford" },
         { name: "Nordic Gaming List", avatars: 8, date: "02/15/2026", by: "Emma Lindqvist" },
         { name: "My Streamer List", avatars: 1, date: "12/02/2026", by: "Andreas Myraune" },
-      ].map((list) => (
-        <div key={list.name} className="bg-white rounded-xl border border-gray-100 p-4 hover:border-red-200 transition-colors relative">
+        /* The mockup is capped at h-[450px] on mobile; cards 3+ are clipped by overflow.
+           Hiding cards 3 & 4 below sm avoids the awkward "half-cut bottom card" look. */
+      ].map((list, i) => (
+        <div key={list.name} className={`bg-white rounded-xl border border-gray-100 p-3 sm:p-4 hover:border-red-200 transition-colors relative ${i >= 2 ? "hidden sm:block" : ""}`}>
           <div className="flex items-center justify-between mb-3 gap-2">
             <span className="text-[11px] font-semibold text-gray-900 truncate min-w-0">{list.name}</span>
             <MoreHorizontal className="w-4 h-4 text-gray-400 shrink-0" />
@@ -412,8 +434,8 @@ const StreamerListsView = () => (
             )}
           </div>
           <div className="space-y-1 text-[9px] text-gray-500">
-            <div className="flex items-center gap-1"><Calendar className="w-3 h-3" /> Created date: {list.date}</div>
-            <div className="flex items-center gap-1"><User className="w-3 h-3" /> Created by: {list.by}</div>
+            <div className="flex items-center gap-1 whitespace-nowrap"><Calendar className="w-3 h-3 shrink-0" /> Created: {list.date}</div>
+            <div className="flex items-center gap-1 whitespace-nowrap"><User className="w-3 h-3 shrink-0" /> By: {list.by}</div>
           </div>
         </div>
       ))}
@@ -426,7 +448,7 @@ const UsersView = () => (
   <div className="p-4">
     <div className="flex items-center justify-between mb-4">
       <span className="text-xs font-medium text-gray-900">Team Members</span>
-      <div className="px-3 py-1.5 bg-red-500 text-white rounded-lg text-[10px] font-semibold flex items-center gap-1">
+      <div className="px-3 py-1.5 bg-red-600 text-white rounded-lg text-[10px] font-semibold flex items-center gap-1">
         <Plus className="w-3 h-3" /> Invite User
       </div>
     </div>
@@ -441,7 +463,7 @@ const UsersView = () => (
             <th className="hidden sm:table-cell text-left text-[9px] font-medium text-gray-400 uppercase px-3 py-2">Email</th>
             <th className="text-left text-[9px] font-medium text-gray-400 uppercase px-2 sm:px-3 py-2">Role</th>
             <th className="text-left text-[9px] font-medium text-gray-400 uppercase px-2 sm:px-3 py-2">Last Active</th>
-            {/* Status hidden on mobile — the green dot on the avatar already conveys online state. */}
+            {/* Status hidden on mobile - the green dot on the avatar already conveys online state. */}
             <th className="hidden sm:table-cell text-left text-[9px] font-medium text-gray-400 uppercase px-2 sm:px-3 py-2">Status</th>
           </tr>
         </thead>
@@ -457,7 +479,7 @@ const UsersView = () => (
               <td className="px-2 sm:px-3 py-2.5 text-[10px] font-medium text-gray-900">
                 <div className="flex items-center gap-2">
                   <div className="w-6 h-6 rounded-full bg-red-50 flex items-center justify-center relative shrink-0">
-                    <span className="text-[7px] font-bold text-red-500">{u.initials}</span>
+                    <span className="text-[7px] font-bold text-red-700">{u.initials}</span>
                     {u.online && <span className="absolute -bottom-0 -right-0 w-2 h-2 bg-green-500 rounded-full border border-white" />}
                   </div>
                   <span className="truncate">{u.name}</span>
@@ -465,7 +487,7 @@ const UsersView = () => (
               </td>
               <td className="hidden sm:table-cell px-3 py-2.5 text-[10px] text-gray-500">{u.email}</td>
               <td className="px-2 sm:px-3 py-2.5">
-                <span className={`text-[9px] font-medium px-1.5 sm:px-2 py-0.5 rounded-full whitespace-nowrap ${u.role === "Admin" ? "bg-red-50 text-red-600" : "bg-gray-50 text-gray-600"}`}>{u.role}</span>
+                <span className={`text-[9px] font-medium px-1.5 sm:px-2 py-0.5 rounded-full whitespace-nowrap ${u.role === "Admin" ? "bg-red-50 text-red-700" : "bg-gray-50 text-gray-600"}`}>{u.role}</span>
               </td>
               <td className="px-2 sm:px-3 py-2.5 text-[10px] text-gray-500 whitespace-nowrap">{u.lastActive}</td>
               <td className="hidden sm:table-cell px-2 sm:px-3 py-2.5">
@@ -509,9 +531,9 @@ export const SPHero: React.FC = () => {
 
   return (
     <section className="relative overflow-hidden" aria-label="Hero">
-      {/* Oslo aurora background — both modes */}
+      {/* Oslo aurora background - both modes */}
       <div className="absolute inset-0">
-        {/* fetchpriority="high": above-the-fold hero bg is the visual LCP candidate — tell the browser to prioritize it */}
+        {/* fetchpriority="high": above-the-fold hero bg is the visual LCP candidate - tell the browser to prioritize it */}
         <img
           src="/lovable-uploads/hero-bg-oslo.jpg"
           alt=""
@@ -574,7 +596,7 @@ export const SPHero: React.FC = () => {
                 aria-selected={isActive}
                 // On mobile the label span is hidden, so fall back to aria-label;
                 // on desktop we let the visible text be the accessible name (with the
-                // badge announced as part of it) — keeps WCAG 2.5.3 happy.
+                // badge announced as part of it) - keeps WCAG 2.5.3 happy.
                 aria-label={tab.label}
                 className={`flex items-center gap-1.5 px-2.5 sm:px-4 py-2 min-h-[44px] min-w-[44px] rounded-full text-xs font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ${
                   isActive ? "bg-background text-foreground shadow-sm" : "text-muted-foreground hover:text-foreground hover:bg-foreground/5"
@@ -583,7 +605,7 @@ export const SPHero: React.FC = () => {
                 <Icon className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">{tab.label}</span>
                 {"badge" in tab && tab.badge && (
-                  <span aria-hidden="true" className="text-[7px] font-bold bg-red-500 text-white px-1 py-0.5 rounded ml-0.5">{tab.badge}</span>
+                  <span aria-hidden="true" className="text-[7px] font-bold bg-red-600 text-white px-1 py-0.5 rounded ml-0.5">{tab.badge}</span>
                 )}
               </button>
             );
@@ -615,7 +637,7 @@ export const SPHero: React.FC = () => {
                       <Icon className="w-3.5 h-3.5" />
                       {item.label}
                       {item.badge && (
-                        <span className="ml-auto text-[7px] font-bold bg-red-500 text-white px-1 py-0.5 rounded">{item.badge}</span>
+                        <span className="ml-auto text-[7px] font-bold bg-red-600 text-white px-1 py-0.5 rounded">{item.badge}</span>
                       )}
                     </button>
                   );
@@ -630,11 +652,11 @@ export const SPHero: React.FC = () => {
                     <div className="px-2 py-0.5 border border-gray-200 rounded text-gray-700 bg-white text-[9px]">03/22/2026</div>
                     <div className="px-2 py-0.5 bg-gray-100 rounded text-gray-700 text-[9px] font-medium">Apply</div>
                   </div>
-                  <div className="px-2.5 py-1 bg-red-500 text-white rounded-lg text-[9px] font-semibold flex items-center gap-1 ml-auto shrink-0">
+                  <div className="px-2.5 py-1 bg-red-600 text-white rounded-lg text-[9px] font-semibold flex items-center gap-1 ml-auto shrink-0">
                     <Plus className="w-2.5 h-2.5" /> New Campaign
                   </div>
                 </div>
-                {/* h-[450px] on mobile fits the Dashboard tab (default) tightly — content runs ~447px; Streamer Explorer/Category tabs scroll horizontally on overflow */}
+                {/* h-[450px] on mobile fits the Dashboard tab (default) tightly - content runs ~447px; Streamer Explorer/Category tabs scroll horizontally on overflow */}
                 <div className="h-[450px] sm:h-[520px] overflow-hidden">
                   <ActiveView />
                 </div>

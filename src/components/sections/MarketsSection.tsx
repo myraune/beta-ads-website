@@ -55,12 +55,12 @@ const MarketsSection: React.FC<MarketsSectionProps> = ({ marketsRef, marketsVisi
 
       <div
         ref={marketsRef}
-        className={`max-w-[1200px] mx-auto px-6 lg:px-12 py-32 lg:py-40 transition-all duration-1000 ease-out ${
+        className={`max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-12 py-20 lg:py-40 transition-all duration-1000 ease-out ${
           marketsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left — text */}
+          {/* Left - text */}
           <div>
             <p className="text-xs uppercase tracking-[0.25em] text-primary mb-4 font-light">
               Our Markets
@@ -72,10 +72,10 @@ const MarketsSection: React.FC<MarketsSectionProps> = ({ marketsRef, marketsVisi
               Active across the Nordics
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed max-w-[520px] mb-12">
-              We connect brands with live audiences in Norway, Sweden, and Finland — the most engaged streaming markets in Europe.
+              We connect brands with live audiences in Norway, Sweden, and Finland - the most engaged streaming markets in Europe.
             </p>
 
-            <div className="flex gap-10 lg:gap-16">
+            <div className="flex flex-wrap gap-x-6 gap-y-3 lg:gap-16">
               {['Norway', 'Sweden', 'Finland'].map((country) => (
                 <div
                   key={country}
@@ -99,7 +99,7 @@ const MarketsSection: React.FC<MarketsSectionProps> = ({ marketsRef, marketsVisi
             </div>
           </div>
 
-          {/* Right — Nordic SVG map (desktop only) */}
+          {/* Right - Nordic SVG map (desktop only) */}
           <div className="hidden lg:flex justify-center relative h-[320px]">
             <svg
               viewBox="415 275 55 110"

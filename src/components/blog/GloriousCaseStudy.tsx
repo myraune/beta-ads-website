@@ -4,7 +4,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-/** Glorious brand palette — white + gold accent `#D4AF37` per their identity */
+/** Glorious brand palette - white + gold accent `#D4AF37` per their identity */
 const BRAND = {
   primary: "#D4AF37",
   glow: "rgba(212,175,55,0.14)",
@@ -127,7 +127,7 @@ const GloriousCaseStudy: React.FC = () => {
                 Reaching gamers who block everything
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                Glorious needed to promote the new O3 mouse to tech-savvy gamers across the Nordics — an audience that blocks pre-roll ads on sight and has learned to ignore banner placements entirely.
+                Glorious needed to promote the new O3 mouse to tech-savvy gamers across the Nordics - an audience that blocks pre-roll ads on sight and has learned to ignore banner placements entirely.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
                 Standard digital formats couldn't penetrate this audience. Glorious needed something that felt native to the stream, was invisible to adblock software, and could scale across three languages and three markets simultaneously.
@@ -162,7 +162,7 @@ const GloriousCaseStudy: React.FC = () => {
               Localised overlays across 25 creators, 3 markets
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-12">
-              Beta deployed rich media overlay ads across 25 Nordic streamers. Creative assets were localised in Finnish, Norwegian, and English — appearing naturally during live broadcasts and prompting viewers to explore the O3 mouse through a link in the streamer's banner.
+              Beta deployed rich media overlay ads across 25 Nordic streamers. Creative assets were localised in Finnish, Norwegian, and English - appearing naturally during live broadcasts and prompting viewers to explore the O3 mouse through a link in the streamer's banner.
             </p>
 
             {/* Full-width GIF duo */}
@@ -180,7 +180,7 @@ const GloriousCaseStudy: React.FC = () => {
             </div>
 
             <p className="text-sm text-muted-foreground mt-4">
-              By collaborating with 25 creators across 112 categories, Glorious reached its audience regardless of what game they were watching — without interrupting the experience.
+              By collaborating with 25 creators across 112 categories, Glorious reached its audience regardless of what game they were watching - without interrupting the experience.
             </p>
           </div>
         </div>
@@ -212,7 +212,7 @@ const GloriousCaseStudy: React.FC = () => {
                 A multi-market presence, built in one campaign
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed">
-                The international campaign established Glorious across three Nordic markets simultaneously. The message reached gamers in 112 different live stream categories — gaming, IRL, Just Chatting — bypassing traditional advertising hurdles and generating significant engagement for the O3 launch.
+                The international campaign established Glorious across three Nordic markets simultaneously. The message reached gamers in 112 different live stream categories - gaming, IRL, Just Chatting - bypassing traditional advertising hurdles and generating significant engagement for the O3 launch.
               </p>
             </div>
             <div>

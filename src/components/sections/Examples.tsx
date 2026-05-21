@@ -33,7 +33,7 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
     <section id="examples" className="py-20 bg-background text-foreground">
       <div className="max-w-[1600px] mx-auto px-4 lg:px-6">
         <div className="text-center mb-12">
-          <h2 className="text-5xl md:text-7xl font-bold text-foreground mb-6 tracking-tight">
+          <h2 className="text-3xl sm:text-5xl md:text-7xl font-bold text-foreground mb-6 tracking-tight">
             {t.trustedByTitle}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-light">
@@ -61,9 +61,9 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
                     transition={{ duration: 0.5 }}
                     role="button"
                     tabIndex={0}
-                    aria-label={`Play video: ${video.brand} — ${video.title}`}
-                    onClick={() => { setActiveVideoId(video.id); setActiveVideoLabel(`${video.brand} — ${video.title}`); }}
-                    onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setActiveVideoId(video.id); setActiveVideoLabel(`${video.brand} — ${video.title}`); } }}
+                    aria-label={`Play video: ${video.brand} - ${video.title}`}
+                    onClick={() => { setActiveVideoId(video.id); setActiveVideoLabel(`${video.brand} - ${video.title}`); }}
+                    onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setActiveVideoId(video.id); setActiveVideoLabel(`${video.brand} - ${video.title}`); } }}
                   >
                     <div className="aspect-video rounded-lg overflow-hidden bg-black relative">
                       <img
@@ -106,12 +106,12 @@ export const Examples: React.FC<ExamplesProps> = ({ t, caseVideos }) => {
             <CarouselNext className="text-muted-foreground border-border hover:bg-secondary hover:border-muted -right-1 md:-right-3 h-10 w-10 transition-[transform,box-shadow] duration-300 hover:scale-110 hover:shadow-lg" />
           </Carousel>
 
-          {/* Dot indicators — aria-label + aria-current added for accessibility */}
+          {/* Dot indicators - aria-label + aria-current added for accessibility */}
           <div className="flex justify-center mt-6 space-x-2">
             {caseVideos.map((video, index) => (
               <button
                 key={index}
-                aria-label={`Go to slide ${index + 1}: ${video.brand} — ${video.title}`}
+                aria-label={`Go to slide ${index + 1}: ${video.brand} - ${video.title}`}
                 aria-current={index === current ? "true" : undefined}
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
                   index === current

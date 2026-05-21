@@ -42,7 +42,7 @@ const formats = [
     id: "snipe",
     name: "Snipe Banner",
     dimensions: "1920 × 250",
-    description: "Horizontal banner that appears at key stream moments — high visibility, low intrusion.",
+    description: "Horizontal banner that appears at key stream moments - high visibility, low intrusion.",
     image: "/lovable-uploads/snipeDemo1.png",
     keyMetric: "3.8%",
     metricLabel: "click-through rate",
@@ -82,7 +82,7 @@ const formats = [
     id: "interactive",
     name: "Interactive",
     dimensions: "1920 × 1080",
-    description: "Clickable overlays viewers engage with directly — tracked in real time.",
+    description: "Clickable overlays viewers engage with directly - tracked in real time.",
     image: "/lovable-uploads/interactiveDemo1.png",
     keyMetric: "5.2×",
     metricLabel: "vs display ads",
@@ -179,7 +179,7 @@ export const SPAdFormats: React.FC = () => {
             Six formats. One platform.
           </h2>
           <p className="text-base font-light leading-relaxed text-muted-foreground">
-            Every format renders natively inside the stream — no pre-rolls, no ad breaks, no adblock.
+            Every format renders natively inside the stream - no pre-rolls, no ad breaks, no adblock.
             Pick what fits your campaign and we handle everything else.
           </p>
         </div>

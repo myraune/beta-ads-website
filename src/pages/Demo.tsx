@@ -97,7 +97,7 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Book a Demo | Beta Ads Livestream Advertising"
-        description="See exactly how native overlay ads work on Twitch, YouTube and Kick. Book a 20-minute demo with our Nordic advertising team — free, no commitment."
+        description="See exactly how native overlay ads work on Twitch, YouTube and Kick. Book a 20-minute demo with our Nordic advertising team - free, no commitment."
         canonical="/demo"
         ogType="website"
         jsonLd={[
@@ -119,7 +119,7 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
           }
         ]}
       />
-      {/* Accessibility fix: Layout.tsx already provides <main> — nested <main> is invalid HTML (WCAG 1.3.6) */}
+      {/* Accessibility fix: Layout.tsx already provides <main> - nested <main> is invalid HTML (WCAG 1.3.6) */}
       <div>
       <section className="pt-32 pb-16 px-6 lg:px-12">
         <div className="max-w-6xl mx-auto">

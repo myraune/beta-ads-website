@@ -141,6 +141,13 @@ export const dashboardTocItems: Record<string, TocItem[]> = {
     { id: 'twitch-native', title: 'Twitchs egne verktøy', level: 2 },
     { id: 'verdict', title: 'Vår anbefaling', level: 2 },
   ],
+  'clip-analytics': [
+    { id: 'overview', title: 'Clip Insights', level: 2 },
+    { id: 'ad-detection-distribution', title: 'Ad Detection', level: 2 },
+    { id: 'brand-safety-distribution', title: 'Brand Safety', level: 2 },
+    { id: 'brand-mention-distribution', title: 'Brand Mention', level: 2 },
+    { id: 'processing', title: 'Clip Processing', level: 2 },
+  ],
   'clipping-economy': [
     { id: 'overview', title: 'By the Numbers', level: 2 },
     { id: 'cpm', title: 'CPM Comparison', level: 2 },

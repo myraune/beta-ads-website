@@ -30,7 +30,7 @@ const CategoryBreakdownSection = () => (
         </BarChart>
       </ResponsiveContainer>
       <p className="text-center text-sm text-muted-foreground mt-4">
-        Just Chatting dominates with 3.8B hours — nearly double the #2 category
+        Just Chatting dominates with 3.8B hours - nearly double the #2 category
       </p>
     </div>
   </div>

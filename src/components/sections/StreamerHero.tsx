@@ -12,7 +12,7 @@ import {
   TrendingDown,
   ArrowUpRight,
 } from "lucide-react";
-import AnimatedShaderBackground from "@/components/ui/animated-shader-background";
+import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 
 /* ── Sponsor offers ── */
 const offers = [
@@ -26,7 +26,7 @@ const offers = [
     preview: "/lovable-uploads/overlay-samsung.webm",
     streamBg: "/lovable-uploads/stream-placeholder.jpg",
     description:
-      "Animated overlay promoting the Samsung Galaxy S25 Ultra. Renders directly in OBS — viewers see it as part of the stream.",
+      "Animated overlay promoting the Samsung Galaxy S25 Ultra. Renders directly in OBS - viewers see it as part of the stream.",
     overlayStyle: "absolute bottom-2 left-2 w-[35%] h-auto rounded shadow-lg",
   },
   {
@@ -213,10 +213,12 @@ const CampaignPreview: React.FC<{
           <div className="text-[9px] lg:text-[10px] text-white/35">{offer.brand} · {offer.format} · {offer.duration}</div>
         </div>
       </div>
-      <div className="text-base lg:text-lg font-bold text-emerald-400 shrink-0">{offer.payout}</div>
+      {/* Hide on mobile: redundant once the user is inside the preview, and squeezes
+          the campaign name to truncate at 375px. */}
+      <div className="hidden sm:block text-base lg:text-lg font-bold text-emerald-400 shrink-0">{offer.payout}</div>
     </div>
 
-    {/* Stream preview — fills remaining space */}
+    {/* Stream preview - fills remaining space */}
     <div className="relative rounded-lg overflow-hidden bg-black flex-1 min-h-0 mb-2">
       {offer.streamBg ? (
         <img src={offer.streamBg} alt="Stream preview" className="w-full h-full object-cover" />
@@ -263,12 +265,12 @@ const EarningsView: React.FC = () => {
         <span className="text-[10px] text-white/30 bg-white/5 px-2 py-0.5 rounded">Last 12 months</span>
       </div>
 
-      {/* Earnings stats — illustrative dashboard only. Real amounts reflect the
+      {/* Earnings stats - illustrative dashboard only. Real amounts reflect the
           offers a streamer has accepted and vary per campaign. */}
       <div className="grid grid-cols-3 gap-2 lg:gap-3 mb-3">
         <div className="bg-white/[0.04] rounded-xl p-3 lg:p-4 border border-white/5">
           <div className="text-[10px] text-white/40 mb-1">Total earned</div>
-          <div className="text-base sm:text-xl lg:text-2xl font-bold text-white tabular-nums">—</div>
+          <div className="text-base sm:text-xl lg:text-2xl font-bold text-white tabular-nums">-</div>
           <div className="flex items-center gap-1 mt-1">
             <TrendingUp className="w-3 h-3 text-emerald-400" />
             <span className="text-[10px] text-emerald-400">Trending up</span>
@@ -276,7 +278,7 @@ const EarningsView: React.FC = () => {
         </div>
         <div className="bg-white/[0.04] rounded-xl p-3 lg:p-4 border border-white/5">
           <div className="text-[10px] text-white/40 mb-1">This month</div>
-          <div className="text-base sm:text-xl lg:text-2xl font-bold text-white tabular-nums">—</div>
+          <div className="text-base sm:text-xl lg:text-2xl font-bold text-white tabular-nums">-</div>
           <div className="flex items-center gap-1 mt-1">
             <TrendingUp className="w-3 h-3 text-emerald-400" />
             <span className="text-[10px] text-emerald-400">On track</span>
@@ -284,7 +286,7 @@ const EarningsView: React.FC = () => {
         </div>
         <div className="bg-white/[0.04] rounded-xl p-3 lg:p-4 border border-white/5">
           <div className="text-[10px] text-white/40 mb-1">Pending</div>
-          <div className="text-base sm:text-xl lg:text-2xl font-bold text-amber-400 tabular-nums">—</div>
+          <div className="text-base sm:text-xl lg:text-2xl font-bold text-amber-400 tabular-nums">-</div>
           <div className="text-[10px] text-white/30 mt-1 truncate">
             <span className="sm:hidden">Next: Apr 1</span>
             <span className="hidden sm:inline">Next payout: Apr 1</span>
@@ -414,15 +416,19 @@ const OffersView: React.FC<{
     {/* Stats row */}
     <div className="grid grid-cols-3 gap-2 lg:gap-4 mb-5 lg:mb-7">
       {[
-        { label: "This month", value: `€${earnings.toLocaleString()}`, color: "text-white", spark: [120, 180, 95, 220, 310, 280, 420], sparkColor: "#E05159" },
-        { label: "Active campaigns", value: "3", color: "text-white", spark: [1, 1, 2, 2, 3, 3, 3], sparkColor: "#5adbb5" },
-        { label: "Impressions", value: "124K", color: "text-white", spark: [8, 12, 9, 15, 18, 14, 21], sparkColor: "#a78bfa" },
+        { label: "This month", shortLabel: "This month", value: `€${earnings.toLocaleString()}`, color: "text-white", spark: [120, 180, 95, 220, 310, 280, 420], sparkColor: "#E05159" },
+        // shortLabel avoids the 2-line wrap "Active\ncampaigns" at 375px, which made this card taller than its siblings.
+        { label: "Active campaigns", shortLabel: "Campaigns", value: "3", color: "text-white", spark: [1, 1, 2, 2, 3, 3, 3], sparkColor: "#5adbb5" },
+        { label: "Impressions", shortLabel: "Impressions", value: "124K", color: "text-white", spark: [8, 12, 9, 15, 18, 14, 21], sparkColor: "#a78bfa" },
       ].map((s) => (
         <div
           key={s.label}
           className="bg-white/[0.04] rounded-xl p-3 lg:p-4 border border-white/5"
         >
-          <div className="text-[10px] lg:text-[11px] text-white/40">{s.label}</div>
+          <div className="text-[10px] lg:text-[11px] text-white/40">
+            <span className="sm:hidden">{s.shortLabel}</span>
+            <span className="hidden sm:inline">{s.label}</span>
+          </div>
           <div className={`text-base lg:text-lg xl:text-xl font-semibold ${s.color} tabular-nums mb-1`}>
             {s.value}
           </div>
@@ -527,7 +533,7 @@ const DashboardMockup: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile tab bar — visible below md, replaces sidebar */}
+      {/* Mobile tab bar - visible below md, replaces sidebar */}
       <div className="flex md:hidden items-center gap-1 px-3 py-2 bg-[#111111] border-b border-white/[0.06]">
         {sidebarItems.map((item) => (
           <button
@@ -545,7 +551,7 @@ const DashboardMockup: React.FC = () => {
         ))}
       </div>
 
-      {/* Dashboard body — sized to fit the tallest view (analytics, with its 2x2 stat grid +
+      {/* Dashboard body - sized to fit the tallest view (analytics, with its 2x2 stat grid +
        * 3-row campaign list) at each breakpoint. Mobile at 540 prevents the last campaign row
        * from clipping at 375px width. */}
       <div className="flex h-[540px] sm:h-[460px] lg:h-[520px] xl:h-[580px] bg-[#0d0d0d]">
@@ -576,7 +582,7 @@ const DashboardMockup: React.FC = () => {
           ))}
         </div>
 
-        {/* Main content — switches based on tab */}
+        {/* Main content - switches based on tab */}
         {activeTab === "offers" && selectedOffer !== null ? (
           <CampaignPreview
             offer={offers[selectedOffer]}
@@ -621,7 +627,7 @@ export const StreamerHero: React.FC = () => (
 
         <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-lg mx-auto mb-9">
           Real brand deals delivered to your dashboard. Accept the ones you
-          like, skip the rest. Ads run natively — you get paid monthly.
+          like, skip the rest. Ads run natively - you get paid monthly.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-4">

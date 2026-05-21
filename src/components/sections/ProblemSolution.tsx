@@ -33,7 +33,7 @@ export const ProblemSolution: React.FC = () => {
               </div>
               <div className="flex items-start gap-4">
                 <Eye className="h-5 w-5 text-primary/60 mt-1 flex-shrink-0" />
-                <p>But they spend 4+ hours daily watching livestreams — fully engaged, fully attentive.</p>
+                <p>But they spend 4+ hours daily watching livestreams - fully engaged, fully attentive.</p>
               </div>
             </div>
           </div>

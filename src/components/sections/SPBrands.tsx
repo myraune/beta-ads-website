@@ -77,7 +77,7 @@ const row1: LogoData[] = [
     src: "/lovable-uploads/logo-glorious.png", alt: "Glorious",
     badge: "case-study",
     caseStudyLink: "/case-study/glorious",
-    quote: "The overlay ads felt completely native to the stream — our audience loved it.",
+    quote: "The overlay ads felt completely native to the stream - our audience loved it.",
     quoteName: "Brand Manager",
     quoteTitle: "Glorious",
   },
@@ -94,7 +94,7 @@ const row2: LogoData[] = [
     src: "/lovable-uploads/logo-gokstad.webp", alt: "Gokstad Akademiet",
     badge: "case-study",
     caseStudyLink: "/case-study/gokstad",
-    quote: "22 creators, 49 categories, 1.22% CTR — native stream ads recruited the next generation of IT students.",
+    quote: "22 creators, 49 categories, 1.22% CTR - native stream ads recruited the next generation of IT students.",
     quoteName: "Recruitment Team",
     quoteTitle: "Gokstad Akademiet",
   },
@@ -283,18 +283,18 @@ const CampaignReportModal: React.FC<{
           {report.chatStats && (
             <div>
               <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-3">Chat Engagement</h4>
-              <div className="flex gap-4 mb-3">
-                <div className="bg-foreground/[0.03] border border-border/30 rounded-xl px-3 py-2">
-                  <p className="text-[10px] text-primary font-medium">Unique Streamers</p>
-                  <p className="text-lg font-bold text-foreground">{report.chatStats.uniqueStreamers}</p>
+              <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-3">
+                <div className="bg-foreground/[0.03] border border-border/30 rounded-xl px-2 sm:px-3 py-2 min-w-0">
+                  <p className="text-[10px] text-primary font-medium truncate">Unique Streamers</p>
+                  <p className="text-base sm:text-lg font-bold text-foreground tabular-nums">{report.chatStats.uniqueStreamers}</p>
                 </div>
-                <div className="bg-foreground/[0.03] border border-border/30 rounded-xl px-3 py-2">
-                  <p className="text-[10px] text-primary font-medium">Unique Chatters</p>
-                  <p className="text-lg font-bold text-foreground">{report.chatStats.uniqueChatters}</p>
+                <div className="bg-foreground/[0.03] border border-border/30 rounded-xl px-2 sm:px-3 py-2 min-w-0">
+                  <p className="text-[10px] text-primary font-medium truncate">Unique Chatters</p>
+                  <p className="text-base sm:text-lg font-bold text-foreground tabular-nums">{report.chatStats.uniqueChatters}</p>
                 </div>
-                <div className="bg-foreground/[0.03] border border-border/30 rounded-xl px-3 py-2">
-                  <p className="text-[10px] text-primary font-medium">Brand Mentions</p>
-                  <p className="text-lg font-bold text-foreground">{report.chatStats.brandMentions.toLocaleString()}</p>
+                <div className="bg-foreground/[0.03] border border-border/30 rounded-xl px-2 sm:px-3 py-2 min-w-0">
+                  <p className="text-[10px] text-primary font-medium truncate">Brand Mentions</p>
+                  <p className="text-base sm:text-lg font-bold text-foreground tabular-nums">{report.chatStats.brandMentions.toLocaleString()}</p>
                 </div>
               </div>
               {report.chatKeywords && (
@@ -366,13 +366,13 @@ const LogoWithBadge: React.FC<{
       {logo.badge && (
         <button
           onClick={hasAction ? handleClick : undefined}
-          className="mt-1.5 px-2 py-0.5 rounded-full text-[9px] font-semibold tracking-wide transition-[transform,opacity,background-color] duration-200 hover:scale-105 bg-primary text-white border-none cursor-pointer"
+          className="mt-1.5 inline-flex items-center px-2.5 py-1 sm:py-0.5 min-h-[24px] sm:min-h-0 rounded-full text-[9px] font-semibold tracking-wide transition-[transform,opacity,background-color] duration-200 hover:scale-105 bg-primary text-white border-none cursor-pointer"
         >
           {badgeLabels[logo.badge]}
         </button>
       )}
 
-      {/* Hover tooltip — shows quote + CTA for case studies */}
+      {/* Hover tooltip - shows quote + CTA for case studies */}
       {isHovered && logo.quote && (
         <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-56 p-3 rounded-xl bg-card border border-border shadow-xl z-50 pointer-events-none animate-fade-in">
           <p className="text-[11px] text-muted-foreground leading-relaxed italic mb-2">
@@ -380,7 +380,7 @@ const LogoWithBadge: React.FC<{
           </p>
           {logo.quoteName && (
             <p className="text-[10px] text-foreground font-medium">
-              — {logo.quoteName}, {logo.quoteTitle}
+              - {logo.quoteName}, {logo.quoteTitle}
             </p>
           )}
           {logo.caseStudyLink && (
@@ -468,7 +468,7 @@ export const SPBrands: React.FC = () => {
         <div
           className={`transition-opacity duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}
         >
-          {/* SEO fix: h2 instead of p for proper heading hierarchy — visually unchanged */}
+          {/* SEO fix: h2 instead of p for proper heading hierarchy - visually unchanged */}
           <h2 className="text-center text-xs font-medium text-muted-foreground mb-4 tracking-widest uppercase">
             Trusted by 50+ brands & agencies
           </h2>

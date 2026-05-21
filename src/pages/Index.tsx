@@ -30,6 +30,7 @@ const Index: React.FC = () => {
             "@id": "https://beta-ads.no/#organization",
             name: "Beta Ads",
             legalName: "Beta Agency AS",
+            alternateName: ["Beta Ads Nordic", "Beta Ads Norway", "Beta Ads Norge"],
             url: "https://beta-ads.no",
             logo: {
               "@type": "ImageObject",
@@ -39,25 +40,39 @@ const Index: React.FC = () => {
             },
             description: "Native advertising platform for Twitch, YouTube and Kick livestreams in the Nordics. Overlay ads that bypass adblock and deliver 3-5x higher engagement.",
             foundingDate: "2023",
+            slogan: "Your brand, live on Twitch – without interruptions",
             address: {
               "@type": "PostalAddress",
               addressLocality: "Oslo",
+              addressRegion: "Oslo",
               addressCountry: "NO",
             },
             areaServed: [
-              { "@type": "Country", name: "Norway" },
-              { "@type": "Country", name: "Sweden" },
-              { "@type": "Country", name: "Finland" },
-              { "@type": "Country", name: "Denmark" },
+              { "@type": "Country", name: "Norway", alternateName: "Norge" },
+              { "@type": "Country", name: "Sweden", alternateName: "Sverige" },
+              { "@type": "Country", name: "Finland", alternateName: "Suomi" },
+              { "@type": "Country", name: "Denmark", alternateName: "Danmark" },
             ],
             sameAs: [
               "https://www.linkedin.com/company/beta-nordic/",
               "https://discord.gg/tSmM6XMEkn",
+              "https://www.instagram.com/betaadsofficial",
+              "https://twitter.com/betaads",
             ],
             contactPoint: {
               "@type": "ContactPoint",
               email: "hello@betaads.no",
-              contactType: "sales",
+              telephone: "+47-46195548",
+              contactType: "Customer Service",
+              areaServed: ["NO", "SE", "DK", "FI"],
+              availableLanguage: ["Norwegian", "English", "Swedish", "Danish", "Finnish"],
+            },
+            founder: {
+              "@type": "Person",
+              "@id": "https://beta-ads.no/#founder",
+              name: "Andreas Myraune",
+              jobTitle: "Founder & CEO",
+              sameAs: ["https://www.linkedin.com/in/andreasmyraune"],
             },
           },
           {
@@ -80,17 +95,17 @@ const Index: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "FAQPage",
             mainEntity: [
-              { "@type": "Question", name: "How is this different from Twitch's own ads?", acceptedAnswer: { "@type": "Answer", text: "Twitch's native ads are pre-rolls and mid-rolls that viewers skip or block with adblock. Our overlay ads are built directly into the stream itself — they bypass adblock entirely and feel like part of the content, not an interruption." } },
-              { "@type": "Question", name: "What's the minimum campaign budget?", acceptedAnswer: { "@type": "Answer", text: "Campaign budgets vary based on reach, duration, and market. Contact us directly for a custom quote — we'll match the right streamers and format to your goals and budget." } },
+              { "@type": "Question", name: "How is this different from Twitch's own ads?", acceptedAnswer: { "@type": "Answer", text: "Twitch's native ads are pre-rolls and mid-rolls that viewers skip or block with adblock. Our overlay ads are built directly into the stream itself - they bypass adblock entirely and feel like part of the content, not an interruption." } },
+              { "@type": "Question", name: "What's the minimum campaign budget?", acceptedAnswer: { "@type": "Answer", text: "Campaign budgets vary based on reach, duration, and market. Contact us directly for a custom quote - we'll match the right streamers and format to your goals and budget." } },
               { "@type": "Question", name: "How do you ensure brand safety?", acceptedAnswer: { "@type": "Answer", text: "Every streamer in our network is vetted and approved. We monitor streams in real-time and have content guidelines in place. You approve every streamer before your campaign goes live." } },
               { "@type": "Question", name: "What metrics and reporting do I get?", acceptedAnswer: { "@type": "Answer", text: "You get real-time access to impressions, CTR, viewership data, and engagement metrics through our dashboard. Weekly reports are delivered during active campaigns with actionable insights." } },
               { "@type": "Question", name: "Can I target specific games or audiences?", acceptedAnswer: { "@type": "Answer", text: "Yes. You can target by game category, streamer demographics, viewer location (country-level), streaming schedule, and audience size. We help you find the right streamers for your brand." } },
-              { "@type": "Question", name: "How quickly can a campaign go live?", acceptedAnswer: { "@type": "Answer", text: "From brief to broadcast in as little as 5 business days. We handle creative production, streamer matching, and deployment — you just approve the final artwork and streamer list." } },
+              { "@type": "Question", name: "How quickly can a campaign go live?", acceptedAnswer: { "@type": "Answer", text: "From brief to broadcast in as little as 5 business days. We handle creative production, streamer matching, and deployment - you just approve the final artwork and streamer list." } },
             ],
           },
         ]}
       />
-      {/* Accessibility fix: Layout.tsx already provides <main> — nested <main> is invalid HTML (WCAG 1.3.6) */}
+      {/* Accessibility fix: Layout.tsx already provides <main> - nested <main> is invalid HTML (WCAG 1.3.6) */}
       <div className="min-h-screen">
         <SPHero />
         <SPBrands />

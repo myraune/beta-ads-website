@@ -40,7 +40,7 @@ const tools: Tool[] = [
     icon: '/lovable-uploads/icon-twitchtracker.png',
     badge: 'Mest brukt',
     badgeColor: 'bg-blue-500/15 text-blue-400 border-blue-500/20',
-    tagline: 'Den mest brukte gratisplattformen for Twitch-statistikk. Skriv inn et kanalnavn i URL-en og få umiddelbar tilgang til 9+ år med data — ingen innlogging, ingen paywall.',
+    tagline: 'Den mest brukte gratisplattformen for Twitch-statistikk. Skriv inn et kanalnavn i URL-en og få umiddelbar tilgang til 9+ år med data - ingen innlogging, ingen paywall.',
     bestFor: 'Rask research og verifisering av individuelle streamere',
     pricing: 'Gratis',
     pricingColor: 'text-emerald-500 bg-emerald-500/10',
@@ -56,16 +56,16 @@ const tools: Tool[] = [
     freeVersion: true,
     screenshot: '/lovable-uploads/screenshot-twitchtracker-channel.jpg',
     screenshotAlt: 'TwitchTracker kanaloversikt med seertall og trender over tid',
-    keyDifferentiator: 'Raskeste vei fra spørsmål til svar. Null innlogging — bare skriv kanalnavnet i URL-en.',
+    keyDifferentiator: 'Raskeste vei fra spørsmål til svar. Null innlogging - bare skriv kanalnavnet i URL-en.',
     strengths: [
-      'Raskeste veien til data — null innlogging, bare skriv kanalnavnet i URL-en',
-      'Dypest historisk data — 9+ år per kanal',
+      'Raskeste veien til data - null innlogging, bare skriv kanalnavnet i URL-en',
+      'Dypest historisk data - 9+ år per kanal',
       'Rent, raskt UI uten paywall for kjernedata',
       'Daglige/ukentlige/månedlige trendgrafer for enhver kanal',
       'Global Twitch-statistikk: samtidige seere, aktive kanaler, mest sette spill',
     ],
     weaknesses: [
-      'Kun Twitch — ingen YouTube, Kick eller Facebook Gaming',
+      'Kun Twitch - ingen YouTube, Kick eller Facebook Gaming',
       'Ingen annonserelaterte funksjoner',
       'Begrenset demografisk data (kun språk)',
       'Ingen eksport til CSV/PDF eller rapportfunksjon',
@@ -77,7 +77,7 @@ const tools: Tool[] = [
     icon: '/lovable-uploads/icon-sullygnome.png',
     badge: 'Best for rapporter',
     badgeColor: 'bg-amber-500/15 text-amber-400 border-amber-500/20',
-    tagline: 'Det mest granulære analyseverktøyet med kraftige eksport- og rapportfunksjoner. Last ned detaljerte CSV-rapporter for enhver kanal, kategori eller tidsperiode — helt gratis.',
+    tagline: 'Det mest granulære analyseverktøyet med kraftige eksport- og rapportfunksjoner. Last ned detaljerte CSV-rapporter for enhver kanal, kategori eller tidsperiode - helt gratis.',
     bestFor: 'Nedlasting av detaljerte rapporter og dypdykk i kategoridata',
     pricing: 'Gratis',
     pricingColor: 'text-emerald-500 bg-emerald-500/10',
@@ -95,14 +95,14 @@ const tools: Tool[] = [
     screenshotAlt: 'SullyGnome avansert kanalrangering med filtrering og statistikk',
     keyDifferentiator: 'Eneste gratisverktøy med CSV-eksport og tilpassbare rapporter. Uslåelig for research.',
     strengths: [
-      'Best på rapporter — last ned CSV med detaljerte data for enhver kanal eller kategori',
+      'Best på rapporter - last ned CSV med detaljerte data for enhver kanal eller kategori',
       'Mest granulære kategori/spill-analytics på markedet',
       'Sammenlign flere streamere side-by-side med egendefinerte datoer',
       'Stream-for-stream data: seere, chat-rate, spillbytter, klipp',
       'Avanserte filtre: språk, seerrange, sendeplan-overlap',
     ],
     weaknesses: [
-      'Utdatert UI — bratt læringskurve for nye brukere',
+      'Utdatert UI - bratt læringskurve for nye brukere',
       'Ikke sanntidsdata; oppdateres ca. hvert 15. minutt',
       'Kun Twitch, ingen multi-plattform-støtte',
       'Ingen API for programmatisk tilgang',
@@ -114,8 +114,8 @@ const tools: Tool[] = [
     icon: '/lovable-uploads/icon-streamscharts.png',
     badge: 'Mest komplett',
     badgeColor: 'bg-primary/15 text-primary border-primary/20',
-    tagline: 'Det absolutt beste analyseverktøyet for live streaming — og det eneste som tracker Twitch, YouTube, Kick, Trovo og CHZZK simultant. Avanserte filtre, regional data, esports-tracking, og API-tilgang.',
-    bestFor: 'Komplett analyse på tvers av alle plattformer — den ultimate løsningen',
+    tagline: 'Det absolutt beste analyseverktøyet for live streaming - og det eneste som tracker Twitch, YouTube, Kick, Trovo og CHZZK simultant. Avanserte filtre, regional data, esports-tracking, og API-tilgang.',
+    bestFor: 'Komplett analyse på tvers av alle plattformer - den ultimate løsningen',
     pricing: '$29–99/mnd (Pro/Enterprise)',
     pricingColor: 'text-primary bg-primary/10',
     coverage: 'Twitch, YouTube, Kick, Trovo, CHZZK',
@@ -130,17 +130,17 @@ const tools: Tool[] = [
     freeVersion: true,
     screenshot: '/lovable-uploads/screenshot-streamscharts.jpg',
     screenshotAlt: 'Streams Charts multi-plattform kanalrangering',
-    keyDifferentiator: 'Uslåelig bredde: 5+ plattformer, regional data, esports events, API — alt i ett.',
+    keyDifferentiator: 'Uslåelig bredde: 5+ plattformer, regional data, esports events, API - alt i ett.',
     strengths: [
       'Eneste verktøy som tracker 5+ streaming-plattformer simultant',
       'Mest avanserte filtreringssystem: land, språk, kategori, viewers',
       'Utmerket esports-event tracking med peak concurrent viewers',
       'Regionale breakdowns: se hvor en streamers publikum faktisk er',
-      'API-tilgang for Pro-abonnenter — integrer i egne systemer',
+      'API-tilgang for Pro-abonnenter - integrer i egne systemer',
       'Influencer-discovery: finn streamere basert på nøyaktige kriterier',
     ],
     weaknesses: [
-      'Dyrt — Pro starter på $29/mnd, Enterprise fra $99/mnd',
+      'Dyrt - Pro starter på $29/mnd, Enterprise fra $99/mnd',
       'Gratis tier begrenser historisk data til 90 dager',
       'Kortere historikk enn TwitchTracker/SullyGnome (fra 2019)',
     ],
@@ -151,7 +151,7 @@ const tools: Tool[] = [
     icon: '/lovable-uploads/icon-streamhatchet.png',
     badge: 'Enterprise',
     badgeColor: 'bg-violet-500/15 text-violet-400 border-violet-500/20',
-    tagline: 'Enterprise-analytics bygget for merkevarer og byråer. Logo-deteksjon via AI, sponsorverdivurdering og custom rapporter. Ikke et streamer-verktøy — bygget for annonsører.',
+    tagline: 'Enterprise-analytics bygget for merkevarer og byråer. Logo-deteksjon via AI, sponsorverdivurdering og custom rapporter. Ikke et streamer-verktøy - bygget for annonsører.',
     bestFor: 'Store merkevarer og byråer med behov for logo-deteksjon og sponsormåling',
     pricing: 'Enterprise (custom)',
     pricingColor: 'text-violet-400 bg-violet-500/10',
@@ -167,7 +167,7 @@ const tools: Tool[] = [
     freeVersion: false,
     screenshot: '/lovable-uploads/screenshot-streamhatchet.jpg',
     screenshotAlt: 'Stream Hatchet enterprise streaming analytics plattform',
-    keyDifferentiator: 'AI-drevet logo-deteksjon og automatisk sponsorverdivurdering — unikt i markedet.',
+    keyDifferentiator: 'AI-drevet logo-deteksjon og automatisk sponsorverdivurdering - unikt i markedet.',
     strengths: [
       'AI-drevet logo-deteksjon: track organisk merkevare-eksponering automatisk',
       'Sponsorverdivurdering: mediaverdi-estimater per time og kampanje',
@@ -175,7 +175,7 @@ const tools: Tool[] = [
       'Multi-plattform dekning inkludert Facebook Gaming',
     ],
     weaknesses: [
-      'Ingen gratis tier — krever enterprise-kontrakt',
+      'Ingen gratis tier - krever enterprise-kontrakt',
       'Overkill for små merkevarer eller enkeltkampanjer',
       'Kompleks onboarding; ikke self-serve',
       'Prisinformasjon ikke offentlig tilgjengelig',
@@ -207,7 +207,7 @@ const tools: Tool[] = [
     strengths: [
       'Eneste verktøy bygget spesifikt for overlay-annonsemåling',
       'Sanntids impression- og engagement-data per stream',
-      'Nordisk publikumsverifikasjon — bekreft at du når NO/SE/FI/DK',
+      'Nordisk publikumsverifikasjon - bekreft at du når NO/SE/FI/DK',
       'Integrert streamer-valg + kampanjerapportering i ett system',
     ],
     weaknesses: [
@@ -499,7 +499,7 @@ export default function TwitchAnalyticsToolsDashboard() {
               Tradisjonell digital annonsering gir deg CPM, CTR og konverteringer. Livestreaming er fundamentalt annerledes: seertall svinger fra time til time, engasjement avhenger av hva streameren spiller, og publikum reagerer i sanntid.
             </p>
             <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
-              De riktige verktøyene lar deg gå fra magefølelse til datadrevne beslutninger. Vi har testet alle de store plattformene daglig — her er vår ærlige vurdering.
+              De riktige verktøyene lar deg gå fra magefølelse til datadrevne beslutninger. Vi har testet alle de store plattformene daglig - her er vår ærlige vurdering.
             </p>
           </div>
           <div className="lg:col-span-2 grid grid-cols-2 gap-3">
@@ -721,7 +721,7 @@ export default function TwitchAnalyticsToolsDashboard() {
               Twitch tilbyr et innebygd analyseverktøy gjennom <strong>Creator Dashboard</strong>. Her finner streamere data om gjennomsnittlige samtidige seere, unike seere per stream, chat-aktivitet og følgervekst.
             </p>
             <p className="text-base text-foreground/80 leading-relaxed">
-              Dataene er nøyaktige fordi de kommer direkte fra Twitch. Problemet: de er bare tilgjengelig for streameren selv. Som annonsør må du be streameren dele tallene manuelt — og det gjør objektiv sammenligning vanskelig.
+              Dataene er nøyaktige fordi de kommer direkte fra Twitch. Problemet: de er bare tilgjengelig for streameren selv. Som annonsør må du be streameren dele tallene manuelt - og det gjør objektiv sammenligning vanskelig.
             </p>
           </div>
           <div className="bg-card/30 border border-border/30 rounded-xl p-5">
@@ -781,7 +781,7 @@ export default function TwitchAnalyticsToolsDashboard() {
               <div className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">For nordiske kampanjer</div>
               <p className="text-base text-foreground font-semibold mb-2">Beta Ads Dashboard</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
-                Hvis du kjører native overlay ads i Norden, gir Beta Ads det mest relevante datasettet — impressions, engagement, og nordisk publikumsverifikasjon.
+                Hvis du kjører native overlay ads i Norden, gir Beta Ads det mest relevante datasettet - impressions, engagement, og nordisk publikumsverifikasjon.
               </p>
             </div>
           </div>

@@ -8,7 +8,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
 /**
- * Dedicated Norwegian-market landing page — serves as the geo-targeted hub
+ * Dedicated Norwegian-market landing page - serves as the geo-targeted hub
  * for Norwegian organic traffic, Norwegian paid-search landings, and the
  * x-default fallback for Google's hreflang graph. Content is fully in
  * Norwegian (bokmål) so the page reads as native to the local market rather
@@ -18,7 +18,7 @@ const serifFont = { fontFamily: "'Instrument Serif', serif" };
 const stats = [
   { value: "39 000+", label: "Aktive norske streamere" },
   { value: "800 000+", label: "Verifiserte visninger (Samsung)" },
-  { value: "2.93%", label: "CTR — Galaxy S25 Ultra" },
+  { value: "2.93%", label: "CTR - Galaxy S25 Ultra" },
   { value: "0%", label: "Adblock-impact" },
 ];
 
@@ -62,7 +62,7 @@ const norwegianCaseStudies = [
   {
     brand: "NKI",
     slug: "/case-study/nki",
-    tagline: "Interaktiv quiz — «Hva slags type student er du?»",
+    tagline: "Interaktiv quiz - «Hva slags type student er du?»",
     headline: "220 003 visninger · 1 595 klikk · 19 streamere",
     accent: "#5C2D56",
     logo: "/lovable-uploads/logo-nki.svg",
@@ -80,7 +80,7 @@ const norwegianCaseStudies = [
   {
     brand: "Saily",
     slug: "/case-study/saily",
-    tagline: "eSIM-launch — reisepublikum",
+    tagline: "eSIM-launch - reisepublikum",
     headline: "102 794 visninger · 1.08% verifisert CTR",
     accent: "#7B4DFF",
     logo: "/lovable-uploads/logo-saily.png",
@@ -102,12 +102,12 @@ const norwegianBlogPosts = [
   {
     slug: "gaming-markedsforing-forste-kampanje-guide",
     title: "Gaming-markedsføring for merkevarer: Slik lager du din første Twitch-kampanje",
-    desc: "Fra brief til live-publisering — en steg-for-steg-guide.",
+    desc: "Fra brief til live-publisering - en steg-for-steg-guide.",
   },
   {
     slug: "medieplanlegging-twitch-nordisk-mediemiks",
     title: "Medieplanlegging for Twitch: Integrer livestreaming i mediemiksen",
-    desc: "Hvor passer livestream inn — og hvordan beregner du effekt mot TV, YouTube og display?",
+    desc: "Hvor passer livestream inn - og hvordan beregner du effekt mot TV, YouTube og display?",
   },
   {
     slug: "merkevarer-utenfor-gaming-twitch-annonsering",
@@ -142,7 +142,7 @@ const Norge: React.FC = () => {
           {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            name: "Twitch-annonsering i Norge — Beta Ads",
+            name: "Twitch-annonsering i Norge - Beta Ads",
             description:
               "Norsk markeds-landingsside for native Twitch-annonsering. Verifiserte kampanjer for Samsung, Shure, Komplett, Kristiania og NKI.",
             url: "https://beta-ads.no/norge",
@@ -222,13 +222,13 @@ const Norge: React.FC = () => {
               Samsung, Shure, Komplett, Høyskolen Kristiania, NKI og Gokstad
               Akademiet har alle kjørt Twitch-kampanjer gjennom Beta Ads med
               verifisert rapportering på visninger og klikk. Vi kjører native
-              overlay-annonser på 39 000+ aktive norske streamere — kampanjer
+              overlay-annonser på 39 000+ aktive norske streamere - kampanjer
               som også overlever adblock.
             </p>
             <p className="text-lg lg:text-xl text-muted-foreground/70 leading-relaxed">
               Det norske 18–34-segmentet ser mer Twitch per dag enn de ser
               lineær-TV. Vi er den eneste plattformen bygget for å levere den
-              målgruppen native inne i selve streamen — uten ekstern video-
+              målgruppen native inne i selve streamen - uten ekstern video-
               pre-roll som blir skippet eller blokkert.
             </p>
           </div>
@@ -441,7 +441,7 @@ const Norge: React.FC = () => {
                 Vi booker 4–6 uker i forveien i de mest ettertraktede vinduene
                 (Black Friday, Nordic Game, juleuka). Bestill en 20-minutters
                 konsultasjon så tar vi en gjennomgang av kategori, brief og
-                anslått leveranse — og kommer tilbake med et skreddersydd
+                anslått leveranse - og kommer tilbake med et skreddersydd
                 forslag innen 24 timer.
               </p>
             </div>

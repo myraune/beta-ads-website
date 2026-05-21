@@ -8,10 +8,10 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
  * Data sourced from `komplett-manedens-gaming-deal-report-01-05-2025.pdf`
  * (Drive). Komplett's monthly Gaming Deal tactical campaign, Apr 14–30 2025.
  * Komplett is Norway's #3 electronics retailer, leaning into "the home for
- * gamers" positioning — see WAL brief in Drive (`Brief - Komplett 2025.pdf`).
+ * gamers" positioning - see WAL brief in Drive (`Brief - Komplett 2025.pdf`).
  */
 const BRAND = {
-  // Komplett brand — signature orange
+  // Komplett brand - signature orange
   primary: "#ff6600",
   secondary: "#00b4ff",
   glow: "rgba(255,102,0,0.18)",
@@ -110,7 +110,7 @@ const KomplettCaseStudy: React.FC = () => {
               </span>
             </h1>
             <p className="text-lg text-white/60 leading-relaxed max-w-xl">
-              Tactical monthly deal-driver for Norway's #3 electronics retailer — peak
+              Tactical monthly deal-driver for Norway's #3 electronics retailer - peak
               4.48% CTR, 1,768 verified clicks, and 19h 40m of artwork-on-screen time
               across 34 Norwegian gaming streamers.
             </p>
@@ -137,7 +137,7 @@ const KomplettCaseStudy: React.FC = () => {
             The creative
           </span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-8 max-w-2xl">
-            Månedens Gaming Deal — 30s overlay creative
+            Månedens Gaming Deal - 30s overlay creative
           </h2>
           <div className="grid md:grid-cols-2 gap-6 max-w-5xl">
             <div
@@ -161,7 +161,7 @@ const KomplettCaseStudy: React.FC = () => {
             >
               <img
                 src="/lovable-uploads/case-studies/komplett-preview.jpg"
-                alt="Komplett Månedens Gaming Deal — static preview"
+                alt="Komplett Månedens Gaming Deal - static preview"
                 className="w-full h-auto"
                 loading="lazy"
                 decoding="async"
@@ -169,8 +169,8 @@ const KomplettCaseStudy: React.FC = () => {
             </div>
           </div>
           <p className="text-xs text-muted-foreground mt-4 max-w-3xl">
-            Same creative deployed to both Twitch and Kick — same chat-pinned deeplink,
-            same brand-consistent orange — for full-audience Norwegian coverage of the
+            Same creative deployed to both Twitch and Kick - same chat-pinned deeplink,
+            same brand-consistent orange - for full-audience Norwegian coverage of the
             monthly deal.
           </p>
         </div>
@@ -195,7 +195,7 @@ const KomplettCaseStudy: React.FC = () => {
                 Win clicks in a category where customer loyalty is essentially zero
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                Norwegian electronics buyers are notoriously disloyal — every purchase
+                Norwegian electronics buyers are notoriously disloyal - every purchase
                 gets won fresh in a brutal price-comparison environment. Komplett's 2025
                 strategy (per the WAL brief) calls for being "continuously present with
                 tactical campaigns that deliver clicks and conversion" to a 20–50
@@ -203,7 +203,7 @@ const KomplettCaseStudy: React.FC = () => {
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
                 The Månedens Gaming Deal needed to drive deal-page traffic from gamers
-                already shopping mentally — and do it at a CPM that respects Komplett's
+                already shopping mentally - and do it at a CPM that respects Komplett's
                 lean media budget vs. the bigger competitors.
               </p>
             </div>
@@ -212,7 +212,7 @@ const KomplettCaseStudy: React.FC = () => {
                 { label: "Market", value: "🇳🇴 Norway (95.8% viewership)" },
                 { label: "Format", value: "Rich Media Overlay" },
                 { label: "Run", value: "Apr 14 – Apr 30 2025 (17 days)" },
-                { label: "Best day", value: "Apr 14 — 4,126 views, 4.48% CTR" },
+                { label: "Best day", value: "Apr 14 - 4,126 views, 4.48% CTR" },
                 { label: "Audience", value: "58% age 18–24, 42% age 25–34, male 100%" },
                 { label: "Platforms", value: "Twitch + Kick" },
               ].map((row) => (
@@ -249,8 +249,8 @@ const KomplettCaseStudy: React.FC = () => {
               17 days, 34 creators, 4.48% peak-day verified CTR
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-12">
-              Beta concentrated the run inside Norwegian gaming-adjacent streams — with
-              over half of all screen time landing inside Just Chatting — where deal
+              Beta concentrated the run inside Norwegian gaming-adjacent streams - with
+              over half of all screen time landing inside Just Chatting - where deal
               messaging gets discussed organically and the chat-pinned link converts at
               its highest rate.
             </p>
@@ -263,10 +263,10 @@ const KomplettCaseStudy: React.FC = () => {
                 <div className="space-y-3">
                   {[
                     { name: "rubengks", views: "41,099", clicks: "169", avgViewers: "326" },
-                    { name: "Danniz", views: "—", clicks: "—", avgViewers: "—" },
-                    { name: "Linnea", views: "—", clicks: "—", avgViewers: "—" },
-                    { name: "forstegir", views: "—", clicks: "—", avgViewers: "—" },
-                    { name: "AndersMish", views: "—", clicks: "—", avgViewers: "—" },
+                    { name: "Danniz", views: "-", clicks: "-", avgViewers: "-" },
+                    { name: "Linnea", views: "-", clicks: "-", avgViewers: "-" },
+                    { name: "forstegir", views: "-", clicks: "-", avgViewers: "-" },
+                    { name: "AndersMish", views: "-", clicks: "-", avgViewers: "-" },
                   ].map((s, i) => (
                     <div
                       key={s.name}
@@ -278,7 +278,7 @@ const KomplettCaseStudy: React.FC = () => {
                         </span>
                         <span className="text-sm font-semibold text-foreground">{s.name}</span>
                       </div>
-                      {s.views !== "—" && (
+                      {s.views !== "-" && (
                         <span className="text-xs text-muted-foreground tabular-nums">
                           {s.views} views · {s.clicks} clicks
                         </span>
@@ -313,7 +313,7 @@ const KomplettCaseStudy: React.FC = () => {
             </div>
 
             <p className="text-sm text-muted-foreground max-w-2xl">
-              Just Chatting at 53% is unusually high for a tactical retail campaign — but
+              Just Chatting at 53% is unusually high for a tactical retail campaign - but
               that's exactly where the streamer's audience is most attentive, and where
               "this month's deal" registers as recommendation rather than ad.
             </p>
@@ -431,7 +431,7 @@ const KomplettCaseStudy: React.FC = () => {
                   <div className="text-xl font-semibold text-foreground">High intent</div>
                 </div>
                 <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
-                  Komplett's gaming audience is already in purchase-consideration mode —
+                  Komplett's gaming audience is already in purchase-consideration mode -
                   overlay delivers the deal in-stream, not on a comparison page.
                 </p>
               </div>
@@ -479,12 +479,12 @@ const KomplettCaseStudy: React.FC = () => {
                 Impact
               </span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
-                4.48% peak-day CTR — 10× the typical retail display benchmark
+                4.48% peak-day CTR - 10× the typical retail display benchmark
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
                 Komplett's tactical Gaming Deal hit 4.48% verified CTR on launch day
                 (Apr 14) and held a strong 1.17% verified average through the 17-day
-                run. 1,768 verified clicks landed deal-page traffic where it counts —
+                run. 1,768 verified clicks landed deal-page traffic where it counts -
                 and 4,298 unverified clicks indicate substantial brand-aware interest
                 even before deduplication.
               </p>

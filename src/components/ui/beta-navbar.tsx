@@ -25,7 +25,7 @@ import { Button } from "@/components/ui/button";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { useState, useCallback, useEffect, useRef } from "react";
 
-/* ── Product dropdown items — scroll to homepage sections ── */
+/* ── Product dropdown items - scroll to homepage sections ── */
 const productItems = [
   {
     icon: Layers,
@@ -108,7 +108,7 @@ export function BetaNavbar() {
   const aboutDropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
-  // When not scrolled and on homepage, navbar sits over the dark hero bg — use white text
+  // When not scrolled and on homepage, navbar sits over the dark hero bg - use white text
   const isOnHero = !scrolled && location.pathname === "/";
   const navigate = useNavigate();
 
@@ -209,7 +209,7 @@ export function BetaNavbar() {
             />
           </button>
 
-          {/* Dropdown panel — Tailwind's CSS-variable-based transform
+          {/* Dropdown panel - Tailwind's CSS-variable-based transform
            * utilities don't reliably transition with class toggles (computed
            * transform gets stuck at the initial matrix even when class flips
            * to scale-100). Use inline styles for transform+opacity instead. */}
@@ -295,7 +295,7 @@ export function BetaNavbar() {
             />
           </button>
 
-          {/* Dropdown panel — inline styles for reliable transition
+          {/* Dropdown panel - inline styles for reliable transition
            * (see matching comment on Product dropdown above). */}
           <div
             className="absolute top-full right-0 mt-2 w-72 rounded-2xl border border-border/50 bg-background/95 backdrop-blur-xl shadow-xl shadow-black/[0.12] origin-top"
@@ -375,7 +375,11 @@ export function BetaNavbar() {
               : "bg-transparent"
           )}
         >
-          <Link to="/" className="flex items-center">
+          <Link
+            to="/"
+            aria-label="Beta Ads - Home"
+            className="flex items-center min-h-[44px] min-w-[44px] -ml-2 px-2 sm:m-0 sm:p-0 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+          >
             <img
               src="/lovable-uploads/favicon.png"
               alt="Beta Ads"
@@ -400,7 +404,7 @@ export function BetaNavbar() {
           </div>
         </div>
 
-        {/* Mobile dropdown — wrapped in <nav> for screen reader landmark support.
+        {/* Mobile dropdown - wrapped in <nav> for screen reader landmark support.
          * motion-safe gate on the transition: under prefers-reduced-motion
          * Chromium pauses CSS transitions on max-height/opacity at
          * currentTime=0, which leaves the menu stuck closed on first click.

@@ -31,7 +31,7 @@ export function DraggableRope({
 }: DraggableRopeProps) {
   const ropeRef = useRef<HTMLDivElement>(null);
   const swingAnimationRef = useRef<gsap.core.Tween | null>(null);
-  // `gravity` is accepted for backwards-compat but no longer used — the new
+  // `gravity` is accepted for backwards-compat but no longer used - the new
   // model uses multiplicative damping (see DAMPING below).
   void gravity;
 
@@ -81,7 +81,7 @@ export function DraggableRope({
     // Kick off initial idle sway
     swingTo(-initialAngle, true);
 
-    // Make Rope Draggable (no `inertia` — that requires GSAP's paid
+    // Make Rope Draggable (no `inertia` - that requires GSAP's paid
     // InertiaPlugin which isn't registered; silently ignored otherwise)
     const draggable = Draggable.create(rope, {
       type: "rotation",

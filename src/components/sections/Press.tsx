@@ -24,14 +24,14 @@ const pressArticles: PressArticle[] = [
     subtitle: "Nå får han polske tech-krefter i ryggen",
     publication: "Kampanje",
     url: "https://kampanje.com/premium/september-2024/innsikt/andreas-21-satser-pa-eget-twtich-byra--na-far-han-polske-tech-krefter-i-ryggen---har-lagt-grunnlaget-na/",
-    image: "/lovable-uploads/press-kampanje-startup.png",
+    image: "/lovable-uploads/press-kampanje-startup.jpg",
   },
   {
     title: "Ny kanal for mediekjøp",
     subtitle: "Beta er Norges nye Twitch-byrå",
     publication: "Kom24",
     url: "https://www.kom24.no/andreas-myraune-beta-influensere/ny-kanal-for-mediekjop-beta-er-norges-nye-twitch-byra/730424",
-    image: "/lovable-uploads/press-kom24-twitch.png",
+    image: "/lovable-uploads/press-kom24-twitch.jpg",
   },
   {
     title: "Instreamly og Beta inngår partnerskap",
@@ -51,7 +51,7 @@ const PressCard: React.FC<{ article: PressArticle; t: any }> = ({ article, t }) 
       href={article.url}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`${article.title} — ${article.publication}`}
+      aria-label={`${article.title} - ${article.publication}`}
       className="flex-shrink-0 w-[280px] sm:w-[340px] lg:w-[400px] group cursor-pointer"
     >
       <div className="relative rounded-xl overflow-hidden bg-card/50 backdrop-blur-sm shadow-lg shadow-black/10 transition-[box-shadow,background-color] duration-500 group-hover:shadow-xl group-hover:shadow-primary/15">
@@ -142,7 +142,7 @@ export const Press: React.FC<PressProps> = ({ t }) => {
           {pressArticles.map((article, index) => (
             <PressCard key={`press-${index}`} article={article} t={t} />
           ))}
-          {/* Duplicate for seamless loop — hidden from screen readers to avoid repeated announcements */}
+          {/* Duplicate for seamless loop - hidden from screen readers to avoid repeated announcements */}
           <div aria-hidden="true" className="contents">
             {pressArticles.map((article, index) => (
               <PressCard key={`press-dup-${index}`} article={article} t={t} />

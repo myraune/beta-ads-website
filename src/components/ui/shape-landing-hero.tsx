@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 /**
- * ElegantShape — animated floating pill/ellipse.
+ * ElegantShape - animated floating pill/ellipse.
  * Place inside a relative container with overflow-hidden.
  */
 export function ElegantShape({
@@ -61,9 +61,9 @@ export function ElegantShape({
 }
 
 /**
- * GeometricBackground — drop this inside a `relative overflow-hidden`
+ * GeometricBackground - drop this inside a `relative overflow-hidden`
  * wrapper. It renders floating shapes tuned to Beta Ads brand colors.
- * Entirely decorative — pointer-events: none on all children.
+ * Entirely decorative - pointer-events: none on all children.
  */
 export function GeometricBackground() {
   return (

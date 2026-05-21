@@ -57,7 +57,7 @@ const campaigns = [
     ctr: "4.73%",
     streamers: "26",
     description:
-      "Privacy and security messaging tailored for gaming communities — highest unverified CTR.",
+      "Privacy and security messaging tailored for gaming communities - highest unverified CTR.",
   },
   {
     id: "GwE4dagRm_k",
@@ -129,7 +129,7 @@ export const SPHowItWorks: React.FC = () => {
           </h2>
           <p className="text-muted-foreground max-w-lg">
             Watch recap videos from campaigns we've run with Samsung, Shure,
-            Surfshark, and more — all running natively on Nordic Twitch streams.
+            Surfshark, and more - all running natively on Nordic Twitch streams.
           </p>
         </div>
 
@@ -140,7 +140,7 @@ export const SPHowItWorks: React.FC = () => {
           }`}
         >
           <div className="flex flex-col lg:flex-row">
-            {/* Video thumbnail — accessible button for keyboard and screen reader users */}
+            {/* Video thumbnail - accessible button for keyboard and screen reader users */}
             <div
               className="lg:w-[55%] relative aspect-video lg:aspect-auto cursor-pointer group"
               role="button"
@@ -173,7 +173,7 @@ export const SPHowItWorks: React.FC = () => {
                 <p className="text-sm text-muted-foreground leading-relaxed mb-6">
                   {current.description}
                 </p>
-                <div className="flex gap-6 mb-6">
+                <div className="flex flex-wrap gap-x-4 gap-y-3 sm:gap-6 mb-6">
                   <div>
                     <p className="text-[10px] text-muted-foreground uppercase tracking-wider mb-1">
                       Completed views
@@ -201,7 +201,7 @@ export const SPHowItWorks: React.FC = () => {
                 </div>
               </div>
 
-              {/* Navigation — prev/next with brand name */}
+              {/* Navigation - prev/next with brand name */}
               <div className="flex items-center justify-between border-t border-border pt-4">
                 <button
                   onClick={() => navigate("prev")}
@@ -246,7 +246,7 @@ export const SPHowItWorks: React.FC = () => {
         <DialogContent className="max-w-5xl w-[95vw] p-0 bg-transparent border-none overflow-hidden shadow-none">
           {/* sr-only title/description include campaign name so screen readers announce which video is playing */}
           <DialogTitle className="sr-only">
-            {activeCampaign ? `${activeCampaign.brand} — ${activeCampaign.campaign}` : "Campaign Video"}
+            {activeCampaign ? `${activeCampaign.brand} - ${activeCampaign.campaign}` : "Campaign Video"}
           </DialogTitle>
           <DialogDescription className="sr-only">
             {activeCampaign ? `Watch the recap for the ${activeCampaign.campaign} campaign by ${activeCampaign.brand}` : "Watch the campaign recap"}
@@ -258,7 +258,7 @@ export const SPHowItWorks: React.FC = () => {
                   width="100%"
                   height="100%"
                   src={`https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`}
-                  title={activeCampaign ? `${activeCampaign.brand} — ${activeCampaign.campaign}` : "Campaign Video"}
+                  title={activeCampaign ? `${activeCampaign.brand} - ${activeCampaign.campaign}` : "Campaign Video"}
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen

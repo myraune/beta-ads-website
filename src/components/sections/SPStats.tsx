@@ -25,10 +25,10 @@ export const SPStats: React.FC = () => {
         {/* Value props */}
         <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 mb-12 transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           {[
-            { icon: Monitor, title: "Native Overlays", desc: "Ads that blend into streams — bypass adblock, feel organic to viewers" },
+            { icon: Monitor, title: "Native Overlays", desc: "Ads that blend into streams - bypass adblock, feel organic to viewers" },
             { icon: Users, title: "340+ Nordic Streamers", desc: "Access our curated network across Twitch, YouTube, and Kick" },
             { icon: BarChart3, title: "Full Transparency", desc: "Real-time dashboard with views, clicks, CTR, and spend tracking" },
-            { icon: Zap, title: "Managed Service", desc: "From creative to deployment — we handle the entire campaign" },
+            { icon: Zap, title: "Managed Service", desc: "From creative to deployment - we handle the entire campaign" },
           ].map((item, index) => {
             const Icon = item.icon;
             return (

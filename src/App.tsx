@@ -20,7 +20,7 @@ registerPhotos(blogPhotos);
 const Index = lazy(() => import("./pages/Index"));
 const Streamers = lazy(() => import("./pages/Streamers"));
 
-// Other pages — lazy, no forced delay
+// Other pages - lazy, no forced delay
 const CaseStudies = lazy(() => import("./pages/CaseStudies"));
 const TwitchAdvertising = lazy(() => import("./pages/TwitchAdvertising"));
 const YouTubeAdvertising = lazy(() => import("./pages/YouTubeAdvertising"));
@@ -169,7 +169,7 @@ const App = () => {
               <Route path="/case-study/komplett" element={<CaseStudyKomplett />} />
               <Route path="/case-study/nki" element={<CaseStudyNki />} />
               <Route path="/unsubscribe" element={<Unsubscribe />} />
-              {/* SEO redirects — mirrors vercel.json edge redirects for client-side nav */}
+              {/* SEO redirects - mirrors vercel.json edge redirects for client-side nav */}
               <Route path="/how-it-works" element={<Navigate to="/case-studies" replace />} />
               <Route path="/blog/samsung-twitch-campaign-case-study" element={<Navigate to="/case-study/samsung" replace />} />
               <Route path="*" element={<NotFound />} />

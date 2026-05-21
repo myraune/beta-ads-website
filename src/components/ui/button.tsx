@@ -13,7 +13,7 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-md shadow-destructive/20",
         // border-foreground/60 gives ~3.0:1 contrast against white (light mode)
-        // and ~5.5:1 against dark mode background — clears WCAG SC 1.4.11.
+        // and ~5.5:1 against dark mode background - clears WCAG SC 1.4.11.
         outline:
           "border border-foreground/60 bg-muted/30 hover:bg-muted/50 hover:text-accent-foreground hover:border-foreground/80 shadow-sm",
         secondary:

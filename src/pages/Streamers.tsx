@@ -34,7 +34,7 @@ const Streamers: React.FC<StreamersProps> = ({ t }) => {
           }
         ]}
       />
-      {/* Accessibility fix: Layout.tsx already provides <main> — nested <main> is invalid HTML (WCAG 1.3.6) */}
+      {/* Accessibility fix: Layout.tsx already provides <main> - nested <main> is invalid HTML (WCAG 1.3.6) */}
       <div>
         <StreamerSection t={t} language="en" />
         <SPFooter />

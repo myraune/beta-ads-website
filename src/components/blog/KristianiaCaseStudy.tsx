@@ -7,9 +7,9 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 /**
  * Data sourced from TWO verified Kristiania campaign reports (Drive):
  *
- *   1. `kristiania-report-14-04-2025-08-46-58.pdf` — main awareness /
+ *   1. `kristiania-report-14-04-2025-08-46-58.pdf` - main awareness /
  *      student-recruitment run (Feb–Apr 2025)
- *   2. `kristiania-voting-report-14-04-2025-08-47-09.pdf` — parallel
+ *   2. `kristiania-voting-report-14-04-2025-08-47-09.pdf` - parallel
  *      voting / engagement campaign run on the same talent pool
  *
  * Combined delivery across both reports: ~599K display views, ~6K
@@ -22,7 +22,7 @@ const BRAND = {
   glow: "rgba(227,6,19,0.18)",
 };
 
-// Combined totals across both campaigns — these are the headline numbers.
+// Combined totals across both campaigns - these are the headline numbers.
 const stats = [
   { value: "599,252", label: "Combined views" },
   { value: "5,997", label: "Verified clicks" },
@@ -38,7 +38,7 @@ const campaigns = [
     views: "459,237",
     verifiedClicks: "4,372",
     verifiedCTR: "1.53%",
-    bestDay: "Feb 28 — 5,171 views, 2.15% CTR",
+    bestDay: "Feb 28 - 5,171 views, 2.15% CTR",
     artworkWatchTime: "28 h 7 m",
     screenTime: "2,551 h",
     streamers: "31",
@@ -53,7 +53,7 @@ const campaigns = [
     views: "140,015",
     verifiedClicks: "1,625",
     verifiedCTR: "1.16%",
-    bestDay: "Feb 27 — 1,461 views, 2.81% CTR",
+    bestDay: "Feb 27 - 1,461 views, 2.81% CTR",
     artworkWatchTime: "8 h 30 m",
     screenTime: "778 h",
     streamers: "30",
@@ -118,7 +118,7 @@ const KristianiaCaseStudy: React.FC = () => {
 
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-8">
-              {/* Kristiania's signature "K" mark — extracted from their official brand sprite */}
+              {/* Kristiania's signature "K" mark - extracted from their official brand sprite */}
               <div
                 className="flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/10 p-3 backdrop-blur-sm"
                 style={{ boxShadow: `0 0 0 1px ${BRAND.primary}55` }}
@@ -153,8 +153,8 @@ const KristianiaCaseStudy: React.FC = () => {
               </span>
             </h1>
             <p className="text-lg text-white/60 leading-relaxed max-w-xl">
-              Two parallel Twitch campaigns — recruitment awareness + a voting
-              activation — running across the same Norwegian creator network.
+              Two parallel Twitch campaigns - recruitment awareness + a voting
+              activation - running across the same Norwegian creator network.
               Combined delivery: <strong className="text-white">~600,000 views</strong>,
               ~6,000 verified clicks, 3,329 hours of on-screen presence.
             </p>
@@ -199,7 +199,7 @@ const KristianiaCaseStudy: React.FC = () => {
             />
           </div>
           <p className="text-xs text-muted-foreground mt-4 max-w-3xl">
-            Two distinct creatives — recruitment awareness and a voting CTA — ran the same
+            Two distinct creatives - recruitment awareness and a voting CTA - ran the same
             overlay slot on the same 30-strong Norwegian creator network without
             cannibalising each other.
           </p>
@@ -232,8 +232,8 @@ const KristianiaCaseStudy: React.FC = () => {
                 Feb–Apr; after that, the window closes for a year.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Two campaigns ran in parallel — a broad awareness / recruitment
-                push and a tighter voting activation — both targeting the same
+                Two campaigns ran in parallel - a broad awareness / recruitment
+                push and a tighter voting activation - both targeting the same
                 gamer-adjacent demographic. Coordinating them on a single
                 creator network meant the brand stayed consistently present
                 without burning out the audience with repetition.
@@ -284,7 +284,7 @@ const KristianiaCaseStudy: React.FC = () => {
             <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-12">
               Beta deployed two distinct Kristiania creatives across the same
               roster of Norwegian streamers. Both ran inside the same 8-week
-              window — the awareness creative carrying recruitment messaging,
+              window - the awareness creative carrying recruitment messaging,
               the voting creative driving a parallel campaign action. Same
               talent, two outcomes.
             </p>
@@ -380,9 +380,9 @@ const KristianiaCaseStudy: React.FC = () => {
 
             <p className="text-sm text-muted-foreground max-w-2xl mt-10">
               Both campaigns shared the same lead creator (danniz) and the same
-              dominant category (GTA V — 49% awareness, 57% voting). The voting
+              dominant category (GTA V - 49% awareness, 57% voting). The voting
               creative ran lighter total volume but landed a higher peak-day
-              CTR (2.81% vs 2.15%) — a useful pattern: clear-action creatives
+              CTR (2.81% vs 2.15%) - a useful pattern: clear-action creatives
               spike harder on launch day, awareness creatives sustain over the
               campaign window.
             </p>
@@ -510,7 +510,7 @@ const KristianiaCaseStudy: React.FC = () => {
                   <div className="text-xl font-semibold text-foreground">Norwegian</div>
                 </div>
                 <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
-                  The 18–24 skew is exactly the recruitment target — prospective students
+                  The 18–24 skew is exactly the recruitment target - prospective students
                   in the decision window for the 2025 academic year.
                 </p>
               </div>
@@ -563,7 +563,7 @@ const KristianiaCaseStudy: React.FC = () => {
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
                 Across both campaigns, Kristiania reached ~221,000 unique
-                Norwegian Gen Z viewers and racked up 5,997 verified clicks —
+                Norwegian Gen Z viewers and racked up 5,997 verified clicks -
                 inside an 8-week application-season window where recruitment
                 outcomes for an entire academic year are decided.
               </p>

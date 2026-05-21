@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 
 /**
- * Animated Theme Toggler — sun<->moon morph.
+ * Animated Theme Toggler - sun<->moon morph.
  *
  * Sun rays shrink and rotate away.
  * Center circle swells into a moon body.
@@ -14,7 +14,7 @@ import { useTheme } from "next-themes";
  *
  * Uses next-themes so it stays in sync with RouteThemeEnforcer.
  * Default theme (on first load) is controlled by ThemeProvider
- * defaultTheme="system" — follows the OS preference automatically.
+ * defaultTheme="system" - follows the OS preference automatically.
  */
 
 /* ── Types ── */
@@ -132,7 +132,9 @@ export function AnimatedThemeToggler({
           background: "none",
           border: "none",
           cursor: "pointer",
-          padding: 6,
+          padding: 12,
+          minWidth: 44,
+          minHeight: 44,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -168,7 +170,7 @@ export function AnimatedThemeToggler({
             />
           </mask>
 
-          {/* Center body — small sun circle or large crescent moon */}
+          {/* Center body - small sun circle or large crescent moon */}
           <motion.circle
             cx="12"
             cy="12"
@@ -180,7 +182,7 @@ export function AnimatedThemeToggler({
             transition={spring}
           />
 
-          {/* Rays — shrink and rotate when dark */}
+          {/* Rays - shrink and rotate when dark */}
           <motion.g
             initial={false}
             animate={{

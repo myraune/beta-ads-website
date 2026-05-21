@@ -26,7 +26,7 @@ const stepConfig: Step[] = [
     number: "03",
     icon: <Zap className="w-5 h-5" />,
     title: "Ads run natively",
-    description: "Sponsored content appears seamlessly in your stream—no interruptions.",
+    description: "Sponsored content appears seamlessly in your stream-no interruptions.",
   },
   {
     number: "04",
@@ -57,7 +57,7 @@ export const StreamerHowItWorks: React.FC = () => {
               From signup to payout in 4 steps
             </h2>
             <p className="text-muted-foreground text-sm leading-relaxed mb-10 max-w-md">
-              No contracts. No minimums. Just show up and stream — ads handle themselves.
+              No contracts. No minimums. Just show up and stream - ads handle themselves.
             </p>
 
             <div className="space-y-8">
@@ -93,7 +93,7 @@ export const StreamerHowItWorks: React.FC = () => {
             <div className="relative rounded-2xl overflow-hidden bg-[#0d0d0f] aspect-[4/3] shadow-2xl shadow-black/40">
               <img
                 src="/lovable-uploads/beta-mascot.jpg"
-                alt="Beta Ads streamer mascot — live streaming setup"
+                alt="Beta Ads streamer mascot - live streaming setup"
                 className="w-full h-full object-cover object-center"
                 loading="lazy"
               />

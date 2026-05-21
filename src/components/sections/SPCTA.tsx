@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { blogPosts, getBlogPostBySlug } from "@/data/blogPosts";
+import { blogPostsMeta, getBlogPostMetaBySlug } from "@/data/blogPostsMeta";
 import { getBlogImage } from "@/lib/blogImage";
 
-// Curated editorial picks — mix of high-traffic posts and core value-prop content.
+// Curated editorial picks - mix of high-traffic posts and core value-prop content.
 // Falls back to the 4 most recent posts if a slug is ever removed.
 const FEATURED_SLUGS = [
   "how-twitch-advertising-works-2026",
@@ -15,22 +15,22 @@ const FEATURED_SLUGS = [
   "most-watched-twitch-games-2025",
 ];
 const featuredPosts = FEATURED_SLUGS
-  .map((s) => getBlogPostBySlug(s))
+  .map((s) => getBlogPostMetaBySlug(s))
   .filter(Boolean)
-  .concat(blogPosts.slice(0, 4))
+  .concat(blogPostsMeta.slice(0, 4))
   // deduplicate and take first 4
   .filter((post, idx, arr) => arr.findIndex((p) => p!.slug === post!.slug) === idx)
-  .slice(0, 4) as (typeof blogPosts)[number][];
+  .slice(0, 4) as (typeof blogPostsMeta)[number][];
 
 export const SPCTA: React.FC = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   return (
     <section ref={ref} className="py-20 md:py-28" aria-label="Blog posts">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header row */}
-        <div className={`flex items-end justify-between mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
+        <div className={`flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           <div>
             <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
               Blog

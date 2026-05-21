@@ -44,11 +44,11 @@ export const Hero: React.FC<HeroProps> = ({ t }) => {
                   {nordicGreetings[greetingIndex]}
                 </span>
                 <span className="text-sm text-muted-foreground/30 ml-2 font-extralight">
-                  — from the Nordics
+                  - from the Nordics
                 </span>
               </div>
 
-              {/* Full Logo — switches for light/dark mode */}
+              {/* Full Logo - switches for light/dark mode */}
               <img
                 src="/lovable-uploads/logo-black.png"
                 alt="Beta Ads"

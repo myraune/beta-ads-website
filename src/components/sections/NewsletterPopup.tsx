@@ -128,7 +128,7 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose, lang
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-xl border-0 bg-gradient-to-br from-red-950 via-red-900 to-black text-gray-100 shadow-2xl backdrop-blur-md">
-        <div className="p-8 pt-12">
+        <div className="p-5 pt-8 sm:p-8 sm:pt-12">
           {/* Header section */}
           <div className="text-center space-y-6 mb-8">
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/10 backdrop-blur-sm shadow-lg shadow-white/5 mb-4">
@@ -149,7 +149,7 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose, lang
           </div>
 
           {/* Features/Benefits */}
-          <div className="grid grid-cols-3 gap-4 mb-8">
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-8">
             <div className="text-center space-y-2">
               <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/5 shadow-inner shadow-white/5">
                 <Users className="h-5 w-5 text-gray-300" />

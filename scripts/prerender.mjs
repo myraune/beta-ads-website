@@ -62,6 +62,7 @@ const STATIC_ROUTES = [
   "/case-study/nki",
   "/terms",
   "/privacy",
+  "/blog/clip-analytics-ad-verification-nordic-streaming",
 ];
 
 function getBlogSlugs() {
@@ -121,6 +122,9 @@ function deduplicateHeadTags(html) {
     /(<meta\s[^>]*property="og:url"[^>]*>)(?=[^]*<meta\s[^>]*property="og:url"[^>]*data-rh="true")/gi,
     /(<meta\s[^>]*property="og:image"[^>]*>)(?=[^]*<meta\s[^>]*property="og:image"[^>]*data-rh="true")/gi,
     /(<meta\s[^>]*property="og:type"[^>]*>)(?=[^]*<meta\s[^>]*property="og:type"[^>]*data-rh="true")/gi,
+    // og:locale — static shell defaults to en_US; per-page override (e.g. no_NO for /norge)
+    // removes the static tag so only the react-helmet-async value is served.
+    /(<meta\s[^>]*property="og:locale"[^>]*>)(?=[^]*<meta\s[^>]*property="og:locale"[^>]*data-rh="true")/gi,
     // twitter: meta name tags
     /(<meta\s[^>]*name="twitter:title"[^>]*>)(?=[^]*<meta\s[^>]*name="twitter:title"[^>]*data-rh="true")/gi,
     /(<meta\s[^>]*name="twitter:description"[^>]*>)(?=[^]*<meta\s[^>]*name="twitter:description"[^>]*data-rh="true")/gi,

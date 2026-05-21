@@ -231,8 +231,9 @@ export const ScrollCaseVideo: React.FC<ScrollCaseVideoProps> = ({
         className="relative"
         style={{ height: containerHeight }}
       >
-        {/* Sticky wrapper - always fills viewport */}
-        <div className="sticky top-0 h-screen w-screen overflow-hidden">
+        {/* Sticky wrapper - always fills viewport (w-full not w-screen - w-screen can
+            trigger horizontal scroll on iOS when a vertical scrollbar takes width) */}
+        <div className="sticky top-0 h-screen w-full overflow-hidden">
           {/* Video container with animated inset - this is the key fix */}
           <div
             className="absolute overflow-hidden"
@@ -302,7 +303,7 @@ export const ScrollCaseVideo: React.FC<ScrollCaseVideoProps> = ({
 
                   {/* Metrics */}
                   {metrics && metrics.length > 0 && (
-                    <div className="flex gap-6 mt-4 pt-4">
+                    <div className="flex flex-wrap gap-x-4 gap-y-3 sm:gap-6 mt-4 pt-4">
                       {metrics.map((metric, index) => (
                         <div key={index}>
                           <p className="text-white text-xl lg:text-2xl font-light">

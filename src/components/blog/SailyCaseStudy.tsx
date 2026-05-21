@@ -10,7 +10,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
  * campaign. Saily is Surfshark's travel-eSIM brand.
  */
 const BRAND = {
-  // Saily brand colors — vivid purple primary + mint accent
+  // Saily brand colors - vivid purple primary + mint accent
   primary: "#7b4aff",
   secondary: "#5adbb5",
   glow: "rgba(123,74,255,0.18)",
@@ -110,7 +110,7 @@ const SailyCaseStudy: React.FC = () => {
               </span>
             </h1>
             <p className="text-lg text-white/60 leading-relaxed max-w-xl">
-              Travel eSIM awareness placed exactly where travel is being talked about live —
+              Travel eSIM awareness placed exactly where travel is being talked about live -
               685 hours of on-screen presence across 22 Norwegian streamers during the
               summer travel season.
             </p>
@@ -156,7 +156,7 @@ const SailyCaseStudy: React.FC = () => {
           </div>
           <p className="text-xs text-muted-foreground mt-4 max-w-3xl">
             The popup landed natively inside streams the moment viewers were already in
-            travel-thinking mode — Travel &amp; Outdoors, driving content, Just Chatting
+            travel-thinking mode - Travel &amp; Outdoors, driving content, Just Chatting
             recaps from trips.
           </p>
         </div>
@@ -184,13 +184,13 @@ const SailyCaseStudy: React.FC = () => {
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
                 Saily (Surfshark's travel-eSIM product) needed to reach Norwegian travellers
                 ahead of the June–July peak. Paid search captures people already shopping
-                for travel eSIMs — the harder problem was getting in front of the ones who
+                for travel eSIMs - the harder problem was getting in front of the ones who
                 hadn't yet realised they needed one.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
                 The answer was contextual: ride along with creators who were already
                 mid-trip. Travel &amp; Outdoors streams, driving content, Just Chatting
-                recaps — exactly when viewers were daydreaming about their own trip.
+                recaps - exactly when viewers were daydreaming about their own trip.
               </p>
             </div>
             <div className="space-y-4 pt-2">
@@ -198,7 +198,7 @@ const SailyCaseStudy: React.FC = () => {
                 { label: "Market", value: "🇳🇴 Norway (94.6% viewership)" },
                 { label: "Format", value: "Rich Media Overlay" },
                 { label: "Run", value: "Jun 2025 (4 weeks)" },
-                { label: "Best day", value: "Jun 12 — 743 views, 1.08% CTR" },
+                { label: "Best day", value: "Jun 12 - 743 views, 1.08% CTR" },
                 { label: "Audience", value: "Male 100%, 25–34 skew" },
                 { label: "Device split", value: "Desktop 79.7% / Mobile 20.3%" },
               ].map((row) => (
@@ -237,7 +237,7 @@ const SailyCaseStudy: React.FC = () => {
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-12">
               Beta concentrated delivery in the category where Saily's message was already
-              contextually relevant. The overlay showed 986 times across 22 streamers — the
+              contextually relevant. The overlay showed 986 times across 22 streamers - the
               most productive single placement drove 37,869 completed views alone.
             </p>
 
@@ -249,10 +249,10 @@ const SailyCaseStudy: React.FC = () => {
                 <div className="space-y-3">
                   {[
                     { name: "forstegir", views: "37,869", clicks: "168", avgViewers: "170" },
-                    { name: "LaSanias", views: "—", clicks: "—", avgViewers: "—" },
-                    { name: "kamillala", views: "—", clicks: "—", avgViewers: "—" },
-                    { name: "dennisvareide", views: "—", clicks: "—", avgViewers: "—" },
-                    { name: "Danniz", views: "—", clicks: "—", avgViewers: "—" },
+                    { name: "LaSanias", views: "-", clicks: "-", avgViewers: "-" },
+                    { name: "kamillala", views: "-", clicks: "-", avgViewers: "-" },
+                    { name: "dennisvareide", views: "-", clicks: "-", avgViewers: "-" },
+                    { name: "Danniz", views: "-", clicks: "-", avgViewers: "-" },
                   ].map((s, i) => (
                     <div
                       key={s.name}
@@ -264,7 +264,7 @@ const SailyCaseStudy: React.FC = () => {
                         </span>
                         <span className="text-sm font-semibold text-foreground">{s.name}</span>
                       </div>
-                      {s.views !== "—" && (
+                      {s.views !== "-" && (
                         <span className="text-xs text-muted-foreground tabular-nums">
                           {s.views} views · {s.clicks} clicks
                         </span>
@@ -300,7 +300,7 @@ const SailyCaseStudy: React.FC = () => {
 
             <p className="text-sm text-muted-foreground max-w-2xl">
               The Travel &amp; Outdoors concentration (65%) meant overlay impressions landed
-              when viewers were already in travel-thinking mode — a degree of contextual
+              when viewers were already in travel-thinking mode - a degree of contextual
               relevance paid search can't replicate.
             </p>
           </div>
@@ -413,7 +413,7 @@ const SailyCaseStudy: React.FC = () => {
                   <div className="text-xl font-semibold text-foreground">Norwegian</div>
                 </div>
                 <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
-                  25–34 skew matters — that's Saily's core travel-eSIM buyer: working-age
+                  25–34 skew matters - that's Saily's core travel-eSIM buyer: working-age
                   travellers heading abroad in the Jun–Jul window.
                 </p>
               </div>
@@ -472,7 +472,7 @@ const SailyCaseStudy: React.FC = () => {
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
                 The verified 1.08% CTR is in line with benchmarks for broad-funnel travel
-                creative — but the unverified 2.41% and the category distribution matter
+                creative - but the unverified 2.41% and the category distribution matter
                 more: Saily showed up where travel intent was already active.
               </p>
             </div>

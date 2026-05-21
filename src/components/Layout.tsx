@@ -18,7 +18,7 @@ export const Layout: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background relative" style={{ overflowX: 'clip' }}>
-      {/* Skip to main content — accessibility: lets keyboard users bypass the navbar */}
+      {/* Skip to main content - accessibility: lets keyboard users bypass the navbar */}
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[300] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-background focus:text-foreground focus:border focus:border-border focus:shadow-lg focus:text-sm focus:font-medium"
@@ -32,7 +32,7 @@ export const Layout: React.FC = () => {
         <Outlet />
       </main>
 
-      {/* Konami code easter egg — party mode overlay */}
+      {/* Konami code easter egg - party mode overlay */}
       {partyMode && (
         <div className="fixed inset-0 z-[200] pointer-events-none overflow-hidden">
           {/* Confetti-like particles */}

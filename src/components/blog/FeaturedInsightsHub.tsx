@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BarChart3, ArrowRight, TrendingUp } from "lucide-react";
-import { blogPosts, BlogPost } from "@/data/blogPosts";
+import { blogPostsMeta, type BlogPostMeta } from "@/data/blogPostsMeta";
 import { getBlogImage } from "@/lib/blogImage";
 
 interface FeaturedInsightsHubProps {
@@ -46,8 +46,8 @@ export const FeaturedInsightsHub: React.FC<FeaturedInsightsHubProps> = ({ langua
   const t = hubTranslations[language as keyof typeof hubTranslations] || hubTranslations.en;
   
   const featuredPosts = featuredSlugs
-    .map(slug => blogPosts.find(post => post.slug === slug))
-    .filter((post): post is BlogPost => post !== undefined);
+    .map(slug => blogPostsMeta.find(post => post.slug === slug))
+    .filter((post): post is BlogPostMeta => post !== undefined);
 
   if (featuredPosts.length === 0) return null;
 

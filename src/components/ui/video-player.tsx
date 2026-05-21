@@ -73,7 +73,7 @@ const VideoPlayer = ({
   src: string;
   className?: string;
 }) => {
-  // Google Drive? Use iframe embed — custom controls don't work inside iframes
+  // Google Drive? Use iframe embed - custom controls don't work inside iframes
   const driveEmbed = toEmbedUrl(src);
   if (driveEmbed) return <DriveEmbed embedUrl={driveEmbed} className={className} />;
 

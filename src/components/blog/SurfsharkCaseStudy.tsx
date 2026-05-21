@@ -10,7 +10,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
  * across Norwegian Twitch streamers in May–June 2025.
  */
 const BRAND = {
-  // Surfshark brand colors — green primary, dark violet accent
+  // Surfshark brand colors - green primary, dark violet accent
   primary: "#00db6a",
   secondary: "#3b004e",
   glow: "rgba(0,219,106,0.16)",
@@ -113,7 +113,7 @@ const SurfsharkCaseStudy: React.FC = () => {
             </h1>
             <p className="text-lg text-white/60 leading-relaxed max-w-xl">
               VPN awareness built during Travel &amp; Outdoors and Just Chatting streams across
-              25 Norwegian creators — 704 hours of verified on-screen presence in six weeks.
+              25 Norwegian creators - 704 hours of verified on-screen presence in six weeks.
             </p>
           </div>
 
@@ -157,7 +157,7 @@ const SurfsharkCaseStudy: React.FC = () => {
             />
           </div>
           <p className="text-xs text-muted-foreground mt-4 max-w-3xl">
-            The overlay sat inside the stream frame — no pre-roll, no banner, no adblock path.
+            The overlay sat inside the stream frame - no pre-roll, no banner, no adblock path.
             The same creative rotated across 25 streamers and 37 live categories.
           </p>
         </div>
@@ -184,12 +184,12 @@ const SurfsharkCaseStudy: React.FC = () => {
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
                 Surfshark's Norwegian growth team wanted to move beyond pre-roll and banner
-                placements — formats their core audience (Gen Z gamers on Twitch) actively
+                placements - formats their core audience (Gen Z gamers on Twitch) actively
                 blocks or ignores. The goal: land a VPN-as-privacy message inside the moment
                 itself, not interrupting it.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
-                The creative also had to survive across contexts — a streamer driving through
+                The creative also had to survive across contexts - a streamer driving through
                 Spain on a travel stream, a Just Chatting about online privacy, a GTA V
                 session. One overlay, dozens of live contexts, zero adblock bypass attempts.
               </p>
@@ -199,7 +199,7 @@ const SurfsharkCaseStudy: React.FC = () => {
                 { label: "Market", value: "🇳🇴 Norway (97% viewership)" },
                 { label: "Format", value: "Rich Media Overlay" },
                 { label: "Run", value: "May 10 – Jun 3 2025 (6 weeks)" },
-                { label: "Best day", value: "May 8 — 934 views, 1.39% CTR" },
+                { label: "Best day", value: "May 8 - 934 views, 1.39% CTR" },
                 { label: "Audience skew", value: "Male 100%, mostly Oslo/Akershus" },
                 { label: "Adblock impact", value: "0% (native format)" },
               ].map((row) => (
@@ -239,8 +239,8 @@ const SurfsharkCaseStudy: React.FC = () => {
             <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-12">
               Beta placed a Norwegian-localised overlay across 25 Nordic Twitch streamers,
               rotating the creative into stream layouts whenever the streamer went live.
-              The chat-pinned deep link converted at 1.39% verified CTR — 3.83% on the
-              unverified (pre-filter) metric — substantially above benchmark display rates.
+              The chat-pinned deep link converted at 1.39% verified CTR - 3.83% on the
+              unverified (pre-filter) metric - substantially above benchmark display rates.
             </p>
 
             {/* Top 5 streamers breakdown */}
@@ -252,10 +252,10 @@ const SurfsharkCaseStudy: React.FC = () => {
                 <div className="space-y-3">
                   {[
                     { name: "forstegir", views: "32,132", clicks: "82", avgViewers: "138" },
-                    { name: "LaSanias", views: "—", clicks: "—", avgViewers: "—" },
-                    { name: "dennisvareide", views: "—", clicks: "—", avgViewers: "—" },
-                    { name: "Danniz", views: "—", clicks: "—", avgViewers: "—" },
-                    { name: "Linnea", views: "—", clicks: "—", avgViewers: "—" },
+                    { name: "LaSanias", views: "-", clicks: "-", avgViewers: "-" },
+                    { name: "dennisvareide", views: "-", clicks: "-", avgViewers: "-" },
+                    { name: "Danniz", views: "-", clicks: "-", avgViewers: "-" },
+                    { name: "Linnea", views: "-", clicks: "-", avgViewers: "-" },
                   ].map((s, i) => (
                     <div
                       key={s.name}
@@ -267,7 +267,7 @@ const SurfsharkCaseStudy: React.FC = () => {
                         </span>
                         <span className="text-sm font-semibold text-foreground">{s.name}</span>
                       </div>
-                      {s.views !== "—" && (
+                      {s.views !== "-" && (
                         <span className="text-xs text-muted-foreground tabular-nums">
                           {s.views} views
                         </span>
@@ -302,7 +302,7 @@ const SurfsharkCaseStudy: React.FC = () => {
             </div>
 
             <p className="text-sm text-muted-foreground max-w-2xl">
-              The category mix tells the story — Surfshark didn't fight for attention inside
+              The category mix tells the story - Surfshark didn't fight for attention inside
               gaming alone. Travel &amp; Outdoors (41%) and Just Chatting (31%) carried
               organic VPN relevance, and creators worked the product into the moment
               naturally.
@@ -439,7 +439,7 @@ const SurfsharkCaseStudy: React.FC = () => {
                 </div>
                 <p className="text-xs text-muted-foreground mt-4 leading-relaxed">
                   Surfshark's Norwegian privacy messaging reached a tightly concentrated
-                  male-dominant Gen-Z / Millennial gamer audience — the exact segment most
+                  male-dominant Gen-Z / Millennial gamer audience - the exact segment most
                   aggressive about ad-blocking.
                 </p>
               </div>
@@ -498,11 +498,11 @@ const SurfsharkCaseStudy: React.FC = () => {
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
                 The campaign delivered 90,473 verified completed views and 552 verified
                 clicks through the chat-pinned CTA. On the unverified (raw) side, 3,467
-                clicks at a 3.83% CTR — well above display benchmarks for VPN creative in
+                clicks at a 3.83% CTR - well above display benchmarks for VPN creative in
                 the Nordic market.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Device split skewed 79% desktop / 20% mobile — consistent with the Twitch
+                Device split skewed 79% desktop / 20% mobile - consistent with the Twitch
                 viewership pattern where primary watching is desktop-first and overlays
                 stay in the stream frame throughout the session.
               </p>

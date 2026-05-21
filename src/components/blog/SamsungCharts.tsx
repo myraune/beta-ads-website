@@ -51,7 +51,7 @@ const IOSTooltip: React.FC<{ active?: boolean; payload?: any[]; label?: string; 
   );
 };
 
-/* ── Weekly CTR — iOS Stock app style area chart ── */
+/* ── Weekly CTR - iOS Stock app style area chart ── */
 interface WeeklyDatum {
   week: string;
   ctr: number;
@@ -102,7 +102,7 @@ export const WeeklyCTRAreaChart: React.FC<{ data: WeeklyDatum[] }> = ({ data }) 
   </div>
 );
 
-/* ── Category donut — iOS Health app style ── */
+/* ── Category donut - iOS Health app style ── */
 interface CategoryDatum {
   name: string;
   share: number;
@@ -113,7 +113,7 @@ interface CategoryDatum {
 export const CategoryDonut: React.FC<{ data: CategoryDatum[] }> = ({ data }) => {
   // iOS palette: primary red anchor, then warm-to-cool fade
   const COLORS = [
-    "hsl(357 70% 60%)", // primary red — Just Chatting (largest)
+    "hsl(357 70% 60%)", // primary red - Just Chatting (largest)
     "hsl(357 70% 70%)",
     "hsl(357 50% 75%)",
     "hsl(220 12% 55%)",
@@ -179,7 +179,7 @@ export const CategoryDonut: React.FC<{ data: CategoryDatum[] }> = ({ data }) => 
   );
 };
 
-/* ── Adblock impact gauge — iOS Activity ring style ── */
+/* ── Adblock impact gauge - iOS Activity ring style ── */
 export const AdblockGauge: React.FC<{ percentage: number; label?: string }> = ({ percentage, label = "Adblock impact" }) => {
   const data = [{ name: "blocked", value: percentage, fill: PRIMARY }];
   return (
@@ -200,7 +200,7 @@ export const AdblockGauge: React.FC<{ percentage: number; label?: string }> = ({
   );
 };
 
-/* ── Campaign comparison — normalized index line chart ──
+/* ── Campaign comparison - normalized index line chart ──
    Each metric is normalized to an index where 100 = combined campaign average.
    Above 100 = above average, below 100 = below average. This puts all metrics
    (views, clicks, CTR, days, etc) on a single comparable scale and creates
@@ -257,7 +257,7 @@ export const CampaignComparisonChart: React.FC = () => {
   // Per-streamer normalized comparison. Removes the budget-bias problem
   // where Fold7's smaller buy (28 streamers, 31 days) made it look weak
   // in absolute terms. With per-streamer rates, both campaigns shine on
-  // different axes — Fold7 dominates reach efficiency, S25 dominates
+  // different axes - Fold7 dominates reach efficiency, S25 dominates
   // engagement. Index 100 = average of both campaigns on each metric.
   //
   // S25 Ultra: 43 streamers, 56 days
@@ -275,9 +275,9 @@ export const CampaignComparisonChart: React.FC = () => {
   ];
 
   return (
-    <div className="w-full h-[300px]">
+    <div className="w-full h-[340px]">
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={data} margin={{ top: 20, right: 16, left: -10, bottom: 0 }}>
+        <LineChart data={data} margin={{ top: 20, right: 16, left: 18, bottom: 48 }}>
           <defs>
             <linearGradient id="s25LineFade" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stopColor={PRIMARY} stopOpacity={0.85} />
@@ -291,8 +291,11 @@ export const CampaignComparisonChart: React.FC = () => {
             fontSize={10}
             tickLine={false}
             axisLine={false}
-            dy={6}
             interval={0}
+            angle={-38}
+            textAnchor="end"
+            dy={4}
+            dx={-2}
           />
           <YAxis
             stroke={MUTED}

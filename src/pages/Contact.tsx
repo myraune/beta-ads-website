@@ -2,7 +2,7 @@ import React from "react";
 import { SEO } from "@/components/SEO";
 import { ArrowRight, Mail, MapPin, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
-import AnimatedShaderBackground from "@/components/ui/animated-shader-background";
+import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 import { SPFooter } from "@/components/sections/SPFooter";
 
 const Contact: React.FC = () => {
@@ -54,7 +54,7 @@ const Contact: React.FC = () => {
               <span style={{ fontFamily: "'Instrument Serif', serif" }} className="italic font-normal">talk.</span>
             </h1>
             <p className="text-lg text-white/60 leading-relaxed max-w-md">
-              Whether you're a brand planning a campaign, an agency looking for a new format, or a streamer wanting to monetize — we're easy to reach.
+              Whether you're a brand planning a campaign, an agency looking for a new format, or a streamer wanting to monetize - we're easy to reach.
             </p>
           </div>
         </div>
@@ -147,7 +147,7 @@ const Contact: React.FC = () => {
                   What's the minimum campaign budget?
                   <ArrowRight className="w-4 h-4 shrink-0 ml-4 transition-transform group-open:rotate-90 text-muted-foreground" />
                 </summary>
-                <p className="pt-3 text-sm text-muted-foreground leading-relaxed">Budgets vary by goals, market, and campaign duration. Book a call and we'll scope the right shape — including smaller tests when appropriate.</p>
+                <p className="pt-3 text-sm text-muted-foreground leading-relaxed">Budgets vary by goals, market, and campaign duration. Book a call and we'll scope the right shape - including smaller tests when appropriate.</p>
               </details>
               <details className="group py-5">
                 <summary className="flex items-center justify-between cursor-pointer text-sm font-medium text-foreground hover:text-primary transition-colors select-none list-none">
@@ -158,7 +158,7 @@ const Contact: React.FC = () => {
               </details>
               <details className="group py-5">
                 <summary className="flex items-center justify-between cursor-pointer text-sm font-medium text-foreground hover:text-primary transition-colors select-none list-none">
-                  I'm a streamer — how do I join?
+                  I'm a streamer - how do I join?
                   <ArrowRight className="w-4 h-4 shrink-0 ml-4 transition-transform group-open:rotate-90 text-muted-foreground" />
                 </summary>
                 <p className="pt-3 text-sm text-muted-foreground leading-relaxed">
