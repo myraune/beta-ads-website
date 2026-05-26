@@ -557,15 +557,10 @@ const AnalyticsPreview: React.FC = () => {
      * text legible). Hides until scale is known to avoid layout flash. */
     <div
       ref={wrapperRef}
-      className="overflow-x-auto overflow-y-hidden rounded-2xl border border-border/30 shadow-xl"
+      className="overflow-hidden rounded-2xl border border-border/30 shadow-xl"
       style={{ height: scale != null ? IFRAME_H * scale : 0 }}
     >
       {scale != null && (
-        /* Sizer wraps the iframe at its visual (scaled) dimensions so the
-         * wrapper's overflow-x reflects what's actually visible. Without
-         * this, CSS transforms don't shrink the layout box and the wrapper
-         * sees the unscaled 1280px width - giving phantom horizontal scroll
-         * room on mobile. */
         <div
           style={{ width: IFRAME_W * scale, height: IFRAME_H * scale, overflow: "hidden" }}
         >
@@ -575,9 +570,10 @@ const AnalyticsPreview: React.FC = () => {
             // earlier response with X-Frame-Options: DENY, which made the
             // iframe load to an empty document. Bump this whenever the
             // dashboard HTML or its serving headers change.
-            src="/clip-analytics-preview/index.html?v=7"
+            src="/clip-analytics-preview/index.html?v=8"
             title="Clip Analytics Dashboard"
             className="block border-0"
+            scrolling="no"
             style={{
               width:  IFRAME_W,
               height: IFRAME_H,
