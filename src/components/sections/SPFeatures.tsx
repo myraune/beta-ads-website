@@ -860,7 +860,11 @@ const FeatureSection: React.FC<{
             <feature.icon className="w-5 h-5 text-primary" size={20} />
             <span className="text-sm font-semibold text-primary">{feature.label}</span>
           </div>
-          <h3 className="text-3xl md:text-[2.5rem] font-bold text-foreground leading-[1.1] tracking-tight">
+          {/* font-light to match every other section heading on the page
+              (design system: "section headings always font-light, not bold").
+              Was font-bold, which made these feature titles heavier AND larger
+              than their own section H2 - a hierarchy inversion. */}
+          <h3 className="text-3xl md:text-[2.5rem] font-light text-foreground leading-[1.1] tracking-tight">
             {feature.title}
           </h3>
           <p className="text-[15px] text-muted-foreground leading-relaxed">
