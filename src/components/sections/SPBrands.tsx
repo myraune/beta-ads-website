@@ -98,10 +98,17 @@ const row2: LogoData[] = [
     quoteName: "Recruitment Team",
     quoteTitle: "Gokstad Akademiet",
   },
-  { src: "/lovable-uploads/logo-komplett.png", alt: "Komplett" },
+  {
+    src: "/lovable-uploads/logo-komplett.png", alt: "Komplett",
+    badge: "case-study",
+    caseStudyLink: "/case-study/komplett",
+  },
   { src: "/lovable-uploads/logo-dentsu.png", alt: "Dentsu" },
   { src: "/lovable-uploads/logo-carat.png", alt: "Carat" },
   {
+    // SteelSeries has a quote but no case study yet — render as a hover-only
+    // testimonial. The Review badge below renders as a non-interactive label
+    // since there is nothing to click through to.
     src: "/lovable-uploads/logo-steelseries.png", alt: "SteelSeries",
     badge: "review",
     quote: "Working with Beta Ads was seamless. The platform handles everything from streamer selection to reporting.",
@@ -364,12 +371,20 @@ const LogoWithBadge: React.FC<{
         style={{ filter: logoFilter }}
       />
       {logo.badge && (
-        <button
-          onClick={hasAction ? handleClick : undefined}
-          className="mt-1.5 inline-flex items-center px-2.5 py-1 sm:py-0.5 min-h-[24px] sm:min-h-0 rounded-full text-[9px] font-semibold tracking-wide transition-[transform,opacity,background-color] duration-200 hover:scale-105 bg-primary text-white border-none cursor-pointer"
-        >
-          {badgeLabels[logo.badge]}
-        </button>
+        hasAction ? (
+          <button
+            onClick={handleClick}
+            className="mt-1.5 inline-flex items-center px-2.5 py-1 sm:py-0.5 min-h-[24px] sm:min-h-0 rounded-full text-[9px] font-semibold tracking-wide transition-[transform,opacity,background-color] duration-200 hover:scale-105 bg-primary text-white border-none cursor-pointer"
+          >
+            {badgeLabels[logo.badge]}
+          </button>
+        ) : (
+          // No destination (e.g. testimonial-only entries) — render as a
+          // non-interactive label so it doesn't look like a dead button.
+          <span className="mt-1.5 inline-flex items-center px-2.5 py-1 sm:py-0.5 min-h-[24px] sm:min-h-0 rounded-full text-[9px] font-semibold tracking-wide bg-primary/15 text-primary border-none">
+            {badgeLabels[logo.badge]}
+          </span>
+        )
       )}
 
       {/* Hover tooltip - shows quote + CTA for case studies */}
