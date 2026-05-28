@@ -309,34 +309,57 @@ const NkiCaseStudy: React.FC = () => {
             <div className="grid md:grid-cols-2 gap-12 mb-12">
               <div>
                 <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4 block">
-                  Top 5 creators
+                  Top streamers by Twitch reach
                 </span>
                 <div className="space-y-3">
                   {[
-                    { name: "danniz", views: "80,042", clicks: "327", avgViewers: "118" },
-                    { name: "rubengks", views: "-", clicks: "-", avgViewers: "-" },
-                    { name: "detoo", views: "-", clicks: "-", avgViewers: "-" },
-                    { name: "lasanias", views: "-", clicks: "-", avgViewers: "-" },
-                    { name: "joonieboi", views: "-", clicks: "-", avgViewers: "-" },
+                    {
+                      name: "danniz",
+                      views: "315,800",
+                      reach: "126,400 chat messages",
+                    },
+                    {
+                      name: "detoo",
+                      views: "41,000",
+                      reach: "Unique viewers, 18-day run",
+                    },
+                    {
+                      name: "joonieboi",
+                      views: "27,300",
+                      reach: "Unique viewers",
+                    },
+                    {
+                      name: "lasanias",
+                      views: "25,500",
+                      reach: "Unique viewers · 43,000 chat",
+                    },
                   ].map((s, i) => (
                     <div
                       key={s.name}
-                      className="flex items-center justify-between py-3 border-b border-border last:border-0"
+                      className="flex items-start justify-between py-3 border-b border-border last:border-0 gap-3"
                     >
-                      <div className="flex items-center gap-3">
-                        <span className="text-xs text-muted-foreground tabular-nums w-4">
+                      <div className="flex items-center gap-3 min-w-0">
+                        <span className="text-xs text-muted-foreground tabular-nums w-4 shrink-0">
                           {i + 1}
                         </span>
-                        <span className="text-sm font-semibold text-foreground">{s.name}</span>
-                      </div>
-                      {s.views !== "-" && (
-                        <span className="text-xs text-muted-foreground tabular-nums">
-                          {s.views} views · {s.clicks} clicks
+                        <span className="text-sm font-semibold text-foreground truncate">
+                          {s.name}
                         </span>
-                      )}
+                      </div>
+                      <div className="text-right shrink-0">
+                        <div className="text-sm font-medium text-foreground tabular-nums">
+                          {s.views}
+                        </div>
+                        <div className="text-[11px] text-muted-foreground leading-tight mt-0.5">
+                          {s.reach}
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>
+                <p className="text-[11px] text-muted-foreground mt-3 leading-relaxed">
+                  Twitch Analytics reach. Summed across streamers, not deduplicated.
+                </p>
               </div>
 
               <div>
@@ -369,6 +392,48 @@ const NkiCaseStudy: React.FC = () => {
               quiz creative as a curiosity-driven moment rather than an interruption.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* ── BROADER REACH — Twitch Analytics aggregate, not Beta-verified ── */}
+      <section className="py-20 md:py-28 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <span
+            className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+            style={{ color: BRAND.primary }}
+          >
+            Beyond verified delivery
+          </span>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4 max-w-2xl">
+            The stream activity around the campaign
+          </h2>
+          <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-10">
+            Verified clicks and overlay impressions are what we ship in the campaign
+            report. But the stream sessions hosting NKI's overlay also carried far
+            broader exposure - viewers landing on the channels, watching for hours,
+            and engaging in chat (including hundreds of "!NKI" command invocations).
+            From Twitch's own analytics across the participating creators:
+          </p>
+
+          <div className="grid grid-cols-3 gap-px rounded-2xl overflow-hidden bg-border max-w-3xl">
+            {[
+              { value: "135,600", label: "Unique viewers" },
+              { value: "510,400", label: "Direct views" },
+              { value: "218,500", label: "Chat messages" },
+            ].map((s) => (
+              <div key={s.label} className="bg-background px-6 py-6">
+                <div className="text-2xl md:text-3xl font-bold tracking-tight text-foreground tabular-nums">
+                  {s.value}
+                </div>
+                <div className="text-xs text-muted-foreground mt-1">{s.label}</div>
+              </div>
+            ))}
+          </div>
+
+          <p className="text-xs text-muted-foreground mt-4 max-w-3xl leading-relaxed">
+            Source: Twitch Analytics, summed across the largest profiles in the run.
+            Totals are not deduplicated across channels.
+          </p>
         </div>
       </section>
 
