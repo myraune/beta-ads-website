@@ -69,7 +69,7 @@ const row1: LogoData[] = [
     videoSrc: "/lovable-uploads/shure-campaign-video.mp4",
   },
   {
-    src: "/lovable-uploads/logo-saily.png", alt: "Saily",
+    src: "/lovable-uploads/logo-saily.svg", alt: "Saily",
     badge: "video",
     videoSrc: "/lovable-uploads/saily-campaign-video.mp4",
   },

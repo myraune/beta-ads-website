@@ -79,15 +79,16 @@ const SailyCaseStudy: React.FC = () => {
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-8">
               <div
-                className="flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/10 p-3 backdrop-blur-sm"
+                className="flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/10 px-4 py-2.5 backdrop-blur-sm"
                 style={{ boxShadow: `0 0 0 1px ${BRAND.primary}33` }}
               >
-                <img
-                  src="/lovable-uploads/logo-saily.png"
-                  alt="Saily"
-                  className="h-8 w-auto object-contain"
-                  style={{ filter: "brightness(0) invert(1)" }}
-                />
+                <span
+                  aria-label="Saily"
+                  className="text-3xl font-bold tracking-tighter leading-none"
+                  style={{ color: BRAND.primary, fontFeatureSettings: "'ss01' on, 'cv11' on" }}
+                >
+                  saily
+                </span>
               </div>
               <div className="flex flex-col gap-1">
                 <span
@@ -123,6 +124,34 @@ const SailyCaseStudy: React.FC = () => {
                 <div className="text-xs text-white/50 mt-0.5">{s.label}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CAMPAIGN VIDEO ── */}
+      <section className="border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-20">
+          <span
+            className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+            style={{ color: BRAND.primary }}
+          >
+            Watch the campaign
+          </span>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-8 max-w-2xl">
+            Saily eSIM × Beta Ads
+          </h2>
+          <div
+            className="relative rounded-2xl overflow-hidden bg-black border"
+            style={{ borderColor: `${BRAND.primary}33` }}
+          >
+            <video
+              src="/lovable-uploads/saily-campaign-video.mp4"
+              controls
+              playsInline
+              preload="metadata"
+              className="w-full h-auto"
+              aria-label="Saily eSIM campaign overview"
+            />
           </div>
         </div>
       </section>
@@ -497,11 +526,13 @@ const SailyCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
             <div className="flex items-center gap-5">
-              <img
-                src="/lovable-uploads/logo-saily.png"
-                alt="Saily"
-                className="h-9 w-auto object-contain opacity-90"
-              />
+              <span
+                aria-label="Saily"
+                className="text-3xl font-bold tracking-tighter leading-none"
+                style={{ color: BRAND.primary, fontFeatureSettings: "'ss01' on, 'cv11' on" }}
+              >
+                saily
+              </span>
               <div>
                 <span
                   className="text-xs font-semibold tracking-widest uppercase mb-3 block"
