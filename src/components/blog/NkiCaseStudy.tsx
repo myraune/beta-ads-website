@@ -10,9 +10,13 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
  * an interactive "what type of student are you?" quiz format Oct–Nov 2025.
  */
 const BRAND = {
-  // NKI brand palette - aubergine is the primary per their official assets
-  // (see logo-nki-aubergine-RGB.png sourced from nki.no). Violet accent for chart variety.
+  // NKI brand palette - aubergine is the official primary (logo-nki-aubergine-RGB.png from nki.no)
+  // but at 47% luminance it fails contrast on the dark theme used across the site.
+  // `label` is a brighter aubergine tuned for legibility on both light and dark backgrounds;
+  // use it for section labels, dates, and inline accent text. Keep `primary` for chart fills,
+  // glows, borders, and other non-text-on-dark uses.
   primary: "#5C2D56",
+  label: "#b78ab1",
   secondary: "#8c5adc",
   glow: "rgba(92,45,86,0.28)",
 };
@@ -92,7 +96,7 @@ const NkiCaseStudy: React.FC = () => {
               <div className="flex flex-col gap-1">
                 <span
                   className="text-[11px] font-semibold tracking-[0.2em] uppercase"
-                  style={{ color: BRAND.primary }}
+                  style={{ color: BRAND.label }}
                 >
                   Norway · Distance Learning · Quiz
                 </span>
@@ -134,7 +138,7 @@ const NkiCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <span
             className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-            style={{ color: BRAND.primary }}
+            style={{ color: BRAND.label }}
           >
             The creative
           </span>
@@ -169,7 +173,7 @@ const NkiCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <span
             className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-            style={{ color: BRAND.primary }}
+            style={{ color: BRAND.label }}
           >
             On stream
           </span>
@@ -238,7 +242,7 @@ const NkiCaseStudy: React.FC = () => {
             <div>
               <span
                 className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-                style={{ color: BRAND.primary }}
+                style={{ color: BRAND.label }}
               >
                 The Challenge
               </span>
@@ -292,7 +296,7 @@ const NkiCaseStudy: React.FC = () => {
           >
             <span
               className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-              style={{ color: BRAND.primary }}
+              style={{ color: BRAND.label }}
             >
               The Solution
             </span>
@@ -400,7 +404,7 @@ const NkiCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <span
             className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-            style={{ color: BRAND.primary }}
+            style={{ color: BRAND.label }}
           >
             Beyond verified delivery
           </span>
@@ -448,7 +452,7 @@ const NkiCaseStudy: React.FC = () => {
           >
             <span
               className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-              style={{ color: BRAND.primary }}
+              style={{ color: BRAND.label }}
             >
               Reach &amp; Demographics
             </span>
@@ -567,7 +571,7 @@ const NkiCaseStudy: React.FC = () => {
               <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-6 block">
                 Campaign moments
               </span>
-              <div className="grid md:grid-cols-4 gap-6">
+              <div className="grid md:grid-cols-4 gap-6 overflow-hidden">
                 {timeline.map((m, i) => (
                   <div key={m.date} className="relative">
                     {i < timeline.length - 1 && (
@@ -575,7 +579,7 @@ const NkiCaseStudy: React.FC = () => {
                     )}
                     <div
                       className="text-xs font-semibold tracking-widest uppercase mb-2"
-                      style={{ color: BRAND.primary }}
+                      style={{ color: BRAND.label }}
                     >
                       {m.date}
                     </div>
@@ -600,7 +604,7 @@ const NkiCaseStudy: React.FC = () => {
             <div>
               <span
                 className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-                style={{ color: BRAND.primary }}
+                style={{ color: BRAND.label }}
               >
                 Impact
               </span>
@@ -644,12 +648,12 @@ const NkiCaseStudy: React.FC = () => {
                   className="text-sm font-bold tracking-tight text-foreground"
                   style={{ letterSpacing: "-0.02em" }}
                 >
-                  <span style={{ color: BRAND.primary }}>NKI</span>
+                  <span style={{ color: BRAND.label }}>NKI</span>
                 </span>
               </div>
               <span
                 className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-                style={{ color: BRAND.primary }}
+                style={{ color: BRAND.label }}
               >
                 Run a Similar Campaign
               </span>

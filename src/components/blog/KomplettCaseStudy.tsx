@@ -441,11 +441,14 @@ const KomplettCaseStudy: React.FC = () => {
               <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-6 block">
                 Campaign moments
               </span>
-              <div className="grid md:grid-cols-4 gap-6">
+              <div className="grid md:grid-cols-4 gap-6 overflow-hidden">
                 {timeline.map((m, i) => (
-                  <div key={m.date} className="relative">
+                  <div key={m.date} className="relative min-w-0">
                     {i < timeline.length - 1 && (
-                      <div className="hidden md:block absolute top-3 left-full w-full h-px bg-border -translate-x-4" />
+                      <div
+                        aria-hidden
+                        className="hidden md:block absolute top-3 left-full w-full h-px bg-border -translate-x-4 pointer-events-none"
+                      />
                     )}
                     <div
                       className="text-xs font-semibold tracking-widest uppercase mb-2"

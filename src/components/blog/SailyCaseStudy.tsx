@@ -452,7 +452,7 @@ const SailyCaseStudy: React.FC = () => {
               <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-6 block">
                 Campaign moments
               </span>
-              <div className="grid md:grid-cols-4 gap-6">
+              <div className="grid md:grid-cols-4 gap-6 overflow-hidden">
                 {timeline.map((m, i) => (
                   <div key={m.date} className="relative">
                     {i < timeline.length - 1 && (

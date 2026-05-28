@@ -16,8 +16,11 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
  * verified clicks, ~3,329 h on-screen presence.
  */
 const BRAND = {
-  // Høyskolen Kristiania red
+  // Høyskolen Kristiania red - official brand color
   primary: "#e30613",
+  // Brightened red tuned for legible section labels on the dark theme
+  // (pure #e30613 has low luminance and fails WCAG AA contrast).
+  label: "#ff5a66",
   secondary: "#ffb800",
   glow: "rgba(227,6,19,0.18)",
 };
@@ -127,13 +130,13 @@ const KristianiaCaseStudy: React.FC = () => {
                   src="/lovable-uploads/logo-kristiania-mark.svg"
                   alt="Høyskolen Kristiania"
                   className="h-8 w-8 object-contain"
-                  style={{ color: BRAND.primary }}
+                  style={{ color: BRAND.label }}
                 />
               </div>
               <div className="flex flex-col gap-1">
                 <span
                   className="text-[11px] font-semibold tracking-[0.2em] uppercase"
-                  style={{ color: BRAND.primary }}
+                  style={{ color: BRAND.label }}
                 >
                   Norway · Higher Ed · Two campaigns
                 </span>
@@ -176,7 +179,7 @@ const KristianiaCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <span
             className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-            style={{ color: BRAND.primary }}
+            style={{ color: BRAND.label }}
           >
             Watch the campaign
           </span>
@@ -209,7 +212,7 @@ const KristianiaCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <span
             className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-            style={{ color: BRAND.primary }}
+            style={{ color: BRAND.label }}
           >
             The creative
           </span>
@@ -251,7 +254,7 @@ const KristianiaCaseStudy: React.FC = () => {
             <div>
               <span
                 className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-                style={{ color: BRAND.primary }}
+                style={{ color: BRAND.label }}
               >
                 The Challenge
               </span>
@@ -307,7 +310,7 @@ const KristianiaCaseStudy: React.FC = () => {
           >
             <span
               className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-              style={{ color: BRAND.primary }}
+              style={{ color: BRAND.label }}
             >
               The Solution
             </span>
@@ -336,7 +339,7 @@ const KristianiaCaseStudy: React.FC = () => {
                   <div className="flex items-baseline justify-between mb-5">
                     <span
                       className="text-xs font-semibold tracking-widest uppercase"
-                      style={{ color: BRAND.primary }}
+                      style={{ color: BRAND.label }}
                     >
                       Campaign {idx + 1}
                     </span>
@@ -434,7 +437,7 @@ const KristianiaCaseStudy: React.FC = () => {
           >
             <span
               className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-              style={{ color: BRAND.primary }}
+              style={{ color: BRAND.label }}
             >
               Reach &amp; Demographics
             </span>
@@ -553,7 +556,7 @@ const KristianiaCaseStudy: React.FC = () => {
               <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-6 block">
                 Campaign moments
               </span>
-              <div className="grid md:grid-cols-4 gap-6">
+              <div className="grid md:grid-cols-4 gap-6 overflow-hidden">
                 {timeline.map((m, i) => (
                   <div key={m.date} className="relative">
                     {i < timeline.length - 1 && (
@@ -561,7 +564,7 @@ const KristianiaCaseStudy: React.FC = () => {
                     )}
                     <div
                       className="text-xs font-semibold tracking-widest uppercase mb-2"
-                      style={{ color: BRAND.primary }}
+                      style={{ color: BRAND.label }}
                     >
                       {m.date}
                     </div>
@@ -587,7 +590,7 @@ const KristianiaCaseStudy: React.FC = () => {
             <div>
               <span
                 className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-                style={{ color: BRAND.primary }}
+                style={{ color: BRAND.label }}
               >
                 Impact
               </span>
@@ -634,12 +637,12 @@ const KristianiaCaseStudy: React.FC = () => {
                   style={{ letterSpacing: "-0.02em" }}
                 >
                   Høyskolen{" "}
-                  <span style={{ color: BRAND.primary }}>Kristiania</span>
+                  <span style={{ color: BRAND.label }}>Kristiania</span>
                 </span>
               </div>
               <span
                 className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-                style={{ color: BRAND.primary }}
+                style={{ color: BRAND.label }}
               >
                 Run a Similar Campaign
               </span>
