@@ -171,6 +171,39 @@ const KristianiaCaseStudy: React.FC = () => {
         </div>
       </section>
 
+      {/* ── CAMPAIGN VIDEO ── full case-study cut, manual play */}
+      <section className="border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+          <span
+            className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+            style={{ color: BRAND.primary }}
+          >
+            Watch the campaign
+          </span>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-8 max-w-2xl">
+            Høyskolen Kristiania x Beta Ads
+          </h2>
+          <div
+            className="rounded-2xl overflow-hidden bg-black border shadow-2xl"
+            style={{ borderColor: `${BRAND.primary}33` }}
+          >
+            <video
+              src="/lovable-uploads/case-studies/kristiania-hero.mp4"
+              controls
+              playsInline
+              preload="metadata"
+              poster="/lovable-uploads/case-studies/kristiania-hero-poster.jpg"
+              className="w-full h-auto block aspect-video object-cover"
+              aria-label="Høyskolen Kristiania campaign case study video"
+            />
+          </div>
+          <p className="text-xs text-muted-foreground mt-4 max-w-3xl">
+            2 min 53 s recap of the parallel awareness + voting campaigns
+            across 31 Norwegian streamers, Feb-Apr 2025.
+          </p>
+        </div>
+      </section>
+
       {/* ── CREATIVE PREVIEW ── */}
       <section className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
