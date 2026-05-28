@@ -177,6 +177,7 @@ export function BetaNavbar() {
         {/* Logo */}
         <Link
           to="/"
+          aria-label="Beta Ads - Home"
           className="flex items-center group flex-shrink-0 px-3 py-1.5"
         >
           <img

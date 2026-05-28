@@ -100,6 +100,17 @@
   * {
     @apply border-border;
   }
+
+  /* Typographic polish: avoid widows/orphans in body paragraphs
+     and balance multi-line headings. Supported in modern Chrome/Safari/Firefox;
+     gracefully degrades on older browsers. */
+  p {
+    text-wrap: pretty;
+  }
+
+  h1, h2, h3, h4 {
+    text-wrap: balance;
+  }
 }
 
 /* ── Ambient background - two slow-drifting radial glows ──

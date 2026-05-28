@@ -415,13 +415,13 @@ const NkiCaseStudy: React.FC = () => {
             From Twitch's own analytics across the participating creators:
           </p>
 
-          <div className="grid grid-cols-3 gap-px rounded-2xl overflow-hidden bg-border max-w-3xl">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-px rounded-2xl overflow-hidden bg-border max-w-3xl">
             {[
               { value: "135,600", label: "Unique viewers" },
               { value: "510,400", label: "Direct views" },
               { value: "218,500", label: "Chat messages" },
             ].map((s) => (
-              <div key={s.label} className="bg-background px-6 py-6">
+              <div key={s.label} className="bg-background px-5 sm:px-6 py-5 sm:py-6 min-w-0">
                 <div className="text-2xl md:text-3xl font-bold tracking-tight text-foreground tabular-nums">
                   {s.value}
                 </div>
