@@ -141,34 +141,20 @@ const NkiCaseStudy: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-8 max-w-2xl">
             Quiz overlay shown live in-stream
           </h2>
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl">
-            <div
-              className="rounded-2xl overflow-hidden bg-black border"
-              style={{ borderColor: `${BRAND.primary}33` }}
-            >
-              <video
-                src="/lovable-uploads/case-studies/nki-overlay.webm"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-                className="w-full h-auto"
-                aria-label='NKI "Hva slags type student er du?" overlay creative as displayed on Norwegian Twitch streams'
-              />
-            </div>
-            <div
-              className="rounded-2xl overflow-hidden bg-card border"
-              style={{ borderColor: `${BRAND.primary}33` }}
-            >
-              <img
-                src="/lovable-uploads/case-studies/nki-detoo.png"
-                alt="NKI quiz overlay shown on a Twitch stream"
-                className="w-full h-auto"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
+          <div
+            className="rounded-2xl overflow-hidden bg-black border max-w-3xl"
+            style={{ borderColor: `${BRAND.primary}33` }}
+          >
+            <video
+              src="/lovable-uploads/case-studies/nki-overlay.webm"
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="metadata"
+              className="w-full h-auto"
+              aria-label='NKI "Hva slags type student er du?" overlay creative as displayed on Norwegian Twitch streams'
+            />
           </div>
           <p className="text-xs text-muted-foreground mt-4 max-w-3xl">
             The overlay invites viewers to take a 30-second personality quiz - it's a
