@@ -90,7 +90,16 @@
       cursor: pointer; transition: all 0.2s ease; margin-bottom: 2px; letter-spacing: -0.01em;
     }
     .sidebar-item:hover { background: rgba(0,0,0,0.03); color: #1d1d1f; }
-    .sidebar-item.active { background: rgba(233,79,55,0.10); color: #e94f37; font-weight: 600; }
+    /* Active item mirrors the "Glorious Gaming" active Report card pattern:
+       soft coral fill + coral border + subtle radial glow at the top-left. */
+    .sidebar-item.active {
+      background:
+        radial-gradient(ellipse 80% 100% at 0% 0%, rgba(233,79,55,0.15) 0%, rgba(233,79,55,0.05) 60%, transparent 100%),
+        rgba(233,79,55,0.10);
+      border: 1px solid rgba(233,79,55,0.30);
+      color: #e94f37;
+      font-weight: 600;
+    }
     .sidebar-item svg { width: 18px; height: 18px; flex-shrink: 0; stroke-width: 1.5; }
 
     .badge-new {
@@ -289,103 +298,144 @@
     ::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.2); }
   </style>
 
-  <!-- ─── Dark mode overrides ─── -->
+  <!-- ─── Dark mode overrides ─── matched to the "Generated Reports" panel:
+       deep #0b0b0e base, white/[0.04-0.08] subtle cards, primary/15 tint on
+       active states, primary/30 border on the active sidebar item -->
   <style>
-    html[data-theme="dark"] { --c-s1: #f28b75; --c-s2: #f6b1a0; --c-s3: #f9d2c8; }
+    html[data-theme="dark"] { --c-s1: #e94f37; --c-s2: #f17a64; --c-s3: #f5a594; }
     html[data-theme="dark"] body {
-      background: #0d0d0d !important;
-      color: #ededed;
+      /* match the marketing site's dark bg exactly: hsl(240 11% 5%) ≈ #0b0b0e */
+      background: #0b0b0e !important;
+      color: #eaecf0;
     }
     html[data-theme="dark"] .topbar-org img { filter: brightness(0) invert(1); }
     html[data-theme="dark"] .sidebar-logo img { filter: brightness(0) invert(1); }
     html[data-theme="dark"] .browser-toolbar {
-      background: linear-gradient(180deg, #252525 0%, #1c1c1c 100%) !important;
-      border-bottom-color: rgba(255,255,255,0.08) !important;
+      background: linear-gradient(180deg, #1a1a1f 0%, #131318 100%) !important;
+      border-bottom-color: rgba(255,255,255,0.06) !important;
     }
     html[data-theme="dark"] .browser-address-bar {
-      background: #1f1f1f !important;
-      border-color: rgba(255,255,255,0.12) !important;
+      background: rgba(255,255,255,0.04) !important;
+      border-color: rgba(255,255,255,0.08) !important;
     }
-    html[data-theme="dark"] .address-text { color: #ededed !important; }
-    html[data-theme="dark"] .browser-nav-btn { color: rgba(255,255,255,0.3) !important; }
-    html[data-theme="dark"] .app-container { background: #0d0d0d !important; }
+    html[data-theme="dark"] .address-text { color: #eaecf0 !important; }
+    html[data-theme="dark"] .browser-nav-btn { color: rgba(255,255,255,0.28) !important; }
+    html[data-theme="dark"] .app-container { background: #0b0b0e !important; }
     html[data-theme="dark"] .sidebar {
-      background: #141414 !important;
-      border-right-color: rgba(255,255,255,0.07) !important;
+      background: #0e0e12 !important;
+      border-right-color: rgba(255,255,255,0.05) !important;
     }
+    html[data-theme="dark"] .sidebar-item { color: #8a8d96 !important; }
     html[data-theme="dark"] .sidebar-item:hover {
-      background: rgba(255,255,255,0.05) !important;
-      color: #ededed !important;
+      background: rgba(255,255,255,0.04) !important;
+      color: #eaecf0 !important;
     }
-    html[data-theme="dark"] .sidebar-section-title { color: #3e3e3e !important; }
-    html[data-theme="dark"] .sidebar-footer { border-top-color: rgba(255,255,255,0.05) !important; }
-    html[data-theme="dark"] .sidebar-footer-text { color: #404040 !important; }
-    html[data-theme="dark"] .sidebar-footer-ver  { color: #2e2e2e !important; }
+    /* Active sidebar item: mirrors the active "Glorious Gaming" report card —
+       primary/15 fill, primary/30 border, soft inner red glow at top-left. */
+    html[data-theme="dark"] .sidebar-item.active {
+      background:
+        radial-gradient(ellipse 80% 100% at 0% 0%, rgba(233,79,55,0.18) 0%, rgba(233,79,55,0.06) 60%, transparent 100%),
+        rgba(233,79,55,0.12) !important;
+      border: 1px solid rgba(233,79,55,0.32) !important;
+      color: #ff6b56 !important;
+      box-shadow: 0 0 0 1px rgba(233,79,55,0.08) inset !important;
+    }
+    html[data-theme="dark"] .sidebar-section-title { color: rgba(255,255,255,0.32) !important; }
+    html[data-theme="dark"] .sidebar-footer { border-top-color: rgba(255,255,255,0.04) !important; }
+    html[data-theme="dark"] .sidebar-footer-text { color: rgba(255,255,255,0.22) !important; }
+    html[data-theme="dark"] .sidebar-footer-ver  { color: rgba(255,255,255,0.14) !important; }
     html[data-theme="dark"] .topbar {
-      background: #141414 !important;
-      border-bottom-color: rgba(255,255,255,0.07) !important;
+      background: #0e0e12 !important;
+      border-bottom-color: rgba(255,255,255,0.05) !important;
     }
-    html[data-theme="dark"] .topbar-org { color: #ededed !important; }
-    html[data-theme="dark"] .content { background: #0d0d0d !important; }
-    html[data-theme="dark"] .page-header h1 { color: #ededed !important; }
-    html[data-theme="dark"] .tabs { background: rgba(255,255,255,0.06) !important; }
-    html[data-theme="dark"] .tab:hover { color: #ededed !important; }
+    html[data-theme="dark"] .topbar-org { color: #eaecf0 !important; }
+    html[data-theme="dark"] .content { background: #0b0b0e !important; }
+    html[data-theme="dark"] .page-header h1 { color: #eaecf0 !important; }
+    html[data-theme="dark"] .tabs { background: rgba(255,255,255,0.04) !important; }
+    html[data-theme="dark"] .tab:hover { color: #eaecf0 !important; }
     html[data-theme="dark"] .tab.active {
-      background: #1e1e1e !important;
-      color: #ededed !important;
+      background:
+        radial-gradient(ellipse 100% 100% at 50% 0%, rgba(233,79,55,0.18) 0%, transparent 70%),
+        rgba(255,255,255,0.06) !important;
+      color: #eaecf0 !important;
       box-shadow: 0 1px 3px rgba(0,0,0,0.4) !important;
     }
+    html[data-theme="dark"] .filter-label { color: #ff6b56 !important; }
     html[data-theme="dark"] .filter-select {
-      background: #1a1a1a !important;
-      border-color: rgba(255,255,255,0.10) !important;
-      color: #ededed !important;
+      background: rgba(255,255,255,0.04) !important;
+      border-color: rgba(255,255,255,0.08) !important;
+      color: #eaecf0 !important;
+    }
+    html[data-theme="dark"] .filter-select:focus {
+      border-color: rgba(233,79,55,0.5) !important;
+      box-shadow: 0 0 0 3px rgba(233,79,55,0.15) !important;
     }
     html[data-theme="dark"] .btn {
-      background: #1a1a1a !important;
-      border-color: rgba(255,255,255,0.10) !important;
-      color: #ededed !important;
+      background: rgba(255,255,255,0.04) !important;
+      border-color: rgba(255,255,255,0.08) !important;
+      color: #eaecf0 !important;
     }
     html[data-theme="dark"] .btn:hover { background: rgba(255,255,255,0.07) !important; }
+    /* Match the solid coral "Preview" pill from the Reports panel */
+    html[data-theme="dark"] .btn-primary {
+      background: #e94f37 !important;
+      border-color: transparent !important;
+      color: white !important;
+      box-shadow: 0 1px 3px rgba(233,79,55,0.3) !important;
+    }
+    html[data-theme="dark"] .btn-primary:hover { background: #d4432d !important; }
+    /* Summary cards mirror the Reports cards: subtle dark fill, very thin border,
+       no heavy shadow. */
     html[data-theme="dark"] .summary-card {
-      background: #1a1a1a !important;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+      background: rgba(255,255,255,0.04) !important;
+      border: 1px solid rgba(255,255,255,0.06) !important;
+      box-shadow: none !important;
     }
-    html[data-theme="dark"] .summary-card:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important; }
-    html[data-theme="dark"] .summary-card-title { color: #ededed !important; }
-    html[data-theme="dark"] .summary-card-title .info-icon { color: #2e2e2e !important; }
-    html[data-theme="dark"] .pie-center-label .number { color: #ededed !important; }
-    html[data-theme="dark"] .pie-center-label .label  { color: #404040 !important; }
-    html[data-theme="dark"] .legend-value { color: #ededed !important; }
+    html[data-theme="dark"] .summary-card:hover {
+      background: rgba(255,255,255,0.06) !important;
+      border-color: rgba(233,79,55,0.18) !important;
+    }
+    html[data-theme="dark"] .summary-card-title { color: #eaecf0 !important; }
+    html[data-theme="dark"] .summary-card-title .info-icon { color: rgba(255,255,255,0.2) !important; }
+    html[data-theme="dark"] .pie-center-label .number { color: #eaecf0 !important; }
+    html[data-theme="dark"] .pie-center-label .label  { color: rgba(255,255,255,0.32) !important; }
+    html[data-theme="dark"] .legend-item { color: rgba(255,255,255,0.55) !important; }
+    html[data-theme="dark"] .legend-value { color: #eaecf0 !important; }
     html[data-theme="dark"] .distribution-section {
-      background: #1a1a1a !important;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.3) !important;
+      background: rgba(255,255,255,0.04) !important;
+      border: 1px solid rgba(255,255,255,0.06) !important;
+      box-shadow: none !important;
     }
-    html[data-theme="dark"] .distribution-title { color: #ededed !important; }
-    html[data-theme="dark"] .period-toggle { background: rgba(255,255,255,0.06) !important; }
+    html[data-theme="dark"] .distribution-title { color: #eaecf0 !important; }
+    html[data-theme="dark"] .distribution-legend-item { color: rgba(255,255,255,0.55) !important; }
+    html[data-theme="dark"] .period-toggle { background: rgba(255,255,255,0.04) !important; }
+    html[data-theme="dark"] .period-btn { color: rgba(255,255,255,0.5) !important; }
     html[data-theme="dark"] .period-btn.active {
-      background: #1e1e1e !important;
-      color: #ededed !important;
+      background: rgba(255,255,255,0.08) !important;
+      color: #eaecf0 !important;
       box-shadow: 0 1px 2px rgba(0,0,0,0.4) !important;
     }
-    html[data-theme="dark"] .period-btn:hover:not(.active) { color: #ededed !important; }
+    html[data-theme="dark"] .period-btn:hover:not(.active) { color: #eaecf0 !important; }
     html[data-theme="dark"] .proc-card {
-      background: #1a1a1a !important;
-      border-color: rgba(255,255,255,0.05) !important;
+      background: rgba(255,255,255,0.04) !important;
+      border-color: rgba(255,255,255,0.06) !important;
+      box-shadow: none !important;
     }
-    html[data-theme="dark"] .proc-card-title { color: #ededed !important; }
-    html[data-theme="dark"] .proc-card-title .info-icon { color: #2e2e2e !important; }
-    html[data-theme="dark"] .proc-card-type  { color: #404040 !important; }
-    html[data-theme="dark"] .proc-card-value { color: #ededed !important; }
-    html[data-theme="dark"] .proc-card-desc  { color: #404040 !important; }
+    html[data-theme="dark"] .proc-card-title { color: #eaecf0 !important; }
+    html[data-theme="dark"] .proc-card-title .info-icon { color: rgba(255,255,255,0.2) !important; }
+    html[data-theme="dark"] .proc-card-type  { color: rgba(255,255,255,0.4) !important; }
+    html[data-theme="dark"] .proc-card-value { color: #eaecf0 !important; }
+    html[data-theme="dark"] .proc-card-desc  { color: rgba(255,255,255,0.4) !important; }
     html[data-theme="dark"] .proc-card-bar-track { background: rgba(255,255,255,0.08) !important; }
-    html[data-theme="dark"] .proc-card-pct   { color: #ededed !important; }
+    html[data-theme="dark"] .proc-card-pct   { color: #eaecf0 !important; }
     html[data-theme="dark"] .ads-per-day {
-      background: #1a1a1a !important;
-      border-color: rgba(255,255,255,0.05) !important;
+      background: rgba(255,255,255,0.04) !important;
+      border-color: rgba(255,255,255,0.06) !important;
+      box-shadow: none !important;
     }
-    html[data-theme="dark"] .ads-per-day-title { color: #ededed !important; }
-    html[data-theme="dark"] ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12) !important; }
-    html[data-theme="dark"] ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.22) !important; }
+    html[data-theme="dark"] .ads-per-day-title { color: #eaecf0 !important; }
+    html[data-theme="dark"] ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.10) !important; }
+    html[data-theme="dark"] ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.20) !important; }
   </style>
 </head>
 <body>
