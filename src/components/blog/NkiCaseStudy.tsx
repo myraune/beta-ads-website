@@ -178,6 +178,69 @@ const NkiCaseStudy: React.FC = () => {
         </div>
       </section>
 
+      {/* ── STREAMER REACTIONS ── three creator clips from the actual campaign */}
+      <section className="border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+          <span
+            className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+            style={{ color: BRAND.primary }}
+          >
+            On stream
+          </span>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-3 max-w-2xl">
+            Streamer reactions, captured live
+          </h2>
+          <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-10">
+            Three clips from the NKI run - shoutouts and overlay moments from the
+            creators who carried the most weight in the campaign.
+          </p>
+
+          <div className="grid md:grid-cols-3 gap-4 md:gap-5">
+            {[
+              {
+                streamer: "danniz",
+                caption: "Top streamer of the run - 80,042 views, 327 verified clicks",
+                src: "/lovable-uploads/case-studies/nki-shoutout-danniz.mp4",
+              },
+              {
+                streamer: "fjolsenfn",
+                caption: "Quiz overlay rendered live during a Fortnite stream",
+                src: "/lovable-uploads/case-studies/nki-clip-fjolsen.mp4",
+              },
+              {
+                streamer: "joonieboi",
+                caption: "Shoutout to the NKI quiz mid-stream",
+                src: "/lovable-uploads/case-studies/nki-shoutout-jonieboi.mp4",
+              },
+            ].map((clip) => (
+              <figure key={clip.streamer} className="flex flex-col">
+                <div
+                  className="rounded-xl overflow-hidden bg-black border"
+                  style={{ borderColor: `${BRAND.primary}33` }}
+                >
+                  <video
+                    src={clip.src}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-auto block aspect-video object-cover"
+                    aria-label={`${clip.streamer} on stream during the NKI campaign`}
+                  />
+                </div>
+                <figcaption className="mt-3">
+                  <div className="text-sm font-semibold text-foreground">
+                    {clip.streamer}
+                  </div>
+                  <div className="text-xs text-muted-foreground leading-relaxed mt-0.5">
+                    {clip.caption}
+                  </div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="py-20 md:py-28 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div
