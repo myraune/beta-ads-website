@@ -417,6 +417,7 @@ const LaunchPreview: React.FC = () => {
             muted
             playsInline
             onEnded={handleEnded}
+            aria-label={`${item.brand} ${item.campaign} ad overlay creative`}
             className="absolute bottom-0 left-0"
             style={{ width: `${(450 / 1920) * 100}%`, aspectRatio: "1 / 1" }}
             initial={{ opacity: 0 }}
@@ -433,6 +434,7 @@ const LaunchPreview: React.FC = () => {
             muted
             playsInline
             onEnded={handleEnded}
+            aria-label={`${item.brand} ${item.campaign} ad overlay creative`}
             className="absolute inset-0 w-full h-full object-cover"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

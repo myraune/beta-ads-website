@@ -235,7 +235,12 @@ const GloriousCaseStudy: React.FC = () => {
           <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Campaign Footage</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-8">See it live on stream</h2>
           <div className="relative w-full rounded-2xl overflow-hidden bg-black" style={{ aspectRatio: "16/9" }}>
-            <video controls className="absolute inset-0 w-full h-full">
+            <video
+              controls
+              preload="metadata"
+              aria-label="Glorious gaming mouse campaign on Norwegian Twitch streams"
+              className="absolute inset-0 w-full h-full"
+            >
               <source src="https://storage.googleapis.com/livad-blog/3292/combined_campaign_3292_20260127_010350.mp4" type="video/mp4" />
             </video>
           </div>

@@ -166,6 +166,7 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
             </div>
 
             <div className="bg-card/30 rounded-2xl border border-border/30 p-8">
+              <h2 className="sr-only">Request a demo</h2>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                   <FormField control={form.control} name="name" render={({ field }) => (

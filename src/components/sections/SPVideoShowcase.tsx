@@ -170,6 +170,7 @@ const LiveStreamDemo: React.FC = () => {
             playsInline
             preload="metadata"
             className="w-full h-full object-cover"
+            aria-label="RubenGKS Fortnite stream demo with a Samsung Galaxy Z Fold7 sponsored overlay"
             onPlay={() => setPlaying(true)}
             onPause={() => setPlaying(false)}
           />
@@ -217,34 +218,37 @@ const LiveStreamDemo: React.FC = () => {
             </div>
           </div>
 
-          {/* Player controls bar */}
+          {/* Player controls bar - primary controls (play/mute) bumped to 44×44 on
+              mobile per WCAG 2.5.5 AA; sm:w-9 keeps the desktop player chrome compact. */}
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent px-3 pb-2 pt-8 pointer-events-none flex items-center justify-between">
             <div className="flex items-center gap-1 pointer-events-auto">
               <button
+                aria-label={playing ? "Pause stream" : "Play stream"}
                 onClick={(e) => {
                   e.stopPropagation();
                   togglePlay();
                 }}
-                className="w-9 h-9 flex items-center justify-center text-white/85 hover:text-white"
+                className="w-11 h-11 sm:w-9 sm:h-9 flex items-center justify-center text-white/85 hover:text-white"
               >
                 {playing ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
               </button>
               <button
+                aria-label={muted ? "Unmute stream" : "Mute stream"}
                 onClick={(e) => {
                   e.stopPropagation();
                   setMuted(!muted);
                   if (streamRef.current) streamRef.current.muted = !muted;
                 }}
-                className="w-9 h-9 flex items-center justify-center text-white/85 hover:text-white"
+                className="w-11 h-11 sm:w-9 sm:h-9 flex items-center justify-center text-white/85 hover:text-white"
               >
                 {muted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
               </button>
             </div>
             <div className="flex items-center gap-1 pointer-events-auto">
-              <button className="w-9 h-9 flex items-center justify-center text-white/85 hover:text-white">
+              <button aria-label="Stream settings" className="w-11 h-11 sm:w-9 sm:h-9 flex items-center justify-center text-white/85 hover:text-white">
                 <Settings className="w-4 h-4" />
               </button>
-              <button className="w-9 h-9 flex items-center justify-center text-white/85 hover:text-white">
+              <button aria-label="Fullscreen" className="w-11 h-11 sm:w-9 sm:h-9 flex items-center justify-center text-white/85 hover:text-white">
                 <Maximize2 className="w-4 h-4" />
               </button>
             </div>
