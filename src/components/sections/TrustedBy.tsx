@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 // Client logos for the carousel with individual scale adjustments
 const logos: Array<{ src: string; alt: string; scale?: string }> = [
   { src: "/lovable-uploads/logo-client-1.png", alt: "Samsung", scale: "scale-100" },
-  { src: "/lovable-uploads/logo-saily.png", alt: "Saily", scale: "scale-90" },
+  { src: "/lovable-uploads/logo-saily.svg", alt: "Saily", scale: "scale-90" },
   { src: "/lovable-uploads/logo-foodora.png", alt: "Foodora", scale: "scale-100" },
   { src: "/lovable-uploads/logo-shure.png", alt: "Shure", scale: "scale-100" },
   { src: "/lovable-uploads/logo-client-5.png", alt: "Client 5", scale: "scale-75" },

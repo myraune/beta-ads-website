@@ -83,8 +83,8 @@ const norwegianCaseStudies = [
     tagline: "eSIM-launch - reisepublikum",
     headline: "102 794 visninger · 1.08% verifisert CTR",
     accent: "#7B4DFF",
-    logo: "/lovable-uploads/logo-saily.png",
-    logoInvert: true,
+    logo: "/lovable-uploads/logo-saily.svg",
+    logoInvert: false,
   },
 ];
 
