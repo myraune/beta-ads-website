@@ -228,18 +228,8 @@ export function BetaNavbar() {
             <div className="p-2">
               {productItems.map((item) => {
                 const Icon = item.icon;
-                return (
-                  <button
-                    key={item.label}
-                    onClick={() => {
-                      if (item.href) {
-                        navigate(item.href);
-                      } else if (item.scrollTo) {
-                        scrollToSection(item.scrollTo);
-                      }
-                    }}
-                    className="w-full flex items-start gap-3 px-3 py-2.5 rounded-xl text-left hover:bg-foreground/[0.05] transition-colors group"
-                  >
+                const innerContent = (
+                  <>
                     <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/15 transition-colors">
                       <Icon className="w-4 h-4 text-primary" />
                     </div>
@@ -251,6 +241,30 @@ export function BetaNavbar() {
                         {item.desc}
                       </div>
                     </div>
+                  </>
+                );
+                const className = "w-full flex items-start gap-3 px-3 py-2.5 rounded-xl text-left hover:bg-foreground/[0.05] transition-colors group";
+                if (item.href) {
+                  return (
+                    <Link
+                      key={item.label}
+                      to={item.href}
+                      onClick={() => setProductOpen(false)}
+                      className={className}
+                    >
+                      {innerContent}
+                    </Link>
+                  );
+                }
+                return (
+                  <button
+                    key={item.label}
+                    onClick={() => {
+                      if (item.scrollTo) scrollToSection(item.scrollTo);
+                    }}
+                    className={className}
+                  >
+                    {innerContent}
                   </button>
                 );
               })}
@@ -428,17 +442,29 @@ export function BetaNavbar() {
             </p>
             {productItems.map((item) => {
               const Icon = item.icon;
+              const className = "w-full flex items-center gap-3 px-4 py-3 min-h-[44px] text-sm font-medium rounded-xl text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05] transition-colors";
+              // Items with href render as real anchors so right-click/middle-click,
+              // open-in-new-tab, and screen-reader link semantics all work.
+              if (item.href) {
+                return (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={className}
+                  >
+                    <Icon className="w-4 h-4 text-primary" />
+                    {item.label}
+                  </Link>
+                );
+              }
               return (
                 <button
                   key={item.label}
                   onClick={() => {
-                    if (item.href) {
-                      navigate(item.href);
-                    } else if (item.scrollTo) {
-                      scrollToSection(item.scrollTo);
-                    }
+                    if (item.scrollTo) scrollToSection(item.scrollTo);
                   }}
-                  className="w-full flex items-center gap-3 px-4 py-3 min-h-[44px] text-sm font-medium rounded-xl text-muted-foreground hover:text-foreground hover:bg-foreground/[0.05] transition-colors"
+                  className={className}
                 >
                   <Icon className="w-4 h-4 text-primary" />
                   {item.label}

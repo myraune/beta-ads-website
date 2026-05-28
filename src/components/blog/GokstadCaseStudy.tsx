@@ -80,6 +80,8 @@ const GokstadCaseStudy: React.FC = () => {
         <div className="relative w-full pb-[56.25%] h-0 overflow-hidden bg-black rounded-xl">
           <video
             controls
+            preload="metadata"
+            aria-label="Gokstad Akademiet IT recruitment campaign footage"
             className="absolute top-0 left-0 w-full h-full"
             crossOrigin="anonymous"
           >
