@@ -211,7 +211,7 @@ const SCREENSHOT_BLOCKLIST = new Set([
   "screenshot-kick3.jpg",
   "screenshot-twitch.jpg",
   "screenshot-twitch-browse.jpg",
-  "screenshot-twitch-stream.jpg",
+  "twitch-ad-example.jpg",
   "screenshot-youtube.jpg",
   "screenshot-youtube2.jpg",
   "screenshot-youtube-live.jpg",

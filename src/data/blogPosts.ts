@@ -5098,7 +5098,7 @@ The question is no longer whether this approach is technically viable. It is whe
     date: "Mar 26, 2026",
     dateISO: "2026-03-26",
     readTime: "6 min read",
-    image: "/lovable-uploads/screenshot-twitch-stream.jpg",
+    image: "/lovable-uploads/twitch-ad-example.jpg",
     category: "Twitch Insights",
     tags: ["AI advertising", "dynamic ad insertion", "native ads", "overlay ads", "live streaming", "programmatic"],
     relatedSlugs: [
@@ -7320,7 +7320,7 @@ For brands buying programmatic Twitch video at spot-market prices, the implicati
 
 Native overlay fixes this at the format level. An overlay is a visual element baked into the Twitch broadcast feed (or rendered by the streamer's OBS browser source). It's not a separate ad-server request the browser can filter. Adblock software has no mechanism to distinguish an overlay from regular stream content. The 0 %-adblock-tap figure in Beta Ads reporting is a property of the format itself, not an advertising claim.
 
-![A Nordic Twitch stream with a native overlay ad rendered inside the video frame](/lovable-uploads/screenshot-twitch-stream.jpg)
+![A Nordic Twitch stream with a native overlay ad rendered inside the video frame](/lovable-uploads/twitch-ad-example.jpg)
 
 ## Attribution: What Actually Gets Measured in 2026
 
@@ -7466,7 +7466,7 @@ The timeline of the shift is compressed:
 
 The practical difference for a brand team: spent five years briefing a 30-second spot, then two weeks selecting channels; now spends two weeks scoping creator-category fit, then five weeks running the creative with in-flight optimization.
 
-![A native overlay ad rendered inside a Twitch stream, matching the creator's layout](/lovable-uploads/screenshot-twitch-stream.jpg)
+![A native overlay ad rendered inside a Twitch stream, matching the creator's layout](/lovable-uploads/twitch-ad-example.jpg)
 
 ## Why This Matters for 2026 Nordic Media Plans
 
@@ -7567,7 +7567,7 @@ Resultatet er et format der **0 % adblock-tap** er en plattform-egenskap, ikke e
 
 ## Norske merker som har gjort det riktig
 
-![Norsk livestream med native overlay-annonse](/lovable-uploads/screenshot-twitch-stream.jpg)
+![Jonieboi streamer med Saily native overlay-annonse live i Twitch-strømmen](/lovable-uploads/twitch-ad-example.jpg)
 
 Dette er ekte kampanjer Beta Ads har levert på det norske markedet i 2025, med verifiserte tall fra Twitch-plattformen:
 
@@ -7692,7 +7692,7 @@ Det här är verkliga kampanjer Beta Ads levererat på den nordiska marknaden 20
 
 Den gemensamma nämnaren: siffrorna är plattformsverifierade, inte hämtade från streamernas egna screenshots. Det är skillnaden mellan "ungefärlig räckvidd" och mätbar leverans.
 
-![Svenskspråkig Twitch-stream med native overlay-annons](/lovable-uploads/screenshot-twitch-stream.jpg)
+![Twitch-stream med native overlay-annons live i strømmen](/lovable-uploads/twitch-ad-example.jpg)
 
 ## Fem vanliga misstag svenska varumärken gör
 
@@ -7991,7 +7991,7 @@ Beyond the top three, Norway's Just Chatting category depth is what makes the ma
 
 Fortnite (RubenGKS, FjolsenFN), Valorant (Aienia and adjacent esports streamers), and CS2 (DannizTV) round out the Norwegian gaming tier. These channels typically pair with gaming-peripheral, energy-drink, and gaming-event sponsors.
 
-![A Norwegian Twitch stream with native overlay rendered in the stream frame](/lovable-uploads/screenshot-twitch-stream.jpg)
+![A Norwegian Twitch stream with native overlay rendered in the stream frame](/lovable-uploads/twitch-ad-example.jpg)
 
 ## The Middle-Tier Doubling Is the Real Story
 
@@ -8635,7 +8635,7 @@ EA FC season launches drive predictable Swedish viewership spikes in September�
 
 IRL (in-real-life) streaming has grown substantially on both Twitch and Kick in Sweden. It's an under-indexed category for non-gaming brands - particularly travel, food delivery, and lifestyle - because most media planners still assume Twitch = gaming.
 
-![A Swedish-language Twitch stream with native overlay advertisement rendered inside the stream](/lovable-uploads/screenshot-twitch-stream.jpg)
+![Native overlay ad rendered live inside a Twitch stream](/lovable-uploads/twitch-ad-example.jpg)
 
 ## How Swedish Inventory Compares to Norwegian and Finnish Depth
 
@@ -8744,7 +8744,7 @@ Finland's mobile gaming heritage (Supercell, Rovio) extends into streaming. Mobi
 
 Emerging category, similar in shape to the Swedish and Norwegian IRL tiers. Travel-tech, outdoor gear, and lifestyle brands can access Finnish IRL inventory without paying the hero-streamer premium.
 
-![A Finnish-language Twitch stream with a native overlay ad rendered in the frame](/lovable-uploads/screenshot-twitch-stream.jpg)
+![Native overlay ad rendered live inside a Twitch stream](/lovable-uploads/twitch-ad-example.jpg)
 
 ## Why Finnish Inventory Is Under-Priced
 
@@ -9011,7 +9011,7 @@ The global rankings over-represent English-language variety and Asian MOBA/mobil
 
 In short: the global top 10 tells you which titles have a global audience. For a Norwegian or Nordic activation, the overlap is smaller than the list suggests. FPS and Action-Adventure are always in both; MOBA and mobile-heavy titles often aren't.
 
-![Gaming stream with category metadata visible on the stream interface](/lovable-uploads/screenshot-twitch-stream.jpg)
+![Gaming stream with category metadata visible on the stream interface](/lovable-uploads/twitch-ad-example.jpg)
 
 ## The Infrastructure That Makes This Data Actionable
 
@@ -9240,7 +9240,7 @@ Valkyrae's +83% growth on YouTube Gaming is the standout; the migration is now s
 
 VTuber viewership in 2025 stayed heavily weighted toward Japanese and Korean audiences, but the cross-over into US/EU markets grew. [Dot Esports](https://dotesports.com/) reported that top Hololive and Nijisanji talent now routinely break 3M+ hour totals, with US-based independents like Shxtou and Ironmouse maintaining six-figure subscriber counts. For Nordic brands with gaming-peripheral or anime-adjacent product lines, VTuber audiences are under-priced per engaged viewer relative to equivalent Twitch inventory.
 
-![A livestream creator recording a sponsored segment with on-screen overlay branding](/lovable-uploads/screenshot-twitch-stream.jpg)
+![A livestream creator recording a sponsored segment with on-screen overlay branding](/lovable-uploads/twitch-ad-example.jpg)
 
 ## What This Means for a Nordic Advertiser
 

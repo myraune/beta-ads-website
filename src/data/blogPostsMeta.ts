@@ -2756,7 +2756,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Mar 26, 2026",
     dateISO: "2026-03-26",
     readTime: "6 min read",
-    image: "/lovable-uploads/screenshot-twitch-stream.jpg",
+    image: "/lovable-uploads/twitch-ad-example.jpg",
     category: "Twitch Insights",
     tags: [
       "AI advertising",
