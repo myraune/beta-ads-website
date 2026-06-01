@@ -177,7 +177,6 @@ const BlogPostPage: React.FC = () => {
                 src={getBlogImage(post)}
                 alt={post.title}
                 className="w-full h-full object-cover"
-                fetchPriority="high"
                 decoding="async"
               />
             </div>

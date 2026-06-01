@@ -157,7 +157,6 @@ const Blog: React.FC = () => {
                         alt={filteredPosts[0].title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                         loading="eager"
-                        fetchPriority="high"
                         width={1200}
                         height={675}
                         decoding="async"
