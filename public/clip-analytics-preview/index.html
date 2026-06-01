@@ -11,7 +11,13 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-    :root { --c-s1: #f28b75; --c-s2: #f6b1a0; --c-s3: #f9d2c8; }
+    /* --brand mirrors the marketing site's --primary token exactly so this
+       embedded dashboard uses the SAME red as every other preview in the
+       Platform section. Light = hsl(357 70% 48%) #d0252d (AA-safe on white);
+       dark override below = hsl(357 70% 62%) #e25a61. Previously every red was
+       a hardcoded orange signal-red, which read differently from the rose-red
+       --primary used by the surrounding panels. */
+    :root { --brand: #d0252d; --brand-rgb: 208,37,45; --c-s1: #f28b75; --c-s2: #f6b1a0; --c-s3: #f9d2c8; }
 
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -92,16 +98,16 @@
        soft coral fill + coral border + subtle radial glow at the top-left. */
     .sidebar-item.active {
       background:
-        radial-gradient(ellipse 80% 100% at 0% 0%, rgba(233,79,55,0.15) 0%, rgba(233,79,55,0.05) 60%, transparent 100%),
-        rgba(233,79,55,0.10);
-      border: 1px solid rgba(233,79,55,0.30);
-      color: #e94f37;
+        radial-gradient(ellipse 80% 100% at 0% 0%, rgba(var(--brand-rgb),0.15) 0%, rgba(var(--brand-rgb),0.05) 60%, transparent 100%),
+        rgba(var(--brand-rgb),0.10);
+      border: 1px solid rgba(var(--brand-rgb),0.30);
+      color: var(--brand);
       font-weight: 600;
     }
     .sidebar-item svg { width: 18px; height: 18px; flex-shrink: 0; stroke-width: 1.5; }
 
     .badge-new {
-      font-size: 9px; font-weight: 600; background: #e94f37; color: white;
+      font-size: 9px; font-weight: 600; background: var(--brand); color: white;
       padding: 2px 6px; border-radius: 5px; letter-spacing: 0.3px; margin-left: auto;
     }
 
@@ -126,7 +132,7 @@
     .topbar-org img { height: 14px; width: auto; }
     .user-avatar {
       width: 36px; height: 36px; border-radius: 50%;
-      background: linear-gradient(135deg, #e94f37, #c93824);
+      background: linear-gradient(135deg, var(--brand), color-mix(in srgb, var(--brand) 66%, #000));
       display: flex; align-items: center; justify-content: center;
       font-size: 11px; font-weight: 600; color: white; letter-spacing: 0.02em;
     }
@@ -150,7 +156,7 @@
     /* ─── Filters ─── */
     .filters-bar { display: flex; flex-wrap: nowrap; gap: 8px; align-items: flex-end; margin-bottom: 28px; min-width: 0; }
     .filter-group { display: flex; flex-direction: column; gap: 4px; min-width: 0; flex: 1 1 0; }
-    .filter-label { font-size: 11px; font-weight: 600; color: #e94f37; text-transform: uppercase; letter-spacing: 0.03em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .filter-label { font-size: 11px; font-weight: 600; color: var(--brand); text-transform: uppercase; letter-spacing: 0.03em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .filter-select {
       background: #ffffff; border: 1px solid rgba(0,0,0,0.08); border-radius: 12px;
       color: #1d1d1f; padding: 9px 24px 9px 10px; font-size: 12.5px; font-family: inherit;
@@ -165,7 +171,7 @@
          iframe). */
       text-overflow: ellipsis; white-space: nowrap; overflow: hidden;
     }
-    .filter-select:focus { outline: none; border-color: #e94f37; box-shadow: 0 0 0 3px rgba(233,79,55,0.12); }
+    .filter-select:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px rgba(var(--brand-rgb),0.12); }
     .filter-actions { display: flex; gap: 8px; margin-left: auto; flex-shrink: 0; }
 
     .btn {
@@ -175,8 +181,8 @@
       color: #1d1d1f; transition: all 0.2s; letter-spacing: -0.01em; white-space: nowrap;
     }
     .btn:hover { background: #f5f5f5; }
-    .btn-primary { background: #e94f37; border-color: transparent; color: white; }
-    .btn-primary:hover { background: #d4432d; }
+    .btn-primary { background: var(--brand); border-color: transparent; color: white; }
+    .btn-primary:hover { background: color-mix(in srgb, var(--brand) 85%, #000); }
     .btn svg { width: 14px; height: 14px; }
 
     /* ─── Summary cards ─── */
@@ -261,7 +267,7 @@
       flex: 1; height: 6px; background: #f2f2f2; border-radius: 3px; overflow: hidden;
     }
     .proc-card-bar-fill {
-      height: 100%; background: #e94f37; border-radius: 3px; transition: width 0.8s ease;
+      height: 100%; background: var(--brand); border-radius: 3px; transition: width 0.8s ease;
     }
     .proc-card-pct {
       font-size: 13px; font-weight: 600; color: #1d1d1f; min-width: 50px; text-align: right;
@@ -281,7 +287,7 @@
       display: flex; align-items: center; gap: 6px; margin-top: 6px;
     }
     .ads-per-day-legend-dot {
-      width: 8px; height: 8px; border-radius: 50%; background: #e94f37;
+      width: 8px; height: 8px; border-radius: 50%; background: var(--brand);
     }
     .ads-per-day-legend-label {
       font-size: 11px; color: #878787;
@@ -302,7 +308,7 @@
   <style>
     /* Legend dots: graduated brand-red (was salmon #f17a64/#f5a594). Slightly
        higher opacity than the donut segments so the 7px swatches stay legible. */
-    html[data-theme="dark"] { --c-s1: rgba(233,79,55,0.78); --c-s2: rgba(233,79,55,0.52); --c-s3: rgba(233,79,55,0.34); }
+    html[data-theme="dark"] { --brand: #e25a61; --brand-rgb: 226,90,97; --c-s1: rgba(var(--brand-rgb),0.78); --c-s2: rgba(var(--brand-rgb),0.52); --c-s3: rgba(var(--brand-rgb),0.34); }
     html[data-theme="dark"] body {
       /* match the marketing site's dark bg exactly: hsl(240 11% 5%) ≈ #0b0b0e */
       background: #0b0b0e !important;
@@ -334,11 +340,12 @@
        primary/15 fill, primary/30 border, soft inner red glow at top-left. */
     html[data-theme="dark"] .sidebar-item.active {
       background:
-        radial-gradient(ellipse 80% 100% at 0% 0%, rgba(233,79,55,0.18) 0%, rgba(233,79,55,0.06) 60%, transparent 100%),
-        rgba(233,79,55,0.12) !important;
-      border: 1px solid rgba(233,79,55,0.32) !important;
-      color: #ff6b56 !important;
-      box-shadow: 0 0 0 1px rgba(233,79,55,0.08) inset !important;
+        radial-gradient(ellipse 80% 100% at 0% 0%, rgba(var(--brand-rgb),0.18) 0%, rgba(var(--brand-rgb),0.06) 60%, transparent 100%),
+        rgba(var(--brand-rgb),0.12) !important;
+      border: 1px solid rgba(var(--brand-rgb),0.32) !important;
+      /* brand, lightened just enough to read on its own tinted background */
+      color: color-mix(in srgb, var(--brand) 72%, white) !important;
+      box-shadow: 0 0 0 1px rgba(var(--brand-rgb),0.08) inset !important;
     }
     html[data-theme="dark"] .sidebar-section-title { color: rgba(255,255,255,0.32) !important; }
     html[data-theme="dark"] .sidebar-footer { border-top-color: rgba(255,255,255,0.04) !important; }
@@ -355,20 +362,20 @@
     html[data-theme="dark"] .tab:hover { color: #eaecf0 !important; }
     html[data-theme="dark"] .tab.active {
       background:
-        radial-gradient(ellipse 100% 100% at 50% 0%, rgba(233,79,55,0.18) 0%, transparent 70%),
+        radial-gradient(ellipse 100% 100% at 50% 0%, rgba(var(--brand-rgb),0.18) 0%, transparent 70%),
         rgba(255,255,255,0.06) !important;
       color: #eaecf0 !important;
       box-shadow: 0 1px 3px rgba(0,0,0,0.4) !important;
     }
-    html[data-theme="dark"] .filter-label { color: #ff6b56 !important; }
+    html[data-theme="dark"] .filter-label { color: var(--brand) !important; }
     html[data-theme="dark"] .filter-select {
       background: rgba(255,255,255,0.04) !important;
       border-color: rgba(255,255,255,0.08) !important;
       color: #eaecf0 !important;
     }
     html[data-theme="dark"] .filter-select:focus {
-      border-color: rgba(233,79,55,0.5) !important;
-      box-shadow: 0 0 0 3px rgba(233,79,55,0.15) !important;
+      border-color: rgba(var(--brand-rgb),0.5) !important;
+      box-shadow: 0 0 0 3px rgba(var(--brand-rgb),0.15) !important;
     }
     html[data-theme="dark"] .btn {
       background: rgba(255,255,255,0.04) !important;
@@ -378,12 +385,12 @@
     html[data-theme="dark"] .btn:hover { background: rgba(255,255,255,0.07) !important; }
     /* Match the solid coral "Preview" pill from the Reports panel */
     html[data-theme="dark"] .btn-primary {
-      background: #e94f37 !important;
+      background: var(--brand) !important;
       border-color: transparent !important;
       color: white !important;
-      box-shadow: 0 1px 3px rgba(233,79,55,0.3) !important;
+      box-shadow: 0 1px 3px rgba(var(--brand-rgb),0.3) !important;
     }
-    html[data-theme="dark"] .btn-primary:hover { background: #d4432d !important; }
+    html[data-theme="dark"] .btn-primary:hover { background: color-mix(in srgb, var(--brand) 85%, #000) !important; }
     /* Summary cards mirror the Reports cards: subtle dark fill, very thin border,
        no heavy shadow. */
     html[data-theme="dark"] .summary-card {
@@ -393,7 +400,7 @@
     }
     html[data-theme="dark"] .summary-card:hover {
       background: rgba(255,255,255,0.06) !important;
-      border-color: rgba(233,79,55,0.18) !important;
+      border-color: rgba(var(--brand-rgb),0.18) !important;
     }
     html[data-theme="dark"] .summary-card-title { color: #eaecf0 !important; }
     html[data-theme="dark"] .summary-card-title .info-icon { color: rgba(255,255,255,0.2) !important; }
@@ -555,7 +562,7 @@
                 <div class="chart-container">
                   <div class="pie-wrapper"><canvas id="chart-general"></canvas><div class="pie-center-label"><span class="number">97.1%</span><span class="label">Recorded</span></div></div>
                   <div class="legend">
-                    <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> Clip Recorded <span class="legend-value">97.10%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:var(--brand)"></span> Clip Recorded <span class="legend-value">97.10%</span></div>
                     <div class="legend-item"><span class="legend-dot" style="background:var(--c-s3)"></span> No Clip <span class="legend-value">2.90%</span></div>
                   </div>
                 </div>
@@ -565,7 +572,7 @@
                 <div class="chart-container">
                   <div class="pie-wrapper"><canvas id="chart-ad-detection"></canvas><div class="pie-center-label"><span class="number">98.0%</span><span class="label">Correct</span></div></div>
                   <div class="legend">
-                    <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> Displayed Correctly <span class="legend-value">98.00%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:var(--brand)"></span> Displayed Correctly <span class="legend-value">98.00%</span></div>
                     <div class="legend-item"><span class="legend-dot" style="background:var(--c-s2)"></span> Displayed Incorrectly <span class="legend-value">1.00%</span></div>
                     <div class="legend-item"><span class="legend-dot" style="background:var(--c-s3)"></span> Not Displayed <span class="legend-value">1.00%</span></div>
                   </div>
@@ -576,7 +583,7 @@
                 <div class="chart-container">
                   <div class="pie-wrapper"><canvas id="chart-brand-safety"></canvas><div class="pie-center-label"><span class="number">80.0%</span><span class="label">No Risk</span></div></div>
                   <div class="legend">
-                    <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> No Risk <span class="legend-value">80.00%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:var(--brand)"></span> No Risk <span class="legend-value">80.00%</span></div>
                     <div class="legend-item"><span class="legend-dot" style="background:var(--c-s1)"></span> Low Risk <span class="legend-value">10.00%</span></div>
                     <div class="legend-item"><span class="legend-dot" style="background:var(--c-s2)"></span> Medium Risk <span class="legend-value">5.00%</span></div>
                     <div class="legend-item"><span class="legend-dot" style="background:var(--c-s3)"></span> High Risk <span class="legend-value">5.00%</span></div>
@@ -591,7 +598,7 @@
                 <div class="chart-container">
                   <div class="pie-wrapper"><canvas id="chart-brand-mention"></canvas><div class="pie-center-label"><span class="number">15.9%</span><span class="label">Mentioned</span></div></div>
                   <div class="legend">
-                    <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> Mentioned <span class="legend-value">15.91%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:var(--brand)"></span> Mentioned <span class="legend-value">15.91%</span></div>
                     <div class="legend-item"><span class="legend-dot" style="background:var(--c-s3)"></span> Not Mentioned <span class="legend-value">84.09%</span></div>
                   </div>
                 </div>
@@ -601,7 +608,7 @@
                 <div class="chart-container">
                   <div class="pie-wrapper"><canvas id="chart-streamer-mention"></canvas><div class="pie-center-label"><span class="number">34.5%</span><span class="label">Mentioned</span></div></div>
                   <div class="legend">
-                    <div class="legend-item"><span class="legend-dot" style="background:#e94f37"></span> Mentioned <span class="legend-value">34.45%</span></div>
+                    <div class="legend-item"><span class="legend-dot" style="background:var(--brand)"></span> Mentioned <span class="legend-value">34.45%</span></div>
                     <div class="legend-item"><span class="legend-dot" style="background:var(--c-s3)"></span> Not Mentioned <span class="legend-value">65.55%</span></div>
                   </div>
                 </div>
@@ -613,7 +620,7 @@
                 <div>
                   <div class="distribution-title">Ad Detection Distribution</div>
                   <div class="distribution-legend">
-                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#e94f37"></span> Displayed Correctly</div>
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--brand)"></span> Displayed Correctly</div>
                     <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--c-s2)"></span> Displayed Incorrectly</div>
                     <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--c-s3)"></span> Not Displayed</div>
                   </div>
@@ -630,7 +637,7 @@
                 <div>
                   <div class="distribution-title">Brand Safety Distribution</div>
                   <div class="distribution-legend">
-                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#e94f37"></span> No Risk</div>
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--brand)"></span> No Risk</div>
                     <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--c-s1)"></span> Low Risk</div>
                     <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--c-s2)"></span> Medium Risk</div>
                     <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--c-s3)"></span> High Risk</div>
@@ -648,7 +655,7 @@
                 <div>
                   <div class="distribution-title">Brand Mention Distribution</div>
                   <div class="distribution-legend">
-                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:#e94f37"></span> Mentioned</div>
+                    <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--brand)"></span> Mentioned</div>
                     <div class="distribution-legend-item"><span class="distribution-legend-dot" style="background:var(--c-s3)"></span> Not Mentioned</div>
                   </div>
                 </div>
@@ -747,17 +754,22 @@
 
     // ── Theme-aware colors ──────────────────────────────────────────
     function tc(dark) {
+      // Pull the brand red straight from the --brand CSS var (set per theme to
+      // the marketing site's --primary). Canvas can't resolve CSS vars, so we
+      // read the computed value here and build the chart colors from it — this
+      // guarantees the donuts/bars use the EXACT same red as every other panel.
+      const css = getComputedStyle(document.documentElement);
+      const brand = (css.getPropertyValue('--brand').trim()) || (dark ? '#e25a61' : '#d0252d');
+      const rgb = (css.getPropertyValue('--brand-rgb').trim()) || (dark ? '226,90,97' : '208,37,45');
       return dark ? {
         /* Graduated brand-red (not salmon/peach) so the dark dashboard reads as
-           "charcoal + restrained red" — matching the Generated Reports panel.
-           These were previously pinkish pastels (#f28b75/#f6b1a0/#f9d2c8) which
-           made the large "Not Mentioned" donut rings render pink/off-brand. */
-        p: '#e94f37', s1: 'rgba(233,79,55,0.60)', s2: 'rgba(233,79,55,0.40)', s3: 'rgba(233,79,55,0.26)',
+           "charcoal + restrained red" — matching the surrounding panels. */
+        p: brand, s1: `rgba(${rgb},0.60)`, s2: `rgba(${rgb},0.40)`, s3: `rgba(${rgb},0.26)`,
         grid: 'rgba(255,255,255,0.05)', tick: '#3e3e3e',
         tipBg: '#1e1e1e', tipBorder: 'rgba(255,255,255,0.10)',
         tipTitle: '#ededed', tipBody: '#8a8a8a',
       } : {
-        p: '#e94f37', s1: 'rgba(233,79,55,0.55)', s2: 'rgba(233,79,55,0.32)', s3: 'rgba(233,79,55,0.16)',
+        p: brand, s1: `rgba(${rgb},0.55)`, s2: `rgba(${rgb},0.32)`, s3: `rgba(${rgb},0.16)`,
         grid: 'rgba(0,0,0,0.03)', tick: '#c7c7c7',
         tipBg: '#ffffff', tipBorder: 'rgba(0,0,0,0.08)',
         tipTitle: '#1d1d1f', tipBody: '#878787',
