@@ -302,7 +302,9 @@
        deep #0b0b0e base, white/[0.04-0.08] subtle cards, primary/15 tint on
        active states, primary/30 border on the active sidebar item -->
   <style>
-    html[data-theme="dark"] { --c-s1: #e94f37; --c-s2: #f17a64; --c-s3: #f5a594; }
+    /* Legend dots: graduated brand-red (was salmon #f17a64/#f5a594). Slightly
+       higher opacity than the donut segments so the 7px swatches stay legible. */
+    html[data-theme="dark"] { --c-s1: rgba(233,79,55,0.78); --c-s2: rgba(233,79,55,0.52); --c-s3: rgba(233,79,55,0.34); }
     html[data-theme="dark"] body {
       /* match the marketing site's dark bg exactly: hsl(240 11% 5%) ≈ #0b0b0e */
       background: #0b0b0e !important;
@@ -761,7 +763,11 @@
     // ── Theme-aware colors ──────────────────────────────────────────
     function tc(dark) {
       return dark ? {
-        p: '#e94f37', s1: '#f28b75', s2: '#f6b1a0', s3: '#f9d2c8',
+        /* Graduated brand-red (not salmon/peach) so the dark dashboard reads as
+           "charcoal + restrained red" — matching the Generated Reports panel.
+           These were previously pinkish pastels (#f28b75/#f6b1a0/#f9d2c8) which
+           made the large "Not Mentioned" donut rings render pink/off-brand. */
+        p: '#e94f37', s1: 'rgba(233,79,55,0.60)', s2: 'rgba(233,79,55,0.40)', s3: 'rgba(233,79,55,0.26)',
         grid: 'rgba(255,255,255,0.05)', tick: '#3e3e3e',
         tipBg: '#1e1e1e', tipBorder: 'rgba(255,255,255,0.10)',
         tipTitle: '#ededed', tipBody: '#8a8a8a',
