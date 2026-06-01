@@ -78,7 +78,7 @@ const BlogPostPage: React.FC = () => {
   const relatedPosts = slug ? getRelatedPosts(slug, 3) : [];
 
   useEffect(() => {
-    if (!post) { navigate("/about"); return; }
+    if (!post) { navigate("/blog", { replace: true }); return; }
     window.scrollTo(0, 0);
   }, [post, navigate]);
 

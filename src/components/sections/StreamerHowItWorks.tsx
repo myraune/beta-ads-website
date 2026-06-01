@@ -105,8 +105,8 @@ export const StreamerHowItWorks: React.FC = () => {
                 LIVE
               </div>
             </div>
-            {/* Glow accent */}
-            <div className="absolute -inset-4 -z-10 rounded-3xl opacity-20 blur-3xl" style={{ background: "radial-gradient(ellipse at center, hsl(357 70% 60%), transparent 70%)" }} />
+            {/* Glow accent — keep within grid cell on mobile to avoid 16px overflow past parent (-inset-4 stretches the absolute element 16px past each edge; the StreamerSection wrapper hides it, but the grid still records the extra scrollWidth). */}
+            <div className="absolute inset-x-0 -inset-y-2 lg:-inset-4 -z-10 rounded-3xl opacity-20 blur-3xl" style={{ background: "radial-gradient(ellipse at center, hsl(357 70% 60%), transparent 70%)" }} />
           </div>
 
         </div>
