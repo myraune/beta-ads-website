@@ -8124,7 +8124,6 @@ The practical read: these titles remain valuable for endemic brands with strong 
 
 Minecraft's **+10% to 850 million hours** is, like Roblox, a user-generated-content story. The 2025 data shows the game's streaming audience is no longer primarily survival or hardcore modes - it is skyblock servers, Hermitcraft, and modpack creators. [Minecraft's community update](https://www.minecraft.net/en-us/article/community-streaming-2025) attributes the 2025 comeback to the rise of persistent creator-led servers, which function more like ongoing TV shows than individual gameplay sessions.
 
-![Two streamers collaborating on a Minecraft UGC server broadcast](/lovable-uploads/blog-most-watched-twitch-games-2025-ugc.jpg)
 
 For brands, both Minecraft and Roblox represent the same 2025 insight: UGC-driven games have become cultural platforms in their own right, and their Twitch viewership is a discovery channel for the virtual worlds brands are already building inside them.
 
@@ -8509,7 +8508,6 @@ For advertisers this changes the sponsorship math. A tournament organiser sellin
 
 For brands, the practical move is to budget co-stream integrations as a line item alongside official broadcast. The production quality is looser, the CPMs are lower, and the audience attention is measurably higher per minute - [AudienceProject's 2025 Attention Report](https://www.audienceproject.com/reports/attention-2025/) clocked co-stream average-view-duration at roughly double the official-broadcast baseline.
 
-![A League of Legends co-streamer on stage at a major esports event](/lovable-uploads/blog-twitch-advertising-benchmarks-2025-co-streaming.jpg)
 
 ## Ad Format Performance: What the 2025 CTR Distribution Looks Like
 

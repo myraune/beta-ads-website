@@ -201,7 +201,7 @@ const tools: Tool[] = [
     historicalData: 'Kampanjeperiode',
     apiAccess: false,
     freeVersion: false,
-    screenshot: '/lovable-uploads/campaign-report-preview.png',
+    screenshot: '/lovable-uploads/campaign-report-preview.jpg',
     screenshotAlt: 'Beta Ads kampanjerapport med impressions og engagement data',
     keyDifferentiator: 'Eneste verktøy bygget for overlay-annonsemåling med nordisk publikumsverifikasjon.',
     strengths: [
