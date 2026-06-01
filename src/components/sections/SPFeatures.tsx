@@ -553,6 +553,28 @@ const AnalyticsPreview: React.FC = () => {
     }
   }, [resolvedTheme]);
 
+  /* Relay the iframe's pointer position to the parent document so the global
+   * cursor crosshair keeps tracking over this preview. The iframe posts its
+   * local clientX/Y; we map it through the iframe's scaled bounding rect and
+   * re-dispatch a synthetic mousemove that CursorGlow already listens for. */
+  useEffect(() => {
+    const onMessage = (e: MessageEvent) => {
+      const iframe = iframeRef.current;
+      if (!iframe || e.source !== iframe.contentWindow) return;
+      const data = e.data;
+      if (!data || data.type !== "clipPreviewMouse") return;
+      const rect = iframe.getBoundingClientRect();
+      // rect is the on-screen (scaled) box; map iframe-local coords into it.
+      const screenX = rect.left + (data.x / IFRAME_W) * rect.width;
+      const screenY = rect.top + (data.y / IFRAME_H) * rect.height;
+      document.dispatchEvent(
+        new MouseEvent("mousemove", { clientX: screenX, clientY: screenY, bubbles: true })
+      );
+    };
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, []);
+
   return (
     /* Outer wrapper: measures available width, scrolls horizontally when the
      * dashboard is wider than the viewport (mobile clamp at MIN_SCALE keeps
@@ -572,7 +594,7 @@ const AnalyticsPreview: React.FC = () => {
             // earlier response with X-Frame-Options: DENY, which made the
             // iframe load to an empty document. Bump this whenever the
             // dashboard HTML or its serving headers change.
-            src="/clip-analytics-preview/index.html?v=12"
+            src="/clip-analytics-preview/index.html?v=13"
             title="Clip Analytics Dashboard"
             className="block border-0"
             scrolling="no"

@@ -875,6 +875,18 @@
       }
     });
 
+    // ── Forward pointer position to the parent ──────────────────────
+    // The marketing site renders a cursor crosshair that tracks
+    // document.mousemove. While the pointer is over this iframe the parent
+    // gets no mousemove events, so the crosshair freezes at the edge. We
+    // relay the local pointer position up; the parent translates it through
+    // the iframe's scaled rect and re-dispatches a synthetic mousemove.
+    window.addEventListener('mousemove', function(e) {
+      try {
+        parent.postMessage({ type: 'clipPreviewMouse', x: e.clientX, y: e.clientY }, '*');
+      } catch (_) {}
+    }, { passive: true });
+
     // ── Period toggle clicks ────────────────────────────────────────
     document.querySelectorAll('.period-toggle').forEach(toggle => {
       toggle.querySelectorAll('.period-btn').forEach(btn => {
