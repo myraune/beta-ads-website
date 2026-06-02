@@ -1,0 +1,7 @@
+# Beta Ads (Beta Agency AS) — security contact
+# https://securitytxt.org / RFC 9116
+
+Contact: mailto:andreas@beta-ads.no
+Expires: 2027-06-02T00:00:00.000Z
+Preferred-Languages: en, no
+Canonical: https://beta-ads.no/.well-known/security.txt
