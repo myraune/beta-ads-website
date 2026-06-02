@@ -54,13 +54,15 @@ Current category: Grayware — this is incorrect.
 
 Requested category: Business and Economy / Professional Services
 
-beta-ads.no is the official corporate website of Beta Agency AS, a registered
-Norwegian advertising and media agency based in Oslo (founded 2023). It is a
-static B2B marketing website hosted on Vercel. It does NOT serve advertisements,
-run any ad-serving technology, tracking pixels, adware, or any executable
-content. It contains only company information, case studies, and a blog. The
-"grayware" classification is a false positive, likely triggered by the string
-"ads" in the domain name. Please reclassify to Business and Economy. Thank you.
+beta-ads.no is the official corporate website of Beta Agency AS (Norwegian
+organization number: 933 303 136), a registered advertising and media agency
+founded in 2023 and registered in the Norwegian Business Register
+(Brønnøysundregistrene). It is a static B2B marketing website hosted on Vercel.
+It does NOT serve advertisements, run any ad-serving technology, tracking pixels,
+adware, or any executable content. It contains only company information, case
+studies, and a blog. The "grayware" classification is a false positive, likely
+triggered by the string "ads" in the domain name. Please reclassify to Business
+and Economy. Thank you.
 ```
 
 ---

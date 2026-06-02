@@ -1,4 +1,4 @@
-# Beta Ads (Beta Agency AS) — security contact
+# Beta Ads (Beta Agency AS, org.nr 933 303 136) — security contact
 # https://securitytxt.org / RFC 9116
 
 Contact: mailto:andreas@beta-ads.no

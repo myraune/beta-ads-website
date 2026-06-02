@@ -131,7 +131,7 @@ export const SPFooter: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-6 border-t border-border">
             <div className="flex items-center gap-2">
               <img src="/lovable-uploads/favicon.png" alt="Beta Ads" className="h-6 w-auto" />
-              <span className="text-xs text-muted-foreground">© 2026 Beta Agency AS · All rights reserved.</span>
+              <span className="text-xs text-muted-foreground">© 2026 Beta Agency AS · Org.nr 933 303 136</span>
             </div>
             <p className="text-xs text-muted-foreground">
               Made with kaffe in Oslo, Stockholm & Helsinki

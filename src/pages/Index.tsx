@@ -30,6 +30,12 @@ const Index: React.FC = () => {
             "@id": "https://beta-ads.no/#organization",
             name: "Beta Ads",
             legalName: "Beta Agency AS",
+            taxID: "933303136",
+            identifier: {
+              "@type": "PropertyValue",
+              name: "Norwegian Organization Number",
+              value: "933303136",
+            },
             alternateName: ["Beta Ads Nordic", "Beta Ads Norway", "Beta Ads Norge"],
             url: "https://beta-ads.no",
             logo: {
