@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     question: "What metrics and reporting do I get?",
-    answer: "You get real-time access to impressions, CTR, viewership data, and engagement metrics through our dashboard. Weekly reports are delivered during active campaigns with actionable insights.",
+    answer: "You get real-time access to impressions, CTR, viewership data, and engagement metrics through our dashboard. Weekly reports are delivered during active campaigns with views, verified clicks, screen time, and CTR broken down by streamer and day.",
   },
   {
     question: "Can I target specific games or audiences?",

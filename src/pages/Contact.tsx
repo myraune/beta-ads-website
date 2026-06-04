@@ -10,7 +10,7 @@ const Contact: React.FC = () => {
     <>
       <SEO
         title="Contact Beta Ads | Start a Livestream Campaign"
-        description="Talk to our team about running native overlay ads on Nordic Twitch, YouTube & Kick streams. Get a free campaign proposal within 24 hours."
+        description="Talk to our team about running native overlay ads on Nordic Twitch, YouTube & Kick streams. We reply within one business day."
         canonical="/contact"
         jsonLd={[
           {
