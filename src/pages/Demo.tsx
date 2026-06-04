@@ -27,7 +27,7 @@ interface DemoProps {
 const defaults = {
   requestDemo: "REQUEST A DEMO",
   seeInAction: "See it in action",
-  demoFormDescription: "Fill out the form and we'll get back to you within 24 hours with a personalized walkthrough of the platform.",
+  demoFormDescription: "Fill out the form and we'll get back to you within one business day with a personalized walkthrough of the platform.",
   preferTalkDirectly: "Prefer to talk directly? Book a 15-minute call and I'll show you how it works.",
   bookCallDirect: "Book a call directly",
   name: "Name",
@@ -41,7 +41,7 @@ const defaults = {
   sendMessage: "Send message",
   sending: "Sending...",
   messageSent: "Message sent!",
-  wellGetBack: "We'll get back to you within 24 hours.",
+  wellGetBack: "We'll get back to you within one business day.",
   somethingWentWrong: "Something went wrong. Please try again.",
 };
 
