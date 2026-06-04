@@ -15,8 +15,8 @@ const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
 // Verified totals aggregated from the nine case studies shipped on this site.
 const workStats = [
-  { value: '1.6M+', label: 'Verified views delivered' },
-  { value: '9', label: 'Case studies published' },
+  { value: '2.1M+', label: 'Verified views delivered' },
+  { value: '10', label: 'Case studies published' },
   { value: '50+', label: 'Nordic creators worked with' },
   { value: '3', label: 'Platforms: Twitch · Kick · YouTube' },
 ];

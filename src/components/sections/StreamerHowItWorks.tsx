@@ -26,7 +26,7 @@ const stepConfig: Step[] = [
     number: "03",
     icon: <Zap className="w-5 h-5" />,
     title: "Ads run natively",
-    description: "Sponsored content appears seamlessly in your stream-no interruptions.",
+    description: "Overlay ads render inside your stream. Viewers never see a pre-roll or a break.",
   },
   {
     number: "04",
