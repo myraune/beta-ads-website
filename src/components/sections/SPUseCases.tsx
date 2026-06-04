@@ -258,9 +258,15 @@ const PlatformCol: React.FC<{ p: typeof platforms[0]; isVisible: boolean; index:
   const count = useCountUp(p.streamers, isVisible);
   const [hovered, setHovered] = useState(false);
 
+  // Platforms without a dedicated page (slug === '#') render as a
+  // non-navigable div so the click doesn't bounce the user to '/'.
+  const isNavigable = p.slug !== "#";
+  const Wrapper = isNavigable ? Link : "div";
+  const wrapperProps = isNavigable ? { to: p.slug } : {};
+
   return (
-    <Link
-      to={p.slug}
+    <Wrapper
+      {...(wrapperProps as any)}
       className="group flex flex-col items-center text-center gap-4 py-8 px-4 rounded-2xl transition-all duration-300 hover:bg-foreground/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       style={{ transitionDelay: `${index * 60}ms`, opacity: isVisible ? 1 : 0, transform: isVisible ? "translateY(0)" : "translateY(20px)" }}
       onMouseEnter={() => setHovered(true)}
@@ -298,7 +304,7 @@ const PlatformCol: React.FC<{ p: typeof platforms[0]; isVisible: boolean; index:
         className="h-px w-8 rounded-full transition-all duration-300"
         style={{ backgroundColor: p.color, opacity: hovered ? 0.8 : 0.2, width: hovered ? "48px" : "32px" }}
       />
-    </Link>
+    </Wrapper>
   );
 };
 
