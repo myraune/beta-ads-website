@@ -3588,7 +3588,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     id: "why-native-stream-ads-outperform-3-to-1",
     slug: "why-native-stream-ads-outperform-3-to-1",
     title: "Why Native Stream Ads Outperform Traditional Video Ads 3:1",
-    excerpt: "Discover why brands are shifting budgets from pre-roll to native stream overlays - and seeing engagement rates 3x higher than traditional video ads.",
+    excerpt: "Brands running native overlay ads on Twitch are seeing 3x higher engagement than traditional video formats. The reason: overlays are part of the stream, not an interruption of it.",
     date: "Mar 22, 2026",
     dateISO: "2026-03-22",
     readTime: "7 min read",
