@@ -291,18 +291,25 @@ const YouTubeAdvertising: React.FC = () => {
             </p>
           </div>
           <div className="grid md:grid-cols-4 gap-5">
-            {platforms.map((p) => (
-              <Link key={p.name} to={p.slug}>
-                <div className={`p-6 rounded-2xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-md ${p.name === "YouTube" ? "border-primary/40 bg-primary/5" : "border-border bg-card hover:border-primary/20"}`}>
+            {platforms.map((p) => {
+              const isCurrentPage = p.name === "YouTube";
+              const isDisabled = p.slug === "#";
+              const card = (
+                <div className={`p-6 rounded-2xl border transition-all duration-300 ${isCurrentPage ? "border-primary/40 bg-primary/5" : isDisabled ? "border-border bg-card opacity-60 cursor-default" : "border-border bg-card hover:border-primary/20 hover:-translate-y-1 hover:shadow-md"}`}>
                   <h3 className="font-semibold text-foreground mb-1">{p.name}</h3>
                   <div className="text-2xl font-bold text-foreground tracking-tight mb-2">{p.streamers}</div>
                   <p className="text-xs text-muted-foreground">{p.strength}</p>
-                  {p.name === "YouTube" && (
+                  {isCurrentPage && (
                     <span className="inline-block mt-3 text-[10px] font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Current page</span>
                   )}
+                  {isDisabled && (
+                    <span className="inline-block mt-3 text-[10px] font-semibold text-muted-foreground bg-muted px-2 py-0.5 rounded-full">Coming soon</span>
+                  )}
                 </div>
-              </Link>
-            ))}
+              );
+              if (isDisabled || isCurrentPage) return <div key={p.name}>{card}</div>;
+              return <Link key={p.name} to={p.slug}>{card}</Link>;
+            })}
           </div>
         </div>
       </section>
