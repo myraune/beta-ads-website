@@ -378,7 +378,7 @@ const ARTWORK = [
   { brand: "Høyskolen Kristiania", campaign: "Student Recruitment", src: "/lovable-uploads/overlay-kristiania.webm", format: "fullscreen" },
   { brand: "Komplett", campaign: "Monthly Gaming Deal", src: "/lovable-uploads/overlay-komplett.webm", format: "left" },
   { brand: "Glorious", campaign: "Gaming Mouse", src: "/lovable-uploads/overlay-glorious.webm", format: "fullscreen" },
-  { brand: "Shure", campaign: "Game Changing Audio", src: "/lovable-uploads/overlay-shure-2.webm", format: "fullscreen" },
+  { brand: "Shure", campaign: "Game Changing Audio", src: "/lovable-uploads/overlay-shure-gca.webm", format: "fullscreen" },
   { brand: "Logitech", campaign: "Gaming Peripherals", src: "/lovable-uploads/overlay-logitech.webm", format: "fullscreen" },
   { brand: "Shark Gaming", campaign: "PC Hardware", src: "/lovable-uploads/overlay-sharkgaming.webm", format: "widget" },
   { brand: "Samsung", campaign: "Galaxy ZFold7", src: "/lovable-uploads/samsung-zfold7-overlay.webm", format: "widget" },
