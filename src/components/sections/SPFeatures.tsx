@@ -366,17 +366,19 @@ const TargetingPreview: React.FC = () => {
 
 // format: "fullscreen" = 1920×1080 transparent frame, animation fills the whole canvas
 //         "widget"     = 450×450 square element, rendered bottom-left at proportional scale
+// Real Beta-produced overlay creatives (transparent webm composited over the stream).
+// Demo brands (Burger King / Ben & Jerry's / Disney / Fanta) removed in favour of
+// actual campaigns we ran: Shure, Høyskolen Kristiania, Komplett.
 const ARTWORK = [
-  { brand: "Burger King", campaign: "Gaming Promotion", src: "/lovable-uploads/overlay-burgerking.webm", format: "fullscreen" },
   { brand: "Samsung", campaign: "Galaxy S25 Ultra", src: "/lovable-uploads/overlay-samsung.webm", format: "widget" },
+  { brand: "Shure", campaign: "MV6 Microphone", src: "/lovable-uploads/overlay-shure.webm", format: "fullscreen" },
   { brand: "Foodora", campaign: "Delivery Campaign", src: "/lovable-uploads/overlay-foodora.webm", format: "fullscreen" },
-  { brand: "Ben & Jerry's", campaign: "Gaming Promotion", src: "/lovable-uploads/overlay-benjerrys.webm", format: "fullscreen" },
-  { brand: "Disney", campaign: "Streaming Launch", src: "/lovable-uploads/overlay-disney.webm", format: "fullscreen" },
+  { brand: "Høyskolen Kristiania", campaign: "Student Recruitment", src: "/lovable-uploads/overlay-kristiania.webm", format: "fullscreen" },
   { brand: "Glorious", campaign: "Gaming Mouse", src: "/lovable-uploads/overlay-glorious.webm", format: "fullscreen" },
-  { brand: "Fanta", campaign: "Gaming Engagement", src: "/lovable-uploads/overlay-fanta.webm", format: "fullscreen" },
+  { brand: "Komplett", campaign: "Monthly Gaming Deal", src: "/lovable-uploads/overlay-komplett.webm", format: "widget" },
+  { brand: "Logitech", campaign: "Gaming Peripherals", src: "/lovable-uploads/overlay-logitech.webm", format: "fullscreen" },
   { brand: "Shark Gaming", campaign: "PC Hardware", src: "/lovable-uploads/overlay-sharkgaming.webm", format: "widget" },
   { brand: "Samsung", campaign: "Galaxy ZFold7", src: "/lovable-uploads/samsung-zfold7-overlay.webm", format: "widget" },
-  { brand: "Logitech", campaign: "Gaming Peripherals", src: "/lovable-uploads/overlay-logitech.webm", format: "fullscreen" },
 ];
 
 const LaunchPreview: React.FC = () => {
