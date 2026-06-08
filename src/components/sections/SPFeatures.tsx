@@ -364,9 +364,10 @@ const TargetingPreview: React.FC = () => {
 
 /* ── Ad Artwork Carousel ── */
 
-// format: "fullscreen" = 1920×1080 transparent frame, animation fills the whole canvas
+// format: "fullscreen" = 1920×1080 frame, animation fills the whole canvas
 //         "widget"     = 450×450 square element, rendered bottom-left at proportional scale
-// Real Beta-produced overlay creatives (transparent webm composited over the stream).
+//         "left"       = element flush against the left border, native aspect ratio
+// Real Beta-produced overlay creatives composited over the stream.
 // Demo brands (Burger King / Ben & Jerry's / Disney / Fanta) removed in favour of
 // actual campaigns we ran: Shure, Høyskolen Kristiania, Komplett.
 const ARTWORK = [
@@ -374,8 +375,9 @@ const ARTWORK = [
   { brand: "Shure", campaign: "MV6 Microphone", src: "/lovable-uploads/overlay-shure.webm", format: "fullscreen" },
   { brand: "Foodora", campaign: "Delivery Campaign", src: "/lovable-uploads/overlay-foodora.webm", format: "fullscreen" },
   { brand: "Høyskolen Kristiania", campaign: "Student Recruitment", src: "/lovable-uploads/overlay-kristiania.webm", format: "fullscreen" },
+  { brand: "Komplett", campaign: "Monthly Gaming Deal", src: "/lovable-uploads/overlay-komplett.webm", format: "left" },
   { brand: "Glorious", campaign: "Gaming Mouse", src: "/lovable-uploads/overlay-glorious.webm", format: "fullscreen" },
-  { brand: "Komplett", campaign: "Monthly Gaming Deal", src: "/lovable-uploads/overlay-komplett.webm", format: "widget" },
+  { brand: "Shure", campaign: "Game Changing Audio", src: "/lovable-uploads/overlay-shure-2.webm", format: "fullscreen" },
   { brand: "Logitech", campaign: "Gaming Peripherals", src: "/lovable-uploads/overlay-logitech.webm", format: "fullscreen" },
   { brand: "Shark Gaming", campaign: "PC Hardware", src: "/lovable-uploads/overlay-sharkgaming.webm", format: "widget" },
   { brand: "Samsung", campaign: "Galaxy ZFold7", src: "/lovable-uploads/samsung-zfold7-overlay.webm", format: "widget" },
@@ -422,6 +424,24 @@ const LaunchPreview: React.FC = () => {
             aria-label={`${item.brand} ${item.campaign} ad overlay creative`}
             className="absolute bottom-0 left-0"
             style={{ width: `${(450 / 1920) * 100}%`, aspectRatio: "1 / 1" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.35 }}
+          />
+        ) : item.format === "left" ? (
+          /* Element flush against the left border, native aspect ratio (no squish).
+             Bottom-anchored, ~60% of the stream height. */
+          <motion.video
+            key={item.src}
+            ref={videoRef}
+            src={item.src}
+            autoPlay
+            muted
+            playsInline
+            onEnded={handleEnded}
+            aria-label={`${item.brand} ${item.campaign} ad overlay creative`}
+            className="absolute bottom-0 left-0"
+            style={{ height: "60%", width: "auto" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.35 }}
