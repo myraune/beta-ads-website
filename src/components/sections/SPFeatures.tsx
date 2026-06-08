@@ -385,7 +385,33 @@ const ARTWORK = [
 
 const LaunchPreview: React.FC = () => {
   const [current, setCurrent] = useState(0);
+  const [inView, setInView] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
+
+  /* Defer the (multi-MB) overlay video until the Creative section nears the
+   * viewport. This carousel lives in an always-mounted scroll-through section
+   * ~2000px below the fold; without this gate the first autoplay clip is
+   * fetched on initial page load (measured 6.1MB for overlay-samsung.webm),
+   * competing with above-fold resources for bandwidth and burning transfer
+   * for visitors who never scroll this far. One-way latch: once shown we keep
+   * it mounted so scrolling away and back doesn't restart or re-fetch. The
+   * stream background image stays visible underneath until the clip loads. */
+  useEffect(() => {
+    const el = stageRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          obs.disconnect();
+        }
+      },
+      { rootMargin: "300px 0px" }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
 
   const go = useCallback((dir: 1 | -1) => {
     setCurrent(c => (c + dir + ARTWORK.length) % ARTWORK.length);
@@ -401,7 +427,7 @@ const LaunchPreview: React.FC = () => {
   return (
     <div className="overflow-hidden">
       {/* Video stage */}
-      <div className="relative group" style={{ aspectRatio: '16/9' }}>
+      <div ref={stageRef} className="relative group" style={{ aspectRatio: '16/9' }}>
         <img
           src="/lovable-uploads/stream-bg-valorant.jpg"
           alt=""
@@ -410,7 +436,7 @@ const LaunchPreview: React.FC = () => {
         />
         <div className="absolute inset-0 bg-black/25" aria-hidden />
 
-        {item.format === "widget" ? (
+        {inView && (item.format === "widget" ? (
           /* 450×450 square widget - bottom-left corner, sized relative to a 1920×1080 stream.
              Width = 450/1920 ≈ 23.44% of container; aspect-ratio enforces square. */
           <motion.video
@@ -462,7 +488,7 @@ const LaunchPreview: React.FC = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.35 }}
           />
-        )}
+        ))}
 
         {/* Prev/next arrows - always visible */}
         <button

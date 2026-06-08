@@ -186,7 +186,11 @@ const LiveStreamDemo: React.FC = () => {
               loop
               muted
               playsInline
-              preload="auto"
+              // preload="metadata" (was "auto"): this overlay sits ~2000px below
+              // the fold, so "auto" eagerly fetched the full ~3.7MB clip on every
+              // initial page load. The poster covers the visual until the section's
+              // IntersectionObserver play()s it on scroll-in, which loads the rest.
+              preload="metadata"
               className="w-full h-auto block"
               aria-label="Samsung Galaxy S25 Ultra in-stream banner"
             />
