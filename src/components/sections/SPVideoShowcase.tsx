@@ -336,6 +336,7 @@ const LiveStreamDemo: React.FC = () => {
           <img
             src="/lovable-uploads/rubengks-profile.png"
             alt="RubenGKS"
+            loading="lazy"
             className="w-full h-full object-cover"
           />
         </div>
@@ -390,6 +391,7 @@ const LiveStreamDemo: React.FC = () => {
             <img
               src={BANNER_IMG}
               alt="Samsung Galaxy S25 Ultra"
+              loading="lazy"
               className="w-full h-auto block"
             />
             <span className="absolute top-3 right-3 text-[10px] font-semibold px-2 py-1 rounded bg-black/70 text-white/95 uppercase tracking-wide backdrop-blur-sm">

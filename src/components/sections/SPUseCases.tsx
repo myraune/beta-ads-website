@@ -277,6 +277,7 @@ const PlatformCol: React.FC<{ p: typeof platforms[0]; isVisible: boolean; index:
         <img
           src={p.logo}
           alt={p.name}
+          loading="lazy"
           className="h-8 w-auto object-contain transition-all duration-300"
           style={{ filter: hovered ? `drop-shadow(0 0 8px ${p.color}60)` : "none" }}
         />

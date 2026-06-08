@@ -215,6 +215,7 @@ const StreamerPreview: React.FC = () => {
                 <img
                   src={s.avatar}
                   alt={s.name}
+                  loading="lazy"
                   className="w-full h-full object-cover"
                   onError={(e) => {
                     const t = e.currentTarget;
@@ -431,6 +432,7 @@ const LaunchPreview: React.FC = () => {
         <img
           src="/lovable-uploads/stream-bg-valorant.jpg"
           alt=""
+          loading="lazy"
           className="absolute inset-0 w-full h-full object-cover"
           aria-hidden
         />
