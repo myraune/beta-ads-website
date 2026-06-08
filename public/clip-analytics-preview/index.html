@@ -235,6 +235,17 @@
     .period-btn:hover:not(.active) { color: #1d1d1f; }
     .bar-chart-wrapper { height: 200px; position: relative; }
 
+    /* ─── Brand mention clips wall ─── */
+    .clips-count { font-size: 12px; font-weight: 600; color: var(--brand); white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; }
+    .clips-count::before { content: ''; width: 6px; height: 6px; border-radius: 99px; background: #5adbb5; box-shadow: 0 0 6px rgba(90,219,181,0.5); }
+    .clips-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 16px; }
+    .clip-card { position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 16 / 9; background: #000; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+    .clip-card video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .clip-badge { position: absolute; top: 6px; left: 6px; z-index: 2; display: inline-flex; align-items: center; gap: 4px; background: rgba(0,0,0,0.55); backdrop-filter: blur(4px); border-radius: 99px; padding: 3px 8px 3px 6px; font-size: 9px; font-weight: 600; color: #fff; }
+    .clip-badge .clip-dot { width: 5px; height: 5px; border-radius: 99px; background: #5adbb5; }
+    .clip-foot { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; padding: 18px 8px 5px; background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.2) 60%, transparent); }
+    .clip-name { font-size: 11px; font-weight: 600; color: #fff; }
+
     /* ─── Processing tab ─── */
     .proc-cards {
       display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 16px;
@@ -519,6 +530,7 @@
           <div class="tabs">
             <div class="tab active" data-tab="insights" onclick="switchTab('insights')">Clip Insights</div>
             <div class="tab" data-tab="processing" onclick="switchTab('processing')">Clip Processing</div>
+            <div class="tab" data-tab="clips" onclick="switchTab('clips')">Clips</div>
           </div>
 
           <div id="tab-insights">
@@ -737,6 +749,26 @@
               <div class="ads-chart-wrapper"><canvas id="chart-ads-per-day"></canvas></div>
             </div>
           </div>
+
+          <div id="tab-clips" class="hidden">
+            <div class="distribution-header" style="margin-bottom:16px">
+              <div>
+                <div class="distribution-title">Brand Mention Clips</div>
+                <div class="distribution-legend" style="margin-top:6px"><div class="distribution-legend-item">Every clip where the brand aired on stream, auto-detected and verified.</div></div>
+              </div>
+              <div class="clips-count">1,640 captured</div>
+            </div>
+            <div class="clips-grid">
+              <div class="clip-card"><video src="/lovable-uploads/clip-rubengks.mp4" poster="/lovable-uploads/clip-rubengks-poster.jpg" muted loop playsinline preload="none"></video><span class="clip-badge"><span class="clip-dot"></span>Mention</span><div class="clip-foot"><span class="clip-name">RubenGKS</span></div></div>
+              <div class="clip-card"><video src="/lovable-uploads/clip-danniz.mp4" poster="/lovable-uploads/clip-danniz-poster.jpg" muted loop playsinline preload="none"></video><span class="clip-badge"><span class="clip-dot"></span>Mention</span><div class="clip-foot"><span class="clip-name">DannizTV</span></div></div>
+              <div class="clip-card"><video src="/lovable-uploads/clip-karbo.mp4" poster="/lovable-uploads/clip-karbo-poster.jpg" muted loop playsinline preload="none"></video><span class="clip-badge"><span class="clip-dot"></span>Mention</span><div class="clip-foot"><span class="clip-name">karbo1x</span></div></div>
+              <div class="clip-card"><video src="/lovable-uploads/clip-namine.mp4" poster="/lovable-uploads/clip-namine-poster.jpg" muted loop playsinline preload="none"></video><span class="clip-badge"><span class="clip-dot"></span>Mention</span><div class="clip-foot"><span class="clip-name">namine1</span></div></div>
+              <div class="clip-card"><video src="/lovable-uploads/clip-geir.mp4" poster="/lovable-uploads/clip-geir-poster.jpg" muted loop playsinline preload="none"></video><span class="clip-badge"><span class="clip-dot"></span>Mention</span><div class="clip-foot"><span class="clip-name">Geir</span></div></div>
+              <div class="clip-card"><video src="/lovable-uploads/clip-godtharold.mp4" poster="/lovable-uploads/clip-godtharold-poster.jpg" muted loop playsinline preload="none"></video><span class="clip-badge"><span class="clip-dot"></span>Mention</span><div class="clip-foot"><span class="clip-name">GODTHAROLD</span></div></div>
+              <div class="clip-card"><video src="/lovable-uploads/clip-byrbotten.mp4" poster="/lovable-uploads/clip-byrbotten-poster.jpg" muted loop playsinline preload="none"></video><span class="clip-badge"><span class="clip-dot"></span>Mention</span><div class="clip-foot"><span class="clip-name">BYRBOTTEN</span></div></div>
+              <div class="clip-card"><video src="/lovable-uploads/clip-emmelie.mp4" poster="/lovable-uploads/clip-emmelie-poster.jpg" muted loop playsinline preload="none"></video><span class="clip-badge"><span class="clip-dot"></span>Mention</span><div class="clip-foot"><span class="clip-name">Emmelie</span></div></div>
+            </div>
+          </div>
         </div>
       </div>
     </div><!-- /app-container -->
@@ -749,7 +781,10 @@
       document.querySelector('[data-tab="' + tab + '"]').classList.add('active');
       document.getElementById('tab-insights').classList.toggle('hidden', tab !== 'insights');
       document.getElementById('tab-processing').classList.toggle('hidden', tab !== 'processing');
+      document.getElementById('tab-clips').classList.toggle('hidden', tab !== 'clips');
       if (tab === 'processing' && !window.processingChartInit) { buildProcessingChart(); window.processingChartInit = true; }
+      // Clips load lazily (preload="none") and start playing only when this tab is opened
+      if (tab === 'clips') { document.querySelectorAll('#tab-clips video').forEach(v => v.play().catch(() => {})); }
     }
 
     // ── Theme-aware colors ──────────────────────────────────────────
