@@ -91,35 +91,35 @@ const STATIC_PAGES = [
     route: "/contact",
     title: "Contact Beta Ads | Start a Livestream Campaign",
     description:
-      "Talk to our team about running native overlay ads on Nordic Twitch, YouTube & Kick streams. Get a free campaign proposal within 24 hours.",
+      "Talk to our team about running native overlay ads on Nordic Twitch, YouTube & Kick streams. We reply within one business day.",
     locale: "en",
   },
   {
     route: "/demo",
     title: "Book a Demo | Beta Ads Livestream Advertising",
     description:
-      "See exactly how native overlay ads work on Twitch, YouTube and Kick. Book a 20-minute demo with our Nordic advertising team — free, no commitment.",
+      "See exactly how native overlay ads work on Twitch, YouTube and Kick. Book a 20-minute demo with our Nordic advertising team - free, no commitment.",
     locale: "en",
   },
   {
     route: "/twitch-advertising",
-    title: "Twitch Advertising Agency for Nordic Brands | Beta Ads",
+    title: "Twitch Advertising in the Nordics | Beta Ads",
     description:
-      "Run native overlay ads on 39,000+ Nordic Twitch streams. 0% adblock rate, 3-5x higher engagement than display ads. Reach Gen Z where they actually watch.",
+      "Native overlay ads on Twitch that bypass ad blockers and reach Gen Z. 39,000+ Nordic streamers, 3-5x higher engagement, real-time analytics.",
     locale: "en",
   },
   {
     route: "/youtube-advertising",
-    title: "YouTube Livestream Advertising in the Nordics | Beta Ads",
+    title: "YouTube Live Advertising in the Nordics | Beta Ads",
     description:
-      "Advertise on 8,200+ Nordic YouTube live streams. Native overlay formats with 45+ min average session time. No pre-roll skipping — ads viewers actually see.",
+      "Native overlay ads on YouTube Live streams across Norway, Sweden, Finland, and Denmark. Reach gaming and lifestyle audiences with ads that bypass ad blockers.",
     locale: "en",
   },
   {
     route: "/kick-advertising",
-    title: "Kick Advertising for Nordic Brands | Beta Ads",
+    title: "Kick Advertising in the Nordics | Beta Ads",
     description:
-      "First-mover advantage on Kick — the fastest-growing streaming platform. 2,800+ Nordic streamers, 125% growth in 2025. Start before your competitors do.",
+      "Advertise on Kick - the fastest-growing streaming platform with 125% viewership growth in 2025. Native overlay ads across 2,800+ Nordic Kick streamers.",
     locale: "en",
   },
   {
@@ -131,28 +131,28 @@ const STATIC_PAGES = [
   },
   {
     route: "/case-studies",
-    title: "Case Studies | Beta Ads Livestream Campaign Results",
+    title: "Case Studies | Beta Ads",
     description:
-      "Real results from native livestream advertising campaigns. See how Nordic brands achieved 3-5x higher engagement and bypassed adblock with Beta Ads.",
+      "Real campaign results from Samsung, Shure, Surfshark, Glorious, and more. Native Twitch overlay case studies with verified impressions, CTR, and ROI data.",
     locale: "en",
   },
   {
     route: "/press",
     title: "Press & Media Coverage | Beta Ads",
     description:
-      "Beta Ads in the media — coverage, interviews, and press assets. Nordic livestream advertising platform based in Oslo.",
+      "Beta Ads in the press. Featured in Kampanje, Kom24, and Nordic media on Twitch advertising, native overlay ads, and livestream marketing in Norway.",
     locale: "en",
   },
   {
     route: "/terms",
     title: "Terms of Service | Beta Ads",
-    description: "Terms of Service for Beta Ads / Beta Agency AS.",
+    description: "Terms of Service for Beta Ads by Beta Agency AS. Read our terms covering service usage, intellectual property, and liability.",
     locale: "en",
   },
   {
     route: "/privacy",
     title: "Privacy Policy | Beta Ads",
-    description: "Privacy Policy for Beta Ads / Beta Agency AS.",
+    description: "Privacy Policy for Beta Ads by Beta Agency AS. How we collect, use, and protect your data in compliance with GDPR and Norwegian data protection law.",
     locale: "en",
   },
 ];
@@ -176,7 +176,7 @@ const CASE_STUDIES = [
     route: "/case-study/samsung-fold7",
     title: "Samsung Galaxy Z Fold7 Case Study | Beta Ads",
     description:
-      "Samsung Galaxy Z Fold7 on Norwegian Twitch: native overlay ads and streamer integrations, 2.47% CTR across 19 streamers.",
+      "Samsung Galaxy Z Fold7 on Norwegian Twitch: 300,054 live views, 3.70% CTR in Week 1 across 28 Norwegian streamers. Zero adblock impact.",
     locale: "en",
     datePublished: "2026-01-01",
     image: "/lovable-uploads/blog-samsung-twitch-campaign-hero.jpg",
@@ -185,7 +185,7 @@ const CASE_STUDIES = [
     route: "/case-study/surfshark",
     title: "Surfshark VPN Case Study | Beta Ads",
     description:
-      "Surfshark on Norwegian Twitch: 90,473 views, 1.39% CTR, 552 verified clicks, 704h screen time across 25 streamers. Zero adblock impact.",
+      "Surfshark on Norwegian Twitch: 90,473 verified views, 704h on-screen, 1.39% CTR across 25 streamers. 37,614 unique viewers, zero adblock impact.",
     locale: "en",
     datePublished: "2025-03-01",
     image: "/lovable-uploads/og-social-preview.png",
@@ -194,7 +194,7 @@ const CASE_STUDIES = [
     route: "/case-study/saily",
     title: "Saily eSIM Case Study | Beta Ads",
     description:
-      "Saily eSIM launch on Norwegian Twitch: 102,794 views, 1.08% CTR, 518 verified clicks across 22 creators. Travel audience targeting via native overlays.",
+      "Saily on Norwegian Twitch: 102,794 completed views, 518 verified clicks, 1.08% CTR across 22 streamers. 53,229 unique viewers reached in peak travel season.",
     locale: "en",
     datePublished: "2025-11-01",
     image: "/lovable-uploads/og-social-preview.png",
@@ -203,7 +203,7 @@ const CASE_STUDIES = [
     route: "/case-study/shure",
     title: "Shure MV6 Case Study | Beta Ads",
     description:
-      "Shure MV6 on Norwegian Twitch: 182,554 completed views, 2,378 verified clicks, 9.12% peak CTR with just 2 streamers. 48,617 unique Norwegian viewers.",
+      "Shure MV6 on Norwegian Twitch: 182,554 completed views, 2,378 verified clicks, 9.12% peak CTR - with just 2 streamers. 48,617 unique Norwegian viewers.",
     locale: "en",
     datePublished: "2025-07-01",
     image: "/lovable-uploads/shure-mv6-banner.jpg",
@@ -212,7 +212,7 @@ const CASE_STUDIES = [
     route: "/case-study/glorious",
     title: "Glorious Gaming Case Study | Beta Ads",
     description:
-      "Glorious O3 mouse launch across Finland, Norway, and Sweden via native rich media overlays. 137K+ total views across 25 creators.",
+      "How Glorious used rich media overlays to promote the O3 mouse across 25 Nordic Twitch streamers, reaching 137K+ views in Finland, Norway, and Sweden.",
     locale: "en",
     datePublished: "2025-04-01",
     image: "/lovable-uploads/og-social-preview.png",
@@ -230,7 +230,7 @@ const CASE_STUDIES = [
     route: "/case-study/komplett",
     title: "Komplett Månedens Gaming Deal Case Study | Beta Ads",
     description:
-      "Komplett on Twitch + Kick: 151,278 views, 1.17% CTR, 4.48% peak CTR across 34 creators. Black Friday retail activation that bypassed adblock.",
+      "How Komplett's tactical retail campaign hit a 4.48% peak-day CTR across 34 Norwegian gaming streamers. 151,278 display views, 1,768 verified clicks in 17 days.",
     locale: "en",
     datePublished: "2025-08-01",
     image: "/lovable-uploads/case-studies/komplett-preview.jpg",
@@ -239,7 +239,7 @@ const CASE_STUDIES = [
     route: "/case-study/kristiania",
     title: "Høyskolen Kristiania Case Study | Beta Ads",
     description:
-      "Høyskolen Kristiania on Twitch: two parallel campaigns, 599,252 combined views, 5,997 clicks, 3,329h screen time across awareness and voting activations.",
+      "Høyskolen Kristiania on Twitch: two parallel campaigns, ~600K display views, ~6,000 verified clicks across 31 Norwegian streamers over 8 weeks.",
     locale: "en",
     datePublished: "2025-09-01",
     image: "/lovable-uploads/og-social-preview.png",
@@ -248,7 +248,7 @@ const CASE_STUDIES = [
     route: "/case-study/nki",
     title: "NKI Distance Learning Case Study | Beta Ads",
     description:
-      "NKI on Twitch: interactive quiz campaign, 220,003 completed views, 1,595 clicks across 19 streamers. Personalized ads for distance-learning recruitment.",
+      "NKI quiz campaign on Norwegian Twitch: 220,003 completed views, 1,595 verified clicks, 90,356 unique viewers across 19 streamers in Oct-Nov 2025.",
     locale: "en",
     datePublished: "2025-10-01",
     image: "/lovable-uploads/case-studies/nki-detoo.png",
