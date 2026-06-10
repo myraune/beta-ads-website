@@ -238,8 +238,8 @@
     /* ─── Brand mention clips wall ─── */
     .clips-count { font-size: 12px; font-weight: 600; color: var(--brand); white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; }
     .clips-count::before { content: ''; width: 6px; height: 6px; border-radius: 99px; background: #5adbb5; box-shadow: 0 0 6px rgba(90,219,181,0.5); }
-    .clips-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 16px; }
-    .clip-card { position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 16 / 9; background: #000; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+    .clips-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 16px; }
+    .clip-card { position: relative; width: calc((100% - 25px) / 3); border-radius: 10px; overflow: hidden; aspect-ratio: 16 / 9; background: #000; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
     .clip-card video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
     .clip-badge { position: absolute; top: 6px; left: 6px; z-index: 2; display: inline-flex; align-items: center; gap: 4px; background: rgba(0,0,0,0.55); backdrop-filter: blur(4px); border-radius: 99px; padding: 3px 8px 3px 6px; font-size: 9px; font-weight: 600; color: #fff; }
     .clip-badge .clip-dot { width: 5px; height: 5px; border-radius: 99px; background: #5adbb5; }
@@ -496,6 +496,11 @@
           <div class="sidebar-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
             Campaign Analytics
+            <span class="badge-new">NEW</span>
+          </div>
+          <div class="sidebar-item" onclick="switchTab('clips')" style="cursor:pointer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M10 8l5 3-5 3z"/></svg>
+            Clips
             <span class="badge-new">NEW</span>
           </div>
         </div>
