@@ -645,7 +645,7 @@ const AnalyticsPreview: React.FC = () => {
             // earlier response with X-Frame-Options: DENY, which made the
             // iframe load to an empty document. Bump this whenever the
             // dashboard HTML or its serving headers change.
-            src="/clip-analytics-preview/index.html?v=17"
+            src="/clip-analytics-preview/index.html?v=18"
             title="Clip Analytics Dashboard"
             className="block border-0"
             scrolling="no"
