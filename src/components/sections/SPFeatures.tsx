@@ -26,6 +26,7 @@ import {
   IconAnalytics,
   IconReports,
 } from "@/components/icons/BetaIcons";
+import { FileTree, type FileNode } from "@/components/ui/file-tree";
 
 /* ═══════════════════════════════════════════════════════════
    FEATURE SECTIONS - Apple-style clean scroll-through layout
@@ -1068,27 +1069,28 @@ export const SPFeatures: React.FC = () => {
 
         {/* Content area with sticky sidebar */}
         <div ref={containerRef} className="relative flex gap-0 lg:gap-8">
-          {/* Sticky sidebar nav */}
-          <div className="hidden lg:block w-48 shrink-0 self-stretch">
-            <div className="sticky top-28 space-y-1">
-              {features.map((f) => {
-                const Icon = f.icon;
-                const isActive = f.id === activeId;
-                return (
-                  <button
-                    key={f.id}
-                    onClick={() => scrollToSection(f.id)}
-                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-all duration-200 ${
-                      isActive
-                        ? "bg-primary/15 dark:bg-primary/20 text-foreground"
-                        : "text-muted-foreground dark:text-white/45 hover:text-foreground hover:bg-muted/40 dark:hover:bg-white/[0.06]"
-                    }`}
-                  >
-                    <Icon className={`w-4 h-4 transition-colors ${isActive ? "text-primary" : ""}`} />
-                    <span className="text-sm font-medium">{f.label}</span>
-                  </button>
-                );
-              })}
+          {/* Sticky sidebar nav - rendered as a file-explorer tree */}
+          <div className="hidden lg:block w-56 shrink-0 self-stretch">
+            <div className="sticky top-28">
+              <FileTree
+                label="explorer"
+                onSelect={(node) => node.id && scrollToSection(node.id)}
+                data={[
+                  {
+                    name: "beta-platform",
+                    type: "folder",
+                    locked: true,
+                    children: features.map((f): FileNode => ({
+                      name: `${f.label.toLowerCase()}.tsx`,
+                      type: "file",
+                      extension: "tsx",
+                      icon: f.icon,
+                      id: f.id,
+                      active: f.id === activeId,
+                    })),
+                  },
+                ]}
+              />
             </div>
           </div>
 
