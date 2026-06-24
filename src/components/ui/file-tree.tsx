@@ -68,8 +68,19 @@ function FileItem({
   return (
     <div className="select-none">
       <div
+        role="button"
+        tabIndex={0}
+        aria-current={node.active ? "true" : undefined}
+        aria-expanded={isFolder && !node.locked ? isOpen : undefined}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            handleClick();
+          }
+        }}
         className={cn(
           "group relative flex items-center gap-2 py-1.5 px-2 rounded-md cursor-pointer transition-all duration-200 ease-out",
+          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-1 focus-visible:ring-offset-background",
           node.active
             ? "bg-primary/15 dark:bg-primary/20"
             : isHovered && "bg-muted/50 dark:bg-white/[0.06]"
