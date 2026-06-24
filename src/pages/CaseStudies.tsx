@@ -365,7 +365,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
                     {cs.title}
                   </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-5">{cs.description}</p>
-                  <div className="grid grid-cols-4 gap-3 mb-5 pt-4 border-t border-border">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5 pt-4 border-t border-border">
                     {cs.stats.map((stat) => (
                       <div key={stat.label}>
                         <p className="text-base font-bold text-foreground">{stat.value}</p>

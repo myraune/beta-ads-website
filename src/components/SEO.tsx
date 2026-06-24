@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { Helmet } from "react-helmet-async";
 
 /**
@@ -86,27 +86,33 @@ export const SEO: React.FC<SEOProps> = ({
   // x-default (both point at the canonical URL). We only emit hreflang if the
   // caller gave us a canonical URL to anchor against - without one, Google
   // can't trust the mapping anyway.
-  const hreflangTags: Array<{ hreflang: string; href: string }> = [];
-  if (canonicalUrl) {
-    if (alternates && alternates.length > 0) {
-      alternates.forEach((alt) => {
-        hreflangTags.push({ hreflang: alt.hreflang, href: toAbsolute(alt.href) });
-      });
-      // Ensure self-referential entry exists for the current locale.
-      if (!alternates.some((a) => a.hreflang === locale)) {
-        hreflangTags.push({ hreflang: locale, href: canonicalUrl });
+  // Memoized so its reference is stable across renders - it's a useEffect
+  // dependency below, and a fresh array every render would re-run the effect
+  // (and re-write every meta tag) on every render.
+  const hreflangTags = useMemo<Array<{ hreflang: string; href: string }>>(() => {
+    const tags: Array<{ hreflang: string; href: string }> = [];
+    if (canonicalUrl) {
+      if (alternates && alternates.length > 0) {
+        alternates.forEach((alt) => {
+          tags.push({ hreflang: alt.hreflang, href: toAbsolute(alt.href) });
+        });
+        // Ensure self-referential entry exists for the current locale.
+        if (!alternates.some((a) => a.hreflang === locale)) {
+          tags.push({ hreflang: locale, href: canonicalUrl });
+        }
+        // Ensure x-default exists (falls back to the current canonical).
+        if (!alternates.some((a) => a.hreflang === "x-default")) {
+          tags.push({ hreflang: "x-default", href: canonicalUrl });
+        }
+      } else if (locale !== "en") {
+        // Single-language page that's not English - still worth signalling the
+        // language explicitly plus an x-default fallback.
+        tags.push({ hreflang: locale, href: canonicalUrl });
+        tags.push({ hreflang: "x-default", href: canonicalUrl });
       }
-      // Ensure x-default exists (falls back to the current canonical).
-      if (!alternates.some((a) => a.hreflang === "x-default")) {
-        hreflangTags.push({ hreflang: "x-default", href: canonicalUrl });
-      }
-    } else if (locale !== "en") {
-      // Single-language page that's not English - still worth signalling the
-      // language explicitly plus an x-default fallback.
-      hreflangTags.push({ hreflang: locale, href: canonicalUrl });
-      hreflangTags.push({ hreflang: "x-default", href: canonicalUrl });
     }
-  }
+    return tags;
+  }, [canonicalUrl, alternates, locale]);
 
   const ogLocale = OG_LOCALES[locale];
 

@@ -133,6 +133,7 @@ const Norge: React.FC = () => {
         description="Twitch-annonsering for norske merkevarer. Samsung, Shure, Komplett og NKI har kjørt kampanjer via Beta Ads på 39 000+ norske streamere. Book en samtale."
         canonical="/norge"
         locale="no"
+        ogImageAlt="Beta Ads - native Twitch-annonsering for norske merkevarer"
         alternates={[
           { hreflang: "no", href: "/norge" },
           { hreflang: "en", href: "/" },
