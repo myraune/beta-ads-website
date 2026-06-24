@@ -143,8 +143,8 @@ const LiveStreamDemo: React.FC = () => {
       streamRef.current.pause();
       overlayRef.current?.pause();
     } else {
-      streamRef.current.play();
-      overlayRef.current?.play();
+      streamRef.current.play().catch(() => {});
+      overlayRef.current?.play().catch(() => {});
     }
     setPlaying(!playing);
   };
@@ -165,6 +165,7 @@ const LiveStreamDemo: React.FC = () => {
           <video
             ref={streamRef}
             src="/lovable-uploads/rubengks-stream.mp4"
+            poster="/lovable-uploads/rubengks-stream-poster.webp"
             muted={muted}
             loop
             playsInline
