@@ -38,6 +38,8 @@ const SamsungFold7CaseStudy: React.FC = () => {
       {/* Hero image */}
       <img
         src="/lovable-uploads/blog-samsung-twitch-campaign-hero.jpg"
+        width={1600}
+        height={750}
         alt="Samsung Galaxy Z Fold7 Twitch campaign"
         className="w-full h-auto rounded-xl object-cover"
         style={{ maxHeight: "420px" }}
@@ -79,6 +81,8 @@ const SamsungFold7CaseStudy: React.FC = () => {
           <div className="rounded-xl overflow-hidden bg-muted/20 border border-border">
             <img
               src="/lovable-uploads/samsung-zfold7-banner.png"
+              width={1000}
+              height={1000}
               alt="Samsung Galaxy Z Fold7 overlay ad banner"
               className="w-full h-auto"
             />
