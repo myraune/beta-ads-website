@@ -73,9 +73,8 @@ const VideoPlayer = ({
   src: string;
   className?: string;
 }) => {
-  // Google Drive? Use iframe embed - custom controls don't work inside iframes
+  // Google Drive? Use iframe embed - custom controls don't work inside iframes.
   const driveEmbed = toEmbedUrl(src);
-  if (driveEmbed) return <DriveEmbed embedUrl={driveEmbed} className={className} />;
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -87,14 +86,20 @@ const VideoPlayer = ({
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
 
+  // Early return placed AFTER the hooks so hook order stays stable across renders
+  // (Rules of Hooks) if src ever toggles between a Drive and non-Drive URL.
+  if (driveEmbed) return <DriveEmbed embedUrl={driveEmbed} className={className} />;
+
   const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
+    const v = videoRef.current;
+    if (!v) return;
+    // Drive from the element's real state; onPlay/onPause/onEnded keep isPlaying
+    // in sync, so a clip that plays to the end doesn't leave the button stuck on
+    // "Pause" (which previously required a second click to restart).
+    if (v.paused) {
+      v.play().catch(() => {});
+    } else {
+      v.pause();
     }
   };
 
@@ -163,6 +168,9 @@ const VideoPlayer = ({
         ref={videoRef}
         className="w-full"
         onTimeUpdate={handleTimeUpdate}
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
+        onEnded={() => setIsPlaying(false)}
         src={src}
         onClick={togglePlay}
       />

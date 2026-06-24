@@ -120,6 +120,8 @@ export function BetaNavbar() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
+    handleScroll(); // sync initial state - e.g. hard reload while already scrolled
+                    // (browsers restore scroll position without firing a scroll event)
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
