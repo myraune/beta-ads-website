@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { ThemeProvider, useTheme } from "next-themes";
+import { MotionConfig } from "framer-motion";
 import { Layout } from "@/components/Layout";
 import { Component as AILoader } from "@/components/ui/ai-loader";
 import { RouteTransition } from "@/components/RouteTransition";
@@ -131,6 +132,7 @@ const App = () => {
       <SpeedInsights />
       <Toaster />
       <Sonner />
+      <MotionConfig reducedMotion="user">
       <BrowserRouter>
         <RouteThemeEnforcer />
         <RouteTransition />
@@ -177,6 +179,7 @@ const App = () => {
           </Routes>
         </Suspense>
       </BrowserRouter>
+      </MotionConfig>
     </ThemeProvider>
   </QueryClientProvider>
   );
