@@ -429,9 +429,9 @@ export function BetaNavbar() {
           id="mobile-nav"
           aria-label="Mobile navigation"
           aria-hidden={!mobileOpen}
-          className="mx-3 mt-1 overflow-hidden rounded-2xl motion-safe:transition-all motion-safe:duration-300 motion-safe:ease-out"
+          className="mx-3 mt-1 overflow-y-auto overscroll-contain rounded-2xl motion-safe:transition-all motion-safe:duration-300 motion-safe:ease-out"
           style={{
-            maxHeight: mobileOpen ? 700 : 0,
+            maxHeight: mobileOpen ? "min(700px, calc(100dvh - 96px))" : 0,
             opacity: mobileOpen ? 1 : 0,
           }}
         >
