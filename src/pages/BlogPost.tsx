@@ -107,7 +107,7 @@ const BlogPostPage: React.FC = () => {
       linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`,
       facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`,
     };
-    window.open(urls[platform], "_blank", "width=600,height=400");
+    window.open(urls[platform], "_blank", "noopener,noreferrer,width=600,height=400");
   };
 
   const autoTocItems = useMemo(() => extractTocFromMarkdown(post.content), [post.content]);
@@ -355,9 +355,9 @@ const BlogPostPage: React.FC = () => {
                     </ReactMarkdown>
 
                     {isStreamerPost ? (
-                      <StreamerInlineCTA language="en" />
+                      <StreamerInlineCTA language={postLocale} />
                     ) : (
-                      <InlineCTA language="en" />
+                      <InlineCTA language={postLocale} />
                     )}
                   </div>
                 )}
@@ -368,9 +368,9 @@ const BlogPostPage: React.FC = () => {
                 <div className="sticky top-24 flex flex-col gap-6 max-h-[calc(100vh-8rem)] overflow-y-auto">
                   {tocItems.length > 0 && <TableOfContents items={tocItems} />}
                   {isStreamerPost ? (
-                    <StreamerStickyCTA language="en" />
+                    <StreamerStickyCTA language={postLocale} />
                   ) : (
-                    <StickyCTA language="en" />
+                    <StickyCTA language={postLocale} />
                   )}
                 </div>
               </aside>
