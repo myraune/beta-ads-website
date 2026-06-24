@@ -163,7 +163,7 @@ const StreamerPreview: React.FC = () => {
                 className={`text-[11px] px-3 py-3 sm:py-1.5 min-h-[44px] sm:min-h-0 rounded-full border transition-all duration-200 ${
                   active
                     ? "border-primary bg-primary/15 text-primary font-medium scale-[1.04]"
-                    : "border-foreground/60 dark:border-white/60 text-muted-foreground hover:border-primary hover:text-primary/70"
+                    : "border-border/60 dark:border-white/[0.12] text-muted-foreground hover:border-primary hover:text-primary/70"
                 }`}
               >
                 {g}
