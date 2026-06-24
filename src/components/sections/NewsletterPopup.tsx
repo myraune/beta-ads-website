@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail, TrendingUp, Users, Zap } from "lucide-react";
@@ -136,12 +136,14 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose, lang
             </div>
             
             <div className="space-y-3">
-              <h2 className="text-2xl md:text-3xl font-light text-white leading-tight">
-                {t.title}
-                <span className="block font-extralight italic text-gray-300">
-                  {t.subtitle}
-                </span>
-              </h2>
+              <DialogTitle asChild>
+                <h2 className="text-2xl md:text-3xl font-light text-white leading-tight">
+                  {t.title}
+                  <span className="block font-extralight italic text-gray-300">
+                    {t.subtitle}
+                  </span>
+                </h2>
+              </DialogTitle>
               <p className="text-gray-300 text-lg font-extralight leading-relaxed max-w-sm mx-auto">
                 {t.description}
               </p>
@@ -177,6 +179,7 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose, lang
               <Input
                 type="email"
                 placeholder={t.placeholder}
+                aria-label={t.placeholder}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -202,7 +205,7 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose, lang
 
           {/* Footer */}
           <div className="text-center mt-6">
-            <p className="text-xs text-gray-500 font-light">
+            <p className="text-xs text-gray-400 font-light">
               {t.privacyNote}
             </p>
           </div>
