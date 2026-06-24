@@ -1,12 +1,6 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 
 const faqs = [
   {
@@ -40,44 +34,42 @@ export const HomepageFAQ: React.FC = () => {
 
   return (
     <section className="py-24 lg:py-32" aria-label="Frequently asked questions">
-      <div 
+      <div
         ref={sectionRef}
         className={`max-w-[800px] mx-auto px-6 lg:px-12 transition-[opacity,transform] duration-700 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
         }`}
       >
-        <div className="text-center mb-16">
-          <p className="text-xs font-light tracking-[0.3em] text-muted-foreground/60 uppercase mb-4">
+        <div className="mb-12">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
             Frequently asked
-          </p>
-          <h2 className="text-3xl lg:text-4xl font-light tracking-tight">
+          </span>
+          <h2 className="text-3xl lg:text-4xl font-light tracking-tight text-foreground">
             Common questions
           </h2>
         </div>
 
-        <Accordion type="single" collapsible className="space-y-2">
+        {/* Native <details> per the design system (no Accordion component). */}
+        <div>
           {faqs.map((faq, index) => (
-            <AccordionItem 
-              key={index} 
-              value={`item-${index}`}
-              className="border-b border-border/50 py-1"
-            >
-              <AccordionTrigger className="text-left text-base font-light tracking-wide hover:text-foreground text-foreground/90 py-4">
+            <details key={index} className="group border-b border-border last:border-b-0">
+              <summary className="flex items-center justify-between gap-4 py-5 cursor-pointer text-sm font-medium text-foreground hover:text-primary transition-colors select-none list-none [&::-webkit-details-marker]:hidden">
                 {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground font-light leading-relaxed pb-4">
+                <ArrowRight className="w-4 h-4 shrink-0 transition-transform duration-200 group-open:rotate-90 text-muted-foreground" />
+              </summary>
+              <div className="pb-5 text-sm text-muted-foreground leading-relaxed">
                 {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
+              </div>
+            </details>
           ))}
-        </Accordion>
+        </div>
 
-        <div className="text-center mt-12">
+        <div className="mt-12">
           <a
             href="https://calendar.app.google/coW5NLQJtLxfRer19"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 min-h-[44px] px-1 py-2.5 text-sm font-light tracking-wide text-primary hover:text-primary/80 transition-colors duration-200 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="inline-flex items-center gap-2 min-h-[44px] py-2.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors duration-200 rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           >
             Still have questions? Book a 15-minute call
             <ArrowRight className="h-4 w-4" />
