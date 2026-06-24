@@ -67,7 +67,7 @@ const Index: React.FC = () => {
             ],
             contactPoint: {
               "@type": "ContactPoint",
-              email: "hello@betaads.no",
+              email: "andreas@beta-ads.no",
               telephone: "+47-46195548",
               contactType: "Customer Service",
               areaServed: ["NO", "SE", "DK", "FI"],

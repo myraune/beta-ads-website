@@ -527,7 +527,7 @@ const DashboardMockup: React.FC = () => {
         <div className="flex-1 flex justify-center">
           <div className="bg-white/[0.06] rounded-md px-4 py-1">
             <span className="text-[10px] lg:text-[11px] text-white/30 font-mono">
-              streamer.betaads.no
+              streamer.beta-ads.no
             </span>
           </div>
         </div>

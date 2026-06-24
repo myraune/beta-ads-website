@@ -326,10 +326,10 @@ const Privacy: React.FC = () => {
               <p className="mt-3">
                 To exercise any of these rights, please contact us at{" "}
                 <a
-                  href="mailto:hello@betaads.no"
+                  href="mailto:andreas@beta-ads.no"
                   className="text-foreground underline underline-offset-4 hover:opacity-80"
                 >
-                  hello@betaads.no
+                  andreas@beta-ads.no
                 </a>
                 . We will respond within 30 days as required by GDPR.
               </p>
@@ -422,10 +422,10 @@ const Privacy: React.FC = () => {
                 <p>
                   Email:{" "}
                   <a
-                    href="mailto:hello@betaads.no"
+                    href="mailto:andreas@beta-ads.no"
                     className="text-foreground underline underline-offset-4 hover:opacity-80"
                   >
-                    hello@betaads.no
+                    andreas@beta-ads.no
                   </a>
                 </p>
               </div>

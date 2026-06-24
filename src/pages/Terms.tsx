@@ -271,10 +271,10 @@ const Terms: React.FC = () => {
                 <p>
                   Email:{" "}
                   <a
-                    href="mailto:hello@betaads.no"
+                    href="mailto:andreas@beta-ads.no"
                     className="text-foreground underline underline-offset-4 hover:opacity-80"
                   >
-                    hello@betaads.no
+                    andreas@beta-ads.no
                   </a>
                 </p>
               </div>
