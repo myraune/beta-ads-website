@@ -86,6 +86,11 @@ const BlogPostPage: React.FC = () => {
 
   const isStreamerPost = post.category === "Streamer Guide";
   const postLocale = detectPostLanguage(post);
+  // Resolve through getBlogImage so OG/JSON-LD/related cards honor the screenshot
+  // blocklist exactly like the hero does (swaps suppressed screenshots for a
+  // brand photo). Without this, ~10 blocklisted posts showed a brand photo in
+  // the hero but the raw bad screenshot in social previews + related cards.
+  const resolvedImage = getBlogImage(post);
   const seoTitle = post.seoTitle[postLocale] || post.seoTitle.en;
   const seoDescription = post.seoDescription[postLocale] || post.seoDescription.en;
   const seoKeywords = post.seoKeywords[postLocale] || post.seoKeywords.en;
@@ -117,7 +122,7 @@ const BlogPostPage: React.FC = () => {
         description={seoDescription}
         canonical={`/blog/${post.slug}`}
         ogType="article"
-        ogImage={post.image}
+        ogImage={resolvedImage}
         ogImageAlt={post.title}
         articlePublishedTime={post.dateISO}
         articleModifiedTime={dateModified}
@@ -129,7 +134,7 @@ const BlogPostPage: React.FC = () => {
             "@id": `https://beta-ads.no/blog/${post.slug}#article`,
             "headline": post.title,
             "description": seoDescription,
-            "image": post.image.startsWith("http") ? post.image : `https://beta-ads.no${post.image}`,
+            "image": resolvedImage.startsWith("http") ? resolvedImage : `https://beta-ads.no${resolvedImage}`,
             "datePublished": post.dateISO,
             "dateModified": dateModified,
             "author": {
@@ -174,7 +179,7 @@ const BlogPostPage: React.FC = () => {
             <div className="relative w-full h-48 md:h-72 lg:h-[360px] overflow-hidden bg-muted">
               {/* fetchpriority="high": this is the LCP element on blog post pages - signals browser to load it early, improving Core Web Vitals score */}
               <img
-                src={getBlogImage(post)}
+                src={resolvedImage}
                 alt={post.title}
                 className="w-full h-full object-cover"
                 decoding="async"
@@ -383,7 +388,7 @@ const BlogPostPage: React.FC = () => {
                 {relatedPosts.map((relatedPost) => (
                   <Link key={relatedPost.id} to={`/blog/${relatedPost.slug}`} className="group bg-card rounded-2xl overflow-hidden shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500">
                     <div className="relative h-44 overflow-hidden">
-                      <img src={relatedPost.image} alt={relatedPost.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                      <img src={getBlogImage(relatedPost)} alt={relatedPost.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
                       <div className="absolute top-3 left-3">
                         <span className="bg-primary/90 backdrop-blur-sm text-primary-foreground px-3 py-1 rounded-full text-xs font-medium">{relatedPost.category}</span>
                       </div>
