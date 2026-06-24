@@ -602,7 +602,10 @@ const AnalyticsPreview: React.FC = () => {
       iframe.addEventListener("load", send);
       return () => iframe.removeEventListener("load", send);
     }
-  }, [resolvedTheme]);
+    // `scale` is included so this re-runs when the iframe first mounts (the
+    // iframe is gated by `scale != null`); without it the theme is never
+    // posted on mount and the dashboard can render in the wrong (OS) theme.
+  }, [resolvedTheme, scale]);
 
   /* Relay the iframe's pointer position to the parent document so the global
    * cursor crosshair keeps tracking over this preview. The iframe posts its
