@@ -217,6 +217,9 @@ export function BetaNavbar() {
            * transform gets stuck at the initial matrix even when class flips
            * to scale-100). Use inline styles for transform+opacity instead. */}
           <div
+            /* inert when closed: pointer-events:none alone leaves the inner links
+               in the tab order; inert also removes them from the a11y tree. */
+            ref={(el) => { el?.toggleAttribute("inert", !productOpen); }}
             className="absolute top-full left-1/2 mt-2 w-72 rounded-2xl border border-border/50 bg-background/95 backdrop-blur-xl shadow-xl shadow-black/[0.12] origin-top"
             style={{
               transform: productOpen
@@ -315,6 +318,8 @@ export function BetaNavbar() {
           {/* Dropdown panel - inline styles for reliable transition
            * (see matching comment on Product dropdown above). */}
           <div
+            /* inert when closed - see Product dropdown above. */
+            ref={(el) => { el?.toggleAttribute("inert", !aboutOpen); }}
             className="absolute top-full right-0 mt-2 w-72 rounded-2xl border border-border/50 bg-background/95 backdrop-blur-xl shadow-xl shadow-black/[0.12] origin-top"
             style={{
               transform: aboutOpen ? "translateY(0) scale(1)" : "translateY(-8px) scale(0.95)",
