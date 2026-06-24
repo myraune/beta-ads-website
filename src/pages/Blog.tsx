@@ -14,7 +14,6 @@ const Blog: React.FC = () => {
   const categories = [
     { id: "all", label: "All" },
     { id: "twitch-insights", label: "Twitch Insights" },
-    { id: "case-studies", label: "Case Studies" },
     { id: "nordic-market", label: "Nordic Market" },
     { id: "platform", label: "Platform" },
     { id: "guides", label: "Guides" },
