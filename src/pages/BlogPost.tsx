@@ -258,11 +258,29 @@ const BlogPostPage: React.FC = () => {
                             </h3>
                           );
                         },
-                        p: ({ children }) => (
-                          <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-5">
-                            {children}
-                          </p>
-                        ),
+                        p: ({ children, node }) => {
+                          // A standalone markdown image parses to <p><img></p>, but the
+                          // img renderer below emits a <figure> (block-level), which is
+                          // invalid inside <p> and triggers a DOM-nesting/hydration error.
+                          // Unwrap paragraphs whose only meaningful child is an image so
+                          // the <figure> renders as a valid block-level sibling.
+                          const kids = node?.children ?? [];
+                          const meaningful = kids.filter(
+                            (c) => c.type !== "text" || c.value.trim() !== ""
+                          );
+                          if (
+                            meaningful.length === 1 &&
+                            meaningful[0].type === "element" &&
+                            meaningful[0].tagName === "img"
+                          ) {
+                            return <>{children}</>;
+                          }
+                          return (
+                            <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-5">
+                              {children}
+                            </p>
+                          );
+                        },
                         ul: ({ children }) => (
                           <ul className="list-disc pl-6 space-y-2.5 text-foreground/80 mb-5 text-base md:text-lg">
                             {children}
