@@ -56,15 +56,15 @@ const badgeLabels: Record<BadgeType, string> = {
 };
 
 const row1: LogoData[] = [
-  { src: "/lovable-uploads/logo-client-1.png", alt: "Samsung", badge: "case-study", caseStudyLink: "/case-study/samsung" },
+  { src: "/lovable-uploads/logo-client-1.webp", alt: "Samsung", badge: "case-study", caseStudyLink: "/case-study/samsung" },
   { src: "/lovable-uploads/wpp-media-logo.png", alt: "WPP Media" },
   {
-    src: "/lovable-uploads/logo-foodora.png", alt: "Foodora",
+    src: "/lovable-uploads/logo-foodora.webp", alt: "Foodora",
     badge: "video",
     videoSrc: "/lovable-uploads/foodora-campaign-video.mp4",
   },
   {
-    src: "/lovable-uploads/logo-shure.png", alt: "Shure",
+    src: "/lovable-uploads/logo-shure.webp", alt: "Shure",
     badge: "video",
     videoSrc: "/lovable-uploads/shure-campaign-video.mp4",
   },
@@ -74,19 +74,19 @@ const row1: LogoData[] = [
     videoSrc: "/lovable-uploads/saily-campaign-video.mp4",
   },
   {
-    src: "/lovable-uploads/logo-glorious.png", alt: "Glorious",
+    src: "/lovable-uploads/logo-glorious.webp", alt: "Glorious",
     badge: "case-study",
     caseStudyLink: "/case-study/glorious",
     quote: "The overlay ads felt completely native to the stream - our audience loved it.",
     quoteName: "Brand Manager",
     quoteTitle: "Glorious",
   },
-  { src: "/lovable-uploads/logo-client-8.png", alt: "Publicis" },
+  { src: "/lovable-uploads/logo-client-8.webp", alt: "Publicis" },
 ];
 
 const row2: LogoData[] = [
   {
-    src: "/lovable-uploads/logo-logitech.png", alt: "Logitech",
+    src: "/lovable-uploads/logo-logitech.webp", alt: "Logitech",
     badge: "video",
     videoSrc: "/videos/logitech-case-study.mp4",
   },
@@ -99,17 +99,17 @@ const row2: LogoData[] = [
     quoteTitle: "Gokstad Akademiet",
   },
   {
-    src: "/lovable-uploads/logo-komplett.png", alt: "Komplett",
+    src: "/lovable-uploads/logo-komplett.webp", alt: "Komplett",
     badge: "case-study",
     caseStudyLink: "/case-study/komplett",
   },
   { src: "/lovable-uploads/logo-dentsu.png", alt: "Dentsu" },
-  { src: "/lovable-uploads/logo-carat.png", alt: "Carat" },
+  { src: "/lovable-uploads/logo-carat.webp", alt: "Carat" },
   {
     // SteelSeries has a quote but no case study yet — render as a hover-only
     // testimonial. The Review badge below renders as a non-interactive label
     // since there is nothing to click through to.
-    src: "/lovable-uploads/logo-steelseries.png", alt: "SteelSeries",
+    src: "/lovable-uploads/logo-steelseries.webp", alt: "SteelSeries",
     badge: "review",
     quote: "Working with Beta Ads was seamless. The platform handles everything from streamer selection to reporting.",
     quoteName: "Partnerships",
