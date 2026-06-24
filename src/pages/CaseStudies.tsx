@@ -268,7 +268,19 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
 
           <div className="grid lg:grid-cols-[55%_45%] border border-border rounded-2xl overflow-hidden">
             {/* Thumbnail + play */}
-            <div className="relative aspect-video lg:aspect-auto cursor-pointer group" onClick={() => setModalVideoId(caseStudies[caseStudyIndex].id)}>
+            <div
+              role="button"
+              tabIndex={0}
+              aria-label={`Play ${caseStudies[caseStudyIndex].campaign} video`}
+              className="relative aspect-video lg:aspect-auto cursor-pointer group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+              onClick={() => setModalVideoId(caseStudies[caseStudyIndex].id)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setModalVideoId(caseStudies[caseStudyIndex].id);
+                }
+              }}
+            >
               <img
                 src={`https://img.youtube.com/vi/${caseStudies[caseStudyIndex].id}/maxresdefault.jpg`}
                 alt={caseStudies[caseStudyIndex].campaign}

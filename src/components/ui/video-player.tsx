@@ -196,6 +196,7 @@ const VideoPlayer = ({
                 >
                   <Button
                     onClick={togglePlay}
+                    aria-label={isPlaying ? "Pause" : "Play"}
                     variant="ghost"
                     size="icon"
                     className="text-white hover:bg-[#111111d1] hover:text-white"
@@ -214,6 +215,7 @@ const VideoPlayer = ({
                   >
                     <Button
                       onClick={toggleMute}
+                      aria-label={isMuted ? "Unmute" : "Mute"}
                       variant="ghost"
                       size="icon"
                       className="text-white hover:bg-[#111111d1] hover:text-white"

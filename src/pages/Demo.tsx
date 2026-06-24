@@ -172,21 +172,21 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
                   <FormField control={form.control} name="name" render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-foreground">{t.name}</FormLabel>
-                      <FormControl><Input placeholder={t.namePlaceholder} className="bg-background/50 border-border/50" {...field} /></FormControl>
+                      <FormControl><Input placeholder={t.namePlaceholder} autoComplete="name" className="bg-background/50 border-border/50" {...field} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )} />
                   <FormField control={form.control} name="email" render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-foreground">{t.email}</FormLabel>
-                      <FormControl><Input type="email" placeholder={t.emailPlaceholder} className="bg-background/50 border-border/50" {...field} /></FormControl>
+                      <FormControl><Input type="email" placeholder={t.emailPlaceholder} autoComplete="email" className="bg-background/50 border-border/50" {...field} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )} />
                   <FormField control={form.control} name="company" render={({ field }) => (
                     <FormItem>
                       <FormLabel className="text-foreground">{t.companyOptional}</FormLabel>
-                      <FormControl><Input placeholder={t.companyPlaceholder} className="bg-background/50 border-border/50" {...field} /></FormControl>
+                      <FormControl><Input placeholder={t.companyPlaceholder} autoComplete="organization" className="bg-background/50 border-border/50" {...field} /></FormControl>
                       <FormMessage />
                     </FormItem>
                   )} />
