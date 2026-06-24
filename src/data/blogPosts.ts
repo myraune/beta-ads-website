@@ -11429,7 +11429,7 @@ That last one is underrated. When a streamer reads your brand message live and c
 
 The charts break down daily view volume and share-of-voice by streamer and campaign, both exportable to CSV.
 
-![Beta Ads 2.0 campaign dashboard showing views, CTR, spend, watch time and streamer breakdown](/lovable-uploads/beta-ads-2-dashboard.png)
+![Beta Ads 2.0 campaign dashboard showing views, CTR, spend, watch time and streamer breakdown](/lovable-uploads/beta-ads-2-dashboard.webp)
 
 ### Streamer Explorer: 39,000 Creators, Fully Searchable
 
@@ -11439,7 +11439,7 @@ Every streamer has a profile built from real streaming data: engagement score (n
 
 Brands use Streamer Explorer to build shortlists before a campaign kick-off rather than relying on us to recommend names. Faster briefs, fewer back-and-forths.
 
-![Streamer Explorer showing 39,081 creators with engagement scores, brand safety, filters and audience data](/lovable-uploads/beta-ads-2-streamer-explorer.png)
+![Streamer Explorer showing 39,081 creators with engagement scores, brand safety, filters and audience data](/lovable-uploads/beta-ads-2-streamer-explorer.webp)
 
 ### Category Explorer: Find the Audience, Not Just the Streamer
 
@@ -11449,13 +11449,13 @@ The answer is more nuanced than most media plans assume. Just Chatting has 17,09
 
 Filter by genre, platform, active streamer count, or total view volume. Build a category-first media plan: find the audience, then find the streamers who own it.
 
-![Category Explorer showing categories by active streamers and total views](/lovable-uploads/beta-ads-2-category-explorer.png)
+![Category Explorer showing categories by active streamers and total views](/lovable-uploads/beta-ads-2-category-explorer.webp)
 
 ### My Streamer Lists: Save Your Shortlists
 
 Once you have identified your categories and explored individual streamers, save them to named lists: Norway, Finland, Favourite Streamers, or any custom label. Lists persist across campaigns and can be shared with teammates or clients. No rebuilding shortlists from scratch every brief.
 
-![My Streamer Lists showing saved creator shortlists organised by market and preference](/lovable-uploads/beta-ads-2-streamer-lists.png)
+![My Streamer Lists showing saved creator shortlists organised by market and preference](/lovable-uploads/beta-ads-2-streamer-lists.webp)
 
 ### Ad Formats
 
@@ -11491,7 +11491,7 @@ Five formats. Each renders directly inside the live stream. No pre-roll, no bann
 
 **Campaign Review:** Final check on targeting, format, budget, and schedule before submission. The campaign is matched to available streamers in your target market.
 
-![New Campaign wizard with 5-step process: objective, audience, format, asset, review](/lovable-uploads/beta-ads-2-new-campaign.png)
+![New Campaign wizard with 5-step process: objective, audience, format, asset, review](/lovable-uploads/beta-ads-2-new-campaign.webp)
 
 ### AI Clipping: Turn Every Stream into Social Content
 
