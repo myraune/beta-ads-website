@@ -18,7 +18,7 @@ const pressArticles = [
     publication: "Kampanje",
     date: "May 2025",
     url: "https://kampanje.com/premium/mai-2025/innsikt/andreas-22-startet-byra-ved-siden-av-studiene--na-utvider-han-til-sverige-og-finland/",
-    image: "/lovable-uploads/press-kampanje-expansion-new.png",
+    image: "/lovable-uploads/press-kampanje-expansion-new.webp",
   },
   {
     title: "Andreas (21) satser på eget Twitch-byrå",
@@ -42,7 +42,7 @@ const pressArticles = [
     publication: "Kom24",
     date: "2024",
     url: "https://www.kom24.no/andreas-myraune-beta-instreamly/instreamly-og-beta-inngar-partnerskap-i-norge/749907",
-    image: "/lovable-uploads/press-kampanje-expansion.png",
+    image: "/lovable-uploads/press-kampanje-expansion.webp",
   },
 ];
 
