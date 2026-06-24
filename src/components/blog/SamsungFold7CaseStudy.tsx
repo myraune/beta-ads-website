@@ -93,7 +93,7 @@ const SamsungFold7CaseStudy: React.FC = () => {
               loop
               muted
               playsInline
-              className="w-full h-auto"
+              className="w-full aspect-square object-cover"
             >
               <source src="/lovable-uploads/samsung-zfold7-overlay.webm" type="video/webm" />
             </video>
@@ -334,7 +334,7 @@ const SamsungFold7CaseStudy: React.FC = () => {
             loop
             muted
             playsInline
-            className="w-full h-auto"
+            className="w-full aspect-square object-cover"
           >
             <source src="/lovable-uploads/overlay-samsung.webm" type="video/webm" />
           </video>

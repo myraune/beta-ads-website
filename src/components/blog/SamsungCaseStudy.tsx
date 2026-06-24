@@ -515,7 +515,7 @@ const SamsungCaseStudy: React.FC = () => {
               onClick={() => setActiveTab("s25")}
               className={`group text-left rounded-2xl overflow-hidden border bg-black transition-all duration-300 ${isS25 ? "border-primary/60 shadow-[0_0_0_1px_hsl(var(--primary)/0.3)]" : "border-border hover:border-foreground/30"}`}
             >
-              <video autoPlay loop muted playsInline className="w-full h-auto">
+              <video autoPlay loop muted playsInline className="w-full aspect-square object-cover">
                 <source src="/lovable-uploads/overlay-samsung.webm" type="video/webm" />
               </video>
               <div className="px-5 py-4 border-t border-border bg-background flex items-center justify-between">
@@ -530,7 +530,7 @@ const SamsungCaseStudy: React.FC = () => {
               onClick={() => setActiveTab("fold7")}
               className={`group text-left rounded-2xl overflow-hidden border bg-black transition-all duration-300 ${!isS25 ? "border-primary/60 shadow-[0_0_0_1px_hsl(var(--primary)/0.3)]" : "border-border hover:border-foreground/30"}`}
             >
-              <video autoPlay loop muted playsInline className="w-full h-auto">
+              <video autoPlay loop muted playsInline className="w-full aspect-square object-cover">
                 <source src="/lovable-uploads/samsung-zfold7-overlay.webm" type="video/webm" />
               </video>
               <div className="px-5 py-4 border-t border-border bg-background flex items-center justify-between">
