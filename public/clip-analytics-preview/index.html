@@ -7,7 +7,6 @@
   <link rel="icon" href="/lovable-uploads/favicon-192.png" />
   <!-- Set theme before first paint to avoid flash -->
   <script>if(window.matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.dataset.theme='dark';</script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -780,6 +779,11 @@
     </div><!-- /app-container -->
   </div><!-- /browser-window -->
 
+  <!-- Chart.js moved out of <head> so it no longer render-blocks the dashboard's
+       first paint. Kept synchronous + immediately before the init script below,
+       which calls new Chart() at parse time (buildInsightCharts), so Chart must
+       be defined here first. -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <script>
     // ── Tab switching ───────────────────────────────────────────────
     function switchTab(tab) {

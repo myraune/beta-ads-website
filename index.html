@@ -27,6 +27,11 @@
     <!-- Fonts & performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Preload the homepage hero LCP background. It's rendered only inside the
+         lazy-loaded Index chunk (SPHero), so the browser's preload scanner can't
+         discover it from static HTML; this starts the fetch in parallel with the
+         JS bundle instead of waiting for React to mount. -->
+    <link rel="preload" as="image" href="/lovable-uploads/hero-bg-oslo.jpg" fetchpriority="high" />
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <link rel="dns-prefetch" href="//www.youtube.com" />
     <link rel="dns-prefetch" href="//discord.com" />
