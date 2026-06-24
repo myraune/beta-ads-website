@@ -112,7 +112,7 @@ const streamers = [
   // Bigger Twitch streamers added per design feedback - avatars load from unavatar.io (Twitch-keyed).
   { name: "Ninja", game: "Fortnite", viewers: "4.2K", platform: "Twitch", score: 96, avatar: "https://unavatar.io/twitch/ninja" },
   { name: "DannizTV", game: "CS2", viewers: "3.1K", platform: "Twitch", score: 96, avatar: "https://unavatar.io/twitch/danniztv" },
-  { name: "RubenGKS", game: "Fortnite", viewers: "2.8K", platform: "Twitch", score: 94, avatar: "/lovable-uploads/rubengks-profile.png" },
+  { name: "RubenGKS", game: "Fortnite", viewers: "2.8K", platform: "Twitch", score: 94, avatar: "/lovable-uploads/rubengks-profile-sm.webp" },
   { name: "TenZ", game: "Valorant", viewers: "7.8K", platform: "Twitch", score: 92, avatar: "https://unavatar.io/twitch/tenz" },
   { name: "Aienia", game: "Valorant", viewers: "1.2K", platform: "Twitch", score: 91, avatar: "https://unavatar.io/twitch/aienia" },
   { name: "Clix", game: "Fortnite", viewers: "5.4K", platform: "Twitch", score: 90, avatar: "https://unavatar.io/twitch/clix" },
@@ -648,7 +648,7 @@ const AnalyticsPreview: React.FC = () => {
             // earlier response with X-Frame-Options: DENY, which made the
             // iframe load to an empty document. Bump this whenever the
             // dashboard HTML or its serving headers change.
-            src="/clip-analytics-preview/index.html?v=18"
+            src="/clip-analytics-preview/index.html?v=19"
             title="Clip Analytics Dashboard"
             className="block border-0"
             scrolling="no"
@@ -917,8 +917,7 @@ const previewComponents: Record<string, React.FC> = {
 
 const FeatureSection: React.FC<{
   feature: (typeof features)[0];
-  isActive: boolean;
-}> = ({ feature, isActive }) => {
+}> = ({ feature }) => {
   const Preview = previewComponents[feature.id];
 
   return (
@@ -1105,7 +1104,7 @@ export const SPFeatures: React.FC = () => {
                 ref={(el) => { sectionRefs.current[i] = el; }}
                 className="scroll-mt-36 lg:scroll-mt-28"
               >
-                <FeatureSection feature={feature} isActive={feature.id === activeId} />
+                <FeatureSection feature={feature} />
               </div>
             ))}
           </div>

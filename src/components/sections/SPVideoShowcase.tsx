@@ -335,7 +335,7 @@ const LiveStreamDemo: React.FC = () => {
       <div className="bg-[#0e0e10] px-4 py-3 border-t border-[#2f2f35] flex items-center gap-3">
         <div className="w-12 h-12 rounded-full overflow-hidden shrink-0 ring-2 ring-[#9146ff]">
           <img
-            src="/lovable-uploads/rubengks-profile.png"
+            src="/lovable-uploads/rubengks-profile-sm.webp"
             alt="RubenGKS"
             loading="lazy"
             className="w-full h-full object-cover"

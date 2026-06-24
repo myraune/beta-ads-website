@@ -937,6 +937,17 @@
         });
       });
     });
+
+    // ── Keyboard accessibility ──────────────────────────────────────
+    // The tabs, the "Clips" sidebar entry and the period toggles switch views
+    // on click; expose them to keyboard users as focusable, operable buttons.
+    document.querySelectorAll('.tab, .sidebar-item[onclick], .period-btn').forEach(el => {
+      if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '0');
+      if (!el.hasAttribute('role')) el.setAttribute('role', 'button');
+      el.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); el.click(); }
+      });
+    });
   </script>
 </body>
 </html>
