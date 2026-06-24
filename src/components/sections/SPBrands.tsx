@@ -151,6 +151,9 @@ const VideoModal: React.FC<{
 
       {/* Modal content */}
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={`${brandName} campaign video`}
         className="relative w-full max-w-4xl animate-in fade-in-0 zoom-in-95 duration-300"
         onClick={(e) => e.stopPropagation()}
       >
@@ -203,6 +206,9 @@ const CampaignReportModal: React.FC<{
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm animate-in fade-in-0 duration-200" />
 
       <div
+        role="dialog"
+        aria-modal="true"
+        aria-label={`${report.brandName} campaign report`}
         className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto animate-in fade-in-0 zoom-in-95 duration-300 rounded-2xl bg-background border border-border/50 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
