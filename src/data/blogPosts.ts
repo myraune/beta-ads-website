@@ -4661,7 +4661,7 @@ The obvious-fit categories - gaming hardware, peripherals, energy drinks, fast f
 
 **Apparel and sportswear**: The crossover between gaming culture and streetwear is significant in the Nordics. Esports fans engage with both.
 
-**Education and career platforms**: The 18–25 segment of the esports audience is in active career development. Vocational training programs, university platforms, and professional certification services have found engaged audiences in gaming streams. (See how [Gokstad Akademiet recruited IT students](/blog/gokstad-akademiet-gamer-recruitment) through native Twitch overlays.)
+**Education and career platforms**: The 18–25 segment of the esports audience is in active career development. Vocational training programs, university platforms, and professional certification services have found engaged audiences in gaming streams. (See how [Gokstad Akademiet recruited IT students](/blog/norges-storste-streamer-merkevare-samarbeid) through native Twitch overlays.)
 
 **Consumer electronics**: Beyond gaming-specific hardware, broader consumer tech performs well in esports contexts - smartphones, audio, home networking.
 
@@ -11377,7 +11377,7 @@ Dersom bestiller for 2026 planlegger et norsk Twitch-spor, er detoo-inkluderte k
 `,
     date: "April 22, 2026",
     dateISO: "2026-04-22",
-    readTime: "6 min",
+    readTime: "6 min read",
     image: "/lovable-uploads/rubengks-profile.png",
     category: "Innsikt",
     tags: ["norge", "detoo", "twitch", "streamer", "merkevare", "case study", "shure", "samsung"],
@@ -11539,7 +11539,7 @@ Brands we already work with have direct login access. Agency partners managing m
 - [How Twitch Advertising Works in 2026](/blog/how-twitch-advertising-works-2026)
 - [Gokstad Akademiet x Twitch: Campaign Case Study](/blog/norges-storste-streamer-merkevare-samarbeid)
 - [Twitch Statistics, TwitchTracker](https://twitchtracker.com/statistics)
-- [Live Streaming Ad Spend Growth 2024–2026](/blog/live-streaming-ad-spend-growth-2025)`,
+- [Live Streaming Ad Spend Growth 2024–2026](/blog/live-streaming-ad-spend-50b-nordic-2026)`,
     date: "April 30, 2026",
     dateISO: "2026-04-30",
     readTime: "8 min read",

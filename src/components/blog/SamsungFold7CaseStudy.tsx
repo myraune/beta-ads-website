@@ -4,8 +4,8 @@ const topStreamers = [
   { name: "Danniz", views: "97,110", ctr: "0.30%", note: "32.4% of all campaign views" },
   { name: "RubenGKS", views: "51,085", ctr: "0.74%", note: "Most link clicks (379)" },
   { name: "ForsteGir", views: "45,841", ctr: "0.42%", note: "665h airtime, stable coverage" },
-  { name: "Jonieboi", views: "28,996", ctr: "0.38%", note: "857 new followers - #1 follower growth" },
   { name: "LaSanias", views: "33,234", ctr: "0.35%", note: "IRL content, high watch time" },
+  { name: "Jonieboi", views: "28,996", ctr: "0.38%", note: "857 new followers - #1 follower growth" },
 ];
 
 const highCTRStreamers = [

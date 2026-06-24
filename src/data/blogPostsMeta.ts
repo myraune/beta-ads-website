@@ -5607,7 +5607,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     excerpt: "detoo er Norges mest sette Twitch-streamer ifølge TwitchTracker. Beta Ads har kjørt kampanjer med ham for Shure MV6 (182 554 visninger, 2 378 verifiserte klikk) og Samsung Galaxy. Slik ser et norsk streamer-merkevare-samarbeid ut i praksis.",
     date: "April 22, 2026",
     dateISO: "2026-04-22",
-    readTime: "6 min",
+    readTime: "6 min read",
     image: "/lovable-uploads/rubengks-profile.png",
     category: "Innsikt",
     tags: [

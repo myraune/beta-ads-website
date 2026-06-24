@@ -138,27 +138,17 @@ export const StreamerStickyCTA: React.FC<StickyCTAProps> = ({ language }) => {
           <Zap className="w-3.5 h-3.5 text-primary" />
           <span>Ads run automatically - no effort</span>
         </div>
-        <a
-          href="https://beta-ads.no/streamers"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block mt-1"
-        >
+        <Link to="/streamers" className="block mt-1">
           <Button className="w-full gap-2" size="lg">
             {t.joinStreamer}
             <ArrowRight className="w-4 h-4" />
           </Button>
-        </a>
-        <a
-          href="https://beta-ads.no/case-studies"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block"
-        >
+        </Link>
+        <Link to="/case-studies" className="block">
           <Button variant="outline" className="w-full gap-2" size="sm">
             {t.seeEarnings}
           </Button>
-        </a>
+        </Link>
       </div>
     </div>
   );
@@ -213,12 +203,12 @@ export const StreamerInlineCTA: React.FC<StickyCTAProps> = ({ language }) => {
             <span>Ads run automatically - no effort</span>
           </div>
         </div>
-        <a href="https://beta-ads.no/streamers" target="_blank" rel="noopener noreferrer">
+        <Link to="/streamers">
           <Button className="gap-2 whitespace-nowrap">
             {t.joinStreamer}
             <ArrowRight className="w-4 h-4" />
           </Button>
-        </a>
+        </Link>
       </div>
     </div>
   );
