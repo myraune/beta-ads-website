@@ -11,6 +11,11 @@ import { ArrowRight } from "lucide-react";
  * qualitative in the copy and listed in the publish-time verify notes.
  */
 
+interface SocialLink {
+  label: string;
+  url: string;
+}
+
 interface Creator {
   handle: string;          // Twitch handle for the channel link
   name: string;            // display name
@@ -22,6 +27,8 @@ interface Creator {
   attributionUrl: string;  // canonical source page for the photo
   /** Streaming language - important for brands picking who to work with. */
   language: "no" | "en" | "mixed";
+  /** Sosiale lenker, kun de jeg har kilde for (gjetter ikke). */
+  socials: SocialLink[];
 }
 
 const CREATORS: Creator[] = [
@@ -36,6 +43,11 @@ const CREATORS: Creator[] = [
     attribution: "Liquipedia (FNCS Major)",
     attributionUrl: "https://liquipedia.net/fortnite/MrSavage",
     language: "en",
+    socials: [
+      { label: "Twitch",    url: "https://www.twitch.tv/mrsavage" },
+      { label: "YouTube",   url: "https://www.youtube.com/@MrSavageOG" },
+      { label: "Instagram", url: "https://www.instagram.com/mrsavage" },
+    ],
   },
   {
     handle: "knut",
@@ -48,6 +60,11 @@ const CREATORS: Creator[] = [
     attribution: "Wikimedia Commons (CC BY 3.0)",
     attributionUrl: "https://commons.wikimedia.org/wiki/File:Knut_2023-06-09_01.png",
     language: "en",
+    socials: [
+      { label: "Twitch",    url: "https://www.twitch.tv/knut" },
+      { label: "Instagram", url: "https://www.instagram.com/knutspild" },
+      { label: "X",         url: "https://x.com/Knutspild" },
+    ],
   },
   {
     handle: "detoo",
@@ -60,6 +77,11 @@ const CREATORS: Creator[] = [
     attribution: "detoo.no",
     attributionUrl: "https://detoo.no/",
     language: "no",
+    socials: [
+      { label: "Twitch",  url: "https://www.twitch.tv/detoo" },
+      { label: "YouTube", url: "https://www.youtube.com/@detoo" },
+      { label: "Nettside", url: "https://detoo.no/" },
+    ],
   },
   {
     handle: "emzia",
@@ -72,6 +94,12 @@ const CREATORS: Creator[] = [
     attribution: "NOT Management",
     attributionUrl: "https://notmanagement.no/talent/emzia/",
     language: "no",
+    socials: [
+      { label: "Twitch",    url: "https://www.twitch.tv/emzia" },
+      { label: "Instagram", url: "https://www.instagram.com/emziatv" },
+      { label: "TikTok",    url: "https://www.tiktok.com/@emziatv" },
+      { label: "YouTube",   url: "https://www.youtube.com/@emziatv" },
+    ],
   },
   {
     handle: "thomaspaste",
@@ -83,6 +111,11 @@ const CREATORS: Creator[] = [
     attribution: "Twitch / @thomaspaste",
     attributionUrl: "https://www.twitch.tv/thomaspaste",
     language: "no",
+    socials: [
+      { label: "Twitch",  url: "https://www.twitch.tv/thomaspaste" },
+      { label: "YouTube", url: "https://www.youtube.com/@thomasPASTE" },
+      { label: "X",       url: "https://x.com/thomaspaste" },
+    ],
   },
   {
     handle: "klokkismann",
@@ -96,6 +129,11 @@ const CREATORS: Creator[] = [
     attributionUrl:
       "https://kommunikasjon.ntb.no/pressemelding/18478817/aslak-maurstad-leder-ny-storsatsing-pa-tv-2",
     language: "no",
+    socials: [
+      { label: "Twitch",    url: "https://www.twitch.tv/klokkismann" },
+      { label: "Instagram", url: "https://www.instagram.com/klokkismann" },
+      { label: "YouTube",   url: "https://www.youtube.com/@klokkismann" },
+    ],
   },
   {
     handle: "dennisvareide",
@@ -109,6 +147,10 @@ const CREATORS: Creator[] = [
     attributionUrl:
       "https://commons.wikimedia.org/wiki/File:Dennis_Vareide_-_YouTube-talentene-_de_nye_mediestjernene_-_NMD_2015_(17236435890)_(cropped).jpg",
     language: "mixed",
+    socials: [
+      { label: "YouTube", url: "https://www.youtube.com/@PrebzOgDennis" },
+      { label: "Twitch",  url: "https://www.twitch.tv/dennisvareide" },
+    ],
   },
   {
     handle: "jonieboi",
@@ -121,6 +163,12 @@ const CREATORS: Creator[] = [
     attribution: "Spires Agency",
     attributionUrl: "https://www.spiresagency.com/talent/jonieboi",
     language: "no",
+    socials: [
+      { label: "YouTube",   url: "https://www.youtube.com/@JonieBoi" },
+      { label: "Twitch",    url: "https://www.twitch.tv/jonieboi" },
+      { label: "Instagram", url: "https://www.instagram.com/jonieboitv" },
+      { label: "TikTok",    url: "https://www.tiktok.com/@jonieboi" },
+    ],
   },
   {
     handle: "danniz",
@@ -132,6 +180,7 @@ const CREATORS: Creator[] = [
     attribution: "Twitch / @danniz",
     attributionUrl: "https://www.twitch.tv/danniz",
     language: "no",
+    socials: [{ label: "Twitch", url: "https://www.twitch.tv/danniz" }],
   },
   {
     handle: "mystixx",
@@ -143,6 +192,13 @@ const CREATORS: Creator[] = [
     attribution: "Twitch / @mystixx",
     attributionUrl: "https://www.twitch.tv/mystixx",
     language: "no",
+    socials: [
+      { label: "Twitch",    url: "https://www.twitch.tv/mystixx" },
+      { label: "YouTube",   url: "https://www.youtube.com/@mystixx" },
+      { label: "Instagram", url: "https://www.instagram.com/mystixxtv" },
+      { label: "TikTok",    url: "https://www.tiktok.com/@mystixxtwitch" },
+      { label: "X",         url: "https://x.com/MystixxTV" },
+    ],
   },
 ];
 
@@ -185,39 +241,44 @@ const NorskeStreamere2026: React.FC = () => {
         </div>
       </header>
 
-      {/* Creator list - kompakt, skannbar; ekte bilder, men ikke svære. */}
-      <ol className="max-w-3xl border-t border-border">
+      {/* Kort-grid: 2 per rad på desktop, 1 på mobil. Hvert kort er
+          selvstendig med ekte foto, Twitch-avatar overlappende, blurb og
+          sosiale lenker. */}
+      <ol className="grid sm:grid-cols-2 gap-5 list-none">
         {CREATORS.map((c, i) => (
           <li
             key={c.handle}
-            className="group flex items-start gap-5 py-5 border-b border-border"
+            className="group relative flex flex-col rounded-2xl border border-border/60 bg-card/40 overflow-hidden hover:border-primary/40 hover:bg-card/70 transition-colors"
           >
-            <span className="hidden sm:block text-sm font-medium tabular-nums text-muted-foreground/60 leading-none pt-2 w-6 shrink-0">
-              {String(i + 1).padStart(2, "0")}
-            </span>
-
+            {/* Banner-foto */}
             <a
               href={`https://www.twitch.tv/${c.handle}`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${c.name} on Twitch`}
-              className="shrink-0 relative"
-              title={`Foto: ${c.attribution}`}
+              className="relative block aspect-[3/2] overflow-hidden bg-muted"
             >
               <img
                 src={c.image}
                 alt={c.realName ? `${c.realName} (${c.name})` : c.name}
                 loading="lazy"
                 decoding="async"
-                className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl object-cover bg-muted ring-1 ring-border group-hover:ring-primary/40 transition-all"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
+              {/* Mørk gradient i bunn så avatar + tekst leses */}
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none" />
+              {/* Nummer */}
+              <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/55 backdrop-blur-sm px-2 py-0.5 text-[10px] font-semibold tabular-nums tracking-widest text-white">
+                {String(i + 1).padStart(2, "0")} / 10
+              </span>
+              {/* Språk-tag */}
               <span
-                className={`absolute -bottom-1.5 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full px-1.5 py-0.5 text-[8.5px] font-semibold tracking-widest uppercase shadow-sm ${
+                className={`absolute top-3 right-3 inline-flex items-center rounded-full px-2 py-0.5 text-[10px] font-semibold tracking-widest uppercase shadow-sm ${
                   c.language === "no"
-                    ? "bg-foreground text-background"
+                    ? "bg-white/95 text-black"
                     : c.language === "en"
                       ? "bg-primary text-white"
-                      : "bg-muted text-foreground border border-border"
+                      : "bg-black/55 text-white backdrop-blur-sm"
                 }`}
                 title={
                   c.language === "no"
@@ -227,13 +288,31 @@ const NorskeStreamere2026: React.FC = () => {
                       : "Innhold på norsk og engelsk"
                 }
               >
-                {c.language === "no" ? "NO" : c.language === "en" ? "EN" : "NO/EN"}
+                {c.language === "no" ? "Norsk" : c.language === "en" ? "Engelsk" : "Norsk / Engelsk"}
               </span>
             </a>
 
-            <div className="min-w-0 flex-1">
-              <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
-                <h2 className="text-lg sm:text-xl font-semibold text-foreground leading-tight">
+            {/* Innhold */}
+            <div className="relative p-5 pt-3">
+              {/* Twitch-avatar som overlapper banner */}
+              <img
+                src={`https://unavatar.io/twitch/${c.handle}`}
+                alt=""
+                aria-hidden="true"
+                width={56}
+                height={56}
+                loading="lazy"
+                decoding="async"
+                onError={(e) => {
+                  const t = e.currentTarget;
+                  if (!t.dataset.r) { t.dataset.r = "1"; t.src = `https://unavatar.io/twitch/${c.handle}?fallback=false`; }
+                }}
+                className="absolute -top-7 right-5 w-14 h-14 rounded-xl object-cover ring-2 ring-background bg-muted shadow-md"
+              />
+
+              {/* Navn + handle */}
+              <div className="pr-16">
+                <h2 className="text-xl font-semibold text-foreground leading-tight">
                   {c.name}
                 </h2>
                 <a
@@ -245,14 +324,33 @@ const NorskeStreamere2026: React.FC = () => {
                   @{c.handle}
                 </a>
               </div>
-              <p className="text-[11px] text-muted-foreground mt-0.5">
+
+              <p className="text-[11px] text-muted-foreground mt-1">
                 {c.realName ? `${c.realName} · ` : ""}
                 {c.meta}
               </p>
-              <p className="text-sm text-foreground/80 leading-relaxed mt-2 max-w-prose">
+
+              <p className="text-sm text-foreground/85 leading-relaxed mt-3">
                 {c.blurb}
               </p>
-              <p className="text-[10px] text-muted-foreground/70 mt-2">
+
+              {/* Sosiale lenker */}
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {c.socials.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-[11px] font-medium px-2.5 py-1 rounded-full border border-border/70 text-foreground/75 hover:text-foreground hover:border-primary/50 hover:bg-primary/5 transition-colors"
+                  >
+                    {s.label}
+                  </a>
+                ))}
+              </div>
+
+              {/* Foto-attribusjon */}
+              <p className="text-[10px] text-muted-foreground/70 mt-4 pt-3 border-t border-border/40">
                 Foto:{" "}
                 <a
                   href={c.attributionUrl}
