@@ -185,101 +185,87 @@ const NorskeStreamere2026: React.FC = () => {
         </div>
       </header>
 
-      {/* Creator list - editorial magazine layout */}
-      <ol className="border-t border-border">
-        {CREATORS.map((c, i) => {
-          // Alternate image/text on desktop so the page reads as an editorial,
-          // not a uniform list. Image always above text on mobile.
-          const reverse = i % 2 === 1;
-          return (
-            <li
-              key={c.handle}
-              className={`py-10 md:py-14 border-b border-border grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-start ${reverse ? "md:[&>figure]:order-2" : ""}`}
+      {/* Creator list - kompakt, skannbar; ekte bilder, men ikke svære. */}
+      <ol className="max-w-3xl border-t border-border">
+        {CREATORS.map((c, i) => (
+          <li
+            key={c.handle}
+            className="group flex items-start gap-5 py-5 border-b border-border"
+          >
+            <span className="hidden sm:block text-sm font-medium tabular-nums text-muted-foreground/60 leading-none pt-2 w-6 shrink-0">
+              {String(i + 1).padStart(2, "0")}
+            </span>
+
+            <a
+              href={`https://www.twitch.tv/${c.handle}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${c.name} on Twitch`}
+              className="shrink-0 relative"
+              title={`Foto: ${c.attribution}`}
             >
-              <figure className="md:col-span-5 m-0">
+              <img
+                src={c.image}
+                alt={c.realName ? `${c.realName} (${c.name})` : c.name}
+                loading="lazy"
+                decoding="async"
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl object-cover bg-muted ring-1 ring-border group-hover:ring-primary/40 transition-all"
+              />
+              <span
+                className={`absolute -bottom-1.5 left-1/2 -translate-x-1/2 inline-flex items-center rounded-full px-1.5 py-0.5 text-[8.5px] font-semibold tracking-widest uppercase shadow-sm ${
+                  c.language === "no"
+                    ? "bg-foreground text-background"
+                    : c.language === "en"
+                      ? "bg-primary text-white"
+                      : "bg-muted text-foreground border border-border"
+                }`}
+                title={
+                  c.language === "no"
+                    ? "Streamer på norsk"
+                    : c.language === "en"
+                      ? "Streamer på engelsk"
+                      : "Innhold på norsk og engelsk"
+                }
+              >
+                {c.language === "no" ? "NO" : c.language === "en" ? "EN" : "NO/EN"}
+              </span>
+            </a>
+
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
+                <h2 className="text-lg sm:text-xl font-semibold text-foreground leading-tight">
+                  {c.name}
+                </h2>
                 <a
                   href={`https://www.twitch.tv/${c.handle}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`${c.name} on Twitch`}
-                  className="block group"
+                  className="text-xs font-medium text-primary hover:text-primary/80 transition-colors"
                 >
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted ring-1 ring-border">
-                    <img
-                      src={c.image}
-                      alt={c.realName ? `${c.realName} (${c.name})` : c.name}
-                      loading="lazy"
-                      decoding="async"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-                    />
-                    <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/55 backdrop-blur-sm px-2.5 py-1 text-[10px] font-semibold tracking-widest uppercase text-white">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                      {String(i + 1).padStart(2, "0")} / 10
-                    </span>
-                    {/* Streaming-language tag - viktig signal for merkevarer som
-                        skal velge norsk vs. internasjonalt publikum. */}
-                    <span
-                      className={`absolute top-3 right-3 inline-flex items-center gap-1.5 rounded-full backdrop-blur-sm px-2.5 py-1 text-[10px] font-semibold tracking-widest uppercase ${
-                        c.language === "no"
-                          ? "bg-white/90 text-black"
-                          : c.language === "en"
-                            ? "bg-primary text-white"
-                            : "bg-black/55 text-white"
-                      }`}
-                      title={
-                        c.language === "no"
-                          ? "Streamer på norsk"
-                          : c.language === "en"
-                            ? "Streamer på engelsk"
-                            : "Innhold på norsk og engelsk"
-                      }
-                    >
-                      {c.language === "no"
-                        ? "Norsk"
-                        : c.language === "en"
-                          ? "Engelsk"
-                          : "Norsk / Engelsk"}
-                    </span>
-                  </div>
+                  @{c.handle}
                 </a>
-                <figcaption className="mt-2 text-[11px] text-muted-foreground">
-                  Foto:{" "}
-                  <a
-                    href={c.attributionUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-foreground underline-offset-2 hover:underline"
-                  >
-                    {c.attribution}
-                  </a>
-                </figcaption>
-              </figure>
-
-              <div className="md:col-span-7 min-w-0">
-                <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <h2 className="text-2xl md:text-3xl font-semibold text-foreground leading-tight tracking-tight">
-                    {c.name}
-                  </h2>
-                  <a
-                    href={`https://www.twitch.tv/${c.handle}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
-                  >
-                    @{c.handle}
-                  </a>
-                </div>
-                <p className="text-sm text-muted-foreground mt-1.5">
-                  {c.realName ? `${c.realName} · ` : ""}
-                  {c.meta}
-                </p>
-                <p className="text-base md:text-lg font-light text-foreground/85 leading-relaxed mt-4 max-w-2xl">
-                  {c.blurb}
-                </p>
               </div>
-            </li>
-          );
-        })}
+              <p className="text-[11px] text-muted-foreground mt-0.5">
+                {c.realName ? `${c.realName} · ` : ""}
+                {c.meta}
+              </p>
+              <p className="text-sm text-foreground/80 leading-relaxed mt-2 max-w-prose">
+                {c.blurb}
+              </p>
+              <p className="text-[10px] text-muted-foreground/70 mt-2">
+                Foto:{" "}
+                <a
+                  href={c.attributionUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-foreground underline-offset-2 hover:underline"
+                >
+                  {c.attribution}
+                </a>
+              </p>
+            </div>
+          </li>
+        ))}
       </ol>
 
       {/* Why it matters for brands + CTA */}
