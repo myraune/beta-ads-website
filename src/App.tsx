@@ -30,6 +30,7 @@ const AboutUs = lazy(() => import("./pages/AboutUs"));
 const Norge = lazy(() => import("./pages/Norge"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+const BlogLocaleHub = lazy(() => import("./pages/BlogLocaleHub"));
 const Contact = lazy(() => import("./pages/Contact"));
 const Demo = lazy(() => import("./pages/Demo"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -154,6 +155,11 @@ const App = () => {
               <Route path="/about" element={<AboutUs t={t} />} />
               <Route path="/norge" element={<Norge />} />
               <Route path="/blog" element={<Blog />} />
+              {/* Per-country Nordic blog hubs (static segments rank above /blog/:slug) */}
+              <Route path="/blog/norge" element={<BlogLocaleHub hubSlug="norge" />} />
+              <Route path="/blog/sverige" element={<BlogLocaleHub hubSlug="sverige" />} />
+              <Route path="/blog/suomi" element={<BlogLocaleHub hubSlug="suomi" />} />
+              <Route path="/blog/danmark" element={<BlogLocaleHub hubSlug="danmark" />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/demo" element={<Demo t={t} language="en" />} />

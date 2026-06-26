@@ -52,6 +52,11 @@ const STATIC_PAGES = [
   { path: "/case-study/komplett",    priority: "0.8",  changefreq: "monthly", image: "/lovable-uploads/case-studies/komplett-preview.jpg",    imageTitle: "Komplett Gaming Deal x Beta Ads - Twitch retail advertising campaign" },
   { path: "/case-study/nki",         priority: "0.8",  changefreq: "monthly", image: "/lovable-uploads/case-studies/nki-detoo.png",           imageTitle: "NKI Distance Learning x Beta Ads - 220,003 views Twitch quiz campaign" },
   { path: "/blog",                   priority: "0.75", changefreq: "weekly"  },
+  // Per-country Nordic blog hubs (localized landing pages)
+  { path: "/blog/norge",             priority: "0.7",  changefreq: "weekly"  },
+  { path: "/blog/sverige",           priority: "0.7",  changefreq: "weekly"  },
+  { path: "/blog/suomi",             priority: "0.7",  changefreq: "weekly"  },
+  { path: "/blog/danmark",           priority: "0.7",  changefreq: "weekly"  },
   { path: "/demo",                   priority: "0.7",  changefreq: "monthly" },
   { path: "/contact",                priority: "0.6",  changefreq: "monthly" },
   { path: "/about",                  priority: "0.5",  changefreq: "monthly" },

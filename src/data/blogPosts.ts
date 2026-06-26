@@ -12,23 +12,33 @@ export interface BlogPost {
   tags: string[];
   hasDashboard?: string;
   relatedSlugs?: string[];
+  /** Explicit content language. When set it overrides the legacy
+   *  detectPostLanguage() heuristic - preferred for all new posts. */
+  locale?: "en" | "no" | "sv" | "fi" | "da";
+  /** Shared key that links every language version of the SAME article.
+   *  Posts with the same translationGroup are emitted as each other's
+   *  hreflang alternates so Google serves the right language per country. */
+  translationGroup?: string;
   seoTitle: {
     en: string;
     no: string;
     sv: string;
     fi: string;
+    da?: string;
   };
   seoDescription: {
     en: string;
     no: string;
     sv: string;
     fi: string;
+    da?: string;
   };
   seoKeywords: {
     en: string[];
     no: string[];
     sv: string[];
     fi: string[];
+    da?: string[];
   };
 }
 

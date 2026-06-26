@@ -84,6 +84,8 @@ export interface BlogPostMeta {
   tags: string[];
   hasDashboard?: string;
   relatedSlugs?: string[];
+  locale?: "en" | "no" | "sv" | "fi" | "da";
+  translationGroup?: string;
 }
 
 export const blogPostsMeta: BlogPostMeta[] = [

@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
  * Supported page locales. `x-default` is emitted automatically as the
  * hreflang fallback when the page declares any locale.
  */
-export type PageLocale = "en" | "no" | "sv" | "fi";
+export type PageLocale = "en" | "no" | "sv" | "fi" | "da";
 
 interface SEOProps {
   title: string;
@@ -48,6 +48,7 @@ const OG_LOCALES: Record<PageLocale, string> = {
   no: "nb_NO",
   sv: "sv_SE",
   fi: "fi_FI",
+  da: "da_DK",
 };
 
 const SITE_URL = "https://beta-ads.no";

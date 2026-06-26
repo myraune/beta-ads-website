@@ -36,6 +36,13 @@ const footerLinks = {
     // to English-page visitors and provides an internal link Google can crawl.
     { label: "Norge (norsk)", to: "/norge" },
   ],
+  // Per-country Nordic blog hubs - localized landing pages + crawlable internal links
+  NORDIC: [
+    { label: "Blogg – Norge", to: "/blog/norge" },
+    { label: "Blogg – Sverige", to: "/blog/sverige" },
+    { label: "Blogi – Suomi", to: "/blog/suomi" },
+    { label: "Blog – Danmark", to: "/blog/danmark" },
+  ],
   COMPANY: [
     { label: "About Us", to: "/about" },
     { label: "Contact Us", to: "/contact" },

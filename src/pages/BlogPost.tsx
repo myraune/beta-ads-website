@@ -4,44 +4,16 @@ import { SPFooter } from '@/components/sections/SPFooter';
 import { ArrowLeft, Calendar, Clock, Tag, Share2, Twitter, Linkedin, Facebook, List } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { getBlogPostBySlug, getRelatedPosts, type BlogPost } from "@/data/blogPosts";
+import { getBlogPostBySlug, getRelatedPosts, blogPosts, type BlogPost } from "@/data/blogPosts";
 import { getBlogImage } from "@/lib/blogImage";
 import { SEO, type PageLocale } from "@/components/SEO";
+import { resolvePostLocale } from "@/lib/blogLocale";
 import { ReadingProgress } from "@/components/blog/ReadingProgress";
 import { TableOfContents, dashboardTocItems } from "@/components/blog/TableOfContents";
 import { StickyCTA, StreamerStickyCTA, InlineCTA, StreamerInlineCTA } from "@/components/blog/StickyCTA";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-/**
- * Detect a post's language from its category + slug so we can emit the correct
- * hreflang / og:locale / localized seoTitle. Kept as a pure function rather
- * than tagging each post - the signals are reliable and new Nordic posts
- * inherit the right language automatically based on their category.
- *
- * Norwegian categories (Guider, Innsikt, Strategi) and the Streamer Guide
- * category when the post title contains Norwegian words cover ~14 of our 15
- * Nordic posts. Swedish + Finnish fall out of slug substring matches.
- */
-const NORWEGIAN_CATEGORIES = new Set(["Guider", "Innsikt", "Strategi"]);
-const FINNISH_CATEGORIES = new Set(["Oppaat"]);
-
-function detectPostLanguage(post: BlogPost): PageLocale {
-  if (FINNISH_CATEGORIES.has(post.category) || /\b(suomi|mainonta|opas)\b/i.test(post.slug)) {
-    return "fi";
-  }
-  if (/\b(sverige|reklam-sverige|svensk)\b/i.test(post.slug)) {
-    return "sv";
-  }
-  if (NORWEGIAN_CATEGORIES.has(post.category)) return "no";
-  // Streamer Guide category has mixed language; detect from title characters.
-  if (post.category === "Streamer Guide" && /[æøå]/i.test(post.title)) return "no";
-  // Catch-all - any Norwegian character in title signals Norwegian content.
-  if (/[æøå]/i.test(post.title) && /\b(hvordan|slik|norge|norsk|annonser|markedsf)\b/i.test(post.title.toLowerCase() + " " + post.excerpt.toLowerCase())) {
-    return "no";
-  }
-  return "en";
-}
 
 // Auto-generate TOC items from markdown content
 function extractTocFromMarkdown(content: string) {
@@ -85,7 +57,14 @@ const BlogPostPage: React.FC = () => {
   if (!post) return null;
 
   const isStreamerPost = post.category === "Streamer Guide";
-  const postLocale = detectPostLanguage(post);
+  const postLocale = resolvePostLocale(post);
+  // hreflang cluster: link every language version of this article (posts that
+  // share a translationGroup) so Google serves the right language per country.
+  const translationAlternates = post.translationGroup
+    ? blogPosts
+        .filter((p) => p.translationGroup === post.translationGroup)
+        .map((p) => ({ hreflang: resolvePostLocale(p), href: `/blog/${p.slug}` }))
+    : undefined;
   // Resolve through getBlogImage so OG/JSON-LD/related cards honor the screenshot
   // blocklist exactly like the hero does (swaps suppressed screenshots for a
   // brand photo). Without this, ~10 blocklisted posts showed a brand photo in
@@ -127,6 +106,7 @@ const BlogPostPage: React.FC = () => {
         articlePublishedTime={post.dateISO}
         articleModifiedTime={dateModified}
         locale={postLocale}
+        alternates={translationAlternates}
         jsonLd={[
           {
             "@context": "https://schema.org",
