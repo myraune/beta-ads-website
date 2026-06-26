@@ -6,7 +6,6 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { DraggableRope } from "@/components/ui/gsap-draggable-rope";
 import { Button } from "@/components/ui/button";
 
 interface CaseStudiesProps {
@@ -202,7 +201,6 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
 
   return (
     <div className="min-h-screen">
-      <DraggableRope ropeHeight={200} iconSize={80} />
       <SEO
         title="Case Studies | Beta Ads"
         description="Real campaign results from Samsung, Shure, Surfshark, Glorious, and more. Native Twitch overlay case studies with verified impressions, CTR, and ROI data."
