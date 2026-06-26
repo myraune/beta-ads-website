@@ -41,6 +41,7 @@ const GloriousCaseStudy = lazy(() => import("@/components/blog/GloriousCaseStudy
 const GokstadCaseStudy = lazy(() => import("@/components/blog/GokstadCaseStudy"));
 const ClippingEconomyDashboard = lazy(() => import("@/components/blog/ClippingEconomyDashboard"));
 const TwitchAnalyticsToolsDashboard = lazy(() => import("@/components/blog/TwitchAnalyticsToolsDashboard"));
+const NorskeStreamere2026 = lazy(() => import("@/components/blog/NorskeStreamere2026"));
 const ClipAnalyticsDashboard = lazy(() => import("@/components/blog/ClipAnalyticsDashboard"));
 
 const BlogPostPage: React.FC = () => {
@@ -91,7 +92,9 @@ const BlogPostPage: React.FC = () => {
 
   const autoTocItems = useMemo(() => extractTocFromMarkdown(post.content), [post.content]);
   const tocItems = post.hasDashboard ? dashboardTocItems[post.hasDashboard] || [] : autoTocItems;
-  const wideLayout = post.hasDashboard === "twitch-analytics-tools" || post.hasDashboard === "clip-analytics";
+  const wideLayout = post.hasDashboard === "twitch-analytics-tools" || post.hasDashboard === "clip-analytics" || post.hasDashboard === "norske-streamere";
+  // Posts that render their own editorial header (so we suppress the generic one).
+  const customLayout = post.hasDashboard === "norske-streamere";
 
   return (
     <>
@@ -175,7 +178,8 @@ const BlogPostPage: React.FC = () => {
               </Link>
             </div>
 
-            {/* Header */}
+            {/* Header (suppressed for posts that render their own editorial header) */}
+            {!customLayout && (
             <div className={`${post.hasDashboard ? '' : 'max-w-4xl'} mb-10`}>
               <div className="flex flex-wrap items-center gap-3 mb-5">
                 <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 text-sm px-3 py-0.5">{post.category}</Badge>
@@ -188,6 +192,7 @@ const BlogPostPage: React.FC = () => {
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-5 leading-tight">{post.title}</h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed border-l-4 border-primary/30 pl-4">{post.excerpt}</p>
             </div>
+            )}
 
             {/* Wide layout: no sidebar, full width dashboard */}
             {wideLayout ? (
@@ -195,6 +200,7 @@ const BlogPostPage: React.FC = () => {
                 <Suspense fallback={<div className="text-center py-12 text-muted-foreground">Loading dashboard...</div>}>
                   {post.hasDashboard === "twitch-analytics-tools" && <TwitchAnalyticsToolsDashboard />}
                   {post.hasDashboard === "clip-analytics" && <ClipAnalyticsDashboard />}
+                  {post.hasDashboard === "norske-streamere" && <NorskeStreamere2026 />}
                 </Suspense>
               </div>
             ) : (

@@ -11575,6 +11575,24 @@ Brands we already work with have direct login access. Agency partners managing m
       fi: ["beta ads alusta", "live-streaming-mainonta", "twitch-mainonta itsepalvelu"]
     }
   },
+  {
+    id: "norske-twitch-streamere-2026",
+    slug: "norske-twitch-streamere-2026",
+    title: "Norske Twitch-streamere du bør kjenne til i 2026",
+    excerpt: "Fra Fortnite-proffen MrSavage til IRL-profiler og YouTube-veteraner - et utvalg norske streamere og innholdsskapere som setter preg på det norske streamingmiljøet, og hvorfor de er kartet merkevarer trenger.",
+    content: "Norsk Twitch har vokst fra et lite nisjemiljø til en egen del av norsk underholdning. Her er et utvalg streamere og innholdsskapere som setter preg på miljøet i 2026.",
+    date: "26. juni 2026",
+    dateISO: "2026-06-26",
+    readTime: "6 min",
+    image: "/lovable-uploads/rubengks-stream-poster.webp",
+    category: "Innsikt",
+    tags: ["norske streamere","twitch","streaming","norge","innholdsskapere"],
+    hasDashboard: "norske-streamere",
+    locale: "no",
+    seoTitle: { en: "Norske Twitch-streamere du bor kjenne til i 2026", no: "Norske Twitch-streamere du bør kjenne til i 2026", sv: "Norske Twitch-streamere du bor kjenne til i 2026", fi: "Norske Twitch-streamere du bor kjenne til i 2026", da: "Norske Twitch-streamere du bor kjenne til i 2026" },
+    seoDescription: { en: "Fra MrSavage og Knut til detoo, Emzia og Klokkismann - en oversikt over norske Twitch-streamere og innholdsskapere det er verdt aa folge i 2026.", no: "Fra MrSavage og Knut til detoo, Emzia og Klokkismann - en oversikt over norske Twitch-streamere og innholdsskapere det er verdt å følge i 2026.", sv: "Fra MrSavage og Knut til detoo, Emzia og Klokkismann - en oversikt over norske Twitch-streamere og innholdsskapere det er verdt aa folge i 2026.", fi: "Fra MrSavage og Knut til detoo, Emzia og Klokkismann - en oversikt over norske Twitch-streamere og innholdsskapere det er verdt aa folge i 2026.", da: "Fra MrSavage og Knut til detoo, Emzia og Klokkismann - en oversikt over norske Twitch-streamere og innholdsskapere det er verdt aa folge i 2026." },
+    seoKeywords: { en: ["norske twitch streamere","twitch norge","norske streamere 2026","twitch annonsering norge","norske innholdsskapere"], no: ["norske twitch streamere","twitch norge","norske streamere 2026","twitch annonsering norge","norske innholdsskapere"], sv: ["norske twitch streamere","twitch norge","norske streamere 2026","twitch annonsering norge","norske innholdsskapere"], fi: ["norske twitch streamere","twitch norge","norske streamere 2026","twitch annonsering norge","norske innholdsskapere"], da: ["norske twitch streamere","twitch norge","norske streamere 2026","twitch annonsering norge","norske innholdsskapere"] },
+  },
 ];
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {

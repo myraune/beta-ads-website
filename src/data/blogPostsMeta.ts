@@ -5704,6 +5704,63 @@ export const blogPostsMeta: BlogPostMeta[] = [
       ],
     },
   },
+  {
+    id: "norske-twitch-streamere-2026",
+    slug: "norske-twitch-streamere-2026",
+    title: "Norske Twitch-streamere du bør kjenne til i 2026",
+    excerpt: "Fra Fortnite-proffen MrSavage til IRL-profiler og YouTube-veteraner - et utvalg norske streamere og innholdsskapere som setter preg på det norske streamingmiljøet, og hvorfor de er kartet merkevarer trenger.",
+    date: "26. juni 2026",
+    dateISO: "2026-06-26",
+    readTime: "6 min",
+    image: "/lovable-uploads/rubengks-stream-poster.webp",
+    category: "Innsikt",
+    tags: [
+      "norske streamere",
+      "twitch",
+      "streaming",
+      "norge",
+      "innholdsskapere",
+    ],
+    hasDashboard: "norske-streamere",
+    locale: "no",
+    seoKeywords: {
+      en: [
+        "norske twitch streamere",
+        "twitch norge",
+        "norske streamere 2026",
+        "twitch annonsering norge",
+        "norske innholdsskapere",
+      ],
+      no: [
+        "norske twitch streamere",
+        "twitch norge",
+        "norske streamere 2026",
+        "twitch annonsering norge",
+        "norske innholdsskapere",
+      ],
+      sv: [
+        "norske twitch streamere",
+        "twitch norge",
+        "norske streamere 2026",
+        "twitch annonsering norge",
+        "norske innholdsskapere",
+      ],
+      fi: [
+        "norske twitch streamere",
+        "twitch norge",
+        "norske streamere 2026",
+        "twitch annonsering norge",
+        "norske innholdsskapere",
+      ],
+      da: [
+        "norske twitch streamere",
+        "twitch norge",
+        "norske streamere 2026",
+        "twitch annonsering norge",
+        "norske innholdsskapere",
+      ],
+    },
+  },
 ];
 
 export function getBlogPostMetaBySlug(slug: string): BlogPostMeta | undefined {
