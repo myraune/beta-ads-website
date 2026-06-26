@@ -888,6 +888,8 @@ const ReportModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         >
           <img
             src="/lovable-uploads/campaign-report-preview.jpg"
+            width={1260}
+            height={2585}
             alt="Full Campaign Report"
             draggable={false}
             decoding="async"

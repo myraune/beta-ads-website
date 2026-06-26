@@ -174,6 +174,8 @@ const KickAdvertising: React.FC = () => {
               <div className="rounded-xl overflow-hidden shadow-2xl shadow-black/40 border border-[#53fc18]/15">
                 <img
                   src="/lovable-uploads/screenshot-kick3.jpg"
+                  width={1440}
+                  height={900}
                   alt="Kick platform showing top live categories"
                   className="w-full h-auto block"
                   loading="lazy"

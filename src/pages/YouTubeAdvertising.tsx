@@ -137,6 +137,8 @@ const YouTubeAdvertising: React.FC = () => {
               <div className="rounded-xl overflow-hidden shadow-2xl shadow-black/20 border border-border">
                 <img
                   src="/lovable-uploads/screenshot-youtube2.jpg"
+                  width={1440}
+                  height={900}
                   alt="YouTube Gaming page showing live streams"
                   className="w-full h-auto block"
                   loading="lazy"

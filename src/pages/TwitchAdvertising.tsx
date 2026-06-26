@@ -153,6 +153,8 @@ const TwitchAdvertising: React.FC = () => {
               <div className="rounded-xl overflow-hidden shadow-2xl shadow-black/40 border border-[#9146ff]/20">
                 <img
                   src="/lovable-uploads/twitch-ad-example.jpg"
+                  width={1400}
+                  height={781}
                   alt="Real Twitch stream showing a live overlay ad"
                   className="w-full h-auto block"
                   loading="lazy"

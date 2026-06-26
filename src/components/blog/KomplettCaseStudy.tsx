@@ -161,6 +161,8 @@ const KomplettCaseStudy: React.FC = () => {
             >
               <img
                 src="/lovable-uploads/case-studies/komplett-preview.jpg"
+                width={1527}
+                height={1391}
                 alt="Komplett Månedens Gaming Deal - static preview"
                 className="w-full h-auto"
                 loading="lazy"
