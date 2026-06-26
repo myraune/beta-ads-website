@@ -20,6 +20,8 @@ interface Creator {
   image: string;           // local path (downloaded real photo)
   attribution: string;     // who to credit (rendered as a small label under the image)
   attributionUrl: string;  // canonical source page for the photo
+  /** Streaming language - important for brands picking who to work with. */
+  language: "no" | "en" | "mixed";
 }
 
 const CREATORS: Creator[] = [
@@ -33,6 +35,7 @@ const CREATORS: Creator[] = [
     image: "/lovable-uploads/creators/mrsavage.jpg",
     attribution: "Liquipedia (FNCS Major)",
     attributionUrl: "https://liquipedia.net/fortnite/MrSavage",
+    language: "en",
   },
   {
     handle: "knut",
@@ -44,6 +47,7 @@ const CREATORS: Creator[] = [
     image: "/lovable-uploads/creators/knut.png",
     attribution: "Wikimedia Commons (CC BY 3.0)",
     attributionUrl: "https://commons.wikimedia.org/wiki/File:Knut_2023-06-09_01.png",
+    language: "en",
   },
   {
     handle: "detoo",
@@ -55,6 +59,7 @@ const CREATORS: Creator[] = [
     image: "/lovable-uploads/creators/detoo.jpg",
     attribution: "detoo.no",
     attributionUrl: "https://detoo.no/",
+    language: "no",
   },
   {
     handle: "emzia",
@@ -66,6 +71,7 @@ const CREATORS: Creator[] = [
     image: "/lovable-uploads/creators/emzia.png",
     attribution: "NOT Management",
     attributionUrl: "https://notmanagement.no/talent/emzia/",
+    language: "no",
   },
   {
     handle: "thomaspaste",
@@ -76,6 +82,7 @@ const CREATORS: Creator[] = [
     image: "/lovable-uploads/creators/thomaspaste.png",
     attribution: "Twitch / @thomaspaste",
     attributionUrl: "https://www.twitch.tv/thomaspaste",
+    language: "no",
   },
   {
     handle: "klokkismann",
@@ -88,6 +95,7 @@ const CREATORS: Creator[] = [
     attribution: "Foto: Jan-Petter Dahl / TV 2 (NTB pressemelding)",
     attributionUrl:
       "https://kommunikasjon.ntb.no/pressemelding/18478817/aslak-maurstad-leder-ny-storsatsing-pa-tv-2",
+    language: "no",
   },
   {
     handle: "dennisvareide",
@@ -100,6 +108,7 @@ const CREATORS: Creator[] = [
     attribution: "Thor Brødreskift, Wikimedia Commons (CC BY-SA 2.0)",
     attributionUrl:
       "https://commons.wikimedia.org/wiki/File:Dennis_Vareide_-_YouTube-talentene-_de_nye_mediestjernene_-_NMD_2015_(17236435890)_(cropped).jpg",
+    language: "mixed",
   },
   {
     handle: "jonieboi",
@@ -111,6 +120,7 @@ const CREATORS: Creator[] = [
     image: "/lovable-uploads/creators/jonieboi.png",
     attribution: "Spires Agency",
     attributionUrl: "https://www.spiresagency.com/talent/jonieboi",
+    language: "no",
   },
   {
     handle: "danniz",
@@ -121,6 +131,7 @@ const CREATORS: Creator[] = [
     image: "/lovable-uploads/creators/danniz.png",
     attribution: "Twitch / @danniz",
     attributionUrl: "https://www.twitch.tv/danniz",
+    language: "no",
   },
   {
     handle: "mystixx",
@@ -131,6 +142,7 @@ const CREATORS: Creator[] = [
     image: "/lovable-uploads/creators/mystixx.png",
     attribution: "Twitch / @mystixx",
     attributionUrl: "https://www.twitch.tv/mystixx",
+    language: "no",
   },
 ];
 
@@ -155,6 +167,22 @@ const NorskeStreamere2026: React.FC = () => {
           YouTube-veteraner. Det er ikke en streng rangering, men en oversikt
           over navn det er verdt å følge med på.
         </p>
+
+        {/* Liten forklaring av språk-badgen som vises på hvert bilde - viktig
+            for merkevarer som vurderer rekkevidde mot norsk vs. internasjonalt
+            publikum. */}
+        <div className="mt-7 flex flex-wrap items-center gap-2 text-xs">
+          <span className="text-muted-foreground mr-1">Streamer på:</span>
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-foreground text-background px-2.5 py-1 font-semibold tracking-widest uppercase">
+            Norsk
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-primary text-white px-2.5 py-1 font-semibold tracking-widest uppercase">
+            Engelsk
+          </span>
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-muted text-foreground px-2.5 py-1 font-semibold tracking-widest uppercase">
+            Norsk / Engelsk
+          </span>
+        </div>
       </header>
 
       {/* Creator list - editorial magazine layout */}
@@ -187,6 +215,30 @@ const NorskeStreamere2026: React.FC = () => {
                     <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/55 backdrop-blur-sm px-2.5 py-1 text-[10px] font-semibold tracking-widest uppercase text-white">
                       <span className="w-1.5 h-1.5 rounded-full bg-primary" />
                       {String(i + 1).padStart(2, "0")} / 10
+                    </span>
+                    {/* Streaming-language tag - viktig signal for merkevarer som
+                        skal velge norsk vs. internasjonalt publikum. */}
+                    <span
+                      className={`absolute top-3 right-3 inline-flex items-center gap-1.5 rounded-full backdrop-blur-sm px-2.5 py-1 text-[10px] font-semibold tracking-widest uppercase ${
+                        c.language === "no"
+                          ? "bg-white/90 text-black"
+                          : c.language === "en"
+                            ? "bg-primary text-white"
+                            : "bg-black/55 text-white"
+                      }`}
+                      title={
+                        c.language === "no"
+                          ? "Streamer på norsk"
+                          : c.language === "en"
+                            ? "Streamer på engelsk"
+                            : "Innhold på norsk og engelsk"
+                      }
+                    >
+                      {c.language === "no"
+                        ? "Norsk"
+                        : c.language === "en"
+                          ? "Engelsk"
+                          : "Norsk / Engelsk"}
                     </span>
                   </div>
                 </a>
