@@ -477,6 +477,7 @@ export const CREATORS: CreatorProfile[] = [
       { slug: "CulturedTemperedSandwichDuDudu", title: "Showing my FULL HARLEY QUINN halloween costume", viewCount: 2083, duration: 32, createdAt: "2017-06-19T13:50:01Z", game: null, thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/19cef455-39cc-4989-badc-011c151104ad/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/emzia/clip/CulturedTemperedSandwichDuDudu" },
       { slug: "IronicBusyOtterFUNgineer", title: "Karl dont drop the soap monkaS", viewCount: 1946, duration: 11, createdAt: "2020-08-22T13:31:42Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/d771828e-1d18-475c-b754-0627c60af5b5/landscape/thumb/thumb-0000000000-1600x900.jpg", url: "https://www.twitch.tv/emzia/clip/IronicBusyOtterFUNgineer" },
     ],
+    tiktokHandle: "emziatv",
   },
   {
     handle: "thomaspaste",
@@ -880,6 +881,7 @@ export const CREATORS: CreatorProfile[] = [
       { slug: "InquisitiveLachrymoseKimchiDatSheffy-YO5jbOkCOruPnAMb", title: "alle dør", viewCount: 4869, duration: 41, createdAt: "2024-07-15T22:22:20Z", game: "Grand Theft Auto", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/da5f96f1-832e-4057-9131-9635445f865f/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/jonieboi/clip/InquisitiveLachrymoseKimchiDatSheffy-YO5jbOkCOruPnAMb" },
       { slug: "SpookyFrigidSardinePlanking-UW2ocvoBOIsKprgu", title: "wang wang", viewCount: 3812, duration: 15, createdAt: "2024-07-15T16:51:24Z", game: "Grand Theft Auto V", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/d4d40223-5769-43ab-ad46-6aad3ecfb2a7/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/jonieboi/clip/SpookyFrigidSardinePlanking-UW2ocvoBOIsKprgu" },
     ],
+    tiktokHandle: "jonieboi",
     youtubeChannelHandle: "JonieBoi",
     youtubeVideos: [
       { id: "DtZzomvrFkQ", title: "En oppdatering om livet mitt nå.", published: "2026-06-25T13:44:20+00:00" },
@@ -1054,6 +1056,7 @@ export const CREATORS: CreatorProfile[] = [
       { slug: "WildExquisiteLocustJebaited-s2zGTzTlHxcriO0C", title: "Igjen kommer gamle folk", viewCount: 4814, duration: 50, createdAt: "2024-09-05T14:24:45Z", game: "IRL", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/55f8e32e-b6bf-4e33-ba46-41642d649589/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mystixx/clip/WildExquisiteLocustJebaited-s2zGTzTlHxcriO0C" },
       { slug: "JazzyApatheticAniseDatBoi-N0K1j0beljx4wb_0", title: "🔴🔴🔴 SUBATHON! 🔴🔴🔴 !youtube !p+ !hvorlenge", viewCount: 4721, duration: 26, createdAt: "2023-09-28T16:57:20Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/082a799e-010b-4c89-b03b-d94ec2f8c3ec/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mystixx/clip/JazzyApatheticAniseDatBoi-N0K1j0beljx4wb_0" },
     ],
+    tiktokHandle: "mystixxtwitch",
   },
 ];
 

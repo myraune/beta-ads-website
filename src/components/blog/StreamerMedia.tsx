@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Play } from "lucide-react";
 import { MediaCarousel } from "@/components/blog/MediaCarousel";
 import { SocialIcon } from "@/components/blog/SocialIcon";
+import { TikTokEmbed } from "@/components/blog/TikTokEmbed";
 import type { TwitchClip, YouTubeVideo, TikTokVideo } from "@/data/norskeStreamere";
 
 interface Props {
@@ -47,10 +48,11 @@ export const StreamerMedia: React.FC<Props> = ({
   tiktokVideos,
   tiktokHandle,
 }) => {
+  const hasTikTok = Boolean(tiktokVideos?.length || tiktokHandle);
   const tabs: { key: TabKey; label: string; count: number }[] = [];
   if (twitchClips?.length) tabs.push({ key: "twitch", label: "Twitch-klipp", count: twitchClips.length });
   if (youtubeVideos?.length) tabs.push({ key: "youtube", label: "YouTube", count: youtubeVideos.length });
-  if (tiktokVideos?.length) tabs.push({ key: "tiktok", label: "TikTok", count: tiktokVideos.length });
+  if (hasTikTok) tabs.push({ key: "tiktok", label: "TikTok", count: tiktokVideos?.length ?? 0 });
 
   const [active, setActive] = useState<TabKey>(tabs[0]?.key ?? "twitch");
 
@@ -168,8 +170,13 @@ export const StreamerMedia: React.FC<Props> = ({
         </MediaCarousel>
       )}
 
-      {/* TikTok - vertikale 9:16 kort */}
-      {active === "tiktok" && tiktokVideos && (
+      {/* TikTok - offisiell creator-embed når vi ikke har manuelle videoer */}
+      {active === "tiktok" && !tiktokVideos?.length && tiktokHandle && (
+        <TikTokEmbed handle={tiktokHandle} name={name} />
+      )}
+
+      {/* TikTok - manuelt kuraterte vertikale 9:16 kort (hvis tilgjengelig) */}
+      {active === "tiktok" && tiktokVideos && tiktokVideos.length > 0 && (
         <MediaCarousel label={`TikTok-videoer fra ${name}`}>
           {tiktokVideos.map((v) => (
             <li key={v.id} className="snap-start shrink-0 w-44 sm:w-48">
