@@ -34,6 +34,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "OfficialAndyPyro · StreamsCharts", url: "https://streamscharts.com/channels/officialandypyro", type: "tracker" }
     ],
     twitchStats: { followers: 284642, partner: true, createdAt: "2013-07-13T17:34:12.031499Z", lastGame: "IRL" },
+    trackerStats: { avgViewers: 146, peakViewers: 415, hoursStreamed: 173 },
     youtubeChannelHandle: "UCzbZRte6ZBCsTFXo8Wj_7tg",
     youtubeVideos: [
       { id: "gg2eckt6X9A", title: "Rough Road to 3K - Andy in CS - multistream kick/twitch", published: "2025-05-08T19:10:35+00:00" },
@@ -80,6 +81,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Laeppa · StreamsCharts", url: "https://streamscharts.com/channels/laeppa", type: "tracker" }
     ],
     twitchStats: { followers: 234641, partner: true, createdAt: "2012-10-16T11:58:39.524606Z", lastGame: "MECCHA CHAMELEON" },
+    trackerStats: { avgViewers: 999, peakViewers: 1630, hoursStreamed: 110 },
     youtubeChannelHandle: "UCBJ4RpQPQutOnWcqiooL9eQ",
     youtubeVideos: [
       { id: "lr9uUjUtRY0", title: "KESÄN MEGAVIDEO (2026)", published: "2026-06-24T07:34:10+00:00" },
@@ -124,6 +126,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "kirdez · StreamsCharts", url: "https://streamscharts.com/channels/kirdez", type: "tracker" }
     ],
     twitchStats: { followers: 203040, partner: true, createdAt: "2013-04-25T23:38:06.358993Z", lastGame: "skate." },
+    trackerStats: { avgViewers: 159, peakViewers: 267, hoursStreamed: 93 },
     twitchClips: [
       { slug: "CooperativeViscousRhinocerosRitzMitz-fDkJ7FpgHiSiPYzd", title: "Mese enne tunink", viewCount: 21109, duration: 28, createdAt: "2022-06-29T20:59:47Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/21708789-47bf-4cf5-873b-81363c631f1b/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/kirdez/clip/CooperativeViscousRhinocerosRitzMitz-fDkJ7FpgHiSiPYzd" },
       { slug: "PerfectBovineSowBabyRage-lYrX2cBiU3fqmI51", title: "mese tuning jälkeen", viewCount: 15759, duration: 41, createdAt: "2022-08-01T17:41:01Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/e54f042f-fa7f-4010-9634-f2399270ed17/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/kirdez/clip/PerfectBovineSowBabyRage-lYrX2cBiU3fqmI51" },
@@ -290,6 +293,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "pelaajatcom · StreamsCharts", url: "https://streamscharts.com/channels/pelaajatcom", type: "tracker" }
     ],
     twitchStats: { followers: 118365, partner: true, createdAt: "2018-09-17T15:40:54.959147Z", lastGame: "Counter-Strike" },
+    trackerStats: { avgViewers: 4966, peakViewers: 17479, hoursStreamed: 162 },
     youtubeChannelHandle: "UCjUTyCEc_kDb9czB5dC-h5g",
     youtubeVideos: [
       { id: "dUwPeMFRiSs", title: "🔥IEM Cologne Major 2026 🍻 Päätösottelu FURIA vs Falcons 🍻🎙️OLVARi / oonraimo & sLowiNd / SamppaCS2🔥", published: "2026-06-21T19:51:09+00:00" },
@@ -332,6 +336,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Henksuliini · StreamsCharts", url: "https://streamscharts.com/channels/henksuliini", type: "tracker" }
     ],
     twitchStats: { followers: 113711, partner: true, createdAt: "2019-03-15T20:28:56.470532Z", lastGame: "Just Chatting" },
+    trackerStats: { avgViewers: 544, peakViewers: 1252, hoursStreamed: 33 },
     twitchClips: [
       { slug: "GiftedAmericanRadishDxCat-x2wjKfG-UEuLdFuR", title: "jysähti", viewCount: 45093, duration: 17, createdAt: "2021-08-04T20:11:13Z", game: "Pools, Hot Tubs, and Beaches", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/0cc10b11-d1c4-4ec5-a692-184c982322ec/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/henksuliini/clip/GiftedAmericanRadishDxCat-x2wjKfG-UEuLdFuR" },
       { slug: "CarelessThirstySmoothieBudBlast-CjQheqXuit1-TtDt", title: "Oon selvinpäin", viewCount: 33159, duration: 29, createdAt: "2021-08-07T21:04:21Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/d5600aed-eb19-4b48-b40a-f312a6e371e3/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/henksuliini/clip/CarelessThirstySmoothieBudBlast-CjQheqXuit1-TtDt" },

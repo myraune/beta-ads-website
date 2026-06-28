@@ -33,6 +33,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Streams Charts - perra", url: "https://streamscharts.com/channels/perra", type: "tracker" }
     ],
     twitchStats: { followers: 185174, partner: true, createdAt: "2021-09-26T13:22:25.490742Z", lastGame: "Just Chatting" },
+    trackerStats: { avgViewers: 1580, peakViewers: 2305, hoursStreamed: 174 },
     youtubeChannelHandle: "perrababy",
     youtubeVideos: [
       { id: "1_zQL3sIZdQ", title: "Ska blod lyssna?✌️😭 (Twitch - Perra)", published: "2026-06-28T15:38:15+00:00" },
@@ -80,6 +81,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Esports Charts - Anomaly", url: "https://escharts.com/players/anomaly", type: "tracker" }
     ],
     twitchStats: { followers: 2848890, partner: true, createdAt: "2014-12-04T03:13:38.94747Z", lastGame: "Counter-Strike" },
+    trackerStats: { avgViewers: 1200, peakViewers: 2324, hoursStreamed: 60 },
     youtubeChannelHandle: "UCqck1kDsBbrlKWHGRsk7dbQ",
     youtubeVideos: [
       { id: "esDst18ZwLs", title: "ANOMALY AND PAPA MAKE TRADITIONAL BAKLAVA", published: "2023-06-05T13:57:27+00:00" },
@@ -124,6 +126,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Streams Charts - Loeya", url: "https://streamscharts.com/channels/loeya", type: "tracker" }
     ],
     twitchStats: { followers: 1663840, partner: true, createdAt: "2017-07-23T10:25:32.275523Z", lastGame: "Fortnite" },
+    trackerStats: { avgViewers: 1729, peakViewers: 3610, hoursStreamed: 182 },
     youtubeChannelHandle: "loeya",
     youtubeVideos: [
       { id: "_MeivxoNfgQ", title: "I love the sprites 🥹🥹🥹 #gaming #fortnite #fortniteclips #fortnitememes", published: "2026-06-26T11:00:07+00:00" },
@@ -171,6 +174,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "TwitchTracker - tejbz", url: "https://twitchtracker.com/tejbz", type: "tracker" }
     ],
     twitchStats: { followers: 156053, partner: true, createdAt: "2011-10-22T13:28:31.413034Z", lastGame: "Overwatch" },
+    trackerStats: { avgViewers: 26, peakViewers: 57, hoursStreamed: 12 },
     youtubeChannelHandle: "Tejbz",
     youtubeVideos: [
       { id: "vZaZE7AyoLA", title: "Logitech G512X! #logitechG", published: "2026-06-08T10:31:58+00:00" },
@@ -215,6 +219,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Social Blade - CyrusTWO", url: "https://socialblade.com/twitch/user/cyrustwo", type: "tracker" }
     ],
     twitchStats: { followers: 134143, partner: true, createdAt: "2013-03-08T12:41:58.971298Z", lastGame: "Grand Theft Auto V" },
+    trackerStats: { avgViewers: 1502, peakViewers: 2822, hoursStreamed: 125 },
     youtubeChannelHandle: "CyrusTWO",
     youtubeVideos: [
       { id: "ABDK-xyASro", title: "ROGUE MC TAR BAITEN - &quot;VAD FOTAR DU DITT FREAK?!&quot;", published: "2026-06-14T10:00:02+00:00" },
@@ -259,6 +264,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "TwitchTracker - mest följda svenska", url: "https://twitchtracker.com/channels/most-followers/swedish", type: "tracker" }
     ],
     twitchStats: { followers: 231479, partner: true, createdAt: "2013-10-26T15:34:16.185159Z", lastGame: "Just Chatting" },
+    trackerStats: { avgViewers: 182, peakViewers: 317, hoursStreamed: 12 },
     youtubeChannelHandle: "UCsHrlv3Pm7UNSX9N7PkRpWg",
     youtubeVideos: [
       { id: "w_Uy_goEWH0", title: "&quot;OH NO&quot; Moment live on stream", published: "2023-08-14T14:31:37+00:00" },
@@ -303,6 +309,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Streams Charts - EmiliaHult", url: "https://streamscharts.com/channels/emiliahult", type: "tracker" }
     ],
     twitchStats: { followers: 205334, partner: true, createdAt: "2015-06-24T19:18:11.083219Z", lastGame: "Counter-Strike" },
+    trackerStats: { avgViewers: 138, peakViewers: 335, hoursStreamed: 30 },
     youtubeChannelHandle: "EmiliaHult",
     youtubeVideos: [
       { id: "8BYeLnOh8no", title: "#strangerthings", published: "2026-01-08T15:37:54+00:00" },
@@ -425,6 +432,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Twitch - Nooor", url: "https://www.twitch.tv/nooor", type: "platform" }
     ],
     twitchStats: { followers: 44527, partner: true, createdAt: "2020-03-12T20:13:11.356946Z", lastGame: "Grand Theft Auto V" },
+    trackerStats: { avgViewers: 1008, peakViewers: 1774, hoursStreamed: 178 },
     twitchClips: [
       { slug: "RoughCooperativeBulgogiDancingBaby-lGyNQHP9JHlEZYMo", title: "Chase x Margareta jajamensan, där e vi", viewCount: 9794, duration: 13, createdAt: "2025-03-22T21:51:39Z", game: "Grand Theft Auto V", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/7def5703-67ae-41d8-9076-d571afe46385/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/nooor/clip/RoughCooperativeBulgogiDancingBaby-lGyNQHP9JHlEZYMo" },
       { slug: "TangentialManlyKaleTBCheesePull", title: "boom", viewCount: 8294, duration: 26, createdAt: "2020-05-30T20:22:32Z", game: "Grand Theft Auto V", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/d94f5297-7e45-4471-805a-96a0a855c478/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/nooor/clip/TangentialManlyKaleTBCheesePull" },

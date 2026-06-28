@@ -27,6 +27,13 @@ export interface TwitchStats {
   lastGame: string | null;
 }
 
+/** Ytelsestall siste 30 dager fra TwitchTracker (øyeblikksbilde, bakt ved build). */
+export interface TrackerStats {
+  avgViewers: number;
+  peakViewers: number;
+  hoursStreamed: number;
+}
+
 export interface TwitchClip {
   slug: string;
   title: string;
@@ -88,6 +95,8 @@ export interface CreatorProfile {
   youtubeVideos?: YouTubeVideo[];
   /** Live Twitch-statistikk (offentlig GQL), bakt inn ved build. */
   twitchStats?: TwitchStats;
+  /** Ytelsestall siste 30 dager (TwitchTracker), bakt inn ved build. */
+  trackerStats?: TrackerStats;
   /** Mest sette Twitch-klipp (offentlig GQL), bakt inn ved build. */
   twitchClips?: TwitchClip[];
   /** Valgfri banner-override (når topp-klippet er en svak thumbnail). */
@@ -102,6 +111,7 @@ export const CREATORS: CreatorProfile[] = [
   {
     handle: "mrsavage",
     twitchStats: { followers: 4638403, partner: true, createdAt: "2018-02-24T18:41:22.909365Z", lastGame: "Fortnite" },
+    trackerStats: { avgViewers: 4437, peakViewers: 16444, hoursStreamed: 65 },
     name: "MrSavage",
     realName: "Martin Foss Andersen",
     meta: "Twitch · YouTube · proff Fortnite",
@@ -208,6 +218,7 @@ export const CREATORS: CreatorProfile[] = [
   {
     handle: "knut",
     twitchStats: { followers: 419137, partner: true, createdAt: "2013-05-12T22:17:06.690621Z", lastGame: "Just Chatting" },
+    trackerStats: { avgViewers: 1082, peakViewers: 15598, hoursStreamed: 179 },
     name: "Knut",
     realName: "Knut Spildrejorde",
     meta: "Twitch · fitness, IRL & gaming",
@@ -311,6 +322,7 @@ export const CREATORS: CreatorProfile[] = [
   {
     handle: "detoo",
     twitchStats: { followers: 85915, partner: true, createdAt: "2016-05-16T19:55:22.092212Z", lastGame: "IRL" },
+    trackerStats: { avgViewers: 403, peakViewers: 764, hoursStreamed: 154 },
     name: "detoo",
     realName: "Jørgen Jenssen",
     meta: "Twitch · YouTube · variert",
@@ -415,6 +427,7 @@ export const CREATORS: CreatorProfile[] = [
   {
     handle: "emzia",
     twitchStats: { followers: 97618, partner: true, createdAt: "2015-04-10T23:35:13.51328Z", lastGame: "Just Chatting" },
+    trackerStats: { avgViewers: 184, peakViewers: 270, hoursStreamed: 111 },
     name: "Emzia",
     realName: "Emilie Helgesen",
     meta: "Twitch · skytespill & variert",
@@ -521,6 +534,7 @@ export const CREATORS: CreatorProfile[] = [
   {
     handle: "thomaspaste",
     twitchStats: { followers: 51653, partner: true, createdAt: "2011-06-19T13:02:20.994124Z", lastGame: "Arma Reforger" },
+    trackerStats: { avgViewers: 162, peakViewers: 340, hoursStreamed: 41 },
     name: "thomasPASTE",
     meta: "Twitch · variert gaming",
     blurb:
@@ -623,6 +637,7 @@ export const CREATORS: CreatorProfile[] = [
   {
     handle: "klokkismann",
     twitchStats: { followers: 15922, partner: true, createdAt: "2014-09-09T14:03:12.471343Z", lastGame: "MECCHA CHAMELEON" },
+    trackerStats: { avgViewers: 166, peakViewers: 242, hoursStreamed: 30 },
     name: "Klokkismann",
     realName: "Aslak Maurstad",
     meta: "Twitch · Minecraft, sjakk & prat",
@@ -729,6 +744,7 @@ export const CREATORS: CreatorProfile[] = [
   {
     handle: "dennisvareide",
     twitchStats: { followers: 59091, partner: true, createdAt: "2015-07-08T18:00:40.585173Z", lastGame: "MECCHA CHAMELEON" },
+    trackerStats: { avgViewers: 209, peakViewers: 285, hoursStreamed: 9 },
     name: "Dennis Vareide",
     realName: "Dennis Mikal Stabell Vareide",
     meta: "YouTube · Twitch · Minecraft",
@@ -834,6 +850,7 @@ export const CREATORS: CreatorProfile[] = [
   {
     handle: "jonieboi",
     twitchStats: { followers: 24339, partner: true, createdAt: "2016-08-09T17:13:42.965102Z", lastGame: "Grand Theft Auto V" },
+    trackerStats: { avgViewers: 137, peakViewers: 200, hoursStreamed: 21 },
     name: "Jonieboi",
     realName: "Jonas Johannessen",
     meta: "YouTube · Twitch · reaksjon & humor",
@@ -938,6 +955,7 @@ export const CREATORS: CreatorProfile[] = [
   {
     handle: "danniz",
     twitchStats: { followers: 44354, partner: true, createdAt: "2015-04-24T21:42:36.88602Z", lastGame: "Just Chatting" },
+    trackerStats: { avgViewers: 105, peakViewers: 238, hoursStreamed: 162 },
     name: "DannizTV",
     meta: "Twitch · variert gaming",
     blurb:
@@ -1036,6 +1054,7 @@ export const CREATORS: CreatorProfile[] = [
   {
     handle: "mystixx",
     twitchStats: { followers: 36271, partner: true, createdAt: "2013-12-04T17:24:24.66983Z", lastGame: "IRL" },
+    trackerStats: { avgViewers: 133, peakViewers: 267, hoursStreamed: 130 },
     name: "Mystixx",
     meta: "Twitch · IRL & Minecraft",
     blurb:

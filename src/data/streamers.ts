@@ -95,6 +95,10 @@ export interface ProfileLabels {
   since: string;
   category: string;
   statsNote: string;
+  avgViewers: string;
+  peakViewers: string;
+  hoursStreamed: string;
+  trackerNote: string;
   inPress: string;
   sources: string;
   sourcesNote: string;
@@ -111,6 +115,8 @@ const PROFILE_LABELS: Record<MarketCode, ProfileLabels> = {
     twitchStats: "Twitch-statistikk", followers: "følgere", statusLabel: "Twitch-status",
     partner: "Partner", affiliate: "Affiliate", since: "på Twitch siden", category: "siste kategori",
     statsNote: "Tall hentet fra Twitch. Følgertall er et øyeblikksbilde og endrer seg kontinuerlig.",
+    avgViewers: "snitt-seere", peakViewers: "peak-seere", hoursStreamed: "timer streamet",
+    trackerNote: "Snitt-seere, peak og timer fra TwitchTracker (siste 30 dager). Et øyeblikksbilde som endrer seg.",
     inPress: "I pressen", sources: "Bakgrunn og kilder",
     sourcesNote: "Faktagrunnlag hentet fra sjekkbare offentlige kilder. Tall fra trackere (følgere, gjennomsnittsseere) er øyeblikksbilder og varierer over tid.",
     latestYouTube: "Siste videoer på YouTube", seeAllYouTube: "Se alle på YouTube",
@@ -121,6 +127,8 @@ const PROFILE_LABELS: Record<MarketCode, ProfileLabels> = {
     twitchStats: "Twitch-statistik", followers: "följare", statusLabel: "Twitch-status",
     partner: "Partner", affiliate: "Affiliate", since: "på Twitch sedan", category: "senaste kategori",
     statsNote: "Siffror hämtade från Twitch. Följarantal är en ögonblicksbild och ändras kontinuerligt.",
+    avgViewers: "snittittare", peakViewers: "max tittare", hoursStreamed: "timmar streamat",
+    trackerNote: "Snittittare, max och timmar från TwitchTracker (senaste 30 dagarna). En ögonblicksbild som ändras.",
     inPress: "I pressen", sources: "Bakgrund och källor",
     sourcesNote: "Faktaunderlag från kontrollerbara offentliga källor. Siffror från trackers är ögonblicksbilder och varierar över tid.",
     latestYouTube: "Senaste videor på YouTube", seeAllYouTube: "Se alla på YouTube",
@@ -131,6 +139,8 @@ const PROFILE_LABELS: Record<MarketCode, ProfileLabels> = {
     twitchStats: "Twitch-statistik", followers: "følgere", statusLabel: "Twitch-status",
     partner: "Partner", affiliate: "Affiliate", since: "på Twitch siden", category: "seneste kategori",
     statsNote: "Tal hentet fra Twitch. Følgertal er et øjebliksbillede og ændrer sig løbende.",
+    avgViewers: "gns. seere", peakViewers: "maks seere", hoursStreamed: "timer streamet",
+    trackerNote: "Gns. seere, maks og timer fra TwitchTracker (seneste 30 dage). Et øjebliksbillede der ændrer sig.",
     inPress: "I pressen", sources: "Baggrund og kilder",
     sourcesNote: "Faktagrundlag fra kontrollerbare offentlige kilder. Tal fra trackere er øjebliksbilleder og varierer over tid.",
     latestYouTube: "Seneste videoer på YouTube", seeAllYouTube: "Se alle på YouTube",
@@ -141,6 +151,8 @@ const PROFILE_LABELS: Record<MarketCode, ProfileLabels> = {
     twitchStats: "Twitch-tilastot", followers: "seuraajaa", statusLabel: "Twitch-status",
     partner: "Partner", affiliate: "Affiliate", since: "Twitchissä vuodesta", category: "viimeisin kategoria",
     statsNote: "Luvut haettu Twitchistä. Seuraajamäärä on tilannekuva ja muuttuu jatkuvasti.",
+    avgViewers: "keskim. katsojat", peakViewers: "huippukatsojat", hoursStreamed: "tuntia striimattu",
+    trackerNote: "Keskikatsojat, huippu ja tunnit TwitchTrackerista (viimeiset 30 päivää). Tilannekuva joka muuttuu.",
     inPress: "Mediassa", sources: "Taustat ja lähteet",
     sourcesNote: "Faktapohja tarkistettavista julkisista lähteistä. Trackereiden luvut ovat tilannekuvia ja vaihtelevat ajan myötä.",
     latestYouTube: "Uusimmat videot YouTubessa", seeAllYouTube: "Katso kaikki YouTubessa",

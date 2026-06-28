@@ -207,13 +207,36 @@ const StreamerProfile: React.FC = () => {
                 {L.twitchStats}
               </h2>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-12">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 sm:gap-x-12 gap-y-8">
               <div>
                 <div className="text-3xl md:text-4xl font-light tracking-tight text-foreground tabular-nums">
                   {fmtFollowers(c.twitchStats.followers)}
                 </div>
                 <div className="text-xs text-muted-foreground mt-1">{L.followers}</div>
               </div>
+              {/* Tracker-tall: snitt-seere er det viktigste rekkevidde-tallet for merkevarer */}
+              {c.trackerStats && (
+                <>
+                  <div>
+                    <div className="text-3xl md:text-4xl font-light tracking-tight text-primary tabular-nums">
+                      {c.trackerStats.avgViewers.toLocaleString("nb-NO")}
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-1">{L.avgViewers}</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl md:text-4xl font-light tracking-tight text-foreground tabular-nums">
+                      {c.trackerStats.peakViewers.toLocaleString("nb-NO")}
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-1">{L.peakViewers}</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl md:text-4xl font-light tracking-tight text-foreground tabular-nums">
+                      {c.trackerStats.hoursStreamed}
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-1">{L.hoursStreamed}</div>
+                  </div>
+                </>
+              )}
               <div>
                 <div className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
                   {c.twitchStats.partner ? L.partner : L.affiliate}
@@ -237,7 +260,10 @@ const StreamerProfile: React.FC = () => {
                 </div>
               )}
             </div>
-            <p className="text-[11px] text-muted-foreground/70 mt-5">{L.statsNote}</p>
+            <p className="text-[11px] text-muted-foreground/70 mt-5">
+              {L.statsNote}
+              {c.trackerStats ? " " + L.trackerNote : ""}
+            </p>
           </section>
         )}
 

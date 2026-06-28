@@ -32,6 +32,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "TwitchTracker statistik", url: "https://twitchtracker.com/jaxstyle", type: "tracker" }
     ],
     twitchStats: { followers: 304349, partner: true, createdAt: "2014-07-03T18:04:34.241191Z", lastGame: "IRL" },
+    trackerStats: { avgViewers: 637, peakViewers: 1487, hoursStreamed: 83 },
     youtubeChannelHandle: "JaxstyleProductions",
     youtubeVideos: [
       { id: "VsxVCcZMYPg", title: "Minecraft med Caroline!", published: "2023-05-04T13:00:31+00:00" },
@@ -75,6 +76,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "TwitchTracker statistik", url: "https://twitchtracker.com/sondergaardlol", type: "tracker" }
     ],
     twitchStats: { followers: 271977, partner: true, createdAt: "2017-01-25T19:18:59.234925Z", lastGame: "IRL" },
+    trackerStats: { avgViewers: 2425, peakViewers: 7543, hoursStreamed: 69 },
     youtubeChannelHandle: "UCbJlVPh9pZWtaOTAfp1Owmg",
     youtubeVideos: [
       { id: "81VyTrEr6nc", title: "SKAL JEG MAIN JUNGLE FREMOVER?", published: "2025-08-22T14:21:49+00:00" },
@@ -142,6 +144,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Liquipedia Fortnite", url: "https://liquipedia.net/fortnite/MariusCOW", type: "wikipedia" }
     ],
     twitchStats: { followers: 157198, partner: true, createdAt: "2017-12-09T21:40:31.441407Z", lastGame: "Fortnite" },
+    trackerStats: { avgViewers: 110, peakViewers: 222, hoursStreamed: 9 },
     youtubeChannelHandle: "MariusCOW",
     youtubeVideos: [
       { id: "EG2crXPqRog", title: "MariusCOW | Highlights #59", published: "2026-06-26T10:13:55+00:00" },
@@ -220,6 +223,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "TwitchTracker statistik", url: "https://twitchtracker.com/jkfifa", type: "tracker" }
     ],
     twitchStats: { followers: 122707, partner: true, createdAt: "2014-11-03T16:03:39.260488Z", lastGame: "Just Chatting" },
+    trackerStats: { avgViewers: 352, peakViewers: 740, hoursStreamed: 15 },
     youtubeChannelHandle: "UCp4Xer5gEK8yc-loStaAqyg",
     youtubeVideos: [
       { id: "OZOXvJlSoOU", title: "11 VM kort bestemmer mit FC26 hold!", published: "2026-06-25T13:39:08+00:00" },
@@ -264,6 +268,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "TwitchTracker statistik", url: "https://twitchtracker.com/mariewatson", type: "tracker" }
     ],
     twitchStats: { followers: 122001, partner: true, createdAt: "2013-06-16T00:43:25.182709Z", lastGame: "Just Chatting" },
+    trackerStats: { avgViewers: 102, peakViewers: 170, hoursStreamed: 61 },
     youtubeChannelHandle: "MarieWatson",
     youtubeVideos: [
       { id: "z4PjN6sgd-k", title: "En opdatering på mine gigt undersøgelser 👉🏻👈🏻 #dansk #gigt", published: "2026-06-16T12:36:29+00:00" },
@@ -351,6 +356,7 @@ export const CREATORS: CreatorProfile[] = [
     ],
     tiktokHandle: "connieheinz",
     twitchStats: { followers: 49788, partner: true, createdAt: "2018-08-07T16:27:08.108022Z", lastGame: "Grand Theft Auto V" },
+    trackerStats: { avgViewers: 381, peakViewers: 536, hoursStreamed: 72 },
     youtubeChannelHandle: "UCYe7JU5mFGI6mAHA6aw4pEQ",
     youtubeVideos: [
       { id: "aFmd1AIm5P8", title: "[LIVESTREAM] 😈 AFPRESNING AF BETJENT 😈 OG VAR DE 500.000 KR NOK?! 😈", published: "2026-06-25T22:40:47+00:00" },
@@ -398,6 +404,7 @@ export const CREATORS: CreatorProfile[] = [
     ],
     tiktokHandle: "lykkeograsmus",
     twitchStats: { followers: 5965, partner: false, createdAt: "2024-05-18T03:52:33.408425Z", lastGame: "IRL" },
+    trackerStats: { avgViewers: 54, peakViewers: 112, hoursStreamed: 60 },
     youtubeChannelHandle: "LykkeogRasmus",
     youtubeVideos: [
       { id: "iMO6KwJ0u7c", title: "Vi rejser hver til sit..", published: "2026-06-28T14:00:12+00:00" },
