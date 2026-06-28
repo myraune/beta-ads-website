@@ -82,6 +82,76 @@ export function languageLegendPrefix(market: MarketCode = "no"): string {
 }
 
 /** Roundup-post + lokaliserte navigasjons-etiketter per marked. */
+/** Lokaliserte UI-etiketter for profilsiden + medieseksjonen per marked. */
+export interface ProfileLabels {
+  eyebrow: string;
+  follow: string;
+  highlights: string;
+  twitchStats: string;
+  followers: string;
+  statusLabel: string;
+  partner: string;
+  affiliate: string;
+  since: string;
+  category: string;
+  statsNote: string;
+  inPress: string;
+  sources: string;
+  sourcesNote: string;
+  latestYouTube: string;
+  seeAllYouTube: string;
+  allClipsTwitch: string;
+  seeAllTikTok: string;
+  clipsTab: string;
+}
+
+const PROFILE_LABELS: Record<MarketCode, ProfileLabels> = {
+  no: {
+    eyebrow: "Norsk streaming", follow: "Følg", highlights: "Høydepunkter",
+    twitchStats: "Twitch-statistikk", followers: "følgere", statusLabel: "Twitch-status",
+    partner: "Partner", affiliate: "Affiliate", since: "på Twitch siden", category: "siste kategori",
+    statsNote: "Tall hentet fra Twitch. Følgertall er et øyeblikksbilde og endrer seg kontinuerlig.",
+    inPress: "I pressen", sources: "Bakgrunn og kilder",
+    sourcesNote: "Faktagrunnlag hentet fra sjekkbare offentlige kilder. Tall fra trackere (følgere, gjennomsnittsseere) er øyeblikksbilder og varierer over tid.",
+    latestYouTube: "Siste videoer på YouTube", seeAllYouTube: "Se alle på YouTube",
+    allClipsTwitch: "Alle klipp på Twitch", seeAllTikTok: "Se alle på TikTok", clipsTab: "Twitch-klipp",
+  },
+  se: {
+    eyebrow: "Svensk streaming", follow: "Följ", highlights: "Höjdpunkter",
+    twitchStats: "Twitch-statistik", followers: "följare", statusLabel: "Twitch-status",
+    partner: "Partner", affiliate: "Affiliate", since: "på Twitch sedan", category: "senaste kategori",
+    statsNote: "Siffror hämtade från Twitch. Följarantal är en ögonblicksbild och ändras kontinuerligt.",
+    inPress: "I pressen", sources: "Bakgrund och källor",
+    sourcesNote: "Faktaunderlag från kontrollerbara offentliga källor. Siffror från trackers är ögonblicksbilder och varierar över tid.",
+    latestYouTube: "Senaste videor på YouTube", seeAllYouTube: "Se alla på YouTube",
+    allClipsTwitch: "Alla klipp på Twitch", seeAllTikTok: "Se alla på TikTok", clipsTab: "Twitch-klipp",
+  },
+  da: {
+    eyebrow: "Dansk streaming", follow: "Følg", highlights: "Højdepunkter",
+    twitchStats: "Twitch-statistik", followers: "følgere", statusLabel: "Twitch-status",
+    partner: "Partner", affiliate: "Affiliate", since: "på Twitch siden", category: "seneste kategori",
+    statsNote: "Tal hentet fra Twitch. Følgertal er et øjebliksbillede og ændrer sig løbende.",
+    inPress: "I pressen", sources: "Baggrund og kilder",
+    sourcesNote: "Faktagrundlag fra kontrollerbare offentlige kilder. Tal fra trackere er øjebliksbilleder og varierer over tid.",
+    latestYouTube: "Seneste videoer på YouTube", seeAllYouTube: "Se alle på YouTube",
+    allClipsTwitch: "Alle klip på Twitch", seeAllTikTok: "Se alle på TikTok", clipsTab: "Twitch-klip",
+  },
+  fi: {
+    eyebrow: "Suomalainen striimaus", follow: "Seuraa", highlights: "Kohokohdat",
+    twitchStats: "Twitch-tilastot", followers: "seuraajaa", statusLabel: "Twitch-status",
+    partner: "Partner", affiliate: "Affiliate", since: "Twitchissä vuodesta", category: "viimeisin kategoria",
+    statsNote: "Luvut haettu Twitchistä. Seuraajamäärä on tilannekuva ja muuttuu jatkuvasti.",
+    inPress: "Mediassa", sources: "Taustat ja lähteet",
+    sourcesNote: "Faktapohja tarkistettavista julkisista lähteistä. Trackereiden luvut ovat tilannekuvia ja vaihtelevat ajan myötä.",
+    latestYouTube: "Uusimmat videot YouTubessa", seeAllYouTube: "Katso kaikki YouTubessa",
+    allClipsTwitch: "Kaikki klipit Twitchissä", seeAllTikTok: "Katso kaikki TikTokissa", clipsTab: "Twitch-klipit",
+  },
+};
+
+export function profileLabels(market: MarketCode = "no"): ProfileLabels {
+  return PROFILE_LABELS[market];
+}
+
 export const MARKET_ROUNDUP: Record<
   MarketCode,
   { slug: string; back: string; all: string; noun: string; seoLocale: "no" | "sv" | "da" | "fi" }

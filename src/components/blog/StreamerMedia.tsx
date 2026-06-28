@@ -4,9 +4,11 @@ import { MediaCarousel } from "@/components/blog/MediaCarousel";
 import { SocialIcon } from "@/components/blog/SocialIcon";
 import { TikTokEmbed } from "@/components/blog/TikTokEmbed";
 import type { TwitchClip, YouTubeVideo, TikTokVideo } from "@/data/norskeStreamere";
+import { type MarketCode, profileLabels } from "@/data/streamers";
 
 interface Props {
   name: string;
+  market?: MarketCode;
   twitchHandle: string;
   twitchClips?: TwitchClip[];
   youtubeVideos?: YouTubeVideo[];
@@ -41,6 +43,7 @@ const fmtDate = (iso: string): string => {
  */
 export const StreamerMedia: React.FC<Props> = ({
   name,
+  market = "no",
   twitchHandle,
   twitchClips,
   youtubeVideos,
@@ -48,9 +51,10 @@ export const StreamerMedia: React.FC<Props> = ({
   tiktokVideos,
   tiktokHandle,
 }) => {
+  const L = profileLabels(market);
   const hasTikTok = Boolean(tiktokVideos?.length || tiktokHandle);
   const tabs: { key: TabKey; label: string; count: number }[] = [];
-  if (twitchClips?.length) tabs.push({ key: "twitch", label: "Twitch-klipp", count: twitchClips.length });
+  if (twitchClips?.length) tabs.push({ key: "twitch", label: L.clipsTab, count: twitchClips.length });
   // Vis kun YouTube-fanen med et reelt feed (en ensom video ser uferdig ut).
   if (youtubeVideos && youtubeVideos.length >= 2) tabs.push({ key: "youtube", label: "YouTube", count: youtubeVideos.length });
   if (hasTikTok) tabs.push({ key: "tiktok", label: "TikTok", count: tiktokVideos?.length ?? 0 });
@@ -61,16 +65,16 @@ export const StreamerMedia: React.FC<Props> = ({
 
   const seeAll =
     active === "twitch"
-      ? { url: `https://www.twitch.tv/${twitchHandle}/clips`, label: "Alle klipp på Twitch", icon: "Twitch" }
+      ? { url: `https://www.twitch.tv/${twitchHandle}/clips`, label: L.allClipsTwitch, icon: "Twitch" }
       : active === "youtube"
         ? {
             url: youtubeChannelHandle?.startsWith("UC")
               ? `https://www.youtube.com/channel/${youtubeChannelHandle}`
               : `https://www.youtube.com/@${youtubeChannelHandle}`,
-            label: "Se alle på YouTube",
+            label: L.seeAllYouTube,
             icon: "YouTube",
           }
-        : { url: `https://www.tiktok.com/@${tiktokHandle}`, label: "Se alle på TikTok", icon: "TikTok" };
+        : { url: `https://www.tiktok.com/@${tiktokHandle}`, label: L.seeAllTikTok, icon: "TikTok" };
 
   return (
     <section className="border-t border-border/60 pt-12 mb-14">

@@ -26,8 +26,8 @@ const Contact: React.FC = () => {
               "email": "andreas@beta-ads.no",
               "address": {
                 "@type": "PostalAddress",
-                "addressLocality": "Chicago",
-                "addressCountry": "US"
+                "addressLocality": "Oslo",
+                "addressCountry": "NO"
               }
             }
           },
@@ -122,9 +122,9 @@ const Contact: React.FC = () => {
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
-                <h2 className="text-lg font-semibold text-foreground mb-2">HQ in Chicago</h2>
+                <h2 className="text-lg font-semibold text-foreground mb-2">Based in Oslo</h2>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Headquartered in Chicago, with roots in Oslo. Operating globally.
+                  Based in Oslo, operating globally.
                 </p>
               </div>
             </div>

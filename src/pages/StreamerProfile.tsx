@@ -3,7 +3,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { SPFooter } from "@/components/sections/SPFooter";
-import { getCreatorByHandle, getMarketOfHandle, MARKET_CREATORS, MARKET_ROUNDUP, isNativeLanguage, languageLabel, languageTooltip } from "@/data/streamers";
+import { getCreatorByHandle, getMarketOfHandle, MARKET_CREATORS, MARKET_ROUNDUP, profileLabels, isNativeLanguage, languageLabel, languageTooltip } from "@/data/streamers";
 import { SocialIcon } from "@/components/blog/SocialIcon";
 import { NewsCard } from "@/components/blog/NewsCard";
 import { StreamerMedia } from "@/components/blog/StreamerMedia";
@@ -35,6 +35,7 @@ const StreamerProfile: React.FC = () => {
   const next = idx >= 0 && idx < list.length - 1 ? list[idx + 1] : undefined;
   const roundup = MARKET_ROUNDUP[market];
   const roundupPath = `/blog/${roundup.slug}`;
+  const L = profileLabels(market);
 
   const langLabel = languageLabel(c.language, market);
   const langTip = languageTooltip(c.language, market);
@@ -140,7 +141,7 @@ const StreamerProfile: React.FC = () => {
                 />
                 <div className="min-w-0 pb-0.5">
                   <span className="text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase text-white/70 mb-1 block">
-                    Norsk streaming
+                    {L.eyebrow}
                   </span>
                   <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.0]">
                     {c.name}
@@ -176,7 +177,7 @@ const StreamerProfile: React.FC = () => {
             </p>
             <div className="lg:pt-1">
               <span className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">
-                Følg {c.name}
+                {L.follow} {c.name}
               </span>
               <div className="flex flex-wrap gap-2">
                 {c.socials.map((s) => (
@@ -203,7 +204,7 @@ const StreamerProfile: React.FC = () => {
             <div className="flex items-center gap-2 mb-5">
               <SocialIcon label="Twitch" className="w-4 h-4 text-primary" />
               <h2 className="text-xs font-semibold tracking-widest uppercase text-primary">
-                Twitch-statistikk
+                {L.twitchStats}
               </h2>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-12">
@@ -211,20 +212,20 @@ const StreamerProfile: React.FC = () => {
                 <div className="text-3xl md:text-4xl font-light tracking-tight text-foreground tabular-nums">
                   {fmtFollowers(c.twitchStats.followers)}
                 </div>
-                <div className="text-xs text-muted-foreground mt-1">følgere</div>
+                <div className="text-xs text-muted-foreground mt-1">{L.followers}</div>
               </div>
               <div>
                 <div className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
-                  {c.twitchStats.partner ? "Partner" : "Affiliate"}
+                  {c.twitchStats.partner ? L.partner : L.affiliate}
                 </div>
-                <div className="text-xs text-muted-foreground mt-1">Twitch-status</div>
+                <div className="text-xs text-muted-foreground mt-1">{L.statusLabel}</div>
               </div>
               {c.twitchStats.createdAt && (
                 <div>
                   <div className="text-3xl md:text-4xl font-light tracking-tight text-foreground tabular-nums">
                     {c.twitchStats.createdAt.slice(0, 4)}
                   </div>
-                  <div className="text-xs text-muted-foreground mt-1">på Twitch siden</div>
+                  <div className="text-xs text-muted-foreground mt-1">{L.since}</div>
                 </div>
               )}
               {c.twitchStats.lastGame && (
@@ -232,14 +233,11 @@ const StreamerProfile: React.FC = () => {
                   <div className="text-2xl md:text-3xl font-light tracking-tight text-foreground truncate">
                     {c.twitchStats.lastGame}
                   </div>
-                  <div className="text-xs text-muted-foreground mt-1">siste kategori</div>
+                  <div className="text-xs text-muted-foreground mt-1">{L.category}</div>
                 </div>
               )}
             </div>
-            <p className="text-[11px] text-muted-foreground/70 mt-5">
-              Tall hentet fra Twitch. Følgertall er et øyeblikksbilde og endrer seg
-              kontinuerlig.
-            </p>
+            <p className="text-[11px] text-muted-foreground/70 mt-5">{L.statsNote}</p>
           </section>
         )}
 
@@ -247,7 +245,7 @@ const StreamerProfile: React.FC = () => {
         {c.highlights.length > 0 && (
           <section className="border-t border-border/60 pt-12 mb-14">
             <h2 className="text-xs font-semibold tracking-widest uppercase text-primary mb-4">
-              Høydepunkter
+              {L.highlights}
             </h2>
             <ul className="grid sm:grid-cols-2 gap-x-10 gap-y-3">
               {c.highlights.map((h, i) => (
@@ -263,6 +261,7 @@ const StreamerProfile: React.FC = () => {
         {/* Medieseksjon - Twitch-klipp, YouTube, TikTok i faner */}
         <StreamerMedia
           name={c.name}
+          market={market}
           twitchHandle={c.handle}
           twitchClips={c.twitchClips}
           youtubeVideos={c.youtubeVideos}
@@ -275,7 +274,7 @@ const StreamerProfile: React.FC = () => {
         {c.news && c.news.length > 0 && (
           <section className="border-t border-border/60 pt-12 mb-14">
             <h2 className="text-xs font-semibold tracking-widest uppercase text-primary mb-5">
-              I pressen
+              {L.inPress}
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {c.news.map((a) => (
@@ -289,7 +288,7 @@ const StreamerProfile: React.FC = () => {
         {c.references.length > 0 && (
           <section className="border-t border-border/60 pt-12 mb-14 max-w-3xl">
             <h2 className="text-xs font-semibold tracking-widest uppercase text-primary mb-4">
-              Bakgrunn og kilder
+              {L.sources}
             </h2>
             <ul className="space-y-1">
               {c.references.map((r) => (
@@ -309,11 +308,7 @@ const StreamerProfile: React.FC = () => {
                 </li>
               ))}
             </ul>
-            <p className="text-[11px] text-muted-foreground/70 mt-6">
-              Faktagrunnlag hentet fra sjekkbare offentlige kilder. Tall fra
-              trackere (følgere, gjennomsnittsseere) er øyeblikksbilder og
-              varierer over tid.
-            </p>
+            <p className="text-[11px] text-muted-foreground/70 mt-6">{L.sourcesNote}</p>
           </section>
         )}
 
