@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { CREATORS } from "@/data/norskeStreamere";
 
 /**
  * Flagship Norwegian creator roundup - bespoke editorial layout (not the generic
@@ -11,196 +12,8 @@ import { ArrowRight } from "lucide-react";
  * qualitative in the copy and listed in the publish-time verify notes.
  */
 
-interface SocialLink {
-  label: string;
-  url: string;
-}
 
-interface Creator {
-  handle: string;          // Twitch handle for the channel link
-  name: string;            // display name
-  realName?: string;       // only when publicly known + reasonably confirmed
-  meta: string;            // platforms / role line
-  blurb: string;           // 1-2 sentence native Norwegian description
-  image: string;           // local path (downloaded real photo)
-  attribution: string;     // who to credit (rendered as a small label under the image)
-  attributionUrl: string;  // canonical source page for the photo
-  /** Streaming language - important for brands picking who to work with. */
-  language: "no" | "en" | "mixed";
-  /** Sosiale lenker, kun de jeg har kilde for (gjetter ikke). */
-  socials: SocialLink[];
-}
 
-const CREATORS: Creator[] = [
-  {
-    handle: "mrsavage",
-    name: "MrSavage",
-    realName: "Martin Foss Andersen",
-    meta: "Twitch · YouTube · proff Fortnite",
-    blurb:
-      "Norges desidert største navn på Twitch. Profesjonell Fortnite-spiller med Fortnite-VM bak seg og et publikum i millionklassen på tvers av plattformene.",
-    image: "/lovable-uploads/creators/mrsavage.jpg",
-    attribution: "Liquipedia (FNCS Major)",
-    attributionUrl: "https://liquipedia.net/fortnite/MrSavage",
-    language: "en",
-    socials: [
-      { label: "Twitch",    url: "https://www.twitch.tv/mrsavage" },
-      { label: "YouTube",   url: "https://www.youtube.com/@MrSavageOG" },
-      { label: "Instagram", url: "https://www.instagram.com/mrsavage" },
-    ],
-  },
-  {
-    handle: "knut",
-    name: "Knut",
-    realName: "Knut Spildrejorde",
-    meta: "Twitch · fitness, IRL & gaming",
-    blurb:
-      "Streameren som koblet norsk treningskultur til gaming. Kjent for «Camp Knut» og en blanding av gym, IRL og spill - i dag med mye av innholdet drevet fra USA.",
-    image: "/lovable-uploads/creators/knut.png",
-    attribution: "Wikimedia Commons (CC BY 3.0)",
-    attributionUrl: "https://commons.wikimedia.org/wiki/File:Knut_2023-06-09_01.png",
-    language: "en",
-    socials: [
-      { label: "Twitch",    url: "https://www.twitch.tv/knut" },
-      { label: "Instagram", url: "https://www.instagram.com/knutspild" },
-      { label: "X",         url: "https://x.com/Knutspild" },
-    ],
-  },
-  {
-    handle: "detoo",
-    name: "detoo",
-    realName: "Jørgen Jenssen",
-    meta: "Twitch · YouTube · variert",
-    blurb:
-      "En av de mest sette norskspråklige streamerne. Hopper mellom Fortnite, Minecraft, Rust og Just Chatting, og holder et høyt tempo med mange timer live.",
-    image: "/lovable-uploads/creators/detoo.jpg",
-    attribution: "detoo.no",
-    attributionUrl: "https://detoo.no/",
-    language: "no",
-    socials: [
-      { label: "Twitch",  url: "https://www.twitch.tv/detoo" },
-      { label: "YouTube", url: "https://www.youtube.com/@detoo" },
-      { label: "Nettside", url: "https://detoo.no/" },
-    ],
-  },
-  {
-    handle: "emzia",
-    name: "Emzia",
-    realName: "Emilie Helgesen",
-    meta: "Twitch · skytespill & variert",
-    blurb:
-      "En av Norges mest etablerte streamere og en tydelig stemme for et trygt streamingmiljø. Tidligere Twitch-ambassadør, og et kjent fjes også utenfor plattformen.",
-    image: "/lovable-uploads/creators/emzia.png",
-    attribution: "NOT Management",
-    attributionUrl: "https://notmanagement.no/talent/emzia/",
-    language: "no",
-    socials: [
-      { label: "Twitch",    url: "https://www.twitch.tv/emzia" },
-      { label: "Instagram", url: "https://www.instagram.com/emziatv" },
-      { label: "TikTok",    url: "https://www.tiktok.com/@emziatv" },
-      { label: "YouTube",   url: "https://www.youtube.com/@emziatv" },
-    ],
-  },
-  {
-    handle: "thomaspaste",
-    name: "thomasPASTE",
-    meta: "Twitch · variert gaming",
-    blurb:
-      "Tidligere radioprofil som ble fulltidsstreamer. Pratsom, personlig stil og en av de mer langvarige norske kanalene.",
-    image: "/lovable-uploads/creators/thomaspaste.png",
-    attribution: "Twitch / @thomaspaste",
-    attributionUrl: "https://www.twitch.tv/thomaspaste",
-    language: "no",
-    socials: [
-      { label: "Twitch",  url: "https://www.twitch.tv/thomaspaste" },
-      { label: "YouTube", url: "https://www.youtube.com/@thomasPASTE" },
-      { label: "X",       url: "https://x.com/thomaspaste" },
-    ],
-  },
-  {
-    handle: "klokkismann",
-    name: "Klokkismann",
-    realName: "Aslak Maurstad",
-    meta: "Twitch · Minecraft, sjakk & prat",
-    blurb:
-      "Skuespiller og stemmeskuespiller som også streamer. Vant «Forræder» i 2023, og veksler mellom Minecraft, sjakk og Just Chatting.",
-    image: "/lovable-uploads/creators/klokkismann.jpg",
-    attribution: "Foto: Jan-Petter Dahl / TV 2 (NTB pressemelding)",
-    attributionUrl:
-      "https://kommunikasjon.ntb.no/pressemelding/18478817/aslak-maurstad-leder-ny-storsatsing-pa-tv-2",
-    language: "no",
-    socials: [
-      { label: "Twitch",    url: "https://www.twitch.tv/klokkismann" },
-      { label: "Instagram", url: "https://www.instagram.com/klokkismann" },
-      { label: "YouTube",   url: "https://www.youtube.com/@klokkismann" },
-    ],
-  },
-  {
-    handle: "dennisvareide",
-    name: "Dennis Vareide",
-    realName: "Dennis Vareide",
-    meta: "YouTube · Twitch · Minecraft",
-    blurb:
-      "En av Norges OG-skapere. Halvparten av «Prebz og Dennis», med en lang fartstid i norsk YouTube og TV i tillegg til streaming.",
-    image: "/lovable-uploads/creators/dennisvareide.jpg",
-    attribution: "Thor Brødreskift, Wikimedia Commons (CC BY-SA 2.0)",
-    attributionUrl:
-      "https://commons.wikimedia.org/wiki/File:Dennis_Vareide_-_YouTube-talentene-_de_nye_mediestjernene_-_NMD_2015_(17236435890)_(cropped).jpg",
-    language: "mixed",
-    socials: [
-      { label: "YouTube", url: "https://www.youtube.com/@PrebzOgDennis" },
-      { label: "Twitch",  url: "https://www.twitch.tv/dennisvareide" },
-    ],
-  },
-  {
-    handle: "jonieboi",
-    name: "Jonieboi",
-    realName: "Jonas Johannessen",
-    meta: "YouTube · Twitch · reaksjon & humor",
-    blurb:
-      "Kjent for reaksjons- og komiinnhold med norsk humor. Størst på YouTube, men også aktiv på Twitch.",
-    image: "/lovable-uploads/creators/jonieboi.png",
-    attribution: "Spires Agency",
-    attributionUrl: "https://www.spiresagency.com/talent/jonieboi",
-    language: "no",
-    socials: [
-      { label: "YouTube",   url: "https://www.youtube.com/@JonieBoi" },
-      { label: "Twitch",    url: "https://www.twitch.tv/jonieboi" },
-      { label: "Instagram", url: "https://www.instagram.com/jonieboitv" },
-      { label: "TikTok",    url: "https://www.tiktok.com/@jonieboi" },
-    ],
-  },
-  {
-    handle: "danniz",
-    name: "DannizTV",
-    meta: "Twitch · variert gaming",
-    blurb:
-      "«Løs humor og high-quality gaming.» En langvarig norsk kanal med en lojal seerskare - en av streamerne Beta Ads selv har jobbet med.",
-    image: "/lovable-uploads/creators/danniz.png",
-    attribution: "Twitch / @danniz",
-    attributionUrl: "https://www.twitch.tv/danniz",
-    language: "no",
-    socials: [{ label: "Twitch", url: "https://www.twitch.tv/danniz" }],
-  },
-  {
-    handle: "mystixx",
-    name: "Mystixx",
-    meta: "Twitch · IRL & Minecraft",
-    blurb:
-      "Fulltidsstreamer fra Kongsberg, kjent for IRL/Just Chatting og Minecraft Hardcore.",
-    image: "/lovable-uploads/creators/mystixx.png",
-    attribution: "Twitch / @mystixx",
-    attributionUrl: "https://www.twitch.tv/mystixx",
-    language: "no",
-    socials: [
-      { label: "Twitch",    url: "https://www.twitch.tv/mystixx" },
-      { label: "YouTube",   url: "https://www.youtube.com/@mystixx" },
-      { label: "Instagram", url: "https://www.instagram.com/mystixxtv" },
-      { label: "TikTok",    url: "https://www.tiktok.com/@mystixxtwitch" },
-      { label: "X",         url: "https://x.com/MystixxTV" },
-    ],
-  },
-];
 
 const NorskeStreamere2026: React.FC = () => {
   return (
@@ -344,6 +157,15 @@ const NorskeStreamere2026: React.FC = () => {
                   </a>
                 ))}
               </div>
+
+              {/* Les mer -> profilsiden */}
+              <Link
+                to={`/streamere/${c.handle}`}
+                className="inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 mt-4 group/link"
+              >
+                Les mer om {c.name}
+                <ArrowRight className="w-3 h-3 transition-transform group-hover/link:translate-x-0.5" />
+              </Link>
 
               {/* Foto-attribusjon */}
               <p className="text-[10px] text-muted-foreground/70 mt-4 pt-3 border-t border-border/40">
