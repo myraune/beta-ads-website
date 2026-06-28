@@ -34,6 +34,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "OfficialAndyPyro · StreamsCharts", url: "https://streamscharts.com/channels/officialandypyro", type: "tracker" }
     ],
     twitchStats: { followers: 284642, partner: true, createdAt: "2013-07-13T17:34:12.031499Z", lastGame: "IRL" },
+    youtubeChannelHandle: "UCzbZRte6ZBCsTFXo8Wj_7tg",
+    youtubeVideos: [
+      { id: "gg2eckt6X9A", title: "Rough Road to 3K - Andy in CS - multistream kick/twitch", published: "2025-05-08T19:10:35+00:00" },
+      { id: "7k74DvwlbY8", title: "Washed up Andy in CS - WHAT IS THIS ???", published: "2025-05-03T06:01:51+00:00" },
+      { id: "0wXtIrBmkLk", title: "Waifu Wagonin Tarina", published: "2024-12-24T07:44:36+00:00" },
+      { id: "GeVZW-9TdZw", title: "Eesti Andy.exe", published: "2024-05-23T18:00:11+00:00" },
+      { id: "5Ijo3UCvv74", title: "Andyn yökylässä - Paleface", published: "2023-03-26T17:30:02+00:00" },
+      { id: "I69TsfT0Sfk", title: "Andy Pyro - Striimaan Priimaa (Virallinen musiikkivideo)", published: "2023-03-21T21:45:10+00:00" },
+    ],
     twitchClips: [
       { slug: "PoisedGiantHippoTheTarFu-nAMKKntldmrYHo0c", title: "Waifu wagon", viewCount: 122102, duration: 31, createdAt: "2022-01-31T13:32:00Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/cf22c667-508d-4435-b8c0-416664b0049d/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/officialandypyro/clip/PoisedGiantHippoTheTarFu-nAMKKntldmrYHo0c" },
       { slug: "FlirtyAuspiciousParrotFUNgineer-MgoLzx3OlCGcGT8D", title: "240K Fire in the hole ", viewCount: 116398, duration: 28, createdAt: "2021-03-17T08:05:36Z", game: "Slots", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/6bcef36b-a923-429e-97cd-92bf96b324a4/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/officialandypyro/clip/FlirtyAuspiciousParrotFUNgineer-MgoLzx3OlCGcGT8D" },
@@ -71,6 +80,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Laeppa · StreamsCharts", url: "https://streamscharts.com/channels/laeppa", type: "tracker" }
     ],
     twitchStats: { followers: 234641, partner: true, createdAt: "2012-10-16T11:58:39.524606Z", lastGame: "MECCHA CHAMELEON" },
+    youtubeChannelHandle: "UCBJ4RpQPQutOnWcqiooL9eQ",
+    youtubeVideos: [
+      { id: "lr9uUjUtRY0", title: "KESÄN MEGAVIDEO (2026)", published: "2026-06-24T07:34:10+00:00" },
+      { id: "uXei8bc63cE", title: "Kuinka KAMELEONTIN piirrän? (MECCHA CHAMELEON)", published: "2026-06-15T16:44:44+00:00" },
+      { id: "Tfm7DXdpokM", title: "Menin OIKEISIIN töihin", published: "2026-06-05T11:02:05+00:00" },
+      { id: "cHBo94HUjUA", title: "Onko tämä PARAS zombipeli? (Resident Evil 4 Remake)", published: "2026-05-29T15:47:28+00:00" },
+      { id: "au_dTK6EQbc", title: "uus pandemia just droppas! #rauski #laeppavika #suomitube #shorts", published: "2026-05-09T12:38:08+00:00" },
+      { id: "eM0EMpcwy60", title: "Tie Vostokista Kauhupeleihin (Hauskimmat hetket huhtikuu 2026)", published: "2026-05-03T08:49:19+00:00" },
+    ],
     twitchClips: [
       { slug: "RichAntediluvianJamPrimeMe-5pCZ3ccPRfz-rdBH", title: "Mr. Teapot", viewCount: 220397, duration: 35, createdAt: "2023-04-03T17:12:09Z", game: "The Last of Us Part I", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/c5f541fb-aeb1-4edd-bdd0-5351f54f18d9/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/laeppa/clip/RichAntediluvianJamPrimeMe-5pCZ3ccPRfz-rdBH" },
       { slug: "AbnegateGorgeousDotterelOneHand-OR98b0kLwH5v4qKZ", title: "Average Fin internet", viewCount: 96445, duration: 49, createdAt: "2023-12-07T14:18:31Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/6546e693-a522-45e2-b818-9d593ddbb632/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/laeppa/clip/AbnegateGorgeousDotterelOneHand-OR98b0kLwH5v4qKZ" },
@@ -140,6 +158,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Taimou · Esports Earnings", url: "https://www.esportsearnings.com/players/27563-taimou-timo-kettunen", type: "tracker" }
     ],
     twitchStats: { followers: 168641, partner: true, createdAt: "2014-01-07T14:14:59.108523Z", lastGame: "Deadlock" },
+    youtubeChannelHandle: "Taimou",
+    youtubeVideos: [
+      { id: "PGD39eIdYVE", title: "Taimou FARMS Medals On Wraith!", published: "2025-01-20T17:00:32+00:00" },
+      { id: "Go-TjfT89O8", title: "Taimou Burns Everything!", published: "2025-01-14T17:00:26+00:00" },
+      { id: "boN_w85q1wY", title: "Taimou DOMINATES With Wraith!", published: "2024-12-30T17:00:37+00:00" },
+      { id: "jmjUVmniVbA", title: "Taimou The Seven Main!", published: "2024-12-24T17:00:47+00:00" },
+      { id: "TF7fXQcH1d0", title: "Lane Domination With Seven!", published: "2024-12-17T17:00:33+00:00" },
+      { id: "5e6RdEmL_hc", title: "Taimou's LOVES Seven's Balls!", published: "2024-12-08T17:00:05+00:00" },
+    ],
     twitchClips: [
       { slug: "ToughSuspiciousBaguettePicoMause", title: "taimou on adderall", viewCount: 201679, duration: 29, createdAt: "2018-11-12T18:45:38Z", game: "Overwatch", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/12010dab-2910-48f8-8b46-fed99a758ad9/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/taimoutv/clip/ToughSuspiciousBaguettePicoMause" },
       { slug: "AbnegateRudeDogWow", title: "[NSFW] taimou good aim flick 👌", viewCount: 67689, duration: 8, createdAt: "2017-09-08T16:13:19Z", game: "Overwatch", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/68deb4f8-2fcd-408d-93e9-8aa5e69b9ad8/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/taimoutv/clip/AbnegateRudeDogWow" },
@@ -177,6 +204,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "eeddspeaks · Speakersfactory", url: "https://speakersfactory.fi/esiintyjat-ja-ohjelma/eeddspeaks-eetu/", type: "agency" }
     ],
     twitchStats: { followers: 139873, partner: true, createdAt: "2012-09-08T21:17:51.779989Z", lastGame: "Just Chatting" },
+    youtubeChannelHandle: "UCvx1h5K7wZzOFJiPzSvpq4w",
+    youtubeVideos: [
+      { id: "mIaCo-EqZDU", title: "Muutto joka meinas mennä pahasti mönkään ft. Tepatus", published: "2026-06-27T16:04:59+00:00" },
+      { id: "rkLIcNjhEpc", title: "Elämä villissä lännessä on näköjään mahdotonta - Cowboy Simulator #10", published: "2026-06-25T14:40:29+00:00" },
+      { id: "FLWJgdBEZXA", title: "Aika soluttautua! - Life is Strange Re #8", published: "2026-06-17T13:52:29+00:00" },
+      { id: "uHQlejOmKZI", title: "Tiukka battle virusmörköjen kanssa - Subnautica 2 #5", published: "2026-06-15T12:47:37+00:00" },
+      { id: "fCKLO6P9NW8", title: "Lopetus josta ei draamaa puutu! - Muumipeikko: Talven taika #7", published: "2026-06-13T12:30:35+00:00" },
+      { id: "qqf104GQbY0", title: "Karmiva susimetsä!!! - Muumipeikko: Talven taika #6", published: "2026-06-11T12:10:50+00:00" },
+    ],
     twitchClips: [
       { slug: "BitterVastBottlePogChamp-hgmo0_1kmLbn_n5H", title: "Leo Pessi", viewCount: 9495, duration: 30, createdAt: "2023-07-09T02:19:12Z", game: "SongTrivia 2: Guess the song", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/aca72bc5-0d9d-4e3c-a933-53c937bcebb6/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/eeddspeaks/clip/BitterVastBottlePogChamp-hgmo0_1kmLbn_n5H" },
       { slug: "BoldMistyLampRaccAttack-ZZI4x0EFBIlrOO61", title: "Nappi pohjaa Jeesus ohjaa", viewCount: 8200, duration: 30, createdAt: "2023-06-06T17:34:09Z", game: "Counter-Strike", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/286eaeeb-8f86-4cc0-bba2-0cbd11911f7e/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/eeddspeaks/clip/BoldMistyLampRaccAttack-ZZI4x0EFBIlrOO61" },
@@ -210,6 +246,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Suomen seuratuimmat Twitch-striimaajat 2024 · Statista", url: "https://www.statista.com/statistics/1326189/most-popular-twitch-streamers-in-finland/", type: "news" }
     ],
     twitchStats: { followers: 125675, partner: true, createdAt: "2014-03-31T13:52:54.992515Z", lastGame: "Black Myth: Wukong" },
+    youtubeChannelHandle: "CoDTupakkalakko",
+    youtubeVideos: [
+      { id: "xqGTxbV5ct0", title: "OLEN MESTARIPIILOUTUJA! - Meccha Chameleon", published: "2026-06-27T10:43:56+00:00" },
+      { id: "7KDh-DQ-2SU", title: "Yritän selviytyä yksin merellä!", published: "2026-06-18T13:00:57+00:00" },
+      { id: "Bruc28Bu5NM", title: "Aloitetaan SUBNAUTICA!", published: "2026-06-12T14:39:09+00:00" },
+      { id: "fCnp12Pvih0", title: "Uskomaton viikonloppu Budapestissa!", published: "2026-06-06T15:46:27+00:00" },
+      { id: "1yjzAKPOXic", title: "Minecraftia VAIMON kanssa! (OSA 3)", published: "2026-05-27T14:46:57+00:00" },
+      { id: "o-Jy3aWlYTY", title: "Päihitin VAIKEIMMAN PELIN, mutta se rikkoi mut!", published: "2026-05-23T14:54:03+00:00" },
+    ],
     twitchClips: [
       { slug: "DaintyTardyCamelTebowing", title: "LAKKOSTREAM", viewCount: 3531, duration: 16, createdAt: "2016-11-17T23:39:28Z", game: null, thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/a681b2de-ece7-4a4e-9ee5-8d1565313365/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/lakkoilija/clip/DaintyTardyCamelTebowing" },
       { slug: "PeacefulAggressivePigeonPlanking", title: "LAKKOSTREAM", viewCount: 2414, duration: 29, createdAt: "2019-10-07T10:47:42Z", game: null, thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/ba9a1911-84c3-43b6-9bc1-35cad1cd4b87/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/lakkoilija/clip/PeacefulAggressivePigeonPlanking" },
@@ -245,6 +290,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "pelaajatcom · StreamsCharts", url: "https://streamscharts.com/channels/pelaajatcom", type: "tracker" }
     ],
     twitchStats: { followers: 118365, partner: true, createdAt: "2018-09-17T15:40:54.959147Z", lastGame: "Counter-Strike" },
+    youtubeChannelHandle: "UCjUTyCEc_kDb9czB5dC-h5g",
+    youtubeVideos: [
+      { id: "dUwPeMFRiSs", title: "🔥IEM Cologne Major 2026 🍻 Päätösottelu FURIA vs Falcons 🍻🎙️OLVARi / oonraimo & sLowiNd / SamppaCS2🔥", published: "2026-06-21T19:51:09+00:00" },
+      { id: "3BZpTWok_KU", title: "🔥 IEM Cologne Major 2026 Pudotuspelit 🍻 Välierät 🍻🎙️ OLVARi / oonraimo & sLowiNd / SamppaCS2 🔥", published: "2026-06-20T21:10:21+00:00" },
+      { id: "kFwQpK3HzOI", title: "🔥 IEM Cologne Major 2026 Pudotuspelit 🍻 Puolivälierät 2/2 #SAHATTAA 🍻🎙️ oonraimo & @samppacs2 🔥", published: "2026-06-19T23:43:42+00:00" },
+      { id: "xqhEyXZ4JXA", title: "Tunteella ja tuurilla 🤌🏼☕#pelaajatcom #esports #cs #cs2 #counterstrike", published: "2026-06-19T15:23:14+00:00" },
+      { id: "GcNmvUTLXcE", title: "🔥 IEM Cologne Major 2026 Pudotuspelit 🍻 Puolivälierät 1/2 🍻🎙️  @OLVARi & sLowiNd  🔥", published: "2026-06-18T20:55:08+00:00" },
+      { id: "cLT21Ig8wHo", title: "🔥 IEM Cologne Major 2026 Stage 3 🍻 Päivä #5 🍻🎙️  @OLVARi & sLowiNd  🔥", published: "2026-06-15T21:24:37+00:00" },
+    ],
     twitchClips: [
       { slug: "NaiveCulturedPigeonPeteZarollTie", title: "The Finnish speaking English is the best", viewCount: 115114, duration: 24, createdAt: "2019-08-28T15:52:28Z", game: "Counter-Strike", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/a004b699-ea6b-432c-9671-6bd8fbfaa523/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/pelaajatcom/clip/NaiveCulturedPigeonPeteZarollTie" },
       { slug: "VictoriousVivaciousCodThisIsSparta", title: "Barbie girl", viewCount: 95462, duration: 59, createdAt: "2019-08-31T12:08:56Z", game: "Counter-Strike", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/ddcab3e0-0770-4bf4-85a0-1dd38059cd95/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/pelaajatcom/clip/VictoriousVivaciousCodThisIsSparta" },
@@ -314,6 +368,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "jennijanina · StreamsCharts", url: "https://streamscharts.com/channels/jennijanina", type: "tracker" }
     ],
     twitchStats: { followers: 16189, partner: true, createdAt: "2021-10-11T12:06:02.595336Z", lastGame: "Just Chatting" },
+    youtubeChannelHandle: "jennijanina",
+    youtubeVideos: [
+      { id: "ZwbqBnVtnms", title: "Musiikkivideo ulkona NYT ❤️‍🔥❤️‍🔥", published: "2025-11-08T10:24:37+00:00" },
+      { id: "TFaDFcFMRFY", title: "JENESIS - Antaudun", published: "2025-11-08T10:00:47+00:00" },
+      { id: "TfrvuCw6bBM", title: "Kiitos ❤️🙏", published: "2025-11-04T16:50:37+00:00" },
+      { id: "H4XM-XpaeKE", title: "Antaudun ulkona 7.11 ❤️‍🔥", published: "2025-11-04T10:54:57+00:00" },
+      { id: "XsjhPuX5jvY", title: "Antaudun 7.11!!", published: "2025-11-03T11:55:53+00:00" },
+      { id: "HE8Z-0h0g0g", title: "Tehtiin tällanen laulu, mitä oot mieltä ❤️‍🔥", published: "2025-10-28T14:57:42+00:00" },
+    ],
     twitchClips: [
       { slug: "PlacidBenevolentStorkEagleEye-nNZ06l1J_h15fKbw", title: "hetkinen", viewCount: 16972, duration: 4, createdAt: "2021-12-05T00:53:36Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/805d2369-df4a-45f5-8322-2492412d09be/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/jennijanina/clip/PlacidBenevolentStorkEagleEye-nNZ06l1J_h15fKbw" },
       { slug: "OnerousDaintyPlumberHeyGirl--D1zxgsRL3dd7ADA", title: "Uus sänky pog ilmapatja helvettii", viewCount: 13857, duration: 29, createdAt: "2022-02-09T11:05:42Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/7c9b10ed-5c90-431a-b07f-09be961efd27/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/jennijanina/clip/OnerousDaintyPlumberHeyGirl--D1zxgsRL3dd7ADA" },
@@ -348,6 +411,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Aleeksi · StreamsCharts", url: "https://streamscharts.com/channels/aleeksi", type: "tracker" }
     ],
     twitchStats: { followers: 120138, partner: false, createdAt: "2013-04-26T19:04:18.074087Z", lastGame: "Counter-Strike" },
+    youtubeChannelHandle: "Aleksibob",
+    youtubeVideos: [
+      { id: "3ulnvum6FE8", title: "First Video As A Ninja", published: "2023-02-28T18:05:13+00:00" },
+      { id: "hqIS-uaDIwg", title: "Aleksib 5Head Outplay", published: "2021-09-09T19:12:29+00:00" },
+      { id: "lGeQefsCil8", title: "A Couple Mirage Games To Help You Relax...", published: "2021-08-16T17:16:21+00:00" },
+      { id: "6FyPVKfw1vY", title: "Flamez Takes Over My Stream", published: "2021-04-28T14:06:24+00:00" },
+      { id: "V7xPEtQwNMw", title: "First Stream Of 2021 :]", published: "2021-04-22T13:26:46+00:00" },
+      { id: "l2fIT-2gHrc", title: "Chill Retakes & Broken Fang Collections", published: "2021-01-28T17:56:38+00:00" },
+    ],
     twitchClips: [
       { slug: "ColdStylishGoldfishOSfrog", title: "Aleksib gets a kill with a flash", viewCount: 81721, duration: 16, createdAt: "2019-08-01T13:41:49Z", game: "Counter-Strike", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/8f19024f-35aa-48e7-af79-e9ad418201d1/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/aleeksi/clip/ColdStylishGoldfishOSfrog" },
       { slug: "CrackyCogentPigDoubleRainbow", title: "200iq", viewCount: 62063, duration: 60, createdAt: "2020-07-16T12:45:15Z", game: "Counter-Strike", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/f1285845-9b5d-4233-9883-cc9770c323c2/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/aleeksi/clip/CrackyCogentPigDoubleRainbow" },

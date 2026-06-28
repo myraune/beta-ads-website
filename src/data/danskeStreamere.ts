@@ -32,6 +32,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "TwitchTracker statistik", url: "https://twitchtracker.com/jaxstyle", type: "tracker" }
     ],
     twitchStats: { followers: 304349, partner: true, createdAt: "2014-07-03T18:04:34.241191Z", lastGame: "IRL" },
+    youtubeChannelHandle: "JaxstyleProductions",
+    youtubeVideos: [
+      { id: "VsxVCcZMYPg", title: "Minecraft med Caroline!", published: "2023-05-04T13:00:31+00:00" },
+      { id: "Tt0LN_aL9iI", title: "Hvad vi ved om det nye Counter Strike... (Source 2)", published: "2023-03-09T14:00:22+00:00" },
+      { id: "6Q57zWUqf0o", title: "Andreas Hauge og Agge lærer mig Fornite!", published: "2023-02-28T15:00:03+00:00" },
+      { id: "mki2s3tuUzQ", title: "DET MEST INTENSE CSGO GAME!", published: "2023-02-26T11:02:01+00:00" },
+      { id: "nOy6I4Gv9Ro", title: "JAXSTYLE SPILER HUMAN FALL FLAT!", published: "2023-02-02T14:00:25+00:00" },
+      { id: "GwoKgkmEz5w", title: "JAXSTYLE SPILLER ZERO BUILD FORTNITE!", published: "2023-02-01T14:00:07+00:00" },
+    ],
     twitchClips: [
       { slug: "JazzyElegantVelociraptorEleGiggle-4-S1rqu-tnXyiSkg", title: "crazy behaviour", viewCount: 34368, duration: 59, createdAt: "2023-12-27T23:31:50Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/03d32789-5454-4ff6-8ec6-f1804cb3a161/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/jaxstyle/clip/JazzyElegantVelociraptorEleGiggle-4-S1rqu-tnXyiSkg" },
       { slug: "TriangularFastCaribouPipeHype-yj5Bj-ovtBgocXr8", title: ":)", viewCount: 28786, duration: 28, createdAt: "2022-12-21T22:35:12Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/5f3cedc7-56cd-4d92-91eb-dd6f1fffda58/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/jaxstyle/clip/TriangularFastCaribouPipeHype-yj5Bj-ovtBgocXr8" },
@@ -66,6 +75,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "TwitchTracker statistik", url: "https://twitchtracker.com/sondergaardlol", type: "tracker" }
     ],
     twitchStats: { followers: 271977, partner: true, createdAt: "2017-01-25T19:18:59.234925Z", lastGame: "IRL" },
+    youtubeChannelHandle: "UCbJlVPh9pZWtaOTAfp1Owmg",
+    youtubeVideos: [
+      { id: "81VyTrEr6nc", title: "SKAL JEG MAIN JUNGLE FREMOVER?", published: "2025-08-22T14:21:49+00:00" },
+      { id: "KrULBQEv4A0", title: "DET MÆRKELIGSTE GAME I ÅR", published: "2025-08-19T13:42:41+00:00" },
+      { id: "LBIpK4AC6XA", title: "JEG FIK JUNGLE AUTOFILL...", published: "2025-08-11T15:07:36+00:00" },
+      { id: "KaEo0oOiTak", title: "DE VAR 3 SEKUNDER FRA AT VINDE", published: "2025-07-24T13:00:37+00:00" },
+      { id: "mgH0bIk-bKg", title: "WENDEL OG JEG SPILLER MED BOTS", published: "2025-07-18T15:35:35+00:00" },
+      { id: "FsudQgJ7RXk", title: "KAN MIN LISSANDRA RAMME CHAL?", published: "2025-07-14T14:51:49+00:00" },
+    ],
     twitchClips: [
       { slug: "BeautifulEndearingLadiesDeIlluminati-zYxIR7Ixu-AjojZS", title: "Gilli kommer? WTF", viewCount: 50712, duration: 11, createdAt: "2025-10-17T19:57:33Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/03659ec2-b404-45f9-9570-5bb270de1169/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/sondergaardlol/clip/BeautifulEndearingLadiesDeIlluminati-zYxIR7Ixu-AjojZS" },
       { slug: "HeartlessBetterGoldfishPogChamp-jyvKhygMVJ4DdTD2", title: "rip belos hånd", viewCount: 45258, duration: 17, createdAt: "2025-10-15T03:47:57Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/8d7b1422-a310-48dd-9c87-3b06dc3f0d9b/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/sondergaardlol/clip/HeartlessBetterGoldfishPogChamp-jyvKhygMVJ4DdTD2" },
@@ -124,6 +142,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Liquipedia Fortnite", url: "https://liquipedia.net/fortnite/MariusCOW", type: "wikipedia" }
     ],
     twitchStats: { followers: 157198, partner: true, createdAt: "2017-12-09T21:40:31.441407Z", lastGame: "Fortnite" },
+    youtubeChannelHandle: "MariusCOW",
+    youtubeVideos: [
+      { id: "EG2crXPqRog", title: "MariusCOW | Highlights #59", published: "2026-06-26T10:13:55+00:00" },
+      { id: "gT_LK1dLzHU", title: "5th Place FNCS Division 1 Finals ($1,500) w/IDrop 🏆", published: "2026-05-25T12:53:25+00:00" },
+      { id: "3AfR5l7_5-0", title: "1st Place FNCS Heats (Qualified Grands) w/IDrop 🏆", published: "2026-04-18T14:01:59+00:00" },
+      { id: "CkP4xvXD0X0", title: "MariusCOW | Highlights #58 (ft. Pollo & Shxrk)", published: "2026-04-03T13:12:50+00:00" },
+      { id: "GT86qlJokgU", title: "1st Place Evaluation Opens (Most Kills) w/IDrop 🏆", published: "2026-03-24T14:24:28+00:00" },
+      { id: "lsD_KQSZ1Gc", title: "1st Place Evaluation Finals ($800) w/IDrop 🏆", published: "2026-03-15T14:03:58+00:00" },
+    ],
     twitchClips: [
       { slug: "CovertPopularLardRuleFive-XT2yybpEZPz5lf3s", title: "nvidia settings 28.02.24", viewCount: 27824, duration: 14, createdAt: "2024-02-28T20:39:22Z", game: "Fortnite", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/c7035e99-a7ab-4b66-9ef6-ed89e329a616/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mariuscow/clip/CovertPopularLardRuleFive-XT2yybpEZPz5lf3s" },
       { slug: "EnergeticHelpfulCiderFUNgineer-vNWeyNBBEBP7mOpW", title: "settings", viewCount: 27437, duration: 32, createdAt: "2024-03-01T15:55:58Z", game: "Fortnite", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/f67a49c4-dc71-4244-b97d-34e633db09f6/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mariuscow/clip/EnergeticHelpfulCiderFUNgineer-vNWeyNBBEBP7mOpW" },
@@ -193,6 +220,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "TwitchTracker statistik", url: "https://twitchtracker.com/jkfifa", type: "tracker" }
     ],
     twitchStats: { followers: 122707, partner: true, createdAt: "2014-11-03T16:03:39.260488Z", lastGame: "Just Chatting" },
+    youtubeChannelHandle: "UCp4Xer5gEK8yc-loStaAqyg",
+    youtubeVideos: [
+      { id: "OZOXvJlSoOU", title: "11 VM kort bestemmer mit FC26 hold!", published: "2026-06-25T13:39:08+00:00" },
+      { id: "5DTAsvY5rQs", title: "En 127 (128) rated Draft Challenge med spænding helt til sidst!", published: "2026-06-20T12:00:11+00:00" },
+      { id: "N82MXz3YEvM", title: "96 Maradona og Froholdt DOMINERER alt! - DRAFT TIL GLORY #37", published: "2026-06-18T15:08:59+00:00" },
+      { id: "W-WuBBbZY9U", title: "Jeg prøvede det helt nye VM gamemode i FC26!", published: "2026-06-17T14:00:23+00:00" },
+      { id: "f8bJL1-J9GM", title: "Draft men jeg må kun tage VM 2026 spillere!", published: "2026-06-15T14:58:06+00:00" },
+      { id: "qW4rnnx_LhQ", title: "96 Bradley Barcola er alt for god!- DRAFT TIL GLORY #36", published: "2026-06-11T14:45:15+00:00" },
+    ],
     twitchClips: [
       { slug: "CaringCourageousBillWoofer-HOHVd9YtSN2nIMCN", title: "1234567890", viewCount: 2065, duration: 59, createdAt: "2022-05-20T18:19:36Z", game: "FIFA 22", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/df18c431-a2f5-4013-b091-b4245df26c3f/landscape/thumb/thumb-0000000000-1600x900.jpg", url: "https://www.twitch.tv/jkfifa/clip/CaringCourageousBillWoofer-HOHVd9YtSN2nIMCN" },
       { slug: "GiantMotionlessLyrebirdJonCarnage-ThcGTzB91ZDcTNLf", title: "Walkout Bernardo", viewCount: 1357, duration: 14, createdAt: "2024-09-18T18:25:17Z", game: "EA Sports FC 25", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/f55f89e3-4321-4a5e-8358-a9fac9cbe34f/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/jkfifa/clip/GiantMotionlessLyrebirdJonCarnage-ThcGTzB91ZDcTNLf" },
@@ -228,6 +264,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "TwitchTracker statistik", url: "https://twitchtracker.com/mariewatson", type: "tracker" }
     ],
     twitchStats: { followers: 122001, partner: true, createdAt: "2013-06-16T00:43:25.182709Z", lastGame: "Just Chatting" },
+    youtubeChannelHandle: "MarieWatson",
+    youtubeVideos: [
+      { id: "z4PjN6sgd-k", title: "En opdatering på mine gigt undersøgelser 👉🏻👈🏻 #dansk #gigt", published: "2026-06-16T12:36:29+00:00" },
+      { id: "C9xXV1bxvzA", title: "UNBOXER EN MINECRAFT HOODIE! 🐝🥹 #dansk #minecraft #gaming", published: "2026-06-12T12:58:33+00:00" },
+      { id: "RAxg1jFF7p0", title: "Hvem skal have bank i Fortnite Monopoly? 💪🏼 #dansk #twitchdanmark #fortnite", published: "2026-06-02T12:32:57+00:00" },
+      { id: "2Bm9xqsH2k0", title: "Reklame for DIF | Hvorfor tror du der ikke er mange kvinder i gaming? 🤔 #dansk #gaming", published: "2026-05-27T12:43:07+00:00" },
+      { id: "ACglk3cZkQU", title: "Jeg er blevet mærket!? 😳 #dansk #twitchdanmark", published: "2026-05-22T12:34:26+00:00" },
+      { id: "Fw2f4H5F74M", title: "Har du en fobi? 😳❤️ #dansk #sygdom #børnegigt", published: "2026-05-21T12:26:48+00:00" },
+    ],
     twitchClips: [
       { slug: "SecretiveAbrasiveTrollBloodTrail", title: "Marie bliver våd på stream 18+", viewCount: 18731, duration: 17, createdAt: "2020-09-24T17:06:56Z", game: "Among Us", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/d8c65c56-f234-4831-91ba-609a39812e54/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mariewatson/clip/SecretiveAbrasiveTrollBloodTrail" },
       { slug: "SucculentLittleSowKevinTurtle-IdYljdXLdOhMISUh", title: "røv Marie ", viewCount: 17925, duration: 5, createdAt: "2021-08-26T16:41:04Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/10bf8e80-da25-4a86-a352-d67c1e7714c2/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mariewatson/clip/SucculentLittleSowKevinTurtle-IdYljdXLdOhMISUh" },
@@ -261,6 +306,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "TwitchTracker statistik", url: "https://twitchtracker.com/ellahdk", type: "tracker" }
     ],
     twitchStats: { followers: 117512, partner: true, createdAt: "2014-09-06T17:02:09.352356Z", lastGame: "Just Chatting" },
+    youtubeChannelHandle: "UCpuUBrQfLB3HNtq987AJ4Qw",
+    youtubeVideos: [
+      { id: "CEpfNBLS8tE", title: "10 år på Twitch – Reaktionsvideo på surprise fra min chat ❤️", published: "2025-08-01T13:09:00+00:00" },
+      { id: "AIjhEyQFq0E", title: "Fra Twitch til Major? Vores første kamp som CS-hold!", published: "2025-05-03T11:00:18+00:00" },
+      { id: "ofpSMgEvYTc", title: "ELLAHDK REWIND 2024", published: "2025-05-01T17:07:11+00:00" },
+      { id: "T15v3vX9m1k", title: "Ny vinder klar til finalen i event 2! (Hunger Games Event)", published: "2025-02-26T11:00:46+00:00" },
+      { id: "SXt8TGusQ24", title: "Gaming VOD: SchoolBoy RunAway med ellahdk", published: "2025-02-09T11:32:02+00:00" },
+      { id: "__stQ1VJMd8", title: "Ellah Du Er En Baby (Minecraft sang af AndersB2000)", published: "2024-09-13T19:36:51+00:00" },
+    ],
     twitchClips: [
       { slug: "DreamyProudArmadilloArgieB8", title: "fritid padcam", viewCount: 6788, duration: 21, createdAt: "2017-05-27T15:10:07Z", game: "IRL", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/6a694113-79d3-4597-a2df-5f5b7cc191ce/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/ellahdk/clip/DreamyProudArmadilloArgieB8" },
       { slug: "IronicConfidentAlpacaPJSugar", title: "Dealer med ondt i ryggen xD", viewCount: 5144, duration: 59, createdAt: "2018-01-15T12:50:35Z", game: "Z1: Battle Royale", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/206fbe9d-9015-4a5f-9c31-32724672cbce/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/ellahdk/clip/IronicConfidentAlpacaPJSugar" },
@@ -297,6 +351,15 @@ export const CREATORS: CreatorProfile[] = [
     ],
     tiktokHandle: "connieheinz",
     twitchStats: { followers: 49788, partner: true, createdAt: "2018-08-07T16:27:08.108022Z", lastGame: "Grand Theft Auto V" },
+    youtubeChannelHandle: "UCYe7JU5mFGI6mAHA6aw4pEQ",
+    youtubeVideos: [
+      { id: "aFmd1AIm5P8", title: "[LIVESTREAM] 😈 AFPRESNING AF BETJENT 😈 OG VAR DE 500.000 KR NOK?! 😈", published: "2026-06-25T22:40:47+00:00" },
+      { id: "j4_KMoHrlf8", title: "[LIVESTREAM] 👀 FLEECA BANK HEIST I AFTEN MÅSKE?! 👀 CONNIE HEINZ PÅ SOCIAL RP! 👀", published: "2026-06-24T22:56:01+00:00" },
+      { id: "ZLYQBFhugP0", title: "[LIVESTREAM] ❌ FLEECA BANK HEIST I AFTEN? ❌ BYENS MEST SINDSYGE KVINDE ❌ SOCIAL RP ❌", published: "2026-06-22T23:35:59+00:00" },
+      { id: "iq5AchqOyFE", title: "[LIVESTREAM] ❌ FLEECA BANK HEIST I AFTEN? ❌ BYENS MEST SINDSYGE KVINDE ❌ SOCIAL RP ❌", published: "2026-06-22T18:13:32+00:00" },
+      { id: "H1sFTB8Eqw8", title: "[LIVESTREAM] ☀️ SOL OG VARME ☀️ AFTALER MED MEKANIKERNE ☀️ VIL FOLK ARBEJDE FOR LTH?! ☀️", published: "2026-06-21T21:17:20+00:00" },
+      { id: "Qzz0jzALzec", title: "[LIVESTREAM] ❌ OPERATION “OPLYSNINGER” ❌ LTH SHINER LIGE NU ❌", published: "2026-06-18T22:37:31+00:00" },
+    ],
     twitchClips: [
       { slug: "RealSecretiveDiamondDendiFace-OlmgTvnMkkqu_BP6", title: "1 mand nede", viewCount: 9020, duration: 14, createdAt: "2022-08-04T23:01:44Z", game: "Grand Theft Auto V", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/82993b97-234f-4a6a-93de-5bfd5aa70eb2/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/connieheinz/clip/RealSecretiveDiamondDendiFace-OlmgTvnMkkqu_BP6" },
       { slug: "ThankfulHappyWrenchNerfBlueBlaster-V5yQKxEemjNKmw7B", title: "CONNIE SMADER TRASHERS!!!", viewCount: 5667, duration: 59, createdAt: "2022-11-06T15:06:34Z", game: "Grand Theft Auto V", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/ad4c70e4-1539-463b-836b-f9165da5b6ff/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/connieheinz/clip/ThankfulHappyWrenchNerfBlueBlaster-V5yQKxEemjNKmw7B" },
@@ -335,6 +398,15 @@ export const CREATORS: CreatorProfile[] = [
     ],
     tiktokHandle: "lykkeograsmus",
     twitchStats: { followers: 5965, partner: false, createdAt: "2024-05-18T03:52:33.408425Z", lastGame: "IRL" },
+    youtubeChannelHandle: "LykkeogRasmus",
+    youtubeVideos: [
+      { id: "iMO6KwJ0u7c", title: "Vi rejser hver til sit..", published: "2026-06-28T14:00:12+00:00" },
+      { id: "hAzWWfdBpOo", title: "Spiser KUN MÆLKESNITTER en HEL DAG!", published: "2026-06-24T14:00:23+00:00" },
+      { id: "pgTxygPiyPY", title: "TASTETEST | Tyskland McDonald's", published: "2026-06-21T14:00:36+00:00" },
+      { id: "tuMlfvhcPCA", title: "NY TASTETEST UDE NU!", published: "2026-06-21T14:00:00+00:00" },
+      { id: "vDu636ADTCk", title: "Lykke Vs Rasmus MINIGAMES EDITION!", published: "2026-06-17T14:00:11+00:00" },
+      { id: "aSQ0AtqHz9U", title: "Udforsker Berlins historie..", published: "2026-06-14T14:00:10+00:00" },
+    ],
     twitchClips: [
       { slug: "AltruisticGlutenFreeDragonflyMrDestructoid-p_X5CJR2PT3nPSHx", title: "Lykke er våd", viewCount: 2773, duration: 11, createdAt: "2025-02-14T07:22:19Z", game: "IRL", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/a81738bd-f0f4-4bd8-b3a6-9896a78937bb/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/lykkeograsmus/clip/AltruisticGlutenFreeDragonflyMrDestructoid-p_X5CJR2PT3nPSHx" },
       { slug: "TenaciousFaithfulFungusBibleThump-7gwNAUIOyQ1Om3UZ", title: "AHAHAHAHAA", viewCount: 1931, duration: 28, createdAt: "2025-02-16T12:35:51Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/27f76f64-be68-4fa4-95f4-861d506470ad/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/lykkeograsmus/clip/TenaciousFaithfulFungusBibleThump-7gwNAUIOyQ1Om3UZ" },

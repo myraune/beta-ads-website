@@ -33,6 +33,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Streams Charts - perra", url: "https://streamscharts.com/channels/perra", type: "tracker" }
     ],
     twitchStats: { followers: 185174, partner: true, createdAt: "2021-09-26T13:22:25.490742Z", lastGame: "Just Chatting" },
+    youtubeChannelHandle: "PerraHvH",
+    youtubeVideos: [
+      { id: "ycGrQd5dGw8", title: "5€ HVH Gang feat. Plaguecheat.cc Alpha bulid", published: "2022-05-14T05:02:04+00:00" },
+      { id: "YuyQwEbHxy8", title: "Rifk7 is coming back. Pre-release of 1.0(Showcase)", published: "2022-05-08T02:33:21+00:00" },
+      { id: "0UZXxwMHOPM", title: "51 kills in apex(cheat for fun)", published: "2022-02-12T17:32:10+00:00" },
+      { id: "mDvglwwsLhQ", title: "reviver ft. primordial.dev", published: "2022-01-16T12:47:49+00:00" },
+      { id: "XEas3opRPx4", title: "monolith.club and kuzyhook （2018 legacy HVH）", published: "2021-08-03T07:03:07+00:00" },
+      { id: "nsdLqFkzPT8", title: "HVH in 2k21 be like?", published: "2021-07-02T11:47:15+00:00" },
+    ],
     twitchClips: [
       { slug: "IntelligentSucculentEggplantTinyFace-RS-rLoRF10Nc4_kK", title: "BAKHÅLL SKOTTLOSSNING", viewCount: 22472, duration: 26, createdAt: "2023-07-18T18:56:10Z", game: "Grand Theft Auto V", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/cfe61393-4cb7-4413-bca2-6d753f815674/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/perra/clip/IntelligentSucculentEggplantTinyFace-RS-rLoRF10Nc4_kK" },
       { slug: "VastShyOtterKappaRoss-GEoMUKxJoABaJRBq", title: "DÅLIGT KORTMINNE", viewCount: 20070, duration: 14, createdAt: "2024-04-09T14:47:28Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/b518f0f8-96b3-4108-966e-c9e13f84b4d4/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/perra/clip/VastShyOtterKappaRoss-GEoMUKxJoABaJRBq" },
@@ -71,6 +80,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Esports Charts - Anomaly", url: "https://escharts.com/players/anomaly", type: "tracker" }
     ],
     twitchStats: { followers: 2848890, partner: true, createdAt: "2014-12-04T03:13:38.94747Z", lastGame: "Counter-Strike" },
+    youtubeChannelHandle: "UCqck1kDsBbrlKWHGRsk7dbQ",
+    youtubeVideos: [
+      { id: "esDst18ZwLs", title: "ANOMALY AND PAPA MAKE TRADITIONAL BAKLAVA", published: "2023-06-05T13:57:27+00:00" },
+      { id: "n4zNQvyAJOo", title: "ANOMALY GOES ON A DIET (CHALLENGE)", published: "2023-05-26T16:00:52+00:00" },
+      { id: "vZLrJG1a10I", title: "PAPANOMALY OPENING FAN MAIL XI", published: "2023-05-09T13:15:43+00:00" },
+      { id: "c0xWhBtJnnE", title: "ROASTING VIEWER COUNTRIES AND CITIES", published: "2023-05-01T13:00:21+00:00" },
+      { id: "MwqFF8LDkMU", title: "REVIEWING MY REDDIT 3 (HORRID MEMES)", published: "2023-04-23T14:39:05+00:00" },
+      { id: "1JlLYBENbeM", title: "PAPA PLAYS COUNTER-STRIKE 2", published: "2023-04-15T12:58:30+00:00" },
+    ],
     twitchClips: [
       { slug: "ResilientBrightPheasantDoggo-qOwmdDNt8fQ95o1B", title: "furi wtf?", viewCount: 123737, duration: 5, createdAt: "2024-07-30T22:05:19Z", game: "Counter-Strike", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/3ac70b37-4448-4f84-951d-942e148a55f6/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/anomaly/clip/ResilientBrightPheasantDoggo-qOwmdDNt8fQ95o1B" },
       { slug: "AltruisticLightDadRuleFive-DcvYOJkCajCnoNRZ", title: "india speedrun", viewCount: 99460, duration: 38, createdAt: "2024-09-02T12:56:16Z", game: "Counter-Strike", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/aab36e0c-56da-42da-b1bb-f3782456ba07/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/anomaly/clip/AltruisticLightDadRuleFive-DcvYOJkCajCnoNRZ" },
@@ -106,6 +124,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Streams Charts - Loeya", url: "https://streamscharts.com/channels/loeya", type: "tracker" }
     ],
     twitchStats: { followers: 1663840, partner: true, createdAt: "2017-07-23T10:25:32.275523Z", lastGame: "Fortnite" },
+    youtubeChannelHandle: "loeya",
+    youtubeVideos: [
+      { id: "_MeivxoNfgQ", title: "I love the sprites 🥹🥹🥹 #gaming #fortnite #fortniteclips #fortnitememes", published: "2026-06-26T11:00:07+00:00" },
+      { id: "OOTYj-I30vA", title: "What ritual got you the best sprite so far?🤔 #gaming #fortniteclips #fortnite #Loeya #fail", published: "2026-06-25T11:00:23+00:00" },
+      { id: "7liicXVW1h4", title: "#AD THIS IS WHY I CAN'T PLAY SCARY GAMES #scarygame #coopgaming #playwithfriends #loeya #jumpscare", published: "2026-06-09T12:00:17+00:00" },
+      { id: "hPeST2-P1nY", title: "#AD You CAN'T trust your friends! #scarygame #coopgaming #playwithfriends #loeya #jumpscare", published: "2026-06-08T12:00:32+00:00" },
+      { id: "g3lYGBkV3k0", title: "GETTING UNWASHED 👵  #fortnite #gaming #fortniteclips #gamergirl", published: "2026-05-31T12:00:22+00:00" },
+      { id: "RJ4jEmVWkrw", title: "NO GLOVES NEEDED TO SEND EM FLYINGGG😫 #gaming #fail #Loeya #fortniteclips #viral #funnytiktok", published: "2026-05-30T12:00:13+00:00" },
+    ],
     twitchClips: [
       { slug: "BillowingAbnegateFungusTheThing-lRxw5m5G2R33OC1N", title: "Loeya kissing a woman live on stream", viewCount: 31688, duration: 26, createdAt: "2023-09-17T09:07:08Z", game: "Fortnite", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/203b8f9c-ca51-4547-b146-f2a242bf5414/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/loeya/clip/BillowingAbnegateFungusTheThing-lRxw5m5G2R33OC1N" },
       { slug: "ArbitraryAmericanAsteriskBlargNaut-3l0N1VgrZpS9Rgvw", title: "Loeya dancing griddy irl", viewCount: 22818, duration: 20, createdAt: "2024-06-22T09:08:31Z", game: "Fortnite", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/dd277d5c-383e-4bd1-9bcb-50b47b9c896e/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/loeya/clip/ArbitraryAmericanAsteriskBlargNaut-3l0N1VgrZpS9Rgvw" },
@@ -144,6 +171,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "TwitchTracker - tejbz", url: "https://twitchtracker.com/tejbz", type: "tracker" }
     ],
     twitchStats: { followers: 156053, partner: true, createdAt: "2011-10-22T13:28:31.413034Z", lastGame: "Overwatch" },
+    youtubeChannelHandle: "Tejbz",
+    youtubeVideos: [
+      { id: "vZaZE7AyoLA", title: "Logitech G512X! #logitechG", published: "2026-06-08T10:31:58+00:00" },
+      { id: "SlsJGbdeyaM", title: "Wave XLR Pro - First Impressions #elgato", published: "2026-06-03T13:00:17+00:00" },
+      { id: "ZK-h2BAdbto", title: "MW4 Announced! #mw4 #callofduty", published: "2026-05-29T10:50:31+00:00" },
+      { id: "s1OXf_g-cS8", title: "Gotham Citizens are built different #legobatman", published: "2026-05-28T08:03:50+00:00" },
+      { id: "B49ynNl6D_A", title: "Unboxing the new 007 First Light Limited Edition Controller! #007 #007firstlight", published: "2026-05-28T08:03:48+00:00" },
+      { id: "OH6M3YpHJp8", title: "#forzahorizon6 dirt racing sucks", published: "2026-05-26T10:40:52+00:00" },
+    ],
     twitchClips: [
       { slug: "GlamorousSuaveAubergineOhMyDog", title: "Finished 11th in the turney! Now chill Dubs!", viewCount: 10599, duration: 32, createdAt: "2016-12-15T16:03:15Z", game: "Z1: Battle Royale", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/4b687b3d-1317-4582-83a1-019a2771e770/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/tejbz/clip/GlamorousSuaveAubergineOhMyDog" },
       { slug: "ResoluteSweetApeVoteNay", title: "\"So I heard that car's are kinda like a deathtrap\"", viewCount: 8649, duration: 32, createdAt: "2017-03-24T13:46:25Z", game: "PUBG: BATTLEGROUNDS", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/c4556f0a-53c4-4d68-8e84-b928d6dba6cc/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/tejbz/clip/ResoluteSweetApeVoteNay" },
@@ -179,6 +215,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Social Blade - CyrusTWO", url: "https://socialblade.com/twitch/user/cyrustwo", type: "tracker" }
     ],
     twitchStats: { followers: 134143, partner: true, createdAt: "2013-03-08T12:41:58.971298Z", lastGame: "Grand Theft Auto V" },
+    youtubeChannelHandle: "CyrusTWO",
+    youtubeVideos: [
+      { id: "ABDK-xyASro", title: "ROGUE MC TAR BAITEN - &quot;VAD FOTAR DU DITT FREAK?!&quot;", published: "2026-06-14T10:00:02+00:00" },
+      { id: "W3MBwcRr7T8", title: "JAKE RISKERAR YRKET... IGEN?! – &quot;TACK FÖR DIN TID I KÅREN&quot;", published: "2026-06-09T07:35:25+00:00" },
+      { id: "bzF1_GT1tlw", title: "CyrusTWO | Viewer Oddshots #383", published: "2026-06-04T09:09:20+00:00" },
+      { id: "iqdJKRXa3TA", title: "K-M FÅR NYANSTÄLLD ATT SÄGA UPP SIG – &quot;HELLO JAMES?!&quot;", published: "2026-05-30T10:00:16+00:00" },
+      { id: "GCnBEBIBjyk", title: "SNORLOSKOR PÅ WIGWAM – &quot;DET ÄR FÖRTAL!!&quot;", published: "2026-05-25T09:04:46+00:00" },
+      { id: "Po-RQeM580s", title: "CyrusTWO | Viewer Oddshots #382", published: "2026-05-20T08:56:23+00:00" },
+    ],
     twitchClips: [
       { slug: "WimpyBusyVultureAliens", title: "skön geppe", viewCount: 24713, duration: 5, createdAt: "2020-08-19T13:36:17Z", game: "FIFA 20", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/b9395367-9691-4efd-8fb5-bbd9d4d23821/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/cyrustwo/clip/WimpyBusyVultureAliens" },
       { slug: "ImpossibleGiantMelonDxCat-fkFb7xbY1pRT1ffr", title: "MAX WINNNNNNNN", viewCount: 15512, duration: 36, createdAt: "2025-11-09T15:24:19Z", game: "Slots", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/99727f74-d6a6-496e-bcf1-5b6dddb7f5c6/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/cyrustwo/clip/ImpossibleGiantMelonDxCat-fkFb7xbY1pRT1ffr" },
@@ -214,6 +259,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "TwitchTracker - mest följda svenska", url: "https://twitchtracker.com/channels/most-followers/swedish", type: "tracker" }
     ],
     twitchStats: { followers: 231479, partner: true, createdAt: "2013-10-26T15:34:16.185159Z", lastGame: "Just Chatting" },
+    youtubeChannelHandle: "UCsHrlv3Pm7UNSX9N7PkRpWg",
+    youtubeVideos: [
+      { id: "w_Uy_goEWH0", title: "&quot;OH NO&quot; Moment live on stream", published: "2023-08-14T14:31:37+00:00" },
+      { id: "IDVXD5kTe2I", title: "NY KANAL TILLSAMMANS MED KONRAD!", published: "2016-10-26T15:59:32+00:00" },
+      { id: "1s4yNeVUDEM", title: "LYX SVIT OCH HOOTERS | USA VLOGG #1", published: "2016-09-15T09:09:13+00:00" },
+      { id: "YZ4UEF_GX60", title: "THE BOYFRIEND TAG | Hur var första kyssen?", published: "2016-09-08T12:05:55+00:00" },
+      { id: "CEWKlvf3_Js", title: "JAG TÄVLAR I OVERWATCH ALLSTARS! | VLOGG", published: "2016-06-07T09:04:41+00:00" },
+      { id: "DNqnam9Z-jw", title: "HITTAR EN FÅGELUNGE | VLOGG", published: "2016-05-20T10:04:46+00:00" },
+    ],
     twitchClips: [
       { slug: "PlumpTangibleAardvarkOptimizePrime", title: "Got your balls ready? I do! Let's celebrate DOUBLE Christmas 24h!!\n!instagram [Swe/eng]", viewCount: 24752, duration: 30, createdAt: "2020-12-24T20:20:53Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/87aea871-c4a0-48ae-86c4-534cd067a9c1/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/swebliss/clip/PlumpTangibleAardvarkOptimizePrime" },
       { slug: "ObliviousIntelligentMilkNinjaGrumpy-hZt5VVCqZMGaKlAb", title: "Let's Hang out! Morning chat :)", viewCount: 17301, duration: 29, createdAt: "2021-05-04T08:08:24Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/f6d355ed-1612-4f3d-9bb1-2c99903570eb/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/swebliss/clip/ObliviousIntelligentMilkNinjaGrumpy-hZt5VVCqZMGaKlAb" },
@@ -249,6 +303,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Streams Charts - EmiliaHult", url: "https://streamscharts.com/channels/emiliahult", type: "tracker" }
     ],
     twitchStats: { followers: 205334, partner: true, createdAt: "2015-06-24T19:18:11.083219Z", lastGame: "Counter-Strike" },
+    youtubeChannelHandle: "EmiliaHult",
+    youtubeVideos: [
+      { id: "8BYeLnOh8no", title: "#strangerthings", published: "2026-01-08T15:37:54+00:00" },
+      { id: "-n135qttbbI", title: "#music #danse #fun", published: "2025-12-04T14:15:58+00:00" },
+      { id: "nbRk5KixPao", title: "#liseberg #music #danse #love", published: "2025-10-12T17:15:55+00:00" },
+      { id: "USCAjUr4w9w", title: "#dance #music #goodvibes #dancer #viraltrend #fashion", published: "2025-09-19T18:30:30+00:00" },
+      { id: "i8UZBEsvaP8", title: "#goodvibes #music #curlyhair #transiton", published: "2025-09-19T14:19:06+00:00" },
+      { id: "uIg2zCf4XLE", title: "#transtion#music", published: "2025-09-19T13:30:14+00:00" },
+    ],
     twitchClips: [
       { slug: "DifficultManlyVelociraptorTF2John--A_xOjL8LfC14XRP", title: "Time to eat - !helwit", viewCount: 12490, duration: 28, createdAt: "2022-07-26T13:33:59Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/0735579b-e344-4562-a311-7bee27d94c43/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/emiliahult/clip/DifficultManlyVelociraptorTF2John--A_xOjL8LfC14XRP" },
       { slug: "ProtectiveFlirtyAubergineYouDontSay--wxrTH309E8Qorwc", title: "FRIDAY AGAIN", viewCount: 10042, duration: 29, createdAt: "2022-01-02T19:27:20Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/dc35274a-9d10-42ba-8d13-2caa67b3435c/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/emiliahult/clip/ProtectiveFlirtyAubergineYouDontSay--wxrTH309E8Qorwc" },
@@ -285,6 +348,15 @@ export const CREATORS: CreatorProfile[] = [
       { label: "TwitchTracker - Yacine", url: "https://twitchtracker.com/yacine", type: "tracker" }
     ],
     twitchStats: { followers: 188971, partner: true, createdAt: "2012-06-23T23:25:13.170732Z", lastGame: "League of Legends" },
+    youtubeChannelHandle: "UCiUsmJnv-ja6ceESvqinoGg",
+    youtubeVideos: [
+      { id: "kYi2BMjg_RY", title: "Yacines bidrag till streamerduellen med SJ! (Tack till Karjas för edit!)", published: "2023-11-28T15:34:36+00:00" },
+      { id: "WpoP33Um6j0", title: "YZN | GTA V RP - Life as Lion: Episode #5 - Bankkuppen Del 2", published: "2018-01-19T21:35:34+00:00" },
+      { id: "Q0CNoTDNrtg", title: "YZN | GTA V RP - Life as Lion: Episode #4 - Bankkuppen Del 1", published: "2018-01-14T17:56:13+00:00" },
+      { id: "zu21pjyL6qc", title: "YZN | GTA V RP - Life as Lion: Episode #3 - Rånarligan", published: "2018-01-09T14:33:32+00:00" },
+      { id: "e6vckg-y_jg", title: "YZN | GTA V RP - Life as Lion: Episode #2 - Snabba Cash", published: "2018-01-05T15:57:45+00:00" },
+      { id: "fNXiu7MkvXk", title: "YZN | GTA V RP - Life as Lion: Episode #1 - Maffian", published: "2018-01-02T13:54:20+00:00" },
+    ],
     twitchClips: [
       { slug: "HandsomeSoftKiwiResidentSleeper-8fwCLiQyCJErEjOm", title: "ajaj", viewCount: 12393, duration: 26, createdAt: "2023-06-06T15:23:02Z", game: "Counter-Strike", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/7b16c2cf-d059-4b95-a3f5-375c616b9837/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/yacine/clip/HandsomeSoftKiwiResidentSleeper-8fwCLiQyCJErEjOm" },
       { slug: "RelievedRefinedBeanNotATK-4YJ5n9kF2_NBBmZW", title: "Windows moment", viewCount: 11007, duration: 17, createdAt: "2023-09-15T14:34:14Z", game: null, thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/71421212-76bf-42f1-afd5-987d89a6f9ad/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/yacine/clip/RelievedRefinedBeanNotATK-4YJ5n9kF2_NBBmZW" },
