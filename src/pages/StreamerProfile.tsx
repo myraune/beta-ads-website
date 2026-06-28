@@ -5,6 +5,7 @@ import { SEO } from "@/components/SEO";
 import { SPFooter } from "@/components/sections/SPFooter";
 import { getCreatorByHandle, CREATORS } from "@/data/norskeStreamere";
 import { SocialIcon } from "@/components/blog/SocialIcon";
+import { NewsCard } from "@/components/blog/NewsCard";
 
 /**
  * Per-streamer profilside, rutet på /streamere/<handle>.
@@ -170,6 +171,20 @@ const StreamerProfile: React.FC = () => {
                 </li>
               ))}
             </ul>
+          </section>
+        )}
+
+        {/* Nyhetsoppslag - ekte presse + portretter */}
+        {c.news && c.news.length > 0 && (
+          <section className="mb-14">
+            <h2 className="text-xs font-semibold tracking-widest uppercase text-primary mb-5">
+              I pressen
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {c.news.map((a) => (
+                <NewsCard key={a.url} article={a} />
+              ))}
+            </div>
           </section>
         )}
 
