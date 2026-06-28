@@ -66,7 +66,7 @@ export const StreamerMedia: React.FC<Props> = ({
         : { url: `https://www.tiktok.com/@${tiktokHandle}`, label: "Se alle på TikTok", icon: "TikTok" };
 
   return (
-    <section className="mb-14">
+    <section className="border-t border-border/60 pt-12 mb-14">
       <div className="flex items-end justify-between gap-4 mb-5 flex-wrap">
         {/* Faner */}
         <div className="flex items-center gap-1">

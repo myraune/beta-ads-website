@@ -148,9 +148,10 @@ const StreamerProfile: React.FC = () => {
             </div>
           </div>
 
-          {/* Foto-kreditt */}
+          {/* Foto-kreditt (banneret er et Twitch-klipp med mindre vi har en
+              eksplisitt bannerImage-override - da er det samme kilde som portrettet) */}
           <p className="mt-2 text-[11px] text-muted-foreground/80">
-            Portrett:{" "}
+            Foto:{" "}
             <a
               href={c.attributionUrl}
               target="_blank"
@@ -159,7 +160,7 @@ const StreamerProfile: React.FC = () => {
             >
               {c.attribution}
             </a>
-            {" · Banner: Twitch-klipp"}
+            {!c.bannerImage && " · Banner: Twitch-klipp"}
           </p>
 
           {/* Bio + sosiale lenker */}
@@ -192,7 +193,7 @@ const StreamerProfile: React.FC = () => {
 
         {/* Høydepunkter */}
         {c.highlights.length > 0 && (
-          <section className="mb-14">
+          <section className="border-t border-border/60 pt-12 mb-14">
             <h2 className="text-xs font-semibold tracking-widest uppercase text-primary mb-4">
               Høydepunkter
             </h2>
@@ -220,7 +221,7 @@ const StreamerProfile: React.FC = () => {
 
         {/* Nyhetsoppslag - ekte presse + portretter */}
         {c.news && c.news.length > 0 && (
-          <section className="mb-14">
+          <section className="border-t border-border/60 pt-12 mb-14">
             <h2 className="text-xs font-semibold tracking-widest uppercase text-primary mb-5">
               I pressen
             </h2>
@@ -234,7 +235,7 @@ const StreamerProfile: React.FC = () => {
 
         {/* Kilder / les mer */}
         {c.references.length > 0 && (
-          <section className="mb-14 max-w-3xl">
+          <section className="border-t border-border/60 pt-12 mb-14 max-w-3xl">
             <h2 className="text-xs font-semibold tracking-widest uppercase text-primary mb-4">
               Bakgrunn og kilder
             </h2>
