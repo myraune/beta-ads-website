@@ -17,6 +17,17 @@ import { SocialIcon } from "@/components/blog/SocialIcon";
 
 
 const NorskeStreamere2026: React.FC = () => {
+  // Avledede tall for stat-stripen (holder seg korrekt om listen endres).
+  const total = CREATORS.length;
+  const norsk = CREATORS.filter((c) => c.language === "no").length;
+  const engelsk = CREATORS.filter((c) => c.language === "en").length;
+  const blandet = CREATORS.filter((c) => c.language === "mixed").length;
+  const stats = [
+    { value: String(total), label: "streamere" },
+    { value: String(norsk), label: "norskspråklige" },
+    { value: String(engelsk + blandet), label: "internasjonale" },
+  ];
+
   return (
     <div className="pb-4">
       {/* Editorial header - tett, så listen kommer over folden */}
@@ -36,8 +47,20 @@ const NorskeStreamere2026: React.FC = () => {
           YouTube-veteraner. Ikke en rangering, en oversikt.
         </p>
 
+        {/* Redaksjonell stat-stripe */}
+        <div className="mt-7 flex items-stretch gap-8 sm:gap-12">
+          {stats.map((s) => (
+            <div key={s.label}>
+              <div className="text-2xl md:text-3xl font-light tracking-tight text-foreground tabular-nums">
+                {s.value}
+              </div>
+              <div className="text-[11px] text-muted-foreground mt-0.5">{s.label}</div>
+            </div>
+          ))}
+        </div>
+
         {/* Språk-legend - kompakt */}
-        <div className="mt-4 flex flex-wrap items-center gap-1.5 text-[11px]">
+        <div className="mt-6 flex flex-wrap items-center gap-1.5 text-[11px]">
           <span className="text-muted-foreground mr-1">Streamer på:</span>
           <span className="inline-flex items-center rounded-full bg-foreground text-background px-2 py-0.5 font-semibold tracking-widest uppercase">
             Norsk
