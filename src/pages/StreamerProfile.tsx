@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { SPFooter } from "@/components/sections/SPFooter";
 import { getCreatorByHandle, CREATORS } from "@/data/norskeStreamere";
+import { SocialIcon } from "@/components/blog/SocialIcon";
 
 /**
  * Per-streamer profilside, rutet på /streamere/<handle>.
@@ -136,7 +137,7 @@ const StreamerProfile: React.FC = () => {
               {c.bio}
             </p>
 
-            {/* Sosiale lenker */}
+            {/* Sosiale lenker - ikon-knapper */}
             <div className="mt-7 flex flex-wrap gap-2">
               {c.socials.map((s) => (
                 <a
@@ -144,10 +145,11 @@ const StreamerProfile: React.FC = () => {
                   href={s.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium px-3.5 py-1.5 rounded-full border border-border/70 text-foreground/85 hover:text-foreground hover:border-primary/50 hover:bg-primary/5 transition-colors"
+                  aria-label={`${c.name} på ${s.label}`}
+                  className="inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full border border-border/70 text-foreground/85 hover:text-foreground hover:border-primary/50 hover:bg-primary/5 transition-colors"
                 >
-                  {s.label}
-                  <ExternalLink className="w-3 h-3 opacity-60" />
+                  <SocialIcon label={s.label} url={s.url} className="w-4 h-4" />
+                  <span>{s.label}</span>
                 </a>
               ))}
             </div>

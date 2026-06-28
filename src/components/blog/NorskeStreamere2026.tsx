@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { CREATORS } from "@/data/norskeStreamere";
+import { SocialIcon } from "@/components/blog/SocialIcon";
 
 /**
  * Flagship Norwegian creator roundup - bespoke editorial layout (not the generic
@@ -143,7 +144,7 @@ const NorskeStreamere2026: React.FC = () => {
                 {c.blurb}
               </p>
 
-              {/* Sosiale lenker */}
+              {/* Sosiale lenker - ikon-knapper, tight */}
               <div className="mt-4 flex flex-wrap gap-1.5">
                 {c.socials.map((s) => (
                   <a
@@ -151,9 +152,11 @@ const NorskeStreamere2026: React.FC = () => {
                     href={s.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-[11px] font-medium px-2.5 py-1 rounded-full border border-border/70 text-foreground/75 hover:text-foreground hover:border-primary/50 hover:bg-primary/5 transition-colors"
+                    aria-label={`${c.name} på ${s.label}`}
+                    title={s.label}
+                    className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-border/70 text-foreground/70 hover:text-foreground hover:border-primary/50 hover:bg-primary/5 transition-colors"
                   >
-                    {s.label}
+                    <SocialIcon label={s.label} url={s.url} className="w-3.5 h-3.5" />
                   </a>
                 ))}
               </div>
