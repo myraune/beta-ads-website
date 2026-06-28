@@ -5712,7 +5712,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "26. juni 2026",
     dateISO: "2026-06-26",
     readTime: "6 min",
-    image: "/lovable-uploads/rubengks-stream-poster.webp",
+    image: "/lovable-uploads/blog-norske-streamere-2026-hero.jpg",
     category: "Innsikt",
     tags: [
       "norske streamere",

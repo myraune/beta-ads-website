@@ -240,7 +240,7 @@ const NorskeStreamere2026: React.FC = () => {
       {/* Kort-grid: 2 per rad på desktop, 1 på mobil. Hvert kort er
           selvstendig med ekte foto, Twitch-avatar overlappende, blurb og
           sosiale lenker. */}
-      <ol className="grid sm:grid-cols-2 gap-5 list-none">
+      <ol className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 list-none">
         {CREATORS.map((c, i) => (
           <li
             key={c.handle}
