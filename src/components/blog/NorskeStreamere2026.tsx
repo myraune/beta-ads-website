@@ -58,7 +58,7 @@ const NorskeStreamere2026: React.FC = () => {
         {CREATORS.map((c, i) => (
           <li
             key={c.handle}
-            className="group relative flex flex-col rounded-2xl border border-border/60 bg-card/40 overflow-hidden hover:border-primary/40 hover:bg-card/70 transition-colors"
+            className="group relative flex flex-col rounded-2xl border border-border/60 bg-card/40 overflow-hidden hover:border-primary/40 hover:bg-card/70 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5 transition-all duration-300"
           >
             {/* Hele kortet lenker til profilsiden (stretched link). Sosiale
                 ikon-knapper og foto-kreditt ligger over med høyere z-index. */}
@@ -68,13 +68,18 @@ const NorskeStreamere2026: React.FC = () => {
               className="absolute inset-0 z-10"
             />
 
-            {/* Banner-foto */}
+            {/* Banner: mest sette Twitch-klipp (skarpt 16:9, in-action). Faller
+                tilbake til portrettet hvis ingen klipp. */}
             <div className="relative block aspect-[16/9] overflow-hidden bg-muted">
               <img
-                src={c.image}
-                alt={c.realName ? `${c.realName} (${c.name})` : c.name}
+                src={c.twitchClips?.[0]?.thumbnailURL ?? c.image}
+                alt={`${c.name} streamer`}
                 loading="lazy"
                 decoding="async"
+                onError={(e) => {
+                  const t = e.currentTarget;
+                  if (!t.dataset.fb) { t.dataset.fb = "1"; t.src = c.image; }
+                }}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
               {/* Mørk gradient i bunn så avatar + tekst leses */}
@@ -106,18 +111,17 @@ const NorskeStreamere2026: React.FC = () => {
 
             {/* Innhold */}
             <div className="relative p-5 pt-3">
-              {/* Twitch-avatar som overlapper banner */}
+              {/* Portrett-avatar (ekte ansikt) som overlapper banneret */}
               <img
-                src={`https://unavatar.io/twitch/${c.handle}`}
-                alt=""
-                aria-hidden="true"
+                src={c.image}
+                alt={c.realName ? `${c.realName} (${c.name})` : c.name}
                 width={56}
                 height={56}
                 loading="lazy"
                 decoding="async"
                 onError={(e) => {
                   const t = e.currentTarget;
-                  if (!t.dataset.r) { t.dataset.r = "1"; t.src = `https://unavatar.io/twitch/${c.handle}?fallback=false`; }
+                  if (!t.dataset.r) { t.dataset.r = "1"; t.src = `https://unavatar.io/twitch/${c.handle}`; }
                 }}
                 className="absolute -top-7 right-5 w-14 h-14 rounded-xl object-cover ring-2 ring-background bg-muted shadow-md"
               />
@@ -168,7 +172,7 @@ const NorskeStreamere2026: React.FC = () => {
 
               {/* Foto-attribusjon (over stretched-linken så kilden er klikkbar) */}
               <p className="relative z-20 text-[10px] text-muted-foreground/70 mt-4 pt-3 border-t border-border/40">
-                Foto:{" "}
+                Portrett:{" "}
                 <a
                   href={c.attributionUrl}
                   target="_blank"
@@ -177,6 +181,7 @@ const NorskeStreamere2026: React.FC = () => {
                 >
                   {c.attribution}
                 </a>
+                {" · Banner: Twitch-klipp"}
               </p>
             </div>
           </li>
