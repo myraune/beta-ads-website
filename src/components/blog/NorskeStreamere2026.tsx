@@ -205,37 +205,33 @@ const CREATORS: Creator[] = [
 const NorskeStreamere2026: React.FC = () => {
   return (
     <div className="pb-4">
-      {/* Editorial header */}
-      <header className="max-w-2xl mb-14">
-        <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
+      {/* Editorial header - tett, så listen kommer over folden */}
+      <header className="max-w-3xl mb-8">
+        <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
           Norsk streaming
         </span>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground leading-[1.08] mb-6">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-foreground leading-[1.1] mb-4">
           Norske Twitch-streamere du bør kjenne til i{" "}
           <span style={{ fontFamily: "'Instrument Serif', serif" }} className="italic font-normal">
             2026
           </span>
         </h1>
-        <p className="text-lg md:text-xl font-light text-muted-foreground leading-relaxed">
-          Norsk Twitch har vokst fra et lite nisjemiljø til en egen del av norsk
-          underholdning. Her er et utvalg streamere og innholdsskapere som setter
-          preg på miljøet - fra Fortnite-proffer til IRL-profiler og
-          YouTube-veteraner. Det er ikke en streng rangering, men en oversikt
-          over navn det er verdt å følge med på.
+        <p className="text-base md:text-lg font-light text-muted-foreground leading-relaxed">
+          Et utvalg av streamere og innholdsskapere som setter preg på det norske
+          streamingmiljøet - fra Fortnite-proffer til IRL-profiler og
+          YouTube-veteraner. Ikke en rangering, en oversikt.
         </p>
 
-        {/* Liten forklaring av språk-badgen som vises på hvert bilde - viktig
-            for merkevarer som vurderer rekkevidde mot norsk vs. internasjonalt
-            publikum. */}
-        <div className="mt-7 flex flex-wrap items-center gap-2 text-xs">
+        {/* Språk-legend - kompakt */}
+        <div className="mt-4 flex flex-wrap items-center gap-1.5 text-[11px]">
           <span className="text-muted-foreground mr-1">Streamer på:</span>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-foreground text-background px-2.5 py-1 font-semibold tracking-widest uppercase">
+          <span className="inline-flex items-center rounded-full bg-foreground text-background px-2 py-0.5 font-semibold tracking-widest uppercase">
             Norsk
           </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-primary text-white px-2.5 py-1 font-semibold tracking-widest uppercase">
+          <span className="inline-flex items-center rounded-full bg-primary text-white px-2 py-0.5 font-semibold tracking-widest uppercase">
             Engelsk
           </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-muted text-foreground px-2.5 py-1 font-semibold tracking-widest uppercase">
+          <span className="inline-flex items-center rounded-full bg-muted text-foreground px-2 py-0.5 font-semibold tracking-widest uppercase">
             Norsk / Engelsk
           </span>
         </div>
@@ -256,7 +252,7 @@ const NorskeStreamere2026: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${c.name} on Twitch`}
-              className="relative block aspect-[3/2] overflow-hidden bg-muted"
+              className="relative block aspect-[16/9] overflow-hidden bg-muted"
             >
               <img
                 src={c.image}
