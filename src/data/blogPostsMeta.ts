@@ -30,7 +30,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "May 12, 2026",
     dateISO: "2026-05-12",
     readTime: "7 min read",
-    image: "/lovable-uploads/clip-analytics-preview-dark.jpg",
+    image: "/lovable-uploads/blog-clip-analytics-2026.jpg",
     hasDashboard: "clip-analytics",
     category: "Platform",
     tags: [
@@ -5664,7 +5664,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     dateISO: "2026-04-30",
     readTime: "8 min read",
     category: "Platform",
-    image: "/blog-photos/gaming/gaming-001.jpg",
+    image: "/lovable-uploads/beta-ads-2-0-hero.jpg",
     tags: [
       "beta ads",
       "platform",

@@ -98,7 +98,7 @@ You know because every clip is checked, scored, and logged automatically. The da
     date: "May 12, 2026",
     dateISO: "2026-05-12",
     readTime: "7 min read",
-    image: "/lovable-uploads/clip-analytics-preview-dark.jpg",
+    image: "/lovable-uploads/blog-clip-analytics-2026.jpg",
     hasDashboard: "clip-analytics",
     category: "Platform",
     tags: ["Analytics", "Brand Safety", "Ad Verification", "Campaign Reporting", "Twitch", "Overlay Ads", "Nordic"],
@@ -11554,7 +11554,7 @@ Brands we already work with have direct login access. Agency partners managing m
     dateISO: "2026-04-30",
     readTime: "8 min read",
     category: "Platform",
-    image: "/blog-photos/gaming/gaming-001.jpg",
+    image: "/lovable-uploads/beta-ads-2-0-hero.jpg",
     tags: ["beta ads", "platform", "self-serve", "live streaming", "streamer explorer", "category explorer", "campaign builder", "AI clipping"],
     seoTitle: {
       en: "Beta Ads 2.0: Self-Serve Live Streaming Ad Platform | Beta Ads",
