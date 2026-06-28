@@ -20,10 +20,28 @@ export interface ReferenceLink {
   type: "official-site" | "press" | "wikipedia" | "news" | "tracker" | "agency" | "platform";
 }
 
+export interface TwitchClip {
+  slug: string;
+  title: string;
+  viewCount: number;
+  duration: number;
+  createdAt: string;
+  game?: string | null;
+  thumbnailURL: string;
+  url: string;
+}
+
 export interface YouTubeVideo {
   id: string;
   title: string;
   published: string;
+}
+
+export interface TikTokVideo {
+  id: string;
+  url: string;
+  title?: string;
+  thumbnail?: string | null;
 }
 
 export interface NewsArticle {
@@ -61,6 +79,12 @@ export interface CreatorProfile {
   youtubeChannelHandle?: string;
   /** De siste videoene fra YouTube RSS, fetchet ved build. */
   youtubeVideos?: YouTubeVideo[];
+  /** Mest sette Twitch-klipp (offentlig GQL), bakt inn ved build. */
+  twitchClips?: TwitchClip[];
+  /** TikTok-handle (uten @), hvis aktiv. */
+  tiktokHandle?: string;
+  /** Utvalgte TikTok-videoer (manuelt kuratert / oEmbed). */
+  tiktokVideos?: TikTokVideo[];
 }
 
 export const CREATORS: CreatorProfile[] = [
@@ -149,6 +173,14 @@ export const CREATORS: CreatorProfile[] = [
         ogImage: null,
         tone: "positive",
       },
+    ],
+    twitchClips: [
+      { slug: "GrossShakingThymeKappaRoss-TwlMXb9dsNYLO9u6", title: "Settings 12-12-2023", viewCount: 306366, duration: 50, createdAt: "2023-12-12T21:17:44Z", game: "Fortnite", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/0f7e7f06-125c-439e-b406-feb424740a0c/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mrsavage/clip/GrossShakingThymeKappaRoss-TwlMXb9dsNYLO9u6" },
+      { slug: "PleasantSuccessfulLouseChefFrank-JFfhdGFi1VMmEqwX", title: "Settings 13/09/2023", viewCount: 148203, duration: 25, createdAt: "2023-09-13T20:48:10Z", game: "Fortnite", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/b9872aec-fae4-47d0-8d36-61cf503dee75/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mrsavage/clip/PleasantSuccessfulLouseChefFrank-JFfhdGFi1VMmEqwX" },
+      { slug: "InexpensiveBlitheCiderFeelsBadMan-apgnTb1SX1AroOsM", title: "MrSavage 1v4's mongraal, peterbot, khanada and asianjeff", viewCount: 131794, duration: 33, createdAt: "2023-12-27T22:25:27Z", game: "Fortnite", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/a7a02742-1cd5-409d-8ce2-d9a5ce4226d3/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mrsavage/clip/InexpensiveBlitheCiderFeelsBadMan-apgnTb1SX1AroOsM" },
+      { slug: "BitterSlipperyPlumberCclamChamp-n9yA0vwM5uirjY14", title: "EZ snipe", viewCount: 124713, duration: 4, createdAt: "2024-04-12T17:55:23Z", game: "Fortnite", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/24486b7e-ea3f-4bd8-9612-29fbacc50417/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mrsavage/clip/BitterSlipperyPlumberCclamChamp-n9yA0vwM5uirjY14" },
+      { slug: "SuavePoisedPresidentMoreCowbell-hTF4W_5uSwk-GPaV", title: "I just saved our game...", viewCount: 104214, duration: 29, createdAt: "2024-02-16T18:49:14Z", game: "Fortnite", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/1ac3fa29-3b5e-4741-98ad-998b7350a943/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mrsavage/clip/SuavePoisedPresidentMoreCowbell-hTF4W_5uSwk-GPaV" },
+      { slug: "CrepuscularWrongPlumageAMPEnergyCherry", title: "hes so good", viewCount: 94226, duration: 26, createdAt: "2019-06-29T18:00:01Z", game: "Fortnite", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/a194138b-7a78-44b6-8767-bfe35ac20099/landscape/thumb/thumb-0000000000-1536x864.jpg", url: "https://www.twitch.tv/mrsavage/clip/CrepuscularWrongPlumageAMPEnergyCherry" },
     ],
     youtubeChannelHandle: "MrSavageOG",
     youtubeVideos: [
@@ -239,6 +271,14 @@ export const CREATORS: CreatorProfile[] = [
         tone: "positive",
       },
     ],
+    twitchClips: [
+      { slug: "RudeTallJaguarTheRinger-8t50LHXd60cN27Aw", title: "Nmplol and Malena have broken up", viewCount: 492034, duration: 21, createdAt: "2024-09-13T21:13:33Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/d83fb3c8-e5c4-457f-8e86-5aa76cc39f84/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/knut/clip/RudeTallJaguarTheRinger-8t50LHXd60cN27Aw" },
+      { slug: "AgileModernScallionHotPokket-Q0j0lOs1qNh9wKrH", title: "knut LOl", viewCount: 438552, duration: 26, createdAt: "2022-08-13T22:04:59Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/bc06a81f-00da-4714-bff9-09a20bc047ef/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/knut/clip/AgileModernScallionHotPokket-Q0j0lOs1qNh9wKrH" },
+      { slug: "InnocentEnthusiasticGiraffePlanking", title: "Mizkif dies", viewCount: 402532, duration: 4, createdAt: "2019-04-12T23:21:52Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/10ec8c5a-0e7d-4afc-8245-63c68230f2db/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/knut/clip/InnocentEnthusiasticGiraffePlanking" },
+      { slug: "EndearingAverageCobraWTRuck-gYZ1i5dgLbZZtSgL", title: "🟥Streamer Circus #komplett #mountaindew 🟥 !server 🟥 💪 !lastvid 🟥 !nordVPN #ad", viewCount: 391407, duration: 28, createdAt: "2022-09-25T16:44:17Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/4d137ca6-6bcf-470b-95ae-4b57bf88a880/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/knut/clip/EndearingAverageCobraWTRuck-gYZ1i5dgLbZZtSgL" },
+      { slug: "FamousMushyLorisPrimeMe-weg9oOYlS5m4nV6n", title: "Woman lifts Knut at TwitchCon", viewCount: 366214, duration: 20, createdAt: "2022-07-17T15:54:31Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/767f091a-7bd1-443b-8c0a-541b856fad33/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/knut/clip/FamousMushyLorisPrimeMe-weg9oOYlS5m4nV6n" },
+      { slug: "RenownedSpikySkunkChocolateRain", title: "Knut is being honest about Greek", viewCount: 350261, duration: 60, createdAt: "2020-06-01T18:23:11Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/37e3cd80-4074-4f80-a114-ec4150215fe5/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/knut/clip/RenownedSpikySkunkChocolateRain" },
+    ],
   },
   {
     handle: "detoo",
@@ -324,6 +364,14 @@ export const CREATORS: CreatorProfile[] = [
         ogImage: null,
         tone: "neutral",
       },
+    ],
+    twitchClips: [
+      { slug: "BillowingObeseNuggetsPogChamp-uH9lYCaoy0TnuCIM", title: "bicycle incident", viewCount: 22917, duration: 49, createdAt: "2025-04-15T23:08:33Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/f72db705-7758-42d1-96b4-085fccc385e8/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/detoo/clip/BillowingObeseNuggetsPogChamp-uH9lYCaoy0TnuCIM" },
+      { slug: "SleepyDifficultBeefPastaThat-_5zD3cuF9a6IpY4y", title: "OMFG SAPPHIRE", viewCount: 13291, duration: 35, createdAt: "2023-05-12T16:54:20Z", game: "Counter-Strike", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/17292a84-994f-40da-bbb7-40facffbe0c6/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/detoo/clip/SleepyDifficultBeefPastaThat-_5zD3cuF9a6IpY4y" },
+      { slug: "RespectfulAlivePonySoBayed-ssJUpOPcxip4vtHH", title: "Her", viewCount: 7205, duration: 30, createdAt: "2025-04-17T10:14:03Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/4c911182-a267-432b-ac45-d74249411079/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/detoo/clip/RespectfulAlivePonySoBayed-ssJUpOPcxip4vtHH" },
+      { slug: "CautiousAmazingMangetoutThisIsSparta-VYPXMf20K-7Pgbru", title: "Zame W", viewCount: 5225, duration: 26, createdAt: "2023-04-16T15:13:20Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/e6336dd6-b7ca-4edd-bd7d-9132f1ab85dd/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/detoo/clip/CautiousAmazingMangetoutThisIsSparta-VYPXMf20K-7Pgbru" },
+      { slug: "ExpensiveOnerousUdonDansGame-kZbW-x1DX9BNB2Pu", title: "Detoo merch", viewCount: 4982, duration: 22, createdAt: "2022-08-31T13:54:06Z", game: "Fortnite", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/2921a605-9c9d-4f6f-bb05-efc6738d78ec/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/detoo/clip/ExpensiveOnerousUdonDansGame-kZbW-x1DX9BNB2Pu" },
+      { slug: "BlitheLuckyCrowArsonNoSexy-LAch7bGL9RY7VyGx", title: "Zame", viewCount: 4823, duration: 10, createdAt: "2022-09-10T00:19:37Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/763dfc9f-7fd7-4d4a-9b2a-495b0f6b7c04/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/detoo/clip/BlitheLuckyCrowArsonNoSexy-LAch7bGL9RY7VyGx" },
     ],
     youtubeChannelHandle: "detoo",
     youtubeVideos: [
@@ -421,6 +469,14 @@ export const CREATORS: CreatorProfile[] = [
         tone: "neutral",
       },
     ],
+    twitchClips: [
+      { slug: "VastNurturingSeahorseWow", title: "[ENG/NOR]  This game is not dead yet <3", viewCount: 15353, duration: 26, createdAt: "2018-02-04T22:52:55Z", game: "Z1: Battle Royale", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/d77e7543-9f37-47eb-9140-17d859dc2bbc/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/emzia/clip/VastNurturingSeahorseWow" },
+      { slug: "GoodUglyMomFeelsBadMan", title: "[ENG/NOR] Duos with the one and only Marctastic. Sunday chill :)", viewCount: 12850, duration: 26, createdAt: "2018-01-29T00:01:38Z", game: "Z1: Battle Royale", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/209dbb30-f4d5-4f69-89f9-69b6b9b9afaa/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/emzia/clip/GoodUglyMomFeelsBadMan" },
+      { slug: "CourteousCredulousTrayFloof", title: "Subscribed", viewCount: 2762, duration: 32, createdAt: "2016-10-21T20:30:18Z", game: null, thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/2de60863-6126-4c0e-aa3f-24a9ea2a3bca/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/emzia/clip/CourteousCredulousTrayFloof" },
+      { slug: "UninterestedCleanNeanderthalOSkomodo", title: "Showing off my new clothing HAUL!🌟 Also doing challenges in Fall Guys! !asos !asquad #ad", viewCount: 2250, duration: 33, createdAt: "2020-11-11T16:22:13Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/4cb26fb8-c9ab-4a26-9695-30d299c090ab/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/emzia/clip/UninterestedCleanNeanderthalOSkomodo" },
+      { slug: "CulturedTemperedSandwichDuDudu", title: "Showing my FULL HARLEY QUINN halloween costume", viewCount: 2083, duration: 32, createdAt: "2017-06-19T13:50:01Z", game: null, thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/19cef455-39cc-4989-badc-011c151104ad/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/emzia/clip/CulturedTemperedSandwichDuDudu" },
+      { slug: "IronicBusyOtterFUNgineer", title: "Karl dont drop the soap monkaS", viewCount: 1946, duration: 11, createdAt: "2020-08-22T13:31:42Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/d771828e-1d18-475c-b754-0627c60af5b5/landscape/thumb/thumb-0000000000-1600x900.jpg", url: "https://www.twitch.tv/emzia/clip/IronicBusyOtterFUNgineer" },
+    ],
   },
   {
     handle: "thomaspaste",
@@ -504,6 +560,14 @@ export const CREATORS: CreatorProfile[] = [
         ogImage: null,
         tone: "positive",
       },
+    ],
+    twitchClips: [
+      { slug: "TemperedStupidHerringNerfRedBlaster", title: "24-TIMER STREAM for å feire 1 år på twitch! (!sendetid)", viewCount: 4519, duration: 32, createdAt: "2016-10-23T00:48:01Z", game: "Outlast", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/cf136516-b3ce-4408-b1c3-a2dd038c63cb/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/thomaspaste/clip/TemperedStupidHerringNerfRedBlaster" },
+      { slug: "GiftedWiseYakSpicyBoy", title: "GET", viewCount: 4043, duration: 59, createdAt: "2018-08-25T17:09:34Z", game: "Fortnite", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/a2b68a6b-849c-41bf-ab35-01d1736d1254/landscape/thumb/thumb-0000000000-1600x900.jpg", url: "https://www.twitch.tv/thomaspaste/clip/GiftedWiseYakSpicyBoy" },
+      { slug: "OptimisticBashfulLampUncleNox", title: "PASTE | Kos med ukens navle!", viewCount: 3050, duration: 30, createdAt: "2017-01-18T21:58:00Z", game: "Z1: Battle Royale", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/863a80a0-bc51-40c8-87b0-2da7429cdd0e/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/thomaspaste/clip/OptimisticBashfulLampUncleNox" },
+      { slug: "IronicCrypticPterodactylDogFace-g1d3VUZmBzNbmDyy", title: "Jinx ⚡", viewCount: 2755, duration: 18, createdAt: "2022-09-17T23:46:48Z", game: "Call of Duty: Modern Warfare II", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/0617119f-9304-4753-a376-276058cbf978/landscape/thumb/thumb-0000000000-1664x936.jpg", url: "https://www.twitch.tv/thomaspaste/clip/IronicCrypticPterodactylDogFace-g1d3VUZmBzNbmDyy" },
+      { slug: "StrangeSecretiveStarChefFrank", title: "NÅ ER DET NOK", viewCount: 2161, duration: 19, createdAt: "2019-10-31T21:34:38Z", game: "The Beast Inside", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/1b56d449-063e-4f1f-86f7-5636dff6785d/landscape/thumb/thumb-0000000000-1600x900.jpg", url: "https://www.twitch.tv/thomaspaste/clip/StrangeSecretiveStarChefFrank" },
+      { slug: "HyperDeliciousChamoisLitFam", title: "Adam streamer", viewCount: 1996, duration: 60, createdAt: "2019-08-20T17:36:09Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/415cd628-0237-4f5f-b308-9fa8d6f6cf7d/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/thomaspaste/clip/HyperDeliciousChamoisLitFam" },
     ],
     youtubeChannelHandle: "thomasPASTE",
     youtubeVideos: [
@@ -602,6 +666,14 @@ export const CREATORS: CreatorProfile[] = [
         tone: "positive",
       },
     ],
+    twitchClips: [
+      { slug: "CrackySecretiveCrowBCWarrior-BlfkvNOw_NEAK4Kp", title: "Knut show off ", viewCount: 18586, duration: 55, createdAt: "2022-05-01T19:26:14Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/283e1c6f-4b37-47d8-99b9-5899475dc842/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/klokkismann/clip/CrackySecretiveCrowBCWarrior-BlfkvNOw_NEAK4Kp" },
+      { slug: "LazySteamyPterodactylAliens-UUxaD3KX5wabAW-u", title: "Blikket", viewCount: 1300, duration: 5, createdAt: "2024-07-21T17:41:02Z", game: "Chained Together", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/0c332977-fb9c-46bd-bda2-8a2de16062d5/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/klokkismann/clip/LazySteamyPterodactylAliens-UUxaD3KX5wabAW-u" },
+      { slug: "ElatedAmorphousMousePartyTime-OsSkS3_mRzhJ9W0h", title: "Alt faller sammen", viewCount: 1014, duration: 19, createdAt: "2024-11-28T16:49:39Z", game: "Grand Theft Auto V", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/bdbcb4c6-bb4b-44fc-8c45-8bd5fe9587a3/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/klokkismann/clip/ElatedAmorphousMousePartyTime-OsSkS3_mRzhJ9W0h" },
+      { slug: "CallousComfortableYakinikuDuDudu-uW6M-YRd6ve7QVIv", title: "Toreinar gir alt i dansematte!", viewCount: 849, duration: 60, createdAt: "2021-08-08T13:15:46Z", game: "StepMania", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/570d8275-f18a-47b5-838d-6decdbf93c22/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/klokkismann/clip/CallousComfortableYakinikuDuDudu-uW6M-YRd6ve7QVIv" },
+      { slug: "ProductiveExquisiteBibimbapCoolCat-Rxtb4d_2e3ddxjEr", title: "Rick Roll 2x", viewCount: 754, duration: 9, createdAt: "2024-05-27T14:58:41Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/4398f34e-9e42-4247-91bb-0919e94e46b9/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/klokkismann/clip/ProductiveExquisiteBibimbapCoolCat-Rxtb4d_2e3ddxjEr" },
+      { slug: "FaithfulRenownedStarlingTBTacoLeft-s0fr9IrT_KZQrm8A", title: "\"Jeg er veldig glad i gult jeg...\"", viewCount: 725, duration: 20, createdAt: "2021-10-01T13:56:53Z", game: "New World: Aeternum", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/942304f9-d649-43c5-862e-661bbd2261e9/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/klokkismann/clip/FaithfulRenownedStarlingTBTacoLeft-s0fr9IrT_KZQrm8A" },
+    ],
     youtubeChannelHandle: "klokkismann",
     youtubeVideos: [
       { id: "-rpApW2_nmA", title: "De Finner Meg Aldri!", published: "2026-06-28T14:00:06+00:00" },
@@ -698,6 +770,14 @@ export const CREATORS: CreatorProfile[] = [
         tone: "positive",
       },
     ],
+    twitchClips: [
+      { slug: "SwissSpotlessPangolinAsianGlow-LfjwCtN8jgtxIhPb", title: "melvind crasher", viewCount: 9160, duration: 11, createdAt: "2024-07-22T19:32:22Z", game: "Grand Theft Auto V", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/08b3db17-8821-4dda-aa84-300dcba8b28c/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/dennisvareide/clip/SwissSpotlessPangolinAsianGlow-LfjwCtN8jgtxIhPb" },
+      { slug: "ZealousManlyOctopusKreygasm-jc9oxUpcqlZQHsXN", title: "INGVILD! <3", viewCount: 9122, duration: 37, createdAt: "2024-07-31T16:10:18Z", game: "Grand Theft Auto V", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/4b7c2751-548b-48fc-87b1-0ae5a683fa7f/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/dennisvareide/clip/ZealousManlyOctopusKreygasm-jc9oxUpcqlZQHsXN" },
+      { slug: "ShinyUglyDolphinDxAbomb-tC8W5SVTJZ7_-KAp", title: "Som jeg sier til deg, jeg skuffer deg aldri!", viewCount: 7188, duration: 20, createdAt: "2024-07-29T17:20:45Z", game: "Grand Theft Auto V", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/a6a51eb8-315c-4932-a0ba-306d8885634d/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/dennisvareide/clip/ShinyUglyDolphinDxAbomb-tC8W5SVTJZ7_-KAp" },
+      { slug: "VivaciousBlushingKathyPRChase-0c3o2_KPQic2AfVv", title: "DoTheRoar på nynorsk", viewCount: 5145, duration: 18, createdAt: "2024-04-28T17:47:38Z", game: "Supermarket Simulator", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/b1fd37de-7f35-4858-be63-693225dde992/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/dennisvareide/clip/VivaciousBlushingKathyPRChase-0c3o2_KPQic2AfVv" },
+      { slug: "PeacefulHomelyMeerkatPastaThat-SK02g7RiSsFYAP6U", title: "SNØRRTRYNET RIP", viewCount: 4673, duration: 28, createdAt: "2024-03-29T20:38:43Z", game: "Minecraft", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/37d1139e-f2af-49db-b6c6-b55e2e80eb61/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/dennisvareide/clip/PeacefulHomelyMeerkatPastaThat-SK02g7RiSsFYAP6U" },
+      { slug: "BoldWanderingReubenBrokeBack-dqgWxrPPj1w2NOYP", title: "er du fette dum eller??", viewCount: 4364, duration: 16, createdAt: "2024-08-21T17:11:37Z", game: "Grand Theft Auto V", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/3259e60c-6ef4-43b0-901b-0cd2a57b21de/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/dennisvareide/clip/BoldWanderingReubenBrokeBack-dqgWxrPPj1w2NOYP" },
+    ],
     youtubeChannelHandle: "PrebzOgDennis",
     youtubeVideos: [
       { id: "fywGO8nltWg", title: "Lørdagskos med Prebz og Dennis (i 2025)", published: "2025-09-27T06:39:39+00:00" },
@@ -792,6 +872,14 @@ export const CREATORS: CreatorProfile[] = [
         tone: "positive",
       },
     ],
+    twitchClips: [
+      { slug: "GloriousMiniatureHawkHeyGuys-d2G1qL2MyYyDXpy7", title: "jump scare", viewCount: 9617, duration: 20, createdAt: "2023-08-13T18:32:08Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/2ba85fe5-518b-4c54-ace7-19ebf8d13123/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/jonieboi/clip/GloriousMiniatureHawkHeyGuys-d2G1qL2MyYyDXpy7" },
+      { slug: "WiseTriangularCheddarNomNom-KfMeHCE8DAXcHVuM", title: "abdul tar livet", viewCount: 7717, duration: 28, createdAt: "2024-07-15T22:01:15Z", game: "Grand Theft Auto", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/6dfbd026-afd5-4291-9e0d-301aa7b2f89c/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/jonieboi/clip/WiseTriangularCheddarNomNom-KfMeHCE8DAXcHVuM" },
+      { slug: "OilyDeterminedSquirrelPicoMause-d4LKtslAsAGdl2ik", title: "Olis død", viewCount: 7386, duration: 21, createdAt: "2024-07-24T00:27:55Z", game: "Grand Theft Auto V", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/1eb0cfa9-d933-4697-afd7-46cb654f2add/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/jonieboi/clip/OilyDeterminedSquirrelPicoMause-d4LKtslAsAGdl2ik" },
+      { slug: "HelplessGenerousPangolinPeteZarollTie-vu7LeblgpMgttW_R", title: "RIP Kent Ronny Hardskaft", viewCount: 4915, duration: 59, createdAt: "2024-08-11T20:23:43Z", game: "Grand Theft Auto V", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/fdd23b33-0aa8-44ba-a36f-2b6b18c5b42f/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/jonieboi/clip/HelplessGenerousPangolinPeteZarollTie-vu7LeblgpMgttW_R" },
+      { slug: "InquisitiveLachrymoseKimchiDatSheffy-YO5jbOkCOruPnAMb", title: "alle dør", viewCount: 4869, duration: 41, createdAt: "2024-07-15T22:22:20Z", game: "Grand Theft Auto", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/da5f96f1-832e-4057-9131-9635445f865f/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/jonieboi/clip/InquisitiveLachrymoseKimchiDatSheffy-YO5jbOkCOruPnAMb" },
+      { slug: "SpookyFrigidSardinePlanking-UW2ocvoBOIsKprgu", title: "wang wang", viewCount: 3812, duration: 15, createdAt: "2024-07-15T16:51:24Z", game: "Grand Theft Auto V", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/d4d40223-5769-43ab-ad46-6aad3ecfb2a7/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/jonieboi/clip/SpookyFrigidSardinePlanking-UW2ocvoBOIsKprgu" },
+    ],
     youtubeChannelHandle: "JonieBoi",
     youtubeVideos: [
       { id: "DtZzomvrFkQ", title: "En oppdatering om livet mitt nå.", published: "2026-06-25T13:44:20+00:00" },
@@ -881,6 +969,14 @@ export const CREATORS: CreatorProfile[] = [
         tone: "neutral",
       },
     ],
+    twitchClips: [
+      { slug: "InexpensiveWildAxeHassaanChop-s7EPNRFowy5RfB5W", title: "WTF Yaklama", viewCount: 6588, duration: 29, createdAt: "2023-09-22T21:43:00Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/69575f23-55ff-470e-aea6-9fbf23ac662a/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/danniz/clip/InexpensiveWildAxeHassaanChop-s7EPNRFowy5RfB5W" },
+      { slug: "CloudyConcernedSalmonTBTacoRight-7SzDZ_ofTH38iBWq", title: "Hanne liker ikke at Dan sover!", viewCount: 5831, duration: 30, createdAt: "2022-09-14T10:08:58Z", game: "I'm Only Sleeping", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/1e997a81-3933-4a25-8f00-72e8ce425b3b/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/danniz/clip/CloudyConcernedSalmonTBTacoRight-7SzDZ_ofTH38iBWq" },
+      { slug: "SuperPlausibleOtterNomNom-bqVit1b8OoS5MX6o", title: "dauer av frank", viewCount: 5030, duration: 23, createdAt: "2022-06-17T00:55:58Z", game: "Minecraft", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/a358b1d1-07b1-4154-84bc-48c3957caabc/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/danniz/clip/SuperPlausibleOtterNomNom-bqVit1b8OoS5MX6o" },
+      { slug: "StrongCreativeNigiriJonCarnage-UidDsHobXrKdNrUt", title: "Kasta ut av trosterud", viewCount: 4343, duration: 19, createdAt: "2024-08-17T15:24:42Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/14c1f874-de48-4db2-90ba-5bf2d10cbdbf/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/danniz/clip/StrongCreativeNigiriJonCarnage-UidDsHobXrKdNrUt" },
+      { slug: "FamousAverageKumquatDoubleRainbow-B-OZgNIVHuwgj3CP", title: "HAMZA!", viewCount: 4075, duration: 39, createdAt: "2024-06-02T20:39:09Z", game: "Grand Theft Auto V", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/9150266d-b9fc-49e0-9d13-ce7c292d552b/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/danniz/clip/FamousAverageKumquatDoubleRainbow-B-OZgNIVHuwgj3CP" },
+      { slug: "UninterestedLachrymoseEggKippa-N01oy_L25czaOS_Q", title: "zame feit", viewCount: 3309, duration: 28, createdAt: "2021-12-11T05:12:28Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/fe143eb8-effe-4b51-b2ec-c60dbe05c9bd/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/danniz/clip/UninterestedLachrymoseEggKippa-N01oy_L25czaOS_Q" },
+    ],
   },
   {
     handle: "mystixx",
@@ -949,6 +1045,14 @@ export const CREATORS: CreatorProfile[] = [
         ogImage: null,
         tone: "positive",
       },
+    ],
+    twitchClips: [
+      { slug: "HomelyTastyCoyoteYouDontSay-OM6bZ8KZS09Rj-vy", title: "trua med kniv...", viewCount: 209081, duration: 37, createdAt: "2023-09-28T16:56:52Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/a319d368-5dde-4c73-922a-6c3e672b1e9f/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mystixx/clip/HomelyTastyCoyoteYouDontSay-OM6bZ8KZS09Rj-vy" },
+      { slug: "NeighborlyDifferentFiddleheadsCurseLit-RSfLSvGK059Wa6Yc", title: "JAVELL?!?!", viewCount: 10937, duration: 60, createdAt: "2023-09-28T16:57:33Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/e84747a5-0ba6-48d9-a4ac-b851645d4d91/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mystixx/clip/NeighborlyDifferentFiddleheadsCurseLit-RSfLSvGK059Wa6Yc" },
+      { slug: "FunPerfectMeatloafYouDontSay-A4H6DHLoR_VNyjyS", title: "Jævelig tracksuit", viewCount: 7942, duration: 46, createdAt: "2023-09-28T16:56:05Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/4e9bd597-c9d7-4c3a-9c65-eff9ac48fea7/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mystixx/clip/FunPerfectMeatloafYouDontSay-A4H6DHLoR_VNyjyS" },
+      { slug: "TacitHealthyMinkAsianGlow-Oz7gw-DgtLoD1vte", title: "B00BA", viewCount: 6002, duration: 11, createdAt: "2021-06-18T15:45:11Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/71b7a45b-3425-4a4e-bf87-89f542d2e757/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/mystixx/clip/TacitHealthyMinkAsianGlow-Oz7gw-DgtLoD1vte" },
+      { slug: "WildExquisiteLocustJebaited-s2zGTzTlHxcriO0C", title: "Igjen kommer gamle folk", viewCount: 4814, duration: 50, createdAt: "2024-09-05T14:24:45Z", game: "IRL", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/55f8e32e-b6bf-4e33-ba46-41642d649589/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mystixx/clip/WildExquisiteLocustJebaited-s2zGTzTlHxcriO0C" },
+      { slug: "JazzyApatheticAniseDatBoi-N0K1j0beljx4wb_0", title: "🔴🔴🔴 SUBATHON! 🔴🔴🔴 !youtube !p+ !hvorlenge", viewCount: 4721, duration: 26, createdAt: "2023-09-28T16:57:20Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/082a799e-010b-4c89-b03b-d94ec2f8c3ec/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mystixx/clip/JazzyApatheticAniseDatBoi-N0K1j0beljx4wb_0" },
     ],
   },
 ];

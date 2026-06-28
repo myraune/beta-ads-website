@@ -6,7 +6,7 @@ import { SPFooter } from "@/components/sections/SPFooter";
 import { getCreatorByHandle, CREATORS } from "@/data/norskeStreamere";
 import { SocialIcon } from "@/components/blog/SocialIcon";
 import { NewsCard } from "@/components/blog/NewsCard";
-import { YouTubeVideos } from "@/components/blog/YouTubeVideos";
+import { StreamerMedia } from "@/components/blog/StreamerMedia";
 
 /**
  * Per-streamer profilside, rutet på /streamere/<handle>.
@@ -94,7 +94,8 @@ const StreamerProfile: React.FC = () => {
                 alt={c.realName ? `${c.realName} (${c.name})` : c.name}
                 loading="eager"
                 decoding="async"
-                fetchPriority="high"
+                // @ts-expect-error - React 18 typer ikke fetchpriority ennå
+                fetchpriority="high"
                 className="absolute inset-0 w-full h-full object-cover"
               />
               <span
@@ -175,14 +176,16 @@ const StreamerProfile: React.FC = () => {
           </section>
         )}
 
-        {/* YouTube-karusell - siste videoer fra RSS */}
-        {c.youtubeVideos && c.youtubeChannelHandle && (
-          <YouTubeVideos
-            videos={c.youtubeVideos}
-            channelHandle={c.youtubeChannelHandle}
-            ownerName={c.name}
-          />
-        )}
+        {/* Medieseksjon - Twitch-klipp, YouTube, TikTok i faner */}
+        <StreamerMedia
+          name={c.name}
+          twitchHandle={c.handle}
+          twitchClips={c.twitchClips}
+          youtubeVideos={c.youtubeVideos}
+          youtubeChannelHandle={c.youtubeChannelHandle}
+          tiktokVideos={c.tiktokVideos}
+          tiktokHandle={c.tiktokHandle}
+        />
 
         {/* Nyhetsoppslag - ekte presse + portretter */}
         {c.news && c.news.length > 0 && (
