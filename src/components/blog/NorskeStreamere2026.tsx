@@ -60,14 +60,16 @@ const NorskeStreamere2026: React.FC = () => {
             key={c.handle}
             className="group relative flex flex-col rounded-2xl border border-border/60 bg-card/40 overflow-hidden hover:border-primary/40 hover:bg-card/70 transition-colors"
           >
+            {/* Hele kortet lenker til profilsiden (stretched link). Sosiale
+                ikon-knapper og foto-kreditt ligger over med høyere z-index. */}
+            <Link
+              to={`/streamere/${c.handle}`}
+              aria-label={`Les mer om ${c.name}`}
+              className="absolute inset-0 z-10"
+            />
+
             {/* Banner-foto */}
-            <a
-              href={`https://www.twitch.tv/${c.handle}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${c.name} on Twitch`}
-              className="relative block aspect-[16/9] overflow-hidden bg-muted"
-            >
+            <div className="relative block aspect-[16/9] overflow-hidden bg-muted">
               <img
                 src={c.image}
                 alt={c.realName ? `${c.realName} (${c.name})` : c.name}
@@ -100,7 +102,7 @@ const NorskeStreamere2026: React.FC = () => {
               >
                 {c.language === "no" ? "Norsk" : c.language === "en" ? "Engelsk" : "Norsk / Engelsk"}
               </span>
-            </a>
+            </div>
 
             {/* Innhold */}
             <div className="relative p-5 pt-3">
@@ -120,19 +122,15 @@ const NorskeStreamere2026: React.FC = () => {
                 className="absolute -top-7 right-5 w-14 h-14 rounded-xl object-cover ring-2 ring-background bg-muted shadow-md"
               />
 
-              {/* Navn + handle */}
+              {/* Navn + handle (hele kortet lenker til profilen; Twitch nås via
+                  ikon-knappen under) */}
               <div className="pr-16">
-                <h2 className="text-xl font-semibold text-foreground leading-tight">
+                <h2 className="text-xl font-semibold text-foreground leading-tight group-hover:text-primary transition-colors">
                   {c.name}
                 </h2>
-                <a
-                  href={`https://www.twitch.tv/${c.handle}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-medium text-primary hover:text-primary/80 transition-colors"
-                >
+                <span className="text-xs font-medium text-primary">
                   @{c.handle}
-                </a>
+                </span>
               </div>
 
               <p className="text-[11px] text-muted-foreground mt-1">
@@ -144,8 +142,9 @@ const NorskeStreamere2026: React.FC = () => {
                 {c.blurb}
               </p>
 
-              {/* Sosiale lenker - ikon-knapper, tight */}
-              <div className="mt-4 flex flex-wrap gap-1.5">
+              {/* Sosiale lenker - ikon-knapper (over stretched-linken så de går
+                  til riktig plattform, ikke profilsiden) */}
+              <div className="relative z-20 mt-4 flex flex-wrap gap-1.5">
                 {c.socials.map((s) => (
                   <a
                     key={s.label}
@@ -161,17 +160,14 @@ const NorskeStreamere2026: React.FC = () => {
                 ))}
               </div>
 
-              {/* Les mer -> profilsiden */}
-              <Link
-                to={`/streamere/${c.handle}`}
-                className="inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 mt-4 group/link"
-              >
+              {/* Les mer-affordans (klikk håndteres av stretched-linken over hele kortet) */}
+              <span className="inline-flex items-center gap-1.5 text-xs font-medium text-primary mt-4 group-hover:gap-2 transition-all">
                 Les mer om {c.name}
-                <ArrowRight className="w-3 h-3 transition-transform group-hover/link:translate-x-0.5" />
-              </Link>
+                <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
+              </span>
 
-              {/* Foto-attribusjon */}
-              <p className="text-[10px] text-muted-foreground/70 mt-4 pt-3 border-t border-border/40">
+              {/* Foto-attribusjon (over stretched-linken så kilden er klikkbar) */}
+              <p className="relative z-20 text-[10px] text-muted-foreground/70 mt-4 pt-3 border-t border-border/40">
                 Foto:{" "}
                 <a
                   href={c.attributionUrl}
