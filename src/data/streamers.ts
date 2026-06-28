@@ -13,14 +13,20 @@
  *   fi -> suomalaisetStriimaajat.ts
  */
 import { CREATORS as NO_CREATORS, type CreatorProfile } from "@/data/norskeStreamere";
+import { CREATORS as SE_CREATORS } from "@/data/svenskaStreamare";
+import { CREATORS as DA_CREATORS } from "@/data/danskeStreamere";
+import { CREATORS as FI_CREATORS } from "@/data/suomalaisetStriimaajat";
 
 export type { CreatorProfile };
 
 export type MarketCode = "no" | "se" | "da" | "fi";
 
-/** Creator-lister per marked. Tomme markeder utelates til de er bygget. */
+/** Creator-lister per marked. */
 export const MARKET_CREATORS: Partial<Record<MarketCode, CreatorProfile[]>> = {
   no: NO_CREATORS,
+  se: SE_CREATORS,
+  da: DA_CREATORS,
+  fi: FI_CREATORS,
 };
 
 /** Flat liste over alle creators på tvers av markeder. */
@@ -43,19 +49,12 @@ export function getMarketOfHandle(handle: string): MarketCode | undefined {
 
 type Lang = CreatorProfile["language"];
 
-/** Det lokale språknavnet per marked (for "mixed"-merker). */
-const MARKET_NATIVE_NAME: Record<MarketCode, string> = {
-  no: "Norsk",
-  se: "Svensk",
-  da: "Dansk",
-  fi: "Finsk",
-};
-
-const LANG_NATIVE_NAME: Record<string, string> = {
-  no: "Norsk",
-  sv: "Svensk",
-  da: "Dansk",
-  fi: "Finsk",
+/** Lokaliserte språk-labels per marked, på markedets eget språk. */
+const MARKET_LABELS: Record<MarketCode, { native: string; en: string; on: string }> = {
+  no: { native: "Norsk", en: "Engelsk", on: "Streamer på" },
+  se: { native: "Svenska", en: "Engelska", on: "Streamar på" },
+  da: { native: "Dansk", en: "Engelsk", on: "Streamer på" },
+  fi: { native: "Suomi", en: "Englanti", on: "Striimaa kielellä" },
 };
 
 /** Streamer på engelsk vs. lokalt språk - styrer farge på språk-taggen. */
@@ -63,16 +62,32 @@ export function isNativeLanguage(lang: Lang): boolean {
   return lang === "no" || lang === "sv" || lang === "da" || lang === "fi";
 }
 
-/** Kort tag-tekst, f.eks. "Norsk", "Engelsk", "Svensk / Engelsk". */
+/** Kort tag-tekst lokalisert til markedet, f.eks. "Svenska", "Engelska", "Suomi / Englanti". */
 export function languageLabel(lang: Lang, market: MarketCode = "no"): string {
-  if (lang === "en") return "Engelsk";
-  if (lang === "mixed") return `${MARKET_NATIVE_NAME[market]} / Engelsk`;
-  return LANG_NATIVE_NAME[lang] ?? "Lokalt";
+  const L = MARKET_LABELS[market];
+  if (lang === "en") return L.en;
+  if (lang === "mixed") return `${L.native} / ${L.en}`;
+  return L.native;
 }
 
-/** Lengre tooltip, f.eks. "Streamer på norsk". */
+/** Lengre tooltip lokalisert til markedet. */
 export function languageTooltip(lang: Lang, market: MarketCode = "no"): string {
-  if (lang === "en") return "Streamer på engelsk";
-  if (lang === "mixed") return `Innhold på ${MARKET_NATIVE_NAME[market].toLowerCase()} og engelsk`;
-  return `Streamer på ${(LANG_NATIVE_NAME[lang] ?? "lokalt språk").toLowerCase()}`;
+  const L = MARKET_LABELS[market];
+  return `${L.on} ${(lang === "en" ? L.en : lang === "mixed" ? `${L.native} / ${L.en}` : L.native).toLowerCase()}`;
 }
+
+/** "Streamer på" / "Streamar på" / "Striimaa kielellä" - til legend-prefiks. */
+export function languageLegendPrefix(market: MarketCode = "no"): string {
+  return `${MARKET_LABELS[market].on}:`;
+}
+
+/** Roundup-post + lokaliserte navigasjons-etiketter per marked. */
+export const MARKET_ROUNDUP: Record<
+  MarketCode,
+  { slug: string; back: string; all: string; noun: string; seoLocale: "no" | "sv" | "da" | "fi" }
+> = {
+  no: { slug: "norske-twitch-streamere-2026", back: "Tilbake til norske streamere", all: "Alle", noun: "Norske streamere", seoLocale: "no" },
+  se: { slug: "svenska-twitch-streamare-2026", back: "Tillbaka till svenska streamers", all: "Alla", noun: "Svenska streamers", seoLocale: "sv" },
+  da: { slug: "danske-twitch-streamere-2026", back: "Tilbage til danske streamere", all: "Alle", noun: "Danske streamere", seoLocale: "da" },
+  fi: { slug: "suomalaiset-twitch-striimaajat-2026", back: "Takaisin suomalaisiin striimaajiin", all: "Kaikki", noun: "Suomalaiset striimaajat", seoLocale: "fi" },
+};

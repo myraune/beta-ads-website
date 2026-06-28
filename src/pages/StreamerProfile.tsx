@@ -3,7 +3,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { SPFooter } from "@/components/sections/SPFooter";
-import { getCreatorByHandle, getMarketOfHandle, MARKET_CREATORS, isNativeLanguage, languageLabel, languageTooltip } from "@/data/streamers";
+import { getCreatorByHandle, getMarketOfHandle, MARKET_CREATORS, MARKET_ROUNDUP, isNativeLanguage, languageLabel, languageTooltip } from "@/data/streamers";
 import { SocialIcon } from "@/components/blog/SocialIcon";
 import { NewsCard } from "@/components/blog/NewsCard";
 import { StreamerMedia } from "@/components/blog/StreamerMedia";
@@ -33,6 +33,8 @@ const StreamerProfile: React.FC = () => {
   const idx = list.findIndex((x) => x.handle === c.handle);
   const prev = idx > 0 ? list[idx - 1] : undefined;
   const next = idx >= 0 && idx < list.length - 1 ? list[idx + 1] : undefined;
+  const roundup = MARKET_ROUNDUP[market];
+  const roundupPath = `/blog/${roundup.slug}`;
 
   const langLabel = languageLabel(c.language, market);
   const langTip = languageTooltip(c.language, market);
@@ -41,10 +43,10 @@ const StreamerProfile: React.FC = () => {
   return (
     <>
       <SEO
-        title={`${c.name}${c.realName ? ` (${c.realName})` : ""} | Norske streamere | Beta Ads`}
+        title={`${c.name}${c.realName ? ` (${c.realName})` : ""} | ${roundup.noun} | Beta Ads`}
         description={`Bakgrunn, kanaler og kilder for ${c.name} - ${c.meta}. ${c.blurb}`}
         canonical={`/streamere/${c.handle}`}
-        locale="no"
+        locale={roundup.seoLocale}
         ogImage={c.image}
         ogImageAlt={c.realName ? `${c.realName} (${c.name})` : c.name}
         jsonLd={[
@@ -66,8 +68,8 @@ const StreamerProfile: React.FC = () => {
               {
                 "@type": "ListItem",
                 position: 3,
-                name: "Norske streamere",
-                item: "https://beta-ads.no/blog/norske-twitch-streamere-2026",
+                name: roundup.noun,
+                item: `https://beta-ads.no${roundupPath}`,
               },
               {
                 "@type": "ListItem",
@@ -83,10 +85,10 @@ const StreamerProfile: React.FC = () => {
       <div className="pt-24 pb-12 max-w-5xl mx-auto px-6 lg:px-8">
         {/* Brødsmuler / tilbake */}
         <Link
-          to="/blog/norske-twitch-streamere-2026"
+          to={roundupPath}
           className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
         >
-          <ArrowLeft className="w-4 h-4" /> Tilbake til norske streamere
+          <ArrowLeft className="w-4 h-4" /> {roundup.back}
         </Link>
 
         {/* Cinematisk hero - bredt klipp-banner med navn overlagt (magasin-stil),
@@ -330,10 +332,10 @@ const StreamerProfile: React.FC = () => {
             </Link>
           ) : <span />}
           <Link
-            to="/blog/norske-twitch-streamere-2026"
+            to={roundupPath}
             className="text-muted-foreground hover:text-foreground transition-colors shrink-0"
           >
-            Alle 10
+            {roundup.all} {list.length}
           </Link>
           {next ? (
             <Link
