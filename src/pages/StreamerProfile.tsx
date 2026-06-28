@@ -22,6 +22,18 @@ function fmtFollowers(n: number): string {
   return String(n);
 }
 
+/** 228400 -> "228,4K", 56000 -> "56K" (timer sett). */
+function fmtHours(n: number): string {
+  if (n >= 1_000) return (n / 1_000).toFixed(1).replace(".", ",").replace(",0", "") + "K";
+  return String(n);
+}
+
+/** 1400 -> "1,4K", 399 -> "399". */
+function fmtViewers(n: number): string {
+  if (n >= 1_000) return (n / 1_000).toFixed(1).replace(".", ",").replace(",0", "") + "K";
+  return n.toLocaleString("nb-NO");
+}
+
 const StreamerProfile: React.FC = () => {
   const { handle } = useParams<{ handle: string }>();
   const c = handle ? getCreatorByHandle(handle) : undefined;
@@ -214,8 +226,30 @@ const StreamerProfile: React.FC = () => {
                 </div>
                 <div className="text-xs text-muted-foreground mt-1">{L.followers}</div>
               </div>
-              {/* Tracker-tall: snitt-seere er det viktigste rekkevidde-tallet for merkevarer */}
-              {c.trackerStats && (
+              {/* Snitt-seere er det viktigste rekkevidde-tallet for merkevarer.
+                  Beta Ads' egne tall foretrekkes; ellers TwitchTracker. */}
+              {c.betaStats ? (
+                <>
+                  <div>
+                    <div className="text-3xl md:text-4xl font-light tracking-tight text-primary tabular-nums">
+                      {fmtViewers(c.betaStats.avgViewers)}
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-1">{L.avgViewers}</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl md:text-4xl font-light tracking-tight text-foreground tabular-nums">
+                      {fmtHours(c.betaStats.watchTimeHours)}
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-1">{L.watchTime}</div>
+                  </div>
+                  <div>
+                    <div className="text-3xl md:text-4xl font-light tracking-tight text-foreground tabular-nums">
+                      {String(c.betaStats.airTimeHours).replace(".", ",")}
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-1">{L.airTime}</div>
+                  </div>
+                </>
+              ) : c.trackerStats ? (
                 <>
                   <div>
                     <div className="text-3xl md:text-4xl font-light tracking-tight text-primary tabular-nums">
@@ -236,7 +270,7 @@ const StreamerProfile: React.FC = () => {
                     <div className="text-xs text-muted-foreground mt-1">{L.hoursStreamed}</div>
                   </div>
                 </>
-              )}
+              ) : null}
               <div>
                 <div className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
                   {c.twitchStats.partner ? L.partner : L.affiliate}
@@ -262,10 +296,38 @@ const StreamerProfile: React.FC = () => {
             </div>
             <p className="text-[11px] text-muted-foreground/70 mt-5">
               {L.statsNote}
-              {c.trackerStats ? " " + L.trackerNote : ""}
+              {c.betaStats ? " " + L.betaNote : c.trackerStats ? " " + L.trackerNote : ""}
             </p>
           </section>
         )}
+
+        {/* Publikumsinteresser - Beta Ads' egen software (merkevare-matching) */}
+        {c.betaStats?.audienceInterests?.length ? (
+          <section className="border-t border-border/60 pt-12 mb-14">
+            <div className="flex items-center gap-2 mb-5">
+              <SocialIcon label="Twitch" className="w-4 h-4 text-primary" />
+              <h2 className="text-xs font-semibold tracking-widest uppercase text-primary">
+                {L.audienceInterests}
+              </h2>
+            </div>
+            <div className="flex flex-wrap gap-2 max-w-3xl">
+              {c.betaStats.audienceInterests.map((interest) => (
+                <span
+                  key={interest}
+                  className="inline-flex items-center rounded-full bg-primary/10 text-foreground/90 px-3.5 py-1.5 text-sm font-medium"
+                >
+                  {interest}
+                </span>
+              ))}
+            </div>
+            {c.betaStats.streamerInterests?.length ? (
+              <p className="text-sm text-muted-foreground mt-5">
+                {L.streamerInterests}: {c.betaStats.streamerInterests.join(", ")}.
+              </p>
+            ) : null}
+            <p className="text-[11px] text-muted-foreground/70 mt-4">{L.betaNote}</p>
+          </section>
+        ) : null}
 
         {/* Høydepunkter */}
         {c.highlights.length > 0 && (

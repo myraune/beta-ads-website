@@ -33,6 +33,7 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Streams Charts - perra", url: "https://streamscharts.com/channels/perra", type: "tracker" }
     ],
     twitchStats: { followers: 185174, partner: true, createdAt: "2021-09-26T13:22:25.490742Z", lastGame: "Just Chatting" },
+    betaStats: { avgViewers: 1400, airTimeHours: 157.8, watchTimeHours: 228400, audienceInterests: ["Counter-Strike 2", "CS Skins & Trading", "Pro-Esports Scene", "Snus & Swedish Tobacco", "PC Building", "Football (Soccer)"], streamerInterests: ["Food", "Music", "Sports", "Technology"] },
     trackerStats: { avgViewers: 1580, peakViewers: 2305, hoursStreamed: 174 },
     youtubeChannelHandle: "perrababy",
     youtubeVideos: [

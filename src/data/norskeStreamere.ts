@@ -34,6 +34,17 @@ export interface TrackerStats {
   hoursStreamed: number;
 }
 
+/** Data fra Beta Ads' egen Streamer Explorer (mer autoritativt enn trackere). */
+export interface BetaStats {
+  avgViewers: number;
+  airTimeHours: number;
+  watchTimeHours: number;
+  /** Hva publikummet er interessert i - for merkevare-matching. */
+  audienceInterests: string[];
+  /** Hva streameren selv er interessert i. */
+  streamerInterests?: string[];
+}
+
 export interface TwitchClip {
   slug: string;
   title: string;
@@ -97,6 +108,8 @@ export interface CreatorProfile {
   twitchStats?: TwitchStats;
   /** Ytelsestall siste 30 dager (TwitchTracker), bakt inn ved build. */
   trackerStats?: TrackerStats;
+  /** Data fra Beta Ads' egen Streamer Explorer (foretrukket kilde). */
+  betaStats?: BetaStats;
   /** Mest sette Twitch-klipp (offentlig GQL), bakt inn ved build. */
   twitchClips?: TwitchClip[];
   /** Valgfri banner-override (når topp-klippet er en svak thumbnail). */
@@ -218,6 +231,7 @@ export const CREATORS: CreatorProfile[] = [
   {
     handle: "knut",
     twitchStats: { followers: 419137, partner: true, createdAt: "2013-05-12T22:17:06.690621Z", lastGame: "Just Chatting" },
+    betaStats: { avgViewers: 934, airTimeHours: 170.2, watchTimeHours: 158900, audienceInterests: ["Bodybuilding & Fitness", "Supplements & Biohacking", "PC Gaming Hardware", "Healthy Cooking", "Automotive & Supercars"], streamerInterests: ["Food", "Sports", "Technology", "Travel"] },
     trackerStats: { avgViewers: 1082, peakViewers: 15598, hoursStreamed: 179 },
     name: "Knut",
     realName: "Knut Spildrejorde",
@@ -322,6 +336,7 @@ export const CREATORS: CreatorProfile[] = [
   {
     handle: "detoo",
     twitchStats: { followers: 85915, partner: true, createdAt: "2016-05-16T19:55:22.092212Z", lastGame: "IRL" },
+    betaStats: { avgViewers: 399, airTimeHours: 140.3, watchTimeHours: 56000, audienceInterests: ["Apex Legends Competitive", "Energy Drinks & Supplements", "PC Customization", "Nordic Tech/Apparel Brands", "Weightlifting & Gym Lifestyle"], streamerInterests: ["Music", "Sports", "Technology", "Travel"] },
     trackerStats: { avgViewers: 403, peakViewers: 764, hoursStreamed: 154 },
     name: "detoo",
     realName: "Jørgen Jenssen",

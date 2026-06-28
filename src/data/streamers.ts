@@ -99,6 +99,11 @@ export interface ProfileLabels {
   peakViewers: string;
   hoursStreamed: string;
   trackerNote: string;
+  watchTime: string;
+  airTime: string;
+  audienceInterests: string;
+  streamerInterests: string;
+  betaNote: string;
   inPress: string;
   sources: string;
   sourcesNote: string;
@@ -117,6 +122,8 @@ const PROFILE_LABELS: Record<MarketCode, ProfileLabels> = {
     statsNote: "Tall hentet fra Twitch. Følgertall er et øyeblikksbilde og endrer seg kontinuerlig.",
     avgViewers: "snitt-seere", peakViewers: "peak-seere", hoursStreamed: "timer streamet",
     trackerNote: "Snitt-seere, peak og timer fra TwitchTracker (siste 30 dager). Et øyeblikksbilde som endrer seg.",
+    watchTime: "timer sett", airTime: "timer live", audienceInterests: "Hva publikummet bryr seg om",
+    streamerInterests: "Streameren interesserer seg for", betaNote: "Tall fra Beta Ads Streamer Explorer.",
     inPress: "I pressen", sources: "Bakgrunn og kilder",
     sourcesNote: "Faktagrunnlag hentet fra sjekkbare offentlige kilder. Tall fra trackere (følgere, gjennomsnittsseere) er øyeblikksbilder og varierer over tid.",
     latestYouTube: "Siste videoer på YouTube", seeAllYouTube: "Se alle på YouTube",
@@ -129,6 +136,8 @@ const PROFILE_LABELS: Record<MarketCode, ProfileLabels> = {
     statsNote: "Siffror hämtade från Twitch. Följarantal är en ögonblicksbild och ändras kontinuerligt.",
     avgViewers: "snittittare", peakViewers: "max tittare", hoursStreamed: "timmar streamat",
     trackerNote: "Snittittare, max och timmar från TwitchTracker (senaste 30 dagarna). En ögonblicksbild som ändras.",
+    watchTime: "sedda timmar", airTime: "timmar live", audienceInterests: "Vad publiken bryr sig om",
+    streamerInterests: "Streamern intresserar sig för", betaNote: "Siffror från Beta Ads Streamer Explorer.",
     inPress: "I pressen", sources: "Bakgrund och källor",
     sourcesNote: "Faktaunderlag från kontrollerbara offentliga källor. Siffror från trackers är ögonblicksbilder och varierar över tid.",
     latestYouTube: "Senaste videor på YouTube", seeAllYouTube: "Se alla på YouTube",
@@ -141,6 +150,8 @@ const PROFILE_LABELS: Record<MarketCode, ProfileLabels> = {
     statsNote: "Tal hentet fra Twitch. Følgertal er et øjebliksbillede og ændrer sig løbende.",
     avgViewers: "gns. seere", peakViewers: "maks seere", hoursStreamed: "timer streamet",
     trackerNote: "Gns. seere, maks og timer fra TwitchTracker (seneste 30 dage). Et øjebliksbillede der ændrer sig.",
+    watchTime: "sete timer", airTime: "timer live", audienceInterests: "Hvad publikummet går op i",
+    streamerInterests: "Streameren interesserer sig for", betaNote: "Tal fra Beta Ads Streamer Explorer.",
     inPress: "I pressen", sources: "Baggrund og kilder",
     sourcesNote: "Faktagrundlag fra kontrollerbare offentlige kilder. Tal fra trackere er øjebliksbilleder og varierer over tid.",
     latestYouTube: "Seneste videoer på YouTube", seeAllYouTube: "Se alle på YouTube",
@@ -153,6 +164,8 @@ const PROFILE_LABELS: Record<MarketCode, ProfileLabels> = {
     statsNote: "Luvut haettu Twitchistä. Seuraajamäärä on tilannekuva ja muuttuu jatkuvasti.",
     avgViewers: "keskim. katsojat", peakViewers: "huippukatsojat", hoursStreamed: "tuntia striimattu",
     trackerNote: "Keskikatsojat, huippu ja tunnit TwitchTrackerista (viimeiset 30 päivää). Tilannekuva joka muuttuu.",
+    watchTime: "katsottua tuntia", airTime: "tuntia livenä", audienceInterests: "Mistä yleisö välittää",
+    streamerInterests: "Striimaaja on kiinnostunut", betaNote: "Luvut Beta Ads Streamer Explorerista.",
     inPress: "Mediassa", sources: "Taustat ja lähteet",
     sourcesNote: "Faktapohja tarkistettavista julkisista lähteistä. Trackereiden luvut ovat tilannekuvia ja vaihtelevat ajan myötä.",
     latestYouTube: "Uusimmat videot YouTubessa", seeAllYouTube: "Katso kaikki YouTubessa",
