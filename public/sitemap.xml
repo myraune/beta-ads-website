@@ -1472,4 +1472,26 @@
     </image:image>
   </url>
 
+  <url>
+    <loc>https://beta-ads.no/blog/clip-analytics-ad-verification-nordic-streaming-da</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-clip-analytics-2026.jpg</image:loc>
+      <image:title>Inde i Clip Analytics: Sådan verificerer Beta Ads hver eneste annoncevisning på tværs af det nordiske streamingnetværk</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://beta-ads.no/blog/beta-ads-2-0-platform-launch-da</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/beta-ads-2-0-hero.jpg</image:loc>
+      <image:title>Beta Ads 2.0: Self-service annoncering på livestreaming er her</image:title>
+    </image:image>
+  </url>
+
 </urlset>
