@@ -195,9 +195,14 @@ export const CREATORS: CreatorProfile[] = [
       { slug: "SuavePoisedPresidentMoreCowbell-hTF4W_5uSwk-GPaV", title: "I just saved our game...", viewCount: 104214, duration: 29, createdAt: "2024-02-16T18:49:14Z", game: "Fortnite", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/1ac3fa29-3b5e-4741-98ad-998b7350a943/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mrsavage/clip/SuavePoisedPresidentMoreCowbell-hTF4W_5uSwk-GPaV" },
       { slug: "CrepuscularWrongPlumageAMPEnergyCherry", title: "hes so good", viewCount: 94226, duration: 26, createdAt: "2019-06-29T18:00:01Z", game: "Fortnite", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/a194138b-7a78-44b6-8767-bfe35ac20099/landscape/thumb/thumb-0000000000-1536x864.jpg", url: "https://www.twitch.tv/mrsavage/clip/CrepuscularWrongPlumageAMPEnergyCherry" },
     ],
-    youtubeChannelHandle: "MrSavageOG",
+    youtubeChannelHandle: "mrsavage",
     youtubeVideos: [
-      { id: "Aa8kGgwi-Ro", title: "SIN CONTEXTO.", published: "2022-01-21T20:31:06+00:00" },
+      { id: "uYR_-JochCE", title: "ALMOST 3 WINS IN THE FNCS DIV CUP! ft. Velo", published: "2026-06-28T16:30:17+00:00" },
+      { id: "he_oxPm1lPI", title: "Mongraal’s Icon Skin Is INSANE", published: "2026-06-26T20:57:57+00:00" },
+      { id: "Lc_xpD3o6Xs", title: "Mongraal got an ICON SKIN!", published: "2026-06-26T19:49:32+00:00" },
+      { id: "7d5jHAv3Iiw", title: "OUR GREATEST RUN IN THE FNCS DIV CUP! (Day 1)", published: "2026-06-25T16:30:23+00:00" },
+      { id: "bK7EZTIfKCo", title: "12 Kill Win In World Cup Qualifiers", published: "2026-06-24T13:02:29+00:00" },
+      { id: "kZD_XCi_QxI", title: "MrSavage Solo Clutch Is Insane", published: "2026-06-23T14:33:04+00:00" },
     ],
   },
   {

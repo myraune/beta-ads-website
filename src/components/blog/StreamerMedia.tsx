@@ -51,7 +51,8 @@ export const StreamerMedia: React.FC<Props> = ({
   const hasTikTok = Boolean(tiktokVideos?.length || tiktokHandle);
   const tabs: { key: TabKey; label: string; count: number }[] = [];
   if (twitchClips?.length) tabs.push({ key: "twitch", label: "Twitch-klipp", count: twitchClips.length });
-  if (youtubeVideos?.length) tabs.push({ key: "youtube", label: "YouTube", count: youtubeVideos.length });
+  // Vis kun YouTube-fanen med et reelt feed (en ensom video ser uferdig ut).
+  if (youtubeVideos && youtubeVideos.length >= 2) tabs.push({ key: "youtube", label: "YouTube", count: youtubeVideos.length });
   if (hasTikTok) tabs.push({ key: "tiktok", label: "TikTok", count: tiktokVideos?.length ?? 0 });
 
   const [active, setActive] = useState<TabKey>(tabs[0]?.key ?? "twitch");
