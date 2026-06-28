@@ -20,6 +20,13 @@ export interface ReferenceLink {
   type: "official-site" | "press" | "wikipedia" | "news" | "tracker" | "agency" | "platform";
 }
 
+export interface TwitchStats {
+  followers: number;
+  partner: boolean;
+  createdAt: string | null;
+  lastGame: string | null;
+}
+
 export interface TwitchClip {
   slug: string;
   title: string;
@@ -79,6 +86,8 @@ export interface CreatorProfile {
   youtubeChannelHandle?: string;
   /** De siste videoene fra YouTube RSS, fetchet ved build. */
   youtubeVideos?: YouTubeVideo[];
+  /** Live Twitch-statistikk (offentlig GQL), bakt inn ved build. */
+  twitchStats?: TwitchStats;
   /** Mest sette Twitch-klipp (offentlig GQL), bakt inn ved build. */
   twitchClips?: TwitchClip[];
   /** Valgfri banner-override (når topp-klippet er en svak thumbnail). */
@@ -92,6 +101,7 @@ export interface CreatorProfile {
 export const CREATORS: CreatorProfile[] = [
   {
     handle: "mrsavage",
+    twitchStats: { followers: 4638403, partner: true, createdAt: "2018-02-24T18:41:22.909365Z", lastGame: "Fortnite" },
     name: "MrSavage",
     realName: "Martin Foss Andersen",
     meta: "Twitch · YouTube · proff Fortnite",
@@ -192,6 +202,7 @@ export const CREATORS: CreatorProfile[] = [
   },
   {
     handle: "knut",
+    twitchStats: { followers: 419137, partner: true, createdAt: "2013-05-12T22:17:06.690621Z", lastGame: "Just Chatting" },
     name: "Knut",
     realName: "Knut Spildrejorde",
     meta: "Twitch · fitness, IRL & gaming",
@@ -282,9 +293,19 @@ export const CREATORS: CreatorProfile[] = [
       { slug: "FamousMushyLorisPrimeMe-weg9oOYlS5m4nV6n", title: "Woman lifts Knut at TwitchCon", viewCount: 366214, duration: 20, createdAt: "2022-07-17T15:54:31Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/767f091a-7bd1-443b-8c0a-541b856fad33/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/knut/clip/FamousMushyLorisPrimeMe-weg9oOYlS5m4nV6n" },
       { slug: "RenownedSpikySkunkChocolateRain", title: "Knut is being honest about Greek", viewCount: 350261, duration: 60, createdAt: "2020-06-01T18:23:11Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/37e3cd80-4074-4f80-a114-ec4150215fe5/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/knut/clip/RenownedSpikySkunkChocolateRain" },
     ],
+    youtubeChannelHandle: "KnutSpildrejorde86",
+    youtubeVideos: [
+      { id: "b18R_fLMuks", title: "Knut x Gym80 @ FIBO", published: "2024-04-25T17:25:09+00:00" },
+      { id: "nLxjfzId2js", title: "Knut and Jeanette driving a Dodge Viper SRT10 in Vegas", published: "2019-05-11T11:28:44+00:00" },
+      { id: "zFgmH8mEjFY", title: "TexasRaw   Sixteen Tons", published: "2019-05-11T11:28:25+00:00" },
+      { id: "Wr_1AouIeu4", title: "Podcast - Wickd, RoosterTV, Barbie_bad_buns and Giselle", published: "2019-05-11T11:28:01+00:00" },
+      { id: "Aab0SZF2cMc", title: "Treatment on shoulder.", published: "2018-12-20T06:24:43+00:00" },
+      { id: "nXpT4Nch-JE", title: "The 2012 season", published: "2018-12-17T03:24:10+00:00" },
+    ],
   },
   {
     handle: "detoo",
+    twitchStats: { followers: 85915, partner: true, createdAt: "2016-05-16T19:55:22.092212Z", lastGame: "IRL" },
     name: "detoo",
     realName: "Jørgen Jenssen",
     meta: "Twitch · YouTube · variert",
@@ -388,6 +409,7 @@ export const CREATORS: CreatorProfile[] = [
   },
   {
     handle: "emzia",
+    twitchStats: { followers: 97618, partner: true, createdAt: "2015-04-10T23:35:13.51328Z", lastGame: "Just Chatting" },
     name: "Emzia",
     realName: "Emilie Helgesen",
     meta: "Twitch · skytespill & variert",
@@ -480,10 +502,20 @@ export const CREATORS: CreatorProfile[] = [
       { slug: "CulturedTemperedSandwichDuDudu", title: "Showing my FULL HARLEY QUINN halloween costume", viewCount: 2083, duration: 32, createdAt: "2017-06-19T13:50:01Z", game: null, thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/19cef455-39cc-4989-badc-011c151104ad/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/emzia/clip/CulturedTemperedSandwichDuDudu" },
       { slug: "IronicBusyOtterFUNgineer", title: "Karl dont drop the soap monkaS", viewCount: 1946, duration: 11, createdAt: "2020-08-22T13:31:42Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/d771828e-1d18-475c-b754-0627c60af5b5/landscape/thumb/thumb-0000000000-1600x900.jpg", url: "https://www.twitch.tv/emzia/clip/IronicBusyOtterFUNgineer" },
     ],
+    youtubeChannelHandle: "Emzia",
+    youtubeVideos: [
+      { id: "JV6ZaWv_6LM", title: "Birthday stream 2025 | Recap", published: "2025-09-28T22:00:18+00:00" },
+      { id: "xvPhX1UG8Nk", title: "Galaxy Tab S11 Ultra✨", published: "2025-09-15T10:52:26+00:00" },
+      { id: "QdoCDX53pHM", title: "Feel like a Monster", published: "2025-08-14T17:09:21+00:00" },
+      { id: "qYJs9-_gBaE", title: "Best & Funny plays in Warzone! Call of Duty: Mordern Warfare | Highlights", published: "2020-12-13T11:00:49+00:00" },
+      { id: "A3OnchD8qvo", title: "Emzia | Hunting ghosts in Phasmophobia | Stream highlights", published: "2020-11-22T13:00:02+00:00" },
+      { id: "o1SgFj6Evuo", title: "Emzia | Call of Duty - Black Ops: Cold War BETA | Funny Moments", published: "2020-11-13T11:30:02+00:00" },
+    ],
     tiktokHandle: "emziatv",
   },
   {
     handle: "thomaspaste",
+    twitchStats: { followers: 51653, partner: true, createdAt: "2011-06-19T13:02:20.994124Z", lastGame: "Arma Reforger" },
     name: "thomasPASTE",
     meta: "Twitch · variert gaming",
     blurb:
@@ -585,6 +617,7 @@ export const CREATORS: CreatorProfile[] = [
   },
   {
     handle: "klokkismann",
+    twitchStats: { followers: 15922, partner: true, createdAt: "2014-09-09T14:03:12.471343Z", lastGame: "MECCHA CHAMELEON" },
     name: "Klokkismann",
     realName: "Aslak Maurstad",
     meta: "Twitch · Minecraft, sjakk & prat",
@@ -690,6 +723,7 @@ export const CREATORS: CreatorProfile[] = [
   },
   {
     handle: "dennisvareide",
+    twitchStats: { followers: 59091, partner: true, createdAt: "2015-07-08T18:00:40.585173Z", lastGame: "MECCHA CHAMELEON" },
     name: "Dennis Vareide",
     realName: "Dennis Mikal Stabell Vareide",
     meta: "YouTube · Twitch · Minecraft",
@@ -794,6 +828,7 @@ export const CREATORS: CreatorProfile[] = [
   },
   {
     handle: "jonieboi",
+    twitchStats: { followers: 24339, partner: true, createdAt: "2016-08-09T17:13:42.965102Z", lastGame: "Grand Theft Auto V" },
     name: "Jonieboi",
     realName: "Jonas Johannessen",
     meta: "YouTube · Twitch · reaksjon & humor",
@@ -897,6 +932,7 @@ export const CREATORS: CreatorProfile[] = [
   },
   {
     handle: "danniz",
+    twitchStats: { followers: 44354, partner: true, createdAt: "2015-04-24T21:42:36.88602Z", lastGame: "Just Chatting" },
     name: "DannizTV",
     meta: "Twitch · variert gaming",
     blurb:
@@ -982,9 +1018,19 @@ export const CREATORS: CreatorProfile[] = [
       { slug: "FamousAverageKumquatDoubleRainbow-B-OZgNIVHuwgj3CP", title: "HAMZA!", viewCount: 4075, duration: 39, createdAt: "2024-06-02T20:39:09Z", game: "Grand Theft Auto V", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/9150266d-b9fc-49e0-9d13-ce7c292d552b/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/danniz/clip/FamousAverageKumquatDoubleRainbow-B-OZgNIVHuwgj3CP" },
       { slug: "UninterestedLachrymoseEggKippa-N01oy_L25czaOS_Q", title: "zame feit", viewCount: 3309, duration: 28, createdAt: "2021-12-11T05:12:28Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/fe143eb8-effe-4b51-b2ec-c60dbe05c9bd/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/danniz/clip/UninterestedLachrymoseEggKippa-N01oy_L25czaOS_Q" },
     ],
+    youtubeChannelHandle: "dasdas494",
+    youtubeVideos: [
+      { id: "3maqVfBlf2Y", title: "Danniz gir opp og går for fiskegrateng!", published: "2026-06-03T16:00:01+00:00" },
+      { id: "X4TQFvQa8j4", title: "Danniz har FULL kontroll i Minecraft!", published: "2026-05-09T13:07:28+00:00" },
+      { id: "tOoj7xjqL9o", title: "EN LENGENDE ANKOMMER BYEN?", published: "2026-05-09T06:08:57+00:00" },
+      { id: "GBs1BfxEge8", title: "Danniz reagerer på Domen!", published: "2026-05-09T00:25:19+00:00" },
+      { id: "9mgfupPZ0Wg", title: "Danniz blir totalt sjokkert i GTA V!", published: "2026-05-08T03:29:18+00:00" },
+      { id: "WTujCWCsjJg", title: "Danniz sin syke clutch på B-site!", published: "2026-05-06T01:08:21+00:00" },
+    ],
   },
   {
     handle: "mystixx",
+    twitchStats: { followers: 36271, partner: true, createdAt: "2013-12-04T17:24:24.66983Z", lastGame: "IRL" },
     name: "Mystixx",
     meta: "Twitch · IRL & Minecraft",
     blurb:
@@ -1058,6 +1104,15 @@ export const CREATORS: CreatorProfile[] = [
       { slug: "TacitHealthyMinkAsianGlow-Oz7gw-DgtLoD1vte", title: "B00BA", viewCount: 6002, duration: 11, createdAt: "2021-06-18T15:45:11Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/71b7a45b-3425-4a4e-bf87-89f542d2e757/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/mystixx/clip/TacitHealthyMinkAsianGlow-Oz7gw-DgtLoD1vte" },
       { slug: "WildExquisiteLocustJebaited-s2zGTzTlHxcriO0C", title: "Igjen kommer gamle folk", viewCount: 4814, duration: 50, createdAt: "2024-09-05T14:24:45Z", game: "IRL", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/55f8e32e-b6bf-4e33-ba46-41642d649589/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mystixx/clip/WildExquisiteLocustJebaited-s2zGTzTlHxcriO0C" },
       { slug: "JazzyApatheticAniseDatBoi-N0K1j0beljx4wb_0", title: "🔴🔴🔴 SUBATHON! 🔴🔴🔴 !youtube !p+ !hvorlenge", viewCount: 4721, duration: 26, createdAt: "2023-09-28T16:57:20Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/082a799e-010b-4c89-b03b-d94ec2f8c3ec/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/mystixx/clip/JazzyApatheticAniseDatBoi-N0K1j0beljx4wb_0" },
+    ],
+    youtubeChannelHandle: "UC8kVc7nb33z0BHuMEypdzZg",
+    youtubeVideos: [
+      { id: "KFDX37sce4w", title: "Vi rodde subwayen helt til Time Square! #norway #worldcup", published: "2026-06-22T12:31:30+00:00" },
+      { id: "jbkySIWBbcg", title: "Glem SK26! #humor", published: "2026-06-18T15:59:43+00:00" },
+      { id: "dZcCK5hB-tw", title: "Litt bakgrunn støy er vel helt greit?", published: "2026-04-29T14:22:08+00:00" },
+      { id: "s86GB1XzQtE", title: "EN LITEN HEADSUP NÅR DET GJELDER RIP N SHIPS! #pokemon", published: "2026-01-12T16:37:46+00:00" },
+      { id: "_xQ1NCxxvgw", title: "GIR RÅD TIL DEN YNGRE GENERASJON!", published: "2025-12-09T17:01:27+00:00" },
+      { id: "1l168zBzp4Q", title: "FINNER NOE GREIER I KJØLESKAPET!", published: "2025-12-02T14:54:36+00:00" },
     ],
     tiktokHandle: "mystixxtwitch",
   },

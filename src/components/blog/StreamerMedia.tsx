@@ -62,7 +62,13 @@ export const StreamerMedia: React.FC<Props> = ({
     active === "twitch"
       ? { url: `https://www.twitch.tv/${twitchHandle}/clips`, label: "Alle klipp på Twitch", icon: "Twitch" }
       : active === "youtube"
-        ? { url: `https://www.youtube.com/@${youtubeChannelHandle}`, label: "Se alle på YouTube", icon: "YouTube" }
+        ? {
+            url: youtubeChannelHandle?.startsWith("UC")
+              ? `https://www.youtube.com/channel/${youtubeChannelHandle}`
+              : `https://www.youtube.com/@${youtubeChannelHandle}`,
+            label: "Se alle på YouTube",
+            icon: "YouTube",
+          }
         : { url: `https://www.tiktok.com/@${tiktokHandle}`, label: "Se alle på TikTok", icon: "TikTok" };
 
   return (

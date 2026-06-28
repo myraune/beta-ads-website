@@ -4,6 +4,13 @@ import { ArrowRight } from "lucide-react";
 import { CREATORS } from "@/data/norskeStreamere";
 import { SocialIcon } from "@/components/blog/SocialIcon";
 
+/** 4638403 -> "4,6M", 85915 -> "86K". */
+function fmtFollowers(n: number): string {
+  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(".", ",").replace(",0", "") + "M";
+  if (n >= 1_000) return Math.round(n / 1_000) + "K";
+  return String(n);
+}
+
 /**
  * Flagship Norwegian creator roundup - bespoke editorial layout (not the generic
  * markdown article template). Real Twitch avatars via unavatar.io/twitch/<handle>
@@ -107,6 +114,14 @@ const NorskeStreamere2026: React.FC = () => {
               />
               {/* Mørk gradient i bunn så avatar + tekst leses */}
               <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/70 via-black/30 to-transparent pointer-events-none" />
+              {/* Følger-tall fra Twitch */}
+              {c.twitchStats && (
+                <span className="absolute bottom-2.5 left-3 inline-flex items-center gap-1.5 text-[11px] font-semibold text-white">
+                  <SocialIcon label="Twitch" className="w-3.5 h-3.5" />
+                  {fmtFollowers(c.twitchStats.followers)}
+                  <span className="font-normal text-white/75">følgere</span>
+                </span>
+              )}
               {/* Nummer */}
               <span className="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-black/55 backdrop-blur-sm px-2 py-0.5 text-[10px] font-semibold tabular-nums tracking-widest text-white">
                 {String(i + 1).padStart(2, "0")} / 10

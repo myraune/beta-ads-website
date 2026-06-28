@@ -21,6 +21,13 @@ const LANG_LABEL: Record<"no" | "en" | "mixed", string> = {
   mixed: "Innhold på norsk og engelsk",
 };
 
+/** 4638403 -> "4,6M", 85915 -> "86K" (norsk tallformat). */
+function fmtFollowers(n: number): string {
+  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(".", ",").replace(",0", "") + "M";
+  if (n >= 1_000) return Math.round(n / 1_000) + "K";
+  return String(n);
+}
+
 const StreamerProfile: React.FC = () => {
   const { handle } = useParams<{ handle: string }>();
   const c = handle ? getCreatorByHandle(handle) : undefined;
@@ -190,6 +197,52 @@ const StreamerProfile: React.FC = () => {
             </div>
           </div>
         </header>
+
+        {/* Twitch-statistikk - live tall fra Twitch */}
+        {c.twitchStats && (
+          <section className="border-t border-border/60 pt-12 mb-14">
+            <div className="flex items-center gap-2 mb-5">
+              <SocialIcon label="Twitch" className="w-4 h-4 text-primary" />
+              <h2 className="text-xs font-semibold tracking-widest uppercase text-primary">
+                Twitch-statistikk
+              </h2>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 sm:gap-12">
+              <div>
+                <div className="text-3xl md:text-4xl font-light tracking-tight text-foreground tabular-nums">
+                  {fmtFollowers(c.twitchStats.followers)}
+                </div>
+                <div className="text-xs text-muted-foreground mt-1">følgere</div>
+              </div>
+              <div>
+                <div className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
+                  {c.twitchStats.partner ? "Partner" : "Affiliate"}
+                </div>
+                <div className="text-xs text-muted-foreground mt-1">Twitch-status</div>
+              </div>
+              {c.twitchStats.createdAt && (
+                <div>
+                  <div className="text-3xl md:text-4xl font-light tracking-tight text-foreground tabular-nums">
+                    {c.twitchStats.createdAt.slice(0, 4)}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-1">på Twitch siden</div>
+                </div>
+              )}
+              {c.twitchStats.lastGame && (
+                <div className="min-w-0">
+                  <div className="text-2xl md:text-3xl font-light tracking-tight text-foreground truncate">
+                    {c.twitchStats.lastGame}
+                  </div>
+                  <div className="text-xs text-muted-foreground mt-1">siste kategori</div>
+                </div>
+              )}
+            </div>
+            <p className="text-[11px] text-muted-foreground/70 mt-5">
+              Tall hentet fra Twitch. Følgertall er et øyeblikksbilde og endrer seg
+              kontinuerlig.
+            </p>
+          </section>
+        )}
 
         {/* Høydepunkter */}
         {c.highlights.length > 0 && (
