@@ -76,7 +76,7 @@ export interface CreatorProfile {
   image: string;
   attribution: string;
   attributionUrl: string;
-  language: "no" | "en" | "mixed";
+  language: "no" | "sv" | "da" | "fi" | "en" | "mixed";
   socials: SocialLink[];
   /** Eksterne kilder leseren kan klikke for å lese mer. */
   references: ReferenceLink[];

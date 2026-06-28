@@ -3,7 +3,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { SPFooter } from "@/components/sections/SPFooter";
-import { getCreatorByHandle, CREATORS } from "@/data/norskeStreamere";
+import { getCreatorByHandle, getMarketOfHandle, MARKET_CREATORS, isNativeLanguage, languageLabel, languageTooltip } from "@/data/streamers";
 import { SocialIcon } from "@/components/blog/SocialIcon";
 import { NewsCard } from "@/components/blog/NewsCard";
 import { StreamerMedia } from "@/components/blog/StreamerMedia";
@@ -14,12 +14,6 @@ import { StreamerMedia } from "@/components/blog/StreamerMedia";
  * Lengre bio enn roundup-kortet, høydepunkter, sosiale lenker og eksterne
  * kilder for videre lesning. Lenker tilbake til roundup-saken.
  */
-
-const LANG_LABEL: Record<"no" | "en" | "mixed", string> = {
-  no: "Streamer på norsk",
-  en: "Streamer på engelsk",
-  mixed: "Innhold på norsk og engelsk",
-};
 
 /** 4638403 -> "4,6M", 85915 -> "86K" (norsk tallformat). */
 function fmtFollowers(n: number): string {
@@ -33,13 +27,16 @@ const StreamerProfile: React.FC = () => {
   const c = handle ? getCreatorByHandle(handle) : undefined;
   if (!c) return <Navigate to="/blog/norske-twitch-streamere-2026" replace />;
 
-  // Forrige/neste streamer i listen, for navigering mellom profilene.
-  const idx = CREATORS.findIndex((x) => x.handle === c.handle);
-  const prev = idx > 0 ? CREATORS[idx - 1] : undefined;
-  const next = idx < CREATORS.length - 1 ? CREATORS[idx + 1] : undefined;
+  // Forrige/neste streamer innenfor samme marked, for navigering mellom profilene.
+  const market = getMarketOfHandle(c.handle) ?? "no";
+  const list = MARKET_CREATORS[market] ?? [];
+  const idx = list.findIndex((x) => x.handle === c.handle);
+  const prev = idx > 0 ? list[idx - 1] : undefined;
+  const next = idx >= 0 && idx < list.length - 1 ? list[idx + 1] : undefined;
 
-  const langLabel =
-    c.language === "no" ? "Norsk" : c.language === "en" ? "Engelsk" : "Norsk / Engelsk";
+  const langLabel = languageLabel(c.language, market);
+  const langTip = languageTooltip(c.language, market);
+  const langNative = isNativeLanguage(c.language);
 
   return (
     <>
@@ -115,13 +112,13 @@ const StreamerProfile: React.FC = () => {
               {/* Språk-tag */}
               <span
                 className={`absolute top-4 right-4 inline-flex items-center rounded-full px-3 py-1 text-[11px] font-semibold tracking-widest uppercase shadow-sm ${
-                  c.language === "no"
+                  langNative
                     ? "bg-white/95 text-black"
                     : c.language === "en"
                       ? "bg-primary text-white"
                       : "bg-black/55 text-white backdrop-blur-sm"
                 }`}
-                title={LANG_LABEL[c.language]}
+                title={langTip}
               >
                 {langLabel}
               </span>
