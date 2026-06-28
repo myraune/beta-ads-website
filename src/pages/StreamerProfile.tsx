@@ -86,8 +86,8 @@ const StreamerProfile: React.FC = () => {
         </Link>
 
         {/* Hero */}
-        <header className="grid md:grid-cols-12 gap-8 md:gap-10 items-start mb-12">
-          <figure className="md:col-span-5 m-0">
+        <header className="grid md:grid-cols-12 gap-8 md:gap-10 items-start mb-14">
+          <figure className="md:col-span-4 m-0">
             <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted ring-1 ring-border">
               <img
                 src={c.image}
@@ -124,19 +124,18 @@ const StreamerProfile: React.FC = () => {
             </figcaption>
           </figure>
 
-          <div className="md:col-span-7">
+          <div className="md:col-span-8">
             <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
               Norsk streaming
             </span>
-            <h1 className="text-4xl md:text-5xl font-light tracking-tight text-foreground leading-[1.08] mb-2">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground leading-[1.05] mb-3">
               {c.name}
             </h1>
-            <p className="text-sm text-muted-foreground mb-1">
+            <p className="text-sm text-muted-foreground mb-5">
               {c.realName ? `${c.realName} · ` : ""}
-              {c.meta}
+              {c.meta} · {langLabel}
             </p>
-            <p className="text-sm text-muted-foreground mb-6">{LANG_LABEL[c.language]}</p>
-            <p className="text-base md:text-lg font-light text-foreground/85 leading-relaxed">
+            <p className="text-base md:text-lg font-light text-foreground/85 leading-relaxed max-w-2xl">
               {c.bio}
             </p>
 
@@ -165,10 +164,10 @@ const StreamerProfile: React.FC = () => {
             <h2 className="text-xs font-semibold tracking-widest uppercase text-primary mb-4">
               Høydepunkter
             </h2>
-            <ul className="space-y-2.5 max-w-3xl">
+            <ul className="grid sm:grid-cols-2 gap-x-10 gap-y-3">
               {c.highlights.map((h, i) => (
-                <li key={i} className="flex items-start gap-3 text-base text-foreground/85 leading-relaxed">
-                  <span className="mt-2.5 w-1 h-1 rounded-full bg-primary shrink-0" />
+                <li key={i} className="flex items-start gap-3 text-[15px] text-foreground/85 leading-relaxed">
+                  <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
                   <span>{h}</span>
                 </li>
               ))}
