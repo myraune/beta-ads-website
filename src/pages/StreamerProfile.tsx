@@ -91,7 +91,7 @@ const StreamerProfile: React.FC = () => {
           <div className="relative overflow-hidden rounded-3xl bg-muted ring-1 ring-border">
             <div className="relative aspect-[16/10] sm:aspect-[5/2]">
               <img
-                src={c.twitchClips?.[0]?.thumbnailURL ?? c.image}
+                src={c.bannerImage ?? c.twitchClips?.[0]?.thumbnailURL ?? c.image}
                 alt={`${c.name} streamer`}
                 loading="eager"
                 decoding="async"

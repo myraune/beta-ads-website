@@ -72,7 +72,7 @@ const NorskeStreamere2026: React.FC = () => {
                 tilbake til portrettet hvis ingen klipp. */}
             <div className="relative block aspect-[16/9] overflow-hidden bg-muted">
               <img
-                src={c.twitchClips?.[0]?.thumbnailURL ?? c.image}
+                src={c.bannerImage ?? c.twitchClips?.[0]?.thumbnailURL ?? c.image}
                 alt={`${c.name} streamer`}
                 loading="lazy"
                 decoding="async"
@@ -109,8 +109,8 @@ const NorskeStreamere2026: React.FC = () => {
               </span>
             </div>
 
-            {/* Innhold */}
-            <div className="relative p-5 pt-3">
+            {/* Innhold - flex-col så bunn-raden ligger likt på alle kort */}
+            <div className="relative p-5 pt-3 flex flex-col flex-1">
               {/* Portrett-avatar (ekte ansikt) som overlapper banneret */}
               <img
                 src={c.image}
@@ -142,47 +142,33 @@ const NorskeStreamere2026: React.FC = () => {
                 {c.meta}
               </p>
 
-              <p className="text-sm text-foreground/85 leading-relaxed mt-3">
+              <p className="text-sm text-foreground/80 leading-relaxed mt-3 line-clamp-3">
                 {c.blurb}
               </p>
 
-              {/* Sosiale lenker - ikon-knapper (over stretched-linken så de går
-                  til riktig plattform, ikke profilsiden) */}
-              <div className="relative z-20 mt-4 flex flex-wrap gap-1.5">
-                {c.socials.map((s) => (
-                  <a
-                    key={s.label}
-                    href={s.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${c.name} på ${s.label}`}
-                    title={s.label}
-                    className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-border/70 text-foreground/70 hover:text-foreground hover:border-primary/50 hover:bg-primary/5 transition-colors"
-                  >
-                    <SocialIcon label={s.label} url={s.url} className="w-3.5 h-3.5" />
-                  </a>
-                ))}
+              {/* Bunn-rad: sosiale ikoner + les mer-pil. mt-auto holder den
+                  nederst uansett blurb-lengde -> jevne kort. */}
+              <div className="mt-auto pt-5 flex items-center justify-between gap-2">
+                <div className="relative z-20 flex flex-wrap gap-1.5">
+                  {c.socials.map((s) => (
+                    <a
+                      key={s.label}
+                      href={s.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${c.name} på ${s.label}`}
+                      title={s.label}
+                      className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-border/70 text-foreground/70 hover:text-foreground hover:border-primary/50 hover:bg-primary/5 transition-colors"
+                    >
+                      <SocialIcon label={s.label} url={s.url} className="w-3.5 h-3.5" />
+                    </a>
+                  ))}
+                </div>
+                <span className="inline-flex items-center gap-1 text-xs font-medium text-primary shrink-0 group-hover:gap-2 transition-all">
+                  Les mer
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                </span>
               </div>
-
-              {/* Les mer-affordans (klikk håndteres av stretched-linken over hele kortet) */}
-              <span className="inline-flex items-center gap-1.5 text-xs font-medium text-primary mt-4 group-hover:gap-2 transition-all">
-                Les mer om {c.name}
-                <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
-              </span>
-
-              {/* Foto-attribusjon (over stretched-linken så kilden er klikkbar) */}
-              <p className="relative z-20 text-[10px] text-muted-foreground/70 mt-4 pt-3 border-t border-border/40">
-                Portrett:{" "}
-                <a
-                  href={c.attributionUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-foreground underline-offset-2 hover:underline"
-                >
-                  {c.attribution}
-                </a>
-                {" · Banner: Twitch-klipp"}
-              </p>
             </div>
           </li>
         ))}

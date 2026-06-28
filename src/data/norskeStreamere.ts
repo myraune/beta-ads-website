@@ -81,6 +81,8 @@ export interface CreatorProfile {
   youtubeVideos?: YouTubeVideo[];
   /** Mest sette Twitch-klipp (offentlig GQL), bakt inn ved build. */
   twitchClips?: TwitchClip[];
+  /** Valgfri banner-override (når topp-klippet er en svak thumbnail). */
+  bannerImage?: string;
   /** TikTok-handle (uten @), hvis aktiv. */
   tiktokHandle?: string;
   /** Utvalgte TikTok-videoer (manuelt kuratert / oEmbed). */
@@ -105,6 +107,7 @@ export const CREATORS: CreatorProfile[] = [
       "Ifølge Liquipedia/Esports Insider: ~4,6M Twitch-følgere, ~4,1M YouTube-abonnenter, ~3,1M Instagram",
     ],
     image: "/lovable-uploads/creators/mrsavage.jpg",
+    bannerImage: "/lovable-uploads/creators/mrsavage.jpg",
     attribution: "Liquipedia (FNCS Major)",
     attributionUrl: "https://liquipedia.net/fortnite/MrSavage",
     language: "en",
