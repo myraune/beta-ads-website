@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Play } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Play, X } from "lucide-react";
 import { MediaCarousel } from "@/components/blog/MediaCarousel";
 import { SocialIcon } from "@/components/blog/SocialIcon";
 import { TikTokEmbed } from "@/components/blog/TikTokEmbed";
@@ -52,6 +52,7 @@ export const StreamerMedia: React.FC<Props> = ({
   tiktokHandle,
 }) => {
   const L = profileLabels(market);
+  const [activeClip, setActiveClip] = useState<TwitchClip | null>(null);
   const hasTikTok = Boolean(tiktokVideos?.length || tiktokHandle);
   const tabs: { key: TabKey; label: string; count: number }[] = [];
   if (twitchClips?.length) tabs.push({ key: "twitch", label: L.clipsTab, count: twitchClips.length });
@@ -114,7 +115,12 @@ export const StreamerMedia: React.FC<Props> = ({
         <MediaCarousel label={`Twitch-klipp fra ${name}`}>
           {twitchClips.map((c) => (
             <li key={c.slug} className="snap-start shrink-0 w-72 sm:w-80">
-              <a href={c.url} target="_blank" rel="noopener noreferrer" className="group block">
+              <button
+                type="button"
+                onClick={() => setActiveClip(c)}
+                aria-label={`Spill av klipp: ${c.title}`}
+                className="group block w-full text-left"
+              >
                 <div className="relative aspect-video overflow-hidden rounded-xl bg-muted ring-1 ring-border group-hover:ring-primary/40 transition-all">
                   <img
                     src={c.thumbnailURL}
@@ -145,7 +151,7 @@ export const StreamerMedia: React.FC<Props> = ({
                   {c.game ? `${c.game} · ` : ""}
                   {fmtDate(c.createdAt)}
                 </p>
-              </a>
+              </button>
             </li>
           ))}
         </MediaCarousel>
@@ -222,7 +228,73 @@ export const StreamerMedia: React.FC<Props> = ({
           ))}
         </MediaCarousel>
       )}
+
+      {/* In-site Twitch-klipp-spiller (offisiell embed, ingen redirect til Twitch) */}
+      {activeClip && (
+        <ClipModal clip={activeClip} onClose={() => setActiveClip(null)} />
+      )}
     </section>
+  );
+};
+
+interface ClipModalProps {
+  clip: TwitchClip;
+  onClose: () => void;
+}
+
+/** Modal som spiller Twitch-klippet via clips.twitch.tv/embed - rett i siden. */
+const ClipModal: React.FC<ClipModalProps> = ({ clip, onClose }) => {
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => { document.removeEventListener("keydown", onKey); document.body.style.overflow = prev; };
+  }, [onClose]);
+
+  // Twitch krever parent = domenet embeden vises på (localhost i dev, beta-ads.no i prod).
+  const host = typeof window !== "undefined" ? window.location.hostname : "beta-ads.no";
+  const src = `https://clips.twitch.tv/embed?clip=${encodeURIComponent(clip.slug)}&parent=${host}&autoplay=true`;
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 sm:p-8"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={clip.title}
+    >
+      <div className="relative w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
+        <button
+          type="button"
+          onClick={onClose}
+          aria-label="Lukk"
+          className="absolute -top-10 right-0 inline-flex items-center gap-1.5 text-sm text-white/80 hover:text-white transition-colors"
+        >
+          Lukk <X className="w-5 h-5" />
+        </button>
+        <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-black ring-1 ring-white/15 shadow-2xl">
+          <iframe
+            src={src}
+            title={clip.title}
+            allow="autoplay; fullscreen"
+            allowFullScreen
+            className="absolute inset-0 w-full h-full"
+          />
+        </div>
+        <div className="mt-3 flex items-center justify-between gap-3">
+          <p className="text-sm text-white/90 font-medium line-clamp-1">{clip.title}</p>
+          <a
+            href={clip.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-white/60 hover:text-white shrink-0 inline-flex items-center gap-1.5"
+          >
+            <SocialIcon label="Twitch" className="w-3.5 h-3.5" /> Twitch
+          </a>
+        </div>
+      </div>
+    </div>
   );
 };
 

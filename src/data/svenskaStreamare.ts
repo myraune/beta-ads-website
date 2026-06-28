@@ -33,14 +33,14 @@ export const CREATORS: CreatorProfile[] = [
       { label: "Streams Charts - perra", url: "https://streamscharts.com/channels/perra", type: "tracker" }
     ],
     twitchStats: { followers: 185174, partner: true, createdAt: "2021-09-26T13:22:25.490742Z", lastGame: "Just Chatting" },
-    youtubeChannelHandle: "PerraHvH",
+    youtubeChannelHandle: "perrababy",
     youtubeVideos: [
-      { id: "ycGrQd5dGw8", title: "5€ HVH Gang feat. Plaguecheat.cc Alpha bulid", published: "2022-05-14T05:02:04+00:00" },
-      { id: "YuyQwEbHxy8", title: "Rifk7 is coming back. Pre-release of 1.0(Showcase)", published: "2022-05-08T02:33:21+00:00" },
-      { id: "0UZXxwMHOPM", title: "51 kills in apex(cheat for fun)", published: "2022-02-12T17:32:10+00:00" },
-      { id: "mDvglwwsLhQ", title: "reviver ft. primordial.dev", published: "2022-01-16T12:47:49+00:00" },
-      { id: "XEas3opRPx4", title: "monolith.club and kuzyhook （2018 legacy HVH）", published: "2021-08-03T07:03:07+00:00" },
-      { id: "nsdLqFkzPT8", title: "HVH in 2k21 be like?", published: "2021-07-02T11:47:15+00:00" },
+      { id: "1_zQL3sIZdQ", title: "Ska blod lyssna?✌️😭 (Twitch - Perra)", published: "2026-06-28T15:38:15+00:00" },
+      { id: "KqiSnyHfS_0", title: "PERRA MOMENTS 35", published: "2026-06-25T05:30:24+00:00" },
+      { id: "A7II1YyODdQ", title: "”Jag tänker inte förlora”..🤣 (Twitch - Perra)", published: "2026-06-22T12:55:37+00:00" },
+      { id: "0jLbLpHeOOE", title: "Hur kan det gå så fort✌️🫩 (Twitch - Perra)", published: "2026-06-18T20:07:47+00:00" },
+      { id: "gMNVpd4leTQ", title: "90gq at 3am..✌️🫩 (Twitch - Perra)", published: "2026-06-13T16:01:20+00:00" },
+      { id: "I2D7GsFdo2w", title: "NEHÄÄÄÄ😠 (Twitch - Perra)", published: "2026-06-13T13:24:00+00:00" },
     ],
     twitchClips: [
       { slug: "IntelligentSucculentEggplantTinyFace-RS-rLoRF10Nc4_kK", title: "BAKHÅLL SKOTTLOSSNING", viewCount: 22472, duration: 26, createdAt: "2023-07-18T18:56:10Z", game: "Grand Theft Auto V", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/cfe61393-4cb7-4413-bca2-6d753f815674/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/perra/clip/IntelligentSucculentEggplantTinyFace-RS-rLoRF10Nc4_kK" },
