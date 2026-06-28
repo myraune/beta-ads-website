@@ -20,6 +20,12 @@ export interface ReferenceLink {
   type: "official-site" | "press" | "wikipedia" | "news" | "tracker" | "agency" | "platform";
 }
 
+export interface YouTubeVideo {
+  id: string;
+  title: string;
+  published: string;
+}
+
 export interface NewsArticle {
   title: string;
   url: string;
@@ -51,6 +57,10 @@ export interface CreatorProfile {
   references: ReferenceLink[];
   /** Ekte presse- og nyhetsoppslag, hentet inn separat. */
   news?: NewsArticle[];
+  /** YouTube-handle for kanalen (uten @), hvis aktiv. */
+  youtubeChannelHandle?: string;
+  /** De siste videoene fra YouTube RSS, fetchet ved build. */
+  youtubeVideos?: YouTubeVideo[];
 }
 
 export const CREATORS: CreatorProfile[] = [
@@ -139,6 +149,10 @@ export const CREATORS: CreatorProfile[] = [
         ogImage: null,
         tone: "positive",
       },
+    ],
+    youtubeChannelHandle: "MrSavageOG",
+    youtubeVideos: [
+      { id: "Aa8kGgwi-Ro", title: "SIN CONTEXTO.", published: "2022-01-21T20:31:06+00:00" },
     ],
   },
   {
@@ -311,6 +325,15 @@ export const CREATORS: CreatorProfile[] = [
         tone: "neutral",
       },
     ],
+    youtubeChannelHandle: "detoo",
+    youtubeVideos: [
+      { id: "GyW60lORqQc", title: "GOONATHON 2026", published: "2026-05-26T15:00:11+00:00" },
+      { id: "8JDp8HOfRBQ", title: "Goonathon Highlight #1", published: "2025-05-01T17:00:15+00:00" },
+      { id: "rRxJFj9vzls", title: "GOONATHON | 1 APRIL 2025", published: "2025-03-27T21:00:45+00:00" },
+      { id: "Gsf4UMR6nuM", title: "Tidenes Subathon - 2024", published: "2024-05-23T21:00:11+00:00" },
+      { id: "Tq4ROSW0fuw", title: "Subathon highlights #1", published: "2023-08-12T19:13:05+00:00" },
+      { id: "uAvJdbyBSY0", title: "SUBATHON 1 MARS | STREAM HIGHLIGHTS", published: "2023-02-28T09:07:10+00:00" },
+    ],
   },
   {
     handle: "emzia",
@@ -482,6 +505,15 @@ export const CREATORS: CreatorProfile[] = [
         tone: "positive",
       },
     ],
+    youtubeChannelHandle: "thomasPASTE",
+    youtubeVideos: [
+      { id: "H2wwcgLgqtA", title: "(NORSK) 007 First Light Early Access DAG 1 🔥 Uncharted møter Hitman?", published: "2026-05-26T21:32:52+00:00" },
+      { id: "jfvhABZi9FE", title: "(NORSK) Forza Horizion 6 LAUNCH - Dag 1", published: "2026-05-21T17:48:03+00:00" },
+      { id: "cuiJgmRawpE", title: "(NORSK) Forza Horizion 6 LAUNCH - Dag 1", published: "2026-05-19T14:20:58+00:00" },
+      { id: "Smk-wL_2Izg", title: "thomasPASTE // BARE Mikrofonlyd stream 2", published: "2025-11-21T15:19:17+00:00" },
+      { id: "h7AFdmQ3LI0", title: "thomasPASTE // BARE Mikrofonlyd stream 2", published: "2025-11-20T16:14:41+00:00" },
+      { id: "Lvp0E6f1qVo", title: "thomasPASTE // BARE Mikrofonlyd stream 2", published: "2025-11-19T13:16:23+00:00" },
+    ],
   },
   {
     handle: "klokkismann",
@@ -570,6 +602,15 @@ export const CREATORS: CreatorProfile[] = [
         tone: "positive",
       },
     ],
+    youtubeChannelHandle: "klokkismann",
+    youtubeVideos: [
+      { id: "-rpApW2_nmA", title: "De Finner Meg Aldri!", published: "2026-06-28T14:00:06+00:00" },
+      { id: "1dMXtZ62FeE", title: "Er Dette Årets Spill?!", published: "2026-06-26T07:57:23+00:00" },
+      { id: "iPVRx-COHA4", title: "Dette spillet er så fantastisk gøy!", published: "2026-06-24T14:00:35+00:00" },
+      { id: "qqedSw6XM4Q", title: "Jeg Har Blitt En Mester Av Kamuflasje", published: "2026-06-21T14:00:14+00:00" },
+      { id: "KAOvSb2t58I", title: "Meccha Chameleon Gjorde Meg Til Picasso!", published: "2026-06-14T14:01:07+00:00" },
+      { id: "bmp3OPi-Kp8", title: "Hvis Jeg Slutter Å Skrive Blir Jeg SKUTT", published: "2026-06-07T14:00:37+00:00" },
+    ],
   },
   {
     handle: "dennisvareide",
@@ -657,6 +698,15 @@ export const CREATORS: CreatorProfile[] = [
         tone: "positive",
       },
     ],
+    youtubeChannelHandle: "PrebzOgDennis",
+    youtubeVideos: [
+      { id: "fywGO8nltWg", title: "Lørdagskos med Prebz og Dennis (i 2025)", published: "2025-09-27T06:39:39+00:00" },
+      { id: "YWohM_muN-g", title: "Minecraft, men vi er strandet på en øde øy #2", published: "2025-09-20T14:01:01+00:00" },
+      { id: "MlU-jmZ14s4", title: "Minecraft, men vi er strandet på en øde øy", published: "2025-09-13T07:00:27+00:00" },
+      { id: "ZtsY__EUno0", title: "Prebz Mot Dennis i Risk", published: "2025-09-06T16:03:33+00:00" },
+      { id: "3XBxhZdC058", title: "Prebz og Dennis Drar På Fjelltur", published: "2025-08-23T15:30:33+00:00" },
+      { id: "qdH381Fosps", title: "Prebz mot Dennis i Geoguessr", published: "2025-05-24T09:43:41+00:00" },
+    ],
   },
   {
     handle: "jonieboi",
@@ -741,6 +791,15 @@ export const CREATORS: CreatorProfile[] = [
         ogImage: null,
         tone: "positive",
       },
+    ],
+    youtubeChannelHandle: "JonieBoi",
+    youtubeVideos: [
+      { id: "DtZzomvrFkQ", title: "En oppdatering om livet mitt nå.", published: "2026-06-25T13:44:20+00:00" },
+      { id: "E1kKyp6LYQw", title: "Dama ville ha DETTE i hagen... så jeg BYGDE DET SELV", published: "2026-06-04T12:00:30+00:00" },
+      { id: "8cP_U7JqU5s", title: "Jeg bygde et gjerde uten erfaring…", published: "2026-05-21T12:59:39+00:00" },
+      { id: "cUgyxmSGZlE", title: "Jeg brukte 40 000kr på hagen min… uten erfaring", published: "2026-05-13T13:22:11+00:00" },
+      { id: "Bs8ZoO3C7hw", title: "Jeg dro tilbake til shelteret mitt… og noe føltes feil", published: "2026-05-10T06:24:56+00:00" },
+      { id: "GGruAYqVH4c", title: "Jeg får ikke forlate denne før jeg får fisk…", published: "2026-05-07T12:28:06+00:00" },
     ],
   },
   {

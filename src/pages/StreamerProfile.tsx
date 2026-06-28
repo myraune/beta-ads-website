@@ -6,6 +6,7 @@ import { SPFooter } from "@/components/sections/SPFooter";
 import { getCreatorByHandle, CREATORS } from "@/data/norskeStreamere";
 import { SocialIcon } from "@/components/blog/SocialIcon";
 import { NewsCard } from "@/components/blog/NewsCard";
+import { YouTubeVideos } from "@/components/blog/YouTubeVideos";
 
 /**
  * Per-streamer profilside, rutet på /streamere/<handle>.
@@ -172,6 +173,15 @@ const StreamerProfile: React.FC = () => {
               ))}
             </ul>
           </section>
+        )}
+
+        {/* YouTube-karusell - siste videoer fra RSS */}
+        {c.youtubeVideos && c.youtubeChannelHandle && (
+          <YouTubeVideos
+            videos={c.youtubeVideos}
+            channelHandle={c.youtubeChannelHandle}
+            ownerName={c.name}
+          />
         )}
 
         {/* Nyhetsoppslag - ekte presse + portretter */}
