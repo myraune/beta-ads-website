@@ -5,7 +5,6 @@ import { SPFooter } from '@/components/sections/SPFooter';
 import MarketsSection from '@/components/sections/MarketsSection';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import cityOslo from '@/assets/city-oslo.jpg';
-import cityChicago from '@/assets/city-chicago.jpg';
 
 interface AboutUsProps {
   t: any;
@@ -52,7 +51,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
     <div className="min-h-screen text-foreground relative">
       <SEO
         title="About Us | Beta Ads"
-        description="Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams across the Nordics. Founded in Oslo, now operating from Oslo and Chicago."
+        description="Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams across the Nordics. Based in Oslo, serving brands and streamers across the Nordics."
         canonical="/about"
         ogType="website"
         jsonLd={[
@@ -61,7 +60,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
             '@type': 'AboutPage',
             name: 'About Beta Ads',
             description:
-              'Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams across the Nordics. Founded in Oslo, now operating from Oslo and Chicago.',
+              'Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams across the Nordics. Based in Oslo, serving brands and streamers across the Nordics.',
             url: 'https://beta-ads.no/about',
             isPartOf: { '@id': 'https://beta-ads.no/#website' },
             about: { '@id': 'https://beta-ads.no/#organization' },
@@ -309,75 +308,36 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
           <h2
             className="text-3xl lg:text-4xl font-light tracking-tight text-foreground mb-12 max-w-2xl"
           >
-            Founded in Oslo.{' '}
+            Based in{' '}
             <span className="italic" style={serifFont}>
-              Growing from Chicago.
+              Oslo.
             </span>
           </h2>
-          <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
-            <div
-              className={`transition-all duration-1000 ease-out ${
-                locVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-8'
-              }`}
-            >
-              <div className="overflow-hidden rounded-2xl relative">
-                <img
-                  src={cityOslo}
-                  alt="Oslo, Norway"
-                  className="w-full aspect-[16/10] object-cover transition-transform duration-700 hover:scale-[1.03]"
-                />
-                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
-              </div>
-              <div className="flex items-baseline justify-between mt-4">
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-primary">
-                    Headquarters
-                  </p>
-                  <p
-                    className="text-xl text-foreground mt-0.5"
-                    style={serifFont}
-                  >
-                    Oslo
-                  </p>
-                </div>
-                <p className="text-xs text-muted-foreground tabular-nums">
-                  Since 2023
-                </p>
-              </div>
+          <div
+            className={`max-w-3xl transition-all duration-1000 ease-out ${
+              locVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            <div className="overflow-hidden rounded-2xl relative">
+              <img
+                src={cityOslo}
+                alt="Oslo, Norway"
+                className="w-full aspect-[16/9] object-cover transition-transform duration-700 hover:scale-[1.03]"
+              />
+              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
             </div>
-            <div
-              className={`transition-all duration-1000 delay-200 ease-out ${
-                locVisible
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-8'
-              }`}
-            >
-              <div className="overflow-hidden rounded-2xl relative">
-                <img
-                  src={cityChicago}
-                  alt="Chicago, USA"
-                  className="w-full aspect-[16/10] object-cover transition-transform duration-700 hover:scale-[1.03]"
-                />
-                <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
-              </div>
-              <div className="flex items-baseline justify-between mt-4">
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.25em] text-primary">
-                    Office
-                  </p>
-                  <p
-                    className="text-xl text-foreground mt-0.5"
-                    style={serifFont}
-                  >
-                    Chicago
-                  </p>
-                </div>
-                <p className="text-xs text-muted-foreground tabular-nums">
-                  North American ops
+            <div className="flex items-baseline justify-between mt-4">
+              <div>
+                <p className="text-[10px] uppercase tracking-[0.25em] text-primary">
+                  Headquarters
+                </p>
+                <p className="text-xl text-foreground mt-0.5" style={serifFont}>
+                  Oslo, Norway
                 </p>
               </div>
+              <p className="text-xs text-muted-foreground tabular-nums">
+                Since 2023
+              </p>
             </div>
           </div>
         </div>
