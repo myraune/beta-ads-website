@@ -85,21 +85,29 @@ const StreamerProfile: React.FC = () => {
           <ArrowLeft className="w-4 h-4" /> Tilbake til norske streamere
         </Link>
 
-        {/* Hero */}
-        <header className="grid md:grid-cols-12 gap-8 md:gap-10 items-start mb-14">
-          <figure className="md:col-span-4 m-0">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-muted ring-1 ring-border">
+        {/* Cinematisk hero - bredt klipp-banner med navn overlagt (magasin-stil),
+            portrett som rundet innfelling. */}
+        <header className="mb-12">
+          <div className="relative overflow-hidden rounded-3xl bg-muted ring-1 ring-border">
+            <div className="relative aspect-[16/10] sm:aspect-[5/2]">
               <img
-                src={c.image}
-                alt={c.realName ? `${c.realName} (${c.name})` : c.name}
+                src={c.twitchClips?.[0]?.thumbnailURL ?? c.image}
+                alt={`${c.name} streamer`}
                 loading="eager"
                 decoding="async"
                 // @ts-expect-error - React 18 typer ikke fetchpriority ennå
                 fetchpriority="high"
+                onError={(e) => {
+                  const t = e.currentTarget;
+                  if (!t.dataset.fb) { t.dataset.fb = "1"; t.src = c.image; }
+                }}
                 className="absolute inset-0 w-full h-full object-cover"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/10" />
+
+              {/* Språk-tag */}
               <span
-                className={`absolute top-3 right-3 inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold tracking-widest uppercase shadow-sm ${
+                className={`absolute top-4 right-4 inline-flex items-center rounded-full px-3 py-1 text-[11px] font-semibold tracking-widest uppercase shadow-sm ${
                   c.language === "no"
                     ? "bg-white/95 text-black"
                     : c.language === "en"
@@ -110,50 +118,74 @@ const StreamerProfile: React.FC = () => {
               >
                 {langLabel}
               </span>
-            </div>
-            <figcaption className="mt-2 text-[11px] text-muted-foreground">
-              Foto:{" "}
-              <a
-                href={c.attributionUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-foreground underline-offset-2 hover:underline"
-              >
-                {c.attribution}
-              </a>
-            </figcaption>
-          </figure>
 
-          <div className="md:col-span-8">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
-              Norsk streaming
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-foreground leading-[1.05] mb-3">
-              {c.name}
-            </h1>
-            <p className="text-sm text-muted-foreground mb-5">
-              {c.realName ? `${c.realName} · ` : ""}
-              {c.meta} · {langLabel}
-            </p>
-            <p className="text-base md:text-lg font-light text-foreground/85 leading-relaxed max-w-2xl">
+              {/* Overlagt navn + portrett nederst */}
+              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-8 flex items-end gap-4 sm:gap-5">
+                <img
+                  src={c.image}
+                  alt={c.realName ? `${c.realName} (${c.name})` : c.name}
+                  loading="eager"
+                  decoding="async"
+                  onError={(e) => {
+                    const t = e.currentTarget;
+                    if (!t.dataset.r) { t.dataset.r = "1"; t.src = `https://unavatar.io/twitch/${c.handle}`; }
+                  }}
+                  className="w-16 h-16 sm:w-24 sm:h-24 rounded-2xl object-cover ring-2 ring-white/85 shadow-xl shrink-0 bg-muted"
+                />
+                <div className="min-w-0 pb-0.5">
+                  <span className="text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase text-white/70 mb-1 block">
+                    Norsk streaming
+                  </span>
+                  <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.0]">
+                    {c.name}
+                  </h1>
+                  <p className="text-xs sm:text-sm text-white/80 mt-1.5 truncate">
+                    {c.realName ? `${c.realName} · ` : ""}
+                    {c.meta}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Foto-kreditt */}
+          <p className="mt-2 text-[11px] text-muted-foreground/80">
+            Portrett:{" "}
+            <a
+              href={c.attributionUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-foreground underline-offset-2 hover:underline"
+            >
+              {c.attribution}
+            </a>
+            {" · Banner: Twitch-klipp"}
+          </p>
+
+          {/* Bio + sosiale lenker */}
+          <div className="grid lg:grid-cols-3 gap-x-10 gap-y-6 mt-9">
+            <p className="lg:col-span-2 text-lg md:text-xl font-light text-foreground/85 leading-relaxed">
               {c.bio}
             </p>
-
-            {/* Sosiale lenker - ikon-knapper */}
-            <div className="mt-7 flex flex-wrap gap-2">
-              {c.socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${c.name} på ${s.label}`}
-                  className="inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full border border-border/70 text-foreground/85 hover:text-foreground hover:border-primary/50 hover:bg-primary/5 transition-colors"
-                >
-                  <SocialIcon label={s.label} url={s.url} className="w-4 h-4" />
-                  <span>{s.label}</span>
-                </a>
-              ))}
+            <div className="lg:pt-1">
+              <span className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">
+                Følg {c.name}
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {c.socials.map((s) => (
+                  <a
+                    key={s.label}
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${c.name} på ${s.label}`}
+                    className="inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full border border-border/70 text-foreground/85 hover:text-foreground hover:border-primary/50 hover:bg-primary/5 transition-colors"
+                  >
+                    <SocialIcon label={s.label} url={s.url} className="w-4 h-4" />
+                    <span>{s.label}</span>
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </header>
