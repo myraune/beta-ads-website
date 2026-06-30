@@ -15,6 +15,8 @@
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { build } from "esbuild";
+import { createRequire } from "module";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT      = path.resolve(__dirname, "..");
@@ -67,31 +69,35 @@ const STATIC_PAGES = [
 // ---------------------------------------------------------------------------
 // Parse blog post slugs + dates + images from blogPosts.ts
 // ---------------------------------------------------------------------------
-function parseBlogPosts() {
-  const src = fs.readFileSync(
-    path.join(ROOT, "src/data/blogPosts.ts"),
-    "utf-8"
-  );
+async function parseBlogPosts() {
+  // Bundle blogPosts.ts (which spreads in the per-locale files under
+  // src/data/blog/posts-*.ts) so localized posts are included regardless of
+  // file layout — far more robust than regex-parsing a single file.
+  const TMP = path.join(ROOT, "node_modules", ".cache", "sitemap-posts.cjs");
+  await build({
+    entryPoints: [path.join(ROOT, "src/data/blogPosts.ts")],
+    bundle: true,
+    format: "cjs",
+    outfile: TMP,
+    platform: "node",
+    tsconfig: path.join(ROOT, "tsconfig.json"),
+    logLevel: "silent",
+  });
+  const require = createRequire(import.meta.url);
+  delete require.cache[require.resolve(TMP)];
+  const { blogPosts } = require(TMP);
 
-  // Capture blocks between array elements to pair slug + dateISO + image + title
-  const posts = [];
-  const blocks = src.split(/(?=^\s*\{)/m);
+  const esc = (s) =>
+    s ? s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") : null;
 
-  for (const block of blocks) {
-    const slugMatch   = block.match(/^\s+slug:\s*["']([^"']+)["']/m);
-    const dateMatch   = block.match(/^\s+dateISO:\s*["']([^"']+)["']/m);
-    const imageMatch  = block.match(/^\s+image:\s*["']([^"']+)["']/m);
-    const titleMatch  = block.match(/^\s+title:\s*["']([^"']+)["']/m);
-    if (slugMatch) {
-      posts.push({
-        slug:    slugMatch[1],
-        dateISO: dateMatch ? dateMatch[1].split("T")[0] : TODAY,
-        image:   imageMatch ? imageMatch[1] : null,
-        title:   titleMatch ? titleMatch[1].replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") : null,
-      });
-    }
-  }
+  const posts = blogPosts.map((p) => ({
+    slug:    p.slug,
+    dateISO: (p.dateISO || TODAY).split("T")[0],
+    image:   p.image || null,
+    title:   esc(p.title),
+  }));
 
+  fs.unlinkSync(TMP);
   return posts;
 }
 
@@ -120,8 +126,8 @@ function urlEntry({ loc, lastmod, changefreq, priority, image, imageTitle }) {
   return lines.join("\n");
 }
 
-function main() {
-  const blogPosts = parseBlogPosts();
+async function main() {
+  const blogPosts = await parseBlogPosts();
 
   const staticEntries = STATIC_PAGES.map((p) =>
     urlEntry({
@@ -170,3 +176,4 @@ function main() {
 }
 
 main();
+

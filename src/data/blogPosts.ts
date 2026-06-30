@@ -1,3 +1,8 @@
+import { posts_no } from "./blog/posts-no";
+import { posts_sv } from "./blog/posts-sv";
+import { posts_da } from "./blog/posts-da";
+import { posts_fi } from "./blog/posts-fi";
+
 export interface BlogPost {
   id: string;
   slug: string;
@@ -99,7 +104,7 @@ You know because every clip is checked, scored, and logged automatically. The da
     date: "May 12, 2026",
     dateISO: "2026-05-12",
     readTime: "7 min read",
-    image: "/lovable-uploads/blog-clip-analytics-2026.jpg",
+    image: "/lovable-uploads/blog-clip-analytics-card.jpg",
     hasDashboard: "clip-analytics",
     category: "Platform",
     tags: ["Analytics", "Brand Safety", "Ad Verification", "Campaign Reporting", "Twitch", "Overlay Ads", "Nordic"],
@@ -935,6 +940,8 @@ None of these changes individually reshape the market. Together, they describe a
   {
     id: "streamer-burnout-brand-risk-2026",
     slug: "streamer-burnout-brand-risk-2026",
+    locale: "en",
+    translationGroup: "streamer-burnout-brand-risk-2026",
     title: "Streamer Burnout in 2026: The Campaign Risk Nordic Brands Aren't Accounting For",
     excerpt: "Creator burnout is disrupting live stream campaigns across the industry. For Nordic brands operating in a smaller creator ecosystem, the risk is sharper than most realize.",
     content: `## The crisis no brand manager sees coming
@@ -1271,6 +1278,8 @@ For Nordic brands thinking about where to put incremental budget in 2026, the po
   {
     id: "inside-the-tournament-window-esports-advertising-guide-2026",
     slug: "inside-the-tournament-window-esports-advertising-guide-2026",
+    locale: "en",
+    translationGroup: "inside-the-tournament-window-esports-advertising-guide-2026",
     title: "Inside the Tournament Window: A Nordic Brand's Guide to Advertising During Live Esports Events in 2026",
     excerpt: "Esports tournament windows concentrate enormous viewership into a few weeks of the year. Most Nordic brands enter them with the wrong formats. Here is what the data shows actually works.",
     content: `## The Numbers Behind the Tournament Spike
@@ -1672,6 +1681,8 @@ The brands extracting the most value from live streaming in 2026 are the ones wh
   {
     id: "launch-window-event-advertising-live-stream-2026",
     slug: "launch-window-event-advertising-live-stream-2026",
+    locale: "en",
+    translationGroup: "launch-window-event-advertising-live-stream-2026",
     title: "The Launch Window Advantage: How Game Releases and Esports Events Create Live Streaming Ad Opportunities Most Brands Miss",
     excerpt: "Live streaming viewership spikes 30 to 50 percent during major game launches and esports events. Most brands run always-on campaigns and miss these windows entirely. Here is how to plan around them.",
     content: `## The Calendar Most Brands Are Ignoring
@@ -1758,6 +1769,8 @@ Real-time analytics, AI-powered clipping, and verified sponsorship reporting thr
   {
     id: "from-flat-fee-to-performance-pay-streamer-deals-2026",
     slug: "from-flat-fee-to-performance-pay-streamer-deals-2026",
+    locale: "en",
+    translationGroup: "from-flat-fee-to-performance-pay-streamer-deals-2026",
     title: "From Flat Fee to Performance Pay: How Hybrid Streamer Deal Structures Are Changing Nordic Advertising",
     excerpt: "Flat-rate sponsorship deals have been the default in live streaming since the beginning. A new model is replacing them, and the brands adopting it first are getting consistently better returns.",
     content: `## The Flat-Rate Problem Nobody Talks About
@@ -2695,6 +2708,8 @@ The growth signal is already there. The question is what you do with it.`,
   {
     id: "youtube-live-advertising-nordic-2026",
     slug: "youtube-live-advertising-nordic-2026",
+    locale: "en",
+    translationGroup: "youtube-live-advertising-nordic-2026",
     title: "YouTube Crossed $60 Billion in 2025: What the World's Biggest Ad Platform Is Betting on Live",
     excerpt: "YouTube's $60 billion in 2025 revenue dwarfs Netflix and signals a structural shift in video advertising. Here is what the platform's live streaming push means for Nordic brands planning 2026 campaigns.",
     content: `## The Quiet Milestone That Changes Everything
@@ -2800,6 +2815,8 @@ In the Nordics, that audience is larger and more engaged than most brand media p
   {
     id: "twitch-cpm-media-buying-guide-2026",
     slug: "twitch-cpm-media-buying-guide-2026",
+    locale: "en",
+    translationGroup: "twitch-cpm-media-buying-guide-2026",
     title: "Twitch CPMs in 2026: A Media Buyer's Guide to Live Stream Ad Costs, Benchmarks, and Nordic ROI",
     excerpt: "Twitch overlay CPMs run $4–$12+ depending on season and category. Here's how those numbers compare to other channels, what drives variance, and how Nordic brands can use the data to plan smarter live stream campaigns.",
     content: `## What Does It Actually Cost to Advertise on Twitch in 2026?
@@ -3137,6 +3154,8 @@ In live streaming, as in television before it, the showrunners who move first bu
   {
     id: "clipping-economy-brand-marketing-guide-2026",
     slug: "clipping-economy-brand-marketing-guide-2026",
+    locale: "en",
+    translationGroup: "clipping-economy-brand-marketing-guide-2026",
     title: "The Clipping Economy: The Marketing Channel 99% of Brands Haven't Discovered Yet",
     excerpt: "Normal people are getting paid to spread your content across TikTok, Reels, and Shorts - and brands like Netflix are saving 50–90% on influencer costs doing it. Here's what clipping is, who's using it, and why it matters for advertisers in 2026.",
     content: `## A New Distribution Layer Nobody Told You About
@@ -3285,6 +3304,8 @@ The brands that figure this out early will have a significant head start. The co
   {
     id: "sponsorship-verification-voice-recognition-streaming",
     slug: "sponsorship-verification-voice-recognition-streaming",
+    locale: "en",
+    translationGroup: "sponsorship-verification-voice-recognition-streaming",
     title: "The Sponsorship Verification Gap: Why Most Brands Still Can't Prove Their Stream Ads Actually Ran",
     excerpt: "Gaming sponsorships are a $4.8 billion industry - yet most brands still rely on a screenshot from a streamer's chat log to verify their campaign delivered. Voice recognition is changing that, and it's reshaping how Nordic advertisers hold campaigns accountable.",
     content: `## A $4.8 Billion Industry Running on the Honor System
@@ -5241,6 +5262,8 @@ If your 2026 media plan does not include a line for native livestream advertisin
   {
     id: "affiliate-sponsored-brand-deal-twitch-content-differences-2026",
     slug: "affiliate-sponsored-brand-deal-twitch-content-differences-2026",
+    locale: "en",
+    translationGroup: "affiliate-sponsored-brand-deal-twitch-content-differences-2026",
     title: "Affiliate, Sponsored, and Brand Deal Content on Twitch: What's the Difference and Why It Matters",
     excerpt: "Affiliate links, sponsored segments, and full brand deals are three very different commercial arrangements on Twitch - with different economics, disclosure requirements, and audience dynamics. Here's what brands need to know.",
     content: `## Three Models, Three Different Relationships
@@ -5357,6 +5380,8 @@ Beta Ads structures campaigns across all these models, often combining native ov
   {
     id: "how-to-brief-streamer-native-ad-integration-2026",
     slug: "how-to-brief-streamer-native-ad-integration-2026",
+    locale: "en",
+    translationGroup: "how-to-brief-streamer-native-ad-integration-2026",
     title: "How to Brief a Streamer for a Native Ad Integration: The Complete Guide",
     excerpt: "The quality of your creator brief is the single biggest variable in whether a streaming campaign feels authentic or forced. Here's how to write briefs that get great integrations - and protect the brand.",
     content: `## The Brief Is Where Campaigns Win or Lose
@@ -5482,6 +5507,8 @@ That is the entire brief. Anything longer is probably scripting. Anything shorte
   {
     id: "discord-communities-amplify-twitch-sponsorships-2026",
     slug: "discord-communities-amplify-twitch-sponsorships-2026",
+    locale: "en",
+    translationGroup: "discord-communities-amplify-twitch-sponsorships-2026",
     title: "Why Discord Communities Amplify the Value of a Twitch Sponsorship",
     excerpt: "Discord users spend 94 minutes daily on the platform - more than Instagram and TikTok combined. Here's how streamers' Discord communities extend the reach and impact of Twitch brand partnerships.",
     content: `## The Channel Brands Forget to Count
@@ -5690,6 +5717,8 @@ The data is clear. The audience is here. The opportunity is in building the adve
   {
     id: "ai-tools-streamers-content-creation-2026",
     slug: "ai-tools-streamers-content-creation-2026",
+    locale: "en",
+    translationGroup: "ai-tools-streamers-content-creation-2026",
     title: "How AI Tools Are Changing Content Creation for Streamers - and What It Means for Advertisers",
     excerpt: "AI clipping tools, automated highlight generators, and real-time analytics are transforming how streamers create content in 2026. Here's how these tools affect the advertising value of streaming partnerships.",
     content: `## The End of the Manual Clip Era
@@ -5806,6 +5835,8 @@ The streaming partnership is no longer just a live event. With AI tools, it is a
   {
     id: "brand-safety-live-streaming-guide-2026",
     slug: "brand-safety-live-streaming-guide-2026",
+    locale: "en",
+    translationGroup: "brand-safety-live-streaming-guide-2026",
     title: "Brand Safety in Live Streaming: What It Means and How to Manage It in 2026",
     excerpt: "Live streaming brand safety has evolved significantly with AI-powered moderation and new third-party tools like LiveGuard. Here's the practical framework for brands running campaigns in the live environment.",
     content: `## The Unique Challenge of Live Content
@@ -6285,6 +6316,8 @@ The key is matching your brand's audience profile to the category's viewer demog
   {
     id: "streamer-sponsorship-roi-metrics-2026",
     slug: "streamer-sponsorship-roi-metrics-2026",
+    locale: "en",
+    translationGroup: "streamer-sponsorship-roi-metrics-2026",
     title: "How to Measure ROI on Streamer Sponsorships: The Metrics That Actually Matter",
     excerpt: "40% of brands cannot measure sponsorship ROI - but 90% of sponsorship spend goes untracked. Here's the measurement framework that separates successful streaming campaigns from budget black holes.",
     content: `## The Measurement Problem Nobody Wants to Admit
@@ -7431,6 +7464,8 @@ For Norwegian brands specifically, [Beta Ads' Norwegian content hub](/norge) and
       {
     id: "rise-of-streamer-first-advertising",
     slug: "rise-of-streamer-first-advertising",
+    locale: "en",
+    translationGroup: "rise-of-streamer-first-advertising",
     title: "The Rise of Streamer-First Advertising: Why the Creator Now Sets the Brief",
     excerpt: "Brand advertising used to start with a 30-second spot and find a distributor. Streamer-first advertising starts with a creator and builds the creative around their channel. Here's why the model shifted, which brands moved first, and what it means for 2026 media planning.",
     content: `## The Relationship Between Brand and Channel Inverted
@@ -7871,6 +7906,8 @@ Beta Adsin alusta kattaa 39 000+ aktiivista pohjoismaista striimaajaa Twitchiss�
   {
     id: "twitch-statistics-2025-global-insights",
     slug: "twitch-statistics-2025-global-insights",
+    locale: "en",
+    translationGroup: "twitch-statistics-2025-global-insights",
     title: "Twitch Statistics 2025: 19.2B Hours, Market Share & Platform Trends",
     excerpt: "StreamHatchet 2025 data: 19.2B hours watched (-8.9% YoY), market share at 52.8%, and non-gaming content growing to 22% of Twitch.",
     content: `
@@ -8070,6 +8107,8 @@ Beta Ads has run [nine verified Norwegian campaigns in 2025](/case-studies) draw
   {
     id: "most-watched-twitch-games-2025",
     slug: "most-watched-twitch-games-2025",
+    locale: "en",
+    translationGroup: "most-watched-twitch-games-2025",
     title: "The Most-Watched Twitch Games of 2025: Where Gen Z Attention Actually Lives",
     excerpt: "League of Legends held the top slot at 1.95 billion hours, Roblox exploded 212% year-over-year off a single viral experience, and Counter-Strike quietly clawed back 29%. Here's what the 2025 numbers reveal about where brands should be buying live-stream attention.",
     content: `## The Real Story Isn't at the Top of the Chart
@@ -8470,6 +8509,8 @@ Ready to scope a 2026 cross-platform Nordic plan? [Book a 20-minute consultation
   {
     id: "twitch-advertising-benchmarks-2025",
     slug: "twitch-advertising-benchmarks-2025",
+    locale: "en",
+    translationGroup: "twitch-advertising-benchmarks-2025",
     title: "Twitch Advertising Benchmarks 2025: The Numbers That Actually Predict Campaign Performance",
     excerpt: "Sponsored hours on YouTube Gaming grew 71% year-over-year, co-streamers now drive half of esports viewership, and native overlay ads clear interruptive pre-rolls by an order of magnitude. Here's what the 2025 numbers say about where live-stream ad budgets should actually sit.",
     content: `## A Year When Streaming Media Buying Stopped Guessing
@@ -8937,6 +8978,8 @@ Ready to scope a Nordic campaign that includes Kick inventory? [Book a 20-minute
     {
     id: "top-streaming-games-2025",
     slug: "top-streaming-games-2025",
+    locale: "en",
+    translationGroup: "top-streaming-games-2025",
     title: "The Top Streaming Games of 2025: What the Rankings Tell Advertisers About 2026 Inventory",
     excerpt: "League of Legends, GTA V and Counter-Strike still anchor the top of the 2025 game-viewership charts, but the real signal is Roblox's +212% growth and ARC Raiders at 129M hours. Where Nordic brand budgets should actually land.",
     content: `## Ranking the Biggest Games Is Easy. Reading Them Correctly Is Not.
@@ -9072,6 +9115,8 @@ Want to scope a 2026 Nordic game-streaming plan against your actual brief? [Book
     {
     id: "non-gaming-content-twitch-2025",
     slug: "non-gaming-content-twitch-2025",
+    locale: "en",
+    translationGroup: "non-gaming-content-twitch-2025",
     title: "Non-Gaming Content on Twitch in 2025: Why Just Chatting and IRL Are the Real 2026 Opportunity",
     excerpt: "Non-gaming content now represents 22% of Twitch hours - up from under 10% in 2020. Just Chatting grew +25% YoY; IRL is up +337% on Kick. For non-endemic brands waiting for a reason to enter live streaming, this is it.",
     content: `## The Assumption That Twitch = Gaming Is Now Wrong
@@ -9307,6 +9352,8 @@ Ready to scope a Nordic creator portfolio against your 2026 brief? [Book a 20-mi
   {
     id: "esports-viewership-2025",
     slug: "esports-viewership-2025",
+    locale: "en",
+    translationGroup: "esports-viewership-2025",
     title: "Esports Viewership 2025: 2.8B Hours & World Cup +73% Growth",
     excerpt: "StreamHatchet 2025: Esports hit 2.8B hours (+6%), 50% from co-streamers. LoL Worlds peaked at 6.6M, Esports World Cup grew +73%.",
     content: `
@@ -9770,6 +9817,8 @@ Native annonseringsplattformer som Beta Ads kobler streamere med merkevareannons
   {
     id: "creator-marketing-lifecycle-broken-how-to-fix-2026",
     slug: "creator-marketing-lifecycle-broken-how-to-fix-2026",
+    locale: "en",
+    translationGroup: "creator-marketing-lifecycle-broken-how-to-fix-2026",
     title: "Why the Creator Marketing Lifecycle Is Broken - And How Smart Brands Are Fixing It",
     excerpt: "Discovery in one tool. Outreach in another. Contracts lost in email threads. Reporting in spreadsheets nobody trusts. The creator marketing lifecycle was never designed to scale - until now.",
     content: `## The Hidden Cost of Fragmented Creator Marketing
@@ -11556,7 +11605,7 @@ Brands we already work with have direct login access. Agency partners managing m
     dateISO: "2026-04-30",
     readTime: "8 min read",
     category: "Platform",
-    image: "/lovable-uploads/beta-ads-2-0-hero.jpg",
+    image: "/lovable-uploads/blog-beta-ads-2-0-card.jpg",
     tags: ["beta ads", "platform", "self-serve", "live streaming", "streamer explorer", "category explorer", "campaign builder", "AI clipping"],
     seoTitle: {
       en: "Beta Ads 2.0: Self-Serve Live Streaming Ad Platform | Beta Ads",
@@ -11658,7 +11707,7 @@ Brands we already work with have direct login access. Agency partners managing m
     date: "May 12, 2026",
     dateISO: "2026-05-12",
     readTime: "7 min read",
-    image: "/lovable-uploads/blog-clip-analytics-2026.jpg",
+    image: "/lovable-uploads/blog-clip-analytics-card.jpg",
     category: "Platform",
     tags: ["Analytics", "Brand Safety", "Ad Verification", "Campaign Reporting", "Twitch", "Overlay Ads", "Nordic"],
     locale: "no",
@@ -11677,7 +11726,7 @@ Brands we already work with have direct login access. Agency partners managing m
     date: "May 12, 2026",
     dateISO: "2026-05-12",
     readTime: "7 min read",
-    image: "/lovable-uploads/blog-clip-analytics-2026.jpg",
+    image: "/lovable-uploads/blog-clip-analytics-card.jpg",
     category: "Platform",
     tags: ["Analytics", "Brand Safety", "Ad Verification", "Campaign Reporting", "Twitch", "Overlay Ads", "Nordic"],
     locale: "sv",
@@ -11696,7 +11745,7 @@ Brands we already work with have direct login access. Agency partners managing m
     date: "May 12, 2026",
     dateISO: "2026-05-12",
     readTime: "7 min read",
-    image: "/lovable-uploads/blog-clip-analytics-2026.jpg",
+    image: "/lovable-uploads/blog-clip-analytics-card.jpg",
     category: "Platform",
     tags: ["Analytics", "Brand Safety", "Ad Verification", "Campaign Reporting", "Twitch", "Overlay Ads", "Nordic"],
     locale: "fi",
@@ -11715,7 +11764,7 @@ Brands we already work with have direct login access. Agency partners managing m
     date: "April 30, 2026",
     dateISO: "2026-04-30",
     readTime: "8 min read",
-    image: "/lovable-uploads/beta-ads-2-0-hero.jpg",
+    image: "/lovable-uploads/blog-beta-ads-2-0-card.jpg",
     category: "Platform",
     tags: ["beta ads", "platform", "self-serve", "live streaming", "streamer explorer", "category explorer", "campaign builder", "AI clipping"],
     locale: "no",
@@ -11733,7 +11782,7 @@ Brands we already work with have direct login access. Agency partners managing m
     date: "April 30, 2026",
     dateISO: "2026-04-30",
     readTime: "8 min read",
-    image: "/lovable-uploads/beta-ads-2-0-hero.jpg",
+    image: "/lovable-uploads/blog-beta-ads-2-0-card.jpg",
     category: "Platform",
     tags: ["beta ads", "platform", "self-serve", "live streaming", "streamer explorer", "category explorer", "campaign builder", "AI clipping"],
     locale: "sv",
@@ -11751,7 +11800,7 @@ Brands we already work with have direct login access. Agency partners managing m
     date: "April 30, 2026",
     dateISO: "2026-04-30",
     readTime: "8 min read",
-    image: "/lovable-uploads/beta-ads-2-0-hero.jpg",
+    image: "/lovable-uploads/blog-beta-ads-2-0-card.jpg",
     category: "Platform",
     tags: ["beta ads", "platform", "self-serve", "live streaming", "streamer explorer", "category explorer", "campaign builder", "AI clipping"],
     locale: "fi",
@@ -11769,7 +11818,7 @@ Brands we already work with have direct login access. Agency partners managing m
     date: "May 12, 2026",
     dateISO: "2026-05-12",
     readTime: "7 min read",
-    image: "/lovable-uploads/blog-clip-analytics-2026.jpg",
+    image: "/lovable-uploads/blog-clip-analytics-card.jpg",
     category: "Platform",
     tags: ["Analytics", "Brand Safety", "Ad Verification", "Campaign Reporting", "Twitch", "Overlay Ads", "Nordic"],
     locale: "da",
@@ -11788,7 +11837,7 @@ Brands we already work with have direct login access. Agency partners managing m
     date: "April 30, 2026",
     dateISO: "2026-04-30",
     readTime: "8 min read",
-    image: "/lovable-uploads/beta-ads-2-0-hero.jpg",
+    image: "/lovable-uploads/blog-beta-ads-2-0-card.jpg",
     category: "Platform",
     tags: ["beta ads", "platform", "self-serve", "live streaming", "streamer explorer", "category explorer", "campaign builder", "AI clipping"],
     locale: "da",
@@ -11796,7 +11845,12 @@ Brands we already work with have direct login access. Agency partners managing m
     seoTitle: { en: "Beta Ads 2.0: Self-service annoncering på livestreaming | Beta Ads", no: "Beta Ads 2.0: Self-service annoncering på livestreaming | Beta Ads", sv: "Beta Ads 2.0: Self-service annoncering på livestreaming | Beta Ads", fi: "Beta Ads 2.0: Self-service annoncering på livestreaming | Beta Ads", da: "Beta Ads 2.0: Self-service annoncering på livestreaming | Beta Ads" },
     seoDescription: { en: "Book, styr og mål annoncekampagner på Twitch, YouTube og Kick uden et bureau. Se hvad Beta Ads 2.0-platformen kan, og hvordan den virker.", no: "Book, styr og mål annoncekampagner på Twitch, YouTube og Kick uden et bureau. Se hvad Beta Ads 2.0-platformen kan, og hvordan den virker.", sv: "Book, styr og mål annoncekampagner på Twitch, YouTube og Kick uden et bureau. Se hvad Beta Ads 2.0-platformen kan, og hvordan den virker.", fi: "Book, styr og mål annoncekampagner på Twitch, YouTube og Kick uden et bureau. Se hvad Beta Ads 2.0-platformen kan, og hvordan den virker.", da: "Book, styr og mål annoncekampagner på Twitch, YouTube og Kick uden et bureau. Se hvad Beta Ads 2.0-platformen kan, og hvordan den virker." },
     seoKeywords: { en: ["annoncering på livestreaming","Twitch annoncering Danmark","reklame på Twitch","markedsføring via streamere","influencer marketing gaming","Kick annoncering","streaming reklameplatform","annoncere på YouTube Live"], no: ["annoncering på livestreaming","Twitch annoncering Danmark","reklame på Twitch","markedsføring via streamere","influencer marketing gaming","Kick annoncering","streaming reklameplatform","annoncere på YouTube Live"], sv: ["annoncering på livestreaming","Twitch annoncering Danmark","reklame på Twitch","markedsføring via streamere","influencer marketing gaming","Kick annoncering","streaming reklameplatform","annoncere på YouTube Live"], fi: ["annoncering på livestreaming","Twitch annoncering Danmark","reklame på Twitch","markedsføring via streamere","influencer marketing gaming","Kick annoncering","streaming reklameplatform","annoncere på YouTube Live"], da: ["annoncering på livestreaming","Twitch annoncering Danmark","reklame på Twitch","markedsføring via streamere","influencer marketing gaming","Kick annoncering","streaming reklameplatform","annoncere på YouTube Live"] },
-  }
+  },
+  // ── Localized cornerstone posts (generated; see src/data/blog/posts-*.ts) ──
+  ...posts_no,
+  ...posts_sv,
+  ...posts_da,
+  ...posts_fi,
 ];
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
@@ -11806,11 +11860,18 @@ export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
 export const getRelatedPosts = (currentSlug: string, limit: number = 3): BlogPost[] => {
   const currentPost = getBlogPostBySlug(currentSlug);
   if (!currentPost) return blogPosts.slice(0, limit);
-  
+
+  const effLocale = (p: BlogPost) => p.locale ?? "en";
+  const curLocale = effLocale(currentPost);
+
   return blogPosts
     .filter(post => post.slug !== currentSlug)
     .sort((a, b) => {
-      // Prioritize same category, then by date
+      // Prioritize same language first (no cross-language related links),
+      // then same category, then by date.
+      const aMatchLocale = effLocale(a) === curLocale ? 1 : 0;
+      const bMatchLocale = effLocale(b) === curLocale ? 1 : 0;
+      if (aMatchLocale !== bMatchLocale) return bMatchLocale - aMatchLocale;
       const aMatchCategory = a.category === currentPost.category ? 1 : 0;
       const bMatchCategory = b.category === currentPost.category ? 1 : 0;
       if (aMatchCategory !== bMatchCategory) return bMatchCategory - aMatchCategory;
