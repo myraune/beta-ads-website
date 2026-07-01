@@ -7,6 +7,7 @@ import { getCreatorByHandle, getMarketOfHandle, MARKET_CREATORS, MARKET_ROUNDUP,
 import { SocialIcon } from "@/components/blog/SocialIcon";
 import { NewsCard } from "@/components/blog/NewsCard";
 import { StreamerMedia } from "@/components/blog/StreamerMedia";
+import { StreamerStatsCharts } from "@/components/blog/StreamerStatsCharts";
 
 /**
  * Per-streamer profilside, rutet på /streamere/<handle>.
@@ -95,51 +96,57 @@ const StreamerProfile: React.FC = () => {
         ]}
       />
 
-      <div className="pt-24 pb-12 max-w-5xl mx-auto px-6 lg:px-8">
-        {/* Brødsmuler / tilbake */}
-        <Link
-          to={roundupPath}
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-8"
-        >
-          <ArrowLeft className="w-4 h-4" /> {roundup.back}
-        </Link>
+      <div className="pt-24 pb-12">
+        {/* Brødsmuler / tilbake - i innholdsbredde */}
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <Link
+            to={roundupPath}
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6"
+          >
+            <ArrowLeft className="w-4 h-4" /> {roundup.back}
+          </Link>
+        </div>
 
-        {/* Cinematisk hero - bredt klipp-banner med navn overlagt (magasin-stil),
-            portrett som rundet innfelling. */}
-        <header className="mb-12">
-          <div className="relative overflow-hidden rounded-3xl bg-muted ring-1 ring-border">
-            <div className="relative aspect-[16/10] sm:aspect-[5/2]">
-              <img
-                src={c.bannerImage ?? c.twitchClips?.[0]?.thumbnailURL ?? c.image}
-                alt={`${c.name} streamer`}
-                loading="eager"
-                decoding="async"
-                // @ts-expect-error - React 18 typer ikke fetchpriority ennå
-                fetchpriority="high"
-                onError={(e) => {
-                  const t = e.currentTarget;
-                  if (!t.dataset.fb) { t.dataset.fb = "1"; t.src = c.image; }
-                }}
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/10" />
+        {/* Cinematisk hero i full bredde - klipp-banner med navn overlagt
+            (magasin-stil). Overleggene justeres til innholdsbredden. */}
+        <header className="relative w-full overflow-hidden bg-muted">
+          <div className="relative aspect-[16/10] sm:aspect-[2/1] lg:aspect-[12/5] max-h-[620px]">
+            <img
+              src={c.bannerImage ?? c.twitchClips?.[0]?.thumbnailURL ?? c.image}
+              alt={`${c.name} streamer`}
+              loading="eager"
+              decoding="async"
+              // @ts-expect-error - React 18 typer ikke fetchpriority ennå
+              fetchpriority="high"
+              onError={(e) => {
+                const t = e.currentTarget;
+                if (!t.dataset.fb) { t.dataset.fb = "1"; t.src = c.image; }
+              }}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/5" />
 
-              {/* Språk-tag */}
-              <span
-                className={`absolute top-4 right-4 inline-flex items-center rounded-full px-3 py-1 text-[11px] font-semibold tracking-widest uppercase shadow-sm ${
-                  langNative
-                    ? "bg-white/95 text-black"
-                    : c.language === "en"
-                      ? "bg-primary text-white"
-                      : "bg-black/55 text-white backdrop-blur-sm"
-                }`}
-                title={langTip}
-              >
-                {langLabel}
-              </span>
+            {/* Språk-tag */}
+            <div className="absolute inset-x-0 top-0">
+              <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-4 flex justify-end">
+                <span
+                  className={`inline-flex items-center rounded-full px-3 py-1 text-[11px] font-semibold tracking-widest uppercase shadow-sm ${
+                    langNative
+                      ? "bg-white/95 text-black"
+                      : c.language === "en"
+                        ? "bg-primary text-white"
+                        : "bg-black/55 text-white backdrop-blur-sm"
+                  }`}
+                  title={langTip}
+                >
+                  {langLabel}
+                </span>
+              </div>
+            </div>
 
-              {/* Overlagt navn + portrett nederst */}
-              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-8 flex items-end gap-4 sm:gap-5">
+            {/* Overlagt navn + portrett nederst */}
+            <div className="absolute inset-x-0 bottom-0">
+              <div className="max-w-6xl mx-auto px-6 lg:px-8 pb-6 sm:pb-10 flex items-end gap-4 sm:gap-5">
                 <img
                   src={c.image}
                   alt={c.realName ? `${c.realName} (${c.name})` : c.name}
@@ -149,13 +156,13 @@ const StreamerProfile: React.FC = () => {
                     const t = e.currentTarget;
                     if (!t.dataset.r) { t.dataset.r = "1"; t.src = `https://unavatar.io/twitch/${c.handle}`; }
                   }}
-                  className="w-16 h-16 sm:w-24 sm:h-24 rounded-2xl object-cover ring-2 ring-white/85 shadow-xl shrink-0 bg-muted"
+                  className="w-16 h-16 sm:w-28 sm:h-28 rounded-2xl object-cover ring-2 ring-white/85 shadow-xl shrink-0 bg-muted"
                 />
                 <div className="min-w-0 pb-0.5">
                   <span className="text-[10px] sm:text-[11px] font-semibold tracking-widest uppercase text-white/70 mb-1 block">
                     {L.eyebrow}
                   </span>
-                  <h1 className="text-3xl sm:text-5xl lg:text-6xl font-light tracking-tight text-white leading-[1.0]">
+                  <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light tracking-tight text-white leading-[1.0]">
                     {c.name}
                   </h1>
                   <p className="text-xs sm:text-sm text-white/80 mt-1.5 truncate">
@@ -166,10 +173,13 @@ const StreamerProfile: React.FC = () => {
               </div>
             </div>
           </div>
+        </header>
 
+        {/* Innhold i lesbar bredde */}
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
           {/* Foto-kreditt (banneret er et Twitch-klipp med mindre vi har en
               eksplisitt bannerImage-override - da er det samme kilde som portrettet) */}
-          <p className="mt-2 text-[11px] text-muted-foreground/80">
+          <p className="mt-3 text-[11px] text-muted-foreground/80">
             Foto:{" "}
             <a
               href={c.attributionUrl}
@@ -208,7 +218,6 @@ const StreamerProfile: React.FC = () => {
               </div>
             </div>
           </div>
-        </header>
 
         {/* Twitch-statistikk - live tall fra Twitch */}
         {c.twitchStats && (
@@ -300,6 +309,9 @@ const StreamerProfile: React.FC = () => {
             </p>
           </section>
         )}
+
+        {/* Datagrafer - snitt-seere-rangering mot markedet + klipp-visninger (ekte tall) */}
+        <StreamerStatsCharts creator={c} peers={list} labels={L} />
 
         {/* Publikumsinteresser - Beta Ads' egen software (merkevare-matching) */}
         {c.betaStats?.audienceInterests?.length ? (
@@ -433,6 +445,7 @@ const StreamerProfile: React.FC = () => {
             </Link>
           ) : <span />}
         </nav>
+        </div>
       </div>
 
       <SPFooter />

@@ -112,6 +112,9 @@ export interface ProfileLabels {
   allClipsTwitch: string;
   seeAllTikTok: string;
   clipsTab: string;
+  reachRanking: string;
+  clipsChart: string;
+  viewsUnit: string;
 }
 
 const PROFILE_LABELS: Record<MarketCode, ProfileLabels> = {
@@ -128,6 +131,7 @@ const PROFILE_LABELS: Record<MarketCode, ProfileLabels> = {
     sourcesNote: "Faktagrunnlag hentet fra sjekkbare offentlige kilder. Tall fra trackere (følgere, gjennomsnittsseere) er øyeblikksbilder og varierer over tid.",
     latestYouTube: "Siste videoer på YouTube", seeAllYouTube: "Se alle på YouTube",
     allClipsTwitch: "Alle klipp på Twitch", seeAllTikTok: "Se alle på TikTok", clipsTab: "Twitch-klipp",
+    reachRanking: "Snitt-seere vs. andre streamere", clipsChart: "Mest sette klipp", viewsUnit: "visninger",
   },
   se: {
     eyebrow: "Svensk streaming", follow: "Följ", highlights: "Höjdpunkter",
@@ -142,6 +146,7 @@ const PROFILE_LABELS: Record<MarketCode, ProfileLabels> = {
     sourcesNote: "Faktaunderlag från kontrollerbara offentliga källor. Siffror från trackers är ögonblicksbilder och varierar över tid.",
     latestYouTube: "Senaste videor på YouTube", seeAllYouTube: "Se alla på YouTube",
     allClipsTwitch: "Alla klipp på Twitch", seeAllTikTok: "Se alla på TikTok", clipsTab: "Twitch-klipp",
+    reachRanking: "Snittittare vs. andra streamers", clipsChart: "Mest sedda klipp", viewsUnit: "visningar",
   },
   da: {
     eyebrow: "Dansk streaming", follow: "Følg", highlights: "Højdepunkter",
@@ -156,6 +161,7 @@ const PROFILE_LABELS: Record<MarketCode, ProfileLabels> = {
     sourcesNote: "Faktagrundlag fra kontrollerbare offentlige kilder. Tal fra trackere er øjebliksbilleder og varierer over tid.",
     latestYouTube: "Seneste videoer på YouTube", seeAllYouTube: "Se alle på YouTube",
     allClipsTwitch: "Alle klip på Twitch", seeAllTikTok: "Se alle på TikTok", clipsTab: "Twitch-klip",
+    reachRanking: "Gns. seere vs. andre streamere", clipsChart: "Mest sete klip", viewsUnit: "visninger",
   },
   fi: {
     eyebrow: "Suomalainen striimaus", follow: "Seuraa", highlights: "Kohokohdat",
