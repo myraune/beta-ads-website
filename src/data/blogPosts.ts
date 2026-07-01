@@ -135,6 +135,8 @@ You know because every clip is checked, scored, and logged automatically. The da
   {
     id: "twitch-game-lift-playable-demos-advertisers-2026",
     slug: "twitch-game-lift-playable-demos-advertisers-2026",
+    locale: "en",
+    translationGroup: "twitch-game-lift-playable-demos-advertisers-2026",
     title: "Twitch Game Lift Turns Livestreams Into Playable Demos. Here Is What That Means for Game Advertisers.",
     excerpt: "Amazon is testing a Twitch feature that lets viewers play a 20-minute game demo inside their browser without leaving the stream. Built on AWS GameLift Streams, Game Lift is an ad product that collapses the distance between watching and buying to zero clicks.",
     content: `## A 20-Minute Demo, No Download, No Tab Switch
@@ -242,6 +244,8 @@ For now, Game Lift is a prototype. But it is a prototype built on production-gra
   {
     id: "youtube-vibe-protect-livestream-ad-timing-2026",
     slug: "youtube-vibe-protect-livestream-ad-timing-2026",
+    locale: "en",
+    translationGroup: "youtube-vibe-protect-livestream-ad-timing-2026",
     title: "YouTube Now Pauses Ads to Protect the Vibe: What Livestream Ad Timing Means for Brands in 2026",
     excerpt: "YouTube's new AI-driven ad suppression during peak livestream engagement marks a turning point. Combined with Twitch's MSA data-sharing overhaul, the two platforms are competing on ad experience quality for the first time. Here is what Nordic brands should understand.",
     content: `## The Ad Break That Did Not Happen
@@ -357,6 +361,8 @@ The streaming ad market is moving from "how many eyeballs" to "which eyeballs, a
   {
     id: "twitch-2026-ad-products-nordic-brands",
     slug: "twitch-2026-ad-products-nordic-brands",
+    locale: "en",
+    translationGroup: "twitch-2026-ad-products-nordic-brands",
     title: "Twitch's 2026 Ad Product Roadmap: AI Sponsored Replays, Dual-Format Streams, and What Nordic Brands Should Test First",
     excerpt: "Twitch's spring 2026 ad roadmap doubles down on AI-generated sponsored moments and vertical-horizontal dual-format broadcasts. Here is what each new product actually does, and which pieces Nordic brands should pilot before the rest of the market catches on.",
     content: `## Twitch Is Rebuilding Its Ad Stack Around AI and Mobile
@@ -466,6 +472,8 @@ The brands that move first on these products are typically the ones that already
   {
     id: "twitch-sponsored-campaigns-open-to-affiliates-2026",
     slug: "twitch-sponsored-campaigns-open-to-affiliates-2026",
+    locale: "en",
+    translationGroup: "twitch-sponsored-campaigns-open-to-affiliates-2026",
     title: "Twitch Opens Sponsored Campaigns to Affiliates: What the Minecraft Tiny Takeover Means for Nordic Brand Advertising",
     excerpt: "On April 6, 2026, Twitch ran its first sponsored campaign that Affiliates could opt into, not just Partners. The change widens the creator pool for brand-funded integrations by an order of magnitude - and reshapes the economics of sponsored inventory in markets like the Nordics, where most streamers sit below the Partner threshold.",
     content: `## A Structural Change Dressed Up as a Minecraft Promotion
@@ -572,6 +580,8 @@ For Nordic brand teams planning livestream campaigns, the Tiny Takeover announce
   {
     id: "kick-100-million-users-milestone-nordic-advertisers-2026",
     slug: "kick-100-million-users-milestone-nordic-advertisers-2026",
+    locale: "en",
+    translationGroup: "kick-100-million-users-milestone-nordic-advertisers-2026",
     title: "Kick Just Hit 100 Million Users. Its Co-Founder Called It a Vanity Metric. Here Is What Nordic Advertisers Should Take From That.",
     excerpt: "On April 10, Kick announced 100 million users in three years. The same week, co-founder Bijan Tehrani called the milestone a vanity achievement and listed what is still broken. For Nordic media planners, the honest version of the number matters more than the number itself.",
     content: `## The headline is real, but the honest version of it matters more
@@ -702,6 +712,8 @@ If you are sizing a 2026 Nordic livestream budget and want a second opinion on t
   {
     id: "paid-amplification-creator-content-beyond-social-2026",
     slug: "paid-amplification-creator-content-beyond-social-2026",
+    locale: "en",
+    translationGroup: "paid-amplification-creator-content-beyond-social-2026",
     title: "Creator Content Is Escaping Social Media: The $11 Billion Paid Amplification Shift Nordic Brands Should Understand",
     excerpt: "The fastest-growing segment of creator ad spend is not social boosting. It is paid amplification into CTV, display, and retail media. For Nordic brands running live stream campaigns, this changes the ROI equation entirely.",
     content: `## The $44 billion number hides a structural change
@@ -828,6 +840,8 @@ For Nordic brands that have been cautious about live stream advertising because 
   {
     id: "twitch-april-2026-platform-overhaul-advertiser-guide",
     slug: "twitch-april-2026-platform-overhaul-advertiser-guide",
+    locale: "en",
+    translationGroup: "twitch-april-2026-platform-overhaul-advertiser-guide",
     title: "Twitch Just Rewrote Its Data-Sharing Rules and Launched Vertical Streaming. Here Is What Changed for Advertisers.",
     excerpt: "Twitch updated its Monetized Streamer Agreement to share user data with advertisers, rolled out dual-format vertical streaming, and killed its Combos experiment. A breakdown of what each change means for brands buying live stream inventory.",
     content: `## The April 13 MSA update: Twitch now shares viewer data with advertisers
@@ -1048,6 +1062,8 @@ Sustainable campaigns and sustainable creators are not separate goals. They are 
   {
     id: "adblock-gen-z-overlay-ads-twitch-2026",
     slug: "adblock-gen-z-overlay-ads-twitch-2026",
+    locale: "no",
+    translationGroup: "adblock-gen-z-overlay-ads-twitch-2026",
     title: "Adblock gjor digital annonsering usynlig for Gen Z: Slik loser overlay ads pa Twitch problemet",
     excerpt: "Over halvparten av nordiske internettbrukere mellom 18 og 27 bruker adblock. Display-annonser og pre-rolls forsvinner for de rekker a laste inn. Overlay ads pa Twitch omgar problemet fullstendig.",
     content: `## Adblock-problemet er storre enn de fleste markedsforere tror
@@ -1166,6 +1182,8 @@ Vil du vite hvordan overlay ads kan fungere for din merkevare? [Ta kontakt med B
   {
     id: "poll-sponsorship-model-twitch-interactive-ads-2026",
     slug: "poll-sponsorship-model-twitch-interactive-ads-2026",
+    locale: "en",
+    translationGroup: "poll-sponsorship-model-twitch-interactive-ads-2026",
     title: "The Poll Sponsorship Model: How Brands Are Turning Twitch Predictions Into Their Most Interactive Ad Format",
     excerpt: "Twitch Predictions let viewers bet channel points on live outcomes. Brands that sponsor them are discovering something unusual: an ad format where the audience asks to participate.",
     content: `## The Ad Nobody Skips
@@ -1393,6 +1411,8 @@ The tournament window closes fast. The audience watching Worlds on a Saturday ni
   {
     id: "gaming-advertising-blind-spot-2026",
     slug: "gaming-advertising-blind-spot-2026",
+    locale: "en",
+    translationGroup: "gaming-advertising-blind-spot-2026",
     title: "3.4 Billion Gamers, Less Than 5% of Ad Spend: The Blind Spot Costing Nordic Brands",
     excerpt: "Gaming is the world's largest entertainment vertical, worth $183.9 billion and reaching more people than music and film combined. Yet brands allocate less than 5% of global advertising budgets to it. New Dentsu research explains why this gap exists and what it is costing brands that keep looking the other way.",
     content: `## The World's Biggest Party Nobody Is Advertising At
@@ -1487,6 +1507,8 @@ The only variable is whether a brand decides this year is the year it stops bein
   {
     id: "live-streaming-market-growth-2026",
     slug: "live-streaming-market-growth-2026",
+    locale: "en",
+    translationGroup: "live-streaming-market-growth-2026",
     title: "Why $87.5 Billion Is Just the Beginning: What Live Streaming's 23% Annual Growth Rate Means for Brands in 2026",
     excerpt: "Global live streaming reached 36.4 billion hours watched in 2025, matching the pandemic peak and confirming the format is permanent. The market is worth $87.5 billion today and growing at 23% annually toward $345 billion by 2030. Here is what that trajectory means for Nordic brands still treating live streaming as an experiment.",
     content: `## The Numbers Behind a Permanent Shift
@@ -1593,6 +1615,8 @@ The question for Nordic brands is less "should we try live streaming advertising
   {
     id: "live-stream-ad-receptivity-active-viewing-2026",
     slug: "live-stream-ad-receptivity-active-viewing-2026",
+    locale: "en",
+    translationGroup: "live-stream-ad-receptivity-active-viewing-2026",
     title: "The Attention Compact: Why Live Streaming Viewers Accept Ads That Audiences of Every Other Format Reject",
     excerpt: "64% of digital viewers block traditional pre-roll ads. Yet native overlay ads during live streams generate 2 to 3 times the recall of standard display formats. The difference is not the ad. It is the type of viewing.",
     content: `## The Attention Paradox in Modern Advertising
@@ -1881,6 +1905,8 @@ The live streaming advertising channel is large and growing. The brands that fig
   {
     id: "mid-tier-streamer-sweet-spot-live-advertising-2026",
     slug: "mid-tier-streamer-sweet-spot-live-advertising-2026",
+    locale: "en",
+    translationGroup: "mid-tier-streamer-sweet-spot-live-advertising-2026",
     title: "The Mid-Tier Sweet Spot: Why Streamers With 10,000 to 50,000 Followers Deliver the Highest Advertising ROI",
     excerpt: "Brands chasing the biggest names on Twitch and YouTube are leaving money on the table. The data on mid-tier creators is clear: the 10,000 to 50,000 follower range consistently delivers higher engagement, lower CPMs, and better purchase intent than the top tier.",
     content: `## The Number That Changes the Conversation
@@ -1984,6 +2010,8 @@ The sweet spot is not a niche. It is where the performance data has been pointin
   {
     id: "nordic-game-2026-streaming-advertising",
     slug: "nordic-game-2026-streaming-advertising",
+    locale: "en",
+    translationGroup: "nordic-game-2026-streaming-advertising",
     title: "Nordic Game 2026 Is Eight Weeks Away. Here Is What the Region's Biggest Gaming Gathering Tells Advertisers About Live Streaming.",
     excerpt: "With 3,000 industry professionals converging on Malmö in late May, Nordic Game 2026 is a useful lens for understanding where the region's gaming culture is heading - and why that matters for brands advertising on live streaming platforms.",
     content: `## The Conference That Doubles as a Market Signal
@@ -2082,6 +2110,8 @@ Nordic Game is a signal. The smart read is that the infrastructure for acting on
   {
     id: "gen-z-creator-trust-spending-power-2026",
     slug: "gen-z-creator-trust-spending-power-2026",
+    locale: "en",
+    translationGroup: "gen-z-creator-trust-spending-power-2026",
     title: "61% of Gen Z Trust Creators More Than Brand Ads. The $12.6 Trillion Spending Shift Has Already Begun.",
     excerpt: "Gen Z's spending power is projected to reach $12.6 trillion globally by 2030. The generation that trusts streamers over brand campaigns is about to become the dominant consumer cohort - and most advertisers are still running pre-roll.",
     content: `## The Spending Power Timeline Most Advertisers Are Ignoring
@@ -2180,6 +2210,8 @@ The question for Nordic advertisers is not whether to engage with creator-led li
   {
     id: "first-party-data-live-streaming-nordic-advertisers-2026",
     slug: "first-party-data-live-streaming-nordic-advertisers-2026",
+    locale: "en",
+    translationGroup: "first-party-data-live-streaming-nordic-advertisers-2026",
     title: "The First-Party Data Advantage: How Live Streaming Lets Nordic Brands Target Without Third-Party Cookies",
     excerpt: "GDPR enforcement in the Nordics has been eroding behavioral targeting infrastructure for years. Live streaming offers a contextual alternative that performs better and requires no cookies at all.",
     content: `## The Cookie Problem Nordic Advertisers Feel First
@@ -2286,6 +2318,8 @@ The Nordic region's strict data protection environment has made some digital adv
   {
     id: "multistreaming-revolution-nordic-brands-2026",
     slug: "multistreaming-revolution-nordic-brands-2026",
+    locale: "en",
+    translationGroup: "multistreaming-revolution-nordic-brands-2026",
     title: "The Multistreaming Revolution: Why Nordic Brands Can No Longer Assume Their Campaign Runs on Just One Platform",
     excerpt: "Most streamers in the Nordic region now broadcast simultaneously to Twitch, YouTube, and Kick. The measurement frameworks brands rely on were not built for this reality.",
     content: `## The Multistreaming Revolution: Why Nordic Brands Can No Longer Assume Their Campaign Runs on Just One Platform
@@ -2392,6 +2426,8 @@ The brands that wait until the industry standardizes around multiplatform report
   {
     id: "gen-z-interactive-ads-streaming-2026",
     slug: "gen-z-interactive-ads-streaming-2026",
+    locale: "en",
+    translationGroup: "gen-z-interactive-ads-streaming-2026",
     title: "One in Three Gen Z Viewers Want to Interact With Ads on Stream. Most Brands Are Not Ready.",
     excerpt: "52% of Gen Z now watches on ad-supported tiers, and a third of them actively want to engage with ads during live streams. The opportunity is real. The formats that capture it look nothing like a pre-roll.",
     content: `## One in Three Gen Z Viewers Want to Interact With Ads on Stream. Most Brands Are Not Ready.
@@ -2502,6 +2538,8 @@ The Gen Z data is pointing in one direction. The question for Nordic brands is w
   {
     id: "ctv-vs-live-streaming-nordic-2026",
     slug: "ctv-vs-live-streaming-nordic-2026",
+    locale: "en",
+    translationGroup: "ctv-vs-live-streaming-nordic-2026",
     title: "CTV Is Growing at Record Speed. It Is Also Describing a Different Problem Than Live Streaming Solves.",
     excerpt: "Connected TV ad spending is on track to hit $45 billion globally in 2026. But the passive lean-back audience it reaches is a fundamentally different product than the lean-forward community watching live streamers. Nordic media buyers need to understand the distinction.",
     content: `## CTV Is Growing at Record Speed. It Is Also Describing a Different Problem Than Live Streaming Solves.
@@ -2610,6 +2648,8 @@ The $45 billion question is not whether to be on CTV. It is whether that budget 
   {
     id: "kick-q3-2025-growth-nordic-advertising-opportunity",
     slug: "kick-q3-2025-growth-nordic-advertising-opportunity",
+    locale: "en",
+    translationGroup: "kick-q3-2025-growth-nordic-advertising-opportunity",
     title: "Kick's 55% Growth in Q3 2025 Is a Signal: The Most Undermonetized Platform in Live Streaming Won't Stay That Way",
     excerpt: "Kick reached 1.7 billion hours watched in Q3 2025, a 55% jump from Q1. The platform's creator-friendly model has produced an unusually clean ad environment. For Nordic brands, the window to enter before advertiser saturation arrives is open right now.",
     content: `## The Numbers That Should Be on Every Media Buyer's Desk
@@ -2928,6 +2968,8 @@ The question worth asking is not "what's the CPM" - it's what you do with the at
   {
     id: "pause-ad-revolution-twitch-native-formats-2026",
     slug: "pause-ad-revolution-twitch-native-formats-2026",
+    locale: "en",
+    translationGroup: "pause-ad-revolution-twitch-native-formats-2026",
     title: "The Pause Ad Revolution: Why Twitch and YouTube Are Abandoning Pre-Roll - and What It Means for Nordic Brands",
     excerpt: "Amazon's Twitch is testing pause ads with a 51% viewer action rate. YouTube just launched side-by-side ads for livestreams. The pre-roll era is ending - and non-intrusive native formats are taking over.",
     content: `## The Pre-Roll Era Is Coming to an End
@@ -3036,6 +3078,8 @@ The pre-roll era isn't ending because advertisers asked nicely. It's ending beca
   {
     id: "brands-as-showrunners-serialized-livestream-content-2026",
     slug: "brands-as-showrunners-serialized-livestream-content-2026",
+    locale: "en",
+    translationGroup: "brands-as-showrunners-serialized-livestream-content-2026",
     title: "Why Brands Are Becoming Showrunners: The Serialized Livestream Strategy Behind $4.8 Billion in Sponsorships",
     excerpt: "Brand sponsorship of gaming streamers hit $4.8 billion in 2025 - up 29% in a single year. The brands winning the biggest share aren't running one-off campaigns. They're thinking like TV producers.",
     content: `## The $4.8 Billion Shift Nobody's Talking About
@@ -3412,6 +3456,8 @@ For Nordic advertisers in 2026, that confidence gap is closing. The brands that 
   {
     id: "ai-clipping-stream-advertising",
     slug: "ai-clipping-stream-advertising",
+    locale: "en",
+    translationGroup: "ai-clipping-stream-advertising",
     title: "After the Stream: How AI Clipping Turns Live Broadcasts into Always-On Brand Exposure",
     excerpt: "A sponsored stream segment airs once - but the clip can live for months. Here's how AI-powered clipping is rewriting the reach equation for live streaming advertising in 2026, and why brands that ignore it are dramatically undercounting their ROI.",
     content: `## The Moment a Brand Moment Goes Viral
@@ -3505,6 +3551,8 @@ The brands building live streaming strategies around clip potential are not just
   {
     id: "streaming-shakeout-trovo-shutdown-platform-risk-advertisers-2026",
     slug: "streaming-shakeout-trovo-shutdown-platform-risk-advertisers-2026",
+    locale: "en",
+    translationGroup: "streaming-shakeout-trovo-shutdown-platform-risk-advertisers-2026",
     title: "The Streaming Shakeout: Trovo Shuts Down and What Platform Exits Mean for Live Advertisers",
     excerpt: "Trovo is shutting down its live streaming service on June 30, 2026 - the latest in a pattern of platform consolidation. For brands investing in live streaming advertising, here's what platform exits reveal about strategy, risk, and where durable advertising value actually lives.",
     content: `## The Streaming Shakeout Is Real - and Trovo Just Proved It
@@ -3696,6 +3744,8 @@ The audience has already made its choice. The question for Nordic brands in 2026
   {
     id: "twitch-shoppable-ads-live-commerce-nordic-2026",
     slug: "twitch-shoppable-ads-live-commerce-nordic-2026",
+    locale: "en",
+    translationGroup: "twitch-shoppable-ads-live-commerce-nordic-2026",
     title: "From Click to Cart: How Twitch's Shoppable Ads Are Transforming Live Commerce for Nordic Brands",
     excerpt: "Amazon has launched in-stream shoppable ads on Twitch, letting viewers buy products without leaving a livestream. With conversion rates of up to 30%, the format is rewriting the funnel - and Nordic brands need to understand what's coming.",
     content: `## The Funnel Just Collapsed - And It Happened Inside a Livestream
@@ -3798,6 +3848,8 @@ The funnel collapsed. The audience is already watching. The infrastructure to co
   {
     id: "community-casting-esports-advertising-2026",
     slug: "community-casting-esports-advertising-2026",
+    locale: "en",
+    translationGroup: "community-casting-esports-advertising-2026",
     title: "Community Casting Is Rewriting Esports Viewership - and Opening a New Advertising Frontier in 2026",
     excerpt: "At LoL Worlds 2024, community casters captured 45.8% of total watch time - up from 2.4% two years earlier. For advertisers, this format shift is one of the biggest untapped opportunities in live streaming.",
     content: `## The Quiet Revolution Happening Inside Esports Broadcasting
@@ -3901,6 +3953,8 @@ For Nordic brands that have been watching the esports advertising space from a d
   {
     id: "micro-streamer-roi-nordic-brands-2026",
     slug: "micro-streamer-roi-nordic-brands-2026",
+    locale: "en",
+    translationGroup: "micro-streamer-roi-nordic-brands-2026",
     title: "The Micro-Streamer Advantage: Why Small Creators Drive Outsized ROI for Nordic Brands",
     excerpt: "Micro-streamers with 50–500 concurrent viewers consistently outperform top-tier creators on engagement, trust, and cost-efficiency - but scaling these campaigns requires the right infrastructure.",
     content: `## The Bigger Is Not Always Better Myth in Streamer Marketing
@@ -4008,6 +4062,8 @@ For Nordic advertisers willing to move beyond the familiar logic of "biggest nam
   {
     id: "avod-ad-supported-streaming-nordic-brands-2026",
     slug: "avod-ad-supported-streaming-nordic-brands-2026",
+    locale: "en",
+    translationGroup: "avod-ad-supported-streaming-nordic-brands-2026",
     title: "Why 80% of New Nordic Streaming Subscriptions Are Ad-Supported - and What Brands Should Do About It",
     excerpt: "Nordic consumers are choosing ad-supported streaming tiers in record numbers. What this shift means for brand advertisers - and why live streaming sits at the centre of the new dual-channel strategy.",
     content: `## The Subscription Paradox Nobody Predicted
@@ -4106,6 +4162,8 @@ The 80% figure for Swedish ad-supported subscriptions is not a ceiling. As more 
   {
     id: "nordic-streaming-tipping-point-2026-advertising",
     slug: "nordic-streaming-tipping-point-2026-advertising",
+    locale: "en",
+    translationGroup: "nordic-streaming-tipping-point-2026-advertising",
     title: "The Nordic Streaming Tipping Point: What 80% Household Penetration Means for Advertisers in 2026",
     excerpt: "Norway leads Europe with streaming in 80% of households. Denmark's traditional TV just hit a historic 35% low. Sweden's new subscriptions are 80% ad-supported. The window for reaching Nordic audiences on legacy channels is closing - and live streaming is filling the gap.",
     content: `## The Numbers That Should Change Your Media Plan
@@ -4217,6 +4275,8 @@ The Nordic market is at an inflection point. 80% household streaming penetration
   {
     id: "creator-first-brand-strategies-live-streaming-2026",
     slug: "creator-first-brand-strategies-live-streaming-2026",
+    locale: "en",
+    translationGroup: "creator-first-brand-strategies-live-streaming-2026",
     title: "Creator-First Brand Strategies: What Pringles, Crocs, and SoundCloud Teach Nordic Advertisers About Live Streaming",
     excerpt: "The brands gaining ground on Twitch aren't outspending the competition - they're out-thinking them. Three global case studies reveal a playbook Nordic advertisers can apply right now.",
     content: `## The Brands Winning on Twitch Aren't the Biggest Spenders
@@ -4333,6 +4393,8 @@ The winning strategy on live streaming has never been about spending more. It's 
   {
     id: "twitch-session-length-brand-recall-2026",
     slug: "twitch-session-length-brand-recall-2026",
+    locale: "en",
+    translationGroup: "twitch-session-length-brand-recall-2026",
     title: "The 90-Minute Advantage: Why Twitch Session Length Creates Brand Recall No Other Platform Can Match",
     excerpt: "While brands chase TikTok reach, Twitch viewers average 90+ minutes per session - creating the sustained, emotionally engaged attention that actually builds brand memory. Here's why that gap matters more than any reach metric.",
     content: `## The Reach Trap: Why Brands Are Chasing the Wrong Metric
@@ -4433,6 +4495,8 @@ The 90-minute session is not just a number. It's the medium's most powerful stru
   {
     id: "live-streaming-ad-spend-50b-nordic-2026",
     slug: "live-streaming-ad-spend-50b-nordic-2026",
+    locale: "en",
+    translationGroup: "live-streaming-ad-spend-50b-nordic-2026",
     title: "Live Streaming Ad Spend Crosses $50 Billion in 2026: The Nordic Opportunity Brands Can't Ignore",
     excerpt: "Global streaming advertising budgets hit a historic milestone in 2026 - and Nordic brands are uniquely positioned to capitalize on a market growing at 23% annually.",
     content: `## The $50 Billion Threshold: A Watershed Moment for Streaming Advertising
@@ -4543,6 +4607,8 @@ For Nordic advertisers, the runway is long and the moment is now.
   {
     id: "platform-diversification-nordic-advertisers-2026",
     slug: "platform-diversification-nordic-advertisers-2026",
+    locale: "en",
+    translationGroup: "platform-diversification-nordic-advertisers-2026",
     title: "The Platform Diversification Imperative: Why Nordic Advertisers Can't Rely on Twitch Alone in 2026",
     excerpt: "Twitch viewership fell 10% in 2025 - the only major platform with negative growth. With Kick up 125% and YouTube Live gaining fast, single-platform strategies are leaving Nordic audiences unreached.",
     content: `## Twitch Is Still Number One. But It's Slipping.
@@ -4639,6 +4705,8 @@ Platform loyalty is a luxury advertisers no longer have. Audience loyalty is the
   {
     id: "nordic-esports-advertising-opportunity-2026",
     slug: "nordic-esports-advertising-opportunity-2026",
+    locale: "en",
+    translationGroup: "nordic-esports-advertising-opportunity-2026",
     title: "The Nordic Esports Advertising Opportunity: Why Brands Are Entering a $212M Market",
     excerpt: "The Nordic esports market will hit $212M by 2029 - yet advertising infrastructure still lags the audience. Here's why brands moving now have a significant first-mover advantage.",
     content: `## The Numbers That Demand Attention
@@ -4739,6 +4807,8 @@ The infrastructure gap is closing. The question for Nordic advertisers is whethe
   {
     id: "tiktok-live-overtakes-twitch-streaming-hierarchy-2026",
     slug: "tiktok-live-overtakes-twitch-streaming-hierarchy-2026",
+    locale: "en",
+    translationGroup: "tiktok-live-overtakes-twitch-streaming-hierarchy-2026",
     title: "TikTok Live Overtakes Twitch: What the New Streaming Hierarchy Means for Nordic Advertisers in 2026",
     excerpt: "TikTok Live has surpassed Twitch to claim the #2 spot in global streaming hours, while Kick grew 131% YoY. Here's what the reshuffled platform hierarchy means for Nordic brands planning live streaming campaigns.",
     content: `## The Platform Hierarchy Just Changed
@@ -4847,6 +4917,8 @@ The streaming hierarchy has changed. The fundamentals of effective live stream a
   {
     id: "gen-z-streaming-ad-relevance-gap-2026",
     slug: "gen-z-streaming-ad-relevance-gap-2026",
+    locale: "en",
+    translationGroup: "gen-z-streaming-ad-relevance-gap-2026",
     title: "The Gen Z Streaming Ad Gap: Why 73% of Ads Miss - and How Native Formats Bridge It",
     excerpt: "Gen Z watches 6.5 hours of streaming content daily and 81% would act on a relevant ad. Yet 73% say current streaming ads don't match their interests. Here's what the data reveals - and what Nordic brands should do differently.",
     content: `## The Most Willing Audience in Advertising Is Also the Most Underserved
@@ -4950,6 +5022,8 @@ The brands that close the relevance gap first will not just win attention - they
   {
     id: "long-term-streamer-partnerships-vs-one-off-campaigns-2026",
     slug: "long-term-streamer-partnerships-vs-one-off-campaigns-2026",
+    locale: "en",
+    translationGroup: "long-term-streamer-partnerships-vs-one-off-campaigns-2026",
     title: "Long-Term Streamer Partnerships vs One-Off Campaigns: The Performance Gap Nordic Brands Need to Know",
     excerpt: "Brands with sustained streamer partnerships outperform single-campaign activations by 3–5x. Here's why the relationship model wins - and what the data says for Nordic advertisers in 2026.",
     content: `## The Campaign Mindset vs. the Relationship Mindset
@@ -5056,6 +5130,8 @@ Campaign bursts get noticed once. Sustained presence gets remembered.
   {
     id: "ai-powered-dynamic-ad-insertion-live-streams-2026",
     slug: "ai-powered-dynamic-ad-insertion-live-streams-2026",
+    locale: "en",
+    translationGroup: "ai-powered-dynamic-ad-insertion-live-streams-2026",
     title: "AI-Powered Dynamic Ad Insertion: The Technology Scaling Native Live Stream Advertising",
     excerpt: "AI-powered dynamic ad insertion is bridging the gap between programmatic scale and native performance - allowing brands to run contextually triggered overlay campaigns across hundreds of streamers simultaneously.",
     content: `## The Scale Problem Native Advertising Had Until Now
@@ -5160,6 +5236,8 @@ The question is no longer whether this approach is technically viable. It is whe
   {
     id: "overlay-ad-engagement-doubled-2025-data",
     slug: "overlay-ad-engagement-doubled-2025-data",
+    locale: "en",
+    translationGroup: "overlay-ad-engagement-doubled-2025-data",
     title: "Overlay Ad Engagement Nearly Doubled in 2025: The Data Case for Native Livestream Advertising",
     excerpt: "Interactive overlay ads hit 1.94% engagement in Q2 2025 - nearly double the prior year - while 44% of Twitch viewers report buying products based on streamer recommendations. The numbers are in, and they point in one direction.",
     content: `## The Numbers That Should Change Your Media Plan
@@ -5615,6 +5693,8 @@ Brands that invest in long-term streaming partnerships with creators who have ac
   {
     id: "women-esports-streaming-advertising-audience-2026",
     slug: "women-esports-streaming-advertising-audience-2026",
+    locale: "en",
+    translationGroup: "women-esports-streaming-advertising-audience-2026",
     title: "The Growth of Women in Esports and Streaming: The Ad Audience Brands Are Underserving",
     excerpt: "Women now make up 35% of esports fans and 45% of the US gaming audience, yet most streaming ad campaigns target a narrowly male demographic. Here's the data on this underserved and growing segment.",
     content: `## A Demographic Shift That Most Brands Are Missing
@@ -6082,6 +6162,8 @@ Beta Ads' platform indexes 39,000+ Nordic creators with historical brand-integra
   {
     id: "co-streaming-squad-streams-reach-calculations-2026",
     slug: "co-streaming-squad-streams-reach-calculations-2026",
+    locale: "en",
+    translationGroup: "co-streaming-squad-streams-reach-calculations-2026",
     title: "Why Co-Streaming and Squad Streams Are Changing Reach Calculations for Brands",
     excerpt: "Co-streaming boosted tournament viewership by 28% on average in 2025, and Twitch's new Stream Together feature is making collaborative broadcasts accessible to all creators. Here's what that means for how brands measure reach.",
     content: `## The Old Reach Calculation Is Broken
@@ -6190,6 +6272,8 @@ The reach calculation for streaming advertising is evolving. Brands that update 
   {
     id: "top-twitch-gaming-categories-2026-advertiser-guide",
     slug: "top-twitch-gaming-categories-2026-advertiser-guide",
+    locale: "en",
+    translationGroup: "top-twitch-gaming-categories-2026-advertiser-guide",
     title: "Top Gaming Categories on Twitch in 2026: Hours Watched and Advertiser Fit",
     excerpt: "Counter-Strike, League of Legends, and GTA V dominate Twitch viewership in 2026, but advertiser fit varies enormously by category. Here's the data brands need to make smarter placement decisions.",
     content: `## What the Viewership Data Actually Shows
@@ -6444,6 +6528,8 @@ The measurement problem in streaming sponsorships is solvable. The brands that i
   {
     id: "kick-vs-twitch-nordics-brand-comparison-2026",
     slug: "kick-vs-twitch-nordics-brand-comparison-2026",
+    locale: "en",
+    translationGroup: "kick-vs-twitch-nordics-brand-comparison-2026",
     title: "Kick vs Twitch in the Nordics: A Platform Comparison for Brands in 2026",
     excerpt: "Kick has crossed 1 billion hours watched and holds 11% gaming market share, but Twitch still dominates with 54%. Here's how Nordic brands should think about platform strategy in 2026.",
     content: `## The Two-Platform Question Every Nordic Brand Is Asking
@@ -6547,6 +6633,8 @@ The platform war between Kick and Twitch is not over, and the outcome is not cer
   {
     id: "just-chatting-irl-streaming-advertising-opportunity-2026",
     slug: "just-chatting-irl-streaming-advertising-opportunity-2026",
+    locale: "en",
+    translationGroup: "just-chatting-irl-streaming-advertising-opportunity-2026",
     title: "The Rise of Just Chatting and IRL Streaming: Why Non-Gaming Content Is Twitch's Biggest Advertising Opportunity",
     excerpt: "Just Chatting has become Twitch's most-watched category with 1.49 billion hours in 2026, and IRL streaming is exploding. Here's why brands are missing out by focusing only on gaming content.",
     content: `## Twitch Is No Longer Just a Gaming Platform
@@ -6646,6 +6734,8 @@ The gaming-only mental model of Twitch advertising is leaving money on the table
   {
     id: "twitch-recommendation-algorithm-advertisers-2026",
     slug: "twitch-recommendation-algorithm-advertisers-2026",
+    locale: "en",
+    translationGroup: "twitch-recommendation-algorithm-advertisers-2026",
     title: "How Twitch's Recommendation Algorithm Works - and What It Means for Advertisers",
     excerpt: "Twitch's algorithm has evolved into a real-time machine learning system that rewards community engagement over follower count. Here's how it shapes discoverability - and why it matters for every brand running campaigns on the platform.",
     content: `## The Algorithm That Decides Who Gets Seen
@@ -6761,6 +6851,8 @@ The bottom line is straightforward: Twitch's recommendation system rewards what 
   {
     id: "ad-blocker-crisis-livestream-native-ads-2026",
     slug: "ad-blocker-crisis-livestream-native-ads-2026",
+    locale: "en",
+    translationGroup: "ad-blocker-crisis-livestream-native-ads-2026",
     title: "The Ad Blocker Crisis in Live Streaming: Why 64% of Viewers Block Ads - and What Actually Works",
     excerpt: "Over 900 million people now use ad blockers, and 64% of livestream viewers are among them. Here's why the crisis is reaching a tipping point in 2026 - and why native overlay ads are the only format breaking through.",
     content: `## The Ad Blocker Crisis Nobody Wants to Talk About
@@ -6862,6 +6954,8 @@ The ad blocker crisis is not a technical problem waiting for a technical fix. It
   {
     id: "why-native-stream-ads-outperform-3-to-1",
     slug: "why-native-stream-ads-outperform-3-to-1",
+    locale: "en",
+    translationGroup: "why-native-stream-ads-outperform-3-to-1",
     title: "Why Native Stream Ads Outperform Traditional Video Ads 3:1",
     excerpt: "Discover why brands are shifting budgets from pre-roll to native stream overlays - and seeing engagement rates 3x higher than traditional video ads.",
     content: `## The Video Ad Model Is Broken for Gen Z
@@ -6964,6 +7058,8 @@ The 3:1 performance gap is not a fluke. It reflects a fundamental shift in how y
   {
     id: "beyond-banner-blindness-nordic-stream-advertising",
     slug: "beyond-banner-blindness-nordic-stream-advertising",
+    locale: "en",
+    translationGroup: "beyond-banner-blindness-nordic-stream-advertising",
     title: "Beyond Banner Blindness: How to Scale Stream Advertising in the Nordics",
     excerpt: "Hit the viewer attention ceiling? Learn how to bypass ad blindness using native overlays and scale your Gen Z reach across Twitch, YouTube, and Kick in Scandinavia.",
     content: `## The Nordic Streaming Market Is Bigger Than You Think
@@ -7075,6 +7171,8 @@ The banner blindness problem is only getting worse. Ad blocker adoption is only 
   {
     id: "livestream-commerce-nordic-brands-2026",
     slug: "livestream-commerce-nordic-brands-2026",
+    locale: "en",
+    translationGroup: "livestream-commerce-nordic-brands-2026",
     title: "The Rise of Livestream Commerce: What Nordic Brands Need to Know in 2026",
     excerpt: "Livestream commerce is reshaping e-commerce globally. Here's how Nordic brands can leverage live stream advertising to drive awareness, engagement, and direct sales in 2026.",
     content: `## Livestream Commerce Is No Longer Just a Chinese Phenomenon
@@ -7201,6 +7299,8 @@ The infrastructure is in place. The audiences are engaged. The ad format works. 
   {
     id: "native-stream-ads-vs-display-ads",
     slug: "native-stream-ads-vs-display-ads",
+    locale: "en",
+    translationGroup: "native-stream-ads-vs-display-ads",
     title: "Why Native Stream Ads Outperform Traditional Display Ads in 2026",
     excerpt: "Display ads are losing ground fast. Native overlay ads on live streams deliver 4-8x higher engagement, bypass ad blockers, and reach the audiences that matter most. Here is why the shift is happening now.",
     content: `
@@ -7334,6 +7434,8 @@ Brands that move now will build creator relationships and audience familiarity t
   {
     id: "how-twitch-advertising-works-2026",
     slug: "how-twitch-advertising-works-2026",
+    locale: "en",
+    translationGroup: "how-twitch-advertising-works-2026",
     title: "How Twitch Advertising Actually Works in 2026",
     excerpt: "The mechanics of running a Twitch campaign today - ad formats, adblock reality, attribution, typical CTRs, and where Twitch fits in a modern Nordic media plan. Updated with verified 2025–2026 campaign data.",
     content: `## Why the Playbook Changed Between 2023 and 2026
@@ -8262,6 +8364,8 @@ The top of the chart tells you what's big. The year-over-year deltas, audience d
     {
     id: "nordic-twitch-market-2025",
     slug: "nordic-twitch-market-2025",
+    locale: "en",
+    translationGroup: "nordic-twitch-market-2025",
     title: "The Nordic Twitch Market in 2025: Regional Performance, Creator Depth, and What Advertisers Should Actually Buy",
     excerpt: "The Nordic region accounted for ~2.3 % of global Twitch traffic in 2025 but above-average engagement per viewer. Here's how Norway, Sweden, Finland and Denmark compare on creator depth, category mix, and advertiser opportunity - and where the 2026 budget should actually land.",
     content: `## The Nordic Opportunity Is About Concentration, Not Scale
@@ -8380,6 +8484,8 @@ Ready to scope a 2026 Nordic creator portfolio matched to your brand category? [
     {
     id: "twitch-vs-youtube-gaming-2025",
     slug: "twitch-vs-youtube-gaming-2025",
+    locale: "en",
+    translationGroup: "twitch-vs-youtube-gaming-2025",
     title: "Twitch vs YouTube Gaming vs Kick in 2025: Where Nordic Brand Budgets Should Actually Go",
     excerpt: "Twitch lost 8.9% of hours watched in 2025 while YouTube Gaming gained 12% and Kick grew 131%. But raw market share tells a misleading story for advertisers. Here's the platform-by-platform breakdown for 2026 Nordic campaign planning.",
     content: `## The Platform War Stopped Being One-Sided in 2025
@@ -8861,6 +8967,8 @@ Want to scope a Finnish or pan-Nordic creator portfolio against your brief? [Boo
     {
     id: "kick-streaming-growth-2025",
     slug: "kick-streaming-growth-2025",
+    locale: "en",
+    translationGroup: "kick-streaming-growth-2025",
     title: "Kick's 131% Growth in 2025: What Nordic Advertisers Need to Know for 2026",
     excerpt: "Kick hit 4.5 billion hours watched in 2025, up +131% YoY per Streams Charts - the single biggest platform growth story of the year. Here's what the numbers mean for Nordic media buyers and where Kick fits in a 2026 plan.",
     content: `## Kick Became a Real Platform in 2025
@@ -9229,6 +9337,8 @@ Ready to scope a non-gaming Nordic campaign? [Book a 20-minute consultation](htt
     {
     id: "top-streamers-2025-rankings",
     slug: "top-streamers-2025-rankings",
+    locale: "en",
+    translationGroup: "top-streamers-2025-rankings",
     title: "Top Streamers of 2025: What Kai Cenat, Caedrel and Maherco Tell Nordic Advertisers",
     excerpt: "StreamHatchet's 2025 rankings put Kai Cenat at 131.9M hours watched - but the signal isn't the leaderboard, it's the growth rates. Here's what the 2025 top-streamer data actually means for Nordic brand budgets in 2026.",
     content: `## The Leaderboard Isn't the Story. The Growth Rates Are.
@@ -9459,6 +9569,8 @@ The StreamHatchet data points to two trends accelerating in 2026: the continued 
   {
     id: "hvordan-tjene-penger-pa-twitch-guide-2026",
     slug: "hvordan-tjene-penger-pa-twitch-guide-2026",
+    locale: "no",
+    translationGroup: "hvordan-tjene-penger-pa-twitch-guide-2026",
     title: "Hvordan tjene penger på Twitch: Den ultimate guiden (2026)",
     excerpt: "En grundig gjennomgang av alle måter Twitch-streamere tjener penger på – fra abonnementer og Bits til sponsorater og native annonsering. Med realistiske inntektstall og steg-for-steg-råd for nybegynnere.",
     content: `[Twitch](/twitch-advertising) har stille blitt en av de kraftigste inntektsplattformene for innholdsskapere i verden. Over 240 millioner unike besøkende ankommer plattformen hver måned. De største streamerne tjener millioner av kroner per år. Men den mer interessante historien er ikke toppen av 0,1 % - det er de titusenvis av streamere i midtsjiktet som bygger ekte, bærekraftig inntekt fra community-er på noen hundre til noen tusen seere.
@@ -9934,6 +10046,8 @@ The creator marketing lifecycle doesn't have to be broken. It just needs to be b
   {
     id: "non-gaming-brands-dominating-twitch-chat-2026",
     slug: "non-gaming-brands-dominating-twitch-chat-2026",
+    locale: "en",
+    translationGroup: "non-gaming-brands-dominating-twitch-chat-2026",
     title: "Non-Gaming Brands Are Dominating Twitch Chat - Here's What the Data Shows",
     excerpt: "Marvel, Coca-Cola, Gucci, and McDonald's are generating millions of organic chat mentions on Twitch. But the brands gaining ground aren't the biggest names - they're the most creative ones.",
     content: `## The Brands You Wouldn't Expect Are Winning on Live Streaming
@@ -10039,6 +10153,8 @@ The brands winning on Twitch aren't the biggest spenders. They're the most creat
   {
     id: "igaming-betting-live-streaming-nordic-2026",
     slug: "igaming-betting-live-streaming-nordic-2026",
+    locale: "en",
+    translationGroup: "igaming-betting-live-streaming-nordic-2026",
     title: "iGaming Brands Are Betting Big on Live Streaming - What Nordic Advertisers Can Learn",
     excerpt: "Global search interest in iGaming has surged 8x since 2023. With Stake dominating Kick, prediction markets exploding on Twitch, and sports betting content finding massive audiences, the intersection of gambling and live streaming offers lessons for every industry.",
     content: `## The Fastest-Growing Entertainment Category on Live Streaming
@@ -10150,6 +10266,8 @@ Live streaming offers a real-time window into how audiences engage with brands. 
   {
     id: "chzzk-korea-streaming-platform-guide-2026",
     slug: "chzzk-korea-streaming-platform-guide-2026",
+    locale: "en",
+    translationGroup: "chzzk-korea-streaming-platform-guide-2026",
     title: "Chzzk Explained: How Korea's Post-Twitch Streaming Giant Reached 39% Market Share in Two Years",
     excerpt: "When Twitch pulled out of South Korea, Naver launched Chzzk in 19 days flat. Two years later it commands 39% of Korean streaming hours, has exclusive LCK rights through 2030, and is reshaping how brands think about regional platform strategy.",
     content: `## The Platform That Replaced Twitch in Korea - And What It Means for Global Streaming Strategy
@@ -10278,6 +10396,8 @@ The platforms will keep fragmenting. The brands that build infrastructure to adv
   {
     id: "sommerkampanje-twitch-annonsering-2026",
     slug: "sommerkampanje-twitch-annonsering-2026",
+    locale: "no",
+    translationGroup: "sommerkampanje-twitch-annonsering-2026",
     title: "Sommerkampanjer på Twitch: Hvorfor gaming-annonsering fungerer når alt annet stopper opp",
     excerpt: "Sommeren er høysesong for gaming og streaming i Norden. Mens tradisjonelle medier mister seere, øker Twitch-seertallene. Slik utnytter smarte merkevarer sommerens gaming-boom.",
     content: `# Sommerkampanjer på Twitch: Hvorfor gaming-annonsering fungerer når alt annet stopper opp
@@ -10390,6 +10510,8 @@ Sommerkampanjer på Twitch er ikke bare et supplement til den tradisjonelle medi
   {
     id: "gaming-markedsforing-forste-kampanje-guide",
     slug: "gaming-markedsforing-forste-kampanje-guide",
+    locale: "no",
+    translationGroup: "gaming-markedsforing-forste-kampanje-guide",
     title: "Gaming-markedsføring for merkevarer: Slik lager du din første Twitch-kampanje",
     excerpt: "Er du markedssjef og nysgjerrig på gaming-markedsføring, men usikker på hvor du skal starte? Her er en praktisk guide til hvordan merkevarer kan lansere sin første Twitch-kampanje med native overlay ads i Norden.",
     content: `# Gaming-markedsføring for merkevarer: Slik lager du din første Twitch-kampanje
@@ -10502,6 +10624,8 @@ Ta kontakt med oss for en gratis konsultasjon og se hvordan en Twitch-kampanje k
   {
     id: "twitch-statistikk-verktoy-2026",
     slug: "twitch-statistikk-verktoy-2026",
+    locale: "no",
+    translationGroup: "twitch-statistikk-verktoy-2026",
     title: "Twitch-statistikk: De beste verktøyene for å tracke streamere og kampanjer i 2026",
     excerpt: "Vil du vite hvilke streamere som faktisk leverer resultater? Her er en oversikt over de viktigste verktøyene for Twitch-statistikk, og hvordan merkevarer kan bruke dem til å ta smartere beslutninger.",
     content: `# Twitch-statistikk: De beste verktøyene for å tracke streamere og kampanjer i 2026
@@ -10632,6 +10756,8 @@ Ta kontakt for en gratis demo og se hvordan Beta Ads Dashboard gir deg full over
   {
     id: "nintendo-dominerer-livestreaming-2026",
     slug: "nintendo-dominerer-livestreaming-2026",
+    locale: "no",
+    translationGroup: "nintendo-dominerer-livestreaming-2026",
     title: "Nintendo dominerer livestreaming: Hva annonsører kan lære av spillgigantens seertall",
     excerpt: "Nintendo-spill genererer 10 ganger mer seertid enn konkurrentene på Twitch og YouTube. Her er hva tallene forteller nordiske annonsører om spillvalg, publikumsoverlapp og timing.",
     content: `# Nintendo dominerer livestreaming: Hva annonsører kan lære av spillgigantens seertall
@@ -10736,6 +10862,8 @@ Vil du vite hvordan du kan utnytte spilltrender og seertall i dine egne kampanje
   {
     id: "creator-communities-fremtiden-influencer-marketing-2026",
     slug: "creator-communities-fremtiden-influencer-marketing-2026",
+    locale: "no",
+    translationGroup: "creator-communities-fremtiden-influencer-marketing-2026",
     title: "Creator communities: Fremtiden for influencer-markedsføring på livestreaming",
     excerpt: "Influencer-markedsføring på Twitch er fragmentert: discovery, outreach, kontrakter og rapportering skjer i ulike systemer. Slik løser creator community-plattformer problemet, og hva det betyr for nordiske merkevarer.",
     content: `# Creator communities: Fremtiden for influencer-markedsføring på livestreaming
@@ -10835,6 +10963,8 @@ For nordiske merkevarer som vil komme i gang med streamer-markedsføring uten å
   {
     id: "shadow-drops-livestreaming-risiko-2026",
     slug: "shadow-drops-livestreaming-risiko-2026",
+    locale: "no",
+    translationGroup: "shadow-drops-livestreaming-risiko-2026",
     title: "Shadow drops og livestreaming: Hvorfor overraskelseslanseringer er en risikosport for annonsører",
     excerpt: "Highguard samlet 4 millioner timer sett på en uke, men mistet 77% av seerne på dag 1. Shadow drops forsterker både suksess og fiasko. Her er hva nordiske annonsører bør vite.",
     content: `# Shadow drops og livestreaming: Hvorfor overraskelseslanseringer er en risikosport for annonsører
@@ -10931,6 +11061,8 @@ Native overlay ads bypasser adblock og leverer 3 til 5 ganger høyere engagement
   {
     id: "most-watched-game-publishers-livestreaming-2026",
     slug: "most-watched-game-publishers-livestreaming-2026",
+    locale: "no",
+    translationGroup: "most-watched-game-publishers-livestreaming-2026",
     title: "De mest sette spillutgiverne på livestreaming i 2026: Hva annonsører bør vite",
     excerpt: "Riot Games, Valve og Rockstar dominerer livestreaming med over 7 milliarder timer sett til sammen. Her er tre ulike strategier for suksess, og hva det betyr for merkevarer som vil annonsere på Twitch.",
     content: `# De mest sette spillutgiverne på livestreaming i 2026: Hva annonsører bør vite
@@ -11047,6 +11179,8 @@ Overlay-annonsene bypasser adblock, noe som er avgjørende i Norden der over 55%
   {
     id: "medieplanlegging-twitch-nordisk-mediemiks",
     slug: "medieplanlegging-twitch-nordisk-mediemiks",
+    locale: "no",
+    translationGroup: "medieplanlegging-twitch-nordisk-mediemiks",
     title: "Medieplanlegging for Twitch: Slik integrerer du livestreaming i den nordiske mediemiksen",
     excerpt: "De fleste medieplaner i Norden ignorerer fortsatt livestreaming. Her er en praktisk guide til hvordan du legger til Twitch som kanal, hva du bør budsjettere, og hvorfor overlay ads gjør integrasjonen enklere enn du tror.",
     content: `# Medieplanlegging for Twitch: Slik integrerer du livestreaming i den nordiske mediemiksen
@@ -11159,6 +11293,8 @@ Native overlay ads gjør denne integrasjonen praktisk. Du får skalerbar, adbloc
   {
     id: "overlay-ads-kreativ-design-beste-praksis",
     slug: "overlay-ads-kreativ-design-beste-praksis",
+    locale: "no",
+    translationGroup: "overlay-ads-kreativ-design-beste-praksis",
     title: "Slik designer du overlay ads som fungerer: Beste praksis for kreativ Twitch-annonsering",
     excerpt: "En overlay ad på Twitch har sekunder på å fange oppmerksomhet uten å forstyrre streamen. Her er de konkrete designprinsippene som skiller annonser med høy engagement fra de som blir ignorert.",
     content: `# Slik designer du overlay ads som fungerer: Beste praksis for kreativ Twitch-annonsering
@@ -11275,6 +11411,8 @@ Native overlay ads gjennom Beta Ads gir deg tilgang til 40+ nordiske streamere, 
   {
     id: "merkevarer-utenfor-gaming-twitch-annonsering",
     slug: "merkevarer-utenfor-gaming-twitch-annonsering",
+    locale: "no",
+    translationGroup: "merkevarer-utenfor-gaming-twitch-annonsering",
     title: "Merkevarer utenfor gaming på Twitch: Hvorfor FMCG, finans og retail lykkes med livestream-annonsering",
     excerpt: "Twitch er ikke bare for spillselskaper. Stadig flere merkevarer utenfor gaming, fra dagligvare til bank, oppdager at livestreaming gir tilgang til et ungt, engasjert publikum de ikke når andre steder.",
     content: `# Merkevarer utenfor gaming på Twitch: Hvorfor FMCG, finans og retail lykkes med livestream-annonsering
