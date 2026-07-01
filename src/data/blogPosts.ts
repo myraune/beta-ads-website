@@ -3650,6 +3650,8 @@ Beta Ads maintains a database of 39,000+ Nordic streamers with real-time analyti
   {
     id: "nordic-streaming-market-ad-budget-shift-2026",
     slug: "nordic-streaming-market-ad-budget-shift-2026",
+    locale: "en",
+    translationGroup: "nordic-streaming-market-ad-budget-shift-2026",
     title: "The €10.7 Billion Nordic Streaming Market Is Reshaping Ad Budgets - And Live Content Is Getting the Biggest Share",
     excerpt: "Nordic streaming grew 12% while traditional TV shrank 6% in 2025, reaching €10.7 billion in total market value. Here's what that migration means for where advertising budgets should follow - and why live streaming audiences are worth more than the aggregate numbers suggest.",
     content: `## The Numbers Behind the Nordic Streaming Shift
@@ -6042,6 +6044,8 @@ The goal of brand safety management is not to achieve zero theoretical risk - th
   {
     id: "parasocial-relationships-streamers-purchase-intent-brands",
     slug: "parasocial-relationships-streamers-purchase-intent-brands",
+    locale: "en",
+    translationGroup: "parasocial-relationships-streamers-purchase-intent-brands",
     title: "The Psychology of Parasocial Relationships: Why Streamer Trust Drives Real Purchase Intent",
     excerpt: "Research consistently shows parasocial relationships boost purchase intent, impulsive buying, and brand loyalty. Here's the psychology behind why streamer recommendations work - and how brands can leverage it responsibly.",
     content: `## The Relationship That Isn't - But Feels Like It Is
