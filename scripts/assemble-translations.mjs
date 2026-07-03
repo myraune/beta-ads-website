@@ -89,9 +89,12 @@ for (const f of outFiles) {
       ...(src.hasDashboard ? { hasDashboard: src.hasDashboard } : {}),
       locale: lang,
       translationGroup: src.slug,
-      seoTitle: src.seoTitle,
-      seoDescription: src.seoDescription,
-      seoKeywords: src.seoKeywords,
+      // Ensure this post has SEO meta for its OWN locale. Older source posts were
+      // authored without a `da` key, so Danish translations would otherwise ship
+      // with no localized seoTitle/seoDescription. Backfill from the translation.
+      seoTitle: (src.seoTitle && src.seoTitle[lang]) ? src.seoTitle : { ...(src.seoTitle || {}), [lang]: t.title.trim() },
+      seoDescription: (src.seoDescription && src.seoDescription[lang]) ? src.seoDescription : { ...(src.seoDescription || {}), [lang]: (t.excerpt || src.excerpt).trim() },
+      seoKeywords: (src.seoKeywords && src.seoKeywords[lang]) ? src.seoKeywords : { ...(src.seoKeywords || {}), [lang]: (src.seoKeywords && src.seoKeywords.en) || [] },
     });
     wrote++;
   }
