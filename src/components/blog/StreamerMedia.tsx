@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Play, X } from "lucide-react";
 import { MediaCarousel } from "@/components/blog/MediaCarousel";
 import { SocialIcon } from "@/components/blog/SocialIcon";
@@ -53,6 +53,7 @@ export const StreamerMedia: React.FC<Props> = ({
 }) => {
   const L = profileLabels(market);
   const [activeClip, setActiveClip] = useState<TwitchClip | null>(null);
+  const tabRefs = useRef<(HTMLButtonElement | null)[]>([]);
   const hasTikTok = Boolean(tiktokVideos?.length || tiktokHandle);
   const tabs: { key: TabKey; label: string; count: number }[] = [];
   if (twitchClips?.length) tabs.push({ key: "twitch", label: L.clipsTab, count: twitchClips.length });
@@ -80,13 +81,27 @@ export const StreamerMedia: React.FC<Props> = ({
   return (
     <section className="border-t border-border/60 pt-12 mb-14">
       <div className="flex items-end justify-between gap-4 mb-5 flex-wrap">
-        {/* Faner */}
-        <div className="flex items-center gap-1">
-          {tabs.map((t) => (
+        {/* Faner (ARIA tablist med pil-tast-navigasjon) */}
+        <div className="flex items-center gap-1" role="tablist" aria-label={`${name} media`}>
+          {tabs.map((t, i) => (
             <button
               key={t.key}
               type="button"
+              role="tab"
+              id={`media-tab-${t.key}`}
+              aria-selected={active === t.key}
+              aria-controls={`media-panel-${t.key}`}
+              tabIndex={active === t.key ? 0 : -1}
+              ref={(el) => { tabRefs.current[i] = el; }}
               onClick={() => setActive(t.key)}
+              onKeyDown={(e) => {
+                if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+                e.preventDefault();
+                const dir = e.key === "ArrowRight" ? 1 : -1;
+                const n = (i + dir + tabs.length) % tabs.length;
+                setActive(tabs[n].key);
+                tabRefs.current[n]?.focus();
+              }}
               className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-sm font-medium transition-colors ${
                 active === t.key
                   ? "bg-foreground text-background"
@@ -110,6 +125,7 @@ export const StreamerMedia: React.FC<Props> = ({
         </a>
       </div>
 
+      <div role="tabpanel" id={`media-panel-${active}`} aria-labelledby={`media-tab-${active}`}>
       {/* Twitch-klipp */}
       {active === "twitch" && twitchClips && (
         <MediaCarousel label={`Twitch-klipp fra ${name}`}>
@@ -229,6 +245,8 @@ export const StreamerMedia: React.FC<Props> = ({
         </MediaCarousel>
       )}
 
+      </div>
+
       {/* In-site Twitch-klipp-spiller (offisiell embed, ingen redirect til Twitch) */}
       {activeClip && (
         <ClipModal clip={activeClip} onClose={() => setActiveClip(null)} />
@@ -244,12 +262,38 @@ interface ClipModalProps {
 
 /** Modal som spiller Twitch-klippet via clips.twitch.tv/embed - rett i siden. */
 const ClipModal: React.FC<ClipModalProps> = ({ clip, onClose }) => {
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeRef = useRef<HTMLButtonElement>(null);
+
   useEffect(() => {
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
+    // Husk hva som hadde fokus, så vi kan gi det tilbake ved lukking.
+    const opener = document.activeElement as HTMLElement | null;
+    closeRef.current?.focus();
+
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") { onClose(); return; }
+      if (e.key !== "Tab") return;
+      // Fokus-felle: hold Tab-syklusen inne i modalen.
+      const root = dialogRef.current;
+      if (!root) return;
+      const items = root.querySelectorAll<HTMLElement>(
+        'a[href], button, iframe, [tabindex]:not([tabindex="-1"])'
+      );
+      if (items.length === 0) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    };
+
     document.addEventListener("keydown", onKey);
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
-    return () => { document.removeEventListener("keydown", onKey); document.body.style.overflow = prev; };
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prev;
+      opener?.focus?.();
+    };
   }, [onClose]);
 
   // Twitch krever parent = domenet embeden vises på (localhost i dev, beta-ads.no i prod).
@@ -258,6 +302,7 @@ const ClipModal: React.FC<ClipModalProps> = ({ clip, onClose }) => {
 
   return (
     <div
+      ref={dialogRef}
       className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm p-4 sm:p-8"
       onClick={onClose}
       role="dialog"
@@ -266,6 +311,7 @@ const ClipModal: React.FC<ClipModalProps> = ({ clip, onClose }) => {
     >
       <div className="relative w-full max-w-4xl" onClick={(e) => e.stopPropagation()}>
         <button
+          ref={closeRef}
           type="button"
           onClick={onClose}
           aria-label="Lukk"
