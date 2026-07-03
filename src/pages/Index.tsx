@@ -26,7 +26,7 @@ const Index: React.FC = () => {
         jsonLd={[
           {
             "@context": "https://schema.org",
-            "@type": "Organization",
+            "@type": ["Organization", "ProfessionalService"],
             "@id": "https://beta-ads.no/#organization",
             name: "Beta Ads",
             legalName: "Beta Agency AS",
