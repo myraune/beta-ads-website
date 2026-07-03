@@ -2,6 +2,7 @@ import { posts_no } from "./blog/posts-no";
 import { posts_sv } from "./blog/posts-sv";
 import { posts_da } from "./blog/posts-da";
 import { posts_fi } from "./blog/posts-fi";
+import { posts_drafts_en } from "./blog/posts-drafts-en";
 
 export interface BlogPost {
   id: string;
@@ -11993,6 +11994,7 @@ Brands we already work with have direct login access. Agency partners managing m
   ...posts_sv,
   ...posts_da,
   ...posts_fi,
+  ...posts_drafts_en,
 ];
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
