@@ -48,7 +48,7 @@ export interface BlogPost {
   };
 }
 
-export const blogPosts: BlogPost[] = [
+const _allBlogPostsRaw: BlogPost[] = [
   {
     id: "clip-analytics-ad-verification-nordic-streaming",
     slug: "clip-analytics-ad-verification-nordic-streaming",
@@ -11996,6 +11996,30 @@ Brands we already work with have direct login access. Agency partners managing m
   ...posts_fi,
   ...posts_drafts_en,
 ];
+
+/**
+ * NOT YET READY TO PUBLISH: these 8 overnight-generated posts (+ their no/sv/da/fi
+ * translations, sharing the same translationGroup) still use a generic placeholder
+ * hero image (og-social-preview.png) and have a few unsourced rule-of-thumb stats
+ * the critic flagged. Filtered out of the live `blogPosts` export until each gets
+ * a real per-post hero image + a fact-check pass. The source data stays intact in
+ * posts-drafts-en.ts / posts-{no,sv,da,fi}.ts so finishing them later is a one-line
+ * removal from this set, not a re-write.
+ */
+const UNPUBLISHED_DRAFT_GROUPS = new Set([
+  "incremental-sales-lift-twitch-sponsorship-measurement-2026",
+  "nordic-fast-channels-brand-advertising-2026",
+  "streamer-clip-usage-rights-paid-media-2026",
+  "b2b-brands-live-streaming-advertising-2026",
+  "nordic-streaming-media-planning-calendar-2026",
+  "creator-brief-authentic-integration-templates-2026",
+  "streaming-ad-frequency-capping-wearout-2026",
+  "twitch-community-events-brand-activation-2026",
+]);
+
+export const blogPosts: BlogPost[] = _allBlogPostsRaw.filter(
+  (p) => !p.translationGroup || !UNPUBLISHED_DRAFT_GROUPS.has(p.translationGroup)
+);
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
   return blogPosts.find(post => post.slug === slug);

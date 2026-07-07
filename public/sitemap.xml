@@ -5,63 +5,63 @@
   <!-- ── Static pages ── -->
   <url>
     <loc>https://beta-ads.no/</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/case-studies</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/twitch-advertising</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/kick-advertising</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/press</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/norge</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/youtube-advertising</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/streamers</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/case-study/samsung</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -72,7 +72,7 @@
 
   <url>
     <loc>https://beta-ads.no/case-study/samsung-fold7</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -83,7 +83,7 @@
 
   <url>
     <loc>https://beta-ads.no/case-study/surfshark</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -94,7 +94,7 @@
 
   <url>
     <loc>https://beta-ads.no/case-study/saily</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -105,7 +105,7 @@
 
   <url>
     <loc>https://beta-ads.no/case-study/shure</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -116,7 +116,7 @@
 
   <url>
     <loc>https://beta-ads.no/case-study/glorious</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -127,7 +127,7 @@
 
   <url>
     <loc>https://beta-ads.no/case-study/gokstad</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -138,7 +138,7 @@
 
   <url>
     <loc>https://beta-ads.no/case-study/kristiania</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -149,7 +149,7 @@
 
   <url>
     <loc>https://beta-ads.no/case-study/komplett</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -160,7 +160,7 @@
 
   <url>
     <loc>https://beta-ads.no/case-study/nki</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -171,70 +171,70 @@
 
   <url>
     <loc>https://beta-ads.no/blog</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/blog/norge</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/blog/sverige</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/blog/suomi</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/blog/danmark</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/demo</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/contact</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/about</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/terms</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/privacy</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -1561,17 +1561,6 @@
   </url>
 
   <url>
-    <loc>https://beta-ads.no/blog/b2b-brands-live-streaming-advertising-2026-no</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Kjøperne dine er på Twitch: B2B-argumentet for live streaming-annonser</image:title>
-    </image:image>
-  </url>
-
-  <url>
     <loc>https://beta-ads.no/blog/beyond-banner-blindness-nordic-stream-advertising-no</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -1645,17 +1634,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-community-casting-esports-2026-hero.jpg</image:loc>
       <image:title>Community casting skriver om esports-seertallene og åpner en ny annonseringsfront i 2026</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/creator-brief-authentic-integration-templates-2026-no</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Anatomien til en creator-brief som ikke dreper opplesningen</image:title>
     </image:image>
   </url>
 
@@ -1810,17 +1788,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-igaming-betting-streaming-hero.jpg</image:loc>
       <image:title>iGaming-merkene satser stort på live streaming - hva nordiske annonsører kan lære</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/incremental-sales-lift-twitch-sponsorship-measurement-2026-no</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Slik måler du inkrementelt salgsløft fra en Twitch-sponsing</image:title>
     </image:image>
   </url>
 
@@ -2045,17 +2012,6 @@
   </url>
 
   <url>
-    <loc>https://beta-ads.no/blog/nordic-fast-channels-brand-advertising-2026-no</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>FAST-kanaler i Norden: Den gratis strømme-TV-plassen mediaplanen din mangler</image:title>
-    </image:image>
-  </url>
-
-  <url>
     <loc>https://beta-ads.no/blog/nordic-game-2026-streaming-advertising-no</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -2074,17 +2030,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-nordic-streaming-market-ad-budget-shift-2026-hero.jpg</image:loc>
       <image:title>Det nordiske strømmemarkedet på 10,7 milliarder euro endrer annonsebudsjettene - og live-innhold får den største andelen</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/nordic-streaming-media-planning-calendar-2026-no</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Den nordiske strømmekalenderen for 2026: Når du bør booke Twitch- og Kick-kampanjer i NO, SE, DK og FI</image:title>
     </image:image>
   </url>
 
@@ -2210,17 +2155,6 @@
   </url>
 
   <url>
-    <loc>https://beta-ads.no/blog/streamer-clip-usage-rights-paid-media-2026-no</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Hvem eier klippet? Bruksrettigheter, whitelisting og annonsebudsjettet merkevarer lar ligge</image:title>
-    </image:image>
-  </url>
-
-  <url>
     <loc>https://beta-ads.no/blog/streamer-sponsorship-roi-metrics-2026-no</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -2228,17 +2162,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-streamer-sponsorship-roi-metrics-2026-hero.jpg</image:loc>
       <image:title>Slik måler du ROI på streamer-sponsorater: Metrikken som faktisk betyr noe</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/streaming-ad-frequency-capping-wearout-2026-no</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Frekvenstak og kreativ utmatting i livestreaming: hvor mye er for mye</image:title>
     </image:image>
   </url>
 
@@ -2327,17 +2250,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-first-party-data-streaming-hero.jpg</image:loc>
       <image:title>Twitch har skrevet om datadelingsreglene og lansert vertikalt streaming. Her er hva som endret seg for annonsører.</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/twitch-community-events-brand-activation-2026-no</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Subathons, veldedighetsstrømmer og lagcuper: community-arrangementene nordiske merkevarer fortsatt hopper over</image:title>
     </image:image>
   </url>
 
@@ -2551,17 +2463,6 @@
   </url>
 
   <url>
-    <loc>https://beta-ads.no/blog/b2b-brands-live-streaming-advertising-2026-sv</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Dina köpare finns på Twitch: B2B-argumentet för livestreamingannonser</image:title>
-    </image:image>
-  </url>
-
-  <url>
     <loc>https://beta-ads.no/blog/beyond-banner-blindness-nordic-stream-advertising-sv</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -2635,17 +2536,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-community-casting-esports-2026-hero.jpg</image:loc>
       <image:title>Community casting skriver om esports-tittarsiffrorna och öppnar en ny annonsfront 2026</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/creator-brief-authentic-integration-templates-2026-sv</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Anatomin bakom en creator-brief som inte dödar upplevelsen</image:title>
     </image:image>
   </url>
 
@@ -2833,17 +2723,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-igaming-betting-streaming-hero.jpg</image:loc>
       <image:title>iGaming-varumärken satsar stort på live streaming - vad nordiska annonsörer kan lära sig</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/incremental-sales-lift-twitch-sponsorship-measurement-2026-sv</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Så mäter du inkrementell försäljningslyft från ett Twitch-sponsorskap</image:title>
     </image:image>
   </url>
 
@@ -3112,17 +2991,6 @@
   </url>
 
   <url>
-    <loc>https://beta-ads.no/blog/nordic-fast-channels-brand-advertising-2026-sv</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>FAST-kanaler i Norden: Den gratis streaming-TV-platsen din mediaplan saknar</image:title>
-    </image:image>
-  </url>
-
-  <url>
     <loc>https://beta-ads.no/blog/nordic-game-2026-streaming-advertising-sv</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -3141,17 +3009,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-nordic-streaming-market-ad-budget-shift-2026-hero.jpg</image:loc>
       <image:title>Den nordiska streamingmarknaden på 10,7 miljarder euro omformar annonsbudgetar - och liveinnehåll får den största andelen</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/nordic-streaming-media-planning-calendar-2026-sv</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Den nordiska streamingkalendern för 2026: När du bör boka Twitch- och Kick-kampanjer i NO, SE, DK och FI</image:title>
     </image:image>
   </url>
 
@@ -3310,17 +3167,6 @@
   </url>
 
   <url>
-    <loc>https://beta-ads.no/blog/streamer-clip-usage-rights-paid-media-2026-sv</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Vem äger klippet? Nyttjanderätter, whitelisting och annonsbudgeten varumärken lämnar på bordet</image:title>
-    </image:image>
-  </url>
-
-  <url>
     <loc>https://beta-ads.no/blog/streamer-sponsorship-roi-metrics-2026-sv</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -3328,17 +3174,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-streamer-sponsorship-roi-metrics-2026-hero.jpg</image:loc>
       <image:title>Så mäter du ROI på streamer-sponsorskap: Mätvärdena som faktiskt spelar roll</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/streaming-ad-frequency-capping-wearout-2026-sv</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Frekvenstak och kreativ utmattning i livestreaming: hur ofta är för ofta</image:title>
     </image:image>
   </url>
 
@@ -3427,17 +3262,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-first-party-data-streaming-hero.jpg</image:loc>
       <image:title>Twitch har skrivit om reglerna för datadelning och lanserat vertikalt streaming. Det här har förändrats för annonsörer.</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/twitch-community-events-brand-activation-2026-sv</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Subathons, välgörenhetssändningar och lagcuper: community-eventen nordiska varumärken fortfarande missar</image:title>
     </image:image>
   </url>
 
@@ -3662,17 +3486,6 @@
   </url>
 
   <url>
-    <loc>https://beta-ads.no/blog/b2b-brands-live-streaming-advertising-2026-da</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Dine kunder er på Twitch: B2B-argumentet for livestreaming-annoncer</image:title>
-    </image:image>
-  </url>
-
-  <url>
     <loc>https://beta-ads.no/blog/beyond-banner-blindness-nordic-stream-advertising-da</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -3746,17 +3559,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-community-casting-esports-2026-hero.jpg</image:loc>
       <image:title>Community casting omskriver esports-seertal og åbner en ny annonceringsfrontlinje i 2026</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/creator-brief-authentic-integration-templates-2026-da</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Anatomien bag en creator-brief, der ikke dræber oplæsningen</image:title>
     </image:image>
   </url>
 
@@ -3944,17 +3746,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-igaming-betting-streaming-hero.jpg</image:loc>
       <image:title>iGaming-brands satser stort på live streaming - hvad nordiske annoncører kan lære</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/incremental-sales-lift-twitch-sponsorship-measurement-2026-da</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Sådan måler du inkrementel salgsløft fra et Twitch-sponsorat</image:title>
     </image:image>
   </url>
 
@@ -4223,17 +4014,6 @@
   </url>
 
   <url>
-    <loc>https://beta-ads.no/blog/nordic-fast-channels-brand-advertising-2026-da</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>FAST-kanaler i Norden: Den gratis streaming-TV-plads din mediaplan mangler</image:title>
-    </image:image>
-  </url>
-
-  <url>
     <loc>https://beta-ads.no/blog/nordic-game-2026-streaming-advertising-da</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -4252,17 +4032,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-nordic-streaming-market-ad-budget-shift-2026-hero.jpg</image:loc>
       <image:title>Det nordiske streamingmarked på 10,7 milliarder euro omformer annoncebudgetter - og live-indhold får den største andel</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/nordic-streaming-media-planning-calendar-2026-da</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Den nordiske streamingkalender for 2026: Hvornår du bør booke Twitch- og Kick-kampagner i NO, SE, DK og FI</image:title>
     </image:image>
   </url>
 
@@ -4421,17 +4190,6 @@
   </url>
 
   <url>
-    <loc>https://beta-ads.no/blog/streamer-clip-usage-rights-paid-media-2026-da</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Hvem ejer klippet? Brugsrettigheder, whitelisting og annoncebudgettet brands lader ligge</image:title>
-    </image:image>
-  </url>
-
-  <url>
     <loc>https://beta-ads.no/blog/streamer-sponsorship-roi-metrics-2026-da</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -4439,17 +4197,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-streamer-sponsorship-roi-metrics-2026-hero.jpg</image:loc>
       <image:title>Sådan måler du ROI på streamer-sponsorater: De måltal der faktisk betyder noget</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/streaming-ad-frequency-capping-wearout-2026-da</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Frekvensloft og kreativ udmattelse i livestreaming: hvor tit er for tit</image:title>
     </image:image>
   </url>
 
@@ -4538,17 +4285,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-first-party-data-streaming-hero.jpg</image:loc>
       <image:title>Twitch har omskrevet reglerne for datadeling og lanceret vertikalt streaming. Her er hvad der har ændret sig for annoncører.</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/twitch-community-events-brand-activation-2026-da</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Subathons, velgørenhedsstreams og holdcupper: de community-events nordiske brands stadig springer over</image:title>
     </image:image>
   </url>
 
@@ -4773,17 +4509,6 @@
   </url>
 
   <url>
-    <loc>https://beta-ads.no/blog/b2b-brands-live-streaming-advertising-2026-fi</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Ostajasi ovat Twitchissä: B2B-perustelu livestriimausmainonnalle</image:title>
-    </image:image>
-  </url>
-
-  <url>
     <loc>https://beta-ads.no/blog/beyond-banner-blindness-nordic-stream-advertising-fi</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -4857,17 +4582,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-community-casting-esports-2026-hero.jpg</image:loc>
       <image:title>Community casting kirjoittaa esportsin katseluluvut uusiksi ja avaa uuden mainostamisen kentän 2026</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/creator-brief-authentic-integration-templates-2026-fi</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Creator-briiffin anatomia: näin se ei tapa lukua</image:title>
     </image:image>
   </url>
 
@@ -5055,17 +4769,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-igaming-betting-streaming-hero.jpg</image:loc>
       <image:title>iGaming-brändit panostavat vahvasti live streamingiin - mitä pohjoismaiset mainostajat voivat oppia</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/incremental-sales-lift-twitch-sponsorship-measurement-2026-fi</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Miten mitata Twitch-sponsoroinnin tuoma lisämyynti</image:title>
     </image:image>
   </url>
 
@@ -5334,17 +5037,6 @@
   </url>
 
   <url>
-    <loc>https://beta-ads.no/blog/nordic-fast-channels-brand-advertising-2026-fi</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>FAST-kanavat Pohjoismaissa: Ilmainen striimi-TV-paikka, joka puuttuu mediasuunnitelmastasi</image:title>
-    </image:image>
-  </url>
-
-  <url>
     <loc>https://beta-ads.no/blog/nordic-game-2026-streaming-advertising-fi</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -5363,17 +5055,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-nordic-streaming-market-ad-budget-shift-2026-hero.jpg</image:loc>
       <image:title>10,7 miljardin euron Pohjoismaiden striimausmarkkinat muokkaavat mainosbudjetteja - ja live-sisältö saa suurimman osuuden</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/nordic-streaming-media-planning-calendar-2026-fi</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Pohjoismainen striimauskalenteri 2026: Milloin varata Twitch- ja Kick-kampanjat Norjassa, Ruotsissa, Tanskassa ja Suomessa</image:title>
     </image:image>
   </url>
 
@@ -5532,17 +5213,6 @@
   </url>
 
   <url>
-    <loc>https://beta-ads.no/blog/streamer-clip-usage-rights-paid-media-2026-fi</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Kenelle klippi kuuluu? Käyttöoikeudet, whitelisting ja mainosbudjetti, jonka brändit jättävät pöydälle</image:title>
-    </image:image>
-  </url>
-
-  <url>
     <loc>https://beta-ads.no/blog/streamer-sponsorship-roi-metrics-2026-fi</loc>
     <lastmod>2026-05-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -5550,17 +5220,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-streamer-sponsorship-roi-metrics-2026-hero.jpg</image:loc>
       <image:title>Näin mittaat ROI:n streamer-sponsoroinneissa: Mittarit, joilla on oikeasti merkitystä</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/streaming-ad-frequency-capping-wearout-2026-fi</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Toistokatot ja luovan materiaalin kuluminen livestriimauksessa: milloin on liikaa</image:title>
     </image:image>
   </url>
 
@@ -5649,17 +5308,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/lovable-uploads/blog-first-party-data-streaming-hero.jpg</image:loc>
       <image:title>Twitch uudisti datanjakosäännöt ja lanseerasi vertikaalisen suoratoiston. Tässä on, mitä muutos tarkoittaa mainostajille.</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/twitch-community-events-brand-activation-2026-fi</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Subathonit, hyväntekeväisyysstriimit ja joukkuecupit: yhteisötapahtumat, joita pohjoismaiset brändit yhä ohittavat</image:title>
     </image:image>
   </url>
 
@@ -5803,94 +5451,6 @@
     <image:image>
       <image:loc>https://beta-ads.no/blog-photos/youtube/youtube-003.jpg</image:loc>
       <image:title>YouTube keskeyttää mainokset tunnelman suojelemiseksi: mitä livestream-ajoitus merkitsee brändeille vuonna 2026</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/b2b-brands-live-streaming-advertising-2026</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Your Buyers Are on Twitch: A B2B Case for Live Streaming Ads</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/creator-brief-authentic-integration-templates-2026</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>The Anatomy of a Creator Brief That Doesn't Kill the Read</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/incremental-sales-lift-twitch-sponsorship-measurement-2026</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>How to Measure Incremental Sales Lift From a Twitch Sponsorship</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/nordic-fast-channels-brand-advertising-2026</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>FAST Channels in the Nordics: The Free Streaming TV Slot Your Media Plan Is Missing</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/nordic-streaming-media-planning-calendar-2026</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>The 2026 Nordic Streaming Calendar: When to Book Twitch and Kick Campaigns in NO, SE, DK and FI</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/streamer-clip-usage-rights-paid-media-2026</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Who Owns the Clip? Usage Rights, Whitelisting, and the Paid Media Budget Brands Keep Leaving on the Table</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/streaming-ad-frequency-capping-wearout-2026</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Frequency Capping and Creative Wearout in Live Streaming: How Often Is Too Often</image:title>
-    </image:image>
-  </url>
-
-  <url>
-    <loc>https://beta-ads.no/blog/twitch-community-events-brand-activation-2026</loc>
-    <lastmod>2026-07-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.65</priority>
-    <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/og-social-preview.png</image:loc>
-      <image:title>Subathons, Charity Streams and Squad Cups: The Community Events Nordic Brands Keep Skipping</image:title>
     </image:image>
   </url>
 
