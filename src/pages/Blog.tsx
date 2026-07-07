@@ -1,9 +1,9 @@
 import React, { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { Search, ArrowRight, X } from "lucide-react";
-import { blogPostsMeta } from "@/data/blogPostsMeta";
+import { blogPostsMeta, type BlogPostMeta } from "@/data/blogPostsMeta";
 import { getBlogImage } from "@/lib/blogImage";
-import { formatPostDate, resolvePostLocale } from "@/lib/blogLocale";
+import { formatPostDate, resolvePostLocale, detectPreferredLocale, dedupeByTranslationGroup } from "@/lib/blogLocale";
 import { Input } from "@/components/ui/input";
 import { SEO } from "@/components/SEO";
 import { SPFooter } from "@/components/sections/SPFooter";
@@ -20,8 +20,17 @@ const Blog: React.FC = () => {
     { id: "guides", label: "Guides" },
   ];
 
+  // One card per article: collapse the no/sv/da/fi/en variants of the same
+  // post down to whichever matches the visitor's browser language, so a
+  // Swedish visitor doesn't see the same headline repeated 5x in 5 languages.
+  const preferredLocale = useMemo(() => detectPreferredLocale(), []);
+  const dedupedPosts = useMemo<BlogPostMeta[]>(
+    () => dedupeByTranslationGroup(blogPostsMeta, preferredLocale),
+    [preferredLocale]
+  );
+
   const filteredPosts = useMemo(() => {
-    return blogPostsMeta
+    return dedupedPosts
       .filter((post) => {
         const q = searchQuery.toLowerCase();
         const matchesSearch =
@@ -36,7 +45,7 @@ const Blog: React.FC = () => {
         return matchesSearch && matchesCategory;
       })
       .sort((a, b) => new Date(b.dateISO).getTime() - new Date(a.dateISO).getTime());
-  }, [searchQuery, activeCategory]);
+  }, [dedupedPosts, searchQuery, activeCategory]);
 
   return (
     <>

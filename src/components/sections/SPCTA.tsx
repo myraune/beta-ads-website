@@ -5,20 +5,22 @@ import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { blogPostsMeta, getBlogPostMetaBySlug } from "@/data/blogPostsMeta";
 import { getBlogImage } from "@/lib/blogImage";
-import { formatPostDate, resolvePostLocale } from "@/lib/blogLocale";
+import { formatPostDate, resolvePostLocale, detectPreferredLocale, dedupeByTranslationGroup } from "@/lib/blogLocale";
 
 // Curated editorial picks - mix of high-traffic posts and core value-prop content.
-// Falls back to the 4 most recent posts if a slug is ever removed.
+// Falls back to the 4 most recent posts (deduped to one language each) if a
+// curated slug is ever removed - e.g. by a content-quality cut.
 const FEATURED_SLUGS = [
-  "how-twitch-advertising-works-2026",
-  "twitch-vs-youtube-gaming-2025",
-  "ad-blocker-crisis-livestream-native-ads-2026",
-  "most-watched-twitch-games-2025",
+  "dentsu-2025-gaming-trends-report-nordic-twitch-advertising",
+  "kick-100-million-users-milestone-nordic-advertisers-2026",
+  "twitch-april-2026-platform-overhaul-advertiser-guide",
+  "how-to-brief-streamer-native-ad-integration-2026",
 ];
+const dedupedFallback = dedupeByTranslationGroup(blogPostsMeta, detectPreferredLocale());
 const featuredPosts = FEATURED_SLUGS
   .map((s) => getBlogPostMetaBySlug(s))
   .filter(Boolean)
-  .concat(blogPostsMeta.slice(0, 4))
+  .concat(dedupedFallback.slice(0, 4))
   // deduplicate and take first 4
   .filter((post, idx, arr) => arr.findIndex((p) => p!.slug === post!.slug) === idx)
   .slice(0, 4) as (typeof blogPostsMeta)[number][];

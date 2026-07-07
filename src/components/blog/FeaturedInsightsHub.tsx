@@ -37,9 +37,9 @@ const hubTranslations = {
 
 // Featured slugs for the hub - these are the high-impression dashboard posts
 const featuredSlugs = [
-  "twitch-statistics-2025-global-insights",
-  "twitch-vs-youtube-gaming-2025",
+  "dentsu-2025-gaming-trends-report-nordic-twitch-advertising",
   "kick-streaming-growth-2025",
+  "kick-100-million-users-milestone-nordic-advertisers-2026",
 ];
 
 export const FeaturedInsightsHub: React.FC<FeaturedInsightsHubProps> = ({ language }) => {

@@ -121,3 +121,54 @@ const BLOG_UI_LABELS: Record<PageLocale, BlogUiLabels> = {
 export function blogUiLabels(locale: PageLocale): BlogUiLabels {
   return BLOG_UI_LABELS[locale] ?? BLOG_UI_LABELS.en;
 }
+
+/**
+ * Best-guess visitor language from the browser, mapped onto the site's
+ * supported locales. Used to pick which single language card to show on the
+ * general /blog listing (see `dedupeByTranslationGroup`) - a Swedish visitor
+ * should not see the Norwegian/Danish/Finnish copies of the same article.
+ */
+export function detectPreferredLocale(): PageLocale {
+  if (typeof navigator === "undefined") return "en";
+  const candidates = navigator.languages?.length ? navigator.languages : [navigator.language];
+  for (const raw of candidates) {
+    const base = raw?.toLowerCase().slice(0, 2);
+    if (base === "nb" || base === "nn" || base === "no") return "no";
+    if (base === "sv") return "sv";
+    if (base === "da") return "da";
+    if (base === "fi") return "fi";
+    if (base === "en") return "en";
+  }
+  return "en";
+}
+
+/**
+ * Collapses every language variant of the same article (posts sharing a
+ * `translationGroup`) down to ONE card, picking the visitor's preferred
+ * locale when available and falling back through en -> no -> whatever's
+ * first. Posts with no translationGroup (one-off, single-language content
+ * like the streamer roundups) pass through untouched.
+ *
+ * The /blog/<country> hubs intentionally do NOT use this - they already
+ * filter to a single market and are meant to show every post in that
+ * language, translationGroup or not.
+ */
+export function dedupeByTranslationGroup<T extends LocalizablePost>(posts: T[], preferred: PageLocale): T[] {
+  const groups = new Map<string, T[]>();
+  const singles: T[] = [];
+  for (const p of posts) {
+    if (!p.translationGroup) { singles.push(p); continue; }
+    const arr = groups.get(p.translationGroup);
+    if (arr) arr.push(p); else groups.set(p.translationGroup, [p]);
+  }
+  const picks: T[] = [...singles];
+  for (const variants of groups.values()) {
+    const pick =
+      variants.find((p) => resolvePostLocale(p) === preferred) ??
+      variants.find((p) => resolvePostLocale(p) === "en") ??
+      variants.find((p) => resolvePostLocale(p) === "no") ??
+      variants[0];
+    picks.push(pick);
+  }
+  return picks;
+}
