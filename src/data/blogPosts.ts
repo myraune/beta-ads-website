@@ -11998,15 +11998,29 @@ Brands we already work with have direct login access. Agency partners managing m
 ];
 
 /**
- * NOT YET READY TO PUBLISH: these 8 overnight-generated posts (+ their no/sv/da/fi
- * translations, sharing the same translationGroup) still use a generic placeholder
- * hero image (og-social-preview.png) and have a few unsourced rule-of-thumb stats
- * the critic flagged. Filtered out of the live `blogPosts` export until each gets
- * a real per-post hero image + a fact-check pass. The source data stays intact in
- * posts-drafts-en.ts / posts-{no,sv,da,fi}.ts so finishing them later is a one-line
- * removal from this set, not a re-write.
+ * NOT PUBLISHED: posts (+ their no/sv/da/fi translations, sharing the same
+ * translationGroup) filtered out of the live `blogPosts` export. Two groups:
+ *
+ * 1. The 8 overnight-generated drafts - generic placeholder hero image
+ *    (og-social-preview.png), a few unsourced rule-of-thumb stats flagged by
+ *    the critic. Pending a real hero image + fact-check pass.
+ *
+ * 2. 84 of the 93 original cornerstone source posts, pulled after a full-text
+ *    content-quality audit (each read end-to-end by an agent instructed to be
+ *    ruthless about fabricated numbers). The audit found the vast majority of
+ *    the corpus built its core arguments on specific-sounding but unsourced
+ *    "industry benchmark" statistics (CPM ranges, engagement-lift percentages,
+ *    minute counts) with no real citation - generic filler dressed up as data,
+ *    unlike the site's streamer profiles which are 100% verified. Only 9 of 93
+ *    survived: ones reporting real platform announcements/milestones or
+ *    non-numeric process guidance. This is a deliberate quality-over-quantity
+ *    cut, not a bug. The source data stays intact in blogPosts.ts and
+ *    posts-{no,sv,da,fi}.ts - a post can be un-cut by removing its slug here
+ *    once it's been rewritten to cite real, verifiable sources (official
+ *    platform data, or Beta Ads' own named case studies/product data).
  */
-const UNPUBLISHED_DRAFT_GROUPS = new Set([
+const UNPUBLISHED_GROUPS = new Set([
+  // -- 8 overnight drafts (placeholder image + unsourced stats) --
   "incremental-sales-lift-twitch-sponsorship-measurement-2026",
   "nordic-fast-channels-brand-advertising-2026",
   "streamer-clip-usage-rights-paid-media-2026",
@@ -12015,10 +12029,95 @@ const UNPUBLISHED_DRAFT_GROUPS = new Set([
   "creator-brief-authentic-integration-templates-2026",
   "streaming-ad-frequency-capping-wearout-2026",
   "twitch-community-events-brand-activation-2026",
+  // -- 84 of 93 cornerstone posts CUT by content-quality audit (fabricated stats) --
+  "ad-blocker-crisis-livestream-native-ads-2026",
+  "adblock-gen-z-overlay-ads-twitch-2026",
+  "affiliate-sponsored-brand-deal-twitch-content-differences-2026",
+  "ai-clipping-stream-advertising",
+  "ai-powered-dynamic-ad-insertion-live-streams-2026",
+  "ai-tools-streamers-content-creation-2026",
+  "avod-ad-supported-streaming-nordic-brands-2026",
+  "beyond-banner-blindness-nordic-stream-advertising",
+  "brand-safety-live-streaming-guide-2026",
+  "brands-as-showrunners-serialized-livestream-content-2026",
+  "chzzk-korea-streaming-platform-guide-2026",
+  "clipping-economy-brand-marketing-guide-2026",
+  "co-streaming-squad-streams-reach-calculations-2026",
+  "community-casting-esports-advertising-2026",
+  "creator-communities-fremtiden-influencer-marketing-2026",
+  "creator-first-brand-strategies-live-streaming-2026",
+  "ctv-vs-live-streaming-nordic-2026",
+  "discord-communities-amplify-twitch-sponsorships-2026",
+  "esports-viewership-2025",
+  "first-party-data-live-streaming-nordic-advertisers-2026",
+  "from-flat-fee-to-performance-pay-streamer-deals-2026",
+  "gaming-advertising-blind-spot-2026",
+  "gaming-markedsforing-forste-kampanje-guide",
+  "gen-z-creator-trust-spending-power-2026",
+  "gen-z-interactive-ads-streaming-2026",
+  "gen-z-streaming-ad-relevance-gap-2026",
+  "how-twitch-advertising-works-2026",
+  "hvordan-tjene-penger-pa-twitch-guide-2026",
+  "igaming-betting-live-streaming-nordic-2026",
+  "inside-the-tournament-window-esports-advertising-guide-2026",
+  "just-chatting-irl-streaming-advertising-opportunity-2026",
+  "kick-q3-2025-growth-nordic-advertising-opportunity",
+  "kick-vs-twitch-nordics-brand-comparison-2026",
+  "launch-window-event-advertising-live-stream-2026",
+  "live-stream-ad-receptivity-active-viewing-2026",
+  "live-streaming-ad-spend-50b-nordic-2026",
+  "live-streaming-market-growth-2026",
+  "livestream-commerce-nordic-brands-2026",
+  "medieplanlegging-twitch-nordisk-mediemiks",
+  "merkevarer-utenfor-gaming-twitch-annonsering",
+  "micro-streamer-roi-nordic-brands-2026",
+  "mid-tier-streamer-sweet-spot-live-advertising-2026",
+  "most-watched-game-publishers-livestreaming-2026",
+  "most-watched-twitch-games-2025",
+  "multistreaming-revolution-nordic-brands-2026",
+  "native-stream-ads-vs-display-ads",
+  "nintendo-dominerer-livestreaming-2026",
+  "non-gaming-brands-dominating-twitch-chat-2026",
+  "non-gaming-content-twitch-2025",
+  "nordic-esports-advertising-opportunity-2026",
+  "nordic-game-2026-streaming-advertising",
+  "nordic-streaming-market-ad-budget-shift-2026",
+  "nordic-streaming-tipping-point-2026-advertising",
+  "nordic-twitch-market-2025",
+  "overlay-ad-engagement-doubled-2025-data",
+  "overlay-ads-kreativ-design-beste-praksis",
+  "parasocial-relationships-streamers-purchase-intent-brands",
+  "pause-ad-revolution-twitch-native-formats-2026",
+  "platform-diversification-nordic-advertisers-2026",
+  "poll-sponsorship-model-twitch-interactive-ads-2026",
+  "rise-of-streamer-first-advertising",
+  "shadow-drops-livestreaming-risiko-2026",
+  "sommerkampanje-twitch-annonsering-2026",
+  "sponsorship-verification-voice-recognition-streaming",
+  "streamer-burnout-brand-risk-2026",
+  "streamer-sponsorship-roi-metrics-2026",
+  "streaming-shakeout-trovo-shutdown-platform-risk-advertisers-2026",
+  "tiktok-live-overtakes-twitch-streaming-hierarchy-2026",
+  "top-streamers-2025-rankings",
+  "top-streaming-games-2025",
+  "top-twitch-gaming-categories-2026-advertiser-guide",
+  "twitch-2026-ad-products-nordic-brands",
+  "twitch-advertising-benchmarks-2025",
+  "twitch-cpm-media-buying-guide-2026",
+  "twitch-game-lift-playable-demos-advertisers-2026",
+  "twitch-recommendation-algorithm-advertisers-2026",
+  "twitch-session-length-brand-recall-2026",
+  "twitch-shoppable-ads-live-commerce-nordic-2026",
+  "twitch-statistics-2025-global-insights",
+  "twitch-vs-youtube-gaming-2025",
+  "why-native-stream-ads-outperform-3-to-1",
+  "women-esports-streaming-advertising-audience-2026",
+  "youtube-live-advertising-nordic-2026",
+  "long-term-streamer-partnerships-vs-one-off-campaigns-2026",
 ]);
 
 export const blogPosts: BlogPost[] = _allBlogPostsRaw.filter(
-  (p) => !p.translationGroup || !UNPUBLISHED_DRAFT_GROUPS.has(p.translationGroup)
+  (p) => !p.translationGroup || !UNPUBLISHED_GROUPS.has(p.translationGroup)
 );
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
