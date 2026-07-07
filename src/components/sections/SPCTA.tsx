@@ -5,6 +5,7 @@ import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { blogPostsMeta, getBlogPostMetaBySlug } from "@/data/blogPostsMeta";
 import { getBlogImage } from "@/lib/blogImage";
+import { formatPostDate, resolvePostLocale } from "@/lib/blogLocale";
 
 // Curated editorial picks - mix of high-traffic posts and core value-prop content.
 // Falls back to the 4 most recent posts if a slug is ever removed.
@@ -70,7 +71,7 @@ export const SPCTA: React.FC = () => {
                     <span className="text-[11px] font-semibold text-primary uppercase tracking-wider whitespace-nowrap">
                       {post.category}
                     </span>
-                    <span className="text-[11px] text-muted-foreground whitespace-nowrap">· {post.date}</span>
+                    <span className="text-[11px] text-muted-foreground whitespace-nowrap">· {formatPostDate(post.dateISO, resolvePostLocale(post))}</span>
                     <span className="text-[11px] text-muted-foreground whitespace-nowrap">· {post.readTime}</span>
                   </div>
                   <h3 className="text-base font-semibold text-foreground leading-snug mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2">

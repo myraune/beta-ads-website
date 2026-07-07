@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Search, ArrowRight, X } from "lucide-react";
 import { blogPostsMeta } from "@/data/blogPostsMeta";
 import { getBlogImage } from "@/lib/blogImage";
+import { formatPostDate, resolvePostLocale } from "@/lib/blogLocale";
 import { Input } from "@/components/ui/input";
 import { SEO } from "@/components/SEO";
 import { SPFooter } from "@/components/sections/SPFooter";
@@ -164,7 +165,7 @@ const Blog: React.FC = () => {
                     <div>
                       <div className="flex items-center gap-2 mb-4">
                         <span className="text-xs font-semibold text-primary">{filteredPosts[0].category}</span>
-                        <span className="text-xs text-muted-foreground">· {filteredPosts[0].date}</span>
+                        <span className="text-xs text-muted-foreground">· {formatPostDate(filteredPosts[0].dateISO, resolvePostLocale(filteredPosts[0]))}</span>
                         {filteredPosts[0].readTime && (
                           <span className="text-xs text-muted-foreground">· {filteredPosts[0].readTime}</span>
                         )}
@@ -203,7 +204,7 @@ const Blog: React.FC = () => {
                         </div>
                         <div className="flex items-center gap-2 mb-2">
                           <span className="text-[11px] font-semibold text-primary">{post.category}</span>
-                          <span className="text-[11px] text-muted-foreground">· {post.date}</span>
+                          <span className="text-[11px] text-muted-foreground">· {formatPostDate(post.dateISO, resolvePostLocale(post))}</span>
                           {post.readTime && (
                             <span className="text-[11px] text-muted-foreground">· {post.readTime}</span>
                           )}

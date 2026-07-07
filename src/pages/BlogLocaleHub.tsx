@@ -9,6 +9,7 @@ import {
   NORDIC_MARKETS,
   marketByHubSlug,
   resolvePostLocale,
+  formatPostDate,
   type NordicMarket,
 } from "@/lib/blogLocale";
 
@@ -184,7 +185,7 @@ const BlogLocaleHub: React.FC<{ hubSlug?: string }> = ({ hubSlug }) => {
                     </div>
                     <div className="flex items-center gap-2 mb-2">
                       <span className="text-[11px] font-semibold text-primary">{post.category}</span>
-                      <span className="text-[11px] text-muted-foreground">· {post.date}</span>
+                      <span className="text-[11px] text-muted-foreground">· {formatPostDate(post.dateISO, market.code)}</span>
                       {post.readTime && (
                         <span className="text-[11px] text-muted-foreground">· {post.readTime}</span>
                       )}

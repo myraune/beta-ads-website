@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { getBlogPostBySlug, getRelatedPosts, blogPosts, type BlogPost } from "@/data/blogPosts";
 import { getBlogImage } from "@/lib/blogImage";
 import { SEO, type PageLocale } from "@/components/SEO";
-import { resolvePostLocale } from "@/lib/blogLocale";
+import { resolvePostLocale, formatPostDate, blogUiLabels } from "@/lib/blogLocale";
 import { ReadingProgress } from "@/components/blog/ReadingProgress";
 import { TableOfContents, dashboardTocItems } from "@/components/blog/TableOfContents";
 import { StickyCTA, StreamerStickyCTA, InlineCTA, StreamerInlineCTA } from "@/components/blog/StickyCTA";
@@ -65,6 +65,8 @@ const BlogPostPage: React.FC = () => {
 
   const isStreamerPost = post.category === "Streamer Guide";
   const postLocale = resolvePostLocale(post);
+  const uiLabels = blogUiLabels(postLocale);
+  const displayDate = formatPostDate(post.dateISO, postLocale);
   // hreflang cluster: link every language version of this article (posts that
   // share a translationGroup) so Google serves the right language per country.
   const translationAlternates = post.translationGroup
@@ -181,7 +183,7 @@ const BlogPostPage: React.FC = () => {
             {/* Back link */}
             <div className="py-6">
               <Link to="/blog" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
-                <ArrowLeft className="w-4 h-4" /> Back to Blog
+                <ArrowLeft className="w-4 h-4" /> {uiLabels.backToBlog}
               </Link>
             </div>
 
@@ -191,7 +193,7 @@ const BlogPostPage: React.FC = () => {
               <div className="flex flex-wrap items-center gap-3 mb-5">
                 <Badge variant="secondary" className="bg-primary/10 text-primary hover:bg-primary/20 text-sm px-3 py-0.5">{post.category}</Badge>
                 <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                  <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" />{post.date}</span>
+                  <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" />{displayDate}</span>
                   <span className="flex items-center gap-1.5"><Clock className="w-4 h-4" />{post.readTime}</span>
                 </div>
               </div>
@@ -204,7 +206,7 @@ const BlogPostPage: React.FC = () => {
             {/* Wide layout: no sidebar, full width dashboard */}
             {wideLayout ? (
               <div className="pb-12">
-                <Suspense fallback={<div className="text-center py-12 text-muted-foreground">Loading dashboard...</div>}>
+                <Suspense fallback={<div className="text-center py-12 text-muted-foreground">{uiLabels.loadingDashboard}</div>}>
                   {post.hasDashboard === "twitch-analytics-tools" && <TwitchAnalyticsToolsDashboard />}
                   {post.hasDashboard === "clip-analytics" && <ClipAnalyticsDashboard />}
                   {post.hasDashboard === "norske-streamere" && <NorskeStreamere2026 />}
@@ -218,7 +220,7 @@ const BlogPostPage: React.FC = () => {
             <div className="flex gap-10 xl:gap-14 pb-12">
               <div className="flex-1 min-w-0">
                 {post.hasDashboard ? (
-                  <Suspense fallback={<div className="text-center py-12 text-muted-foreground">Loading dashboard...</div>}>
+                  <Suspense fallback={<div className="text-center py-12 text-muted-foreground">{uiLabels.loadingDashboard}</div>}>
                     {post.hasDashboard === "twitch-stats" && <TwitchStatsDashboard />}
                     {post.hasDashboard === "norwegian-streamers" && <NorwegianStreamersDashboard />}
                     {post.hasDashboard === "top-games" && <TopGamesDashboard />}
@@ -383,7 +385,7 @@ const BlogPostPage: React.FC = () => {
               </div>
               <div className="flex items-center gap-4">
                 <span className="text-sm text-muted-foreground flex items-center gap-2">
-                  <Share2 className="w-4 h-4" />Share:
+                  <Share2 className="w-4 h-4" />{uiLabels.share}
                 </span>
                 <Button variant="outline" size="icon" className="h-9 w-9" onClick={() => handleShare("twitter")} aria-label="Share on X (Twitter)"><Twitter className="w-4 h-4" /></Button>
                 <Button variant="outline" size="icon" className="h-9 w-9" onClick={() => handleShare("linkedin")} aria-label="Share on LinkedIn"><Linkedin className="w-4 h-4" /></Button>
@@ -397,7 +399,7 @@ const BlogPostPage: React.FC = () => {
         {relatedPosts.length > 0 && (
           <section className="py-16 lg:py-20 px-4 border-t border-border">
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-8 text-center">Related Articles</h2>
+              <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-8 text-center">{uiLabels.relatedArticles}</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {relatedPosts.map((relatedPost) => (
                   <Link key={relatedPost.id} to={`/blog/${relatedPost.slug}`} className="group bg-card rounded-2xl overflow-hidden shadow-lg shadow-black/10 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500">
@@ -409,7 +411,7 @@ const BlogPostPage: React.FC = () => {
                     </div>
                     <div className="p-5">
                       <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
-                        <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" />{relatedPost.date}</span>
+                        <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5" />{formatPostDate(relatedPost.dateISO, resolvePostLocale(relatedPost))}</span>
                         <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" />{relatedPost.readTime}</span>
                       </div>
                       <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">{relatedPost.title}</h3>

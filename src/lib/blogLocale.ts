@@ -76,3 +76,48 @@ export const marketByCode = (code: PageLocale): NordicMarket | undefined =>
 
 export const marketByHubSlug = (hubSlug: string): NordicMarket | undefined =>
   NORDIC_MARKETS.find((m) => m.hubSlug === hubSlug);
+
+const DATE_LOCALE: Record<PageLocale, string> = {
+  en: "en-US",
+  no: "nb-NO",
+  sv: "sv-SE",
+  da: "da-DK",
+  fi: "fi-FI",
+};
+
+/**
+ * Locale-correct display date derived from `dateISO`, NOT the stored `date`
+ * string (which is authored in English - e.g. "Mar 31, 2026" - and reads
+ * jarring stitched into Norwegian/Swedish/Danish/Finnish copy). Every listing
+ * surface should call this instead of rendering `post.date` directly.
+ */
+export function formatPostDate(dateISO: string, locale: PageLocale): string {
+  // Parse the Y-M-D parts explicitly and build a LOCAL date at noon, rather
+  // than `new Date(dateISO)` (parsed as UTC midnight) - the latter renders as
+  // the previous day for any visitor in a timezone behind UTC.
+  const m = dateISO.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (!m) return dateISO;
+  const d = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]), 12);
+  if (Number.isNaN(d.getTime())) return dateISO;
+  return d.toLocaleDateString(DATE_LOCALE[locale], { day: "numeric", month: "short", year: "numeric" });
+}
+
+/** Small UI-chrome strings that appear around every post regardless of its own content. */
+export interface BlogUiLabels {
+  backToBlog: string;
+  relatedArticles: string;
+  share: string;
+  loadingDashboard: string;
+}
+
+const BLOG_UI_LABELS: Record<PageLocale, BlogUiLabels> = {
+  en: { backToBlog: "Back to Blog", relatedArticles: "Related Articles", share: "Share:", loadingDashboard: "Loading dashboard..." },
+  no: { backToBlog: "Tilbake til bloggen", relatedArticles: "Relaterte artikler", share: "Del:", loadingDashboard: "Laster dashboard …" },
+  sv: { backToBlog: "Tillbaka till bloggen", relatedArticles: "Relaterade artiklar", share: "Dela:", loadingDashboard: "Laddar dashboard …" },
+  da: { backToBlog: "Tilbage til bloggen", relatedArticles: "Relaterede artikler", share: "Del:", loadingDashboard: "Indlæser dashboard …" },
+  fi: { backToBlog: "Takaisin blogiin", relatedArticles: "Aiheeseen liittyvät artikkelit", share: "Jaa:", loadingDashboard: "Ladataan hallintapaneelia …" },
+};
+
+export function blogUiLabels(locale: PageLocale): BlogUiLabels {
+  return BLOG_UI_LABELS[locale] ?? BLOG_UI_LABELS.en;
+}
