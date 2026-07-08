@@ -7,7 +7,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 /**
  * Data sourced from the verified Shure report (Drive file
  * `shure-report-general.pdf`) covering a concentrated two-streamer run
- * focused on the Shure MV7+ / SM7B microphone category.
+ * focused on the Shure MV6 microphone category.
  */
 const BRAND = {
   // Shure brand - red primary, warm gold accent
@@ -101,7 +101,7 @@ const ShureCaseStudy: React.FC = () => {
             </div>
 
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
-              Shure MV7+<br />
+              Shure MV6<br />
               <span
                 style={{ fontFamily: "'Instrument Serif', serif" }}
                 className="italic font-normal"
@@ -110,7 +110,7 @@ const ShureCaseStudy: React.FC = () => {
               </span>
             </h1>
             <p className="text-lg text-white/60 leading-relaxed max-w-xl">
-              A concentrated two-creator launch for the MV7+ microphone - 761 hours of
+              A concentrated two-creator launch for the MV6 microphone - 761 hours of
               on-screen presence, 2,378 verified clicks, and a 9.12% best-day CTR driven by
               audio-focused Norwegian streamers.
             </p>
@@ -209,7 +209,7 @@ const ShureCaseStudy: React.FC = () => {
                 Reach creators who actually care about audio quality
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                Shure's MV7+ is a premium streaming microphone - the kind of product that
+                Shure's MV6 is a premium streaming microphone - the kind of product that
                 benefits more from one demonstrated endorsement than from a million broad
                 impressions. The target wasn't casual viewers; it was creators and
                 aspiring creators who invest in gear and spread gospel to their audiences.
@@ -522,7 +522,7 @@ const ShureCaseStudy: React.FC = () => {
                 consideration-stage products.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
-                48,617 unique viewers encountered the MV7+ in the context of someone they
+                48,617 unique viewers encountered the MV6 in the context of someone they
                 already trusted - driving the kind of product awareness that's very hard
                 to buy through traditional display or pre-roll.
               </p>
