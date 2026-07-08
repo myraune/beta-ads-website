@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { MarketingPageLayout } from "@/components/layout/MarketingPageLayout";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 
@@ -38,12 +38,30 @@ const models = [
   },
 ];
 
+// Directional price pressure per driver (0-100). Deliberately labelled as
+// directional, NOT a rate card - these encode "how much this variable moves
+// the number," from the article's five real cost drivers.
 const drivers = [
-  { term: "Category", desc: "Just Chatting and major esports draw broad, brand-safe audiences that many advertisers compete for, pushing demand up. Niche or mature-rated categories cost less but reach less." },
-  { term: "Audience geography", desc: "Reaching high-value Nordic viewers specifically costs more than buying broad global impressions, because the audience is worth more to every advertiser bidding on it." },
-  { term: "Seasonality", desc: "Q4, major game launches and big esports moments tighten inventory and lift prices. Q1 and Q2 are the best-value windows of the year." },
-  { term: "Creator tier", desc: "Rates track concurrent viewership, but not linearly. Mid-tier creators often deliver the best efficiency for a focused Nordic audience versus top-tier generalists." },
-  { term: "Format", desc: "A persistent overlay, a one-off mention and a full sponsored segment are priced very differently for the same creator. What you ask for sets the number as much as who you ask." },
+  { term: "Category", weight: 92, desc: "Just Chatting and major esports draw broad, brand-safe audiences advertisers compete for. Niche or mature-rated categories cost less and reach less." },
+  { term: "Audience geography", weight: 86, desc: "Reaching high-value Nordic viewers specifically costs more than broad global impressions, because that audience is worth more to everyone bidding on it." },
+  { term: "Seasonality", weight: 74, desc: "Q4, big game launches and major esports moments tighten inventory. Q1 and Q2 are the best-value windows of the year." },
+  { term: "Creator tier", weight: 58, desc: "Rates track concurrent viewership, but not linearly. Mid-tier creators often deliver the best efficiency for a focused Nordic audience." },
+  { term: "Format", weight: 52, desc: "A persistent overlay, a one-off mention and a full sponsored segment are priced very differently for the same creator." },
+];
+
+// Directional CPM pressure across the year (0-100). Q1-Q2 value, Q4 peak.
+const season = [
+  { m: "Jan", v: 40 }, { m: "Feb", v: 39 }, { m: "Mar", v: 44 }, { m: "Apr", v: 43 },
+  { m: "May", v: 41 }, { m: "Jun", v: 40 }, { m: "Jul", v: 49 }, { m: "Aug", v: 56 },
+  { m: "Sep", v: 69 }, { m: "Oct", v: 83 }, { m: "Nov", v: 95 }, { m: "Dec", v: 100 },
+];
+
+// Real, verified campaign outcomes (from the case studies on this site).
+const proof = [
+  { brand: "Samsung", logo: "/lovable-uploads/logo-client-1.png", metric: "500,131", label: "completed views", extra: "2.93% avg CTR", href: "/case-study/samsung" },
+  { brand: "Shure", logo: "/lovable-uploads/logo-shure.png", metric: "9.12%", label: "peak-day CTR", extra: "182,554 views", href: "/case-study/shure" },
+  { brand: "NKI", logo: "/lovable-uploads/logo-nki.svg", metric: "220,003", label: "completed views", extra: "1,595 clicks", href: "/case-study/nki" },
+  { brand: "Komplett", logo: "/lovable-uploads/logo-komplett.png", metric: "151,278", label: "display views", extra: "1.17% CTR", href: "/case-study/komplett" },
 ];
 
 const bring = [
@@ -56,6 +74,8 @@ const bring = [
 const TwitchAdvertisingCost: React.FC = () => {
   const { ref: modelsRef, isVisible: modelsVisible } = useScrollAnimation();
   const { ref: driversRef, isVisible: driversVisible } = useScrollAnimation();
+  const { ref: seasonRef, isVisible: seasonVisible } = useScrollAnimation();
+  const { ref: proofRef, isVisible: proofVisible } = useScrollAnimation();
   const { ref: nordicRef, isVisible: nordicVisible } = useScrollAnimation();
   const { ref: bringRef, isVisible: bringVisible } = useScrollAnimation();
 
@@ -92,9 +112,9 @@ const TwitchAdvertisingCost: React.FC = () => {
             "@type": "FAQPage",
             mainEntity: [
               { "@type": "Question", name: "How much does Twitch advertising cost?", acceptedAnswer: { "@type": "Answer", text: "There is no single price. Nobody publishes a Twitch advertising rate card, not even Twitch. Cost depends on which of two pricing models you use (auction-based CPM buys or flat-fee creator integrations) and on five variables: category, audience geography, seasonality, creator tier and format. The honest answer is a scoped quote based on your goal, market and timeline." } },
-              { "@type": "Question", name: "Is there a published Twitch ad rate card?", acceptedAnswer: { "@type": "Answer", text: "No. Amazon Ads, which runs Twitch's ad exchange, does not post a public rate card. Its self-serve video tier has no minimum spend, and larger buys are quoted by an account executive. The CPM itself moves in real time based on auction demand, which is why every 'average Twitch CPM' figure online disagrees with the next." } },
-              { "@type": "Question", name: "What is the difference between CPM buys and creator integrations?", acceptedAnswer: { "@type": "Answer", text: "CPM programmatic and overlay ads are bought per thousand impressions by auction, filling a budget across eligible inventory. Flat-fee creator integrations are negotiated directly with a streamer for a defined deliverable, priced by their concurrent viewership and fit rather than by an exchange. Most effective campaigns combine both." } },
-              { "@type": "Question", name: "Why do Nordic Twitch campaigns cost differently?", acceptedAnswer: { "@type": "Answer", text: "Nordic audiences carry high purchasing power, so reaching them specifically is worth more to every advertiser bidding on that inventory. At the same time Nordic-language streamers are a small, concentrated slice of global inventory, so precise targeting requires market-specific creator data rather than broad global buys." } },
+              { "@type": "Question", name: "Is there a published Twitch ad rate card?", acceptedAnswer: { "@type": "Answer", text: "No. Amazon Ads, which runs Twitch's ad exchange, does not post a public rate card. Its self-serve video tier has no minimum spend, and larger buys are quoted by an account executive. The CPM itself moves in real time based on auction demand." } },
+              { "@type": "Question", name: "What is the difference between CPM buys and creator integrations?", acceptedAnswer: { "@type": "Answer", text: "CPM programmatic and overlay ads are bought per thousand impressions by auction. Flat-fee creator integrations are negotiated directly with a streamer for a defined deliverable, priced by their concurrent viewership and fit. Most effective campaigns combine both." } },
+              { "@type": "Question", name: "Why do Nordic Twitch campaigns cost differently?", acceptedAnswer: { "@type": "Answer", text: "Nordic audiences carry high purchasing power, so reaching them specifically is worth more to every advertiser bidding on that inventory. Nordic-language streamers are also a small, concentrated slice of global inventory, so precise targeting requires market-specific creator data." } },
             ],
           },
         ],
@@ -140,7 +160,6 @@ const TwitchAdvertisingCost: React.FC = () => {
             </div>
           </div>
 
-          {/* Stat strip */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-white/10 rounded-2xl overflow-hidden bg-white/10">
             {stats.map((s) => (
               <div key={s.label} className="bg-black/30 backdrop-blur-sm px-6 py-5">
@@ -152,38 +171,41 @@ const TwitchAdvertisingCost: React.FC = () => {
         </div>
       </section>
 
-      {/* ── The honest opening ── */}
+      {/* ── The honest opening (two-column, full width) ── */}
       <section className="py-20 md:py-28 border-t border-border">
-        <div className="max-w-3xl mx-auto px-6 lg:px-12">
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">The honest answer</span>
-          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
-            Nobody publishes a price, and that's not evasion
-          </h2>
-          <p className="text-base md:text-lg font-light leading-relaxed text-muted-foreground">
-            If you searched for a straight "Twitch ads price," here it is up front: there isn't one. Amazon Ads, which runs Twitch's ad exchange, doesn't post a rate card. Its advertiser guides route standard video buys to a self-serve entry point and send anything larger to an account executive for a negotiated quote. That reflects how the pricing actually works. Two genuinely different products get sold under the same "Twitch advertising" label, priced by different mechanics, and both move on category, geography, timing and who is on stream.
-          </p>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-start">
+          <div>
+            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">The honest answer</span>
+            <h2 className="text-3xl md:text-5xl font-light tracking-tight text-foreground leading-tight">
+              Nobody publishes a price, and that's not evasion
+            </h2>
+          </div>
+          <div className="space-y-5 text-base md:text-lg font-light leading-relaxed text-muted-foreground lg:pt-3">
+            <p>
+              If you searched for a straight "Twitch ads price," here it is up front: there isn't one. Amazon Ads, which runs Twitch's ad exchange, doesn't post a rate card. Standard video buys route to a self-serve entry point; anything larger is quoted by an account executive.
+            </p>
+            <p>
+              That reflects how pricing actually works. Two genuinely different products get sold under the same "Twitch advertising" label, priced by different mechanics, and both move on category, geography, timing and who is on stream.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* ── The two pricing models ── */}
+      {/* ── The two pricing models (full-width cards) ── */}
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={modelsRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${modelsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="max-w-2xl mb-14">
             <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">How it's priced</span>
-            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
-              Two products, two pricing mechanics
-            </h2>
-            <p className="text-base text-muted-foreground leading-relaxed mt-4">
-              Confusing these is the single biggest reason people get surprised by a quote.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">Two products, two pricing mechanics</h2>
+            <p className="text-base text-muted-foreground leading-relaxed mt-4">Confusing these is the single biggest reason people get surprised by a quote.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {models.map((m) => (
-              <div key={m.title} className="p-8 rounded-2xl border border-border bg-card">
+              <div key={m.title} className="p-8 lg:p-10 rounded-2xl border border-border bg-card">
                 <span className="text-[11px] font-semibold tracking-widest uppercase text-primary">{m.tag}</span>
-                <h3 className="text-xl font-semibold text-foreground mt-3 mb-4">{m.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-6">{m.body}</p>
-                <ul className="space-y-2.5">
+                <h3 className="text-2xl font-semibold text-foreground mt-3 mb-4">{m.title}</h3>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6">{m.body}</p>
+                <ul className="space-y-2.5 border-t border-border pt-6">
                   {m.facts.map((f) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-foreground/80">
                       <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
@@ -197,30 +219,118 @@ const TwitchAdvertisingCost: React.FC = () => {
         </div>
       </section>
 
-      {/* ── The five cost drivers ── */}
+      {/* ── The five cost drivers (chart + columns) ── */}
       <section className="py-20 md:py-28 border-t border-border">
-        <div ref={driversRef} className={`max-w-4xl mx-auto px-6 lg:px-12 transition-all duration-700 ${driversVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <div className="mb-12">
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">What moves the number</span>
-            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
-              Five variables that set the price
-            </h2>
-          </div>
-          <div>
-            {drivers.map((d, i) => (
-              <div key={d.term} className="grid md:grid-cols-[280px_1fr] gap-4 md:gap-10 py-7 border-t border-border first:border-t-0">
-                <div className="flex items-baseline gap-4">
-                  <span className="text-2xl font-light text-primary/30 tabular-nums">{String(i + 1).padStart(2, "0")}</span>
-                  <h3 className="text-lg font-semibold text-foreground">{d.term}</h3>
+        <div ref={driversRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${driversVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">What moves the number</span>
+              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">Five variables that set the price</h2>
+              <p className="text-base text-muted-foreground leading-relaxed max-w-md">
+                Two campaigns with the same budget can buy very different results. These five variables decide which. The bars show directional price pressure, not a rate card.
+              </p>
+            </div>
+            <div className="space-y-6">
+              {drivers.map((d) => (
+                <div key={d.term}>
+                  <div className="flex items-baseline justify-between mb-2">
+                    <span className="text-sm font-semibold text-foreground">{d.term}</span>
+                    <span className="text-[11px] uppercase tracking-wider text-muted-foreground">{d.weight >= 80 ? "High" : d.weight >= 60 ? "Med-High" : "Medium"}</span>
+                  </div>
+                  <div className="h-2 rounded-full bg-muted overflow-hidden">
+                    <div className="h-full rounded-full bg-primary/80" style={{ width: `${d.weight}%` }} />
+                  </div>
+                  <p className="text-xs text-muted-foreground leading-relaxed mt-2">{d.desc}</p>
                 </div>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{d.desc}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── The Nordic premium ── */}
+      {/* ── Seasonality (column chart, full width) ── */}
+      <section className="py-20 md:py-28 border-t border-border">
+        <div ref={seasonRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${seasonVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className="max-w-2xl mb-12">
+            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Timing is a discount</span>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">The same audience costs less in Q1</h2>
+            <p className="text-base text-muted-foreground leading-relaxed mt-4">
+              Inventory tightens around game launches and the holidays. Q1 and Q2 are the best-value windows of the year; Q4 runs at a premium. Directional, not to scale.
+            </p>
+          </div>
+          <div className="flex items-end gap-2 sm:gap-4 h-56">
+            {season.map((s) => {
+              const peak = s.v >= 90;
+              return (
+                <div key={s.m} className="flex-1 flex flex-col items-center gap-3">
+                  <div
+                    className={`w-full rounded-t-md ${peak ? "bg-primary" : "bg-primary/25"}`}
+                    style={{ height: `${s.v}%` }}
+                    aria-label={`${s.m}: directional price ${s.v}`}
+                  />
+                  <span className="text-[10px] sm:text-xs text-muted-foreground">{s.m}</span>
+                </div>
+              );
+            })}
+          </div>
+          <div className="flex items-center gap-6 mt-6 text-xs text-muted-foreground">
+            <span className="inline-flex items-center gap-2"><span className="w-3 h-3 rounded-sm bg-primary/25" /> Value window</span>
+            <span className="inline-flex items-center gap-2"><span className="w-3 h-3 rounded-sm bg-primary" /> Peak season</span>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Proof band (full-width dark: real results + real creative) ── */}
+      <section ref={proofRef} className={`py-20 md:py-28 border-t border-border transition-all duration-700 ${proofVisible ? "opacity-100" : "opacity-0"}`} style={{ background: "hsl(240 11% 5%)" }}>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="max-w-2xl mb-14">
+            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">What the spend delivers</span>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-white">
+              The number only matters next to the outcome
+            </h2>
+            <p className="text-base text-white/60 leading-relaxed mt-4">
+              Verified results from real Nordic campaigns. This is what the budget actually bought.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px border border-white/10 rounded-2xl overflow-hidden bg-white/10 mb-8">
+            {proof.map((p) => (
+              <Link key={p.brand} to={p.href} className="group bg-black/40 backdrop-blur-sm px-6 py-7 hover:bg-black/20 transition-colors">
+                <div className="flex items-center justify-between mb-5 h-6">
+                  <img src={p.logo} alt={p.brand} className="h-5 w-auto object-contain opacity-70" style={{ filter: "brightness(0) invert(1)" }} />
+                  <ArrowUpRight className="w-4 h-4 text-white/30 group-hover:text-primary transition-colors" />
+                </div>
+                <div className="text-3xl font-bold text-white tracking-tight">{p.metric}</div>
+                <div className="text-xs text-white/50 mt-1">{p.label}</div>
+                <div className="text-xs text-primary mt-3">{p.extra}</div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Real overlay creative */}
+          <div className="grid lg:grid-cols-2 gap-10 items-center pt-8">
+            <div className="rounded-2xl overflow-hidden bg-black ring-1 ring-white/10">
+              <video
+                src="/lovable-uploads/overlay-samsung.webm"
+                autoPlay loop muted playsInline preload="metadata"
+                className="w-full h-auto"
+                aria-label="A native branded overlay ad rendered live inside a Twitch stream"
+              />
+            </div>
+            <div>
+              <h3 className="text-2xl font-light tracking-tight text-white mb-4">This is the format you're paying for</h3>
+              <p className="text-base text-white/60 leading-relaxed mb-6">
+                Not a pre-roll the viewer skips or an ad blocker strips out. A branded overlay rendered inside the live stream, present through a 90-minute session, impossible to block because it is part of the broadcast feed.
+              </p>
+              <Link to="/twitch-advertising" className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
+                How the formats work <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── The Nordic premium (two-column) ── */}
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={nordicRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${nordicVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-start">
@@ -232,24 +342,22 @@ const TwitchAdvertisingCost: React.FC = () => {
             </div>
             <div className="space-y-5 text-base font-light leading-relaxed text-muted-foreground lg:pt-2">
               <p>
-                Nordic audiences carry some of the highest purchasing power and digital purchase intent in Europe. Reaching them specifically is worth more to every advertiser bidding on that inventory, so it prices at a premium. That premium is justified precisely because your competitors are willing to pay it: opting out isn't a saving, it's ceding the audience.
+                Nordic audiences carry some of the highest purchasing power and digital purchase intent in Europe. Reaching them specifically is worth more to every advertiser bidding on that inventory, so it prices at a premium. That premium is justified precisely because your competitors pay it: opting out isn't a saving, it's ceding the audience.
               </p>
               <p>
-                The practical constraint is supply. Nordic-language streamers and Scandinavian esports communities are a small, concentrated slice of global Twitch inventory but an outsized share of value for brands targeting local markets. Getting that targeting right takes market-specific creator data, not a broad global buy, which is exactly the gap a Nordic partner exists to close.
+                The practical constraint is supply. Nordic-language streamers are a small, concentrated slice of global Twitch inventory but an outsized share of value for brands targeting local markets. Getting that targeting right takes market-specific creator data, which is exactly the gap a Nordic partner exists to close.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── What to bring for a real quote ── */}
+      {/* ── What to bring (4-column steps) ── */}
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={bringRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${bringVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="max-w-2xl mb-14">
             <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Getting a real number</span>
-            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
-              Four things to bring, and you'll get a straight answer
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">Four things to bring, and you'll get a straight answer</h2>
           </div>
           <div className="grid md:grid-cols-4 gap-8">
             {bring.map((b, i) => (
