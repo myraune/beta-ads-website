@@ -329,7 +329,10 @@ const BlogPostPage: React.FC = () => {
                           </blockquote>
                         ),
                         a: ({ href, children }) => {
-                          if (href?.startsWith("/")) {
+                          // File downloads (PDF etc.) must be plain anchors - React
+                          // Router would intercept the path and 404 on a client route.
+                          const isFile = /\.(pdf|zip|pptx?|docx?|xlsx?)$/i.test(href ?? "");
+                          if (href?.startsWith("/") && !isFile) {
                             return <Link to={href} className="text-primary font-medium underline underline-offset-2 hover:text-primary/80 transition-colors">{children}</Link>;
                           }
                           return <a href={href} target="_blank" rel="noopener noreferrer" className="text-primary font-medium underline underline-offset-2 hover:text-primary/80 transition-colors">{children}</a>;
