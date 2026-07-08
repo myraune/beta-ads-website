@@ -37,6 +37,7 @@ const STATIC_PAGES = [
   { path: "/case-studies",           priority: "0.95", changefreq: "weekly"  },
   { path: "/twitch-advertising",     priority: "0.95", changefreq: "monthly" },
   { path: "/twitch-advertising-cost", priority: "0.9",  changefreq: "monthly" },
+  { path: "/kick-advertising-cost",   priority: "0.9",  changefreq: "monthly" },
   { path: "/kick-advertising",       priority: "0.95", changefreq: "monthly" },
   { path: "/press",                  priority: "0.95", changefreq: "monthly" },
   { path: "/norge",                  priority: "0.9",  changefreq: "monthly" },
