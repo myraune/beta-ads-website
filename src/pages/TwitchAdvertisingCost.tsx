@@ -63,7 +63,13 @@ const inventoryMax = 1142810;
 // Buying direct vs through a managed agency. All figures verified from primary
 // sources (Amazon Ads product pages; Kick CEO statements 2026). No CPM is
 // stated because none is published for either platform.
-const directBuy = [
+const directBuy: {
+  tag: string;
+  title: string;
+  highlight: boolean;
+  facts: string[];
+  link?: { href: string; label: string };
+}[] = [
   {
     tag: "Twitch, direct",
     title: "Amazon Ads",
@@ -83,6 +89,7 @@ const directBuy = [
       "No self-serve platform, no rate card, no advertiser portal",
       "The only route onto Kick is a negotiated creator sponsorship",
     ],
+    link: { href: "/kick-advertising-cost", label: "What Kick advertising costs" },
   },
   {
     tag: "Either platform",
@@ -428,6 +435,11 @@ const TwitchAdvertisingCost: React.FC = () => {
                 {c.highlight && (
                   <Link to="/contact" className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors mt-6">
                     Get a quote <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                )}
+                {c.link && (
+                  <Link to={c.link.href} className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors mt-6">
+                    {c.link.label} <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 )}
               </div>

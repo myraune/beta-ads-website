@@ -59,7 +59,7 @@ const TwitchAdvertising: React.FC = () => {
           { "@context": "https://schema.org", "@type": "Service", "@id": "https://beta-ads.no/twitch-advertising#service", name: "Twitch Advertising - Beta Ads", serviceType: "Native Livestream Advertising", description: "Native overlay ads on 28,000+ Nordic Twitch streams. 0% adblock rate, CTRs up to 9.12%. Managed campaigns from brief to broadcast.", provider: { "@id": "https://beta-ads.no/#organization" }, areaServed: ["Norway", "Sweden", "Denmark", "Finland"], url: "https://beta-ads.no/twitch-advertising" },
           { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://beta-ads.no/" }, { "@type": "ListItem", position: 2, name: "Twitch Advertising", item: "https://beta-ads.no/twitch-advertising" }] },
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [
-            { "@type": "Question", name: "How much does Twitch advertising cost in Norway?", acceptedAnswer: { "@type": "Answer", text: "Pricing varies by campaign scope and duration. We offer flexible pricing with no long-term contracts. Contact us for a custom quote based on your target audience and goals." } },
+            { "@type": "Question", name: "How much does Twitch advertising cost in Norway?", acceptedAnswer: { "@type": "Answer", text: "The blended effective CPM on a managed Nordic Twitch campaign is roughly 200 to 300 kr per 1,000 verified impressions, with the final figure depending on campaign scope, number of streamers, and duration. There are no long-term contracts. See the full breakdown at /twitch-advertising-cost or contact us for a custom quote." } },
             { "@type": "Question", name: "How do Twitch overlay ads bypass ad blockers?", acceptedAnswer: { "@type": "Answer", text: "Overlay ads are rendered inside the stream itself, not injected by the browser. Ad blockers target browser-injected ad elements - they have nothing to detect or remove when the ad is part of the stream feed." } },
             { "@type": "Question", name: "How is this different from Twitch's own pre-roll ads?", acceptedAnswer: { "@type": "Answer", text: "Twitch pre-rolls and mid-rolls interrupt the stream and are blocked by most ad blockers. Beta Ads overlay ads appear as branded graphics within the live stream - no interruption, 0% adblock impact, and sustained exposure throughout the session." } },
             { "@type": "Question", name: "What results can I expect from Twitch advertising in the Nordics?", acceptedAnswer: { "@type": "Answer", text: "Our verified campaign data shows CTRs between 1.08% and 4.48% across campaigns for Samsung, Shure, Komplett, and NKI. Impressions typically range from 100,000 to 1M+ depending on campaign duration and streamer reach." } },
@@ -387,10 +387,17 @@ const TwitchAdvertising: React.FC = () => {
       {/* ── FAQ ── */}
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={faqRef} className={`max-w-3xl mx-auto px-6 lg:px-12 transition-all duration-700 ${faqVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-10">Common questions</h2>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-3">Common questions</h2>
+          <p className="text-sm text-muted-foreground mb-10">
+            Want the numbers first?{" "}
+            <Link to="/twitch-advertising-cost" className="text-primary font-medium hover:text-primary/80 transition-colors">
+              See what Twitch advertising actually costs
+            </Link>
+            .
+          </p>
           <div className="space-y-px">
             {[
-              { q: "How much does Twitch advertising cost?", a: "Costs vary by campaign scope, number of streamers, and duration. We offer flexible pricing with no long-term contracts. Contact us for a custom quote based on your goals." },
+              { q: "How much does Twitch advertising cost?", a: "The blended effective CPM on a managed Nordic campaign runs about 200 to 300 kr per 1,000 verified impressions, and the final number depends on scope, number of streamers, and duration. We offer flexible pricing with no long-term contracts. See our full cost breakdown at /twitch-advertising-cost, or contact us for a custom quote." },
               { q: "How do overlay ads bypass ad blockers?", a: "Overlay ads are rendered inside the stream itself as part of the video feed - not browser-injected elements. Ad blocking software has nothing to detect or remove." },
               { q: "Can I target specific countries or languages?", a: "Yes. Target by country (Norway, Sweden, Finland, Denmark), language, content category, audience size, and engagement metrics. Our database covers 28,000+ Nordic streamers." },
               { q: "What results can I expect?", a: "Native overlay ads typically deliver 3–5× higher engagement than traditional display ads. Twitch sessions average 90+ minutes of sustained brand exposure." },

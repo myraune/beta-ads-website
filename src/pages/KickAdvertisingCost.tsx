@@ -54,7 +54,13 @@ const proof = [
   { brand: "Komplett", logo: "/lovable-uploads/logo-komplett.png", metric: "151,278", label: "display views", extra: "1.17% CTR", href: "/case-study/komplett" },
 ];
 
-const directBuy = [
+const directBuy: {
+  tag: string;
+  title: string;
+  highlight: boolean;
+  facts: string[];
+  link?: { href: string; label: string };
+}[] = [
   {
     tag: "Kick, direct",
     title: "Easygo",
@@ -74,6 +80,7 @@ const directBuy = [
       "But Amazon's Streaming TV and DSP products carry a $10,000 self-serve / $50,000 managed minimum",
       "Premium placements are quote-only, no public price",
     ],
+    link: { href: "/twitch-advertising-cost", label: "What Twitch advertising costs" },
   },
   {
     tag: "Either platform",
@@ -382,6 +389,11 @@ const KickAdvertisingCost: React.FC = () => {
                 {c.highlight && (
                   <Link to="/contact" className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors mt-6">
                     Get a quote <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                )}
+                {c.link && (
+                  <Link to={c.link.href} className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors mt-6">
+                    {c.link.label} <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 )}
               </div>

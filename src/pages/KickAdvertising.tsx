@@ -360,7 +360,14 @@ const KickAdvertising: React.FC = () => {
       {/* ── FAQ ── */}
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={faqRef} className={`max-w-3xl mx-auto px-6 lg:px-12 transition-all duration-700 ${faqVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-10">Common questions</h2>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-3">Common questions</h2>
+          <p className="text-sm text-muted-foreground mb-10">
+            Want the numbers first?{" "}
+            <Link to="/kick-advertising-cost" className="text-primary font-medium hover:text-primary/80 transition-colors">
+              See what Kick advertising actually costs
+            </Link>
+            .
+          </p>
           <div className="space-y-px">
             {[
               { q: "Can you actually advertise on Kick?", a: "Yes. Beta Ads supports native overlay advertising on Kick streams through our creator partnerships. While Kick has limited built-in ad tools, our overlay technology works directly within the stream feed." },
