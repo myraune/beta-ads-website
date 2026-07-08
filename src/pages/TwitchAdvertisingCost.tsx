@@ -9,10 +9,10 @@ import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
 const stats = [
+  { value: "200–300 kr", label: "Effective CPM" },
   { value: "2", label: "Pricing models" },
   { value: "5", label: "Cost drivers" },
   { value: "0", label: "Public rate cards" },
-  { value: "Custom", label: "Per campaign" },
 ];
 
 const models = [
@@ -111,7 +111,7 @@ const TwitchAdvertisingCost: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "FAQPage",
             mainEntity: [
-              { "@type": "Question", name: "How much does Twitch advertising cost?", acceptedAnswer: { "@type": "Answer", text: "There is no single price. Nobody publishes a Twitch advertising rate card, not even Twitch. Cost depends on which of two pricing models you use (auction-based CPM buys or flat-fee creator integrations) and on five variables: category, audience geography, seasonality, creator tier and format. The honest answer is a scoped quote based on your goal, market and timeline." } },
+              { "@type": "Question", name: "How much does Twitch advertising cost?", acceptedAnswer: { "@type": "Answer", text: "For a managed Nordic native-overlay campaign, Beta Ads runs at an effective CPM of roughly 200 to 300 NOK per thousand verified impressions. That is a premium to broad global display because it buys a high-value Nordic audience in a format that completes and cannot be ad-blocked. Where a campaign lands in that range depends on five variables (category, audience geography, seasonality, creator tier and format) and on which of two pricing models you use." } },
               { "@type": "Question", name: "Is there a published Twitch ad rate card?", acceptedAnswer: { "@type": "Answer", text: "No. Amazon Ads, which runs Twitch's ad exchange, does not post a public rate card. Its self-serve video tier has no minimum spend, and larger buys are quoted by an account executive. The CPM itself moves in real time based on auction demand." } },
               { "@type": "Question", name: "What is the difference between CPM buys and creator integrations?", acceptedAnswer: { "@type": "Answer", text: "CPM programmatic and overlay ads are bought per thousand impressions by auction. Flat-fee creator integrations are negotiated directly with a streamer for a defined deliverable, priced by their concurrent viewership and fit. Most effective campaigns combine both." } },
               { "@type": "Question", name: "Why do Nordic Twitch campaigns cost differently?", acceptedAnswer: { "@type": "Answer", text: "Nordic audiences carry high purchasing power, so reaching them specifically is worth more to every advertiser bidding on that inventory. Nordic-language streamers are also a small, concentrated slice of global inventory, so precise targeting requires market-specific creator data." } },
@@ -177,15 +177,21 @@ const TwitchAdvertisingCost: React.FC = () => {
           <div>
             <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">The honest answer</span>
             <h2 className="text-3xl md:text-5xl font-light tracking-tight text-foreground leading-tight">
-              Nobody publishes a price, and that's not evasion
+              Here's the number you came for
             </h2>
+            <div className="mt-10 pt-8 border-t border-border">
+              <div className="text-6xl md:text-7xl font-bold text-primary tracking-tight leading-none">200–300 kr</div>
+              <div className="text-sm text-muted-foreground mt-4 max-w-sm leading-relaxed">
+                Effective CPM for a managed Nordic native-overlay campaign, per 1,000 verified impressions.
+              </div>
+            </div>
           </div>
           <div className="space-y-5 text-base md:text-lg font-light leading-relaxed text-muted-foreground lg:pt-3">
             <p>
-              If you searched for a straight "Twitch ads price," here it is up front: there isn't one. Amazon Ads, which runs Twitch's ad exchange, doesn't post a rate card. Standard video buys route to a self-serve entry point; anything larger is quoted by an account executive.
+              You searched for a straight "Twitch ads price." Most of the industry won't give you one: Amazon Ads, which runs Twitch's ad exchange, doesn't post a rate card, and every "average CPM" online contradicts the next. So here is ours, plainly.
             </p>
             <p>
-              That reflects how pricing actually works. Two genuinely different products get sold under the same "Twitch advertising" label, priced by different mechanics, and both move on category, geography, timing and who is on stream.
+              That range sits at a premium to broad global display, and deliberately so. It buys a high-value Nordic audience in a native format that completes, isn't skipped, and can't be stripped by an ad blocker. Where a campaign lands inside it comes down to five variables, and to which of two pricing models you use.
             </p>
           </div>
         </div>
