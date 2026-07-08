@@ -10,7 +10,9 @@ const footerLinks = {
   PLATFORM: [
     { label: "Case Studies", to: "/case-studies" },
     { label: "Twitch Advertising", to: "/twitch-advertising" },
+    { label: "Twitch Advertising Cost", to: "/twitch-advertising-cost" },
     { label: "Kick Advertising", to: "/kick-advertising" },
+    { label: "Kick Advertising Cost", to: "/kick-advertising-cost" },
     { label: "YouTube Advertising", to: "/youtube-advertising" },
     { label: "Streamer Explorer", to: "/streamers" },
   ],
