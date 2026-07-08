@@ -158,27 +158,25 @@ export const InlineCTA: React.FC<StickyCTAProps> = ({ language }) => {
   const t = ctaTranslations[language as keyof typeof ctaTranslations] || ctaTranslations.en;
 
   return (
-    <div className="lg:hidden my-10 p-6 rounded-2xl bg-gradient-to-br from-primary/10 via-primary/5 to-transparent border border-primary/20">
-      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-        <div className="flex-1">
-          <h3 className="text-lg font-semibold text-foreground mb-1">
-            {t.headline}
-          </h3>
-          <p className="text-sm text-muted-foreground">
-            {t.subheadline}
-          </p>
-        </div>
-        <a
-          href="https://calendar.app.google/coW5NLQJtLxfRer19"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Button className="gap-2 whitespace-nowrap">
-            {t.bookCall}
-            <ArrowRight className="w-4 h-4" />
-          </Button>
-        </a>
+    <div className="lg:hidden my-10 rounded-2xl bg-foreground text-background p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center gap-5">
+      <div className="flex-1">
+        <h3 className="text-lg font-semibold mb-1">
+          {t.headline}
+        </h3>
+        <p className="text-sm text-background/60">
+          {t.subheadline}
+        </p>
       </div>
+      <a
+        href="https://calendar.app.google/coW5NLQJtLxfRer19"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 whitespace-nowrap gap-2">
+          {t.bookCall}
+          <ArrowRight className="w-4 h-4" />
+        </Button>
+      </a>
     </div>
   );
 };

@@ -1838,7 +1838,7 @@ export const posts_da: BlogPost[] = [
     date: "July 2, 2026",
     dateISO: "2026-07-02",
     readTime: "5 min læsning",
-    image: "/blog-photos/gaming/gaming-001.jpg",
+    image: "/lovable-uploads/blog-dentsu-gaming-hero.png",
     category: "Brancheindsigt",
     tags: ["Gaming Trends","Dentsu Report","Twitch Advertising","Livestreaming","Nordic Advertising","Media Investment"],
     locale: "da",

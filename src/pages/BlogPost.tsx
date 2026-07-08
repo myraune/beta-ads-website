@@ -1,5 +1,6 @@
-import React, { useEffect, useMemo, lazy, Suspense } from "react";
+import React, { useEffect, useMemo, useState, lazy, Suspense } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { useTheme } from "next-themes";
 import { SPFooter } from '@/components/sections/SPFooter';
 import { ArrowLeft, Calendar, Clock, Tag, Share2, Twitter, Linkedin, Facebook, List } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,6 +9,7 @@ import { getBlogPostBySlug, getRelatedPosts, blogPosts, type BlogPost } from "@/
 import { getBlogImage } from "@/lib/blogImage";
 import { SEO, type PageLocale } from "@/components/SEO";
 import { resolvePostLocale, formatPostDate, blogUiLabels } from "@/lib/blogLocale";
+import { SocialIcon } from "@/components/blog/SocialIcon";
 import { ReadingProgress } from "@/components/blog/ReadingProgress";
 import { TableOfContents, dashboardTocItems } from "@/components/blog/TableOfContents";
 import { StickyCTA, StreamerStickyCTA, InlineCTA, StreamerInlineCTA } from "@/components/blog/StickyCTA";
@@ -55,6 +57,10 @@ const BlogPostPage: React.FC = () => {
   const navigate = useNavigate();
   const post = slug ? getBlogPostBySlug(slug) : undefined;
   const relatedPosts = slug ? getRelatedPosts(slug, 3) : [];
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const isLightTheme = !mounted || resolvedTheme !== "dark";
 
   useEffect(() => {
     if (!post) { navigate("/blog", { replace: true }); return; }
@@ -64,6 +70,11 @@ const BlogPostPage: React.FC = () => {
   if (!post) return null;
 
   const isStreamerPost = post.category === "Streamer Guide";
+  // Editorial "Sources" credit row - only for posts that cite specific
+  // named third-party reports/platforms with a real, already-cleared logo
+  // asset available (currently just the Dentsu report piece). Not shown
+  // site-wide since most posts don't have a matching cleared logo.
+  const isDentsuGamingReport = post.translationGroup === "dentsu-2025-gaming-trends-report-nordic-twitch-advertising";
   const postLocale = resolvePostLocale(post);
   const uiLabels = blogUiLabels(postLocale);
   const displayDate = formatPostDate(post.dateISO, postLocale);
@@ -200,6 +211,23 @@ const BlogPostPage: React.FC = () => {
 
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-5 leading-tight">{post.title}</h1>
               <p className="text-lg md:text-xl text-muted-foreground leading-relaxed border-l-4 border-primary/30 pl-4">{post.excerpt}</p>
+
+              {isDentsuGamingReport && (
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-2 mt-6 pt-6 border-t border-border/50 text-xs text-muted-foreground">
+                  <span className="font-medium text-foreground/70">Sources</span>
+                  <img
+                    src="/lovable-uploads/logo-dentsu.png"
+                    alt="Dentsu"
+                    className={`h-3.5 w-auto object-contain ${isLightTheme ? "brightness-0 opacity-50" : "brightness-0 invert opacity-50"}`}
+                  />
+                  <span className="w-px h-3 bg-border" aria-hidden="true" />
+                  <span className="inline-flex items-center gap-3">
+                    <span className="inline-flex items-center gap-1.5"><SocialIcon label="Twitch" className="w-3.5 h-3.5 text-muted-foreground/60" />Twitch</span>
+                    <span className="inline-flex items-center gap-1.5"><SocialIcon label="YouTube" className="w-3.5 h-3.5 text-muted-foreground/60" />YouTube</span>
+                    <span className="inline-flex items-center gap-1.5"><SocialIcon label="Kick" className="w-3.5 h-3.5 text-muted-foreground/60" />Kick</span>
+                  </span>
+                </div>
+              )}
             </div>
             )}
 
