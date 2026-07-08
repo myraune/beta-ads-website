@@ -127,6 +127,34 @@ const ShureCaseStudy: React.FC = () => {
         </div>
       </section>
 
+      {/* ── CAMPAIGN VIDEO ── */}
+      <section className="border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-20">
+          <span
+            className="text-xs font-semibold tracking-widest uppercase mb-3 block"
+            style={{ color: BRAND.primary }}
+          >
+            Watch the campaign
+          </span>
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-8 max-w-2xl">
+            Shure MV6 × Beta Ads
+          </h2>
+          <div
+            className="relative rounded-2xl overflow-hidden bg-black border"
+            style={{ borderColor: `${BRAND.primary}33` }}
+          >
+            <video
+              src="/lovable-uploads/shure-campaign-video.mp4"
+              controls
+              playsInline
+              preload="metadata"
+              className="w-full h-auto"
+              aria-label="Shure MV6 campaign overview"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* ── CREATIVE PREVIEW ── */}
       <section className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
