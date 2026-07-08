@@ -8016,72 +8016,8 @@ Beta Adsin alusta kattaa 39 000+ aktiivista pohjoismaista striimaajaa Twitchiss�
     locale: "en",
     translationGroup: "twitch-statistics-2025-global-insights",
     title: "Twitch Statistics 2025: 19.2B Hours, Market Share & Platform Trends",
-    excerpt: "StreamHatchet 2025 data: 19.2B hours watched (-8.9% YoY), market share at 52.8%, and non-gaming content growing to 22% of Twitch.",
-    content: `
-## Platform Overview 2025
-
-Twitch remains the leading live streaming platform, but 2025 marked significant shifts. According to the StreamHatchet 2025 Yearly Report, Twitch recorded **19.2 billion hours watched**, a **-8.9% YoY decline** from 2024. Despite the decline, Twitch still commands more than half of the global live streaming market.
-
-## Key Statistics (StreamHatchet 2025)
-
-- **19.2 billion** hours watched in 2025
-- **52.8%** global market share (-8.3 percentage points YoY)
-- **19.7 million** unique channels (-0.5% YoY)
-- **22%** of content is now non-gaming (+2 pts YoY)
-
-## Engagement & Activity
-
-Twitch remains a massive ecosystem of live content. On average, **91,400 channels are live simultaneously**, serving **2.3 million concurrent viewers**. That's roughly **48,000 hours of content watched every single minute**. Over 7.4 million unique streamers broadcast at least once per month.
-
-## Quarterly Breakdown 2025
-
-| Quarter | Hours Watched | YoY Change |
-|---------|---------------|------------|
-| Q1 2025 | 5.2B | -3.2% |
-| Q2 2025 | 4.8B | -8.5% |
-| Q3 2025 | 4.8B | -10.1% |
-| Q4 2025 | 4.4B | -13.8% |
-
-Q4 2025 was the lowest viewership quarter since Q1 2020, driven by platform-wide viewbotting crackdowns that removed artificial viewership.
-
-## Year-over-Year Comparison
-
-Every major metric declined from 2024 to 2025. Hours watched dropped from 21.0B to 19.2B, market share fell from 61.1% to 52.8%, and average concurrent viewers declined from 2.5M to 2.3M. The viewbotting cleanup was the primary driver - top 2024 creators saw **-14.5% viewership decline** once artificial viewers were removed.
-
-## Market Share & Content Split
-
-Twitch's 52.8% market share is still dominant but faces growing competition from YouTube Gaming (24.3%) and Kick (12.4%). The content mix continues to diversify: non-gaming now represents 22% of all Twitch content, up from 20% in 2024. **Just Chatting** alone grew +25% YoY.
-
-## Most Watched Streamers 2025
-
-KaiCenat dominated for the second consecutive year with **317 million hours watched**, followed by Jynxzi (212M), ibai (186M), and Gaules (178M). The top 10 is increasingly international, with creators from Brazil, Spain, France, and Japan alongside US streamers.
-
-## Top Content Categories
-
-Just Chatting leads all categories with **3.8 billion hours watched** - nearly double the #2 category. League of Legends (1.95B) and GTA V (1.90B) follow closely. The FPS genre collectively generated 4.6B hours, while Roblox exploded with +212% growth.
-
-## Viewer Demographics
-
-The platform skews heavily young: **73% of viewers are under 35**, with 41% in the 16-24 age range. Twitch viewers spend an average of **25.4 minutes per session** - **8x longer** than on-demand video platforms. 42.8% of Gen Z internet users watch live streams regularly. The gender split is 65% male, 35% female.
-
-## Geographic Distribution
-
-The United States leads with 23.1% of users, followed by Germany (8.6%), Brazil (7.2%), and Russia (6.8%). South Korea and Turkey round out the top 10. The Nordic region represents approximately 2.3% of global traffic with above-average engagement rates.
-
-## Creator Economy & Revenue
-
-Twitch's standard revenue split is **50/50** for subscriptions, with top-tier Partner Plus creators earning **70%**. Sponsored content on the platform grew **+71% YoY**, with Disney leading brand mentions at 1.7 million. Meanwhile, Kick's **95% revenue split** continues to attract creators seeking better monetization.
-
-## Esports Viewership
-
-Esports remains a major driver of Twitch viewership, averaging **654 million hours per quarter**. LoL Worlds 2024 set an all-time esports record with **6.9 million peak concurrent viewers**. VALORANT Champions (1.9M peak) and CS2 Major Copenhagen (1.8M peak) were also standout events.
-
-## What This Means for Advertisers
-
-Despite the viewership decline, Twitch remains the most engaged live streaming audience. The shift toward non-gaming content opens opportunities for brands outside gaming, while the viewbotting cleanup means more authentic reach metrics. With 73% of viewers under 35 and session times 8x longer than on-demand video, [Twitch advertising](/twitch-advertising) offers unmatched access to Gen Z audiences in the Nordics.
-
-*Data sources: StreamHatchet 2025 Yearly Live Streaming Trends Report, TwitchTracker, Esports Charts*
-    `,
+    excerpt: "Real, sourced Twitch numbers for 2025: Stream Hatchet's 19.2 billion hours watched, Kick and YouTube Gaming's growth, and who's actually watching, per Twitch's own data.",
+    content: "\n## Platform Overview 2025\n\nLive streaming had a real year in 2025, not just a talked-about one. Stream Hatchet's 2025 Yearly Live Streaming Trends Report counts 36.4 billion hours watched across the major platforms, up 6% year over year and the highest total since the 2021 pandemic-era peak of 37.1 billion hours. Twitch is still the single biggest destination inside that number, with 19.2 billion hours watched in 2025, per the same Stream Hatchet report. Q1 alone accounted for 8.9 billion of the industry's total streaming hours, Stream Hatchet's Q1 2025 report found.\n\nZoom out and the addressable audience is enormous: Newzoo counts 3.4 billion gamers worldwide. Twitch only needs a slice of that population watching regularly to produce numbers this size.\n\n## Twitch vs YouTube Gaming vs Kick\n\nThe three-way race for live-streaming hours looked different at the end of 2025 than at the start of it.\n\n- **Twitch: 19.2 billion hours watched.** Stream Hatchet recorded declining viewership for four straight quarters, and Twitch's market share fell 8.3 percentage points over the year. Set Twitch's 19.2B against the industry's 36.4B total and it closed the year with just under 53% of all tracked hours, still the largest share by a wide margin, but a smaller one than it held in January.\n- **YouTube Gaming: 8.8 billion hours watched**, its best year on record, according to Stream Hatchet.\n- **Kick: 4.5 billion hours watched**, up 131% year over year, the fastest growth of any major platform, per the same report.\n\nMost of Twitch's decline traces to one deliberate choice: a mid-year crackdown on viewbotting (inflated, fake viewership) that Stream Hatchet says pulled Q4 2025 down to 4.4 billion hours, the platform's lowest quarterly total since Q1 2020. Fewer bots watching also means the hours that remain are more real, worth keeping in mind if you're comparing platforms on paper.\n\nIf you're deciding where to put your own energy as a streamer, that split is the practical takeaway. Twitch still has the largest, most established audience and the deepest ad and subscription infrastructure. YouTube Gaming had its best year on record and comes with built-in search discovery and VOD reach that Twitch doesn't match. Kick's 131% growth is real, and its creator-friendly revenue split (more on that below) is exactly why it's pulling that growth from somewhere.\n\n## Streamers, Channels, and Chat Activity\n\nBehind the hours-watched headline is a huge, ongoing base of people broadcasting:\n\n- Twitch's own 2025 year-end recap reports 9 million new streamers joined the platform over the course of the year.\n- The same recap counts 45 billion chat messages sent across Twitch in 2025.\n- TwitchTracker's public tracking for 2025 shows an average of roughly 93,000 channels live at any given moment, with around 6.9 million unique channels streaming at least once in a typical month.\n- Average concurrent viewership across the year sat around 2.17 million, per TwitchTracker, a figure that reflects the same viewbotting cleanup Stream Hatchet reported.\n\n## What People Actually Watch\n\nGaming still anchors Twitch, but the mix keeps shifting toward personality-driven content.\n\n- **Just Chatting** was Twitch's #1 category for 2025, confirmed in Twitch's own year-end recap, and Stream Hatchet clocked it growing 25% year over year.\n- **IRL** content nearly tripled its watch time year over year, per Twitch's recap, continuing a multi-year shift away from pure gameplay.\n- Combined, non-gaming content (Just Chatting, IRL, and similar categories) now makes up 22% of all Twitch viewership, according to Stream Hatchet.\n- On the gaming side, **League of Legends** overtook **Grand Theft Auto V** as the single most-watched game on Twitch in 2025: 1.95 billion hours watched versus 1.9 billion, per Stream Hatchet.\n- **First-person shooters** were the biggest genre overall at 4.6 billion hours watched, driven largely by esports interest.\n\n## Esports on Twitch\n\nEsports had a record year. Stream Hatchet counted 2.8 billion hours watched across esports content on Twitch in 2025, up 6% year over year. Co-streams (personalities reacting to and rebroadcasting official event feeds) accounted for half of all esports viewership on the platform, a sign that the personality layer now carries as much weight as the official broadcast itself. That record was built on a full calendar: League of Legends Worlds, and the year's CS2 and VALORANT majors, all reliably rank among Twitch's highest concurrent-viewership moments, which is a big part of why the FPS and MOBA genres dominate the hours-watched totals above.\n\n## Who's Watching: Audience Demographics\n\nTwitch's own advertising materials, published through Amazon Ads, put some hard numbers on who actually shows up:\n\n- 105 million average monthly visitors come to Twitch, per Amazon's Twitch advertising page.\n- 70% of viewers are between 18 and 34 years old, the same source states: still Twitch's core demographic, and one of the hardest age groups to reach through traditional TV.\n- 65% of Twitch viewers can't be reached on leading social channels, according to GWI research cited in Twitch's own advertising materials, meaning this isn't an audience that's easy to find somewhere else instead.\n\nThat audience also behaves differently than a passive viewer. In a Twitch RPG survey of US viewers (February 2023, n=792), 44% said they'd bought a product because a streamer they watched recommended it. That's not a reach statistic. It's a trust statistic, and it's the reason the next section exists.\n\n## Creator Economy and Community Highlights\n\nA few numbers worth knowing if you follow the creator side of the platform:\n\n- **Kai Cenat** was named Twitch's top streamer of 2025 in the platform's own year-end recap, the second year running.\n- **ZEvent**, the French charity streaming marathon, raised over 16.1 million euros in September 2025, an all-time record for a charity livestream, reported across multiple gaming outlets covering the event.\n- On monetization structure: Twitch's standard subscription split is 50/50 between creator and platform, with its Partner Plus program letting top-tier creators earn up to 70%, per Twitch's own partner terms. Kick, by comparison, markets revenue splits of up to 95% to creators, a structural difference that keeps shaping where creators choose to build.\n\n## What the Numbers Mean If You're Building a Brand Here\n\nMost people land on a page like this one because they're a streamer, a viewer, or just curious where the platform stands, not because they're planning a media buy. Fair enough. But the numbers above matter for a second audience too, and it's worth a paragraph.\n\nGaming and live streaming still take up less than 5% of overall media investment, according to eMarketer data cited in Dentsu's 2025 Gaming Trends Report, despite reaching an audience this large and this hard to find anywhere else. Amazon Marketing Cloud's 2023 research found Twitch viewers are 67% more likely to consider a brand after seeing it supported on a stream they watch, and 79% say they want a long-term relationship with those brands rather than a one-off ad. If you're weighing whether [Twitch advertising](/twitch-advertising) belongs in a media plan, our breakdown of [Dentsu's 2025 Gaming Trends Report](/blog/dentsu-2025-gaming-trends-report-nordic-twitch-advertising) is a good next read.\n\nKick's growth curve is worth watching too if you're planning further out. Rising 131% year over year isn't a rounding error, and [Kick advertising](/kick-advertising) is starting to show up as a secondary line in more media plans alongside Twitch.\n    ",
     date: "Feb 5, 2026",
     dateISO: "2026-02-05",
     readTime: "14 min read",
@@ -8216,129 +8152,9 @@ Beta Ads has run [nine verified Norwegian campaigns in 2025](/case-studies) draw
     slug: "most-watched-twitch-games-2025",
     locale: "en",
     translationGroup: "most-watched-twitch-games-2025",
-    title: "The Most-Watched Twitch Games of 2025: Where Gen Z Attention Actually Lives",
-    excerpt: "League of Legends held the top slot at 1.95 billion hours, Roblox exploded 212% year-over-year off a single viral experience, and Counter-Strike quietly clawed back 29%. Here's what the 2025 numbers reveal about where brands should be buying live-stream attention.",
-    content: `## The Real Story Isn't at the Top of the Chart
-
-Every year a new list of the biggest games on [Twitch](/twitch-advertising) circulates, and every year the headline gets misread. The top of the chart - League of Legends, GTA V, Counter-Strike - looks stable. The actual 2025 story sits underneath it: Roblox climbed 212% year-over-year on the back of one user-generated experience, Counter-Strike reversed five years of decline, and mobile-first titles slid out of the top ten entirely. For advertisers, the question is no longer "which games are biggest". It is "which attention pools are growing, which are aging out, and which match the audience I actually need to reach".
-
-This post unpacks the 2025 Twitch games data from [Streams Charts](https://streamscharts.com/news/streaming-industry-2025-review) and [TwitchTracker](https://twitchtracker.com/games), with the framing brands need to translate it into a real media plan.
-
-![A gaming content creator streaming a top Twitch game from a dedicated setup](/lovable-uploads/blog-most-watched-twitch-games-2025-hero.jpg)
-
-## The 2025 Top 10 by Hours Watched
-
-The [Streams Charts 2025 Year in Review](https://streamscharts.com/news/streaming-industry-2025-review) and corroborating [TwitchTracker game rankings](https://twitchtracker.com/games) produced the following leaderboard:
-
-| Rank | Game | 2025 Hours Watched | YoY Change |
-|------|------|--------------------|------------|
-| 1 | League of Legends | 1.95B | +4% |
-| 2 | GTA V | 1.90B | -5% |
-| 3 | Counter-Strike 2 | 1.28B | +29% |
-| 4 | VALORANT | 939M | -14% |
-| 5 | Minecraft | 850M | +10% |
-| 6 | Dota 2 | 743M | -15% |
-| 7 | Fortnite | 691M | -7% |
-| 8 | Mobile Legends | 524M | +4% |
-| 9 | Roblox | 515M | +212% |
-| 10 | Garena Free Fire | 461M | flat |
-
-The combined top-10 represents roughly half of all Twitch gaming hours in 2025. Everything below rank 10 - including high-profile indie releases and niche esports titles - lives in a long tail that collectively drives the other half.
-
-## Roblox: The Year's Breakout Nobody Priced In
-
-Roblox's **212% jump** is the most important data point in the 2025 chart. A single user-generated experience - [Grow a Garden](https://www.roblox.com/games/126884695634066/Grow-a-Garden) - produced **113.7 million hours of Twitch viewership** on its own, according to [Streams Charts](https://streamscharts.com/news/roblox-grow-a-garden-2025). [Polygon](https://www.polygon.com/gaming/24815927/roblox-grow-a-garden-viral-2025) and [The Verge](https://www.theverge.com/2025/10/14/roblox-ugc-economy-2025) both covered the phenomenon: a farming simulation built by a small community team, launched inside Roblox, pulled in more concurrent viewers than many AAA releases.
-
-The reason this matters for advertisers is not the single title. It is what it says about Roblox as an attention surface:
-
-- Roblox's streaming audience is **younger than any other top-10 game**, skewing to 13–17 per [GWI's Roblox audience profile](https://www.gwi.com/reports/roblox-audience-2025).
-- Viewership is **driven by cultural moments, not schedule** - a new hit experience can 10x Roblox's streaming hours in a single month.
-- Brand integrations already work inside Roblox ([Gucci's Roblox Town](https://www.adweek.com/brand-marketing/gucci-extends-roblox-partnership-with-gucci-town-2025/), [Chipotle's Roblox launches](https://www.marketingbrew.com/stories/2025/11/chipotle-roblox-gen-z)), meaning Twitch Roblox viewership is a measurement layer for work a brand may already be doing inside the game.
-
-The 2026 prediction [Streams Charts puts forward](https://streamscharts.com/news/streaming-industry-2025-review) is that Roblox will break into the top 5 within 18 months. If that holds, it is the single biggest non-trivial entry point for consumer brands targeting under-18 audiences on live video.
-
-### Why the Roblox audience is hard to reach anywhere else
-
-Roblox users under 17 are harder to target on Meta and TikTok because of platform age-restriction rules tightened in 2024–25 per [TechCrunch's coverage of Meta's minor-protection update](https://techcrunch.com/2025/01/28/meta-minor-age-gate-update/). Live-streamed Roblox content - family-safe by genre default and creator-led - is one of the few brand-safe environments where that audience actually congregates at scale.
-
-## Counter-Strike 2: The Quiet +29%
-
-Counter-Strike 2's **29% rise to 1.28 billion hours** is the 2025 number experienced media buyers care about. It is the first positive year for the franchise since 2020 and it runs counter to the broader decline of the FPS category on Twitch. Per [Esports Insider's 2025 FPS review](https://esportsinsider.com/2025/12/fps-streaming-2025-review), the growth is attributable to three factors:
-
-1. The BLAST Premier 2025 season's **6.6 million peak concurrent** for the grand final, Counter-Strike's highest number on Twitch since 2018 ([Streams Charts](https://streamscharts.com/news/blast-premier-2025-peak)).
-2. **Gaules' Portuguese-language co-streams**, which produced 66 million hours alone per [Streams Charts esports summary](https://streamscharts.com/news/esports-2025-annual).
-3. Valve's August 2025 economy patch, which [PC Gamer documented](https://www.pcgamer.com/games/counter-strike/counter-strike-2-august-2025-patch-viewer-impact/) restored competitive depth viewers had been asking for.
-
-For brands, Counter-Strike is the clearest example of how a franchise can be "dead" in mainstream discourse and still hold more hours watched than most Netflix series earn in a given week.
-
-## VALORANT and Dota 2: The Category Shift
-
-VALORANT lost 14% and Dota 2 lost 15% - the two biggest declines in the top 10. [Riot's VALORANT team publicly acknowledged](https://playvalorant.com/en-us/news/announcements/valorant-state-of-the-game-2025/) that viewership softened through 2025 as the title matured into its third full competitive season. The Dota 2 decline continues a multi-year pattern documented by [Esports Observer](https://archive.esportsobserver.com/dota-2-viewership-decline-2025/), with the International 2025 prize pool at a 10-year low and [The International viewership down 22%](https://streamscharts.com/news/ti2025-summary).
-
-The practical read: these titles remain valuable for endemic brands with strong category fit, but the category-wide declines argue against treating them as growth investments.
-
-## Minecraft's Return and the UGC Pattern
-
-Minecraft's **+10% to 850 million hours** is, like Roblox, a user-generated-content story. The 2025 data shows the game's streaming audience is no longer primarily survival or hardcore modes - it is skyblock servers, Hermitcraft, and modpack creators. [Minecraft's community update](https://www.minecraft.net/en-us/article/community-streaming-2025) attributes the 2025 comeback to the rise of persistent creator-led servers, which function more like ongoing TV shows than individual gameplay sessions.
-
-
-For brands, both Minecraft and Roblox represent the same 2025 insight: UGC-driven games have become cultural platforms in their own right, and their Twitch viewership is a discovery channel for the virtual worlds brands are already building inside them.
-
-## The New Releases That Mattered
-
-2025 produced three launches that cracked the meaningful-size tier on Twitch, per [Streams Charts' new-releases tracker](https://streamscharts.com/news/new-releases-2025):
-
-| Release | 2025 Hours | Notes |
-|---------|------------|-------|
-| ARC Raiders | 129M | Biggest new launch of the year, Embark Studios' extraction shooter ([The Verge launch coverage](https://www.theverge.com/2025/10/30/arc-raiders-launch-twitch)) |
-| Escape From Tarkov Arena | 104M | Spin-off arena mode revived the franchise after a slow 2024 ([PC Gamer](https://www.pcgamer.com/games/fps/escape-from-tarkov-arena-2025/)) |
-| Monster Hunter Wilds | 74M | Capcom's franchise entry - standard viewership for a big franchise launch ([Game Developer](https://www.gamedeveloper.com/business/monster-hunter-wilds-launch-performance)) |
-
-A launch-window sponsorship window sits in roughly the first 30 days of a new release - that's when concurrent viewers peak and creator attention is concentrated. ARC Raiders' 129M hours, for reference, is most of the top-50 mid-tier games' annual total compressed into a single launch quarter.
-
-## Genre Mix: What the 2025 Hours Say About Category Health
-
-At genre level, [Streams Charts 2025 genre breakdown](https://streamscharts.com/news/streaming-industry-2025-review) shows:
-
-| Genre | 2025 Hours | YoY |
-|-------|-----------|-----|
-| First-Person Shooters | 4.6B | +6.7% |
-| Action-Adventure | 2.8B | +3% |
-| MOBA | 2.7B | +1% |
-| Battle Royale | 1.8B | -5% |
-| Sandbox / UGC (Minecraft + Roblox + peers) | ~1.5B | +42% |
-| Fighting games | 540M | +18% |
-
-The fastest-growing category after UGC is fighting games, driven by Street Fighter 6 and Tekken 8 tournaments per [Esports Insider's FGC 2025 summary](https://esportsinsider.com/2025/12/fgc-2025-review). The fastest-declining is battle royale, where Fortnite and Apex Legends both lost hours year-over-year.
-
-## What This Means for Nordic Advertisers
-
-Norwegian, Swedish, and Finnish streaming hours on Twitch grew 36% in 2025 per [Streams Charts Nordic breakdown](https://streamscharts.com/news/nordic-streaming-2025) - faster than the global average despite Twitch's global softening. The top games in the Nordic market skew closer to Counter-Strike, VALORANT, Minecraft, and Rocket League than the global average, per [gamer.no's annual Nordic streaming snapshot](https://www.gamer.no/artikkel/norsk-twitch-2025-oversikt) and [TwitchTracker's Norway leaderboard](https://twitchtracker.com/countries/NO).
-
-That is the inventory advertisers reaching Norwegian, Swedish, and Finnish 18–34-year-olds actually want to target. Beta Ads' Nordic creator database - more than 39,000 streamers across the region - is built around that reality. Real campaigns match the data: the Glorious O3 gaming-mouse launch reached 137,000+ views across 25 Nordic streamers spanning Finland, Norway, and Sweden (see the [Glorious case study](/case-study/glorious)). Samsung's Galaxy S25 Ultra Nordic push delivered 500,000+ views at 2.93% CTR across 43 creators (see the [Samsung case study](/case-study/samsung)) - with the highest engagement segments running on Counter-Strike and VALORANT creator streams, the same titles the 2025 data flags as holding or growing their Nordic share.
-
-## How to Use This Data When Picking Games to Target
-
-**Choose the game before you choose the streamer.** The biggest single mistake in creator-led media planning is picking a streamer based on follower count and inheriting whatever game they were last playing. Start from the audience you need to reach, map that to a game, then ask which creators in that game's ecosystem match your brand.
-
-**Match game volatility to your campaign length.** Roblox, Minecraft, and fighting games are high-variance: a single viral moment can 10x viewership in a month. League of Legends, Counter-Strike, and VALORANT are low-variance - the audience is there week over week. A 6-month always-on campaign wants low-variance games; a launch burst wants high-variance ones.
-
-**Budget launch windows separately.** The first 30 days of a new release cluster concentrate attention that no ongoing game can match. If your product maps to a launching title, buy against that window specifically - and expect CPMs to be higher and inventory tighter than usual.
-
-**Treat decline metrics as constraints, not disqualifiers.** A game that lost 15% of its hours is still a massive channel. The question is trajectory relative to your campaign - a 6-week campaign on a declining title is fine; a 12-month partnership is a bigger bet.
-
-**Checklist before signing a single-game sponsorship:**
-
-- Does the game's YoY trajectory match my campaign's time horizon?
-- Does the game's audience demographic match the target brief - or am I being sold total reach?
-- Are there upcoming schedule events (majors, patches, esports finals) that will materially move viewership during my flight?
-- Who are the three creators with the strongest audience fit, and what is their individual trajectory - not just the game's?
-
-The top of the chart tells you what's big. The year-over-year deltas, audience demographics, and UGC patterns underneath are what tell you what to buy.
-
----
-
-*Sources: [Streams Charts - Streaming Industry 2025 Review](https://streamscharts.com/news/streaming-industry-2025-review) · [TwitchTracker - Games rankings](https://twitchtracker.com/games) · [Streams Charts - Roblox Grow a Garden](https://streamscharts.com/news/roblox-grow-a-garden-2025) · [The Verge - Roblox UGC economy 2025](https://www.theverge.com/2025/10/14/roblox-ugc-economy-2025) · [Esports Insider - FPS streaming 2025 review](https://esportsinsider.com/2025/12/fps-streaming-2025-review) · [PC Gamer - Counter-Strike 2 August 2025 patch](https://www.pcgamer.com/games/counter-strike/counter-strike-2-august-2025-patch-viewer-impact/) · [GWI - Roblox audience 2025](https://www.gwi.com/reports/roblox-audience-2025) · [gamer.no - Norsk Twitch 2025](https://www.gamer.no/artikkel/norsk-twitch-2025-oversikt) · [Polygon - Roblox Grow a Garden viral](https://www.polygon.com/gaming/24815927/roblox-grow-a-garden-viral-2025)*`,
+    title: "The Most-Watched Games and Categories on Twitch in 2025",
+    excerpt: "Just Chatting holds Twitch's category crown by a wide margin, and Counter-Strike just pulled off the year's most surprising comeback while League of Legends, VALORANT, and Fortnite all lost hours. Here's what SullyGnome, TwitchTracker, and Stream Hatchet's real 2025 and 2026 numbers show about where Twitch attention actually sits, and what category choice means for who's watching.",
+    content: "## Just Chatting Is Still the Biggest Thing on Twitch, and It Isn't Close\n\nIf you only check one number before you argue about this on Discord: Just Chatting is Twitch's most-watched category, by a wide margin, and has been since the middle of 2020. SullyGnome's category leaderboard for the first quarter of 2026 puts Just Chatting at 13.4% of all hours watched on the platform, more than double second-place League of Legends at 6.1%. That gap has been stable for a while now. Just Chatting isn't one game, it's the talk-show, IRL, and podcast-style content bucket: reaction streams, \"get ready with me\" content, co-stream watch parties, and the big personalities who don't need a game running to hold an audience.\n\nThat single stat reframes the whole question people are usually asking when they search for the most-watched Twitch games. The biggest thing on Twitch, in hours watched, isn't a game at all.\n\n## The Games That Are Actually Watched, and the 2025 Shakeup\n\nTwitch released its own first-party numbers for 2024 (reported by [Tubefilter](https://www.tubefilter.com/2025/04/24/twitch-2024-most-streamed-video-games-grand-theft-auto-v/)), and among actual games it was GTA V on top with 1.4 billion hours watched, League of Legends close behind at just under 1.2 billion, VALORANT at 804 million, Fortnite at 539 million, and Call of Duty at 451 million. Total gaming-category watch time across Twitch that year was 15.6 billion hours.\n\n2025 rearranged that list. Per Stream Hatchet's annual 2025 Live Streaming Trends Report, global live-streaming hours watched climbed 6% year over year to 36.4 billion, nearly matching 2021's pandemic-era peak of 37.1 billion. Twitch's own share of that total fell 8.3% over the year, a drop the report ties to Twitch's mid-year crackdown on view-botting and continued share gains at YouTube Gaming and Kick. Stream Hatchet's Q2 2025 report put a number on that shift directly: Twitch held 54% of hours watched that quarter (down from a larger share a year earlier), YouTube Gaming had climbed to 24% on a record 2.2 billion hours, and Kick had grown to 11%.\n\n## Counter-Strike's Comeback While Everyone Else Slid\n\nThe single most interesting line in the 2025 data, if you actually play or watch competitive shooters, is Counter-Strike. Analysis of SullyGnome's 2025 season tracking, covered by streaming-industry outlets tracking the CS2 resurgence, put Counter-Strike's watch time at roughly 770 million hours for the year, up about 15% over 2024, with average concurrent viewership also up roughly 15% to around 88,000. That happened in the same year League of Legends, VALORANT, Dota 2, and Fortnite all lost viewership hours on Twitch. Counter-Strike was the outlier, not the pack.\n\nIt wasn't just viewership. Per esports prize-pool data reported by Esports Inquirer, Counter-Strike 2's tournament prize pools totaled $32.27 million in 2025, passing Dota 2 to become the highest-earning esport in the world for the first time in years. A packed competitive calendar, heavy sponsorship money flowing in from gambling and betting brands, and a wave of high-profile foreign-language co-streams (Gaules' Portuguese broadcasts being the best-known example) all fed the same trend: more matches, more storylines, more reasons to keep a Counter-Strike stream open in a second tab.\n\n## What the Genre Data Says About Where Attention Is Going\n\nZoom out to genre level and the same Stream Hatchet 2025 annual report shows first-person shooters as the single biggest gaming genre on Twitch, at 4.6 billion hours watched, carried by Counter-Strike and VALORANT's esports scenes plus a strong year for extraction shooters like ARC Raiders and Escape from Tarkov. Non-gaming content kept growing too: Just Chatting and IRL streams grew 25% and 19% respectively in 2025, per the same report, pushing non-gaming content's share of total Twitch viewership up to 22%.\n\nWorth a specific correction here, because it's a claim that gets repeated a lot without anyone checking it: Roblox is genuinely massive in gaming culture right now, but on Twitch specifically it stays a minor category. SullyGnome's tracking shows Roblox logging well under 50 million hours watched across all of 2025, a small fraction of what the game's broader cultural footprint might suggest. Roblox's audience mostly lives on YouTube and mobile, not on Twitch. If a content decision is riding on \"Roblox is huge on Twitch,\" check the actual numbers first.\n\n## What Category Choice Says About Who's Watching\n\nThe category someone watches says something real about who they are, even without precise per-game demographic breakdowns. GWI's Twitch audience research puts the platform's global audience at 72% aged 16 to 34, roughly two-thirds identifying as male, and over-indexing for being in the top 10% of income earners worldwide. That's the platform-wide baseline. Layered on top of it: esports titles like Counter-Strike, VALORANT, and League of Legends skew toward that core competitive-gaming demo watching for skill and storylines; Just Chatting pulls a broader, more social audience tuning in for personality and conversation rather than gameplay; and GTA V's roleplay servers (NoPixel and its imitators) draw people who treat the stream more like an ongoing drama series than a game session, checking in for character arcs and cop-and-criminal storylines rather than any particular skill display.\n\n## Heading Into 2026\n\nThe early-2026 numbers say more of the same, not a reset. SullyGnome's Q1 2026 leaderboard still has Just Chatting comfortably on top at that 13.4% share, with League of Legends holding second at 6.1%. Anyone deciding what to watch, stream, or build a community around should plan against the pattern that actually held through 2025: Just Chatting keeps growing, Counter-Strike is the shooter on an upswing, and most other legacy esports titles are managing decline rather than chasing growth.\n\n## If You're Trying to Reach These Audiences\n\nAll of the above is also, whether or not the person reading it cares, a map of where advertising dollars should be going and mostly aren't. Gaming still pulls in under 5% of total media investment according to eMarketer data cited in Dentsu's 2025 Gaming Trends Report, despite live-streaming hours watched sitting at 8.9 billion for a single quarter (Stream Hatchet, Q1 2025) and Twitch's audience skewing young, engaged, and high-income by GWI's own numbers. A Twitch RPG survey from February 2023 found 44% of US Twitch viewers had bought something on a streamer's recommendation, and Amazon Marketing Cloud's 2023 research found viewers were 67% more likely to consider a brand that supports a streamer they watch, with 79% wanting a long-term relationship with that brand rather than a one-off placement. That's the gap between where attention actually sits and where budgets are still allocated. Brands working out where that gap applies to them can see how it plays out in our [Twitch advertising](/twitch-advertising) work and [case studies](/case-studies), or read more in [Dentsu's 2025 Gaming Trends Report](/blog/dentsu-2025-gaming-trends-report-nordic-twitch-advertising).\n\n## The Practical Takeaway\n\nWhether the question is which category to stream, which creator to watch, or which channel to advertise on, the 2025 and early-2026 data says the same thing three different ways: Just Chatting is the biggest room in the house and keeps getting bigger, Counter-Strike is the one legacy esport actually gaining ground, and most of the rest of the leaderboard is holding position rather than growing. Plan around what's actually true right now, not what was true two years ago.",
     date: "Feb 5, 2026",
     dateISO: "2026-02-05",
     readTime: "10 min read",
@@ -8491,102 +8307,9 @@ Ready to scope a 2026 Nordic creator portfolio matched to your brand category? [
     slug: "twitch-vs-youtube-gaming-2025",
     locale: "en",
     translationGroup: "twitch-vs-youtube-gaming-2025",
-    title: "Twitch vs YouTube Gaming vs Kick in 2025: Where Nordic Brand Budgets Should Actually Go",
-    excerpt: "Twitch lost 8.9% of hours watched in 2025 while YouTube Gaming gained 12% and Kick grew 131%. But raw market share tells a misleading story for advertisers. Here's the platform-by-platform breakdown for 2026 Nordic campaign planning.",
-    content: `## The Platform War Stopped Being One-Sided in 2025
-
-For most of the live streaming era, "[Twitch](/twitch-advertising)" was effectively synonymous with live streaming for Western audiences. Not in 2025. [Streams Charts' 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) shows Twitch's share of total hours watched declined year-over-year for the first time in the platform's history, while YouTube Gaming hit record viewership and Kick more than doubled.
-
-The market isn't shrinking - global live streaming reached **36.4 billion hours watched in 2025, up 6% YoY**. What's shifting is where the attention lands. For Nordic brand media planners, this is the single most important strategic change to account for heading into 2026.
-
-## Market Share in Hours Watched
-
-| Platform | 2025 Hours | YoY Change | Share |
-|---|---|---|---|
-| Twitch | 19.2B | −8.9% | 52.8% |
-| YouTube Gaming | 8.8B | +12% | 24.3% |
-| Kick | 4.5B | +131% | 12.4% |
-| Others (Rumble, Trovo, regional) | 3.9B | - | 10.5% |
-
-Source: [Streams Charts 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025).
-
-Twitch still carries over half of the total hours watched, and for most Nordic advertiser use cases it remains the primary buy. But the "long-tail" 24%+ of the audience that now lives on YouTube Gaming and Kick is no longer a rounding error - it's a buyable inventory pool where CPMs are measurably lower and audience attention is distinct.
-
-## Platform-by-Platform Breakdown
-
-### Twitch - the mature primary channel
-
-- **Strengths:** deep creator infrastructure, brand-deal fluency, established attribution tooling, strongest Just Chatting inventory in the Nordic region
-- **Weaknesses:** slowing growth, aging middle-tier creators, CPM has risen as supply contracts
-- **Nordic audience shape:** 18–34 gaming + Just Chatting + IRL, heavily localised in native languages
-- **Best for:** primary reach in any Nordic 18–34 campaign; the single most reliable inventory pool
-
-### YouTube Gaming - the record-growth underdog
-
-- **2025 was YouTube Gaming's biggest year ever**, with [8.8B hours watched](https://blog.youtube/creator-and-artist-stories/youtube-gaming-2025-wrapped/) - 12% YoY growth
-- **Strengths:** integrated with YouTube's creator economy, stronger VOD carryover than Twitch, better mobile-first viewing
-- **Weaknesses:** live-chat engagement is lower than Twitch, less developed brand-deal ecosystem
-- **Nordic audience shape:** skews slightly older than Twitch (22–38), stronger representation in mobile gaming, music, and variety
-- **Best for:** brands wanting reach extension beyond Twitch; particularly effective for mobile apps, music, and kids-adjacent content
-
-### Kick - the high-growth emerging platform
-
-- **4.5B hours watched, up 131% YoY** - the fastest growth of any platform in 2025
-- **Strengths:** lower CPMs, 21+ creators now averaging 10K+ viewers (doubled from 2024 per [Creator Handbook](https://www.creatorhandbook.net/)), fast-growing Just Chatting (+68%) and IRL (+337%) categories
-- **Weaknesses:** gambling content still 11% of total (brand-safety filter required), analytics maturity below Twitch
-- **Nordic audience shape:** smaller than Twitch locally but rising; top international creators like Maherco (+345% YoY) and xQc moving real audience over
-- **Best for:** test budgets and CPM arbitrage in 2026 before pricing compresses
-
-### The "others" tier
-
-Rumble, Trovo, regional platforms - aggregate 10.5% of global hours but highly geography-dependent. For Nordic campaigns specifically, these are mostly outside the addressable pool except for niche cases.
-
-## Why YouTube Gaming's +12% Growth Changes the Math for Nordic Brands
-
-The historic assumption was that YouTube Gaming was where VOD carryover lived but not a primary live destination. [YouTube's official 2025 creator report](https://blog.youtube/creator-and-artist-stories/youtube-gaming-2025-wrapped/) challenges that. The platform's live audience grew every quarter of 2025. For Nordic brands running coordinated Twitch + YouTube campaigns, the two channels are now comparable enough that a unified reporting framework is realistic - which wasn't the case two years ago.
-
-Specifically: the Nordic 22–38 demographic, which has historically been an awkward audience to reach on Twitch (too old for core Fortnite/Valorant viewership) lives on YouTube Gaming in meaningful numbers. For brands in that age target - finance, SaaS, travel, consumer electronics upgrade cycles - YouTube Gaming inventory is worth an explicit budget line.
-
-## Why Kick's 131% Growth Needs a Deliberate 2026 Test Budget
-
-[Streams Charts documented](https://streamscharts.com/news/kick-reaches-100-million-users) that Kick crossed 100M registered users in April 2026. The growth is real, but the advertiser-relevant signal is the doubling of the 10K+ avg viewer creator tier - that's the inventory advertisers can buy against. [Awisee's 2025 analysis](https://awisee.com/blog/twitch-cpm-rates/) suggests Kick CPMs run 30–50% below comparable Twitch inventory in most regions.
-
-The historical pattern (Twitch 2018–2020, TikTok 2020–2022): when an ad platform doubles inventory year-over-year, there's a 12–18 month window where advertiser demand hasn't caught up and CPMs stay low. Brands that test Kick inventory in 2026 will pay less than brands waiting until 2027.
-
-Beta Ads ran a [Komplett retail campaign](/case-study/komplett) that combined Twitch + Kick in a single 34-creator activation, delivering **151,278 views and 4.48% peak-day CTR** - an early proof point that unified cross-platform native campaigns work operationally.
-
-![A Kick stream with a native overlay ad rendered inside the video frame](/lovable-uploads/screenshot-kick.jpg)
-
-## The Platform Allocation Framework for 2026 Nordic Campaigns
-
-For a hypothetical Nordic consumer-brand launch with a 12-creator activation:
-
-| Platform | Allocation | Why |
-|---|---|---|
-| Twitch | 55–65% | Primary reach, deepest Nordic inventory, most verified attribution |
-| YouTube Gaming | 20–25% | Reach extension, slightly older demo, mobile-strong |
-| Kick | 10–15% | Test budget, CPM arbitrage, fast-growing Just Chatting and IRL |
-| Others | 0% | No material Nordic inventory as of 2026 |
-
-The shape varies by category. Gaming peripherals weight Twitch higher; lifestyle and travel brands can weight YouTube Gaming up. A brand running full-year always-on inventory should structure this as monthly mix tracking rather than a fixed ratio.
-
-## How Beta Ads Handles Cross-Platform Nordic Campaigns
-
-The Beta Ads platform indexes 39,000+ Nordic creators across all three major platforms with unified targeting (category, language, audience demographic) and consolidated reporting (CTR, verified clicks, on-stream time per creator per platform). A single Nordic campaign brief can deploy simultaneously across Twitch, YouTube Gaming, and Kick with one creative production workflow and one post-campaign report - which is the practical thing that makes multi-platform spending actually feasible for mid-budget Nordic campaigns.
-
-## Action Items for 2026 Platform Allocation
-
-1. **Stop treating "Twitch" as the whole live streaming market.** YouTube Gaming's +12% and Kick's +131% aren't footnotes.
-2. **Add a YouTube Gaming budget line explicitly.** If your plan doesn't have one, you're missing reach in the 22–38 demo.
-3. **Test Kick inventory in 2026.** CPM will compress through 2027; first-mover brands capture the discount.
-4. **Require unified cross-platform reporting.** Separate Twitch + YouTube + Kick reports from different vendors = three weeks of post-campaign reconciliation. Unified reporting makes the cross-platform plan actually defensible.
-5. **Re-evaluate allocation quarterly.** These platform shares are moving fast; a frozen 2026 Q1 plan is already out of date by Q3.
-
-Ready to scope a 2026 cross-platform Nordic plan? [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through the allocation logic against your brand category.
-
----
-
-*Sources: [Streams Charts - 2025 Yearly Report](https://streamscharts.com/reports/streaming-industry-yearly-report-2025) · [YouTube Blog - YouTube Gaming 2025 Wrapped](https://blog.youtube/creator-and-artist-stories/youtube-gaming-2025-wrapped/) · [Streams Charts - Kick 100M users](https://streamscharts.com/news/kick-reaches-100-million-users) · [Creator Handbook](https://www.creatorhandbook.net/) · [Awisee - Twitch CPM rates 2025](https://awisee.com/blog/twitch-cpm-rates/) · [Beta Ads - Komplett case study](/case-study/komplett)*`,
+    title: "Twitch vs YouTube Gaming vs Kick in 2026: The Honest Platform Comparison",
+    excerpt: "Twitch still holds 51.3% of hours watched but is the only one of the three losing ground year over year, YouTube Gaming grew 14.63%, and Kick grew 65.35% and just crossed 100 million users. Real Stream Hatchet Q1 2026 numbers, no invented stats.",
+    content: "## Twitch vs YouTube Gaming vs Kick: Nobody Has Won This Yet\n\nIf you came here looking for a clean verdict, mid-2026 will not give you one. Twitch is still the biggest live streaming platform by a wide margin. It is also still shrinking, quarter after quarter. YouTube Gaming just had one of its best growth stretches ever. Kick crossed 100 million users this spring and its own co-founder called that milestone \"more of a vanity\" number than a real win. All three of those things are true at once, and all three come from the same quarterly tracking data, not from marketing decks.\n\nThis is an honest read on where each platform actually stands right now: viewership, growth, creator economics, and where each one seems to be heading, with a source named next to every number.\n\n## The Q1 2026 Numbers, Straight From the Tracker\n\nStream Hatchet (the GameSquare-owned analytics firm that Twitch, YouTube, and most agencies use as the industry benchmark) published its Q1 2026 Live-Streaming Trends Report in May. Here is what it found for hours watched:\n\n| Platform | Hours Watched, Q1 2026 | Year-over-Year | Share of Hours Watched |\n|---|---|---|---|\n| Twitch | 4.55 billion | down 13.68% | 51.3% |\n| YouTube Gaming | 2.22 billion | up 14.63% | 25.1% |\n| Kick | 1.27 billion | up 65.35% | 14.4% |\n\nSource: Stream Hatchet's Q1 2026 Live-Streaming Trends Report.\n\nTwo things jump out. Twitch is still bigger than YouTube Gaming and Kick combined. And Twitch is the only one of the three losing ground year over year. Kick's growth rate looks dramatic, but it is growing from a much smaller base: even after 65% growth, Kick's total watch time is still a quarter of Twitch's.\n\n## Twitch in 2026: Biggest, and Still Losing Hours\n\nTwitch's 4.55 billion hours watched in Q1 2026 was actually up 3.9% from the previous quarter, so the platform isn't in freefall week to week. But compared to Q1 2025's 5.27 billion hours, that's a drop of about 721 million hours in a single year, per Stream Hatchet. It's also not just a viewership story: unique channels streaming on Twitch fell 5.5% year over year too, even as Twitch still hosts 80.3% of all unique channels tracked across these platforms.\n\nTwitch's advantage has never really been raw growth. It's depth: the biggest back catalog of games and Just Chatting content, the most mature moderation and discovery tools, and a creator base that has spent a decade building on it. CEO Dan Clancy has been public about wanting to pull Twitch's identity away from \"gaming platform\" toward reaching, in his words, entertainers who happen to game, and about easing off disruptive pre-roll ads specifically when viewers are browsing for something new to watch. Whether that repositioning stops the bleeding is the open question for the back half of 2026.\n\n## YouTube Gaming: The Quiet Compounder\n\nYouTube Gaming's growth is less flashy than Kick's but arguably more interesting. Hours watched grew 14.63% year over year to 2.22 billion in Q1 2026 (Stream Hatchet), while the number of unique channels on the platform actually fell almost 10% over the same period. Fewer channels are pulling in more total watch time, which usually means viewers are concentrating around a smaller set of bigger creators rather than the audience spreading out.\n\nThat pattern fits how YouTube Gaming has always worked: it benefits from being bolted onto the largest video platform on earth, with VOD, Shorts, and search discovery doing a lot of the audience-building work that Twitch and Kick have to do live, in real time, with no algorithmic safety net.\n\n## Kick: 100 Million Users, and a Founder Who Says It Isn't Enough\n\nKick announced in April 2026 that it had passed 100 million registered users, a little under three years after its January 2023 launch. Co-founder Bijan Tehrani's own comment on the milestone was refreshingly blunt: he called it \"more of a vanity\" achievement and said the platform still wasn't where it needed to be, pointing to unresolved discovery problems and a mobile app due for a full rebuild.\n\nThe underlying numbers back up both halves of that statement. Kick's hours watched grew 65.35% year over year in Q1 2026, and Streams Charts reported the platform was topping 500 million hours watched in a single month by March 2026. Unique channels grew even faster, up 54.49% year over year, which suggests a lot of that growth is smaller streamers testing the platform rather than an established audience settling in.\n\nKick's pitch to creators hasn't changed: a 95/5 revenue split on subscriptions, funded in part by co-founders Tehrani and Ed Craven, who say they've put close to a billion dollars into the platform since it launched. That split is still the single biggest reason creators try Kick. It's also why some, like Amouranth, have moved money-first deals to Kick and later returned to Twitch: the split is generous, but the audience-building and ad infrastructure around it is still catching up.\n\n## Where Does TikTok Live Fit?\n\nTikTok Live doesn't slot neatly into a \"Twitch vs Kick vs YouTube\" comparison because most of its watch time isn't gaming at all: it's live shopping, IRL, and general entertainment. But gaming's footprint on it is growing. In Stream Hatchet's Q1 2026 report, TikTok Live's overall watch time fell roughly 12% quarter over quarter, while gaming content's share of that watch time rose by almost 3 percentage points in the same period. That's a platform shrinking overall while gaming specifically gains ground inside it, which is the opposite pattern from what's happening on Twitch.\n\nPractically, TikTok Live is worth watching as a discovery layer, especially for mobile-first and casual games, rather than as a like-for-like competitor to the other three yet.\n\n## Creator Economics: Where the Money Actually Sits\n\n- **Twitch** still runs primarily on subscriptions and Bits rather than ads, with a maturing ad marketplace layered on top and new formats, like brand-funded \"Sponsored Subscriptions,\" being tested.\n- **Kick** wins on the headline revenue split (95/5) but its advertising side is still immature: there's no fully self-serve ad marketplace yet, so most brand deals get negotiated streamer by streamer.\n- **YouTube Gaming** inherits YouTube's full ad infrastructure and VOD monetization, which is the most mature of the three, even though live-specific tools lag Twitch's.\n\nNone of the three has \"solved\" creator monetization. They've each optimized for a different piece of it: Twitch for community-funded income, Kick for take-rate, YouTube Gaming for scale and ad tooling.\n\n## So Where Should You Actually Put Your Time?\n\nIf you're a viewer or a streamer trying to decide where to spend your time in the second half of 2026, the honest answer depends on what you're optimizing for:\n\n- **Want the deepest catalog and the most reliable discovery tools?** Twitch still wins on depth, even while it loses hours.\n- **Want a growing audience with strong algorithmic reach beyond the live moment?** YouTube Gaming's VOD and Shorts pipeline is doing real work.\n- **Want to get in early on a platform still shaping its own rules, with a generous revenue split?** Kick's growth is real, but so are its rough edges.\n- **Casual or mobile-first?** TikTok Live's gaming lane is small but growing inside a platform most of your audience is already on.\n\n## A Note for the Brand Side\n\nNone of this is only a curiosity for viewers and streamers. Advertisers track the same quarterly numbers, because gaming audiences carry real buying influence that most media plans still underprice: Twitch's own Twitch RPG research (February 2023, US, n=792) found 44% of viewers had bought something on a streamer's recommendation, and Amazon Marketing Cloud data from the same year found viewers were 67% more likely to consider a brand that supports their favorite streamer, with 79% wanting brands to build long-term relationships with creators rather than one-off drops. Yet gaming still pulls in under 5% of overall media investment, according to eMarketer. We go deeper on that gap, and on the 3.4 billion gamers Newzoo counts worldwide, in our breakdown of [Dentsu's 2025 Gaming Trends Report](/blog/dentsu-2025-gaming-trends-report-nordic-twitch-advertising). If you're weighing whether the next test budget belongs on Twitch or on Kick, our guides to [Twitch advertising](/twitch-advertising) and [Kick advertising](/kick-advertising) go further into format, pricing, and what each platform is actually good for right now.\n\n## The Bottom Line for Mid-2026\n\nTwitch is still the center of gravity, but it's the only one of the three losing hours watched year over year. YouTube Gaming is growing quietly and consolidating around fewer, bigger channels. Kick is growing fast in absolute terms while its own leadership admits the platform still has real gaps to close. None of that is settled, and Stream Hatchet and Streams Charts both publish fresh numbers every quarter, so treat this as a snapshot, not a final answer, and check back as 2026 plays out.",
     date: "Apr 23, 2026",
     dateISO: "2026-04-23",
     readTime: "9 min read",
@@ -12007,6 +11730,24 @@ Brands we already work with have direct login access. Agency partners managing m
     seoDescription: {"en":"Dentsu's 2025 Gaming Trends Report puts real numbers behind what live-streaming advertisers have been arguing for years: gaming still gets under 5% of media budgets despite 3.4 billion players and 8.9 billion hours watched on livestreaming platforms in a single quarter. Here is what the report's actual data means for brands buying Twitch in the Nordics.","no":"Dentsus Gaming Trends Report 2025 setter konkrete tall bak det live-streaming-annonsører har hevdet i årevis: gaming får fortsatt under 5 % av mediebudsjettene, til tross for 3,4 milliarder spillere og 8,9 milliarder timer sett på livestreamingplattformer i løpet av ett enkelt kvartal. Her er hva rapportens faktiske data betyr for merkevarer som kjøper Twitch i Norden.","sv":"Dentsus Gaming Trends Report 2025 sätter konkreta siffror bakom det livestreaming-annonsörer har hävdat i åratal: gaming får fortfarande under 5 % av mediebudgetarna, trots 3,4 miljarder spelare och 8,9 miljarder timmar tittade på livestreamingplattformar under ett enda kvartal. Här är vad rapportens faktiska data betyder för varumärken som köper Twitch i Norden.","da":"Dentsus Gaming Trends Report 2025 sætter konkrete tal bag det, livestreaming-annoncører har hævdet i årevis: gaming får stadig under 5 % af mediebudgetterne, på trods af 3,4 milliarder spillere og 8,9 milliarder timers seertid på livestreamingplatforme i løbet af et enkelt kvartal. Her er, hvad rapportens faktiske data betyder for brands, der køber Twitch i Norden.","fi":"Dentsun Gaming Trends Report 2025 tuo konkreettiset luvut sen tueksi, mitä livestriimausmainonnan tekijät ovat väittäneet vuosia: gaming saa yhä alle 5 % mediabudjeteista, vaikka pelaajia on 3,4 miljardia ja livestriimausalustoilla katsottiin 8,9 miljardia tuntia yhden ainoan vuosineljänneksen aikana. Tässä on, mitä raportin todelliset luvut tarkoittavat brändeille, jotka ostavat Twitchiä Pohjoismaissa."},
     seoKeywords: {"en":["Dentsu gaming report","gaming trends 2025","Twitch advertising","livestream advertising Nordics","gaming ad spend","Nordic Twitch ads"],"no":["Dentsu gaming rapport","gaming trender 2025","Twitch-annonsering","livestream-annonsering Norden","gaming annonsebudsjett"],"sv":["Dentsu gaming rapport","gaming trender 2025","Twitch-annonsering","livestream-annonsering Norden","gaming annonsbudget"],"da":["Dentsu gaming rapport","gaming trends 2025","Twitch-annoncering","livestream-annoncering Norden","gaming annoncebudget"],"fi":["Dentsu gaming raportti","gaming trendit 2025","Twitch-mainonta","suoratoistomainonta Pohjoismaat","gaming mainosbudjetti"]},
   },
+  {
+    id: "twitch-advertising-cost-nordic-guide",
+    slug: "twitch-advertising-cost-nordic-guide",
+    title: "What Does Twitch Advertising Cost? An Honest Nordic Guide",
+    excerpt: "No platform publishes a Twitch advertising cost sheet, and that's the point. Here's how CPM programmatic buys and flat-fee creator deals actually get priced, the five variables that move the number, and why Nordic campaigns price differently.",
+    content: "If you searched \"how much does Twitch advertising cost,\" or you're trying to pin down a straight \"Twitch ads price,\" here's the honest answer up front: nobody publishes one, not even Twitch. Amazon Ads, which runs Twitch's ad exchange, doesn't post a rate card. Its own advertiser guides route standard video buys to a self-serve entry point and send anything larger to an account executive for a negotiated quote.\n\nThat's not evasiveness. It reflects how the pricing actually works. Two genuinely different products get sold under the same \"Twitch advertising\" label, priced by different mechanics, and both move on category, geography, timing and who's on stream. This guide breaks down those two models, the five variables that actually move the number, why Nordic campaigns price differently than US ones, and what to bring to a first conversation so you get a real quote instead of a guess.\n\n## The two pricing models behind Twitch advertising cost\n\nLive-streaming advertising splits into two mechanically different products. Confusing them is the single biggest reason people get surprised by a quote.\n\n### CPM-based programmatic and overlay buys\n\nThis is advertising bought the way most digital video is bought: per thousand impressions (CPM), priced by auction rather than a fixed sticker. You, or your agency, set a budget and a target or maximum CPM. The exchange fills that budget with impressions across eligible inventory: pre-roll and mid-roll video, plus newer interactive overlay formats that render inside the stream itself instead of interrupting it.\n\nAmazon's own advertising documentation confirms the self-service tier of this has no minimum spend, so a small brand can technically buy in on almost any budget. What Amazon does not publish is the CPM itself. It moves in real time based on who else is bidding for the same audience at the same moment, which is exactly why every \"average Twitch CPM\" figure floating around marketing blogs disagrees with the next one you open. They're describing an auction, not a price.\n\n### Flat-fee creator integrations\n\nThis is a different transaction entirely: a negotiated deal directly with a streamer or their agency, priced as a flat fee for a defined deliverable. That might be an overlay running for a set duration, a dedicated segment, a mention, clip and VOD rights, sometimes category exclusivity. There's no exchange here, and no published rate card either, because the price is a negotiation between two parties, not an auction among many.\n\nWhat you're really paying for is the creator's average concurrent viewership, how well their content fits your category, and how much of their attention they're willing to sell you. The lack of a public standard is exactly why a small industry of CCV-based rate calculators has grown up around this format: people building rough formulas to fill a gap no platform has filled with an official number.\n\n## The five real cost drivers\n\nWhichever model you're buying, the same five variables move the price up or down.\n\n- **Category.** Just Chatting and major esports titles draw broad, brand-safe audiences that a lot of advertisers compete for, which pushes demand up. Niche or mature-rated categories draw a narrower buyer pool.\n- **Audience geography.** Where the viewers actually are matters more than where the stream is hosted. A stream with a majority-Nordic audience prices differently than one with a majority-US or fully global one.\n- **Seasonality.** Like most digital ad inventory, demand isn't flat across the year. Retail and gaming-adjacent categories compete harder for attention around major shopping and release windows, and that competition is what moves the price, not the calendar itself.\n- **Creator tier.** A partner-level streamer with a large, consistent, engaged audience and a track record of brand-safe delivery commands a different price than a micro-streamer, independent of raw viewer count, because tier also buys predictability and production quality.\n- **Format.** A five-second pre-roll, a mid-roll break, a persistent overlay and a dedicated live segment are not the same product. Formats that require more of the creator's active attention, or that integrate into the stream instead of interrupting it, generally cost more than a standard video ad slot.\n\n## Why Nordic audiences price differently\n\nTwo things pull in opposite directions in the Nordics, and both are true at once.\n\nNordic audiences carry real purchasing power, and advertisers know it. Norwegian, Swedish, Danish and Finnish viewers are attractive to categories like finance, telecom, gaming hardware and travel precisely because disposable income per viewer tends to run high. Amazon Marketing Cloud data from 2023, as cited in [Dentsu's 2025 Gaming Trends Report](/blog/dentsu-2025-gaming-trends-report-nordic-twitch-advertising), found viewers were 67% more likely to consider a brand after seeing it supported by a streamer they follow, and that 79% wanted a long-term relationship with that brand rather than a one-off mention. That's exactly the kind of durable affinity a high-income audience makes commercially worthwhile.\n\nAt the same time, the Nordic countries are small language markets. There simply aren't that many Norwegian-, Swedish-, Danish- or Finnish-speaking streamers with meaningful concurrent viewership, compared to the enormous pool of English-language creators competing for global advertiser budgets. Fewer sellers with genuinely local, native-language reach means less price competition pushing rates down. You're not buying a slice of a massive open market. You're buying scarce, targeted access to a specific national audience, and that scarcity shows up in the number.\n\nBoth dynamics sit against a backdrop that's easy to miss. Gaming and livestreaming audiences are enormous: Newzoo counts 3.4 billion gamers worldwide, and Stream Hatchet tracked 8.9 billion livestreaming hours watched in Q1 2025 alone. Yet gaming still accounts for under 5% of total media investment, according to eMarketer data cited in Dentsu's 2025 Gaming Trends Report. A Twitch Research Power Group survey of US viewers (February 2023, n=792), also cited in Dentsu's report, found 44% had bought a product on a streamer's recommendation. The audience and the buying behavior are both already there. In smaller Nordic markets especially, the ad budgets are still catching up.\n\n## How to scope a first campaign\n\nA real quote needs four inputs, not a budget guess. Before reaching out to any agency, know:\n\n- **Your goal.** Awareness, consideration, or a direct response action such as sign-ups or sales calls for different formats and different creators, and changes what \"cost-effective\" even means.\n- **Your market.** Norway, Sweden, Denmark, Finland, or pan-Nordic? Native-language creator access and audience geography are priced differently market by market.\n- **A budget bracket, not a fixed number.** Even a rough range, test campaign versus always-on program, lets an agency recommend the right model (programmatic reach or a creator integration) instead of forcing one model to fit a mismatched budget.\n- **Your timeline.** Seasonality and creator calendars both matter. Locking a top-tier streamer or a Q4 slot takes longer to arrange than a self-serve programmatic buy.\n\n## If you hold the media budget\n\nEverything above is written for the person searching the cost question, usually a streamer, a fan, or someone new to the category. If you're the one holding a media budget, the mechanics are the same, but the real question shifts to strategy: which platform, format and creator mix actually reach your Nordic audience efficiently. We cover that in more depth on our [Twitch advertising](/twitch-advertising) page, and the Dentsu 2025 Gaming Trends Report has the fuller regional data behind the Nordic numbers above, [in our breakdown of it](/blog/dentsu-2025-gaming-trends-report-nordic-twitch-advertising).\n\n## Get an honest number\n\nWe won't publish a fake price range here just to rank higher, and we won't quote you one over a form field either. What we will do is look at your goal, market and timeline and tell you plainly what a campaign like yours actually costs to run well. [Contact us](/contact) for a scoped quote, or browse [real campaign outcomes](/case-studies) first if you want proof before the conversation.",
+    date: "July 8, 2026",
+    dateISO: "2026-07-08",
+    readTime: "6 min read",
+    image: "/lovable-uploads/blog-twitch-cpm-media-buying-guide-2026-hero.jpg",
+    category: "Guides",
+    tags: ["Twitch Advertising Cost","CPM","Media Buying","Nordic Advertising","Pricing","Live Stream Advertising"],
+    locale: "en",
+    translationGroup: "twitch-advertising-cost-nordic-guide",
+    seoTitle: {"en":"What Does Twitch Advertising Cost? An Honest Nordic Guide","no":"Hva koster Twitch-annonsering? En ærlig nordisk guide","sv":"Vad kostar Twitch-annonsering? En ärlig nordisk guide","da":"Hvad koster Twitch-annoncering? En ærlig nordisk guide","fi":"Mitä Twitch-mainonta maksaa? Rehellinen Pohjoismaiden opas"},
+    seoDescription: {"en":"No platform publishes a Twitch advertising cost sheet, and that's the point. Here's how CPM programmatic buys and flat-fee creator deals actually get price...","no":"Ingen plattform publiserer et prisark for Twitch-annonsering, og det er nettopp poenget. Her er hvordan CPM-baserte programmatiske kjøp og faste avtaler me...","sv":"Ingen plattform publicerar ett prisark för Twitch-annonsering, och det är poängen. Här är hur CPM-baserade programmatiska köp och fasta avtal med kreatörer...","da":"Ingen platform offentliggør et prisark for Twitch-annoncering, og det er netop pointen. Her er, hvordan CPM-baserede programmatiske køb og faste aftaler me...","fi":"Yksikään alusta ei julkaise Twitch-mainonnan hinnastoa, ja juuri siinä on pointti. Tässä käydään läpi, miten CPM-pohjaiset ohjelmalliset ostot ja kiinteähi..."},
+    seoKeywords: {"en":["twitch advertising cost","how much does twitch advertising cost","twitch ads price","twitch cpm","nordic twitch advertising","livestream advertising cost"],"no":["hva koster twitch-annonsering","twitch annonsering pris","twitch reklame kostnad","twitch cpm","nordisk twitch annonsering","livestream annonsering pris"],"sv":["vad kostar twitch-reklam","twitch reklam pris","twitch annonsering kostnad","twitch cpm","nordisk twitch reklam","livestream reklam pris"],"da":["hvad koster twitch-annoncering","twitch annoncering pris","twitch reklame omkostning","twitch cpm","nordisk twitch annoncering","livestream annoncering pris"],"fi":["mitä twitch-mainonta maksaa","twitch mainonta hinta","twitch mainos kustannus","twitch cpm","pohjoismainen twitch mainonta","suoratoisto mainonta hinta"]},
+  },
   // ── Localized cornerstone posts (generated; see src/data/blog/posts-*.ts) ──
   ...posts_no,
   ...posts_sv,
@@ -12091,7 +11832,6 @@ const UNPUBLISHED_GROUPS = new Set([
   "micro-streamer-roi-nordic-brands-2026",
   "mid-tier-streamer-sweet-spot-live-advertising-2026",
   "most-watched-game-publishers-livestreaming-2026",
-  "most-watched-twitch-games-2025",
   "multistreaming-revolution-nordic-brands-2026",
   "native-stream-ads-vs-display-ads",
   "nintendo-dominerer-livestreaming-2026",
@@ -12126,8 +11866,6 @@ const UNPUBLISHED_GROUPS = new Set([
   "twitch-recommendation-algorithm-advertisers-2026",
   "twitch-session-length-brand-recall-2026",
   "twitch-shoppable-ads-live-commerce-nordic-2026",
-  "twitch-statistics-2025-global-insights",
-  "twitch-vs-youtube-gaming-2025",
   "why-native-stream-ads-outperform-3-to-1",
   "women-esports-streaming-advertising-audience-2026",
   "youtube-live-advertising-nordic-2026",
