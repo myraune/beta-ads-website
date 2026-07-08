@@ -258,20 +258,23 @@ const TwitchAdvertisingCost: React.FC = () => {
               Inventory tightens around game launches and the holidays. Q1 and Q2 are the best-value windows of the year; Q4 runs at a premium. Directional, not to scale.
             </p>
           </div>
+          {/* Bars are DIRECT children of the fixed-height row so their % height
+              resolves against a definite-height parent. Labels sit in a matched
+              row below. */}
           <div className="flex items-end gap-2 sm:gap-4 h-56">
-            {season.map((s) => {
-              const peak = s.v >= 90;
-              return (
-                <div key={s.m} className="flex-1 flex flex-col items-center gap-3">
-                  <div
-                    className={`w-full rounded-t-md ${peak ? "bg-primary" : "bg-primary/25"}`}
-                    style={{ height: `${s.v}%` }}
-                    aria-label={`${s.m}: directional price ${s.v}`}
-                  />
-                  <span className="text-[10px] sm:text-xs text-muted-foreground">{s.m}</span>
-                </div>
-              );
-            })}
+            {season.map((s) => (
+              <div
+                key={s.m}
+                className={`flex-1 rounded-t-md ${s.v >= 90 ? "bg-primary" : "bg-primary/25"}`}
+                style={{ height: `${s.v}%` }}
+                aria-label={`${s.m}: directional price ${s.v}`}
+              />
+            ))}
+          </div>
+          <div className="flex gap-2 sm:gap-4 mt-3">
+            {season.map((s) => (
+              <span key={s.m} className="flex-1 text-center text-[10px] sm:text-xs text-muted-foreground">{s.m}</span>
+            ))}
           </div>
           <div className="flex items-center gap-6 mt-6 text-xs text-muted-foreground">
             <span className="inline-flex items-center gap-2"><span className="w-3 h-3 rounded-sm bg-primary/25" /> Value window</span>
