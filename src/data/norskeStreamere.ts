@@ -912,7 +912,7 @@ export const CREATORS: CreatorProfile[] = [
         tone: "positive",
       },
       {
-        title: "JonieBoi — Twitch-kanalprofil",
+        title: "JonieBoi: Twitch-kanalprofil",
         url: "https://www.twitch.tv/jonieboi",
         source: "Twitch",
         date: "2026",
@@ -921,7 +921,7 @@ export const CREATORS: CreatorProfile[] = [
         tone: "neutral",
       },
       {
-        title: "Jonieboi — Streamer Overview & Stats",
+        title: "Jonieboi: Streamer Overview & Stats",
         url: "https://twitchtracker.com/channels/ranking/norwegian",
         source: "TwitchTracker",
         date: "2026",
@@ -1100,7 +1100,7 @@ export const CREATORS: CreatorProfile[] = [
     ],
     news: [
       {
-        title: "Mystixx — Streamer Overview & Stats",
+        title: "Mystixx: Streamer Overview & Stats",
         url: "https://twitchtracker.com/mystixx",
         source: "TwitchTracker",
         date: "ukjent",
@@ -1118,7 +1118,7 @@ export const CREATORS: CreatorProfile[] = [
         tone: "positive",
       },
       {
-        title: "Mystixx — Twitch Stats, Analytics and Channel Overview",
+        title: "Mystixx: Twitch Stats, Analytics and Channel Overview",
         url: "https://streamscharts.com/channels/mystixx",
         source: "Streams Charts",
         date: "ukjent",
@@ -1127,7 +1127,7 @@ export const CREATORS: CreatorProfile[] = [
         tone: "neutral",
       },
       {
-        title: "Mystixx — Streamer & Innholdsskaper",
+        title: "Mystixx: Streamer & Innholdsskaper",
         url: "https://mystixx.no/",
         source: "mystixx.no",
         date: "ukjent",

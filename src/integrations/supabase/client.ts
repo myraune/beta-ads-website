@@ -8,10 +8,29 @@ const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 
-export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
-  auth: {
-    storage: localStorage,
-    persistSession: true,
-    autoRefreshToken: true,
+// Launch guard: these env vars are baked in at build time. If they are missing
+// (e.g. misconfigured in the deployment environment), calling createClient with
+// undefined throws at import — which would white-screen any page that imports the
+// client. Fall back to inert placeholders so import never throws; form calls then
+// fail as a caught network error (the caller shows an error toast) instead of
+// crashing the app. When the env vars are set, behaviour is unchanged.
+export const isSupabaseConfigured = Boolean(SUPABASE_URL && SUPABASE_PUBLISHABLE_KEY);
+
+if (!isSupabaseConfigured) {
+  // eslint-disable-next-line no-console
+  console.error(
+    "[supabase] Missing VITE_SUPABASE_URL / VITE_SUPABASE_PUBLISHABLE_KEY — form submissions are disabled. Set these in the deployment environment."
+  );
+}
+
+export const supabase = createClient<Database>(
+  SUPABASE_URL || "https://unconfigured.supabase.co",
+  SUPABASE_PUBLISHABLE_KEY || "unconfigured",
+  {
+    auth: {
+      storage: localStorage,
+      persistSession: true,
+      autoRefreshToken: true,
+    },
   }
-});
+);

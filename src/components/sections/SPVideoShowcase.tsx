@@ -382,12 +382,9 @@ const LiveStreamDemo: React.FC = () => {
 
         {/* Sponsored panel - same Samsung creative as the in-stream banner.
             max-w-sm to match a real Twitch sponsorship panel proportions. */}
-        <a
-          href="#"
-          onClick={(e) => e.preventDefault()}
-          className="group block rounded-md overflow-hidden bg-black ring-1 ring-[#2f2f35] hover:ring-[#4f4f55] transition-colors max-w-sm"
-          aria-label="Samsung Galaxy S25 Ultra sponsored panel"
-        >
+        {/* Illustrative panel only (mimics a Twitch sponsorship panel); not a real
+            link, so render as a div to avoid a keyboard-focusable dead target. */}
+        <div className="group block rounded-md overflow-hidden bg-black ring-1 ring-[#2f2f35] hover:ring-[#4f4f55] transition-colors max-w-sm">
           <div className="relative">
             <img
               src={BANNER_IMG}
@@ -410,7 +407,7 @@ const LiveStreamDemo: React.FC = () => {
               Sjekk ut →
             </span>
           </div>
-        </a>
+        </div>
       </div>
     </div>
   );

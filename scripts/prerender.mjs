@@ -41,11 +41,17 @@ const STATIC_ROUTES = [
   "/",
   "/norge",
   "/twitch-advertising",
+  "/twitch-advertising-cost",
   "/youtube-advertising",
   "/kick-advertising",
+  "/kick-advertising-cost",
   "/streamers",
   "/about",
   "/blog",
+  "/blog/norge",
+  "/blog/sverige",
+  "/blog/suomi",
+  "/blog/danmark",
   "/contact",
   "/demo",
   "/press",
@@ -69,6 +75,14 @@ function getBlogSlugs() {
   const src = fs.readFileSync(path.join(ROOT, "src/data/blogPosts.ts"), "utf-8");
   // Match slug values from the data array (skip the interface property declaration)
   const matches = [...src.matchAll(/^\s+slug:\s*["']([^"']+)["']/gm)];
+  return matches.map((m) => m[1]);
+}
+
+// Norwegian streamer-profile handles for /streamere/:handle — each renders its own
+// canonical, Person JSON-LD and og:image, so they must be prerendered too.
+function getStreamerHandles() {
+  const src = fs.readFileSync(path.join(ROOT, "src/data/norskeStreamere.ts"), "utf-8");
+  const matches = [...src.matchAll(/^\s+handle:\s*["']([^"']+)["']/gm)];
   return matches.map((m) => m[1]);
 }
 
@@ -165,9 +179,11 @@ async function main() {
   }
 
   const blogSlugs = getBlogSlugs();
+  const streamerHandles = getStreamerHandles();
   const allRoutes = [
     ...STATIC_ROUTES,
     ...blogSlugs.map((s) => `/blog/${s}`),
+    ...streamerHandles.map((h) => `/streamere/${h}`),
   ];
 
   console.log(`\n🚀 Starting pre-render of ${allRoutes.length} routes…\n`);

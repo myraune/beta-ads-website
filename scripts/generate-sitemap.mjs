@@ -128,8 +128,16 @@ function urlEntry({ loc, lastmod, changefreq, priority, image, imageTitle }) {
   return lines.join("\n");
 }
 
+// Norwegian streamer-profile handles for /streamere/:handle — indexable pages
+// (own canonical + Person JSON-LD), so they belong in the sitemap.
+function parseStreamerHandles() {
+  const src = fs.readFileSync(path.join(ROOT, "src/data/norskeStreamere.ts"), "utf-8");
+  return [...src.matchAll(/^\s+handle:\s*["']([^"']+)["']/gm)].map((m) => m[1]);
+}
+
 async function main() {
   const blogPosts = await parseBlogPosts();
+  const streamerHandles = parseStreamerHandles();
 
   const staticEntries = STATIC_PAGES.map((p) =>
     urlEntry({
@@ -155,6 +163,15 @@ async function main() {
     })
   );
 
+  const streamerEntries = streamerHandles.map((h) =>
+    urlEntry({
+      loc:        `${BASE_URL}/streamere/${h}`,
+      lastmod:    TODAY,
+      changefreq: "monthly",
+      priority:   "0.6",
+    })
+  );
+
   const xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
@@ -162,6 +179,9 @@ async function main() {
     "",
     "  <!-- ── Static pages ── -->",
     staticEntries.join("\n\n"),
+    "",
+    "  <!-- ── Norwegian streamer profiles ── -->",
+    streamerEntries.join("\n\n"),
     "",
     "  <!-- ── Blog posts (with image sitemap data) ── -->",
     blogEntries.join("\n\n"),
@@ -173,7 +193,7 @@ async function main() {
   fs.writeFileSync(outPath, xml, "utf-8");
 
   console.log(
-    `✅ sitemap.xml generated — ${STATIC_PAGES.length} static + ${blogPosts.length} blog posts (${STATIC_PAGES.length + blogPosts.length} total URLs)`
+    `✅ sitemap.xml generated — ${STATIC_PAGES.length} static + ${streamerHandles.length} streamer + ${blogPosts.length} blog posts (${STATIC_PAGES.length + streamerHandles.length + blogPosts.length} total URLs)`
   );
 }
 
