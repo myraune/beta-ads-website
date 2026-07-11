@@ -11854,8 +11854,27 @@ const UNPUBLISHED_GROUPS = new Set([
   "long-term-streamer-partnerships-vs-one-off-campaigns-2026",
 ]);
 
+// The 8 B2B/media-planning posts were finished for launch: reviewed for sourcing
+// (no fabricated external stats — operating heuristics only) and given real branded
+// hero images. Publish the English canonical of each by slug override, while their
+// auto-translated localized versions (-no/-sv/-da/-fi) stay parked in
+// UNPUBLISHED_GROUPS until they get the same review pass.
+const PUBLISHED_OVERRIDE_SLUGS = new Set([
+  "b2b-brands-live-streaming-advertising-2026",
+  "creator-brief-authentic-integration-templates-2026",
+  "incremental-sales-lift-twitch-sponsorship-measurement-2026",
+  "nordic-fast-channels-brand-advertising-2026",
+  "nordic-streaming-media-planning-calendar-2026",
+  "streamer-clip-usage-rights-paid-media-2026",
+  "streaming-ad-frequency-capping-wearout-2026",
+  "twitch-community-events-brand-activation-2026",
+]);
+
 export const blogPosts: BlogPost[] = _allBlogPostsRaw.filter(
-  (p) => !p.translationGroup || !UNPUBLISHED_GROUPS.has(p.translationGroup)
+  (p) =>
+    PUBLISHED_OVERRIDE_SLUGS.has(p.slug) ||
+    !p.translationGroup ||
+    !UNPUBLISHED_GROUPS.has(p.translationGroup)
 );
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
