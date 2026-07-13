@@ -160,19 +160,25 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
       {/* ── Mascot ── */}
       <section className="relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 pb-16 lg:pb-24">
-          <div className="relative rounded-3xl overflow-hidden border border-border">
-            <img
-              src="/lovable-uploads/beta-mascot-present.jpg"
-              alt="Beta, the Beta Ads mascot, presenting a native stream overlay"
-              className="w-full object-cover"
-              style={{ maxHeight: '440px' }}
-              width={1200}
-              height={686}
-              loading="lazy"
-            />
-            <div className="absolute bottom-0 inset-x-0 p-6 md:p-10 bg-gradient-to-t from-black/70 to-transparent">
-              <p className="text-white text-lg md:text-xl font-light max-w-md">
-                Meet Beta - our mascot, and the friendly face of native advertising that streamers and viewers actually welcome.
+          <div className="rounded-3xl overflow-hidden border border-border bg-card grid md:grid-cols-2 items-stretch">
+            <div className="relative min-h-[320px] overflow-hidden bg-[#0c0c0f]">
+              <div
+                className="absolute inset-0"
+                style={{ background: "radial-gradient(120% 90% at 40% 8%, rgba(233,79,55,0.20), transparent 62%)" }}
+              />
+              <img
+                src="/lovable-uploads/beta-mascot-cut-pointing.png"
+                alt="Beta, the Beta Ads mascot"
+                className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[92%] w-auto object-contain drop-shadow-2xl"
+                width={657}
+                height={820}
+                loading="lazy"
+              />
+            </div>
+            <div className="p-10 md:p-14 flex flex-col justify-center">
+              <span className="text-[11px] uppercase tracking-[0.22em] text-primary mb-3 font-semibold">Meet Beta</span>
+              <p className="text-foreground text-xl md:text-2xl font-light leading-relaxed max-w-md">
+                Our mascot, and the friendly face of native advertising that streamers and viewers actually welcome.
               </p>
             </div>
           </div>

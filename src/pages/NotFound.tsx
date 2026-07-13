@@ -17,13 +17,19 @@ const NotFound = () => {
         noindex={true}
       />
       <div className="text-center max-w-lg">
-        <img
-          src="/lovable-uploads/beta-mascot-404.jpg"
-          alt="Beta Ads mascot shrugging at a lost-signal error"
-          className="w-full max-w-md mx-auto rounded-2xl shadow-xl mb-8"
-          width={1200}
-          height={686}
-        />
+        <div className="relative w-full max-w-sm mx-auto h-72 rounded-2xl overflow-hidden bg-[#0c0c0f] ring-1 ring-white/10 mb-8">
+          <div
+            className="absolute inset-0"
+            style={{ background: "radial-gradient(120% 90% at 50% 8%, rgba(233,79,55,0.18), transparent 62%)" }}
+          />
+          <img
+            src="/lovable-uploads/beta-mascot-cut-shrug.png"
+            alt="Beta Ads mascot shrugging"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[92%] w-auto object-contain drop-shadow-2xl"
+            width={735}
+            height={820}
+          />
+        </div>
         <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Error 404</span>
         <h1 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-3">Looks like this one went offline</h1>
         <p className="text-muted-foreground mb-8">

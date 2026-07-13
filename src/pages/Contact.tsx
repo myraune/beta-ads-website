@@ -58,13 +58,17 @@ const Contact: React.FC = () => {
                 Whether you're a brand planning a campaign, an agency looking for a new format, or a streamer wanting to monetize - we're easy to reach.
               </p>
             </div>
-            <div className="hidden lg:block">
+            <div className="hidden lg:block relative h-[440px] rounded-3xl overflow-hidden bg-[#0c0c0f] ring-1 ring-white/10">
+              <div
+                className="absolute inset-0"
+                style={{ background: "radial-gradient(120% 90% at 42% 8%, rgba(233,79,55,0.20), transparent 62%)" }}
+              />
               <img
-                src="/lovable-uploads/beta-mascot-wave.jpg"
-                alt="Beta Ads mascot with incoming chat and email notifications"
-                className="w-full rounded-3xl shadow-2xl ring-1 ring-white/10"
-                width={1200}
-                height={686}
+                src="/lovable-uploads/beta-mascot-cut-wave.png"
+                alt="Beta Ads mascot waving hello"
+                className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[94%] w-auto object-contain drop-shadow-2xl"
+                width={634}
+                height={820}
                 loading="eager"
               />
             </div>

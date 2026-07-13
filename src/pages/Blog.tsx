@@ -141,14 +141,20 @@ const Blog: React.FC = () => {
           {/* Posts */}
           {filteredPosts.length === 0 ? (
             <div className="text-center py-16">
-              <img
-                src="/lovable-uploads/beta-mascot-404.jpg"
-                alt="Beta Ads mascot shrugging - no articles found"
-                className="w-full max-w-xs mx-auto rounded-2xl shadow-lg mb-6"
-                width={1200}
-                height={686}
-                loading="lazy"
-              />
+              <div className="relative w-full max-w-[240px] mx-auto h-56 rounded-2xl overflow-hidden bg-[#0c0c0f] ring-1 ring-white/10 mb-6">
+                <div
+                  className="absolute inset-0"
+                  style={{ background: "radial-gradient(120% 90% at 50% 8%, rgba(233,79,55,0.16), transparent 62%)" }}
+                />
+                <img
+                  src="/lovable-uploads/beta-mascot-cut-shrug.png"
+                  alt="Beta Ads mascot shrugging - no articles found"
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[90%] w-auto object-contain drop-shadow-2xl"
+                  width={735}
+                  height={820}
+                  loading="lazy"
+                />
+              </div>
               <p className="text-lg text-foreground font-medium mb-1">
                 Nothing here yet
               </p>
