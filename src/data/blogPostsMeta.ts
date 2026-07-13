@@ -209,7 +209,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 16, 2026",
     dateISO: "2026-04-16",
     readTime: "9 min read",
-    image: "/lovable-uploads/blog-kick-q3-2025-growth-nordic-advertising-opportunity-hero.jpg",
+    image: "/lovable-uploads/blog-featured-kick-100m.png",
     category: "Industry Insights",
     tags: [
       "Kick",
@@ -330,7 +330,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 21, 2026",
     dateISO: "2026-04-21",
     readTime: "8 min read",
-    image: "/lovable-uploads/blog-first-party-data-streaming-hero.jpg",
+    image: "/lovable-uploads/blog-featured-twitch-overhaul.png",
     category: "Twitch Insights",
     tags: [
       "Twitch",
@@ -390,7 +390,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Mar 25, 2026",
     dateISO: "2026-03-25",
     readTime: "7 min read",
-    image: "/lovable-uploads/blog-how-to-brief-streamer-native-ad-2026-hero.jpg",
+    image: "/lovable-uploads/blog-featured-brief.png",
     category: "Guides",
     tags: [
       "creative brief",
@@ -1995,7 +1995,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "July 2, 2026",
     dateISO: "2026-07-02",
     readTime: "5 min read",
-    image: "/lovable-uploads/blog-dentsu-gaming-hero.png",
+    image: "/lovable-uploads/blog-featured-dentsu.png",
     category: "Industry Insights",
     tags: [
       "Gaming Trends",
@@ -2104,7 +2104,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Mar 25, 2026",
     dateISO: "2026-03-25",
     readTime: "7 min lesetid",
-    image: "/lovable-uploads/blog-how-to-brief-streamer-native-ad-2026-hero.jpg",
+    image: "/lovable-uploads/blog-featured-brief.png",
     category: "Guider",
     tags: [
       "creative brief",
@@ -2152,7 +2152,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 16, 2026",
     dateISO: "2026-04-16",
     readTime: "9 min lesetid",
-    image: "/lovable-uploads/blog-kick-q3-2025-growth-nordic-advertising-opportunity-hero.jpg",
+    image: "/lovable-uploads/blog-featured-kick-100m.png",
     category: "Bransjeinnsikt",
     tags: [
       "Kick",
@@ -2361,7 +2361,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 21, 2026",
     dateISO: "2026-04-21",
     readTime: "8 min lesetid",
-    image: "/lovable-uploads/blog-first-party-data-streaming-hero.jpg",
+    image: "/lovable-uploads/blog-featured-twitch-overhaul.png",
     category: "Twitch-innsikt",
     tags: [
       "Twitch",
@@ -2613,7 +2613,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "July 2, 2026",
     dateISO: "2026-07-02",
     readTime: "5 min lesetid",
-    image: "/lovable-uploads/blog-dentsu-gaming-hero.png",
+    image: "/lovable-uploads/blog-featured-dentsu.png",
     category: "Bransjeinnsikt",
     tags: [
       "Gaming Trends",
@@ -2722,7 +2722,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Mar 25, 2026",
     dateISO: "2026-03-25",
     readTime: "7 min läsning",
-    image: "/lovable-uploads/blog-how-to-brief-streamer-native-ad-2026-hero.jpg",
+    image: "/lovable-uploads/blog-featured-brief.png",
     category: "Guider",
     tags: [
       "creative brief",
@@ -2770,7 +2770,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 16, 2026",
     dateISO: "2026-04-16",
     readTime: "9 min läsning",
-    image: "/lovable-uploads/blog-kick-q3-2025-growth-nordic-advertising-opportunity-hero.jpg",
+    image: "/lovable-uploads/blog-featured-kick-100m.png",
     category: "Branschinsikter",
     tags: [
       "Kick",
@@ -2979,7 +2979,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 21, 2026",
     dateISO: "2026-04-21",
     readTime: "8 min läsning",
-    image: "/lovable-uploads/blog-first-party-data-streaming-hero.jpg",
+    image: "/lovable-uploads/blog-featured-twitch-overhaul.png",
     category: "Twitch-insikter",
     tags: [
       "Twitch",
@@ -3284,7 +3284,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "July 2, 2026",
     dateISO: "2026-07-02",
     readTime: "5 min läsning",
-    image: "/lovable-uploads/blog-dentsu-gaming-hero.png",
+    image: "/lovable-uploads/blog-featured-dentsu.png",
     category: "Branschinsikter",
     tags: [
       "Gaming Trends",
@@ -3401,7 +3401,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Mar 25, 2026",
     dateISO: "2026-03-25",
     readTime: "7 min læsning",
-    image: "/lovable-uploads/blog-how-to-brief-streamer-native-ad-2026-hero.jpg",
+    image: "/lovable-uploads/blog-featured-brief.png",
     category: "Guides",
     tags: [
       "creative brief",
@@ -3457,7 +3457,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 16, 2026",
     dateISO: "2026-04-16",
     readTime: "9 min læsning",
-    image: "/lovable-uploads/blog-kick-q3-2025-growth-nordic-advertising-opportunity-hero.jpg",
+    image: "/lovable-uploads/blog-featured-kick-100m.png",
     category: "Brancheindsigt",
     tags: [
       "Kick",
@@ -3698,7 +3698,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 21, 2026",
     dateISO: "2026-04-21",
     readTime: "8 min læsning",
-    image: "/lovable-uploads/blog-first-party-data-streaming-hero.jpg",
+    image: "/lovable-uploads/blog-featured-twitch-overhaul.png",
     category: "Twitch-indsigt",
     tags: [
       "Twitch",
@@ -4048,7 +4048,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "July 2, 2026",
     dateISO: "2026-07-02",
     readTime: "5 min læsning",
-    image: "/lovable-uploads/blog-dentsu-gaming-hero.png",
+    image: "/lovable-uploads/blog-featured-dentsu.png",
     category: "Brancheindsigt",
     tags: [
       "Gaming Trends",
@@ -4157,7 +4157,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Mar 25, 2026",
     dateISO: "2026-03-25",
     readTime: "7 min lukuaika",
-    image: "/lovable-uploads/blog-how-to-brief-streamer-native-ad-2026-hero.jpg",
+    image: "/lovable-uploads/blog-featured-brief.png",
     category: "Oppaat",
     tags: [
       "creative brief",
@@ -4205,7 +4205,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 16, 2026",
     dateISO: "2026-04-16",
     readTime: "9 min lukuaika",
-    image: "/lovable-uploads/blog-kick-q3-2025-growth-nordic-advertising-opportunity-hero.jpg",
+    image: "/lovable-uploads/blog-featured-kick-100m.png",
     category: "Toimialanäkemykset",
     tags: [
       "Kick",
@@ -4414,7 +4414,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 21, 2026",
     dateISO: "2026-04-21",
     readTime: "8 min lukuaika",
-    image: "/lovable-uploads/blog-first-party-data-streaming-hero.jpg",
+    image: "/lovable-uploads/blog-featured-twitch-overhaul.png",
     category: "Twitch-näkemykset",
     tags: [
       "Twitch",
@@ -4719,7 +4719,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "July 2, 2026",
     dateISO: "2026-07-02",
     readTime: "5 min lukuaika",
-    image: "/lovable-uploads/blog-dentsu-gaming-hero.png",
+    image: "/lovable-uploads/blog-featured-dentsu.png",
     category: "Toimialanäkemykset",
     tags: [
       "Gaming Trends",
