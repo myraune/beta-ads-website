@@ -151,7 +151,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 15, 2026",
     dateISO: "2026-04-15",
     readTime: "9 min read",
-    image: "/lovable-uploads/blog-streaming-sponsorship-creator-economy-hero.jpg",
+    image: "/lovable-uploads/blog-h-twitch-sponsored-campaigns-open-to-affiliates-2026.png",
     category: "Twitch Insights",
     tags: [
       "Twitch",
@@ -270,7 +270,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 20, 2026",
     dateISO: "2026-04-20",
     readTime: "7 min read",
-    image: "/lovable-uploads/blog-nordic-streaming-ad-budget-shift-hero.jpg",
+    image: "/lovable-uploads/blog-h-paid-amplification-creator-content-beyond-social-2026.png",
     category: "Industry Insights",
     tags: [
       "paid amplification",
@@ -441,7 +441,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 23, 2026",
     dateISO: "2026-04-23",
     readTime: "9 min read",
-    image: "/blog-photos/twitch/twitch-002.jpg",
+    image: "/lovable-uploads/blog-h-twitch-annonsering-norge-guide.png",
     category: "Guider",
     tags: [
       "norge",
@@ -496,7 +496,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 23, 2026",
     dateISO: "2026-04-23",
     readTime: "9 min read",
-    image: "/blog-photos/twitch/twitch-006.jpg",
+    image: "/lovable-uploads/blog-h-twitch-reklam-sverige-guide.png",
     category: "Guider",
     tags: [
       "sverige",
@@ -545,7 +545,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 23, 2026",
     dateISO: "2026-04-23",
     readTime: "9 min read",
-    image: "/blog-photos/twitch/twitch-011.jpg",
+    image: "/lovable-uploads/blog-h-twitch-mainonta-suomi-opas.png",
     category: "Oppaat",
     tags: [
       "suomi",
@@ -595,7 +595,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Feb 5, 2026",
     dateISO: "2026-02-05",
     readTime: "14 min read",
-    image: "/lovable-uploads/blog-twitch-statistics-2025-hero.jpg",
+    image: "/lovable-uploads/blog-h-twitch-statistics-2025-global-insights.png",
     category: "Statistics & Data",
     tags: [
       "twitch",
@@ -645,7 +645,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 23, 2026",
     dateISO: "2026-04-23",
     readTime: "8 min read",
-    image: "/blog-photos/streamers/streamers-007.jpg",
+    image: "/lovable-uploads/blog-h-norwegian-twitch-streamers-2025-analytics.png",
     category: "Nordic Insights",
     tags: [
       "norway",
@@ -753,7 +753,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 23, 2026",
     dateISO: "2026-04-23",
     readTime: "9 min read",
-    image: "/blog-photos/twitch/twitch-010.jpg",
+    image: "/lovable-uploads/blog-h-twitch-vs-youtube-gaming-2025.png",
     category: "Industry Insights",
     tags: [
       "twitch",
@@ -803,7 +803,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 23, 2026",
     dateISO: "2026-04-23",
     readTime: "8 min read",
-    image: "/lovable-uploads/blog-swedish-twitch-streamers-2025-hero.jpg",
+    image: "/lovable-uploads/blog-h-swedish-twitch-streamers-2025.png",
     category: "Nordic Insights",
     tags: [
       "sweden",
@@ -851,7 +851,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 23, 2026",
     dateISO: "2026-04-23",
     readTime: "8 min read",
-    image: "/lovable-uploads/blog-finnish-twitch-streamers-2025-hero.jpg",
+    image: "/lovable-uploads/blog-h-finnish-twitch-streamers-2025.png",
     category: "Nordic Insights",
     tags: [
       "finland",
@@ -901,7 +901,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 23, 2026",
     dateISO: "2026-04-23",
     readTime: "9 min read",
-    image: "/lovable-uploads/blog-kick-streaming-growth-2025-hero.jpg",
+    image: "/lovable-uploads/blog-h-kick-streaming-growth-2025.png",
     category: "Industry Insights",
     tags: [
       "kick",
@@ -953,7 +953,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Mar 27, 2026",
     dateISO: "2026-03-27",
     readTime: "9 min read",
-    image: "/lovable-uploads/blog-creator-marketing-lifecycle-hero.jpg",
+    image: "/lovable-uploads/blog-h-creator-marketing-lifecycle-broken-how-to-fix-2026.png",
     category: "Guides",
     tags: [
       "creator marketing",
@@ -1167,7 +1167,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "26. juni 2026",
     dateISO: "2026-06-26",
     readTime: "6 min",
-    image: "/lovable-uploads/blog-norske-streamere-2026-hero.jpg",
+    image: "/lovable-uploads/blog-h-norske-twitch-streamere-2026.png",
     category: "Innsikt",
     tags: [
       "norske streamere",
@@ -2054,7 +2054,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Mar 27, 2026",
     dateISO: "2026-03-27",
     readTime: "9 min lesetid",
-    image: "/lovable-uploads/blog-creator-marketing-lifecycle-hero.jpg",
+    image: "/lovable-uploads/blog-h-creator-marketing-lifecycle-broken-how-to-fix-2026.png",
     category: "Guider",
     tags: [
       "creator marketing",
@@ -2207,7 +2207,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 23, 2026",
     dateISO: "2026-04-23",
     readTime: "9 min lesetid",
-    image: "/lovable-uploads/blog-kick-streaming-growth-2025-hero.jpg",
+    image: "/lovable-uploads/blog-h-kick-streaming-growth-2025.png",
     category: "Bransjeinnsikt",
     tags: [
       "kick",
@@ -2306,7 +2306,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 20, 2026",
     dateISO: "2026-04-20",
     readTime: "7 min lesetid",
-    image: "/lovable-uploads/blog-nordic-streaming-ad-budget-shift-hero.jpg",
+    image: "/lovable-uploads/blog-h-paid-amplification-creator-content-beyond-social-2026.png",
     category: "Bransjeinnsikt",
     tags: [
       "paid amplification",
@@ -2416,7 +2416,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 15, 2026",
     dateISO: "2026-04-15",
     readTime: "9 min lesetid",
-    image: "/lovable-uploads/blog-streaming-sponsorship-creator-economy-hero.jpg",
+    image: "/lovable-uploads/blog-h-twitch-sponsored-campaigns-open-to-affiliates-2026.png",
     category: "Twitch-innsikt",
     tags: [
       "Twitch",
@@ -2469,7 +2469,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Feb 5, 2026",
     dateISO: "2026-02-05",
     readTime: "14 min lesetid",
-    image: "/lovable-uploads/blog-twitch-statistics-2025-hero.jpg",
+    image: "/lovable-uploads/blog-h-twitch-statistics-2025-global-insights.png",
     category: "Statistikk og data",
     tags: [
       "twitch",
@@ -2515,7 +2515,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 23, 2026",
     dateISO: "2026-04-23",
     readTime: "9 min lesetid",
-    image: "/blog-photos/twitch/twitch-010.jpg",
+    image: "/lovable-uploads/blog-h-twitch-vs-youtube-gaming-2025.png",
     category: "Bransjeinnsikt",
     tags: [
       "twitch",
@@ -2672,7 +2672,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Mar 27, 2026",
     dateISO: "2026-03-27",
     readTime: "9 min läsning",
-    image: "/lovable-uploads/blog-creator-marketing-lifecycle-hero.jpg",
+    image: "/lovable-uploads/blog-h-creator-marketing-lifecycle-broken-how-to-fix-2026.png",
     category: "Guider",
     tags: [
       "creator marketing",
@@ -2825,7 +2825,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 23, 2026",
     dateISO: "2026-04-23",
     readTime: "9 min läsning",
-    image: "/lovable-uploads/blog-kick-streaming-growth-2025-hero.jpg",
+    image: "/lovable-uploads/blog-h-kick-streaming-growth-2025.png",
     category: "Branschinsikter",
     tags: [
       "kick",
@@ -2924,7 +2924,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 20, 2026",
     dateISO: "2026-04-20",
     readTime: "7 min läsning",
-    image: "/lovable-uploads/blog-nordic-streaming-ad-budget-shift-hero.jpg",
+    image: "/lovable-uploads/blog-h-paid-amplification-creator-content-beyond-social-2026.png",
     category: "Branschinsikter",
     tags: [
       "paid amplification",
@@ -3034,7 +3034,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 15, 2026",
     dateISO: "2026-04-15",
     readTime: "9 min läsning",
-    image: "/lovable-uploads/blog-streaming-sponsorship-creator-economy-hero.jpg",
+    image: "/lovable-uploads/blog-h-twitch-sponsored-campaigns-open-to-affiliates-2026.png",
     category: "Twitch-insikter",
     tags: [
       "Twitch",
@@ -3087,7 +3087,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Feb 5, 2026",
     dateISO: "2026-02-05",
     readTime: "14 min läsning",
-    image: "/lovable-uploads/blog-twitch-statistics-2025-hero.jpg",
+    image: "/lovable-uploads/blog-h-twitch-statistics-2025-global-insights.png",
     category: "Statistik och data",
     tags: [
       "twitch",
@@ -3186,7 +3186,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 23, 2026",
     dateISO: "2026-04-23",
     readTime: "9 min läsning",
-    image: "/blog-photos/twitch/twitch-010.jpg",
+    image: "/lovable-uploads/blog-h-twitch-vs-youtube-gaming-2025.png",
     category: "Branschinsikter",
     tags: [
       "twitch",
@@ -3343,7 +3343,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Mar 27, 2026",
     dateISO: "2026-03-27",
     readTime: "9 min læsning",
-    image: "/lovable-uploads/blog-creator-marketing-lifecycle-hero.jpg",
+    image: "/lovable-uploads/blog-h-creator-marketing-lifecycle-broken-how-to-fix-2026.png",
     category: "Guides",
     tags: [
       "creator marketing",
@@ -3520,7 +3520,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 23, 2026",
     dateISO: "2026-04-23",
     readTime: "9 min læsning",
-    image: "/lovable-uploads/blog-kick-streaming-growth-2025-hero.jpg",
+    image: "/lovable-uploads/blog-h-kick-streaming-growth-2025.png",
     category: "Brancheindsigt",
     tags: [
       "kick",
@@ -3635,7 +3635,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 20, 2026",
     dateISO: "2026-04-20",
     readTime: "7 min læsning",
-    image: "/lovable-uploads/blog-nordic-streaming-ad-budget-shift-hero.jpg",
+    image: "/lovable-uploads/blog-h-paid-amplification-creator-content-beyond-social-2026.png",
     category: "Brancheindsigt",
     tags: [
       "paid amplification",
@@ -3761,7 +3761,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 15, 2026",
     dateISO: "2026-04-15",
     readTime: "9 min læsning",
-    image: "/lovable-uploads/blog-streaming-sponsorship-creator-economy-hero.jpg",
+    image: "/lovable-uploads/blog-h-twitch-sponsored-campaigns-open-to-affiliates-2026.png",
     category: "Twitch-indsigt",
     tags: [
       "Twitch",
@@ -3822,7 +3822,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Feb 5, 2026",
     dateISO: "2026-02-05",
     readTime: "14 min læsning",
-    image: "/lovable-uploads/blog-twitch-statistics-2025-hero.jpg",
+    image: "/lovable-uploads/blog-h-twitch-statistics-2025-global-insights.png",
     category: "Statistik og data",
     tags: [
       "twitch",
@@ -3935,7 +3935,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 23, 2026",
     dateISO: "2026-04-23",
     readTime: "9 min læsning",
-    image: "/blog-photos/twitch/twitch-010.jpg",
+    image: "/lovable-uploads/blog-h-twitch-vs-youtube-gaming-2025.png",
     category: "Brancheindsigt",
     tags: [
       "twitch",
@@ -4107,7 +4107,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Mar 27, 2026",
     dateISO: "2026-03-27",
     readTime: "9 min lukuaika",
-    image: "/lovable-uploads/blog-creator-marketing-lifecycle-hero.jpg",
+    image: "/lovable-uploads/blog-h-creator-marketing-lifecycle-broken-how-to-fix-2026.png",
     category: "Oppaat",
     tags: [
       "creator marketing",
@@ -4260,7 +4260,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 23, 2026",
     dateISO: "2026-04-23",
     readTime: "9 min lukuaika",
-    image: "/lovable-uploads/blog-kick-streaming-growth-2025-hero.jpg",
+    image: "/lovable-uploads/blog-h-kick-streaming-growth-2025.png",
     category: "Toimialanäkemykset",
     tags: [
       "kick",
@@ -4359,7 +4359,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 20, 2026",
     dateISO: "2026-04-20",
     readTime: "7 min lukuaika",
-    image: "/lovable-uploads/blog-nordic-streaming-ad-budget-shift-hero.jpg",
+    image: "/lovable-uploads/blog-h-paid-amplification-creator-content-beyond-social-2026.png",
     category: "Toimialanäkemykset",
     tags: [
       "paid amplification",
@@ -4469,7 +4469,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 15, 2026",
     dateISO: "2026-04-15",
     readTime: "9 min lukuaika",
-    image: "/lovable-uploads/blog-streaming-sponsorship-creator-economy-hero.jpg",
+    image: "/lovable-uploads/blog-h-twitch-sponsored-campaigns-open-to-affiliates-2026.png",
     category: "Twitch-näkemykset",
     tags: [
       "Twitch",
@@ -4522,7 +4522,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Feb 5, 2026",
     dateISO: "2026-02-05",
     readTime: "14 min lukuaika",
-    image: "/lovable-uploads/blog-twitch-statistics-2025-hero.jpg",
+    image: "/lovable-uploads/blog-h-twitch-statistics-2025-global-insights.png",
     category: "Tilastot ja data",
     tags: [
       "twitch",
@@ -4621,7 +4621,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     date: "Apr 23, 2026",
     dateISO: "2026-04-23",
     readTime: "9 min lukuaika",
-    image: "/blog-photos/twitch/twitch-010.jpg",
+    image: "/lovable-uploads/blog-h-twitch-vs-youtube-gaming-2025.png",
     category: "Toimialanäkemykset",
     tags: [
       "twitch",
