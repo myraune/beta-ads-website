@@ -47,15 +47,27 @@ const Contact: React.FC = () => {
         <AnimatedShaderBackground heightFactor={0.85} />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-28">
-          <div className="max-w-2xl">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">Contact</span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6">
-              Let's<br />
-              <span style={{ fontFamily: "'Instrument Serif', serif" }} className="italic font-normal">talk.</span>
-            </h1>
-            <p className="text-lg text-white/60 leading-relaxed max-w-md">
-              Whether you're a brand planning a campaign, an agency looking for a new format, or a streamer wanting to monetize - we're easy to reach.
-            </p>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-2xl">
+              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">Contact</span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6">
+                Let's<br />
+                <span style={{ fontFamily: "'Instrument Serif', serif" }} className="italic font-normal">talk.</span>
+              </h1>
+              <p className="text-lg text-white/60 leading-relaxed max-w-md">
+                Whether you're a brand planning a campaign, an agency looking for a new format, or a streamer wanting to monetize - we're easy to reach.
+              </p>
+            </div>
+            <div className="hidden lg:block">
+              <img
+                src="/lovable-uploads/beta-mascot-wave.jpg"
+                alt="Beta Ads mascot with incoming chat and email notifications"
+                className="w-full rounded-3xl shadow-2xl ring-1 ring-white/10"
+                width={1200}
+                height={686}
+                loading="eager"
+              />
+            </div>
           </div>
         </div>
       </section>
