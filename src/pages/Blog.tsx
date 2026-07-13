@@ -140,9 +140,20 @@ const Blog: React.FC = () => {
 
           {/* Posts */}
           {filteredPosts.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="text-lg text-muted-foreground mb-2">
-                No articles found
+            <div className="text-center py-16">
+              <img
+                src="/lovable-uploads/beta-mascot-404.jpg"
+                alt="Beta Ads mascot shrugging - no articles found"
+                className="w-full max-w-xs mx-auto rounded-2xl shadow-lg mb-6"
+                width={1200}
+                height={686}
+                loading="lazy"
+              />
+              <p className="text-lg text-foreground font-medium mb-1">
+                Nothing here yet
+              </p>
+              <p className="text-sm text-muted-foreground mb-5">
+                No articles match your search. Try a different term or clear the filters.
               </p>
               <button
                 onClick={() => {

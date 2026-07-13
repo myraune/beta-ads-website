@@ -14,7 +14,18 @@ export const StreamerCTA: React.FC = () => {
       }`}
     >
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+        <div className="rounded-3xl border border-border overflow-hidden bg-card flex flex-col lg:flex-row items-stretch">
+          <div className="lg:w-2/5 relative min-h-[220px] lg:min-h-0">
+            <img
+              src="/lovable-uploads/beta-mascot-success.jpg"
+              alt="Beta Ads mascot giving a thumbs up"
+              className="absolute inset-0 w-full h-full object-cover"
+              width={1200}
+              height={686}
+              loading="lazy"
+            />
+          </div>
+          <div className="flex-1 p-8 md:p-12 lg:p-14 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
           <div className="max-w-xl">
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-3">
               Ready to start earning?
@@ -23,8 +34,8 @@ export const StreamerCTA: React.FC = () => {
               Apply in 2 minutes. Start receiving offers as soon as you're approved.
             </p>
           </div>
-          
-          <div className="flex flex-col items-start lg:items-end gap-3">
+
+          <div className="flex flex-col items-start lg:items-end gap-3 shrink-0">
             <a 
               href="https://beta.streamer.livad.stream/login" 
               target="_blank" 
@@ -47,6 +58,7 @@ export const StreamerCTA: React.FC = () => {
             >
               Already a member? Sign in
             </a>
+          </div>
           </div>
         </div>
       </div>

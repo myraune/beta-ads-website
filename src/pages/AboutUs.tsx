@@ -157,6 +157,28 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
         </div>
       </section>
 
+      {/* ── Mascot ── */}
+      <section className="relative">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 pb-16 lg:pb-24">
+          <div className="relative rounded-3xl overflow-hidden border border-border">
+            <img
+              src="/lovable-uploads/beta-mascot-present.jpg"
+              alt="Beta, the Beta Ads mascot, presenting a native stream overlay"
+              className="w-full object-cover"
+              style={{ maxHeight: '440px' }}
+              width={1200}
+              height={686}
+              loading="lazy"
+            />
+            <div className="absolute bottom-0 inset-x-0 p-6 md:p-10 bg-gradient-to-t from-black/70 to-transparent">
+              <p className="text-white text-lg md:text-xl font-light max-w-md">
+                Meet Beta - our mascot, and the friendly face of native advertising that streamers and viewers actually welcome.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── Story ── */}
       <section className="relative border-t border-foreground/[0.06]">
         <div

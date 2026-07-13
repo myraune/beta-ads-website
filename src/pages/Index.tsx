@@ -5,6 +5,7 @@ import { SPBrands } from "@/components/sections/SPBrands";
 import { SPFeatures } from "@/components/sections/SPFeatures";
 import { SPVideoShowcase } from "@/components/sections/SPVideoShowcase";
 import { SPUseCases } from "@/components/sections/SPUseCases";
+import { MeetBeta } from "@/components/sections/MeetBeta";
 import { SPCTA } from "@/components/sections/SPCTA";
 import { SPFooter } from "@/components/sections/SPFooter";
 // SEO fix: FAQ section added so FAQPage JSON-LD schema matches visible page content
@@ -118,6 +119,7 @@ const Index: React.FC = () => {
         <SPFeatures />
         <SPVideoShowcase />
         <SPUseCases />
+        <MeetBeta />
         <SPCTA />
         <HomepageFAQ />
         <SPFooter />
