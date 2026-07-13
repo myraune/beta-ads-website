@@ -17,13 +17,18 @@ export const MeetBeta: React.FC = () => {
         }`}
       >
         <div className="rounded-3xl border border-border overflow-hidden bg-card grid lg:grid-cols-2 items-stretch">
-          <div className="relative min-h-[260px] lg:min-h-0 order-1 lg:order-none">
+          <div className="relative min-h-[340px] lg:min-h-0 order-1 lg:order-none overflow-hidden bg-[#0c0c0f]">
+            {/* soft brand glow behind the floating mascot */}
+            <div
+              className="absolute inset-0"
+              style={{ background: "radial-gradient(120% 90% at 35% 8%, rgba(233,79,55,0.20), transparent 62%)" }}
+            />
             <img
-              src="/lovable-uploads/beta-mascot-onair.jpg"
-              alt="Beta, the Beta Ads mascot, live on stream"
-              className="absolute inset-0 w-full h-full object-cover"
-              width={1200}
-              height={686}
+              src="/lovable-uploads/beta-mascot-cut-wave.png"
+              alt="Beta, the Beta Ads mascot, waving hello"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[94%] w-auto object-contain drop-shadow-2xl"
+              width={634}
+              height={820}
               loading="lazy"
             />
           </div>
