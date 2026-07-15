@@ -5,77 +5,77 @@
   <!-- ── Static pages ── -->
   <url>
     <loc>https://beta-ads.no/</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/case-studies</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/twitch-advertising</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/twitch-advertising-cost</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/kick-advertising-cost</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/kick-advertising</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/press</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/norge</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/youtube-advertising</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/streamers</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/case-study/samsung</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <image:image>
@@ -86,7 +86,7 @@
 
   <url>
     <loc>https://beta-ads.no/case-study/samsung-fold7</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -97,7 +97,7 @@
 
   <url>
     <loc>https://beta-ads.no/case-study/surfshark</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -108,7 +108,7 @@
 
   <url>
     <loc>https://beta-ads.no/case-study/saily</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -119,7 +119,7 @@
 
   <url>
     <loc>https://beta-ads.no/case-study/shure</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -130,7 +130,7 @@
 
   <url>
     <loc>https://beta-ads.no/case-study/glorious</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -141,7 +141,7 @@
 
   <url>
     <loc>https://beta-ads.no/case-study/gokstad</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -152,7 +152,7 @@
 
   <url>
     <loc>https://beta-ads.no/case-study/kristiania</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -163,7 +163,7 @@
 
   <url>
     <loc>https://beta-ads.no/case-study/komplett</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -174,7 +174,7 @@
 
   <url>
     <loc>https://beta-ads.no/case-study/nki</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -185,70 +185,70 @@
 
   <url>
     <loc>https://beta-ads.no/blog</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/blog/norge</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/blog/sverige</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/blog/suomi</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/blog/danmark</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/demo</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/contact</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/about</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/terms</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/privacy</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -256,70 +256,70 @@
   <!-- ── Norwegian streamer profiles ── -->
   <url>
     <loc>https://beta-ads.no/streamere/mrsavage</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/streamere/knut</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/streamere/detoo</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/streamere/emzia</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/streamere/thomaspaste</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/streamere/klokkismann</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/streamere/dennisvareide</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/streamere/jonieboi</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/streamere/danniz</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
     <loc>https://beta-ads.no/streamere/mystixx</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-07-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -353,7 +353,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-streaming-sponsorship-creator-economy-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-twitch-sponsored-campaigns-open-to-affiliates-2026.png</image:loc>
       <image:title>Twitch Opens Sponsored Campaigns to Affiliates: What the Minecraft Tiny Takeover Means for Nordic Brand Advertising</image:title>
     </image:image>
   </url>
@@ -364,7 +364,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-kick-q3-2025-growth-nordic-advertising-opportunity-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-kick-100m.png</image:loc>
       <image:title>Kick Just Hit 100 Million Users. Its Co-Founder Called It a Vanity Metric. Here Is What Nordic Advertisers Should Take From That.</image:title>
     </image:image>
   </url>
@@ -375,7 +375,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-nordic-streaming-ad-budget-shift-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-paid-amplification-creator-content-beyond-social-2026.png</image:loc>
       <image:title>Creator Content Is Escaping Social Media: The $11 Billion Paid Amplification Shift Nordic Brands Should Understand</image:title>
     </image:image>
   </url>
@@ -386,7 +386,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-first-party-data-streaming-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-twitch-overhaul.png</image:loc>
       <image:title>Twitch Just Rewrote Its Data-Sharing Rules and Launched Vertical Streaming. Here Is What Changed for Advertisers.</image:title>
     </image:image>
   </url>
@@ -397,7 +397,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-how-to-brief-streamer-native-ad-2026-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-brief.png</image:loc>
       <image:title>How to Brief a Streamer for a Native Ad Integration: The Complete Guide</image:title>
     </image:image>
   </url>
@@ -408,7 +408,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/blog-photos/twitch/twitch-002.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-twitch-annonsering-norge-guide.png</image:loc>
       <image:title>Twitch-annonsering i Norge: Komplett Guide 2026</image:title>
     </image:image>
   </url>
@@ -419,7 +419,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/blog-photos/twitch/twitch-006.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-twitch-reklam-sverige-guide.png</image:loc>
       <image:title>Twitch-reklam i Sverige: Komplett Guide 2026</image:title>
     </image:image>
   </url>
@@ -430,7 +430,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/blog-photos/twitch/twitch-011.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-twitch-mainonta-suomi-opas.png</image:loc>
       <image:title>Twitch-mainonta Suomessa: Täydellinen opas 2026</image:title>
     </image:image>
   </url>
@@ -441,7 +441,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-twitch-statistics-2025-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-twitch-statistics-2025-global-insights.png</image:loc>
       <image:title>Twitch Statistics 2025: 19.2B Hours, Market Share &amp; Platform Trends</image:title>
     </image:image>
   </url>
@@ -452,7 +452,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/blog-photos/streamers/streamers-007.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-norwegian-twitch-streamers-2025-analytics.png</image:loc>
       <image:title>Top Norwegian Twitch Streamers 2025: The Creators Actually Moving Norwegian 18-34 Attention</image:title>
     </image:image>
   </url>
@@ -474,7 +474,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/blog-photos/twitch/twitch-010.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-twitch-vs-youtube-gaming-2025.png</image:loc>
       <image:title>Twitch vs YouTube Gaming vs Kick in 2026: The Honest Platform Comparison</image:title>
     </image:image>
   </url>
@@ -485,7 +485,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-swedish-twitch-streamers-2025-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-swedish-twitch-streamers-2025.png</image:loc>
       <image:title>Top Swedish Twitch Streamers 2025: Who Actually Holds Swedish 18-34 Attention</image:title>
     </image:image>
   </url>
@@ -496,7 +496,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-finnish-twitch-streamers-2025-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-finnish-twitch-streamers-2025.png</image:loc>
       <image:title>Top Finnish Twitch Streamers 2025: The Esports-Heritage Market Advertisers Miss</image:title>
     </image:image>
   </url>
@@ -507,7 +507,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-kick-streaming-growth-2025-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-kick-streaming-growth-2025.png</image:loc>
       <image:title>Kick's 131% Growth in 2025: What Nordic Advertisers Need to Know for 2026</image:title>
     </image:image>
   </url>
@@ -518,7 +518,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-creator-marketing-lifecycle-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-creator-marketing-lifecycle-broken-how-to-fix-2026.png</image:loc>
       <image:title>Why the Creator Marketing Lifecycle Is Broken - And How Smart Brands Are Fixing It</image:title>
     </image:image>
   </url>
@@ -562,7 +562,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-norske-streamere-2026-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-norske-twitch-streamere-2026.png</image:loc>
       <image:title>Norske Twitch-streamere du bør kjenne til i 2026</image:title>
     </image:image>
   </url>
@@ -694,7 +694,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-dentsu-gaming-hero.png</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-dentsu.png</image:loc>
       <image:title>Dentsu's 2025 Gaming Trends Report: What It Actually Means for Nordic Twitch Advertising</image:title>
     </image:image>
   </url>
@@ -705,7 +705,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-creator-marketing-lifecycle-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-creator-marketing-lifecycle-broken-how-to-fix-2026.png</image:loc>
       <image:title>Derfor er creator-markedsføringen din ødelagt, og slik fikser smarte merkevarer det</image:title>
     </image:image>
   </url>
@@ -716,7 +716,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-how-to-brief-streamer-native-ad-2026-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-brief.png</image:loc>
       <image:title>Slik briefer du en streamer for en nativ annonseintegrering: den komplette guiden</image:title>
     </image:image>
   </url>
@@ -727,7 +727,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-kick-q3-2025-growth-nordic-advertising-opportunity-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-kick-100m.png</image:loc>
       <image:title>Kick har passert 100 millioner brukere. Medgrunnnlegger kalte det en forfengelighetsmilestone. Her er hva nordiske annonsorer bor ta med seg.</image:title>
     </image:image>
   </url>
@@ -738,7 +738,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-kick-streaming-growth-2025-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-kick-streaming-growth-2025.png</image:loc>
       <image:title>Kick vokste 131% i 2025: Det nordiske annonsører må vite før 2026</image:title>
     </image:image>
   </url>
@@ -760,7 +760,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-nordic-streaming-ad-budget-shift-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-paid-amplification-creator-content-beyond-social-2026.png</image:loc>
       <image:title>Creatorinnhold bryter ut av sosiale medier: De 11 milliardene nordiske merkevarer bør forstå</image:title>
     </image:image>
   </url>
@@ -771,7 +771,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-first-party-data-streaming-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-twitch-overhaul.png</image:loc>
       <image:title>Twitch har skrevet om datadelingsreglene og lansert vertikalt streaming. Her er hva som endret seg for annonsører.</image:title>
     </image:image>
   </url>
@@ -782,7 +782,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-streaming-sponsorship-creator-economy-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-twitch-sponsored-campaigns-open-to-affiliates-2026.png</image:loc>
       <image:title>Twitch åpner sponsede kampanjer for Affiliates: Hva Minecraft Tiny Takeover betyr for nordisk merkevareannonsering</image:title>
     </image:image>
   </url>
@@ -793,7 +793,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-twitch-statistics-2025-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-twitch-statistics-2025-global-insights.png</image:loc>
       <image:title>Twitch-statistikk 2025: 19,2 milliarder timer, markedsandeler og plattformtrender</image:title>
     </image:image>
   </url>
@@ -804,7 +804,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/blog-photos/twitch/twitch-010.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-twitch-vs-youtube-gaming-2025.png</image:loc>
       <image:title>Twitch vs YouTube Gaming vs Kick i 2026: Den ærlige plattformsammenligningen</image:title>
     </image:image>
   </url>
@@ -826,7 +826,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-dentsu-gaming-hero.png</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-dentsu.png</image:loc>
       <image:title>Dentsus Gaming Trends Report 2025: Hva den faktisk betyr for nordisk Twitch-annonsering</image:title>
     </image:image>
   </url>
@@ -837,7 +837,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-creator-marketing-lifecycle-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-creator-marketing-lifecycle-broken-how-to-fix-2026.png</image:loc>
       <image:title>Därför är creator-marknadsföringens livscykel trasig, och hur smarta varumärken åtgärdar det</image:title>
     </image:image>
   </url>
@@ -848,7 +848,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-how-to-brief-streamer-native-ad-2026-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-brief.png</image:loc>
       <image:title>Så briefar du en streamer inför en nativ annonsintegrering: den kompletta guiden</image:title>
     </image:image>
   </url>
@@ -859,7 +859,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-kick-q3-2025-growth-nordic-advertising-opportunity-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-kick-100m.png</image:loc>
       <image:title>Kick har passerat 100 miljoner anvandare. Medgrundaren kallade det ett forfanglighetsmal. Har ar vad nordiska annonsorer bor ta med sig.</image:title>
     </image:image>
   </url>
@@ -870,7 +870,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-kick-streaming-growth-2025-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-kick-streaming-growth-2025.png</image:loc>
       <image:title>Kick växte 131% under 2025: Vad nordiska annonsörer behöver veta inför 2026</image:title>
     </image:image>
   </url>
@@ -892,7 +892,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-nordic-streaming-ad-budget-shift-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-paid-amplification-creator-content-beyond-social-2026.png</image:loc>
       <image:title>Creatorinnehåll lämnar sociala medier: De 11 miljarder som nordiska varumärken behöver förstå</image:title>
     </image:image>
   </url>
@@ -903,7 +903,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-first-party-data-streaming-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-twitch-overhaul.png</image:loc>
       <image:title>Twitch har skrivit om reglerna för datadelning och lanserat vertikalt streaming. Det här har förändrats för annonsörer.</image:title>
     </image:image>
   </url>
@@ -914,7 +914,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-streaming-sponsorship-creator-economy-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-twitch-sponsored-campaigns-open-to-affiliates-2026.png</image:loc>
       <image:title>Twitch öppnar sponsrade kampanjer för Affiliates: Vad Minecraft Tiny Takeover betyder för nordisk varumärkesannonsering</image:title>
     </image:image>
   </url>
@@ -925,7 +925,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-twitch-statistics-2025-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-twitch-statistics-2025-global-insights.png</image:loc>
       <image:title>Twitch-statistik 2025: 19,2 miljarder timmar, marknadsandelar och plattformstrender</image:title>
     </image:image>
   </url>
@@ -947,7 +947,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/blog-photos/twitch/twitch-010.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-twitch-vs-youtube-gaming-2025.png</image:loc>
       <image:title>Twitch vs YouTube Gaming vs Kick 2026: Den ärliga plattformsjämförelsen</image:title>
     </image:image>
   </url>
@@ -969,7 +969,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-dentsu-gaming-hero.png</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-dentsu.png</image:loc>
       <image:title>Dentsus Gaming Trends Report 2025: Vad den faktiskt betyder för nordisk Twitch-annonsering</image:title>
     </image:image>
   </url>
@@ -980,7 +980,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-creator-marketing-lifecycle-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-creator-marketing-lifecycle-broken-how-to-fix-2026.png</image:loc>
       <image:title>Sådan er creator-markedsføringens livscyklus gået i stykker, og hvad de klogeste brands gør ved det</image:title>
     </image:image>
   </url>
@@ -991,7 +991,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-how-to-brief-streamer-native-ad-2026-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-brief.png</image:loc>
       <image:title>Sådan briefer du en streamer til en nativ annonceringsintegrering: den komplette guide</image:title>
     </image:image>
   </url>
@@ -1002,7 +1002,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-kick-q3-2025-growth-nordic-advertising-opportunity-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-kick-100m.png</image:loc>
       <image:title>Kick har nu 100 millioner brugere. Medgrundlaggeren kaldte det en tomgangsmaaling. Her er hvad nordiske annoncorer boer tage med sig.</image:title>
     </image:image>
   </url>
@@ -1013,7 +1013,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-kick-streaming-growth-2025-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-kick-streaming-growth-2025.png</image:loc>
       <image:title>Kick voksede 131% i 2025: Det nordiske annoncører skal vide inden 2026</image:title>
     </image:image>
   </url>
@@ -1035,7 +1035,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-nordic-streaming-ad-budget-shift-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-paid-amplification-creator-content-beyond-social-2026.png</image:loc>
       <image:title>Creatorindhold forlader de sociale medier: De 11 milliarder nordiske brands bør forstå</image:title>
     </image:image>
   </url>
@@ -1046,7 +1046,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-first-party-data-streaming-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-twitch-overhaul.png</image:loc>
       <image:title>Twitch har omskrevet reglerne for datadeling og lanceret vertikalt streaming. Her er hvad der har ændret sig for annoncører.</image:title>
     </image:image>
   </url>
@@ -1057,7 +1057,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-streaming-sponsorship-creator-economy-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-twitch-sponsored-campaigns-open-to-affiliates-2026.png</image:loc>
       <image:title>Twitch åbner sponserede kampagner for Affiliates: Hvad Minecraft Tiny Takeover betyder for nordisk brandannoncering</image:title>
     </image:image>
   </url>
@@ -1068,7 +1068,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-twitch-statistics-2025-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-twitch-statistics-2025-global-insights.png</image:loc>
       <image:title>Twitch-statistik 2025: 19,2 milliarder timer, markedsandele og platformstrends</image:title>
     </image:image>
   </url>
@@ -1090,7 +1090,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/blog-photos/twitch/twitch-010.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-twitch-vs-youtube-gaming-2025.png</image:loc>
       <image:title>Twitch vs YouTube Gaming vs Kick i 2026: Den ærlige platformsammenligning</image:title>
     </image:image>
   </url>
@@ -1112,7 +1112,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-dentsu-gaming-hero.png</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-dentsu.png</image:loc>
       <image:title>Dentsus Gaming Trends Report 2025: Hvad den egentlig betyder for nordisk Twitch-annoncering</image:title>
     </image:image>
   </url>
@@ -1123,7 +1123,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-creator-marketing-lifecycle-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-creator-marketing-lifecycle-broken-how-to-fix-2026.png</image:loc>
       <image:title>Miksi creator-markkinoinnin elinkaari on rikki, ja miten älykkäät brändit korjaavat sen</image:title>
     </image:image>
   </url>
@@ -1134,7 +1134,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-how-to-brief-streamer-native-ad-2026-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-brief.png</image:loc>
       <image:title>Näin briiffaat streamerin natiivimainoksen integraatiota varten: täydellinen opas</image:title>
     </image:image>
   </url>
@@ -1145,7 +1145,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-kick-q3-2025-growth-nordic-advertising-opportunity-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-kick-100m.png</image:loc>
       <image:title>Kickilla on nyt 100 miljoonaa kayttajaa. Sen perustaja kutsui saavutusta turhamaisuusmittariksi. Tata pohjoismaisten mainostajien kannattaa ottaa huomioon.</image:title>
     </image:image>
   </url>
@@ -1156,7 +1156,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-kick-streaming-growth-2025-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-kick-streaming-growth-2025.png</image:loc>
       <image:title>Kick kasvoi 131% vuonna 2025: Mitä pohjoismaiset mainostajat tarvitsevat tietää ennen vuotta 2026</image:title>
     </image:image>
   </url>
@@ -1178,7 +1178,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-nordic-streaming-ad-budget-shift-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-paid-amplification-creator-content-beyond-social-2026.png</image:loc>
       <image:title>Sisällöntuottajien materiaali pakenee sosiaalisesta mediasta: 11 miljardin dollarin muutos, jonka pohjoismaiset brändit tarvitsevat ymmärtää</image:title>
     </image:image>
   </url>
@@ -1189,7 +1189,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-first-party-data-streaming-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-twitch-overhaul.png</image:loc>
       <image:title>Twitch uudisti datanjakosäännöt ja lanseerasi vertikaalisen suoratoiston. Tässä on, mitä muutos tarkoittaa mainostajille.</image:title>
     </image:image>
   </url>
@@ -1200,7 +1200,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-streaming-sponsorship-creator-economy-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-twitch-sponsored-campaigns-open-to-affiliates-2026.png</image:loc>
       <image:title>Twitch avaa sponsoroidut kampanjat Affiliateille: Mitä Minecraft Tiny Takeover tarkoittaa pohjoismaiselle brändimarkkinoinnille</image:title>
     </image:image>
   </url>
@@ -1211,7 +1211,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-twitch-statistics-2025-hero.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-twitch-statistics-2025-global-insights.png</image:loc>
       <image:title>Twitch-tilastot 2025: 19,2 miljardia tuntia, markkinaosuudet ja alustatrendit</image:title>
     </image:image>
   </url>
@@ -1233,7 +1233,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/blog-photos/twitch/twitch-010.jpg</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-h-twitch-vs-youtube-gaming-2025.png</image:loc>
       <image:title>Twitch vs YouTube Gaming vs Kick vuonna 2026: Rehellinen alustavertailu</image:title>
     </image:image>
   </url>
@@ -1255,7 +1255,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.65</priority>
     <image:image>
-      <image:loc>https://beta-ads.no/lovable-uploads/blog-dentsu-gaming-hero.png</image:loc>
+      <image:loc>https://beta-ads.no/lovable-uploads/blog-featured-dentsu.png</image:loc>
       <image:title>Dentsun Gaming Trends Report 2025: Mitä se todella tarkoittaa pohjoismaiselle Twitch-mainonnalle</image:title>
     </image:image>
   </url>

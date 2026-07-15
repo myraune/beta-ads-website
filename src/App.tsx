@@ -10,6 +10,7 @@ import { Component as AILoader } from "@/components/ui/ai-loader";
 import { RouteTransition } from "@/components/RouteTransition";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { ConversionTracker } from "@/components/ConversionTracker";
 import blogPhotos from "virtual:blog-photos";
 import { registerPhotos } from "@/lib/blogImage";
 import { installLucideA11yPatch } from "@/lib/a11y-icons";
@@ -133,6 +134,7 @@ const App = () => {
   <QueryClientProvider client={queryClient}>
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem forcedTheme={undefined}>
       <Analytics />
+      <ConversionTracker />
       <SpeedInsights />
       <Toaster />
       <Sonner />
