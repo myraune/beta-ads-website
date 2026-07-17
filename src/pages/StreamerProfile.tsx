@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 import { SPFooter } from "@/components/sections/SPFooter";
 import { getCreatorByHandle, getMarketOfHandle, MARKET_CREATORS, MARKET_ROUNDUP, profileLabels, isNativeLanguage, languageLabel, languageTooltip } from "@/data/streamers";
@@ -35,6 +36,16 @@ function fmtViewers(n: number): string {
   return n.toLocaleString("nb-NO");
 }
 
+/** Brand-facing CTA copy per market. A streamer profile that ranks for a creator
+ *  name is a conversion opportunity: a brand found it, so give them a next step. */
+const PROFILE_CTA: Record<string, { eyebrow: string; heading: (n: string) => string; body: string; primary: string; secondary: string; proof: string }> = {
+  no: { eyebrow: "For merkevarer", heading: (n) => `Vil du nå publikummet til ${n}?`, body: "Beta Ads kjører verifiserte native-kampanjer med norske streamere. Ekte rekkevidde, ekte CTR, og annonser adblock ikke kan fjerne.", primary: "Book en demo", secondary: "Se hva det koster", proof: "9 verifiserte nordiske kampanjer i 2025: Samsung, Shure, Komplett, Surfshark, NKI m.fl." },
+  sv: { eyebrow: "För varumärken", heading: (n) => `Vill du nå ${n}s publik?`, body: "Beta Ads kör verifierade native-kampanjer med nordiska streamers. Äkta räckvidd, äkta CTR, och annonser adblock inte kan ta bort.", primary: "Boka en demo", secondary: "Se vad det kostar", proof: "9 verifierade nordiska kampanjer 2025: Samsung, Shure, Komplett, Surfshark, NKI m.fl." },
+  da: { eyebrow: "For brands", heading: (n) => `Vil du nå ${n}s publikum?`, body: "Beta Ads kører verificerede native-kampagner med nordiske streamere. Ægte rækkevidde, ægte CTR, og annoncer adblock ikke kan fjerne.", primary: "Book en demo", secondary: "Se hvad det koster", proof: "9 verificerede nordiske kampagner i 2025: Samsung, Shure, Komplett, Surfshark, NKI m.fl." },
+  fi: { eyebrow: "Brändeille", heading: (n) => `Haluatko tavoittaa yleisön, jota ${n} vetää?`, body: "Beta Ads toteuttaa todennettuja natiivikampanjoita pohjoismaisten striimaajien kanssa. Aitoa tavoittavuutta, aitoa CTR:ää, ja mainoksia joita adblock ei poista.", primary: "Varaa demo", secondary: "Katso mitä se maksaa", proof: "9 todennettua pohjoismaista kampanjaa 2025: Samsung, Shure, Komplett, Surfshark, NKI ym." },
+  en: { eyebrow: "For brands", heading: (n) => `Want to reach ${n}'s audience?`, body: "Beta Ads runs verified native overlay campaigns with Nordic creators. Real reach, real CTR, and ads ad-block cannot remove.", primary: "Book a demo", secondary: "See what it costs", proof: "9 verified Nordic campaigns in 2025: Samsung, Shure, Komplett, Surfshark, NKI and more." },
+};
+
 const StreamerProfile: React.FC = () => {
   const { handle } = useParams<{ handle: string }>();
   const c = handle ? getCreatorByHandle(handle) : undefined;
@@ -49,6 +60,7 @@ const StreamerProfile: React.FC = () => {
   const roundup = MARKET_ROUNDUP[market];
   const roundupPath = `/blog/${roundup.slug}`;
   const L = profileLabels(market);
+  const cta = PROFILE_CTA[market] ?? PROFILE_CTA.no;
 
   const langLabel = languageLabel(c.language, market);
   const langTip = languageTooltip(c.language, market);
@@ -411,6 +423,41 @@ const StreamerProfile: React.FC = () => {
             <p className="text-[11px] text-muted-foreground/70 mt-6">{L.sourcesNote}</p>
           </section>
         )}
+
+        {/* Brand CTA - convert the search traffic this profile earns */}
+        <section className="border-t border-border pt-14 mb-2">
+          <div className="rounded-3xl overflow-hidden bg-card border border-border grid md:grid-cols-[1.5fr_1fr] items-stretch">
+            <div className="p-8 md:p-12 flex flex-col justify-center">
+              <span className="text-[11px] font-semibold tracking-widest uppercase text-primary mb-3 block">{cta.eyebrow}</span>
+              <h2 className="text-2xl md:text-4xl font-light tracking-tight text-foreground mb-4 leading-tight">
+                {cta.heading(c.name)}
+              </h2>
+              <p className="text-muted-foreground leading-relaxed max-w-md mb-8">{cta.body}</p>
+              <div className="flex flex-wrap gap-3">
+                <Link to="/contact">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12">
+                    {cta.primary} <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </Link>
+                <Link to="/twitch-advertising-cost">
+                  <Button size="lg" variant="outline" className="rounded-full px-8 h-12 border-border">
+                    {cta.secondary}
+                  </Button>
+                </Link>
+              </div>
+              <p className="text-xs text-muted-foreground/60 mt-7">{cta.proof}</p>
+            </div>
+            <div className="relative min-h-[260px] hidden md:block overflow-hidden bg-[#0c0c0f]">
+              <div className="absolute inset-0" style={{ background: "radial-gradient(120% 90% at 60% 8%, rgba(233,79,55,0.20), transparent 62%)" }} />
+              <img
+                src="/lovable-uploads/beta-mascot-cut-pointing.png"
+                alt="Beta, the Beta Ads mascot"
+                className="absolute bottom-0 right-4 h-[94%] w-auto object-contain drop-shadow-2xl"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </section>
 
         {/* Prev/next streamer */}
         <nav className="border-t border-border pt-6 mt-10 flex items-center justify-between gap-4 text-sm">
