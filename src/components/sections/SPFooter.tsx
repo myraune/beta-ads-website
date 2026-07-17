@@ -9,6 +9,7 @@ const WaveAnimation = lazy(() =>
 const footerLinks = {
   PLATFORM: [
     { label: "Case Studies", to: "/case-studies" },
+    { label: "Nordic Livestream Advertising", to: "/nordic-livestream-advertising" },
     { label: "Twitch Advertising", to: "/twitch-advertising" },
     { label: "Twitch Advertising Cost", to: "/twitch-advertising-cost" },
     { label: "Kick Advertising", to: "/kick-advertising" },

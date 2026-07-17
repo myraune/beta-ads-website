@@ -45,6 +45,7 @@ const STATIC_ROUTES = [
   "/youtube-advertising",
   "/kick-advertising",
   "/kick-advertising-cost",
+  "/nordic-livestream-advertising",
   "/streamers",
   "/about",
   "/blog",

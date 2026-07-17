@@ -27,6 +27,7 @@ const CaseStudies = lazy(() => import("./pages/CaseStudies"));
 const TwitchAdvertising = lazy(() => import("./pages/TwitchAdvertising"));
 const TwitchAdvertisingCost = lazy(() => import("./pages/TwitchAdvertisingCost"));
 const KickAdvertisingCost = lazy(() => import("./pages/KickAdvertisingCost"));
+const NordicLivestreamAdvertising = lazy(() => import("./pages/NordicLivestreamAdvertising"));
 const YouTubeAdvertising = lazy(() => import("./pages/YouTubeAdvertising"));
 const KickAdvertising = lazy(() => import("./pages/KickAdvertising"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
@@ -156,6 +157,7 @@ const App = () => {
               <Route path="/twitch-advertising" element={<TwitchAdvertising />} />
               <Route path="/twitch-advertising-cost" element={<TwitchAdvertisingCost />} />
               <Route path="/kick-advertising-cost" element={<KickAdvertisingCost />} />
+              <Route path="/nordic-livestream-advertising" element={<NordicLivestreamAdvertising />} />
               <Route path="/youtube-advertising" element={<YouTubeAdvertising />} />
               <Route path="/kick-advertising" element={<KickAdvertising />} />
               <Route path="/streamers" element={<Streamers t={t} />} />
