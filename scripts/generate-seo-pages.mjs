@@ -28,6 +28,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { createRequire } from "node:module";
+import { buildSync } from "esbuild";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -141,6 +143,27 @@ const STATIC_PAGES = [
     title: "Press & Media Coverage | Beta Ads",
     description:
       "Beta Ads in the press. Featured in Kampanje, Kom24, and Nordic media on Twitch advertising, native overlay ads, and livestream marketing in Norway.",
+    locale: "en",
+  },
+  {
+    route: "/twitch-advertising-cost",
+    title: "What Does Twitch Advertising Cost? | Beta Ads",
+    description:
+      "No platform publishes a Twitch advertising rate card, not even Twitch. Here is how live-stream advertising is actually priced in the Nordics, the five cost drivers, and how to get a real quote.",
+    locale: "en",
+  },
+  {
+    route: "/kick-advertising-cost",
+    title: "What Does Kick Advertising Cost? | Beta Ads",
+    description:
+      "Kick has no public rate card, and as of 2026 no self-serve ad platform at all. Here is how Kick advertising is actually priced in the Nordics, what it costs to buy direct, and how to get a real quote.",
+    locale: "en",
+  },
+  {
+    route: "/nordic-livestream-advertising",
+    title: "Nordic Livestream Advertising: The Brand's Field Guide | Beta Ads",
+    description:
+      "Who is watching, which platforms matter, what Nordic inventory exists, and what native overlay campaigns actually deliver. A data-backed field guide for brands, with real Beta Ads campaign results.",
     locale: "en",
   },
   {
@@ -276,86 +299,125 @@ function detectBlogLocale({ category, slug, title, excerpt }) {
 // Parse blog posts from TypeScript source using regex.
 // Returns [{ slug, title, description, locale, category }]
 // ---------------------------------------------------------------------------
-function parseBlogPosts() {
-  const srcPath = path.join(ROOT, "src/data/blogPosts.ts");
-  const source = fs.readFileSync(srcPath, "utf-8");
+// Load a TypeScript data module by bundling it with esbuild and require()ing
+// the result. Regex-parsing the source was tried first and silently broke: when
+// blogPosts.ts was refactored to `[...posts_no, ...posts_sv, ...].filter(...)`
+// the literal-array regex stopped matching, this returned [], and every blog
+// post shipped with the fallback shell's homepage title and canonical. Evaluate
+// the module instead so any future refactor of the data layer cannot desync it.
+function loadTsModule(relPath, cacheKey) {
+  const outfile = path.join(ROOT, "node_modules", ".cache", `seo-pages-${cacheKey}.cjs`);
+  fs.mkdirSync(path.dirname(outfile), { recursive: true });
+  buildSync({
+    entryPoints: [path.join(ROOT, relPath)],
+    bundle: true,
+    format: "cjs",
+    outfile,
+    platform: "node",
+    tsconfig: path.join(ROOT, "tsconfig.json"),
+    logLevel: "silent",
+  });
+  const require = createRequire(import.meta.url);
+  delete require.cache[require.resolve(outfile)];
+  return require(outfile);
+}
 
-  // Split into post objects. Each post starts with `    id: "...",` at 4-space
-  // indent level and ends before the next one (or the closing `];`).
-  // We operate on the array body only.
-  const arrayMatch = source.match(/export const blogPosts: BlogPost\[\] = \[([\s\S]*?)\n\];/);
-  if (!arrayMatch) {
-    console.error("❌ Could not find blogPosts array in blogPosts.ts");
-    return [];
-  }
-  const body = arrayMatch[1];
+// Per-country blog hubs. Mirrors HUB_COPY in src/pages/BlogLocaleHub.tsx.
+const BLOG_HUBS = [
+  {
+    locale: "no",
+    hubSlug: "norge",
+    h1: "Twitch-annonsering i Norge",
+    intro:
+      "Data og guider om Twitch, native overlay-annonsering og hvordan norske merkevarer når Gen Z der de faktisk er.",
+  },
+  {
+    locale: "sv",
+    hubSlug: "sverige",
+    h1: "Twitch-annonsering i Sverige",
+    intro:
+      "Data och guider om Twitch, native overlay-annonsering och hur svenska varumärken når Gen Z där de faktiskt är.",
+  },
+  {
+    locale: "fi",
+    hubSlug: "suomi",
+    h1: "Twitch-mainonta Suomessa",
+    intro:
+      "Dataa ja oppaita Twitchistä, natiiveista overlay-mainoksista ja siitä, miten suomalaiset brändit tavoittavat Z-sukupolven siellä missä se oikeasti on.",
+  },
+  {
+    locale: "da",
+    hubSlug: "danmark",
+    h1: "Twitch-annoncering i Danmark",
+    intro:
+      "Data og guides om Twitch, native overlay-annoncering og hvordan danske brands når Gen Z, der hvor de faktisk er.",
+  },
+];
 
-  // Naive split — post entries are `  {` at 2-space indent, ending in `  },`
-  // or `  }` (last entry).
-  const chunks = [];
-  let depth = 0;
-  let start = -1;
-  for (let i = 0; i < body.length; i++) {
-    const c = body[i];
-    if (c === "{") {
-      if (depth === 0) start = i;
-      depth++;
-    } else if (c === "}") {
-      depth--;
-      if (depth === 0 && start >= 0) {
-        chunks.push(body.slice(start, i + 1));
-        start = -1;
-      }
+// Streamer profile shells, derived from the same data module StreamerProfile.tsx
+// reads, so the title format here cannot drift from the rendered page.
+function loadStreamerProfiles() {
+  const { MARKET_CREATORS, MARKET_ROUNDUP } = loadTsModule("src/data/streamers.ts", "streamers");
+  const out = [];
+  for (const [market, creators] of Object.entries(MARKET_CREATORS || {})) {
+    const roundup = MARKET_ROUNDUP?.[market];
+    if (!roundup || !Array.isArray(creators)) continue;
+    for (const c of creators) {
+      out.push({
+        handle: c.handle,
+        locale: roundup.seoLocale,
+        image: c.image || null,
+        title: `${c.name}${c.realName ? ` (${c.realName})` : ""} | ${roundup.noun} | Beta Ads`,
+        description: `Bakgrunn, kanaler og kilder for ${c.name} - ${c.meta}. ${c.blurb}`,
+      });
     }
   }
+  return out;
+}
 
-  const posts = [];
-  for (const chunk of chunks) {
-    const slug = chunk.match(/slug:\s*["']([^"']+)["']/)?.[1];
-    if (!slug) continue;
-    const title = chunk.match(/^\s*title:\s*["']([^"']+)["']/m)?.[1] || "";
-    const excerpt = chunk.match(/excerpt:\s*["']([^"']+)["']/)?.[1] || "";
-    const category = chunk.match(/category:\s*["']([^"']+)["']/)?.[1] || "";
+function parseBlogPosts() {
+  const { blogPosts } = loadTsModule("src/data/blogPosts.ts", "blog");
+  if (!Array.isArray(blogPosts)) {
+    throw new Error("blogPosts.ts did not export a blogPosts array");
+  }
 
-    // seoTitle / seoDescription per locale
-    const seoTitleBlock = chunk.match(/seoTitle:\s*\{([\s\S]*?)\n\s*\}/)?.[1] || "";
-    const seoDescBlock = chunk.match(/seoDescription:\s*\{([\s\S]*?)\n\s*\}/)?.[1] || "";
+  return blogPosts.map((p) => {
+    // An explicit locale on the post wins; detectBlogLocale is the legacy
+    // heuristic for older posts that predate the field.
+    const locale =
+      p.locale ||
+      detectBlogLocale({
+        category: p.category,
+        slug: p.slug,
+        title: p.title,
+        excerpt: p.excerpt,
+      });
 
-    const pickLocale = (block, locale) =>
-      block.match(new RegExp(`${locale}:\\s*["']([^"']+)["']`))?.[1];
+    const pick = (obj, fallback) =>
+      (obj && (obj[locale] || obj.en)) || fallback;
 
-    const locale = detectBlogLocale({ category, slug, title, excerpt });
-    const seoTitle =
-      pickLocale(seoTitleBlock, locale) ||
-      pickLocale(seoTitleBlock, "en") ||
-      `${title} | Beta Ads`;
-    const seoDescription =
-      pickLocale(seoDescBlock, locale) ||
-      pickLocale(seoDescBlock, "en") ||
-      excerpt;
-    const image = chunk.match(/image:\s*["']([^"']+)["']/)?.[1] || null;
-    const dateISO = chunk.match(/dateISO:\s*["']([^"']+)["']/)?.[1] || null;
-    const rawTitle = chunk.match(/^\s*title:\s*["']([^"']+)["']/m)?.[1] || seoTitle;
-    const seoKeywordsBlock = chunk.match(/seoKeywords:\s*\{([\s\S]*?)\n\s*\}/)?.[1] || "";
-    const keywords = (seoKeywordsBlock.match(/["']([^"']+)["']/g) || [])
-      .map(k => k.replace(/["']/g, ""))
-      .filter(k => !["en", "no", "sv", "fi"].includes(k))
+    // seoKeywords is either a bare array or a per-locale record of arrays or
+    // comma-joined strings, depending on when the post was written.
+    const rawKeywords = Array.isArray(p.seoKeywords) ? p.seoKeywords : pick(p.seoKeywords, "");
+    const keywords = (Array.isArray(rawKeywords) ? rawKeywords : String(rawKeywords).split(","))
+      .map((k) => String(k).trim())
+      .filter(Boolean)
       .slice(0, 8)
       .join(", ");
 
-    posts.push({
-      slug,
-      title: seoTitle,
-      rawTitle,
-      description: seoDescription,
+    return {
+      slug: p.slug,
+      title: pick(p.seoTitle, `${p.title} | Beta Ads`),
+      rawTitle: p.title,
+      description: pick(p.seoDescription, p.excerpt),
       locale,
-      category,
-      image,
-      dateISO,
+      category: p.category,
+      image: p.image || null,
+      dateISO: p.dateISO || null,
       keywords,
-    });
-  }
-  return posts;
+      translationGroup: p.translationGroup || null,
+    };
+  });
 }
 
 // ---------------------------------------------------------------------------
@@ -505,7 +567,9 @@ function injectMeta(shellHtml, { title, description, canonical, locale, alternat
   const escapedDesc = escapeHtmlAttr(description);
 
   // <html lang>
-  html = html.replace(/<html lang="[^"]*">/, `<html lang="${locale}">`);
+  // Tolerate extra attributes on <html> (class, dir, data-*) - an exact-shape
+  // regex here silently no-ops and ships every locale as lang="en".
+  html = html.replace(/<html\b[^>]*\blang="[^"]*"/, (tag) => tag.replace(/lang="[^"]*"/, `lang="${locale}"`));
 
   // <title>
   html = html.replace(/<title>[^<]*<\/title>/, `<title>${title}</title>`);
@@ -701,17 +765,74 @@ function main() {
     caseStudyCount++;
   }
 
+  // Per-country blog hubs (/blog/norge, /blog/sverige, /blog/suomi, /blog/danmark).
+  // Copy mirrors HUB_COPY in src/pages/BlogLocaleHub.tsx.
+  let hubCount = 0;
+  const hubAlternates = [
+    ...BLOG_HUBS.map((h) => ({ hreflang: h.locale, href: `/blog/${h.hubSlug}` })),
+    { hreflang: "en", href: "/blog" },
+    { hreflang: "x-default", href: "/blog" },
+  ];
+  for (const hub of BLOG_HUBS) {
+    const route = `/blog/${hub.hubSlug}`;
+    const html = injectMeta(shell, {
+      title: `${hub.h1} | Beta Ads`,
+      description: hub.intro,
+      canonical: route,
+      locale: hub.locale,
+      alternates: hubAlternates,
+    });
+    writeShell(path.join(DIST, "blog", hub.hubSlug, "index.html"), html);
+    hubCount++;
+  }
+
+  // Streamer profiles (/streamere/<handle>) — derived from the same data module
+  // the page component uses, so adding a creator needs no change here.
+  let streamerCount = 0;
+  for (const s of loadStreamerProfiles()) {
+    const route = `/streamere/${s.handle}`;
+    const html = injectMeta(shell, {
+      title: s.title,
+      description: s.description,
+      canonical: route,
+      locale: s.locale,
+      image: s.image,
+    });
+    writeShell(path.join(DIST, "streamere", s.handle, "index.html"), html);
+    streamerCount++;
+  }
+
   // Blog posts
   const posts = parseBlogPosts();
+  if (posts.length === 0) {
+    // Previously this only console.error'd and the build stayed green, which is
+    // how ~130 URLs shipped with the homepage's title and canonical for weeks.
+    console.error("❌ parseBlogPosts() returned 0 posts — refusing to ship shells without blog coverage.");
+    process.exit(1);
+  }
+  // translationGroup -> the locales it exists in, for hreflang clusters.
+  const groupMembers = new Map();
+  for (const p of posts) {
+    if (!p.translationGroup) continue;
+    if (!groupMembers.has(p.translationGroup)) groupMembers.set(p.translationGroup, []);
+    groupMembers.get(p.translationGroup).push(p);
+  }
   for (const post of posts) {
     const canonical = `/blog/${post.slug}`;
-    const alternates =
-      post.locale === "en"
-        ? undefined
-        : [
-            { hreflang: post.locale, href: canonical },
-            { hreflang: "x-default", href: canonical },
-          ];
+    // Posts sharing a translationGroup are each other's language alternates, so
+    // Google serves the right language per country instead of picking one.
+    const cluster = post.translationGroup ? groupMembers.get(post.translationGroup) : null;
+    let alternates;
+    if (cluster && cluster.length > 1) {
+      alternates = cluster.map((m) => ({ hreflang: m.locale, href: `/blog/${m.slug}` }));
+      const enSibling = cluster.find((m) => m.locale === "en");
+      alternates.push({ hreflang: "x-default", href: `/blog/${(enSibling || post).slug}` });
+    } else if (post.locale !== "en") {
+      alternates = [
+        { hreflang: post.locale, href: canonical },
+        { hreflang: "x-default", href: canonical },
+      ];
+    }
     let html = injectMeta(shell, {
       title: post.title,
       description: post.description,
@@ -736,8 +857,9 @@ function main() {
     blogCount++;
   }
 
+  const total = staticCount + caseStudyCount + hubCount + streamerCount + blogCount;
   console.log(
-    `✅ static HTML shells — ${staticCount} pages + ${caseStudyCount} case studies + ${blogCount} blog posts (${staticCount + caseStudyCount + blogCount} total)`,
+    `✅ static HTML shells — ${staticCount} pages + ${caseStudyCount} case studies + ${hubCount} country hubs + ${streamerCount} streamer profiles + ${blogCount} blog posts (${total} total)`,
   );
 }
 

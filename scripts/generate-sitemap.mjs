@@ -129,16 +129,35 @@ function urlEntry({ loc, lastmod, changefreq, priority, image, imageTitle }) {
   return lines.join("\n");
 }
 
-// Norwegian streamer-profile handles for /streamere/:handle — indexable pages
-// (own canonical + Person JSON-LD), so they belong in the sitemap.
-function parseStreamerHandles() {
-  const src = fs.readFileSync(path.join(ROOT, "src/data/norskeStreamere.ts"), "utf-8");
-  return [...src.matchAll(/^\s+handle:\s*["']([^"']+)["']/gm)].map((m) => m[1]);
+// Streamer-profile handles for /streamere/:handle — indexable pages (own
+// canonical + Person JSON-LD), so they belong in the sitemap.
+//
+// Reads streamers.ts, not norskeStreamere.ts: the route resolves handles via
+// getCreatorByHandle() over ALL_CREATORS, which spans four markets. Reading
+// only the Norwegian file left 30 live profiles out of the sitemap.
+async function parseStreamerHandles() {
+  const TMP = path.join(ROOT, "node_modules", ".cache", "sitemap-streamers.cjs");
+  await build({
+    entryPoints: [path.join(ROOT, "src/data/streamers.ts")],
+    bundle: true,
+    format: "cjs",
+    outfile: TMP,
+    platform: "node",
+    tsconfig: path.join(ROOT, "tsconfig.json"),
+    logLevel: "silent",
+  });
+  const require = createRequire(import.meta.url);
+  delete require.cache[require.resolve(TMP)];
+  const { MARKET_CREATORS } = require(TMP);
+  return Object.values(MARKET_CREATORS || {})
+    .flat()
+    .map((c) => c.handle)
+    .filter(Boolean);
 }
 
 async function main() {
   const blogPosts = await parseBlogPosts();
-  const streamerHandles = parseStreamerHandles();
+  const streamerHandles = await parseStreamerHandles();
 
   const staticEntries = STATIC_PAGES.map((p) =>
     urlEntry({

@@ -30,7 +30,13 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT   = path.resolve(__dirname, "..");
 const DIST   = path.join(ROOT, "dist");
-const PORT   = 4173; // vite preview default
+// Deliberately NOT vite's default 4173. Every Vite project on this machine
+// shares that port, and `vite preview` without --strictPort silently falls
+// through to the next free port when it is taken - while this script keeps
+// pointing at 4173. That is how a run once captured a different project's
+// pages into dist/. Distinctive port + --strictPort below makes a collision
+// fail loudly instead of producing plausible, wrong output.
+const PORT   = 4179;
 const BASE   = `http://localhost:${PORT}`;
 const SITE   = "https://beta-ads.no";
 
@@ -94,7 +100,7 @@ function startPreviewServer() {
   // Use `process.execPath` so this works on any machine (previously hardcoded
   // to a local NVM path which broke on Vercel's build environment — the main
   // reason the prerender step was excluded from vercel.json's buildCommand).
-  const child = spawn(process.execPath, ["node_modules/.bin/vite", "preview", "--port", String(PORT), "--host"], {
+  const child = spawn(process.execPath, ["node_modules/.bin/vite", "preview", "--port", String(PORT), "--strictPort", "--host"], {
     cwd: ROOT,
     stdio: ["ignore", "pipe", "pipe"],
     detached: false,
