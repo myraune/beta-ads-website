@@ -169,8 +169,10 @@ const DashboardView = () => (
         </thead>
         <tbody>
           {[
-            { name: "Samsung Galaxy S25", status: "active", start: "2026-01-06", end: "2026-03-22", streamers: "43", views: "412,847", clicks: "5,842", ctr: "1.41 %", screenTime: "2,841 h" },
-            { name: "Samsung Galaxy Tab", status: "draft", start: "2026-03-25", end: "2026-04-30", streamers: "18", views: "-", clicks: "-", ctr: "-", screenTime: "-" },
+            // Illustrative dashboard demo - generic campaign names so the sample
+            // metrics are not read as a real client's verified results.
+            { name: "Nordic Phone Launch", status: "active", start: "2026-01-06", end: "2026-03-22", streamers: "43", views: "412,847", clicks: "5,842", ctr: "1.41 %", screenTime: "2,841 h" },
+            { name: "Q2 Tablet Launch", status: "draft", start: "2026-03-25", end: "2026-04-30", streamers: "18", views: "-", clicks: "-", ctr: "-", screenTime: "-" },
           ].map((r) => (
             <tr key={r.name} className="border-b border-gray-50 last:border-0">
               <td className="px-3 py-2 text-[9px] font-medium text-gray-900">{r.name}</td>
@@ -469,11 +471,14 @@ const UsersView = () => (
         </thead>
         <tbody>
           {[
-            { name: "James Crawford", initials: "JC", email: "j.crawford@wpp.com", role: "Admin", lastActive: "Just now", online: true },
-            { name: "Emma Lindqvist", initials: "EL", email: "e.lindqvist@groupm.com", role: "Campaign Mgr", lastActive: "1 hour ago", online: true },
-            { name: "Oliver Hansen", initials: "OH", email: "o.hansen@mindshare.com", role: "Manager", lastActive: "3 hours ago", online: true },
-            { name: "Sophie Karlsson", initials: "SK", email: "s.karlsson@wavemaker.com", role: "Analyst", lastActive: "Yesterday", online: false },
-            { name: "Thomas Berg", initials: "TB", email: "t.berg@essencemediacom.com", role: "Viewer", lastActive: "Mar 18, 2026", online: false },
+            // Illustrative product-UI demo rows. Emails use the reserved
+            // example.com domain so this never implies a real agency holds an
+            // account (fabricated names at real agency domains were flagged).
+            { name: "James Crawford", initials: "JC", email: "j.crawford@agency.example.com", role: "Admin", lastActive: "Just now", online: true },
+            { name: "Emma Lindqvist", initials: "EL", email: "e.lindqvist@agency.example.com", role: "Campaign Mgr", lastActive: "1 hour ago", online: true },
+            { name: "Oliver Hansen", initials: "OH", email: "o.hansen@agency.example.com", role: "Manager", lastActive: "3 hours ago", online: true },
+            { name: "Sophie Karlsson", initials: "SK", email: "s.karlsson@agency.example.com", role: "Analyst", lastActive: "Yesterday", online: false },
+            { name: "Thomas Berg", initials: "TB", email: "t.berg@agency.example.com", role: "Viewer", lastActive: "Mar 18, 2026", online: false },
           ].map((u) => (
             <tr key={u.name} className="border-b border-gray-50 last:border-0 hover:bg-gray-50/50">
               <td className="px-2 sm:px-3 py-2.5 text-[10px] font-medium text-gray-900">

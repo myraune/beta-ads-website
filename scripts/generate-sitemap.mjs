@@ -46,8 +46,8 @@ const STATIC_PAGES = [
   { path: "/youtube-advertising",    priority: "0.9",  changefreq: "monthly" },
   { path: "/streamers",              priority: "0.9",  changefreq: "weekly"  },
   // Case studies — include image:image for Google Image Search eligibility
-  { path: "/case-study/samsung",     priority: "0.85", changefreq: "monthly", image: "/lovable-uploads/samsung-zfold7-banner.png",           imageTitle: "Samsung Galaxy S25 Ultra x Beta Ads - Norwegian Twitch campaign overlay" },
-  { path: "/case-study/samsung-fold7", priority: "0.8", changefreq: "monthly", image: "/lovable-uploads/blog-samsung-twitch-campaign-hero.jpg", imageTitle: "Samsung Galaxy Z Fold7 x Beta Ads - Twitch advertising campaign" },
+  { path: "/case-study/samsung",     priority: "0.85", changefreq: "monthly", image: "/lovable-uploads/samsung-fold7-banner.jpg",           imageTitle: "Samsung Galaxy S25 Ultra x Beta Ads - Norwegian Twitch campaign overlay" },
+  { path: "/case-study/samsung-fold7", priority: "0.8", changefreq: "monthly", image: "/lovable-uploads/samsung-zfold7-banner.png", imageTitle: "Samsung Galaxy Z Fold7 x Beta Ads - Twitch advertising campaign" },
   { path: "/case-study/surfshark",   priority: "0.8",  changefreq: "monthly", image: "/lovable-uploads/og-social-preview.png",                imageTitle: "Surfshark VPN x Beta Ads - Norwegian Twitch advertising case study" },
   { path: "/case-study/saily",       priority: "0.8",  changefreq: "monthly", image: "/lovable-uploads/og-social-preview.png",                imageTitle: "Saily eSIM x Beta Ads - Norwegian Twitch advertising case study" },
   { path: "/case-study/shure",       priority: "0.8",  changefreq: "monthly", image: "/lovable-uploads/shure-mv6-banner.jpg",                 imageTitle: "Shure MV6 x Beta Ads - Norwegian Twitch campaign, 9.12% CTR" },

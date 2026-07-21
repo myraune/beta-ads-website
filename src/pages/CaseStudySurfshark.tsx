@@ -8,7 +8,7 @@ const CaseStudySurfshark: React.FC = () => {
     <>
       <SEO
         title="Surfshark VPN Case Study | Beta Ads"
-        description="Surfshark on Norwegian Twitch: 90,473 verified views, 704h on-screen, 1.39% CTR across 25 streamers. 37,614 unique viewers, zero adblock impact."
+        description="Surfshark on Norwegian Twitch: 91,006 completed views, 707h on-screen and 37,713 unique viewers across 26 streamers. A reach-led VPN awareness run, zero adblock impact."
         canonical="/case-study/surfshark"
         ogType="article"
         articlePublishedTime="2025-03-01"
@@ -20,7 +20,7 @@ const CaseStudySurfshark: React.FC = () => {
             "@id": "https://beta-ads.no/case-study/surfshark#article",
             "headline": "Surfshark × Beta Ads: VPN Awareness on Norwegian Twitch",
             "description":
-              "Surfshark used Beta's Rich Media Overlays across 25 Norwegian Twitch streamers, delivering 90,473 completed views and 552 verified clicks over six weeks.",
+              "Surfshark used Beta's Rich Media Overlays across 26 Norwegian Twitch streamers, delivering 91,006 completed views and 37,713 unique viewers reached.",
             "url": "https://beta-ads.no/case-study/surfshark",
             "image": "https://beta-ads.no/lovable-uploads/og-social-preview.png",
             "datePublished": "2025-03-01",

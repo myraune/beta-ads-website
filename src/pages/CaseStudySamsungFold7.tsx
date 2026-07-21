@@ -19,7 +19,9 @@ const CaseStudySamsungFold7: React.FC = () => {
         ogType="article"
         articlePublishedTime="2026-01-01"
         articleModifiedTime="2026-05-11"
-        ogImage="/lovable-uploads/blog-samsung-twitch-campaign-hero.jpg"
+        ogImage="/lovable-uploads/samsung-zfold7-banner.png"
+        ogImageWidth={1000}
+        ogImageHeight={1000}
         jsonLd={[
           {
             "@context": "https://schema.org",
@@ -28,7 +30,7 @@ const CaseStudySamsungFold7: React.FC = () => {
             "headline": "Samsung Galaxy Z Fold7 × Beta Ads: Norwegian Twitch Campaign",
             "description": "How Samsung launched the Galaxy Z Fold7 to Norwegian gamers through native Twitch overlay ads and streamer integrations.",
             "url": "https://beta-ads.no/case-study/samsung-fold7",
-            "image": "https://beta-ads.no/lovable-uploads/blog-samsung-twitch-campaign-hero.jpg",
+            "image": "https://beta-ads.no/lovable-uploads/samsung-zfold7-banner.png",
             "datePublished": "2026-01-01",
             "dateModified": "2026-05-11",
             "author": {

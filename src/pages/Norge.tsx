@@ -75,7 +75,7 @@ const norwegianCaseStudies = [
     brand: "Saily",
     slug: "/case-study/saily",
     tagline: "eSIM-launch - reisepublikum",
-    headline: "102 794 visninger · 1.08% verifisert CTR",
+    headline: "102 794 visninger · 53 229 unike seere",
     accent: "#7B4DFF",
     logo: "/lovable-uploads/logo-saily.png",
   },

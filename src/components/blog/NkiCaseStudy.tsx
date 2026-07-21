@@ -618,7 +618,7 @@ const NkiCaseStudy: React.FC = () => {
                 formats when the placement is contextual rather than interruptive.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
-                With 1,434 unique clicks (and 5,469 raw clicks) the campaign delivered
+                With 1,595 verified clicks (and 5,469 unverified) the campaign delivered
                 meaningful top-of-funnel volume into NKI's quiz funnel - at a fraction
                 of typical higher-ed CPL benchmarks.
               </p>

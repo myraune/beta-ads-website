@@ -62,7 +62,7 @@ const TwitchAdvertising: React.FC = () => {
             { "@type": "Question", name: "How much does Twitch advertising cost in Norway?", acceptedAnswer: { "@type": "Answer", text: "The blended effective CPM on a managed Nordic Twitch campaign is roughly 200 to 300 kr per 1,000 verified impressions, with the final figure depending on campaign scope, number of streamers, and duration. There are no long-term contracts. See the full breakdown at /twitch-advertising-cost or contact us for a custom quote." } },
             { "@type": "Question", name: "How do Twitch overlay ads bypass ad blockers?", acceptedAnswer: { "@type": "Answer", text: "Overlay ads are rendered inside the stream itself, not injected by the browser. Ad blockers target browser-injected ad elements - they have nothing to detect or remove when the ad is part of the stream feed." } },
             { "@type": "Question", name: "How is this different from Twitch's own pre-roll ads?", acceptedAnswer: { "@type": "Answer", text: "Twitch pre-rolls and mid-rolls interrupt the stream and are blocked by most ad blockers. Beta Ads overlay ads appear as branded graphics within the live stream - no interruption, 0% adblock impact, and sustained exposure throughout the session." } },
-            { "@type": "Question", name: "What results can I expect from Twitch advertising in the Nordics?", acceptedAnswer: { "@type": "Answer", text: "Our verified campaign data shows CTRs between 1.08% and 4.48% across campaigns for Samsung, Shure, Komplett, and NKI. Impressions typically range from 100,000 to 1M+ depending on campaign duration and streamer reach." } },
+            { "@type": "Question", name: "What results can I expect from Twitch advertising in the Nordics?", acceptedAnswer: { "@type": "Answer", text: "Our verified campaign data shows CTRs between 0.72% and 4.48% across campaigns for Samsung, Shure, Komplett, and NKI. Impressions typically range from 100,000 to 1M+ depending on campaign duration and streamer reach." } },
             { "@type": "Question", name: "How long does it take to launch a Twitch campaign?", acceptedAnswer: { "@type": "Answer", text: "From brief to broadcast in as little as 5 business days. We handle streamer matching, creative production, and deployment. You review and approve the streamer list and final artwork before anything goes live." } },
             { "@type": "Question", name: "Can I target specific game categories or audiences on Twitch?", acceptedAnswer: { "@type": "Answer", text: "Yes. You can target by game category (FPS, RPG, sports, Just Chatting, etc.), streaming schedule, audience demographics, and viewer location at country level across Norway, Sweden, Finland, and Denmark." } },
           ] },
@@ -277,10 +277,10 @@ const TwitchAdvertising: React.FC = () => {
               to="/case-study/samsung"
               className="group rounded-2xl border border-border bg-card overflow-hidden block hover:border-primary/40 hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="relative aspect-[16/9] overflow-hidden">
+              <div className="relative aspect-[16/9] overflow-hidden bg-[hsl(240_11%_5%)]">
                 <img
-                  src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=800&q=80"
-                  alt="Samsung campaign"
+                  src="/lovable-uploads/samsung-fold7-banner.jpg"
+                  alt="Samsung Galaxy S25 Ultra campaign creative"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
@@ -289,22 +289,22 @@ const TwitchAdvertising: React.FC = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">Samsung Galaxy S25 - Nordic Launch</h3>
+                <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">Samsung Galaxy S25 Ultra - Norwegian Launch</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                  Overlay campaign across 48 Nordic Twitch streamers. 10-week run targeting gaming and tech audiences in Norway, Sweden, and Denmark.
+                  Rich media overlay campaign across 43 Norwegian Twitch streamers, targeting gaming and tech audiences.
                 </p>
                 <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
                   <div>
-                    <p className="text-2xl font-bold text-foreground tracking-tight">412K</p>
-                    <p className="text-xs text-muted-foreground">Total views</p>
+                    <p className="text-2xl font-bold text-foreground tracking-tight">500K+</p>
+                    <p className="text-xs text-muted-foreground">Completed views</p>
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-foreground tracking-tight">1.41%</p>
-                    <p className="text-xs text-muted-foreground">CTR</p>
+                    <p className="text-2xl font-bold text-foreground tracking-tight">43</p>
+                    <p className="text-xs text-muted-foreground">Streamers</p>
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-foreground tracking-tight">4,291</p>
-                    <p className="text-xs text-muted-foreground">Chat mentions</p>
+                    <p className="text-2xl font-bold text-foreground tracking-tight">0%</p>
+                    <p className="text-xs text-muted-foreground">Adblock impact</p>
                   </div>
                 </div>
               </div>
@@ -314,34 +314,38 @@ const TwitchAdvertising: React.FC = () => {
               to="/case-study/glorious"
               className="group rounded-2xl border border-border bg-card overflow-hidden block hover:border-primary/40 hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="relative aspect-[16/9] overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=800&q=80"
-                  alt="Glorious gaming campaign"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+              <div className="relative aspect-[16/9] overflow-hidden bg-[hsl(240_11%_5%)]">
+                <video
+                  src="/lovable-uploads/overlay-glorious.webm"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  aria-label="Glorious O3 overlay creative as displayed on Nordic Twitch streams"
+                  className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4">
                   <span className="text-[10px] font-semibold bg-primary text-white px-2 py-1 rounded-full">Glorious Gaming</span>
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">Glorious Model O - FPS Streamer Campaign</h3>
+                <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">Glorious O3 Mouse - Nordic Gaming Campaign</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                  Targeted FPS and competitive gaming streamers across 3 Nordic markets. Rich media overlays with product showcase during peak gaming hours.
+                  Localised rich media overlays promoting the O3 mouse across Finland, Norway and Sweden during peak gaming hours.
                 </p>
                 <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
                   <div>
-                    <p className="text-2xl font-bold text-foreground tracking-tight">287K</p>
+                    <p className="text-2xl font-bold text-foreground tracking-tight">137K+</p>
                     <p className="text-xs text-muted-foreground">Total views</p>
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-foreground tracking-tight">2.3%</p>
-                    <p className="text-xs text-muted-foreground">CTR</p>
+                    <p className="text-2xl font-bold text-foreground tracking-tight">25</p>
+                    <p className="text-xs text-muted-foreground">Creators</p>
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-foreground tracking-tight">34</p>
-                    <p className="text-xs text-muted-foreground">Streamers</p>
+                    <p className="text-2xl font-bold text-foreground tracking-tight">112</p>
+                    <p className="text-xs text-muted-foreground">Categories</p>
                   </div>
                 </div>
               </div>

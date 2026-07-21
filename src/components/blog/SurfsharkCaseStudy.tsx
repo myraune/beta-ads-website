@@ -5,9 +5,14 @@ import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 /**
- * Campaign data sourced from the verified Surfshark report
- * (Drive file `surfshark-vpn-report-03-06-2025.pdf`) covering a run
- * across Norwegian Twitch streamers in May–June 2025.
+ * Campaign data sourced verbatim from the verified Surfshark report
+ * (`surfshark-vpn-report-general.pdf`) covering a run across Norwegian
+ * Twitch streamers in spring 2025. Every figure below matches that report:
+ * 91,006 completed views, 560 verified clicks (0.62% verified CTR),
+ * 4,301 unverified clicks (4.73%), 486 unique clicks (1.29%), 26 streamers,
+ * 37,713 unique viewers, 38 categories, 707h 49m artwork watch time,
+ * best day 2025-06-04 (511 views, 8 clicks, 1.57% CTR).
+ * This was a reach/awareness buy - the hero leads with reach, not CTR.
  */
 const BRAND = {
   // Surfshark brand colors - green primary, dark violet accent
@@ -17,17 +22,17 @@ const BRAND = {
 };
 
 const stats = [
-  { value: "90,473", label: "Completed views" },
-  { value: "1.39%", label: "Verified CTR" },
-  { value: "552", label: "Verified clicks" },
-  { value: "704 h", label: "Screen time" },
+  { value: "91,006", label: "Completed views" },
+  { value: "37,713", label: "Unique viewers" },
+  { value: "707 h", label: "Screen time" },
+  { value: "26", label: "Streamers" },
 ];
 
 const results = [
-  { value: "25", label: "Streamers" },
-  { value: "37", label: "Categories" },
-  { value: "37,614", label: "Unique viewers" },
-  { value: "3.83%", label: "Unverified CTR" },
+  { value: "38", label: "Categories" },
+  { value: "4.73%", label: "Unverified CTR" },
+  { value: "1.29%", label: "Unique CTR" },
+  { value: "560", label: "Verified clicks" },
 ];
 
 const regions = [
@@ -39,10 +44,10 @@ const regions = [
 ];
 
 const timeline = [
-  { date: "May 8", label: "Best day", value: "934 views · 1.39% CTR" },
-  { date: "May 14", label: "Peak reach day", value: "forstegir live on GTA V" },
-  { date: "May 21", label: "Dennisvareide drop", value: "Travel stream, Spain route" },
-  { date: "Jun 3", label: "Campaign close", value: "90,473 completed views" },
+  { date: "Jun 4", label: "Best day", value: "511 views · 1.57% CTR" },
+  { date: "In run", label: "Peak reach", value: "forstegir live on GTA V" },
+  { date: "In run", label: "Travel angle", value: "Dennisvareide, Spain route" },
+  { date: "Close", label: "Campaign total", value: "91,006 completed views" },
 ];
 
 const SurfsharkCaseStudy: React.FC = () => {
@@ -113,7 +118,8 @@ const SurfsharkCaseStudy: React.FC = () => {
             </h1>
             <p className="text-lg text-white/60 leading-relaxed max-w-xl">
               VPN awareness built during Travel &amp; Outdoors and Just Chatting streams across
-              25 Norwegian creators - 704 hours of verified on-screen presence in six weeks.
+              26 Norwegian creators - 707 hours of verified on-screen presence, 37,713 unique
+              viewers reached.
             </p>
           </div>
 
@@ -186,7 +192,7 @@ const SurfsharkCaseStudy: React.FC = () => {
           </div>
           <p className="text-xs text-muted-foreground mt-4 max-w-3xl">
             The overlay sat inside the stream frame - no pre-roll, no banner, no adblock path.
-            The same creative rotated across 25 streamers and 37 live categories.
+            The same creative rotated across 26 streamers and 38 live categories.
           </p>
         </div>
       </section>
@@ -226,8 +232,8 @@ const SurfsharkCaseStudy: React.FC = () => {
               {[
                 { label: "Market", value: "🇳🇴 Norway (97% viewership)" },
                 { label: "Format", value: "Rich Media Overlay" },
-                { label: "Run", value: "May 10 – Jun 3 2025 (6 weeks)" },
-                { label: "Best day", value: "May 8 - 934 views, 1.39% CTR" },
+                { label: "Run", value: "Spring 2025" },
+                { label: "Best day", value: "Jun 4 - 511 views, 1.57% CTR" },
                 { label: "Audience skew", value: "Male 100%, mostly Oslo/Akershus" },
                 { label: "Adblock impact", value: "0% (native format)" },
               ].map((row) => (
@@ -262,13 +268,13 @@ const SurfsharkCaseStudy: React.FC = () => {
               The Solution
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4 max-w-2xl">
-              25 streamers, 37 live categories, one consistent message
+              26 streamers, 38 live categories, one consistent message
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-12">
-              Beta placed a Norwegian-localised overlay across 25 Nordic Twitch streamers,
+              Beta placed a Norwegian-localised overlay across 26 Nordic Twitch streamers,
               rotating the creative into stream layouts whenever the streamer went live.
-              The chat-pinned deep link converted at 1.39% verified CTR - 3.83% on the
-              unverified (pre-filter) metric - substantially above benchmark display rates.
+              The chat-pinned deep link drew 4,301 unverified clicks (4.73%) and 486 unique
+              clicks (1.29% unique CTR); 560 of those cleared full verification (0.62%).
             </p>
 
             {/* Top 5 streamers breakdown */}
@@ -521,13 +527,13 @@ const SurfsharkCaseStudy: React.FC = () => {
                 Impact
               </span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
-                Six weeks, 704 hours of screen time, 37,614 unique viewers reached
+                707 hours of screen time, 37,713 unique viewers reached
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                The campaign delivered 90,473 verified completed views and 552 verified
-                clicks through the chat-pinned CTA. On the unverified (raw) side, 3,467
-                clicks at a 3.83% CTR - well above display benchmarks for VPN creative in
-                the Nordic market.
+                The campaign delivered 91,006 completed views across 26 creators. The
+                chat-pinned CTA drew 4,301 unverified clicks (4.73%) and 486 unique clicks
+                (1.29%); 560 cleared full verification for a 0.62% verified CTR. As a
+                reach and awareness buy, the story here is coverage, not click rate.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
                 Device split skewed 79% desktop / 20% mobile - consistent with the Twitch

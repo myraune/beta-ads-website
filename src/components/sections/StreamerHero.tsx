@@ -372,10 +372,12 @@ const AnalyticsView: React.FC = () => {
       {/* Top campaigns */}
       <div className="text-[10px] text-white/40 mb-2">Top performing campaigns</div>
       <div className="space-y-1.5">
+        {/* Illustrative streamer earnings view - generic campaign names so the
+            sample per-streamer numbers are not read as a named client's results. */}
         {[
-          { name: "Samsung Galaxy S25 Ultra", impressions: "150.6K", ctr: "2.93%", revenue: "Paid" },
-          { name: "Surfshark VPN", impressions: "32.1K", ctr: "4.73%", revenue: "Paid" },
-          { name: "Foodora Rider", impressions: "33.7K", ctr: "3.42%", revenue: "Paid" },
+          { name: "Phone Launch (Nordic)", impressions: "150.6K", ctr: "2.4%", revenue: "Paid" },
+          { name: "VPN Awareness", impressions: "32.1K", ctr: "1.9%", revenue: "Paid" },
+          { name: "Food Delivery", impressions: "33.7K", ctr: "3.1%", revenue: "Paid" },
         ].map((c) => (
           <div
             key={c.name}

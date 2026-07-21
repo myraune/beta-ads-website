@@ -22,10 +22,10 @@ interface CaseStudiesProps {
 const caseStudies = [
   { id: "Uw7IIecicB4", brand: "Samsung", campaign: "S25 Ultra Awareness Norway", impressions: "500,131", impressionsNum: 500131, ctr: "2.93%", ctrNum: 2.93, description: "Samsung Galaxy S25 Ultra launch across 43 Norwegian Twitch streamers. 500K+ completed views, 2.93% CTR, zero adblock impact.", caseLink: "/case-study/samsung" },
   { id: "GwE4dagRm_k", brand: "Kristiania", campaign: "Twitch - 2 parallel campaigns", impressions: "599,252", impressionsNum: 599252, ctr: "1.00%", ctrNum: 1.0, description: "Two parallel Norwegian Twitch campaigns (awareness + voting) on the same creator network - combined ~600K views, ~6,000 verified clicks across the Feb-Apr 2025 application window.", caseLink: "/case-study/kristiania" },
-  { id: "IZOx_VMdJJg", brand: "Shure", campaign: "MV7+ Microphone Launch", impressions: "182,554", impressionsNum: 182554, ctr: "1.31%", ctrNum: 1.31, description: "Concentrated two-creator launch for the MV7+ microphone with a 9.12% peak-day CTR - depth over breadth.", caseLink: "/case-study/shure" },
+  { id: "IZOx_VMdJJg", brand: "Shure", campaign: "MV6 Microphone Launch", impressions: "182,554", impressionsNum: 182554, ctr: "1.31%", ctrNum: 1.31, description: "Concentrated two-creator launch for the MV6 microphone with a 9.12% peak-day CTR - depth over breadth.", caseLink: "/case-study/shure" },
   { id: "ufNq-A4d7iA", brand: "Komplett", campaign: "Månedens Gaming Deal", impressions: "151,278", impressionsNum: 151278, ctr: "1.17%", ctrNum: 1.17, description: "17-day tactical retail run for Norway's #3 electronics retailer - peak 4.48% CTR across 34 streamers on Twitch + Kick.", caseLink: "/case-study/komplett" },
-  { id: "DMz-NV1W_Is", brand: "Saily", campaign: "Travel eSIM Norway (Surfshark)", impressions: "102,794", impressionsNum: 102794, ctr: "1.08%", ctrNum: 1.08, description: "Travel-intent campaign - 65% of screen time inside Travel & Outdoors streams during peak summer travel season.", caseLink: "/case-study/saily" },
-  { id: "U6i5uvhk2Sw", brand: "Surfshark", campaign: "VPN Awareness Norway", impressions: "90,473", impressionsNum: 90473, ctr: "1.39%", ctrNum: 1.39, description: "Six-week VPN awareness run across 25 streamers, 704 hours of on-screen presence, 37,614 unique viewers.", caseLink: "/case-study/surfshark" },
+  { id: "DMz-NV1W_Is", brand: "Saily", campaign: "Travel eSIM Norway (Surfshark)", impressions: "102,794", impressionsNum: 102794, ctr: "0.50%", ctrNum: 0.5, description: "Travel-intent campaign - 65% of screen time inside Travel & Outdoors streams during peak summer travel season.", caseLink: "/case-study/saily" },
+  { id: "U6i5uvhk2Sw", brand: "Surfshark", campaign: "VPN Awareness Norway", impressions: "91,006", impressionsNum: 91006, ctr: "0.62%", ctrNum: 0.62, description: "VPN awareness run across 26 streamers, 707 hours of on-screen presence, 37,713 unique viewers.", caseLink: "/case-study/surfshark" },
   { id: "aE0-S8GC1Iw", brand: "NKI", campaign: "Distance Learning Quiz Funnel", impressions: "220,003", impressionsNum: 220003, ctr: "0.72%", ctrNum: 0.72, description: '"Hva slags type student er du?" interactive quiz - 19 streamers, 90,356 unique viewers, 1,595 verified clicks into the lead-capture funnel.', caseLink: "/case-study/nki" },
   { id: "swu_ye12IHs", brand: "Norstat", campaign: "Survey Participation Drive", impressions: "140,000", impressionsNum: 140000, ctr: "3.34%", ctrNum: 3.34, description: "10-streamer June 2024 panel-survey campaign - 70K kr media spend, 4,667 verified clicks." },
 ];
@@ -47,12 +47,12 @@ const detailedCaseStudies = [
   {
     brand: "Surfshark",
     title: "VPN Awareness on Norwegian Twitch",
-    description: "Six-week privacy-messaging run across 25 Norwegian streamers - 704 hours of on-screen presence, contextual placement inside Travel & Outdoors and Just Chatting streams.",
+    description: "Privacy-messaging run across 26 Norwegian streamers - 707 hours of on-screen presence, contextual placement inside Travel & Outdoors and Just Chatting streams.",
     stats: [
-      { label: "Completed views", value: "90,473" },
-      { label: "Verified CTR", value: "1.39%" },
-      { label: "Streamers", value: "25" },
-      { label: "Screen time", value: "704 h" },
+      { label: "Completed views", value: "91,006" },
+      { label: "Unique viewers", value: "37,713" },
+      { label: "Streamers", value: "26" },
+      { label: "Screen time", value: "707 h" },
     ],
     image: "https://img.youtube.com/vi/U6i5uvhk2Sw/maxresdefault.jpg",
     link: "/case-study/surfshark",
@@ -63,7 +63,7 @@ const detailedCaseStudies = [
     description: "Surfshark's travel-eSIM brand placed contextually inside Travel & Outdoors streams during peak June travel-planning season - 65% of screen time inside travel content.",
     stats: [
       { label: "Completed views", value: "102,794" },
-      { label: "Verified CTR", value: "1.08%" },
+      { label: "Verified CTR", value: "0.50%" },
       { label: "Streamers", value: "22" },
       { label: "Unique viewers", value: "53,229" },
     ],
@@ -72,8 +72,8 @@ const detailedCaseStudies = [
   },
   {
     brand: "Shure",
-    title: "MV7+ Microphone - Concentrated Creator Launch",
-    description: "Two-streamer concentrated run for the MV7+ premium microphone - depth over breadth strategy delivering 761 hours of screen time and 9.12% peak-day CTR.",
+    title: "MV6 Microphone - Concentrated Creator Launch",
+    description: "Two-streamer concentrated run for the MV6 premium microphone - depth over breadth strategy delivering 761 hours of screen time and 9.12% peak-day CTR.",
     stats: [
       { label: "Completed views", value: "182,554" },
       { label: "Verified clicks", value: "2,378" },

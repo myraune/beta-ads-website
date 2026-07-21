@@ -139,7 +139,7 @@ const caseStudies = [
   },
   {
     brand: 'MrBeast × Salesforce',
-    logo: '/lovable-uploads/logo-vyro.png',
+    logo: null,
     campaign: 'Super Bowl commercial clip campaign',
     cpm: '$1.00',
     views: '10M+',

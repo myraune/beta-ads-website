@@ -795,7 +795,7 @@ const SamsungCaseStudy: React.FC = () => {
                   src="/lovable-uploads/samsung-s25-banner.jpg"
                   width={320}
                   height={320}
-                  alt="Samsung Galaxy S25 Ultra campaign banner"
+                  alt="Samsung Galaxy Z Fold7 campaign banner"
                   className="w-full h-auto"
                 />
               </div>
@@ -804,7 +804,7 @@ const SamsungCaseStudy: React.FC = () => {
                   src="/lovable-uploads/samsung-fold7-banner.jpg"
                   width={850}
                   height={500}
-                  alt="Samsung Galaxy Z Fold7 campaign banner"
+                  alt="Samsung Galaxy S25 Ultra campaign banner"
                   className="w-full h-auto"
                 />
               </div>

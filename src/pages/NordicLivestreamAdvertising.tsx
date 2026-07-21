@@ -37,7 +37,7 @@ const proof = [
   { brand: "Samsung", logo: "/lovable-uploads/logo-samsung.png", metric: "500,131", label: "completed views", extra: "2.93% avg CTR", video: "/lovable-uploads/overlay-samsung.webm", href: "/case-study/samsung" },
   { brand: "Shure", logo: "/lovable-uploads/logo-shure.png", metric: "9.12%", label: "peak-day CTR", extra: "182,554 views", video: "/lovable-uploads/overlay-shure-gca.webm", href: "/case-study/shure" },
   { brand: "Komplett", logo: "/lovable-uploads/logo-komplett.png", metric: "151,278", label: "display views", extra: "1.17% CTR, 34 streamers", video: "/lovable-uploads/overlay-komplett.webm", href: "/case-study/komplett" },
-  { brand: "Surfshark", logo: "/lovable-uploads/logo-surfshark.png", metric: "90,473", label: "verified views", extra: "1.39% CTR", video: "/lovable-uploads/overlay-surfshark.webm", href: "/case-study/surfshark" },
+  { brand: "Surfshark", logo: "/lovable-uploads/logo-surfshark.png", metric: "91,006", label: "completed views", extra: "37,713 unique viewers", video: "/lovable-uploads/overlay-surfshark.webm", href: "/case-study/surfshark" },
 ];
 
 const steps = [
