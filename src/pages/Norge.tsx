@@ -30,7 +30,6 @@ const norwegianCaseStudies = [
     headline: "800 000+ visninger · 2.34–2.93% CTR",
     accent: "#1428A0",
     logo: "/lovable-uploads/logo-samsung.png",
-    logoInvert: true,
   },
   {
     brand: "Shure",
@@ -39,7 +38,6 @@ const norwegianCaseStudies = [
     headline: "182 554 visninger · 2 378 verifiserte klikk",
     accent: "#E30613",
     logo: "/lovable-uploads/logo-shure.png",
-    logoInvert: true,
   },
   {
     brand: "Komplett",
@@ -48,7 +46,6 @@ const norwegianCaseStudies = [
     headline: "151 278 visninger · 4.48% peak-day CTR · 34 streamere",
     accent: "#E30613",
     logo: "/lovable-uploads/logo-komplett.png",
-    logoInvert: true,
   },
   {
     brand: "Høyskolen Kristiania",
@@ -57,7 +54,6 @@ const norwegianCaseStudies = [
     headline: "599 252 visninger kombinert · 5 997 klikk",
     accent: "#E30613",
     logo: "/lovable-uploads/logo-kristiania-mark.svg",
-    logoInvert: false,
   },
   {
     brand: "NKI",
@@ -66,7 +62,6 @@ const norwegianCaseStudies = [
     headline: "220 003 visninger · 1 595 klikk · 19 streamere",
     accent: "#5C2D56",
     logo: "/lovable-uploads/logo-nki.svg",
-    logoInvert: false,
   },
   {
     brand: "Gokstad Akademiet",
@@ -75,7 +70,6 @@ const norwegianCaseStudies = [
     headline: "100 000+ visninger · 1.22% CTR · 22 skapere",
     accent: "#b8212e",
     logo: "/lovable-uploads/logo-gokstad.webp",
-    logoInvert: false,
   },
   {
     brand: "Saily",
@@ -84,7 +78,6 @@ const norwegianCaseStudies = [
     headline: "102 794 visninger · 1.08% verifisert CTR",
     accent: "#7B4DFF",
     logo: "/lovable-uploads/logo-saily.png",
-    logoInvert: true,
   },
 ];
 
@@ -300,13 +293,13 @@ const Norge: React.FC = () => {
                     boxShadow: `0 0 0 1px ${c.accent}1a`,
                   }}
                 >
+                  {/* Every client mark here is monochrome, so the filter has to
+                      follow the theme. A hard-coded invert renders white logos
+                      on the light-theme card (bg-card, near-white) invisible. */}
                   <img
                     src={c.logo}
                     alt={c.brand}
-                    className="max-h-8 max-w-10 object-contain"
-                    style={
-                      c.logoInvert ? { filter: "brightness(0) invert(1) opacity(0.85)" } : undefined
-                    }
+                    className="max-h-8 max-w-10 object-contain opacity-85 [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)]"
                   />
                 </div>
                 <p
