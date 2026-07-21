@@ -77,7 +77,11 @@ const CaseStudySamsungFold7: React.FC = () => {
               className="flex items-center justify-center rounded-xl border bg-background p-2.5"
               style={{ borderColor: `${SAMSUNG_BLUE}33`, boxShadow: `0 0 0 1px ${SAMSUNG_BLUE}1a` }}
             >
-              <img src="/lovable-uploads/icon-samsung.svg" alt="Samsung" className="h-7 w-auto" />
+              <img
+                src="/lovable-uploads/logo-samsung.png"
+                alt="Samsung"
+                className="h-4 w-auto [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)]"
+              />
             </div>
             <div className="flex flex-col gap-0.5">
               <span

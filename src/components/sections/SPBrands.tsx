@@ -56,7 +56,7 @@ const badgeLabels: Record<BadgeType, string> = {
 };
 
 const row1: LogoData[] = [
-  { src: "/lovable-uploads/logo-client-1.webp", alt: "Samsung", badge: "case-study", caseStudyLink: "/case-study/samsung" },
+  { src: "/lovable-uploads/logo-samsung.webp", alt: "Samsung", badge: "case-study", caseStudyLink: "/case-study/samsung" },
   { src: "/lovable-uploads/wpp-media-logo.png", alt: "WPP Media" },
   {
     src: "/lovable-uploads/logo-foodora.webp", alt: "Foodora",
@@ -69,7 +69,7 @@ const row1: LogoData[] = [
     videoSrc: "/lovable-uploads/shure-campaign-video.mp4",
   },
   {
-    src: "/lovable-uploads/logo-saily.svg", alt: "Saily",
+    src: "/lovable-uploads/logo-saily.png", alt: "Saily",
     badge: "video",
     videoSrc: "/lovable-uploads/saily-campaign-video.mp4",
   },
@@ -81,7 +81,7 @@ const row1: LogoData[] = [
     quoteName: "Brand Manager",
     quoteTitle: "Glorious",
   },
-  { src: "/lovable-uploads/logo-client-8.webp", alt: "Publicis" },
+  { src: "/lovable-uploads/logo-publicis.webp", alt: "Publicis" },
 ];
 
 const row2: LogoData[] = [
@@ -104,7 +104,7 @@ const row2: LogoData[] = [
     caseStudyLink: "/case-study/komplett",
   },
   { src: "/lovable-uploads/logo-dentsu.png", alt: "Dentsu" },
-  { src: "/lovable-uploads/logo-carat.webp", alt: "Carat" },
+  { src: "/lovable-uploads/logo-firi.webp", alt: "Firi" },
   {
     // SteelSeries has a quote but no case study yet — render as a hover-only
     // testimonial. The Review badge below renders as a non-interactive label

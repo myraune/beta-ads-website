@@ -8,7 +8,7 @@ const brandLogos = [
   { src: "/lovable-uploads/logo-foodora.png", alt: "Foodora" },
   { src: "/lovable-uploads/logo-shure.png", alt: "Shure" },
   { src: "/lovable-uploads/logo-glorious.png", alt: "Glorious" },
-  { src: "/lovable-uploads/logo-client-1.png", alt: "Samsung" },
+  { src: "/lovable-uploads/logo-samsung.png", alt: "Samsung" },
   { src: "/lovable-uploads/logo-steelseries.png", alt: "SteelSeries" },
 ];
 

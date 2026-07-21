@@ -29,8 +29,8 @@ const norwegianCaseStudies = [
     tagline: "Galaxy S25 Ultra + Z Fold7",
     headline: "800 000+ visninger · 2.34–2.93% CTR",
     accent: "#1428A0",
-    logo: "/lovable-uploads/icon-samsung.svg",
-    logoInvert: false,
+    logo: "/lovable-uploads/logo-samsung.png",
+    logoInvert: true,
   },
   {
     brand: "Shure",
@@ -83,8 +83,8 @@ const norwegianCaseStudies = [
     tagline: "eSIM-launch - reisepublikum",
     headline: "102 794 visninger · 1.08% verifisert CTR",
     accent: "#7B4DFF",
-    logo: "/lovable-uploads/logo-saily.svg",
-    logoInvert: false,
+    logo: "/lovable-uploads/logo-saily.png",
+    logoInvert: true,
   },
 ];
 

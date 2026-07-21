@@ -18,7 +18,7 @@ import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 const offers = [
   {
     brand: "Samsung",
-    icon: "/lovable-uploads/icon-samsung.svg",
+    icon: "/lovable-uploads/icon-samsung.png",
     campaign: "Galaxy S25 Ultra Launch",
     format: "Rich Media",
     payout: "View offer",
@@ -44,7 +44,7 @@ const offers = [
   },
   {
     brand: "Foodora",
-    icon: "/lovable-uploads/icon-foodora.svg",
+    icon: "/lovable-uploads/icon-foodora.png",
     campaign: "Summer Promo",
     format: "Rich Media",
     payout: "View offer",
