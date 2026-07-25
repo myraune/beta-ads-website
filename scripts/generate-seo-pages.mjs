@@ -151,6 +151,23 @@ const STATIC_PAGES = [
     description:
       "No platform publishes a Twitch advertising rate card, not even Twitch. Here is how live-stream advertising is actually priced in the Nordics, the five cost drivers, and how to get a real quote.",
     locale: "en",
+    alternates: [
+      { hreflang: "en", href: "/twitch-advertising-cost" },
+      { hreflang: "no", href: "/twitch-annonsering-pris" },
+      { hreflang: "x-default", href: "/twitch-advertising-cost" },
+    ],
+  },
+  {
+    route: "/twitch-annonsering-pris",
+    title: "Hva koster Twitch-annonsering i Norge? | Beta Ads",
+    description:
+      "Ingen plattform publiserer en prisliste for Twitch-annonsering, ikke engang Twitch. Slik prises livestream-annonsering faktisk i Norge: de fem kostnadsdriverne og hvordan du får et reelt tilbud.",
+    locale: "no",
+    alternates: [
+      { hreflang: "no", href: "/twitch-annonsering-pris" },
+      { hreflang: "en", href: "/twitch-advertising-cost" },
+      { hreflang: "x-default", href: "/twitch-advertising-cost" },
+    ],
   },
   {
     route: "/kick-advertising-cost",

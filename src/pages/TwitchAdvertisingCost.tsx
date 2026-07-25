@@ -133,6 +133,12 @@ const TwitchAdvertisingCost: React.FC = () => {
         description:
           "No platform publishes a Twitch advertising rate card, not even Twitch. Here is how live-stream advertising is actually priced in the Nordics, the five cost drivers, and how to get a real quote.",
         canonical: "/twitch-advertising-cost",
+        locale: "en",
+        alternates: [
+          { hreflang: "en", href: "/twitch-advertising-cost" },
+          { hreflang: "no", href: "/twitch-annonsering-pris" },
+          { hreflang: "x-default", href: "/twitch-advertising-cost" },
+        ],
         jsonLd: [
           {
             "@context": "https://schema.org",

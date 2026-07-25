@@ -4,12 +4,16 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SPFooter } from "@/components/sections/SPFooter";
 import { SEO } from "@/components/SEO";
+import type { PageLocale } from "@/lib/blogLocale";
 
 interface SeoProps {
   title: string;
   description: string;
   canonical: string;
   jsonLd?: object | object[];
+  locale?: PageLocale;
+  alternates?: Array<{ hreflang: PageLocale | "x-default"; href: string }>;
+  ogImage?: string;
 }
 
 interface CtaProps {
@@ -51,6 +55,9 @@ export const MarketingPageLayout: React.FC<MarketingPageLayoutProps> = ({
         description={seo.description}
         canonical={seo.canonical}
         jsonLd={seo.jsonLd}
+        locale={seo.locale}
+        alternates={seo.alternates}
+        ogImage={seo.ogImage}
       />
 
       {children}

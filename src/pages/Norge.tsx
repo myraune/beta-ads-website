@@ -237,6 +237,12 @@ const Norge: React.FC = () => {
               <ArrowRight size={14} />
             </a>
             <Link
+              to="/twitch-annonsering-pris"
+              className="inline-flex items-center gap-2 text-foreground/70 hover:text-foreground text-sm tracking-wide transition-colors"
+            >
+              Hva koster det? <ArrowRight size={14} />
+            </Link>
+            <Link
               to="/case-studies"
               className="inline-flex items-center gap-2 text-foreground/70 hover:text-foreground text-sm tracking-wide transition-colors"
             >
