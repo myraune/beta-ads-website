@@ -210,7 +210,9 @@ const CASE_STUDIES = [
       "Samsung Galaxy S25 Ultra and Z Fold7 on Norwegian Twitch: 800K+ live views, 1.35M+ with VOD, 2.93% CTR, 71 streamer slots, zero adblock impact.",
     locale: "en",
     datePublished: "2025-12-01",
-    image: "/lovable-uploads/samsung-zfold7-banner.png",
+    image: "/lovable-uploads/samsung-fold7-banner.jpg",
+    ogImageWidth: 850,
+    ogImageHeight: 500,
   },
   {
     route: "/case-study/samsung-fold7",
@@ -219,13 +221,15 @@ const CASE_STUDIES = [
       "Samsung Galaxy Z Fold7 on Norwegian Twitch: 300,054 live views, 3.70% CTR in Week 1 across 28 Norwegian streamers. Zero adblock impact.",
     locale: "en",
     datePublished: "2026-01-01",
-    image: "/lovable-uploads/blog-samsung-twitch-campaign-hero.jpg",
+    image: "/lovable-uploads/samsung-zfold7-banner.png",
+    ogImageWidth: 1000,
+    ogImageHeight: 1000,
   },
   {
     route: "/case-study/surfshark",
     title: "Surfshark VPN Case Study | Beta Ads",
     description:
-      "Surfshark on Norwegian Twitch: 90,473 verified views, 704h on-screen, 1.39% CTR across 25 streamers. 37,614 unique viewers, zero adblock impact.",
+      "Surfshark on Norwegian Twitch: 91,006 completed views, 707h on-screen and 37,713 unique viewers across 26 streamers. A reach-led VPN awareness run, zero adblock impact.",
     locale: "en",
     datePublished: "2025-03-01",
     image: "/lovable-uploads/og-social-preview.png",
@@ -234,7 +238,7 @@ const CASE_STUDIES = [
     route: "/case-study/saily",
     title: "Saily eSIM Case Study | Beta Ads",
     description:
-      "Saily on Norwegian Twitch: 102,794 completed views, 518 verified clicks, 1.08% CTR across 22 streamers. 53,229 unique viewers reached in peak travel season.",
+      "Saily on Norwegian Twitch: 102,794 completed views, 518 verified clicks, 0.50% CTR across 22 streamers. 53,229 unique viewers reached in peak travel season.",
     locale: "en",
     datePublished: "2025-11-01",
     image: "/lovable-uploads/og-social-preview.png",
@@ -247,6 +251,8 @@ const CASE_STUDIES = [
     locale: "en",
     datePublished: "2025-07-01",
     image: "/lovable-uploads/shure-mv6-banner.jpg",
+    ogImageWidth: 1200,
+    ogImageHeight: 600,
   },
   {
     route: "/case-study/glorious",
@@ -274,6 +280,8 @@ const CASE_STUDIES = [
     locale: "en",
     datePublished: "2025-08-01",
     image: "/lovable-uploads/case-studies/komplett-preview.jpg",
+    ogImageWidth: 1527,
+    ogImageHeight: 1391,
   },
   {
     route: "/case-study/kristiania",

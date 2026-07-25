@@ -14,6 +14,8 @@ const CaseStudyShure: React.FC = () => {
         articlePublishedTime="2025-07-01"
         articleModifiedTime="2026-05-11"
         ogImage="/lovable-uploads/shure-mv6-banner.jpg"
+        ogImageWidth={1200}
+        ogImageHeight={600}
         jsonLd={[
           {
             "@context": "https://schema.org",

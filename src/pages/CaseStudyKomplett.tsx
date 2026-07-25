@@ -14,6 +14,8 @@ const CaseStudyKomplett: React.FC = () => {
         articlePublishedTime="2025-08-01"
         articleModifiedTime="2026-05-11"
         ogImage="/lovable-uploads/case-studies/komplett-preview.jpg"
+        ogImageWidth={1527}
+        ogImageHeight={1391}
         jsonLd={[
           {
             "@context": "https://schema.org",
