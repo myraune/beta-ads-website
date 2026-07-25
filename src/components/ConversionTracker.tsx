@@ -16,6 +16,7 @@ import { track } from "@vercel/analytics";
 const EVENTS: { match: (href: string) => boolean; event: string }[] = [
   { match: (h) => h.includes("calendar.app.google"), event: "book_demo_click" },
   { match: (h) => h.startsWith("mailto:"), event: "email_click" },
+  { match: (h) => h.startsWith("tel:"), event: "phone_click" },
   { match: (h) => h.includes("discord.gg"), event: "discord_click" },
   { match: (h) => h.includes("streamer.livad.stream"), event: "streamer_apply_click" },
 ];

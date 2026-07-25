@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { track } from "@vercel/analytics";
 import { supabase } from "@/integrations/supabase/client";
 import {
   Form,
@@ -76,6 +77,10 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
         body: data,
       });
       if (error) throw error;
+      // Highest-intent conversion on the site. It is a form submit, not a link
+      // click, so ConversionTracker's delegated listener never sees it - track
+      // it explicitly so the SEO-test scoreboard counts real demo requests.
+      track("demo_form_submit", { path: "/demo", company: data.company?.slice(0, 60) || "" });
       toast({
         title: t.messageSent,
         description: t.wellGetBack,

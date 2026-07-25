@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail, TrendingUp, Users, Zap } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { track } from "@vercel/analytics";
 import { supabase } from "@/integrations/supabase/client";
 
 interface NewsletterPopupProps {
@@ -107,6 +108,8 @@ const NewsletterPopup: React.FC<NewsletterPopupProps> = ({ isOpen, onClose, lang
         return;
       }
 
+      // Micro-conversion - form submit, so ConversionTracker won't catch it.
+      track("newsletter_signup", { path: window.location.pathname });
       toast({
         title: t.successTitle,
         description: t.successDescription,
