@@ -48,6 +48,7 @@ const SvenskaStreamare2026 = lazy(() => import("@/components/blog/SvenskaStreama
 const DanskeStreamere2026 = lazy(() => import("@/components/blog/DanskeStreamere2026"));
 const SuomalaisetStriimaajat2026 = lazy(() => import("@/components/blog/SuomalaisetStriimaajat2026"));
 const ClipAnalyticsDashboard = lazy(() => import("@/components/blog/ClipAnalyticsDashboard"));
+const TwitchApril2026Overhaul = lazy(() => import("@/components/blog/TwitchApril2026Overhaul"));
 
 /** hasDashboard-verdier som bruker det fullbredde, header-løse roundup-oppsettet. */
 const STREAMER_ROUNDUPS = ["norske-streamere", "svenska-streamare", "danske-streamere", "suomalaiset-striimaajat"];
@@ -112,9 +113,11 @@ const BlogPostPage: React.FC = () => {
   const autoTocItems = useMemo(() => extractTocFromMarkdown(post.content), [post.content]);
   const tocItems = post.hasDashboard ? dashboardTocItems[post.hasDashboard] || [] : autoTocItems;
   const isStreamerRoundup = !!post.hasDashboard && STREAMER_ROUNDUPS.includes(post.hasDashboard);
-  const wideLayout = post.hasDashboard === "twitch-analytics-tools" || post.hasDashboard === "clip-analytics" || isStreamerRoundup;
+  // Rich editorial posts render full-width with their own hero (no sidebar/header).
+  const richEditorial = post.hasDashboard === "twitch-april-2026";
+  const wideLayout = post.hasDashboard === "twitch-analytics-tools" || post.hasDashboard === "clip-analytics" || isStreamerRoundup || richEditorial;
   // Posts that render their own editorial header (so we suppress the generic one).
-  const customLayout = isStreamerRoundup;
+  const customLayout = isStreamerRoundup || richEditorial;
 
   return (
     <>
@@ -241,6 +244,7 @@ const BlogPostPage: React.FC = () => {
                   {post.hasDashboard === "svenska-streamare" && <SvenskaStreamare2026 />}
                   {post.hasDashboard === "danske-streamere" && <DanskeStreamere2026 />}
                   {post.hasDashboard === "suomalaiset-striimaajat" && <SuomalaisetStriimaajat2026 />}
+                  {post.hasDashboard === "twitch-april-2026" && <TwitchApril2026Overhaul />}
                 </Suspense>
               </div>
             ) : (

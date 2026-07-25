@@ -325,6 +325,7 @@ export const blogPostsMeta: BlogPostMeta[] = [
     slug: "twitch-april-2026-platform-overhaul-advertiser-guide",
     locale: "en",
     translationGroup: "twitch-april-2026-platform-overhaul-advertiser-guide",
+    hasDashboard: "twitch-april-2026",
     title: "Twitch Just Rewrote Its Data-Sharing Rules and Launched Vertical Streaming. Here Is What Changed for Advertisers.",
     excerpt: "Twitch updated its Monetized Streamer Agreement to share user data with advertisers, rolled out dual-format vertical streaming, and killed its Combos experiment. A breakdown of what each change means for brands buying live stream inventory.",
     date: "Apr 21, 2026",
