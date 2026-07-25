@@ -7519,7 +7519,7 @@ A mature Nordic launch plan deploys two or three of these in parallel, with nati
 
 ## The Infrastructure Layer
 
-The reason native Twitch campaigns are now practical at scale is the infrastructure layer underneath them. Platforms like Beta Ads run campaigns across 39,000+ Nordic streamers with real-time CTR tracking, AI-powered clip verification, automated OBS deployment, and platform-verified reporting. Brand-side teams no longer need to manually negotiate with individual streamers, estimate viewership from third-party tools, or accept screenshot-based reporting as the primary verification mechanism.
+The reason native Twitch campaigns are now practical at scale is the infrastructure layer underneath them. [Native overlay platforms like Beta Ads](/twitch-advertising) run campaigns across 39,000+ Nordic streamers with real-time CTR tracking, AI-powered clip verification, automated OBS deployment, and platform-verified reporting. Brand-side teams no longer need to manually negotiate with individual streamers, estimate viewership from third-party tools, or accept screenshot-based reporting as the primary verification mechanism.
 
 For Norwegian brands specifically, [Beta Ads' Norwegian content hub](/norge) and [the Norwegian Twitch advertising guide](/blog/twitch-annonsering-norge-guide) cover the local-market specifics in Norwegian - category mix, creator profiles, and the case-study archive with verified Nordic numbers.
 
@@ -7531,7 +7531,7 @@ For Norwegian brands specifically, [Beta Ads' Norwegian content hub](/norge) and
 
 **A first test should have:** a single specific category (not "gaming" - pick Just Chatting, Fortnite, or FIFA), 5–15 Nordic streamers from one national market, a 2–4 week runway, one overlay format (Snipe or Rich Media), and a measurable action (clicks to landing page, not just brand awareness). Data from that test determines whether the second runtime gets 3× the scope or gets redirected to a different category.
 
-**Next step:** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) with the Beta Ads team and we'll scope the first campaign against your actual brief.
+**Next step:** skim the [Twitch advertising overview](/twitch-advertising) and [what a campaign actually costs](/twitch-advertising-cost), then [book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) with the Beta Ads team and we'll scope the first campaign against your actual brief.
 
 ---
 
