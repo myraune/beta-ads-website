@@ -853,7 +853,7 @@ The updated agreement states that by accepting the MSA, streamers consent to dat
 
 For advertisers, the practical implication is straightforward: [Twitch advertising](/twitch-advertising) is moving toward richer targeting data. The platform has historically lagged behind YouTube and Meta in the granularity of audience data available to media buyers. This update signals that Twitch is building the infrastructure to close that gap, likely by leveraging Amazon's broader retail and behavioral data graph.
 
-![Gamer competing at a gaming event with headset and monitor](/lovable-uploads/blog-first-party-data-streaming-hero.jpg)
+![A gamer seated at a monitor wearing a headset at a gaming event](/lovable-uploads/blog-first-party-data-streaming-hero.jpg)
 
 ## What this means for Nordic advertisers under GDPR
 
@@ -1838,7 +1838,7 @@ AI-powered sponsorship verification changes this. Computer vision tools that mon
 
 When brands and streamers work from the same verified data, performance-based structures stop being a trust problem and become a performance optimization tool.
 
-![A streamer at a professional gaming setup with multiple screens and real-time chat visible](/lovable-uploads/blog-from-flat-fee-to-performance-pay-streamer-deals-2026-2.jpg)
+![A gamer seated at a monitor wearing a headset at a gaming event](/lovable-uploads/blog-from-flat-fee-to-performance-pay-streamer-deals-2026-2.jpg)
 
 ## Why Streamers Are Receptive
 
@@ -2771,7 +2771,7 @@ The revenue story rests on several pillars that converged simultaneously in 2025
 
 But the most strategically interesting growth engine for 2026 is live.
 
-![Live streaming studio setup with professional lighting and multiple monitors](/lovable-uploads/blog-youtube-live-advertising-nordic-2026-1.jpg)
+![A gamer seated at a monitor wearing a headset at a gaming event](/lovable-uploads/blog-youtube-live-advertising-nordic-2026-1.jpg)
 
 ## YouTube's Live Bet and What It Means for Advertisers
 
@@ -2913,7 +2913,7 @@ The implication for Nordic brands is counterintuitive: the premium CPMs you pay 
 
 The practical constraint is finding the right inventory. Nordic-language streamers, Scandinavian esports communities, and Finnish gaming content represent a relatively small slice of global Twitch inventory but an outsized share of value for brands targeting local markets. Getting that targeting right requires both platform access and market-specific creator data.
 
-![Nordic gaming audience at esports event - high-income, digitally native consumers](/lovable-uploads/blog-twitch-cpm-media-buying-guide-2026-2.jpg)
+![A gamer seated at a monitor wearing a headset at a gaming event](/lovable-uploads/blog-twitch-cpm-media-buying-guide-2026-2.jpg)
 
 ## Beyond CPM: The Metrics That Actually Drive Campaign Decisions
 
@@ -3093,7 +3093,7 @@ That model still exists. But at the top end of the market, something different i
 
 In short: brands are becoming showrunners.
 
-![Gaming and esports event stage with bright lighting and crowd](/lovable-uploads/blog-brands-as-showrunners-hero.jpg)
+![A gamer seated at a monitor wearing a headset at a gaming event](/lovable-uploads/blog-brands-as-showrunners-hero.jpg)
 
 ## What Serialized Branded Content Actually Looks Like
 
@@ -3373,7 +3373,7 @@ Most live stream sponsorship verification today falls into one of three categori
 
 The result is a systematic gap between what brands contract for and what they can verify was delivered.
 
-![An esports arena lit with competitive gaming atmosphere](/lovable-uploads/blog-sponsorship-verification-1.jpg)
+![A gamer seated at a monitor wearing a headset at a gaming event](/lovable-uploads/blog-sponsorship-verification-1.jpg)
 
 ## The Scale Problem in Nordic Campaigns
 
@@ -3785,7 +3785,7 @@ This makes the format additive to existing native advertising approaches rather 
 
 Research consistently shows that the combination of visual overlay and verbal mention produces significantly higher brand recall than either format alone. When the verbal mention is followed by an immediately available purchase path, the engagement converts at rates that traditional digital advertising cannot approach.
 
-![Gaming streamer at a professional setup with dual monitors and overlay graphics visible on stream](/lovable-uploads/blog-twitch-shoppable-ads-2.jpg)
+![A gamer seated at a monitor wearing a headset at a gaming event](/lovable-uploads/blog-twitch-shoppable-ads-2.jpg)
 
 Beta Ads' overlay ad infrastructure is designed precisely for this multi-signal approach. Native overlays trigger at contextually appropriate moments - natural pauses, breaks between rounds, transition segments - without covering gameplay or the streamer's camera. Voice recognition technology tracks when brand mentions occur and correlates them with overlay display timing, giving brands the data to understand which combination of signals drives the strongest response within individual streams.
 
@@ -4089,7 +4089,7 @@ But AVOD has a limitation that's rarely discussed openly: it's still fundamental
 
 This matters because trust is the variable that most strongly predicts conversion in streaming environments. [Twitch](/twitch-advertising) research consistently finds that 54% of viewers trust their favourite streamer's brand recommendations. That level of trust doesn't exist between a viewer and a streaming platform running a mid-roll ad. It's a personal relationship - built over hundreds of hours of live interaction, not passive viewing.
 
-![Nordic ad-supported streaming tiers growth 2025–2026](/lovable-uploads/blog-avod-nordic-streaming-2026-1.jpg)
+![A gamer seated at a monitor wearing a headset at a gaming event](/lovable-uploads/blog-avod-nordic-streaming-2026-1.jpg)
 
 ## The Live Streaming Difference: Attention and Trust at Scale
 
