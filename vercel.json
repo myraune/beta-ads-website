@@ -8,6 +8,29 @@
       "permanent": true
     },
     {
+      "source": "/pricing",
+      "destination": "/twitch-advertising-cost",
+      "permanent": true
+    },
+    {
+      "source": "/pricing/:path*",
+      "destination": "/twitch-advertising-cost",
+      "permanent": true
+    },
+    { "source": "/careers/:path*", "destination": "/about", "permanent": true },
+    { "source": "/career/:path*", "destination": "/about", "permanent": true },
+    { "source": "/jobs/:path*", "destination": "/about", "permanent": true },
+    { "source": "/jobb/:path*", "destination": "/about", "permanent": true },
+    { "source": "/jobb-hos-oss/:path*", "destination": "/about", "permanent": true },
+    { "source": "/jobbe-hos-oss/:path*", "destination": "/about", "permanent": true },
+    { "source": "/karriere/:path*", "destination": "/about", "permanent": true },
+    { "source": "/stillinger/:path*", "destination": "/about", "permanent": true },
+    { "source": "/ledige-stillinger/:path*", "destination": "/about", "permanent": true },
+    { "source": "/medarbeidere/:path*", "destination": "/about", "permanent": true },
+    { "source": "/vacancies/:path*", "destination": "/about", "permanent": true },
+    { "source": "/company/careers/:path*", "destination": "/about", "permanent": true },
+    { "source": "/en/career/:path*", "destination": "/about", "permanent": true },
+    {
       "source": "/blog/how-twitch-advertising-works-2024",
       "destination": "/blog/how-twitch-advertising-works-2026",
       "permanent": true

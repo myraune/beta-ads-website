@@ -190,6 +190,7 @@ const App = () => {
               <Route path="/unsubscribe" element={<Unsubscribe />} />
               {/* SEO redirects - mirrors vercel.json edge redirects for client-side nav */}
               <Route path="/how-it-works" element={<Navigate to="/case-studies" replace />} />
+              <Route path="/pricing" element={<Navigate to="/twitch-advertising-cost" replace />} />
               <Route path="/blog/samsung-twitch-campaign-case-study" element={<Navigate to="/case-study/samsung" replace />} />
               <Route path="*" element={<NotFound />} />
             </Route>
