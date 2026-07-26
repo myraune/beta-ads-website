@@ -43,7 +43,7 @@ const formats = [
   },
   {
     name: "Sponsored campaigns",
-    bought: "Twitch Sponsorship Portal",
+    bought: "Twitch Sponsorships (ex-Bounty Board)",
     block: "partial",
     blockLabel: "Partial",
     blockNote: "Mid-roll insertion, some slips through",

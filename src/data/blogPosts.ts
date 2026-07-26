@@ -479,7 +479,7 @@ The brands that move first on these products are typically the ones that already
     excerpt: "On April 6, 2026, Twitch ran its first sponsored campaign that Affiliates could opt into, not just Partners. The change widens the creator pool for brand-funded integrations by an order of magnitude - and reshapes the economics of sponsored inventory in markets like the Nordics, where most streamers sit below the Partner threshold.",
     content: `## A Structural Change Dressed Up as a Minecraft Promotion
 
-On April 6, 2026, Twitch launched a Minecraft-branded sponsored campaign called Tiny Takeover. Streamers who opted in through the Sponsorship Portal, broadcast at least one hour of Minecraft gameplay in the Minecraft category, and passed moderation earned up to $1,000, with viewers receiving three in-game Drops after five minutes of watching a participating channel, according to the [Twitch Blog announcement](https://blog.twitch.tv/en/2026/04/06/minecrafts-tiny-takeover/).
+On April 6, 2026, Twitch launched a Minecraft-branded sponsored campaign called Tiny Takeover. Streamers who opted in through the Sponsorships dashboard, broadcast at least one hour of Minecraft gameplay in the Minecraft category, and passed moderation earned up to $1,000, with viewers receiving three in-game Drops after five minutes of watching a participating channel, according to the [Twitch Blog announcement](https://blog.twitch.tv/en/2026/04/06/minecrafts-tiny-takeover/).
 
 On its face, this reads like another platform-led promotion attached to a popular game. The more important detail is in the eligibility list. For the first time in the history of Twitch's sponsored campaign product, Affiliates were included - not just Partners. As [Tubefilter reported on April 7](https://www.tubefilter.com/2026/04/07/twitch-minecraft-tiny-takeover-affiliate-sponsored-campaign/amp/), sponsored campaigns had been an exclusive Partner benefit since the program began. Tiny Takeover was the quiet announcement that the wall between those two tiers just came down for brand-funded campaigns.
 
@@ -7460,7 +7460,7 @@ Not every "Twitch ad" is the same product. Three distinct buying channels coexis
 | Format | Bought through | Blocks adblock? | Typical CTR |
 |---|---|---|---|
 | Pre-roll video ads | Amazon Ads / direct Twitch IO | No - ~30 % of 18–24 segment blocks it | 0.1–0.3 % (industry standard display) |
-| Sponsored campaigns on Twitch's platform | Twitch Sponsorship Portal (Partners + Affiliates) | Partially (mid-roll insertion) | Not publicly reported |
+| Sponsored campaigns on Twitch's platform | Twitch Sponsorships / Bounty Board (Partners + Affiliates) | Partially (mid-roll insertion) | Not publicly reported |
 | Native overlay ads | Third-party sponsorship platforms (Beta Ads, etc.) | Yes - rendered inside stream frame | 1–3 % typical, 4–9 % on peak days |
 
 The native overlay category is where the growth is. [Beta Ads' published Norwegian case studies](/case-studies) show consistent CTR ranges above the industry standard for display: **Samsung Galaxy S25 Ultra at 2.93 %**, **Komplett retail at 4.48 % peak-day CTR**, **Shure MV6 at 9.12 % peak-day CTR** when combined with a streamer mention.
