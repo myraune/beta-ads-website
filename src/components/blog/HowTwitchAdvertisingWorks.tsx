@@ -72,11 +72,11 @@ const adblock = [
 // Verified Beta Ads campaign CTR - solid numbers only (matches live case
 // studies). The disputed Samsung 2.93% / Kristiania 1.53% are excluded.
 const campaigns = [
-  { brand: "Shure MV6", cat: "Audio launch", streamers: "2", ctr: 1.31, ctrLabel: "1.31%", peak: "9.12% peak", href: "/case-study/shure" },
-  { brand: "Komplett", cat: "Retail", streamers: "34", ctr: 1.17, ctrLabel: "1.17%", peak: "4.48% peak", href: "/case-study/komplett" },
-  { brand: "NKI", cat: "Distance learning", streamers: "19", ctr: 0.72, ctrLabel: "0.72%", peak: null, href: "/case-study/nki" },
-  { brand: "Surfshark", cat: "VPN awareness", streamers: "26", ctr: 0.62, ctrLabel: "0.62%", peak: null, href: "/case-study/surfshark" },
-  { brand: "Saily", cat: "Travel eSIM", streamers: "22", ctr: 0.50, ctrLabel: "0.50%", peak: null, href: "/case-study/saily" },
+  { brand: "Shure MV6", logo: "/lovable-uploads/logo-shure.png", cat: "Audio launch", streamers: "2", ctr: 1.31, ctrLabel: "1.31%", peak: "9.12% peak", href: "/case-study/shure" },
+  { brand: "Komplett", logo: "/lovable-uploads/logo-komplett.png", cat: "Retail", streamers: "34", ctr: 1.17, ctrLabel: "1.17%", peak: "4.48% peak", href: "/case-study/komplett" },
+  { brand: "NKI", logo: "/lovable-uploads/logo-nki.svg", cat: "Distance learning", streamers: "19", ctr: 0.72, ctrLabel: "0.72%", peak: null, href: "/case-study/nki" },
+  { brand: "Surfshark", logo: "/lovable-uploads/logo-surfshark.png", cat: "VPN awareness", streamers: "26", ctr: 0.62, ctrLabel: "0.62%", peak: null, href: "/case-study/surfshark" },
+  { brand: "Saily", logo: "/lovable-uploads/logo-saily.png", cat: "Travel eSIM", streamers: "22", ctr: 0.50, ctrLabel: "0.50%", peak: null, href: "/case-study/saily" },
 ];
 const ctrMax = 1.4;
 
@@ -200,6 +200,29 @@ const HowTwitchAdvertisingWorks: React.FC = () => {
             </Reveal>
           ))}
         </div>
+
+        {/* Living proof: a real overlay campaign as it renders inside a stream */}
+        <Reveal className="mt-8">
+          <div className="grid lg:grid-cols-[1.3fr_1fr] gap-8 items-center rounded-2xl border border-border bg-card p-4 lg:p-6">
+            <div className="rounded-xl overflow-hidden bg-black ring-1 ring-border">
+              <video
+                src="/lovable-uploads/overlay-komplett.webm"
+                autoPlay loop muted playsInline preload="none"
+                className="w-full h-auto"
+                aria-label="A native Komplett overlay ad rendered live inside a Norwegian Twitch stream"
+              />
+            </div>
+            <div className="px-2 lg:pr-6">
+              <div className="text-[11px] font-semibold tracking-widest uppercase text-primary mb-2">This is native overlay</div>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                Real campaign creative, rendered inside the broadcast feed - no pre-roll, no pop-up,
+                nothing for an ad-blocker to strip. It is present through the session, part of the
+                stream the viewer chose to watch. That is why it survives ad-block and reports
+                verified clicks.
+              </p>
+            </div>
+          </div>
+        </Reveal>
       </section>
 
       {/* ── Ad-block reality (data-viz, dark) ── */}
@@ -290,9 +313,16 @@ const HowTwitchAdvertisingWorks: React.FC = () => {
         <div className="rounded-2xl border border-border overflow-hidden">
           {campaigns.map((c, i) => (
             <Link key={c.brand} to={c.href} className={`group grid grid-cols-[1fr_auto] sm:grid-cols-[minmax(0,16rem)_1fr_auto] items-center gap-4 sm:gap-8 px-6 py-5 hover:bg-muted/40 transition-colors ${i > 0 ? "border-t border-border" : ""}`}>
-              <div>
-                <div className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">{c.brand}</div>
-                <div className="text-xs text-muted-foreground">{c.cat} · {c.streamers} streamers</div>
+              <div className="flex items-center gap-4 min-w-0">
+                <img
+                  src={c.logo}
+                  alt={c.brand}
+                  className="h-5 w-16 object-contain shrink-0 opacity-80 [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)]"
+                />
+                <div className="min-w-0">
+                  <div className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors truncate">{c.brand}</div>
+                  <div className="text-xs text-muted-foreground truncate">{c.cat} · {c.streamers} streamers</div>
+                </div>
               </div>
               <div className="hidden sm:block">
                 <div className="h-2.5 rounded-full bg-muted overflow-hidden max-w-md">

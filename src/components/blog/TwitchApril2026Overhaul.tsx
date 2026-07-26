@@ -260,6 +260,22 @@ const TwitchApril2026Overhaul: React.FC = () => {
             <p className="text-xs text-white/40 pt-2">Pixel area of a 10%-of-screen overlay. Arithmetic on stated resolutions.</p>
           </div>
         </div>
+
+        {/* The actual overlay whose pixel budget we just counted */}
+        <div className="mt-10 grid lg:grid-cols-[1.3fr_1fr] gap-8 items-center">
+          <div className="rounded-xl overflow-hidden bg-black ring-1 ring-white/10">
+            <video
+              src="/lovable-uploads/overlay-samsung.webm"
+              autoPlay loop muted playsInline preload="none"
+              className="w-full h-auto"
+              aria-label="A native Samsung overlay ad rendered live inside a Norwegian Twitch stream"
+            />
+          </div>
+          <p className="text-sm text-white/55 leading-relaxed lg:pr-6">
+            This is the overlay whose pixel budget we just counted - real campaign creative rendered
+            inside the stream. At 2K it is the difference between a soft logo and a scannable code.
+          </p>
+        </div>
       </section>
 
       {/* ── Combos timeline + durable tools ── */}
