@@ -49,6 +49,10 @@ const DanskeStreamere2026 = lazy(() => import("@/components/blog/DanskeStreamere
 const SuomalaisetStriimaajat2026 = lazy(() => import("@/components/blog/SuomalaisetStriimaajat2026"));
 const ClipAnalyticsDashboard = lazy(() => import("@/components/blog/ClipAnalyticsDashboard"));
 const TwitchApril2026Overhaul = lazy(() => import("@/components/blog/TwitchApril2026Overhaul"));
+const HowTwitchAdvertisingWorks = lazy(() => import("@/components/blog/HowTwitchAdvertisingWorks"));
+
+/** hasDashboard keys that render a bespoke full-width editorial page. */
+const RICH_EDITORIAL = ["twitch-april-2026", "how-twitch-advertising-works"];
 
 /** hasDashboard-verdier som bruker det fullbredde, header-løse roundup-oppsettet. */
 const STREAMER_ROUNDUPS = ["norske-streamere", "svenska-streamare", "danske-streamere", "suomalaiset-striimaajat"];
@@ -114,7 +118,7 @@ const BlogPostPage: React.FC = () => {
   const tocItems = post.hasDashboard ? dashboardTocItems[post.hasDashboard] || [] : autoTocItems;
   const isStreamerRoundup = !!post.hasDashboard && STREAMER_ROUNDUPS.includes(post.hasDashboard);
   // Rich editorial posts render full-width with their own hero (no sidebar/header).
-  const richEditorial = post.hasDashboard === "twitch-april-2026";
+  const richEditorial = !!post.hasDashboard && RICH_EDITORIAL.includes(post.hasDashboard);
   const wideLayout = post.hasDashboard === "twitch-analytics-tools" || post.hasDashboard === "clip-analytics" || isStreamerRoundup || richEditorial;
   // Posts that render their own editorial header (so we suppress the generic one).
   const customLayout = isStreamerRoundup || richEditorial;
@@ -245,6 +249,7 @@ const BlogPostPage: React.FC = () => {
                   {post.hasDashboard === "danske-streamere" && <DanskeStreamere2026 />}
                   {post.hasDashboard === "suomalaiset-striimaajat" && <SuomalaisetStriimaajat2026 />}
                   {post.hasDashboard === "twitch-april-2026" && <TwitchApril2026Overhaul />}
+                  {post.hasDashboard === "how-twitch-advertising-works" && <HowTwitchAdvertisingWorks />}
                 </Suspense>
               </div>
             ) : (

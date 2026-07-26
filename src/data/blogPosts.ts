@@ -7442,6 +7442,7 @@ Brands that move now will build creator relationships and audience familiarity t
     slug: "how-twitch-advertising-works-2026",
     locale: "en",
     translationGroup: "how-twitch-advertising-works-2026",
+    hasDashboard: "how-twitch-advertising-works",
     title: "How Twitch Advertising Actually Works in 2026",
     excerpt: "The mechanics of running a Twitch campaign today - ad formats, adblock reality, attribution, typical CTRs, and where Twitch fits in a modern Nordic media plan. Updated with verified 2025–2026 campaign data.",
     content: `## Why the Playbook Changed Between 2023 and 2026
@@ -11861,6 +11862,11 @@ const UNPUBLISHED_GROUPS = new Set([
 // auto-translated localized versions (-no/-sv/-da/-fi) stay parked in
 // UNPUBLISHED_GROUPS until they get the same review pass.
 const PUBLISHED_OVERRIDE_SLUGS = new Set([
+  // Rescued from the fabricated-stats cut: the markdown body is replaced by a
+  // fact-checked rich component (HowTwitchAdvertisingWorks). The fabricated
+  // figures (61% age-share, 55% 18-24 adblock, -30-50% CPM) do NOT render -
+  // only verified case-study numbers and named external sources do.
+  "how-twitch-advertising-works-2026",
   "b2b-brands-live-streaming-advertising-2026",
   "creator-brief-authentic-integration-templates-2026",
   "incremental-sales-lift-twitch-sponsorship-measurement-2026",
