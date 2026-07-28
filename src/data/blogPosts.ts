@@ -6859,8 +6859,9 @@ The bottom line is straightforward: Twitch's recommendation system rewards what 
     slug: "ad-blocker-crisis-livestream-native-ads-2026",
     locale: "en",
     translationGroup: "ad-blocker-crisis-livestream-native-ads-2026",
-    title: "The Ad Blocker Crisis in Live Streaming: Why 64% of Viewers Block Ads - and What Actually Works",
-    excerpt: "Over 900 million people now use ad blockers, and 64% of livestream viewers are among them. Here's why the crisis is reaching a tipping point in 2026 - and why native overlay ads are the only format breaking through.",
+    hasDashboard: "ad-blocker-crisis",
+    title: "The Ad-Block Wall in Live Streaming, and the One Format That Gets Through",
+    excerpt: "More than a billion people now use ad-blockers, and streaming's young, technical audience blocks at the highest rates of all. Here is why traditional livestream ads fail, and why native overlay is the one format they cannot block.",
     content: `## The Ad Blocker Crisis Nobody Wants to Talk About
 
 There is a number that every digital marketer should have somewhere visible: **64%**.
@@ -6939,16 +6940,16 @@ The ad blocker crisis is not a technical problem waiting for a technical fix. It
       "gaming-advertising-blind-spot-2026"
     ],
     seoTitle: {
-      en: "Ad Blocker Crisis 2026: Why 64% of Livestream Viewers Block Ads",
-      no: "Annonseblokkering 2026: Hvorfor 64% av livestream-seere blokkerer annonser",
-      sv: "Ad Blocker-krisen 2026: Varför 64% av livestream-tittare blockerar annonser",
-      fi: "Ad Blocker-kriisi 2026: Miksi 64% livestream-katsojista estää mainokset"
+      en: "The Ad-Block Wall in Live Streaming | Beta Ads",
+      no: "Annonseblokkering i livestreaming | Beta Ads",
+      sv: "Annonsblockering i livestreaming | Beta Ads",
+      fi: "Mainostenesto livestreamauksessa | Beta Ads"
     },
     seoDescription: {
-      en: "900M+ people use ad blockers and 64% of livestream viewers block ads in 2026. Native overlay ads are the only format that reliably reaches Gen Z audiences.",
-      no: "Over 900 millioner bruker annonseblokkering globalt og 64% av livestream-seere blokkerer annonser i 2026. Lær hvorfor native overlay-annonser er det eneste formatet som fungerer.",
-      sv: "Över 900 miljoner använder annonsblockering globalt och 64% av livestream-tittare blockerar annonser 2026. Lär dig varför native overlay-annonser är det enda formatet som når fram.",
-      fi: "Yli 900 miljoonaa ihmistä käyttää mainostenestoa maailmanlaajuisesti ja 64% livestream-katsojista estää mainokset 2026. Opi, miksi natiivit overlay-mainokset ovat ainoa toimiva formaatti."
+      en: "Over a billion people use ad-blockers, and young streaming audiences block at the highest rates. Why traditional livestream ads fail, and why native overlay is the format they cannot block.",
+      no: "Over en milliard bruker annonseblokkering, og unge streaming-seere blokkerer mest av alle. Hvorfor tradisjonelle livestream-annonser feiler, og hvorfor native overlay er formatet de ikke kan blokkere.",
+      sv: "Över en miljard använder annonsblockering, och unga streaming-tittare blockerar mest av alla. Varför traditionella livestream-annonser misslyckas, och varför native overlay är formatet de inte kan blockera.",
+      fi: "Yli miljardi ihmistä käyttää mainostenestoa, ja nuoret striimikatsojat estävät eniten. Miksi perinteiset livestream-mainokset epäonnistuvat, ja miksi natiivi overlay on formaatti, jota ne eivät voi estää."
     },
     seoKeywords: {
       en: ["ad blockers 2026", "livestream advertising", "native overlay ads", "Gen Z ad blockers", "Twitch native ads", "streaming advertising"],
@@ -11867,6 +11868,10 @@ const PUBLISHED_OVERRIDE_SLUGS = new Set([
   // figures (61% age-share, 55% 18-24 adblock, -30-50% CPM) do NOT render -
   // only verified case-study numbers and named external sources do.
   "how-twitch-advertising-works-2026",
+  // Rescued: the fabricated version (64% headline, invented Nordic market
+  // sizing, 94%/61%/76% figures) is fully replaced by a fact-checked rich
+  // component (AdBlockerCrisis) using only named-source numbers.
+  "ad-blocker-crisis-livestream-native-ads-2026",
   "b2b-brands-live-streaming-advertising-2026",
   "creator-brief-authentic-integration-templates-2026",
   "incremental-sales-lift-twitch-sponsorship-measurement-2026",

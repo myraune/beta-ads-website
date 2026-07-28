@@ -50,9 +50,10 @@ const SuomalaisetStriimaajat2026 = lazy(() => import("@/components/blog/Suomalai
 const ClipAnalyticsDashboard = lazy(() => import("@/components/blog/ClipAnalyticsDashboard"));
 const TwitchApril2026Overhaul = lazy(() => import("@/components/blog/TwitchApril2026Overhaul"));
 const HowTwitchAdvertisingWorks = lazy(() => import("@/components/blog/HowTwitchAdvertisingWorks"));
+const AdBlockerCrisis = lazy(() => import("@/components/blog/AdBlockerCrisis"));
 
 /** hasDashboard keys that render a bespoke full-width editorial page. */
-const RICH_EDITORIAL = ["twitch-april-2026", "how-twitch-advertising-works"];
+const RICH_EDITORIAL = ["twitch-april-2026", "how-twitch-advertising-works", "ad-blocker-crisis"];
 
 /** hasDashboard-verdier som bruker det fullbredde, header-løse roundup-oppsettet. */
 const STREAMER_ROUNDUPS = ["norske-streamere", "svenska-streamare", "danske-streamere", "suomalaiset-striimaajat"];
@@ -250,6 +251,7 @@ const BlogPostPage: React.FC = () => {
                   {post.hasDashboard === "suomalaiset-striimaajat" && <SuomalaisetStriimaajat2026 />}
                   {post.hasDashboard === "twitch-april-2026" && <TwitchApril2026Overhaul />}
                   {post.hasDashboard === "how-twitch-advertising-works" && <HowTwitchAdvertisingWorks />}
+                  {post.hasDashboard === "ad-blocker-crisis" && <AdBlockerCrisis />}
                 </Suspense>
               </div>
             ) : (
