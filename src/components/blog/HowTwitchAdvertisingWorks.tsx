@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, Check, X, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import ClientLogoStrip from "@/components/blog/ClientLogoStrip";
 
 /**
  * Rich, full-width editorial page for "How Twitch advertising actually works".
@@ -431,6 +432,8 @@ const HowTwitchAdvertisingWorks: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <ClientLogoStrip />
 
       {/* ── CTA ── */}
       <section className="mt-20 lg:mt-28">

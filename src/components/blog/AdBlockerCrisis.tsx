@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import ClientLogoStrip from "@/components/blog/ClientLogoStrip";
 
 /**
  * Rich, full-width editorial page: the ad-block reality and why native overlay
@@ -290,6 +291,8 @@ const AdBlockerCrisis: React.FC = () => {
           </div>
         </Reveal>
       </section>
+
+      <ClientLogoStrip />
 
       {/* ── CTA ── */}
       <section className="mt-20 lg:mt-28">

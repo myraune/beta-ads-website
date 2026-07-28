@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import ClientLogoStrip from "@/components/blog/ClientLogoStrip";
 
 /**
  * Rich, full-width editorial page for the April 2026 Twitch platform-overhaul
@@ -372,6 +373,8 @@ const TwitchApril2026Overhaul: React.FC = () => {
           ))}
         </div>
       </section>
+
+      <ClientLogoStrip />
 
       {/* ── CTA ── */}
       <section className="mt-20 lg:mt-28">
