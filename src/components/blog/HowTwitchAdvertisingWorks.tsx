@@ -144,24 +144,35 @@ const HowTwitchAdvertisingWorks: React.FC = () => {
       {/* ── Hero ── */}
       <section className="relative overflow-hidden rounded-3xl bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-16 lg:py-24">
         <div className="absolute -top-24 -right-24 w-[32rem] h-[32rem] rounded-full bg-primary/20 blur-[120px] pointer-events-none" aria-hidden />
-        <div className="relative max-w-3xl">
-          <div className="flex flex-wrap items-center gap-3 mb-7 text-xs font-semibold tracking-widest uppercase">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white/80">
-              <img src="/lovable-uploads/platform-twitch.png" alt="Twitch" className="h-3.5 w-auto" />
-              Twitch Insights
-            </span>
-            <span className="text-white/40">Updated 2026 · 8 min read</span>
+        <div className="relative grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center">
+          <div className="max-w-2xl">
+            <div className="flex flex-wrap items-center gap-3 mb-7 text-xs font-semibold tracking-widest uppercase">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white/80">
+                <img src="/lovable-uploads/platform-twitch.png" alt="Twitch" className="h-3.5 w-auto" />
+                Twitch Insights
+              </span>
+              <span className="text-white/40">Updated 2026 · 8 min read</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight mb-6">
+              How Twitch advertising{" "}
+              <span style={serif} className="italic font-normal">actually</span> works now
+            </h1>
+            <p className="text-lg text-white/65 leading-relaxed max-w-xl">
+              The 2019 playbook - pre-roll and programmatic display - now describes a minority of what
+              moves spend on Twitch. Here is how a campaign really runs in 2026: the three buying
+              channels, the ad-block reality, what gets measured, and the verified CTR you can expect
+              from real Nordic campaigns.
+            </p>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight mb-6">
-            How Twitch advertising{" "}
-            <span style={serif} className="italic font-normal">actually</span> works now
-          </h1>
-          <p className="text-lg text-white/65 leading-relaxed max-w-xl">
-            The 2019 playbook - pre-roll and programmatic display - now describes a minority of what
-            moves spend on Twitch. Here is how a campaign really runs in 2026: the three buying
-            channels, the ad-block reality, what gets measured, and the verified CTR you can expect
-            from real Nordic campaigns.
-          </p>
+          {/* Real product proof: a native overlay ad inside a live Nordic stream */}
+          <figure className="rounded-2xl overflow-hidden ring-1 ring-white/10 shadow-2xl shadow-black/40">
+            <img
+              src="/lovable-uploads/twitch-ad-example.jpg"
+              alt="A native Saily overlay ad rendered inside a live Nordic Twitch stream"
+              className="w-full h-auto"
+              loading="eager"
+            />
+          </figure>
         </div>
         <div className="relative grid grid-cols-2 md:grid-cols-4 gap-px mt-14 border border-white/10 rounded-2xl overflow-hidden bg-white/10 max-w-3xl">
           {heroStats.map((s) => (
