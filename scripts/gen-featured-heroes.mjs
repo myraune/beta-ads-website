@@ -22,6 +22,9 @@ const cards = [
   { file: "blog-featured-brief.png",
     kicker: "Creator ops", title: ["How to {brief}", "a streamer, properly"],
     ghost: "BRIEF", meta: "The complete native-integration guide" },
+  { file: "blog-featured-streamer-university.png",
+    kicker: "Industry insights", title: ["1.2 million viewers,", "one {campus}"],
+    ghost: "SU", meta: "Streamer University 2026, the brand breakdown" },
 ];
 
 function renderTitle(lines) {

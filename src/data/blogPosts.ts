@@ -50,6 +50,87 @@ export interface BlogPost {
 
 const _allBlogPostsRaw: BlogPost[] = [
   {
+    id: "streamer-university-2026-brand-breakdown",
+    slug: "streamer-university-2026-brand-breakdown",
+    locale: "en",
+    translationGroup: "streamer-university-2026-brand-breakdown",
+    hasDashboard: "streamer-university-2026",
+    title: "Streamer University 2026: What 1.2 Million Concurrent Viewers Taught Brands About Creator Marketing",
+    excerpt: "For six days in July, a liberal-arts college in Arkansas was the most-watched place on Twitch. 120 creators, 20+ brand partners, roughly 57 million hours watched. Kai Cenat has announced the 2027 edition is coming to Europe. Here is the brand-side breakdown, with third-party verified numbers.",
+    content: `## The most-watched place on Twitch was a college campus
+
+Between 15 and 20 July 2026, Streamer University turned Hendrix College in Conway, Arkansas into the single most-watched category on Twitch, ahead of Just Chatting. Kai Cenat's in-person creator bootcamp put 120 selected creators on a real campus and streamed it from all of their channels at once.
+
+The headline numbers, measured by third parties rather than the organisers: roughly **1.2 million peak concurrent viewers** on Twitch, about **1.45 million** counting YouTube, and around **57 million hours watched** across six days ([StreamsCharts](https://streamscharts.com/news/streamer-university-2026-results)). [SullyGnome's](https://sullygnome.com/game/streamer_university_1266647210/7/summary) following-week data independently confirms this: the category shed 57.2 million hours and 1.2 million peak viewers the moment the event ended.
+
+The 2025 inaugural edition, at the University of Akron, peaked at 731,000. Peak viewership more than doubled in a year.
+
+## The audience came from 6,004 channels, not one
+
+This is the structural detail most coverage misses. Cenat's own channel peaked at 594,100 on Twitch, well under half the category peak. The rest of the audience was distributed across 120 students and thousands of other channels covering the same event from the inside. Average concurrent viewers across the category ran at 435,724, and the category took roughly 15% of all Twitch watch time over the six days.
+
+For a media buyer, that is the actual lesson: the reach was a swarm, not a broadcast.
+
+## More than 20 brands, and almost no advertising
+
+Not one major activation was a pre-roll buy. Every one was a physical object or an in-world mechanic that 120 creators had to interact with on camera:
+
+- **Ch@mobile** gave every student a smartphone and a year of wireless, then hired clipping agencies that drove well over 30 million views.
+- **Zaxby's** catered the campus (15,000+ chicken fingerz, 6,000 wings, 400+ gallons of sauce) and grew its own social following by more than 20,000, a lift of over 1,000% week over week.
+- **Epic Games** hid 31 tradeable, stealable Fortnite Sprites across campus; the winner got a custom in-game cosmetic and a $7,500 brand deal.
+- **Red Bull** turned branded mini-fridges into lecture backdrops and sponsored the Best Professor award.
+- **Meta** handed out Ray-Ban Meta glasses, turning each creator into a POV camera.
+
+Dell supplied laptops, Crocs supplied shoes, Shopify powered limited product drops, State Farm gifted subscriptions live, and TVU gave away a $30,000 streaming backpack. In 2025 the phone sponsor was T-Mobile; in 2026 that slot went to creator-owned challenger Ch@mobile. ([Digiday](https://digiday.com/media/kai-cenats-streamer-u-was-a-masterclass-for-brands-looking-to-tap-content-creators/), [StreamsCharts](https://streamscharts.com/news/streamer-university-2026-results), [Hendrix College](https://www.hendrix.edu/Streamer-U-brings-thousands-of-visitors-to-Hendrix-College/))
+
+## The discovery engine
+
+Suburbbaby arrived as a student and left as campus MVP, peaking at 195,300 concurrent viewers and passing 777,000 Twitch followers. Across the category, roughly 12.5 million follows and about 40,000 paid subscriptions were recorded during the week.
+
+The format manufactures mid-tier creators in a week. The people worth partnering with next year are on that list now, at a fraction of the price they will command later.
+
+## 2027 is in Europe, and no location has been chosen
+
+At the closing ceremony on 20 July, Cenat announced that Streamer University 2027 will be held in Europe, with alumni from both classes eligible to attend. No country, city, venue or date has been announced.
+
+For Nordic brands, that is the practical hook. A European edition puts a 1.2-million-viewer format inside European time zones with European creators in the cast. The 2026 sponsor list was locked long before July.
+
+## What transfers to a normal budget
+
+You do not need a campus to run the mechanic. The logic that made Streamer University work is the same logic behind a native Nordic overlay campaign: appear inside content the audience already chose, across many creators rather than one, and let the creator frame it. Be useful rather than present, build for the clip rather than the live number, and accept that you cannot approve the moment in advance.
+
+See [how Twitch advertising actually works](/blog/how-twitch-advertising-works-2026) and [what a Nordic campaign costs](/twitch-advertising-cost).
+
+---
+
+*Note on figures: viewership numbers here are third-party measured (StreamsCharts, SullyGnome) rather than organiser-reported. Four figures circulating from the organiser's own recap are not used because independent data contradicts them, including a "1.6M combined" peak (measured at 1.45M) and a "403K YouTube peak" that belongs to Cenat's 6 July reveal stream rather than event week.*`,
+    date: "Jul 29, 2026",
+    dateISO: "2026-07-29",
+    readTime: "9 min read",
+    image: "/lovable-uploads/blog-featured-streamer-university.png",
+    category: "Industry Insights",
+    tags: ["Streamer University", "Kai Cenat", "creator marketing", "brand activation", "Twitch", "Nordic advertising"],
+    relatedSlugs: ["how-twitch-advertising-works-2026", "ad-blocker-crisis-livestream-native-ads-2026", "twitch-april-2026-platform-overhaul-advertiser-guide"],
+    seoTitle: {
+      en: "Streamer University 2026: The Brand Breakdown | Beta Ads",
+      no: "Streamer University 2026: Merkevare-analysen | Beta Ads",
+      sv: "Streamer University 2026: Varumärkesanalysen | Beta Ads",
+      fi: "Streamer University 2026: Brändianalyysi | Beta Ads"
+    },
+    seoDescription: {
+      en: "1.2M peak Twitch viewers, 120 creators, 20+ brand partners and ~57M hours watched. What Streamer University 2026 taught brands about creator marketing, and why the 2027 European edition matters for Nordic advertisers.",
+      no: "1,2 millioner seere på topp, 120 skapere, over 20 merkevarepartnere og ~57 millioner sette timer. Hva Streamer University 2026 lærte merkevarer, og hvorfor den europeiske 2027-utgaven betyr noe for nordiske annonsører.",
+      sv: "1,2 miljoner tittare som mest, 120 kreatörer, över 20 varumärkespartners och ~57 miljoner sedda timmar. Vad Streamer University 2026 lärde varumärken, och varför den europeiska 2027-upplagan spelar roll för nordiska annonsörer.",
+      fi: "1,2 miljoonaa katsojaa huipussaan, 120 tekijää, yli 20 brändikumppania ja ~57 miljoonaa katselutuntia. Mitä Streamer University 2026 opetti brändeille, ja miksi vuoden 2027 Euroopan-tapahtuma on tärkeä pohjoismaisille mainostajille."
+    },
+    seoKeywords: {
+      en: ["streamer university", "streamer university 2026", "kai cenat", "creator marketing", "brand activation twitch", "streamer university europe 2027", "nordic creator marketing"],
+      no: ["streamer university", "kai cenat", "skapermarkedsføring", "twitch merkevare"],
+      sv: ["streamer university", "kai cenat", "kreatörsmarknadsföring", "twitch varumärke"],
+      fi: ["streamer university", "kai cenat", "tekijämarkkinointi", "twitch brändi"]
+    }
+  },
+  {
     id: "clip-analytics-ad-verification-nordic-streaming",
     slug: "clip-analytics-ad-verification-nordic-streaming",
     translationGroup: "clip-analytics-verification",

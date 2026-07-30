@@ -23,6 +23,62 @@ export interface BlogPostMeta {
 
 export const blogPostsMeta: BlogPostMeta[] = [
   {
+    id: "streamer-university-2026-brand-breakdown",
+    slug: "streamer-university-2026-brand-breakdown",
+    locale: "en",
+    translationGroup: "streamer-university-2026-brand-breakdown",
+    hasDashboard: "streamer-university-2026",
+    title: "Streamer University 2026: What 1.2 Million Concurrent Viewers Taught Brands About Creator Marketing",
+    excerpt: "For six days in July, a liberal-arts college in Arkansas was the most-watched place on Twitch. 120 creators, 20+ brand partners, roughly 57 million hours watched. Kai Cenat has announced the 2027 edition is coming to Europe. Here is the brand-side breakdown, with third-party verified numbers.",
+    date: "Jul 29, 2026",
+    dateISO: "2026-07-29",
+    readTime: "9 min read",
+    image: "/lovable-uploads/blog-featured-streamer-university.png",
+    category: "Industry Insights",
+    tags: [
+      "Streamer University",
+      "Kai Cenat",
+      "creator marketing",
+      "brand activation",
+      "Twitch",
+      "Nordic advertising",
+    ],
+    relatedSlugs: [
+      "how-twitch-advertising-works-2026",
+      "ad-blocker-crisis-livestream-native-ads-2026",
+      "twitch-april-2026-platform-overhaul-advertiser-guide",
+    ],
+    seoKeywords: {
+      en: [
+        "streamer university",
+        "streamer university 2026",
+        "kai cenat",
+        "creator marketing",
+        "brand activation twitch",
+        "streamer university europe 2027",
+        "nordic creator marketing",
+      ],
+      no: [
+        "streamer university",
+        "kai cenat",
+        "skapermarkedsføring",
+        "twitch merkevare",
+      ],
+      sv: [
+        "streamer university",
+        "kai cenat",
+        "kreatörsmarknadsföring",
+        "twitch varumärke",
+      ],
+      fi: [
+        "streamer university",
+        "kai cenat",
+        "tekijämarkkinointi",
+        "twitch brändi",
+      ],
+    },
+  },
+  {
     id: "clip-analytics-ad-verification-nordic-streaming",
     slug: "clip-analytics-ad-verification-nordic-streaming",
     translationGroup: "clip-analytics-verification",
