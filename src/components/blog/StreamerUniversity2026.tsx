@@ -1,29 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, ArrowUpRight, Check, X } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Check, X, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import ClientLogoStrip from "@/components/blog/ClientLogoStrip";
 
 /**
- * Streamer University 2026 - a brand-side breakdown.
+ * Streamer University 2026 - a brand-side breakdown, built visual-first.
  *
- * SOURCING RULE: every number here is third-party verified, not organiser-
- * reported, unless explicitly labelled. Three independent sources were used:
- *   - StreamsCharts (category analytics)
- *   - SullyGnome (Twitch category analytics; the week-after deltas independently
- *     reverse-confirm the event-week peak and hours watched)
- *   - Digiday (27 Jul 2026), on-record brand executives
- * Plus Hendrix College (host, official), Tubefilter, Dexerto, Complex.
+ * REAL IMAGERY (no AI, no stock): Streamer University's own logo and Hendrix
+ * College's logo (both public domain, Wikimedia Commons); a real photo of Kai
+ * Cenat (CC BY 3.0, "MILLION DOLLAZ WORTH OF GAME"); the actual Hendrix campus
+ * (CC BY-SA 3.0, Valis55); an embedded real news segment (FOX 16 KLRT); and the
+ * sponsors' own brand marks (simple-icons, CC0). Credits render at page foot.
  *
- * DELIBERATELY CUT from the organiser's own "Wrapped" post because independent
- * data contradicts it: "1.6M+ combined" (StreamsCharts measured 1.45M),
- * "403K YouTube peak" (that was the 6 July reveal stream, not event week),
- * "234,549 average / 10.9% of Twitch" (StreamsCharts: 435,724 avg, ~15% of
- * watch time), and "over a billion impressions" (self-labelled estimate).
+ * SOURCING RULE: every number is third-party verified (StreamsCharts, SullyGnome,
+ * Digiday), not organiser-reported, unless labelled. Four figures from the
+ * organiser's own recap are deliberately excluded because independent data
+ * contradicts them (see the note at the foot).
  */
 
 const serif = { fontFamily: "'Instrument Serif', serif" };
+const SU_LOGO = "/lovable-uploads/su-real/streamer-university-logo.svg";
 
 const heroStats = [
   { value: "1.2M", label: "Peak Twitch viewers, one category" },
@@ -39,7 +37,6 @@ const growth = [
 ];
 const growthMax = 1200;
 
-// The distribution point: the audience arrived through thousands of channels.
 const distribution = [
   { label: "Channels broadcasting the event", value: "6,004", note: "StreamsCharts" },
   { label: "Average concurrent viewers", value: "435,724", note: "Twitch + YouTube, StreamsCharts" },
@@ -47,68 +44,42 @@ const distribution = [
   { label: "Twitch's #1 category", value: "Jul 15-20", note: "Ahead of Just Chatting" },
 ];
 
-// Brand activations. Every row is Digiday, StreamsCharts or Hendrix College.
-const sponsors: { brand: string; what: string; tag: string }[] = [
-  { brand: "Ch@mobile", tag: "Hardware + service", what: "Gave all 120 students a smartphone and a year of wireless, then hired clipping agencies that drove well over 30 million views." },
-  { brand: "Zaxby's", tag: "Catering as content", what: "Fed the campus: 15,000+ chicken fingerz, 6,000 wings, 2,500 slices of Texas Toast, 400+ gallons of sauce." },
-  { brand: "Epic Games", tag: "In-world game", what: "Hid 31 Fortnite Sprites across campus, tradeable and stealable. The winner got a custom in-game cosmetic and a $7,500 Epic brand deal." },
-  { brand: "Red Bull", tag: "Set dressing", what: "Branded mini-fridges became lecture backdrops, and it sponsored the Best Professor award (won by Ludwig Ahgren)." },
-  { brand: "Meta", tag: "Capture tech", what: "Ray-Ban Meta glasses to students, turning every creator into a POV camera for the week." },
-  { brand: "State Farm", tag: "Live gifting", what: "Gifted subscriptions to streamers on stream for doing good things." },
-  { brand: "Dell", tag: "Kit", what: "Laptops for every student." },
-  { brand: "Shopify", tag: "Commerce", what: "Powered limited-edition product drops during the week, including a collab that sold out." },
-  { brand: "Crocs", tag: "Merch", what: "A pair for every student." },
-  { brand: "TVU", tag: "Prize", what: "Gave away one $30,000 mobile streaming backpack." },
+// Sponsor activations. Logos are the brands' own marks (simple-icons, CC0)
+// where one exists; the rest render as a clean wordmark tile. These are
+// STREAMER UNIVERSITY's sponsors, not Beta Ads clients - labelled as such.
+const sponsors: { brand: string; logo?: string; what: string }[] = [
+  { brand: "Epic Games", logo: "/lovable-uploads/su-sponsors/epicgames.svg", what: "Hid 31 tradeable, stealable Fortnite Sprites across campus. The winner got a custom in-game cosmetic and a $7,500 Epic brand deal." },
+  { brand: "Red Bull", logo: "/lovable-uploads/su-sponsors/redbull.svg", what: "Branded mini-fridges became lecture backdrops, and it sponsored the Best Professor award, won by Ludwig Ahgren." },
+  { brand: "Meta", logo: "/lovable-uploads/su-sponsors/meta.svg", what: "Ray-Ban Meta glasses to students, turning every creator into a live POV camera for the week." },
+  { brand: "Dell", logo: "/lovable-uploads/su-sponsors/dell.svg", what: "Laptops for every student on campus." },
+  { brand: "Shopify", logo: "/lovable-uploads/su-sponsors/shopify.svg", what: "Powered limited-edition product drops during the week, including a collab that sold out." },
+  { brand: "Ch@mobile", what: "A phone and a year of wireless for all 120 students, then clipping agencies that drove 30M+ views." },
+  { brand: "Zaxby's", what: "Catered the campus: 15,000+ chicken fingerz, 6,000 wings, 400+ gallons of sauce." },
+  { brand: "State Farm", what: "Gifted subscriptions to streamers on stream, for doing good things." },
+  { brand: "Crocs", what: "A pair for every student." },
+  { brand: "TVU", what: "Gave away one $30,000 mobile streaming backpack." },
 ];
 
 // Breakout creators. StreamsCharts.
 const breakouts = [
-  { name: "Suburbbaby", peak: 195.3, display: "195.3K", note: "Campus MVP, passed 777K followers" },
   { name: "Rakai", peak: 230.5, display: "230.5K", note: "Highest individual peak on campus" },
+  { name: "Suburbbaby", peak: 195.3, display: "195.3K", note: "Campus MVP, passed 777K followers" },
   { name: "Fanum", peak: 191, display: "191K", note: "Established creator" },
   { name: "JasonTheWeen", peak: 161.8, display: "161.8K", note: "Personal record" },
 ];
 const breakoutMax = 230.5;
 
 const quotes = [
-  {
-    q: "It was a masterclass in how you should actually approach branded activations in digital media.",
-    who: "Mustafa Aijaz",
-    role: "VP of Gaming and Digital Culture, SoaR Gaming",
-  },
-  {
-    q: "You don't pander to this audience, they'll see right through that.",
-    who: "Bernt Ullmann",
-    role: "Co-founder, Ch@mobile",
-  },
-  {
-    q: "Control is a tough thing for a brand.",
-    who: "Nathaniel Weiss",
-    role: "CEO and co-founder, Tone",
-  },
+  { q: "It was a masterclass in how you should actually approach branded activations in digital media.", who: "Mustafa Aijaz", role: "VP of Gaming and Digital Culture, SoaR Gaming" },
+  { q: "You don't pander to this audience, they'll see right through that.", who: "Bernt Ullmann", role: "Co-founder, Ch@mobile" },
+  { q: "Control is a tough thing for a brand.", who: "Nathaniel Weiss", role: "CEO and co-founder, Tone" },
 ];
 
 const lessons = [
-  {
-    n: "01",
-    title: "Be useful, not present",
-    body: "The activations that worked gave creators something they needed on the day: a phone, a laptop, food, a camera. Nobody bought a logo placement. The brand became part of the story because it solved a problem on camera.",
-  },
-  {
-    n: "02",
-    title: "Give up control on purpose",
-    body: "Every brand in the building accepted that 120 creators would use their product unscripted, in public, live. That is the trade: you cannot direct the moment, and that is exactly why the audience believes it.",
-  },
-  {
-    n: "03",
-    title: "Buy the network, not the star",
-    body: "The audience did not arrive through one channel. It arrived through 6,004 of them. The reach came from the swarm of small and mid-tier creators around the headline name, which is a very different media buy than a single sponsorship.",
-  },
-  {
-    n: "04",
-    title: "Build for the clip, not the broadcast",
-    body: "The live number is the smallest part. Ch@mobile hired clipping agencies and got 30 million-plus views on the aftermath. The event was the production; the clips were the campaign.",
-  },
+  { n: "01", title: "Be useful, not present", body: "The activations that worked gave creators something they needed on the day: a phone, a laptop, food, a camera. The brand became part of the story because it solved a problem on camera." },
+  { n: "02", title: "Give up control on purpose", body: "Every brand accepted that 120 creators would use their product unscripted, in public, live. That is the trade, and it is exactly why the audience believes it." },
+  { n: "03", title: "Buy the network, not the star", body: "The audience did not arrive through one channel. It arrived through 6,004. The reach came from the swarm of creators around the headline name." },
+  { n: "04", title: "Build for the clip, not the broadcast", body: "The live number is the smallest part. Ch@mobile hired clipping agencies and got 30 million-plus views on the aftermath. The clips were the campaign." },
 ];
 
 const sources = [
@@ -129,97 +100,139 @@ const Reveal: React.FC<{ children: React.ReactNode; className?: string }> = ({ c
   );
 };
 
+// Click-to-play facade for the real news segment. Shows the real thumbnail,
+// loads the iframe only on click (fast, and no third-party cookies until then).
+const VideoEmbed: React.FC = () => {
+  const [playing, setPlaying] = useState(false);
+  return (
+    <div className="relative aspect-video rounded-2xl overflow-hidden ring-1 ring-border bg-black">
+      {playing ? (
+        <iframe
+          className="absolute inset-0 w-full h-full"
+          src="https://www.youtube-nocookie.com/embed/ZZml3bav4wc?autoplay=1&rel=0"
+          title="Local news covers Streamer University at Hendrix College"
+          allow="accelerometer; autoplay; encrypted-media; picture-in-picture"
+          allowFullScreen
+        />
+      ) : (
+        <button
+          type="button"
+          onClick={() => setPlaying(true)}
+          className="group absolute inset-0 w-full h-full"
+          aria-label="Play the news segment"
+        >
+          <img src="/lovable-uploads/su-video-thumb.webp" alt="News crews at Hendrix College for Streamer University" className="absolute inset-0 w-full h-full object-cover" />
+          <span className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
+          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-16 h-16 rounded-full bg-primary shadow-xl group-hover:scale-105 transition-transform">
+            <Play className="w-6 h-6 text-white translate-x-0.5" fill="currentColor" />
+          </span>
+        </button>
+      )}
+    </div>
+  );
+};
+
 const StreamerUniversity2026: React.FC = () => {
   return (
     <div className="pb-4">
-      {/* ── Hero ── */}
-      <section className="relative overflow-hidden rounded-3xl bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-16 lg:py-24">
+      {/* ── Hero (two-column, real photo) ── */}
+      <section className="relative overflow-hidden rounded-3xl bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-14 lg:py-20">
         <div className="absolute -top-24 -right-24 w-[32rem] h-[32rem] rounded-full bg-primary/20 blur-[120px] pointer-events-none" aria-hidden />
-        <div className="relative max-w-3xl">
-          <div className="flex flex-wrap items-center gap-3 mb-7 text-xs font-semibold tracking-widest uppercase">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white/80">
-              <img src="/lovable-uploads/platform-twitch.png" alt="Twitch" className="h-3.5 w-auto" />
-              Industry Insights
-            </span>
-            <span className="text-white/40">July 2026 · 9 min read</span>
+        <div className="relative grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-center">
+          <div>
+            <div className="flex flex-wrap items-center gap-4 mb-7">
+              <img src={SU_LOGO} alt="Streamer University" className="h-8 w-auto [filter:brightness(0)_invert(1)]" />
+              <span className="text-xs font-semibold tracking-widest uppercase text-white/40">July 2026 · 9 min read</span>
+            </div>
+            <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-bold text-white leading-[1.05] tracking-tight mb-6">
+              1.2 million people, one campus.{" "}
+              <span style={serif} className="italic font-normal">Then it went to Europe.</span>
+            </h1>
+            <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-xl">
+              For six days in July, a small college in Arkansas was the most-watched place on Twitch.
+              120 creators, 20+ brands, ~57 million hours watched. Here is what the brands actually
+              did, and why Nordic marketers should be reading it now.
+            </p>
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight mb-6">
-            Streamer University put 1.2 million people in one room.{" "}
-            <span style={serif} className="italic font-normal">Then it went to Europe.</span>
-          </h1>
-          <p className="text-lg text-white/65 leading-relaxed max-w-2xl">
-            For six days in July, a small liberal-arts college in Arkansas was the most-watched place
-            on Twitch. 120 creators, more than 20 brands, roughly 57 million hours watched. Kai Cenat
-            has announced the 2027 edition is coming to Europe, and no location has been chosen yet.
-            Here is what actually happened, what the brands did, and why Nordic marketers should be
-            reading this now.
-          </p>
+          {/* Real photo of Kai Cenat */}
+          <figure className="relative">
+            <div className="rounded-2xl overflow-hidden ring-1 ring-white/15 shadow-2xl shadow-black/50 max-w-[20rem] lg:max-w-none mx-auto">
+              <img src="/lovable-uploads/su-real/kai-cenat.webp" alt="Kai Cenat, founder of Streamer University" className="w-full h-auto" loading="eager" />
+            </div>
+            <figcaption className="text-[11px] text-white/40 mt-2 text-center lg:text-right">Kai Cenat, who founded and hosts Streamer University</figcaption>
+          </figure>
         </div>
-        <div className="relative grid grid-cols-2 md:grid-cols-4 gap-px mt-14 border border-white/10 rounded-2xl overflow-hidden bg-white/10 max-w-3xl">
+        <div className="relative grid grid-cols-2 md:grid-cols-4 gap-px mt-12 border border-white/10 rounded-2xl overflow-hidden bg-white/10">
           {heroStats.map((s) => (
             <div key={s.label} className="bg-black/30 backdrop-blur-sm px-5 py-5">
-              <div className="text-2xl font-bold text-white tracking-tight">{s.value}</div>
+              <div className="text-2xl md:text-3xl font-bold text-white tracking-tight">{s.value}</div>
               <div className="text-xs text-white/50 mt-1 leading-snug">{s.label}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ── What it is ── */}
-      <section className="mt-20 lg:mt-28 grid lg:grid-cols-2 gap-14 items-start">
+      {/* ── What it is (real campus photo) ── */}
+      <section className="mt-20 lg:mt-28 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <Reveal>
+          <div className="rounded-2xl overflow-hidden ring-1 ring-border shadow-xl">
+            <img src="/lovable-uploads/su-real/hendrix-campus.webp" alt="Hendrix College campus in Conway, Arkansas, the 2026 venue" className="w-full h-auto" loading="lazy" />
+          </div>
+          <p className="text-[11px] text-muted-foreground/60 mt-2">The real venue: Hendrix College, Conway, Arkansas.</p>
+        </Reveal>
         <Reveal>
           <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">What it actually is</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">
             A real campus, run as a live production
           </h2>
-          <p className="text-base text-muted-foreground leading-relaxed max-w-md mb-4">
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4">
             Streamer University is Kai Cenat's in-person creator bootcamp, streamed almost
-            continuously. The 2026 edition ran 15 to 20 July at Hendrix College in Conway, Arkansas,
-            with 120 students selected through auditions in New York, Los Angeles and Atlanta.
+            continuously. The 2026 edition ran 15 to 20 July at Hendrix College, with 120 students
+            selected through auditions in New York, Los Angeles and Atlanta.
           </p>
-          <p className="text-base text-muted-foreground leading-relaxed max-w-md">
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
             Established creators teach as professors, students join clubs, and the whole thing is
-            broadcast from every participant's own channel at once. Cenat is managed by Reed
-            Duchscher's agency Night, whose post-event breakdown is one of the sources below.
+            broadcast from every participant's channel at once. Cenat is managed by Reed Duchscher's
+            agency Night.
           </p>
-        </Reveal>
-        <Reveal>
-          <div className="rounded-2xl border border-border bg-card divide-y divide-border">
-            {[
-              ["Host campus", "Hendrix College, Conway, Arkansas"],
-              ["Dates", "15 - 20 July 2026"],
-              ["Students", "120, selected by audition"],
-              ["Faculty", "Creators including Ludwig, Pokimane, Agent00, Adapt"],
-              ["Format", "Classes, clubs, campus activities, streamed live"],
-              ["2025 edition", "University of Akron, Ohio, late May"],
-            ].map(([k, v]) => (
-              <div key={k} className="flex items-baseline justify-between gap-6 px-6 py-4">
-                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground/70 shrink-0">{k}</span>
-                <span className="text-sm text-foreground text-right">{v}</span>
-              </div>
-            ))}
-          </div>
         </Reveal>
       </section>
 
-      {/* ── The scale (dark, data-viz) ── */}
+      {/* ── Watch: real video ── */}
+      <section className="mt-20 lg:mt-28">
+        <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-14 items-center">
+          <div>
+            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">See it</span>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
+              It was a real event, on real local news
+            </h2>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+              This was not a purely online phenomenon. Hundreds of people physically descended on
+              Conway, Arkansas, enough that the local FOX affiliate sent a crew to campus.
+            </p>
+          </div>
+          <VideoEmbed />
+        </div>
+      </section>
+
+      {/* ── The scale (dark, data-viz + platform marks) ── */}
       <section className="mt-20 lg:mt-28 rounded-3xl bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-16">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           <div>
             <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">The scale</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-white mb-5">
-              Peak viewership more than doubled in one year
+              Peak viewership more than doubled in a year
             </h2>
-            <p className="text-base text-white/60 leading-relaxed max-w-md mb-4">
-              The inaugural 2025 edition peaked at 731,000. The 2026 edition hit roughly 1.2 million
-              concurrent viewers on Twitch alone, and about 1.45 million counting YouTube. For six
-              days it was the single most-watched category on Twitch, ahead of Just Chatting.
+            <p className="text-base md:text-lg text-white/65 leading-relaxed mb-5">
+              The 2025 edition peaked at 731,000. The 2026 edition hit roughly 1.2 million concurrent
+              viewers on Twitch alone, and about 1.45 million counting YouTube. For six days it was
+              the single most-watched category on Twitch.
             </p>
-            <p className="text-sm text-white/45 leading-relaxed max-w-md">
-              Independently confirmed: SullyGnome's following-week data shows the category shedding
-              57.2 million hours and 1.2 million peak viewers once the event ended, which reverse-
-              confirms the event-week figures.
-            </p>
+            <div className="flex items-center gap-3 text-white/50">
+              <span className="text-xs uppercase tracking-widest">Broadcast on</span>
+              <img src="/lovable-uploads/su-sponsors/twitch.svg" alt="Twitch" className="h-4 w-auto opacity-80" />
+              <img src="/lovable-uploads/su-sponsors/youtube.svg" alt="YouTube" className="h-4 w-auto opacity-80" />
+            </div>
           </div>
           <div className="space-y-8">
             {growth.map((g) => (
@@ -234,7 +247,7 @@ const StreamerUniversity2026: React.FC = () => {
                 <p className="text-[11px] text-white/40 mt-1.5">{g.note}</p>
               </div>
             ))}
-            <p className="text-xs text-white/40 pt-2">Peak concurrent viewers, category-wide. Source: StreamsCharts.</p>
+            <p className="text-xs text-white/40 pt-2">Peak concurrent viewers, category-wide. Independently confirmed by SullyGnome's week-after drop of 57.2M hours and 1.2M peak. Source: StreamsCharts.</p>
           </div>
         </div>
       </section>
@@ -243,14 +256,13 @@ const StreamerUniversity2026: React.FC = () => {
       <section className="mt-20 lg:mt-28">
         <div className="max-w-2xl mb-12">
           <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">The part media buyers should notice</span>
-          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
             The audience did not come from one channel. It came from 6,004.
           </h2>
-          <p className="text-base text-muted-foreground leading-relaxed mt-4">
-            This is the structural point, and it is the one most write-ups miss. Cenat's own channel
-            peaked at 594,100 on Twitch, well under half the category peak. The rest of the audience
-            was watching 120 students and thousands of other channels covering the same event from
-            the inside. The reach was a swarm, not a broadcast.
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+            Cenat's own channel peaked at 594,100 on Twitch, under half the category peak. The rest
+            was watching 120 students and thousands of other channels covering the event from the
+            inside. The reach was a swarm, not a broadcast.
           </p>
         </div>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px border border-border rounded-2xl overflow-hidden bg-border">
@@ -264,33 +276,38 @@ const StreamerUniversity2026: React.FC = () => {
         </div>
       </section>
 
-      {/* ── The sponsor roll ── */}
+      {/* ── Sponsor LOGO GRID ── */}
       <section className="mt-20 lg:mt-28">
         <div className="max-w-2xl mb-12">
           <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">What the brands actually did</span>
-          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
-            More than 20 partners, and almost no traditional ads
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
+            More than 20 partners, almost no traditional ads
           </h2>
-          <p className="text-base text-muted-foreground leading-relaxed mt-4">
-            Not one of these was a pre-roll buy. Every activation was a physical object or a mechanic
-            that 120 creators had to interact with on camera, which is why they became content
-            instead of interruption.
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+            Not one major activation was a pre-roll buy. Every one was a physical object or a mechanic
+            that 120 creators had to use on camera, which is why they became content, not interruption.
           </p>
         </div>
-        <div className="rounded-2xl border border-border overflow-hidden">
-          {sponsors.map((s, i) => (
-            <div key={s.brand} className={`grid sm:grid-cols-[minmax(0,10rem)_minmax(0,9rem)_1fr] gap-2 sm:gap-6 px-6 py-5 items-baseline ${i > 0 ? "border-t border-border" : ""}`}>
-              <div className="text-sm font-semibold text-foreground">{s.brand}</div>
-              <div className="text-[11px] font-semibold tracking-widest uppercase text-primary">{s.tag}</div>
-              <div className="text-sm text-muted-foreground leading-relaxed">{s.what}</div>
-            </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {sponsors.map((s) => (
+            <Reveal key={s.brand}>
+              <div className="h-full rounded-2xl border border-border bg-card p-6 hover:border-primary/30 transition-colors">
+                <div className="h-9 flex items-center mb-4">
+                  {s.logo ? (
+                    <img src={s.logo} alt={s.brand} className="h-6 w-auto max-w-[9rem] object-contain [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)]" />
+                  ) : (
+                    <span className="text-lg font-bold tracking-tight text-foreground">{s.brand}</span>
+                  )}
+                </div>
+                <p className="text-sm text-muted-foreground leading-relaxed">{s.what}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
-        <p className="text-xs text-muted-foreground/70 mt-4 max-w-3xl leading-relaxed">
-          Sources: Digiday, StreamsCharts, Hendrix College, Complex. MrBeast also hid ten briefcases
-          holding $10,000 each across campus, but he attended as a guest rather than a sponsor. In
-          2025 the phone sponsor was T-Mobile; in 2026 that slot went to the creator-owned challenger
-          Ch@mobile.
+        <p className="text-xs text-muted-foreground/70 mt-6 max-w-3xl leading-relaxed">
+          Sources: Digiday, StreamsCharts, Hendrix College. MrBeast also hid ten briefcases holding
+          $10,000 each across campus, but attended as a guest, not a sponsor. In 2025 the phone
+          sponsor was T-Mobile; in 2026 that slot went to creator-owned challenger Ch@mobile.
         </p>
       </section>
 
@@ -301,24 +318,18 @@ const StreamerUniversity2026: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">
             Zaxby's catered lunch and grew 20,000 followers
           </h2>
-          <p className="text-base text-muted-foreground leading-relaxed max-w-md mb-4">
-            The fast-food chain did not run a single ad unit. It fed the campus, and its own social
-            channels added more than 20,000 followers during the week, a lift of over 1,000% week
-            over week. The brand's stated goal, per its VP of brand strategy, was content that could
-            "live well beyond the event itself."
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4">
+            The fast-food chain ran no ad unit. It fed the campus, and its own social channels added
+            more than 20,000 followers that week, a lift of over 1,000% week over week. The stated
+            goal, per its VP of brand strategy, was content that could "live well beyond the event."
           </p>
           <p className="text-xs text-muted-foreground/70">Source: Digiday, 27 July 2026.</p>
         </Reveal>
         <Reveal>
           <div className="rounded-2xl border border-border bg-card p-8 grid grid-cols-2 gap-y-8 gap-x-6">
-            {[
-              ["15,000+", "chicken fingerz served"],
-              ["6,000", "wings"],
-              ["20,000+", "new social followers"],
-              ["1,000%+", "week-over-week lift"],
-            ].map(([v, l]) => (
+            {[["15,000+", "chicken fingerz served"], ["6,000", "wings"], ["20,000+", "new social followers"], ["1,000%+", "week-over-week lift"]].map(([v, l]) => (
               <div key={l}>
-                <div className="text-3xl font-bold text-primary tracking-tight">{v}</div>
+                <div className="text-3xl md:text-4xl font-bold text-primary tracking-tight">{v}</div>
                 <div className="text-xs text-muted-foreground mt-1">{l}</div>
               </div>
             ))}
@@ -336,9 +347,7 @@ const StreamerUniversity2026: React.FC = () => {
           {quotes.map((q) => (
             <Reveal key={q.who}>
               <figure className="h-full rounded-2xl border border-border bg-card p-7 flex flex-col">
-                <blockquote className="text-lg font-light leading-relaxed text-foreground flex-1">
-                  "{q.q}"
-                </blockquote>
+                <blockquote className="text-lg font-light leading-relaxed text-foreground flex-1">"{q.q}"</blockquote>
                 <figcaption className="mt-6 pt-5 border-t border-border">
                   <div className="text-sm font-semibold text-foreground">{q.who}</div>
                   <div className="text-xs text-muted-foreground mt-0.5">{q.role}</div>
@@ -357,15 +366,14 @@ const StreamerUniversity2026: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">
             An unknown finished the week with 777,000 followers
           </h2>
-          <p className="text-base text-muted-foreground leading-relaxed max-w-md mb-4">
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-4">
             Suburbbaby arrived as a student and left as campus MVP, peaking at 195,300 concurrent
-            viewers and passing 777,000 Twitch followers. Across the category, roughly 12.5 million
-            follows and about 40,000 paid subscriptions were recorded during the week.
+            viewers. Across the category, roughly 12.5 million follows and about 40,000 paid
+            subscriptions were recorded during the week.
           </p>
-          <p className="text-sm text-muted-foreground leading-relaxed max-w-md">
-            For brands, that is the real signal: this format manufactures mid-tier creators in a
-            week. The people worth partnering with next year are on this list now, at a fraction of
-            the price they will command later.
+          <p className="text-base text-muted-foreground leading-relaxed">
+            The format manufactures mid-tier creators in a week. The people worth partnering with next
+            year are on that list now, at a fraction of the price they will command later.
           </p>
         </Reveal>
         <Reveal>
@@ -401,31 +409,30 @@ const StreamerUniversity2026: React.FC = () => {
               <div className="h-full rounded-2xl border border-border bg-card p-8">
                 <div className="text-4xl font-bold text-primary/20 tracking-tighter mb-4">{l.n}</div>
                 <h3 className="text-lg font-semibold text-foreground mb-3">{l.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{l.body}</p>
+                <p className="text-base text-muted-foreground leading-relaxed">{l.body}</p>
               </div>
             </Reveal>
           ))}
         </div>
       </section>
 
-      {/* ── Europe 2027 (dark) ── */}
+      {/* ── Europe 2027 (dark, with SU + Hendrix logos) ── */}
       <section className="mt-20 lg:mt-28 rounded-3xl bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-16">
         <div className="max-w-3xl">
           <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">2027</span>
           <h2 className="text-3xl md:text-5xl font-light tracking-tight text-white mb-6 leading-tight">
             It is coming to Europe, and nobody has picked the country yet
           </h2>
-          <p className="text-lg text-white/65 leading-relaxed mb-5">
-            At the closing ceremony on 20 July, Cenat announced that Streamer University 2027 will be
-            held in Europe. Alumni from both classes will be eligible to attend. No country, city,
-            venue or date has been announced, and anyone telling you otherwise is guessing.
+          <p className="text-lg text-white/70 leading-relaxed mb-5">
+            At the closing ceremony on 20 July, Cenat announced Streamer University 2027 will be held
+            in Europe, with alumni from both classes eligible to attend. No country, city, venue or
+            date has been announced, and anyone telling you otherwise is guessing.
           </p>
-          <p className="text-base text-white/50 leading-relaxed">
+          <p className="text-base md:text-lg text-white/55 leading-relaxed">
             That matters for Nordic brands for one practical reason: a European edition puts a
             1.2-million-viewer format inside European time zones, with European creators in the cast
-            and European brands in the room. The 2026 sponsor list was locked long before July. If
-            the 2027 list works the same way, the useful time to think about it is now, not when the
-            location is announced.
+            and European brands in the room. The 2026 sponsor list was locked long before July. The
+            useful time to think about 2027 is now, not when the location is announced.
           </p>
         </div>
       </section>
@@ -434,28 +441,22 @@ const StreamerUniversity2026: React.FC = () => {
       <section className="mt-20 lg:mt-28">
         <div className="max-w-2xl mb-12">
           <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Closer to home</span>
-          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
             You do not need a campus to run this play
           </h2>
-          <p className="text-base text-muted-foreground leading-relaxed mt-4">
-            Streamer University is an extreme version of a mechanic that scales down cleanly. The
-            logic that made it work is the same logic behind a native Nordic overlay campaign: show
-            up inside content the audience already chose, across many creators rather than one, and
-            let the creator frame it.
+          <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+            Streamer University is an extreme version of a mechanic that scales down cleanly. The logic
+            behind it is the logic behind a native Nordic overlay campaign: show up inside content the
+            audience already chose, across many creators rather than one, and let the creator frame it.
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           <div className="rounded-2xl border border-primary/30 bg-primary/[0.03] p-8">
             <div className="text-sm font-semibold text-foreground mb-4">What transfers</div>
             <ul className="space-y-3">
-              {[
-                "Many creators at once beats one big name",
-                "Physical or in-world mechanics beat impressions",
-                "The clip afterwards is the real reach",
-                "Creator framing is what makes it credible",
-              ].map((f) => (
-                <li key={f} className="flex items-start gap-2.5 text-sm text-foreground/90">
-                  <Check className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+              {["Many creators at once beats one big name", "Physical or in-world mechanics beat impressions", "The clip afterwards is the real reach", "Creator framing is what makes it credible"].map((f) => (
+                <li key={f} className="flex items-start gap-2.5 text-base text-foreground/90">
+                  <Check className="w-4 h-4 text-primary shrink-0 mt-1" />
                   {f}
                 </li>
               ))}
@@ -464,13 +465,9 @@ const StreamerUniversity2026: React.FC = () => {
           <div className="rounded-2xl border border-border bg-card p-8">
             <div className="text-sm font-semibold text-foreground mb-4">What does not</div>
             <ul className="space-y-3">
-              {[
-                "The budget: this was a six-day live production",
-                "The guaranteed audience: Cenat brings his own",
-                "The control: you cannot approve any of it in advance",
-              ].map((f) => (
-                <li key={f} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                  <X className="w-4 h-4 text-muted-foreground/60 shrink-0 mt-0.5" />
+              {["The budget: this was a six-day live production", "The guaranteed audience: Cenat brings his own", "The control: you cannot approve any of it in advance"].map((f) => (
+                <li key={f} className="flex items-start gap-2.5 text-base text-muted-foreground">
+                  <X className="w-4 h-4 text-muted-foreground/60 shrink-0 mt-1" />
                   {f}
                 </li>
               ))}
@@ -485,10 +482,8 @@ const StreamerUniversity2026: React.FC = () => {
       <section className="mt-20 lg:mt-28">
         <div className="rounded-3xl bg-foreground text-background p-10 md:p-14 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
           <div className="max-w-lg">
-            <h2 className="text-2xl md:text-3xl font-light tracking-tight mb-3">
-              Run the same mechanic in the Nordics
-            </h2>
-            <p className="text-background/60 text-sm leading-relaxed">
+            <h2 className="text-2xl md:text-3xl font-light tracking-tight mb-3">Run the same mechanic in the Nordics</h2>
+            <p className="text-background/60 text-sm md:text-base leading-relaxed">
               Native overlay campaigns across 39,000+ Nordic streamers: many creators at once, inside
               the stream, with verified reporting. See how the format works and what it costs.
             </p>
@@ -519,7 +514,7 @@ const StreamerUniversity2026: React.FC = () => {
         </div>
       </section>
 
-      {/* ── Sources ── */}
+      {/* ── Sources + image credits ── */}
       <section className="mt-16 pt-8 border-t border-border">
         <div className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/70 mb-4">Sources</div>
         <div className="flex flex-wrap gap-x-6 gap-y-2">
@@ -529,12 +524,16 @@ const StreamerUniversity2026: React.FC = () => {
             </a>
           ))}
         </div>
-        <p className="text-xs text-muted-foreground/60 mt-5 max-w-3xl leading-relaxed">
-          Note on figures: viewership numbers here are third-party measured (StreamsCharts,
-          SullyGnome) rather than organiser-reported. Four figures circulating from the organiser's
-          own recap are not used because independent data contradicts them, including a "1.6M
-          combined" peak (measured at 1.45M) and a "403K YouTube peak" that belongs to Cenat's 6 July
-          reveal stream rather than event week.
+        <p className="text-[11px] text-muted-foreground/60 mt-5 max-w-3xl leading-relaxed">
+          Image credits: Streamer University and Hendrix College logos, public domain. Kai Cenat photo
+          by MILLION DOLLAZ WORTH OF GAME (CC BY 3.0). Hendrix College campus by Valis55 (CC BY-SA 3.0),
+          both via Wikimedia Commons. News segment: FOX 16 KLRT. Brand marks are each company's own.
+        </p>
+        <p className="text-[11px] text-muted-foreground/50 mt-4 max-w-3xl leading-relaxed">
+          Note on figures: viewership numbers are third-party measured (StreamsCharts, SullyGnome), not
+          organiser-reported. Four figures from the organiser's own recap are excluded because
+          independent data contradicts them, including a "1.6M combined" peak (measured at 1.45M) and a
+          "403K YouTube peak" that belongs to Cenat's 6 July reveal stream rather than event week.
         </p>
       </section>
     </div>
