@@ -77,6 +77,14 @@
       "destination": "https://stream-wall.vercel.app/surfsharklive"
     },
     {
+      "source": "/surfsharklive/",
+      "destination": "https://stream-wall.vercel.app/surfsharklive"
+    },
+    {
+      "source": "/surfsharklive/:path+/",
+      "destination": "https://stream-wall.vercel.app/surfsharklive/:path+"
+    },
+    {
       "source": "/surfsharklive/:path*",
       "destination": "https://stream-wall.vercel.app/surfsharklive/:path*"
     },
