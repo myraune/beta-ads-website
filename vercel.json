@@ -73,6 +73,14 @@
   ],
   "rewrites": [
     {
+      "source": "/surfsharklive",
+      "destination": "https://stream-wall.vercel.app/surfsharklive"
+    },
+    {
+      "source": "/surfsharklive/:path*",
+      "destination": "https://stream-wall.vercel.app/surfsharklive/:path*"
+    },
+    {
       "source": "/((?!.*\\.[a-zA-Z0-9]{2,4}$).*)",
       "destination": "/index.html"
     }
