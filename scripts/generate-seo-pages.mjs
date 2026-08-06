@@ -582,6 +582,34 @@ function buildHreflangBlock(alternates) {
   return `${MARKER_START}\n${tags}\n    ${MARKER_END}`;
 }
 
+// Crawlable homepage content, injected into #root of the homepage shell only.
+// The homepage is too heavy for @sparticuz to prerender at build time (all 157
+// other routes prerender fine), so it keeps the SEO shell — and a shell with an
+// empty <div id="root"> gives AI crawlers ~230 chars to read. This block fixes
+// that. The client uses createRoot(), which REPLACES #root on mount, so real
+// visitors never see this markup; it is a no-JS fallback that mirrors the live
+// homepage (not cloaking). Kept entity-dense for GEO: the legal-name binding
+// sentence, the positioning line, services, real clients, markets, org number.
+const HOME_CONTENT = `
+      <main style="max-width:768px;margin:0 auto;padding:2rem;font-family:system-ui,sans-serif">
+        <h1>Beta Ads — Native Twitch &amp; Livestream Advertising for Nordic Brands</h1>
+        <p>Beta Ads is the trading name of Beta Agency AS (org. 933&nbsp;303&nbsp;136), a Nordic livestream advertising agency based in Oslo, Norway. Beta Ads is Norway's only specialist in native Twitch and livestream advertising.</p>
+        <p>Beta Ads places native overlay ads directly inside live streams on Twitch, YouTube and Kick. Because the ad renders inside the broadcast feed, it cannot be skipped or removed by ad-blockers. Campaigns run across more than 39,000 Nordic streamers in Norway, Sweden, Denmark and Finland, with verified per-impression reporting through the Clip Analytics platform.</p>
+        <h2>What Beta Ads does</h2>
+        <ul>
+          <li>Native overlay advertising on Twitch, YouTube Live and Kick</li>
+          <li>Nordic creator and influencer campaigns across Norway, Sweden, Denmark and Finland</li>
+          <li>Verified ad-delivery and brand-safety reporting via Clip Analytics</li>
+          <li>Both managed and self-serve livestream ad campaigns</li>
+        </ul>
+        <h2>Selected clients</h2>
+        <p>Samsung, Surfshark, Saily, Shure, Komplett, Glorious, NKI and Høyskolen Kristiania.</p>
+        <h2>Why native livestream advertising</h2>
+        <p>Streaming's young, engaged audience blocks traditional display and pre-roll ads at the highest rates of any group. Native overlay ads are rendered inside the stream, so they reach that audience where interruptive formats cannot. Beta Ads is built specifically for the Nordic market and the Twitch, YouTube and Kick platforms.</p>
+        <h2>Contact</h2>
+        <p>Beta Agency AS, Oslo, Norway. Email andreas@beta-ads.no. Web https://beta-ads.no.</p>
+      </main>`;
+
 function injectMeta(shellHtml, { title, description, canonical, locale, alternates, image, ogType = "website", articlePublishedTime = null, ogImageWidth = 1200, ogImageHeight = 630 }) {
   let html = shellHtml;
   const canonicalUrl = toAbsolute(canonical);
@@ -754,7 +782,12 @@ function main() {
       alternates,
     });
     if (route === "/") {
-      fs.writeFileSync(indexPath, html, "utf-8");
+      // Inject the crawlable homepage content into #root (see HOME_CONTENT).
+      // prerender.mjs runs after this; if the homepage prerender succeeds it
+      // overwrites this with the full render, and if it fails (fail-open) this
+      // richer shell survives instead of an empty one.
+      const homeHtml = html.replace('<div id="root"></div>', `<div id="root">${HOME_CONTENT}</div>`);
+      fs.writeFileSync(indexPath, homeHtml, "utf-8");
     } else {
       writeShell(path.join(DIST, route.replace(/^\//, ""), "index.html"), html);
     }
