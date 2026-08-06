@@ -276,9 +276,14 @@ async function main() {
       // "networkidle0" waits until there are no open network connections for
       // 500ms. This covers both the main bundle AND any lazy-loaded route chunks
       // that React.lazy() fetches after the initial load event fires.
+      // networkidle2 (not networkidle0): the homepage keeps a couple of
+      // connections open (a 2.4 MB hero image, the Vercel insights 404s) that
+      // never fully idle on the slower @sparticuz Chromium, which timed the
+      // homepage out under networkidle0. networkidle2 settles once React has
+      // rendered; the waitForFunction + flush below still guarantee content.
       await page.goto(`${BASE}${route}`, {
-        waitUntil: "networkidle0",
-        timeout: 60_000,
+        waitUntil: "networkidle2",
+        timeout: 90_000,
       });
 
       // Wait for React to actually mount content into #root.
@@ -289,7 +294,7 @@ async function main() {
           const root = document.getElementById("root");
           return root !== null && root.childElementCount > 0;
         },
-        { timeout: 15_000 }
+        { timeout: 30_000 }
       );
 
       // Force all animated / scroll-gated elements visible so their content

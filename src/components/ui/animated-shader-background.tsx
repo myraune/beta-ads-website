@@ -8,6 +8,13 @@ const AnimatedShaderBackground = ({ heightFactor = 0.6 }: { heightFactor?: numbe
     const container = containerRef.current;
     if (!container) return;
 
+    // Skip the WebGL shader during headless prerender: there is no GPU, the
+    // shader has no SEO value, and its heavy init timed the homepage out on
+    // @sparticuz's constrained Chromium at build time. Real visitors
+    // (navigator.webdriver === false) render it normally; the container div is
+    // still present, so hydration matches.
+    if (typeof navigator !== "undefined" && navigator.webdriver) return;
+
     const getHeight = () => window.innerHeight * heightFactor;
 
     const scene = new THREE.Scene();
