@@ -323,6 +323,11 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error("Pre-render fatal error:", err);
-  process.exit(1);
+  // FAIL-OPEN: never break the Vercel build. If Chromium can't launch in the
+  // build container, the meta-only shells from generate-seo-pages.mjs stay in
+  // place and the site still deploys — worst case is "no content upgrade", not
+  // a broken deploy. After deploying, verify prod actually got prerendered by
+  // checking a page's crawlable text length (should be thousands, not ~230).
+  console.error("⚠️  Pre-render failed (non-fatal, keeping SEO shells):", err?.message || err);
+  process.exit(0);
 });
