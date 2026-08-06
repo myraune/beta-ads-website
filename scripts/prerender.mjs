@@ -21,7 +21,10 @@
  *   full page content ends up in the static HTML.
  */
 
-import puppeteer from "puppeteer";
+// puppeteer (full, with bundled Chromium) is used locally; on Vercel/CI the
+// bundled Chromium can't launch, so we swap to puppeteer-core + the
+// @sparticuz/chromium binary that IS built for that environment. Both are
+// imported dynamically inside main() so neither path pays for the other.
 import { spawn } from "child_process";
 import fs from "fs";
 import path from "path";
@@ -200,16 +203,35 @@ async function main() {
   const previewProcess = await startPreviewServer();
   console.log(`  Preview server ready at ${BASE}\n`);
 
-  const browser = await puppeteer.launch({
-    headless: true,
-    args: [
-      "--no-sandbox",
-      "--disable-setuid-sandbox",
-      "--disable-dev-shm-usage",
-      "--disable-gpu",
-      "--no-first-run",
-    ],
-  });
+  // On Vercel/CI use puppeteer-core + @sparticuz/chromium (the only Chromium
+  // that launches in that build container). Locally use full puppeteer.
+  const onVercel = !!process.env.VERCEL || !!process.env.CI;
+  let browser;
+  if (onVercel) {
+    const chromium = (await import("@sparticuz/chromium")).default;
+    const puppeteerCore = (await import("puppeteer-core")).default;
+    // Text prerender needs no GPU/WebGL; disabling graphics avoids GL-lib
+    // issues in the build container. (No-op on versions without this setter.)
+    try { chromium.setGraphicsMode = false; } catch { /* older API */ }
+    browser = await puppeteerCore.launch({
+      args: [...chromium.args, "--disable-dev-shm-usage"],
+      executablePath: await chromium.executablePath(),
+      headless: true,
+    });
+    console.log("  Launched Chromium via @sparticuz/chromium (Vercel/CI)");
+  } else {
+    const puppeteer = (await import("puppeteer")).default;
+    browser = await puppeteer.launch({
+      headless: true,
+      args: [
+        "--no-sandbox",
+        "--disable-setuid-sandbox",
+        "--disable-dev-shm-usage",
+        "--disable-gpu",
+        "--no-first-run",
+      ],
+    });
+  }
 
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 800 });
