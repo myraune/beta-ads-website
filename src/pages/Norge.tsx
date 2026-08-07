@@ -205,12 +205,15 @@ const Norge: React.FC = () => {
             Norge · Twitch-annonsering
           </p>
           <h1
-            className="text-4xl md:text-6xl lg:text-7xl leading-[1.04] tracking-tight text-foreground mb-10 max-w-4xl"
+            className="text-4xl md:text-6xl lg:text-7xl leading-[1.04] tracking-tight text-foreground mb-6 max-w-4xl"
             style={serifFont}
           >
             Native Twitch-annonsering{" "}
             <span className="italic text-primary">for norske merkevarer</span>.
           </h1>
+          <p className="text-lg md:text-xl lg:text-2xl font-light text-foreground/90 mb-10 max-w-3xl leading-snug">
+            Norges eneste native Twitch- og livestream-annonsespesialist.
+          </p>
           <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-10 lg:gap-16 max-w-5xl">
             <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
               Samsung, Shure, Komplett, Høyskolen Kristiania, NKI og Gokstad

@@ -593,7 +593,7 @@ function buildHreflangBlock(alternates) {
 const HOME_CONTENT = `
       <main style="max-width:768px;margin:0 auto;padding:2rem;font-family:system-ui,sans-serif">
         <h1>Beta Ads — Native Twitch &amp; Livestream Advertising for Nordic Brands</h1>
-        <p>Beta Ads is the trading name of Beta Agency AS (org. 933&nbsp;303&nbsp;136), a Nordic livestream advertising agency based in Oslo, Norway. Beta Ads is Norway's only specialist in native Twitch and livestream advertising.</p>
+        <p>Beta Ads is the trading name of Beta Agency AS (org. 933&nbsp;303&nbsp;136), a Nordic livestream advertising agency based in Oslo, Norway. Beta Ads is Norway's only native Twitch and livestream advertising specialist (Norges eneste native Twitch- og livestream-annonsespesialist).</p>
         <p>Beta Ads places native overlay ads directly inside live streams on Twitch, YouTube and Kick. Because the ad renders inside the broadcast feed, it cannot be skipped or removed by ad-blockers. Campaigns run across more than 39,000 Nordic streamers in Norway, Sweden, Denmark and Finland, with verified per-impression reporting through the Clip Analytics platform.</p>
         <h2>What Beta Ads does</h2>
         <ul>
