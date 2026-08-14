@@ -40,6 +40,7 @@ const STATIC_PAGES = [
   { path: "/twitch-annonsering-pris", priority: "0.9",  changefreq: "monthly" },
   { path: "/kick-advertising-cost",   priority: "0.9",  changefreq: "monthly" },
   { path: "/nordic-livestream-advertising", priority: "0.9", changefreq: "monthly" },
+  { path: "/livestream-chat-engagement", priority: "0.9", changefreq: "monthly" },
   { path: "/kick-advertising",       priority: "0.95", changefreq: "monthly" },
   { path: "/press",                  priority: "0.95", changefreq: "monthly" },
   { path: "/norge",                  priority: "0.9",  changefreq: "monthly" },

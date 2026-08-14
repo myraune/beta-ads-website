@@ -184,6 +184,13 @@ const STATIC_PAGES = [
     locale: "en",
   },
   {
+    route: "/livestream-chat-engagement",
+    title: "What Livestream Chat Does When a Sponsor Appears | Beta Ads",
+    description:
+      "103 verbatim viewer messages from a real Finnish Twitch campaign, in Finnish with English translations. Real questions, real scepticism, real conversation. Proof that native livestream advertising starts conversations a banner cannot.",
+    locale: "en",
+  },
+  {
     route: "/terms",
     title: "Terms of Service | Beta Ads",
     description: "Terms of Service for Beta Ads by Beta Agency AS. Read our terms covering service usage, intellectual property, and liability.",
