@@ -122,70 +122,67 @@ const LivestreamChatEngagement: React.FC = () => {
           className="absolute -top-32 -right-24 w-[38rem] h-[38rem] rounded-full bg-primary/20 blur-[130px] pointer-events-none"
           aria-hidden
         />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-24">
-          <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/80 mb-7">
-              Chat monitoring
-            </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.04] mb-6 tracking-tight">
-              A banner has never been{" "}
-              <span style={serif} className="italic font-normal text-primary">
-                argued with
-              </span>
-              .
-            </h1>
-            <p className="text-lg text-white/65 leading-relaxed mb-10 max-w-xl">
-              When a sponsor appears inside a live stream, the audience talks back. Our chat
-              monitoring reads every channel on the campaign at once, keeps the messages that
-              mention you, translates them, and tells you what the room actually felt.
-            </p>
-            <div className="flex flex-wrap gap-3">
-              <Link to="/contact">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12">
-                  Book a demo <ArrowRight className="ml-2 w-4 h-4" />
-                </Button>
-              </Link>
-              <Link to="/twitch-advertising-cost">
-                <Button
-                  size="lg"
-                  variant="ghost"
-                  className="text-white hover:bg-white/10 rounded-full px-8 h-12 border border-white/20"
-                >
-                  What it costs
-                </Button>
-              </Link>
+        {/* Deliberately short. The dashboard is the point of this page, so the
+            hero states the claim and gets out of the way rather than taking a
+            full screen before anything useful appears. */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-24 pb-7">
+          <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-12 items-end">
+            <div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.06] mb-3 tracking-tight">
+                A banner has never been{" "}
+                <span style={serif} className="italic font-normal text-primary">
+                  argued with
+                </span>
+                .
+              </h1>
+              <p className="text-base text-white/65 leading-relaxed max-w-lg">
+                We read every channel on the campaign at once, keep the messages that mention you,
+                translate them, and tell you what the room actually felt.
+              </p>
             </div>
-          </div>
-          <div className="grid grid-cols-3 gap-px mt-16 border border-white/10 rounded-2xl overflow-hidden bg-white/10 max-w-2xl">
-            {heroStats.map((s) => (
-              <div key={s.label} className="bg-black/30 px-5 py-6">
-                <div className="text-3xl font-bold text-white tracking-tight">{s.value}</div>
-                <div className="text-xs text-white/50 mt-1 leading-snug">{s.label}</div>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 lg:justify-end">
+              {heroStats.map((s) => (
+                <div key={s.label}>
+                  <div className="text-2xl font-bold text-white tracking-tight leading-none">{s.value}</div>
+                  <div className="text-[11px] text-white/50 mt-1 leading-snug max-w-[8rem]">{s.label}</div>
+                </div>
+              ))}
+              <div className="flex gap-2 w-full lg:w-auto lg:ml-2">
+                <Link to="/contact">
+                  <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 h-10">
+                    Book a demo <ArrowRight className="ml-2 w-4 h-4" />
+                  </Button>
+                </Link>
+                <Link to="/twitch-advertising-cost">
+                  <Button
+                    variant="ghost"
+                    className="text-white hover:bg-white/10 rounded-full px-6 h-10 border border-white/20"
+                  >
+                    What it costs
+                  </Button>
+                </Link>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── The dashboard preview. Coded HTML, not an image. ── */}
-      <section className="py-20 md:py-28 border-t border-border">
+      <section className="pt-6 pb-14 md:pt-7 md:pb-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="max-w-2xl mb-10">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
-              The dashboard
-            </span>
-            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
-              Every mention, as it happens
-            </h2>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
-              One feed for the whole campaign. Filter by how the message reads, switch between the
-              original language and the translation, and export the lot when the campaign ends.
-            </p>
-          </div>
-
           <div className="rounded-2xl border border-border bg-card overflow-hidden">
+            {/* Card header. The section title lives here rather than above the
+                card, so the dashboard itself starts higher up the page. */}
+            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 px-6 pt-5 pb-4">
+              <h2 className="text-xl md:text-2xl font-light tracking-tight text-foreground">
+                Every mention, as it happens
+              </h2>
+              <p className="text-sm text-muted-foreground">
+                One feed for the whole campaign, filterable by how each message reads.
+              </p>
+            </div>
             {/* Toolbar */}
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-3 px-6 py-4 border-b border-border bg-muted/40">
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-3 px-6 py-3 border-y border-border bg-muted/40">
               {[
                 ["Keywords tracked", String(SAMPLE_SUMMARY.tracked)],
                 ["Mentions", String(SAMPLE_SUMMARY.mentions)],
@@ -204,7 +201,7 @@ const LivestreamChatEngagement: React.FC = () => {
             </div>
 
             {/* Filters */}
-            <div className="flex flex-wrap gap-2 px-6 py-4 border-b border-border" role="group" aria-label="Filter by tone">
+            <div className="flex flex-wrap gap-2 px-6 py-3 border-b border-border" role="group" aria-label="Filter by tone">
               {FILTERS.map((f) => {
                 const active = filter === f.key;
                 const count = f.key === "all" ? CHAT_MENTIONS.length : toneCounts[f.key] || 0;
@@ -229,7 +226,7 @@ const LivestreamChatEngagement: React.FC = () => {
             {/* Feed */}
             <ul className="divide-y divide-border">
               {visible.map((m, i) => (
-                <li key={`${m.c}-${i}`} className="px-6 py-4 grid sm:grid-cols-[5.5rem_1fr_7rem] gap-x-5 gap-y-1 items-baseline">
+                <li key={`${m.c}-${i}`} className="px-6 py-3 grid sm:grid-cols-[5.5rem_1fr_7rem] gap-x-5 items-baseline">
                   <div className="text-xs text-muted-foreground tabular-nums">
                     {m.t} <span className="text-muted-foreground/50">{m.market}</span>
                   </div>
@@ -258,14 +255,14 @@ const LivestreamChatEngagement: React.FC = () => {
       </section>
 
       {/* ── What it does ── */}
-      <section className="py-20 md:py-28 border-t border-border">
+      <section className="py-14 md:py-16 border-t border-border">
         <div
           ref={capRef.ref}
           className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${
             capRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <div className="max-w-2xl mb-12">
+          <div className="max-w-2xl mb-8">
             <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
               What the tool does
             </span>
@@ -275,7 +272,7 @@ const LivestreamChatEngagement: React.FC = () => {
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {capabilities.map((c) => (
-              <div key={c.t} className="rounded-2xl border border-border bg-card p-8">
+              <div key={c.t} className="rounded-2xl border border-border bg-card p-6">
                 <h3 className="text-base font-semibold text-foreground mb-3">{c.t}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{c.b}</p>
               </div>
@@ -285,7 +282,7 @@ const LivestreamChatEngagement: React.FC = () => {
       </section>
 
       {/* ── Why it matters ── */}
-      <section className="py-20 md:py-28 border-t border-border">
+      <section className="py-14 md:py-16 border-t border-border">
         <div
           ref={howRef.ref}
           className={`max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-start transition-all duration-700 ${
