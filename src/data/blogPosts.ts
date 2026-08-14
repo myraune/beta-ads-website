@@ -1,8 +1,25 @@
-import { posts_no } from "./blog/posts-no";
-import { posts_sv } from "./blog/posts-sv";
-import { posts_da } from "./blog/posts-da";
-import { posts_fi } from "./blog/posts-fi";
 import { posts_drafts_en } from "./blog/posts-drafts-en";
+
+/**
+ * The four localized content files are NOT imported statically.
+ *
+ * Together they are about 4.6 MB of markdown, and a static import put all of
+ * them plus the English bodies into one 6 MB chunk, so a reader opening a
+ * single English post also downloaded every Danish, Finnish and Swedish
+ * article. They are dynamic imports instead, so Vite emits one chunk per
+ * locale and a reader only ever pays for the language they are reading.
+ *
+ * Call ensureLocaleLoaded(locale) before looking a post up by slug when the
+ * post is not English. src/data/blogPostsMeta.ts carries slug + locale for
+ * every post with no bodies attached, so the locale can be resolved cheaply
+ * without loading any content first.
+ */
+const LOCALE_LOADERS: Record<string, () => Promise<{ [k: string]: BlogPost[] }>> = {
+  no: () => import("./blog/posts-no"),
+  sv: () => import("./blog/posts-sv"),
+  da: () => import("./blog/posts-da"),
+  fi: () => import("./blog/posts-fi"),
+};
 
 export interface BlogPost {
   id: string;
@@ -11814,11 +11831,8 @@ Brands we already work with have direct login access. Agency partners managing m
     seoDescription: {"en":"Dentsu's 2025 Gaming Trends Report puts real numbers behind what live-streaming advertisers have been arguing for years: gaming still gets under 5% of media budgets despite 3.4 billion players and 8.9 billion hours watched on livestreaming platforms in a single quarter. Here is what the report's actual data means for brands buying Twitch in the Nordics.","no":"Dentsus Gaming Trends Report 2025 setter konkrete tall bak det live-streaming-annonsører har hevdet i årevis: gaming får fortsatt under 5 % av mediebudsjettene, til tross for 3,4 milliarder spillere og 8,9 milliarder timer sett på livestreamingplattformer i løpet av ett enkelt kvartal. Her er hva rapportens faktiske data betyr for merkevarer som kjøper Twitch i Norden.","sv":"Dentsus Gaming Trends Report 2025 sätter konkreta siffror bakom det livestreaming-annonsörer har hävdat i åratal: gaming får fortfarande under 5 % av mediebudgetarna, trots 3,4 miljarder spelare och 8,9 miljarder timmar tittade på livestreamingplattformar under ett enda kvartal. Här är vad rapportens faktiska data betyder för varumärken som köper Twitch i Norden.","da":"Dentsus Gaming Trends Report 2025 sætter konkrete tal bag det, livestreaming-annoncører har hævdet i årevis: gaming får stadig under 5 % af mediebudgetterne, på trods af 3,4 milliarder spillere og 8,9 milliarder timers seertid på livestreamingplatforme i løbet af et enkelt kvartal. Her er, hvad rapportens faktiske data betyder for brands, der køber Twitch i Norden.","fi":"Dentsun Gaming Trends Report 2025 tuo konkreettiset luvut sen tueksi, mitä livestriimausmainonnan tekijät ovat väittäneet vuosia: gaming saa yhä alle 5 % mediabudjeteista, vaikka pelaajia on 3,4 miljardia ja livestriimausalustoilla katsottiin 8,9 miljardia tuntia yhden ainoan vuosineljänneksen aikana. Tässä on, mitä raportin todelliset luvut tarkoittavat brändeille, jotka ostavat Twitchiä Pohjoismaissa."},
     seoKeywords: {"en":["Dentsu gaming report","gaming trends 2025","Twitch advertising","livestream advertising Nordics","gaming ad spend","Nordic Twitch ads"],"no":["Dentsu gaming rapport","gaming trender 2025","Twitch-annonsering","livestream-annonsering Norden","gaming annonsebudsjett"],"sv":["Dentsu gaming rapport","gaming trender 2025","Twitch-annonsering","livestream-annonsering Norden","gaming annonsbudget"],"da":["Dentsu gaming rapport","gaming trends 2025","Twitch-annoncering","livestream-annoncering Norden","gaming annoncebudget"],"fi":["Dentsu gaming raportti","gaming trendit 2025","Twitch-mainonta","suoratoistomainonta Pohjoismaat","gaming mainosbudjetti"]},
   },
-  // ── Localized cornerstone posts (generated; see src/data/blog/posts-*.ts) ──
-  ...posts_no,
-  ...posts_sv,
-  ...posts_da,
-  ...posts_fi,
+  // ── Localized cornerstone posts are appended at runtime by
+  //    ensureLocaleLoaded(); see LOCALE_LOADERS at the top of this file. ──
   ...posts_drafts_en,
 ];
 
@@ -11963,12 +11977,57 @@ const PUBLISHED_OVERRIDE_SLUGS = new Set([
   "twitch-community-events-brand-activation-2026",
 ]);
 
-export const blogPosts: BlogPost[] = _allBlogPostsRaw.filter(
-  (p) =>
-    PUBLISHED_OVERRIDE_SLUGS.has(p.slug) ||
-    !p.translationGroup ||
-    !UNPUBLISHED_GROUPS.has(p.translationGroup)
-);
+/** The publish gate, applied to both the base posts and each lazy locale. */
+const _published = (posts: BlogPost[]): BlogPost[] =>
+  posts.filter(
+    (p) =>
+      PUBLISHED_OVERRIDE_SLUGS.has(p.slug) ||
+      !p.translationGroup ||
+      !UNPUBLISHED_GROUPS.has(p.translationGroup)
+  );
+
+/**
+ * Mutated in place by ensureLocaleLoaded rather than reassigned, so any module
+ * that already holds this reference (and getBlogPostBySlug below) sees locale
+ * posts the moment they arrive. Reassigning would leave stale references.
+ */
+export const blogPosts: BlogPost[] = _published(_allBlogPostsRaw);
+
+const _loadedLocales = new Set<string>(["en"]);
+const _inFlight = new Map<string, Promise<void>>();
+
+/**
+ * Load one locale's post bodies and merge them into blogPosts. Safe to call
+ * repeatedly and concurrently: already-loaded locales resolve immediately and
+ * a second call while a load is in flight awaits the same promise.
+ */
+export const ensureLocaleLoaded = async (locale?: string): Promise<void> => {
+  const key = locale ?? "en";
+  if (_loadedLocales.has(key)) return;
+  const loader = LOCALE_LOADERS[key];
+  if (!loader) return;
+  const existing = _inFlight.get(key);
+  if (existing) return existing;
+
+  const task = loader()
+    .then((mod) => {
+      const posts = (mod[`posts_${key}`] ?? Object.values(mod).find(Array.isArray)) as
+        | BlogPost[]
+        | undefined;
+      if (posts) blogPosts.push(..._published(posts));
+      _loadedLocales.add(key);
+    })
+    .finally(() => {
+      _inFlight.delete(key);
+    });
+
+  _inFlight.set(key, task);
+  return task;
+};
+
+/** True once the locale's bodies are in blogPosts. */
+export const isLocaleLoaded = (locale?: string): boolean =>
+  _loadedLocales.has(locale ?? "en");
 
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
   return blogPosts.find(post => post.slug === slug);

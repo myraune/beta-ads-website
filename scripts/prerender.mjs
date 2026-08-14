@@ -306,6 +306,17 @@ async function main() {
         { timeout: 30_000 }
       );
 
+      // Blog posts load their locale's bodies from a separate chunk, so #root
+      // having children is not proof the article is there. Wait until the
+      // loading marker is gone before capturing, or the static HTML would ship
+      // an empty article to crawlers.
+      if (route.startsWith("/blog/")) {
+        await page.waitForFunction(
+          () => !document.querySelector("[data-post-loading]"),
+          { timeout: 30_000 }
+        );
+      }
+
       // Force all animated / scroll-gated elements visible so their content
       // appears in the static HTML (Google reads text even if opacity:0, but
       // this ensures nothing is display:none or visibility:hidden)

@@ -5,7 +5,15 @@ import { SPFooter } from '@/components/sections/SPFooter';
 import { ArrowLeft, Calendar, Clock, Tag, Share2, Twitter, Linkedin, Facebook, List } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { getBlogPostBySlug, getRelatedPosts, blogPosts, type BlogPost } from "@/data/blogPosts";
+import {
+  getBlogPostBySlug,
+  getRelatedPosts,
+  blogPosts,
+  ensureLocaleLoaded,
+  isLocaleLoaded,
+  type BlogPost,
+} from "@/data/blogPosts";
+import { getBlogPostMetaBySlug } from "@/data/blogPostsMeta";
 import { getBlogImage } from "@/lib/blogImage";
 import { SEO, type PageLocale } from "@/components/SEO";
 import { resolvePostLocale, formatPostDate, blogUiLabels } from "@/lib/blogLocale";
@@ -59,22 +67,69 @@ const RICH_EDITORIAL = ["twitch-april-2026", "how-twitch-advertising-works", "ad
 /** hasDashboard-verdier som bruker det fullbredde, header-løse roundup-oppsettet. */
 const STREAMER_ROUNDUPS = ["norske-streamere", "svenska-streamare", "danske-streamere", "suomalaiset-striimaajat"];
 
+/**
+ * Outer loader. Localized post bodies live in per-locale chunks that load on
+ * demand, so a non-English post is not in blogPosts on first render. The meta
+ * file is tiny and always loaded, so it resolves the locale (and whether the
+ * slug exists at all) before any body is fetched.
+ *
+ * This is deliberately a separate component from the view below. Doing the
+ * loading inline meant an early return sat above later hooks, which broke the
+ * rules of hooks and threw React error #310 as soon as the post arrived. Here
+ * the view only ever mounts with a real post, so its hook order never changes.
+ */
 const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const post = slug ? getBlogPostBySlug(slug) : undefined;
-  const relatedPosts = slug ? getRelatedPosts(slug, 3) : [];
+
+  const meta = slug ? getBlogPostMetaBySlug(slug) : undefined;
+  const neededLocale = meta?.locale ?? "en";
+  const [localeReady, setLocaleReady] = useState(() => isLocaleLoaded(neededLocale));
+
+  useEffect(() => {
+    let cancelled = false;
+    if (isLocaleLoaded(neededLocale)) {
+      setLocaleReady(true);
+      return;
+    }
+    setLocaleReady(false);
+    ensureLocaleLoaded(neededLocale).then(() => {
+      if (!cancelled) setLocaleReady(true);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [neededLocale, slug]);
+
+  const post = slug && localeReady ? getBlogPostBySlug(slug) : undefined;
+
+  useEffect(() => {
+    // Only bounce once the locale has actually loaded, otherwise every
+    // localized post would redirect to /blog while its chunk was still in
+    // flight. An unknown slug has no meta, so it can bounce immediately.
+    if (slug && !meta) { navigate("/blog", { replace: true }); return; }
+    if (!localeReady) return;
+    if (!post) navigate("/blog", { replace: true });
+  }, [post, meta, slug, localeReady, navigate]);
+
+  if (!post) {
+    // Marker the prerenderer waits on, so a capture never freezes mid-load.
+    return <div data-post-loading="true" aria-busy="true" />;
+  }
+
+  return <BlogPostView post={post} slug={slug!} />;
+};
+
+const BlogPostView: React.FC<{ post: BlogPost; slug: string }> = ({ post, slug }) => {
+  const relatedPosts = getRelatedPosts(slug, 3);
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   const isLightTheme = !mounted || resolvedTheme !== "dark";
 
   useEffect(() => {
-    if (!post) { navigate("/blog", { replace: true }); return; }
     window.scrollTo(0, 0);
-  }, [post, navigate]);
-
-  if (!post) return null;
+  }, [slug]);
 
   const isStreamerPost = post.category === "Streamer Guide";
   // Editorial "Sources" credit row - only for posts that cite specific
