@@ -29,6 +29,15 @@ interface MarketingPageLayoutProps {
   seo: SeoProps;
   cta: CtaProps;
   children: React.ReactNode;
+  /**
+   * Opt in to a page that is dark end to end, regardless of the visitor's
+   * theme. Scopes Tailwind's `dark` class to this page so every semantic token
+   * (bg-card, border-border, text-muted-foreground) resolves to its dark value,
+   * and paints the page background so the hero colour carries all the way down
+   * through the CTA block instead of stopping at the first section.
+   * Opt in only; every existing page keeps following the visitor's theme.
+   */
+  darkPage?: boolean;
 }
 
 /**
@@ -45,11 +54,16 @@ export const MarketingPageLayout: React.FC<MarketingPageLayoutProps> = ({
   seo,
   cta,
   children,
+  darkPage = false,
 }) => {
   return (
     /* SEO fix: changed from <main> to <div> - Layout.tsx already provides the <main> landmark;
        nested <main> elements are invalid HTML (WCAG 1.3.6) and confuse screen readers / search engines */
-    <div className="min-h-screen text-foreground">
+    <div
+      className={`min-h-screen text-foreground ${
+        darkPage ? "dark bg-[hsl(240_11%_5%)]" : ""
+      }`}
+    >
       <SEO
         title={seo.title}
         description={seo.description}
