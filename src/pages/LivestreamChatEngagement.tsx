@@ -171,37 +171,29 @@ const LivestreamChatEngagement: React.FC = () => {
       <section className="pt-6 pb-14 md:pt-7 md:pb-16">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="rounded-2xl border border-border bg-card overflow-hidden">
-            {/* Card header. The section title lives here rather than above the
-                card, so the dashboard itself starts higher up the page. */}
-            <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 px-6 pt-5 pb-4">
-              <h2 className="text-xl md:text-2xl font-light tracking-tight text-foreground">
-                Every mention, as it happens
-              </h2>
-              <p className="text-sm text-muted-foreground">
-                One feed for the whole campaign, filterable by how each message reads.
-              </p>
-            </div>
-            {/* Toolbar */}
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-3 px-6 py-3 border-y border-border bg-muted/40">
+            {/* One header bar: title, live totals and the sample-data marker on
+                a single line, so the feed itself starts as high as possible. */}
+            <div className="flex flex-wrap items-center gap-x-7 gap-y-2 px-5 py-3 border-b border-border bg-muted/40">
+              <h2 className="text-sm font-semibold text-foreground mr-1">Mentions feed</h2>
               {[
-                ["Keywords tracked", String(SAMPLE_SUMMARY.tracked)],
-                ["Mentions", String(SAMPLE_SUMMARY.mentions)],
-                ["Chatters", String(SAMPLE_SUMMARY.chatters)],
-                ["Channels", String(SAMPLE_SUMMARY.channels)],
-                ["Markets", String(SAMPLE_SUMMARY.markets)],
-              ].map(([l, v]) => (
-                <div key={l}>
-                  <div className="text-lg font-bold text-foreground tabular-nums leading-none">{v}</div>
-                  <div className="text-[11px] text-muted-foreground mt-1">{l}</div>
+                [String(SAMPLE_SUMMARY.mentions), "mentions"],
+                [String(SAMPLE_SUMMARY.chatters), "chatters"],
+                [String(SAMPLE_SUMMARY.channels), "channels"],
+                [String(SAMPLE_SUMMARY.tracked), "keywords"],
+                [String(SAMPLE_SUMMARY.markets), "markets"],
+              ].map(([v, l]) => (
+                <div key={l} className="flex items-baseline gap-1.5">
+                  <span className="text-sm font-bold text-foreground tabular-nums">{v}</span>
+                  <span className="text-[11px] text-muted-foreground">{l}</span>
                 </div>
               ))}
-              <span className="ml-auto text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/70">
+              <span className="ml-auto text-[10px] font-semibold tracking-widest uppercase text-muted-foreground/60">
                 Sample data
               </span>
             </div>
 
-            {/* Filters */}
-            <div className="flex flex-wrap gap-2 px-6 py-3 border-b border-border" role="group" aria-label="Filter by tone">
+            {/* Filters, compact */}
+            <div className="flex flex-wrap gap-1.5 px-5 py-2.5 border-b border-border" role="group" aria-label="Filter by tone">
               {FILTERS.map((f) => {
                 const active = filter === f.key;
                 const count = f.key === "all" ? CHAT_MENTIONS.length : toneCounts[f.key] || 0;
@@ -211,7 +203,7 @@ const LivestreamChatEngagement: React.FC = () => {
                     type="button"
                     onClick={() => setFilter(f.key)}
                     aria-pressed={active}
-                    className={`rounded-full px-4 h-9 text-sm font-medium transition-colors border ${
+                    className={`rounded-full px-3 h-7 text-xs font-medium transition-colors border ${
                       active
                         ? "bg-primary text-white border-primary"
                         : "bg-background text-muted-foreground border-border hover:text-foreground hover:border-primary/30"
@@ -223,21 +215,31 @@ const LivestreamChatEngagement: React.FC = () => {
               })}
             </div>
 
-            {/* Feed */}
+            {/* Feed. One line per mention: tags, original, translation. Tags are
+                a single neutral treatment with one accent for pushback, rather
+                than a colour per tone, which would rainbow the whole table. */}
             <ul className="divide-y divide-border">
               {visible.map((m, i) => (
-                <li key={`${m.c}-${i}`} className="px-6 py-3 grid sm:grid-cols-[5.5rem_1fr_7rem] gap-x-5 items-baseline">
-                  <div className="text-xs text-muted-foreground tabular-nums">
-                    {m.t} <span className="text-muted-foreground/50">{m.market}</span>
-                  </div>
-                  <div>
-                    <div className="text-sm text-foreground">
-                      <span className="font-semibold mr-2">{m.c}</span>
-                      {m.orig}
-                    </div>
-                    <div className="text-sm text-muted-foreground mt-0.5">{m.en}</div>
-                  </div>
-                  <div className="text-xs text-muted-foreground sm:text-right">{TONE_LABEL[m.tone]}</div>
+                <li
+                  key={`${m.c}-${i}`}
+                  className="px-5 py-2 flex flex-wrap items-baseline gap-x-3 gap-y-0.5 hover:bg-muted/40 transition-colors"
+                >
+                  <span className="text-[11px] text-muted-foreground/70 tabular-nums w-10 shrink-0">{m.t}</span>
+                  <span className="text-[10px] font-semibold tracking-wide px-1.5 py-0.5 rounded bg-muted text-muted-foreground shrink-0">
+                    {m.market}
+                  </span>
+                  <span
+                    className={`text-[10px] font-semibold tracking-wide px-1.5 py-0.5 rounded shrink-0 ${
+                      m.tone === "negative"
+                        ? "bg-primary/10 text-primary"
+                        : "bg-muted text-muted-foreground"
+                    }`}
+                  >
+                    {TONE_LABEL[m.tone]}
+                  </span>
+                  <span className="text-xs font-semibold text-foreground shrink-0">{m.c}</span>
+                  <span className="text-sm text-foreground">{m.orig}</span>
+                  <span className="text-sm text-muted-foreground/80">{m.en}</span>
                 </li>
               ))}
             </ul>
