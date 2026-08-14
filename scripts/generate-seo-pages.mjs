@@ -185,9 +185,9 @@ const STATIC_PAGES = [
   },
   {
     route: "/livestream-chat-engagement",
-    title: "What Livestream Chat Does When a Sponsor Appears | Beta Ads",
+    title: "Chat Tracking for Livestream Campaigns | Beta Ads",
     description:
-      "103 verbatim viewer messages from a real Finnish Twitch campaign, in Finnish with English translations. Real questions, real scepticism, real conversation. Proof that native livestream advertising starts conversations a banner cannot.",
+      "See what live chat says about your brand while the campaign is running. Keyword tracking across every channel, deduplicated counts, Nordic to English translation and tone scoring, in one dashboard.",
     locale: "en",
   },
   {

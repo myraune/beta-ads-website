@@ -40,13 +40,15 @@ const FILTERS: Array<{ key: ChatTone | "all"; label: string }> = [
   { key: "positive", label: "Positive" },
   { key: "question", label: "Questions" },
   { key: "neutral", label: "Neutral" },
-  { key: "negative", label: "Pushback" },
+  { key: "negative", label: "Critical" },
 ];
 
+// Short labels on purpose: these sit in a three-column grid beside the
+// headline, and longer strings wrapped to three lines and unbalanced the row.
 const heroStats = [
-  { value: "3", label: "Nordic languages, translated live" },
-  { value: "12", label: "Channels watched at once" },
-  { value: "0", label: "Screenshots to collect by hand" },
+  { value: "3", label: "Languages translated" },
+  { value: "12", label: "Channels watched" },
+  { value: "0", label: "Manual screenshots" },
 ];
 
 const capabilities = [
@@ -100,7 +102,7 @@ const LivestreamChatEngagement: React.FC = () => {
   return (
     <MarketingPageLayout
       seo={{
-        title: "Livestream Chat Monitoring for Brand Campaigns | Beta Ads",
+        title: "Chat Tracking for Livestream Campaigns | Beta Ads",
         description:
           "See what live chat says about your brand while the campaign is running. Keyword tracking across every channel, deduplicated counts, Nordic to English translation and tone scoring, in one dashboard.",
         canonical: "/livestream-chat-engagement",
@@ -149,25 +151,33 @@ const LivestreamChatEngagement: React.FC = () => {
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-12 items-end">
             <div>
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.06] mb-3 tracking-tight">
-                A banner has never been{" "}
+                Chat{" "}
                 <span style={serif} className="italic font-normal text-primary">
-                  argued with
+                  tracking
                 </span>
-                .
               </h1>
               <p className="text-base text-white/65 leading-relaxed max-w-lg">
-                We read every channel on the campaign at once, keep the messages that mention you,
-                translate them, and tell you what the room actually felt.
+                See what live chat says about your brand while the campaign is still running. We
+                read every channel at once, keep the messages that mention you, translate them, and
+                tell you what the room actually felt.
               </p>
             </div>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 lg:justify-end">
-              {heroStats.map((s) => (
-                <div key={s.label}>
-                  <div className="text-2xl font-bold text-white tracking-tight leading-none">{s.value}</div>
-                  <div className="text-[11px] text-white/50 mt-1 leading-snug max-w-[8rem]">{s.label}</div>
-                </div>
-              ))}
-              <div className="flex gap-2 w-full lg:w-auto lg:ml-2">
+            {/* Fixed three-column grid, not a wrapping flex row. With flex-wrap
+                the third stat dropped to its own line and left an orphan, which
+                read as broken. The grid keeps all three on one row and the
+                buttons on their own. */}
+            <div className="lg:text-right">
+              <div className="grid grid-cols-3 gap-x-5 gap-y-2 mb-5">
+                {heroStats.map((s) => (
+                  <div key={s.label}>
+                    <div className="text-2xl font-bold text-white tracking-tight leading-none">
+                      {s.value}
+                    </div>
+                    <div className="text-[11px] text-white/50 mt-1.5 leading-snug">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="flex flex-wrap gap-2 lg:justify-end">
                 <Link to="/contact">
                   <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 h-10">
                     Book a demo <ArrowRight className="ml-2 w-4 h-4" />
