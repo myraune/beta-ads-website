@@ -608,7 +608,7 @@ const DashboardMockup: React.FC = () => {
 /* ═══════════════════════════════════════════════ */
 
 export const StreamerHero: React.FC = () => (
-  <section className="relative overflow-hidden" aria-label="Streamer hero">
+  <section className="relative overflow-hidden" aria-label="Streamer hero" style={{ background: "hsl(240 11% 5%)" }}>
     {/* Aurora shader background */}
     <AnimatedShaderBackground heightFactor={1} />
     {/* Bottom fade to page background */}
