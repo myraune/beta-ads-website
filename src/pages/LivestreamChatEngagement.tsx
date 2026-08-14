@@ -29,8 +29,11 @@ const TONE_LABEL: Record<ChatTone, string> = {
   positive: "Positive",
   question: "Question",
   neutral: "Neutral",
-  negative: "Pushback",
+  negative: "Critical",
 };
+
+const MARKET_LABEL: Record<string, string> = { FI: "Finland", NO: "Norway", SE: "Sweden" };
+const LANG: Record<string, string> = { FI: "fi", NO: "no", SE: "sv" };
 
 const FILTERS: Array<{ key: ChatTone | "all"; label: string }> = [
   { key: "all", label: "All" },
@@ -67,6 +70,7 @@ const capabilities = [
 
 const LivestreamChatEngagement: React.FC = () => {
   const [filter, setFilter] = useState<ChatTone | "all">("all");
+  const [showOriginal, setShowOriginal] = useState(true);
 
   const toneCounts = useMemo(
     () =>
@@ -82,6 +86,13 @@ const LivestreamChatEngagement: React.FC = () => {
     () => (filter === "all" ? CHAT_MENTIONS : CHAT_MENTIONS.filter((m) => m.tone === filter)),
     [filter]
   );
+
+  // Group by day so the feed reads as a timeline rather than one long list.
+  const groups = useMemo(() => {
+    const map = new Map<string, typeof CHAT_MENTIONS>();
+    for (const m of visible) map.set(m.d, [...(map.get(m.d) ?? []), m]);
+    return [...map.entries()];
+  }, [visible]);
 
   const capRef = useScrollAnimation();
   const howRef = useScrollAnimation();
@@ -187,9 +198,19 @@ const LivestreamChatEngagement: React.FC = () => {
                   <span className="text-[11px] text-muted-foreground">{l}</span>
                 </div>
               ))}
-              <span className="ml-auto text-[10px] font-semibold tracking-widest uppercase text-muted-foreground/60">
-                Sample data
-              </span>
+              <div className="ml-auto flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setShowOriginal((v) => !v)}
+                  aria-pressed={showOriginal}
+                  className="rounded-full px-3 h-7 text-xs font-medium border border-border bg-background text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors"
+                >
+                  {showOriginal ? "Original shown" : "English only"}
+                </button>
+                <span className="text-[10px] font-semibold tracking-widest uppercase text-muted-foreground/60">
+                  Sample data
+                </span>
+              </div>
             </div>
 
             {/* Filters, compact */}
@@ -215,35 +236,49 @@ const LivestreamChatEngagement: React.FC = () => {
               })}
             </div>
 
-            {/* Feed. One line per mention: tags, original, translation. Tags are
-                a single neutral treatment with one accent for pushback, rather
-                than a colour per tone, which would rainbow the whole table. */}
-            <ul className="divide-y divide-border">
-              {visible.map((m, i) => (
-                <li
-                  key={`${m.c}-${i}`}
-                  className="px-5 py-2 flex flex-wrap items-baseline gap-x-3 gap-y-0.5 hover:bg-muted/40 transition-colors"
-                >
-                  <span className="text-[11px] text-muted-foreground/70 tabular-nums w-10 shrink-0">{m.t}</span>
-                  <span className="text-[10px] font-semibold tracking-wide px-1.5 py-0.5 rounded bg-muted text-muted-foreground shrink-0">
-                    {m.market}
-                  </span>
-                  <span
-                    className={`text-[10px] font-semibold tracking-wide px-1.5 py-0.5 rounded shrink-0 ${
-                      m.tone === "negative"
-                        ? "bg-primary/10 text-primary"
-                        : "bg-muted text-muted-foreground"
-                    }`}
-                  >
-                    {TONE_LABEL[m.tone]}
-                  </span>
-                  <span className="text-xs font-semibold text-foreground shrink-0">{m.c}</span>
-                  <span className="text-sm text-foreground">{m.orig}</span>
-                  <span className="text-sm text-muted-foreground/80">{m.en}</span>
-                </li>
+            {/* Mention cards, grouped by day, matching the live mentions board:
+                translation first, original underneath in italic, and a hairline
+                footer carrying the handle and market. */}
+            <div className="px-5 pt-3 pb-4 bg-muted/20">
+              {groups.map(([day, items]) => (
+                <section key={day}>
+                  <h3 className="text-[11px] font-semibold tracking-wide uppercase text-muted-foreground/70 mt-3 mb-2.5 first:mt-0">
+                    {day}
+                  </h3>
+                  <div className="grid gap-3.5 [grid-template-columns:repeat(auto-fill,minmax(300px,1fr))] items-start">
+                    {items.map((m, i) => (
+                      <article
+                        key={`${m.c}-${i}`}
+                        className="rounded-xl bg-card border border-border px-4 pt-3.5 pb-3 shadow-sm"
+                      >
+                        <p className="text-sm text-foreground leading-relaxed">{m.en}</p>
+                        {showOriginal && (
+                          <p className="text-[12.5px] italic text-muted-foreground leading-snug mt-2" lang={LANG[m.market]}>
+                            {m.orig}
+                          </p>
+                        )}
+                        <div className="flex items-center flex-wrap gap-x-2 gap-y-1 mt-3 pt-2.5 border-t border-border text-xs">
+                          <span className="font-semibold text-foreground">{m.c}</span>
+                          <span className="text-muted-foreground/60">in</span>
+                          <span className="text-muted-foreground">{MARKET_LABEL[m.market]}</span>
+                          <span className="text-muted-foreground/50 tabular-nums">{m.t}</span>
+                          <span
+                            className={`ml-auto text-[10.5px] rounded-full px-2 py-0.5 border ${
+                              m.tone === "negative"
+                                ? "border-primary/30 text-primary"
+                                : "border-border text-muted-foreground/70"
+                            }`}
+                          >
+                            {TONE_LABEL[m.tone]}
+                          </span>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </section>
               ))}
-            </ul>
-            <div className="px-6 py-3 border-t border-border text-xs text-muted-foreground/70">
+            </div>
+            <div className="px-5 py-3 border-t border-border text-xs text-muted-foreground/70">
               Showing {visible.length} of {CHAT_MENTIONS.length} sample messages. A live campaign
               feed keeps filling for as long as the campaign runs.
             </div>
