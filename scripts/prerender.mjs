@@ -169,6 +169,14 @@ function saveHtml(route, html) {
   let clean = html.replace(new RegExp(`http://localhost:${PORT}`, "g"), SITE);
   // Remove static head tags that are duplicated by react-helmet-async
   clean = deduplicateHeadTags(clean);
+  // Strip the capture-time prerendering marker. It is only meant to force
+  // scroll-gated content visible while Puppeteer captures; leaving it on the
+  // served <html> keeps its opacity/transform overrides permanently active for
+  // real visitors, which silently disables every scroll reveal on the site.
+  clean = clean.replace(/(<html[^>]*\bclass=")([^"]*)"/i, (m, head, cls) => {
+    const kept = cls.split(/\s+/).filter((c) => c && c !== "prerendering").join(" ");
+    return `${head}${kept}"`;
+  });
 
   if (route === "/") {
     fs.writeFileSync(path.join(DIST, "index.html"), clean, "utf-8");

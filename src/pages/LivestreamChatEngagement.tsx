@@ -153,8 +153,13 @@ const LivestreamChatEngagement: React.FC = () => {
         secondaryHref: "/twitch-advertising-cost",
       }}
     >
-      {/* ── Hero ── */}
-      <section className="relative overflow-hidden">
+      {/* ── Hero ──
+          Explicit dark background, not just the shader. The shader canvas is
+          alpha-transparent, so in the light theme the page background shows
+          through and the white hero type becomes white on white. Painting the
+          section dark makes the hero readable in both themes and the shader
+          then sits on top as texture rather than as the only backdrop. */}
+      <section className="relative overflow-hidden bg-[hsl(240_11%_5%)]">
         <AnimatedShaderBackground heightFactor={0.85} />
         <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-24">
