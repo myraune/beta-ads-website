@@ -184,6 +184,20 @@ const STATIC_PAGES = [
     locale: "en",
   },
   {
+    route: "/campaign-compliance",
+    title: "Campaign Setup Verification | Beta Ads",
+    description:
+      "Check that every creator on a livestream campaign actually put the banner up, got the command in the title, went live, and pointed at a tracked link. Continuous verification across every channel, in one view.",
+    locale: "en",
+  },
+  {
+    route: "/replay-reach",
+    title: "Replay Reach: What a Livestream Ad Does After the Stream | Beta Ads",
+    description:
+      "A native overlay is baked into the recording, so it keeps being served every time somebody opens the VOD or a clip. See live, clip and VOD exposure counted separately, per channel.",
+    locale: "en",
+  },
+  {
     route: "/livestream-chat-engagement",
     title: "Chat Tracking for Livestream Campaigns | Beta Ads",
     description:
@@ -408,7 +422,7 @@ function loadStreamerProfiles() {
 }
 
 function parseBlogPosts() {
-  const { blogPosts } = loadTsModule("src/data/blogPosts.ts", "blog");
+  const { blogPostsAll: blogPosts } = loadTsModule("src/data/blogPostsAll.ts", "blog");
   if (!Array.isArray(blogPosts)) {
     throw new Error("blogPosts.ts did not export a blogPosts array");
   }

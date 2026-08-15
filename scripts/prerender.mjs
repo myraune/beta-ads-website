@@ -56,6 +56,8 @@ const STATIC_ROUTES = [
   "/kick-advertising-cost",
   "/nordic-livestream-advertising",
   "/livestream-chat-engagement",
+  "/campaign-compliance",
+  "/replay-reach",
   "/streamers",
   "/about",
   "/blog",
@@ -83,10 +85,25 @@ const STATIC_ROUTES = [
 ];
 
 function getBlogSlugs() {
-  const src = fs.readFileSync(path.join(ROOT, "src/data/blogPosts.ts"), "utf-8");
-  // Match slug values from the data array (skip the interface property declaration)
-  const matches = [...src.matchAll(/^\s+slug:\s*["']([^"']+)["']/gm)];
-  return matches.map((m) => m[1]);
+  // Read the base file AND every localized content file. blogPosts.ts loads the
+  // locales as dynamic imports now, so its text alone no longer contains the
+  // localized slugs and prerendering them would silently stop.
+  const files = [
+    "src/data/blogPosts.ts",
+    "src/data/blog/posts-no.ts",
+    "src/data/blog/posts-sv.ts",
+    "src/data/blog/posts-da.ts",
+    "src/data/blog/posts-fi.ts",
+    "src/data/blog/posts-drafts-en.ts",
+  ];
+  const slugs = new Set();
+  for (const rel of files) {
+    const full = path.join(ROOT, rel);
+    if (!fs.existsSync(full)) continue;
+    const src = fs.readFileSync(full, "utf-8");
+    for (const m of src.matchAll(/^\s+slug:\s*["']([^"']+)["']/gm)) slugs.add(m[1]);
+  }
+  return [...slugs];
 }
 
 // Norwegian streamer-profile handles for /streamere/:handle — each renders its own

@@ -30,6 +30,8 @@ const TwitchAnnonseringPris = lazy(() => import("./pages/TwitchAnnonseringPris")
 const KickAdvertisingCost = lazy(() => import("./pages/KickAdvertisingCost"));
 const NordicLivestreamAdvertising = lazy(() => import("./pages/NordicLivestreamAdvertising"));
 const LivestreamChatEngagement = lazy(() => import("./pages/LivestreamChatEngagement"));
+const CampaignCompliance = lazy(() => import("./pages/CampaignCompliance"));
+const ReplayReach = lazy(() => import("./pages/ReplayReach"));
 const YouTubeAdvertising = lazy(() => import("./pages/YouTubeAdvertising"));
 const KickAdvertising = lazy(() => import("./pages/KickAdvertising"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
@@ -162,6 +164,8 @@ const App = () => {
               <Route path="/kick-advertising-cost" element={<KickAdvertisingCost />} />
               <Route path="/nordic-livestream-advertising" element={<NordicLivestreamAdvertising />} />
               <Route path="/livestream-chat-engagement" element={<LivestreamChatEngagement />} />
+              <Route path="/campaign-compliance" element={<CampaignCompliance />} />
+              <Route path="/replay-reach" element={<ReplayReach />} />
               <Route path="/youtube-advertising" element={<YouTubeAdvertising />} />
               <Route path="/kick-advertising" element={<KickAdvertising />} />
               <Route path="/streamers" element={<Streamers t={t} />} />

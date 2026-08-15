@@ -11977,8 +11977,9 @@ const PUBLISHED_OVERRIDE_SLUGS = new Set([
   "twitch-community-events-brand-activation-2026",
 ]);
 
-/** The publish gate, applied to both the base posts and each lazy locale. */
-const _published = (posts: BlogPost[]): BlogPost[] =>
+/** The publish gate, applied to both the base posts and each lazy locale.
+ *  Exported so the build-only aggregator (blogPostsAll.ts) applies the same rule. */
+export const filterPublished = (posts: BlogPost[]): BlogPost[] =>
   posts.filter(
     (p) =>
       PUBLISHED_OVERRIDE_SLUGS.has(p.slug) ||
@@ -11991,7 +11992,7 @@ const _published = (posts: BlogPost[]): BlogPost[] =>
  * that already holds this reference (and getBlogPostBySlug below) sees locale
  * posts the moment they arrive. Reassigning would leave stale references.
  */
-export const blogPosts: BlogPost[] = _published(_allBlogPostsRaw);
+export const blogPosts: BlogPost[] = filterPublished(_allBlogPostsRaw);
 
 const _loadedLocales = new Set<string>(["en"]);
 const _inFlight = new Map<string, Promise<void>>();
@@ -12014,7 +12015,7 @@ export const ensureLocaleLoaded = async (locale?: string): Promise<void> => {
       const posts = (mod[`posts_${key}`] ?? Object.values(mod).find(Array.isArray)) as
         | BlogPost[]
         | undefined;
-      if (posts) blogPosts.push(..._published(posts));
+      if (posts) blogPosts.push(...filterPublished(posts));
       _loadedLocales.add(key);
     })
     .finally(() => {

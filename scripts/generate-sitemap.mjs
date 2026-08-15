@@ -41,6 +41,8 @@ const STATIC_PAGES = [
   { path: "/kick-advertising-cost",   priority: "0.9",  changefreq: "monthly" },
   { path: "/nordic-livestream-advertising", priority: "0.9", changefreq: "monthly" },
   { path: "/livestream-chat-engagement", priority: "0.9", changefreq: "monthly" },
+  { path: "/campaign-compliance", priority: "0.9", changefreq: "monthly" },
+  { path: "/replay-reach", priority: "0.9", changefreq: "monthly" },
   { path: "/kick-advertising",       priority: "0.95", changefreq: "monthly" },
   { path: "/press",                  priority: "0.95", changefreq: "monthly" },
   { path: "/norge",                  priority: "0.9",  changefreq: "monthly" },
@@ -80,7 +82,7 @@ async function parseBlogPosts() {
   // file layout — far more robust than regex-parsing a single file.
   const TMP = path.join(ROOT, "node_modules", ".cache", "sitemap-posts.cjs");
   await build({
-    entryPoints: [path.join(ROOT, "src/data/blogPosts.ts")],
+    entryPoints: [path.join(ROOT, "src/data/blogPostsAll.ts")],
     bundle: true,
     format: "cjs",
     outfile: TMP,
@@ -90,7 +92,7 @@ async function parseBlogPosts() {
   });
   const require = createRequire(import.meta.url);
   delete require.cache[require.resolve(TMP)];
-  const { blogPosts } = require(TMP);
+  const { blogPostsAll: blogPosts } = require(TMP);
 
   const esc = (s) =>
     s ? s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") : null;
