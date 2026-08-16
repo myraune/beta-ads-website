@@ -30,9 +30,11 @@ const STATUS_LABEL: Record<SetupStatus, string> = {
   missing: "No",
 };
 
+// Derived, not hardcoded: an earlier hardcoded "4" disagreed with the table,
+// which listed six channels with something to fix.
 const heroStats = [
-  { value: "12", label: "Channels checked" },
-  { value: "4", label: "Needed fixing" },
+  { value: String(CHANNEL_SETUP.length), label: "Channels checked" },
+  { value: String(CHANNEL_SETUP.filter((c) => c.note).length), label: "Need fixing" },
   { value: "0", label: "Checked by hand" },
 ];
 
