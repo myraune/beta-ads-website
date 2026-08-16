@@ -4,6 +4,7 @@ import { SPHero } from "@/components/sections/SPHero";
 import { SPBrands } from "@/components/sections/SPBrands";
 import { SPFeatures } from "@/components/sections/SPFeatures";
 import { SPVideoShowcase } from "@/components/sections/SPVideoShowcase";
+import { SPCampaignTools } from "@/components/sections/SPCampaignTools";
 import { SPUseCases } from "@/components/sections/SPUseCases";
 import { MeetBeta } from "@/components/sections/MeetBeta";
 import { SPCTA } from "@/components/sections/SPCTA";
@@ -118,6 +119,7 @@ const Index: React.FC = () => {
         <SPBrands />
         <SPFeatures />
         <SPVideoShowcase />
+        <SPCampaignTools />
         <SPUseCases />
         <MeetBeta />
         <SPCTA />

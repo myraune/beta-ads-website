@@ -16,6 +16,9 @@ const footerLinks = {
     { label: "Kick Advertising Cost", to: "/kick-advertising-cost" },
     { label: "YouTube Advertising", to: "/youtube-advertising" },
     { label: "Streamer Explorer", to: "/streamers" },
+    { label: "Chat Tracking", to: "/livestream-chat-engagement" },
+    { label: "Setup Verification", to: "/campaign-compliance" },
+    { label: "Replay Reach", to: "/replay-reach" },
   ],
   // Individual case study pages - crawlable anchor links on every page
   // so Googlebot discovers all case study URLs and PageRank flows to them.
