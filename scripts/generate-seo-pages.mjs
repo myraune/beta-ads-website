@@ -194,7 +194,7 @@ const STATIC_PAGES = [
     route: "/replay-reach",
     title: "Replay Reach: What a Livestream Ad Does After the Stream | Beta Ads",
     description:
-      "A native overlay is baked into the recording, so it keeps being served every time somebody opens the VOD or a clip. See live, clip and VOD exposure counted separately, per channel.",
+      "A native overlay is baked into the recording, so the stream keeps collecting views long after it ends. See total stream views, the live audience inside them, and clips, counted per channel without double counting.",
     locale: "en",
   },
   {

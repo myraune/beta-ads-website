@@ -11,7 +11,7 @@ import { CHANNEL_REACH } from "@/data/campaignSample";
  *
  * Product page for the replay side of campaign reporting: a native overlay is
  * baked into the recording, so it keeps being served every time somebody opens
- * the VOD or a clip.
+ * the recording or a clip.
  *
  * DELIBERATELY NO PRICING. The internal version of this view derives an
  * effective CPM from contracted spend, and that rate is confidential. The
@@ -29,49 +29,70 @@ const fmt = (n: number) => n.toLocaleString("en-US");
 const capabilities = [
   {
     t: "The overlay is part of the recording",
-    b: "It is rendered into the broadcast, not served next to it, so it survives into the VOD and into every clip somebody cuts. There is no second placement to buy and no second creative to produce.",
+    b: "It is rendered into the broadcast, not served next to it, so it survives into the recording and into every clip somebody cuts. There is no second placement to buy and no second creative to produce.",
   },
   {
     t: "Clips are the unambiguous part",
-    b: "A clip view is a person choosing to watch a short, specific moment. Counted separately from VODs, because the two are not the same quality of exposure and should not be blended into one number.",
+    b: "A clip view is a person choosing to watch a short, specific moment. Counted apart from the stream total, because the two are not the same quality of exposure and should not be blended into one number.",
   },
   {
     t: "Counted per channel, not estimated",
     b: "Every figure is read back per channel from the platform rather than modelled from an average, so the total is the sum of real rows you can inspect.",
   },
   {
-    t: "Reported as a range, not a headline",
-    b: "A VOD view is a video load, which is a weaker signal than a live view. We show live, clips and VODs separately so you can decide how much weight each deserves rather than being handed one flattering number.",
+    t: "Reported without double counting",
+    b: "The platform's stream total already includes everyone who watched live, so we never add the two together to manufacture a bigger number. You get the total, the live subset inside it, and clips counted apart.",
   },
 ];
 
 const ReplayReach: React.FC = () => {
+  /**
+   * The platform's stream view count is EVERY view the stream generated: people
+   * who joined while it was live and everyone who opened the recording after.
+   * Live is a subset of it, so the two must never be summed. The honest figures
+   * are total, the live subset, and what the recording added on top.
+   */
   const totals = useMemo(() => {
     const live = CHANNEL_REACH.reduce((s, c) => s + c.live, 0);
-    const vod = CHANNEL_REACH.reduce((s, c) => s + c.vod, 0);
+    const total = CHANNEL_REACH.reduce((s, c) => s + c.total, 0);
     const clip = CHANNEL_REACH.reduce((s, c) => s + c.clip, 0);
-    return { live, vod, clip, replay: vod + clip, mult: (vod + clip) / live };
+    return { live, total, clip, afterLive: total - live, mult: total / live };
   }, []);
 
   const bars = useMemo(() => {
     const rows = [
-      { label: "Live views", value: totals.live, note: "while the stream was on", accent: false },
-      { label: "Clip views", value: totals.clip, note: "someone chose to rewatch the moment", accent: false },
-      { label: "VOD views", value: totals.vod, note: "the recording, after the fact", accent: true },
+      {
+        label: "Total views on the stream",
+        value: totals.total,
+        note: "everyone who watched, live and afterwards",
+        accent: true,
+      },
+      {
+        label: "Of which watched live",
+        value: totals.live,
+        note: "present while the broadcast was running",
+        accent: false,
+      },
+      {
+        label: "Clip views",
+        value: totals.clip,
+        note: "counted separately, someone opening a single moment",
+        accent: false,
+      },
     ];
     const max = Math.max(...rows.map((r) => r.value));
     return rows.map((r) => ({ ...r, width: Math.round((r.value / max) * 100) }));
   }, [totals]);
 
   const sortedChannels = useMemo(
-    () => [...CHANNEL_REACH].sort((a, b) => b.vod + b.clip - (a.vod + a.clip)),
+    () => [...CHANNEL_REACH].sort((a, b) => b.total - a.total),
     []
   );
-  const channelMax = Math.max(...sortedChannels.map((c) => c.live + c.vod + c.clip));
+  const channelMax = Math.max(...sortedChannels.map((c) => c.total));
 
   const heroStats = [
-    { value: `${totals.mult.toFixed(1)}x`, label: "Replay over live" },
-    { value: fmt(totals.replay), label: "Replay views" },
+    { value: `${totals.mult.toFixed(1)}x`, label: "Total views over live" },
+    { value: fmt(totals.afterLive), label: "Added after the stream" },
     { value: "0", label: "Extra placements bought" },
   ];
 
@@ -84,7 +105,7 @@ const ReplayReach: React.FC = () => {
       seo={{
         title: "Replay Reach: What a Livestream Ad Does After the Stream | Beta Ads",
         description:
-          "A native overlay is baked into the recording, so it keeps being served every time somebody opens the VOD or a clip. See live, clip and VOD exposure counted separately, per channel.",
+          "A native overlay is baked into the recording, so the stream keeps collecting views long after it ends. See total stream views, the live audience inside them, and clips, counted per channel without double counting.",
         canonical: "/replay-reach",
         jsonLd: [
           {
@@ -100,7 +121,7 @@ const ReplayReach: React.FC = () => {
       cta={{
         heading: "See the reach your campaign keeps earning",
         subtext:
-          "Book a walkthrough and we will show you the live reporting view, with live, clip and VOD exposure separated.",
+          "Book a walkthrough and we will show you the live reporting view, with the live audience and clips separated from the stream total.",
         primaryLabel: "Book a demo",
         primaryHref: "/contact",
         secondaryLabel: "See what it costs",
@@ -128,9 +149,9 @@ const ReplayReach: React.FC = () => {
                 .
               </h1>
               <p className="text-base text-white/65 leading-relaxed max-w-lg">
-                A native overlay is rendered into the broadcast, so it stays in the recording. Every
-                VOD view and every clip keeps serving the same placement, with nothing extra bought
-                and no second creative made.
+                A native overlay is rendered into the broadcast, so it stays in the recording. The
+                stream keeps collecting views long after it ends, and every one of them serves the
+                same placement, with nothing extra bought and no second creative made.
               </p>
             </div>
             <div className="lg:text-right">
@@ -169,12 +190,12 @@ const ReplayReach: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="rounded-2xl border border-border bg-card overflow-hidden">
             <div className="flex flex-wrap items-center gap-x-7 gap-y-2 px-5 py-3 border-b border-border bg-muted/40">
-              <h2 className="text-sm font-semibold text-foreground mr-1">Where the exposure came from</h2>
+              <h2 className="text-sm font-semibold text-foreground mr-1">Where the views came from</h2>
               {[
-                [fmt(totals.live), "live"],
+                [fmt(totals.total), "total views"],
+                [fmt(totals.live), "watched live"],
                 [fmt(totals.clip), "clips"],
-                [fmt(totals.vod), "VOD"],
-                [`${totals.mult.toFixed(1)}x`, "replay multiple"],
+                [`${totals.mult.toFixed(1)}x`, "total over live"],
               ].map(([v, l]) => (
                 <div key={l} className="flex items-baseline gap-1.5">
                   <span className="text-sm font-bold text-foreground tabular-nums">{v}</span>
@@ -204,8 +225,9 @@ const ReplayReach: React.FC = () => {
               ))}
             </div>
             <div className="px-5 py-3 border-t border-border text-xs text-muted-foreground/70">
-              Read these as a range, not a headline. A VOD view is a video load and a weaker signal
-              than a live view, which is exactly why they are counted separately here.
+              Read these as a range, not a headline. The stream total counts every view including
+              the live audience, so live is a subset of it and the two are never added together. A
+              recorded view is also a weaker signal than a live one.
             </div>
           </div>
         </div>
@@ -230,14 +252,16 @@ const ReplayReach: React.FC = () => {
           <div className="rounded-2xl border border-border bg-card overflow-hidden">
             <div className="hidden md:grid grid-cols-[8rem_1fr_6rem_6rem_6rem] gap-x-4 px-5 py-2 border-b border-border text-[11px] font-semibold tracking-wide uppercase text-muted-foreground/70">
               <span>Channel</span>
-              <span>Share of total exposure</span>
+              <span>Share of total views</span>
+              <span className="text-right">Total</span>
               <span className="text-right">Live</span>
               <span className="text-right">Clips</span>
-              <span className="text-right">VOD</span>
             </div>
             <ul className="divide-y divide-border">
               {sortedChannels.map((c) => {
-                const total = c.live + c.vod + c.clip;
+                // c.total already includes the live audience, so it is used as
+                // the row total rather than summed with c.live.
+                const total = c.total;
                 return (
                   <li
                     key={c.ch}
@@ -255,14 +279,14 @@ const ReplayReach: React.FC = () => {
                         style={{ width: `${Math.round((total / channelMax) * 100)}%` }}
                       />
                     </div>
+                    <span className="text-xs text-foreground tabular-nums md:text-right">
+                      {fmt(c.total)}
+                    </span>
                     <span className="text-xs text-muted-foreground tabular-nums md:text-right">
                       {fmt(c.live)}
                     </span>
                     <span className="text-xs text-muted-foreground tabular-nums md:text-right">
                       {fmt(c.clip)}
-                    </span>
-                    <span className="text-xs text-foreground tabular-nums md:text-right">
-                      {fmt(c.vod)}
                     </span>
                   </li>
                 );
@@ -270,9 +294,9 @@ const ReplayReach: React.FC = () => {
             </ul>
             <div className="px-5 py-3 border-t border-border flex flex-wrap items-baseline gap-x-6 text-xs">
               <span className="font-semibold text-foreground">Total</span>
-              <span className="text-muted-foreground tabular-nums">{fmt(totals.live)} live</span>
+              <span className="text-foreground tabular-nums">{fmt(totals.total)} total views</span>
+              <span className="text-muted-foreground tabular-nums">{fmt(totals.live)} of them live</span>
               <span className="text-muted-foreground tabular-nums">{fmt(totals.clip)} clips</span>
-              <span className="text-foreground tabular-nums">{fmt(totals.vod)} VOD</span>
               <span className="ml-auto text-muted-foreground/60">
                 Channels anonymised, figures illustrative
               </span>

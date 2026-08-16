@@ -57,28 +57,39 @@ export const CHANNEL_SETUP: ChannelSetup[] = [
 ];
 
 /**
- * Replay reach per channel. Deliberately views only: no spend, no rate.
- * The argument is the multiplier, not the money.
+ * Reach per channel. Deliberately views only: no spend, no rate.
+ *
+ * IMPORTANT on semantics: `total` is every view the stream generated, counting
+ * people who joined while it was live AND everyone who opened the recording
+ * afterwards. It is NOT a separate "replay only" bucket, so it must never be
+ * added to `live`: that would count the live audience twice and inflate the
+ * result. `live` is the subset that watched during the broadcast, and the
+ * honest multiple is total divided by live.
+ *
+ * `clip` is counted apart because a clip view is someone deliberately opening
+ * a short moment, which is a different and cleaner signal.
  */
 export type ChannelReach = {
   ch: string;
   market: "FI" | "NO" | "SE";
+  /** Watched during the live broadcast. A subset of `total`. */
   live: number;
-  vod: number;
+  /** Every view on the stream, during and after. Includes `live`. */
+  total: number;
   clip: number;
 };
 
 export const CHANNEL_REACH: ChannelReach[] = [
-  { ch: "tu**", market: "FI", live: 6400, vod: 54200, clip: 1480 },
-  { ch: "sn**", market: "FI", live: 5100, vod: 47600, clip: 2210 },
-  { ch: "ke**", market: "NO", live: 4800, vod: 41300, clip: 980 },
-  { ch: "mi**", market: "SE", live: 4350, vod: 38900, clip: 1120 },
-  { ch: "da**", market: "NO", live: 3900, vod: 33500, clip: 760 },
-  { ch: "es**", market: "SE", live: 3600, vod: 29800, clip: 1340 },
-  { ch: "ap**", market: "FI", live: 3200, vod: 26400, clip: 640 },
-  { ch: "he**", market: "NO", live: 2850, vod: 24100, clip: 520 },
-  { ch: "th**", market: "SE", live: 2600, vod: 21700, clip: 410 },
-  { ch: "ra**", market: "FI", live: 2400, vod: 19200, clip: 380 },
-  { ch: "jo**", market: "NO", live: 2100, vod: 16800, clip: 290 },
-  { ch: "vi**", market: "SE", live: 1890, vod: 14600, clip: 240 },
+  { ch: "tu**", market: "FI", live: 6400, total: 54200, clip: 1480 },
+  { ch: "sn**", market: "FI", live: 5100, total: 47600, clip: 2210 },
+  { ch: "ke**", market: "NO", live: 4800, total: 41300, clip: 980 },
+  { ch: "mi**", market: "SE", live: 4350, total: 38900, clip: 1120 },
+  { ch: "da**", market: "NO", live: 3900, total: 33500, clip: 760 },
+  { ch: "es**", market: "SE", live: 3600, total: 29800, clip: 1340 },
+  { ch: "ap**", market: "FI", live: 3200, total: 26400, clip: 640 },
+  { ch: "he**", market: "NO", live: 2850, total: 24100, clip: 520 },
+  { ch: "th**", market: "SE", live: 2600, total: 21700, clip: 410 },
+  { ch: "ra**", market: "FI", live: 2400, total: 19200, clip: 380 },
+  { ch: "jo**", market: "NO", live: 2100, total: 16800, clip: 290 },
+  { ch: "vi**", market: "SE", live: 1890, total: 14600, clip: 240 },
 ];
