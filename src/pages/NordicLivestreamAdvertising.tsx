@@ -8,9 +8,13 @@ import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 
 const serif = { fontFamily: "'Instrument Serif', serif" };
 
+// Scope is stated on every label on purpose. "105M monthly Twitch viewers" is a
+// GLOBAL figure, and sitting unlabelled beside a Nordic stat on a page titled
+// "Nordic Livestream Advertising" it read as 105M Nordic viewers, which is
+// impossible: the whole Nordic region is about 27 million people.
 const heroStats = [
-  { value: "105M", label: "monthly Twitch viewers" },
-  { value: "72%", label: "aged 16 to 34" },
+  { value: "105M", label: "Twitch viewers monthly, global" },
+  { value: "72%", label: "of them aged 16 to 34, global" },
   { value: "3.4M", label: "Nordic stream hours / yr" },
   { value: "<5%", label: "of ad budgets go here" },
 ];
@@ -98,7 +102,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
               else can <span style={serif} className="italic font-normal text-primary">reach</span>.
             </h1>
             <p className="text-lg text-white/65 leading-relaxed mb-10 max-w-xl">
-              Young, engaged, ad-block-proof, and watching millions of hours of Nordic streaming a year. Here is who they are, where they watch, and what a native campaign actually delivers.
+              Young, engaged, ad-block-proof, and watching millions of hours of Nordic streaming a year. Here is who the global Twitch audience is, what the Nordic slice of it looks like, and what a native campaign actually delivers.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/contact">
@@ -133,7 +137,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
               The hardest audience in media to reach anywhere else
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed mb-4">
-              Twitch draws 105 million average monthly visitors, and 70% of them are between 18 and 34, per Amazon Ads' own Twitch advertising figures. GWI puts the audience at roughly 72% aged 16 to 34, two thirds male, and over-indexing the top 10% of income earners worldwide.
+              Twitch draws 105 million average monthly visitors worldwide, and 70% of them are between 18 and 34, per Amazon Ads' own Twitch advertising figures. GWI puts the audience at roughly 72% aged 16 to 34, two thirds male, and over-indexing the top 10% of income earners worldwide.
             </p>
             <p className="text-base text-muted-foreground leading-relaxed">
               The number that matters most: 65% of Twitch viewers cannot be reached on leading social channels (GWI, cited by Amazon Ads). This is not an audience you are already buying somewhere cheaper.
@@ -141,10 +145,10 @@ const NordicLivestreamAdvertising: React.FC = () => {
           </div>
           <div className="grid grid-cols-2 gap-px border border-border rounded-2xl overflow-hidden bg-border">
             {[
-              { v: "105M", l: "avg monthly visitors", s: "Amazon Ads" },
-              { v: "70%", l: "aged 18 to 34", s: "Amazon Ads" },
+              { v: "105M", l: "avg monthly visitors, worldwide", s: "Amazon Ads" },
+              { v: "70%", l: "of them aged 18 to 34", s: "Amazon Ads" },
               { v: "65%", l: "unreachable on social", s: "GWI" },
-              { v: "72%", l: "aged 16 to 34", s: "GWI" },
+              { v: "72%", l: "of them aged 16 to 34", s: "GWI" },
             ].map((x) => (
               <div key={x.l} className="bg-card px-7 py-8">
                 <div className="text-4xl font-bold tracking-tight text-foreground">{x.v}</div>
