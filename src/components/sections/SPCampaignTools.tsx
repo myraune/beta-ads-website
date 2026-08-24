@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { CHANNEL_SETUP, CHANNEL_REACH } from "@/data/campaignSample";
 import { CHAT_MENTIONS } from "@/data/chatMentions";
+import { PeekingBeta } from "@/components/sections/PeekingBeta";
 
 /**
  * Each card carries a small preview built from the same sample data the tool
@@ -130,12 +131,16 @@ export const SPCampaignTools: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-5">
-          {tools.map((t) => (
+          {tools.map((t, i) => (
             <Link
               key={t.href}
               to={t.href}
-              className="group rounded-2xl border border-border bg-card p-7 flex flex-col hover:border-primary/30 transition-colors"
+              className="relative group rounded-2xl border border-border bg-card p-7 flex flex-col hover:border-primary/30 transition-colors"
             >
+              {/* Beta perches on the last card and points back across the row. */}
+              {i === tools.length - 1 && (
+                <PeekingBeta pose="pointing" placement="stand" side="right" inset={8} size={20} mirror />
+              )}
               <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
                 {t.label}
               </span>

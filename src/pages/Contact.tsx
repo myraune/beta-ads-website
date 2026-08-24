@@ -4,6 +4,7 @@ import { ArrowRight, Mail, MapPin, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 import { SPFooter } from "@/components/sections/SPFooter";
+import { PeekingBeta } from "@/components/sections/PeekingBeta";
 
 const Contact: React.FC = () => {
   return (
@@ -86,8 +87,10 @@ const Contact: React.FC = () => {
               href="https://calendar.app.google/coW5NLQJtLxfRer19"
               target="_blank"
               rel="noopener noreferrer"
-              className="group col-span-1 lg:col-span-2 rounded-3xl p-10 md:p-14 border border-border hover:border-primary/30 transition-colors"
+              className="relative group col-span-1 lg:col-span-2 rounded-3xl p-10 md:p-14 border border-border hover:border-primary/30 transition-colors"
             >
+                {/* Beta stands on the top edge of the booking card, facing the copy. */}
+                <PeekingBeta pose="cool" placement="stand" side="right" inset={12} size={24} />
               <div className="flex flex-col h-full">
                 <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-8">
                   <Calendar className="w-6 h-6 text-primary" />

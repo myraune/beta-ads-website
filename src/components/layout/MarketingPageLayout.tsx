@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SPFooter } from "@/components/sections/SPFooter";
+import { PeekingBeta } from "@/components/sections/PeekingBeta";
 import { SEO } from "@/components/SEO";
 import type { PageLocale } from "@/lib/blogLocale";
 
@@ -79,7 +80,10 @@ export const MarketingPageLayout: React.FC<MarketingPageLayoutProps> = ({
       {/* ── End-of-page CTA ── */}
       <section className="py-20 md:py-28 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="rounded-3xl border border-border p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8">
+          {/* `relative` so Beta can stand on the top edge, and deliberately no
+                overflow-hidden here or he would be sliced off at the border. */}
+            <div className="relative rounded-3xl border border-border p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8">
+              <PeekingBeta pose="thumbsup" placement="stand" side="right" inset={16} size={28} glow={darkPage} />
             <div>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-3">
                 {cta.heading}
