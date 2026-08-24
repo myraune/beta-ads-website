@@ -5,6 +5,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, Rocket, Users, Shield, TrendingUp, Monitor, Zap, Eye, MessageSquare, Gamepad2, Sword, Mic, Trophy, Music } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
+import { MascotBand } from "@/components/sections/MascotBand";
 
 const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
@@ -356,6 +357,23 @@ const KickAdvertising: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* ── Beta ── */}
+      <MascotBand
+        src="/lovable-uploads/beta-mascot-kick.jpg"
+        alt="Beta, the Beta Ads mascot, at a streaming desk lit in Kick green"
+        variant="scene"
+        eyebrow="The platform most media buyers skip"
+        heading="Less competition for the same attention"
+        body="Kick's Nordic audience skews younger than Twitch's and almost nobody is buying it properly yet. Same native format, same tracking, a fraction of the crowding in the ad break nobody watches."
+        points={[
+            "Identical overlay and chat-command setup to our Twitch campaigns",
+            "Streamers who broadcast on Kick and Twitch can run both at once",
+            "Chat is tracked the same way, so you see the reaction either side",
+          ]}
+        cta={{ label: "What a Kick campaign costs", to: "/kick-advertising-cost" }}
+        flip={true}
+      />
 
       {/* ── FAQ ── */}
       <section className="py-20 md:py-28 border-t border-border">

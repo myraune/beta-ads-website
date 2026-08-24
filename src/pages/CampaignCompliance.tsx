@@ -5,6 +5,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CHANNEL_SETUP, type SetupStatus } from "@/data/campaignSample";
+import { MascotBand } from "@/components/sections/MascotBand";
 
 /**
  * /campaign-compliance
@@ -310,6 +311,24 @@ const CampaignCompliance: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* ── Beta ── */}
+      <MascotBand
+        src="/lovable-uploads/beta-mascot-checklist.jpg"
+        alt="Beta, the Beta Ads mascot, reading a checklist panel"
+        variant="scene"
+        eyebrow="Why this exists"
+        heading="Most campaigns break quietly"
+        body="A streamer forgets the overlay, drops the command out of the title, or goes live an hour early. None of that shows up in a report written at the end of the month, which is exactly when it is too late to fix."
+        points={[
+            "Every channel checked while the campaign is still running",
+            "Problems surface on day one, not in the final report",
+            "You see the same board we do",
+          ]}
+        cta={{ label: "What the chat said about it", to: "/livestream-chat-engagement" }}
+        flip={false}
+      />
+
     </MarketingPageLayout>
   );
 };

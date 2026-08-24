@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { SPFooter } from "@/components/sections/SPFooter";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { MascotBand } from "@/components/sections/MascotBand";
 
 const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
@@ -467,6 +468,24 @@ const Norge: React.FC = () => {
           </div>
         </div>
       </section>
+
+
+      {/* ── Beta ── */}
+      <MascotBand
+        src="/lovable-uploads/beta-mascot-cut-cool.png"
+        alt="Beta, maskoten til Beta Ads"
+        variant="cutout"
+        eyebrow="Hils på Beta"
+        heading="Vi er det eneste norske byrået som bare gjør dette"
+        body="Beta Agency AS er norsk, og vi kjøper ikke bannerannonser på si. Vi bygger native integrasjoner inn i selve sendingen: overlay i layouten, chat-kommando i tittelen, og streameren som sier det med sine egne ord."
+        points={[
+            "Norske streamere, norsk chat, norske kunder",
+            "Vi rapporterer hva chatten faktisk sa, ikke bare visninger",
+            "Sier fra hvis livestream er feil kanal for deg",
+          ]}
+        cta={{ label: "Se hva en kampanje koster", to: "/twitch-annonsering-pris" }}
+        flip={true}
+      />
 
       <SPFooter />
     </div>

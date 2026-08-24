@@ -5,6 +5,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
+import { MascotBand } from "@/components/sections/MascotBand";
 
 const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
@@ -446,6 +447,24 @@ const KickAdvertisingCost: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* ── Beta ── */}
+      <MascotBand
+        src="/lovable-uploads/beta-mascot-calculator.jpg"
+        alt="Beta, the Beta Ads mascot, studying floating numbers above a desk"
+        variant="scene"
+        eyebrow="About the numbers"
+        heading="Cheaper reach, same reporting"
+        body="Kick channels generally cost less per viewer than the equivalent Twitch channel, mostly because fewer buyers are competing for the inventory. Everything downstream is identical: same setup checks, same chat tracking, same replay counting."
+        points={[
+            "Priced on average concurrent viewers, not follower count",
+            "Same verification and chat reporting as a Twitch campaign",
+            "Channels that stream to both platforms can run one campaign across both",
+          ]}
+        cta={{ label: "Compare with Twitch pricing", to: "/twitch-advertising-cost" }}
+        flip={false}
+      />
+
     </MarketingPageLayout>
   );
 };

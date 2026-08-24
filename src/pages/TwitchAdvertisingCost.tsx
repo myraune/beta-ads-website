@@ -5,6 +5,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
+import { MascotBand } from "@/components/sections/MascotBand";
 
 const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
@@ -476,6 +477,24 @@ const TwitchAdvertisingCost: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* ── Beta ── */}
+      <MascotBand
+        src="/lovable-uploads/beta-mascot-calculator.jpg"
+        alt="Beta, the Beta Ads mascot, studying floating numbers above a desk"
+        variant="scene"
+        eyebrow="About the numbers"
+        heading="Price tracks who is actually watching"
+        body="There is no rate card for native integrations, because two channels with the same follower count are rarely worth the same. We price on average concurrent viewers over time, how much the channel actually broadcasts, and how well its audience matches what you sell."
+        points={[
+            "Average viewers over a period, not the peak from one good night",
+            "Hours streamed in the window count as much as channel size",
+            "You get delivery per channel, not one blended total",
+          ]}
+        cta={{ label: "How we verify it ran", to: "/campaign-compliance" }}
+        flip={true}
+      />
+
     </MarketingPageLayout>
   );
 };

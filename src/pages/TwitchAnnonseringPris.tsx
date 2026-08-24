@@ -5,6 +5,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
+import { MascotBand } from "@/components/sections/MascotBand";
 
 /**
  * Norwegian-language cost page - the bokmål counterpart of
@@ -487,6 +488,24 @@ const TwitchAnnonseringPris: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* ── Beta ── */}
+      <MascotBand
+        src="/lovable-uploads/beta-mascot-calculator.jpg"
+        alt="Beta, maskoten til Beta Ads, med tall som svever over pulten"
+        variant="scene"
+        eyebrow="Om tallene"
+        heading="Prisen henger sammen med hvem som faktisk ser på"
+        body="Det finnes ingen prisliste for native integrasjoner, fordi to kanaler med like mange seere sjelden er verdt det samme. Vi regner på snittseere over tid, hvor mye kanalen faktisk sender, og hvor godt publikum matcher det du selger."
+        points={[
+            "Vi bruker snittseere over tid, ikke toppen fra én god kveld",
+            "Antall sendetimer i perioden teller like mye som størrelsen",
+            "Du får vite hva som ble levert per kanal, ikke bare en totalsum",
+          ]}
+        cta={{ label: "Slik verifiserer vi at det kjørte", to: "/campaign-compliance" }}
+        flip={true}
+      />
+
     </MarketingPageLayout>
   );
 };

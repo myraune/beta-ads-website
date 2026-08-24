@@ -5,6 +5,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CHANNEL_REACH } from "@/data/campaignSample";
+import { MascotBand } from "@/components/sections/MascotBand";
 
 /**
  * /replay-reach
@@ -351,6 +352,24 @@ const ReplayReach: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* ── Beta ── */}
+      <MascotBand
+        src="/lovable-uploads/beta-mascot-present.jpg"
+        alt="Beta, the Beta Ads mascot, presenting a stream on a large screen"
+        variant="scene"
+        eyebrow="Why the number is bigger"
+        heading="The stream does not stop when the stream stops"
+        body="The overlay is part of the recording, not a layer on top of it. When the broadcast ends the video stays up, and people keep arriving. Those views are the same placement, seen later."
+        points={[
+            "Live viewers are counted inside the total, never added twice",
+            "Counted per channel, not estimated from an average",
+            "No re-cut or re-upload, the sponsorship is already in the file",
+          ]}
+        cta={{ label: "How we verify the setup", to: "/campaign-compliance" }}
+        flip={true}
+      />
+
     </MarketingPageLayout>
   );
 };

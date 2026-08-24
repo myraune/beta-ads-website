@@ -2,6 +2,7 @@ import React from "react";
 import { SEO } from "@/components/SEO";
 import { ExternalLink } from "lucide-react";
 import { SPFooter } from "@/components/sections/SPFooter";
+import { MascotBand } from "@/components/sections/MascotBand";
 
 const pressArticles = [
   {
@@ -127,6 +128,24 @@ const Press: React.FC = () => {
           ))}
         </div>
       </div>
+
+      {/* ── Beta ── */}
+      <MascotBand
+        src="/lovable-uploads/beta-mascot-press.jpg"
+        alt="Beta, the Beta Ads mascot, behind a broadcast microphone"
+        variant="scene"
+        eyebrow="For journalists"
+        heading="Writing about us? Take what you need"
+        body="Beta is our mascot and he is fair game. The renders on this site are ours to give away, so use them alongside a piece rather than screenshotting the homepage. If you need a specific pose, a founder photo or a comment on the Nordic livestream market, mail us and you will get an answer the same day."
+        points={[
+          "Mascot renders and logo files available on request",
+          "Andreas Myraune is available for comment in Norwegian or English",
+          "andreas@beta-ads.no",
+        ]}
+        cta={{ label: "Get in touch", to: "/contact" }}
+        flip
+      />
+
       <SPFooter />
     </>
   );

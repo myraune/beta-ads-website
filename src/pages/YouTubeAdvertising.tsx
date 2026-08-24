@@ -5,6 +5,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, Monitor, Zap, Eye, Play, Shield, Users, TrendingUp, Globe, Music, Dumbbell, BookOpen, Mic, Video, Gamepad2, HeartPulse } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
+import { MascotBand } from "@/components/sections/MascotBand";
 
 const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
@@ -315,6 +316,23 @@ const YouTubeAdvertising: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* ── Beta ── */}
+      <MascotBand
+        src="/lovable-uploads/beta-mascot-youtube.jpg"
+        alt="Beta, the Beta Ads mascot, at a streaming desk lit in YouTube red"
+        variant="scene"
+        eyebrow="On YouTube Live"
+        heading="The stream keeps working after it ends"
+        body="A YouTube livestream turns into a permanent video the second it stops. The overlay is already baked into that recording, so the placement keeps collecting views long after the live audience has gone."
+        points={[
+            "Live viewers are only part of the number, the replay adds the rest",
+            "No re-cut or re-upload needed, the sponsorship is in the file",
+            "Counted per channel, with the live audience shown inside the total",
+          ]}
+        cta={{ label: "How replay reach is counted", to: "/replay-reach" }}
+        flip={false}
+      />
 
       {/* ── FAQ ── */}
       <section className="py-20 md:py-28 border-t border-border">

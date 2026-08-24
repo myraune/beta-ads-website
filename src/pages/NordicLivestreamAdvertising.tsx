@@ -5,6 +5,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
+import { MascotBand } from "@/components/sections/MascotBand";
 
 const serif = { fontFamily: "'Instrument Serif', serif" };
 
@@ -320,6 +321,24 @@ const NordicLivestreamAdvertising: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* ── Beta ── */}
+      <MascotBand
+        src="/lovable-uploads/beta-mascot-onair.jpg"
+        alt="Beta, the Beta Ads mascot, live at a broadcast desk under an on-air sign"
+        variant="scene"
+        eyebrow="Who is buying this"
+        heading="Under 5 percent of Nordic ad budgets reach here"
+        body="Nordic viewers spend millions of hours a year in livestreams, and the money has not followed. That gap is the whole opportunity: the audience is already assembled and almost nobody is competing for the one format they do not skip."
+        points={[
+            "Native integrations run in Norway, Sweden, Denmark and Finland",
+            "Chat is tracked in the original language and shown in English too",
+            "One campaign can span channels across all four markets",
+          ]}
+        cta={{ label: "See what the chat said", to: "/livestream-chat-engagement" }}
+        flip={false}
+      />
+
     </MarketingPageLayout>
   );
 };

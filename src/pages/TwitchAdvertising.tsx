@@ -5,6 +5,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, Monitor, Zap, Eye, MessageSquare, Shield, Users, BarChart3, TrendingUp, Gamepad2, Music, Mic, Trophy, Sword, Car, Globe2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
+import { MascotBand } from "@/components/sections/MascotBand";
 
 const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
@@ -387,6 +388,23 @@ const TwitchAdvertising: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* ── Beta ── */}
+      <MascotBand
+        src="/lovable-uploads/beta-mascot-twitch.jpg"
+        alt="Beta, the Beta Ads mascot, at a streaming desk lit in Twitch purple"
+        variant="scene"
+        eyebrow="Native, not pre-roll"
+        heading="Your brand lives inside the stream"
+        body="No skippable pre-roll and no banner nobody looks at. The overlay sits in the broadcast layout itself, the streamer reads the line in their own words, and the chat command stays in the title for the whole session."
+        points={[
+            "Overlay baked into the broadcast, so it survives into the VOD",
+            "Read live by the streamer, in their voice, not off a script",
+            "Tracked link and chat command checked on every channel, every day",
+          ]}
+        cta={{ label: "See what we check on every channel", to: "/campaign-compliance" }}
+        flip={false}
+      />
 
       {/* ── FAQ ── */}
       <section className="py-20 md:py-28 border-t border-border">

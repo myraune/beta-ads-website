@@ -7,6 +7,7 @@ import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/compone
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { MascotBand } from "@/components/sections/MascotBand";
 
 interface CaseStudiesProps {
   t: any;
@@ -413,6 +414,24 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
           </div>
         </div>
       </section>
+
+
+      {/* ── Beta ── */}
+      <MascotBand
+        src="/lovable-uploads/beta-mascot-chart.jpg"
+        alt="Beta, the Beta Ads mascot, presenting a rising line graph"
+        variant="scene"
+        eyebrow="How we report"
+        heading="You get the same three views on every campaign"
+        body="The case studies above are the ones clients cleared for publication. What every client gets, published or not, is the unglamorous part: whether the setup actually ran, what the chat said about it, and how many views the stream kept collecting after it ended."
+        points={[
+            "Setup verification, checked per channel while the campaign is live",
+            "Every chat mention, translated and scored by tone",
+            "Replay views counted with the live audience inside the total",
+          ]}
+        cta={{ label: "See the reporting views", to: "/campaign-compliance" }}
+        flip={true}
+      />
 
       <SPFooter />
     </div>

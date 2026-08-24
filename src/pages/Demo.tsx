@@ -19,6 +19,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { SPFooter } from '@/components/sections/SPFooter';
+import { MascotBand } from "@/components/sections/MascotBand";
 
 interface DemoProps {
   t?: any;
@@ -211,6 +212,24 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
           </div>
         </div>
       </section>
+
+      {/* ── Beta ── */}
+      <MascotBand
+        src="/lovable-uploads/beta-mascot-calendar.jpg"
+        alt="Beta, the Beta Ads mascot, gesturing at a calendar panel"
+        variant="scene"
+        eyebrow="What happens next"
+        heading="Twenty minutes, no deck"
+        body="Send the form and you get a time from Andreas, not a sequence from a marketing tool. We will ask what you are trying to reach and tell you straight if livestream is the wrong channel for it."
+        points={[
+            "A real reply from a person, usually the same day",
+            "We will say no if your budget is better spent elsewhere",
+            "Nothing is signed on the call",
+          ]}
+        cta={{ label: "Read the case studies first", to: "/case-studies" }}
+        flip={true}
+      />
+
       <SPFooter />
       </div>
     </div>

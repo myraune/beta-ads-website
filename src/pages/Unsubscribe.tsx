@@ -69,7 +69,14 @@ const Unsubscribe = () => {
 
         {status === "success" && (
           <>
-            <CheckCircle className="w-16 h-16 mx-auto text-green-500" />
+            <div className="relative w-full max-w-[260px] mx-auto aspect-[4/3] rounded-2xl overflow-hidden bg-[#0c0c0f] ring-1 ring-white/10 mb-2">
+              <img
+                src="/lovable-uploads/beta-mascot-goodbye.jpg"
+                alt="Beta, the Beta Ads mascot, waving goodbye"
+                className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
+              />
+            </div>
             <h1 className="text-2xl font-bold text-foreground">Successfully Unsubscribed</h1>
             <p className="text-muted-foreground">
               You have been removed from our newsletter. You will no longer receive emails from us.

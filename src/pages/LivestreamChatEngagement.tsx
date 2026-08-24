@@ -5,6 +5,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CHAT_MENTIONS, SAMPLE_SUMMARY, type ChatTone } from "@/data/chatMentions";
+import { MascotBand } from "@/components/sections/MascotBand";
 
 /**
  * /livestream-chat-engagement
@@ -400,6 +401,24 @@ const LivestreamChatEngagement: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* ── Beta ── */}
+      <MascotBand
+        src="/lovable-uploads/beta-mascot-chat.jpg"
+        alt="Beta, the Beta Ads mascot, surrounded by floating chat bubbles"
+        variant="scene"
+        eyebrow="Why chat is the honest metric"
+        heading="The room tells you what it actually thinks"
+        body="Impressions tell you a number was served. Chat tells you whether anyone cared, whether they understood the offer, and whether they trusted it. The sceptical messages are the useful ones."
+        points={[
+            "Every mention across every channel, in one feed",
+            "Original language kept, English shown alongside it",
+            "Scored by tone, including the critical ones",
+          ]}
+        cta={{ label: "Check the setup ran first", to: "/campaign-compliance" }}
+        flip={false}
+      />
+
     </MarketingPageLayout>
   );
 };
