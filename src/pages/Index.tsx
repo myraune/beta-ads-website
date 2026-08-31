@@ -28,8 +28,9 @@ const Index: React.FC = () => {
         jsonLd={[
           {
             "@context": "https://schema.org",
-            "@type": ["Organization", "ProfessionalService"],
-            "@id": "https://beta-ads.no/#organization",
+            "@type": "ProfessionalService",
+            "@id": "https://beta-ads.no/#service",
+            parentOrganization: { "@id": "https://beta-ads.no/#organization" },
             name: "Beta Ads",
             legalName: "Beta Agency AS",
             taxID: "933303136",
@@ -47,12 +48,13 @@ const Index: React.FC = () => {
               height: 50,
             },
             description: "Native advertising platform for Twitch, YouTube and Kick livestreams in the Nordics. Overlay ads that bypass adblock and deliver 3-5x higher engagement.",
-            foundingDate: "2023",
+            foundingDate: "2024-04-15",
             slogan: "Your brand, live on Twitch – without interruptions",
             address: {
               "@type": "PostalAddress",
-              addressLocality: "Oslo",
-              addressRegion: "Oslo",
+              addressLocality: "Frosta",
+              addressRegion: "Trøndelag",
+              postalCode: "7633",
               addressCountry: "NO",
             },
             areaServed: [
@@ -81,22 +83,6 @@ const Index: React.FC = () => {
               name: "Andreas Myraune",
               jobTitle: "Founder & CEO",
               sameAs: ["https://www.linkedin.com/in/andreasmyraune"],
-            },
-          },
-          {
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            "@id": "https://beta-ads.no/#website",
-            name: "Beta Ads",
-            url: "https://beta-ads.no",
-            publisher: { "@id": "https://beta-ads.no/#organization" },
-            potentialAction: {
-              "@type": "SearchAction",
-              target: {
-                "@type": "EntryPoint",
-                urlTemplate: "https://beta-ads.no/blog?q={search_term_string}",
-              },
-              "query-input": "required name=search_term_string",
             },
           },
           {

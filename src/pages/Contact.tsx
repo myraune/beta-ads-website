@@ -141,9 +141,9 @@ const Contact: React.FC = () => {
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
                   <MapPin className="w-5 h-5 text-primary" />
                 </div>
-                <h2 className="text-lg font-semibold text-foreground mb-2">Based in Oslo</h2>
+                <h2 className="text-lg font-semibold text-foreground mb-2">Oslo, Stockholm, Helsinki</h2>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Based in Oslo, operating globally.
+                  We work from Oslo, Stockholm and Helsinki. Beta Agency AS is registered in Frosta, Norway, org.nr 933 303 136.
                 </p>
               </div>
             </div>
