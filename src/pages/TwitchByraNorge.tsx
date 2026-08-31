@@ -31,6 +31,9 @@ import { MascotBand } from "@/components/sections/MascotBand";
 
 const serif = { fontFamily: "'Instrument Serif', serif" };
 
+/** Shown on the page and emitted as dateModified. Bump when the content changes. */
+const SIST_OPPDATERT = "2026-08-31";
+
 const heroStats = [
   { value: "39K+", label: "streamere i nettverket" },
   { value: "4", label: "plattformer" },
@@ -49,6 +52,7 @@ const byraTyper = [
     type: "Internasjonalt influencer-byrå",
     eksempel: "GOAT Agency",
     kilde: "GOAT Agency beskriver seg selv som et globalt influencer-byrå med kontorer i London og New York.",
+    kildeUrl: "https://goatagency.com/twitch-influencer-marketing-agency/",
     passer: "Store kampanjer i mange land, der Norge er ett marked av flere.",
     svakhet:
       "Norsk språk og norske streamere blir én linje i et regneark. Du betaler for et apparat du bare bruker en liten del av.",
@@ -57,6 +61,7 @@ const byraTyper = [
     type: "Nordisk creator-byrå",
     eksempel: "Metapic, AFK",
     kilde: "Metapic markedsfører seg som gaming influencer-byrå i Norge, med sporbare lenker som viser klikk og salg.",
+    kildeUrl: "https://metapic.com/industry/gaming-norway",
     passer: "Kampanjer der klikk og salg er målet.",
     svakhet:
       "Bygget rundt lenker og rabattkoder. Å bygge annonsen inn i selve sendingen er sjelden kjernen.",
@@ -111,6 +116,14 @@ const sjekkliste = [
     q: "Hva er byråhonoraret, og hva går til streameren?",
     hvorfor: "Be om fordelingen. Et byrå som ikke vil vise den, har en grunn.",
   },
+];
+
+/** Norwegian clients only. Links, not numbers: see the note in the section. */
+const norskeKampanjer = [
+  { navn: "Høyskolen Kristiania", bransje: "Utdanning", to: "/case-study/kristiania" },
+  { navn: "Gokstad Akademiet", bransje: "Utdanning", to: "/case-study/gokstad" },
+  { navn: "Komplett", bransje: "Netthandel", to: "/case-study/komplett" },
+  { navn: "NKI", bransje: "Nettstudier", to: "/case-study/nki" },
 ];
 
 const prosess = [
@@ -191,11 +204,17 @@ const TwitchByraNorge: React.FC = () => {
         alternates: [
           { hreflang: "no", href: "/twitch-byra-norge" },
           { hreflang: "en", href: "/twitch-agency-norway" },
+          // Explicit, and the same on both pages. Left implicit, SEO.tsx falls
+          // back to the current canonical, so each page named itself as the
+          // default and Google saw two x-defaults for one cluster. Matches the
+          // pattern already used by the cost-page pair.
+          { hreflang: "x-default", href: "/twitch-agency-norway" },
         ],
         jsonLd: [
           {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
+            dateModified: SIST_OPPDATERT,
             name: "Beta Agency AS",
             alternateName: "Beta Ads",
             description:
@@ -382,7 +401,20 @@ const TwitchByraNorge: React.FC = () => {
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-muted-foreground/70 mb-4">{b.kilde}</p>
+                  <p className="text-xs text-muted-foreground/70 mb-4">
+                    {b.kildeUrl ? (
+                      <a
+                        href={b.kildeUrl}
+                        target="_blank"
+                        rel="nofollow noopener noreferrer"
+                        className="hover:text-foreground underline decoration-border underline-offset-2"
+                      >
+                        {b.kilde}
+                      </a>
+                    ) : (
+                      b.kilde
+                    )}
+                  </p>
                   <div className="space-y-3">
                     <div className="pl-4 border-l border-border">
                       <p className="text-xs font-semibold text-foreground mb-1">Passer når</p>
@@ -435,6 +467,42 @@ const TwitchByraNorge: React.FC = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── Norske kampanjer ── */}
+      <section className="py-20 md:py-28 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="max-w-2xl mb-12">
+            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+              Norske kunder
+            </span>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
+              Kampanjer vi faktisk har kjørt i Norge
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed">
+              Hele oppsettet, tallene og hva chatten sa ligger åpent på hver enkelt side.
+            </p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {norskeKampanjer.map((k) => (
+              <Link
+                key={k.navn}
+                to={k.to}
+                className="group rounded-2xl border border-border bg-card p-6 hover:border-primary/30 transition-colors"
+              >
+                <span className="text-xs text-muted-foreground/70 block mb-2">{k.bransje}</span>
+                <h3 className="text-base font-semibold text-foreground mb-4">{k.navn}</h3>
+                <span className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                  Les kampanjen
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </Link>
+            ))}
+          </div>
+          <p className="text-xs text-muted-foreground/60 mt-8">
+            Sist oppdatert {new Date(`${SIST_OPPDATERT}T12:00:00`).toLocaleDateString("nb-NO", { day: "numeric", month: "long", year: "numeric" })}.
+          </p>
         </div>
       </section>
 
