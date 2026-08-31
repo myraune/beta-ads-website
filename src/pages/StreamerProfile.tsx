@@ -450,7 +450,7 @@ const StreamerProfile: React.FC = () => {
             <div className="relative min-h-[260px] hidden md:block overflow-hidden bg-[#0c0c0f]">
               <div className="absolute inset-0" style={{ background: "radial-gradient(120% 90% at 60% 8%, rgba(233,79,55,0.20), transparent 62%)" }} />
               <img
-                src="/lovable-uploads/beta-mascot-cut-pointing.png"
+                src="/lovable-uploads/beta-mascot-cut-pointing.webp"
                 alt="Beta, the Beta Ads mascot"
                 className="absolute bottom-0 right-4 h-[94%] w-auto object-contain drop-shadow-2xl"
                 loading="lazy"

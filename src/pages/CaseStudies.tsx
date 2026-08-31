@@ -133,7 +133,7 @@ const detailedCaseStudies = [
       { label: "Categories", value: "112" },
       { label: "Countries", value: "3" },
     ],
-    image: "https://storage.googleapis.com/livad-blog/3292/3669942.gif",
+    image: "/lovable-uploads/case-glorious-poster.webp",
     link: "/case-study/glorious",
   },
   {
@@ -146,7 +146,7 @@ const detailedCaseStudies = [
       { label: "Creators", value: "22" },
       { label: "Categories", value: "49" },
     ],
-    image: "https://storage.googleapis.com/ad-gifs/3790920.gif",
+    image: "/lovable-uploads/case-gokstad-poster.webp",
     link: "/case-study/gokstad",
   },
 ];

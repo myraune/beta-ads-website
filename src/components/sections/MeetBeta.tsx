@@ -24,7 +24,7 @@ export const MeetBeta: React.FC = () => {
               style={{ background: "radial-gradient(120% 90% at 35% 8%, rgba(233,79,55,0.20), transparent 62%)" }}
             />
             <img
-              src="/lovable-uploads/beta-mascot-cut-wave.png"
+              src="/lovable-uploads/beta-mascot-cut-wave.webp"
               alt="Beta, the Beta Ads mascot, waving hello"
               className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[94%] w-auto object-contain drop-shadow-2xl"
               width={634}

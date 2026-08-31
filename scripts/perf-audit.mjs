@@ -47,7 +47,7 @@ const WEIGHT_BUDGET_MB = 2.0;
 const ROUTES = [
   "/", "/blog", "/blog/how-twitch-advertising-works-2026", "/blog/norge", "/blog/sverige",
   "/blog/danmark", "/blog/suomi", "/about", "/case-studies", "/case-study/samsung",
-  "/case-study/shure", "/case-study/saily", "/contact", "/demo", "/press", "/streamers",
+  "/case-study/shure", "/case-study/saily", "/case-study/gokstad", "/case-study/glorious", "/contact", "/demo", "/press", "/streamers",
   "/norge", "/twitch-advertising", "/twitch-advertising-cost", "/kick-advertising",
   "/kick-advertising-cost", "/youtube-advertising", "/nordic-livestream-advertising",
   "/campaign-compliance", "/replay-reach", "/livestream-chat-engagement",
@@ -66,7 +66,15 @@ function serve() {
     const srv = http.createServer((req, res) => {
       const urlPath = decodeURIComponent(req.url.split("?")[0]);
       let f = path.join(DIST, urlPath);
-      if (!fs.existsSync(f) || fs.statSync(f).isDirectory()) {
+      // Prerender writes each route to <route>/index.html. A static host serves
+      // that for the directory; serving DIST/index.html instead hands back the
+      // homepage at every prerendered URL, which measured as ~2 MB of extra
+      // requests and a bogus 0.656 CLS on blog posts.
+      if (fs.existsSync(f) && fs.statSync(f).isDirectory()) {
+        const idx = path.join(f, "index.html");
+        f = fs.existsSync(idx) ? idx : null;
+      }
+      if (!f || !fs.existsSync(f)) {
         const looksLikeFile = /\.[a-zA-Z0-9]{2,4}$/.test(urlPath);
         f = looksLikeFile ? null : path.join(DIST, "index.html");
       }
@@ -74,7 +82,30 @@ function serve() {
         res.writeHead(404);
         return res.end("not found");
       }
-      res.writeHead(200, { "content-type": MIME[path.extname(f)] || "application/octet-stream" });
+      const type = MIME[path.extname(f)] || "application/octet-stream";
+      const size = fs.statSync(f).size;
+      // Range support matters: <video preload="metadata"> asks for the first
+      // bytes only. A server that answers 200 with the whole file makes the
+      // browser download everything, which reported /case-study/shure as a
+      // 44 MB page when production (206 Partial Content) sends ~1 KB of it.
+      const range = req.headers.range;
+      const m = range && /^bytes=(\d*)-(\d*)$/.exec(range);
+      if (m) {
+        const start = m[1] ? parseInt(m[1], 10) : 0;
+        const end = m[2] ? parseInt(m[2], 10) : size - 1;
+        if (start >= size || end >= size || start > end) {
+          res.writeHead(416, { "content-range": `bytes */${size}` });
+          return res.end();
+        }
+        res.writeHead(206, {
+          "content-type": type,
+          "accept-ranges": "bytes",
+          "content-range": `bytes ${start}-${end}/${size}`,
+          "content-length": end - start + 1,
+        });
+        return fs.createReadStream(f, { start, end }).pipe(res);
+      }
+      res.writeHead(200, { "content-type": type, "accept-ranges": "bytes", "content-length": size });
       fs.createReadStream(f).pipe(res);
     });
     srv.on("error", (e) => {
@@ -174,8 +205,12 @@ async function main() {
   const server = await serve();
   const browser = await puppeteer.launch({ headless: "new", args: ["--no-sandbox"] });
 
+  // --only <substr> narrows the run, for re-checking a single suspicious route.
+  const onlyIdx = process.argv.indexOf("--only");
+  const routes = onlyIdx > -1 ? ROUTES.filter((r) => r.includes(process.argv[onlyIdx + 1])) : ROUTES;
+
   const results = [];
-  for (const route of ROUTES) {
+  for (const route of routes) {
     const r = await measure(browser, route);
     results.push(r);
     if (!asJson) {

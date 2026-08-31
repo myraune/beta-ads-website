@@ -472,7 +472,7 @@ const Norge: React.FC = () => {
 
       {/* ── Beta ── */}
       <MascotBand
-        src="/lovable-uploads/beta-mascot-cut-cool.png"
+        src="/lovable-uploads/beta-mascot-cut-cool.webp"
         alt="Beta, maskoten til Beta Ads"
         variant="cutout"
         eyebrow="Hils på Beta"

@@ -147,7 +147,7 @@ const Blog: React.FC = () => {
                   style={{ background: "radial-gradient(120% 90% at 50% 8%, rgba(233,79,55,0.16), transparent 62%)" }}
                 />
                 <img
-                  src="/lovable-uploads/beta-mascot-cut-shrug.png"
+                  src="/lovable-uploads/beta-mascot-cut-shrug.webp"
                   alt="Beta Ads mascot shrugging - no articles found"
                   className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[90%] w-auto object-contain drop-shadow-2xl"
                   width={735}

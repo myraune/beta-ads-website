@@ -4,7 +4,7 @@ import { SEO } from '@/components/SEO';
 import { SPFooter } from '@/components/sections/SPFooter';
 import MarketsSection from '@/components/sections/MarketsSection';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import cityOslo from '@/assets/city-oslo.jpg';
+import cityOslo from '@/assets/city-oslo.webp';
 
 interface AboutUsProps {
   t: any;
@@ -167,7 +167,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
                 style={{ background: "radial-gradient(120% 90% at 40% 8%, rgba(233,79,55,0.20), transparent 62%)" }}
               />
               <img
-                src="/lovable-uploads/beta-mascot-cut-pointing.png"
+                src="/lovable-uploads/beta-mascot-cut-pointing.webp"
                 alt="Beta, the Beta Ads mascot"
                 className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[92%] w-auto object-contain drop-shadow-2xl"
                 width={657}

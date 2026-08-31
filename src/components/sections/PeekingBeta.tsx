@@ -113,7 +113,7 @@ export const PeekingBeta: React.FC<PeekingBetaProps> = ({
         />
       )}
       <img
-        src={`/lovable-uploads/beta-mascot-cut-${pose}.png`}
+        src={`/lovable-uploads/beta-mascot-cut-${pose}.webp`}
         alt={ALT[pose]}
         loading="lazy"
         draggable={false}
