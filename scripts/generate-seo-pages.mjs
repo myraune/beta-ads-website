@@ -177,6 +177,20 @@ const STATIC_PAGES = [
     locale: "en",
   },
   {
+      route: "/twitch-agency-norway",
+      title: "Twitch Agency in Norway | Beta Ads",
+      description:
+        "Beta Agency is a Norwegian Twitch agency running native advertising inside the broadcast. How to choose a Twitch agency in Norway, what it costs, and how the alternatives compare.",
+      locale: "en",
+    },
+  {
+      route: "/twitch-byra-norge",
+      title: "Twitch-byrå i Norge | Beta Ads",
+      description:
+        "Beta Agency er et norsk Twitch-byrå som kjører native annonsering inne i selve sendingen. Slik velger du Twitch-byrå i Norge, hva det koster, og hvilke alternativer som finnes.",
+      locale: "no",
+    },
+  {
     route: "/nordic-livestream-advertising",
     title: "Nordic Livestream Advertising: The Brand's Field Guide | Beta Ads",
     description:

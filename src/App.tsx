@@ -29,6 +29,8 @@ const TwitchAdvertisingCost = lazy(() => import("./pages/TwitchAdvertisingCost")
 const TwitchAnnonseringPris = lazy(() => import("./pages/TwitchAnnonseringPris"));
 const KickAdvertisingCost = lazy(() => import("./pages/KickAdvertisingCost"));
 const NordicLivestreamAdvertising = lazy(() => import("./pages/NordicLivestreamAdvertising"));
+const TwitchByraNorge = lazy(() => import("./pages/TwitchByraNorge"));
+const TwitchAgencyNorway = lazy(() => import("./pages/TwitchAgencyNorway"));
 const LivestreamChatEngagement = lazy(() => import("./pages/LivestreamChatEngagement"));
 const CampaignCompliance = lazy(() => import("./pages/CampaignCompliance"));
 const ReplayReach = lazy(() => import("./pages/ReplayReach"));
@@ -176,6 +178,8 @@ const App = () => {
               <Route path="/twitch-annonsering-pris" element={<TwitchAnnonseringPris />} />
               <Route path="/kick-advertising-cost" element={<KickAdvertisingCost />} />
               <Route path="/nordic-livestream-advertising" element={<NordicLivestreamAdvertising />} />
+              <Route path="/twitch-byra-norge" element={<TwitchByraNorge />} />
+              <Route path="/twitch-agency-norway" element={<TwitchAgencyNorway />} />
               <Route path="/livestream-chat-engagement" element={<LivestreamChatEngagement />} />
               <Route path="/campaign-compliance" element={<CampaignCompliance />} />
               <Route path="/replay-reach" element={<ReplayReach />} />

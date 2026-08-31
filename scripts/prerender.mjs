@@ -55,6 +55,8 @@ const STATIC_ROUTES = [
   "/kick-advertising",
   "/kick-advertising-cost",
   "/nordic-livestream-advertising",
+  "/twitch-byra-norge",
+  "/twitch-agency-norway",
   "/livestream-chat-engagement",
   "/campaign-compliance",
   "/replay-reach",

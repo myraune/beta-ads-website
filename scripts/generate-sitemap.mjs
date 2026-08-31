@@ -40,6 +40,8 @@ const STATIC_PAGES = [
   { path: "/twitch-annonsering-pris", priority: "0.9",  changefreq: "monthly" },
   { path: "/kick-advertising-cost",   priority: "0.9",  changefreq: "monthly" },
   { path: "/nordic-livestream-advertising", priority: "0.9", changefreq: "monthly" },
+  { path: "/twitch-byra-norge", priority: "0.9", changefreq: "monthly" },
+  { path: "/twitch-agency-norway", priority: "0.9", changefreq: "monthly" },
   { path: "/livestream-chat-engagement", priority: "0.9", changefreq: "monthly" },
   { path: "/campaign-compliance", priority: "0.9", changefreq: "monthly" },
   { path: "/replay-reach", priority: "0.9", changefreq: "monthly" },
