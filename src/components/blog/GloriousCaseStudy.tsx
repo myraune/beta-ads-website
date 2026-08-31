@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { AdGif } from "@/components/blog/AdGif";
 
 /** Glorious brand palette - white + gold accent `#D4AF37` per their identity */
 const BRAND = {
@@ -106,10 +107,12 @@ const GloriousCaseStudy: React.FC = () => {
       {/* ── HEADER IMAGE ── */}
       <section className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-          <img
+          <AdGif
             src="https://storage.googleapis.com/livad-blog/3292/3669942.gif"
+            poster="/lovable-uploads/adgif-3669942-poster.webp"
             alt="Glorious O3 Mouse campaign overlay on Twitch stream"
             className="w-full h-auto rounded-2xl"
+            sizeLabel="3 MB"
           />
         </div>
       </section>
@@ -167,16 +170,20 @@ const GloriousCaseStudy: React.FC = () => {
 
             {/* Full-width GIF duo */}
             <div className="grid md:grid-cols-2 gap-5 mb-5">
-              <img
-                src="https://storage.googleapis.com/livad-blog/3292/3637484.gif"
-                alt="Glorious O3 overlay – Norwegian stream"
-                className="w-full h-auto rounded-2xl"
-              />
-              <img
-                src="https://storage.googleapis.com/livad-blog/3292/3644839.gif"
-                alt="Glorious O3 overlay – Finnish stream"
-                className="w-full h-auto rounded-2xl"
-              />
+              <AdGif
+            src="https://storage.googleapis.com/livad-blog/3292/3637484.gif"
+            poster="/lovable-uploads/adgif-3637484-poster.webp"
+            alt="Glorious O3 overlay – Norwegian stream"
+            className="w-full h-auto rounded-2xl"
+            sizeLabel="5 MB"
+          />
+              <AdGif
+            src="https://storage.googleapis.com/livad-blog/3292/3644839.gif"
+            poster="/lovable-uploads/adgif-3644839-poster.webp"
+            alt="Glorious O3 overlay – Finnish stream"
+            className="w-full h-auto rounded-2xl"
+            sizeLabel="3 MB"
+          />
             </div>
 
             <p className="text-sm text-muted-foreground mt-4">

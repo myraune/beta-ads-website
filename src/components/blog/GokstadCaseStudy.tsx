@@ -1,14 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { AdGif } from "@/components/blog/AdGif";
 
 const GokstadCaseStudy: React.FC = () => {
   return (
     <div className="space-y-8">
-      <img
-        src="https://storage.googleapis.com/ad-gifs/3790920.gif"
-        alt="Gokstad Akademiet campaign header"
-        className="w-full h-auto rounded-xl"
-      />
+      <AdGif
+            src="https://storage.googleapis.com/ad-gifs/3790920.gif"
+            poster="/lovable-uploads/adgif-3790920-poster.webp"
+            alt="Gokstad Akademiet campaign header"
+            className="w-full h-auto rounded-xl"
+            sizeLabel="11 MB"
+          />
 
       <section>
         <h2 className="text-2xl font-bold text-foreground border-b-2 border-border pb-3 mb-6">
@@ -24,15 +27,19 @@ const GokstadCaseStudy: React.FC = () => {
           Solution
         </h2>
         <div className="flex gap-4 justify-center my-6">
-          <img
+          <AdGif
             src="https://storage.googleapis.com/ad-gifs/3818913.gif"
+            poster="/lovable-uploads/adgif-3818913-poster.webp"
             alt="Campaign GIF Left Column"
             className="max-w-[48%] rounded-lg shadow-lg shadow-black/10"
+            sizeLabel="13 MB"
           />
-          <img
+          <AdGif
             src="https://storage.googleapis.com/ad-gifs/3818527.gif"
+            poster="/lovable-uploads/adgif-3818527-poster.webp"
             alt="Campaign GIF Right Column"
             className="max-w-[48%] rounded-lg shadow-lg shadow-black/10"
+            sizeLabel="6 MB"
           />
         </div>
         <p className="text-muted-foreground leading-relaxed text-lg">
