@@ -1,6 +1,8 @@
 import React, { lazy, Suspense } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { AmaMemberBadge } from "@/components/sections/AmaMemberBadge";
 
 const WaveAnimation = lazy(() =>
   import("@/components/ui/wave-animation").then((m) => ({ default: m.WaveAnimation }))
@@ -62,10 +64,20 @@ const footerLinks = {
 };
 
 export const SPFooter: React.FC = () => {
+  // rootMargin gives the chunk a head start so the wave is running by the
+  // time the footer is actually on screen.
+  const { ref: waveRef, isVisible: waveVisible } = useScrollAnimation<HTMLDivElement>({ rootMargin: "600px" });
   return (
     <footer className="relative overflow-hidden bg-transparent" role="contentinfo">
-      {/* Wave animation background - lazy loaded to avoid Three.js in main bundle */}
-      <div className="absolute inset-0 z-0 opacity-60">
+      {/*
+        Wave animation background. React.lazy alone was not enough: the footer is
+        in the tree on every route, so the chunk started downloading at first
+        render and put three.js (~477 kB) on the critical path for a decoration
+        that is always below the fold. Gated on scroll so the import does not
+        fire until the footer is actually approaching the viewport.
+      */}
+      <div ref={waveRef} className="absolute inset-0 z-0 opacity-60">
+        {waveVisible && (
         <Suspense fallback={null}>
         <WaveAnimation
           waveSpeed={3}
@@ -75,6 +87,7 @@ export const SPFooter: React.FC = () => {
           gridDistance={2}
         />
         </Suspense>
+        )}
       </div>
 
       {/* Footer content */}
@@ -138,6 +151,9 @@ export const SPFooter: React.FC = () => {
                 </a>
               </div>
             </div>
+
+            {/* Fills the empty right half of the socials row. */}
+            <AmaMemberBadge />
           </div>
 
           {/* Bottom bar */}
