@@ -130,6 +130,19 @@ const RouteThemeEnforcer = () => {
   return null;
 };
 
+/**
+ * Reports the matched route to Speed Insights instead of letting every pageview
+ * land in the "Unknown" bucket. Dynamic segments are collapsed to their pattern
+ * so the dashboard groups pages rather than listing one row per blog slug.
+ */
+const SpeedInsightsWithRoute = () => {
+  const { pathname } = useLocation();
+  const route = pathname
+    .replace(/^\/blog\/.+/, "/blog/:slug")
+    .replace(/^\/streamere\/.+/, "/streamere/:handle");
+  return <SpeedInsights route={route} />;
+};
+
 const App = () => {
   useEffect(() => {
     installLucideA11yPatch();
@@ -140,11 +153,11 @@ const App = () => {
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem forcedTheme={undefined}>
       <Analytics />
       <ConversionTracker />
-      <SpeedInsights />
       <Toaster />
       <Sonner />
       <MotionConfig reducedMotion="user">
       <BrowserRouter>
+        <SpeedInsightsWithRoute />
         <RouteThemeEnforcer />
         <RouteTransition />
         <Suspense
