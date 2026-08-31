@@ -483,7 +483,7 @@ const Norge: React.FC = () => {
             "Vi rapporterer hva chatten faktisk sa, ikke bare visninger",
             "Sier fra hvis livestream er feil kanal for deg",
           ]}
-        cta={{ label: "Se hva en kampanje koster", to: "/twitch-annonsering-pris" }}
+        cta={{ label: "Slik velger du Twitch-byrå i Norge", to: "/twitch-byra-norge" }}
         flip={true}
       />
 

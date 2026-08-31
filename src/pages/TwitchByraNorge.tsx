@@ -187,6 +187,11 @@ const TwitchByraNorge: React.FC = () => {
         description:
           "Beta Agency er et norsk Twitch-byrå som kjører native annonsering inne i selve sendingen. Slik velger du Twitch-byrå i Norge, hva det koster, og hvilke alternativer som finnes.",
         canonical: "/twitch-byra-norge",
+        locale: "no",
+        alternates: [
+          { hreflang: "no", href: "/twitch-byra-norge" },
+          { hreflang: "en", href: "/twitch-agency-norway" },
+        ],
         jsonLd: [
           {
             "@context": "https://schema.org",
