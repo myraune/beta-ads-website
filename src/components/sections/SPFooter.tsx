@@ -1,5 +1,5 @@
 import React, { lazy, Suspense } from "react";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useIdleInView } from "@/hooks/useIdleInView";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { AmaMemberBadge } from "@/components/sections/AmaMemberBadge";
@@ -64,9 +64,10 @@ const footerLinks = {
 };
 
 export const SPFooter: React.FC = () => {
-  // rootMargin gives the chunk a head start so the wave is running by the
-  // time the footer is actually on screen.
-  const { ref: waveRef, isVisible: waveVisible } = useScrollAnimation<HTMLDivElement>({ rootMargin: "600px" });
+  // Waits for load + idle before it even starts observing, so three.js can
+  // never land on the critical path. Short pages put the whole footer inside a
+  // generous rootMargin, which is how it kept ending up as the LCP resource.
+  const { ref: waveRef, ready: waveVisible } = useIdleInView<HTMLDivElement>("200px");
   return (
     <footer className="relative overflow-hidden bg-transparent" role="contentinfo">
       {/*

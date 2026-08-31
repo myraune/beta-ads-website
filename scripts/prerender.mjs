@@ -195,6 +195,23 @@ function saveHtml(route, html) {
     return `${head}${kept}"`;
   });
 
+  // Drop modulepreload hints for chunks we deliberately defer.
+  //
+  // Vite's runtime injects <link rel="modulepreload"> into <head> the moment a
+  // dynamic import fires. The capture browser sits on the page long enough for
+  // idle-time work to run, so the footer's three.js wave loaded and its preload
+  // link got baked into every saved page. Real visitors then fetched 477 kB of
+  // three.js at ~186ms no matter what gating the component did, because the
+  // hint is in the HTML before React exists.
+  //
+  // Only chunks that are gated on purpose belong here. Preload hints for what a
+  // page genuinely needs up front are worth keeping.
+  const DEFERRED_CHUNKS = /\/assets\/(three\.module|wave-animation|animated-shader-background)[^"']*/;
+  clean = clean.replace(
+    /<link\b[^>]*rel="modulepreload"[^>]*>/gi,
+    (tag) => (DEFERRED_CHUNKS.test(tag) ? "" : tag),
+  );
+
   if (route === "/") {
     fs.writeFileSync(path.join(DIST, "index.html"), clean, "utf-8");
   } else {

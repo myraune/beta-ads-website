@@ -169,6 +169,8 @@ async function measure(browser, route) {
     result = {
       route,
       lcp: Math.round(m.lcp?.t ?? 0),
+      lcpEl: m.lcp?.tag ?? null,
+      lcpUrl: m.lcp?.url || null,
       fcp: Math.round(m.fcp ?? 0),
       cls: m.cls,
       bytes: all.reduce((s, r) => s + r.bytes, 0),
@@ -243,7 +245,10 @@ async function main() {
   console.log(`  over LCP budget (${LCP_BUDGET_MS}ms): ${ok.filter((r) => r.lcp > LCP_BUDGET_MS).length}`);
   console.log(`  over weight budget (${WEIGHT_BUDGET_MB}MB): ${ok.filter((r) => r.bytes / 1048576 > WEIGHT_BUDGET_MB).length}`);
   console.log(`\n  slowest LCP:`);
-  worst.forEach((r) => console.log(`    ${String(r.lcp).padStart(6)}ms  ${r.route}   ${r.heaviest[0]?.kb}KB ${r.heaviest[0]?.url.slice(0, 54) ?? ""}`));
+  worst.forEach((r) => console.log(
+    `    ${String(r.lcp).padStart(6)}ms  ${r.route}` +
+    `\n              LCP element: <${r.lcpEl}> ${r.lcpUrl ? r.lcpUrl.replace(`http://127.0.0.1:${PORT}`, "").slice(0, 60) : "(text)"}` +
+    `\n              heaviest:    ${r.heaviest[0]?.kb}KB ${r.heaviest[0]?.url.slice(0, 56) ?? ""}`));
   console.log(`\n  heaviest:`);
   heavy.forEach((r) => console.log(`    ${mb(r.bytes).padStart(6)}MB  ${r.route}`));
 
