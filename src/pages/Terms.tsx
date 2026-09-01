@@ -10,7 +10,6 @@ const Terms: React.FC = () => {
         title="Terms of Service | Beta Ads"
         description="Terms of Service for Beta Ads by Beta Agency AS. Read our terms covering service usage, intellectual property, and liability."
         canonical="/terms"
-        noindex={true}
       />
 
       <div className="min-h-screen bg-background text-foreground">

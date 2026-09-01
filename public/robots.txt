@@ -4,6 +4,7 @@
 User-agent: *
 Allow: /
 Disallow: /unsubscribe
+Disallow: /clip-analytics-preview
 
 # Major search engines — no Crawl-delay: Google ignores it, Bing/DDG handle it themselves
 User-agent: Googlebot

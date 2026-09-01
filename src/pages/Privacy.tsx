@@ -10,7 +10,6 @@ const Privacy: React.FC = () => {
         title="Privacy Policy | Beta Ads"
         description="Privacy Policy for Beta Ads by Beta Agency AS. How we collect, use, and protect your data in compliance with GDPR and Norwegian data protection law."
         canonical="/privacy"
-        noindex={true}
       />
 
       <div className="min-h-screen bg-background text-foreground">
