@@ -29,6 +29,8 @@ import { spawn } from "child_process";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { createRequire } from "module";
+import { build as esbuild } from "esbuild";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT   = path.resolve(__dirname, "..");
@@ -87,26 +89,29 @@ const STATIC_ROUTES = [
   "/blog/clip-analytics-ad-verification-nordic-streaming",
 ];
 
-function getBlogSlugs() {
-  // Read the base file AND every localized content file. blogPosts.ts loads the
-  // locales as dynamic imports now, so its text alone no longer contains the
-  // localized slugs and prerendering them would silently stop.
-  const files = [
-    "src/data/blogPosts.ts",
-    "src/data/blog/posts-no.ts",
-    "src/data/blog/posts-sv.ts",
-    "src/data/blog/posts-da.ts",
-    "src/data/blog/posts-fi.ts",
-    "src/data/blog/posts-drafts-en.ts",
-  ];
-  const slugs = new Set();
-  for (const rel of files) {
-    const full = path.join(ROOT, rel);
-    if (!fs.existsSync(full)) continue;
-    const src = fs.readFileSync(full, "utf-8");
-    for (const m of src.matchAll(/^\s+slug:\s*["']([^"']+)["']/gm)) slugs.add(m[1]);
-  }
-  return [...slugs];
+async function getBlogSlugs() {
+  // Must agree with the sitemap, which derives from blogPostsAll and applies
+  // filterPublished. Regex-scraping every slug: line out of the source files
+  // instead picked up drafts and unpublished localized posts, so prerender
+  // wrote 424 extra pages. Each was a byte-identical copy of the blog index
+  // (BlogPost redirects an unknown slug to /blog, and the capture caught the
+  // redirect), sitting at its own URL. They carried a canonical to /blog so
+  // Google consolidates them, but it still has to crawl 424 duplicates first,
+  // and they quadrupled both build time and deployment size.
+  const TMP = path.join(ROOT, "node_modules", ".cache", "prerender-posts.cjs");
+  await esbuild({
+    entryPoints: [path.join(ROOT, "src/data/blogPostsAll.ts")],
+    bundle: true,
+    format: "cjs",
+    outfile: TMP,
+    platform: "node",
+    tsconfig: path.join(ROOT, "tsconfig.json"),
+    logLevel: "silent",
+  });
+  const require = createRequire(import.meta.url);
+  delete require.cache[require.resolve(TMP)];
+  const { blogPostsAll } = require(TMP);
+  return [...new Set(blogPostsAll.map((p) => p.slug).filter(Boolean))];
 }
 
 // Streamer-profile handles for /streamere/:handle — each renders its own
@@ -256,7 +261,7 @@ async function main() {
     process.exit(1);
   }
 
-  const blogSlugs = getBlogSlugs();
+  const blogSlugs = await getBlogSlugs();
   const streamerHandles = getStreamerHandles();
   const allRoutes = [
     ...STATIC_ROUTES,
@@ -301,7 +306,7 @@ async function main() {
     });
   }
 
-  const page = await browser.newPage();
+  let page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 800 });
 
   // Intercept canvas.getContext so Three.js sees no WebGL in headless mode,
@@ -338,8 +343,25 @@ async function main() {
 
   let ok = 0;
   let fail = 0;
+  const failedRoutes = [];
 
-  for (const route of allRoutes) {
+  let queue = allRoutes;
+  for (let pass = 0; pass < 2 && queue.length; pass++) {
+    if (pass > 0) {
+      console.log(`\n  Retrying ${queue.length} route(s) on a fresh page…`);
+      try { await page.close(); } catch (_) {}
+      page = await browser.newPage();
+      await page.setViewport({ width: 1440, height: 900 });
+      // The replacement page needs the same error surfacing as the original,
+      // otherwise a retry that fails again does so silently.
+      page.on("console", (msg) => {
+        if (msg.type() === "error" && !msg.text().includes("WebGL")) {
+          process.stderr.write(`    [console error] ${msg.text()}\n`);
+        }
+      });
+    }
+    const failedThisPass = [];
+    for (const route of queue) {
     try {
       // "networkidle0" waits until there are no open network connections for
       // 500ms. This covers both the main bundle AND any lazy-loaded route chunks
@@ -408,10 +430,20 @@ async function main() {
       console.log(`  ✓  ${route}`);
       ok++;
     } catch (err) {
-      console.error(`  ✗  ${route}  → ${err.message}`);
-      fail++;
+      // Collect rather than give up. Almost every failure here is transient:
+      // a navigation that timed out because the machine was loaded, or a
+      // browser that ran out of memory. A route that fails once ships as a
+      // thin SPA shell, which is the exact defect this script exists to
+      // prevent, so it is worth one more attempt.
+      failedThisPass.push({ route, message: err.message });
     }
+    }
+    queue = failedThisPass.map((f) => f.route);
+    failedRoutes.length = 0;
+    failedRoutes.push(...failedThisPass);
   }
+  fail = failedRoutes.length;
+  for (const { route, message } of failedRoutes) console.error(`  ✗  ${route}  → ${message}`);
 
   await browser.close();
 
