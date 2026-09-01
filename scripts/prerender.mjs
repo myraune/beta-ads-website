@@ -109,12 +109,34 @@ function getBlogSlugs() {
   return [...slugs];
 }
 
-// Norwegian streamer-profile handles for /streamere/:handle — each renders its own
+// Streamer-profile handles for /streamere/:handle — each renders its own
 // canonical, Person JSON-LD and og:image, so they must be prerendered too.
+//
+// This used to read norskeStreamere.ts alone, which is 10 of the 40 profiles.
+// generate-seo-pages derives its list from streamers.ts, which composes all four
+// markets, so it wrote SEO shells for the Swedish, Danish and Finnish creators
+// that prerender then never visited. Those 30 pages shipped at ~36 words with no
+// h1. Read the same four files it composes from, so adding a market cannot
+// silently strand another set.
+const STREAMER_DATA_FILES = [
+  "src/data/norskeStreamere.ts",
+  "src/data/svenskaStreamare.ts",
+  "src/data/danskeStreamere.ts",
+  "src/data/suomalaisetStriimaajat.ts",
+];
+
 function getStreamerHandles() {
-  const src = fs.readFileSync(path.join(ROOT, "src/data/norskeStreamere.ts"), "utf-8");
-  const matches = [...src.matchAll(/^\s+handle:\s*["']([^"']+)["']/gm)];
-  return matches.map((m) => m[1]);
+  const handles = [];
+  for (const rel of STREAMER_DATA_FILES) {
+    const file = path.join(ROOT, rel);
+    if (!fs.existsSync(file)) {
+      console.warn(`  ⚠️  streamer data file missing, profiles will not prerender: ${rel}`);
+      continue;
+    }
+    const src = fs.readFileSync(file, "utf-8");
+    for (const m of src.matchAll(/^\s+handle:\s*["']([^"']+)["']/gm)) handles.push(m[1]);
+  }
+  return [...new Set(handles)];
 }
 
 // ---------------------------------------------------------------------------
