@@ -1,5 +1,5 @@
 {
-  "buildCommand": "node scripts/generate-blog-meta.mjs && node scripts/generate-sitemap.mjs && vite build && node scripts/generate-seo-pages.mjs && node scripts/prerender.mjs",
+  "buildCommand": "node scripts/generate-blog-meta.mjs && node scripts/generate-sitemap.mjs && vite build && node scripts/generate-seo-pages.mjs && node scripts/prerender.mjs && node scripts/generate-llms-txt.mjs",
   "outputDirectory": "dist",
   "redirects": [
     {
@@ -72,6 +72,14 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/livedemo",
+      "destination": "https://stream-wall.vercel.app/surfsharklive/demo"
+    },
+    {
+      "source": "/livedemo/",
+      "destination": "https://stream-wall.vercel.app/surfsharklive/demo"
+    },
     {
       "source": "/surfsharklive",
       "destination": "https://stream-wall.vercel.app/surfsharklive"

@@ -1,0 +1,78 @@
+# Beta Ads (Beta Agency AS)
+
+> Norwegian advertising agency specialising in native overlay advertising inside
+> livestreams on Twitch, Kick and YouTube Live, across Norway, Sweden, Denmark and
+> Finland. The ad is built into the broadcast itself rather than served as a
+> pre-roll, so ad blockers have nothing to remove.
+
+## Company
+
+- Legal name: Beta Agency AS
+- Norwegian organisation number: 933 303 136
+- Registered: 2024-04-15, Frosta, Norway. Teams work from Oslo, Stockholm and Helsinki.
+- Industry code: NACE 73.110, Reklamebyråvirksomhet (advertising agency activities)
+- Official registry record: https://virksomhet.brreg.no/nb/oppslag/enheter/933303136
+- Founder: Andreas Myraune
+- Contact: andreas@beta-ads.no
+
+## Start here
+
+What Beta Agency AS is and who it serves.
+
+- [Beta Ads | Native Twitch & Livestream Advertising](https://beta-ads.no/): Native advertising platform for Twitch, YouTube and Kick livestreams in the Nordics. Overlay ads that bypass adblock and deliver 3-5x higher engagement.
+- [Twitch Agency in Norway](https://beta-ads.no/twitch-agency-norway): Beta Agency is a Norwegian Twitch agency running native advertising inside the broadcast. How to choose a Twitch agency in Norway, what it costs, and how the alternatives compare.
+- [Twitch-byrå i Norge](https://beta-ads.no/twitch-byra-norge): Beta Agency er et norsk Twitch-byrå som kjører native annonsering inne i selve sendingen. Slik velger du Twitch-byrå i Norge, hva det koster, og hvilke alternativer som finnes.
+- [About Us](https://beta-ads.no/about): Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams across the Nordics. Beta Agency AS, org.nr 933 303 136, registered in Norway and working from Oslo, Stockholm and Helsinki.
+
+## Services by platform
+
+- [Twitch Advertising Agency for Norway and the Nordics](https://beta-ads.no/twitch-advertising): Beta Agency AS is a Norwegian Twitch advertising agency running native overlay campaigns across 28,000+ Nordic Twitch streamers. Ads that bypass ad blockers, with real reporting.
+- [Kick Advertising in the Nordics](https://beta-ads.no/kick-advertising): Advertise on Kick - the fastest-growing streaming platform with 125% viewership growth in 2025. Native overlay ads across 2,800+ Nordic Kick streamers.
+- [YouTube Live Advertising in the Nordics](https://beta-ads.no/youtube-advertising): Native overlay ads on YouTube Live streams across Norway, Sweden, Finland, and Denmark. Reach gaming and lifestyle audiences with ads that bypass ad blockers.
+- [Nordic Livestream Advertising: The Brand's Field Guide](https://beta-ads.no/nordic-livestream-advertising): Who is watching, which platforms matter, what Nordic inventory exists, and what native overlay campaigns actually deliver. A data-backed field guide for brands, with real Beta Ads campaign results.
+
+## Pricing
+
+Real numbers, not a contact form.
+
+- [What Does Twitch Advertising Cost?](https://beta-ads.no/twitch-advertising-cost): No platform publishes a Twitch advertising rate card, not even Twitch. Here is how live-stream advertising is actually priced in the Nordics, the five cost drivers, and how to get a real quote.
+- [Hva koster Twitch-annonsering i Norge?](https://beta-ads.no/twitch-annonsering-pris): Ingen plattform publiserer en prisliste for Twitch-annonsering, ikke engang Twitch. Slik prises livestream-annonsering faktisk i Norge: de fem kostnadsdriverne og hvordan du får et reelt tilbud.
+- [What Does Kick Advertising Cost?](https://beta-ads.no/kick-advertising-cost): Kick has no public rate card, and as of 2026 no self-serve ad platform at all. Here is how Kick advertising is actually priced in the Nordics, what it costs to buy direct, and how to get a real quote.
+
+## Campaign results
+
+Named Norwegian and Nordic clients with the setup and the numbers.
+
+- [Case Studies](https://beta-ads.no/case-studies): Real campaign results from Samsung, Shure, Surfshark, Glorious, and more. Native Twitch overlay case studies with verified impressions, CTR, and ROI data.
+- [Samsung x Beta Ads Case Study](https://beta-ads.no/case-study/samsung): Samsung Galaxy S25 Ultra and Z Fold7 on Norwegian Twitch: 800K+ live views, 1.35M+ with VOD, 2.93% CTR, 71 streamer slots, zero adblock impact.
+- [Høyskolen Kristiania Case Study](https://beta-ads.no/case-study/kristiania): Høyskolen Kristiania on Twitch: two parallel campaigns, ~600K display views, ~6,000 verified clicks across 31 Norwegian streamers over 8 weeks.
+- [Komplett Månedens Gaming Deal Case Study](https://beta-ads.no/case-study/komplett): How Komplett's tactical retail campaign hit a 4.48% peak-day CTR across 34 Norwegian gaming streamers. 151,278 display views, 1,768 verified clicks in 17 days.
+- [NKI Distance Learning Case Study](https://beta-ads.no/case-study/nki): NKI quiz campaign on Norwegian Twitch: 220,003 completed views, 1,595 verified clicks, 90,356 unique viewers across 19 streamers in Oct-Nov 2025.
+- [Gokstad Akademiet Case Study](https://beta-ads.no/case-study/gokstad): How Gokstad Akademiet recruited IT students through native Twitch overlays with 22 creators, 100K+ views, and 1.22% CTR across 49 categories.
+- [Shure MV6 Case Study](https://beta-ads.no/case-study/shure): Shure MV6 on Norwegian Twitch: 182,554 completed views, 2,378 verified clicks, 9.12% peak CTR - with just 2 streamers. 48,617 unique Norwegian viewers.
+
+## How campaigns are verified
+
+What we check, what chat said, and what the stream kept earning after it ended.
+
+- [Campaign Setup Verification](https://beta-ads.no/campaign-compliance): Check that every creator on a livestream campaign actually put the banner up, got the command in the title, went live, and pointed at a tracked link. Continuous verification across every channel, in one view.
+- [Chat Tracking for Livestream Campaigns](https://beta-ads.no/livestream-chat-engagement): See what live chat says about your brand while the campaign is running. Keyword tracking across every channel, deduplicated counts, Nordic to English translation and tone scoring, in one dashboard.
+- [Replay Reach: What a Livestream Ad Does After the Stream](https://beta-ads.no/replay-reach): A native overlay is baked into the recording, so the stream keeps collecting views long after it ends. See total stream views, the live audience inside them, and clips, counted per channel without double counting.
+
+## For streamers
+
+- [Earn from Your Stream | Beta Ads Streamer Program](https://beta-ads.no/streamers): Get real brand deals on Twitch, YouTube & Kick. Accept offers you like, skip the rest. No minimum followers, no contracts. Join 40+ Nordic streamers.
+
+## Reference
+
+- [Blog | Livestream Advertising Insights](https://beta-ads.no/blog): Expert insights on Twitch advertising, Nordic streaming trends, influencer marketing and live commerce. Data-driven articles for brands and agencies.
+- [Press & Media Coverage](https://beta-ads.no/press): Beta Ads in the press. Featured in Kampanje, Kom24, and Nordic media on Twitch advertising, native overlay ads, and livestream marketing in Norway.
+- [Contact Beta Ads | Start a Livestream Campaign](https://beta-ads.no/contact): Talk to our team about running native overlay ads on Nordic Twitch, YouTube & Kick streams. We reply within one business day.
+
+## Notes
+
+- Full URL list: https://beta-ads.no/sitemap.xml
+- Campaign figures on this site are from Beta's own reporting on named client
+  campaigns. Platform-level statistics are attributed inline where used.
+- "39,445 streamers" refers to the whole four-platform network. Twitch alone is
+  about 28,000; the rest are YouTube, Kick and Trovo.
