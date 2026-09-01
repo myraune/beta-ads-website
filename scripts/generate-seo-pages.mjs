@@ -626,23 +626,29 @@ function buildHreflangBlock(alternates) {
 // homepage (not cloaking). Kept entity-dense for GEO: the legal-name binding
 // sentence, the positioning line, services, real clients, markets, org number.
 const HOME_CONTENT = `
-      <main style="max-width:768px;margin:0 auto;padding:2rem;font-family:system-ui,sans-serif">
-        <h1>Beta Ads — Native Twitch &amp; Livestream Advertising for Nordic Brands</h1>
-        <p>Beta Ads is the trading name of Beta Agency AS (org. 933&nbsp;303&nbsp;136), a Nordic livestream advertising agency based in Oslo, Norway. Beta Ads is Norway's only native Twitch and livestream advertising specialist (Norges eneste native Twitch- og livestream-annonsespesialist).</p>
-        <p>Beta Ads places native overlay ads directly inside live streams on Twitch, YouTube and Kick. Because the ad renders inside the broadcast feed, it cannot be skipped or removed by ad-blockers. Campaigns run across more than 39,000 Nordic streamers in Norway, Sweden, Denmark and Finland, with verified per-impression reporting through the Clip Analytics platform.</p>
-        <h2>What Beta Ads does</h2>
-        <ul>
-          <li>Native overlay advertising on Twitch, YouTube Live and Kick</li>
-          <li>Nordic creator and influencer campaigns across Norway, Sweden, Denmark and Finland</li>
-          <li>Verified ad-delivery and brand-safety reporting via Clip Analytics</li>
-          <li>Both managed and self-serve livestream ad campaigns</li>
-        </ul>
-        <h2>Selected clients</h2>
-        <p>Samsung, Surfshark, Saily, Shure, Komplett, Glorious, NKI and Høyskolen Kristiania.</p>
-        <h2>Why native livestream advertising</h2>
-        <p>Streaming's young, engaged audience blocks traditional display and pre-roll ads at the highest rates of any group. Native overlay ads are rendered inside the stream, so they reach that audience where interruptive formats cannot. Beta Ads is built specifically for the Nordic market and the Twitch, YouTube and Kick platforms.</p>
-        <h2>Contact</h2>
-        <p>Beta Agency AS, Oslo, Norway. Email andreas@beta-ads.no. Web https://beta-ads.no.</p>
+      <main style="margin:0;min-height:100vh;background:#0b0b0e;color:#f2f4f8;font-family:Inter,system-ui,-apple-system,sans-serif;line-height:1.6">
+        <div style="max-width:820px;margin:0 auto;padding:4rem 1.5rem">
+          <div style="display:flex;align-items:center;gap:.6rem;margin-bottom:3rem">
+            <span style="display:inline-block;width:10px;height:10px;border-radius:2px;background:#e94f37"></span>
+            <span style="font-weight:700;letter-spacing:-.01em">Beta Ads</span>
+          </div>
+          <h1 style="font-size:2.25rem;line-height:1.15;font-weight:700;letter-spacing:-.02em;margin:0 0 1.25rem">Native Twitch and livestream advertising for Nordic brands</h1>
+          <p style="color:#a8adb8;margin:0 0 1rem">Beta Ads is the trading name of Beta Agency AS (org. 933&nbsp;303&nbsp;136), a Norwegian livestream advertising agency registered in Frosta and working from Oslo, Stockholm and Helsinki.</p>
+          <p style="color:#a8adb8;margin:0 0 2.5rem">We place native overlay ads inside live streams on Twitch, YouTube and Kick. Because the ad renders inside the broadcast feed, an ad blocker has nothing to remove. Campaigns run across more than 39,000 Nordic streamers in Norway, Sweden, Denmark and Finland, of which about 28,000 are on Twitch, with verified per-impression reporting.</p>
+          <h2 style="font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:#e94f37;margin:0 0 .75rem">What Beta Ads does</h2>
+          <ul style="margin:0 0 2.5rem;padding-left:1.1rem;color:#a8adb8">
+            <li>Native overlay advertising on Twitch, YouTube Live and Kick</li>
+            <li>Nordic creator campaigns across Norway, Sweden, Denmark and Finland</li>
+            <li>Verified ad-delivery and brand-safety reporting</li>
+            <li>Both managed and self-serve livestream ad campaigns</li>
+          </ul>
+          <h2 style="font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:#e94f37;margin:0 0 .75rem">Selected clients</h2>
+          <p style="color:#a8adb8;margin:0 0 2.5rem">Samsung, Surfshark, Saily, Shure, Komplett, Glorious, NKI and H\u00f8yskolen Kristiania.</p>
+          <h2 style="font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:#e94f37;margin:0 0 .75rem">Why native livestream advertising</h2>
+          <p style="color:#a8adb8;margin:0 0 2.5rem">Streaming's young, engaged audience blocks display and pre-roll ads at the highest rate of any group. A native overlay is rendered inside the stream, so it reaches that audience where interruptive formats cannot.</p>
+          <h2 style="font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:#e94f37;margin:0 0 .75rem">Contact</h2>
+          <p style="color:#a8adb8;margin:0"><a href="mailto:andreas@beta-ads.no" style="color:#f2f4f8">andreas@beta-ads.no</a> &middot; Beta Agency AS, org. 933&nbsp;303&nbsp;136</p>
+        </div>
       </main>`;
 
 function injectMeta(shellHtml, { title, description, canonical, locale, alternates, image, ogType = "website", articlePublishedTime = null, ogImageWidth = 1200, ogImageHeight = 630 }) {

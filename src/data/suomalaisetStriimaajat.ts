@@ -20,7 +20,7 @@ export const CREATORS: CreatorProfile[] = [
       "Kilpaillut PlayerUnknown's Battlegroundsissa muun muassa Method-organisaation riveissä",
       "Monipuolinen sisältö useista pelilajeista ja jutteluformaatista"
     ],
-    image: "https://unavatar.io/twitch/officialandypyro",
+    image: "/lovable-uploads/creators/officialandypyro.webp",
     attribution: "Twitch / @officialandypyro",
     attributionUrl: "https://www.twitch.tv/officialandypyro",
     language: "fi",
@@ -67,7 +67,7 @@ export const CREATORS: CreatorProfile[] = [
       "Keskimäärin satoja samanaikaisia katsojia ja yli 1 500 katsojan huippuja",
       "Laaja pelivalikoima yksinpeleistä seura- ja kauhupeleihin"
     ],
-    image: "https://unavatar.io/twitch/laeppa",
+    image: "/lovable-uploads/creators/laeppa.webp",
     attribution: "Twitch / @laeppa",
     attributionUrl: "https://www.twitch.tv/laeppa",
     language: "fi",
@@ -113,7 +113,7 @@ export const CREATORS: CreatorProfile[] = [
       "Kaikkien aikojen katsojaennätys yli 3 400 samanaikaista katsojaa",
       "Monipuolinen peli- ja varieteesisältö suomeksi"
     ],
-    image: "https://unavatar.io/twitch/kirdez",
+    image: "/lovable-uploads/creators/kirdez.webp",
     attribution: "Twitch / @kirdez",
     attributionUrl: "https://www.twitch.tv/kirdez",
     language: "fi",
@@ -149,7 +149,7 @@ export const CREATORS: CreatorProfile[] = [
       "Aikoinaan yksi maailman parhaista hitscan-pelaajista (Widowmaker, Cassidy)",
       "Pitkä kilpaura FPS-peleissä ja vakiintunut striimausura sen jälkeen"
     ],
-    image: "https://unavatar.io/twitch/taimoutv",
+    image: "/lovable-uploads/creators/taimoutv.webp",
     attribution: "Twitch / @taimoutv",
     attributionUrl: "https://www.twitch.tv/taimoutv",
     language: "mixed",
@@ -193,7 +193,7 @@ export const CREATORS: CreatorProfile[] = [
       "Palkittu Tube Awards -gaalassa vaikuttavuudestaan",
       "Laaja monikanavainen läsnäolo YouTubessa, Instagramissa ja Twitchissä"
     ],
-    image: "https://unavatar.io/twitch/eeddspeaks",
+    image: "/lovable-uploads/creators/eeddspeaks.webp",
     attribution: "Twitch / @eeddspeaks",
     attributionUrl: "https://www.twitch.tv/eeddspeaks",
     language: "fi",
@@ -237,7 +237,7 @@ export const CREATORS: CreatorProfile[] = [
       "Vakiintunut nimi suomalaisessa striimausyhteisössä",
       "Persoonallinen peli- ja juttelusisältö suomeksi"
     ],
-    image: "https://unavatar.io/twitch/lakkoilija",
+    image: "/lovable-uploads/creators/lakkoilija.webp",
     attribution: "Twitch / @lakkoilija",
     attributionUrl: "https://www.twitch.tv/lakkoilija",
     language: "fi",
@@ -280,7 +280,7 @@ export const CREATORS: CreatorProfile[] = [
       "Studiolaatuiset esports-lähetykset, pääpelinä Counter-Strike 2",
       "Yli 110 000 seuraajaa Twitchissä"
     ],
-    image: "https://unavatar.io/twitch/pelaajatcom",
+    image: "/lovable-uploads/creators/pelaajatcom.webp",
     attribution: "Twitch / @pelaajatcom",
     attributionUrl: "https://www.twitch.tv/pelaajatcom",
     language: "fi",
@@ -324,7 +324,7 @@ export const CREATORS: CreatorProfile[] = [
       "Yksi Suomen kolmesta katsotuimmasta Just Chatting -kanavasta",
       "Vahva varietee- ja juttelusisältö suomeksi vuodesta 2019"
     ],
-    image: "https://unavatar.io/twitch/henksuliini",
+    image: "/lovable-uploads/creators/henksuliini.webp",
     attribution: "Twitch / @henksuliini",
     attributionUrl: "https://www.twitch.tv/henksuliini",
     language: "fi",
@@ -359,7 +359,7 @@ export const CREATORS: CreatorProfile[] = [
       "Tuottaa musiikkia artistinimellä JENESIS",
       "Monipuolinen IRL- ja juttelusisältö Twitchissä"
     ],
-    image: "https://unavatar.io/twitch/jennijanina",
+    image: "/lovable-uploads/creators/jennijanina.webp",
     attribution: "Twitch / @jennijanina",
     attributionUrl: "https://www.twitch.tv/jennijanina",
     language: "fi",

@@ -118,7 +118,6 @@ const LivestreamChatEngagement: React.FC = () => {
           },
         ],
       }}
-      darkPage
       cta={{
         heading: "See what chat says about your brand",
         subtext:
@@ -132,10 +131,10 @@ const LivestreamChatEngagement: React.FC = () => {
       {/* ── Hero. Explicit dark background: the page background is white in the
           light theme, so white type needs its own backdrop, not a transparent
           shader canvas. No shader here at all, which also keeps the page light. */}
-      {/* The page itself is dark (darkPage above), so the hero does not clip its
-          own glow. Two soft washes bleed past the hero and down behind the
-          dashboard, which is what carries the colour through the whole page
-          instead of ending in a hard band. */}
+      {/* Two soft washes bleed past the hero and down behind the dashboard, so
+            the colour carries into the page instead of ending in a hard band.
+            The page background follows the theme: forcing it dark meant the
+            light/dark toggle did nothing here, which read as broken. */}
       <section className="relative bg-[hsl(240_11%_5%)]">
         <div
           className="absolute -top-32 -right-24 w-[38rem] h-[38rem] rounded-full bg-primary/20 blur-[130px] pointer-events-none"

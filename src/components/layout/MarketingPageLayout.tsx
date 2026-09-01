@@ -38,7 +38,6 @@ interface MarketingPageLayoutProps {
    * through the CTA block instead of stopping at the first section.
    * Opt in only; every existing page keeps following the visitor's theme.
    */
-  darkPage?: boolean;
 }
 
 /**
@@ -55,15 +54,12 @@ export const MarketingPageLayout: React.FC<MarketingPageLayoutProps> = ({
   seo,
   cta,
   children,
-  darkPage = false,
 }) => {
   return (
     /* SEO fix: changed from <main> to <div> - Layout.tsx already provides the <main> landmark;
        nested <main> elements are invalid HTML (WCAG 1.3.6) and confuse screen readers / search engines */
     <div
-      className={`min-h-screen text-foreground ${
-        darkPage ? "dark bg-[hsl(240_11%_5%)]" : ""
-      }`}
+      className="min-h-screen text-foreground"
     >
       <SEO
         title={seo.title}
@@ -83,7 +79,7 @@ export const MarketingPageLayout: React.FC<MarketingPageLayoutProps> = ({
           {/* `relative` so Beta can stand on the top edge, and deliberately no
                 overflow-hidden here or he would be sliced off at the border. */}
             <div className="relative rounded-3xl border border-border p-12 md:p-16 flex flex-col md:flex-row items-center justify-between gap-8">
-              <PeekingBeta pose="thumbsup" placement="stand" side="right" inset={16} size={28} glow={darkPage} />
+              <PeekingBeta pose="thumbsup" placement="stand" side="right" inset={16} size={28} glow />
             <div>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight mb-3">
                 {cta.heading}

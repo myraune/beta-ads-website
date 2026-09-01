@@ -102,7 +102,6 @@ const ReplayReach: React.FC = () => {
 
   return (
     <MarketingPageLayout
-      darkPage
       seo={{
         title: "Replay Reach: What a Livestream Ad Does After the Stream | Beta Ads",
         description:

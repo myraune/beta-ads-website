@@ -88,7 +88,6 @@ const CampaignCompliance: React.FC = () => {
 
   return (
     <MarketingPageLayout
-      darkPage
       seo={{
         title: "Campaign Setup Verification | Beta Ads",
         description:

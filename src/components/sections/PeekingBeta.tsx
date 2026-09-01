@@ -42,9 +42,9 @@ interface PeekingBetaProps {
   /** Mirror him so he faces into the layout rather than off the edge. */
   mirror?: boolean;
   /**
-   * Put a soft signal-red glow behind him. Needed on dark hosts: he is charcoal
-   * on near-black there, and a black drop shadow does nothing, so without this
-   * he goes murky. Same glow the dedicated mascot panels use.
+   * Render the soft signal-red glow behind him. It only paints in dark mode,
+   * where he is charcoal on near-black and a black drop shadow does nothing.
+   * On a light banner the drop shadow is enough and the glow reads as muddy.
    */
   glow?: boolean;
   className?: string;
@@ -108,7 +108,7 @@ export const PeekingBeta: React.FC<PeekingBetaProps> = ({
     <span className={wrapper} aria-hidden="true">
       {glow && (
         <span
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[220%] h-[180%] rounded-full"
+          className="hidden dark:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[220%] h-[180%] rounded-full"
           style={{ background: "radial-gradient(closest-side, rgba(233,79,55,0.28), transparent 72%)" }}
         />
       )}

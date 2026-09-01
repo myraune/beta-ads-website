@@ -20,7 +20,7 @@ export const CREATORS: CreatorProfile[] = [
       "Bygger innehåll kring Just Chatting, Counter-Strike och egna koncept",
       "Stark och lojal svensk community"
     ],
-    image: "https://unavatar.io/twitch/perra",
+    image: "/lovable-uploads/creators/perra.webp",
     attribution: "Twitch / @perra",
     attributionUrl: "https://www.twitch.tv/perra",
     language: "sv",
@@ -67,7 +67,7 @@ export const CREATORS: CreatorProfile[] = [
       "Internationellt känd för viralt och humoristiskt gaminginnehåll",
       "Aktiv content creator sedan 2007"
     ],
-    image: "https://unavatar.io/twitch/anomaly",
+    image: "/lovable-uploads/creators/anomaly.webp",
     attribution: "Twitch / @anomaly",
     attributionUrl: "https://www.twitch.tv/anomaly",
     language: "en",
@@ -115,7 +115,7 @@ export const CREATORS: CreatorProfile[] = [
       "Tävlade i Fortnite Summer Skirmish",
       "Streamar sedan 2017 och har en bred internationell publik"
     ],
-    image: "https://unavatar.io/twitch/loeya",
+    image: "/lovable-uploads/creators/loeya.webp",
     attribution: "Twitch / @loeya",
     attributionUrl: "https://www.twitch.tv/loeya",
     language: "mixed",
@@ -160,7 +160,7 @@ export const CREATORS: CreatorProfile[] = [
       "Examen i digital kommunikation och media från Luleå tekniska universitet",
       "Över 150 000 följare på Twitch"
     ],
-    image: "https://unavatar.io/twitch/tejbz",
+    image: "/lovable-uploads/creators/tejbz.webp",
     attribution: "Twitch / @tejbz",
     attributionUrl: "https://www.twitch.tv/tejbz",
     language: "sv",
@@ -208,7 +208,7 @@ export const CREATORS: CreatorProfile[] = [
       "Variety-streamer med GTA V som huvudfokus",
       "Stor och aktiv svensk publik"
     ],
-    image: "https://unavatar.io/twitch/cyrustwo",
+    image: "/lovable-uploads/creators/cyrustwo.webp",
     attribution: "Twitch / @cyrustwo",
     attributionUrl: "https://www.twitch.tv/cyrustwo",
     language: "sv",
@@ -252,7 +252,7 @@ export const CREATORS: CreatorProfile[] = [
       "Etablerad profil i den svenska streaming-scenen",
       "Lojal och långvarig community"
     ],
-    image: "https://unavatar.io/twitch/swebliss",
+    image: "/lovable-uploads/creators/swebliss.webp",
     attribution: "Twitch / @swebliss",
     attributionUrl: "https://www.twitch.tv/swebliss",
     language: "mixed",
@@ -298,7 +298,7 @@ export const CREATORS: CreatorProfile[] = [
       "Kommer från Nacka i Sverige",
       "Etablerad profil i den svenska gaming-scenen"
     ],
-    image: "https://unavatar.io/twitch/emiliahult",
+    image: "/lovable-uploads/creators/emiliahult.webp",
     attribution: "Twitch / @emiliahult",
     attributionUrl: "https://www.twitch.tv/emiliahult",
     language: "sv",
@@ -343,7 +343,7 @@ export const CREATORS: CreatorProfile[] = [
       "Känd för högklassigt och underhållande CS-spel",
       "Etablerad profil i den nordiska CS-communityn"
     ],
-    image: "https://unavatar.io/twitch/yacine",
+    image: "/lovable-uploads/creators/yacine.webp",
     attribution: "Twitch / @yacine",
     attributionUrl: "https://www.twitch.tv/yacine",
     language: "sv",
@@ -388,7 +388,7 @@ export const CREATORS: CreatorProfile[] = [
       "Aktiv på både Twitch och YouTube",
       "Varierat gaminginnehåll"
     ],
-    image: "https://unavatar.io/twitch/sampev2",
+    image: "/lovable-uploads/creators/sampev2.webp",
     attribution: "Twitch / @sampev2",
     attributionUrl: "https://www.twitch.tv/sampev2",
     language: "sv",
@@ -421,7 +421,7 @@ export const CREATORS: CreatorProfile[] = [
       "Aktiv och engagerad svensk community",
       "Framträdande ny profil i den svenska streaming-scenen"
     ],
-    image: "https://unavatar.io/twitch/nooor",
+    image: "/lovable-uploads/creators/nooor.webp",
     attribution: "Twitch / @nooor",
     attributionUrl: "https://www.twitch.tv/nooor",
     language: "sv",

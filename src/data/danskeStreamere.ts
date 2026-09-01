@@ -106,7 +106,7 @@ export const CREATORS: CreatorProfile[] = [
       "En af Danmarks stoerste skabere inden for fodboldgaming",
       "Stort publikum paa tvaers af Twitch og YouTube"
     ],
-    image: "https://unavatar.io/twitch/marckozhd",
+    image: "/lovable-uploads/creators/marckozhd.webp",
     attribution: "Twitch / @marckozhd",
     attributionUrl: "https://www.twitch.tv/marckozhd",
     language: "da",
@@ -132,7 +132,7 @@ export const CREATORS: CreatorProfile[] = [
       "En af Danmarks mest fulgte Fortnite-skabere",
       "Profil paa Esports Charts og Liquipedia"
     ],
-    image: "https://unavatar.io/twitch/mariuscow",
+    image: "/lovable-uploads/creators/mariuscow.webp",
     attribution: "Twitch / @mariuscow",
     attributionUrl: "https://www.twitch.tv/mariuscow",
     language: "da",
@@ -255,7 +255,7 @@ export const CREATORS: CreatorProfile[] = [
       "Forfatter og deltager i dansk tv-underholdning",
       "Kendt for fokus paa mental sundhed og ADHD"
     ],
-    image: "https://unavatar.io/twitch/mariewatson",
+    image: "/lovable-uploads/creators/mariewatson.webp",
     attribution: "Twitch / @mariewatson",
     attributionUrl: "https://www.twitch.tv/mariewatson",
     language: "da",
