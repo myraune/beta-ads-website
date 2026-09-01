@@ -31,7 +31,7 @@ const serif = { fontFamily: "'Instrument Serif', serif" };
 const LAST_UPDATED = "2026-08-31";
 
 const heroStats = [
-  { value: "39K+", label: "streamers in network" },
+  { value: "28K+", label: "Twitch streamers" },
   { value: "4", label: "platforms" },
   { value: "0%", label: "blocked by adblock" },
   { value: "NO/SE/DK/FI", label: "markets covered" },

@@ -123,7 +123,7 @@ const Norge: React.FC = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Twitch-annonsering Norge | Beta Ads"
+        title="Twitch-byrå og Twitch-annonsering i Norge | Beta Ads"
         description="Twitch-annonsering for norske merkevarer. Samsung, Shure, Komplett og NKI har kjørt kampanjer via Beta Ads på 39 000+ norske streamere. Book en samtale."
         canonical="/norge"
         locale="no"

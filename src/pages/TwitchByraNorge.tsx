@@ -35,7 +35,7 @@ const serif = { fontFamily: "'Instrument Serif', serif" };
 const SIST_OPPDATERT = "2026-08-31";
 
 const heroStats = [
-  { value: "39K+", label: "streamere i nettverket" },
+  { value: "28K+", label: "Twitch-streamere" },
   { value: "4", label: "plattformer" },
   { value: "0 %", label: "blokkert av adblock" },
   { value: "2024", label: "Beta Agency AS" },

@@ -53,11 +53,11 @@ const TwitchAdvertising: React.FC = () => {
   return (
     <MarketingPageLayout
       seo={{
-        title: "Twitch Advertising in the Nordics | Beta Ads",
-        description: "Native overlay ads on Twitch that bypass ad blockers and reach Gen Z. 28,000+ Nordic streamers, 3-5x higher engagement, real-time analytics.",
+        title: "Twitch Advertising Agency for Norway and the Nordics | Beta Ads",
+        description: "Beta Agency AS is a Norwegian Twitch advertising agency running native overlay campaigns across 28,000+ Nordic Twitch streamers. Ads that bypass ad blockers, with real reporting.",
         canonical: "/twitch-advertising",
         jsonLd: [
-          { "@context": "https://schema.org", "@type": "Service", "@id": "https://beta-ads.no/twitch-advertising#service", name: "Twitch Advertising - Beta Ads", serviceType: "Native Livestream Advertising", description: "Native overlay ads on 28,000+ Nordic Twitch streams. 0% adblock rate, CTRs up to 9.12%. Managed campaigns from brief to broadcast.", provider: { "@id": "https://beta-ads.no/#organization" }, areaServed: ["Norway", "Sweden", "Denmark", "Finland"], url: "https://beta-ads.no/twitch-advertising" },
+          { "@context": "https://schema.org", "@type": "Service", "@id": "https://beta-ads.no/twitch-advertising#service", name: "Twitch Advertising Agency - Beta Ads", serviceType: "Twitch advertising agency", description: "Native overlay ads on 28,000+ Nordic Twitch streams. 0% adblock rate, CTRs up to 9.12%. Managed campaigns from brief to broadcast.", provider: { "@id": "https://beta-ads.no/#organization" }, areaServed: ["Norway", "Sweden", "Denmark", "Finland"], url: "https://beta-ads.no/twitch-advertising" },
           { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://beta-ads.no/" }, { "@type": "ListItem", position: 2, name: "Twitch Advertising", item: "https://beta-ads.no/twitch-advertising" }] },
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [
             { "@type": "Question", name: "How much does Twitch advertising cost in Norway?", acceptedAnswer: { "@type": "Answer", text: "The blended effective CPM on a managed Nordic Twitch campaign is roughly 200 to 300 kr per 1,000 verified impressions, with the final figure depending on campaign scope, number of streamers, and duration. There are no long-term contracts. See the full breakdown at /twitch-advertising-cost or contact us for a custom quote." } },
