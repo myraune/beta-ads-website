@@ -201,7 +201,7 @@ const GtaViNordicPlaybook: React.FC = () => {
   return (
     <article>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-[hsl(240_11%_5%)]">
+      <section className="relative overflow-hidden rounded-3xl bg-[hsl(240_11%_5%)] ring-1 ring-white/10 px-6 sm:px-10 lg:px-14 py-14 lg:py-16">
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -209,7 +209,8 @@ const GtaViNordicPlaybook: React.FC = () => {
               "radial-gradient(120% 80% at 20% 0%, rgba(233,79,55,0.22), transparent 60%)",
           }}
         />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-16">
+        <div className="relative z-10 grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-center">
+          <div>
           <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
             Nordic media planning
           </span>
@@ -242,6 +243,40 @@ const GtaViNordicPlaybook: React.FC = () => {
               </div>
             ))}
           </div>
+          </div>
+
+          {/* The most-watched GTA clip in the network, as the evidence the
+              headline is talking about rather than a stock image. */}
+          {topClips[0] && (
+            <a
+              href={topClips[0].url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group hidden lg:block rounded-2xl overflow-hidden ring-1 ring-white/15 bg-black/40"
+            >
+              <div className="relative aspect-video overflow-hidden">
+                <img
+                  src={topClips[0].thumb}
+                  alt={`${topClips[0].creator}: ${topClips[0].title}`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute bottom-2 right-2 rounded-md bg-black/75 px-2 py-0.5 text-[11px] font-semibold text-white tabular-nums">
+                  {topClips[0].views.toLocaleString("en-GB")} views
+                </span>
+              </div>
+              <div className="px-4 py-3.5 flex items-center gap-3">
+                <img src={topClips[0].avatar} alt="" className="h-8 w-8 rounded-lg object-cover bg-white/10 shrink-0" />
+                <div className="min-w-0">
+                  <div className="text-[13px] font-semibold text-white truncate group-hover:text-primary transition-colors">
+                    {topClips[0].title}
+                  </div>
+                  <div className="text-[11px] text-white/45">
+                    {topClips[0].creator} · GTA on Twitch, our network
+                  </div>
+                </div>
+              </div>
+            </a>
+          )}
         </div>
       </section>
 
