@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { MARKET_CREATORS, type MarketCode } from "@/data/streamers";
 
 /**
  * GTA VI, from the Nordic media-planning side.
@@ -19,6 +20,36 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
  */
 
 const serif = { fontFamily: "'Instrument Serif', serif" };
+
+const MARKET_LABEL: Record<string, string> = { no: "Norway", se: "Sweden", da: "Denmark", fi: "Finland" };
+
+/**
+ * The real GTA clips our Nordic creators have on Twitch, derived from the same
+ * data module the streamer pages use rather than copied into this file. If a
+ * creator's clips change, this section changes with them, and the count in the
+ * copy above cannot drift away from the evidence below it.
+ */
+const gtaClips = Object.entries(MARKET_CREATORS as Record<MarketCode, any[]>)
+  .flatMap(([market, list]) =>
+    (list || []).flatMap((c: any) =>
+      (c.twitchClips || [])
+        .filter((x: any) => /grand theft auto/i.test(x.game || ""))
+        .map((x: any) => ({
+          market,
+          creator: c.name as string,
+          handle: c.handle as string,
+          avatar: c.image as string,
+          title: x.title as string,
+          views: (x.viewCount || 0) as number,
+          thumb: x.thumbnailURL as string,
+          url: x.url as string,
+        }))
+    )
+  )
+  .sort((a, b) => b.views - a.views);
+
+const topClips = gtaClips.slice(0, 6);
+const totalClipViews = gtaClips.reduce((s, c) => s + c.views, 0);
 
 const RELEASE = new Date("2026-11-19T00:00:00Z");
 
@@ -40,12 +71,14 @@ const heroStats = [
  */
 const audience = [
   {
+    logo: null,
     label: "Netflix, the trailer itself",
     value: 31.1,
     display: "31.1M views",
     note: "Four days. Netflix's most-watched title that week.",
   },
   {
+    logo: "/lovable-uploads/platform-twitch.png",
     label: "Twitch and YouTube, reactions and watch parties",
     value: 3.97,
     display: "3.97M peak concurrent",
@@ -237,7 +270,12 @@ const GtaViNordicPlaybook: React.FC = () => {
               {audience.map((a) => (
                 <div key={a.label}>
                   <div className="flex items-baseline justify-between mb-2 gap-4">
-                    <span className="text-sm font-medium text-foreground">{a.label}</span>
+                    <span className="text-sm font-medium text-foreground flex items-center gap-2">
+                      {a.logo && (
+                        <img src={a.logo} alt="" className="h-4 w-auto" loading="lazy" />
+                      )}
+                      {a.label}
+                    </span>
                     <span className="text-sm font-semibold text-foreground tabular-nums shrink-0">
                       {a.display}
                     </span>
@@ -357,6 +395,118 @@ const GtaViNordicPlaybook: React.FC = () => {
               </p>
             </Reveal>
           </div>
+        </div>
+      </section>
+
+      {/* ── The evidence: real clips ── */}
+      <section className="py-16 md:py-20 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <Reveal>
+            <div className="max-w-2xl mb-10">
+              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+                The clips themselves
+              </span>
+              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
+                This is what GTA looks like in the Nordics right now
+              </h2>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                Not a mock-up. These are the most-watched Grand Theft Auto clips from creators in our
+                network, straight off Twitch. {gtaClips.length} clips, {totalClipViews.toLocaleString("en-GB")} views
+                between them, and every one is a moment a brand could have been present for.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {topClips.map((c) => (
+              <Reveal key={c.url}>
+                <a
+                  href={c.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group block rounded-2xl border border-border bg-card overflow-hidden hover:border-primary/30 transition-colors h-full"
+                >
+                  <div className="relative aspect-video bg-muted overflow-hidden">
+                    <img
+                      src={c.thumb}
+                      alt={`${c.creator}: ${c.title}`}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <span className="absolute bottom-2 right-2 rounded-md bg-black/75 px-2 py-0.5 text-[11px] font-semibold text-white tabular-nums">
+                      {c.views.toLocaleString("en-GB")} views
+                    </span>
+                  </div>
+                  <div className="p-4 flex items-start gap-3">
+                    <img
+                      src={c.avatar}
+                      alt=""
+                      loading="lazy"
+                      className="h-9 w-9 rounded-lg object-cover bg-muted shrink-0"
+                    />
+                    <div className="min-w-0">
+                      <div className="text-sm font-semibold text-foreground truncate group-hover:text-primary transition-colors">
+                        {c.title}
+                      </div>
+                      <div className="text-xs text-muted-foreground mt-0.5">
+                        {c.creator} · {MARKET_LABEL[c.market]}
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </Reveal>
+            ))}
+          </div>
+          <p className="text-xs text-muted-foreground mt-5">
+            Clips hosted on Twitch. Opens in a new tab.
+          </p>
+        </div>
+      </section>
+
+      {/* ── What the format actually is ── */}
+      <section className="py-16 md:py-20 border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <Reveal>
+            <div className="grid lg:grid-cols-[0.85fr_1fr] gap-10 items-center">
+              <div className="rounded-2xl overflow-hidden bg-black ring-1 ring-border max-w-sm mx-auto lg:mx-0">
+                <video
+                  src="/lovable-uploads/overlay-komplett.webm"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-auto block"
+                  aria-label="A native Komplett overlay ad rendered live inside a Norwegian Twitch stream"
+                />
+              </div>
+              <div>
+                <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+                  The format
+                </span>
+                <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-4">
+                  This is the thing an ad blocker cannot remove
+                </h2>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  A real Komplett overlay, rendered inside a Norwegian broadcast. There is no separate
+                  ad element on the page, so there is nothing for a blocker to strip. It sits in the
+                  layout through the session rather than interrupting it.
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  During a six-hour GTA session that difference compounds. A pre-roll reaches the
+                  minority without a blocker, once. This is present for everyone watching, for as long
+                  as they watch.
+                </p>
+                <Link
+                  to="/case-study/komplett"
+                  className="group inline-flex items-center gap-1.5 text-sm font-medium text-foreground mt-5 hover:text-primary transition-colors"
+                >
+                  Read the Komplett campaign
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                </Link>
+              </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 

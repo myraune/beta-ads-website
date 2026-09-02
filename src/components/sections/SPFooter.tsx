@@ -2,7 +2,6 @@ import React, { lazy, Suspense } from "react";
 import { useIdleInView } from "@/hooks/useIdleInView";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { AmaMemberBadge } from "@/components/sections/AmaMemberBadge";
 
 const WaveAnimation = lazy(() =>
   import("@/components/ui/wave-animation").then((m) => ({ default: m.WaveAnimation }))
@@ -155,8 +154,17 @@ export const SPFooter: React.FC = () => {
               </div>
             </div>
 
-            {/* Fills the empty right half of the socials row. */}
-            <AmaMemberBadge />
+            {/*
+              AMA member seal goes here once the real file is in
+              public/lovable-uploads/ama-member-badge.png. It is issued from the
+              AMA member dashboard and is not on a public CDN.
+
+              Not rendered until then. The onError guard in AmaMemberBadge does
+              NOT reliably catch this: with loading="lazy" the browser may not
+              have attempted the request, so no error fires, and the img sits in
+              the footer of every page as an 84x64 box showing its alt text.
+              Verified against a real 404.
+            */}
           </div>
 
           {/* Bottom bar */}
