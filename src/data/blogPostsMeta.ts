@@ -23,6 +23,22 @@ export interface BlogPostMeta {
 
 export const blogPostsMeta: BlogPostMeta[] = [
   {
+    id: "gta-vi-nordic-brand-playbook",
+    slug: "gta-vi-nordic-brand-playbook",
+    locale: "en",
+    translationGroup: "gta-vi-nordic-brand-playbook",
+    hasDashboard: "gta-vi-nordic-playbook",
+    title: "Four Million People Watched Someone Else Watch a Trailer: The GTA VI Playbook for Nordic Brands",
+    excerpt: "Rockstar put the GTA VI Extended Look on Netflix, where it took 31.1 million views in four days. Meanwhile 3.97 million watched creators react to it on Twitch, and Twitch fell over. With the game launching 19 November, here is what that means for a Nordic media plan, including our own network data on where GTA already lives and where it does not.",
+    date: "Sep 2, 2026",
+    dateISO: "2026-09-02",
+    readTime: "7 min read",
+    category: "Industry Insights",
+    tags: ["GTA VI", "Grand Theft Auto", "Nordic advertising", "Twitch", "media planning", "game launch"],
+    image: "/lovable-uploads/blog-featured-gta-vi-nordic.webp",
+    relatedSlugs: ["how-twitch-advertising-works-2026", "non-gaming-content-twitch-2025"],
+  },
+  {
     id: "streamer-university-2026-brand-breakdown",
     slug: "streamer-university-2026-brand-breakdown",
     locale: "en",

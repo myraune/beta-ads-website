@@ -67,6 +67,73 @@ export interface BlogPost {
 
 const _allBlogPostsRaw: BlogPost[] = [
   {
+    id: "gta-vi-nordic-brand-playbook",
+    slug: "gta-vi-nordic-brand-playbook",
+    locale: "en",
+    translationGroup: "gta-vi-nordic-brand-playbook",
+    hasDashboard: "gta-vi-nordic-playbook",
+    title: "Four Million People Watched Someone Else Watch a Trailer: The GTA VI Playbook for Nordic Brands",
+    excerpt:
+      "Rockstar put the GTA VI Extended Look on Netflix, where it took 31.1 million views in four days. Meanwhile 3.97 million watched creators react to it on Twitch, and Twitch fell over. With the game launching 19 November, here is what that means for a Nordic media plan, including our own network data on where GTA already lives and where it does not.",
+    content: `## The audience was not where the trailer was
+
+Rockstar premiered the GTA VI Extended Look on Netflix on 27 August 2026 and held it there for six hours before putting it on YouTube. Netflix reported 31.1 million views in four days, its most-watched title of the week.
+
+The number that matters for anyone buying media is the other one. Streams Charts recorded a peak of 3,970,738 concurrent viewers across reaction streams and watch parties, the biggest gaming showcase it tracked in 2026. Those people were not watching Rockstar. They were watching creators watch Rockstar.
+
+That reaction layer is the part a brand can buy, and it needs nobody's permission.
+
+Twitch did not cope with it. Downdetector logged more than 17,000 reports at peak and Twitch's own status page called it a major outage across web, chat and video playback. Launch week will be heavier than a six-minute trailer.
+
+## GTA is already the second most clipped game in the Nordics
+
+We track 234 clips across the 40 Nordic creators in our network, each tagged by game. Counted on 2 September 2026, Grand Theft Auto sits second among actual games behind Counter-Strike, ahead of Fortnite. Just Chatting is larger still, but it is a category rather than a game.
+
+The distribution is uneven in a way that matters for planning. Four of ten Norwegian creators have GTA clips, three of ten Swedish, one of ten Danish, and none at all in Finland. That is our own network rather than market-wide data, but it is the part of the market we can see clearly.
+
+## Five plays
+
+1. **Buy the reaction, not the launch.** Launch night is the most expensive and least differentiated inventory of the year. The week after is when creators play, fail and rebuild.
+2. **Treat the first 72 hours as infrastructure.** If an activation depends on a live overlay firing on schedule, plan for a degraded platform and check placements daily.
+3. **Go where the game is not.** Finland has zero GTA clips in our network. Buying GTA adjacency there during launch week means paying a premium to reach people who were not watching.
+4. **Use the format the audience tolerates.** Around 80 percent of Nordic 18 to 34 year olds run an ad blocker. An overlay built into the broadcast has no separate ad element for a blocker to remove.
+5. **Write the brief for a six-hour session.** One asset looping for four hours becomes wallpaper. Plan a rotation or tie the moment to something happening in the game.
+
+## Three things we would talk a client out of
+
+Do not build anything that needs Rockstar's permission. Official in-game placement is expensive, slow and mostly unavailable, and everything above happens around the game rather than inside it.
+
+Do not quote the trailer numbers as your reach. 31.1 million is a global entertainment figure, not an addressable Nordic audience.
+
+Do not book launch week and call it a GTA strategy. GTA V was still the second most watched game on Twitch in 2025, twelve years after release. Launch week is the loudest moment, not the whole opportunity.`,
+    date: "Sep 2, 2026",
+    dateISO: "2026-09-02",
+    readTime: "7 min read",
+    category: "Industry Insights",
+    tags: ["GTA VI", "Grand Theft Auto", "Nordic advertising", "Twitch", "media planning", "game launch"],
+    image: "/lovable-uploads/blog-featured-gta-vi-nordic.webp",
+    relatedSlugs: ["how-twitch-advertising-works-2026", "non-gaming-content-twitch-2025"],
+    seoTitle: {
+      en: "GTA VI and Nordic Brands: The Launch Playbook | Beta Ads",
+      no: "GTA VI og nordiske merkevarer: slik planlegger du lanseringen | Beta Ads",
+      sv: "GTA VI och nordiska varumärken: så planerar du lanseringen | Beta Ads",
+      fi: "GTA VI ja pohjoismaiset brändit: julkaisun pelikirja | Beta Ads"
+    },
+    seoDescription: {
+      en: "The GTA VI Extended Look drew 31.1M Netflix views and 3.97M peak viewers watching creator reactions, while Twitch went down. What Nordic brands should do before the 19 November launch, with Beta Agency network data on GTA activity per market.",
+      no: "Extended Look fikk 31,1 millioner visninger på Netflix, mens 3,97 millioner så streamere reagere på Twitch og plattformen gikk ned. Hva nordiske merkevarer bør gjøre før lanseringen 19. november, med tall fra vårt eget nettverk.",
+      sv: "Extended Look fick 31,1 miljoner visningar på Netflix, medan 3,97 miljoner såg streamare reagera på Twitch och plattformen gick ner. Vad nordiska varumärken bör göra före lanseringen 19 november, med siffror från vårt eget nätverk.",
+      fi: "Extended Look keräsi 31,1 miljoonaa katselukertaa Netflixissä, ja 3,97 miljoonaa seurasi striimaajien reaktioita Twitchissä, joka kaatui. Mitä pohjoismaisten brändien kannattaa tehdä ennen 19. marraskuuta, mukana lukuja omasta verkostostamme."
+    },
+    seoKeywords: {
+      en: ["GTA VI advertising", "GTA 6 marketing", "Nordic game launch advertising", "Twitch advertising Norway", "creator marketing"],
+      no: ["GTA VI annonsering", "GTA 6 markedsføring", "spillansering Norden", "Twitch-annonsering Norge", "streamermarkedsføring"],
+      sv: ["GTA VI annonsering", "GTA 6 marknadsföring", "spellansering Norden", "Twitch-annonsering Sverige", "streamermarknadsföring"],
+      fi: ["GTA VI mainonta", "GTA 6 markkinointi", "pelijulkaisu Pohjoismaat", "Twitch-mainonta Suomi", "striimaajamarkkinointi"]
+    },
+  },
+
+  {
     id: "streamer-university-2026-brand-breakdown",
     slug: "streamer-university-2026-brand-breakdown",
     locale: "en",
