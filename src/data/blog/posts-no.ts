@@ -11,30 +11,46 @@ export const posts_no: BlogPost[] = [
     locale: "no",
     translationGroup: "gta-vi-nordic-brand-playbook",
     hasDashboard: "gta-vi-nordic-playbook",
-    title: "Åtte merkevarekategorier verdt å planlegge rundt GTA VI-lanseringen",
+    title: "GTA VI forklart: hva som kommer 19. november, og hvorfor nordiske merkevarer bryr seg",
     excerpt:
-      "Offisiell plassering inne i spillet er dyrt og rasjonert. Alt rundt det er ikke det. Åtte kategorier som passer GTA VI-lanseringen, hvilket øyeblikk hver av dem bør kjøpe, og hvilke av dem vi faktisk har kjørt i Norden.",
-    content: `## Publikum var ikke der traileren var
+      "Grand Theft Auto VI kommer 19. november 2026, og de fleste medieplanene skrives av folk som ikke har fulgt med. Her er selve spillet: delstaten Leonida, de to hovedpersonene, rekordtallene, og det ene tallet som gjør en spillansering om til et mediekjøp.",
+    content: `## Hva det faktisk er
 
-Rockstar hadde premiere på Extended Look på Netflix 27. august og holdt den der i seks timer før den kom på YouTube. Netflix meldte om 31,1 millioner visninger på fire dager, plattformens mest sette tittel den uken.
+Grand Theft Auto VI kommer 19. november 2026 til PlayStation 5 og Xbox Series X|S. Det er ingen PC-versjon ved lansering, og den har historisk kommet et år eller mer etterpå.
 
-Tallet som betyr noe for den som kjøper media er det andre. Streams Charts registrerte en topp på 3 970 738 samtidige seere på reaksjonsstreams og watch parties. De så ikke på Rockstar. De så på skapere som så på Rockstar.
+Spillet foregår i den oppdiktede delstaten Leonida, en versjon av Florida. Vice City ligger ved kysten, bygget opp igjen fra originalen fra 1986 som et nåtidig Miami, og rundt den ligger en øyrekke, våtmarker, en nasjonalpark og en rekke småbyer. Dette er en delstat, ikke en by.
 
-Twitch taklet det ikke. Downdetector registrerte over 17 000 meldinger på topp, og Twitch sin egen statusside kalte det alvorlig nedetid.
+Du spiller to personer i stedet for én. Lucia Caminos, ute fra Leonida-fengselet og tilbake i Vice City, er den første kvinnelige hovedpersonen i hovedserien. Jason Duval er den andre halvdelen av et forhold spillet rammer inn som Bonnie og Clyde. Serien har aldri bygget en historie på et par før.
 
-## GTA er allerede det nest mest klippede spillet i nettverket vårt
+Forrige spill, GTA V, kom i 2013 og selger fortsatt. Tretten år er lang tid å bygge et publikum på.
 
-Vi sporer 234 klipp fordelt på 40 nordiske skapere, merket med spill. Grand Theft Auto ligger nummer to blant faktiske spill, bak Counter-Strike. Fordelingen er ujevn: fire av ti norske skapere har GTA-klipp, tre av ti svenske, én av ti danske, og ingen i Finland.
+## Tallene er ikke gamingtall
 
-## Åtte kategorier
+Rockstars andre trailer fikk over 475 millioner visninger på tvers av plattformer på 24 timer. Serien har solgt over 470 millioner eksemplarer. Take-Two skal ha bokført 1,39 milliarder dollar i forhåndssalg i ett enkelt kvartal, før noen hadde spilt det, og toppsjefen beskrev nivået som uten sidestykke.
 
-Gruppert etter hva de faktisk kjøper. Tre som passer lange økter: matlevering, elektronikkhandel, energidrikk. Tre som ligger i det spillet handler om: bil, mote, finans. To som lanseringsuken skaper behov for: tilkobling og gaming-utstyr.
+I august hadde Rockstar premiere på en lang gameplay-visning på Netflix i stedet for YouTube. Den fikk 31,1 millioner visninger på fire dager og lå på førsteplass i 87 av de 93 landene Netflix måler.
 
-For hver kategori står det hvilket øyeblikk den bør kjøpe, og om vi har kjørt den selv. Der vi ikke har det, står det.
+## Netflix hadde premieren. Skaperne hadde publikummet.
 
-## Tre ting vi ville frarådet
+Dette er tallet som betyr noe hvis du kjøper media.
 
-Ikke bygg noe som krever lisens fra Rockstar. Ikke ta trailertallene inn i medieplanen, 31,1 millioner er et globalt underholdningstall. Og ikke book lanseringsuken og kall det en strategi: GTA V var fortsatt det nest mest sette spillet på Twitch i 2025, tolv år etter lansering.`,
+Mens Extended Look lå på Netflix, toppet folk som så skapere reagere på den seg på anslagsvis 3,97 millioner samtidig, mer enn Summer Game Fest klarte i år. Streams Charts anslo fordelingen av sette timer til rundt 44 prosent Twitch, 34,8 prosent YouTube og 20,2 prosent Kick. Twitch hadde driftsproblemer underveis.
+
+Det reaksjonslaget er den delen en merkevare faktisk kan kjøpe, og det trenger ingen tillatelse. Offisiell plassering inne i spillet er dyrt, tregt og stort sett utilgjengelig. Alt som skjer rundt spillet er ingen av delene.
+
+## Hvor den nordiske muligheten ligger
+
+Vi sporer 234 klipp fordelt på 40 nordiske skapere i nettverket vårt, merket med spill. Grand Theft Auto ligger nummer to blant faktiske spill bak Counter-Strike, på den tolv år gamle utgaven.
+
+Fordelingen er ujevn på en måte som endrer planleggingen. Fire av ti norske skapere har GTA-klipp, tre av ti svenske, én av ti danske, og ingen i Finland. Det er vårt eget nettverk og ikke tall for hele markedet, men det er den delen av markedet vi ser tydelig.
+
+## Tre ting vi ville frarådet en kunde
+
+Ikke bygg noe som krever lisens. Offisiell plassering i spillet er rasjonert, og alt som er verdt å gjøre skjer rundt spillet i stedet.
+
+Ikke ta de globale tallene inn i en nordisk medieplan. 31,1 millioner og 3,97 millioner er globale underholdningstall, ikke et nordisk publikum du kan nå.
+
+Ikke book lanseringsuken og kall det en strategi. GTA V kom i 2013 og er fortsatt et av de mest sette spillene på Twitch. Lanseringsuken er det høyeste øyeblikket, ikke hele muligheten.`,
     date: "2. sep 2026",
     dateISO: "2026-09-02",
     readTime: "7 min lesetid",
@@ -43,20 +59,20 @@ Ikke bygg noe som krever lisens fra Rockstar. Ikke ta trailertallene inn i medie
     image: "/lovable-uploads/blog-featured-gta-vi-nordic.webp",
     relatedSlugs: [],
     seoTitle: {
-      en: "GTA VI: Eight Brand Categories for Nordic Brands | Beta Ads",
-      no: "GTA VI: åtte merkevarekategorier for nordiske merkevarer | Beta Ads",
+      en: "GTA VI Explained for Nordic Brands | Beta Ads",
+      no: "GTA VI forklart for nordiske merkevarer | Beta Ads",
       sv: "GTA VI: åtta varumärkeskategorier för nordiska varumärken | Beta Ads",
       fi: "GTA VI: kahdeksan brändikategoriaa pohjoismaisille brändeille | Beta Ads"
     },
     seoDescription: {
-      en: "Eight brand categories that fit the GTA VI launch, the moment each should buy, and which we have run in the Nordics.",
-      no: "Åtte merkevarekategorier som passer GTA VI-lanseringen, hvilket øyeblikk hver av dem bør kjøpe, og hvilke vi har kjørt i Norden.",
+      en: "What GTA VI is before you plan around it: the 19 November release, the state of Leonida, Lucia and Jason, and the 3.97 million who watched creators instead of the Netflix premiere.",
+      no: "Hva GTA VI er før du planlegger rundt det: lanseringen 19. november, delstaten Leonida, Lucia og Jason, og de 3,97 millionene som så på skapere i stedet for Netflix-premieren.",
       sv: "Åtta varumärkeskategorier som passar GTA VI-lanseringen, vilket ögonblick var och en bör köpa, och vilka vi har kört i Norden.",
       fi: "Kahdeksan brändikategoriaa, jotka sopivat GTA VI -julkaisuun, ja mitkä niistä olemme toteuttaneet Pohjoismaissa."
     },
     seoKeywords: {
       en: ["GTA VI advertising", "Nordic game launch", "Twitch advertising"],
-      no: ["GTA VI annonsering", "spillansering Norden", "Twitch-annonsering Norge"],
+      no: ["hva er GTA 6", "GTA 6 lansering", "GTA VI forklart", "GTA 6 Leonida", "GTA VI annonsering", "spillansering Norden"],
       sv: ["GTA VI annonsering", "spellansering Norden", "Twitch-annonsering"],
       fi: ["GTA VI mainonta", "pelijulkaisu Pohjoismaat", "Twitch-mainonta"]
     },

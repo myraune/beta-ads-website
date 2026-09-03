@@ -72,40 +72,46 @@ const _allBlogPostsRaw: BlogPost[] = [
     locale: "en",
     translationGroup: "gta-vi-nordic-brand-playbook",
     hasDashboard: "gta-vi-nordic-playbook",
-    title: "Eight Brand Categories Worth Planning Around the GTA VI Launch",
+    title: "GTA VI Explained: What Launches on 19 November, and Why Nordic Brands Care",
     excerpt:
-      "Official placement inside the game is expensive and rationed. Everything around it is not. Eight categories that fit the GTA VI launch, the moment each one should buy, and which of them we have actually run in the Nordics.",
-    content: `## The audience was not where the trailer was
+      "Grand Theft Auto VI arrives on 19 November 2026 and most media plans are being written by people who have not followed it. Here is the game itself: the state of Leonida, the two leads, the record numbers, and the one statistic that turns a game launch into a media buy.",
+    content: `## What it actually is
 
-Rockstar premiered the GTA VI Extended Look on Netflix on 27 August 2026 and held it there for six hours before putting it on YouTube. Netflix reported 31.1 million views in four days, its most-watched title of the week.
+Grand Theft Auto VI launches on 19 November 2026 for PlayStation 5 and Xbox Series X|S. There is no PC version at launch, which historically arrives a year or more later.
 
-The number that matters for anyone buying media is the other one. Streams Charts recorded a peak of 3,970,738 concurrent viewers across reaction streams and watch parties, the biggest gaming showcase it tracked in 2026. Those people were not watching Rockstar. They were watching creators watch Rockstar.
+It is set in the fictional state of Leonida, a version of Florida. Vice City sits on the coast, rebuilt from the 1986 original as a present-day Miami, and around it are an island chain, wetlands, a national park and a string of small towns. This is a state, not a city.
 
-That reaction layer is the part a brand can buy, and it needs nobody's permission.
+You play two people rather than one. Lucia Caminos, out of Leonida Penitentiary and back in Vice City, is the first female protagonist in the mainline series. Jason Duval is the other half of a partnership the game frames as Bonnie and Clyde. The series has never built a story on a couple before.
 
-Twitch did not cope with it. Downdetector logged more than 17,000 reports at peak and Twitch's own status page called it a major outage across web, chat and video playback. Launch week will be heavier than a six-minute trailer.
+The last entry, GTA V, came out in 2013 and is still selling. Thirteen years is a long time to build an audience.
 
-## GTA is already the second most clipped game in the Nordics
+## The scale is not a games number
 
-We track 234 clips across the 40 Nordic creators in our network, each tagged by game. Counted on 2 September 2026, Grand Theft Auto sits second among actual games behind Counter-Strike, ahead of Fortnite. Just Chatting is larger still, but it is a category rather than a game.
+Rockstar's second trailer took over 475 million cross-platform views in 24 hours. The series has sold more than 470 million copies. Take-Two reportedly booked 1.39 billion dollars of pre-order sales in a single quarter, before anyone had played it, and the company's CEO described the level as unprecedented.
 
-The distribution is uneven in a way that matters for planning. Four of ten Norwegian creators have GTA clips, three of ten Swedish, one of ten Danish, and none at all in Finland. That is our own network rather than market-wide data, but it is the part of the market we can see clearly.
+In August, Rockstar premiered a long gameplay showcase on Netflix rather than YouTube. It drew 31.1 million views in four days and was the number one title in 87 of the 93 countries Netflix tracks.
 
-## Five plays
+## Netflix had the premiere. Creators had the audience.
 
-1. **Buy the reaction, not the launch.** Launch night is the most expensive and least differentiated inventory of the year. The week after is when creators play, fail and rebuild.
-2. **Treat the first 72 hours as infrastructure.** If an activation depends on a live overlay firing on schedule, plan for a degraded platform and check placements daily.
-3. **Go where the game is not.** Finland has zero GTA clips in our network. Buying GTA adjacency there during launch week means paying a premium to reach people who were not watching.
-4. **Use the format the audience tolerates.** Around 80 percent of Nordic 18 to 34 year olds run an ad blocker. An overlay built into the broadcast has no separate ad element for a blocker to remove.
-5. **Write the brief for a six-hour session.** One asset looping for four hours becomes wallpaper. Plan a rotation or tie the moment to something happening in the game.
+This is the statistic that matters if you buy media.
+
+While the Extended Look was on Netflix, people watching creators react to it peaked at an estimated 3.97 million concurrent, more than Summer Game Fest managed this year. Streams Charts put the split of hours watched at roughly 44 percent Twitch, 34.8 percent YouTube and 20.2 percent Kick. Twitch had service problems during it.
+
+That reaction layer is the part a brand can actually buy, and it needs nobody's permission. Official placement inside the game is expensive, slow and mostly unavailable. Everything that happens around the game is neither.
+
+## Where the Nordic opportunity sits
+
+We track 234 clips across the 40 Nordic creators in our network, tagged by game. Grand Theft Auto sits second among actual games behind Counter-Strike, on the twelve-year-old edition.
+
+The distribution is uneven in a way that changes planning. Four of ten Norwegian creators have GTA clips, three of ten Swedish, one of ten Danish, and none in Finland. That is our own network rather than market-wide data, but it is the part of the market we can see clearly.
 
 ## Three things we would talk a client out of
 
-Do not build anything that needs Rockstar's permission. Official in-game placement is expensive, slow and mostly unavailable, and everything above happens around the game rather than inside it.
+Do not build anything that needs a licence. Official in-game placement is rationed, and everything worth doing happens around the game instead.
 
-Do not quote the trailer numbers as your reach. 31.1 million is a global entertainment figure, not an addressable Nordic audience.
+Do not put the global numbers in a Nordic media plan. 31.1 million and 3.97 million are worldwide entertainment figures, not an addressable Nordic audience.
 
-Do not book launch week and call it a GTA strategy. GTA V was still the second most watched game on Twitch in 2025, twelve years after release. Launch week is the loudest moment, not the whole opportunity.`,
+Do not book launch week and call it a strategy. GTA V came out in 2013 and is still one of the most watched games on Twitch. Launch week is the loudest moment, not the whole opportunity.`,
     date: "Sep 2, 2026",
     dateISO: "2026-09-02",
     readTime: "7 min read",
@@ -114,19 +120,19 @@ Do not book launch week and call it a GTA strategy. GTA V was still the second m
     image: "/lovable-uploads/blog-featured-gta-vi-nordic.webp",
     relatedSlugs: ["how-twitch-advertising-works-2026", "non-gaming-content-twitch-2025"],
     seoTitle: {
-      en: "GTA VI and Nordic Brands: The Launch Playbook | Beta Ads",
+      en: "GTA VI Explained for Brands: Release Date, Setting and Audience | Beta Ads",
       no: "GTA VI og nordiske merkevarer: slik planlegger du lanseringen | Beta Ads",
       sv: "GTA VI och nordiska varumärken: så planerar du lanseringen | Beta Ads",
       fi: "GTA VI ja pohjoismaiset brändit: julkaisun pelikirja | Beta Ads"
     },
     seoDescription: {
-      en: "The GTA VI Extended Look drew 31.1M Netflix views and 3.97M peak viewers watching creator reactions, while Twitch went down. What Nordic brands should do before the 19 November launch, with Beta Agency network data on GTA activity per market.",
+      en: "What Grand Theft Auto VI actually is before you plan around it: the 19 November 2026 release, the state of Leonida, Lucia and Jason, and the record numbers. Plus the statistic that matters for media buyers, the 3.97 million who watched creators rather than the Netflix premiere.",
       no: "Extended Look fikk 31,1 millioner visninger på Netflix, mens 3,97 millioner så streamere reagere på Twitch og plattformen gikk ned. Hva nordiske merkevarer bør gjøre før lanseringen 19. november, med tall fra vårt eget nettverk.",
       sv: "Extended Look fick 31,1 miljoner visningar på Netflix, medan 3,97 miljoner såg streamare reagera på Twitch och plattformen gick ner. Vad nordiska varumärken bör göra före lanseringen 19 november, med siffror från vårt eget nätverk.",
       fi: "Extended Look keräsi 31,1 miljoonaa katselukertaa Netflixissä, ja 3,97 miljoonaa seurasi striimaajien reaktioita Twitchissä, joka kaatui. Mitä pohjoismaisten brändien kannattaa tehdä ennen 19. marraskuuta, mukana lukuja omasta verkostostamme."
     },
     seoKeywords: {
-      en: ["GTA VI advertising", "GTA 6 marketing", "Nordic game launch advertising", "Twitch advertising Norway", "creator marketing"],
+      en: ["what is GTA 6", "GTA 6 release date", "GTA VI explained", "GTA 6 setting Leonida", "GTA VI advertising", "Nordic game launch advertising"],
       no: ["GTA VI annonsering", "GTA 6 markedsføring", "spillansering Norden", "Twitch-annonsering Norge", "streamermarkedsføring"],
       sv: ["GTA VI annonsering", "GTA 6 marknadsföring", "spellansering Norden", "Twitch-annonsering Sverige", "streamermarknadsföring"],
       fi: ["GTA VI mainonta", "GTA 6 markkinointi", "pelijulkaisu Pohjoismaat", "Twitch-mainonta Suomi", "striimaajamarkkinointi"]
