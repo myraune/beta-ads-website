@@ -4,31 +4,31 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { MARKET_CREATORS, type MarketCode } from "@/data/streamers";
+import { VERTICALS, GROUPS, type Lang } from "@/data/gtaViVerticals";
 
 /**
- * GTA VI, from the Nordic media-planning side.
+ * GTA VI as a category guide for Nordic brands, in English and Norwegian.
  *
- * Every number on this page is either from a named third party (linked in the
- * sources block at the bottom) or measured from our own creator network. The
- * network figures come from the 234 tracked clips across the 40 creators in
- * src/data/streamers.ts, counted on 2026-09-02. They are labelled as ours so
- * nobody mistakes them for market-wide data.
+ * Same shape as any brand-category guide: which verticals fit, why, and what to
+ * avoid. The text is written from scratch and the categories are argued from our
+ * own campaign history rather than from someone else's case studies. Where we
+ * have not run a category, the card says so instead of implying we have.
  *
- * No Rockstar artwork is used. The game's promotional stills are theirs, and a
- * piece arguing that brands should stop borrowing IP they have no licence to
- * should not open by borrowing IP it has no licence to.
+ * Third-party numbers are linked in the sources block. Network figures are
+ * measured from the 234 tracked clips across 40 creators in streamers.ts and
+ * labelled as ours, and the clip gallery is derived from the same module so the
+ * count in the copy cannot drift from the evidence under it.
  */
 
 const serif = { fontFamily: "'Instrument Serif', serif" };
 
-const MARKET_LABEL: Record<string, string> = { no: "Norway", se: "Sweden", da: "Denmark", fi: "Finland" };
+const MARKET_LABEL: Record<string, Record<Lang, string>> = {
+  no: { en: "Norway", no: "Norge" },
+  se: { en: "Sweden", no: "Sverige" },
+  da: { en: "Denmark", no: "Danmark" },
+  fi: { en: "Finland", no: "Finland" },
+};
 
-/**
- * The real GTA clips our Nordic creators have on Twitch, derived from the same
- * data module the streamer pages use rather than copied into this file. If a
- * creator's clips change, this section changes with them, and the count in the
- * copy above cannot drift away from the evidence below it.
- */
 const gtaClips = Object.entries(MARKET_CREATORS as Record<MarketCode, any[]>)
   .flatMap(([market, list]) =>
     (list || []).flatMap((c: any) =>
@@ -37,7 +37,6 @@ const gtaClips = Object.entries(MARKET_CREATORS as Record<MarketCode, any[]>)
         .map((x: any) => ({
           market,
           creator: c.name as string,
-          handle: c.handle as string,
           avatar: c.image as string,
           title: x.title as string,
           views: (x.viewCount || 0) as number,
@@ -52,151 +51,131 @@ const topClips = gtaClips.slice(0, 6);
 const totalClipViews = gtaClips.reduce((s, c) => s + c.views, 0);
 
 const RELEASE = new Date("2026-11-19T00:00:00Z");
-
-/** Whole days from today to launch. Recomputed on render so it never goes stale. */
 const daysToLaunch = () =>
   Math.max(0, Math.ceil((RELEASE.getTime() - Date.now()) / 86_400_000));
 
-const heroStats = [
-  { value: "31.1M", label: "Netflix views in four days" },
-  { value: "3.97M", label: "Peak viewers watching reactions" },
-  { value: "17K", label: "Twitch outage reports at peak" },
-  { value: "Nov 19", label: "Launch, 2026" },
-];
+const t = {
+  kicker: { en: "Nordic media planning", no: "Nordisk mediearbeid" },
+  h1a: { en: "Eight categories worth", no: "Åtte kategorier verdt" },
+  h1b: { en: "planning", no: "å planlegge" },
+  h1c: { en: "around GTA VI", no: "rundt GTA VI" },
+  intro: {
+    en: "Official placement inside the game is expensive and rationed. Everything below happens around it, in the streams and the chats, and needs nobody's permission. Here is which categories fit, which moment each one should buy, and where we have actually run it.",
+    no: "Offisiell plassering inne i spillet er dyrt og rasjonert. Alt dette skjer rundt spillet, i sendingene og i chatten, og trenger ingen tillatelse. Her er hvilke kategorier som passer, hvilket øyeblikk hver av dem bør kjøpe, og hvor vi faktisk har kjørt det.",
+  },
+  countdown: { en: "days until launch, 19 November 2026", no: "dager til lansering, 19. november 2026" },
+  proofLabel: { en: "We have run this", no: "Dette har vi kjørt" },
+  seeCase: { en: "See the campaign", no: "Se kampanjen" },
+  whyTitle: {
+    en: "Why almost any category has a route in",
+    no: "Hvorfor nesten hvilken som helst kategori har en vei inn",
+  },
+  whyBody: {
+    en: "Rockstar premiered the Extended Look on Netflix on 27 August. It took 31.1 million views in four days and was the platform's most-watched title that week. But 3.97 million people were somewhere else entirely, watching creators watch it, and that is the layer a brand can buy.",
+    no: "Rockstar hadde premiere på Extended Look på Netflix 27. august. Den fikk 31,1 millioner visninger på fire dager og var plattformens mest sette tittel den uken. Men 3,97 millioner mennesker var et helt annet sted, og så på skapere som så på den. Det er laget en merkevare kan kjøpe.",
+  },
+  netTitle: {
+    en: "GTA is already the second most clipped game in our network",
+    no: "GTA er allerede det nest mest klippede spillet i nettverket vårt",
+  },
+  netBody: {
+    en: "We track 234 clips across 40 Nordic creators, tagged by game. Grand Theft Auto sits second among actual games behind Counter-Strike, and the spread across markets is uneven in a way that changes where the money should go.",
+    no: "Vi sporer 234 klipp fordelt på 40 nordiske skapere, merket med spill. Grand Theft Auto ligger nummer to blant faktiske spill, bak Counter-Strike, og fordelingen mellom markedene er så ujevn at den endrer hvor pengene bør gå.",
+  },
+  clipsTitle: { en: "This is what it looks like right now", no: "Slik ser det ut akkurat nå" },
+  clipsBody: {
+    en: "Not a mock-up. The most-watched Grand Theft Auto clips from creators in our network, straight off Twitch.",
+    no: "Ikke en skisse. De mest sette Grand Theft Auto-klippene fra skapere i nettverket vårt, hentet rett fra Twitch.",
+  },
+  formatKicker: { en: "The format", no: "Formatet" },
+  formatTitle: {
+    en: "This is the thing an ad blocker cannot remove",
+    no: "Dette er det en adblocker ikke kan fjerne",
+  },
+  formatBody: {
+    en: "A real Komplett overlay inside a Norwegian broadcast. There is no separate ad element on the page, so a blocker has nothing to strip. Across a six-hour session that difference compounds: a pre-roll reaches the minority without a blocker, once.",
+    no: "Et ekte Komplett-overlay inne i en norsk sending. Det finnes ikke noe eget annonseelement på siden, så en adblocker har ingenting å fjerne. Over en sekstimers økt forsterker forskjellen seg: en pre-roll når mindretallet uten adblocker, én gang.",
+  },
+  avoidTitle: {
+    en: "Three things we would talk a client out of",
+    no: "Tre ting vi ville frarådet en kunde",
+  },
+  ctaTitle: { en: "days is enough time to do this properly", no: "dager er nok tid til å gjøre dette skikkelig" },
+  ctaBody: {
+    en: "Tell us the category and the market. We will say honestly whether launch week is your moment, or whether the money works harder somewhere else.",
+    no: "Fortell oss kategorien og markedet. Vi sier ærlig fra om lanseringsuken passer for dere, eller om pengene jobber hardere et annet sted.",
+  },
+  book: { en: "Book a demo", no: "Book en demo" },
+  cost: { en: "See what it costs", no: "Se hva det koster" },
+  sourcesLabel: { en: "Sources", no: "Kilder" },
+  clipNote: { en: "Clips hosted on Twitch. Opens in a new tab.", no: "Klippene ligger på Twitch. Åpnes i ny fane." },
+  netFoot: { en: "clips, ", no: "klipp, " },
+  disclaimer: {
+    en: "Network figures are Beta Agency's own, counted from 234 tracked clips across 40 Nordic creators on 2 September 2026.",
+    no: "Nettverkstallene er Beta Agency sine egne, talt fra 234 sporede klipp på 40 nordiske skapere 2. september 2026.",
+  },
+};
 
-/**
- * Where the audience actually was during the Extended Look. The point of the
- * comparison is that the second row is not the trailer, it is people watching
- * other people watch the trailer.
- */
-const audience = [
+const avoid: { title: Record<Lang, string>; body: Record<Lang, string> }[] = [
   {
-    logo: null,
-    label: "Netflix, the trailer itself",
-    value: 31.1,
-    display: "31.1M views",
-    note: "Four days. Netflix's most-watched title that week.",
+    title: {
+      en: "Do not build anything that needs a licence",
+      no: "Ikke bygg noe som krever lisens",
+    },
+    body: {
+      en: "Official in-game placement is slow, expensive and mostly unavailable. Every category above works around the game instead, which is why it can be booked in weeks rather than quarters.",
+      no: "Offisiell plassering i spillet er treg, dyr og stort sett utilgjengelig. Alle kategoriene over jobber rundt spillet i stedet, og derfor kan de bookes på uker i stedet for kvartaler.",
+    },
   },
   {
-    logo: "/lovable-uploads/platform-twitch.png",
-    label: "Twitch and YouTube, reactions and watch parties",
-    value: 3.97,
-    display: "3.97M peak concurrent",
-    note: "Biggest gaming showcase Streams Charts tracked in 2026.",
-  },
-];
-const audienceMax = 31.1;
-
-/** Our own network. 10 creators per market, clips tagged by game on Twitch. */
-const nordicGta = [
-  { market: "Norway", withGta: 4, note: "Most GTA-active market in our network" },
-  { market: "Sweden", withGta: 3, note: "Highest view count per GTA clip" },
-  { market: "Denmark", withGta: 1, note: "Concentrated in a single creator" },
-  { market: "Finland", withGta: 0, note: "No GTA clips tracked at all" },
-];
-
-/** Clips by game across the whole network. Just Chatting is a category, not a game. */
-const clipMix = [
-  { game: "Just Chatting", clips: 80, isGame: false },
-  { game: "Counter-Strike", clips: 35, isGame: true },
-  { game: "Grand Theft Auto", clips: 22, isGame: true },
-  { game: "Fortnite", clips: 20, isGame: true },
-];
-const clipMax = 80;
-
-const plays = [
-  {
-    n: "01",
-    title: "Buy the reaction, not the launch",
-    body:
-      "The launch night itself will be the most expensive inventory of the year and the least differentiated. The week after is when creators play, fail, rage, and rebuild, and when a brand can sit in the stream without competing with Rockstar for attention.",
+    title: {
+      en: "Do not put the trailer numbers in your media plan",
+      no: "Ikke ta trailertallene inn i medieplanen",
+    },
+    body: {
+      en: "31.1 million is a global entertainment figure. Writing it into a Nordic plan is how a campaign ends up measured against a number it was never going to reach.",
+      no: "31,1 millioner er et globalt underholdningstall. Å skrive det inn i en nordisk plan er måten en kampanje ender opp målt mot et tall den aldri kunne nå.",
+    },
   },
   {
-    n: "02",
-    title: "Treat the first 72 hours as infrastructure, not media",
-    body:
-      "Twitch logged more than 17,000 outage reports during a six-minute trailer. Launch week will be heavier. If your activation depends on a live overlay firing on schedule, plan for the platform being degraded, and check the placement daily rather than reading a report afterwards.",
-  },
-  {
-    n: "03",
-    title: "Go where the game is not",
-    body:
-      "Finland has zero GTA clips in our network. That is not a gap to fix with GTA money, it is a signal that Finnish creators and their audiences are somewhere else. Buying GTA adjacency in Finland during launch week means paying a premium to reach people who were not watching.",
-  },
-  {
-    n: "04",
-    title: "Use the format the audience already tolerates",
-    body:
-      "Roughly 80 percent of Nordic 18 to 34 year olds run an ad blocker. Pre-roll on a GTA stream reaches the subset who have not installed one. An overlay built into the broadcast reaches everyone watching, because there is no separate ad element for a blocker to remove.",
-  },
-  {
-    n: "05",
-    title: "Write the brief for a six-hour session",
-    body:
-      "GTA sessions run long. A creative that works as a 15 second spot does not work as something a viewer sees for the fourth hour running. Plan a rotation, a chat command that changes, or a moment tied to something happening in the game, rather than one asset looping until it is wallpaper.",
-  },
-];
-
-const avoid = [
-  {
-    title: "Do not build anything that needs Rockstar's permission",
-    body:
-      "Official in-game placement is expensive, slow, and mostly unavailable. Everything on this page happens around the game, in streams and chats, and needs no licence.",
-  },
-  {
-    title: "Do not assume the trailer numbers are your reach",
-    body:
-      "31.1 million people watched on Netflix. That is a global figure for a piece of entertainment, not an addressable Nordic audience, and quoting it in a media plan is how a campaign gets judged against a number it was never going to hit.",
-  },
-  {
-    title: "Do not book launch week and call it a GTA strategy",
-    body:
-      "The game is a live-service title with a multi-year tail. GTA V was still the second most watched game on Twitch in 2025, twelve years after release. Launch week is the loudest moment, not the whole opportunity.",
+    title: {
+      en: "Do not book launch week and call it a strategy",
+      no: "Ikke book lanseringsuken og kall det en strategi",
+    },
+    body: {
+      en: "GTA V was still the second most watched game on Twitch in 2025, twelve years after release. Launch week is the loudest moment, not the opportunity.",
+      no: "GTA V var fortsatt det nest mest sette spillet på Twitch i 2025, tolv år etter lansering. Lanseringsuken er det høyeste øyeblikket, ikke muligheten.",
+    },
   },
 ];
 
 const sources = [
-  {
-    label: "Streams Charts - GTA VI Extended Look peaked at 3.97M viewers",
-    href: "https://streamscharts.com/",
-  },
-  {
-    label: "GamesRadar - Extended Look was Netflix's most-watched title, 31.1M views",
-    href: "https://www.gamesradar.com/games/grand-theft-auto/the-gta-6-extended-look-was-netflixs-most-watched-title-for-the-week-with-31-1-million-views/",
-  },
-  {
-    label: "Forbes - GTA 6 hits No. 1 on Netflix, streamer web viewership up 125%",
-    href: "https://www.forbes.com/sites/paultassi/2026/08/28/gta-6-hits-no-1-on-netflix-and-catapults-streamers-web-viewership-125/",
-  },
-  {
-    label: "Variety - GTA 6 release delayed to November 19, 2026",
-    href: "https://variety.com/2025/tv/news/gta-6-release-delayed-november-2026-29751",
-  },
-  {
-    label: "Stream Hatchet 2025 - GTA V second most-watched game on Twitch, 1.9B hours",
-    href: "https://streamhatchet.com/",
-  },
+  { label: "Streams Charts - Extended Look peaked at 3.97M concurrent viewers", href: "https://streamscharts.com/" },
+  { label: "GamesRadar - Extended Look was Netflix's most-watched title, 31.1M views", href: "https://www.gamesradar.com/games/grand-theft-auto/the-gta-6-extended-look-was-netflixs-most-watched-title-for-the-week-with-31-1-million-views/" },
+  { label: "Forbes - GTA 6 hits No. 1 on Netflix, streamer web viewership up 125%", href: "https://www.forbes.com/sites/paultassi/2026/08/28/gta-6-hits-no-1-on-netflix-and-catapults-streamers-web-viewership-125/" },
+  { label: "Variety - GTA 6 release moved to 19 November 2026", href: "https://variety.com/2025/tv/news/gta-6-release-delayed-november-2026-29751" },
+  { label: "Stream Hatchet 2025 - GTA V second most-watched game on Twitch", href: "https://streamhatchet.com/" },
 ];
 
-const Reveal: React.FC<{ children: React.ReactNode; className?: string }> = ({
-  children,
-  className = "",
-}) => {
+const nordicGta = [
+  { market: "no", withGta: 4 },
+  { market: "se", withGta: 3 },
+  { market: "da", withGta: 1 },
+  { market: "fi", withGta: 0 },
+];
+
+const Reveal: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = "" }) => {
   const { ref, isVisible } = useScrollAnimation<HTMLDivElement>();
   return (
-    <div
-      ref={ref}
-      className={`transition-all duration-700 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      } ${className}`}
-    >
+    <div ref={ref} className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"} ${className}`}>
       {children}
     </div>
   );
 };
 
-const GtaViNordicPlaybook: React.FC = () => {
+const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
   const days = daysToLaunch();
+  const L = <T,>(o: Record<Lang, T>) => o[lang];
 
   return (
     <article>
@@ -204,49 +183,27 @@ const GtaViNordicPlaybook: React.FC = () => {
       <section className="relative overflow-hidden rounded-3xl bg-[hsl(240_11%_5%)] ring-1 ring-white/10 px-6 sm:px-10 lg:px-14 py-14 lg:py-16">
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(120% 80% at 20% 0%, rgba(233,79,55,0.22), transparent 60%)",
-          }}
+          style={{ background: "radial-gradient(120% 80% at 20% 0%, rgba(233,79,55,0.22), transparent 60%)" }}
         />
         <div className="relative z-10 grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-center">
           <div>
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
-            Nordic media planning
-          </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight max-w-3xl mb-6">
-            Four million people watched
-            <br />
-            <span style={serif} className="italic font-normal">
-              someone else
-            </span>{" "}
-            watch a trailer
-          </h1>
-          <p className="text-lg text-white/65 leading-relaxed max-w-xl mb-8">
-            Rockstar put the GTA VI Extended Look on Netflix. The reaction layer on Twitch was
-            almost four million concurrent viewers, and Twitch fell over. Here is what that means
-            for a Nordic media plan, with our own network numbers on where GTA already lives.
-          </p>
-
-          <div className="inline-flex items-baseline gap-3 rounded-2xl border border-white/15 bg-white/[0.06] px-6 py-4 mb-10">
-            <span className="text-4xl font-bold text-white tabular-nums">{days}</span>
-            <span className="text-sm text-white/60">
-              days until launch, 19 November 2026
+            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
+              {L(t.kicker)}
             </span>
+            <h1 className="text-4xl md:text-5xl font-bold text-white leading-[1.06] tracking-tight mb-6">
+              {L(t.h1a)}{" "}
+              <span style={serif} className="italic font-normal">{L(t.h1b)}</span>
+              <br />
+              {L(t.h1c)}
+            </h1>
+            <p className="text-base text-white/65 leading-relaxed mb-8">{L(t.intro)}</p>
+
+            <div className="inline-flex items-baseline gap-3 rounded-2xl border border-white/15 bg-white/[0.06] px-5 py-3.5">
+              <span className="text-3xl font-bold text-white tabular-nums">{days}</span>
+              <span className="text-sm text-white/60">{L(t.countdown)}</span>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px border border-white/10 rounded-2xl overflow-hidden bg-white/10">
-            {heroStats.map((s) => (
-              <div key={s.label} className="bg-black/40 backdrop-blur-sm px-5 py-5">
-                <div className="text-2xl font-bold text-white tracking-tight">{s.value}</div>
-                <div className="text-xs text-white/50 mt-1 leading-snug">{s.label}</div>
-              </div>
-            ))}
-          </div>
-          </div>
-
-          {/* The most-watched GTA clip in the network, as the evidence the
-              headline is talking about rather than a stock image. */}
           {topClips[0] && (
             <a
               href={topClips[0].url}
@@ -261,18 +218,14 @@ const GtaViNordicPlaybook: React.FC = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <span className="absolute bottom-2 right-2 rounded-md bg-black/75 px-2 py-0.5 text-[11px] font-semibold text-white tabular-nums">
-                  {topClips[0].views.toLocaleString("en-GB")} views
+                  {topClips[0].views.toLocaleString(lang === "no" ? "nb-NO" : "en-GB")}
                 </span>
               </div>
               <div className="px-4 py-3.5 flex items-center gap-3">
                 <img src={topClips[0].avatar} alt="" className="h-8 w-8 rounded-lg object-cover bg-white/10 shrink-0" />
                 <div className="min-w-0">
-                  <div className="text-[13px] font-semibold text-white truncate group-hover:text-primary transition-colors">
-                    {topClips[0].title}
-                  </div>
-                  <div className="text-[11px] text-white/45">
-                    {topClips[0].creator} · GTA on Twitch, our network
-                  </div>
+                  <div className="text-[13px] font-semibold text-white truncate">{topClips[0].title}</div>
+                  <div className="text-[11px] text-white/45">{topClips[0].creator} · GTA, Twitch</div>
                 </div>
               </div>
             </a>
@@ -280,387 +233,275 @@ const GtaViNordicPlaybook: React.FC = () => {
         </div>
       </section>
 
-      {/* ── What the Extended Look proved ── */}
-      <section className="py-16 md:py-20 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <Reveal>
-            <div className="max-w-2xl mb-10">
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
-                27 August 2026
-              </span>
-              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
-                The audience was not where the trailer was
-              </h2>
-              <p className="text-base text-muted-foreground leading-relaxed">
-                Rockstar premiered the Extended Look on Netflix and held it there for six hours
-                before putting it on YouTube. Netflix got 31.1 million views in four days and its
-                most-watched title of the week. But the number that matters for anyone buying
-                media is the second one.
-              </p>
-            </div>
-          </Reveal>
-
-          <Reveal>
-            <div className="space-y-5 max-w-4xl">
-              {audience.map((a) => (
-                <div key={a.label}>
-                  <div className="flex items-baseline justify-between mb-2 gap-4">
-                    <span className="text-sm font-medium text-foreground flex items-center gap-2">
-                      {a.logo && (
-                        <img src={a.logo} alt="" className="h-4 w-auto" loading="lazy" />
-                      )}
-                      {a.label}
-                    </span>
-                    <span className="text-sm font-semibold text-foreground tabular-nums shrink-0">
-                      {a.display}
-                    </span>
-                  </div>
-                  <div className="h-3 rounded-full bg-muted overflow-hidden">
-                    <div
-                      className="h-full rounded-full bg-primary"
-                      style={{ width: `${(a.value / audienceMax) * 100}%` }}
-                    />
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-2">{a.note}</p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-
-          <Reveal>
-            <div className="mt-10 rounded-2xl border border-border bg-card p-7 max-w-3xl">
-              <p className="text-base text-foreground leading-relaxed">
-                Those 3.97 million were not watching Rockstar. They were watching creators watch
-                Rockstar. That reaction layer is the part a brand can actually buy, and it is the
-                part that does not need anyone's permission.
-              </p>
-              <p className="text-sm text-muted-foreground leading-relaxed mt-4">
-                Twitch did not cope. Downdetector logged more than 17,000 reports at peak and
-                Twitch's own status page called it a major outage across web, chat and video.
-                Launch week will be heavier than a six-minute trailer.
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── Our own Nordic data ── */}
-      <section className="py-16 md:py-20 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <Reveal>
-            <div className="max-w-2xl mb-10">
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
-                Our network, measured
-              </span>
-              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
-                GTA is already the second most clipped game in the Nordics
-              </h2>
-              <p className="text-base text-muted-foreground leading-relaxed">
-                We track 234 clips across 40 Nordic creators, tagged by game. Counting them on
-                2 September 2026, Grand Theft Auto sits second among actual games, behind
-                Counter-Strike. This is our own network rather than market-wide data, but it is
-                the part of the market we can see clearly.
-              </p>
-            </div>
-          </Reveal>
-
-          <div className="grid lg:grid-cols-2 gap-12">
-            <Reveal>
-              <h3 className="text-sm font-semibold text-foreground mb-5">
-                Clips by game, whole network
-              </h3>
-              <div className="space-y-4">
-                {clipMix.map((c) => (
-                  <div key={c.game}>
-                    <div className="flex items-baseline justify-between mb-1.5 gap-4">
-                      <span className="text-sm text-foreground">
-                        {c.game}
-                        {!c.isGame && (
-                          <span className="text-xs text-muted-foreground ml-2">
-                            category, not a game
-                          </span>
-                        )}
-                      </span>
-                      <span className="text-sm font-semibold tabular-nums text-foreground">
-                        {c.clips}
-                      </span>
-                    </div>
-                    <div className="h-2.5 rounded-full bg-muted overflow-hidden">
-                      <div
-                        className={`h-full rounded-full ${
-                          c.game === "Grand Theft Auto" ? "bg-primary" : "bg-foreground/25"
-                        }`}
-                        style={{ width: `${(c.clips / clipMax) * 100}%` }}
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-
-            <Reveal>
-              <h3 className="text-sm font-semibold text-foreground mb-5">
-                Creators with GTA clips, out of 10 per market
-              </h3>
-              <div className="space-y-3">
-                {nordicGta.map((m) => (
-                  <div
-                    key={m.market}
-                    className="rounded-xl border border-border bg-card px-5 py-4 flex items-start justify-between gap-4"
-                  >
-                    <div>
-                      <div className="text-sm font-semibold text-foreground">{m.market}</div>
-                      <div className="text-xs text-muted-foreground mt-0.5">{m.note}</div>
-                    </div>
-                    <div className="flex items-center gap-1 shrink-0 pt-1">
-                      {Array.from({ length: 10 }).map((_, i) => (
-                        <span
-                          key={i}
-                          className={`h-2.5 w-2.5 rounded-sm ${
-                            i < m.withGta ? "bg-primary" : "bg-foreground/20 ring-1 ring-inset ring-foreground/10"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <p className="text-xs text-muted-foreground mt-4">
-                24 GTA clips, 170,190 views across the network.
-              </p>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* ── The evidence: real clips ── */}
-      <section className="py-16 md:py-20 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <Reveal>
-            <div className="max-w-2xl mb-10">
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
-                The clips themselves
-              </span>
-              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
-                This is what GTA looks like in the Nordics right now
-              </h2>
-              <p className="text-base text-muted-foreground leading-relaxed">
-                Not a mock-up. These are the most-watched Grand Theft Auto clips from creators in our
-                network, straight off Twitch. {gtaClips.length} clips, {totalClipViews.toLocaleString("en-GB")} views
-                between them, and every one is a moment a brand could have been present for.
-              </p>
-            </div>
-          </Reveal>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {topClips.map((c) => (
-              <Reveal key={c.url}>
-                <a
-                  href={c.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group block rounded-2xl border border-border bg-card overflow-hidden hover:border-primary/30 transition-colors h-full"
-                >
-                  <div className="relative aspect-video bg-muted overflow-hidden">
-                    <img
-                      src={c.thumb}
-                      alt={`${c.creator}: ${c.title}`}
-                      loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <span className="absolute bottom-2 right-2 rounded-md bg-black/75 px-2 py-0.5 text-[11px] font-semibold text-white tabular-nums">
-                      {c.views.toLocaleString("en-GB")} views
-                    </span>
-                  </div>
-                  <div className="p-4 flex items-start gap-3">
-                    <img
-                      src={c.avatar}
-                      alt=""
-                      loading="lazy"
-                      className="h-9 w-9 rounded-lg object-cover bg-muted shrink-0"
-                    />
-                    <div className="min-w-0">
-                      <div className="text-sm font-semibold text-foreground truncate group-hover:text-primary transition-colors">
-                        {c.title}
-                      </div>
-                      <div className="text-xs text-muted-foreground mt-0.5">
-                        {c.creator} · {MARKET_LABEL[c.market]}
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </Reveal>
-            ))}
-          </div>
-          <p className="text-xs text-muted-foreground mt-5">
-            Clips hosted on Twitch. Opens in a new tab.
-          </p>
-        </div>
-      </section>
-
-      {/* ── What the format actually is ── */}
-      <section className="py-16 md:py-20 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <Reveal>
-            <div className="grid lg:grid-cols-[0.85fr_1fr] gap-10 items-center">
-              <div className="rounded-2xl overflow-hidden bg-black ring-1 ring-border max-w-sm mx-auto lg:mx-0">
-                <video
-                  src="/lovable-uploads/overlay-komplett.webm"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="metadata"
-                  className="w-full h-auto block"
-                  aria-label="A native Komplett overlay ad rendered live inside a Norwegian Twitch stream"
-                />
-              </div>
-              <div>
-                <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
-                  The format
-                </span>
-                <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-4">
-                  This is the thing an ad blocker cannot remove
-                </h2>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  A real Komplett overlay, rendered inside a Norwegian broadcast. There is no separate
-                  ad element on the page, so there is nothing for a blocker to strip. It sits in the
-                  layout through the session rather than interrupting it.
-                </p>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  During a six-hour GTA session that difference compounds. A pre-roll reaches the
-                  minority without a blocker, once. This is present for everyone watching, for as long
-                  as they watch.
-                </p>
-                <Link
-                  to="/case-study/komplett"
-                  className="group inline-flex items-center gap-1.5 text-sm font-medium text-foreground mt-5 hover:text-primary transition-colors"
-                >
-                  Read the Komplett campaign
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
-                </Link>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── The plays ── */}
-      <section className="py-16 md:py-20 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <Reveal>
-            <div className="max-w-2xl mb-10">
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
-                What to actually do
-              </span>
-              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
-                Five plays, in the order we would run them
-              </h2>
-            </div>
-          </Reveal>
-
-          <div className="grid md:grid-cols-2 gap-5 max-w-5xl">
-            {plays.map((p) => (
-              <Reveal key={p.n}>
-                <div className="h-full rounded-2xl border border-border bg-card p-7">
-                  <div className="text-3xl font-bold text-primary/20 mb-4 tracking-tighter">
-                    {p.n}
-                  </div>
-                  <h3 className="text-base font-semibold text-foreground mb-3">{p.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{p.body}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── What not to do ── */}
-      <section className="py-16 md:py-20 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <Reveal>
-            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-10 max-w-2xl">
-              Three things we would talk a client out of
+      {/* ── Why it works ── */}
+      <section className="py-14 md:py-16 border-t border-border mt-14">
+        <Reveal>
+          <div className="max-w-2xl">
+            <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-4">
+              {L(t.whyTitle)}
             </h2>
+            <p className="text-base text-muted-foreground leading-relaxed">{L(t.whyBody)}</p>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* ── The eight categories ── */}
+      {(["session", "game", "launch"] as const).map((group) => (
+        <section key={group} className="py-14 md:py-16 border-t border-border">
+          <Reveal>
+            <div className="max-w-2xl mb-9">
+              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+                {L(GROUPS[group])!.label}
+              </span>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                {L(GROUPS[group])!.blurb}
+              </p>
+            </div>
           </Reveal>
-          <div className="max-w-3xl divide-y divide-border border-y border-border">
-            {avoid.map((a) => (
-              <Reveal key={a.title}>
-                <div className="py-6">
-                  <h3 className="text-base font-semibold text-foreground mb-2">{a.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{a.body}</p>
+
+          <div className="grid md:grid-cols-2 gap-5">
+            {VERTICALS.filter((v) => v.group === group).map((v) => (
+              <Reveal key={v.n}>
+                <div className="h-full rounded-2xl border border-border bg-card p-7 flex flex-col">
+                  <div className="flex items-start justify-between gap-4 mb-4">
+                    <div>
+                      <div className="text-xs font-semibold text-primary/50 tabular-nums mb-1">{v.n}</div>
+                      <h3 className="text-lg font-semibold text-foreground">{L(v.title)}</h3>
+                    </div>
+                    {v.proof && (
+                      <span className="shrink-0 rounded-lg bg-[hsl(240_11%_9%)] px-3 py-2 ring-1 ring-black/5">
+                        <img
+                          src={v.proof.logo}
+                          alt={v.proof.brand}
+                          loading="lazy"
+                          className="h-5 w-auto max-w-[92px] object-contain block"
+                        />
+                      </span>
+                    )}
+                  </div>
+
+                  <p className="text-sm text-muted-foreground leading-relaxed flex-1">{L(v.why)}</p>
+
+                  <p className="text-sm text-foreground font-medium mt-4 pl-3 border-l-2 border-primary">
+                    {L(v.moment)}
+                  </p>
+
+                  {v.proof ? (
+                    <div className="mt-5 pt-4 border-t border-border flex items-center justify-between gap-3">
+                      <span className="text-xs text-muted-foreground">
+                        {L(t.proofLabel)} · {v.proof.brand}
+                      </span>
+                      {v.proof.href && (
+                        <Link
+                          to={v.proof.href}
+                          className="group inline-flex items-center gap-1 text-xs font-medium text-foreground hover:text-primary transition-colors"
+                        >
+                          {L(t.seeCase)}
+                          <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
+                        </Link>
+                      )}
+                    </div>
+                  ) : (
+                    v.noProof && (
+                      <p className="text-xs text-muted-foreground mt-5 pt-4 border-t border-border">
+                        {L(v.noProof)}
+                      </p>
+                    )
+                  )}
                 </div>
               </Reveal>
             ))}
           </div>
+        </section>
+      ))}
+
+      {/* ── Our network ── */}
+      <section className="py-14 md:py-16 border-t border-border">
+        <Reveal>
+          <div className="max-w-2xl mb-9">
+            <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-4">
+              {L(t.netTitle)}
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed">{L(t.netBody)}</p>
+          </div>
+        </Reveal>
+        <Reveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl">
+            {nordicGta.map((m) => (
+              <div key={m.market} className="rounded-xl border border-border bg-card px-5 py-4">
+                <div className="text-sm font-semibold text-foreground mb-2">
+                  {MARKET_LABEL[m.market][lang]}
+                </div>
+                <div className="flex items-center gap-1 mb-2">
+                  {Array.from({ length: 10 }).map((_, i) => (
+                    <span
+                      key={i}
+                      className={`h-2.5 w-2.5 rounded-sm ${
+                        i < m.withGta ? "bg-primary" : "bg-foreground/20 ring-1 ring-inset ring-foreground/10"
+                      }`}
+                    />
+                  ))}
+                </div>
+                <div className="text-xs text-muted-foreground tabular-nums">{m.withGta} / 10</div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      {/* ── The clips ── */}
+      <section className="py-14 md:py-16 border-t border-border">
+        <Reveal>
+          <div className="max-w-2xl mb-9">
+            <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">
+              {L(t.clipsTitle)}
+            </h2>
+            <p className="text-base text-muted-foreground leading-relaxed">
+              {L(t.clipsBody)} {gtaClips.length} {L(t.netFoot)}
+              {totalClipViews.toLocaleString(lang === "no" ? "nb-NO" : "en-GB")}.
+            </p>
+          </div>
+        </Reveal>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {topClips.map((c) => (
+            <Reveal key={c.url}>
+              <a
+                href={c.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block rounded-2xl border border-border bg-card overflow-hidden hover:border-primary/30 transition-colors h-full"
+              >
+                <div className="relative aspect-video bg-muted overflow-hidden">
+                  <img
+                    src={c.thumb}
+                    alt={`${c.creator}: ${c.title}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <span className="absolute bottom-2 right-2 rounded-md bg-black/75 px-2 py-0.5 text-[11px] font-semibold text-white tabular-nums">
+                    {c.views.toLocaleString(lang === "no" ? "nb-NO" : "en-GB")}
+                  </span>
+                </div>
+                <div className="p-4 flex items-start gap-3">
+                  <img src={c.avatar} alt="" loading="lazy" className="h-9 w-9 rounded-lg object-cover bg-muted shrink-0" />
+                  <div className="min-w-0">
+                    <div className="text-sm font-semibold text-foreground truncate group-hover:text-primary transition-colors">
+                      {c.title}
+                    </div>
+                    <div className="text-xs text-muted-foreground mt-0.5">
+                      {c.creator} · {MARKET_LABEL[c.market][lang]}
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </Reveal>
+          ))}
+        </div>
+        <p className="text-xs text-muted-foreground mt-5">{L(t.clipNote)}</p>
+      </section>
+
+      {/* ── The format ── */}
+      <section className="py-14 md:py-16 border-t border-border">
+        <Reveal>
+          <div className="grid lg:grid-cols-[0.85fr_1fr] gap-10 items-center">
+            <div className="rounded-2xl overflow-hidden bg-black ring-1 ring-border max-w-sm mx-auto lg:mx-0">
+              <video
+                src="/lovable-uploads/overlay-komplett.webm"
+                autoPlay
+                loop
+                muted
+                playsInline
+                preload="metadata"
+                className="w-full h-auto block"
+                aria-label="A native Komplett overlay rendered live inside a Norwegian Twitch stream"
+              />
+            </div>
+            <div>
+              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+                {L(t.formatKicker)}
+              </span>
+              <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-4">
+                {L(t.formatTitle)}
+              </h2>
+              <p className="text-sm text-muted-foreground leading-relaxed">{L(t.formatBody)}</p>
+              <Link
+                to="/case-study/komplett"
+                className="group inline-flex items-center gap-1.5 text-sm font-medium text-foreground mt-5 hover:text-primary transition-colors"
+              >
+                {L(t.seeCase)}
+                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            </div>
+          </div>
+        </Reveal>
+      </section>
+
+      {/* ── What to avoid ── */}
+      <section className="py-14 md:py-16 border-t border-border">
+        <Reveal>
+          <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-8 max-w-2xl">
+            {L(t.avoidTitle)}
+          </h2>
+        </Reveal>
+        <div className="max-w-3xl divide-y divide-border border-y border-border">
+          {avoid.map((a) => (
+            <Reveal key={a.title.en}>
+              <div className="py-6">
+                <h3 className="text-base font-semibold text-foreground mb-2">{L(a.title)}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{L(a.body)}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-16 md:py-20 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <Reveal>
-            <div className="rounded-3xl border border-border p-10 md:p-14 flex flex-col md:flex-row md:items-center justify-between gap-8">
-              <div className="max-w-md">
-                <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">
-                  {days} days is enough time to do this properly
-                </h2>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Tell us the market and the product. We will say honestly whether GTA launch
-                  week is the right moment for you, or whether your money works harder somewhere
-                  else.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-3 shrink-0">
-                <Link to="/contact">
-                  <Button
-                    size="lg"
-                    className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12"
-                  >
-                    Book a demo <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
-                </Link>
-                <Link to="/twitch-advertising-cost">
-                  <Button
-                    size="lg"
-                    variant="ghost"
-                    className="rounded-full px-8 h-12 border border-border"
-                  >
-                    See what it costs
-                  </Button>
-                </Link>
-              </div>
+      <section className="py-14 md:py-16 border-t border-border">
+        <Reveal>
+          <div className="rounded-3xl border border-border p-10 md:p-14 flex flex-col md:flex-row md:items-center justify-between gap-8">
+            <div className="max-w-md">
+              <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">
+                {days} {L(t.ctaTitle)}
+              </h2>
+              <p className="text-sm text-muted-foreground leading-relaxed">{L(t.ctaBody)}</p>
             </div>
-          </Reveal>
-        </div>
+            <div className="flex flex-wrap gap-3 shrink-0">
+              <Link to="/contact">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12">
+                  {L(t.book)} <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </Link>
+              <Link to={lang === "no" ? "/twitch-annonsering-pris" : "/twitch-advertising-cost"}>
+                <Button size="lg" variant="ghost" className="rounded-full px-8 h-12 border border-border">
+                  {L(t.cost)}
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </Reveal>
       </section>
 
       {/* ── Sources ── */}
-      <section className="py-12 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <h2 className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5">
-            Sources
-          </h2>
-          <ul className="space-y-2 max-w-3xl">
-            {sources.map((s) => (
-              <li key={s.href}>
-                <a
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-start gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
-                >
-                  {s.label}
-                  <ArrowUpRight className="w-3.5 h-3.5 shrink-0 mt-0.5 opacity-50 group-hover:opacity-100" />
-                </a>
-              </li>
-            ))}
-          </ul>
-          <p className="text-xs text-muted-foreground mt-6 max-w-3xl leading-relaxed">
-            Network figures are Beta Agency's own, counted from 234 tracked clips across 40 Nordic
-            creators on 2 September 2026. No Rockstar artwork is used on this page.
-          </p>
-        </div>
+      <section className="py-10 border-t border-border">
+        <h2 className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5">
+          {L(t.sourcesLabel)}
+        </h2>
+        <ul className="space-y-2 max-w-3xl">
+          {sources.map((s) => (
+            <li key={s.href}>
+              <a
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-start gap-1.5 text-sm text-muted-foreground hover:text-primary transition-colors"
+              >
+                {s.label}
+                <ArrowUpRight className="w-3.5 h-3.5 shrink-0 mt-0.5 opacity-50 group-hover:opacity-100" />
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p className="text-xs text-muted-foreground mt-6 max-w-3xl leading-relaxed">{L(t.disclaimer)}</p>
       </section>
     </article>
   );

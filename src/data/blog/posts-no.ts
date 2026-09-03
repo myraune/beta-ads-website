@@ -6,6 +6,62 @@ import type { BlogPost } from "../blogPosts";
 
 export const posts_no: BlogPost[] = [
   {
+    id: "gta-vi-nordisk-merkevareguide",
+    slug: "gta-vi-nordisk-merkevareguide",
+    locale: "no",
+    translationGroup: "gta-vi-nordic-brand-playbook",
+    hasDashboard: "gta-vi-nordic-playbook",
+    title: "Åtte merkevarekategorier verdt å planlegge rundt GTA VI-lanseringen",
+    excerpt:
+      "Offisiell plassering inne i spillet er dyrt og rasjonert. Alt rundt det er ikke det. Åtte kategorier som passer GTA VI-lanseringen, hvilket øyeblikk hver av dem bør kjøpe, og hvilke av dem vi faktisk har kjørt i Norden.",
+    content: `## Publikum var ikke der traileren var
+
+Rockstar hadde premiere på Extended Look på Netflix 27. august og holdt den der i seks timer før den kom på YouTube. Netflix meldte om 31,1 millioner visninger på fire dager, plattformens mest sette tittel den uken.
+
+Tallet som betyr noe for den som kjøper media er det andre. Streams Charts registrerte en topp på 3 970 738 samtidige seere på reaksjonsstreams og watch parties. De så ikke på Rockstar. De så på skapere som så på Rockstar.
+
+Twitch taklet det ikke. Downdetector registrerte over 17 000 meldinger på topp, og Twitch sin egen statusside kalte det alvorlig nedetid.
+
+## GTA er allerede det nest mest klippede spillet i nettverket vårt
+
+Vi sporer 234 klipp fordelt på 40 nordiske skapere, merket med spill. Grand Theft Auto ligger nummer to blant faktiske spill, bak Counter-Strike. Fordelingen er ujevn: fire av ti norske skapere har GTA-klipp, tre av ti svenske, én av ti danske, og ingen i Finland.
+
+## Åtte kategorier
+
+Gruppert etter hva de faktisk kjøper. Tre som passer lange økter: matlevering, elektronikkhandel, energidrikk. Tre som ligger i det spillet handler om: bil, mote, finans. To som lanseringsuken skaper behov for: tilkobling og gaming-utstyr.
+
+For hver kategori står det hvilket øyeblikk den bør kjøpe, og om vi har kjørt den selv. Der vi ikke har det, står det.
+
+## Tre ting vi ville frarådet
+
+Ikke bygg noe som krever lisens fra Rockstar. Ikke ta trailertallene inn i medieplanen, 31,1 millioner er et globalt underholdningstall. Og ikke book lanseringsuken og kall det en strategi: GTA V var fortsatt det nest mest sette spillet på Twitch i 2025, tolv år etter lansering.`,
+    date: "2. sep 2026",
+    dateISO: "2026-09-02",
+    readTime: "7 min lesetid",
+    category: "Bransjeinnsikt",
+    tags: ["GTA VI", "Grand Theft Auto", "nordisk annonsering", "Twitch", "mediearbeid", "spillansering"],
+    image: "/lovable-uploads/blog-featured-gta-vi-nordic.webp",
+    relatedSlugs: [],
+    seoTitle: {
+      en: "GTA VI: Eight Brand Categories for Nordic Brands | Beta Ads",
+      no: "GTA VI: åtte merkevarekategorier for nordiske merkevarer | Beta Ads",
+      sv: "GTA VI: åtta varumärkeskategorier för nordiska varumärken | Beta Ads",
+      fi: "GTA VI: kahdeksan brändikategoriaa pohjoismaisille brändeille | Beta Ads"
+    },
+    seoDescription: {
+      en: "Eight brand categories that fit the GTA VI launch, the moment each should buy, and which we have run in the Nordics.",
+      no: "Åtte merkevarekategorier som passer GTA VI-lanseringen, hvilket øyeblikk hver av dem bør kjøpe, og hvilke vi har kjørt i Norden.",
+      sv: "Åtta varumärkeskategorier som passar GTA VI-lanseringen, vilket ögonblick var och en bör köpa, och vilka vi har kört i Norden.",
+      fi: "Kahdeksan brändikategoriaa, jotka sopivat GTA VI -julkaisuun, ja mitkä niistä olemme toteuttaneet Pohjoismaissa."
+    },
+    seoKeywords: {
+      en: ["GTA VI advertising", "Nordic game launch", "Twitch advertising"],
+      no: ["GTA VI annonsering", "spillansering Norden", "Twitch-annonsering Norge"],
+      sv: ["GTA VI annonsering", "spellansering Norden", "Twitch-annonsering"],
+      fi: ["GTA VI mainonta", "pelijulkaisu Pohjoismaat", "Twitch-mainonta"]
+    },
+  },
+  {
     id: "ad-blocker-crisis-livestream-native-ads-2026-no",
     slug: "ad-blocker-crisis-livestream-native-ads-2026-no",
     title: "Annonseblokkerkrisen i livestreaming: Hvorfor 64 % av seerne blokkerer reklame, og hva som faktisk fungerer",

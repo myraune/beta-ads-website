@@ -310,7 +310,9 @@ const BlogPostView: React.FC<{ post: BlogPost; slug: string }> = ({ post, slug }
                   {post.hasDashboard === "how-twitch-advertising-works" && <HowTwitchAdvertisingWorks />}
                   {post.hasDashboard === "ad-blocker-crisis" && <AdBlockerCrisis />}
                   {post.hasDashboard === "streamer-university-2026" && <StreamerUniversity2026 />}
-                  {post.hasDashboard === "gta-vi-nordic-playbook" && <GtaViNordicPlaybook />}
+                  {post.hasDashboard === "gta-vi-nordic-playbook" && (
+                    <GtaViNordicPlaybook lang={post.locale === "no" ? "no" : "en"} />
+                  )}
                 </Suspense>
               </div>
             ) : (

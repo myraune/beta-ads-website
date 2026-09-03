@@ -72,9 +72,9 @@ const _allBlogPostsRaw: BlogPost[] = [
     locale: "en",
     translationGroup: "gta-vi-nordic-brand-playbook",
     hasDashboard: "gta-vi-nordic-playbook",
-    title: "Four Million People Watched Someone Else Watch a Trailer: The GTA VI Playbook for Nordic Brands",
+    title: "Eight Brand Categories Worth Planning Around the GTA VI Launch",
     excerpt:
-      "Rockstar put the GTA VI Extended Look on Netflix, where it took 31.1 million views in four days. Meanwhile 3.97 million watched creators react to it on Twitch, and Twitch fell over. With the game launching 19 November, here is what that means for a Nordic media plan, including our own network data on where GTA already lives and where it does not.",
+      "Official placement inside the game is expensive and rationed. Everything around it is not. Eight categories that fit the GTA VI launch, the moment each one should buy, and which of them we have actually run in the Nordics.",
     content: `## The audience was not where the trailer was
 
 Rockstar premiered the GTA VI Extended Look on Netflix on 27 August 2026 and held it there for six hours before putting it on YouTube. Netflix reported 31.1 million views in four days, its most-watched title of the week.
