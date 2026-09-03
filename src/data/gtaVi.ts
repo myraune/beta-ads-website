@@ -299,8 +299,8 @@ export const FILMS: Film[] = [
     poster: "/lovable-uploads/gta6/yt-trailer-1.webp",
     title: { en: "Trailer 1", no: "Trailer 1" },
     meta: {
-      en: "December 2023. 93 million views in its first 24 hours, a record for a non-music video.",
-      no: "Desember 2023. 93 millioner visninger det første døgnet, rekord for en video som ikke er musikk.",
+      en: "December 2023 · 93 million views in 24 hours",
+      no: "Desember 2023 · 93 millioner visninger på 24 timer",
     },
   },
   {
@@ -308,8 +308,8 @@ export const FILMS: Film[] = [
     poster: "/lovable-uploads/gta6/yt-trailer-2.webp",
     title: { en: "Trailer 2", no: "Trailer 2" },
     meta: {
-      en: "May 2025. Over 475 million cross-platform views in a day, the biggest video launch on record.",
-      no: "Mai 2025. Over 475 millioner visninger på tvers av plattformer på et døgn, den største videolanseringen som er målt.",
+      en: "May 2025 · 475 million views in a day",
+      no: "Mai 2025 · 475 millioner visninger på et døgn",
     },
   },
   {
@@ -317,8 +317,8 @@ export const FILMS: Film[] = [
     poster: "/lovable-uploads/gta6/yt-extended-look.webp",
     title: { en: "An Extended Look", no: "An Extended Look" },
     meta: {
-      en: "August 2026. Twenty-six minutes of PS5 gameplay, premiered on Netflix before it reached YouTube.",
-      no: "August 2026. Tjueseks minutter med PS5-gameplay, med premiere på Netflix før den kom på YouTube.",
+      en: "August 2026 · 26 minutes of PS5 gameplay",
+      no: "August 2026 · 26 minutter med PS5-gameplay",
     },
   },
 ];

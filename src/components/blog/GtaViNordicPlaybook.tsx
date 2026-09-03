@@ -79,8 +79,8 @@ const t = {
 
   filmsTitle: { en: "Watch it yourself", no: "Se det selv" },
   filmsBody: {
-    en: "Three videos, all from Rockstar's own channel. Between them they are the whole public record of what the game looks like. Nothing loads until you press play.",
-    no: "Tre videoer, alle fra Rockstars egen kanal. Til sammen er de hele det offentlige materialet om hvordan spillet ser ut. Ingenting lastes før du trykker play.",
+    en: "Three videos, all from Rockstar's own channel, and between them the whole public record of what the game looks like. The second trailer was the biggest video launch ever measured; the third premiered on Netflix before it reached YouTube. Nothing loads until you press play.",
+    no: "Tre videoer, alle fra Rockstars egen kanal, og til sammen alt som er offentlig kjent om hvordan spillet ser ut. Trailer to var den største videolanseringen som er målt, og den tredje hadde premiere på Netflix før den kom på YouTube. Ingenting lastes før du trykker play.",
   },
   playLabel: { en: "Play", no: "Spill av" },
 

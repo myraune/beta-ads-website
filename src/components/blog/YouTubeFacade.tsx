@@ -16,6 +16,10 @@ import { Play } from "lucide-react";
  *
  * The poster lives in our own /public rather than i.ytimg.com, which keeps the
  * default state entirely first-party.
+ *
+ * The title and meta sit inside the frame on a gradient scrim rather than in a
+ * panel below it, so each card reads as one object instead of a thumbnail with
+ * a label box attached.
  */
 
 interface YouTubeFacadeProps {
@@ -41,44 +45,56 @@ export const YouTubeFacade: React.FC<YouTubeFacadeProps> = ({
   const [playing, setPlaying] = useState(false);
 
   return (
-    <figure className="rounded-2xl overflow-hidden border border-border bg-card h-full flex flex-col">
-      <div className="relative aspect-video bg-black">
-        {playing ? (
-          <iframe
-            src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`}
-            title={title}
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="absolute inset-0 w-full h-full border-0"
+    <figure className="relative rounded-2xl overflow-hidden bg-black aspect-video">
+      {playing ? (
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`}
+          title={title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          className="absolute inset-0 w-full h-full border-0"
+        />
+      ) : (
+        <button
+          type="button"
+          onClick={() => setPlaying(true)}
+          aria-label={`${playLabel}: ${title}`}
+          className="group absolute inset-0 w-full h-full cursor-pointer text-left"
+        >
+          <img
+            src={poster}
+            alt={title}
+            loading="lazy"
+            width={960}
+            height={540}
+            className="absolute inset-0 w-full h-full object-cover"
           />
-        ) : (
-          <button
-            type="button"
-            onClick={() => setPlaying(true)}
-            aria-label={`${playLabel}: ${title}`}
-            className="group absolute inset-0 w-full h-full cursor-pointer"
-          >
-            <img
-              src={poster}
-              alt={title}
-              loading="lazy"
-              width={960}
-              height={540}
-              className="w-full h-full object-cover"
-            />
-            <span className="absolute inset-0 bg-black/25 group-hover:bg-black/10 transition-colors" />
-            <span className="absolute inset-0 flex items-center justify-center">
-              <span className="flex items-center justify-center h-14 w-14 rounded-full bg-primary text-white shadow-lg group-hover:scale-110 transition-transform">
-                <Play className="w-6 h-6 ml-0.5" fill="currentColor" />
-              </span>
+          {/* One scrim doing two jobs: lifting the play button off a bright
+              poster, and giving the caption a floor to sit on. Keeping the
+              text inside the frame means the card is the video, rather than a
+              thumbnail with a separate label box bolted underneath it. */}
+          <span
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 34%, rgba(0,0,0,0.12) 60%, rgba(0,0,0,0.28) 100%)",
+            }}
+          />
+          <span className="absolute inset-x-0 top-0 flex justify-center pt-[22%]">
+            <span className="flex items-center justify-center h-14 w-14 rounded-full bg-primary text-white shadow-xl transition-transform duration-300 group-hover:scale-110">
+              <Play className="w-6 h-6 ml-0.5" fill="currentColor" />
             </span>
-          </button>
-        )}
-      </div>
-      <figcaption className="p-4">
-        <div className="text-sm font-semibold text-foreground">{title}</div>
-        {meta && <p className="text-xs text-muted-foreground mt-1">{meta}</p>}
-      </figcaption>
+          </span>
+          <figcaption className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+            <span className="block text-[15px] font-semibold text-white leading-tight">
+              {title}
+            </span>
+            {meta && (
+              <span className="block text-xs text-white/65 mt-1 leading-snug">{meta}</span>
+            )}
+          </figcaption>
+        </button>
+      )}
     </figure>
   );
 };
