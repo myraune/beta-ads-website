@@ -9,11 +9,25 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
  * `saily-report-02-07-2025.pdf`) for the June 2025 Norway Twitch
  * campaign. Saily is Surfshark's travel-eSIM brand.
  */
+/**
+ * Saily's real brand colours, sampled from saily.com on 2026-09-08: a bright
+ * yellow paired with black, plus a pale blue used sparingly.
+ *
+ * This page previously ran on a purple (#7b4aff) that Saily does not use
+ * anywhere. It was especially wrong here, because the campaign video and the
+ * overlay creative embedded further down are themselves yellow and black, so
+ * the page contradicted its own screenshots.
+ *
+ * Yellow at this saturation is unreadable as text on white (about 1.1:1), so
+ * light sections take the pairing Saily uses on its own site: black text on a
+ * yellow chip. `primary` is for fills and for text on the dark hero only.
+ */
 const BRAND = {
-  // Saily brand colors - vivid purple primary + mint accent
-  primary: "#7b4aff",
-  secondary: "#5adbb5",
-  glow: "rgba(123,74,255,0.18)",
+  primary: "#FFF500",
+  /** Text/ink partner for the yellow, per Saily's own buttons. */
+  ink: "#111111",
+  secondary: "#91C4E7",
+  glow: "rgba(255,245,0,0.16)",
 };
 
 const stats = [
@@ -59,7 +73,7 @@ const SailyCaseStudy: React.FC = () => {
           <div
             className="absolute inset-0"
             style={{
-              background: `radial-gradient(ellipse 70% 50% at 70% 40%, ${BRAND.glow} 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 30% 60%, rgba(90,219,181,0.10) 0%, transparent 65%)`,
+              background: `radial-gradient(ellipse 70% 50% at 70% 40%, ${BRAND.glow} 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 30% 60%, rgba(145,196,231,0.10) 0%, transparent 65%)`,
             }}
           />
         </div>
@@ -132,8 +146,8 @@ const SailyCaseStudy: React.FC = () => {
       <section className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-20">
           <span
-            className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-            style={{ color: BRAND.primary }}
+            className="text-xs font-semibold tracking-widest uppercase mb-3 inline-block rounded px-2 py-1"
+            style={{ background: BRAND.primary, color: BRAND.ink }}
           >
             Watch the campaign
           </span>
@@ -146,9 +160,12 @@ const SailyCaseStudy: React.FC = () => {
           >
             <video
               src="/lovable-uploads/saily-campaign-video.mp4"
+              poster="/lovable-uploads/case-studies/saily-campaign-poster.webp"
               controls
               playsInline
               preload="metadata"
+              width={1984}
+              height={1116}
               className="w-full h-auto"
               aria-label="Saily eSIM campaign overview"
             />
@@ -160,8 +177,8 @@ const SailyCaseStudy: React.FC = () => {
       <section className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <span
-            className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-            style={{ color: BRAND.primary }}
+            className="text-xs font-semibold tracking-widest uppercase mb-3 inline-block rounded px-2 py-1"
+            style={{ background: BRAND.primary, color: BRAND.ink }}
           >
             The creative
           </span>
@@ -174,11 +191,14 @@ const SailyCaseStudy: React.FC = () => {
           >
             <video
               src="/lovable-uploads/case-studies/saily-mobile-overlay.webm"
+              poster="/lovable-uploads/case-studies/saily-overlay-poster.webp"
               autoPlay
               loop
               muted
               playsInline
               preload="metadata"
+              width={1920}
+              height={1080}
               className="w-full h-auto"
               aria-label="Saily eSIM mobile overlay creative as displayed on Norwegian Twitch streams"
             />
@@ -202,8 +222,8 @@ const SailyCaseStudy: React.FC = () => {
           >
             <div>
               <span
-                className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-                style={{ color: BRAND.primary }}
+                className="text-xs font-semibold tracking-widest uppercase mb-3 inline-block rounded px-2 py-1"
+                style={{ background: BRAND.primary, color: BRAND.ink }}
               >
                 The Challenge
               </span>
@@ -256,8 +276,8 @@ const SailyCaseStudy: React.FC = () => {
             }`}
           >
             <span
-              className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-              style={{ color: BRAND.primary }}
+              className="text-xs font-semibold tracking-widest uppercase mb-3 inline-block rounded px-2 py-1"
+              style={{ background: BRAND.primary, color: BRAND.ink }}
             >
               The Solution
             </span>
@@ -346,8 +366,8 @@ const SailyCaseStudy: React.FC = () => {
             }`}
           >
             <span
-              className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-              style={{ color: BRAND.primary }}
+              className="text-xs font-semibold tracking-widest uppercase mb-3 inline-block rounded px-2 py-1"
+              style={{ background: BRAND.primary, color: BRAND.ink }}
             >
               Reach &amp; Demographics
             </span>
@@ -398,7 +418,7 @@ const SailyCaseStudy: React.FC = () => {
                     <div className="h-1.5 rounded-full bg-border overflow-hidden">
                       <div
                         className="h-full rounded-full"
-                        style={{ width: "79.7%", background: BRAND.primary }}
+                        style={{ width: "79.7%", background: BRAND.primary, boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.18)" }}
                       />
                     </div>
                   </div>
@@ -412,7 +432,7 @@ const SailyCaseStudy: React.FC = () => {
                     <div className="h-1.5 rounded-full bg-border overflow-hidden">
                       <div
                         className="h-full rounded-full"
-                        style={{ width: "20.3%", background: BRAND.primary, opacity: 0.6 }}
+                        style={{ width: "20.3%", background: BRAND.primary, opacity: 0.6, boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.12)" }}
                       />
                     </div>
                   </div>
@@ -459,8 +479,8 @@ const SailyCaseStudy: React.FC = () => {
                       <div className="hidden md:block absolute top-3 left-full w-full h-px bg-border -translate-x-4" />
                     )}
                     <div
-                      className="text-xs font-semibold tracking-widest uppercase mb-2"
-                      style={{ color: BRAND.primary }}
+                      className="text-xs font-semibold tracking-widest uppercase mb-2 inline-block rounded px-2 py-0.5"
+                      style={{ background: BRAND.primary, color: BRAND.ink }}
                     >
                       {m.date}
                     </div>
@@ -485,8 +505,8 @@ const SailyCaseStudy: React.FC = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
               <span
-                className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-                style={{ color: BRAND.primary }}
+                className="text-xs font-semibold tracking-widest uppercase mb-3 inline-block rounded px-2 py-1"
+                style={{ background: BRAND.primary, color: BRAND.ink }}
               >
                 Impact
               </span>
@@ -529,14 +549,14 @@ const SailyCaseStudy: React.FC = () => {
               <span
                 aria-label="Saily"
                 className="text-3xl font-bold tracking-tighter leading-none"
-                style={{ color: BRAND.primary, fontFeatureSettings: "'ss01' on, 'cv11' on" }}
+                style={{ color: BRAND.ink, fontFeatureSettings: "'ss01' on, 'cv11' on" }}
               >
                 saily
               </span>
               <div>
                 <span
-                  className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-                  style={{ color: BRAND.primary }}
+                  className="text-xs font-semibold tracking-widest uppercase mb-3 inline-block rounded px-2 py-1"
+                  style={{ background: BRAND.primary, color: BRAND.ink }}
                 >
                   Run a Similar Campaign
                 </span>
