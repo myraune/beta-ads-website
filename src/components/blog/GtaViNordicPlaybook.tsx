@@ -6,6 +6,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { MARKET_CREATORS, type MarketCode } from "@/data/streamers";
 import { VERTICALS, GROUPS } from "@/data/gtaViVerticals";
 import { BASICS, PLACES, TIMELINE, SCALE, PLATFORM_SPLIT, SOURCES, FILMS, MAP_COMPARISON, type Lang } from "@/data/gtaVi";
+import { FLORIDA } from "@/data/florida";
 import { YouTubeFacade } from "@/components/blog/YouTubeFacade";
 
 /**
@@ -104,6 +105,20 @@ const t = {
   mapBody: {
     en: "GTA V was Los Angeles and the desert behind it. GTA VI is Leonida: a coastal metropolis, an island chain, wetlands, a national park and the small towns in between. Four of the places Rockstar has shown so far.",
     no: "GTA V var Los Angeles og ørkenen bak. GTA VI er Leonida: en kystby, en øyrekke, våtmarker, en nasjonalpark og småbyene imellom. Fire av stedene Rockstar har vist så langt.",
+  },
+
+  mapRealTitle: { en: "Leonida is Florida", no: "Leonida er Florida" },
+  mapRealBody: {
+    en: "Rockstar has not published a map of Leonida, and the ones circulating are reconstructed from the 2022 leaked build. So here is the real place instead, drawn from public-domain coastline data. Vice City is Miami, the Leonida Keys are the Florida Keys, and Grassrivers is the Everglades, a name that already means river of grass.",
+    no: "Rockstar har ikke publisert noe kart over Leonida, og de som sirkulerer er rekonstruert fra den lekkede utgaven fra 2022. Så her er stedet i virkeligheten i stedet, tegnet fra kystlinjedata i det fri. Vice City er Miami, Leonida Keys er Florida Keys, og Grassrivers er Everglades, et navn som allerede betyr elv av gress.",
+  },
+  mapCredit: {
+    en: "Our own rendering of Natural Earth 1:10m boundaries, public domain.",
+    no: "Vår egen gjengivelse av Natural Earth 1:10m-grenser, fritt tilgjengelig.",
+  },
+  mapPins: {
+    en: { miami: "Vice City / Miami", keys: "Leonida Keys / Florida Keys", everglades: "Grassrivers / Everglades" },
+    no: { miami: "Vice City / Miami", keys: "Leonida Keys / Florida Keys", everglades: "Grassrivers / Everglades" },
   },
 
   sizeTitle: { en: "How much bigger, exactly", no: "Nøyaktig hvor mye større" },
@@ -424,6 +439,62 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
             </Reveal>
           ))}
         </div>
+      </section>
+
+      {/* ── The real place, since the game map is not publishable ── */}
+      <section className="py-14 md:py-16 border-t border-border">
+        <Reveal>
+          <div className="max-w-[38rem] mb-10">
+            <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">
+              {L(t.mapRealTitle)}
+            </h2>
+            <p className="text-[17px] text-muted-foreground leading-relaxed">{L(t.mapRealBody)}</p>
+          </div>
+        </Reveal>
+        <Reveal>
+          <figure className="m-0 max-w-3xl">
+            <svg
+              viewBox="-30 -20 1120 810"
+              className="w-full h-auto"
+              role="img"
+              aria-label="Outline of Florida, the real state Leonida is modelled on, with Miami, the Florida Keys and the Everglades marked"
+            >
+              <path d={FLORIDA.mainland} className="fill-foreground/[0.07] stroke-foreground/40" strokeWidth={1.5} />
+              {FLORIDA.islands.map((d, i) => (
+                <path key={i} d={d} className="fill-foreground/[0.07] stroke-foreground/40" strokeWidth={1.5} />
+              ))}
+              {/* Leader lines, because the three places sit within about 90px of
+                  each other at this scale and stacked labels would collide. */}
+              {([
+                ["miami", FLORIDA.points.miami, 92, -30, "start"],
+                ["everglades", FLORIDA.points.everglades, -40, -46, "end"],
+                ["keys", FLORIDA.points.keys, 78, 34, "start"],
+              ] as const).map(([key, pt, dx, dy, anchor]) => (
+                <g key={key}>
+                  <line
+                    x1={pt.x}
+                    y1={pt.y}
+                    x2={pt.x + dx}
+                    y2={pt.y + dy}
+                    className="stroke-foreground/35"
+                    strokeWidth={1.5}
+                  />
+                  <circle cx={pt.x} cy={pt.y} r={7} className="fill-primary" />
+                  <text
+                    x={pt.x + dx + (anchor === "start" ? 8 : -8)}
+                    y={pt.y + dy + 7}
+                    textAnchor={anchor}
+                    className="fill-foreground"
+                    style={{ fontSize: 22, fontWeight: 600 }}
+                  >
+                    {L(t.mapPins)[key]}
+                  </text>
+                </g>
+              ))}
+            </svg>
+            <figcaption className="text-xs text-muted-foreground mt-4">{L(t.mapCredit)}</figcaption>
+          </figure>
+        </Reveal>
       </section>
 
       {/* ── Size comparison: ratios only, drawn by area ── */}
