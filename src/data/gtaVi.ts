@@ -66,6 +66,18 @@ export const SOURCES: Source[] = [
     href: "https://www.gtavispot.com/gta-6-timeline/",
   },
   {
+    id: "kotaku-mapsize",
+    publisher: "Kotaku",
+    title: "GTA 6's Vice City Is Rockstar's Biggest Yet, And The Whole Map Is Three Times Larger Than RDR2",
+    href: "https://kotaku.com/gta-6s-vice-city-is-rockstars-biggest-yet-and-the-whole-map-is-three-times-larger-than-red-dead-redemption-2-2000728978",
+  },
+  {
+    id: "vgc-mapsize",
+    publisher: "Video Games Chronicle",
+    title: "Grand Theft Auto 6's map is three times bigger than Red Dead Redemption 2",
+    href: "https://www.videogameschronicle.com/news/grand-theft-auto-6s-map-is-three-times-bigger-than-red-dead-redemption-2/",
+  },
+  {
     id: "stg-sales",
     publisher: "ShaneTheGamer",
     title: "GTA Sales Statistics (2013-2026)",
@@ -320,5 +332,60 @@ export const FILMS: Film[] = [
       en: "August 2026 · 26 minutes of PS5 gameplay",
       no: "August 2026 · 26 minutter med PS5-gameplay",
     },
+  },
+];
+
+/**
+ * How big Leonida is, drawn only from the numbers that actually have a source.
+ *
+ * Rockstar has never published an area for the map, in square kilometres or
+ * anything else. The only sourced comparison in existence is a set of ratios
+ * Rob Nelson, co-studio head at Rockstar North, gave to press at the August
+ * 2026 preview: twice GTA V, three times Red Dead Redemption 2, with Vice City
+ * itself twice Los Santos and its built-up surroundings eleven times it.
+ *
+ * So this is a ratio chart, not a map. Every square-kilometre figure circulating
+ * online, for GTA V as much as for GTA VI, is a community measurement with no
+ * official backing, and several of the most-repeated ones contradict each other
+ * and contradict Nelson. We are not putting those on the page.
+ *
+ * `area` is relative, not absolute. Squares are drawn with side = sqrt(area) so
+ * the eye compares area rather than width, which is the whole point.
+ */
+export interface MapRatio {
+  name: string;
+  area: number;
+  note?: Record<Lang, string>;
+  highlight?: boolean;
+}
+
+export const MAP_COMPARISON: {
+  title: Record<Lang, string>;
+  caption: Record<Lang, string>;
+  items: MapRatio[];
+}[] = [
+  {
+    title: { en: "The whole map", no: "Hele kartet" },
+    caption: {
+      en: "Leonida against the two maps Rockstar built before it.",
+      no: "Leonida mot de to kartene Rockstar bygde før det.",
+    },
+    items: [
+      { name: "GTA VI · Leonida", area: 6, highlight: true },
+      { name: "GTA V", area: 3 },
+      { name: "Red Dead Redemption 2", area: 2 },
+    ],
+  },
+  {
+    title: { en: "The city", no: "Byen" },
+    caption: {
+      en: "Vice City against Los Santos, before and after you count the suburbs around it.",
+      no: "Vice City mot Los Santos, før og etter at forstedene rundt regnes med.",
+    },
+    items: [
+      { name: "Vice City + suburbs", area: 11, highlight: true },
+      { name: "Vice City", area: 2 },
+      { name: "Los Santos", area: 1 },
+    ],
   },
 ];

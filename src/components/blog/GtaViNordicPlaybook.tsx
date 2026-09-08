@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { MARKET_CREATORS, type MarketCode } from "@/data/streamers";
 import { VERTICALS, GROUPS } from "@/data/gtaViVerticals";
-import { BASICS, PLACES, TIMELINE, SCALE, PLATFORM_SPLIT, SOURCES, FILMS, type Lang } from "@/data/gtaVi";
+import { BASICS, PLACES, TIMELINE, SCALE, PLATFORM_SPLIT, SOURCES, FILMS, MAP_COMPARISON, type Lang } from "@/data/gtaVi";
 import { YouTubeFacade } from "@/components/blog/YouTubeFacade";
 
 /**
@@ -57,7 +57,13 @@ const gtaClips = Object.entries(MARKET_CREATORS as Record<MarketCode, any[]>)
   )
   .sort((a, b) => b.views - a.views);
 
-const topClips = gtaClips.slice(0, 3);
+/**
+ * One clip per creator. Ranking purely by views put the same creator in two of
+ * three slots, which read as a repeat rather than as a spread of the network.
+ */
+const topClips = gtaClips
+  .filter((c, i, all) => all.findIndex((x) => x.creator === c.creator) === i)
+  .slice(0, 3);
 const totalClipViews = gtaClips.reduce((s, c) => s + c.views, 0);
 
 const RELEASE = new Date("2026-11-19T00:00:00Z");
@@ -96,9 +102,20 @@ const t = {
 
   mapTitle: { en: "It is a whole state, not a city", no: "Det er en hel delstat, ikke en by" },
   mapBody: {
-    en: "GTA V was Los Angeles and the desert behind it. GTA VI is Leonida: a coastal metropolis, an island chain, wetlands, a national park and the small towns in between. Six of the places Rockstar has shown so far.",
-    no: "GTA V var Los Angeles og ørkenen bak. GTA VI er Leonida: en kystby, en øyrekke, våtmarker, en nasjonalpark og småbyene imellom. Seks av stedene Rockstar har vist så langt.",
+    en: "GTA V was Los Angeles and the desert behind it. GTA VI is Leonida: a coastal metropolis, an island chain, wetlands, a national park and the small towns in between. Four of the places Rockstar has shown so far.",
+    no: "GTA V var Los Angeles og ørkenen bak. GTA VI er Leonida: en kystby, en øyrekke, våtmarker, en nasjonalpark og småbyene imellom. Fire av stedene Rockstar har vist så langt.",
   },
+
+  sizeTitle: { en: "How much bigger, exactly", no: "Nøyaktig hvor mye større" },
+  sizeBody: {
+    en: "Rockstar has never published an area for Leonida. What exists is a set of ratios Rob Nelson, co-studio head at Rockstar North, gave to press at the August preview. Squares below are drawn to those ratios by area, so the comparison is the one he actually made.",
+    no: "Rockstar har aldri offentliggjort noe areal for Leonida. Det som finnes er noen forholdstall Rob Nelson, medstudiosjef i Rockstar North, ga til pressen under visningen i august. Rutene under er tegnet etter de forholdstallene i areal, så sammenligningen er den han faktisk gjorde.",
+  },
+  sizeCaveat: {
+    en: "Every square-kilometre figure circulating for either game is a community measurement with no official backing, and the most-repeated ones contradict each other. None of them are on this page.",
+    no: "Alle kvadratkilometertall som sirkulerer for begge spillene er fanmålinger uten offisiell dekning, og de mest gjentatte motsier hverandre. Ingen av dem står på denne siden.",
+  },
+  sizeRel: { en: "relative area", no: "relativt areal" },
 
   castTitle: { en: "Two leads, one story", no: "To hovedpersoner, én historie" },
   castBody: {
@@ -318,11 +335,11 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
       {/* ── The videos: Rockstar's own uploads, click to load ── */}
       <section className="py-14 md:py-16 border-t border-border mt-14">
         <Reveal>
-          <div className="max-w-2xl mb-9">
+          <div className="max-w-[38rem] mb-10">
             <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">
               {L(t.filmsTitle)}
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">{L(t.filmsBody)}</p>
+            <p className="text-[17px] text-muted-foreground leading-relaxed">{L(t.filmsBody)}</p>
           </div>
         </Reveal>
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -343,60 +360,53 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
       {/* ── The basics ── */}
       <section className="py-14 md:py-16 border-t border-border">
         <Reveal>
-          <div className="max-w-2xl mb-9">
+          <div className="max-w-[38rem] mb-10">
             <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">
               {L(t.basicsTitle)}
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">{L(t.basicsBody)}</p>
+            <p className="text-[17px] text-muted-foreground leading-relaxed">{L(t.basicsBody)}</p>
           </div>
         </Reveal>
-        <div className="grid md:grid-cols-2 gap-x-10 gap-y-8 max-w-4xl">
+        {/* A definition list rather than a 2x2 of tiles: the four facts are a
+            list of answers, and a grid of equal boxes made them look like
+            features instead. Label left, answer right, hairline between. */}
+        <dl className="max-w-3xl">
           {BASICS.map((b) => (
             <Reveal key={b.label.en}>
-              <div className="border-t border-border pt-5">
-                <div className="text-xs font-semibold tracking-widest uppercase text-primary mb-2">
+              <div className="grid sm:grid-cols-[150px_1fr] gap-x-8 gap-y-1 py-6 border-t border-border">
+                <dt className="text-xs font-semibold tracking-widest uppercase text-primary pt-1.5">
                   {L(b.label)}
-                </div>
-                <div className="text-xl font-semibold text-foreground tracking-tight mb-2">
-                  {L(b.value)}
-                </div>
-                <p className="text-sm text-muted-foreground leading-relaxed">{L(b.detail)}</p>
+                </dt>
+                <dd className="m-0">
+                  <div className="text-lg font-semibold text-foreground tracking-tight mb-1.5">
+                    {L(b.value)}
+                  </div>
+                  <p className="text-[15px] text-muted-foreground leading-relaxed">{L(b.detail)}</p>
+                </dd>
               </div>
             </Reveal>
           ))}
-        </div>
-        <Reveal>
-          <figure className="mt-12">
-            <div className="rounded-2xl overflow-hidden ring-1 ring-border bg-muted">
-              <img
-                src="/lovable-uploads/gta6/jason-lucia-car.webp"
-                alt="Rockstar key art of Jason and Lucia sitting on a car in Vice City at sunset"
-                loading="lazy"
-                width={1280}
-                height={720}
-                className="w-full h-auto block"
-              />
-            </div>
-            <figcaption className="text-xs text-muted-foreground mt-3">{L(t.artCaption)}</figcaption>
-          </figure>
-        </Reveal>
+        </dl>
       </section>
 
       {/* ── The map ── */}
       <section className="py-14 md:py-16 border-t border-border">
         <Reveal>
-          <div className="max-w-2xl mb-9">
+          <div className="max-w-[38rem] mb-10">
             <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">
               {L(t.mapTitle)}
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">{L(t.mapBody)}</p>
+            <p className="text-[17px] text-muted-foreground leading-relaxed">{L(t.mapBody)}</p>
           </div>
         </Reveal>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {PLACES.map((p) => (
+        {/* Four places, not six, and no card chrome. The images carry the
+            section; a border and a card background around each one just added
+            edges to look at. */}
+        <div className="grid sm:grid-cols-2 gap-x-8 gap-y-10">
+          {PLACES.slice(0, 4).map((p) => (
             <Reveal key={p.name}>
-              <figure className="rounded-2xl overflow-hidden border border-border bg-card h-full">
-                <div className="aspect-video bg-muted overflow-hidden">
+              <figure className="m-0">
+                <div className="aspect-[16/10] overflow-hidden rounded-xl bg-muted">
                   <img
                     src={p.img}
                     alt={`${p.name} in Grand Theft Auto VI`}
@@ -406,9 +416,9 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <figcaption className="p-4">
-                  <div className="text-sm font-semibold text-foreground mb-1">{p.name}</div>
-                  <p className="text-xs text-muted-foreground leading-relaxed">{L(p.caption)}</p>
+                <figcaption className="pt-3">
+                  <span className="text-sm font-semibold text-foreground">{p.name}</span>
+                  <span className="text-sm text-muted-foreground"> {L(p.caption)}</span>
                 </figcaption>
               </figure>
             </Reveal>
@@ -416,24 +426,92 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
         </div>
       </section>
 
+      {/* ── Size comparison: ratios only, drawn by area ── */}
+      <section className="py-14 md:py-16 border-t border-border">
+        <Reveal>
+          <div className="max-w-[38rem] mb-10">
+            <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">
+              {L(t.sizeTitle)}
+            </h2>
+            <p className="text-[17px] text-muted-foreground leading-relaxed mb-3">{L(t.sizeBody)}</p>
+            <p className="text-xs text-muted-foreground/80 leading-relaxed">{L(t.sizeCaveat)}</p>
+          </div>
+        </Reveal>
+        <div className="grid md:grid-cols-2 gap-x-12 gap-y-12 max-w-4xl">
+          {MAP_COMPARISON.map((group) => {
+            const max = Math.max(...group.items.map((i) => i.area));
+            return (
+              <Reveal key={group.title.en}>
+                <div>
+                  <h3 className="text-base font-semibold text-foreground mb-1">
+                    {L(group.title)}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-7">
+                    {L(group.caption)}
+                  </p>
+                  {/* Squares share a baseline and a left edge, so the eye reads
+                      the area difference rather than a bar length. Side is the
+                      square root of the ratio, which is what makes the AREA
+                      proportional instead of the width. */}
+                  <div className="relative" style={{ height: 210 }}>
+                    {group.items.map((it) => {
+                      const side = Math.sqrt(it.area / max) * 200;
+                      return (
+                        <div
+                          key={it.name}
+                          className={`absolute bottom-0 left-0 rounded-sm ${
+                            it.highlight
+                              ? "bg-primary/15 ring-1 ring-primary"
+                              : "ring-1 ring-foreground/45 bg-foreground/[0.04]"
+                          }`}
+                          style={{ width: side, height: side }}
+                        />
+                      );
+                    })}
+                  </div>
+                  <ul className="mt-5 space-y-2">
+                    {group.items.map((it) => (
+                      <li key={it.name} className="flex items-baseline gap-2.5 text-sm">
+                        <span
+                          className={`h-2.5 w-2.5 shrink-0 translate-y-px rounded-sm ${
+                            it.highlight ? "bg-primary" : "bg-foreground/45"
+                          }`}
+                        />
+                        <span className="text-foreground">{it.name}</span>
+                        <span className="ml-auto tabular-nums text-muted-foreground">
+                          {it.area}&times;
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+        <p className="text-xs text-muted-foreground mt-8">
+          {L(t.sizeRel)}. <SourceLink id="kotaku-mapsize" />
+        </p>
+      </section>
+
       {/* ── The two leads ── */}
       <section className="py-14 md:py-16 border-t border-border">
         <Reveal>
-          <div className="max-w-2xl mb-9">
+          <div className="max-w-[38rem] mb-10">
             <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">
               {L(t.castTitle)}
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">{L(t.castBody)}</p>
+            <p className="text-[17px] text-muted-foreground leading-relaxed">{L(t.castBody)}</p>
           </div>
         </Reveal>
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-x-8 gap-y-10">
           {[
             { img: "/lovable-uploads/gta6/lucia.webp", name: L(t.luciaName), body: L(t.luciaBody) },
             { img: "/lovable-uploads/gta6/jason.webp", name: L(t.jasonName), body: L(t.jasonBody) },
           ].map((c) => (
             <Reveal key={c.name}>
-              <figure className="rounded-2xl overflow-hidden border border-border bg-card h-full">
-                <div className="aspect-video bg-muted overflow-hidden">
+              <figure className="m-0">
+                <div className="aspect-[16/10] overflow-hidden rounded-xl bg-muted">
                   <img
                     src={c.img}
                     alt={`${c.name} in Grand Theft Auto VI`}
@@ -443,9 +521,9 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <figcaption className="p-5">
+                <figcaption className="pt-4">
                   <div className="text-base font-semibold text-foreground mb-1.5">{c.name}</div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{c.body}</p>
+                  <p className="text-[15px] text-muted-foreground leading-relaxed">{c.body}</p>
                 </figcaption>
               </figure>
             </Reveal>
@@ -456,11 +534,11 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
       {/* ── The scale ── */}
       <section className="py-14 md:py-16 border-t border-border">
         <Reveal>
-          <div className="max-w-2xl mb-9">
+          <div className="max-w-[38rem] mb-10">
             <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">
               {L(t.scaleTitle)}
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">{L(t.scaleBody)}</p>
+            <p className="text-[17px] text-muted-foreground leading-relaxed">{L(t.scaleBody)}</p>
           </div>
         </Reveal>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-9">
@@ -470,7 +548,7 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
                 <div className="text-3xl md:text-4xl font-bold text-foreground tracking-tight tabular-nums mb-2">
                   {f.value}
                 </div>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-2">{L(f.label)}</p>
+                <p className="text-[15px] text-muted-foreground leading-relaxed mb-2">{L(f.label)}</p>
                 <SourceLink id={f.source} />
               </div>
             </Reveal>
@@ -481,11 +559,11 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
       {/* ── Timeline ── */}
       <section className="py-14 md:py-16 border-t border-border">
         <Reveal>
-          <div className="max-w-2xl mb-9">
+          <div className="max-w-[38rem] mb-10">
             <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">
               {L(t.timeTitle)}
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">{L(t.timeBody)}</p>
+            <p className="text-[17px] text-muted-foreground leading-relaxed">{L(t.timeBody)}</p>
           </div>
         </Reveal>
         <div className="max-w-3xl">
@@ -495,7 +573,7 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
                 <div className="text-sm font-semibold text-primary pt-0.5">{L(b.date)}</div>
                 <div>
                   <h3 className="text-base font-semibold text-foreground mb-1.5">{L(b.title)}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-2">{L(b.body)}</p>
+                  <p className="text-[15px] text-muted-foreground leading-relaxed mb-2">{L(b.body)}</p>
                   <SourceLink id={b.source} />
                 </div>
               </div>
@@ -551,18 +629,18 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
       {/* ── Our own network ── */}
       <section className="py-14 md:py-16 border-t border-border">
         <Reveal>
-          <div className="max-w-2xl mb-9">
+          <div className="max-w-[38rem] mb-10">
             <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">
               {L(t.netTitle)}
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">{L(t.netBody)}</p>
+            <p className="text-[17px] text-muted-foreground leading-relaxed">{L(t.netBody)}</p>
           </div>
         </Reveal>
         <Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 max-w-4xl mb-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6 max-w-4xl mb-12">
             {nordicGta.map((m) => (
-              <div key={m.market} className="rounded-xl border border-border bg-card px-5 py-4">
-                <div className="text-sm font-semibold text-foreground mb-2">
+              <div key={m.market} className="border-t border-border pt-4">
+                <div className="text-sm font-semibold text-foreground mb-2.5">
                   {MARKET_LABEL[m.market][lang]}
                 </div>
                 <div className="flex items-center gap-1 mb-2">
@@ -587,9 +665,9 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
                 href={c.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block rounded-2xl border border-border bg-card overflow-hidden hover:border-primary/30 transition-colors h-full"
+                className="group block h-full"
               >
-                <div className="relative aspect-video bg-muted overflow-hidden">
+                <div className="relative aspect-video bg-muted overflow-hidden rounded-xl">
                   <img
                     src={c.thumb}
                     alt={`${c.creator}: ${c.title}`}
@@ -600,7 +678,7 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
                     {c.views.toLocaleString(loc)}
                   </span>
                 </div>
-                <div className="p-4 flex items-start gap-3">
+                <div className="pt-3 flex items-start gap-3">
                   <img src={c.avatar} alt="" loading="lazy" className="h-9 w-9 rounded-lg object-cover bg-muted shrink-0" />
                   <div className="min-w-0">
                     <div className="text-sm font-semibold text-foreground truncate group-hover:text-primary transition-colors">
@@ -625,11 +703,11 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
       {/* ── The categories ── */}
       <section className="py-14 md:py-16 border-t border-border">
         <Reveal>
-          <div className="max-w-2xl mb-10">
+          <div className="max-w-[38rem] mb-10">
             <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">
               {L(t.vertTitle)}
             </h2>
-            <p className="text-base text-muted-foreground leading-relaxed">{L(t.vertBody)}</p>
+            <p className="text-[17px] text-muted-foreground leading-relaxed">{L(t.vertBody)}</p>
           </div>
         </Reveal>
         {(["session", "game", "launch"] as const).map((g) => (
@@ -637,21 +715,21 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
             <Reveal>
               <div className="max-w-2xl mb-6">
                 <h3 className="text-lg font-semibold text-foreground mb-2">{GROUPS[g][lang].label}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{GROUPS[g][lang].blurb}</p>
+                <p className="text-[15px] text-muted-foreground leading-relaxed">{GROUPS[g][lang].blurb}</p>
               </div>
             </Reveal>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
               {VERTICALS.filter((v) => v.group === g).map((v) => (
                 <Reveal key={v.n}>
-                  <div className="rounded-2xl border border-border bg-card p-6 h-full flex flex-col">
+                  <div className="border-t border-border pt-5 h-full flex flex-col">
                     <div className="flex items-start justify-between gap-4 mb-3">
                       <h4 className="text-base font-semibold text-foreground">{L(v.title)}</h4>
                       <span className="text-xs font-semibold text-muted-foreground/50 tabular-nums shrink-0">
                         {v.n}
                       </span>
                     </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">{L(v.why)}</p>
-                    <p className="text-sm font-medium text-foreground leading-relaxed mb-5">{L(v.moment)}</p>
+                    <p className="text-[15px] text-muted-foreground leading-relaxed mb-4">{L(v.why)}</p>
+                    <p className="text-[15px] font-medium text-foreground leading-relaxed mb-5">{L(v.moment)}</p>
                     <div className="mt-auto">
                       {v.proof ? (
                         <div className="pt-4 border-t border-border">
@@ -694,42 +772,6 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
         ))}
       </section>
 
-      {/* ── The format ── */}
-      <section className="py-14 md:py-16 border-t border-border">
-        <Reveal>
-          <div className="grid lg:grid-cols-[0.85fr_1fr] gap-10 items-center">
-            <div className="rounded-2xl overflow-hidden bg-black ring-1 ring-border max-w-sm mx-auto lg:mx-0">
-              <video
-                src="/lovable-uploads/overlay-komplett.webm"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-                className="w-full h-auto block"
-                aria-label="A native Komplett overlay rendered live inside a Norwegian Twitch stream"
-              />
-            </div>
-            <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
-                {L(t.formatKicker)}
-              </span>
-              <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-4">
-                {L(t.formatTitle)}
-              </h2>
-              <p className="text-sm text-muted-foreground leading-relaxed">{L(t.formatBody)}</p>
-              <Link
-                to="/case-study/komplett"
-                className="group inline-flex items-center gap-1.5 text-sm font-medium text-foreground mt-5 hover:text-primary transition-colors"
-              >
-                {L(t.seeCase)}
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
-              </Link>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
       {/* ── What to avoid ── */}
       <section className="py-14 md:py-16 border-t border-border">
         <Reveal>
@@ -742,7 +784,7 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
             <Reveal key={a.title.en}>
               <div className="py-6">
                 <h3 className="text-base font-semibold text-foreground mb-2">{L(a.title)}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{L(a.body)}</p>
+                <p className="text-[15px] text-muted-foreground leading-relaxed">{L(a.body)}</p>
               </div>
             </Reveal>
           ))}
