@@ -23,6 +23,21 @@ export interface BlogPostMeta {
 
 export const blogPostsMeta: BlogPostMeta[] = [
   {
+    id: "twitch-capcut-klipp-og-kanalgrafikk",
+    slug: "twitch-capcut-klipp-og-kanalgrafikk",
+    locale: "no",
+    hasDashboard: "twitch-capcut",
+    title: "Twitch og CapCut: gratis klipping og kanalgrafikk, og hva det betyr for merkevarer",
+    excerpt: "Twitch sendte ut samarbeidet med CapCut 10. september. Gratis bannere, ferdige maler og automatisk klipping av hele sendinger. Det er ikke et annonseprodukt, men det endrer hvor lenge et sponset øyeblikk lever etter at sendingen er slutt.",
+    date: "10. sep 2026",
+    dateISO: "2026-09-10",
+    readTime: "5 min lesetid",
+    category: "Bransjeinnsikt",
+    tags: ["Twitch", "CapCut", "klipp", "AI-verktøy", "nordisk annonsering", "plattformnytt"],
+    image: "/lovable-uploads/capcut/twitch-capcut-banner.webp",
+    relatedSlugs: [],
+  },
+  {
     id: "gta-vi-nordisk-merkevareguide",
     slug: "gta-vi-nordisk-merkevareguide",
     locale: "no",

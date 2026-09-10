@@ -6,6 +6,67 @@ import type { BlogPost } from "../blogPosts";
 
 export const posts_no: BlogPost[] = [
   {
+    id: "twitch-capcut-klipp-og-kanalgrafikk",
+    slug: "twitch-capcut-klipp-og-kanalgrafikk",
+    locale: "no",
+    hasDashboard: "twitch-capcut",
+    title: "Twitch og CapCut: gratis klipping og kanalgrafikk, og hva det betyr for merkevarer",
+    excerpt:
+      "Twitch sendte ut samarbeidet med CapCut 10. september. Gratis bannere, ferdige maler og automatisk klipping av hele sendinger. Det er ikke et annonseprodukt, men det endrer hvor lenge et sponset øyeblikk lever etter at sendingen er slutt.",
+    content: `## Hva det faktisk er
+
+Twitch sendte e-posten 10. september 2026. Twitch og CapCut samarbeider om å hjelpe strømmere med å promotere kanalen og gjøre de beste øyeblikkene om til innhold som kan deles.
+
+CapCuts egen produktside lister funksjonene ved navn. Bannere, kanalavatar og skjermer for «starting soon» og «stream outro». Automatisk uthenting av korte klipp fra en hel sending, med teksting lagt på. Ferdige videomaler som Gaming Channel Intro, Live Highlights, Stream Highlights og Channel Intro. Det er gratis, på nettleser, skrivebord og mobil, og CapCut skriver «no credit card needed» uten å si noe om hvor lenge.
+
+## To modeller, og det er lett å blande dem
+
+Den norske e-posten fra Twitch nevner Seedance 2.5. Verktøyet på produktbildet kjører Seedream 5.0. Begge er ByteDance-modeller, og CapCut bruker begge, men til hver sin ting.
+
+Seedream 5.0 lager bilder, altså bannere og kanalgrafikk. Den kom på CapCut i februar 2026, Pro-versjonen 8. juli, og gir 2K direkte og 4K etter oppskalering. Seedance 2.5 lager video, og er den e-posten faktisk navngir. Seedance kom i juni 2025, versjon 2.0 i februar 2026, og 2.5 klarer 30 sekunder sammenhengende video i én omgang.
+
+## Hvorfor en redigeringsapp angår en medieplan
+
+En overlay som ligger i sendingen forsvinner når sendingen er over, med mindre noen klipper den ut. Nå gjør skaperen det på minutter i stedet for i en kveldsøkt med redigering. Det er den samme mekanismen vi måler som Replay reach: sendingen fortsetter å levere lenge etter at den er slutt.
+
+Terskelen for kanalgrafikk faller samtidig til null. Mindre skapere som aldri har hatt råd til en designer får en kanal som ser proff ut. For en merkevare betyr det at «ser kanalen seriøs ut» slutter å være et brukbart signal når man plukker skapere. Tallene betyr mer, utseendet betyr mindre.
+
+Og gratis verktøy gir alltid mer volum. Det som skiller et klipp som blir sett fra et som ikke blir det er fortsatt selve øyeblikket, og det kan ingen mal lage.
+
+## Tre ting vi ville sagt fra om
+
+Hvis en kanal bruker AI-genererte bannere i samme sending som en betalt kampanje, står merket ved siden av bilder ingen har godkjent. Det er verdt en linje i avtalen, ikke en krise.
+
+Automatisk klipping finner øyeblikk, ikke de riktige øyeblikkene. Et klipp der overlayet så vidt er i bildet teller ikke som leveranse. Vi går fortsatt gjennom klipp manuelt før de rapporteres.
+
+Og ingenting av dette er annonsering. Det er produksjon og kanalgrafikk. Det endrer ikke hvordan annonser kjøpes eller vises på Twitch, og det gir ikke merkevarer noen ny flate. Det gjør bare at det som allerede skjedde når lenger.`,
+    date: "10. sep 2026",
+    dateISO: "2026-09-10",
+    readTime: "5 min lesetid",
+    category: "Bransjeinnsikt",
+    tags: ["Twitch", "CapCut", "klipp", "AI-verktøy", "nordisk annonsering", "plattformnytt"],
+    image: "/lovable-uploads/capcut/twitch-capcut-banner.webp",
+    relatedSlugs: [],
+    seoTitle: {
+      en: "Twitch x CapCut: free clipping and channel art, and what it means | Beta Ads",
+      no: "Twitch og CapCut: gratis klipping og kanalgrafikk | Beta Ads",
+      sv: "Twitch och CapCut: gratis klippning och kanalgrafik | Beta Ads",
+      fi: "Twitch ja CapCut: ilmainen leikkaus ja kanavagrafiikka | Beta Ads"
+    },
+    seoDescription: {
+      en: "Twitch and CapCut now offer free banners, templates and automatic clipping of full streams. Not an ad product, but it changes how long a sponsored moment lives after the broadcast ends.",
+      no: "Twitch og CapCut gir nå gratis bannere, maler og automatisk klipping av hele sendinger. Ikke et annonseprodukt, men det endrer hvor lenge et sponset øyeblikk lever etter sendingen.",
+      sv: "Twitch och CapCut ger nu gratis banners, mallar och automatisk klippning av hela sändningar. Inte en annonsprodukt, men det ändrar hur länge ett sponsrat ögonblick lever efter sändningen.",
+      fi: "Twitch ja CapCut tarjoavat nyt ilmaiset bannerit, mallit ja koko lähetyksen automaattisen leikkauksen. Ei mainostuote, mutta se muuttaa sponsoroidun hetken elinikää lähetyksen jälkeen."
+    },
+    seoKeywords: {
+      en: ["Twitch CapCut", "Twitch clipping tool", "Seedream 5.0", "Seedance 2.5", "stream highlights", "creator marketing"],
+      no: ["Twitch CapCut", "klippeverktøy Twitch", "Seedream 5.0", "Seedance 2.5", "streamerklipp", "streamermarkedsføring"],
+      sv: ["Twitch CapCut", "klippverktyg Twitch", "Seedream 5.0", "Seedance 2.5", "streamerklipp", "streamermarknadsföring"],
+      fi: ["Twitch CapCut", "Twitch-leikkaustyökalu", "Seedream 5.0", "Seedance 2.5", "striimileikkeet", "striimaajamarkkinointi"]
+    },
+  },
+  {
     id: "gta-vi-nordisk-merkevareguide",
     slug: "gta-vi-nordisk-merkevareguide",
     locale: "no",
