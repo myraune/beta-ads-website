@@ -1,9 +1,20 @@
 /**
  * scripts/generate-blog-meta.mjs
  *
- * Generates src/data/blogPostsMeta.ts from blogPosts.ts.
+ * Generates src/data/blogPostsMeta.ts from blogPostsAll.ts.
  * Strips `content`, `seoTitle`, and `seoDescription` from every post,
  * leaving only the lightweight metadata fields needed by listing components.
+ *
+ * It MUST read blogPostsAll, not blogPosts. blogPosts.ts lazy-loads the four
+ * localized files, so evaluating it at build time yields English posts only.
+ * This script used to do exactly that, and because it runs first in the
+ * Vercel build it rewrote blogPostsMeta.ts without a single Norwegian,
+ * Swedish, Danish or Finnish entry on every deploy. main.tsx and BlogPost.tsx
+ * resolve a slug's locale through this file, so every localized post fell
+ * back to "en", was not found, redirected to /blog, and the prerenderer
+ * captured the redirect. On 2026-09-11 all 51+ localized posts on production
+ * served either the blog index or the homepage shell at their own URL.
+ * Hand-adding entries here never worked: the build wiped them again.
  *
  * Run: node scripts/generate-blog-meta.mjs
  */
@@ -19,9 +30,9 @@ const ROOT = path.resolve(__dirname, "..");
 const TMP = path.join(ROOT, "node_modules", ".cache", "blog-meta-gen.cjs");
 const OUT = path.join(ROOT, "src", "data", "blogPostsMeta.ts");
 
-// 1. Bundle blogPosts.ts to a CJS module we can require()
+// 1. Bundle blogPostsAll.ts (every locale, publish-filtered) to CJS
 await build({
-  entryPoints: [path.join(ROOT, "src", "data", "blogPosts.ts")],
+  entryPoints: [path.join(ROOT, "src", "data", "blogPostsAll.ts")],
   bundle: true,
   format: "cjs",
   outfile: TMP,
@@ -34,9 +45,9 @@ await build({
 const require = createRequire(import.meta.url);
 // Clear require cache in case this script was run before
 delete require.cache[require.resolve(TMP)];
-const { blogPosts } = require(TMP);
+const { blogPostsAll } = require(TMP);
 
-const metaPosts = blogPosts.map(
+const metaPosts = blogPostsAll.map(
   ({ content, seoTitle, seoDescription, ...rest }) => rest
 );
 
