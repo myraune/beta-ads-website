@@ -222,7 +222,9 @@ const TwitchCapCut: React.FC = () => (
         </div>
         <Reveal>
           <figure className="m-0 lg:sticky lg:top-24">
-            <div className="rounded-xl overflow-hidden bg-muted ring-1 ring-border">
+            {/* Cut-out with a transparent background (43 % of the pixels), so no
+                box behind it: a bg-muted container showed through as grey. */}
+            <div>
               <img
                 src="/lovable-uploads/capcut/capcut-banner-tool.webp"
                 alt="CapCut sitt bannerverktøy for Twitch, med Seedream 5.0 valgt som modell"
