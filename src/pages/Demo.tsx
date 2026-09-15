@@ -81,7 +81,9 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
       // Highest-intent conversion on the site. It is a form submit, not a link
       // click, so ConversionTracker's delegated listener never sees it - track
       // it explicitly so the SEO-test scoreboard counts real demo requests.
-      track("demo_form_submit", { path: "/demo", company: data.company?.slice(0, 60) || "" });
+      const payload = { path: "/demo", company: data.company?.slice(0, 60) || "" };
+      track("demo_form_submit", payload);
+      (window as any).gtag?.("event", "demo_form_submit", payload);
       toast({
         title: t.messageSent,
         description: t.wellGetBack,

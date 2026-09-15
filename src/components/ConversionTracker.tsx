@@ -31,10 +31,14 @@ export const ConversionTracker = () => {
       if (!href) return;
       const hit = EVENTS.find((x) => x.match(href));
       if (!hit) return;
-      track(hit.event, {
+      const payload = {
         path: window.location.pathname,
         label: (anchor.textContent || "").trim().slice(0, 60),
-      });
+      };
+      track(hit.event, payload);
+      // GA4 is the layer that is actually switched on. Same event name and
+      // fields, so a report reads identically whichever backend you open.
+      (window as any).gtag?.("event", hit.event, payload);
     };
     // capture phase so it still fires if a handler stops propagation
     document.addEventListener("click", onClick, true);
