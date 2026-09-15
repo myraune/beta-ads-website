@@ -11,6 +11,7 @@ import { RouteTransition } from "@/components/RouteTransition";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { ConversionTracker } from "@/components/ConversionTracker";
+import { ConsentBanner } from "@/components/ConsentBanner";
 import blogPhotos from "virtual:blog-photos";
 import { registerPhotos } from "@/lib/blogImage";
 import { installLucideA11yPatch } from "@/lib/a11y-icons";
@@ -159,6 +160,7 @@ const App = () => {
       <Sonner />
       <MotionConfig reducedMotion="user">
       <BrowserRouter>
+        <ConsentBanner />
         <SpeedInsightsWithRoute />
         <RouteThemeEnforcer />
         <RouteTransition />

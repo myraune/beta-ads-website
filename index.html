@@ -9,6 +9,25 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
+      // Consent Mode v2, "advanced". Everything is denied until the visitor
+      // says otherwise, and the default MUST be set before config() or GA4
+      // treats the first hit as consented. With storage denied GA4 still
+      // sends cookieless pings, so measurement continues without a cookie
+      // being set. The stored choice is applied synchronously here, before
+      // the first hit, so a returning visitor who accepted is measured fully
+      // from page one and one who declined is never asked to wait.
+      gtag('consent', 'default', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        wait_for_update: 500
+      });
+      try {
+        if (localStorage.getItem('ba-consent') === 'granted') {
+          gtag('consent', 'update', { analytics_storage: 'granted' });
+        }
+      } catch (e) {}
       gtag('js', new Date());
       gtag('config', 'G-VW901DS4HY');
     </script>
