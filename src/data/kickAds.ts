@@ -270,7 +270,7 @@ const EN: KickCopy = {
     chartTitle: "Share of Nordic Kick watch hours, August 2026",
     chartNote: "Source: Kick Advertising Solutions, 1 September 2026. Category-level breakdowns exist but have limits.",
     mauTitle: "Monthly active users",
-    mauTotal: "Total, four markets",
+    mauTotal: "Total",
     countries: { fi: "Finland", se: "Sweden", no: "Norway", dk: "Denmark", is: "Iceland" },
   },
   audience: {
@@ -467,7 +467,7 @@ const NO: KickCopy = {
     chartTitle: "Andel av nordiske Kick-setimer, august 2026",
     chartNote: "Kilde: Kick Advertising Solutions, 1. september 2026. Nedbrytning per kategori finnes, men har begrensninger.",
     mauTitle: "Månedlige aktive brukere",
-    mauTotal: "Totalt, fire markeder",
+    mauTotal: "Totalt",
     countries: { fi: "Finland", se: "Sverige", no: "Norge", dk: "Danmark", is: "Island" },
   },
   audience: {
@@ -664,7 +664,7 @@ const SV: KickCopy = {
     chartTitle: "Andel av nordiska Kick-tittartimmar, augusti 2026",
     chartNote: "Källa: Kick Advertising Solutions, 1 september 2026. Nedbrytning per kategori finns men har begränsningar.",
     mauTitle: "Månatligt aktiva användare",
-    mauTotal: "Totalt, fyra marknader",
+    mauTotal: "Totalt",
     countries: { fi: "Finland", se: "Sverige", no: "Norge", dk: "Danmark", is: "Island" },
   },
   audience: {
@@ -861,7 +861,7 @@ const DA: KickCopy = {
     chartTitle: "Andel af nordiske Kick-setimer, august 2026",
     chartNote: "Kilde: Kick Advertising Solutions, 1. september 2026. Opdeling per kategori findes, men har begrænsninger.",
     mauTitle: "Månedligt aktive brugere",
-    mauTotal: "I alt, fire markeder",
+    mauTotal: "I alt",
     countries: { fi: "Finland", se: "Sverige", no: "Norge", dk: "Danmark", is: "Island" },
   },
   audience: {
@@ -1058,7 +1058,7 @@ const FI: KickCopy = {
     chartTitle: "Osuus pohjoismaisista Kick-katselutunneista, elokuu 2026",
     chartNote: "Lähde: Kick Advertising Solutions, 1. syyskuuta 2026. Kategoriatason jaottelu on olemassa, mutta sillä on rajoituksia.",
     mauTitle: "Kuukausittaiset aktiiviset käyttäjät",
-    mauTotal: "Yhteensä, neljä markkinaa",
+    mauTotal: "Yhteensä",
     countries: { fi: "Suomi", se: "Ruotsi", no: "Norja", dk: "Tanska", is: "Islanti" },
   },
   audience: {

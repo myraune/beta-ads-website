@@ -47,6 +47,8 @@ const HOME_FIGURE = "/lovable-uploads/kick/kick-home-categories.webp";
 
 const fmt = (lang: KickLang, n: number) =>
   lang === "en" ? n.toFixed(1) : n.toFixed(1).replace(".", ",");
+/* Same decimal rule for pre-formatted strings like "522.5K". */
+const loc = (lang: KickLang, v: string) => (lang === "en" ? v : v.replace(".", ","));
 
 /* Horizontal bar at true percentage width. */
 const Bar: React.FC<{
@@ -242,12 +244,12 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
               {NORDIC_SHARE.filter((c) => c.mau).map((c) => (
                 <div key={c.key} className="border-t border-border pt-3 flex flex-col-reverse">
                   <dt className="text-xs text-muted-foreground">{t.nordic.countries[c.key]}</dt>
-                  <dd className="text-xl font-bold tracking-tight text-foreground tabular-nums m-0">{c.mau}</dd>
+                  <dd className="text-xl font-bold tracking-tight text-foreground tabular-nums m-0">{loc(lang, c.mau)}</dd>
                 </div>
               ))}
               <div className="border-t border-border pt-3 flex flex-col-reverse">
-                <dt className="text-xs text-muted-foreground">{t.nordic.mauTotal}</dt>
-                <dd className="text-xl font-bold tracking-tight tabular-nums m-0" style={{ color: KICK_GREEN }}>{NORDIC_MAU_TOTAL}</dd>
+                <dt className="text-xs text-muted-foreground truncate">{t.nordic.mauTotal}</dt>
+                <dd className="text-xl font-bold tracking-tight tabular-nums m-0" style={{ color: KICK_GREEN }}>{loc(lang, NORDIC_MAU_TOTAL)}</dd>
               </div>
             </dl>
           </Reveal>
@@ -306,26 +308,13 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
 
       {/* Content mix */}
       <section className="border-t border-border py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-[0.8fr_1.2fr] gap-16 items-start">
-          <div className="max-w-xl">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="max-w-2xl">
             <Label>{t.content.label}</Label>
             <H2>{t.content.heading}</H2>
-            <p className="text-base md:text-lg font-light leading-relaxed text-muted-foreground mb-10">{t.content.body}</p>
-            <dl className="m-0">
-              {CONTENT_MIX.map((c) => (
-                <div key={c.key} className="border-t border-border py-5 grid grid-cols-[4.5rem_1fr] gap-4">
-                  <dt className="text-2xl font-bold tracking-tight tabular-nums text-foreground m-0">
-                    {c.key === "sport" ? "~" : ""}{c.pct}%
-                  </dt>
-                  <dd className="m-0">
-                    <div className="text-base font-semibold text-foreground">{t.content.rows[c.key].title}</div>
-                    <p className="text-sm leading-relaxed text-muted-foreground mt-1 mb-0">{t.content.rows[c.key].desc}</p>
-                  </dd>
-                </div>
-              ))}
-            </dl>
+            <p className="text-base md:text-lg font-light leading-relaxed text-muted-foreground">{t.content.body}</p>
           </div>
-          <Reveal>
+          <Reveal className="mt-14">
             <figure className="m-0">
               <img
                 src={HOME_FIGURE}
@@ -335,9 +324,22 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
                 loading="lazy"
                 className="w-full h-auto rounded-2xl ring-1 ring-border"
               />
-              <figcaption className="text-xs text-muted-foreground mt-3 leading-relaxed">{t.content.figureCaption}</figcaption>
+              <figcaption className="text-xs text-muted-foreground mt-3 leading-relaxed max-w-2xl">{t.content.figureCaption}</figcaption>
             </figure>
           </Reveal>
+          <dl className="grid md:grid-cols-3 gap-x-10 mt-14 m-0 border-t border-border">
+            {CONTENT_MIX.map((c) => (
+              <div key={c.key} className="pt-6 grid grid-cols-[4.5rem_1fr] gap-4">
+                <dt className="text-2xl font-bold tracking-tight tabular-nums text-foreground m-0">
+                  {c.key === "sport" ? "~" : ""}{c.pct}%
+                </dt>
+                <dd className="m-0">
+                  <div className="text-base font-semibold text-foreground">{t.content.rows[c.key].title}</div>
+                  <p className="text-sm leading-relaxed text-muted-foreground mt-1 mb-0">{t.content.rows[c.key].desc}</p>
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
