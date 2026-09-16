@@ -86,7 +86,7 @@ const COPY = {
         { n: "03", title: "Live", desc: "Creators install nothing new; the overlay runs through the software they already stream with. Ads fire during agreed moments, not around the clock." },
         { n: "04", title: "Report", desc: "Completed views, CTR, poll answers, per-channel brand safety, replay reach. Kick and Twitch campaigns land in the same report." },
       ],
-      figureCaption: "Streamer Explorer in the Beta Ads dashboard, filtered on Kick. Country, language, category and brand-safety score per channel.",
+      figureCaption: "Streamer Explorer in the Beta Ads dashboard: 39,081 channels across Twitch, Kick, YouTube and Trovo, with engagement and brand-safety scores per channel. Kick creators are filtered out by platform, country and language.",
     },
     why: {
       label: "Why creators",
@@ -150,7 +150,7 @@ const COPY = {
         { n: "03", title: "Live", desc: "Skaperne installerer ingenting nytt; overlayet går gjennom programvaren de allerede strømmer med. Annonsene går i avtalte øyeblikk, ikke døgnet rundt." },
         { n: "04", title: "Rapport", desc: "Fullførte visninger, CTR, svar på avstemninger, brand safety per kanal, Replay reach. Kick- og Twitch-kampanjer havner i samme rapport." },
       ],
-      figureCaption: "Streamer Explorer i Beta Ads-dashbordet, filtrert på Kick. Land, språk, kategori og brand safety-score per kanal.",
+      figureCaption: "Streamer Explorer i Beta Ads-dashbordet: 39 081 kanaler på tvers av Twitch, Kick, YouTube og Trovo, med engasjement- og brand safety-score per kanal. Kick-skapere filtreres ut på plattform, land og språk.",
     },
     why: {
       label: "Hvorfor skapere",
@@ -326,7 +326,7 @@ const KickStreamerAdvertising: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => 
           </div>
           <Reveal className="mt-16">
             <figure className="m-0">
-              <img src={EXPLORER} alt="Beta Ads Streamer Explorer: filter panel with the Kick platform checkbox and a table of Kick and Twitch streamers with country, language and top categories" width={1410} height={1100} loading="lazy" className="w-full h-auto rounded-2xl ring-1 ring-border" />
+              <img src={EXPLORER} alt="Beta Ads Streamer Explorer overview: 39,081 streamers, 2.0B total followers, 7.7M average concurrent viewers, engagement 6.2 of 10, brand safety 6.8 of 10, 878.9M hours total watch time" width={1900} height={720} loading="lazy" className="w-full h-auto rounded-2xl ring-1 ring-border" />
               <figcaption className="text-xs text-muted-foreground mt-3 max-w-2xl">{t.steps.figureCaption}</figcaption>
             </figure>
           </Reveal>
