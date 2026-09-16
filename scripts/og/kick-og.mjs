@@ -22,6 +22,9 @@ const COPY = {
 const STREAMER = {
   en: { accent: "Inside the stream,", rest: "not around it.", stat: "2,800+", statLabel: "Nordic Kick creators in the Beta Ads network", kicker: "Beta Ads on Kick", photo: "lovable-uploads/beta-mascot-onair.jpg", file: "kick-streamer-advertising-en" },
   no: { accent: "Inne i strømmen,", rest: "ikke rundt den.", stat: "2 800+", statLabel: "nordiske Kick-skapere i Beta Ads-nettverket", kicker: "Beta Ads på Kick", photo: "lovable-uploads/beta-mascot-onair.jpg", file: "kick-streamer-advertising-no" },
+  sv: { accent: "Inne i streamen,", rest: "inte runt den.", stat: "2 800+", statLabel: "nordiska Kick-kreatörer i Beta Ads nätverk", kicker: "Beta Ads på Kick", photo: "lovable-uploads/beta-mascot-onair.jpg", file: "kick-streamer-advertising-sv" },
+  da: { accent: "Inde i streamen,", rest: "ikke rundt om den.", stat: "2.800+", statLabel: "nordiske Kick-creators i Beta Ads-netværket", kicker: "Beta Ads på Kick", photo: "lovable-uploads/beta-mascot-onair.jpg", file: "kick-streamer-advertising-da" },
+  fi: { accent: "Lähetyksen sisällä,", rest: "ei sen ympärillä.", stat: "2 800+", statLabel: "pohjoismaista Kick-tekijää Beta Adsin verkostossa", kicker: "Beta Ads Kickissä", photo: "lovable-uploads/beta-mascot-onair.jpg", file: "kick-streamer-advertising-fi" },
 };
 
 const b64 = (p) => `data:image/${p.endsWith(".png") ? "png" : "jpeg"};base64,${readFileSync(path.join(pub, p)).toString("base64")}`;

@@ -877,8 +877,8 @@ const SV: KickCopy = {
     label: "Beta Ads på Kick",
     heading: "Den andra vägen in: inne i själva streamen.",
     body: "Kicks placeringar sätter ditt varumärke runt bilden. Vårt kreatörsnätverk sätter det inne i den: över 2 800 nordiska Kick-kreatörer, native overlays under avtalade ögonblick, röststyrda annonser, omröstningar i chatten och räckvidd som lever vidare i repriserna. Bokas från samma team, rapporteras i samma rapport.",
-    cta: "Så fungerar kreatörskampanjer på Kick (på engelska)",
-    href: "/kick-streamer-advertising",
+    cta: "Så fungerar kreatörskampanjer på Kick",
+    href: "/kick-streamer-annonsering-sverige",
   },
   faq: [
     { q: "Kan jag annonsera på Kick enbart i Sverige?", a: "Ja, på båda sätten. Kicks egna format geostyrs per land och kan låsas till språk per kategori. Beta Ads-kampanjer byggs kreatör för kreatör, så en kampanj enbart för Sverige och på svenska är normalfallet, inte ett specialönskemål." },
@@ -1090,8 +1090,8 @@ const DA: KickCopy = {
     label: "Beta Ads på Kick",
     heading: "Den anden vej ind: inde i selve streamen.",
     body: "Kicks placeringer sætter dit brand rundt om billedet. Vores creator-netværk sætter det inde i det: over 2.800 nordiske Kick-creators, native overlays i aftalte øjeblikke, stemmestyrede annoncer, afstemninger i chatten og rækkevidde, der lever videre i genudsendelsen. Bookes fra samme team, rapporteres i samme rapport.",
-    cta: "Sådan fungerer creator-kampagner på Kick (på engelsk)",
-    href: "/kick-streamer-advertising",
+    cta: "Sådan fungerer creator-kampagner på Kick",
+    href: "/kick-streamer-annoncering",
   },
   faq: [
     { q: "Kan jeg annoncere på Kick kun i Danmark?", a: "Ja, på begge måder. Kicks egne formater geomålrettes per land og kan låses til sprog per kategori. Beta Ads-kampagner bygges creator for creator, så en kampagne kun for Danmark og på dansk er normalen, ikke et særønske." },
@@ -1303,8 +1303,8 @@ const FI: KickCopy = {
     label: "Beta Ads Kickissä",
     heading: "Toinen reitti sisään: itse lähetyksen sisällä.",
     body: "Kickin mainospaikat asettavat brändisi kuvan ympärille. Tekijäverkostomme asettaa sen kuvan sisään: yli 2 800 pohjoismaista Kick-tekijää, native overlayt sovittuina hetkinä, ääniohjatut mainokset, äänestykset chatissa ja tavoittavuus, joka elää uusinnoissa. Varataan samalta tiimiltä, raportoidaan samassa raportissa.",
-    cta: "Näin tekijäkampanjat Kickissä toimivat (englanniksi)",
-    href: "/kick-streamer-advertising",
+    cta: "Näin tekijäkampanjat Kickissä toimivat",
+    href: "/kick-streamer-mainonta",
   },
   faq: [
     { q: "Voinko mainostaa Kickissä vain Suomessa?", a: "Kyllä, molemmilla tavoilla. Kickin omat formaatit kohdennetaan maittain ja voidaan rajata kielen mukaan kategoriaa kohti. Beta Adsin kampanjat rakennetaan tekijä kerrallaan, joten pelkkään Suomeen rajattu, suomenkielinen kampanja on normaali tapaus, ei erikoistoive." },

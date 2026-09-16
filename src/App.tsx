@@ -43,6 +43,9 @@ const KickAnnoncering = lazy(() => import("./pages/KickAnnoncering"));
 const KickMainonta = lazy(() => import("./pages/KickMainonta"));
 const KickStreamerAdvertising = lazy(() => import("./pages/KickStreamerAdvertising"));
 const KickStreamerAnnonsering = lazy(() => import("./pages/KickStreamerAnnonsering"));
+const KickStreamerAnnonseringSverige = lazy(() => import("./pages/KickStreamerAnnonseringSverige"));
+const KickStreamerAnnoncering = lazy(() => import("./pages/KickStreamerAnnoncering"));
+const KickStreamerMainonta = lazy(() => import("./pages/KickStreamerMainonta"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const Norge = lazy(() => import("./pages/Norge"));
 const Blog = lazy(() => import("./pages/Blog"));
@@ -199,6 +202,9 @@ const App = () => {
               <Route path="/kick-mainonta" element={<KickMainonta />} />
               <Route path="/kick-streamer-advertising" element={<KickStreamerAdvertising />} />
               <Route path="/kick-streamer-annonsering" element={<KickStreamerAnnonsering />} />
+              <Route path="/kick-streamer-annonsering-sverige" element={<KickStreamerAnnonseringSverige />} />
+              <Route path="/kick-streamer-annoncering" element={<KickStreamerAnnoncering />} />
+              <Route path="/kick-streamer-mainonta" element={<KickStreamerMainonta />} />
               <Route path="/streamers" element={<Streamers t={t} />} />
               <Route path="/about" element={<AboutUs t={t} />} />
               <Route path="/norge" element={<Norge />} />

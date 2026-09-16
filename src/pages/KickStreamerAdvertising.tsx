@@ -17,34 +17,48 @@ import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
  * real campaign overlays; they ran on Twitch and the copy says so.
  */
 
-type Lang = "en" | "no";
+type Lang = "en" | "no" | "sv" | "da" | "fi";
 
 const ROUTES: Record<Lang, string> = {
   en: "/kick-streamer-advertising",
   no: "/kick-streamer-annonsering",
+  sv: "/kick-streamer-annonsering-sverige",
+  da: "/kick-streamer-annoncering",
+  fi: "/kick-streamer-mainonta",
+};
+const LANGS: Lang[] = ["en", "no", "sv", "da", "fi"];
+const LANG_NAMES: Record<Lang, string> = { en: "English", no: "Norsk", sv: "Svenska", da: "Dansk", fi: "Suomi" };
+const KICK_PAGE: Record<Lang, string> = {
+  en: "/kick-advertising",
+  no: "/kick-annonsering",
+  sv: "/kick-annonsering-sverige",
+  da: "/kick-annoncering",
+  fi: "/kick-mainonta",
 };
 export const KICK_STREAMER_ROUTES = ROUTES;
 
-const OG: Record<Lang, string> = {
-  en: "/lovable-uploads/og/kick-streamer-advertising-en.png",
-  no: "/lovable-uploads/og/kick-streamer-advertising-no.png",
-};
+const OG: Record<Lang, string> = Object.fromEntries(
+  LANGS.map((l) => [l, `/lovable-uploads/og/kick-streamer-advertising-${l}.png`]),
+) as Record<Lang, string>;
 
 const serif = { fontFamily: "'Instrument Serif', serif" };
 const HERO_IMG = "/lovable-uploads/beta-mascot-onair.jpg";
 const EXPLORER = "/lovable-uploads/kick/streamer-explorer-kick.webp";
 
 const CASES = [
-  { brand: "Samsung", logo: "/lovable-uploads/logo-samsung.png", metric: "500,131", metricNo: "500 131", video: "/lovable-uploads/overlay-samsung.webm", href: "/case-study/samsung", label: { en: "completed views, 2.93% CTR", no: "fullførte visninger, 2,93 % CTR" } },
-  { brand: "Shure", logo: "/lovable-uploads/logo-shure.png", metric: "9.12%", metricNo: "9,12 %", video: "/lovable-uploads/overlay-shure-gca.webm", href: "/case-study/shure", label: { en: "peak-day CTR, 182,554 views", no: "CTR på toppdagen, 182 554 visninger" } },
-  { brand: "Komplett", logo: "/lovable-uploads/logo-komplett.png", metric: "151,278", metricNo: "151 278", video: "/lovable-uploads/overlay-komplett.webm", href: "/case-study/komplett", label: { en: "display views, 1.17% CTR, 34 streamers", no: "visninger, 1,17 % CTR, 34 strømmere" } },
+  { brand: "Samsung", logo: "/lovable-uploads/logo-samsung.png", metric: "500,131", metricLocal: "500 131", href: "/case-study/samsung",
+    label: { en: "completed views, 2.93% CTR", no: "fullførte visninger, 2,93 % CTR", sv: "fullföljda visningar, 2,93 % CTR", da: "gennemførte visninger, 2,93 % CTR", fi: "katsottua näyttöä, 2,93 % CTR" } },
+  { brand: "Shure", logo: "/lovable-uploads/logo-shure.png", metric: "9.12%", metricLocal: "9,12 %", href: "/case-study/shure",
+    label: { en: "peak-day CTR, 182,554 views", no: "CTR på toppdagen, 182 554 visninger", sv: "CTR på toppdagen, 182 554 visningar", da: "CTR på topdagen, 182.554 visninger", fi: "huippupäivän CTR, 182 554 näyttöä" } },
+  { brand: "Komplett", logo: "/lovable-uploads/logo-komplett.png", metric: "151,278", metricLocal: "151 278", href: "/case-study/komplett",
+    label: { en: "display views, 1.17% CTR, 34 streamers", no: "visninger, 1,17 % CTR, 34 strømmere", sv: "visningar, 1,17 % CTR, 34 streamers", da: "visninger, 1,17 % CTR, 34 streamere", fi: "näyttöä, 1,17 % CTR, 34 striimaajaa" } },
 ] as const;
 
 /** Real frames from real campaigns, overlay in the picture. */
 const STILLS = [
-  { src: "/lovable-uploads/case-glorious-poster.webp", href: "/case-study/glorious", alt: "VikingDuden live with a Glorious V3 Mouse overlay in the lower right of the stream, chat on the left", cap: { en: "Glorious, in VikingDuden's stream", no: "Glorious, i VikingDudens strøm" } },
-  { src: "/lovable-uploads/adgif-3818527-poster.webp", href: "/case-study/gokstad", alt: "RubenGKS live at his desk with a Gokstad Akademiet overlay in the lower right asking what you will do this autumn", cap: { en: "Gokstad Akademiet, in RubenGKS's stream", no: "Gokstad Akademiet, i RubenGKS' strøm" } },
-  { src: "/lovable-uploads/adgif-3637484-poster.webp", href: "/case-study/glorious", alt: "kishoo live with a Glorious V3 Mouse overlay beside the chat", cap: { en: "Glorious, in kishoo's stream", no: "Glorious, i kishoos strøm" } },
+  { src: "/lovable-uploads/case-glorious-poster.webp", href: "/case-study/glorious", alt: "VikingDuden live with a Glorious V3 Mouse overlay in the lower right of the stream, chat on the left", cap: { en: "Glorious, in VikingDuden's stream", no: "Glorious, i VikingDudens strøm", sv: "Glorious, i VikingDudens stream", da: "Glorious, i VikingDudens stream", fi: "Glorious, VikingDudenin lähetyksessä" } },
+  { src: "/lovable-uploads/adgif-3818527-poster.webp", href: "/case-study/gokstad", alt: "RubenGKS live at his desk with a Gokstad Akademiet overlay in the lower right asking what you will do this autumn", cap: { en: "Gokstad Akademiet, in RubenGKS's stream", no: "Gokstad Akademiet, i RubenGKS' strøm", sv: "Gokstad Akademiet, i RubenGKS stream", da: "Gokstad Akademiet, i RubenGKS' stream", fi: "Gokstad Akademiet, RubenGKS:n lähetyksessä" } },
+  { src: "/lovable-uploads/adgif-3637484-poster.webp", href: "/case-study/glorious", alt: "kishoo live with a Glorious V3 Mouse overlay beside the chat", cap: { en: "Glorious, in kishoo's stream", no: "Glorious, i kishoos strøm", sv: "Glorious, i kishoos stream", da: "Glorious, i kishoos stream", fi: "Glorious, kishoon lähetyksessä" } },
 ] as const;
 
 const COPY = {
@@ -110,7 +124,7 @@ const COPY = {
       { q: "What about gambling and alcohol rules?", a: "Every campaign goes through our compliance check for the market it runs in, including Norway's marketing rules. Creators are hand-picked per campaign, and Kick's own 18+ inventory is a separate product we do not mix into creator campaigns without asking." },
     ],
     cta: { heading: "Let us show you a Nordic Kick stream with your brand in it.", subtext: "Thirty minutes, real channels, real reports.", primary: "Book a demo", secondary: "Pricing" },
-    otherLang: "Denne siden på norsk",
+    otherLang: "This page in other languages",
   },
   no: {
     seoTitle: "Annonser gjennom Kick-strømmere i Norden | Beta Ads",
@@ -174,7 +188,199 @@ const COPY = {
       { q: "Hva med regler for pengespill og alkohol?", a: "Hver kampanje går gjennom vår compliance-sjekk for markedet den kjører i, inkludert det norske regelverket. Skaperne håndplukkes per kampanje, og Kicks egne 18+-flater er et eget produkt vi ikke blander inn i skaperkampanjer uten å spørre." },
     ],
     cta: { heading: "La oss vise deg en nordisk Kick-strøm med merkevaren din i.", subtext: "Tretti minutter, ekte kanaler, ekte rapporter.", primary: "Book en demo", secondary: "Priser" },
-    otherLang: "This page in English",
+    otherLang: "Denne siden på andre språk",
+  },
+  sv: {
+    seoTitle: "Annonsera genom Kick-streamers i Norden | Beta Ads",
+    seoDescription:
+      "Beta Ads placerar varumärken inne i streamsen hos över 2 800 nordiska Kick-kreatörer: native overlays, röststyrda annonser, omröstningar och Replay reach. Så körs en kampanj, vad den har levererat och hur du börjar.",
+    badge: "Beta Ads på Kick",
+    h1Accent: "Inne i streamen,",
+    h1Rest: "inte runt den.",
+    sub: "Kick säljer ramen. Vi jobbar inne i bilden: ditt varumärke syns i sändningen en nordisk kreatör gör, under ögonblick de har sagt ja till, på ett språk tittarna talar.",
+    primary: "Boka en demo",
+    secondary: "Kicks egna format",
+    stats: [
+      { value: "2 800+", label: "Kick-kreatörer i Sverige, Norge, Danmark och Finland (Beta Ads nätverk)" },
+      { value: "2,93 %", label: "genomsnittlig CTR på Samsung-kampanjen, 500 131 fullföljda visningar" },
+      { value: "67 %", label: "svarsfrekvens uppnådd på omröstningar i streamen" },
+      { value: "20,0 %", label: "Kicks andel av Kick + Twitch-timmar i Nordeuropa (Kick, Q2 2026)" },
+    ],
+    formats: {
+      label: "Så syns det",
+      heading: "Fyra vägar in i en Kick-stream.",
+      body: "Alla är en del av videon kreatören sänder ut. Därför ser alla tittare dem, på alla enheter, med alla adblockers, och därför finns de kvar när streamen spelas upp igen.",
+      items: [
+        { name: "Native overlay", desc: "En varumärkt grafik på streamen under sponsrade ögonblick, animerad eller statisk. Den går aldrig konstant och ligger aldrig över spelet." },
+        { name: "Röststyrd", desc: "Triggas när kreatören säger varumärkets namn, med röstigenkänning i realtid. Annonsen visas i samma sekund som rekommendationen sker." },
+        { name: "Omröstningar och chatt", desc: "En fråga publiken svarar på i chatten, med fördelningen i din rapport. Våra omröstningskampanjer har nått 67 procents svarsfrekvens." },
+        { name: "Replay reach", desc: "Overlayen ligger kvar i VOD:en och klippen, så kampanjen fortsätter ses efter att live-streamen är slut." },
+      ],
+      clipsLabel: "Riktiga overlays i riktiga streams",
+      clipsNote: "Bilder från Glorious- och Gokstad Akademiet-kampanjerna. Overlayen är en del av bilden kreatören sänder ut, inte ett lager spelaren lägger på.",
+    },
+    steps: {
+      label: "Så körs en kampanj",
+      heading: "Brief på måndag. Live veckan efter.",
+      items: [
+        { n: "01", title: "Brief och marknad", desc: "Land, budget, datum, vad du vill att tittarna ska göra. Vi svarar med en plan och en CPM inom två arbetsdagar." },
+        { n: "02", title: "Kreatörer, för hand", desc: "Vi väljer bland Kick-kreatörerna i Streamer Explorer, filtrerat på land, språk, kategori och brand safety-poäng. Du godkänner listan." },
+        { n: "03", title: "Live", desc: "Kreatörerna installerar inget nytt; overlayen går genom programvaran de redan streamar med. Annonserna går i avtalade ögonblick, inte dygnet runt." },
+        { n: "04", title: "Rapport", desc: "Fullföljda visningar, CTR, svar på omröstningar, brand safety per kanal, Replay reach. Kick- och Twitch-kampanjer landar i samma rapport." },
+      ],
+      figureCaption: "Streamer Explorer i Beta Ads-dashboarden: 39 081 kanaler över Twitch, Kick, YouTube och Trovo, med engagemangs- och brand safety-poäng per kanal. Kick-kreatörer filtreras fram på plattform, land och språk.",
+    },
+    why: {
+      label: "Varför kreatörer",
+      heading: "Förtroende smittar inte från en banner.",
+      body: [
+        "Kicks eget mediekit citerar Edelman: 3,2 gånger fler litar på en kreatörs rekommendation än på en kändis, och 94 procent av Gen Z litar mer på influencers än på tv-reklam. Det förtroendet tillhör personen på skärmen, och det smittar bara av sig på ett varumärke som syns tillsammans med dem, inte i sidokolumnen bredvid.",
+        "Nordiska Kick-tittare tittar på nordiska kreatörer på svenska, norska, danska och finska. En kreatörskampanj talar det språket av sig själv. Kicks plattformsytor är geostyrda, och det är användbart, men det är en placering, inte en rekommendation.",
+      ],
+      note: "Båda vägarna bokas genom Beta Ads. De flesta varumärken vi planerar för nu kör Kicks startsides- eller kategoriformat på lanseringsdagen och en kreatörskampanj veckorna runt.",
+      link: "Se Kicks egna format",
+    },
+    proof: {
+      label: "Vad formatet har levererat",
+      heading: "Samma overlay, mätt.",
+      note: "Casen är från Twitch-kampanjer; de första Kick-kampanjerna bokas nu och publiceras här när de rapporterar.",
+      read: "Läs caset",
+    },
+    faq: [
+      { q: "Har ni Kick-kreatörer i Sverige?", a: "Ja. Nätverket täcker över 2 800 Kick-kreatörer i Sverige, Norge, Danmark och Finland, med Finland som största andel och Sverige som näst största, vilket stämmer med Kicks egen nordiska fördelning av tittartimmar. Säg vilket land och vilken kategori, så skickar vi en kortlista." },
+      { q: "Kan tittarna blockera annonsen?", a: "Nej. Overlayen renderas in i videon kreatören sänder, så den når alla tittare på alla enheter, även de med adblocker. Den ligger också i VOD:en och klippen efteråt." },
+      { q: "Hur är det med regler för spel och alkohol?", a: "Varje kampanj går igenom vår compliance-kontroll för marknaden den körs i, inklusive de svenska reglerna för spel- och alkoholreklam. Kreatörerna handplockas per kampanj, och Kicks egna 18+-ytor är en separat produkt vi inte blandar in i kreatörskampanjer utan att fråga." },
+    ],
+    cta: { heading: "Låt oss visa dig en nordisk Kick-stream med ditt varumärke i.", subtext: "Trettio minuter, riktiga kanaler, riktiga rapporter.", primary: "Boka en demo", secondary: "Priser" },
+    otherLang: "Den här sidan på andra språk",
+  },
+  da: {
+    seoTitle: "Annoncer gennem Kick-streamere i Norden | Beta Ads",
+    seoDescription:
+      "Beta Ads placerer brands inde i streamsene hos over 2.800 nordiske Kick-creators: native overlays, stemmestyrede annoncer, afstemninger og Replay reach. Sådan kører en kampagne, hvad den har leveret, og hvordan du starter.",
+    badge: "Beta Ads på Kick",
+    h1Accent: "Inde i streamen,",
+    h1Rest: "ikke rundt om den.",
+    sub: "Kick sælger rammen. Vi arbejder inde i billedet: dit brand vises i den udsendelse, en nordisk creator laver, i øjeblikke de har sagt ja til, på et sprog seerne taler.",
+    primary: "Book en demo",
+    secondary: "Kicks egne formater",
+    stats: [
+      { value: "2.800+", label: "Kick-creators i Danmark, Norge, Sverige og Finland (Beta Ads-netværket)" },
+      { value: "2,93 %", label: "gennemsnitlig CTR på Samsung-kampagnen, 500.131 gennemførte visninger" },
+      { value: "67 %", label: "svarprocent opnået på afstemninger i streamen" },
+      { value: "20,0 %", label: "Kicks andel af Kick + Twitch-timer i Nordeuropa (Kick, Q2 2026)" },
+    ],
+    formats: {
+      label: "Sådan vises det",
+      heading: "Fire veje ind i en Kick-stream.",
+      body: "Alle er en del af den video, creatoren sender ud. Derfor ser alle seere dem, på alle enheder, med alle adblockere, og derfor er de der stadig, når streamen afspilles igen.",
+      items: [
+        { name: "Native overlay", desc: "En brandet grafik på streamen i sponsorerede øjeblikke, animeret eller statisk. Den kører aldrig konstant og ligger aldrig over spillet." },
+        { name: "Stemmestyret", desc: "Udløses, når creatoren siger brandets navn, med stemmegenkendelse i realtid. Annoncen vises i samme sekund, som anbefalingen sker." },
+        { name: "Afstemninger og chat", desc: "Et spørgsmål publikum svarer på i chatten, med fordelingen i din rapport. Vores afstemningskampagner har nået 67 procents svarprocent." },
+        { name: "Replay reach", desc: "Overlayet ligger i VOD'en og klippene, så kampagnen bliver set videre, efter live-streamen er slut." },
+      ],
+      clipsLabel: "Rigtige overlays i rigtige streams",
+      clipsNote: "Billeder fra Glorious- og Gokstad Akademiet-kampagnerne. Overlayet er en del af det billede, creatoren sender ud, ikke et lag afspilleren lægger på.",
+    },
+    steps: {
+      label: "Sådan kører en kampagne",
+      heading: "Brief mandag. Live ugen efter.",
+      items: [
+        { n: "01", title: "Brief og marked", desc: "Land, budget, datoer, hvad du vil have seerne til at gøre. Vi svarer med en plan og en CPM inden for to arbejdsdage." },
+        { n: "02", title: "Creators, i hånden", desc: "Vi vælger blandt Kick-creatorerne i Streamer Explorer, filtreret på land, sprog, kategori og brand safety-score. Du godkender listen." },
+        { n: "03", title: "Live", desc: "Creatorerne installerer intet nyt; overlayet kører gennem den software, de allerede streamer med. Annoncerne kører i aftalte øjeblikke, ikke døgnet rundt." },
+        { n: "04", title: "Rapport", desc: "Gennemførte visninger, CTR, svar på afstemninger, brand safety per kanal, Replay reach. Kick- og Twitch-kampagner lander i samme rapport." },
+      ],
+      figureCaption: "Streamer Explorer i Beta Ads-dashboardet: 39.081 kanaler på tværs af Twitch, Kick, YouTube og Trovo, med engagement- og brand safety-score per kanal. Kick-creators filtreres frem på platform, land og sprog.",
+    },
+    why: {
+      label: "Hvorfor creators",
+      heading: "Tillid smitter ikke fra et banner.",
+      body: [
+        "Kicks eget mediekit citerer Edelman: 3,2 gange flere stoler på en creators anbefaling end på en kendis, og 94 procent af Gen Z stoler mere på influencere end på tv-reklamer. Den tillid tilhører personen på skærmen, og den smitter kun af på et brand, der vises sammen med dem, ikke i sidekolonnen ved siden af.",
+        "Nordiske Kick-seere ser nordiske creators på dansk, norsk, svensk og finsk. En creator-kampagne taler det sprog af sig selv. Kicks platformsflader er geomålrettede, og det er nyttigt, men det er en placering, ikke en anbefaling.",
+      ],
+      note: "Begge veje bookes gennem Beta Ads. De fleste brands, vi planlægger for nu, kører Kicks forside- eller kategoriformater på lanceringsdagen og en creator-kampagne i ugerne omkring.",
+      link: "Se Kicks egne formater",
+    },
+    proof: {
+      label: "Hvad formatet har leveret",
+      heading: "Samme overlay, målt.",
+      note: "Casene er fra Twitch-kampagner; de første Kick-kampagner bookes nu og offentliggøres her, når de rapporterer.",
+      read: "Læs casen",
+    },
+    faq: [
+      { q: "Har I Kick-creators i Danmark?", a: "Ja. Netværket dækker over 2.800 Kick-creators i Danmark, Norge, Sverige og Finland. Danmark er det mindste af de fire markeder, hvilket passer med Kicks egen nordiske fordeling af setimer, men det er også der, konkurrencen om fladerne er lavest. Sig hvilket land og hvilken kategori, så sender vi en kortliste." },
+      { q: "Kan seerne blokere annoncen?", a: "Nej. Overlayet renderes ind i den video, creatoren sender, så det når alle seere på alle enheder, også dem med adblocker. Det ligger også i VOD'en og klippene bagefter." },
+      { q: "Hvad med regler for spil og alkohol?", a: "Hver kampagne går gennem vores compliance-tjek for det marked, den kører i, inklusive de danske regler for spil- og alkoholreklame. Creators håndplukkes per kampagne, og Kicks egne 18+-flader er et separat produkt, vi ikke blander ind i creator-kampagner uden at spørge." },
+    ],
+    cta: { heading: "Lad os vise dig en nordisk Kick-stream med dit brand i.", subtext: "Tredive minutter, rigtige kanaler, rigtige rapporter.", primary: "Book en demo", secondary: "Priser" },
+    otherLang: "Denne side på andre sprog",
+  },
+  fi: {
+    seoTitle: "Mainosta Kick-striimaajien kautta Pohjoismaissa | Beta Ads",
+    seoDescription:
+      "Beta Ads tuo brändit yli 2 800 pohjoismaisen Kick-tekijän lähetysten sisään: native overlayt, ääniohjatut mainokset, äänestykset ja Replay reach. Näin kampanja pyörii, mitä se on tuottanut ja miten aloitat.",
+    badge: "Beta Ads Kickissä",
+    h1Accent: "Lähetyksen sisällä,",
+    h1Rest: "ei sen ympärillä.",
+    sub: "Kick myy kehyksen. Me työskentelemme kuvan sisällä: brändisi näkyy pohjoismaisen tekijän lähetyksessä, hetkinä joihin he ovat suostuneet, kielellä jota katsojat puhuvat.",
+    primary: "Varaa demo",
+    secondary: "Kickin omat formaatit",
+    stats: [
+      { value: "2 800+", label: "Kick-tekijää Suomessa, Ruotsissa, Norjassa ja Tanskassa (Beta Adsin verkosto)" },
+      { value: "2,93 %", label: "keskimääräinen CTR Samsung-kampanjassa, 500 131 katsottua näyttöä" },
+      { value: "67 %", label: "vastausaste lähetyksen äänestyksissä" },
+      { value: "20,0 %", label: "Kickin osuus Kick + Twitch -tunneista Pohjois-Euroopassa (Kick, Q2 2026)" },
+    ],
+    formats: {
+      label: "Näin se näkyy",
+      heading: "Neljä reittiä Kick-lähetyksen sisään.",
+      body: "Kaikki ovat osa videota, jonka tekijä lähettää. Siksi jokainen katsoja näkee ne, kaikilla laitteilla, kaikilla mainosestäjillä, ja siksi ne ovat yhä paikallaan, kun lähetys katsotaan uudelleen.",
+      items: [
+        { name: "Native overlay", desc: "Brändätty grafiikka lähetyksessä sponsoroitujen hetkien aikana, animoituna tai staattisena. Ei koskaan jatkuvasti, ei koskaan pelin päällä." },
+        { name: "Ääniohjattu", desc: "Käynnistyy, kun tekijä sanoo brändisi nimen, reaaliaikaisella puheentunnistuksella. Mainos näkyy samalla sekunnilla kuin suositus." },
+        { name: "Äänestykset ja chat", desc: "Kysymys, johon yleisö vastaa chatissa, jakauma raportissasi. Äänestyskampanjamme ovat yltäneet 67 prosentin vastausasteeseen." },
+        { name: "Replay reach", desc: "Overlay jää VOD:iin ja klippeihin, joten kampanjaa katsotaan vielä live-lähetyksen päätyttyä." },
+      ],
+      clipsLabel: "Oikeita overlayta oikeissa lähetyksissä",
+      clipsNote: "Kuvia Glorious- ja Gokstad Akademiet -kampanjoista. Overlay on osa kuvaa, jonka tekijä lähettää, ei soittimen lisäämä kerros.",
+    },
+    steps: {
+      label: "Näin kampanja pyörii",
+      heading: "Brief maanantaina. Livenä seuraavalla viikolla.",
+      items: [
+        { n: "01", title: "Brief ja markkina", desc: "Maa, budjetti, päivämäärät, mitä haluat katsojien tekevän. Vastaamme suunnitelmalla ja CPM:llä kahden arkipäivän sisällä." },
+        { n: "02", title: "Tekijät, käsin", desc: "Valitsemme Streamer Explorerin Kick-tekijöistä maan, kielen, kategorian ja bränditurvallisuuspisteiden mukaan. Sinä hyväksyt listan." },
+        { n: "03", title: "Live", desc: "Tekijät eivät asenna mitään uutta; overlay kulkee ohjelmiston läpi, jolla he jo striimaavat. Mainokset näkyvät sovittuina hetkinä, eivät kellon ympäri." },
+        { n: "04", title: "Raportti", desc: "Katsotut näytöt, CTR, äänestysvastaukset, bränditurvallisuus kanavaa kohti, Replay reach. Kick- ja Twitch-kampanjat päätyvät samaan raporttiin." },
+      ],
+      figureCaption: "Streamer Explorer Beta Adsin hallintapaneelissa: 39 081 kanavaa Twitchissä, Kickissä, YouTubessa ja Trovossa, sitoutumis- ja bränditurvallisuuspisteet kanavaa kohti. Kick-tekijät suodatetaan alustan, maan ja kielen mukaan.",
+    },
+    why: {
+      label: "Miksi tekijät",
+      heading: "Luottamus ei tartu bannerista.",
+      body: [
+        "Kickin oma mediakortti lainaa Edelmania: 3,2 kertaa useampi luottaa tekijän suositukseen kuin julkkiksen, ja 94 prosenttia Z-sukupolvesta luottaa vaikuttajiin enemmän kuin tv-mainoksiin. Se luottamus kuuluu ruudulla olevalle henkilölle, ja se tarttuu vain brändiin, joka näkyy heidän kanssaan, ei sivupalkissa heidän vieressään.",
+        "Pohjoismaiset Kick-katsojat katsovat pohjoismaisia tekijöitä suomeksi, ruotsiksi, norjaksi ja tanskaksi. Tekijäkampanja puhuu sitä kieltä itsestään. Kickin alustapinnat ovat maakohdennettuja, mikä on hyödyllistä, mutta se on mainospaikka, ei suositus.",
+      ],
+      note: "Molemmat reitit varataan Beta Adsin kautta. Useimmat brändit, joille nyt suunnittelemme, ajavat Kickin etusivu- tai kategoriaformaatteja julkaisupäivänä ja tekijäkampanjaa sitä ympäröivinä viikkoina.",
+      link: "Katso Kickin omat formaatit",
+    },
+    proof: {
+      label: "Mitä formaatti on tuottanut",
+      heading: "Sama overlay, mitattuna.",
+      note: "Caset ovat Twitch-kampanjoista; ensimmäiset Kick-kampanjat varataan nyt ja julkaistaan tässä, kun ne raportoivat.",
+      read: "Lue case",
+    },
+    faq: [
+      { q: "Onko teillä Kick-tekijöitä Suomessa?", a: "Kyllä. Verkosto kattaa yli 2 800 Kick-tekijää Suomessa, Ruotsissa, Norjassa ja Tanskassa, ja Suomi on suurin osuus, mikä vastaa Kickin omaa pohjoismaista katselutuntijakoa. Kerro maa ja kategoria, niin lähetämme lyhytlistan." },
+      { q: "Voivatko katsojat estää mainoksen?", a: "Eivät. Overlay renderöidään tekijän lähettämään videoon, joten se tavoittaa jokaisen katsojan kaikilla laitteilla, myös mainosestäjää käyttävät. Se on myös VOD:issa ja klipeissä jälkeenpäin." },
+      { q: "Entä rahapeli- ja alkoholimainonnan säännöt?", a: "Jokainen kampanja käy läpi compliance-tarkastuksemme sen markkinan osalta, jossa se pyörii, mukaan lukien Suomen rahapeli- ja alkoholimainonnan säännöt. Tekijät valitaan käsin kampanjaa kohti, ja Kickin omat 18+-pinnat ovat erillinen tuote, jota emme sekoita tekijäkampanjoihin kysymättä." },
+    ],
+    cta: { heading: "Näytämme sinulle pohjoismaisen Kick-lähetyksen, jossa brändisi on mukana.", subtext: "Kolmekymmentä minuuttia, oikeita kanavia, oikeita raportteja.", primary: "Varaa demo", secondary: "Hinnat" },
+    otherLang: "Tämä sivu muilla kielillä",
   },
 } as const;
 
@@ -196,8 +402,7 @@ const Reveal: React.FC<{ children: React.ReactNode; className?: string }> = ({ c
 const KickStreamerAdvertising: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
   const t = COPY[lang];
   const route = ROUTES[lang];
-  const kickPage = lang === "no" ? "/kick-annonsering" : "/kick-advertising";
-  const other: Lang = lang === "no" ? "en" : "no";
+  const kickPage = KICK_PAGE[lang];
 
   const jsonLd = [
     {
@@ -224,11 +429,7 @@ const KickStreamerAdvertising: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => 
         description: t.seoDescription,
         canonical: route,
         locale: lang,
-        alternates: [
-          { hreflang: "en", href: ROUTES.en },
-          { hreflang: "no", href: ROUTES.no },
-          { hreflang: "x-default", href: ROUTES.en },
-        ],
+        alternates: [...LANGS.map((l) => ({ hreflang: l, href: ROUTES[l] })), { hreflang: "x-default" as const, href: ROUTES.en }],
         ogImage: OG[lang],
         jsonLd,
       }}
@@ -363,7 +564,7 @@ const KickStreamerAdvertising: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => 
             {CASES.map((c) => (
               <div key={c.brand} className="pt-6">
                 <img src={c.logo} alt={c.brand} className="h-6 w-auto mb-5" loading="lazy" />
-                <div className="text-3xl font-bold tracking-tight tabular-nums text-foreground">{lang === "no" ? c.metricNo : c.metric}</div>
+                <div className="text-3xl font-bold tracking-tight tabular-nums text-foreground">{lang === "en" ? c.metric : c.metricLocal}</div>
                 <div className="text-sm text-muted-foreground mt-1">{c.label[lang]}</div>
                 <Link to={c.href} className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline underline-offset-4 mt-4">
                   {t.proof.read} <ArrowUpRight className="w-4 h-4" />
@@ -393,9 +594,14 @@ const KickStreamerAdvertising: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => 
             </div>
           </div>
           <div className="lg:pt-3">
-            <Link to={ROUTES[other]} hrefLang={other} className="text-sm font-medium text-foreground hover:text-primary underline-offset-4 hover:underline">
-              {t.otherLang}
-            </Link>
+            <span className="text-xs text-muted-foreground block mb-3">{t.otherLang}</span>
+            <nav className="flex flex-wrap gap-x-5 gap-y-2">
+              {LANGS.filter((l) => l !== lang).map((l) => (
+                <Link key={l} to={ROUTES[l]} hrefLang={l} className="text-sm font-medium text-foreground hover:text-primary underline-offset-4 hover:underline">
+                  {LANG_NAMES[l]}
+                </Link>
+              ))}
+            </nav>
           </div>
         </div>
       </section>

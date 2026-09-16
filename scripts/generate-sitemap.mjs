@@ -52,6 +52,9 @@ const STATIC_PAGES = [
   { path: "/kick-mainonta",          priority: "0.9",  changefreq: "monthly" },
   { path: "/kick-streamer-advertising", priority: "0.9", changefreq: "monthly" },
   { path: "/kick-streamer-annonsering", priority: "0.9", changefreq: "monthly" },
+  { path: "/kick-streamer-annonsering-sverige", priority: "0.9", changefreq: "monthly" },
+  { path: "/kick-streamer-annoncering", priority: "0.9", changefreq: "monthly" },
+  { path: "/kick-streamer-mainonta", priority: "0.9", changefreq: "monthly" },
   { path: "/press",                  priority: "0.95", changefreq: "monthly" },
   { path: "/norge",                  priority: "0.9",  changefreq: "monthly" },
   // Secondary high-priority pages
