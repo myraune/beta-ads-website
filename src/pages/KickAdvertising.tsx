@@ -193,115 +193,91 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
         </div>
       </section>
 
-      {/* Market share: global and Europe */}
+      {/* Kick in numbers: one dense overview, six charts */}
       <section className="border-t border-border py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-[0.8fr_1.2fr] gap-16 items-start">
-          <div className="max-w-xl">
-            <Label>{t.share.label}</Label>
-            <H2>{t.share.heading}</H2>
-            {t.share.body.map((p) => (
-              <p key={p} className="text-base md:text-lg font-light leading-relaxed text-muted-foreground mb-5">{p}</p>
-            ))}
-          </div>
-          <Reveal className="space-y-12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-start">
             <div>
-              <h3 className="text-base font-semibold text-foreground mb-4">{t.share.globalTitle}</h3>
+              <Label>{t.overview.label}</Label>
+              <H2>{t.overview.heading}</H2>
+            </div>
+            <div className="lg:pt-3 lg:columns-2 lg:gap-10">
+              {t.overview.body.map((p) => (
+                <p key={p} className="text-sm md:text-[15px] leading-relaxed text-muted-foreground mb-4 break-inside-avoid">{p}</p>
+              ))}
+            </div>
+          </div>
+
+          <Reveal className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12 border-t border-border pt-10">
+            <div>
+              <h3 className="text-sm font-semibold text-foreground mb-3">{t.share.globalTitle}</h3>
               {MARKET_SHARE.map((m) => (
                 <Bar key={m.name} lang={lang} label={m.name} pct={m.pct} highlight={m.name === "Kick"} />
               ))}
-              <p className="text-xs text-muted-foreground mt-4">{t.share.globalNote}</p>
+              <p className="text-[11px] leading-snug text-muted-foreground mt-3">{t.share.globalNote}</p>
             </div>
             <div>
-              <h3 className="text-base font-semibold text-foreground mb-4">{t.share.europeTitle}</h3>
+              <h3 className="text-sm font-semibold text-foreground mb-3">{t.share.europeTitle}</h3>
               {EUROPE_SHARE.map((r) => (
                 <Bar key={r.key} lang={lang} label={t.share.regions[r.key]} pct={r.pct} highlight={r.key === "northern"} muted={r.key === "europe"} />
               ))}
-              <p className="text-xs text-muted-foreground mt-4">{t.share.europeNote}</p>
+              <p className="text-[11px] leading-snug text-muted-foreground mt-3">{t.share.europeNote}</p>
             </div>
-          </Reveal>
-        </div>
-      </section>
-
-
-      {/* Nordic numbers from Kick's own team */}
-      <section className="border-t border-border py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-[1.05fr_0.95fr] gap-16 items-start">
-          <div className="max-w-xl">
-            <Label>{t.nordic.label}</Label>
-            <H2>{t.nordic.heading}</H2>
-            {t.nordic.body.map((p) => (
-              <p key={p} className="text-base md:text-lg font-light leading-relaxed text-muted-foreground mb-5">{p}</p>
-            ))}
-          </div>
-          <Reveal>
-            <h3 className="text-base font-semibold text-foreground mb-4">{t.nordic.chartTitle}</h3>
-            {NORDIC_SHARE.map((c) => (
-              <Bar key={c.key} lang={lang} label={t.nordic.countries[c.key]} pct={c.pct} highlight={c.key === lang || (lang === "en" && c.key === "fi") || (lang === "sv" && c.key === "se") || (lang === "da" && c.key === "dk")} />
-            ))}
-            <p className="text-xs text-muted-foreground mt-4 mb-12">{t.nordic.chartNote}</p>
-
-            <h3 className="text-base font-semibold text-foreground mb-4">{t.nordic.mauTitle}</h3>
-            <dl className="grid grid-cols-2 sm:grid-cols-5 gap-x-6 gap-y-6 m-0">
-              {NORDIC_SHARE.filter((c) => c.mau).map((c) => (
-                <div key={c.key} className="border-t border-border pt-3 flex flex-col-reverse">
-                  <dt className="text-xs text-muted-foreground">{t.nordic.countries[c.key]}</dt>
-                  <dd className="text-xl font-bold tracking-tight text-foreground tabular-nums m-0">{loc(lang, c.mau)}</dd>
-                </div>
+            <div>
+              <h3 className="text-sm font-semibold text-foreground mb-3">{t.nordic.chartTitle}</h3>
+              {NORDIC_SHARE.map((c) => (
+                <Bar key={c.key} lang={lang} label={t.nordic.countries[c.key]} pct={c.pct} highlight={c.key === lang || (lang === "en" && c.key === "fi") || (lang === "sv" && c.key === "se") || (lang === "da" && c.key === "dk")} />
               ))}
-              <div className="border-t border-border pt-3 flex flex-col-reverse">
-                <dt className="text-xs text-muted-foreground truncate">{t.nordic.mauTotal}</dt>
-                <dd className="text-xl font-bold tracking-tight tabular-nums m-0" style={{ color: KICK_GREEN }}>{loc(lang, NORDIC_MAU_TOTAL)}</dd>
+              <p className="text-[11px] leading-snug text-muted-foreground mt-3">{t.nordic.chartNote}</p>
+            </div>
+
+            <div>
+              <h3 className="text-sm font-semibold text-foreground mb-3">{t.nordic.mauTitle}</h3>
+              <dl className="grid grid-cols-3 gap-x-4 gap-y-5 m-0">
+                {NORDIC_SHARE.filter((c) => c.mau).map((c) => (
+                  <div key={c.key} className="border-t border-border pt-2.5 flex flex-col-reverse">
+                    <dt className="text-[11px] text-muted-foreground">{t.nordic.countries[c.key]}</dt>
+                    <dd className="text-lg font-bold tracking-tight text-foreground tabular-nums m-0">{loc(lang, c.mau)}</dd>
+                  </div>
+                ))}
+                <div className="border-t border-border pt-2.5 flex flex-col-reverse">
+                  <dt className="text-[11px] text-muted-foreground truncate">{t.nordic.mauTotal}</dt>
+                  <dd className="text-lg font-bold tracking-tight tabular-nums m-0" style={{ color: KICK_GREEN }}>{loc(lang, NORDIC_MAU_TOTAL)}</dd>
+                </div>
+              </dl>
+              <p className="text-[11px] leading-snug text-muted-foreground mt-4">{t.nordic.chartNote.split(/\. (?=[A-ZÅÄÖ])/)[0]}.</p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-foreground mb-3">{t.audience.chartTitle}</h3>
+              {AGE_18_34.map((a) => (
+                <Bar key={a.name} lang={lang} label={"key" in a ? t.audience.tv : a.name} pct={a.pct} highlight={a.name === "Kick"} />
+              ))}
+              <p className="text-[11px] leading-snug text-muted-foreground mt-3">{t.audience.chartNote}</p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-foreground mb-3">{t.audience.splitTitle}</h3>
+              <div className="flex h-2.5 rounded-full overflow-hidden bg-foreground/[0.07] mb-3">
+                {KICK_AGES.map((a, i) => (
+                  <div key={a.label} style={{ width: `${a.pct}%`, background: KICK_GREEN, opacity: 1 - i * 0.22 }} title={`${a.label}: ${fmt(lang, a.pct)}%`} />
+                ))}
               </div>
-            </dl>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Audience */}
-      <section className="border-t border-border py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-[1.05fr_0.95fr] gap-16 items-start">
-          <div>
-            <div className="max-w-xl">
-              <Label>{t.audience.label}</Label>
-              <H2>{t.audience.heading}</H2>
-              {t.audience.body.map((p) => (
-                <p key={p} className="text-base md:text-lg font-light leading-relaxed text-muted-foreground mb-5">{p}</p>
-              ))}
-            </div>
-            <dl className="grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-8 mt-12 max-w-2xl">
-              {t.audience.engagement.map((e) => (
-                <div key={e.label} className="border-t border-border pt-4 flex flex-col-reverse">
-                  <dt className="text-xs text-muted-foreground">{e.label}</dt>
-                  <dd className="text-2xl font-bold tracking-tight text-foreground tabular-nums m-0">{e.value}</dd>
-                </div>
-              ))}
-            </dl>
-            <p className="text-xs text-muted-foreground mt-4">{t.audience.engagementNote}</p>
-          </div>
-          <Reveal>
-            <h3 className="text-base font-semibold text-foreground mb-4">{t.audience.chartTitle}</h3>
-            {AGE_18_34.map((a) => (
-              <Bar key={a.name} lang={lang} label={"key" in a ? t.audience.tv : a.name} pct={a.pct} highlight={a.name === "Kick"} />
-            ))}
-            <p className="text-xs text-muted-foreground mt-4 mb-12">{t.audience.chartNote}</p>
-
-            <h3 className="text-base font-semibold text-foreground mb-4">{t.audience.splitTitle}</h3>
-            <div className="flex h-3 rounded-full overflow-hidden bg-foreground/[0.07]">
-              {KICK_AGES.map((a, i) => (
-                <div
-                  key={a.label}
-                  style={{ width: `${a.pct}%`, background: KICK_GREEN, opacity: 1 - i * 0.22 }}
-                  title={`${a.label}: ${fmt(lang, a.pct)}%`}
-                />
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-x-6 gap-y-2 mt-3">
-              {KICK_AGES.map((a, i) => (
-                <span key={a.label} className="inline-flex items-center gap-2 text-sm text-muted-foreground">
-                  <span className="w-2.5 h-2.5 rounded-sm" style={{ background: KICK_GREEN, opacity: 1 - i * 0.22 }} />
-                  {a.label} <span className="tabular-nums text-foreground">{fmt(lang, a.pct)}%</span>
-                </span>
-              ))}
+              <div className="flex flex-wrap gap-x-4 gap-y-1 mb-6">
+                {KICK_AGES.map((a, i) => (
+                  <span key={a.label} className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <span className="w-2 h-2 rounded-sm" style={{ background: KICK_GREEN, opacity: 1 - i * 0.22 }} />
+                    {a.label} <span className="tabular-nums text-foreground">{fmt(lang, a.pct)}%</span>
+                  </span>
+                ))}
+              </div>
+              <dl className="grid grid-cols-3 gap-x-4 gap-y-4 m-0">
+                {t.audience.engagement.map((e) => (
+                  <div key={e.label} className="border-t border-border pt-2.5 flex flex-col-reverse">
+                    <dt className="text-[11px] leading-snug text-muted-foreground">{e.label}</dt>
+                    <dd className="text-lg font-bold tracking-tight text-foreground tabular-nums m-0">{e.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="text-[11px] leading-snug text-muted-foreground mt-3">{t.audience.engagementNote}</p>
             </div>
           </Reveal>
         </div>

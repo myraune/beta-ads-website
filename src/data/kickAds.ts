@@ -174,6 +174,7 @@ export interface KickCopy {
     secondary: string;
     stats: { value: string; label: string }[];
   };
+  overview: { label: string; heading: string; body: string[] };
   share: {
     label: string;
     heading: string;
@@ -285,6 +286,14 @@ const EN: KickCopy = {
       { value: "7.5M+", label: "Nordic watch hours in August 2026" },
       { value: "1.13M", label: "monthly active users in Finland, Sweden, Norway and Denmark" },
       { value: "81.7%", label: "of Kick's audience is 18 to 34" },
+    ],
+  },
+  overview: {
+    label: "Kick in numbers",
+    heading: "Third in the world. Second in the north. First in Finland.",
+    body: [
+      "Globally Kick is the third-largest live platform with 14.4 percent of all hours watched in Q1 2026. In Northern Europe it already takes one in five of all Kick and Twitch hours, against one in twenty-three in Western Europe. The Nordics are one of Kick's strongest regions in Europe, not an afterthought.",
+      "The Nordic figures below are not in the public media kit. Kick's advertising team sent them to us when we became their Nordic partner: 7.5 million watch hours in August 2026, trending up month on month, across 1.13 million monthly active users. Finland is over half. Eight in ten viewers are 18 to 34, they stay 55 minutes on average, and the chat runs at 26,000 messages a minute. That is the attention a brand borrows.",
     ],
   },
   share: {
@@ -500,6 +509,14 @@ const NO: KickCopy = {
       { value: "81,7 %", label: "av Kicks publikum er 18 til 34 år" },
     ],
   },
+  overview: {
+    label: "Kick i tall",
+    heading: "Tredje størst i verden. Nummer to i nord. Størst i Finland.",
+    body: [
+      "Globalt er Kick den tredje største live-plattformen med 14,4 prosent av alle timer sett i Q1 2026. I Nord-Europa tar Kick allerede hver femte av alle Kick- og Twitch-timer, mot én av tjuetre i Vest-Europa. Norden er en av Kicks sterkeste regioner i Europa, ikke et sidespor.",
+      "De nordiske tallene under står ikke i det offentlige mediekittet. Kicks annonseteam sendte dem til oss da vi ble deres nordiske partner: 7,5 millioner setimer i august 2026, stigende måned for måned, fordelt på 1,13 millioner månedlige aktive brukere. Finland er over halvparten. Åtte av ti seere er 18 til 34, de blir i 55 minutter i snitt, og chatten går i 26 000 meldinger i minuttet. Det er oppmerksomheten en merkevare låner.",
+    ],
+  },
   share: {
     label: "Hvor Kick står",
     heading: "Tredje størst i verden. Nummer to i nord.",
@@ -711,6 +728,14 @@ const SV: KickCopy = {
       { value: "7,5M+", label: "nordiska tittartimmar i augusti 2026" },
       { value: "1,13M", label: "månatligt aktiva användare i Finland, Sverige, Norge och Danmark" },
       { value: "81,7 %", label: "av Kicks publik är 18 till 34 år" },
+    ],
+  },
+  overview: {
+    label: "Kick i siffror",
+    heading: "Tredje störst i världen. Nummer två i norr. Störst i Finland.",
+    body: [
+      "Globalt är Kick den tredje största live-plattformen med 14,4 procent av alla timmar sedda Q1 2026. I Nordeuropa tar Kick redan var femte av alla Kick- och Twitch-timmar, mot en av tjugotre i Västeuropa. Norden är en av Kicks starkaste regioner i Europa, inget sidospår.",
+      "De nordiska siffrorna nedan finns inte i det offentliga mediekitet. Kicks annonsteam skickade dem till oss när vi blev deras nordiska partner: 7,5 miljoner tittartimmar i augusti 2026, stigande månad för månad, fördelat på 1,13 miljoner månatligt aktiva användare. Finland är över hälften, Sverige näst störst. Åtta av tio tittare är 18 till 34, de stannar 55 minuter i snitt, och chatten går i 26 000 meddelanden i minuten. Det är uppmärksamheten ett varumärke lånar.",
     ],
   },
   share: {
@@ -926,6 +951,14 @@ const DA: KickCopy = {
       { value: "81,7 %", label: "af Kicks publikum er 18 til 34 år" },
     ],
   },
+  overview: {
+    label: "Kick i tal",
+    heading: "Tredjestørst i verden. Nummer to i nord. Størst i Finland.",
+    body: [
+      "Globalt er Kick den tredjestørste live-platform med 14,4 procent af alle timer set i Q1 2026. I Nordeuropa tager Kick allerede hver femte af alle Kick- og Twitch-timer, mod én ud af treogtyve i Vesteuropa. Norden er en af Kicks stærkeste regioner i Europa, ikke et sidespor.",
+      "De nordiske tal herunder står ikke i det offentlige mediekit. Kicks annonceteam sendte dem til os, da vi blev deres nordiske partner: 7,5 millioner setimer i august 2026, stigende måned for måned, fordelt på 1,13 millioner månedligt aktive brugere. Finland er over halvdelen. Otte ud af ti seere er 18 til 34, de bliver i 55 minutter i gennemsnit, og chatten kører med 26.000 beskeder i minuttet. Det er den opmærksomhed, et brand låner.",
+    ],
+  },
   share: {
     label: "Hvor Kick står",
     heading: "Tredjestørst i verden. Nummer to i nord.",
@@ -1137,6 +1170,14 @@ const FI: KickCopy = {
       { value: "7,5M+", label: "pohjoismaista katselutuntia elokuussa 2026" },
       { value: "1,13M", label: "kuukausittaista aktiivista käyttäjää Suomessa, Ruotsissa, Norjassa ja Tanskassa" },
       { value: "81,7 %", label: "Kickin yleisöstä on 18-34-vuotiaita" },
+    ],
+  },
+  overview: {
+    label: "Kick numeroina",
+    heading: "Kolmanneksi suurin maailmassa. Toinen pohjoisessa. Suurin Suomessa.",
+    body: [
+      "Maailmanlaajuisesti Kick on kolmanneksi suurin live-alusta 14,4 prosentin osuudella kaikista katselutunneista Q1 2026. Pohjois-Euroopassa Kick vie jo joka viidennen kaikista Kickin ja Twitchin tunneista, Länsi-Euroopassa yhden kahdestakymmenestäkolmesta. Pohjoismaat ovat yksi Kickin vahvimmista alueista Euroopassa, ei sivujuonne.",
+      "Alla olevat pohjoismaiset luvut eivät ole julkisessa mediakortissa. Kickin mainostiimi lähetti ne meille, kun meistä tuli heidän pohjoismainen kumppaninsa: 7,5 miljoonaa katselutuntia elokuussa 2026, nousussa kuukaudesta toiseen, 1,13 miljoonan kuukausittaisen aktiivisen käyttäjän kesken. Suomi on yli puolet. Kahdeksan kymmenestä katsojasta on 18-34-vuotiaita, he viipyvät keskimäärin 55 minuuttia, ja chat käy 26 000 viestin minuuttivauhtia. Sen huomion brändi lainaa.",
     ],
   },
   share: {
