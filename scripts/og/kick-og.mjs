@@ -19,11 +19,16 @@ const COPY = {
   fi: { accent: "Joka viides", rest: "live-tunti Pohjois-Euroopassa katsotaan Kickissä.", stat: "20,0 %", statLabel: "Kickin osuus Kick + Twitch -tunneista, Pohjois-Eurooppa, Q2 2026", kicker: "Kick-mainonta Suomessa ja Pohjoismaissa" },
 };
 
+const STREAMER = {
+  en: { accent: "Inside the stream,", rest: "not around it.", stat: "2,800+", statLabel: "Nordic Kick creators in the Beta Ads network", kicker: "Beta Ads on Kick", photo: "lovable-uploads/beta-mascot-onair.jpg", file: "kick-streamer-advertising-en" },
+  no: { accent: "Inne i strømmen,", rest: "ikke rundt den.", stat: "2 800+", statLabel: "nordiske Kick-skapere i Beta Ads-nettverket", kicker: "Beta Ads på Kick", photo: "lovable-uploads/beta-mascot-onair.jpg", file: "kick-streamer-advertising-no" },
+};
+
 const b64 = (p) => `data:image/${p.endsWith(".png") ? "png" : "jpeg"};base64,${readFileSync(path.join(pub, p)).toString("base64")}`;
-const mascot = b64("lovable-uploads/beta-mascot-kick.jpg");
+const mascotKick = b64("lovable-uploads/beta-mascot-kick.jpg");
 const mark = b64("lovable-uploads/favicon.png");
 
-const html = (c) => `<!doctype html><html><head><meta charset="utf-8">
+const html = (c, mascot = mascotKick) => `<!doctype html><html><head><meta charset="utf-8">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 <style>
   html,body{margin:0;width:1200px;height:630px;background:#0b0b10;font-family:Inter,system-ui,sans-serif;color:#fff;overflow:hidden}
@@ -52,13 +57,17 @@ const html = (c) => `<!doctype html><html><head><meta charset="utf-8">
 </div></body></html>`;
 
 const browser = await puppeteer.launch({ headless: true });
-for (const [lang, c] of Object.entries(COPY)) {
+const jobs = [
+  ...Object.entries(COPY).map(([lang, c]) => ({ c, file: `kick-advertising-${lang}`, photo: mascotKick })),
+  ...Object.values(STREAMER).map((c) => ({ c, file: c.file, photo: b64(c.photo) })),
+];
+for (const { c, file, photo } of jobs) {
   const page = await browser.newPage();
   await page.setViewport({ width: 1200, height: 630, deviceScaleFactor: 1 });
-  await page.setContent(html(c), { waitUntil: "load" });
+  await page.setContent(html(c, photo), { waitUntil: "load" });
   await page.evaluate(() => document.fonts.ready);
   await new Promise((r) => setTimeout(r, 400));
-  const out = path.join(pub, `lovable-uploads/og/kick-advertising-${lang}.png`);
+  const out = path.join(pub, `lovable-uploads/og/${file}.png`);
   await page.screenshot({ path: out, type: "png" });
   console.log("wrote", path.relative(root, out));
   await page.close();

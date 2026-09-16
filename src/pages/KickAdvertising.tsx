@@ -485,6 +485,27 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
         </div>
       </section>
 
+      {/* Beta Ads on Kick: the creator route, on its own page */}
+      <section className="border-t border-border py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-[1.05fr_0.95fr] gap-16 items-center">
+          <div className="max-w-xl">
+            <Label>{t.creators.label}</Label>
+            <H2>{t.creators.heading}</H2>
+            <p className="text-base md:text-lg font-light leading-relaxed text-muted-foreground mb-8">{t.creators.body}</p>
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12">
+              <Link to={t.creators.href}>
+                {t.creators.cta} <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </Button>
+          </div>
+          <Reveal>
+            <figure className="m-0 rounded-2xl overflow-hidden ring-1 ring-border bg-black aspect-video">
+              <video src="/lovable-uploads/overlay-samsung.webm" autoPlay loop muted playsInline className="w-full h-full object-cover" aria-label="Samsung overlay ad inside a live stream, a Beta Ads campaign" />
+            </figure>
+          </Reveal>
+        </div>
+      </section>
+
       {/* FAQ + sources + languages */}
       <section className="border-t border-border py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-[1.05fr_0.95fr] gap-16 items-start">

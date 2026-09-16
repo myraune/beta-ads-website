@@ -60,6 +60,8 @@ const STATIC_ROUTES = [
   "/kick-annonsering-sverige",
   "/kick-annoncering",
   "/kick-mainonta",
+  "/kick-streamer-advertising",
+  "/kick-streamer-annonsering",
   "/kick-advertising-cost",
   "/nordic-livestream-advertising",
   "/twitch-byra-norge",

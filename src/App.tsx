@@ -41,6 +41,8 @@ const KickAnnonsering = lazy(() => import("./pages/KickAnnonsering"));
 const KickAnnonseringSverige = lazy(() => import("./pages/KickAnnonseringSverige"));
 const KickAnnoncering = lazy(() => import("./pages/KickAnnoncering"));
 const KickMainonta = lazy(() => import("./pages/KickMainonta"));
+const KickStreamerAdvertising = lazy(() => import("./pages/KickStreamerAdvertising"));
+const KickStreamerAnnonsering = lazy(() => import("./pages/KickStreamerAnnonsering"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const Norge = lazy(() => import("./pages/Norge"));
 const Blog = lazy(() => import("./pages/Blog"));
@@ -195,6 +197,8 @@ const App = () => {
               <Route path="/kick-annonsering-sverige" element={<KickAnnonseringSverige />} />
               <Route path="/kick-annoncering" element={<KickAnnoncering />} />
               <Route path="/kick-mainonta" element={<KickMainonta />} />
+              <Route path="/kick-streamer-advertising" element={<KickStreamerAdvertising />} />
+              <Route path="/kick-streamer-annonsering" element={<KickStreamerAnnonsering />} />
               <Route path="/streamers" element={<Streamers t={t} />} />
               <Route path="/about" element={<AboutUs t={t} />} />
               <Route path="/norge" element={<Norge />} />

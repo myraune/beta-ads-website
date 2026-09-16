@@ -118,6 +118,36 @@ const STATIC_PAGES = [
     locale: "en",
   },
   {
+    route: "/kick-streamer-advertising",
+    title: "Advertise Through Kick Streamers in the Nordics | Beta Ads",
+    description:
+      "Beta Ads places brands inside the streams of 2,800+ Nordic Kick creators: native overlays, voice-triggered ads, polls and replay reach. How a campaign runs, what it has delivered, and how to start.",
+    locale: "en",
+    image: "/lovable-uploads/og/kick-streamer-advertising-en.png",
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    alternates: [
+      { hreflang: "en", href: "/kick-streamer-advertising" },
+      { hreflang: "no", href: "/kick-streamer-annonsering" },
+      { hreflang: "x-default", href: "/kick-streamer-advertising" },
+    ],
+  },
+  {
+    route: "/kick-streamer-annonsering",
+    title: "Annonser gjennom Kick-strømmere i Norden | Beta Ads",
+    description:
+      "Beta Ads plasserer merkevarer inne i strømmene til over 2 800 nordiske Kick-skapere: native overlays, stemmestyrte annonser, avstemninger og Replay reach. Slik kjøres en kampanje, hva den har levert, og hvordan du starter.",
+    locale: "no",
+    image: "/lovable-uploads/og/kick-streamer-advertising-no.png",
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    alternates: [
+      { hreflang: "en", href: "/kick-streamer-advertising" },
+      { hreflang: "no", href: "/kick-streamer-annonsering" },
+      { hreflang: "x-default", href: "/kick-streamer-advertising" },
+    ],
+  },
+  {
     // Kick cluster: five languages, one hreflang set. Copy in src/data/kickAds.ts.
     route: "/kick-advertising",
     title: "Kick Advertising in the Nordics: Reach, Formats and Prices | Beta Ads",
