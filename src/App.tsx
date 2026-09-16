@@ -37,6 +37,10 @@ const CampaignCompliance = lazy(() => import("./pages/CampaignCompliance"));
 const ReplayReach = lazy(() => import("./pages/ReplayReach"));
 const YouTubeAdvertising = lazy(() => import("./pages/YouTubeAdvertising"));
 const KickAdvertising = lazy(() => import("./pages/KickAdvertising"));
+const KickAnnonsering = lazy(() => import("./pages/KickAnnonsering"));
+const KickAnnonseringSverige = lazy(() => import("./pages/KickAnnonseringSverige"));
+const KickAnnoncering = lazy(() => import("./pages/KickAnnoncering"));
+const KickMainonta = lazy(() => import("./pages/KickMainonta"));
 const AboutUs = lazy(() => import("./pages/AboutUs"));
 const Norge = lazy(() => import("./pages/Norge"));
 const Blog = lazy(() => import("./pages/Blog"));
@@ -187,6 +191,10 @@ const App = () => {
               <Route path="/replay-reach" element={<ReplayReach />} />
               <Route path="/youtube-advertising" element={<YouTubeAdvertising />} />
               <Route path="/kick-advertising" element={<KickAdvertising />} />
+              <Route path="/kick-annonsering" element={<KickAnnonsering />} />
+              <Route path="/kick-annonsering-sverige" element={<KickAnnonseringSverige />} />
+              <Route path="/kick-annoncering" element={<KickAnnoncering />} />
+              <Route path="/kick-mainonta" element={<KickMainonta />} />
               <Route path="/streamers" element={<Streamers t={t} />} />
               <Route path="/about" element={<AboutUs t={t} />} />
               <Route path="/norge" element={<Norge />} />

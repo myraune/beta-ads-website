@@ -5,12 +5,13 @@
       "name": "beta-ads-redesign",
       "runtimeExecutable": "/Users/myraune/.nvm/versions/node/v24.13.0/bin/node",
       "runtimeArgs": [
-        "/Users/myraune/Desktop/beta-ads-redesign/node_modules/vite/bin/vite.js",
+        "/Users/myraune/Desktop/Desktopfiles/beta-ads-redesign/node_modules/vite/bin/vite.js",
         "--port",
         "3016",
         "--host"
       ],
-      "port": 3016
+      "port": 3016,
+      "cwd": "/Users/myraune/Desktop/Desktopfiles/beta-ads-redesign"
     }
   ]
 }

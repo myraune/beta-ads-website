@@ -20,11 +20,11 @@ const models = [
   {
     tag: "Emerging",
     title: "Programmatic & display",
-    body: "Kick's own ad stack is young. There is no mature self-serve exchange yet, and the display and video inventory that does exist is thin and priced case by case rather than by open auction.",
+    body: "Kick's own ad stack is young. Its 2026 Ads Beta sells homepage and category banners, native tiles and in-player video, bought direct, programmatically through your DSP, or on the open exchange via Google AdX. Rates are in USD CPM and quoted per deal; there is still no published rate card.",
     facts: [
-      "No public CPM, and no advertiser self-serve portal",
-      "Kick's own ads are still in testing (per its CEO, 2026)",
-      "Not yet a reliable at-scale reach buy",
+      "No public CPM; direct, programmatic and open-exchange buying, all quoted per deal",
+      "Kick's own ads are still labelled Beta in its 2026 media kit",
+      "Country-level geo-targeting, so a Nordic-only platform buy is possible",
     ],
   },
   {
@@ -67,9 +67,9 @@ const directBuy: {
     title: "Easygo",
     highlight: false,
     facts: [
-      "As of mid-2026 Kick's CEO says ads are still in testing and not yet sold to sponsors",
-      "No self-serve platform, no rate card, no advertiser portal",
-      "The only route onto Kick is a negotiated creator sponsorship",
+      "Kick's 2026 Ads Beta sells display, native and video inventory direct, programmatic or open exchange",
+      "No public rate card; every buy is quoted in USD CPM per deal",
+      "For in-stream presence, the route is still a negotiated creator integration",
     ],
   },
   {
@@ -115,7 +115,7 @@ const KickAdvertisingCost: React.FC = () => {
       seo={{
         title: "What Does Kick Advertising Cost? | Beta Ads",
         description:
-          "Kick has no public rate card, and as of 2026 no self-serve ad platform at all. Here is how Kick advertising is actually priced in the Nordics, what it costs to buy direct, and how to get a real quote.",
+          "Kick has no public rate card: its 2026 Ads Beta sells direct, programmatic and open-exchange inventory in USD CPM. Here is how Kick advertising is actually priced in the Nordics, what it costs to buy direct, and how to get a real quote.",
         canonical: "/kick-advertising-cost",
         jsonLd: [
           {
@@ -142,8 +142,8 @@ const KickAdvertisingCost: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "FAQPage",
             mainEntity: [
-              { "@type": "Question", name: "How much does Kick advertising cost?", acceptedAnswer: { "@type": "Answer", text: "For a managed Nordic campaign, Beta Ads runs at a blended effective CPM of roughly 200 to 300 NOK per thousand verified impressions, the same as on Twitch. Kick itself publishes no rate card. Cost depends on the creator, the category, the audience geography, timing and format, and the practical route is a negotiated creator integration rather than a platform buy." } },
-              { "@type": "Question", name: "Can you buy Kick ads directly?", acceptedAnswer: { "@type": "Answer", text: "Not really, not yet. As of mid-2026 Kick's co-founder has said the platform is still testing ads and is not yet selling to sponsors. There is no self-serve advertiser platform, no rate card and no advertiser portal. The only working route onto Kick today is a negotiated sponsorship with a creator." } },
+              { "@type": "Question", name: "How much does Kick advertising cost?", acceptedAnswer: { "@type": "Answer", text: "For a managed Nordic campaign, Beta Ads runs at a blended effective CPM of roughly 200 to 300 NOK per thousand verified impressions, the same as on Twitch. Kick itself publishes no rate card. Cost depends on the creator, the category, the audience geography, timing and format, and for presence inside the broadcast, the route is a negotiated creator integration; Kick's own Ads Beta sells platform placements separately." } },
+              { "@type": "Question", name: "Can you buy Kick ads directly?", acceptedAnswer: { "@type": "Answer", text: "Yes, since 2026. Kick's Ads Beta sells homepage and category banners, native tiles and non-skippable in-player video, bought direct from Kick, programmatically through a DSP, or on the open exchange. There is no public rate card and no self-serve portal; every buy is quoted in USD CPM. Presence inside the stream itself still runs through a creator integration." } },
               { "@type": "Question", name: "Does Kick have a published ad rate card?", acceptedAnswer: { "@type": "Answer", text: "No. Kick has never published a CPM, rate card or minimum spend for advertisers. Any Kick CPM figure circulating online is a third-party estimate, and the sources that publish them say so themselves." } },
             ],
           },
@@ -151,7 +151,7 @@ const KickAdvertisingCost: React.FC = () => {
       }}
       cta={{
         heading: "Want an honest number?",
-        subtext: "Kick won't quote you and there's no self-serve portal to price it yourself. Tell us your goal, market and timeline and we'll tell you plainly what a Kick campaign costs to run well.",
+        subtext: "Kick quotes per deal and there's no self-serve portal to price it yourself. Tell us your goal, market and timeline and we'll tell you plainly what a Kick campaign costs to run well.",
         primaryLabel: "Get a quote",
         primaryHref: "/contact",
         secondaryLabel: "See real campaign outcomes",
@@ -174,7 +174,7 @@ const KickAdvertisingCost: React.FC = () => {
               <span style={serifFont} className="italic font-normal">actually</span> costs
             </h1>
             <p className="text-lg text-white/65 leading-relaxed mb-10 max-w-lg">
-              Kick has no rate card, and as of 2026 no self-serve ad platform at all. Here is how it's really priced in the Nordics, what "direct" would even mean, and how to get a real quote.
+              Kick has no rate card, and its 2026 Ads Beta quotes every buy per deal. Here is how it's really priced in the Nordics, what "direct" actually means, and how to get a real quote.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/contact">
@@ -218,7 +218,7 @@ const KickAdvertisingCost: React.FC = () => {
           </div>
           <div className="space-y-5 text-base md:text-lg font-light leading-relaxed text-muted-foreground lg:pt-3">
             <p>
-              Kick is the harder platform to price, because Kick itself won't price it. There is no rate card, and, as its own co-founder confirmed in 2026, no self-serve ad platform yet. The practical route onto Kick is a negotiated creator deal.
+              Kick is the harder platform to price, because Kick itself won't price it. There is no rate card, and the platform inventory it opened in 2026 is sold per deal in USD CPM, direct, programmatic or on the open exchange. The practical route into the stream itself is still a negotiated creator deal.
             </p>
             <p>
               What that costs is driven by the same things a Twitch campaign is: the creator, the category, the audience you're reaching, the timing and the format. Run through us as a managed Nordic campaign, it lands in the same effective CPM band, without a platform minimum to clear.
@@ -294,7 +294,7 @@ const KickAdvertisingCost: React.FC = () => {
                 The audience arrived before the ad platform did
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed max-w-md mb-5">
-                Kick crossed 100 million registered users, one of the fastest audience build-outs streaming has seen, while its advertising stack is still in testing. That gap is the opportunity: real reach, and almost no brands there yet because there's no easy self-serve button to press.
+                Kick crossed 100 million registered users, one of the fastest audience build-outs streaming has seen, while its advertising stack is still labelled Beta. That gap is the opportunity: real reach, and almost no brands there yet because there's no easy self-serve button to press.
               </p>
               <p className="text-xs text-muted-foreground/70 leading-relaxed max-w-md">
                 100 million users per Kick's own 2026 announcement. Getting onto that audience today takes creator relationships, not a media-buying console.

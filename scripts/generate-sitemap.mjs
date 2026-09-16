@@ -46,6 +46,10 @@ const STATIC_PAGES = [
   { path: "/campaign-compliance", priority: "0.9", changefreq: "monthly" },
   { path: "/replay-reach", priority: "0.9", changefreq: "monthly" },
   { path: "/kick-advertising",       priority: "0.95", changefreq: "monthly" },
+  { path: "/kick-annonsering",       priority: "0.9",  changefreq: "monthly" },
+  { path: "/kick-annonsering-sverige", priority: "0.9", changefreq: "monthly" },
+  { path: "/kick-annoncering",       priority: "0.9",  changefreq: "monthly" },
+  { path: "/kick-mainonta",          priority: "0.9",  changefreq: "monthly" },
   { path: "/press",                  priority: "0.95", changefreq: "monthly" },
   { path: "/norge",                  priority: "0.9",  changefreq: "monthly" },
   // Secondary high-priority pages

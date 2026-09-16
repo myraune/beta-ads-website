@@ -118,11 +118,99 @@ const STATIC_PAGES = [
     locale: "en",
   },
   {
+    // Kick cluster: five languages, one hreflang set. Copy in src/data/kickAds.ts.
     route: "/kick-advertising",
-    title: "Kick Advertising in the Nordics | Beta Ads",
+    title: "Kick Advertising in the Nordics: Reach, Formats and Prices | Beta Ads",
     description:
-      "Advertise on Kick - the fastest-growing streaming platform with 125% viewership growth in 2025. Native overlay ads across 2,800+ Nordic Kick streamers.",
+      "Kick's own 2026 media kit says one in five Kick and Twitch hours in Northern Europe is now watched on Kick. What that means for Nordic brands, which formats exist, and how Beta Ads places brands inside Nordic Kick streams.",
     locale: "en",
+    image: "/lovable-uploads/og/kick-advertising-en.png",
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    alternates: [
+      { hreflang: "en", href: "/kick-advertising" },
+      { hreflang: "no", href: "/kick-annonsering" },
+      { hreflang: "sv", href: "/kick-annonsering-sverige" },
+      { hreflang: "da", href: "/kick-annoncering" },
+      { hreflang: "fi", href: "/kick-mainonta" },
+      { hreflang: "x-default", href: "/kick-advertising" },
+    ],
+  },
+  {
+    // Kick cluster: five languages, one hreflang set. Copy in src/data/kickAds.ts.
+    route: "/kick-annonsering",
+    title: "Kick-annonsering i Norge og Norden: rekkevidde, formater og pris | Beta Ads",
+    description:
+      "Kicks eget mediekit for 2026 sier at hver femte Kick- og Twitch-time i Nord-Europa nå ses på Kick. Hva det betyr for norske merkevarer, hvilke formater som finnes, og hvordan Beta Ads plasserer merkevarer inne i nordiske Kick-strømmer.",
+    locale: "no",
+    image: "/lovable-uploads/og/kick-advertising-no.png",
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    alternates: [
+      { hreflang: "en", href: "/kick-advertising" },
+      { hreflang: "no", href: "/kick-annonsering" },
+      { hreflang: "sv", href: "/kick-annonsering-sverige" },
+      { hreflang: "da", href: "/kick-annoncering" },
+      { hreflang: "fi", href: "/kick-mainonta" },
+      { hreflang: "x-default", href: "/kick-advertising" },
+    ],
+  },
+  {
+    // Kick cluster: five languages, one hreflang set. Copy in src/data/kickAds.ts.
+    route: "/kick-annonsering-sverige",
+    title: "Kick-annonsering i Sverige och Norden: räckvidd, format och pris | Beta Ads",
+    description:
+      "Kicks eget mediekit för 2026 säger att var femte Kick- och Twitch-timme i Nordeuropa nu ses på Kick. Vad det betyder för svenska varumärken, vilka format som finns, och hur Beta Ads placerar varumärken inne i nordiska Kick-streams.",
+    locale: "sv",
+    image: "/lovable-uploads/og/kick-advertising-sv.png",
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    alternates: [
+      { hreflang: "en", href: "/kick-advertising" },
+      { hreflang: "no", href: "/kick-annonsering" },
+      { hreflang: "sv", href: "/kick-annonsering-sverige" },
+      { hreflang: "da", href: "/kick-annoncering" },
+      { hreflang: "fi", href: "/kick-mainonta" },
+      { hreflang: "x-default", href: "/kick-advertising" },
+    ],
+  },
+  {
+    // Kick cluster: five languages, one hreflang set. Copy in src/data/kickAds.ts.
+    route: "/kick-annoncering",
+    title: "Kick-annoncering i Danmark og Norden: rækkevidde, formater og pris | Beta Ads",
+    description:
+      "Kicks eget mediekit for 2026 siger, at hver femte Kick- og Twitch-time i Nordeuropa nu ses på Kick. Hvad det betyder for danske brands, hvilke formater der findes, og hvordan Beta Ads placerer brands inde i nordiske Kick-streams.",
+    locale: "da",
+    image: "/lovable-uploads/og/kick-advertising-da.png",
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    alternates: [
+      { hreflang: "en", href: "/kick-advertising" },
+      { hreflang: "no", href: "/kick-annonsering" },
+      { hreflang: "sv", href: "/kick-annonsering-sverige" },
+      { hreflang: "da", href: "/kick-annoncering" },
+      { hreflang: "fi", href: "/kick-mainonta" },
+      { hreflang: "x-default", href: "/kick-advertising" },
+    ],
+  },
+  {
+    // Kick cluster: five languages, one hreflang set. Copy in src/data/kickAds.ts.
+    route: "/kick-mainonta",
+    title: "Kick-mainonta Suomessa ja Pohjoismaissa: tavoittavuus, formaatit ja hinta | Beta Ads",
+    description:
+      "Kickin oma mediakortti 2026 kertoo, että joka viides Kickin ja Twitchin katselutunti Pohjois-Euroopassa katsotaan nyt Kickissä. Mitä se tarkoittaa suomalaisille brändeille, mitä formaatteja on olemassa ja miten Beta Ads tuo brändit pohjoismaisten Kick-lähetysten sisään.",
+    locale: "fi",
+    image: "/lovable-uploads/og/kick-advertising-fi.png",
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
+    alternates: [
+      { hreflang: "en", href: "/kick-advertising" },
+      { hreflang: "no", href: "/kick-annonsering" },
+      { hreflang: "sv", href: "/kick-annonsering-sverige" },
+      { hreflang: "da", href: "/kick-annoncering" },
+      { hreflang: "fi", href: "/kick-mainonta" },
+      { hreflang: "x-default", href: "/kick-advertising" },
+    ],
   },
   {
     route: "/about",
@@ -173,7 +261,7 @@ const STATIC_PAGES = [
     route: "/kick-advertising-cost",
     title: "What Does Kick Advertising Cost? | Beta Ads",
     description:
-      "Kick has no public rate card, and as of 2026 no self-serve ad platform at all. Here is how Kick advertising is actually priced in the Nordics, what it costs to buy direct, and how to get a real quote.",
+      "Kick has no public rate card: its 2026 Ads Beta sells direct, programmatic and open-exchange inventory in USD CPM. Here is how Kick advertising is actually priced in the Nordics, what it costs to buy direct, and how to get a real quote.",
     locale: "en",
   },
   {
