@@ -43,8 +43,8 @@ const CASES = [
 /** Real frames from real campaigns, overlay in the picture. */
 const STILLS = [
   { src: "/lovable-uploads/case-glorious-poster.webp", href: "/case-study/glorious", alt: "VikingDuden live with a Glorious V3 Mouse overlay in the lower right of the stream, chat on the left", cap: { en: "Glorious, in VikingDuden's stream", no: "Glorious, i VikingDudens strøm" } },
-  { src: "/lovable-uploads/adgif-3637484-poster.webp", href: "/case-study/gokstad", alt: "A streamer talking to camera with a Gokstad Akademiet overlay asking what you will do this autumn", cap: { en: "Gokstad Akademiet, voice-triggered overlay", no: "Gokstad Akademiet, stemmestyrt overlay" } },
-  { src: "/lovable-uploads/adgif-3818527-poster.webp", href: "/case-study/glorious", alt: "kishoo live with a Glorious V3 Mouse overlay beside the chat", cap: { en: "Glorious, in kishoo's stream", no: "Glorious, i kishoos strøm" } },
+  { src: "/lovable-uploads/adgif-3818527-poster.webp", href: "/case-study/gokstad", alt: "RubenGKS live at his desk with a Gokstad Akademiet overlay in the lower right asking what you will do this autumn", cap: { en: "Gokstad Akademiet, in RubenGKS's stream", no: "Gokstad Akademiet, i RubenGKS' strøm" } },
+  { src: "/lovable-uploads/adgif-3637484-poster.webp", href: "/case-study/glorious", alt: "kishoo live with a Glorious V3 Mouse overlay beside the chat", cap: { en: "Glorious, in kishoo's stream", no: "Glorious, i kishoos strøm" } },
 ] as const;
 
 const COPY = {
