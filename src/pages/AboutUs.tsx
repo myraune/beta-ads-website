@@ -12,14 +12,6 @@ interface AboutUsProps {
 
 const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
-// Verified totals aggregated from the nine case studies shipped on this site.
-const workStats = [
-  { value: '2.1M+', label: 'Verified views delivered' },
-  { value: '10', label: 'Case studies published' },
-  { value: '50+', label: 'Nordic creators worked with' },
-  { value: '3', label: 'Platforms: Twitch · Kick · YouTube' },
-];
-
 const principles = [
   {
     title: 'Verified numbers, always',
@@ -41,7 +33,6 @@ const principles = [
 const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
   const { ref: heroRef, isVisible: heroVisible } = useScrollAnimation();
   const { ref: storyRef, isVisible: storyVisible } = useScrollAnimation();
-  const { ref: workRef, isVisible: workVisible } = useScrollAnimation();
   const { ref: principlesRef, isVisible: principlesVisible } =
     useScrollAnimation();
   const { ref: locRef, isVisible: locVisible } = useScrollAnimation();
@@ -231,52 +222,6 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── Work / By the numbers ── */}
-      <section className="relative border-t border-foreground/[0.06]">
-        <div
-          ref={workRef}
-          className={`max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32 transition-all duration-1000 ease-out ${
-            workVisible
-              ? 'opacity-100 translate-y-0'
-              : 'opacity-0 translate-y-8'
-          }`}
-        >
-          <p className="text-[11px] uppercase tracking-[0.22em] text-primary mb-4 font-semibold">
-            By the numbers
-          </p>
-          <h2
-            className="text-3xl lg:text-4xl font-light tracking-tight text-foreground mb-12 max-w-2xl"
-          >
-            Verified delivery across nine published case studies
-          </h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 border-t border-foreground/[0.06]">
-            {workStats.map((s, i) => (
-              <div
-                key={s.label}
-                className={`py-8 ${
-                  i > 0 ? 'lg:pl-8 lg:border-l border-foreground/[0.06]' : ''
-                } ${i > 0 && i % 2 !== 0 ? 'pl-6' : ''} ${
-                  i > 1 ? 'pt-6 lg:pt-8' : ''
-                } pr-4`}
-              >
-                <div className="text-3xl lg:text-4xl font-light text-foreground tracking-tight mb-2">
-                  {s.value}
-                </div>
-                <div className="text-xs uppercase tracking-widest text-muted-foreground">
-                  {s.label}
-                </div>
-              </div>
-            ))}
-          </div>
-          <a
-            href="/case-studies"
-            className="inline-flex items-center gap-2 text-primary text-sm font-medium hover:gap-3 transition-all duration-300 mt-10"
-          >
-            Read the campaigns <ArrowRight size={14} />
-          </a>
         </div>
       </section>
 

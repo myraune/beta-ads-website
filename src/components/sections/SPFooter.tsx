@@ -125,11 +125,11 @@ export const SPFooter: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="outline" className="rounded-full text-sm font-medium mb-3 transition-all duration-300 min-h-[44px] md:min-h-0">
+              <Button variant="outline" className="rounded-full text-sm font-medium transition-all duration-300 min-h-[44px] md:min-h-0">
                 Book a Demo
               </Button>
             </a>
-            <Link to="/streamers" className="inline-flex items-center min-h-[44px] md:min-h-0 text-sm text-muted-foreground hover:text-foreground transition-colors mt-2">
+            <Link to="/streamers" className="flex items-center min-h-[44px] md:min-h-0 text-sm text-muted-foreground hover:text-foreground transition-colors mt-3">
               For Streamers →
             </Link>
           </div>
