@@ -85,6 +85,29 @@ export const LANGUAGES = [
   { key: "other", pct: 4 },
 ] as const;
 
+/**
+ * Nordic numbers Kick's Advertising Solutions team gave Beta Ads directly
+ * (email, 1 September 2026): watch hours for August 2026 by country, and
+ * monthly active users. Iceland has a watch-hour share but no MAU figure.
+ */
+export const NORDIC_HOURS_TOTAL = "7.5M+";
+export const NORDIC_SHARE = [
+  { key: "fi", pct: 53.0, mau: "522.5K" },
+  { key: "se", pct: 24.0, mau: "337.9K" },
+  { key: "no", pct: 14.5, mau: "157.1K" },
+  { key: "dk", pct: 7.8, mau: "113.8K" },
+  { key: "is", pct: 0.7, mau: null },
+] as const;
+export const NORDIC_MAU_TOTAL = "1.13M";
+
+export const FORMAT_IMAGES: Record<string, string> = {
+  video: "/lovable-uploads/kick/format-in-stream-video.webp",
+  banner: "/lovable-uploads/kick/format-homepage-banner.webp",
+  native: "/lovable-uploads/kick/format-homepage-native.webp",
+  masthead: "/lovable-uploads/kick/format-category-masthead.webp",
+  catnative: "/lovable-uploads/kick/format-category-native.webp",
+};
+
 /** Content mix. Source: Kick media kit p. 12. */
 export const CONTENT_MIX = [
   { key: "gaming", pct: 48, hours: "186M" },
@@ -119,6 +142,16 @@ export interface KickCopy {
     europeNote: string;
     regions: Record<(typeof EUROPE_SHARE)[number]["key"], string>;
   };
+  nordic: {
+    label: string;
+    heading: string;
+    body: string[];
+    chartTitle: string;
+    chartNote: string;
+    mauTitle: string;
+    mauTotal: string;
+    countries: Record<(typeof NORDIC_SHARE)[number]["key"], string>;
+  };
   audience: {
     label: string;
     heading: string;
@@ -144,7 +177,7 @@ export interface KickCopy {
     kick: {
       title: string;
       lead: string;
-      formats: { name: string; desc: string; spec: string }[];
+      formats: { key: keyof typeof FORMAT_IMAGES; name: string; desc: string; spec: string; alt: string }[];
       buying: string;
       contact: string;
     };
@@ -198,14 +231,14 @@ const EN: KickCopy = {
     badge: "Kick advertising",
     h1Accent: "One in five",
     h1Rest: "live hours in Northern Europe is on Kick.",
-    sub: "Kick opened for advertisers in 2026 and put the numbers on the table. We read the media kit so you do not have to, and we run the creator network that puts Nordic brands inside the streams.",
+    sub: "Kick opened for advertisers in 2026 and put the numbers on the table. Beta Ads sells Kick's own ad inventory in the Nordics, and runs the creator network that puts brands inside the streams. One partner, both routes.",
     primary: "Book a demo",
     secondary: "See prices",
     stats: [
       { value: "20.0%", label: "Kick's share of Kick + Twitch hours, Northern Europe" },
+      { value: "7.5M+", label: "Nordic watch hours in August 2026" },
+      { value: "1.13M", label: "monthly active users in Finland, Sweden, Norway and Denmark" },
       { value: "81.7%", label: "of Kick's audience is 18 to 34" },
-      { value: "55 min", label: "average viewing session" },
-      { value: "5.1B", label: "hours watched in 2025" },
     ],
   },
   share: {
@@ -226,6 +259,19 @@ const EN: KickCopy = {
       europe: "Europe, all regions",
       western: "Western Europe",
     },
+  },
+  nordic: {
+    label: "The Nordic numbers",
+    heading: "7.5 million hours a month. Finland first.",
+    body: [
+      "These are not in the public media kit. Kick's advertising team sent them to us directly when we became their Nordic partner: more than 7.5 million watch hours in August 2026, trending up month on month, across 1.13 million monthly active users in the four big Nordic markets.",
+      "Finland alone is over half of it. That matches what we see in our own creator network, and it is why the first Kick campaigns we are booking start there. Norway and Sweden are smaller but growing, and a country-only buy is possible in all four.",
+    ],
+    chartTitle: "Share of Nordic Kick watch hours, August 2026",
+    chartNote: "Source: Kick Advertising Solutions, 1 September 2026. Category-level breakdowns exist but have limits.",
+    mauTitle: "Monthly active users",
+    mauTotal: "Total, four markets",
+    countries: { fi: "Finland", se: "Sweden", no: "Norway", dk: "Denmark", is: "Iceland" },
   },
   audience: {
     label: "Who is watching",
@@ -261,19 +307,20 @@ const EN: KickCopy = {
   },
   routes: {
     label: "How to buy",
-    heading: "Two ways onto Kick. They do different jobs.",
-    intro: "Kick sells its own inventory: banners, native tiles and video spots inside the player. Beta Ads places brands inside the broadcast itself, through the Nordic creators we work with. Most brands that take Kick seriously will end up using both, so here is what each one actually is.",
+    heading: "Two ways onto Kick. Both through us.",
+    intro: "Kick sells its own inventory: banners, native tiles and video spots inside the player. Since September 2026 Beta Ads sells that inventory in the Nordics, alongside the in-stream format we have always run through Nordic creators. Here is what each one actually is, so you can pick the right tool for the job.",
     kick: {
-      title: "Kick Ads (Kick's own inventory)",
-      lead: "Platform placements bought from Kick directly, through your DSP, or on the open exchange. Geo-targeted by country, so a Norway-only buy is possible.",
+      title: "Kick Ads (Kick's own inventory, via Beta Ads)",
+      lead: "Platform placements on Kick, bought through us as Kick's Nordic partner. Geo-targeted by country, so a Norway-only or Finland-only buy is possible. We handle the deal, the creative specs and the reporting.",
       formats: [
-        { name: "In-stream video", desc: "Non-skippable pre-roll on VOD, mid-roll in live streams, post-roll. Full screen, sound on.", spec: "6, 15 or 30 s. 1280x720 MP4, max 512 MB" },
-        { name: "Homepage banner takeover", desc: "The full-width hero slot on the front page for 24 hours or one week, 100 percent share of voice in your country.", spec: "1920x250 rich media, or 970x90 / 728x90 / 320x50" },
-        { name: "Homepage native takeover", desc: "Your campaign styled as a stream card in the top rows of the homepage grid, with a clear ad label.", spec: "1280x720 image or 15 s video, 128x128 logo" },
-        { name: "Category masthead and native", desc: "Own the header or a native card inside one category, from Just Chatting to a single game. Language-gated.", spec: "Standard banner sizes; 1280x720 for native" },
+        { key: "video", name: "In-stream video", desc: "Non-skippable pre-roll on VOD, mid-roll in live streams, post-roll. Full screen, sound on, inside the player.", spec: "6, 15 or 30 s. 1280x720 MP4, max 512 MB", alt: "Kick's own mockup: a full-screen in-player video ad on a live channel, labelled Ad: creator returns in 26" },
+        { key: "banner", name: "Homepage banner takeover", desc: "The full-width hero slot on the front page for 24 hours or one week, 100 percent share of voice in your country.", spec: "1920x250 rich media, or 970x90 / 728x90 / 320x50", alt: "Kick's own mockup: a wide green banner across the Kick homepage reading Win 10,000 Kicks" },
+        { key: "native", name: "Homepage native takeover", desc: "Your campaign styled as a stream card in the top rows of the homepage grid, with a clear ad label.", spec: "1280x720 image or 15 s video, 128x128 logo", alt: "Kick's own mockup: an ad-labelled stream card sitting among live streams on the Kick homepage" },
+        { key: "masthead", name: "Category masthead", desc: "Own the header of one category page, from Just Chatting to a single game. Geo-targeted and language-gated.", spec: "970x90 / 728x90 / 320x50 / 300x50, JPG or PNG, max 1 MB", alt: "Kick's own mockup: a banner across the top of the EA Sports FC 26 category page" },
+        { key: "catnative", name: "Category native", desc: "Native cards inside one category's grid, static or 15-second video. Scales across many categories at once.", spec: "1280x720 image or 15 s video, 128x128 logo", alt: "Kick's own mockup: an ad-labelled card inside the Just Chatting category grid" },
       ],
-      buying: "Bought three ways: Direct (fixed rate, guaranteed placements), Programmatic (PG, PMP or PD deals through your DSP) or Open Exchange (auction via SSP partners and Google AdX). Rates are in USD CPM and the program is still labelled Beta.",
-      contact: "Kick's sales contact is advertising@kick.com.",
+      buying: "Kick prices in USD CPM and the program is still labelled Beta. We quote per campaign, in your currency, with the same three-tier structure we use for creator campaigns.",
+      contact: "Write to andreas@beta-ads.no with market, budget and timing, and you get a quote back with real Nordic inventory numbers.",
     },
     beta: {
       title: "Beta Ads (inside the stream)",
@@ -287,7 +334,7 @@ const EN: KickCopy = {
       network: "Beta Ads works with more than 2,800 Kick creators in Norway, Sweden, Denmark and Finland. That figure is ours, not Kick's.",
       cta: "See how a campaign runs",
     },
-    verdict: "If you need a country-wide moment on a launch day, Kick's homepage takeover is the tool. If you need a Nordic audience to hear your brand from someone they trust, in their own language, that is us. The kit's own numbers say 3.2 times more people trust a creator's recommendation than a celebrity's.",
+    verdict: "If you need a country-wide moment on a launch day, Kick's homepage takeover is the tool. If you need a Nordic audience to hear your brand from someone they trust, in their own language, that is the creator route. The kit's own numbers say 3.2 times more people trust a creator's recommendation than a celebrity's. Most campaigns we plan now use both, and you get one report.",
   },
   safety: {
     label: "Brand safety",
@@ -359,6 +406,7 @@ const EN: KickCopy = {
       "Kick internal data 2026: regional watch-hour share Q2 2026, age split, sessions, chat volume, content mix",
       "DataReportal / DesignRush 2025-26, SimilarWeb 2025-26, Nielsen 2025, PwC Global E&M Outlook 2026: audience age by platform",
       "Edelman Gen Z Trust Report 2026: creator vs celebrity trust (3.2x)",
+      "Kick Advertising Solutions, email to Beta Ads, 1 September 2026: Nordic watch hours and monthly active users",
       "Beta Ads network data, September 2026: 2,800+ Nordic Kick creators",
     ],
   },
@@ -380,14 +428,14 @@ const NO: KickCopy = {
     badge: "Kick-annonsering",
     h1Accent: "Hver femte",
     h1Rest: "live-time i Nord-Europa ses på Kick.",
-    sub: "Kick åpnet for annonsører i 2026 og la tallene på bordet. Vi har lest mediekittet så du ikke trenger det, og vi driver nettverket som setter norske merkevarer inn i strømmene.",
+    sub: "Kick åpnet for annonsører i 2026 og la tallene på bordet. Beta Ads selger Kicks egne annonseflater i Norden, og driver skapernettverket som setter merkevarer inn i strømmene. Én partner, begge veier.",
     primary: "Book en demo",
     secondary: "Se priser",
     stats: [
       { value: "20,0 %", label: "Kicks andel av Kick + Twitch-timer i Nord-Europa" },
+      { value: "7,5M+", label: "nordiske setimer i august 2026" },
+      { value: "1,13M", label: "månedlige aktive brukere i Finland, Sverige, Norge og Danmark" },
       { value: "81,7 %", label: "av Kicks publikum er 18 til 34 år" },
-      { value: "55 min", label: "gjennomsnittlig seerøkt" },
-      { value: "5,1 mrd", label: "timer sett i 2025" },
     ],
   },
   share: {
@@ -408,6 +456,19 @@ const NO: KickCopy = {
       europe: "Europa samlet",
       western: "Vest-Europa",
     },
+  },
+  nordic: {
+    label: "De nordiske tallene",
+    heading: "7,5 millioner timer i måneden. Finland først.",
+    body: [
+      "Disse står ikke i det offentlige mediekittet. Kicks annonseteam sendte dem direkte til oss da vi ble deres nordiske partner: over 7,5 millioner setimer i august 2026, stigende måned for måned, fordelt på 1,13 millioner månedlige aktive brukere i de fire store nordiske markedene.",
+      "Finland alene er over halvparten. Det stemmer med det vi ser i vårt eget skapernettverk, og det er derfor de første Kick-kampanjene vi booker starter der. Norge og Sverige er mindre men vokser, og et kjøp for ett land er mulig i alle fire.",
+    ],
+    chartTitle: "Andel av nordiske Kick-setimer, august 2026",
+    chartNote: "Kilde: Kick Advertising Solutions, 1. september 2026. Nedbrytning per kategori finnes, men har begrensninger.",
+    mauTitle: "Månedlige aktive brukere",
+    mauTotal: "Totalt, fire markeder",
+    countries: { fi: "Finland", se: "Sverige", no: "Norge", dk: "Danmark", is: "Island" },
   },
   audience: {
     label: "Hvem ser",
@@ -443,19 +504,20 @@ const NO: KickCopy = {
   },
   routes: {
     label: "Slik kjøper du",
-    heading: "To veier inn på Kick. De gjør forskjellige jobber.",
-    intro: "Kick selger sine egne flater: bannere, native-kort og videospotter inne i spilleren. Beta Ads plasserer merkevarer inne i selve sendingen, gjennom de nordiske skaperne vi jobber med. De fleste som tar Kick seriøst ender opp med å bruke begge, så her er hva hver av dem faktisk er.",
+    heading: "To veier inn på Kick. Begge gjennom oss.",
+    intro: "Kick selger sine egne flater: bannere, native-kort og videospotter inne i spilleren. Fra september 2026 selger Beta Ads de flatene i Norden, ved siden av in-stream-formatet vi alltid har kjørt gjennom nordiske skapere. Her er hva hver av dem faktisk er, så du kan velge riktig verktøy til jobben.",
     kick: {
-      title: "Kick Ads (Kicks egne flater)",
-      lead: "Plattformplasseringer kjøpt direkte fra Kick, via din DSP, eller på open exchange. Geomålrettet per land, så et kjøp kun for Norge er mulig.",
+      title: "Kick Ads (Kicks egne flater, via Beta Ads)",
+      lead: "Plattformplasseringer på Kick, kjøpt gjennom oss som Kicks nordiske partner. Geomålrettet per land, så et kjøp kun for Norge eller kun for Finland er mulig. Vi tar avtalen, spesifikasjonene og rapporteringen.",
       formats: [
-        { name: "In-stream video", desc: "Pre-roll på VOD, mid-roll i live-strømmer og post-roll, alle uten mulighet for å hoppe over. Fullskjerm med lyd på.", spec: "6, 15 eller 30 s. 1280x720 MP4, maks 512 MB" },
-        { name: "Homepage banner takeover", desc: "Toppflaten på forsiden i 24 timer eller én uke, 100 prosent share of voice i ditt land.", spec: "1920x250 rich media, eller 970x90 / 728x90 / 320x50" },
-        { name: "Homepage native takeover", desc: "Kampanjen din formet som et strømmekort i de øverste radene på forsiden, tydelig merket som annonse.", spec: "1280x720 bilde eller 15 s video, 128x128 logo" },
-        { name: "Category masthead og native", desc: "Eie toppen av, eller et native-kort inne i, én kategori, fra Just Chatting til ett enkelt spill. Kan låses til språk.", spec: "Standard bannerstørrelser; 1280x720 for native" },
+        { key: "video", name: "In-stream video", desc: "Pre-roll på VOD, mid-roll i live-strømmer og post-roll, alle uten mulighet for å hoppe over. Fullskjerm med lyd på, inne i spilleren.", spec: "6, 15 eller 30 s. 1280x720 MP4, maks 512 MB", alt: "Kicks egen skisse: en videoannonse i fullskjerm i spilleren på en live kanal, merket Ad: creator returns in 26" },
+        { key: "banner", name: "Homepage banner takeover", desc: "Toppflaten på forsiden i 24 timer eller én uke, 100 prosent share of voice i ditt land.", spec: "1920x250 rich media, eller 970x90 / 728x90 / 320x50", alt: "Kicks egen skisse: et bredt grønt banner over Kick-forsiden med teksten Win 10,000 Kicks" },
+        { key: "native", name: "Homepage native takeover", desc: "Kampanjen din formet som et strømmekort i de øverste radene på forsiden, tydelig merket som annonse.", spec: "1280x720 bilde eller 15 s video, 128x128 logo", alt: "Kicks egen skisse: et annonsemerket strømmekort blant live-strømmer på Kick-forsiden" },
+        { key: "masthead", name: "Category masthead", desc: "Eie toppen av én kategoriside, fra Just Chatting til ett enkelt spill. Geomålrettet og låst til språk.", spec: "970x90 / 728x90 / 320x50 / 300x50, JPG eller PNG, maks 1 MB", alt: "Kicks egen skisse: et banner over toppen av kategorisiden for EA Sports FC 26" },
+        { key: "catnative", name: "Category native", desc: "Native-kort inne i én kategoris rutenett, statisk eller 15 sekunders video. Skalerer over mange kategorier samtidig.", spec: "1280x720 bilde eller 15 s video, 128x128 logo", alt: "Kicks egen skisse: et annonsemerket kort inne i rutenettet for Just Chatting-kategorien" },
       ],
-      buying: "Kjøpes på tre måter: Direct (fast pris, garanterte plasseringer), Programmatic (PG-, PMP- eller PD-avtaler gjennom din DSP) eller Open Exchange (auksjon via SSP-partnere og Google AdX). Prisene er i USD CPM, og programmet er fortsatt merket Beta.",
-      contact: "Kicks salgskontakt er advertising@kick.com.",
+      buying: "Kick priser i USD CPM, og programmet er fortsatt merket Beta. Vi gir tilbud per kampanje, i din valuta, med samme tre nivåer som vi bruker på skaperkampanjer.",
+      contact: "Skriv til andreas@beta-ads.no med marked, budsjett og tidspunkt, så får du et tilbud tilbake med ekte nordiske tall på flatene.",
     },
     beta: {
       title: "Beta Ads (inne i strømmen)",
@@ -469,7 +531,7 @@ const NO: KickCopy = {
       network: "Beta Ads jobber med over 2 800 Kick-skapere i Norge, Sverige, Danmark og Finland. Det tallet er vårt, ikke Kicks.",
       cta: "Se hvordan en kampanje kjøres",
     },
-    verdict: "Trenger du et landsdekkende øyeblikk på en lanseringsdag, er Kicks homepage takeover verktøyet. Trenger du at et nordisk publikum hører om merkevaren din fra noen de stoler på, på sitt eget språk, er det oss. Kittets egne tall sier at 3,2 ganger flere stoler på en skapers anbefaling enn på en kjendis.",
+    verdict: "Trenger du et landsdekkende øyeblikk på en lanseringsdag, er Kicks homepage takeover verktøyet. Trenger du at et nordisk publikum hører om merkevaren din fra noen de stoler på, på sitt eget språk, er det skaperveien. Kittets egne tall sier at 3,2 ganger flere stoler på en skapers anbefaling enn på en kjendis. De fleste kampanjene vi planlegger nå bruker begge, og du får én rapport.",
   },
   safety: {
     label: "Merkevaresikkerhet",
@@ -541,6 +603,7 @@ const NO: KickCopy = {
       "Kick interne data 2026: regional andel av setimer Q2 2026, aldersfordeling, økter, chatvolum, innholdsmiks",
       "DataReportal / DesignRush 2025-26, SimilarWeb 2025-26, Nielsen 2025, PwC Global E&M Outlook 2026: publikumsalder per plattform",
       "Edelman Gen Z Trust Report 2026: tillit til skapere mot kjendiser (3,2x)",
+      "Kick Advertising Solutions, e-post til Beta Ads, 1. september 2026: nordiske setimer og månedlige aktive brukere",
       "Beta Ads nettverksdata, september 2026: 2 800+ nordiske Kick-skapere",
     ],
   },
@@ -562,14 +625,14 @@ const SV: KickCopy = {
     badge: "Kick-annonsering",
     h1Accent: "Var femte",
     h1Rest: "live-timme i Nordeuropa ses på Kick.",
-    sub: "Kick öppnade för annonsörer 2026 och lade siffrorna på bordet. Vi har läst mediekitet så att du inte behöver, och vi driver nätverket som sätter svenska varumärken in i streamsen.",
+    sub: "Kick öppnade för annonsörer 2026 och lade siffrorna på bordet. Beta Ads säljer Kicks egna annonsytor i Norden och driver kreatörsnätverket som sätter varumärken in i streamsen. En partner, båda vägarna.",
     primary: "Boka en demo",
     secondary: "Se priser",
     stats: [
       { value: "20,0 %", label: "Kicks andel av Kick + Twitch-timmar i Nordeuropa" },
+      { value: "7,5M+", label: "nordiska tittartimmar i augusti 2026" },
+      { value: "1,13M", label: "månatligt aktiva användare i Finland, Sverige, Norge och Danmark" },
       { value: "81,7 %", label: "av Kicks publik är 18 till 34 år" },
-      { value: "55 min", label: "genomsnittlig tittarsession" },
-      { value: "5,1 mdr", label: "timmar sedda 2025" },
     ],
   },
   share: {
@@ -590,6 +653,19 @@ const SV: KickCopy = {
       europe: "Europa totalt",
       western: "Västeuropa",
     },
+  },
+  nordic: {
+    label: "De nordiska siffrorna",
+    heading: "7,5 miljoner timmar i månaden. Finland först.",
+    body: [
+      "De här finns inte i det offentliga mediekitet. Kicks annonsteam skickade dem direkt till oss när vi blev deras nordiska partner: över 7,5 miljoner tittartimmar i augusti 2026, stigande månad för månad, fördelat på 1,13 miljoner månatligt aktiva användare i de fyra stora nordiska marknaderna.",
+      "Finland ensamt är över hälften. Det stämmer med vad vi ser i vårt eget kreatörsnätverk, och det är därför de första Kick-kampanjerna vi bokar börjar där. Sverige är näst störst och växer, och ett köp för ett enskilt land är möjligt i alla fyra.",
+    ],
+    chartTitle: "Andel av nordiska Kick-tittartimmar, augusti 2026",
+    chartNote: "Källa: Kick Advertising Solutions, 1 september 2026. Nedbrytning per kategori finns men har begränsningar.",
+    mauTitle: "Månatligt aktiva användare",
+    mauTotal: "Totalt, fyra marknader",
+    countries: { fi: "Finland", se: "Sverige", no: "Norge", dk: "Danmark", is: "Island" },
   },
   audience: {
     label: "Vem tittar",
@@ -625,19 +701,20 @@ const SV: KickCopy = {
   },
   routes: {
     label: "Så köper du",
-    heading: "Två vägar in på Kick. De gör olika jobb.",
-    intro: "Kick säljer sina egna ytor: banners, native-kort och videospottar inne i spelaren. Beta Ads placerar varumärken inne i själva sändningen, genom de nordiska kreatörer vi jobbar med. De flesta som tar Kick på allvar använder till slut båda, så här är vad var och en faktiskt är.",
+    heading: "Två vägar in på Kick. Båda genom oss.",
+    intro: "Kick säljer sina egna ytor: banners, native-kort och videospottar inne i spelaren. Sedan september 2026 säljer Beta Ads de ytorna i Norden, vid sidan av in-stream-formatet vi alltid har kört genom nordiska kreatörer. Här är vad var och en faktiskt är, så att du kan välja rätt verktyg för jobbet.",
     kick: {
-      title: "Kick Ads (Kicks egna ytor)",
-      lead: "Plattformsplaceringar köpta direkt från Kick, via din DSP, eller på open exchange. Geostyrt per land, så ett köp enbart för Sverige är möjligt.",
+      title: "Kick Ads (Kicks egna ytor, via Beta Ads)",
+      lead: "Plattformsplaceringar på Kick, köpta genom oss som Kicks nordiska partner. Geostyrt per land, så ett köp enbart för Sverige eller enbart för Finland är möjligt. Vi tar affären, specifikationerna och rapporteringen.",
       formats: [
-        { name: "In-stream video", desc: "Pre-roll på VOD, mid-roll i live-streams och post-roll, alla utan möjlighet att hoppa över. Helskärm med ljud på.", spec: "6, 15 eller 30 s. 1280x720 MP4, max 512 MB" },
-        { name: "Homepage banner takeover", desc: "Toppytan på startsidan i 24 timmar eller en vecka, 100 procent share of voice i ditt land.", spec: "1920x250 rich media, eller 970x90 / 728x90 / 320x50" },
-        { name: "Homepage native takeover", desc: "Din kampanj formad som ett streamkort i de översta raderna på startsidan, tydligt märkt som annons.", spec: "1280x720 bild eller 15 s video, 128x128 logotyp" },
-        { name: "Category masthead och native", desc: "Äg toppen av, eller ett native-kort inne i, en kategori, från Just Chatting till ett enskilt spel. Kan låsas till språk.", spec: "Standardstorlekar för banners; 1280x720 för native" },
+        { key: "video", name: "In-stream video", desc: "Pre-roll på VOD, mid-roll i live-streams och post-roll, alla utan möjlighet att hoppa över. Helskärm med ljud på, inne i spelaren.", spec: "6, 15 eller 30 s. 1280x720 MP4, max 512 MB", alt: "Kicks egen skiss: en videoannons i helskärm i spelaren på en live kanal, märkt Ad: creator returns in 26" },
+        { key: "banner", name: "Homepage banner takeover", desc: "Toppytan på startsidan i 24 timmar eller en vecka, 100 procent share of voice i ditt land.", spec: "1920x250 rich media, eller 970x90 / 728x90 / 320x50", alt: "Kicks egen skiss: en bred grön banner över Kicks startsida med texten Win 10,000 Kicks" },
+        { key: "native", name: "Homepage native takeover", desc: "Din kampanj formad som ett streamkort i de översta raderna på startsidan, tydligt märkt som annons.", spec: "1280x720 bild eller 15 s video, 128x128 logotyp", alt: "Kicks egen skiss: ett annonsmärkt streamkort bland live-streams på Kicks startsida" },
+        { key: "masthead", name: "Category masthead", desc: "Äg toppen av en kategorisida, från Just Chatting till ett enskilt spel. Geostyrt och låst till språk.", spec: "970x90 / 728x90 / 320x50 / 300x50, JPG eller PNG, max 1 MB", alt: "Kicks egen skiss: en banner över toppen av kategorisidan för EA Sports FC 26" },
+        { key: "catnative", name: "Category native", desc: "Native-kort inne i en kategoris rutnät, statiskt eller 15 sekunders video. Skalar över många kategorier samtidigt.", spec: "1280x720 bild eller 15 s video, 128x128 logotyp", alt: "Kicks egen skiss: ett annonsmärkt kort inne i rutnätet för kategorin Just Chatting" },
       ],
-      buying: "Köps på tre sätt: Direct (fast pris, garanterade placeringar), Programmatic (PG-, PMP- eller PD-affärer via din DSP) eller Open Exchange (auktion via SSP-partners och Google AdX). Priserna är i USD CPM, och programmet är fortfarande märkt Beta.",
-      contact: "Kicks säljkontakt är advertising@kick.com.",
+      buying: "Kick prissätter i USD CPM, och programmet är fortfarande märkt Beta. Vi ger offert per kampanj, i din valuta, med samma tre nivåer som vi använder för kreatörskampanjer.",
+      contact: "Skriv till andreas@beta-ads.no med marknad, budget och tidpunkt, så får du en offert tillbaka med riktiga nordiska siffror på ytorna.",
     },
     beta: {
       title: "Beta Ads (inne i streamen)",
@@ -651,7 +728,7 @@ const SV: KickCopy = {
       network: "Beta Ads jobbar med över 2 800 Kick-kreatörer i Sverige, Norge, Danmark och Finland. Den siffran är vår, inte Kicks.",
       cta: "Se hur en kampanj körs",
     },
-    verdict: "Behöver du ett rikstäckande ögonblick på en lanseringsdag är Kicks homepage takeover verktyget. Behöver du att en nordisk publik hör om ditt varumärke från någon de litar på, på sitt eget språk, är det vi. Kitets egna siffror säger att 3,2 gånger fler litar på en kreatörs rekommendation än på en kändis.",
+    verdict: "Behöver du ett rikstäckande ögonblick på en lanseringsdag är Kicks homepage takeover verktyget. Behöver du att en nordisk publik hör om ditt varumärke från någon de litar på, på sitt eget språk, är det kreatörsvägen. Kitets egna siffror säger att 3,2 gånger fler litar på en kreatörs rekommendation än på en kändis. De flesta kampanjer vi planerar nu använder båda, och du får en rapport.",
   },
   safety: {
     label: "Varumärkessäkerhet",
@@ -723,6 +800,7 @@ const SV: KickCopy = {
       "Kick interna data 2026: regional andel av tittartimmar Q2 2026, åldersfördelning, sessioner, chattvolym, innehållsmix",
       "DataReportal / DesignRush 2025-26, SimilarWeb 2025-26, Nielsen 2025, PwC Global E&M Outlook 2026: publikens ålder per plattform",
       "Edelman Gen Z Trust Report 2026: förtroende för kreatörer mot kändisar (3,2x)",
+      "Kick Advertising Solutions, e-post till Beta Ads, 1 september 2026: nordiska tittartimmar och månatligt aktiva användare",
       "Beta Ads nätverksdata, september 2026: 2 800+ nordiska Kick-kreatörer",
     ],
   },
@@ -744,14 +822,14 @@ const DA: KickCopy = {
     badge: "Kick-annoncering",
     h1Accent: "Hver femte",
     h1Rest: "live-time i Nordeuropa ses på Kick.",
-    sub: "Kick åbnede for annoncører i 2026 og lagde tallene på bordet. Vi har læst mediekittet, så du ikke behøver, og vi driver det netværk, der sætter danske brands ind i streamsene.",
+    sub: "Kick åbnede for annoncører i 2026 og lagde tallene på bordet. Beta Ads sælger Kicks egne annonceflader i Norden og driver det creator-netværk, der sætter brands ind i streamsene. En partner, begge veje.",
     primary: "Book en demo",
     secondary: "Se priser",
     stats: [
       { value: "20,0 %", label: "Kicks andel af Kick + Twitch-timer i Nordeuropa" },
+      { value: "7,5M+", label: "nordiske setimer i august 2026" },
+      { value: "1,13M", label: "månedligt aktive brugere i Finland, Sverige, Norge og Danmark" },
       { value: "81,7 %", label: "af Kicks publikum er 18 til 34 år" },
-      { value: "55 min", label: "gennemsnitlig seersession" },
-      { value: "5,1 mia.", label: "timer set i 2025" },
     ],
   },
   share: {
@@ -772,6 +850,19 @@ const DA: KickCopy = {
       europe: "Europa samlet",
       western: "Vesteuropa",
     },
+  },
+  nordic: {
+    label: "De nordiske tal",
+    heading: "7,5 millioner timer om måneden. Finland først.",
+    body: [
+      "De står ikke i det offentlige mediekit. Kicks annonceteam sendte dem direkte til os, da vi blev deres nordiske partner: over 7,5 millioner setimer i august 2026, stigende måned for måned, fordelt på 1,13 millioner månedligt aktive brugere i de fire store nordiske markeder.",
+      "Finland alene er over halvdelen. Det passer med, hvad vi ser i vores eget creator-netværk, og det er derfor, de første Kick-kampagner, vi booker, starter der. Danmark er det mindste af de fire, men et køb kun for Danmark er muligt, og der er næsten ingen konkurrence om fladerne.",
+    ],
+    chartTitle: "Andel af nordiske Kick-setimer, august 2026",
+    chartNote: "Kilde: Kick Advertising Solutions, 1. september 2026. Opdeling per kategori findes, men har begrænsninger.",
+    mauTitle: "Månedligt aktive brugere",
+    mauTotal: "I alt, fire markeder",
+    countries: { fi: "Finland", se: "Sverige", no: "Norge", dk: "Danmark", is: "Island" },
   },
   audience: {
     label: "Hvem ser med",
@@ -807,19 +898,20 @@ const DA: KickCopy = {
   },
   routes: {
     label: "Sådan køber du",
-    heading: "To veje ind på Kick. De løser forskellige opgaver.",
-    intro: "Kick sælger sine egne flader: bannere, native-kort og videospots inde i afspilleren. Beta Ads placerer brands inde i selve udsendelsen gennem de nordiske creators, vi arbejder med. De fleste, der tager Kick seriøst, ender med at bruge begge, så her er, hvad hver af dem faktisk er.",
+    heading: "To veje ind på Kick. Begge gennem os.",
+    intro: "Kick sælger sine egne flader: bannere, native-kort og videospots inde i afspilleren. Siden september 2026 sælger Beta Ads de flader i Norden, ved siden af det in-stream-format vi altid har kørt gennem nordiske creators. Her er, hvad hver af dem faktisk er, så du kan vælge det rigtige værktøj til opgaven.",
     kick: {
-      title: "Kick Ads (Kicks egne flader)",
-      lead: "Platformsplaceringer købt direkte hos Kick, via din DSP eller på open exchange. Geomålrettet per land, så et køb kun for Danmark er muligt.",
+      title: "Kick Ads (Kicks egne flader, via Beta Ads)",
+      lead: "Platformsplaceringer på Kick, købt gennem os som Kicks nordiske partner. Geomålrettet per land, så et køb kun for Danmark eller kun for Finland er muligt. Vi tager aftalen, specifikationerne og rapporteringen.",
       formats: [
-        { name: "In-stream video", desc: "Pre-roll på VOD, mid-roll i live-streams og post-roll, alle uden mulighed for at springe over. Fuld skærm med lyd på.", spec: "6, 15 eller 30 s. 1280x720 MP4, maks. 512 MB" },
-        { name: "Homepage banner takeover", desc: "Topfladen på forsiden i 24 timer eller en uge, 100 procent share of voice i dit land.", spec: "1920x250 rich media, eller 970x90 / 728x90 / 320x50" },
-        { name: "Homepage native takeover", desc: "Din kampagne formet som et streamkort i de øverste rækker på forsiden, tydeligt markeret som annonce.", spec: "1280x720 billede eller 15 s video, 128x128 logo" },
-        { name: "Category masthead og native", desc: "Ej toppen af, eller et native-kort inde i, én kategori, fra Just Chatting til et enkelt spil. Kan låses til sprog.", spec: "Standard bannerstørrelser; 1280x720 til native" },
+        { key: "video", name: "In-stream video", desc: "Pre-roll på VOD, mid-roll i live-streams og post-roll, alle uden mulighed for at springe over. Fuld skærm med lyd på, inde i afspilleren.", spec: "6, 15 eller 30 s. 1280x720 MP4, maks. 512 MB", alt: "Kicks egen skitse: en videoannonce i fuld skærm i afspilleren på en live kanal, mærket Ad: creator returns in 26" },
+        { key: "banner", name: "Homepage banner takeover", desc: "Topfladen på forsiden i 24 timer eller en uge, 100 procent share of voice i dit land.", spec: "1920x250 rich media, eller 970x90 / 728x90 / 320x50", alt: "Kicks egen skitse: et bredt grønt banner over Kick-forsiden med teksten Win 10,000 Kicks" },
+        { key: "native", name: "Homepage native takeover", desc: "Din kampagne formet som et streamkort i de øverste rækker på forsiden, tydeligt markeret som annonce.", spec: "1280x720 billede eller 15 s video, 128x128 logo", alt: "Kicks egen skitse: et annoncemarkeret streamkort blandt live-streams på Kick-forsiden" },
+        { key: "masthead", name: "Category masthead", desc: "Ej toppen af én kategoriside, fra Just Chatting til et enkelt spil. Geomålrettet og låst til sprog.", spec: "970x90 / 728x90 / 320x50 / 300x50, JPG eller PNG, maks. 1 MB", alt: "Kicks egen skitse: et banner over toppen af kategorisiden for EA Sports FC 26" },
+        { key: "catnative", name: "Category native", desc: "Native-kort inde i én kategoris gitter, statisk eller 15 sekunders video. Skalerer på tværs af mange kategorier på én gang.", spec: "1280x720 billede eller 15 s video, 128x128 logo", alt: "Kicks egen skitse: et annoncemarkeret kort inde i gitteret for kategorien Just Chatting" },
       ],
-      buying: "Købes på tre måder: Direct (fast pris, garanterede placeringer), Programmatic (PG-, PMP- eller PD-aftaler gennem din DSP) eller Open Exchange (auktion via SSP-partnere og Google AdX). Priserne er i USD CPM, og programmet er stadig mærket Beta.",
-      contact: "Kicks salgskontakt er advertising@kick.com.",
+      buying: "Kick prissætter i USD CPM, og programmet er stadig mærket Beta. Vi giver tilbud per kampagne, i din valuta, med samme tre niveauer som vi bruger til creator-kampagner.",
+      contact: "Skriv til andreas@beta-ads.no med marked, budget og timing, så får du et tilbud tilbage med rigtige nordiske tal på fladerne.",
     },
     beta: {
       title: "Beta Ads (inde i streamen)",
@@ -833,7 +925,7 @@ const DA: KickCopy = {
       network: "Beta Ads arbejder med over 2.800 Kick-creators i Danmark, Norge, Sverige og Finland. Det tal er vores, ikke Kicks.",
       cta: "Se hvordan en kampagne kører",
     },
-    verdict: "Har du brug for et landsdækkende øjeblik på en lanceringsdag, er Kicks homepage takeover værktøjet. Har du brug for, at et nordisk publikum hører om dit brand fra nogen, de stoler på, på deres eget sprog, er det os. Kittets egne tal siger, at 3,2 gange flere stoler på en creators anbefaling end på en kendis.",
+    verdict: "Har du brug for et landsdækkende øjeblik på en lanceringsdag, er Kicks homepage takeover værktøjet. Har du brug for, at et nordisk publikum hører om dit brand fra nogen, de stoler på, på deres eget sprog, er det creator-vejen. Kittets egne tal siger, at 3,2 gange flere stoler på en creators anbefaling end på en kendis. De fleste kampagner, vi planlægger nu, bruger begge, og du får én rapport.",
   },
   safety: {
     label: "Brand safety",
@@ -905,6 +997,7 @@ const DA: KickCopy = {
       "Kick interne data 2026: regional andel af setimer Q2 2026, aldersfordeling, sessioner, chatvolumen, indholdsmiks",
       "DataReportal / DesignRush 2025-26, SimilarWeb 2025-26, Nielsen 2025, PwC Global E&M Outlook 2026: publikums alder per platform",
       "Edelman Gen Z Trust Report 2026: tillid til creators mod kendte (3,2x)",
+      "Kick Advertising Solutions, e-mail til Beta Ads, 1. september 2026: nordiske setimer og månedligt aktive brugere",
       "Beta Ads netværksdata, september 2026: 2.800+ nordiske Kick-creators",
     ],
   },
@@ -926,14 +1019,14 @@ const FI: KickCopy = {
     badge: "Kick-mainonta",
     h1Accent: "Joka viides",
     h1Rest: "live-tunti Pohjois-Euroopassa katsotaan Kickissä.",
-    sub: "Kick avautui mainostajille 2026 ja laittoi luvut pöytään. Me luimme mediakortin, jotta sinun ei tarvitse, ja pyöritämme verkostoa, joka tuo suomalaiset brändit lähetysten sisään.",
+    sub: "Kick avautui mainostajille 2026 ja laittoi luvut pöytään. Beta Ads myy Kickin omia mainospintoja Pohjoismaissa ja pyörittää tekijäverkostoa, joka tuo brändit lähetysten sisään. Yksi kumppani, molemmat reitit.",
     primary: "Varaa demo",
     secondary: "Katso hinnat",
     stats: [
       { value: "20,0 %", label: "Kickin osuus Kick + Twitch -tunneista Pohjois-Euroopassa" },
+      { value: "7,5M+", label: "pohjoismaista katselutuntia elokuussa 2026" },
+      { value: "1,13M", label: "kuukausittaista aktiivista käyttäjää Suomessa, Ruotsissa, Norjassa ja Tanskassa" },
       { value: "81,7 %", label: "Kickin yleisöstä on 18-34-vuotiaita" },
-      { value: "55 min", label: "keskimääräinen katselusessio" },
-      { value: "5,1 mrd", label: "katselutuntia vuonna 2025" },
     ],
   },
   share: {
@@ -954,6 +1047,19 @@ const FI: KickCopy = {
       europe: "Eurooppa yhteensä",
       western: "Länsi-Eurooppa",
     },
+  },
+  nordic: {
+    label: "Pohjoismaiset luvut",
+    heading: "7,5 miljoonaa tuntia kuukaudessa. Suomi ensin.",
+    body: [
+      "Näitä ei löydy julkisesta mediakortista. Kickin mainostiimi lähetti ne suoraan meille, kun meistä tuli heidän pohjoismainen kumppaninsa: yli 7,5 miljoonaa katselutuntia elokuussa 2026, nousussa kuukaudesta toiseen, 1,13 miljoonan kuukausittaisen aktiivisen käyttäjän kesken neljällä suurella pohjoismaisella markkinalla.",
+      "Suomi yksin on yli puolet. Se vastaa sitä, mitä näemme omassa tekijäverkostossamme, ja siksi ensimmäiset varaamamme Kick-kampanjat alkavat Suomesta. Yli 520 000 kuukausittaista käyttäjää tekee Suomesta Kickin suurimman pohjoismaisen markkinan, ja pelkkään Suomeen rajattu osto on mahdollinen.",
+    ],
+    chartTitle: "Osuus pohjoismaisista Kick-katselutunneista, elokuu 2026",
+    chartNote: "Lähde: Kick Advertising Solutions, 1. syyskuuta 2026. Kategoriatason jaottelu on olemassa, mutta sillä on rajoituksia.",
+    mauTitle: "Kuukausittaiset aktiiviset käyttäjät",
+    mauTotal: "Yhteensä, neljä markkinaa",
+    countries: { fi: "Suomi", se: "Ruotsi", no: "Norja", dk: "Tanska", is: "Islanti" },
   },
   audience: {
     label: "Kuka katsoo",
@@ -989,19 +1095,20 @@ const FI: KickCopy = {
   },
   routes: {
     label: "Näin ostat",
-    heading: "Kaksi reittiä Kickiin. Ne tekevät eri työt.",
-    intro: "Kick myy omia pintojaan: bannereita, native-kortteja ja videospotteja soittimen sisällä. Beta Ads tuo brändit itse lähetyksen sisään niiden pohjoismaisten tekijöiden kautta, joiden kanssa työskentelemme. Useimmat, jotka ottavat Kickin tosissaan, päätyvät käyttämään molempia, joten tässä on, mitä kumpikin oikeasti on.",
+    heading: "Kaksi reittiä Kickiin. Molemmat meidän kautta.",
+    intro: "Kick myy omia pintojaan: bannereita, native-kortteja ja videospotteja soittimen sisällä. Syyskuusta 2026 alkaen Beta Ads myy niitä pintoja Pohjoismaissa, sen in-stream-formaatin rinnalla, jota olemme aina ajaneet pohjoismaisten tekijöiden kautta. Tässä on, mitä kumpikin oikeasti on, jotta voit valita oikean työkalun.",
     kick: {
-      title: "Kick Ads (Kickin omat pinnat)",
-      lead: "Alustan mainospaikat ostettuna suoraan Kickiltä, oman DSP:n kautta tai open exchangesta. Maakohdennettu, joten pelkkään Suomeen rajattu osto on mahdollinen.",
+      title: "Kick Ads (Kickin omat pinnat, Beta Adsin kautta)",
+      lead: "Alustan mainospaikat Kickissä, ostettuna meidän kautta Kickin pohjoismaisena kumppanina. Maakohdennettu, joten pelkkään Suomeen tai pelkkään Norjaan rajattu osto on mahdollinen. Me hoidamme sopimuksen, aineistospeksit ja raportoinnin.",
       formats: [
-        { name: "In-stream video", desc: "Pre-roll VOD:eissa, mid-roll live-lähetyksissä ja post-roll, kaikki ohittamattomia. Koko ruutu, ääni päällä.", spec: "6, 15 tai 30 s. 1280x720 MP4, maks. 512 MB" },
-        { name: "Homepage banner takeover", desc: "Etusivun pääpaikka 24 tunniksi tai viikoksi, 100 prosentin share of voice omassa maassasi.", spec: "1920x250 rich media tai 970x90 / 728x90 / 320x50" },
-        { name: "Homepage native takeover", desc: "Kampanjasi striimikortin muodossa etusivun ylimmillä riveillä, selvästi mainokseksi merkittynä.", spec: "1280x720 kuva tai 15 s video, 128x128 logo" },
-        { name: "Category masthead ja native", desc: "Omista yhden kategorian yläosa tai native-kortti sen sisällä, Just Chattingista yksittäiseen peliin. Voidaan rajata kielen mukaan.", spec: "Vakiobannerikoot; 1280x720 nativelle" },
+        { key: "video", name: "In-stream video", desc: "Pre-roll VOD:eissa, mid-roll live-lähetyksissä ja post-roll, kaikki ohittamattomia. Koko ruutu, ääni päällä, soittimen sisällä.", spec: "6, 15 tai 30 s. 1280x720 MP4, maks. 512 MB", alt: "Kickin oma luonnos: koko ruudun videomainos soittimessa live-kanavalla, merkitty Ad: creator returns in 26" },
+        { key: "banner", name: "Homepage banner takeover", desc: "Etusivun pääpaikka 24 tunniksi tai viikoksi, 100 prosentin share of voice omassa maassasi.", spec: "1920x250 rich media tai 970x90 / 728x90 / 320x50", alt: "Kickin oma luonnos: leveä vihreä banneri Kickin etusivulla tekstillä Win 10,000 Kicks" },
+        { key: "native", name: "Homepage native takeover", desc: "Kampanjasi striimikortin muodossa etusivun ylimmillä riveillä, selvästi mainokseksi merkittynä.", spec: "1280x720 kuva tai 15 s video, 128x128 logo", alt: "Kickin oma luonnos: mainokseksi merkitty striimikortti live-lähetysten joukossa Kickin etusivulla" },
+        { key: "masthead", name: "Category masthead", desc: "Omista yhden kategoriasivun yläosa, Just Chattingista yksittäiseen peliin. Maakohdennettu ja kielirajattu.", spec: "970x90 / 728x90 / 320x50 / 300x50, JPG tai PNG, maks. 1 MB", alt: "Kickin oma luonnos: banneri EA Sports FC 26 -kategoriasivun yläosassa" },
+        { key: "catnative", name: "Category native", desc: "Native-kortit yhden kategorian ruudukossa, staattisena tai 15 sekunnin videona. Skaalautuu moneen kategoriaan samalla kertaa.", spec: "1280x720 kuva tai 15 s video, 128x128 logo", alt: "Kickin oma luonnos: mainokseksi merkitty kortti Just Chatting -kategorian ruudukossa" },
       ],
-      buying: "Ostetaan kolmella tavalla: Direct (kiinteä hinta, taatut paikat), Programmatic (PG-, PMP- tai PD-sopimukset oman DSP:n kautta) tai Open Exchange (huutokauppa SSP-kumppanien ja Google AdX:n kautta). Hinnat ovat USD CPM, ja ohjelma on yhä merkitty Beta-vaiheeseen.",
-      contact: "Kickin myynnin yhteystieto on advertising@kick.com.",
+      buying: "Kick hinnoittelee USD CPM -pohjalta, ja ohjelma on yhä merkitty Beta-vaiheeseen. Annamme tarjouksen kampanjaa kohti, omassa valuutassasi, samalla kolmiportaisella rakenteella kuin tekijäkampanjoissa.",
+      contact: "Kirjoita osoitteeseen andreas@beta-ads.no ja kerro markkina, budjetti ja ajoitus, niin saat tarjouksen oikeilla pohjoismaisilla pintaluvuilla.",
     },
     beta: {
       title: "Beta Ads (lähetyksen sisällä)",
@@ -1015,7 +1122,7 @@ const FI: KickCopy = {
       network: "Beta Ads työskentelee yli 2 800 Kick-tekijän kanssa Suomessa, Ruotsissa, Norjassa ja Tanskassa. Se luku on meidän, ei Kickin.",
       cta: "Katso miten kampanja pyörii",
     },
-    verdict: "Jos tarvitset koko maan kattavan hetken julkaisupäivänä, Kickin homepage takeover on työkalu siihen. Jos tarvitset, että pohjoismainen yleisö kuulee brändistäsi joltakulta, johon se luottaa, omalla kielellään, se olemme me. Mediakortin omat luvut sanovat, että 3,2 kertaa useampi luottaa tekijän suositukseen kuin julkkiksen.",
+    verdict: "Jos tarvitset koko maan kattavan hetken julkaisupäivänä, Kickin homepage takeover on työkalu siihen. Jos tarvitset, että pohjoismainen yleisö kuulee brändistäsi joltakulta, johon se luottaa, omalla kielellään, se on tekijäreitti. Mediakortin omat luvut sanovat, että 3,2 kertaa useampi luottaa tekijän suositukseen kuin julkkiksen. Useimmat nyt suunnittelemamme kampanjat käyttävät molempia, ja saat yhden raportin.",
   },
   safety: {
     label: "Bränditurvallisuus",
@@ -1087,6 +1194,7 @@ const FI: KickCopy = {
       "Kickin sisäinen data 2026: alueellinen katselutuntiosuus Q2 2026, ikäjakauma, sessiot, chat-volyymi, sisältöjakauma",
       "DataReportal / DesignRush 2025-26, SimilarWeb 2025-26, Nielsen 2025, PwC Global E&M Outlook 2026: yleisön ikä alustoittain",
       "Edelman Gen Z Trust Report 2026: luottamus tekijöihin vs. julkkiksiin (3,2x)",
+      "Kick Advertising Solutions, sähköposti Beta Adsille 1. syyskuuta 2026: pohjoismaiset katselutunnit ja kuukausittaiset aktiiviset käyttäjät",
       "Beta Adsin verkostodata, syyskuu 2026: 2 800+ pohjoismaista Kick-tekijää",
     ],
   },

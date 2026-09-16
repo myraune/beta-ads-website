@@ -9,6 +9,9 @@ import {
   AGE_18_34,
   CONTENT_MIX,
   EUROPE_SHARE,
+  FORMAT_IMAGES,
+  NORDIC_MAU_TOTAL,
+  NORDIC_SHARE,
   KICK_ALTERNATES,
   KICK_COPY,
   KICK_GREEN,
@@ -216,6 +219,41 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
         </div>
       </section>
 
+
+      {/* Nordic numbers from Kick's own team */}
+      <section className="border-t border-border py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-[1.05fr_0.95fr] gap-16 items-start">
+          <div className="max-w-xl">
+            <Label>{t.nordic.label}</Label>
+            <H2>{t.nordic.heading}</H2>
+            {t.nordic.body.map((p) => (
+              <p key={p} className="text-base md:text-lg font-light leading-relaxed text-muted-foreground mb-5">{p}</p>
+            ))}
+          </div>
+          <Reveal>
+            <h3 className="text-base font-semibold text-foreground mb-4">{t.nordic.chartTitle}</h3>
+            {NORDIC_SHARE.map((c) => (
+              <Bar key={c.key} lang={lang} label={t.nordic.countries[c.key]} pct={c.pct} highlight={c.key === lang || (lang === "en" && c.key === "fi") || (lang === "sv" && c.key === "se") || (lang === "da" && c.key === "dk")} />
+            ))}
+            <p className="text-xs text-muted-foreground mt-4 mb-12">{t.nordic.chartNote}</p>
+
+            <h3 className="text-base font-semibold text-foreground mb-4">{t.nordic.mauTitle}</h3>
+            <dl className="grid grid-cols-2 sm:grid-cols-5 gap-x-6 gap-y-6 m-0">
+              {NORDIC_SHARE.filter((c) => c.mau).map((c) => (
+                <div key={c.key} className="border-t border-border pt-3 flex flex-col-reverse">
+                  <dt className="text-xs text-muted-foreground">{t.nordic.countries[c.key]}</dt>
+                  <dd className="text-xl font-bold tracking-tight text-foreground tabular-nums m-0">{c.mau}</dd>
+                </div>
+              ))}
+              <div className="border-t border-border pt-3 flex flex-col-reverse">
+                <dt className="text-xs text-muted-foreground">{t.nordic.mauTotal}</dt>
+                <dd className="text-xl font-bold tracking-tight tabular-nums m-0" style={{ color: KICK_GREEN }}>{NORDIC_MAU_TOTAL}</dd>
+              </div>
+            </dl>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Audience */}
       <section className="border-t border-border py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-[1.05fr_0.95fr] gap-16 items-start">
@@ -316,19 +354,31 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
             <div>
               <h3 className="text-xl font-semibold text-foreground mb-3">{t.routes.kick.title}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground mb-8 max-w-xl">{t.routes.kick.lead}</p>
-              <dl className="m-0">
+              <div className="space-y-8">
                 {t.routes.kick.formats.map((f) => (
-                  <div key={f.name} className="border-t border-border py-5">
-                    <dt className="text-base font-semibold text-foreground">{f.name}</dt>
-                    <dd className="m-0 mt-1">
-                      <p className="text-sm leading-relaxed text-muted-foreground m-0">{f.desc}</p>
-                      <p className="text-xs font-mono text-muted-foreground/80 mt-2 m-0">{f.spec}</p>
-                    </dd>
-                  </div>
+                  <figure key={f.key} className="m-0 border-t border-border pt-5 grid grid-cols-[minmax(0,1fr)_10rem] sm:grid-cols-[minmax(0,1fr)_16rem] gap-5 items-start">
+                    <div>
+                      <h4 className="text-base font-semibold text-foreground m-0">{f.name}</h4>
+                      <p className="text-sm leading-relaxed text-muted-foreground mt-1 mb-0">{f.desc}</p>
+                      <p className="text-xs font-mono text-muted-foreground/80 mt-2 mb-0">{f.spec}</p>
+                    </div>
+                    <img
+                      src={FORMAT_IMAGES[f.key]}
+                      alt={f.alt}
+                      width={1600}
+                      height={1288}
+                      loading="lazy"
+                      className="w-full h-auto rounded-lg ring-1 ring-border"
+                    />
+                  </figure>
                 ))}
-              </dl>
+              </div>
               <p className="text-sm leading-relaxed text-muted-foreground mt-6 border-t border-border pt-6">{t.routes.kick.buying}</p>
-              <p className="text-sm text-muted-foreground mt-2">{t.routes.kick.contact}</p>
+              <p className="text-sm text-muted-foreground mt-2">
+                {t.routes.kick.contact.split("andreas@beta-ads.no")[0]}
+                <a href="mailto:andreas@beta-ads.no" className="font-medium text-foreground underline underline-offset-4 hover:text-primary">andreas@beta-ads.no</a>
+                {t.routes.kick.contact.split("andreas@beta-ads.no")[1]}
+              </p>
             </div>
 
             <div>
