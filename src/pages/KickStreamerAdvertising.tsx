@@ -40,6 +40,13 @@ const CASES = [
   { brand: "Komplett", logo: "/lovable-uploads/logo-komplett.png", metric: "151,278", metricNo: "151 278", video: "/lovable-uploads/overlay-komplett.webm", href: "/case-study/komplett", label: { en: "display views, 1.17% CTR, 34 streamers", no: "visninger, 1,17 % CTR, 34 strømmere" } },
 ] as const;
 
+/** Real frames from real campaigns, overlay in the picture. */
+const STILLS = [
+  { src: "/lovable-uploads/case-glorious-poster.webp", href: "/case-study/glorious", alt: "VikingDuden live with a Glorious V3 Mouse overlay in the lower right of the stream, chat on the left", cap: { en: "Glorious, in VikingDuden's stream", no: "Glorious, i VikingDudens strøm" } },
+  { src: "/lovable-uploads/adgif-3637484-poster.webp", href: "/case-study/gokstad", alt: "A streamer talking to camera with a Gokstad Akademiet overlay asking what you will do this autumn", cap: { en: "Gokstad Akademiet, voice-triggered overlay", no: "Gokstad Akademiet, stemmestyrt overlay" } },
+  { src: "/lovable-uploads/adgif-3818527-poster.webp", href: "/case-study/glorious", alt: "kishoo live with a Glorious V3 Mouse overlay beside the chat", cap: { en: "Glorious, in kishoo's stream", no: "Glorious, i kishoos strøm" } },
+] as const;
+
 const COPY = {
   en: {
     seoTitle: "Advertise Through Kick Streamers in the Nordics | Beta Ads",
@@ -67,8 +74,8 @@ const COPY = {
         { name: "Polls and chat", desc: "A question the audience answers in chat, with the split in your report. Our poll campaigns have reached a 67 percent response rate." },
         { name: "Replay reach", desc: "The overlay is burned into the VOD and the clips, so the campaign keeps being seen after the live stream ends." },
       ],
-      clipsLabel: "Real overlays from real campaigns",
-      clipsNote: "These ran on Twitch. The format on Kick is identical; the stream software is the same.",
+      clipsLabel: "Real overlays in real streams",
+      clipsNote: "Frames from the Glorious and Gokstad Akademiet campaigns. The overlay is part of the picture the creator sends out, not a layer the player adds.",
     },
     steps: {
       label: "How a campaign runs",
@@ -131,8 +138,8 @@ const COPY = {
         { name: "Avstemninger og chat", desc: "Et spørsmål publikum svarer på i chatten, med fordelingen i rapporten din. Avstemningskampanjene våre har nådd 67 prosent svarandel." },
         { name: "Replay reach", desc: "Overlayet ligger i VOD-en og klippene, så kampanjen blir sett videre etter at live-strømmen er over." },
       ],
-      clipsLabel: "Ekte overlays fra ekte kampanjer",
-      clipsNote: "Disse gikk på Twitch. Formatet på Kick er identisk; strømmeprogramvaren er den samme.",
+      clipsLabel: "Ekte overlays i ekte strømmer",
+      clipsNote: "Bilder fra Glorious- og Gokstad Akademiet-kampanjene. Overlayet er en del av bildet skaperen sender ut, ikke et lag spilleren legger på.",
     },
     steps: {
       label: "Slik kjøres en kampanje",
@@ -286,10 +293,13 @@ const KickStreamerAdvertising: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => 
           <Reveal className="mt-16">
             <h3 className="text-base font-semibold text-foreground mb-4">{t.formats.clipsLabel}</h3>
             <div className="grid md:grid-cols-3 gap-5">
-              {CASES.map((c) => (
-                <figure key={c.brand} className="m-0 rounded-2xl overflow-hidden ring-1 ring-border bg-black aspect-video">
-                  <video src={c.video} autoPlay loop muted playsInline className="w-full h-full object-cover" aria-label={`${c.brand} overlay ad inside a live stream`} />
-                </figure>
+              {STILLS.map((st) => (
+                <Link key={st.src + st.cap.en} to={st.href} className="group block">
+                  <figure className="m-0">
+                    <img src={st.src} alt={st.alt} width={1280} height={720} loading="lazy" className="w-full h-auto rounded-2xl ring-1 ring-border" />
+                    <figcaption className="text-xs text-muted-foreground mt-2 group-hover:text-foreground transition-colors">{st.cap[lang]}</figcaption>
+                  </figure>
+                </Link>
               ))}
             </div>
             <p className="text-xs text-muted-foreground mt-3">{t.formats.clipsNote}</p>

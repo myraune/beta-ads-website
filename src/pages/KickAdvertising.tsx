@@ -499,8 +499,8 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
             </Button>
           </div>
           <Reveal>
-            <figure className="m-0 rounded-2xl overflow-hidden ring-1 ring-border bg-black aspect-video">
-              <video src="/lovable-uploads/overlay-samsung.webm" autoPlay loop muted playsInline className="w-full h-full object-cover" aria-label="Samsung overlay ad inside a live stream, a Beta Ads campaign" />
+            <figure className="m-0">
+              <img src="/lovable-uploads/case-glorious-poster.webp" alt="VikingDuden live with a Glorious V3 Mouse overlay in the lower right of the stream and viewer counts for Kick, YouTube and Twitch at the top" width={1200} height={675} loading="lazy" className="w-full h-auto rounded-2xl ring-1 ring-border" />
             </figure>
           </Reveal>
         </div>
