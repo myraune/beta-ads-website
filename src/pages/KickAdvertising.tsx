@@ -10,6 +10,7 @@ import {
   CONTENT_MIX,
   EUROPE_SHARE,
   FORMAT_IMAGES,
+  FORMAT_SPECS,
   NORDIC_MAU_TOTAL,
   NORDIC_SHARE,
   KICK_ALTERNATES,
@@ -343,67 +344,59 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
         </div>
       </section>
 
-      {/* Two routes */}
-      <section className="border-t border-border py-20 md:py-28">
+      {/* Kick's formats, styled after Kick's own media kit: dark band, green labels, bordered spec cells, mockup right */}
+      <section className="border-t border-border bg-[#080809] text-white py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="max-w-2xl">
-            <Label>{t.routes.label}</Label>
-            <H2>{t.routes.heading}</H2>
-            <p className="text-base md:text-lg font-light leading-relaxed text-muted-foreground">{t.routes.intro}</p>
+            <span className="text-xs font-semibold tracking-widest uppercase mb-3 block" style={{ color: KICK_GREEN }}>{t.routes.label}</span>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight uppercase leading-[1.02] mb-4">{t.routes.heading}</h2>
+            <p className="text-base md:text-lg text-white/60 leading-relaxed mb-5">{t.routes.kicker}</p>
+            <p className="text-base md:text-lg text-white/60 leading-relaxed">{t.routes.intro}</p>
           </div>
 
-          <Reveal className="grid lg:grid-cols-2 gap-16 mt-16">
+          <div className="mt-20 space-y-24">
+            {t.routes.kick.formats.map((f) => (
+              <Reveal key={f.key} className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-center">
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-bold tracking-tight uppercase leading-tight mb-8">{f.name}</h3>
+                  <h4 className="text-sm font-bold tracking-wide uppercase mb-1.5" style={{ color: KICK_GREEN }}>{t.routes.kick.whatLabel}</h4>
+                  <p className="text-sm text-white/70 leading-relaxed mb-6">{f.desc}</p>
+                  <h4 className="text-sm font-bold tracking-wide uppercase mb-1.5" style={{ color: KICK_GREEN }}>{t.routes.kick.whyLabel}</h4>
+                  <p className="text-sm text-white/70 leading-relaxed mb-6">{f.why}</p>
+                  <h4 className="text-sm font-bold tracking-wide uppercase mb-3" style={{ color: KICK_GREEN }}>{t.routes.kick.specsLabel}</h4>
+                  <dl className="grid grid-cols-2 sm:grid-cols-3 gap-px m-0" style={{ background: KICK_GREEN }}>
+                    {FORMAT_SPECS[f.key].map((sp) => (
+                      <div key={sp.k} className="bg-[#111214] px-3 py-3">
+                        <dt className="text-xs font-semibold text-white">{t.routes.kick.specLabels[sp.k]}</dt>
+                        <dd className="text-[11px] leading-snug text-white/60 m-0 mt-1">{sp.v}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+                <img
+                  src={FORMAT_IMAGES[f.key]}
+                  alt={f.alt}
+                  width={1600}
+                  height={1288}
+                  loading="lazy"
+                  className="w-full h-auto rounded-2xl"
+                />
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="mt-24 border-t border-white/10 pt-10 grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16">
+            <p className="text-lg md:text-xl font-bold tracking-tight uppercase leading-tight m-0" style={{ color: KICK_GREEN }}>{t.routes.kick.title}</p>
             <div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">{t.routes.kick.title}</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground mb-8 max-w-xl">{t.routes.kick.lead}</p>
-              <div className="space-y-8">
-                {t.routes.kick.formats.map((f) => (
-                  <figure key={f.key} className="m-0 border-t border-border pt-5 grid grid-cols-[minmax(0,1fr)_10rem] sm:grid-cols-[minmax(0,1fr)_16rem] gap-5 items-start">
-                    <div>
-                      <h4 className="text-base font-semibold text-foreground m-0">{f.name}</h4>
-                      <p className="text-sm leading-relaxed text-muted-foreground mt-1 mb-0">{f.desc}</p>
-                      <p className="text-xs font-mono text-muted-foreground/80 mt-2 mb-0">{f.spec}</p>
-                    </div>
-                    <img
-                      src={FORMAT_IMAGES[f.key]}
-                      alt={f.alt}
-                      width={1600}
-                      height={1288}
-                      loading="lazy"
-                      className="w-full h-auto rounded-lg ring-1 ring-border"
-                    />
-                  </figure>
-                ))}
-              </div>
-              <p className="text-sm leading-relaxed text-muted-foreground mt-6 border-t border-border pt-6">{t.routes.kick.buying}</p>
-              <p className="text-sm text-muted-foreground mt-2">
+              <p className="text-sm text-white/70 leading-relaxed max-w-xl mb-0">{t.routes.kick.lead}</p>
+              <p className="text-sm text-white/70 leading-relaxed max-w-xl mt-3 mb-0">{t.routes.kick.buying}</p>
+              <p className="text-sm text-white/70 mt-3 mb-0">
                 {t.routes.kick.contact.split("andreas@beta-ads.no")[0]}
-                <a href="mailto:andreas@beta-ads.no" className="font-medium text-foreground underline underline-offset-4 hover:text-primary">andreas@beta-ads.no</a>
+                <a href="mailto:andreas@beta-ads.no" className="font-semibold text-white underline underline-offset-4 hover:text-primary">andreas@beta-ads.no</a>
                 {t.routes.kick.contact.split("andreas@beta-ads.no")[1]}
               </p>
             </div>
-
-            <div>
-              <h3 className="text-xl font-semibold text-foreground mb-3">{t.routes.beta.title}</h3>
-              <p className="text-sm leading-relaxed text-muted-foreground mb-8 max-w-xl">{t.routes.beta.lead}</p>
-              <dl className="m-0">
-                {t.routes.beta.formats.map((f) => (
-                  <div key={f.name} className="border-t border-border py-5">
-                    <dt className="text-base font-semibold text-foreground">{f.name}</dt>
-                    <dd className="m-0 mt-1 text-sm leading-relaxed text-muted-foreground">{f.desc}</dd>
-                  </div>
-                ))}
-              </dl>
-              <p className="text-sm leading-relaxed text-muted-foreground mt-6 border-t border-border pt-6">{t.routes.beta.network}</p>
-              <Link to="/demo" className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline underline-offset-4 mt-4">
-                {t.routes.beta.cta} <ArrowUpRight className="w-4 h-4" />
-              </Link>
-            </div>
-          </Reveal>
-
-          <p className="text-base md:text-lg font-light leading-relaxed text-foreground max-w-2xl mt-16 border-t border-border pt-10">
-            {t.routes.verdict}
-          </p>
+          </div>
         </div>
       </section>
 

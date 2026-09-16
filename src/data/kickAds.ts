@@ -108,6 +108,48 @@ export const FORMAT_IMAGES: Record<string, string> = {
   catnative: "/lovable-uploads/kick/format-category-native.webp",
 };
 
+/**
+ * Creative specs per Kick format, straight from the media kit (pp. 17-21).
+ * Labels are keys into KickCopy.specLabels so the table reads in the page
+ * language while the values stay as Kick wrote them.
+ */
+export const FORMAT_SPECS: Record<string, { k: string; v: string }[]> = {
+  video: [
+    { k: "preroll", v: "6 / 15 s, VOD" },
+    { k: "midroll", v: "6 / 15 / 30 s, live" },
+    { k: "postroll", v: "6 / 15 / 30 s" },
+    { k: "video", v: "1280x720, 16:9, MP4, max 512 MB" },
+    { k: "audio", v: "AAC, 48 kHz, 2 ch, 128 kbps" },
+    { k: "loudness", v: "-21 to -9 dB, -24 LKFS +/- 2 dB" },
+  ],
+  banner: [
+    { k: "background", v: "1920x250, JPG / PNG" },
+    { k: "logo", v: "PNG, 1000 px+ long edge" },
+    { k: "headline", v: "Max 30 characters" },
+    { k: "cta", v: "Max 15 characters" },
+    { k: "duration", v: "24 h or 1 week" },
+    { k: "standard", v: "970x90, 728x90, 320x50, 300x50" },
+  ],
+  native: [
+    { k: "image", v: "1280x720, JPG / PNG, max 2 MB" },
+    { k: "channellogo", v: "128x128" },
+    { k: "video", v: "1280x720, MP4, 15 s, max 512 MB" },
+    { k: "audio", v: "AAC, 48 kHz, 2 ch, 128 kbps" },
+    { k: "loudness", v: "-24 LKFS +/- 2 dB" },
+  ],
+  masthead: [
+    { k: "file", v: "JPG / PNG, max 1 MB" },
+    { k: "targeting", v: "Geo + language" },
+    { k: "standard", v: "970x90, 728x90, 320x50, 300x50" },
+  ],
+  catnative: [
+    { k: "image", v: "1280x720, JPG / PNG, max 2 MB" },
+    { k: "channellogo", v: "128x128" },
+    { k: "video", v: "1280x720, MP4, 15 s, max 512 MB" },
+    { k: "audio", v: "AAC, 48 kHz, 2 ch, 128 kbps" },
+  ],
+};
+
 /** Content mix. Source: Kick media kit p. 12. */
 export const CONTENT_MIX = [
   { key: "gaming", pct: 48, hours: "186M" },
@@ -174,21 +216,18 @@ export interface KickCopy {
     label: string;
     heading: string;
     intro: string;
+    kicker: string;
     kick: {
       title: string;
       lead: string;
-      formats: { key: keyof typeof FORMAT_IMAGES; name: string; desc: string; spec: string; alt: string }[];
+      formats: { key: keyof typeof FORMAT_IMAGES; name: string; desc: string; why: string; alt: string }[];
+      whatLabel: string;
+      whyLabel: string;
+      specsLabel: string;
+      specLabels: Record<string, string>;
       buying: string;
       contact: string;
     };
-    beta: {
-      title: string;
-      lead: string;
-      formats: { name: string; desc: string }[];
-      network: string;
-      cta: string;
-    };
-    verdict: string;
   };
   safety: {
     label: string;
@@ -307,34 +346,43 @@ const EN: KickCopy = {
   },
   routes: {
     label: "How to buy",
-    heading: "Two ways onto Kick. Both through us.",
-    intro: "Kick sells its own inventory: banners, native tiles and video spots inside the player. Since September 2026 Beta Ads sells that inventory in the Nordics, alongside the in-stream format we have always run through Nordic creators. Here is what each one actually is, so you can pick the right tool for the job.",
+    heading: "Kick's ad formats",
+    intro: "Kick sells five placements: banners and native tiles on the homepage and category pages, and non-skippable video inside the player. Since September 2026 Beta Ads books that inventory for the Nordics. Below is each format as Kick itself presents it, with the specs your creative team needs.",
+    kicker: "Formats built for live. Booked for the Nordics through Beta Ads.",
     kick: {
-      title: "Kick Ads (Kick's own inventory, via Beta Ads)",
+      title: "Kick Ads formats",
       lead: "Platform placements on Kick, bought through us as Kick's Nordic partner. Geo-targeted by country, so a Norway-only or Finland-only buy is possible. We handle the deal, the creative specs and the reporting.",
       formats: [
-        { key: "video", name: "In-stream video", desc: "Non-skippable pre-roll on VOD, mid-roll in live streams, post-roll. Full screen, sound on, inside the player.", spec: "6, 15 or 30 s. 1280x720 MP4, max 512 MB", alt: "Kick's own mockup: a full-screen in-player video ad on a live channel, labelled Ad: creator returns in 26" },
-        { key: "banner", name: "Homepage banner takeover", desc: "The full-width hero slot on the front page for 24 hours or one week, 100 percent share of voice in your country.", spec: "1920x250 rich media, or 970x90 / 728x90 / 320x50", alt: "Kick's own mockup: a wide green banner across the Kick homepage reading Win 10,000 Kicks" },
-        { key: "native", name: "Homepage native takeover", desc: "Your campaign styled as a stream card in the top rows of the homepage grid, with a clear ad label.", spec: "1280x720 image or 15 s video, 128x128 logo", alt: "Kick's own mockup: an ad-labelled stream card sitting among live streams on the Kick homepage" },
-        { key: "masthead", name: "Category masthead", desc: "Own the header of one category page, from Just Chatting to a single game. Geo-targeted and language-gated.", spec: "970x90 / 728x90 / 320x50 / 300x50, JPG or PNG, max 1 MB", alt: "Kick's own mockup: a banner across the top of the EA Sports FC 26 category page" },
-        { key: "catnative", name: "Category native", desc: "Native cards inside one category's grid, static or 15-second video. Scales across many categories at once.", spec: "1280x720 image or 15 s video, 128x128 logo", alt: "Kick's own mockup: an ad-labelled card inside the Just Chatting category grid" },
+        { key: "video", name: "In-stream video", desc: "Non-skippable pre-roll on VOD, mid-roll in live streams, post-roll. Full screen, sound on, inside the player.", why: "Full-screen, sound-on, in-player attention. No second screen, no scroll-past.", alt: "Kick's own mockup: a full-screen in-player video ad on a live channel, labelled Ad: creator returns in 26" },
+        { key: "banner", name: "Homepage banner takeover", desc: "The full-width hero slot on the front page for 24 hours or one week, 100 percent share of voice in your country.", why: "100 percent share of voice for your country. The first thing every visitor sees, on every homepage load.", alt: "Kick's own mockup: a wide green banner across the Kick homepage reading Win 10,000 Kicks" },
+        { key: "native", name: "Homepage native takeover", desc: "Your campaign styled as a stream card in the top rows of the homepage grid, with a clear ad label.", why: "Non-intrusive: it reads like content, not a banner. Prime placement in the top rows where attention already lives.", alt: "Kick's own mockup: an ad-labelled stream card sitting among live streams on the Kick homepage" },
+        { key: "masthead", name: "Category masthead", desc: "Own the header of one category page, from Just Chatting to a single game. Geo-targeted and language-gated.", why: "Contextual: align the brand with the right passion, with 100 percent share of voice on a self-selected, high-intent audience.", alt: "Kick's own mockup: a banner across the top of the EA Sports FC 26 category page" },
+        { key: "catnative", name: "Category native", desc: "Native cards inside one category's grid, static or 15-second video. Scales across many categories at once.", why: "The natural feel of native with the precision of contextual targeting. Scales across many categories at once.", alt: "Kick's own mockup: an ad-labelled card inside the Just Chatting category grid" },
       ],
+      whatLabel: "What it is",
+      whyLabel: "Why it matters",
+      specsLabel: "Specs",
+      specLabels: {
+        preroll: "Pre-roll",
+        midroll: "In-livestream",
+        postroll: "Post-roll",
+        video: "Video",
+        audio: "Audio",
+        loudness: "Loudness",
+        background: "Background image",
+        logo: "Logo",
+        headline: "Headline",
+        cta: "CTA button",
+        duration: "Duration",
+        standard: "Standard sizes",
+        image: "Image",
+        channellogo: "Channel ad logo",
+        file: "File format",
+        targeting: "Targeting",
+      },
       buying: "Kick prices in USD CPM and the program is still labelled Beta. We quote per campaign, in your currency, with the same three-tier structure we use for creator campaigns.",
       contact: "Write to andreas@beta-ads.no with market, budget and timing, and you get a quote back with real Nordic inventory numbers.",
     },
-    beta: {
-      title: "Beta Ads (inside the stream)",
-      lead: "Your brand appears in the broadcast the creator is making, not in the frame around it. Viewers see it on every device and with every ad blocker, because it is part of the video.",
-      formats: [
-        { name: "Native overlay", desc: "A branded graphic on the stream during sponsored moments, animated or static. Never constant, never covering the game." },
-        { name: "Voice-triggered", desc: "Fires when the creator says your brand, using real-time voice recognition. The ad shows up exactly when the endorsement happens." },
-        { name: "Polls and chat", desc: "Questions the audience answers in chat, with the results in your report. Our poll campaigns have reached 67 percent response rates." },
-        { name: "Replay reach", desc: "The overlay is burned into the VOD and the clips, so the campaign keeps being seen after the stream ends." },
-      ],
-      network: "Beta Ads works with more than 2,800 Kick creators in Norway, Sweden, Denmark and Finland. That figure is ours, not Kick's.",
-      cta: "See how a campaign runs",
-    },
-    verdict: "If you need a country-wide moment on a launch day, Kick's homepage takeover is the tool. If you need a Nordic audience to hear your brand from someone they trust, in their own language, that is the creator route. The kit's own numbers say 3.2 times more people trust a creator's recommendation than a celebrity's. Most campaigns we plan now use both, and you get one report.",
   },
   safety: {
     label: "Brand safety",
@@ -504,34 +552,43 @@ const NO: KickCopy = {
   },
   routes: {
     label: "Slik kjøper du",
-    heading: "To veier inn på Kick. Begge gjennom oss.",
-    intro: "Kick selger sine egne flater: bannere, native-kort og videospotter inne i spilleren. Fra september 2026 selger Beta Ads de flatene i Norden, ved siden av in-stream-formatet vi alltid har kjørt gjennom nordiske skapere. Her er hva hver av dem faktisk er, så du kan velge riktig verktøy til jobben.",
+    heading: "Kicks annonseformater",
+    intro: "Kick selger fem plasseringer: bannere og native-kort på forsiden og kategorisidene, og video uten hopp-over inne i spilleren. Fra september 2026 booker Beta Ads de flatene for Norden. Under er hvert format slik Kick selv viser det, med spesifikasjonene kreativ-teamet ditt trenger.",
+    kicker: "Formater laget for live. Bookes for Norden gjennom Beta Ads.",
     kick: {
-      title: "Kick Ads (Kicks egne flater, via Beta Ads)",
+      title: "Kick Ads-formater",
       lead: "Plattformplasseringer på Kick, kjøpt gjennom oss som Kicks nordiske partner. Geomålrettet per land, så et kjøp kun for Norge eller kun for Finland er mulig. Vi tar avtalen, spesifikasjonene og rapporteringen.",
       formats: [
-        { key: "video", name: "In-stream video", desc: "Pre-roll på VOD, mid-roll i live-strømmer og post-roll, alle uten mulighet for å hoppe over. Fullskjerm med lyd på, inne i spilleren.", spec: "6, 15 eller 30 s. 1280x720 MP4, maks 512 MB", alt: "Kicks egen skisse: en videoannonse i fullskjerm i spilleren på en live kanal, merket Ad: creator returns in 26" },
-        { key: "banner", name: "Homepage banner takeover", desc: "Toppflaten på forsiden i 24 timer eller én uke, 100 prosent share of voice i ditt land.", spec: "1920x250 rich media, eller 970x90 / 728x90 / 320x50", alt: "Kicks egen skisse: et bredt grønt banner over Kick-forsiden med teksten Win 10,000 Kicks" },
-        { key: "native", name: "Homepage native takeover", desc: "Kampanjen din formet som et strømmekort i de øverste radene på forsiden, tydelig merket som annonse.", spec: "1280x720 bilde eller 15 s video, 128x128 logo", alt: "Kicks egen skisse: et annonsemerket strømmekort blant live-strømmer på Kick-forsiden" },
-        { key: "masthead", name: "Category masthead", desc: "Eie toppen av én kategoriside, fra Just Chatting til ett enkelt spill. Geomålrettet og låst til språk.", spec: "970x90 / 728x90 / 320x50 / 300x50, JPG eller PNG, maks 1 MB", alt: "Kicks egen skisse: et banner over toppen av kategorisiden for EA Sports FC 26" },
-        { key: "catnative", name: "Category native", desc: "Native-kort inne i én kategoris rutenett, statisk eller 15 sekunders video. Skalerer over mange kategorier samtidig.", spec: "1280x720 bilde eller 15 s video, 128x128 logo", alt: "Kicks egen skisse: et annonsemerket kort inne i rutenettet for Just Chatting-kategorien" },
+        { key: "video", name: "In-stream video", desc: "Pre-roll på VOD, mid-roll i live-strømmer og post-roll, alle uten mulighet for å hoppe over. Fullskjerm med lyd på, inne i spilleren.", why: "Fullskjerm, lyd på, oppmerksomhet inne i spilleren. Ingen andre skjerm, ingen scrolling forbi.", alt: "Kicks egen skisse: en videoannonse i fullskjerm i spilleren på en live kanal, merket Ad: creator returns in 26" },
+        { key: "banner", name: "Homepage banner takeover", desc: "Toppflaten på forsiden i 24 timer eller én uke, 100 prosent share of voice i ditt land.", why: "100 prosent share of voice i ditt land. Det første hver besøkende ser, hver gang forsiden lastes.", alt: "Kicks egen skisse: et bredt grønt banner over Kick-forsiden med teksten Win 10,000 Kicks" },
+        { key: "native", name: "Homepage native takeover", desc: "Kampanjen din formet som et strømmekort i de øverste radene på forsiden, tydelig merket som annonse.", why: "Ikke påtrengende: det leses som innhold, ikke som banner. Toppplassering i radene der oppmerksomheten allerede er.", alt: "Kicks egen skisse: et annonsemerket strømmekort blant live-strømmer på Kick-forsiden" },
+        { key: "masthead", name: "Category masthead", desc: "Eie toppen av én kategoriside, fra Just Chatting til ett enkelt spill. Geomålrettet og låst til språk.", why: "Kontekstuelt: knytt merkevaren til riktig interesse, med 100 prosent share of voice hos et selvvalgt publikum med høy intensjon.", alt: "Kicks egen skisse: et banner over toppen av kategorisiden for EA Sports FC 26" },
+        { key: "catnative", name: "Category native", desc: "Native-kort inne i én kategoris rutenett, statisk eller 15 sekunders video. Skalerer over mange kategorier samtidig.", why: "Native-følelsen kombinert med presisjonen i kontekstuell målretting. Skalerer over mange kategorier samtidig.", alt: "Kicks egen skisse: et annonsemerket kort inne i rutenettet for Just Chatting-kategorien" },
       ],
+      whatLabel: "Hva det er",
+      whyLabel: "Hvorfor det virker",
+      specsLabel: "Spesifikasjoner",
+      specLabels: {
+        preroll: "Pre-roll",
+        midroll: "I live-strøm",
+        postroll: "Post-roll",
+        video: "Video",
+        audio: "Lyd",
+        loudness: "Lydnivå",
+        background: "Bakgrunnsbilde",
+        logo: "Logo",
+        headline: "Overskrift",
+        cta: "CTA-knapp",
+        duration: "Varighet",
+        standard: "Standardstørrelser",
+        image: "Bilde",
+        channellogo: "Kanal-logo",
+        file: "Filformat",
+        targeting: "Målretting",
+      },
       buying: "Kick priser i USD CPM, og programmet er fortsatt merket Beta. Vi gir tilbud per kampanje, i din valuta, med samme tre nivåer som vi bruker på skaperkampanjer.",
       contact: "Skriv til andreas@beta-ads.no med marked, budsjett og tidspunkt, så får du et tilbud tilbake med ekte nordiske tall på flatene.",
     },
-    beta: {
-      title: "Beta Ads (inne i strømmen)",
-      lead: "Merkevaren din vises i sendingen skaperen lager, ikke i rammen rundt. Seerne ser den på alle enheter og med alle adblockere, fordi den er en del av videoen.",
-      formats: [
-        { name: "Native overlay", desc: "En merket grafikk på strømmen i sponsede øyeblikk, animert eller statisk. Aldri konstant, aldri over spillet." },
-        { name: "Stemmestyrt", desc: "Utløses når skaperen sier navnet på merkevaren, med sanntids talegjenkjenning. Annonsen vises akkurat når anbefalingen skjer." },
-        { name: "Avstemninger og chat", desc: "Spørsmål publikum svarer på i chatten, med resultatene i rapporten din. Avstemningskampanjene våre har nådd 67 prosent svarandel." },
-        { name: "Replay reach", desc: "Overlayet ligger i VOD-en og klippene, så kampanjen blir sett videre etter at strømmen er over." },
-      ],
-      network: "Beta Ads jobber med over 2 800 Kick-skapere i Norge, Sverige, Danmark og Finland. Det tallet er vårt, ikke Kicks.",
-      cta: "Se hvordan en kampanje kjøres",
-    },
-    verdict: "Trenger du et landsdekkende øyeblikk på en lanseringsdag, er Kicks homepage takeover verktøyet. Trenger du at et nordisk publikum hører om merkevaren din fra noen de stoler på, på sitt eget språk, er det skaperveien. Kittets egne tall sier at 3,2 ganger flere stoler på en skapers anbefaling enn på en kjendis. De fleste kampanjene vi planlegger nå bruker begge, og du får én rapport.",
   },
   safety: {
     label: "Merkevaresikkerhet",
@@ -701,34 +758,43 @@ const SV: KickCopy = {
   },
   routes: {
     label: "Så köper du",
-    heading: "Två vägar in på Kick. Båda genom oss.",
-    intro: "Kick säljer sina egna ytor: banners, native-kort och videospottar inne i spelaren. Sedan september 2026 säljer Beta Ads de ytorna i Norden, vid sidan av in-stream-formatet vi alltid har kört genom nordiska kreatörer. Här är vad var och en faktiskt är, så att du kan välja rätt verktyg för jobbet.",
+    heading: "Kicks annonsformat",
+    intro: "Kick säljer fem placeringar: banners och native-kort på startsidan och kategorisidorna, och video utan hoppa-över inne i spelaren. Sedan september 2026 bokar Beta Ads de ytorna för Norden. Nedan är varje format så som Kick själva visar det, med specifikationerna ditt kreativa team behöver.",
+    kicker: "Format byggda för live. Bokas för Norden genom Beta Ads.",
     kick: {
-      title: "Kick Ads (Kicks egna ytor, via Beta Ads)",
+      title: "Kick Ads-format",
       lead: "Plattformsplaceringar på Kick, köpta genom oss som Kicks nordiska partner. Geostyrt per land, så ett köp enbart för Sverige eller enbart för Finland är möjligt. Vi tar affären, specifikationerna och rapporteringen.",
       formats: [
-        { key: "video", name: "In-stream video", desc: "Pre-roll på VOD, mid-roll i live-streams och post-roll, alla utan möjlighet att hoppa över. Helskärm med ljud på, inne i spelaren.", spec: "6, 15 eller 30 s. 1280x720 MP4, max 512 MB", alt: "Kicks egen skiss: en videoannons i helskärm i spelaren på en live kanal, märkt Ad: creator returns in 26" },
-        { key: "banner", name: "Homepage banner takeover", desc: "Toppytan på startsidan i 24 timmar eller en vecka, 100 procent share of voice i ditt land.", spec: "1920x250 rich media, eller 970x90 / 728x90 / 320x50", alt: "Kicks egen skiss: en bred grön banner över Kicks startsida med texten Win 10,000 Kicks" },
-        { key: "native", name: "Homepage native takeover", desc: "Din kampanj formad som ett streamkort i de översta raderna på startsidan, tydligt märkt som annons.", spec: "1280x720 bild eller 15 s video, 128x128 logotyp", alt: "Kicks egen skiss: ett annonsmärkt streamkort bland live-streams på Kicks startsida" },
-        { key: "masthead", name: "Category masthead", desc: "Äg toppen av en kategorisida, från Just Chatting till ett enskilt spel. Geostyrt och låst till språk.", spec: "970x90 / 728x90 / 320x50 / 300x50, JPG eller PNG, max 1 MB", alt: "Kicks egen skiss: en banner över toppen av kategorisidan för EA Sports FC 26" },
-        { key: "catnative", name: "Category native", desc: "Native-kort inne i en kategoris rutnät, statiskt eller 15 sekunders video. Skalar över många kategorier samtidigt.", spec: "1280x720 bild eller 15 s video, 128x128 logotyp", alt: "Kicks egen skiss: ett annonsmärkt kort inne i rutnätet för kategorin Just Chatting" },
+        { key: "video", name: "In-stream video", desc: "Pre-roll på VOD, mid-roll i live-streams och post-roll, alla utan möjlighet att hoppa över. Helskärm med ljud på, inne i spelaren.", why: "Helskärm, ljud på, uppmärksamhet inne i spelaren. Ingen andra skärm, ingen scrollning förbi.", alt: "Kicks egen skiss: en videoannons i helskärm i spelaren på en live kanal, märkt Ad: creator returns in 26" },
+        { key: "banner", name: "Homepage banner takeover", desc: "Toppytan på startsidan i 24 timmar eller en vecka, 100 procent share of voice i ditt land.", why: "100 procent share of voice i ditt land. Det första varje besökare ser, varje gång startsidan laddas.", alt: "Kicks egen skiss: en bred grön banner över Kicks startsida med texten Win 10,000 Kicks" },
+        { key: "native", name: "Homepage native takeover", desc: "Din kampanj formad som ett streamkort i de översta raderna på startsidan, tydligt märkt som annons.", why: "Inte påträngande: det läses som innehåll, inte som banner. Toppplacering i raderna där uppmärksamheten redan finns.", alt: "Kicks egen skiss: ett annonsmärkt streamkort bland live-streams på Kicks startsida" },
+        { key: "masthead", name: "Category masthead", desc: "Äg toppen av en kategorisida, från Just Chatting till ett enskilt spel. Geostyrt och låst till språk.", why: "Kontextuellt: koppla varumärket till rätt intresse, med 100 procent share of voice hos en självvald publik med hög intention.", alt: "Kicks egen skiss: en banner över toppen av kategorisidan för EA Sports FC 26" },
+        { key: "catnative", name: "Category native", desc: "Native-kort inne i en kategoris rutnät, statiskt eller 15 sekunders video. Skalar över många kategorier samtidigt.", why: "Native-känslan kombinerad med precisionen i kontextuell styrning. Skalar över många kategorier samtidigt.", alt: "Kicks egen skiss: ett annonsmärkt kort inne i rutnätet för kategorin Just Chatting" },
       ],
+      whatLabel: "Vad det är",
+      whyLabel: "Varför det fungerar",
+      specsLabel: "Specifikationer",
+      specLabels: {
+        preroll: "Pre-roll",
+        midroll: "I live-stream",
+        postroll: "Post-roll",
+        video: "Video",
+        audio: "Ljud",
+        loudness: "Ljudnivå",
+        background: "Bakgrundsbild",
+        logo: "Logotyp",
+        headline: "Rubrik",
+        cta: "CTA-knapp",
+        duration: "Varaktighet",
+        standard: "Standardstorlekar",
+        image: "Bild",
+        channellogo: "Kanallogotyp",
+        file: "Filformat",
+        targeting: "Styrning",
+      },
       buying: "Kick prissätter i USD CPM, och programmet är fortfarande märkt Beta. Vi ger offert per kampanj, i din valuta, med samma tre nivåer som vi använder för kreatörskampanjer.",
       contact: "Skriv till andreas@beta-ads.no med marknad, budget och tidpunkt, så får du en offert tillbaka med riktiga nordiska siffror på ytorna.",
     },
-    beta: {
-      title: "Beta Ads (inne i streamen)",
-      lead: "Ditt varumärke syns i sändningen kreatören gör, inte i ramen runt den. Tittarna ser det på alla enheter och med alla adblockers, eftersom det är en del av videon.",
-      formats: [
-        { name: "Native overlay", desc: "En varumärkt grafik på streamen under sponsrade ögonblick, animerad eller statisk. Aldrig konstant, aldrig över spelet." },
-        { name: "Röststyrd", desc: "Triggas när kreatören säger varumärkets namn, med röstigenkänning i realtid. Annonsen visas exakt när rekommendationen sker." },
-        { name: "Omröstningar och chatt", desc: "Frågor publiken svarar på i chatten, med resultaten i din rapport. Våra omröstningskampanjer har nått 67 procents svarsfrekvens." },
-        { name: "Replay reach", desc: "Overlayen ligger kvar i VOD:en och klippen, så kampanjen fortsätter ses efter att streamen är slut." },
-      ],
-      network: "Beta Ads jobbar med över 2 800 Kick-kreatörer i Sverige, Norge, Danmark och Finland. Den siffran är vår, inte Kicks.",
-      cta: "Se hur en kampanj körs",
-    },
-    verdict: "Behöver du ett rikstäckande ögonblick på en lanseringsdag är Kicks homepage takeover verktyget. Behöver du att en nordisk publik hör om ditt varumärke från någon de litar på, på sitt eget språk, är det kreatörsvägen. Kitets egna siffror säger att 3,2 gånger fler litar på en kreatörs rekommendation än på en kändis. De flesta kampanjer vi planerar nu använder båda, och du får en rapport.",
   },
   safety: {
     label: "Varumärkessäkerhet",
@@ -898,34 +964,43 @@ const DA: KickCopy = {
   },
   routes: {
     label: "Sådan køber du",
-    heading: "To veje ind på Kick. Begge gennem os.",
-    intro: "Kick sælger sine egne flader: bannere, native-kort og videospots inde i afspilleren. Siden september 2026 sælger Beta Ads de flader i Norden, ved siden af det in-stream-format vi altid har kørt gennem nordiske creators. Her er, hvad hver af dem faktisk er, så du kan vælge det rigtige værktøj til opgaven.",
+    heading: "Kicks annonceformater",
+    intro: "Kick sælger fem placeringer: bannere og native-kort på forsiden og kategorisiderne, og video uden spring-over inde i afspilleren. Siden september 2026 booker Beta Ads de flader for Norden. Herunder er hvert format, som Kick selv viser det, med de specifikationer dit kreative team skal bruge.",
+    kicker: "Formater bygget til live. Bookes for Norden gennem Beta Ads.",
     kick: {
-      title: "Kick Ads (Kicks egne flader, via Beta Ads)",
+      title: "Kick Ads-formater",
       lead: "Platformsplaceringer på Kick, købt gennem os som Kicks nordiske partner. Geomålrettet per land, så et køb kun for Danmark eller kun for Finland er muligt. Vi tager aftalen, specifikationerne og rapporteringen.",
       formats: [
-        { key: "video", name: "In-stream video", desc: "Pre-roll på VOD, mid-roll i live-streams og post-roll, alle uden mulighed for at springe over. Fuld skærm med lyd på, inde i afspilleren.", spec: "6, 15 eller 30 s. 1280x720 MP4, maks. 512 MB", alt: "Kicks egen skitse: en videoannonce i fuld skærm i afspilleren på en live kanal, mærket Ad: creator returns in 26" },
-        { key: "banner", name: "Homepage banner takeover", desc: "Topfladen på forsiden i 24 timer eller en uge, 100 procent share of voice i dit land.", spec: "1920x250 rich media, eller 970x90 / 728x90 / 320x50", alt: "Kicks egen skitse: et bredt grønt banner over Kick-forsiden med teksten Win 10,000 Kicks" },
-        { key: "native", name: "Homepage native takeover", desc: "Din kampagne formet som et streamkort i de øverste rækker på forsiden, tydeligt markeret som annonce.", spec: "1280x720 billede eller 15 s video, 128x128 logo", alt: "Kicks egen skitse: et annoncemarkeret streamkort blandt live-streams på Kick-forsiden" },
-        { key: "masthead", name: "Category masthead", desc: "Ej toppen af én kategoriside, fra Just Chatting til et enkelt spil. Geomålrettet og låst til sprog.", spec: "970x90 / 728x90 / 320x50 / 300x50, JPG eller PNG, maks. 1 MB", alt: "Kicks egen skitse: et banner over toppen af kategorisiden for EA Sports FC 26" },
-        { key: "catnative", name: "Category native", desc: "Native-kort inde i én kategoris gitter, statisk eller 15 sekunders video. Skalerer på tværs af mange kategorier på én gang.", spec: "1280x720 billede eller 15 s video, 128x128 logo", alt: "Kicks egen skitse: et annoncemarkeret kort inde i gitteret for kategorien Just Chatting" },
+        { key: "video", name: "In-stream video", desc: "Pre-roll på VOD, mid-roll i live-streams og post-roll, alle uden mulighed for at springe over. Fuld skærm med lyd på, inde i afspilleren.", why: "Fuld skærm, lyd på, opmærksomhed inde i afspilleren. Ingen anden skærm, ingen scroll forbi.", alt: "Kicks egen skitse: en videoannonce i fuld skærm i afspilleren på en live kanal, mærket Ad: creator returns in 26" },
+        { key: "banner", name: "Homepage banner takeover", desc: "Topfladen på forsiden i 24 timer eller en uge, 100 procent share of voice i dit land.", why: "100 procent share of voice i dit land. Det første hver besøgende ser, hver gang forsiden loader.", alt: "Kicks egen skitse: et bredt grønt banner over Kick-forsiden med teksten Win 10,000 Kicks" },
+        { key: "native", name: "Homepage native takeover", desc: "Din kampagne formet som et streamkort i de øverste rækker på forsiden, tydeligt markeret som annonce.", why: "Ikke påtrængende: det læses som indhold, ikke som banner. Topplacering i rækkerne, hvor opmærksomheden allerede er.", alt: "Kicks egen skitse: et annoncemarkeret streamkort blandt live-streams på Kick-forsiden" },
+        { key: "masthead", name: "Category masthead", desc: "Ej toppen af én kategoriside, fra Just Chatting til et enkelt spil. Geomålrettet og låst til sprog.", why: "Kontekstuelt: knyt brandet til den rigtige interesse med 100 procent share of voice hos et selvvalgt publikum med høj intention.", alt: "Kicks egen skitse: et banner over toppen af kategorisiden for EA Sports FC 26" },
+        { key: "catnative", name: "Category native", desc: "Native-kort inde i én kategoris gitter, statisk eller 15 sekunders video. Skalerer på tværs af mange kategorier på én gang.", why: "Native-følelsen kombineret med præcisionen i kontekstuel målretning. Skalerer på tværs af mange kategorier på én gang.", alt: "Kicks egen skitse: et annoncemarkeret kort inde i gitteret for kategorien Just Chatting" },
       ],
+      whatLabel: "Hvad det er",
+      whyLabel: "Hvorfor det virker",
+      specsLabel: "Specifikationer",
+      specLabels: {
+        preroll: "Pre-roll",
+        midroll: "I live-stream",
+        postroll: "Post-roll",
+        video: "Video",
+        audio: "Lyd",
+        loudness: "Lydniveau",
+        background: "Baggrundsbillede",
+        logo: "Logo",
+        headline: "Overskrift",
+        cta: "CTA-knap",
+        duration: "Varighed",
+        standard: "Standardstørrelser",
+        image: "Billede",
+        channellogo: "Kanal-logo",
+        file: "Filformat",
+        targeting: "Målretning",
+      },
       buying: "Kick prissætter i USD CPM, og programmet er stadig mærket Beta. Vi giver tilbud per kampagne, i din valuta, med samme tre niveauer som vi bruger til creator-kampagner.",
       contact: "Skriv til andreas@beta-ads.no med marked, budget og timing, så får du et tilbud tilbage med rigtige nordiske tal på fladerne.",
     },
-    beta: {
-      title: "Beta Ads (inde i streamen)",
-      lead: "Dit brand vises i den udsendelse, creatoren laver, ikke i rammen omkring den. Seerne ser det på alle enheder og med alle adblockere, fordi det er en del af videoen.",
-      formats: [
-        { name: "Native overlay", desc: "En brandet grafik på streamen i sponsorerede øjeblikke, animeret eller statisk. Aldrig konstant, aldrig over spillet." },
-        { name: "Stemmestyret", desc: "Udløses, når creatoren siger brandets navn, med stemmegenkendelse i realtid. Annoncen vises præcis, når anbefalingen sker." },
-        { name: "Afstemninger og chat", desc: "Spørgsmål publikum svarer på i chatten, med resultaterne i din rapport. Vores afstemningskampagner har nået 67 procents svarprocent." },
-        { name: "Replay reach", desc: "Overlayet ligger i VOD'en og klippene, så kampagnen bliver set videre, efter streamen er slut." },
-      ],
-      network: "Beta Ads arbejder med over 2.800 Kick-creators i Danmark, Norge, Sverige og Finland. Det tal er vores, ikke Kicks.",
-      cta: "Se hvordan en kampagne kører",
-    },
-    verdict: "Har du brug for et landsdækkende øjeblik på en lanceringsdag, er Kicks homepage takeover værktøjet. Har du brug for, at et nordisk publikum hører om dit brand fra nogen, de stoler på, på deres eget sprog, er det creator-vejen. Kittets egne tal siger, at 3,2 gange flere stoler på en creators anbefaling end på en kendis. De fleste kampagner, vi planlægger nu, bruger begge, og du får én rapport.",
   },
   safety: {
     label: "Brand safety",
@@ -1095,34 +1170,43 @@ const FI: KickCopy = {
   },
   routes: {
     label: "Näin ostat",
-    heading: "Kaksi reittiä Kickiin. Molemmat meidän kautta.",
-    intro: "Kick myy omia pintojaan: bannereita, native-kortteja ja videospotteja soittimen sisällä. Syyskuusta 2026 alkaen Beta Ads myy niitä pintoja Pohjoismaissa, sen in-stream-formaatin rinnalla, jota olemme aina ajaneet pohjoismaisten tekijöiden kautta. Tässä on, mitä kumpikin oikeasti on, jotta voit valita oikean työkalun.",
+    heading: "Kickin mainosformaatit",
+    intro: "Kick myy viisi mainospaikkaa: bannereita ja native-kortteja etusivulla ja kategoriasivuilla sekä ohittamatonta videota soittimen sisällä. Syyskuusta 2026 alkaen Beta Ads varaa nämä pinnat Pohjoismaihin. Alla jokainen formaatti niin kuin Kick itse sen esittää, sekä speksit, joita luova tiimisi tarvitsee.",
+    kicker: "Livelle rakennetut formaatit. Varataan Pohjoismaihin Beta Adsin kautta.",
     kick: {
-      title: "Kick Ads (Kickin omat pinnat, Beta Adsin kautta)",
+      title: "Kick Ads -formaatit",
       lead: "Alustan mainospaikat Kickissä, ostettuna meidän kautta Kickin pohjoismaisena kumppanina. Maakohdennettu, joten pelkkään Suomeen tai pelkkään Norjaan rajattu osto on mahdollinen. Me hoidamme sopimuksen, aineistospeksit ja raportoinnin.",
       formats: [
-        { key: "video", name: "In-stream video", desc: "Pre-roll VOD:eissa, mid-roll live-lähetyksissä ja post-roll, kaikki ohittamattomia. Koko ruutu, ääni päällä, soittimen sisällä.", spec: "6, 15 tai 30 s. 1280x720 MP4, maks. 512 MB", alt: "Kickin oma luonnos: koko ruudun videomainos soittimessa live-kanavalla, merkitty Ad: creator returns in 26" },
-        { key: "banner", name: "Homepage banner takeover", desc: "Etusivun pääpaikka 24 tunniksi tai viikoksi, 100 prosentin share of voice omassa maassasi.", spec: "1920x250 rich media tai 970x90 / 728x90 / 320x50", alt: "Kickin oma luonnos: leveä vihreä banneri Kickin etusivulla tekstillä Win 10,000 Kicks" },
-        { key: "native", name: "Homepage native takeover", desc: "Kampanjasi striimikortin muodossa etusivun ylimmillä riveillä, selvästi mainokseksi merkittynä.", spec: "1280x720 kuva tai 15 s video, 128x128 logo", alt: "Kickin oma luonnos: mainokseksi merkitty striimikortti live-lähetysten joukossa Kickin etusivulla" },
-        { key: "masthead", name: "Category masthead", desc: "Omista yhden kategoriasivun yläosa, Just Chattingista yksittäiseen peliin. Maakohdennettu ja kielirajattu.", spec: "970x90 / 728x90 / 320x50 / 300x50, JPG tai PNG, maks. 1 MB", alt: "Kickin oma luonnos: banneri EA Sports FC 26 -kategoriasivun yläosassa" },
-        { key: "catnative", name: "Category native", desc: "Native-kortit yhden kategorian ruudukossa, staattisena tai 15 sekunnin videona. Skaalautuu moneen kategoriaan samalla kertaa.", spec: "1280x720 kuva tai 15 s video, 128x128 logo", alt: "Kickin oma luonnos: mainokseksi merkitty kortti Just Chatting -kategorian ruudukossa" },
+        { key: "video", name: "In-stream video", desc: "Pre-roll VOD:eissa, mid-roll live-lähetyksissä ja post-roll, kaikki ohittamattomia. Koko ruutu, ääni päällä, soittimen sisällä.", why: "Koko ruutu, ääni päällä, huomio soittimen sisällä. Ei toista näyttöä, ei ohi vierittämistä.", alt: "Kickin oma luonnos: koko ruudun videomainos soittimessa live-kanavalla, merkitty Ad: creator returns in 26" },
+        { key: "banner", name: "Homepage banner takeover", desc: "Etusivun pääpaikka 24 tunniksi tai viikoksi, 100 prosentin share of voice omassa maassasi.", why: "100 prosentin share of voice omassa maassasi. Ensimmäinen asia, jonka jokainen kävijä näkee, joka kerta kun etusivu latautuu.", alt: "Kickin oma luonnos: leveä vihreä banneri Kickin etusivulla tekstillä Win 10,000 Kicks" },
+        { key: "native", name: "Homepage native takeover", desc: "Kampanjasi striimikortin muodossa etusivun ylimmillä riveillä, selvästi mainokseksi merkittynä.", why: "Ei tunkeileva: se luetaan sisältönä, ei bannerina. Kärkipaikka riveillä, joilla huomio jo on.", alt: "Kickin oma luonnos: mainokseksi merkitty striimikortti live-lähetysten joukossa Kickin etusivulla" },
+        { key: "masthead", name: "Category masthead", desc: "Omista yhden kategoriasivun yläosa, Just Chattingista yksittäiseen peliin. Maakohdennettu ja kielirajattu.", why: "Kontekstuaalinen: yhdistä brändi oikeaan intohimoon 100 prosentin share of voicella itse valikoituneelle, korkean aikomuksen yleisölle.", alt: "Kickin oma luonnos: banneri EA Sports FC 26 -kategoriasivun yläosassa" },
+        { key: "catnative", name: "Category native", desc: "Native-kortit yhden kategorian ruudukossa, staattisena tai 15 sekunnin videona. Skaalautuu moneen kategoriaan samalla kertaa.", why: "Nativen luonnollinen tuntu yhdistettynä kontekstuaalisen kohdennuksen tarkkuuteen. Skaalautuu moneen kategoriaan samalla kertaa.", alt: "Kickin oma luonnos: mainokseksi merkitty kortti Just Chatting -kategorian ruudukossa" },
       ],
+      whatLabel: "Mikä se on",
+      whyLabel: "Miksi se toimii",
+      specsLabel: "Speksit",
+      specLabels: {
+        preroll: "Pre-roll",
+        midroll: "Live-lähetyksessä",
+        postroll: "Post-roll",
+        video: "Video",
+        audio: "Ääni",
+        loudness: "Äänenvoimakkuus",
+        background: "Taustakuva",
+        logo: "Logo",
+        headline: "Otsikko",
+        cta: "CTA-painike",
+        duration: "Kesto",
+        standard: "Vakiokoot",
+        image: "Kuva",
+        channellogo: "Kanavalogo",
+        file: "Tiedostomuoto",
+        targeting: "Kohdennus",
+      },
       buying: "Kick hinnoittelee USD CPM -pohjalta, ja ohjelma on yhä merkitty Beta-vaiheeseen. Annamme tarjouksen kampanjaa kohti, omassa valuutassasi, samalla kolmiportaisella rakenteella kuin tekijäkampanjoissa.",
       contact: "Kirjoita osoitteeseen andreas@beta-ads.no ja kerro markkina, budjetti ja ajoitus, niin saat tarjouksen oikeilla pohjoismaisilla pintaluvuilla.",
     },
-    beta: {
-      title: "Beta Ads (lähetyksen sisällä)",
-      lead: "Brändisi näkyy tekijän tekemässä lähetyksessä, ei sen ympärillä olevassa kehyksessä. Katsojat näkevät sen kaikilla laitteilla ja kaikilla mainosestäjillä, koska se on osa videota.",
-      formats: [
-        { name: "Native overlay", desc: "Brändätty grafiikka lähetyksessä sponsoroitujen hetkien aikana, animoituna tai staattisena. Ei koskaan jatkuvasti, ei koskaan pelin päällä." },
-        { name: "Ääniohjattu", desc: "Käynnistyy, kun tekijä sanoo brändisi nimen, reaaliaikaisella puheentunnistuksella. Mainos näkyy juuri silloin, kun suositus tapahtuu." },
-        { name: "Äänestykset ja chat", desc: "Kysymyksiä, joihin yleisö vastaa chatissa, tulokset raportissasi. Äänestyskampanjamme ovat yltäneet 67 prosentin vastausasteeseen." },
-        { name: "Replay reach", desc: "Overlay jää VOD:iin ja klippeihin, joten kampanjaa katsotaan vielä lähetyksen päätyttyä." },
-      ],
-      network: "Beta Ads työskentelee yli 2 800 Kick-tekijän kanssa Suomessa, Ruotsissa, Norjassa ja Tanskassa. Se luku on meidän, ei Kickin.",
-      cta: "Katso miten kampanja pyörii",
-    },
-    verdict: "Jos tarvitset koko maan kattavan hetken julkaisupäivänä, Kickin homepage takeover on työkalu siihen. Jos tarvitset, että pohjoismainen yleisö kuulee brändistäsi joltakulta, johon se luottaa, omalla kielellään, se on tekijäreitti. Mediakortin omat luvut sanovat, että 3,2 kertaa useampi luottaa tekijän suositukseen kuin julkkiksen. Useimmat nyt suunnittelemamme kampanjat käyttävät molempia, ja saat yhden raportin.",
   },
   safety: {
     label: "Bränditurvallisuus",
