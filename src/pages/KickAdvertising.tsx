@@ -5,6 +5,7 @@ import { MarketingPageLayout } from "@/components/layout/MarketingPageLayout";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
 import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
+import { BrandMark, FLAGS } from "@/components/kick/BrandMark";
 import {
   AGE_18_34,
   CONTENT_MIX,
@@ -59,10 +60,12 @@ const Bar: React.FC<{
   highlight?: boolean;
   muted?: boolean;
   suffix?: string;
-}> = ({ label, pct, lang, highlight, muted, suffix = "%" }) => (
+  icon?: React.ReactNode;
+}> = ({ label, pct, lang, highlight, muted, suffix = "%", icon }) => (
   <div className="grid grid-cols-[minmax(0,12rem)_1fr_auto] items-center gap-3 py-2">
-    <span className={`text-sm truncate ${highlight ? "font-semibold text-foreground" : "text-muted-foreground"}`}>
-      {label}
+    <span className={`inline-flex items-center gap-2 text-sm min-w-0 ${highlight ? "font-semibold text-foreground" : "text-muted-foreground"}`}>
+      {icon && <span className="shrink-0 inline-flex w-4 justify-center">{icon}</span>}
+      <span className="truncate">{label}</span>
     </span>
     <div className="h-2.5 rounded-full bg-foreground/[0.07] overflow-hidden">
       <div
@@ -212,21 +215,21 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
             <div>
               <h3 className="text-sm font-semibold text-foreground mb-3">{t.share.globalTitle}</h3>
               {MARKET_SHARE.map((m) => (
-                <Bar key={m.name} lang={lang} label={m.name} pct={m.pct} highlight={m.name === "Kick"} />
+                <Bar key={m.name} lang={lang} label={m.name} pct={m.pct} highlight={m.name === "Kick"} icon={<BrandMark name={m.name} />} />
               ))}
               <p className="text-[11px] leading-snug text-muted-foreground mt-3">{t.share.globalNote}</p>
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground mb-3">{t.share.europeTitle}</h3>
               {EUROPE_SHARE.map((r) => (
-                <Bar key={r.key} lang={lang} label={t.share.regions[r.key]} pct={r.pct} highlight={r.key === "northern"} muted={r.key === "europe"} />
+                <Bar key={r.key} lang={lang} label={t.share.regions[r.key]} pct={r.pct} highlight={r.key === "northern"} muted={r.key === "europe"} icon={r.key === "europe" ? <span className="text-sm leading-none">{FLAGS.eu}</span> : r.key === "northern" ? <BrandMark name="Kick" /> : undefined} />
               ))}
               <p className="text-[11px] leading-snug text-muted-foreground mt-3">{t.share.europeNote}</p>
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground mb-3">{t.nordic.chartTitle}</h3>
               {NORDIC_SHARE.map((c) => (
-                <Bar key={c.key} lang={lang} label={t.nordic.countries[c.key]} pct={c.pct} highlight={c.key === lang || (lang === "en" && c.key === "fi") || (lang === "sv" && c.key === "se") || (lang === "da" && c.key === "dk")} />
+                <Bar key={c.key} lang={lang} label={t.nordic.countries[c.key]} pct={c.pct} highlight={c.key === lang || (lang === "en" && c.key === "fi") || (lang === "sv" && c.key === "se") || (lang === "da" && c.key === "dk")} icon={<span className="text-sm leading-none">{FLAGS[c.key]}</span>} />
               ))}
               <p className="text-[11px] leading-snug text-muted-foreground mt-3">{t.nordic.chartNote}</p>
             </div>
@@ -236,7 +239,7 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
               <dl className="grid grid-cols-3 gap-x-4 gap-y-5 m-0">
                 {NORDIC_SHARE.filter((c) => c.mau).map((c) => (
                   <div key={c.key} className="border-t border-border pt-2.5 flex flex-col-reverse">
-                    <dt className="text-[11px] text-muted-foreground">{t.nordic.countries[c.key]}</dt>
+                    <dt className="text-[11px] text-muted-foreground">{FLAGS[c.key]} {t.nordic.countries[c.key]}</dt>
                     <dd className="text-lg font-bold tracking-tight text-foreground tabular-nums m-0">{loc(lang, c.mau)}</dd>
                   </div>
                 ))}
@@ -250,7 +253,7 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
             <div>
               <h3 className="text-sm font-semibold text-foreground mb-3">{t.audience.chartTitle}</h3>
               {AGE_18_34.map((a) => (
-                <Bar key={a.name} lang={lang} label={"key" in a ? t.audience.tv : a.name} pct={a.pct} highlight={a.name === "Kick"} />
+                <Bar key={a.name} lang={lang} label={"key" in a ? t.audience.tv : a.name} pct={a.pct} highlight={a.name === "Kick"} icon={<BrandMark name={"key" in a ? "tv" : a.name} />} />
               ))}
               <p className="text-[11px] leading-snug text-muted-foreground mt-3">{t.audience.chartNote}</p>
             </div>
