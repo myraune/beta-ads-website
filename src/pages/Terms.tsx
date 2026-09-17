@@ -18,7 +18,7 @@ const Terms: React.FC = () => {
             <span className="text-xs font-semibold tracking-widest uppercase text-primary">Legal</span>
             <div className="flex flex-wrap items-baseline justify-between gap-x-10 gap-y-3">
               <h1 className="text-4xl md:text-5xl font-light tracking-tight m-0">Terms of Service</h1>
-              <p className="text-sm text-muted-foreground m-0">Last updated: March 24, 2026</p>
+              <p className="text-sm text-muted-foreground m-0">Last updated: September 17, 2026</p>
             </div>
           </header>
 
@@ -72,6 +72,14 @@ const Terms: React.FC = () => {
                 YouTube, and Kick. Our services include campaign management,
                 creative production, streamer matching, analytics and reporting,
                 and related tools and dashboards.
+              </p>
+              <p className="mt-3">
+                Where agreed in writing, we also book placements on a streaming
+                platform's own advertising inventory on your behalf, such as
+                Kick Ads. Those placements are subject to the platform's
+                advertising policies and creative specifications in addition to
+                these Terms, and their pricing and availability are set by the
+                platform.
               </p>
             </section>
 
