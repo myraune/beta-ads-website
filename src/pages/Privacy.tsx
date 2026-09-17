@@ -18,7 +18,7 @@ const Privacy: React.FC = () => {
             Privacy Policy
           </h1>
           <p className="text-muted-foreground mb-12">
-            Last updated: March 24, 2026
+            Last updated: September 16, 2026
           </p>
 
           <div className="space-y-10 text-base leading-7 text-muted-foreground">
@@ -201,35 +201,65 @@ const Privacy: React.FC = () => {
               <h2 className="text-xl font-semibold text-foreground mb-3">
                 5. Cookies and Tracking Technologies
               </h2>
-              <p>Our website uses the following types of cookies:</p>
+              <p>
+                We keep this short because there is not much to tell. The website
+                uses two measurement tools and no advertising cookies.
+              </p>
               <ul className="list-disc list-inside mt-3 space-y-2">
                 <li>
                   <span className="text-foreground font-medium">
-                    Strictly necessary cookies:
+                    Google Analytics 4 (consent required):
                   </span>{" "}
-                  Required for the website to function properly (e.g., session
-                  management, security). These do not require consent.
+                  Tells us which pages are read and which buttons are clicked
+                  (book a demo, email, phone, Discord, streamer sign-up). It is
+                  loaded in Consent Mode: no analytics cookie is set until you
+                  choose "Allow analytics" in the banner. If you decline, Google
+                  receives only cookieless, aggregated pings that cannot identify
+                  you. Your choice is stored in your browser under the key
+                  ba-consent and nowhere else. Data is retained in Google
+                  Analytics for 14 months. Advertising features, ad
+                  personalisation and Google Signals are switched off.
                 </li>
                 <li>
                   <span className="text-foreground font-medium">
-                    Analytics cookies:
+                    Vercel Web Analytics (no cookies):
                   </span>{" "}
-                  Used to understand how visitors interact with our website
-                  (e.g., Google Analytics). These are only placed with your
-                  consent.
+                  Our hosting provider counts page views and the same button
+                  clicks without cookies or persistent identifiers, using a
+                  hashed daily visitor key that cannot be traced back to you.
                 </li>
                 <li>
                   <span className="text-foreground font-medium">
-                    Marketing cookies:
+                    Strictly necessary storage:
                   </span>{" "}
-                  Used to deliver relevant advertising and track campaign
-                  performance. These are only placed with your consent.
+                  Your theme preference and your consent choice, kept in your
+                  browser. No third party sees them.
                 </li>
               </ul>
               <p className="mt-3">
-                You can manage your cookie preferences through your browser
-                settings or our cookie consent banner. Disabling certain cookies
-                may affect the functionality of our website.
+                We set no marketing or advertising cookies, run no retargeting,
+                and embed no social media pixels. Videos from YouTube are loaded
+                only after you click play, from the privacy-enhanced
+                youtube-nocookie.com domain.
+              </p>
+              <p className="mt-3">
+                You can change your analytics choice at any time:{" "}
+                <button
+                  type="button"
+                  onClick={() => {
+                    try {
+                      localStorage.removeItem("ba-consent");
+                    } catch {
+                      /* private mode */
+                    }
+                    (window as any).gtag?.("consent", "update", { analytics_storage: "denied" });
+                    window.location.reload();
+                  }}
+                  className="text-foreground underline underline-offset-4 hover:opacity-80"
+                >
+                  reset your cookie choice
+                </button>
+                {" "}and the banner will ask again.
               </p>
             </section>
 
@@ -253,8 +283,8 @@ const Privacy: React.FC = () => {
                   Contact form submissions: retained for up to 24 months.
                 </li>
                 <li>
-                  Analytics data: retained in anonymized or aggregated form for
-                  up to 26 months.
+                  Analytics data: retained in Google Analytics for 14 months,
+                  then deleted automatically.
                 </li>
                 <li>
                   Financial records: retained as required by Norwegian accounting
