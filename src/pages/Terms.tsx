@@ -13,18 +13,38 @@ const Terms: React.FC = () => {
       />
 
       <div className="min-h-screen bg-background text-foreground">
-        <div className="max-w-3xl mx-auto px-6 py-24 sm:py-32">
-          <h1 className="text-4xl font-bold tracking-tight mb-2">
-            Terms of Service
-          </h1>
-          <p className="text-muted-foreground mb-12">
-            Last updated: March 24, 2026
-          </p>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-24 md:pb-32">
+          <header className="border-b border-border pb-10 mb-12 grid lg:grid-cols-[16rem_1fr] gap-10 items-end">
+            <span className="text-xs font-semibold tracking-widest uppercase text-primary">Legal</span>
+            <div className="flex flex-wrap items-baseline justify-between gap-x-10 gap-y-3">
+              <h1 className="text-4xl md:text-5xl font-light tracking-tight m-0">Terms of Service</h1>
+              <p className="text-sm text-muted-foreground m-0">Last updated: March 24, 2026</p>
+            </div>
+          </header>
 
-          <div className="space-y-10 text-base leading-7 text-muted-foreground">
+          <div className="grid lg:grid-cols-[16rem_1fr] gap-10 lg:gap-16 items-start">
+            <nav aria-label="Sections" className="hidden lg:block sticky top-28 self-start">
+              <div className="flex flex-col">
+                <a href="#introduction" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">1. Introduction</a>
+                <a href="#service-description" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">2. Service Description</a>
+                <a href="#eligibility" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">3. Eligibility</a>
+                <a href="#user-accounts-obligations" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">4. User Accounts & Obligations</a>
+                <a href="#intellectual-property" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">5. Intellectual Property</a>
+                <a href="#payments-billing" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">6. Payments & Billing</a>
+                <a href="#campaign-delivery" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">7. Campaign Delivery</a>
+                <a href="#limitation-of-liability" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">8. Limitation of Liability</a>
+                <a href="#indemnification" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">9. Indemnification</a>
+                <a href="#termination" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">10. Termination</a>
+                <a href="#modifications" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">11. Modifications</a>
+                <a href="#governing-law" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">12. Governing Law</a>
+                <a href="#contact" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">13. Contact</a>
+              </div>
+            </nav>
+
+          <div className="space-y-12 text-base leading-7 text-muted-foreground max-w-4xl">
             {/* 1. Introduction */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="introduction" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 1. Introduction
               </h2>
               <p>
@@ -41,8 +61,8 @@ const Terms: React.FC = () => {
             </section>
 
             {/* 2. Service Description */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="service-description" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 2. Service Description
               </h2>
               <p>
@@ -56,8 +76,8 @@ const Terms: React.FC = () => {
             </section>
 
             {/* 3. Eligibility */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="eligibility" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 3. Eligibility
               </h2>
               <p>
@@ -70,8 +90,8 @@ const Terms: React.FC = () => {
             </section>
 
             {/* 4. User Accounts & Obligations */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="user-accounts-obligations" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 4. User Accounts and Obligations
               </h2>
               <p>When using our services, you agree to:</p>
@@ -102,8 +122,8 @@ const Terms: React.FC = () => {
             </section>
 
             {/* 5. Intellectual Property */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="intellectual-property" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 5. Intellectual Property
               </h2>
               <p>
@@ -129,8 +149,8 @@ const Terms: React.FC = () => {
             </section>
 
             {/* 6. Payments & Billing */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="payments-billing" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 6. Payments and Billing
               </h2>
               <p>
@@ -147,8 +167,8 @@ const Terms: React.FC = () => {
             </section>
 
             {/* 7. Campaign Delivery */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="campaign-delivery" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 7. Campaign Delivery
               </h2>
               <p>
@@ -166,8 +186,8 @@ const Terms: React.FC = () => {
             </section>
 
             {/* 8. Limitation of Liability */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="limitation-of-liability" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 8. Limitation of Liability
               </h2>
               <p>
@@ -190,8 +210,8 @@ const Terms: React.FC = () => {
             </section>
 
             {/* 9. Indemnification */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="indemnification" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 9. Indemnification
               </h2>
               <p>
@@ -204,8 +224,8 @@ const Terms: React.FC = () => {
             </section>
 
             {/* 10. Termination */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="termination" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 10. Termination
               </h2>
               <p>
@@ -228,8 +248,8 @@ const Terms: React.FC = () => {
             </section>
 
             {/* 11. Modifications */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="modifications" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 11. Modifications to Terms
               </h2>
               <p>
@@ -243,8 +263,8 @@ const Terms: React.FC = () => {
             </section>
 
             {/* 12. Governing Law */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="governing-law" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 12. Governing Law and Disputes
               </h2>
               <p>
@@ -256,8 +276,8 @@ const Terms: React.FC = () => {
             </section>
 
             {/* 13. Contact */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="contact" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 13. Contact Information
               </h2>
               <p>
@@ -292,6 +312,7 @@ const Terms: React.FC = () => {
                 .
               </p>
             </div>
+          </div>
           </div>
         </div>
       </div>

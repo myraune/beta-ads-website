@@ -13,18 +13,37 @@ const Privacy: React.FC = () => {
       />
 
       <div className="min-h-screen bg-background text-foreground">
-        <div className="max-w-3xl mx-auto px-6 py-24 sm:py-32">
-          <h1 className="text-4xl font-bold tracking-tight mb-2">
-            Privacy Policy
-          </h1>
-          <p className="text-muted-foreground mb-12">
-            Last updated: September 16, 2026
-          </p>
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-24 md:pb-32">
+          <header className="border-b border-border pb-10 mb-12 grid lg:grid-cols-[16rem_1fr] gap-10 items-end">
+            <span className="text-xs font-semibold tracking-widest uppercase text-primary">Legal</span>
+            <div className="flex flex-wrap items-baseline justify-between gap-x-10 gap-y-3">
+              <h1 className="text-4xl md:text-5xl font-light tracking-tight m-0">Privacy Policy</h1>
+              <p className="text-sm text-muted-foreground m-0">Last updated: September 16, 2026</p>
+            </div>
+          </header>
 
-          <div className="space-y-10 text-base leading-7 text-muted-foreground">
+          <div className="grid lg:grid-cols-[16rem_1fr] gap-10 lg:gap-16 items-start">
+            <nav aria-label="Sections" className="hidden lg:block sticky top-28 self-start">
+              <div className="flex flex-col">
+                <a href="#introduction" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">1. Introduction</a>
+                <a href="#data-we-collect" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">2. Data We Collect</a>
+                <a href="#how-we-use-your-data" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">3. How We Use Your Data</a>
+                <a href="#data-sharing" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">4. Data Sharing</a>
+                <a href="#cookies" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">5. Cookies</a>
+                <a href="#data-retention" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">6. Data Retention</a>
+                <a href="#your-rights-gdpr" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">7. Your Rights (GDPR)</a>
+                <a href="#data-security" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">8. Data Security</a>
+                <a href="#children" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">9. Children</a>
+                <a href="#changes" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">10. Changes</a>
+                <a href="#supervisory-authority" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">11. Supervisory Authority</a>
+                <a href="#contact" className="block text-sm text-muted-foreground hover:text-foreground py-1.5 border-l border-border pl-4 hover:border-foreground transition-colors">12. Contact</a>
+              </div>
+            </nav>
+
+          <div className="space-y-12 text-base leading-7 text-muted-foreground max-w-4xl">
             {/* 1. Introduction */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="introduction" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 1. Introduction
               </h2>
               <p>
@@ -43,8 +62,8 @@ const Privacy: React.FC = () => {
             </section>
 
             {/* 2. Data We Collect */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="data-we-collect" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 2. Data We Collect
               </h2>
               <p>We may collect the following categories of personal data:</p>
@@ -106,8 +125,8 @@ const Privacy: React.FC = () => {
             </section>
 
             {/* 3. How We Use Your Data */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="how-we-use-your-data" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 3. How We Use Your Data
               </h2>
               <p>
@@ -156,8 +175,8 @@ const Privacy: React.FC = () => {
             </section>
 
             {/* 4. Data Sharing */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="data-sharing" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 4. Data Sharing and Transfers
               </h2>
               <p>
@@ -197,8 +216,8 @@ const Privacy: React.FC = () => {
             </section>
 
             {/* 5. Cookies */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="cookies" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 5. Cookies and Tracking Technologies
               </h2>
               <p>
@@ -264,8 +283,8 @@ const Privacy: React.FC = () => {
             </section>
 
             {/* 6. Data Retention */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="data-retention" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 6. Data Retention
               </h2>
               <p>
@@ -297,8 +316,8 @@ const Privacy: React.FC = () => {
             </section>
 
             {/* 7. Your Rights (GDPR) */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="your-rights-gdpr" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 7. Your Rights Under GDPR
               </h2>
               <p>
@@ -365,8 +384,8 @@ const Privacy: React.FC = () => {
             </section>
 
             {/* 8. Data Security */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="data-security" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 8. Data Security
               </h2>
               <p>
@@ -384,8 +403,8 @@ const Privacy: React.FC = () => {
             </section>
 
             {/* 9. Children */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="children" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 9. Children's Privacy
               </h2>
               <p>
@@ -397,8 +416,8 @@ const Privacy: React.FC = () => {
             </section>
 
             {/* 10. Changes */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="changes" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 10. Changes to This Policy
               </h2>
               <p>
@@ -410,8 +429,8 @@ const Privacy: React.FC = () => {
             </section>
 
             {/* 11. Supervisory Authority */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="supervisory-authority" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 11. Supervisory Authority
               </h2>
               <p>
@@ -436,8 +455,8 @@ const Privacy: React.FC = () => {
             </section>
 
             {/* 12. Contact */}
-            <section>
-              <h2 className="text-xl font-semibold text-foreground mb-3">
+            <section id="contact" className="scroll-mt-28">
+              <h2 className="text-2xl font-light tracking-tight text-foreground mb-4">
                 12. Contact Information
               </h2>
               <p>
@@ -473,6 +492,7 @@ const Privacy: React.FC = () => {
                 .
               </p>
             </div>
+          </div>
           </div>
         </div>
       </div>
