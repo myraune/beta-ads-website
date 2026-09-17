@@ -221,10 +221,14 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground mb-3">{t.share.europeTitle}</h3>
-              {EUROPE_SHARE.map((r) => (
-                <Bar key={r.key} lang={lang} label={t.share.regions[r.key]} pct={r.pct} highlight={r.key === "northern"} muted={r.key === "europe"} icon={r.key === "europe" ? <span className="text-sm leading-none">{FLAGS.eu}</span> : r.key === "northern" ? <BrandMark name="Kick" /> : undefined} />
+              {EUROPE_SHARE.filter((r) => r.key !== "europe").map((r) => (
+                <Bar key={r.key} lang={lang} label={t.share.regions[r.key]} pct={r.pct} highlight={r.key === "northern"} icon={r.key === "northern" ? <BrandMark name="Kick" /> : undefined} />
               ))}
-              <p className="text-[11px] leading-snug text-muted-foreground mt-3">{t.share.europeNote}</p>
+              <p className="text-xs text-muted-foreground mt-3 flex items-center gap-2">
+                <span className="text-sm leading-none">{FLAGS.eu}</span>
+                {t.share.regions.europe}: <span className="tabular-nums text-foreground">{fmt(lang, EUROPE_SHARE.find((r) => r.key === "europe")!.pct)}%</span>
+              </p>
+              <p className="text-[11px] leading-snug text-muted-foreground mt-2">{t.share.europeNote}</p>
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground mb-3">{t.nordic.chartTitle}</h3>
