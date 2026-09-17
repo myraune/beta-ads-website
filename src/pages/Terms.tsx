@@ -95,7 +95,7 @@ const Terms: React.FC = () => {
                 4. User Accounts and Obligations
               </h2>
               <p>When using our services, you agree to:</p>
-              <ul className="list-disc list-inside mt-3 space-y-2">
+              <ul className="list-disc list-outside pl-5 marker:text-muted-foreground/60 mt-3 space-y-2">
                 <li>
                   Provide accurate, complete, and up-to-date information when
                   creating an account or submitting campaign materials.
