@@ -12,6 +12,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { ConversionTracker } from "@/components/ConversionTracker";
 import { EngagementTracker } from "@/components/EngagementTracker";
+import { StickyDemoCta } from "@/components/StickyDemoCta";
 import blogPhotos from "virtual:blog-photos";
 import { registerPhotos } from "@/lib/blogImage";
 import { installLucideA11yPatch } from "@/lib/a11y-icons";
@@ -170,6 +171,7 @@ const App = () => {
       <MotionConfig reducedMotion="user">
       <BrowserRouter>
         <EngagementTracker />
+        <StickyDemoCta />
         <SpeedInsightsWithRoute />
         <RouteThemeEnforcer />
         <RouteTransition />

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { ArrowRight, ExternalLink, Loader2 } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/form";
 import { SPFooter } from '@/components/sections/SPFooter';
 import { MascotBand } from "@/components/sections/MascotBand";
+import { BookingCalendar } from "@/components/BookingCalendar";
 
 interface DemoProps {
   t?: any;
@@ -130,8 +131,8 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
       {/* Accessibility fix: Layout.tsx already provides <main> - nested <main> is invalid HTML (WCAG 1.3.6) */}
       <div>
       <section className="pt-32 pb-16 px-6 lg:px-12">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-16 items-start">
             <div>
               <p className="text-xs uppercase tracking-widest text-primary mb-6">{t.requestDemo}</p>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight mb-8 leading-tight">
@@ -143,38 +144,26 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
                 {t.demoFormDescription}
               </p>
 
-              <div className="p-6 bg-card/50 rounded-xl border border-border/30 mb-8">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-16 h-16 rounded-full overflow-hidden ring-2 ring-primary/20 shrink-0">
-                    <img
-                      src="/lovable-uploads/founder-andreas.jpg"
-                      alt="Andreas Myraune"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div>
-                    <p className="font-light text-foreground">Andreas Myraune</p>
-                    <p className="text-sm text-muted-foreground">Head of Agency</p>
-                  </div>
+              <div className="flex items-center gap-4 mb-10">
+                <div className="w-14 h-14 rounded-full overflow-hidden ring-2 ring-primary/20 shrink-0">
+                  <img
+                    src="/lovable-uploads/founder-andreas.jpg"
+                    alt="Andreas Myraune"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <p className="text-sm text-muted-foreground mb-4">
-                  {t.preferTalkDirectly}
-                </p>
-                <a 
-                  href="https://calendar.app.google/coW5NLQJtLxfRer19" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  <Button variant="outline" size="sm" className="gap-2">
-                    {t.bookCallDirect}
-                    <ExternalLink className="h-4 w-4" />
-                  </Button>
-                </a>
+                <div>
+                  <p className="font-light text-foreground">Andreas Myraune</p>
+                  <p className="text-sm text-muted-foreground">Head of Agency. You get a time in his calendar, not a sales sequence.</p>
+                </div>
               </div>
+
+              <h2 className="text-xl font-light tracking-tight mb-4">{t.bookCallDirect}</h2>
+              <BookingCalendar />
             </div>
 
             <div className="bg-card/30 rounded-2xl border border-border/30 p-8">
-              <h2 className="sr-only">Request a demo</h2>
+              <h2 className="text-xl font-light tracking-tight mb-6">Or send a message</h2>
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                   <FormField control={form.control} name="name" render={({ field }) => (
