@@ -18,7 +18,7 @@ const Privacy: React.FC = () => {
             <span className="text-xs font-semibold tracking-widest uppercase text-primary">Legal</span>
             <div className="flex flex-wrap items-baseline justify-between gap-x-10 gap-y-3">
               <h1 className="text-4xl md:text-5xl font-light tracking-tight m-0">Privacy Policy</h1>
-              <p className="text-sm text-muted-foreground m-0">Last updated: September 16, 2026</p>
+              <p className="text-sm text-muted-foreground m-0">Last updated: September 17, 2026</p>
             </div>
           </header>
 
@@ -227,17 +227,17 @@ const Privacy: React.FC = () => {
               <ul className="list-disc list-outside pl-5 marker:text-muted-foreground/60 mt-3 space-y-2">
                 <li>
                   <span className="text-foreground font-medium">
-                    Google Analytics 4 (consent required):
+                    Google Analytics 4:
                   </span>{" "}
-                  Tells us which pages are read and which buttons are clicked
-                  (book a demo, email, phone, Discord, streamer sign-up). It is
-                  loaded in Consent Mode: no analytics cookie is set until you
-                  choose "Allow analytics" in the banner. If you decline, Google
-                  receives only cookieless, aggregated pings that cannot identify
-                  you. Your choice is stored in your browser under the key
-                  ba-consent and nowhere else. Data is retained in Google
-                  Analytics for 14 months. Advertising features, ad
-                  personalisation and Google Signals are switched off.
+                  Tells us which pages are read, how far down people scroll,
+                  which sections they reach and which buttons are clicked
+                  (book a demo, email, phone, Discord, streamer sign-up). It
+                  sets a first-party analytics cookie (_ga) on your first visit;
+                  you can switch it off below and we then measure only
+                  cookieless, aggregated pings that cannot identify you. Data is
+                  retained in Google Analytics for 14 months. Advertising
+                  features, ad personalisation and Google Signals are switched
+                  off.
                 </li>
                 <li>
                   <span className="text-foreground font-medium">
@@ -262,23 +262,37 @@ const Privacy: React.FC = () => {
                 youtube-nocookie.com domain.
               </p>
               <p className="mt-3">
-                You can change your analytics choice at any time:{" "}
+                Do not want to be counted?{" "}
                 <button
                   type="button"
                   onClick={() => {
+                    const off = (() => {
+                      try {
+                        return localStorage.getItem("ba-consent") === "denied";
+                      } catch {
+                        return false;
+                      }
+                    })();
                     try {
-                      localStorage.removeItem("ba-consent");
+                      if (off) localStorage.removeItem("ba-consent");
+                      else localStorage.setItem("ba-consent", "denied");
                     } catch {
                       /* private mode */
                     }
-                    (window as any).gtag?.("consent", "update", { analytics_storage: "denied" });
+                    (window as any).gtag?.("consent", "update", { analytics_storage: off ? "granted" : "denied" });
                     window.location.reload();
                   }}
                   className="text-foreground underline underline-offset-4 hover:opacity-80"
                 >
-                  reset your cookie choice
+                  {(() => {
+                    try {
+                      return localStorage.getItem("ba-consent") === "denied" ? "turn analytics back on" : "turn analytics off for this browser";
+                    } catch {
+                      return "turn analytics off for this browser";
+                    }
+                  })()}
                 </button>
-                {" "}and the banner will ask again.
+                . The choice is stored in your browser under the key ba-consent and nowhere else.
               </p>
             </section>
 

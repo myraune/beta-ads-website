@@ -9,25 +9,20 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      // Consent Mode v2, "advanced". Everything is denied until the visitor
-      // says otherwise, and the default MUST be set before config() or GA4
-      // treats the first hit as consented. With storage denied GA4 still
-      // sends cookieless pings, so measurement continues without a cookie
-      // being set. The stored choice is applied synchronously here, before
-      // the first hit, so a returning visitor who accepted is measured fully
-      // from page one and one who declined is never asked to wait.
+      // Consent Mode v2, opt-out. Analytics storage is granted by default
+      // (decision 2026-09-17: the opt-in banner left GA4 with 8 consenting
+      // users in two weeks, too few to learn anything). Advertising signals
+      // stay denied: we run no Google Ads. A visitor who opts out on /privacy
+      // has 'denied' stored under ba-consent and is measured cookieless only.
+      // The default MUST be set before config() or the first hit ignores it.
+      var baOptOut = false;
+      try { baOptOut = localStorage.getItem('ba-consent') === 'denied'; } catch (e) {}
       gtag('consent', 'default', {
-        analytics_storage: 'denied',
+        analytics_storage: baOptOut ? 'denied' : 'granted',
         ad_storage: 'denied',
         ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        wait_for_update: 500
+        ad_personalization: 'denied'
       });
-      try {
-        if (localStorage.getItem('ba-consent') === 'granted') {
-          gtag('consent', 'update', { analytics_storage: 'granted' });
-        }
-      } catch (e) {}
       gtag('js', new Date());
       gtag('config', 'G-VW901DS4HY');
     </script>
