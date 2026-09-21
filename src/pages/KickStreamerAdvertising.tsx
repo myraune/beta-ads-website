@@ -65,7 +65,7 @@ const COPY = {
   en: {
     seoTitle: "Advertise Through Kick Streamers in the Nordics | Beta Ads",
     seoDescription:
-      "Beta Ads places brands inside the streams of 2,800+ Nordic Kick creators: native overlays, voice-triggered ads, polls and replay reach. How a campaign runs, what it has delivered, and how to start.",
+      "Beta Ads places brands inside Nordic Kick streams, picked from a Streamer Explorer database of 39,000+ creators: native overlays, voice-triggered ads, polls and replay reach. How a campaign runs, what it has delivered, and how to start.",
     badge: "Beta Ads on Kick",
     h1Accent: "Inside the stream,",
     h1Rest: "not around it.",
@@ -73,7 +73,7 @@ const COPY = {
     primary: "Book a demo",
     secondary: "Kick's own formats",
     stats: [
-      { value: "2,800+", label: "Kick creators in Norway, Sweden, Denmark and Finland (Beta Ads network)" },
+      { value: "4,179", label: "streamers who have run campaigns through the software (auto-accept)" },
       { value: "2.93%", label: "average CTR on the Samsung campaign, 500,131 completed views" },
       { value: "67%", label: "response rate reached on in-stream polls" },
       { value: "20.0%", label: "Kick's share of Kick + Twitch hours in Northern Europe (Kick, Q2 2026)" },
@@ -100,7 +100,7 @@ const COPY = {
         { n: "03", title: "Live", desc: "Creators install nothing new; the overlay runs through the software they already stream with. Ads fire during agreed moments, not around the clock." },
         { n: "04", title: "Report", desc: "Completed views, CTR, poll answers, per-channel brand safety, replay reach. Kick and Twitch campaigns land in the same report." },
       ],
-      figureCaption: "Streamer Explorer in the Beta Ads dashboard: 39,081 channels across Twitch, Kick, YouTube and Trovo, with engagement and brand-safety scores per channel. Kick creators are filtered out by platform, country and language.",
+      figureCaption: "Streamer Explorer in the Beta Ads dashboard: 39,445 streamers across Twitch, Kick, YouTube and Trovo, 37,599 of them recently active and open to collaborations, with engagement and brand-safety scores per channel. Kick creators are filtered out by platform, country and language.",
     },
     why: {
       label: "Why creators",
@@ -119,7 +119,7 @@ const COPY = {
       read: "Read the case",
     },
     faq: [
-      { q: "Do you have Kick creators in my country?", a: "Yes. The network covers more than 2,800 Kick creators across Norway, Sweden, Denmark and Finland, with Finland the largest share, which matches Kick's own Nordic watch-hour split. Tell us the country and category and we send a shortlist." },
+      { q: "Do you have Kick creators in my country?", a: "Yes. Our Streamer Explorer indexes Kick creators across Norway, Sweden, Denmark and Finland, filterable by country and language, with Finland the largest share, which matches Kick's own Nordic watch-hour split. Tell us the country and category and we send a shortlist." },
       { q: "Can viewers block the ad?", a: "No. The overlay is rendered into the video the creator broadcasts, so it reaches every viewer on every device, including those running ad blockers. It is also in the VOD and clips afterwards." },
       { q: "What about gambling and alcohol rules?", a: "Every campaign goes through our compliance check for the market it runs in, including Norway's marketing rules. Creators are hand-picked per campaign, and Kick's own 18+ inventory is a separate product we do not mix into creator campaigns without asking." },
     ],
@@ -129,7 +129,7 @@ const COPY = {
   no: {
     seoTitle: "Annonser gjennom Kick-strømmere i Norden | Beta Ads",
     seoDescription:
-      "Beta Ads plasserer merkevarer inne i strømmene til over 2 800 nordiske Kick-skapere: native overlays, stemmestyrte annonser, avstemninger og Replay reach. Slik kjøres en kampanje, hva den har levert, og hvordan du starter.",
+      "Beta Ads plasserer merkevarer inne i nordiske Kick-strømmer, plukket fra en Streamer Explorer-database med over 39 000 skapere: native overlays, stemmestyrte annonser, avstemninger og Replay reach. Slik kjøres en kampanje, hva den har levert, og hvordan du starter.",
     badge: "Beta Ads på Kick",
     h1Accent: "Inne i strømmen,",
     h1Rest: "ikke rundt den.",
@@ -137,7 +137,7 @@ const COPY = {
     primary: "Book en demo",
     secondary: "Kicks egne formater",
     stats: [
-      { value: "2 800+", label: "Kick-skapere i Norge, Sverige, Danmark og Finland (Beta Ads-nettverket)" },
+      { value: "4 179", label: "streamere som har kjørt kampanjer gjennom softwaren (auto-accept)" },
       { value: "2,93 %", label: "gjennomsnittlig CTR på Samsung-kampanjen, 500 131 fullførte visninger" },
       { value: "67 %", label: "svarandel oppnådd på avstemninger i strømmen" },
       { value: "20,0 %", label: "Kicks andel av Kick + Twitch-timer i Nord-Europa (Kick, Q2 2026)" },
@@ -164,7 +164,7 @@ const COPY = {
         { n: "03", title: "Live", desc: "Skaperne installerer ingenting nytt; overlayet går gjennom programvaren de allerede strømmer med. Annonsene går i avtalte øyeblikk, ikke døgnet rundt." },
         { n: "04", title: "Rapport", desc: "Fullførte visninger, CTR, svar på avstemninger, brand safety per kanal, Replay reach. Kick- og Twitch-kampanjer havner i samme rapport." },
       ],
-      figureCaption: "Streamer Explorer i Beta Ads-dashbordet: 39 081 kanaler på tvers av Twitch, Kick, YouTube og Trovo, med engasjement- og brand safety-score per kanal. Kick-skapere filtreres ut på plattform, land og språk.",
+      figureCaption: "Streamer Explorer i Beta Ads-dashbordet: 39 445 streamere på tvers av Twitch, Kick, YouTube og Trovo, 37 599 av dem nylig aktive og åpne for samarbeid, med engasjement- og brand safety-score per kanal. Kick-skapere filtreres ut på plattform, land og språk.",
     },
     why: {
       label: "Hvorfor skapere",
@@ -183,7 +183,7 @@ const COPY = {
       read: "Les casen",
     },
     faq: [
-      { q: "Har dere Kick-skapere i Norge?", a: "Ja. Nettverket dekker over 2 800 Kick-skapere i Norge, Sverige, Danmark og Finland, med Finland som største andel, noe som stemmer med Kicks egen nordiske fordeling av setimer. Si hvilket land og hvilken kategori, så sender vi en kortliste." },
+      { q: "Har dere Kick-skapere i Norge?", a: "Ja. Streamer Explorer indekserer Kick-skapere i Norge, Sverige, Danmark og Finland, filtrerbart på land og språk, med Finland som største andel, noe som stemmer med Kicks egen nordiske fordeling av setimer. Si hvilket land og hvilken kategori, så sender vi en kortliste." },
       { q: "Kan seerne blokkere annonsen?", a: "Nei. Overlayet rendres inn i videoen skaperen sender, så det når alle seere på alle enheter, også de med adblocker. Det ligger også i VOD-en og klippene etterpå." },
       { q: "Hva med regler for pengespill og alkohol?", a: "Hver kampanje går gjennom vår compliance-sjekk for markedet den kjører i, inkludert det norske regelverket. Skaperne håndplukkes per kampanje, og Kicks egne 18+-flater er et eget produkt vi ikke blander inn i skaperkampanjer uten å spørre." },
     ],
@@ -193,7 +193,7 @@ const COPY = {
   sv: {
     seoTitle: "Annonsera genom Kick-streamers i Norden | Beta Ads",
     seoDescription:
-      "Beta Ads placerar varumärken inne i streamsen hos över 2 800 nordiska Kick-kreatörer: native overlays, röststyrda annonser, omröstningar och Replay reach. Så körs en kampanj, vad den har levererat och hur du börjar.",
+      "Beta Ads placerar varumärken inne i nordiska Kick-streams, valda ur en Streamer Explorer-databas med över 39 000 kreatörer: native overlays, röststyrda annonser, omröstningar och Replay reach. Så körs en kampanj, vad den har levererat och hur du börjar.",
     badge: "Beta Ads på Kick",
     h1Accent: "Inne i streamen,",
     h1Rest: "inte runt den.",
@@ -201,7 +201,7 @@ const COPY = {
     primary: "Boka en demo",
     secondary: "Kicks egna format",
     stats: [
-      { value: "2 800+", label: "Kick-kreatörer i Sverige, Norge, Danmark och Finland (Beta Ads nätverk)" },
+      { value: "4 179", label: "streamers som har kört kampanjer genom mjukvaran (auto-accept)" },
       { value: "2,93 %", label: "genomsnittlig CTR på Samsung-kampanjen, 500 131 fullföljda visningar" },
       { value: "67 %", label: "svarsfrekvens uppnådd på omröstningar i streamen" },
       { value: "20,0 %", label: "Kicks andel av Kick + Twitch-timmar i Nordeuropa (Kick, Q2 2026)" },
@@ -228,7 +228,7 @@ const COPY = {
         { n: "03", title: "Live", desc: "Kreatörerna installerar inget nytt; overlayen går genom programvaran de redan streamar med. Annonserna går i avtalade ögonblick, inte dygnet runt." },
         { n: "04", title: "Rapport", desc: "Fullföljda visningar, CTR, svar på omröstningar, brand safety per kanal, Replay reach. Kick- och Twitch-kampanjer landar i samma rapport." },
       ],
-      figureCaption: "Streamer Explorer i Beta Ads-dashboarden: 39 081 kanaler över Twitch, Kick, YouTube och Trovo, med engagemangs- och brand safety-poäng per kanal. Kick-kreatörer filtreras fram på plattform, land och språk.",
+      figureCaption: "Streamer Explorer i Beta Ads-dashboarden: 39 445 streamers över Twitch, Kick, YouTube och Trovo, 37 599 av dem nyligen aktiva och öppna för samarbeten, med engagemangs- och brand safety-poäng per kanal. Kick-kreatörer filtreras fram på plattform, land och språk.",
     },
     why: {
       label: "Varför kreatörer",
@@ -247,7 +247,7 @@ const COPY = {
       read: "Läs caset",
     },
     faq: [
-      { q: "Har ni Kick-kreatörer i Sverige?", a: "Ja. Nätverket täcker över 2 800 Kick-kreatörer i Sverige, Norge, Danmark och Finland, med Finland som största andel och Sverige som näst största, vilket stämmer med Kicks egen nordiska fördelning av tittartimmar. Säg vilket land och vilken kategori, så skickar vi en kortlista." },
+      { q: "Har ni Kick-kreatörer i Sverige?", a: "Ja. Streamer Explorer indexerar Kick-kreatörer i Sverige, Norge, Danmark och Finland, filtrerbart på land och språk, med Finland som största andel och Sverige som näst största, vilket stämmer med Kicks egen nordiska fördelning av tittartimmar. Säg vilket land och vilken kategori, så skickar vi en kortlista." },
       { q: "Kan tittarna blockera annonsen?", a: "Nej. Overlayen renderas in i videon kreatören sänder, så den når alla tittare på alla enheter, även de med adblocker. Den ligger också i VOD:en och klippen efteråt." },
       { q: "Hur är det med regler för spel och alkohol?", a: "Varje kampanj går igenom vår compliance-kontroll för marknaden den körs i, inklusive de svenska reglerna för spel- och alkoholreklam. Kreatörerna handplockas per kampanj, och Kicks egna 18+-ytor är en separat produkt vi inte blandar in i kreatörskampanjer utan att fråga." },
     ],
@@ -257,7 +257,7 @@ const COPY = {
   da: {
     seoTitle: "Annoncer gennem Kick-streamere i Norden | Beta Ads",
     seoDescription:
-      "Beta Ads placerer brands inde i streamsene hos over 2.800 nordiske Kick-creators: native overlays, stemmestyrede annoncer, afstemninger og Replay reach. Sådan kører en kampagne, hvad den har leveret, og hvordan du starter.",
+      "Beta Ads placerer brands inde i nordiske Kick-streams, udvalgt fra en Streamer Explorer-database med over 39.000 creators: native overlays, stemmestyrede annoncer, afstemninger og Replay reach. Sådan kører en kampagne, hvad den har leveret, og hvordan du starter.",
     badge: "Beta Ads på Kick",
     h1Accent: "Inde i streamen,",
     h1Rest: "ikke rundt om den.",
@@ -265,7 +265,7 @@ const COPY = {
     primary: "Book en demo",
     secondary: "Kicks egne formater",
     stats: [
-      { value: "2.800+", label: "Kick-creators i Danmark, Norge, Sverige og Finland (Beta Ads-netværket)" },
+      { value: "4.179", label: "streamere, der har kørt kampagner gennem softwaren (auto-accept)" },
       { value: "2,93 %", label: "gennemsnitlig CTR på Samsung-kampagnen, 500.131 gennemførte visninger" },
       { value: "67 %", label: "svarprocent opnået på afstemninger i streamen" },
       { value: "20,0 %", label: "Kicks andel af Kick + Twitch-timer i Nordeuropa (Kick, Q2 2026)" },
@@ -292,7 +292,7 @@ const COPY = {
         { n: "03", title: "Live", desc: "Creatorerne installerer intet nyt; overlayet kører gennem den software, de allerede streamer med. Annoncerne kører i aftalte øjeblikke, ikke døgnet rundt." },
         { n: "04", title: "Rapport", desc: "Gennemførte visninger, CTR, svar på afstemninger, brand safety per kanal, Replay reach. Kick- og Twitch-kampagner lander i samme rapport." },
       ],
-      figureCaption: "Streamer Explorer i Beta Ads-dashboardet: 39.081 kanaler på tværs af Twitch, Kick, YouTube og Trovo, med engagement- og brand safety-score per kanal. Kick-creators filtreres frem på platform, land og sprog.",
+      figureCaption: "Streamer Explorer i Beta Ads-dashboardet: 39.445 streamere på tværs af Twitch, Kick, YouTube og Trovo, 37.599 af dem nyligt aktive og åbne for samarbejde, med engagement- og brand safety-score per kanal. Kick-creators filtreres frem på platform, land og sprog.",
     },
     why: {
       label: "Hvorfor creators",
@@ -311,7 +311,7 @@ const COPY = {
       read: "Læs casen",
     },
     faq: [
-      { q: "Har I Kick-creators i Danmark?", a: "Ja. Netværket dækker over 2.800 Kick-creators i Danmark, Norge, Sverige og Finland. Danmark er det mindste af de fire markeder, hvilket passer med Kicks egen nordiske fordeling af setimer, men det er også der, konkurrencen om fladerne er lavest. Sig hvilket land og hvilken kategori, så sender vi en kortliste." },
+      { q: "Har I Kick-creators i Danmark?", a: "Ja. Streamer Explorer indekserer Kick-creators i Danmark, Norge, Sverige og Finland, filtrerbart på land og sprog. Danmark er det mindste af de fire markeder, hvilket passer med Kicks egen nordiske fordeling af setimer, men det er også der, konkurrencen om fladerne er lavest. Sig hvilket land og hvilken kategori, så sender vi en kortliste." },
       { q: "Kan seerne blokere annoncen?", a: "Nej. Overlayet renderes ind i den video, creatoren sender, så det når alle seere på alle enheder, også dem med adblocker. Det ligger også i VOD'en og klippene bagefter." },
       { q: "Hvad med regler for spil og alkohol?", a: "Hver kampagne går gennem vores compliance-tjek for det marked, den kører i, inklusive de danske regler for spil- og alkoholreklame. Creators håndplukkes per kampagne, og Kicks egne 18+-flader er et separat produkt, vi ikke blander ind i creator-kampagner uden at spørge." },
     ],
@@ -321,7 +321,7 @@ const COPY = {
   fi: {
     seoTitle: "Mainosta Kick-striimaajien kautta Pohjoismaissa | Beta Ads",
     seoDescription:
-      "Beta Ads tuo brändit yli 2 800 pohjoismaisen Kick-tekijän lähetysten sisään: native overlayt, ääniohjatut mainokset, äänestykset ja Replay reach. Näin kampanja pyörii, mitä se on tuottanut ja miten aloitat.",
+      "Beta Ads tuo brändit pohjoismaisten Kick-lähetysten sisään, tekijät valittuina yli 39 000 tekijän Streamer Explorer -tietokannasta: native overlayt, ääniohjatut mainokset, äänestykset ja Replay reach. Näin kampanja pyörii, mitä se on tuottanut ja miten aloitat.",
     badge: "Beta Ads Kickissä",
     h1Accent: "Lähetyksen sisällä,",
     h1Rest: "ei sen ympärillä.",
@@ -329,7 +329,7 @@ const COPY = {
     primary: "Varaa demo",
     secondary: "Kickin omat formaatit",
     stats: [
-      { value: "2 800+", label: "Kick-tekijää Suomessa, Ruotsissa, Norjassa ja Tanskassa (Beta Adsin verkosto)" },
+      { value: "4 179", label: "striimaajaa, jotka ovat ajaneet kampanjoita ohjelmiston kautta (auto-accept)" },
       { value: "2,93 %", label: "keskimääräinen CTR Samsung-kampanjassa, 500 131 katsottua näyttöä" },
       { value: "67 %", label: "vastausaste lähetyksen äänestyksissä" },
       { value: "20,0 %", label: "Kickin osuus Kick + Twitch -tunneista Pohjois-Euroopassa (Kick, Q2 2026)" },
@@ -356,7 +356,7 @@ const COPY = {
         { n: "03", title: "Live", desc: "Tekijät eivät asenna mitään uutta; overlay kulkee ohjelmiston läpi, jolla he jo striimaavat. Mainokset näkyvät sovittuina hetkinä, eivät kellon ympäri." },
         { n: "04", title: "Raportti", desc: "Katsotut näytöt, CTR, äänestysvastaukset, bränditurvallisuus kanavaa kohti, Replay reach. Kick- ja Twitch-kampanjat päätyvät samaan raporttiin." },
       ],
-      figureCaption: "Streamer Explorer Beta Adsin hallintapaneelissa: 39 081 kanavaa Twitchissä, Kickissä, YouTubessa ja Trovossa, sitoutumis- ja bränditurvallisuuspisteet kanavaa kohti. Kick-tekijät suodatetaan alustan, maan ja kielen mukaan.",
+      figureCaption: "Streamer Explorer Beta Adsin hallintapaneelissa: 39 445 striimaajaa Twitchissä, Kickissä, YouTubessa ja Trovossa, joista 37 599 äskettäin aktiivisia ja avoimia yhteistyölle, sitoutumis- ja bränditurvallisuuspisteet kanavaa kohti. Kick-tekijät suodatetaan alustan, maan ja kielen mukaan.",
     },
     why: {
       label: "Miksi tekijät",
@@ -375,7 +375,7 @@ const COPY = {
       read: "Lue case",
     },
     faq: [
-      { q: "Onko teillä Kick-tekijöitä Suomessa?", a: "Kyllä. Verkosto kattaa yli 2 800 Kick-tekijää Suomessa, Ruotsissa, Norjassa ja Tanskassa, ja Suomi on suurin osuus, mikä vastaa Kickin omaa pohjoismaista katselutuntijakoa. Kerro maa ja kategoria, niin lähetämme lyhytlistan." },
+      { q: "Onko teillä Kick-tekijöitä Suomessa?", a: "Kyllä. Streamer Explorer indeksoi Kick-tekijöitä Suomessa, Ruotsissa, Norjassa ja Tanskassa, suodatettavissa maan ja kielen mukaan, ja Suomi on suurin osuus, mikä vastaa Kickin omaa pohjoismaista katselutuntijakoa. Kerro maa ja kategoria, niin lähetämme lyhytlistan." },
       { q: "Voivatko katsojat estää mainoksen?", a: "Eivät. Overlay renderöidään tekijän lähettämään videoon, joten se tavoittaa jokaisen katsojan kaikilla laitteilla, myös mainosestäjää käyttävät. Se on myös VOD:issa ja klipeissä jälkeenpäin." },
       { q: "Entä rahapeli- ja alkoholimainonnan säännöt?", a: "Jokainen kampanja käy läpi compliance-tarkastuksemme sen markkinan osalta, jossa se pyörii, mukaan lukien Suomen rahapeli- ja alkoholimainonnan säännöt. Tekijät valitaan käsin kampanjaa kohti, ja Kickin omat 18+-pinnat ovat erillinen tuote, jota emme sekoita tekijäkampanjoihin kysymättä." },
     ],
@@ -527,7 +527,7 @@ const KickStreamerAdvertising: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => 
           </div>
           <Reveal className="mt-16">
             <figure className="m-0">
-              <img src={EXPLORER} alt="Beta Ads Streamer Explorer overview: 39,081 streamers, 2.0B total followers, 7.7M average concurrent viewers, engagement 6.2 of 10, brand safety 6.8 of 10, 878.9M hours total watch time" width={1900} height={720} loading="lazy" className="w-full h-auto rounded-2xl ring-1 ring-border" />
+              <img src={EXPLORER} alt="Beta Ads Streamer Explorer overview: 39,445 streamers, 2.0B total followers, 7.7M average concurrent viewers, engagement 6.2 of 10, brand safety 6.8 of 10, 878.9M hours total watch time" width={1900} height={720} loading="lazy" className="w-full h-auto rounded-2xl ring-1 ring-border" />
               <figcaption className="text-xs text-muted-foreground mt-3 max-w-2xl">{t.steps.figureCaption}</figcaption>
             </figure>
           </Reveal>

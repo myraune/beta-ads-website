@@ -621,7 +621,7 @@ export default function ClippingEconomyDashboard() {
           </div>
           <div className="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-background/10">
             {[
-              { step: '01', title: 'Brand Goes Live', desc: 'Native overlay ad runs on Twitch, YouTube, or Kick. Reaches Gen Z audiences that skip every other ad format. 39,000+ Nordic streamers on Beta Ads.' },
+              { step: '01', title: 'Brand Goes Live', desc: 'Native overlay ad runs on Twitch, YouTube, or Kick. Reaches Gen Z audiences that skip every other ad format. 39,000+ streamers in our Streamer Explorer database on Beta Ads.' },
               { step: '02', title: 'AI Finds the Moment', desc: 'Beta Ads AI clipping detects peak engagement in real time - chat velocity spikes, reaction bursts, voice recognition confirming the brand mention landed.' },
               { step: '03', title: 'Clippers Distribute It', desc: 'The highest-performing clip hits TikTok, Reels, and Shorts through a paid clipper network. One live moment becomes indefinite organic reach.' },
             ].map((s) => (

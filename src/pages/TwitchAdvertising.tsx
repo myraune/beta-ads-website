@@ -10,7 +10,7 @@ import { MascotBand } from "@/components/sections/MascotBand";
 const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
 const stats = [
-  { value: "28,000+", label: "Nordic Streamers" },
+  { value: "37,599", label: "Streamers in Explorer, active and open to collabs" },
   { value: "3–5×", label: "Higher Engagement" },
   { value: "90 min", label: "Avg. Session" },
   { value: "0%", label: "Ad Block Rate" },
@@ -54,10 +54,10 @@ const TwitchAdvertising: React.FC = () => {
     <MarketingPageLayout
       seo={{
         title: "Twitch Advertising Agency for Norway and the Nordics | Beta Ads",
-        description: "Beta Agency AS is a Norwegian Twitch advertising agency running native overlay campaigns across 28,000+ Nordic Twitch streamers. Ads that bypass ad blockers, with real reporting.",
+        description: "Beta Agency AS is a Norwegian Twitch advertising agency running native overlay campaigns on Twitch, drawing on a Streamer Explorer database of 39,000+ streamers, 37,599 of them recently active and open to collaborations. Ads that bypass ad blockers, with real reporting.",
         canonical: "/twitch-advertising",
         jsonLd: [
-          { "@context": "https://schema.org", "@type": "Service", "@id": "https://beta-ads.no/twitch-advertising#service", name: "Twitch Advertising Agency - Beta Ads", serviceType: "Twitch advertising agency", description: "Native overlay ads on 28,000+ Nordic Twitch streams. 0% adblock rate, CTRs up to 9.12%. Managed campaigns from brief to broadcast.", provider: { "@id": "https://beta-ads.no/#organization" }, areaServed: ["Norway", "Sweden", "Denmark", "Finland"], url: "https://beta-ads.no/twitch-advertising" },
+          { "@context": "https://schema.org", "@type": "Service", "@id": "https://beta-ads.no/twitch-advertising#service", name: "Twitch Advertising Agency - Beta Ads", serviceType: "Twitch advertising agency", description: "Native overlay ads on Twitch streams. 0% adblock rate, CTRs up to 9.12%. Managed campaigns from brief to broadcast.", provider: { "@id": "https://beta-ads.no/#organization" }, areaServed: ["Norway", "Sweden", "Denmark", "Finland"], url: "https://beta-ads.no/twitch-advertising" },
           { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://beta-ads.no/" }, { "@type": "ListItem", position: 2, name: "Twitch Advertising", item: "https://beta-ads.no/twitch-advertising" }] },
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [
             { "@type": "Question", name: "How much does Twitch advertising cost in Norway?", acceptedAnswer: { "@type": "Answer", text: "The blended effective CPM on a managed Nordic Twitch campaign is roughly 200 to 300 kr per 1,000 verified impressions, with the final figure depending on campaign scope, number of streamers, and duration. There are no long-term contracts. See the full breakdown at /twitch-advertising-cost or contact us for a custom quote." } },
@@ -374,7 +374,7 @@ const TwitchAdvertising: React.FC = () => {
           <div className="grid md:grid-cols-4 gap-8">
             {[
               { step: "01", title: "Brief & Strategy", desc: "Tell us your goals, audience, and budget. We design a campaign strategy for the Nordic streaming market." },
-              { step: "02", title: "Streamer Selection", desc: "We match your brand with the right streamers from 28,000+ Nordic creators, filtered by audience, category, and engagement." },
+              { step: "02", title: "Streamer Selection", desc: "We match your brand with the right streamers from the 37,599 streamers in our Explorer who are recently active and open to collaborations, filtered by audience, category, and engagement." },
               { step: "03", title: "Creative & Launch", desc: "Our team creates overlay creatives that fit naturally in streams. Campaigns go live across selected streamers simultaneously." },
               { step: "04", title: "Report & Iterate", desc: "Track performance in real time - views, exposure time, engagement, chat mentions. Full campaign report delivered post-campaign." },
             ].map((s, i) => (
@@ -421,7 +421,7 @@ const TwitchAdvertising: React.FC = () => {
             {[
               { q: "How much does Twitch advertising cost?", a: "The blended effective CPM on a managed Nordic campaign runs about 200 to 300 kr per 1,000 verified impressions, and the final number depends on scope, number of streamers, and duration. We offer flexible pricing with no long-term contracts. See our full cost breakdown at /twitch-advertising-cost, or contact us for a custom quote." },
               { q: "How do overlay ads bypass ad blockers?", a: "Overlay ads are rendered inside the stream itself as part of the video feed - not browser-injected elements. Ad blocking software has nothing to detect or remove." },
-              { q: "Can I target specific countries or languages?", a: "Yes. Target by country (Norway, Sweden, Finland, Denmark), language, content category, audience size, and engagement metrics. Our database covers 28,000+ Nordic streamers." },
+              { q: "Can I target specific countries or languages?", a: "Yes. Target by country (Norway, Sweden, Finland, Denmark), language, content category, audience size, and engagement metrics. Our Streamer Explorer covers 39,000+ streamers across Twitch, YouTube, Kick and Trovo." },
               { q: "What results can I expect?", a: "Native overlay ads typically deliver 3–5× higher engagement than traditional display ads. Twitch sessions average 90+ minutes of sustained brand exposure." },
               { q: "Do I need to create the ad creatives?", a: "No. Our managed service includes creative production. We design overlay graphics that match your brand and fit naturally in livestream content." },
               { q: "What is the minimum number of streamers for a campaign?", a: "We run campaigns with as few as 5 streamers for focused niche campaigns, up to 100+ streamers for large brand awareness pushes. We'll recommend the right reach for your goal." },

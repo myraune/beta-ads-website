@@ -30,7 +30,7 @@ const heroStats = [
   { value: "1B+", label: "People run ad-blockers" },
   { value: "~34%", label: "Block rate, ages 16-24" },
   { value: "0%", label: "Ad-block reach on native overlay" },
-  { value: "39,000+", label: "Nordic streamers on-platform" },
+  { value: "39,000+", label: "streamers in our Streamer Explorer database" },
 ];
 
 // Ad-block rate by segment. Every line has a named source.
@@ -311,7 +311,7 @@ const AdBlockerCrisis: React.FC = () => {
           <div className="max-w-lg">
             <h2 className="text-2xl md:text-3xl font-light tracking-tight mb-3">Reach the audience that blocks everything else</h2>
             <p className="text-background/60 text-sm leading-relaxed">
-              We run native overlay campaigns across 39,000+ Nordic streamers - unblockable by design,
+              We run native overlay campaigns across 39,000+ streamers in our Streamer Explorer database - unblockable by design,
               with verified reporting. See how the format works and what a campaign costs.
             </p>
           </div>

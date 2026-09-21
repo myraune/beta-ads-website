@@ -107,7 +107,7 @@ const STATIC_PAGES = [
     route: "/twitch-advertising",
     title: "Twitch Advertising in the Nordics | Beta Ads",
     description:
-      "Native overlay ads on Twitch that bypass ad blockers and reach Gen Z. 39,000+ Nordic streamers, 3-5x higher engagement, real-time analytics.",
+      "Native overlay ads on Twitch that bypass ad blockers and reach Gen Z. 39,000+ streamers in our Streamer Explorer database, 3-5x higher engagement, real-time analytics.",
     locale: "en",
   },
   {
@@ -121,7 +121,7 @@ const STATIC_PAGES = [
     route: "/kick-streamer-advertising",
     title: "Advertise Through Kick Streamers in the Nordics | Beta Ads",
     description:
-      "Beta Ads places brands inside the streams of 2,800+ Nordic Kick creators: native overlays, voice-triggered ads, polls and replay reach. How a campaign runs, what it has delivered, and how to start.",
+      "Beta Ads places brands inside Nordic Kick streams, picked from a Streamer Explorer database of 39,000+ creators: native overlays, voice-triggered ads, polls and replay reach. How a campaign runs, what it has delivered, and how to start.",
     locale: "en",
     image: "/lovable-uploads/og/kick-streamer-advertising-en.png",
     ogImageWidth: 1200,
@@ -139,7 +139,7 @@ const STATIC_PAGES = [
     route: "/kick-streamer-annonsering",
     title: "Annonser gjennom Kick-strømmere i Norden | Beta Ads",
     description:
-      "Beta Ads plasserer merkevarer inne i strømmene til over 2 800 nordiske Kick-skapere: native overlays, stemmestyrte annonser, avstemninger og Replay reach. Slik kjøres en kampanje, hva den har levert, og hvordan du starter.",
+      "Beta Ads plasserer merkevarer inne i nordiske Kick-strømmer, plukket fra en Streamer Explorer-database med over 39 000 skapere: native overlays, stemmestyrte annonser, avstemninger og Replay reach. Slik kjøres en kampanje, hva den har levert, og hvordan du starter.",
     locale: "no",
     image: "/lovable-uploads/og/kick-streamer-advertising-no.png",
     ogImageWidth: 1200,
@@ -157,7 +157,7 @@ const STATIC_PAGES = [
     route: "/kick-streamer-annonsering-sverige",
     title: "Annonsera genom Kick-streamers i Norden | Beta Ads",
     description:
-      "Beta Ads placerar varumärken inne i streamsen hos över 2 800 nordiska Kick-kreatörer: native overlays, röststyrda annonser, omröstningar och Replay reach. Så körs en kampanj, vad den har levererat och hur du börjar.",
+      "Beta Ads placerar varumärken inne i nordiska Kick-streams, valda ur en Streamer Explorer-databas med över 39 000 kreatörer: native overlays, röststyrda annonser, omröstningar och Replay reach. Så körs en kampanj, vad den har levererat och hur du börjar.",
     locale: "sv",
     image: "/lovable-uploads/og/kick-streamer-advertising-sv.png",
     ogImageWidth: 1200,
@@ -175,7 +175,7 @@ const STATIC_PAGES = [
     route: "/kick-streamer-annoncering",
     title: "Annoncer gennem Kick-streamere i Norden | Beta Ads",
     description:
-      "Beta Ads placerer brands inde i streamsene hos over 2.800 nordiske Kick-creators: native overlays, stemmestyrede annoncer, afstemninger og Replay reach. Sådan kører en kampagne, hvad den har leveret, og hvordan du starter.",
+      "Beta Ads placerer brands inde i nordiske Kick-streams, udvalgt fra en Streamer Explorer-database med over 39.000 creators: native overlays, stemmestyrede annoncer, afstemninger og Replay reach. Sådan kører en kampagne, hvad den har leveret, og hvordan du starter.",
     locale: "da",
     image: "/lovable-uploads/og/kick-streamer-advertising-da.png",
     ogImageWidth: 1200,
@@ -193,7 +193,7 @@ const STATIC_PAGES = [
     route: "/kick-streamer-mainonta",
     title: "Mainosta Kick-striimaajien kautta Pohjoismaissa | Beta Ads",
     description:
-      "Beta Ads tuo brändit yli 2 800 pohjoismaisen Kick-tekijän lähetysten sisään: native overlayt, ääniohjatut mainokset, äänestykset ja Replay reach. Näin kampanja pyörii, mitä se on tuottanut ja miten aloitat.",
+      "Beta Ads tuo brändit pohjoismaisten Kick-lähetysten sisään, tekijät valittuina yli 39 000 tekijän Streamer Explorer -tietokannasta: native overlayt, ääniohjatut mainokset, äänestykset ja Replay reach. Näin kampanja pyörii, mitä se on tuottanut ja miten aloitat.",
     locale: "fi",
     image: "/lovable-uploads/og/kick-streamer-advertising-fi.png",
     ogImageWidth: 1200,
@@ -812,7 +812,7 @@ const HOME_CONTENT = `
           </div>
           <h1 style="font-size:2.25rem;line-height:1.15;font-weight:700;letter-spacing:-.02em;margin:0 0 1.25rem">Native Twitch and livestream advertising for Nordic brands</h1>
           <p style="color:#a8adb8;margin:0 0 1rem">Beta Ads is the trading name of Beta Agency AS (org. 933&nbsp;303&nbsp;136), a Norwegian livestream advertising agency registered in Frosta and working from Oslo, Stockholm and Helsinki.</p>
-          <p style="color:#a8adb8;margin:0 0 2.5rem">We place native overlay ads inside live streams on Twitch, YouTube and Kick. Because the ad renders inside the broadcast feed, an ad blocker has nothing to remove. Campaigns run across more than 39,000 Nordic streamers in Norway, Sweden, Denmark and Finland, of which about 28,000 are on Twitch, with verified per-impression reporting.</p>
+          <p style="color:#a8adb8;margin:0 0 2.5rem">We place native overlay ads inside live streams on Twitch, YouTube and Kick. Because the ad renders inside the broadcast feed, an ad blocker has nothing to remove. Campaigns run across more than 39,000 streamers in our Streamer Explorer database in Norway, Sweden, Denmark and Finland with verified per-impression reporting.</p>
           <h2 style="font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:#e94f37;margin:0 0 .75rem">What Beta Ads does</h2>
           <ul style="margin:0 0 2.5rem;padding-left:1.1rem;color:#a8adb8">
             <li>Native overlay advertising on Twitch, YouTube Live and Kick</li>

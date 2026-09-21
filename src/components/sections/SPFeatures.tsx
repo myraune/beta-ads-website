@@ -39,13 +39,13 @@ const features = [
     icon: IconStreamers,
     title: "Find the perfect streamers",
     description:
-      "Browse 39,000+ recently active streamers. Filter by game, audience size, engagement rate, language, and platform.",
+      "Browse 39,000+ streamers in our Streamer Explorer database, 37,500+ of them recently active and open to collaborations. Filter by game, audience size, engagement rate, language, and platform.",
     bullets: [
       "Filter by game, language, platform",
       "Sort by viewer count, engagement, category",
       "Audience demographics & overlap data",
     ],
-    stat: { value: "39,445", label: "streamers in our database" },
+    stat: { value: "37,599", label: "recently active and open to collabs" },
   },
   {
     id: "targeting",

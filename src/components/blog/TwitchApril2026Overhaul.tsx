@@ -384,7 +384,7 @@ const TwitchApril2026Overhaul: React.FC = () => {
               Updating your Twitch playbook for 2026?
             </h2>
             <p className="text-background/60 text-sm leading-relaxed">
-              We run native overlay campaigns across 39,000+ Nordic streamers and keep the creative
+              We run native overlay campaigns across 39,000+ streamers in our Streamer Explorer database and keep the creative
               current with every platform shift. See how the format works and what a campaign costs.
             </p>
           </div>

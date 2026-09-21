@@ -29,7 +29,7 @@ const heroStats = [
   { value: "3", label: "Ways to actually buy Twitch" },
   { value: "1.77B", label: "Global ad-block users" },
   { value: "0%", label: "Ad-block reach on native overlay" },
-  { value: "39,000+", label: "Nordic streamers on-platform" },
+  { value: "39,000+", label: "streamers in our Streamer Explorer database" },
 ];
 
 const formats = [
@@ -452,7 +452,7 @@ const HowTwitchAdvertisingWorks: React.FC = () => {
           <div className="max-w-lg">
             <h2 className="text-2xl md:text-3xl font-light tracking-tight mb-3">Ready to scope a real test?</h2>
             <p className="text-background/60 text-sm leading-relaxed">
-              We run native overlay campaigns across 39,000+ Nordic streamers with verified reporting.
+              We run native overlay campaigns across 39,000+ streamers in our Streamer Explorer database with verified reporting.
               See how the formats work, what a campaign costs, and the real Nordic results.
             </p>
           </div>

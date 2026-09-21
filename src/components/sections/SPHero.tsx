@@ -198,7 +198,7 @@ const StreamerExplorerView = () => (
     {/* Top stats row - 5 cards like real app */}
     <div className="grid grid-cols-3 md:grid-cols-5 gap-2 mb-3">
       {[
-        { label: "Streamers", shortLabel: "Streamers", value: "39,456", icon: "👥", color: "border-l-blue-400" },
+        { label: "Streamers", shortLabel: "Streamers", value: "39,445", icon: "👥", color: "border-l-blue-400" },
         { label: "Total Followers", shortLabel: "Followers", value: "2.0B", icon: "❤️", color: "border-l-pink-400" },
         { label: "Total Avg. Concurrent Viewers", shortLabel: "Avg. CCV", value: "7.5M", icon: "👁️", color: "border-l-green-400" },
         { label: "Avg. Engagement", shortLabel: "Engagement", value: "6 / 10", icon: "⚡", color: "border-l-yellow-400" },

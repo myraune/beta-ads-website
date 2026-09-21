@@ -459,7 +459,7 @@ const EN: KickCopy = {
   creators: {
     label: "Beta Ads on Kick",
     heading: "The other way in: inside the stream itself.",
-    body: "Kick's placements put your brand around the picture. Our creator network puts it inside it: 2,800+ Nordic Kick creators, native overlays during agreed moments, voice-triggered ads, polls in chat, and reach that survives into the replay. Booked from the same team, reported in the same report.",
+    body: "Kick's placements put your brand around the picture. Our creator network puts it inside it: Kick streamers picked from a Streamer Explorer database of 39,000+ creators, native overlays during agreed moments, voice-triggered ads, polls in chat, and reach that survives into the replay. Booked from the same team, reported in the same report.",
     cta: "How creator campaigns on Kick work",
     href: "/kick-streamer-advertising",
   },
@@ -478,7 +478,7 @@ const EN: KickCopy = {
       "DataReportal / DesignRush 2025-26, SimilarWeb 2025-26, Nielsen 2025, PwC Global E&M Outlook 2026: audience age by platform",
       "Edelman Gen Z Trust Report 2026: creator vs celebrity trust (3.2x)",
       "Kick Advertising Solutions, email to Beta Ads, 1 September 2026: Nordic watch hours and monthly active users",
-      "Beta Ads network data, September 2026: 2,800+ Nordic Kick creators",
+      "Beta Ads Streamer Explorer, September 2026: 39,445 streamers indexed, 37,599 recently active and open to collaborations, 4,179 have run campaigns",
     ],
   },
   cta: {
@@ -680,7 +680,7 @@ const NO: KickCopy = {
   creators: {
     label: "Beta Ads på Kick",
     heading: "Den andre veien inn: inne i selve strømmen.",
-    body: "Kicks plasseringer setter merkevaren din rundt bildet. Skapernettverket vårt setter den inne i det: over 2 800 nordiske Kick-skapere, native overlays i avtalte øyeblikk, stemmestyrte annonser, avstemninger i chatten og rekkevidde som lever videre i reprisen. Bookes fra samme team, rapporteres i samme rapport.",
+    body: "Kicks plasseringer setter merkevaren din rundt bildet. Skapernettverket vårt setter den inne i det: Kick-strømmere plukket fra en Streamer Explorer-database med over 39 000 skapere, native overlays i avtalte øyeblikk, stemmestyrte annonser, avstemninger i chatten og rekkevidde som lever videre i reprisen. Bookes fra samme team, rapporteres i samme rapport.",
     cta: "Slik fungerer skaperkampanjer på Kick",
     href: "/kick-streamer-annonsering",
   },
@@ -699,7 +699,7 @@ const NO: KickCopy = {
       "DataReportal / DesignRush 2025-26, SimilarWeb 2025-26, Nielsen 2025, PwC Global E&M Outlook 2026: publikumsalder per plattform",
       "Edelman Gen Z Trust Report 2026: tillit til skapere mot kjendiser (3,2x)",
       "Kick Advertising Solutions, e-post til Beta Ads, 1. september 2026: nordiske setimer og månedlige aktive brukere",
-      "Beta Ads nettverksdata, september 2026: 2 800+ nordiske Kick-skapere",
+      "Beta Ads Streamer Explorer, september 2026: 39 445 streamere indeksert, 37 599 nylig aktive og åpne for samarbeid, 4 179 har kjørt kampanjer",
     ],
   },
   cta: {
@@ -901,7 +901,7 @@ const SV: KickCopy = {
   creators: {
     label: "Beta Ads på Kick",
     heading: "Den andra vägen in: inne i själva streamen.",
-    body: "Kicks placeringar sätter ditt varumärke runt bilden. Vårt kreatörsnätverk sätter det inne i den: över 2 800 nordiska Kick-kreatörer, native overlays under avtalade ögonblick, röststyrda annonser, omröstningar i chatten och räckvidd som lever vidare i repriserna. Bokas från samma team, rapporteras i samma rapport.",
+    body: "Kicks placeringar sätter ditt varumärke runt bilden. Vårt kreatörsnätverk sätter det inne i den: Kick-streamers valda ur en Streamer Explorer-databas med över 39 000 kreatörer, native overlays under avtalade ögonblick, röststyrda annonser, omröstningar i chatten och räckvidd som lever vidare i repriserna. Bokas från samma team, rapporteras i samma rapport.",
     cta: "Så fungerar kreatörskampanjer på Kick",
     href: "/kick-streamer-annonsering-sverige",
   },
@@ -920,7 +920,7 @@ const SV: KickCopy = {
       "DataReportal / DesignRush 2025-26, SimilarWeb 2025-26, Nielsen 2025, PwC Global E&M Outlook 2026: publikens ålder per plattform",
       "Edelman Gen Z Trust Report 2026: förtroende för kreatörer mot kändisar (3,2x)",
       "Kick Advertising Solutions, e-post till Beta Ads, 1 september 2026: nordiska tittartimmar och månatligt aktiva användare",
-      "Beta Ads nätverksdata, september 2026: 2 800+ nordiska Kick-kreatörer",
+      "Beta Ads Streamer Explorer, september 2026: 39 445 streamers indexerade, 37 599 nyligen aktiva och öppna för samarbeten, 4 179 har kört kampanjer",
     ],
   },
   cta: {
@@ -1122,7 +1122,7 @@ const DA: KickCopy = {
   creators: {
     label: "Beta Ads på Kick",
     heading: "Den anden vej ind: inde i selve streamen.",
-    body: "Kicks placeringer sætter dit brand rundt om billedet. Vores creator-netværk sætter det inde i det: over 2.800 nordiske Kick-creators, native overlays i aftalte øjeblikke, stemmestyrede annoncer, afstemninger i chatten og rækkevidde, der lever videre i genudsendelsen. Bookes fra samme team, rapporteres i samme rapport.",
+    body: "Kicks placeringer sætter dit brand rundt om billedet. Vores creator-netværk sætter det inde i det: Kick-streamere udvalgt fra en Streamer Explorer-database med over 39.000 creators, native overlays i aftalte øjeblikke, stemmestyrede annoncer, afstemninger i chatten og rækkevidde, der lever videre i genudsendelsen. Bookes fra samme team, rapporteres i samme rapport.",
     cta: "Sådan fungerer creator-kampagner på Kick",
     href: "/kick-streamer-annoncering",
   },
@@ -1141,7 +1141,7 @@ const DA: KickCopy = {
       "DataReportal / DesignRush 2025-26, SimilarWeb 2025-26, Nielsen 2025, PwC Global E&M Outlook 2026: publikums alder per platform",
       "Edelman Gen Z Trust Report 2026: tillid til creators mod kendte (3,2x)",
       "Kick Advertising Solutions, e-mail til Beta Ads, 1. september 2026: nordiske setimer og månedligt aktive brugere",
-      "Beta Ads netværksdata, september 2026: 2.800+ nordiske Kick-creators",
+      "Beta Ads Streamer Explorer, september 2026: 39.445 streamere indekseret, 37.599 nyligt aktive og åbne for samarbejde, 4.179 har kørt kampagner",
     ],
   },
   cta: {
@@ -1343,7 +1343,7 @@ const FI: KickCopy = {
   creators: {
     label: "Beta Ads Kickissä",
     heading: "Toinen reitti sisään: itse lähetyksen sisällä.",
-    body: "Kickin mainospaikat asettavat brändisi kuvan ympärille. Tekijäverkostomme asettaa sen kuvan sisään: yli 2 800 pohjoismaista Kick-tekijää, native overlayt sovittuina hetkinä, ääniohjatut mainokset, äänestykset chatissa ja tavoittavuus, joka elää uusinnoissa. Varataan samalta tiimiltä, raportoidaan samassa raportissa.",
+    body: "Kickin mainospaikat asettavat brändisi kuvan ympärille. Tekijäverkostomme asettaa sen kuvan sisään: Kick-striimaajat valittuina yli 39 000 tekijän Streamer Explorer -tietokannasta, native overlayt sovittuina hetkinä, ääniohjatut mainokset, äänestykset chatissa ja tavoittavuus, joka elää uusinnoissa. Varataan samalta tiimiltä, raportoidaan samassa raportissa.",
     cta: "Näin tekijäkampanjat Kickissä toimivat",
     href: "/kick-streamer-mainonta",
   },
@@ -1362,7 +1362,7 @@ const FI: KickCopy = {
       "DataReportal / DesignRush 2025-26, SimilarWeb 2025-26, Nielsen 2025, PwC Global E&M Outlook 2026: yleisön ikä alustoittain",
       "Edelman Gen Z Trust Report 2026: luottamus tekijöihin vs. julkkiksiin (3,2x)",
       "Kick Advertising Solutions, sähköposti Beta Adsille 1. syyskuuta 2026: pohjoismaiset katselutunnit ja kuukausittaiset aktiiviset käyttäjät",
-      "Beta Adsin verkostodata, syyskuu 2026: 2 800+ pohjoismaista Kick-tekijää",
+      "Beta Adsin Streamer Explorer, syyskuu 2026: 39 445 striimaajaa indeksoitu, 37 599 äskettäin aktiivisia ja avoimia yhteistyölle, 4 179 on ajanut kampanjoita",
     ],
   },
   cta: {

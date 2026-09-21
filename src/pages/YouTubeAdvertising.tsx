@@ -10,7 +10,7 @@ import { MascotBand } from "@/components/sections/MascotBand";
 const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
 const stats = [
-  { value: "8,200+", label: "Nordic Streamers" },
+  { value: "39,000+", label: "Streamers in Explorer, 4 platforms" },
   { value: "#2", label: "Fastest-Growing Platform" },
   { value: "45 min", label: "Avg. Live Session" },
   { value: "2B+", label: "Monthly Users" },
@@ -42,10 +42,10 @@ const categories = [
 ];
 
 const platforms = [
-  { name: "Twitch", streamers: "28,000+", strength: "Largest gaming audience", slug: "/twitch-advertising" },
-  { name: "YouTube", streamers: "8,200+", strength: "Broadest demographics", slug: "/youtube-advertising" },
-  { name: "Kick", streamers: "2,800+", strength: "Fastest growth, longest sessions", slug: "/kick-advertising" },
-  { name: "Trovo", streamers: "445+", strength: "Untapped niche communities", slug: "#" },
+  { name: "Twitch", strength: "Largest gaming audience", slug: "/twitch-advertising" },
+  { name: "YouTube", strength: "Broadest demographics", slug: "/youtube-advertising" },
+  { name: "Kick", strength: "Fastest growth, longest sessions", slug: "/kick-advertising" },
+  { name: "Trovo", strength: "Untapped niche communities", slug: "#" },
 ];
 
 const YouTubeAdvertising: React.FC = () => {
@@ -64,12 +64,12 @@ const YouTubeAdvertising: React.FC = () => {
         description: "Native overlay ads on YouTube Live streams across Norway, Sweden, Finland, and Denmark. Reach gaming and lifestyle audiences with ads that bypass ad blockers.",
         canonical: "/youtube-advertising",
         jsonLd: [
-          { "@context": "https://schema.org", "@type": "Service", "@id": "https://beta-ads.no/youtube-advertising#service", name: "YouTube Live Advertising - Beta Ads", serviceType: "Native Livestream Advertising", description: "Native overlay ads on 8,200+ Nordic YouTube Live streams. 45+ minute average session exposure, 0% adblock impact.", provider: { "@id": "https://beta-ads.no/#organization" }, areaServed: ["Norway", "Sweden", "Denmark", "Finland"], url: "https://beta-ads.no/youtube-advertising" },
+          { "@context": "https://schema.org", "@type": "Service", "@id": "https://beta-ads.no/youtube-advertising#service", name: "YouTube Live Advertising - Beta Ads", serviceType: "Native Livestream Advertising", description: "Native overlay ads on Nordic YouTube Live streams. 45+ minute average session exposure, 0% adblock impact.", provider: { "@id": "https://beta-ads.no/#organization" }, areaServed: ["Norway", "Sweden", "Denmark", "Finland"], url: "https://beta-ads.no/youtube-advertising" },
           { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: "https://beta-ads.no/" }, { "@type": "ListItem", position: 2, name: "YouTube Advertising", item: "https://beta-ads.no/youtube-advertising" }] },
           { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [
             { "@type": "Question", name: "Can you advertise on YouTube Live streams?", acceptedAnswer: { "@type": "Answer", text: "Yes. Beta Ads places native overlay ads directly inside YouTube Live streams as part of the video content, bypassing ad blockers entirely. The ad appears within the stream feed, not as a browser-injected element." } },
             { "@type": "Question", name: "How is YouTube Live advertising different from regular YouTube ads?", acceptedAnswer: { "@type": "Answer", text: "Regular YouTube pre-rolls and mid-rolls can be skipped after 5 seconds and are blocked by ad blockers. Native overlay ads on YouTube Live are embedded in the stream - viewers can't skip them, and ad blockers can't detect or remove them." } },
-            { "@type": "Question", name: "How many YouTube Live streamers are there in the Nordics?", acceptedAnswer: { "@type": "Answer", text: "Beta Ads has access to 8,200+ Nordic YouTube Live streamers across Norway, Sweden, Finland, and Denmark, spanning gaming, esports, IRL, and creator content categories." } },
+            { "@type": "Question", name: "How many YouTube Live streamers are there in the Nordics?", acceptedAnswer: { "@type": "Answer", text: "Beta Ads' Streamer Explorer indexes YouTube Live streamers across Norway, Sweden, Finland and Denmark alongside Twitch and Kick; 37,599 streamers in the database are recently active and open to collaborations, spanning gaming, esports, IRL, and creator content categories." } },
             { "@type": "Question", name: "How long do viewers watch YouTube Live streams?", acceptedAnswer: { "@type": "Answer", text: "YouTube Live viewers average 45+ minutes per session, with gaming streams often exceeding 90 minutes. This sustained viewing time means your brand gets repeated exposure throughout the session, not just a single impression." } },
             { "@type": "Question", name: "What game categories perform best for YouTube advertising in the Nordics?", acceptedAnswer: { "@type": "Answer", text: "Minecraft, FIFA/FC25, Fortnite, and Just Chatting content consistently generate the highest viewership on Nordic YouTube Live. Esports events and tournament streams also deliver large concentrated audiences." } },
           ] },
@@ -300,7 +300,6 @@ const YouTubeAdvertising: React.FC = () => {
               const card = (
                 <div className={`p-6 rounded-2xl border transition-all duration-300 ${isCurrentPage ? "border-primary/40 bg-primary/5" : isDisabled ? "border-border bg-card opacity-60 cursor-default" : "border-border bg-card hover:border-primary/20 hover:-translate-y-1 hover:shadow-md"}`}>
                   <h3 className="font-semibold text-foreground mb-1">{p.name}</h3>
-                  <div className="text-2xl font-bold text-foreground tracking-tight mb-2">{p.streamers}</div>
                   <p className="text-xs text-muted-foreground">{p.strength}</p>
                   {isCurrentPage && (
                     <span className="inline-block mt-3 text-[10px] font-semibold text-primary bg-primary/10 px-2 py-0.5 rounded-full">Current page</span>
@@ -342,10 +341,10 @@ const YouTubeAdvertising: React.FC = () => {
             {[
               { q: "Can you advertise on YouTube Live streams?", a: "Yes. Beta Ads places native overlay ads directly inside YouTube Live streams. They're rendered as part of the video content - bypassing ad blockers and providing sustained brand visibility." },
               { q: "How is this different from regular YouTube ads?", a: "Regular YouTube ads (pre-roll, mid-roll) can be skipped or blocked. Native overlay ads are part of the stream - viewers can't skip them, and ad blockers can't remove them." },
-              { q: "What categories of streamers are on YouTube Live?", a: "Our 8,200+ Nordic YouTube Live streamers span gaming, music, sports, education, lifestyle, and IRL content - considerably broader than Twitch's gaming-dominant catalog." },
+              { q: "What categories of streamers are on YouTube Live?", a: "The YouTube Live streamers in our Explorer span gaming, music, sports, education, lifestyle, and IRL content - considerably broader than Twitch's gaming-dominant catalog." },
               { q: "Can I run campaigns on both Twitch and YouTube simultaneously?", a: "Yes, and we recommend it. Beta Ads manages multi-platform campaigns from a single dashboard, giving your brand presence across the full Nordic streaming audience." },
               { q: "Does YouTube Live content stay discoverable after the campaign ends?", a: "Yes. YouTube archives live streams as VODs that continue to surface in search results. Your overlay ad is present in archived content, extending the campaign's effective reach well beyond the live audience." },
-              { q: "How does audience targeting work on YouTube Live?", a: "We filter our 8,200+ Nordic YouTube Live streamers by content category, country, language, audience demographics, and average concurrent viewers. You approve the final creator list before launch." },
+              { q: "How does audience targeting work on YouTube Live?", a: "We filter the YouTube Live streamers in our Explorer by content category, country, language, audience demographics, and average concurrent viewers. You approve the final creator list before launch." },
             ].map((faq, i) => (
               <details key={i} className="group border-b border-border last:border-b-0">
                 <summary className="flex items-center justify-between py-5 cursor-pointer text-sm font-medium text-foreground hover:text-primary transition-colors select-none">

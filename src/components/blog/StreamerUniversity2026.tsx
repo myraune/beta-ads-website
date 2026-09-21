@@ -484,7 +484,7 @@ const StreamerUniversity2026: React.FC = () => {
           <div className="max-w-lg">
             <h2 className="text-2xl md:text-3xl font-light tracking-tight mb-3">Run the same mechanic in the Nordics</h2>
             <p className="text-background/60 text-sm md:text-base leading-relaxed">
-              Native overlay campaigns across 39,000+ Nordic streamers: many creators at once, inside
+              Native overlay campaigns across 39,000+ streamers in our Streamer Explorer database: many creators at once, inside
               the stream, with verified reporting. See how the format works and what it costs.
             </p>
           </div>

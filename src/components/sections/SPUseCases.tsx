@@ -3,32 +3,6 @@ import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 /* ── Count-up animation hook ── */
-function useCountUp(target: string, isVisible: boolean) {
-  const [display, setDisplay] = useState("0");
-
-  useEffect(() => {
-    if (!isVisible) return;
-    const cleaned = target.replace(/,/g, "");
-    const numMatch = cleaned.match(/^([\d.]+)/);
-    if (!numMatch) { setDisplay(target); return; }
-    const numericTarget = parseFloat(numMatch[1]);
-    const suffix = cleaned.replace(/^[\d.]+/, "");
-    const hasCommas = target.includes(",");
-    const duration = 1400;
-    const start = performance.now();
-    const tick = (now: number) => {
-      const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.floor(numericTarget * eased);
-      setDisplay((hasCommas ? current.toLocaleString() : current.toString()) + suffix);
-      if (progress < 1) requestAnimationFrame(tick);
-    };
-    setDisplay("0" + suffix);
-    requestAnimationFrame(tick);
-  }, [isVisible, target]);
-
-  return display;
-}
 
 /* ── Ad Format Preview - single interactive viewer, format-switching tabs ──
  *
@@ -141,7 +115,6 @@ const platforms = [
   {
     name: "Twitch",
     slug: "/twitch-advertising",
-    streamers: "28,000+",
     tagline: "Largest gaming audience",
     logo: "/lovable-uploads/platform-twitch.png",
     color: "#9146FF",
@@ -149,7 +122,6 @@ const platforms = [
   {
     name: "YouTube",
     slug: "/youtube-advertising",
-    streamers: "8,200+",
     tagline: "Broadest demographics",
     logo: "/lovable-uploads/platform-youtube.png",
     color: "#FF0000",
@@ -157,7 +129,6 @@ const platforms = [
   {
     name: "Kick",
     slug: "/kick-advertising",
-    streamers: "2,800+",
     tagline: "Fastest growing platform",
     logo: "/lovable-uploads/platform-kick.png",
     color: "#53FC18",
@@ -165,7 +136,6 @@ const platforms = [
   {
     name: "Trovo",
     slug: "#",
-    streamers: "445+",
     tagline: "Untapped niche communities",
     logo: "/lovable-uploads/platform-trovo.png",
     color: "#19D66B",
@@ -255,7 +225,6 @@ const adFormats = [
 
 /* ── Individual platform column ── */
 const PlatformCol: React.FC<{ p: typeof platforms[0]; isVisible: boolean; index: number }> = ({ p, isVisible, index }) => {
-  const count = useCountUp(p.streamers, isVisible);
   const [hovered, setHovered] = useState(false);
 
   // Platforms without a dedicated page (slug === '#') render as a
@@ -281,17 +250,6 @@ const PlatformCol: React.FC<{ p: typeof platforms[0]; isVisible: boolean; index:
           className="h-8 w-auto object-contain transition-all duration-300"
           style={{ filter: hovered ? `drop-shadow(0 0 8px ${p.color}60)` : "none" }}
         />
-      </div>
-
-      {/* Streamer count */}
-      <div>
-        <span
-          className="text-3xl md:text-4xl font-bold tabular-nums tracking-tight"
-          style={{ color: p.color }}
-        >
-          {count}
-        </span>
-        <p className="text-xs text-muted-foreground mt-0.5">streamers</p>
       </div>
 
       {/* Platform name + tagline */}
@@ -324,10 +282,10 @@ export const SPUseCases: React.FC = () => {
         <div className={`mb-4 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Platform Reach</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-3 max-w-xl">
-            39,445 streamers. 4 platforms. One dashboard.
+            39,000+ streamers. 4 platforms. One dashboard.
           </h2>
           <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
-            Browse recently active streamers across all major platforms and launch native overlay ads from a single dashboard.
+            Our Streamer Explorer covers 39,000+ streamers across Twitch, YouTube, Kick and Trovo, with 37,500+ recently active and open to brand collaborations. Launch native overlay ads from a single dashboard.
           </p>
         </div>
 

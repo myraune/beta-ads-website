@@ -1179,7 +1179,7 @@ For brands, this means the advertising runs whether the streamer is at peak ener
 
 ![A live gaming setup with stream overlay visible during active broadcast](/lovable-uploads/blog-twitch-streamer.jpg)
 
-Platforms focused on overlay ad delivery across Nordic live streams are built on exactly this logic. The ad format works with the creator's content flow, not against it. A curated network of Nordic streamers paired with real-time analytics showing exactly when and where an ad ran gives brands both the reach and the verification that traditional integration formats rarely provide. Beta Ads runs campaigns across a database of over 39,000 streamers in Norway, Sweden, Finland, and Denmark, using native formats specifically designed to minimize the creative burden on individual creators.
+Platforms focused on overlay ad delivery across Nordic live streams are built on exactly this logic. The ad format works with the creator's content flow, not against it. A curated network of Nordic streamers paired with real-time analytics showing exactly when and where an ad ran gives brands both the reach and the verification that traditional integration formats rarely provide. Beta Ads runs campaigns across a database of over 39,000 streamers in our Streamer Explorer database, using native formats specifically designed to minimize the creative burden on individual creators.
 
 ## Five questions to ask before booking a Nordic streamer
 
@@ -1425,7 +1425,7 @@ Some of the most successful creator-brand integrations in 2025 and early 2026 ha
 
 This is the logic behind long-term streamer partnerships rather than campaign-by-campaign activations. A brand that runs a prediction sponsorship with the same streamer six times over a quarter builds a Pavlovian association: when this brand appears, something interesting is about to happen in the stream.
 
-Beta Ads' network of 39,000+ Nordic streamers includes engagement history and format affinity data that helps match brands to streamers whose communities are already responsive to interactive content. Not every streamer runs predictions regularly. Finding the ones that do -- and whose audiences participate enthusiastically -- is the variable that determines whether the format performs or falls flat.
+Beta Ads' database of 39,000+ streamers in our Streamer Explorer database includes engagement history and format affinity data that helps match brands to streamers whose communities are already responsive to interactive content. Not every streamer runs predictions regularly. Finding the ones that do -- and whose audiences participate enthusiastically -- is the variable that determines whether the format performs or falls flat.
 
 ![Performance analytics showing live engagement data, chat activity, and viewer metrics on a dashboard screen](/lovable-uploads/blog-poll-sponsorship-twitch-2026-3.jpg)
 
@@ -1531,7 +1531,7 @@ A few practical principles for tournament campaign planning:
 
 **Plan for clip amplification.** Tournament periods generate the highest-volume clipping on Twitch. A well-timed branded segment during a major play or upset moment gets clipped and redistributed organically. Build the brief to include a clippable moment rather than treating it purely as a passive placement.
 
-Beta Ads' database of 39,000+ Nordic streamers includes viewership history and genre affinity data that lets campaign teams identify which hosts typically see the largest tournament-period spikes. Not just who is biggest, but who overcomes during events. Real-time analytics during the tournament window let teams shift budget toward overperforming placements mid-flight.
+Beta Ads' database of 39,000+ streamers in our Streamer Explorer database includes viewership history and genre affinity data that lets campaign teams identify which hosts typically see the largest tournament-period spikes. Not just who is biggest, but who overcomes during events. Real-time analytics during the tournament window let teams shift budget toward overperforming placements mid-flight.
 
 ## What to Measure During Tournament Windows
 
@@ -1644,7 +1644,7 @@ The Nordic market compounds the global opportunity. Gaming culture in Scandinavi
 
 The brands already running live streaming and gaming campaigns in the Nordics are building relationships with audiences that are unusually engaged and unusually loyal. The brands still defaulting to traditional channels are funding campaigns for an audience that is skewing older and smaller each year.
 
-Platforms like Beta Ads are built to close the execution gap. A database of more than 39,000 Nordic streamers, voice recognition tools that verify ad delivery, and real-time analytics that make gaming campaign performance as measurable as any other digital channel. The infrastructure exists. The audience is there.
+Platforms like Beta Ads are built to close the execution gap. A database of more than 39,000 streamers in our Streamer Explorer database, voice recognition tools that verify ad delivery, and real-time analytics that make gaming campaign performance as measurable as any other digital channel. The infrastructure exists. The audience is there.
 
 The only variable is whether a brand decides this year is the year it stops being part of the less-than-5%.`,
     date: "Apr 1, 2026",
@@ -1736,7 +1736,7 @@ Native overlay ads that integrate into the stream without interruption deliver 4
 
 The practical implication is that the channel's growth is being driven by formats that work, not formats that are tolerated. For brands, this distinction matters: you are not buying space in a format viewers resent, you are entering a relationship between creator and audience that, when handled well, reflects positively on the brand.
 
-Platforms like Beta Ads give Nordic brands direct access to more than 39,000 streamers across Twitch, YouTube, and Kick, with voice recognition tools that verify ad delivery, real-time analytics, and a database built specifically for the Nordic market. The infrastructure for this category is already in place.
+Platforms like Beta Ads give Nordic brands direct access to more than 39,000 streamers in our Streamer Explorer database across Twitch, YouTube and Kick, with voice recognition tools that verify ad delivery, real-time analytics, and a database built specifically for the Nordic market. The infrastructure for this category is already in place.
 
 ## The Window Is Defined
 
@@ -1838,7 +1838,7 @@ Eighty percent of Norwegian households have at least one paid streaming service.
 
 ![A real-time analytics dashboard displaying live streaming viewership metrics, engagement rates, and audience data](/lovable-uploads/blog-live-stream-ad-receptivity-3.jpg)
 
-Beta Ads' database of more than 39,000 Nordic streamers, combined with real-time analytics, AI-powered clipping, and verified sponsorship reporting, exists to close the gap between advertiser intent and live streaming execution. Brands no longer need to rely on manual outreach, estimated viewership figures, or post-campaign screenshots to justify streaming investment. The measurement infrastructure that mature ad channels offer -- verified delivery, audience demographic data, real-time reporting -- is now available for native livestream placements across the Nordic region.
+Beta Ads' database of more than 39,000 streamers in our Streamer Explorer database, combined with real-time analytics, AI-powered clipping, and verified sponsorship reporting, exists to close the gap between advertiser intent and live streaming execution. Brands no longer need to rely on manual outreach, estimated viewership figures, or post-campaign screenshots to justify streaming investment. The measurement infrastructure that mature ad channels offer -- verified delivery, audience demographic data, real-time reporting -- is now available for native livestream placements across the Nordic region.
 
 ## The Format That Fits the Audience
 
@@ -1912,7 +1912,7 @@ Planning campaigns around these events requires advance commitment. Major tourna
 
 The first step is identifying which events are relevant to your category, not just which events are large. A gaming peripheral brand's optimal window is obvious. For a financial services company or a consumer goods brand, the relevant events require more judgment. The question is not which game is launching, but where your target audience is concentrated on the streaming platforms you are trying to reach.
 
-Beta Ads' database of more than 39,000 Nordic streamers includes category tagging and audience demographic data that allows brands to identify which creators are most active during specific event windows and which have communities that match the advertiser's target profile. Rather than guessing which tournament will bring the right viewers, brands can analyze historical viewership data for comparable events and select placements accordingly.
+Beta Ads' database of more than 39,000 streamers in our Streamer Explorer database includes category tagging and audience demographic data that allows brands to identify which creators are most active during specific event windows and which have communities that match the advertiser's target profile. Rather than guessing which tournament will bring the right viewers, brands can analyze historical viewership data for comparable events and select placements accordingly.
 
 The second step is timeline. The brands that consistently outperform on event-based buys commit six to eight weeks in advance. This is not because the platforms require it, but because the streamers worth working with have options. A creator with 25,000 viewers and a dedicated community can fill their sponsorship calendar during high-value windows. The brands that arrive three weeks out with competitive budgets often find the best placements already taken.
 
@@ -2036,7 +2036,7 @@ The Nordic market is well-positioned for hybrid deal adoption. Norwegian, Swedis
 
 Nordic streamers, many of whom have built communities over years of consistent content, have the audience data and confidence to evaluate performance structures rationally. They know their conversion history. They can assess whether a base fee plus performance bonus is likely to outperform a flat rate. For the streamers whose communities are genuinely engaged, the answer is usually yes.
 
-For brands running Nordic campaigns through Beta Ads, the operational infrastructure for performance deals is already in place. The database of 39,000 plus Nordic streamers includes audience demographic data, engagement quality metrics, and platform performance history that allows brands to identify which creators are likely to deliver on a performance structure before the contract is signed. Real-time analytics across active integrations make attribution transparent. AI-powered clip detection verifies that integrations ran as agreed.
+For brands running Nordic campaigns through Beta Ads, the operational infrastructure for performance deals is already in place. The database of 39,000 plus streamers in our Streamer Explorer database includes audience demographic data, engagement quality metrics, and platform performance history that allows brands to identify which creators are likely to deliver on a performance structure before the contract is signed. Real-time analytics across active integrations make attribution transparent. AI-powered clip detection verifies that integrations ran as agreed.
 
 The operational complexity that previously made performance deals impractical at scale is now largely handled by platform tooling. What remains is the strategic decision to align brand and streamer incentives around the outcome that actually matters.
 
@@ -2128,7 +2128,7 @@ That infrastructure gap is what has kept most Nordic advertising spend concentra
 
 The operational argument against mid-tier campaigns is real. Managing 20 separate streamer relationships, each with its own negotiation, brief, delivery window, and reporting requirement, is substantially more complex than one large partnership. Most brands are not set up for it, and most agencies are not either.
 
-This is where platform infrastructure becomes the deciding variable. Beta Ads operates a database of more than 39,000 Nordic streamers, with tools for targeting by audience demographics, content category, and platform. The campaign workflow handles coordination across multiple creators simultaneously, with real-time analytics aggregated across all active integrations. AI-powered clip detection verifies that sponsored content ran and surfaces the most shareable moments for extended distribution.
+This is where platform infrastructure becomes the deciding variable. Beta Ads operates a database of more than 39,000 streamers in our Streamer Explorer database, with tools for targeting by audience demographics, content category, and platform. The campaign workflow handles coordination across multiple creators simultaneously, with real-time analytics aggregated across all active integrations. AI-powered clip detection verifies that sponsored content ran and surfaces the most shareable moments for extended distribution.
 
 The operational complexity that historically made mid-tier campaigns impractical is now largely solved by platform tooling. What remains is the strategic decision to allocate budget toward the segment where the performance data is strongest.
 
@@ -2225,7 +2225,7 @@ Advertising has not caught up to the same degree. Pre-roll and mid-roll video ad
 
 The formats that actually work in this environment are native. Overlay ads that appear contextually during content without interrupting it. Integrations that give streamers creative latitude. Sponsored segments that feel like part of the stream rather than a pause button. Native display ad spending in the US is growing 13.1% in 2026 to $147.98 billion - the market has already made its verdict on which formats generate engagement.
 
-For Nordic advertisers specifically, the challenge is finding native formats at scale across the 39,000+ active streamers in the region, not just the top 50.
+For Nordic advertisers specifically, the challenge is finding native formats at scale across the 39,000+ streamers in our Streamer Explorer database, not just the top 50.
 
 ## The Data Infrastructure Problem
 
@@ -2233,7 +2233,7 @@ Here is something Nordic Game attendees debate every year: the Nordics produce e
 
 A brand looking to run a campaign across 200 mid-tier Nordic streamers faces a coordination problem that most agencies are not set up to handle. Identifying creators with the right audience demographics, verifying that integrations ran correctly, aggregating performance data across platforms, and converting all of it into something a media buyer can act on - these are not trivial tasks.
 
-This is where platforms like Beta Ads become relevant. The database of 39,000+ Nordic streamers, combined with tools for campaign targeting, real-time analytics, AI-powered clip generation, and integration verification, addresses the operational gap between ambition and execution in Nordic livestream advertising. The market size justifies systematic investment; the tools now exist to make that investment measurable.
+This is where platforms like Beta Ads become relevant. The database of 39,000+ streamers in our Streamer Explorer database, combined with tools for campaign targeting, real-time analytics, AI-powered clip generation, and integration verification, addresses the operational gap between ambition and execution in Nordic livestream advertising. The market size justifies systematic investment; the tools now exist to make that investment measurable.
 
 ## Eight Weeks Is a Useful Timeline
 
@@ -2337,7 +2337,7 @@ For Nordic brands, this mechanism has additional leverage. Nordic streaming audi
 
 The historical obstacle to scaling creator-based live stream advertising in the Nordics was operational. Finding the right streamers, verifying audience composition, confirming delivery, measuring impact across dozens of simultaneous integrations - this work was difficult enough that most brands defaulted to a small number of large platform deals rather than building targeted creator programs.
 
-That infrastructure now exists. Beta Ads maintains a database of over 39,000 Nordic streamers, filterable by category, audience demographics, language, and engagement metrics. A brand looking to reach Norwegian 18-24 gaming audiences, or Swedish-speaking lifestyle streamers with female-skewing demographics, or Finnish esports viewers with demonstrated spending behavior, can identify and brief that creator pool without the weeks of manual research it would previously have required.
+That infrastructure now exists. Beta Ads maintains a database of over 39,000 streamers in our Streamer Explorer database, filterable by category, audience demographics, language, and engagement metrics. A brand looking to reach Norwegian 18-24 gaming audiences, or Swedish-speaking lifestyle streamers with female-skewing demographics, or Finnish esports viewers with demonstrated spending behavior, can identify and brief that creator pool without the weeks of manual research it would previously have required.
 
 Voice recognition built into the platform verifies that brand mentions actually happen as specified. Real-time analytics track audience engagement during integration windows. AI clipping converts live integration moments into short-form assets that extend the reach of a single live campaign through multiple channels.
 
@@ -2433,7 +2433,7 @@ For Nordic brands operating in markets where consumer trust in advertising is bo
 
 The challenge with contextual targeting in live streaming has historically been scale. Finding enough creators, in the right categories, with the right audience compositions, broadcasting in the right languages, at sufficient combined reach to run a meaningful campaign - that discovery and verification problem has kept many Nordic brands relying on a handful of large-platform deals rather than building contextually targeted creator programs.
 
-The infrastructure for solving this has developed significantly. Beta Ads maintains a database of 39,000 or more Nordic streamers, filterable by game category, audience demographics, language, average concurrent viewership, and engagement rate. A Nordic brand looking to reach Swedish-speaking 18-29 year-old gaming audiences without any dependency on third-party behavioral data can identify the relevant creator pool, estimate campaign reach, and verify delivery - all within contextual parameters that require no cookie consent.
+The infrastructure for solving this has developed significantly. Beta Ads maintains a database of 39,000 or more streamers in our Streamer Explorer database, filterable by game category, audience demographics, language, average concurrent viewership, and engagement rate. A Nordic brand looking to reach Swedish-speaking 18-29 year-old gaming audiences without any dependency on third-party behavioral data can identify the relevant creator pool, estimate campaign reach, and verify delivery - all within contextual parameters that require no cookie consent.
 
 Voice recognition technology built into the platform also means that delivery verification does not require behavioral tracking. Confirming that a brand mention happened, that it occurred in the right segment, and that the overlay appeared as specified can be done through broadcast analysis rather than pixel tracking, removing another layer of cookie dependency from the campaign infrastructure.
 
@@ -2545,7 +2545,7 @@ The practical approach is straightforward. During creator briefing, ask which pl
 
 ![A gaming creator reviewing stream analytics and audience data across multiple platform dashboards](/lovable-uploads/blog-multistreaming-revolution-3.jpg)
 
-For brands operating at any scale in Nordic gaming, a creator database that includes platform diversity data is no longer a nice-to-have. Beta Ads maintains a database of 39,000 or more streamers across the Nordic region with real-time analytics, allowing campaign teams to identify not just reach and engagement but multiplatform activity patterns before a partnership is negotiated.
+For brands operating at any scale in Nordic gaming, a creator database that includes platform diversity data is no longer a nice-to-have. Beta Ads maintains a database of 39,000 or more streamers in our Streamer Explorer database with real-time analytics, allowing campaign teams to identify not just reach and engagement but multiplatform activity patterns before a partnership is negotiated.
 
 The voice recognition and AI clipping capabilities built into that infrastructure also ensure that delivery verification does not stop at the Twitch dashboard. When a creator goes live across three platforms, the ability to confirm that brand mentions happened, that overlays appeared correctly, and that the integration ran as specified requires technology that operates at the broadcast level, not the platform reporting level.
 
@@ -2661,7 +2661,7 @@ What is genuinely scarce is engaged attention: viewers who are leaning forward, 
 
 The brands winning in this environment are not the ones with the biggest budgets. They are the ones that recognized the format shift early and stopped trying to import television thinking into a medium that operates on completely different principles.
 
-A database of 39,000 streamers across the Nordic region, combined with real-time analytics and native overlay capabilities, exists precisely because the measurement and execution infrastructure for this kind of advertising was not built by the platforms. The platforms optimized for scale and reach. The tools that make interactive, native streaming advertising work at a precision level had to be built separately.
+A database of 39,000 streamers in our Streamer Explorer database, combined with real-time analytics and native overlay capabilities, exists precisely because the measurement and execution infrastructure for this kind of advertising was not built by the platforms. The platforms optimized for scale and reach. The tools that make interactive, native streaming advertising work at a precision level had to be built separately.
 
 ![Brand collaboration during a live stream with overlay graphics showing engagement metrics and viewer interaction](/lovable-uploads/blog-gen-z-interactive-ads-3.jpg)
 
@@ -2763,7 +2763,7 @@ The gaming and esports culture in the region is deep and longstanding. Norway, S
 
 There is also a targeting consideration. Finding the right Nordic live streaming audiences historically required manually researching streamers, negotiating individual deals, and running campaigns without real-time visibility into performance. The operational overhead was a genuine barrier for brands that wanted to run at scale.
 
-That gap is what purpose-built infrastructure addresses. Beta Ads maintains a database of over 39,000 Nordic streamers with detailed audience segmentation, real-time analytics, and native overlay ad formats that deploy without breaking the stream experience. The mechanics that made live streaming advertising difficult to scale are being removed one by one.
+That gap is what purpose-built infrastructure addresses. Beta Ads maintains a database of over 39,000 streamers in our Streamer Explorer database with detailed audience segmentation, real-time analytics, and native overlay ad formats that deploy without breaking the stream experience. The mechanics that made live streaming advertising difficult to scale are being removed one by one.
 
 ## The Budget Allocation Question
 
@@ -2875,7 +2875,7 @@ Brand sponsorship revenue across gaming streamers globally hit $4.8 billion in 2
 
 Moving budget toward Kick does not require abandoning Twitch. It requires adding Kick-specific placements to the campaign brief and understanding that the execution model is slightly different. The creative that performs on Kick tends to be lighter in formal structure, more conversational, and more dependent on creator authenticity than scripts.
 
-Beta Ads tracks more than 39,000 streamers across the Nordic market, with coverage across Twitch, Kick, and YouTube. The real-time analytics layer measures brand mentions, overlay impressions, and audience engagement across all three platforms, which means a campaign does not need to choose one surface over another. The platforms can work in parallel, with the analytics tracking performance consistently across all of them.
+Beta Ads tracks more than 39,000 streamers in our Streamer Explorer database, with coverage across Twitch, Kick, and YouTube. The real-time analytics layer measures brand mentions, overlay impressions, and audience engagement across all three platforms, which means a campaign does not need to choose one surface over another. The platforms can work in parallel, with the analytics tracking performance consistently across all of them.
 
 For brands that have not yet run a Kick campaign, the starting question is not whether Kick is big enough. It clearly is. The question is whether your brand will be one of the first in your category to build creator relationships on a platform that is growing faster than any comparable live streaming surface in the market right now.
 
@@ -2975,7 +2975,7 @@ This is not a YouTube-specific insight. It is the finding from every platform th
 
 YouTube building these formats at scale is significant because it normalizes the expectation among both advertisers and audiences. Brands that learn to execute non-interruptive live advertising on Twitch or Kick today are building the muscle for the format that will dominate YouTube's live inventory in 2026 and beyond.
 
-The 39,000-plus streamers in Beta Ads' Nordic database cover multiple platforms. Campaigns that run natively on Twitch and simultaneously capture YouTube Live audiences through multi-stream distribution represent the kind of coverage that a single-platform approach cannot match.
+The 39,000-plus streamers in our Streamer Explorer database cover multiple platforms. Campaigns that run natively on Twitch and simultaneously capture YouTube Live audiences through multi-stream distribution represent the kind of coverage that a single-platform approach cannot match.
 
 ## The Nordic Angle
 
@@ -3099,7 +3099,7 @@ CPM is an input cost, not an outcome metric. The benchmarks that actually matter
 
 **Verification and clip capture**: Can you prove the ad ran as booked? Voice recognition and AI-powered clipping tools now allow brands to verify every placement and automatically capture sponsored moments as distributable content - extending the reach of a single stream integration across weeks of social distribution.
 
-This is where platforms like Beta Ads change the economics. Access to a database of 39,000+ streamers across the Nordics - filtered by language, category, viewership size, and engagement rate - means finding the right inventory no longer requires a manual outreach campaign. Campaign verification, clip capture, and real-time analytics close the measurement gap that has historically made live stream advertising feel opaque compared to programmatic display.
+This is where platforms like Beta Ads change the economics. Access to a database of 39,000+ streamers in our Streamer Explorer database - filtered by language, category, viewership size, and engagement rate - means finding the right inventory no longer requires a manual outreach campaign. Campaign verification, clip capture, and real-time analytics close the measurement gap that has historically made live stream advertising feel opaque compared to programmatic display.
 
 ## How Nordic Brands Should Think About Budget
 
@@ -3207,7 +3207,7 @@ The Nordic market is particularly exposed to the pre-roll problem. Ad blocker ad
 
 This isn't a future risk for Nordic advertisers still relying on pre-roll and standard video units - it's a current reality. The budgets going into intrusive formats are already reaching a declining fraction of the intended audience.
 
-The good news is that the alternative infrastructure is in place. With over **39,000 Nordic streamers** indexed across platforms, the supply of non-intrusive, native-ready inventory already exists at scale. The 44% of Twitch viewers globally who have purchased a product based on a streamer recommendation represent an audience that is actively open to brand presence - as long as it respects the content environment.
+The good news is that the alternative infrastructure is in place. With over **39,000 streamers in our Streamer Explorer database** indexed across platforms, the supply of non-intrusive, native-ready inventory already exists at scale. The 44% of Twitch viewers globally who have purchased a product based on a streamer recommendation represent an audience that is actively open to brand presence - as long as it respects the content environment.
 
 The pause ad's 51% action rate isn't a number to simply admire. It's a signal about what the audience responds to when advertising earns its placement rather than forcing it. For Nordic brands, the strategic implication is clear: move budget toward formats that work with the viewer's experience rather than against it, and invest in the verification infrastructure that makes those formats accountable.
 
@@ -3323,7 +3323,7 @@ Shifting to a serialized content model isn't just a budget reallocation - it req
 
 **Think in seasons, not campaigns.** A 6–12 week serialized partnership requires pre-production: creative brief, format design, streamer casting, integration planning. The payoff is proportionally larger, but the lead time is longer than buying a pre-roll.
 
-**Find the right creators.** Serialized formats only work with streamers who can sustain a narrative and whose communities are genuinely engaged. A database that covers not just follower counts but content categories, community health metrics, average session length, and historical brand partnership performance makes this selection tractable. With over 39,000 Nordic streamers indexed and growing, finding the right match has become a data exercise rather than a guesswork exercise.
+**Find the right creators.** Serialized formats only work with streamers who can sustain a narrative and whose communities are genuinely engaged. A database that covers not just follower counts but content categories, community health metrics, average session length, and historical brand partnership performance makes this selection tractable. With over 39,000 streamers in our Streamer Explorer database indexed and growing, finding the right match has become a data exercise rather than a guesswork exercise.
 
 **Build the integration around the stream, not the other way around.** The worst branded livestream content is content where the brand is clearly bolted on. The best is where the format and the brand feel inseparable - where removing the brand would change the show. Getting there requires early creative investment and genuine collaboration with the creator.
 
@@ -3468,7 +3468,7 @@ Clipping doesn't exist in isolation. It's one part of a larger shift in how bran
 
 The same reason [native overlay ads on Twitch](/twitch-advertising) outperform banner ads is the same reason organic-looking clipped content outperforms paid social: authenticity and context. Viewers on short-form platforms don't want to be advertised to. They want to be entertained.
 
-Platforms like Beta Ads are building the infrastructure for the live streaming side of this equation, where brands connect with 39,000+ streamers in the Nordic network through native, real-time ad formats. Clipping is the short-form distribution layer that sits on top - taking the best moments from live content and extending their reach across TikTok, Reels, and Shorts long after the stream ends.
+Platforms like Beta Ads are building the infrastructure for the live streaming side of this equation, where brands connect with 39,000+ streamers in our Streamer Explorer database through native, real-time ad formats. Clipping is the short-form distribution layer that sits on top - taking the best moments from live content and extending their reach across TikTok, Reels, and Shorts long after the stream ends.
 
 Together, these channels represent something traditional advertising can't replicate: genuine attention from a Gen Z audience that has opted out of almost everything else.
 
@@ -3573,7 +3573,7 @@ Which phrasing generates the strongest chat reaction? When in a stream is a bran
 
 These questions are unanswerable when verification is manual and retroactive. When every mention is captured in real time, they become straightforward analytical questions. A brand running a 40-streamer Nordic campaign can see within hours which integrations are performing and brief underperforming streamers on what's working elsewhere - mid-campaign, not in a post-mortem.
 
-This transforms live stream advertising from a campaign model into something closer to real-time media optimization. The 39,000+ streamers in Beta Ads' Nordic database, combined with real-time analytics and voice recognition, create the infrastructure for campaigns that can actually be managed rather than simply launched and hoped for.
+This transforms live stream advertising from a campaign model into something closer to real-time media optimization. The 39,000+ streamers in our Streamer Explorer database, combined with real-time analytics and voice recognition, create the infrastructure for campaigns that can actually be managed rather than simply launched and hoped for.
 
 ## What Accountability Enables
 
@@ -3681,7 +3681,7 @@ The most clippable streamer activations involve genuine product interaction, une
 
 Nordic streaming communities are particularly active clip sharers. Gaming culture in Norway, Sweden, Finland, and Denmark is built around community participation - viewers are not passive consumers but active participants who discover, share, and discuss content together. When a Nordic streamer has an authentic moment involving a brand, the community around that streamer is primed to amplify it.
 
-Beta Ads maintains a database of 39,000+ Nordic streamers that includes engagement metrics beyond concurrent viewer counts - identifying creators whose communities are not just large, but actively engaged in sharing and clipping content. Combined with real-time analytics tracking brand mention performance across a campaign, this allows Nordic advertisers to build strategies around the total reach a campaign delivers, not just the live audience count.
+Beta Ads maintains a database of 39,000+ streamers in our Streamer Explorer database that includes engagement metrics beyond concurrent viewer counts - identifying creators whose communities are not just large, but actively engaged in sharing and clipping content. Combined with real-time analytics tracking brand mention performance across a campaign, this allows Nordic advertisers to build strategies around the total reach a campaign delivers, not just the live audience count.
 
 The brands investing in Nordic live streaming now, with formats designed for clip potential, are building cumulative exposure that compounds over time. Each clipped brand moment creates a new asset - one that keeps working independently of when the stream ended.
 
@@ -3788,7 +3788,7 @@ But Nordic advertisers face the same platform risks as brands anywhere. The stre
 
 The global live streaming market is projected to reach $345 billion by 2030, growing at a 23% CAGR. That growth doesn't flow to every platform equally - it flows to the platforms that retain creators and audiences, and to the brands that have built durable presences with those audiences regardless of which logo is in the corner of the stream.
 
-Beta Ads maintains a database of 39,000+ Nordic streamers with real-time analytics on viewership, category performance, and audience demographics - independent of any single platform. When Trovo announced its shutdown, that database tracked exactly where those creators would migrate. That platform-agnostic view isn't a product feature. In a consolidating market, it's the only sound way to think about live streaming advertising at scale.`,
+Beta Ads maintains a database of 39,000+ streamers in our Streamer Explorer database with real-time analytics on viewership, category performance, and audience demographics - independent of any single platform. When Trovo announced its shutdown, that database tracked exactly where those creators would migrate. That platform-agnostic view isn't a product feature. In a consolidating market, it's the only sound way to think about live streaming advertising at scale.`,
     date: "Mar 30, 2026",
     dateISO: "2026-03-30",
     readTime: "7 min read",
@@ -3875,7 +3875,7 @@ Several structural barriers have historically slowed adoption. Identifying the r
 
 These barriers are real but solvable. The global live streaming advertising market is growing at 23% CAGR toward $345 billion by 2030 precisely because the brands that solve the infrastructure problem early capture disproportionate value. By the time the format is broadly standardised and bought on the same platforms as display and video, the early-mover advantage will have eroded.
 
-For Nordic brands, the infrastructure to run live streaming campaigns at scale already exists. Beta Ads maintains a database of 39,000+ active streamers across Norway, Sweden, Finland, and Denmark, tracking real-time concurrent viewers, audience demographics, and engagement rates across all major platforms. Native overlay ad formats - displayed at contextually appropriate moments during broadcasts - deliver visual brand presence without interrupting the viewer experience. Voice recognition technology tracks when brand mentions occur in stream and correlates them with overlay display timing, giving advertisers the multi-signal measurement that streaming campaigns require.
+For Nordic brands, the infrastructure to run live streaming campaigns at scale already exists. Beta Ads maintains a database of 39,000+ streamers in our Streamer Explorer database, tracking real-time concurrent viewers, audience demographics, and engagement rates across all major platforms. Native overlay ad formats - displayed at contextually appropriate moments during broadcasts - deliver visual brand presence without interrupting the viewer experience. Voice recognition technology tracks when brand mentions occur in stream and correlates them with overlay display timing, giving advertisers the multi-signal measurement that streaming campaigns require.
 
 ![Streaming content being watched on multiple devices in a modern home setting](/lovable-uploads/blog-nordic-streaming-ad-budget-shift-3.jpg)
 
@@ -3967,7 +3967,7 @@ Currently, Twitch's shoppable ad format is available through Amazon Ads managed 
 
 For brands not yet ready for full shoppable integration, the strategic priority is building the streamer relationships and native ad presence that will make shoppable formats effective when access broadens. A brand that enters the Nordics' streaming space in 2026 through native overlay campaigns - building viewer familiarity and streamer affinity - will be substantially better positioned to convert that awareness into commerce when in-stream checkout becomes widely available.
 
-The Nordic streaming landscape includes over 39,000 active streamers across Norway, Sweden, Finland, and Denmark catalogued in Beta Ads' database. Real-time analytics track concurrent viewers, audience demographics, engagement rates, and brand mention performance across this network. For a brand building toward live commerce capability, this foundation - knowing which streamers reach which audiences with which engagement patterns - is the planning infrastructure that makes shoppable strategy executable rather than speculative.
+The Streamer Explorer database covers over 39,000 streamers catalogued in Beta Ads' database. Real-time analytics track concurrent viewers, audience demographics, engagement rates, and brand mention performance across this network. For a brand building toward live commerce capability, this foundation - knowing which streamers reach which audiences with which engagement patterns - is the planning infrastructure that makes shoppable strategy executable rather than speculative.
 
 ![Analytics dashboard showing livestream performance data, viewer engagement and conversion metrics](/lovable-uploads/blog-twitch-shoppable-ads-3.jpg)
 
@@ -4083,7 +4083,7 @@ The community casting opportunity is real, but it requires understanding the for
 
 **Volume enables strategy.** A single community caster integration is an experiment. A campaign across ten Nordic community casters covering a major tournament is a strategic presence in the esports moment. The cumulative reach and the consistency of brand visibility across multiple community contexts creates significantly different outcomes.
 
-Beta Ads' database of over 39,000 streamers across the Nordics and Europe includes community casters alongside regular gaming and variety streamers. Real-time voice recognition tracks brand mentions across all active participants, while AI clipping tools automatically identify the highest-engagement moments for brand recall analysis. For a brand wanting to enter the community casting space without managing each relationship manually, this infrastructure makes the strategy executable.
+Beta Ads' database of over 39,000 streamers in our Streamer Explorer database and Europe includes community casters alongside regular gaming and variety streamers. Real-time voice recognition tracks brand mentions across all active participants, while AI clipping tools automatically identify the highest-engagement moments for brand recall analysis. For a brand wanting to enter the community casting space without managing each relationship manually, this infrastructure makes the strategy executable.
 
 ![Developer working at a multi-screen setup analysing streaming data and analytics dashboards](/lovable-uploads/blog-community-casting-esports-2026-3.jpg)
 
@@ -4180,7 +4180,7 @@ The operational challenge of micro-streamer campaigns is a discovery and infrast
 
 Automated platforms that aggregate data across thousands of streamers can now identify micro-creators by audience demographics, content category, language, regional reach, and historical engagement metrics - in minutes rather than weeks. Rather than scouring Twitch manually and cold-contacting creators, brands can define campaign parameters and receive a matched cohort of streamers ready to receive a brief.
 
-Beta Ads' platform covers over 39,000 streamers across the Nordics and Europe - the majority of whom fall into the micro and mid-tier range. For a brand looking to run a multi-market campaign across Norway, Sweden, and Finland simultaneously, that database makes micro-streamer strategy genuinely scalable. Voice recognition technology tracks brand mentions in real time across all participating streamers, aggregating performance data into a single dashboard rather than requiring per-creator reporting. The operational overhead that made micro-streamer campaigns impractical is largely engineered away.
+Beta Ads' platform covers over 39,000 streamers in our Streamer Explorer database and Europe - the majority of whom fall into the micro and mid-tier range. For a brand looking to run a multi-market campaign across Norway, Sweden, and Finland simultaneously, that database makes micro-streamer strategy genuinely scalable. Voice recognition technology tracks brand mentions in real time across all participating streamers, aggregating performance data into a single dashboard rather than requiring per-creator reporting. The operational overhead that made micro-streamer campaigns impractical is largely engineered away.
 
 This changes the strategic calculus significantly. A brand doesn't have to choose between one expensive top-tier integration and twenty time-intensive micro-streamer relationships. The platform makes the twenty manageable - and the performance data makes the case for doing it.
 
@@ -4291,7 +4291,7 @@ One of the consistent objections to deeper investment in streaming advertising i
 
 Live streaming measurement has historically lagged, but this gap is closing rapidly. Real-time analytics platforms can now track brand mentions via voice recognition, monitor chat sentiment during sponsored segments, and quantify audience engagement throughout a session. AI-powered clip performance analysis links specific content moments to downstream traffic and conversion behaviour. For brands that have avoided streaming due to measurement concerns, the tooling now exists to address that gap directly.
 
-Beta Ads' platform, which covers over 39,000 streamers across the Nordics and Europe, provides exactly this infrastructure: real-time campaign analytics, brand mention tracking via voice recognition, and audience data that lets advertisers evaluate performance against standard media metrics rather than relying on proxy measures. The gap between "hard to measure" and "rigorously measured" is now a matter of choosing the right partner.
+Beta Ads' platform, which covers over 39,000 streamers in our Streamer Explorer database and Europe, provides exactly this infrastructure: real-time campaign analytics, brand mention tracking via voice recognition, and audience data that lets advertisers evaluate performance against standard media metrics rather than relying on proxy measures. The gap between "hard to measure" and "rigorously measured" is now a matter of choosing the right partner.
 
 ## The Practical Implication for Nordic Advertisers
 
@@ -4393,7 +4393,7 @@ Twitch remains the dominant live streaming platform by hours watched in the gami
 
 For Nordic-specific reach, TikTok Live has seen significant growth among the under-25 demographic - particularly in Norway and Sweden where mobile-first consumption is highest. The audience segments available through Twitch, however, tend to have longer session times and higher purchase intent scores, making them valuable for mid-funnel and consideration-stage campaigns even when raw reach numbers are smaller.
 
-Beta Ads operates across this landscape with a database of over 39,000 Nordic and European streamers, providing the targeting granularity that broad platform buys don't offer. The difference between a Twitch buy through standard media channels and a direct streamer partnership - with real-time analytics, AI-assisted clip generation, and voice recognition for brand mention tracking - is the difference between reaching "streaming audiences" and reaching specific communities with specific affinities.
+Beta Ads operates across this landscape with a database of over 39,000 streamers in our Streamer Explorer database, providing the targeting granularity that broad platform buys don't offer. The difference between a Twitch buy through standard media channels and a direct streamer partnership - with real-time analytics, AI-assisted clip generation, and voice recognition for brand mention tracking - is the difference between reaching "streaming audiences" and reaching specific communities with specific affinities.
 
 ## What Brands Should Actually Do
 
@@ -4522,7 +4522,7 @@ Once fit is established, the execution framework follows logically: long-term cr
 
 ![A gaming headset beside a laptop - the essential setup for any content creator](/lovable-uploads/blog-creator-first-brand-strategies-2026-3.jpg)
 
-Platforms like Beta Ads are specifically designed for this workflow - providing access to a database of 39,000+ Nordic streamers, native overlay ad tools with AI-powered voice recognition and real-time analytics, and campaign infrastructure that makes running 20 creator partnerships as operationally manageable as running one. The bottleneck for creator-first advertising isn't strategy. It's execution at scale - and that's precisely the problem purpose-built tools solve.
+Platforms like Beta Ads are specifically designed for this workflow - providing access to a database of 39,000+ streamers in our Streamer Explorer database, native overlay ad tools with AI-powered voice recognition and real-time analytics, and campaign infrastructure that makes running 20 creator partnerships as operationally manageable as running one. The bottleneck for creator-first advertising isn't strategy. It's execution at scale - and that's precisely the problem purpose-built tools solve.
 
 ## The Takeaway
 
@@ -4622,7 +4622,7 @@ Modern livestream advertising platforms now offer real-time overlay engagement d
 
 ![A gaming setup with streaming software showing audience engagement and live chat activity](/lovable-uploads/blog-twitch-session-length-2026-3.jpg)
 
-The remaining challenge for most brands is operational: identifying the right streamers, briefing them effectively, managing the creative relationship, and aggregating performance data across a fragmented creator ecosystem. This is precisely the infrastructure problem that platforms like Beta Ads were built to solve - providing brands with access to a database of 39,000+ Nordic streamers, native overlay ad tools with AI-powered voice recognition and clip detection, and real-time analytics, all without requiring bespoke influencer agency negotiations for every campaign.
+The remaining challenge for most brands is operational: identifying the right streamers, briefing them effectively, managing the creative relationship, and aggregating performance data across a fragmented creator ecosystem. This is precisely the infrastructure problem that platforms like Beta Ads were built to solve - providing brands with access to a database of 39,000+ streamers in our Streamer Explorer database, native overlay ad tools with AI-powered voice recognition and clip detection, and real-time analytics, all without requiring bespoke influencer agency negotiations for every campaign.
 
 ## Building for Recall, Not Just Reach
 
@@ -4636,7 +4636,7 @@ The 90-minute session is not just a number. It's the medium's most powerful stru
 
 ---
 
-*Want to build sustained brand presence among Nordic streaming audiences? Beta Ads connects brands with 39,000+ verified streamers across Norway, Sweden, Finland, and Denmark - with native overlay ad tools and real-time analytics built in.*`,
+*Want to build sustained brand presence among Nordic streaming audiences? Beta Ads connects brands with 39,000+ streamers in our Streamer Explorer database - with native overlay ad tools and real-time analytics built in.*`,
     date: "Mar 27, 2026",
     dateISO: "2026-03-27",
     readTime: "7 min read",
@@ -4720,7 +4720,7 @@ The crossing of the $50 billion threshold has practical implications for how bra
 
 The biggest barrier for most brands isn't budget - it's discovery and coordination. Identifying the right streamers for a given brand, negotiating fair rates, managing creative briefs, and reporting on outcomes across a fragmented creator ecosystem is genuinely complex at scale.
 
-This is the operational challenge that platforms like Beta Ads were built to solve. With access to a database of 39,000+ Nordic streamers and tools for running native overlay campaigns with real-time analytics, the platform gives brands direct access to the same quality inventory that used to require bespoke influencer agency relationships. AI-powered voice recognition and clip detection mean campaigns can be verified automatically - closing the accountability gap that has historically made streaming sponsorships feel risky for brand managers used to programmatic display.
+This is the operational challenge that platforms like Beta Ads were built to solve. With access to a database of 39,000+ streamers in our Streamer Explorer database and tools for running native overlay campaigns with real-time analytics, the platform gives brands direct access to the same quality inventory that used to require bespoke influencer agency relationships. AI-powered voice recognition and clip detection mean campaigns can be verified automatically - closing the accountability gap that has historically made streaming sponsorships feel risky for brand managers used to programmatic display.
 
 For a mid-sized Norwegian or Swedish brand trying to reach 18–34 year-old consumers, this kind of infrastructure is the difference between sitting out the live streaming opportunity and systematically building a presence in it.
 
@@ -4736,7 +4736,7 @@ For Nordic advertisers, the runway is long and the moment is now.
 
 ---
 
-*Interested in reaching Nordic streaming audiences through native overlay ads? Explore how Beta Ads connects brands with 39,000+ verified streamers across Norway, Sweden, Finland, and Denmark.*
+*Interested in reaching Nordic streaming audiences through native overlay ads? Explore how Beta Ads connects brands with 39,000+ streamers in our Streamer Explorer database.*
 
 ## Action Items for Nordic Advertisers in a $50B Category
 
@@ -4828,7 +4828,7 @@ The Nordic market has specific characteristics that shape a multi-platform appro
 
 **Use real-time analytics to allocate efficiently.** Multi-platform campaigns require a data layer that spans platforms - otherwise campaign optimization devolves to platform-by-platform manual reporting. Real-time analytics that aggregate performance across a creator network, regardless of which platform a stream is on, allow for the kind of continuous allocation decisions that separate efficient campaigns from expensive ones.
 
-**Maintain Nordic-specific targeting.** The Nordics represent a linguistically and culturally specific market. A campaign optimized for global scale will consistently underperform against one that targets Norwegian, Swedish, Danish, and Finnish audiences with regionally relevant creators and context. Beta Ads' database of **39,000+ Nordic streamers** spanning platforms provides the creator access that Nordic targeting requires at scale - from major Twitch broadcasters to the growing ecosystem of creators building audiences on Kick and YouTube Live.
+**Maintain Nordic-specific targeting.** The Nordics represent a linguistically and culturally specific market. A campaign optimized for global scale will consistently underperform against one that targets Norwegian, Swedish, Danish, and Finnish audiences with regionally relevant creators and context. Beta Ads' database of **39,000+ streamers in our Streamer Explorer database** spanning platforms provides the creator access that Nordic targeting requires at scale - from major Twitch broadcasters to the growing ecosystem of creators building audiences on Kick and YouTube Live.
 
 ![Live stream chat and audience engagement during a multi-platform broadcast](/lovable-uploads/blog-twitch-chatting.webp)
 
@@ -4922,7 +4922,7 @@ The most effective entry point into Nordic esports advertising for most brands i
 
 Live stream overlay ads - non-intrusive, contextually relevant ads displayed during a stream - reach the esports audience in the environment where they're most engaged, without triggering the ad avoidance that pre-roll and display formats face. The format is native to the viewing experience in a way that [banner ads and video interruptions](/blog/beyond-banner-blindness-nordic-stream-advertising) are not.
 
-Platforms like Beta Ads provide access to a database of **39,000+ Nordic streamers** - including the esports and gaming streamers who make up the core of this audience. Real-time analytics let advertisers track which content contexts, which games, and which creator profiles are driving engagement and conversions. AI-powered contextual targeting means ads surface at the moments in a broadcast when relevance is highest - during gameplay highlights, after major plays, during natural breaks in content.
+Platforms like Beta Ads provide access to a database of **39,000+ streamers in our Streamer Explorer database** - including the esports and gaming streamers who make up the core of this audience. Real-time analytics let advertisers track which content contexts, which games, and which creator profiles are driving engagement and conversions. AI-powered contextual targeting means ads surface at the moments in a broadcast when relevance is highest - during gameplay highlights, after major plays, during natural breaks in content.
 
 This infrastructure turns the fragmented creator layer of the esports ecosystem into a manageable, measurable advertising channel. Rather than choosing between expensive tournament packages and individual creator deals, brands can run scaled campaigns across hundreds of esports-adjacent creators with the kind of tracking and optimization that performance marketing requires.
 
@@ -5034,7 +5034,7 @@ For Nordic advertisers, this creates a segmented opportunity:
 
 Not all ad formats work equally across all platforms - a critical operational point as the market fragments.
 
-On Twitch, native overlay ads, branded panel integrations, and creator-voice sponsorships are the proven formats. The Twitch ecosystem has mature tooling for native live stream advertising - from creator briefs to performance tracking. For brands working with platforms like Beta Ads, which focuses on native overlay and voice-recognition-triggered ad formats across a database of 39,000+ Nordic streamers, Twitch remains the most compatible environment for sophisticated campaign execution.
+On Twitch, native overlay ads, branded panel integrations, and creator-voice sponsorships are the proven formats. The Twitch ecosystem has mature tooling for native live stream advertising - from creator briefs to performance tracking. For brands working with platforms like Beta Ads, which focuses on native overlay and voice-recognition-triggered ad formats across a database of 39,000+ streamers in our Streamer Explorer database, Twitch remains the most compatible environment for sophisticated campaign execution.
 
 TikTok Live's ad ecosystem is still developing. The native ad opportunities on TikTok Live today are primarily creator-led sponsored content and live gifting integrations - not the kind of programmatic or managed native overlay infrastructure that exists on Twitch. Brands looking for scale and accountability in live streaming should factor this in.
 
@@ -5056,7 +5056,7 @@ The streaming hierarchy will continue to shift. TikTok Live's growth suggests it
 
 What this means practically is that the live streaming advertising ecosystem will look less like "Twitch advertising" and more like a portfolio of platforms requiring distinct approaches. The brands building that expertise now - learning how to run effective native campaigns on Twitch's mature infrastructure - will be best positioned to transfer those skills to emerging platforms as their ad ecosystems develop.
 
-Beta Ads' focus on the 39,000+ streamer database across Nordic markets, real-time analytics, and AI-powered contextual overlay formats was built for Twitch's ecosystem. As TikTok Live and Kick develop comparable native ad infrastructure over the next 18-24 months, the operational models proven on Twitch today are likely to become templates for how native advertising scales across platforms.
+Beta Ads' focus on the 39,000++ streamer database, real-time analytics, and AI-powered contextual overlay formats was built for Twitch's ecosystem. As TikTok Live and Kick develop comparable native ad infrastructure over the next 18-24 months, the operational models proven on Twitch today are likely to become templates for how native advertising scales across platforms.
 
 The streaming hierarchy has changed. The fundamentals of effective live stream advertising - native formats, creator alignment, sustained presence over campaign bursts - have not.`,
     date: "Mar 26, 2026",
@@ -5152,7 +5152,7 @@ The data points clearly to what works for Gen Z streaming audiences:
 
 The gap between Gen Z's ad tolerance and ad relevance is fundamentally an infrastructure problem. Brands don't lack the intent to reach streaming audiences - they lack the tools to do it in formats that actually work.
 
-Beta Ads approaches this directly. With a database of **39,000+ Nordic streamers** and targeting tools that filter by audience demographics, category, language, and engagement profile, the platform allows brands to match their message to the creator contexts where it will actually be relevant. Native overlay ad formats surface brand messaging inside streams without interrupting them. AI-assisted voice recognition identifies contextually appropriate moments for placements. Real-time analytics show what's working so campaigns can be optimized around relevance, not just reach.
+Beta Ads approaches this directly. With a database of **39,000+ streamers in our Streamer Explorer database** and targeting tools that filter by audience demographics, category, language, and engagement profile, the platform allows brands to match their message to the creator contexts where it will actually be relevant. Native overlay ad formats surface brand messaging inside streams without interrupting them. AI-assisted voice recognition identifies contextually appropriate moments for placements. Real-time analytics show what's working so campaigns can be optimized around relevance, not just reach.
 
 For brands targeting the Nordic Gen Z audience, the question isn't whether to advertise on streaming platforms - it's whether to do it in formats the audience has already rejected, or in formats designed for how that audience actually behaves.
 
@@ -5259,7 +5259,7 @@ Practically, a sustained streaming strategy means:
 
 For Nordic brands, the practical challenge of building sustained streamer relationships has historically been operational: finding the right streamers, negotiating ongoing arrangements, and maintaining consistent activation across a roster requires time and infrastructure most marketing teams don't have.
 
-This is precisely what platforms like Beta Ads are built to address. With a database of 39,000+ Nordic streamers and tools designed for ongoing activation - including native overlay ads, AI-assisted campaign monitoring, and real-time analytics - Beta Ads allows brands to maintain a persistent presence across dozens of streamers simultaneously, without the overhead of managing each relationship manually.
+This is precisely what platforms like Beta Ads are built to address. With a database of 39,000+ streamers in our Streamer Explorer database and tools designed for ongoing activation - including native overlay ads, AI-assisted campaign monitoring, and real-time analytics - Beta Ads allows brands to maintain a persistent presence across dozens of streamers simultaneously, without the overhead of managing each relationship manually.
 
 The overlay format is particularly well-suited to sustained presence. Rather than interrupting content, native overlays surface brand messaging in contextually appropriate moments across a streamer's regular schedule. Over time, viewers come to associate the brand with the stream itself - which is precisely the trust-building dynamic that drives the 3–5x performance advantage over one-off campaigns.
 
@@ -5355,7 +5355,7 @@ The practical implication for brands: the operational barrier that previously ma
 
 The Nordic market has characteristics that make AI-powered insertion especially valuable. The region's streamer ecosystem spans four languages and dozens of distinct audience communities. Running a coordinated campaign across Norwegian, Swedish, Finnish, and Danish creators - each with different audience demographics and engagement styles - is exactly the kind of multi-variable execution problem that manual coordination handles poorly and AI handles well.
 
-Beta Ads' database of over **39,000 Nordic streamers**, combined with real-time campaign analytics and overlay delivery infrastructure, is built precisely to handle this complexity. Brands can define targeting criteria, keyword triggers, and creative assets once - and the platform handles distribution, timing, and performance measurement across the full streamer network.
+Beta Ads' database of over **39,000 streamers in our Streamer Explorer database**, combined with real-time campaign analytics and overlay delivery infrastructure, is built precisely to handle this complexity. Brands can define targeting criteria, keyword triggers, and creative assets once - and the platform handles distribution, timing, and performance measurement across the full streamer network.
 
 With the Nordic games market projected to grow from $5.64 billion in 2025 to over **$8 billion by 2030**, and esports streaming audiences expanding steadily, the addressable inventory for AI-powered live stream advertising in the region is growing faster than brands are currently utilizing it.
 
@@ -5453,7 +5453,7 @@ Second, market density. The Nordic region has a comparatively small but extremel
 
 Third, language specificity. Nordic viewers have strong preferences for content in their native languages. Local streamers in Norwegian, Swedish, and Finnish carry outsized trust compared to English-language alternatives - which means local streamer partnerships outperform international buys on a cost-adjusted basis.
 
-Platforms like Beta Ads have built their entire model around this insight. With access to a database of over **39,000 streamers** across the Nordic region - including detailed analytics on audience demographics, language, and engagement patterns - the gap between "we want to reach Swedish gamers" and "we have a campaign running with the right streamers" has narrowed to days rather than weeks.
+Platforms like Beta Ads have built their entire model around this insight. With access to a Streamer Explorer database of over **39,000 streamers** - including detailed analytics on audience demographics, language, and engagement patterns - the gap between "we want to reach Swedish gamers" and "we have a campaign running with the right streamers" has narrowed to days rather than weeks.
 
 ## The Format Evolution
 
@@ -5928,7 +5928,7 @@ This is both a representation failure and an efficiency opportunity. Brands that
 
 **Brief for authentic fit**: Female streamers should receive the same creative latitude as male creators. Briefs that feel tailored for a male audience, with male cultural references and gaming assumptions baked in, are a sign that the creative process has not caught up with the audience data.
 
-**Use demographic targeting data**: Beta Ads' 39,000+ Nordic streamer database includes audience demographic breakdowns, allowing brands to identify streamers whose audiences are specifically female-skewed rather than defaulting to male-dominated gaming channels.
+**Use demographic targeting data**: Beta Ads' 39,000+ streamer in our Streamer Explorer database database includes audience demographic breakdowns, allowing brands to identify streamers whose audiences are specifically female-skewed rather than defaulting to male-dominated gaming channels.
 
 **Consider female-specific brand campaigns**: Beyond blending female-reaching inventory into standard campaigns, some brands have seen strong results from campaigns explicitly targeted at the female gaming and streaming audience - particularly for products that have traditionally underindexed with this demographic.
 
@@ -6181,7 +6181,7 @@ A risk reduction approach that many brands underuse: tier your creator partnersh
 
 ## The Asymmetric Risk Reality
 
-One important perspective for risk-averse brands: the actual incidence of genuine brand safety incidents in creator partnerships is quite low for well-vetted streamers. Most established Twitch creators with significant audiences have built those audiences precisely because they do not do things that would alienate their viewers - and brands. The live format's risk is more theoretical than empirical for the vast majority of the 39,000+ streamers in the Nordic market.
+One important perspective for risk-averse brands: the actual incidence of genuine brand safety incidents in creator partnerships is quite low for well-vetted streamers. Most established Twitch creators with significant audiences have built those audiences precisely because they do not do things that would alienate their viewers - and brands. The live format's risk is more theoretical than empirical for the vast majority of the 39,000+ streamers in our Streamer Explorer database.
 
 The goal of brand safety management is not to achieve zero theoretical risk - that would mean not advertising at all. It is to implement proportionate risk management that keeps actual incidents from happening while maintaining access to the channel's genuine reach and engagement advantages.`,
     date: "Mar 25, 2026",
@@ -6293,7 +6293,7 @@ Understanding parasocial psychology does not mean manipulating it. It means buil
 
 The practical implication of parasocial-based advertising is that creator selection becomes the single largest determinant of campaign performance - more than creative quality, more than platform, more than budget size. A creator whose audience has a strong parasocial relationship converts at dramatically higher rates than an equivalent-size creator whose audience is less bonded.
 
-Beta Ads' platform indexes 39,000+ Nordic creators with historical brand-integration performance, audience demographic data, and engagement-quality signals that let campaign teams identify which creators carry the deepest audience trust for a given brand category. The published [Beta Ads case studies](/case-studies) - including [Shure's 9.12% peak-day CTR on detoo's channel](/case-study/shure) - demonstrate what happens when a brand campaign is built around parasocial-strength creators rather than raw reach.
+Beta Ads' platform indexes 39,000+ creators in our Streamer Explorer database with historical brand-integration performance, audience demographic data, and engagement-quality signals that let campaign teams identify which creators carry the deepest audience trust for a given brand category. The published [Beta Ads case studies](/case-studies) - including [Shure's 9.12% peak-day CTR on detoo's channel](/case-study/shure) - demonstrate what happens when a brand campaign is built around parasocial-strength creators rather than raw reach.
 
 ## Action Items for Brands Leveraging Parasocial Trust
 
@@ -6531,7 +6531,7 @@ A category-by-category analysis reveals an important nuance: **niche game catego
 
 Similarly, newly released games can generate significant viewership spikes during launch windows (Path of Exile 2 hit 1.2 million concurrent viewers during its December 2024 launch) - brands that activate quickly during a game's launch moment capture attention at scale before advertiser competition increases.
 
-The key is matching your brand's audience profile to the category's viewer demographics, not just chasing the highest viewer counts. That alignment is what Beta Ads' 39,000+ Nordic streamer database enables - filtering by game category, viewer demographics, engagement quality, and geographic market to identify the right partners for each campaign objective.
+The key is matching your brand's audience profile to the category's viewer demographics, not just chasing the highest viewer counts. That alignment is what Beta Ads' 39,000+ streamer in our Streamer Explorer database database enables - filtering by game category, viewer demographics, engagement quality, and geographic market to identify the right partners for each campaign objective.
 
 ## Action Items for Brand Category Selection
 
@@ -6771,7 +6771,7 @@ For brands targeting young adults with purchasing power, Twitch's more establish
 
 **Test Kick for cost-efficient early access**: Allocate 10-20% of streaming budget to Kick partnerships. The cost of creator partnerships on Kick is lower, the inventory is less competitive, and the early-mover advantage is real.
 
-**Prioritize creators active on both**: Streamers who multi-stream cover both audiences without requiring separate partnership negotiations. Beta Ads tracks cross-platform activity as part of its 39,000+ streamer database, making it easier to identify these creators in the Nordic market.
+**Prioritize creators active on both**: Streamers who multi-stream cover both audiences without requiring separate partnership negotiations. Beta Ads tracks cross-platform activity as part of its 39,000+ streamer Explorer database, making it easier to identify these creators in the Nordic market.
 
 **Apply different brand safety standards**: Use Twitch's more mature moderation infrastructure for sensitive brand categories. For Kick, vet individual creators manually and include content standard clauses in partnership agreements.
 
@@ -6875,7 +6875,7 @@ Brands entering this space for the first time should consider a few principles:
 
 Nordic audiences have been early adopters of conversational streaming. Norwegian and Swedish streamers in the Just Chatting category build loyal, tight-knit communities that tune in consistently. For brands looking to reach Nordic 18-34 year olds with a genuine endorsement environment, this category deserves a place in every media plan.
 
-Beta Ads tracks Just Chatting and IRL streamers across Nordic markets as part of its 39,000+ streamer database - including engagement quality metrics and audience demographic data that help brands identify the right conversational partners for their campaigns.
+Beta Ads tracks Just Chatting and IRL streamers across Nordic markets as part of its 39,000+ streamer Explorer database - including engagement quality metrics and audience demographic data that help brands identify the right conversational partners for their campaigns.
 
 The gaming-only mental model of Twitch advertising is leaving money on the table. Just Chatting is where Twitch's audience is spending its time. The brands that recognize that first will have a significant head start.`,
     date: "Mar 25, 2026",
@@ -6944,7 +6944,7 @@ For advertisers, this means that raw follower count is a poor proxy for advertis
 
 Twitch now groups viewers into dynamic preference segments and serves personalized recommendations accordingly. The system connects streamers with viewers most likely to watch based on past behavior, watched categories, language, and region.
 
-This audience segmentation has a direct benefit for advertisers: native overlay campaigns running through Beta Ads' network of 39,000+ Nordic streamers can be matched to the exact audience segments your brand wants to reach - by game category, viewing behavior, demographics, and geographic market.
+This audience segmentation has a direct benefit for advertisers: native overlay campaigns running through Beta Ads' database of 39,000+ streamers in our Streamer Explorer database can be matched to the exact audience segments your brand wants to reach - by game category, viewing behavior, demographics, and geographic market.
 
 ### The "For You" Feed
 
@@ -7693,7 +7693,7 @@ A mature Nordic launch plan deploys two or three of these in parallel, with nati
 
 ## The Infrastructure Layer
 
-The reason native Twitch campaigns are now practical at scale is the infrastructure layer underneath them. [Native overlay platforms like Beta Ads](/twitch-advertising) run campaigns across 39,000+ Nordic streamers with real-time CTR tracking, AI-powered clip verification, automated OBS deployment, and platform-verified reporting. Brand-side teams no longer need to manually negotiate with individual streamers, estimate viewership from third-party tools, or accept screenshot-based reporting as the primary verification mechanism.
+The reason native Twitch campaigns are now practical at scale is the infrastructure layer underneath them. [Native overlay platforms like Beta Ads](/twitch-advertising) run campaigns across 39,000+ streamers in our Streamer Explorer database with real-time CTR tracking, AI-powered clip verification, automated OBS deployment, and platform-verified reporting. Brand-side teams no longer need to manually negotiate with individual streamers, estimate viewership from third-party tools, or accept screenshot-based reporting as the primary verification mechanism.
 
 For Norwegian brands specifically, [Beta Ads' Norwegian content hub](/norge) and [the Norwegian Twitch advertising guide](/blog/twitch-annonsering-norge-guide) cover the local-market specifics in Norwegian - category mix, creator profiles, and the case-study archive with verified Nordic numbers.
 
@@ -7805,7 +7805,7 @@ Brands still running 2019-era creative through 2026 media plans are paying for i
 
 Streamer-first advertising is easy to describe and hard to execute. A Norwegian CPG brand running a Q3 2026 campaign across 15–50 streamers across [Twitch](/twitch-advertising), [YouTube](/youtube-advertising) and [Kick](/kick-advertising) needs: verified creator availability, category-matched audience data, contract coordination, creative approval workflows, OBS integration tooling, platform-verified reporting, and a single dashboard that aggregates it all.
 
-Platforms like Beta Ads index 39,000+ Nordic streamers with category, language, audience demographic, engagement history, and platform-specific performance data - turning what used to be a five-vendor coordination problem into a single brief-to-launch workflow. The reason Samsung, Shure, Komplett, Kristiania, NKI and Gokstad each ran verified campaigns in 2025 wasn't that they solved the operational problem themselves; it was that the infrastructure layer existed by the time they arrived.
+Platforms like Beta Ads index 39,000+ streamers in our Streamer Explorer database with category, language, audience demographic, engagement history, and platform-specific performance data - turning what used to be a five-vendor coordination problem into a single brief-to-launch workflow. The reason Samsung, Shure, Komplett, Kristiania, NKI and Gokstad each ran verified campaigns in 2025 wasn't that they solved the operational problem themselves; it was that the infrastructure layer existed by the time they arrived.
 
 ## Action Items for Brand Teams Adopting Streamer-First
 
@@ -7871,7 +7871,7 @@ For norske merkevarer betyr dette en strukturell endring: målgruppen som histor
 | Norsk adblock-bruk (15+ år) | 34 % | [AudienceProject Nordic Device Study](https://www.audienceproject.com/) |
 | Norsk adblock-bruk blant 18–24 | 55 %+ | [Backlinko adblock statistics](https://backlinko.com/ad-blockers-users) |
 | Gjennomsnittlig TV-seing 16–24 år | Falt 60 % siden 2015 | [SSB Norsk mediebarometer](https://www.ssb.no/kultur-og-fritid/tids-og-mediebruk/statistikk/norsk-mediebarometer) |
-| Aktive Twitch-streamere i det norske nettverket Beta Ads måler | 39 000+ nordiske | Beta Ads plattformdata |
+| Aktive Twitch-streamere i det norske nettverket Beta Ads måler | 39 000+ i Streamer Explorer | Beta Ads plattformdata |
 
 ### Topp norske Twitch-kategorier i 2026
 
@@ -7917,7 +7917,7 @@ Fellesnevneren er at tallene er verifisert på platformnivå, ikke hentet fra st
 
 ## Infrastrukturen som gjør det målbart
 
-Platformen Beta Ads opererer dekker de 39 000+ aktive nordiske streamerene på Twitch, Kick og YouTube, med verktøy for targeting basert på kategori, kanalstørrelse, språk og publikumsdemografi. AI-drevet klippeteknologi dokumenterer at integrasjoner faktisk gikk live, og sanntidsanalyse viser CTR per streamer mens kampanjen kjører.
+Platformen Beta Ads opererer dekker de 39 000+ streamer in our Streamer Explorer databaseene på Twitch, Kick og YouTube, med verktøy for targeting basert på kategori, kanalstørrelse, språk og publikumsdemografi. AI-drevet klippeteknologi dokumenterer at integrasjoner faktisk gikk live, og sanntidsanalyse viser CTR per streamer mens kampanjen kjører.
 
 For norske merker betyr det at Twitch-annonsering ikke lenger krever manuell outreach, estimerte seertall eller post-kampanje-screenshots fra streameren for å stå til rette overfor en finansdirektør. Målingsinfrastrukturen på modent digital-nivå - verifisert leveranse, demografi, sanntidsrapportering - er på plass for native livestream-placements på tvers av det nordiske markedet.
 
@@ -7987,7 +7987,7 @@ Tillväxten har gått till live streaming, och [Twitch](/twitch-advertising) är
 | Svenskar 16–24 som ser linjär TV dagligen | Under 28 % (2024) | [Nordicom - Mediebarometern](https://www.nordicom.gu.se/sv/mediebarometer) |
 | Svensk adblock-användning 18–24 | 55 %+ | [Backlinko - Adblock statistics](https://backlinko.com/ad-blockers-users) |
 | Nordisk adblock 15+ | 34 % | [AudienceProject Nordic Device Study](https://www.audienceproject.com/) |
-| Aktiva nordiska Twitch-streamers i Beta Ads nätverk | 39 000+ | Beta Ads plattformdata |
+| Streamers i Beta Ads Streamer Explorer | 39 000+ | Beta Ads plattformdata |
 
 ### Största svenska Twitch-kategorierna 2026
 
@@ -8031,7 +8031,7 @@ Den gemensamma nämnaren: siffrorna är plattformsverifierade, inte hämtade fr�
 
 ## Infrastrukturen som gör det mätbart
 
-Plattformen Beta Ads driver täcker de 39 000+ aktiva nordiska streamerena på Twitch, Kick och YouTube, med verktyg för targeting baserat på kategori, kanalstorlek, språk och publikdemografi. AI-driven klippteknologi dokumenterar att integrationer faktiskt gick live, och realtidsanalys visar CTR per streamer medan kampanjen pågår.
+Plattformen Beta Ads driver täcker de 39 000+ streamer in our Streamer Explorer databaseena på Twitch, Kick och YouTube, med verktyg för targeting baserat på kategori, kanalstorlek, språk och publikdemografi. AI-driven klippteknologi dokumenterar att integrationer faktiskt gick live, och realtidsanalys visar CTR per streamer medan kampanjen pågår.
 
 För svenska varumärken innebär det att Twitch-reklam inte längre kräver manuell outreach, uppskattade tittarsiffror eller post-kampanj-screenshots från streamern för att stå till svars inför en finansdirektör. Mätningsinfrastrukturen på moget digitalt nivå - verifierad leverans, demografi, realtidsrapportering - är på plats för native livestream-placeringar på hela den nordiska marknaden.
 
@@ -8275,7 +8275,7 @@ Norwegian Twitch inventory in 2026 is deep enough to support:
 
 ## How Beta Ads Uses This Data Operationally
 
-The Beta Ads platform indexes 39,000+ Nordic streamers (including every Norwegian creator in the dashboard below) with category, language, viewership history, and audience demographics. When a brand brief arrives, the matching isn't "pick from the top 10" - it's filtering the 300–500 Norwegian creators in the relevant category against brand-safety history, historical CTR on adjacent integrations, and audience overlap with the target customer profile.
+The Beta Ads platform indexes 39,000+ streamers in our Streamer Explorer database (including every Norwegian creator in the dashboard below) with category, language, viewership history, and audience demographics. When a brand brief arrives, the matching isn't "pick from the top 10" - it's filtering the 300–500 Norwegian creators in the relevant category against brand-safety history, historical CTR on adjacent integrations, and audience overlap with the target customer profile.
 
 Beta Ads has run [nine verified Norwegian campaigns in 2025](/case-studies) drawing from this creator pool - Samsung, Surfshark, Shure, Komplett, Kristiania, NKI, Gokstad, Saily, Glorious. Every one of those campaigns used a different creator mix matched to the brand's specific brief.
 
@@ -8604,7 +8604,7 @@ Beta Ads' own Norwegian education deliveries are a clean example of the non-gami
 
 ## Where Beta Ads Fits in the Benchmark Picture
 
-The benchmark data above describes a market in which brand-and-creator fit, native format, and verification are the levers that move outcomes. Beta Ads is the Nordic-focused infrastructure for that stack: a network of more than 39,000 streamers across Norway, Sweden, Finland, and Denmark, real-time campaign dashboards that track views, clicks, and CTR as they happen, and verification tooling that replaces self-reported screenshots with neutral delivery evidence. It is not a rate card; it is the measurement layer that makes benchmark comparisons honest. Brands that care about whether a 1.3% CTR result was actually delivered - and whether it matches peer campaigns - are the natural fit.
+The benchmark data above describes a market in which brand-and-creator fit, native format, and verification are the levers that move outcomes. Beta Ads is the Nordic-focused infrastructure for that stack: a database of 39,000 streamers in our Streamer Explorer database, real-time campaign dashboards that track views, clicks, and CTR as they happen, and verification tooling that replaces self-reported screenshots with neutral delivery evidence. It is not a rate card; it is the measurement layer that makes benchmark comparisons honest. Brands that care about whether a 1.3% CTR result was actually delivered - and whether it matches peer campaigns - are the natural fit.
 
 ## How to Use These Benchmarks When Evaluating a Live-Stream Plan
 
@@ -8723,7 +8723,7 @@ In practice, Sweden-native Twitch campaigns consistently deliver competitive CTR
 
 ## How Beta Ads Handles Swedish Creator Selection
 
-The Beta Ads platform indexes 39,000+ Nordic creators - including every Swedish Twitch creator in the dashboard below - with category, language, viewership history, and audience demographic filters. Swedish campaigns get sourced from the roughly 8,000 active Swedish-language creators in the database, filtered for brand-safety history and CTR performance on adjacent integrations.
+The Beta Ads platform indexes 39,000+ creators in our Streamer Explorer database - including every Swedish Twitch creator in the dashboard below - with category, language, viewership history, and audience demographic filters. Swedish campaigns get sourced from the roughly 8,000 active Swedish-language creators in the database, filtered for brand-safety history and CTR performance on adjacent integrations.
 
 ## Action Items for 2026 Swedish Media Planning
 
@@ -8820,7 +8820,7 @@ The practical consequence: Finnish CTR benchmarks on well-matched categories con
 
 ## How Beta Ads Handles Finnish Creator Selection
 
-The Beta Ads platform indexes 39,000+ Nordic creators including every Finnish Twitch creator in the dashboard below, with category, language, audience demographic, and historical CTR filtering. Finnish campaigns get sourced from roughly 4,000 active Finnish-language creators in the database - a smaller pool than Sweden or Norway, but filtered for brand-safety history and integration-fit.
+The Beta Ads platform indexes 39,000+ creators in our Streamer Explorer database including every Finnish Twitch creator in the dashboard below, with category, language, audience demographic, and historical CTR filtering. Finnish campaigns get sourced from roughly 4,000 active Finnish-language creators in the database - a smaller pool than Sweden or Norway, but filtered for brand-safety history and integration-fit.
 
 ## Action Items for 2026 Finnish Media Planning
 
@@ -8940,7 +8940,7 @@ That gap will compress through 2026 as brand budgets rotate in. Advertisers test
 
 ## How Beta Ads Handles Kick Inventory in the Nordic Market
 
-Beta Ads' platform indexes 2,800+ Nordic Kick streamers alongside 39,000+ total Nordic creators across Twitch, YouTube and Kick. Native overlay formats run identically across platforms (rendered inside the stream frame, adblock-immune), meaning Kick is a distribution channel inside a larger campaign rather than a separate buy. For a Norwegian or Swedish brand, that lets a single creative and single report cover both platforms - the operational simplicity that makes platform diversification realistic for mid-budget campaigns.
+Beta Ads' platform indexes Kick streamers alongside 39,000+ creators across Twitch, YouTube and Kick. Native overlay formats run identically across platforms (rendered inside the stream frame, adblock-immune), meaning Kick is a distribution channel inside a larger campaign rather than a separate buy. For a Norwegian or Swedish brand, that lets a single creative and single report cover both platforms - the operational simplicity that makes platform diversification realistic for mid-budget campaigns.
 
 ## Action Items for 2026 Nordic Media Planning
 
@@ -9077,7 +9077,7 @@ In short: the global top 10 tells you which titles have a global audience. For a
 
 ## The Infrastructure That Makes This Data Actionable
 
-Beta Ads indexes 39,000+ Nordic streamers by category, platform, language and historical viewership. The practical benefit: rather than picking a game from a top-10 list and hoping to find relevant creators, a brand brief gets matched against real inventory depth per category per country. A "Norwegian FIFA launch" brief produces a different creator list than a "Nordic Fortnite campaign" - not because of the game name, but because the audience intersection is different, and the available creator tier is different.
+Beta Ads indexes 39,000+ streamers in our Streamer Explorer database by category, platform, language and historical viewership. The practical benefit: rather than picking a game from a top-10 list and hoping to find relevant creators, a brand brief gets matched against real inventory depth per category per country. A "Norwegian FIFA launch" brief produces a different creator list than a "Nordic Fortnite campaign" - not because of the game name, but because the audience intersection is different, and the available creator tier is different.
 
 ## Action Items for 2026 Planning
 
@@ -9316,7 +9316,7 @@ Beta Ads has run verified campaigns on detoo's channel - including the [Shure MV
 
 ## How Beta Ads Maps This to Campaign Planning
 
-The Beta Ads platform indexes 39,000+ Nordic streamers across [Twitch](/twitch-advertising), [Kick](/kick-advertising) and [YouTube](/youtube-advertising) with category, language, viewership history and audience-demographic filters. When a brand walks in wanting "the Nordic equivalent of Kai Cenat," the answer usually isn't one streamer - it's a portfolio of 5–15 creators with complementary audiences, each verified for brand-safety history and historical CTR on adjacent brand integrations. That's a very different buy than chasing the global top-10.
+The Beta Ads platform indexes 39,000+ streamers in our Streamer Explorer database across [Twitch](/twitch-advertising), [Kick](/kick-advertising) and [YouTube](/youtube-advertising) with category, language, viewership history and audience-demographic filters. When a brand walks in wanting "the Nordic equivalent of Kai Cenat," the answer usually isn't one streamer - it's a portfolio of 5–15 creators with complementary audiences, each verified for brand-safety history and historical CTR on adjacent brand integrations. That's a very different buy than chasing the global top-10.
 
 ## Action Items for 2026 Planning
 
@@ -9855,7 +9855,7 @@ The missing layer is historical performance data. How has this creator's engagem
 
 ![A marketing team reviewing creator analytics on multiple screens](/lovable-uploads/blog-creator-marketing-lifecycle-1.jpg)
 
-With platforms like Beta Ads, brands can search across 39,000+ Nordic streamers filtered by audience size, content category, platform, region, and engagement quality - not just follower counts. The depth of historical data means you're evaluating creators on their track record, not a single good month.
+With platforms like Beta Ads, brands can search across 39,000+ streamers in our Streamer Explorer database filtered by audience size, content category, platform, region, and engagement quality - not just follower counts. The depth of historical data means you're evaluating creators on their track record, not a single good month.
 
 ### 2. Consideration Without Context
 
@@ -9915,7 +9915,7 @@ The future of creator marketing isn't just about finding creators more efficient
 
 For Nordic brands running campaigns across [Twitch](/twitch-advertising), [YouTube](/youtube-advertising), [Kick](/kick-advertising), and Trovo, this means a platform that doesn't just help you find streamers, but helps you understand which streamers will actually drive results for your specific brand, in your specific market, at your specific scale.
 
-Beta Ads was built for exactly this workflow. With access to 39,000+ Nordic streamers, native overlay ad tools, AI-powered voice recognition, real-time analytics, and end-to-end campaign infrastructure, it's designed to make running 50 creator partnerships as manageable as running one.
+Beta Ads was built for exactly this workflow. With access to 39,000+ streamers in our Streamer Explorer database, native overlay ad tools, AI-powered voice recognition, real-time analytics, and end-to-end campaign infrastructure, it's designed to make running 50 creator partnerships as manageable as running one.
 
 The creator marketing lifecycle doesn't have to be broken. It just needs to be built right.
 `,
@@ -10022,7 +10022,7 @@ The data makes a compelling case that non-gaming brands can build substantial li
 
 For Nordic brands, this represents a significant opportunity. Nordic streaming communities are smaller and more engaged than their US counterparts, which means culturally native activations have even more impact per impression. A Norwegian streamer with 1,000 concurrent viewers has built a community where brand integrations that respect the culture are rewarded with genuine engagement rather than ad-blocker reflexes.
 
-The operational challenge is finding the right creators and executing campaigns at scale across multiple platforms and markets. That's where purpose-built tools like Beta Ads come in: providing access to 39,000+ Nordic streamers, native overlay ad formats that maintain brand visibility without interrupting content, and campaign infrastructure that makes creative activations manageable across dozens of simultaneous partnerships.
+The operational challenge is finding the right creators and executing campaigns at scale across multiple platforms and markets. That's where purpose-built tools like Beta Ads come in: providing access to 39,000+ streamers in our Streamer Explorer database, native overlay ad formats that maintain brand visibility without interrupting content, and campaign infrastructure that makes creative activations manageable across dozens of simultaneous partnerships.
 
 The brands winning on Twitch aren't the biggest spenders. They're the most creative, most culturally fluent, and most willing to let the medium shape the message. For Nordic advertisers, the playbook is clear - and the timing has never been better.
 `,
@@ -10135,7 +10135,7 @@ The relationship between iGaming and live streaming is accelerating. As betting 
 
 This opportunity extends beyond gambling operators. Payment providers, data platforms, affiliate networks, and other services that power the iGaming ecosystem all benefit from the same live streaming audiences. And for non-iGaming brands, the strategies that work in this high-engagement category - platform-native activations, creator partnerships weighted toward engagement depth, and participatory campaign formats - translate directly to other verticals.
 
-Beta Ads provides the infrastructure to execute these strategies in the Nordics: multi-platform campaign management across Twitch, YouTube, Kick, and Trovo, native overlay ad formats designed for sustained brand exposure during long viewing sessions, and a creator database of 39,000+ Nordic streamers filterable by the engagement metrics that actually predict campaign performance.
+Beta Ads provides the infrastructure to execute these strategies in the Nordics: multi-platform campaign management across Twitch, YouTube, Kick, and Trovo, native overlay ad formats designed for sustained brand exposure during long viewing sessions, and a creator database of 39,000+ streamers in our Streamer Explorer database filterable by the engagement metrics that actually predict campaign performance.
 
 Live streaming offers a real-time window into how audiences engage with brands. For any business operating in or adjacent to the streaming economy, that's a dataset - and an opportunity - worth paying attention to.
 `,
@@ -10265,7 +10265,7 @@ The Chzzk story resonates with Beta Ads' core thesis: the streaming landscape is
 
 In the Nordics, we see a similar dynamic playing out across Twitch, YouTube, Kick, and Trovo. No single platform captures the entire Nordic streaming audience. Kick grew 125% in 2025 while Twitch viewership declined 10%. YouTube Live continues gaining ground in specific content categories.
 
-Beta Ads was built for this fragmented reality - providing campaign management across all major platforms, a database of 39,000+ Nordic streamers regardless of where they stream, and native overlay ad formats that work consistently across platform ecosystems. Whether the platform is Twitch in Stockholm or Chzzk in Seoul, the fundamental advertising challenge is the same: reaching engaged audiences wherever they choose to watch.
+Beta Ads was built for this fragmented reality - providing campaign management across all major platforms, a database of 39,000+ streamers in our Streamer Explorer database regardless of where they stream, and native overlay ad formats that work consistently across platform ecosystems. Whether the platform is Twitch in Stockholm or Chzzk in Seoul, the fundamental advertising challenge is the same: reaching engaged audiences wherever they choose to watch.
 
 The platforms will keep fragmenting. The brands that build infrastructure to advertise across all of them - rather than betting on any single one - are the brands that will win.
 `,
@@ -11810,7 +11810,7 @@ Brands we already work with have direct login access. Agency partners managing m
     locale: "no",
     translationGroup: "beta-ads-2-0-launch",
     seoTitle: { en: "Beta Ads 2.0: Self-serve-annonsering på live-streaming | Beta Ads", no: "Beta Ads 2.0: Self-serve-annonsering på live-streaming | Beta Ads", sv: "Beta Ads 2.0: Self-serve-annonsering på live-streaming | Beta Ads", fi: "Beta Ads 2.0: Self-serve-annonsering på live-streaming | Beta Ads", da: "Beta Ads 2.0: Self-serve-annonsering på live-streaming | Beta Ads" },
-    seoDescription: { en: "Bestill, administrer og mål annonsekampanjer på Twitch, YouTube og Kick uten byrå. Beta Ads 2.0 gir nordiske merkevarer 39 000+ streamere og verifisert levering.", no: "Bestill, administrer og mål annonsekampanjer på Twitch, YouTube og Kick uten byrå. Beta Ads 2.0 gir nordiske merkevarer 39 000+ streamere og verifisert levering.", sv: "Bestill, administrer og mål annonsekampanjer på Twitch, YouTube og Kick uten byrå. Beta Ads 2.0 gir nordiske merkevarer 39 000+ streamere og verifisert levering.", fi: "Bestill, administrer og mål annonsekampanjer på Twitch, YouTube og Kick uten byrå. Beta Ads 2.0 gir nordiske merkevarer 39 000+ streamere og verifisert levering.", da: "Bestill, administrer og mål annonsekampanjer på Twitch, YouTube og Kick uten byrå. Beta Ads 2.0 gir nordiske merkevarer 39 000+ streamere og verifisert levering." },
+    seoDescription: { en: "Bestill, administrer og mål annonsekampanjer på Twitch, YouTube og Kick uten byrå. Beta Ads 2.0 gir nordiske merkevarer tilgang til 39 000+ streamere i Streamer Explorer og verifisert levering.", no: "Bestill, administrer og mål annonsekampanjer på Twitch, YouTube og Kick uten byrå. Beta Ads 2.0 gir nordiske merkevarer tilgang til 39 000+ streamere i Streamer Explorer og verifisert levering.", sv: "Bestill, administrer og mål annonsekampanjer på Twitch, YouTube og Kick uten byrå. Beta Ads 2.0 gir nordiske merkevarer tilgang til 39 000+ streamere i Streamer Explorer og verifisert levering.", fi: "Bestill, administrer og mål annonsekampanjer på Twitch, YouTube og Kick uten byrå. Beta Ads 2.0 gir nordiske merkevarer tilgang til 39 000+ streamere i Streamer Explorer og verifisert levering.", da: "Bestill, administrer og mål annonsekampanjer på Twitch, YouTube og Kick uten byrå. Beta Ads 2.0 gir nordiske merkevarer tilgang til 39 000+ streamere i Streamer Explorer og verifisert levering." },
     seoKeywords: { en: ["annonsering på live-streaming","Twitch-annonsering Norge","reklame på streaming","markedsføring på Twitch","self-serve annonseplattform","Kick-annonsering","streamer-sponsing Norden","digital annonsering gaming"], no: ["annonsering på live-streaming","Twitch-annonsering Norge","reklame på streaming","markedsføring på Twitch","self-serve annonseplattform","Kick-annonsering","streamer-sponsing Norden","digital annonsering gaming"], sv: ["annonsering på live-streaming","Twitch-annonsering Norge","reklame på streaming","markedsføring på Twitch","self-serve annonseplattform","Kick-annonsering","streamer-sponsing Norden","digital annonsering gaming"], fi: ["annonsering på live-streaming","Twitch-annonsering Norge","reklame på streaming","markedsføring på Twitch","self-serve annonseplattform","Kick-annonsering","streamer-sponsing Norden","digital annonsering gaming"], da: ["annonsering på live-streaming","Twitch-annonsering Norge","reklame på streaming","markedsføring på Twitch","self-serve annonseplattform","Kick-annonsering","streamer-sponsing Norden","digital annonsering gaming"] },
   },
   {
@@ -11828,7 +11828,7 @@ Brands we already work with have direct login access. Agency partners managing m
     locale: "sv",
     translationGroup: "beta-ads-2-0-launch",
     seoTitle: { en: "Beta Ads 2.0: Self-serve-annonsering för live streaming | Beta Ads", no: "Beta Ads 2.0: Self-serve-annonsering för live streaming | Beta Ads", sv: "Beta Ads 2.0: Self-serve-annonsering för live streaming | Beta Ads", fi: "Beta Ads 2.0: Self-serve-annonsering för live streaming | Beta Ads", da: "Beta Ads 2.0: Self-serve-annonsering för live streaming | Beta Ads" },
-    seoDescription: { en: "Boka, hantera och mät annonskampanjer på Twitch, YouTube och Kick utan byrå. Beta Ads 2.0 ger 39 000+ streamers, fem annonsformat och verifierad rapportering.", no: "Boka, hantera och mät annonskampanjer på Twitch, YouTube och Kick utan byrå. Beta Ads 2.0 ger 39 000+ streamers, fem annonsformat och verifierad rapportering.", sv: "Boka, hantera och mät annonskampanjer på Twitch, YouTube och Kick utan byrå. Beta Ads 2.0 ger 39 000+ streamers, fem annonsformat och verifierad rapportering.", fi: "Boka, hantera och mät annonskampanjer på Twitch, YouTube och Kick utan byrå. Beta Ads 2.0 ger 39 000+ streamers, fem annonsformat och verifierad rapportering.", da: "Boka, hantera och mät annonskampanjer på Twitch, YouTube och Kick utan byrå. Beta Ads 2.0 ger 39 000+ streamers, fem annonsformat och verifierad rapportering." },
+    seoDescription: { en: "Boka, hantera och mät annonskampanjer på Twitch, YouTube och Kick utan byrå. Beta Ads 2.0 ger tillgång till 39 000+ streamers i Streamer Explorer, fem annonsformat och verifierad rapportering.", no: "Boka, hantera och mät annonskampanjer på Twitch, YouTube och Kick utan byrå. Beta Ads 2.0 ger tillgång till 39 000+ streamers i Streamer Explorer, fem annonsformat och verifierad rapportering.", sv: "Boka, hantera och mät annonskampanjer på Twitch, YouTube och Kick utan byrå. Beta Ads 2.0 ger tillgång till 39 000+ streamers i Streamer Explorer, fem annonsformat och verifierad rapportering.", fi: "Boka, hantera och mät annonskampanjer på Twitch, YouTube och Kick utan byrå. Beta Ads 2.0 ger tillgång till 39 000+ streamers i Streamer Explorer, fem annonsformat och verifierad rapportering.", da: "Boka, hantera och mät annonskampanjer på Twitch, YouTube och Kick utan byrå. Beta Ads 2.0 ger tillgång till 39 000+ streamers i Streamer Explorer, fem annonsformat och verifierad rapportering." },
     seoKeywords: { en: ["live streaming annonsering","Twitch annonsering Sverige","annonsera på Twitch","streamer marknadsföring","influencer marketing gaming","Kick annonsering","YouTube Live annonser","sponsra streamers"], no: ["live streaming annonsering","Twitch annonsering Sverige","annonsera på Twitch","streamer marknadsföring","influencer marketing gaming","Kick annonsering","YouTube Live annonser","sponsra streamers"], sv: ["live streaming annonsering","Twitch annonsering Sverige","annonsera på Twitch","streamer marknadsföring","influencer marketing gaming","Kick annonsering","YouTube Live annonser","sponsra streamers"], fi: ["live streaming annonsering","Twitch annonsering Sverige","annonsera på Twitch","streamer marknadsföring","influencer marketing gaming","Kick annonsering","YouTube Live annonser","sponsra streamers"], da: ["live streaming annonsering","Twitch annonsering Sverige","annonsera på Twitch","streamer marknadsföring","influencer marketing gaming","Kick annonsering","YouTube Live annonser","sponsra streamers"] },
   },
   {
@@ -11846,7 +11846,7 @@ Brands we already work with have direct login access. Agency partners managing m
     locale: "fi",
     translationGroup: "beta-ads-2-0-launch",
     seoTitle: { en: "Beta Ads 2.0: itsepalvelualusta live-striimausmainontaan | Beta Ads", no: "Beta Ads 2.0: itsepalvelualusta live-striimausmainontaan | Beta Ads", sv: "Beta Ads 2.0: itsepalvelualusta live-striimausmainontaan | Beta Ads", fi: "Beta Ads 2.0: itsepalvelualusta live-striimausmainontaan | Beta Ads", da: "Beta Ads 2.0: itsepalvelualusta live-striimausmainontaan | Beta Ads" },
-    seoDescription: { en: "Beta Ads 2.0 on itsepalvelualusta, jolla varaat, hallitset ja mittaat Twitch- ja Kick-mainoskampanjoita. 39 000 striimaajaa, viisi mainosmuotoa ja varmennettu data.", no: "Beta Ads 2.0 on itsepalvelualusta, jolla varaat, hallitset ja mittaat Twitch- ja Kick-mainoskampanjoita. 39 000 striimaajaa, viisi mainosmuotoa ja varmennettu data.", sv: "Beta Ads 2.0 on itsepalvelualusta, jolla varaat, hallitset ja mittaat Twitch- ja Kick-mainoskampanjoita. 39 000 striimaajaa, viisi mainosmuotoa ja varmennettu data.", fi: "Beta Ads 2.0 on itsepalvelualusta, jolla varaat, hallitset ja mittaat Twitch- ja Kick-mainoskampanjoita. 39 000 striimaajaa, viisi mainosmuotoa ja varmennettu data.", da: "Beta Ads 2.0 on itsepalvelualusta, jolla varaat, hallitset ja mittaat Twitch- ja Kick-mainoskampanjoita. 39 000 striimaajaa, viisi mainosmuotoa ja varmennettu data." },
+    seoDescription: { en: "Beta Ads 2.0 on itsepalvelualusta, jolla varaat, hallitset ja mittaat Twitch- ja Kick-mainoskampanjoita. 39 000 striimaajaa Streamer Explorerissa, viisi mainosmuotoa ja varmennettu data.", no: "Beta Ads 2.0 on itsepalvelualusta, jolla varaat, hallitset ja mittaat Twitch- ja Kick-mainoskampanjoita. 39 000 striimaajaa Streamer Explorerissa, viisi mainosmuotoa ja varmennettu data.", sv: "Beta Ads 2.0 on itsepalvelualusta, jolla varaat, hallitset ja mittaat Twitch- ja Kick-mainoskampanjoita. 39 000 striimaajaa Streamer Explorerissa, viisi mainosmuotoa ja varmennettu data.", fi: "Beta Ads 2.0 on itsepalvelualusta, jolla varaat, hallitset ja mittaat Twitch- ja Kick-mainoskampanjoita. 39 000 striimaajaa Streamer Explorerissa, viisi mainosmuotoa ja varmennettu data.", da: "Beta Ads 2.0 on itsepalvelualusta, jolla varaat, hallitset ja mittaat Twitch- ja Kick-mainoskampanjoita. 39 000 striimaajaa Streamer Explorerissa, viisi mainosmuotoa ja varmennettu data." },
     seoKeywords: { en: ["live-striimausmainonta","Twitch-mainonta","Kick-mainonta","striimausmainonta Suomi","vaikuttajamarkkinointi striimaajat","mainonta pelaajille","YouTube Live mainonta","Beta Ads alusta"], no: ["live-striimausmainonta","Twitch-mainonta","Kick-mainonta","striimausmainonta Suomi","vaikuttajamarkkinointi striimaajat","mainonta pelaajille","YouTube Live mainonta","Beta Ads alusta"], sv: ["live-striimausmainonta","Twitch-mainonta","Kick-mainonta","striimausmainonta Suomi","vaikuttajamarkkinointi striimaajat","mainonta pelaajille","YouTube Live mainonta","Beta Ads alusta"], fi: ["live-striimausmainonta","Twitch-mainonta","Kick-mainonta","striimausmainonta Suomi","vaikuttajamarkkinointi striimaajat","mainonta pelaajille","YouTube Live mainonta","Beta Ads alusta"], da: ["live-striimausmainonta","Twitch-mainonta","Kick-mainonta","striimausmainonta Suomi","vaikuttajamarkkinointi striimaajat","mainonta pelaajille","YouTube Live mainonta","Beta Ads alusta"] },
   },
   {

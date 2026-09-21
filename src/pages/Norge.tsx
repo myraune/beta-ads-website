@@ -17,7 +17,7 @@ const serifFont = { fontFamily: "'Instrument Serif', serif" };
  */
 
 const stats = [
-  { value: "39 000+", label: "Aktive norske streamere" },
+  { value: "39 000+", label: "Streamere i Streamer Explorer" },
   { value: "800 000+", label: "Verifiserte visninger (Samsung)" },
   { value: "2.93%", label: "CTR - Galaxy S25 Ultra" },
   { value: "0%", label: "Adblock-impact" },
@@ -220,7 +220,7 @@ const Norge: React.FC = () => {
               Samsung, Shure, Komplett, Høyskolen Kristiania, NKI og Gokstad
               Akademiet har alle kjørt Twitch-kampanjer gjennom Beta Ads med
               verifisert rapportering på visninger og klikk. Vi kjører native
-              overlay-annonser på 39 000+ aktive norske streamere - kampanjer
+              overlay-annonser på 39 000+ streamere i Streamer Explorer-databasen vår - kampanjer
               som også overlever adblock.
             </p>
             <p className="text-lg lg:text-xl text-muted-foreground/70 leading-relaxed">

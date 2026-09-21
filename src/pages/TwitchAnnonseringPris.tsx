@@ -158,7 +158,7 @@ const TwitchAnnonseringPris: React.FC = () => {
             name: "Twitch-annonsering - Beta Ads",
             serviceType: "Native livestream-annonsering",
             description:
-              "Administrerte Twitch-kampanjer på tvers av 28 000+ nordiske streamere, priset per kampanje etter kategori, geografi, sesong, kreatørnivå og format.",
+              "Administrerte Twitch-kampanjer på Twitch, priset per kampanje etter kategori, geografi, sesong, kreatørnivå og format.",
             provider: { "@id": "https://beta-ads.no/#organization" },
             areaServed: ["Norway", "Sweden", "Denmark", "Finland"],
             inLanguage: "no",

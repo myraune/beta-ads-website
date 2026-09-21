@@ -148,7 +148,7 @@ const TwitchAdvertisingCost: React.FC = () => {
             name: "Twitch Advertising - Beta Ads",
             serviceType: "Native Livestream Advertising",
             description:
-              "Managed Twitch advertising campaigns across 28,000+ Nordic streamers, priced per campaign by category, geography, seasonality, creator tier and format.",
+              "Managed Twitch advertising campaigns on Twitch, priced per campaign by category, geography, seasonality, creator tier and format.",
             provider: { "@id": "https://beta-ads.no/#organization" },
             areaServed: ["Norway", "Sweden", "Denmark", "Finland"],
             url: "https://beta-ads.no/twitch-advertising-cost",

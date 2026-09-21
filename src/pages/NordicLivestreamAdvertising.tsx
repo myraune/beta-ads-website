@@ -47,7 +47,7 @@ const proof = [
 
 const steps = [
   { step: "01", title: "The brief", desc: "Your goal, market and budget bracket. We tell you honestly whether the format fits before anyone spends." },
-  { step: "02", title: "The match", desc: "We filter 39,000+ Nordic creators by category, language and verified CTR history, then you approve the shortlist." },
+  { step: "02", title: "The match", desc: "We filter 39,000+ creators in our Streamer Explorer database by category, language and verified CTR history, then you approve the shortlist." },
   { step: "03", title: "The overlay", desc: "We produce the creative and it renders natively in each stream through OBS. No pre-roll, no pop-up, no ad-block." },
   { step: "04", title: "The proof", desc: "Real-time views, verified CTR and clip verification, broken down by streamer and day. Not a screenshot, a receipt." },
 ];
