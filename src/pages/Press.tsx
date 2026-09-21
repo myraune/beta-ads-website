@@ -3,6 +3,7 @@ import { SEO } from "@/components/SEO";
 import { ExternalLink } from "lucide-react";
 import { SPFooter } from "@/components/sections/SPFooter";
 import { MascotBand } from "@/components/sections/MascotBand";
+import { YouTubeFacade } from "@/components/blog/YouTubeFacade";
 
 const pressArticles = [
   {
@@ -87,6 +88,24 @@ const Press: React.FC = () => {
           </p>
         </div>
 
+        {/* Pitch video: Fremtidens Verdiskaper. Click-to-load, same facade as the blog. */}
+        <section className="mb-16">
+          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Watch</span>
+          <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-6 max-w-xl">
+            The Beta Ads pitch
+          </h2>
+          <div className="max-w-4xl">
+            <YouTubeFacade
+              id="LDBZkZ-v_W8"
+              poster="/lovable-uploads/yt-fremtidens-verdiskaper-poster.webp"
+              title="Beta Ads pitch: Fremtidens verdiskaper"
+              meta="Beta Ads' pitch for SpareBank 1 SMN's Fremtidens Verdiskaper. In Norwegian."
+              playLabel="Play the Beta Ads pitch video"
+            />
+          </div>
+        </section>
+
+        <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-6 block">Coverage</span>
         <div className="grid md:grid-cols-2 gap-6">
           {pressArticles.map((article, i) => (
             <a
