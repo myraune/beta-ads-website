@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { SEO } from "@/components/SEO";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Play } from "lucide-react";
 import { SPFooter } from "@/components/sections/SPFooter";
 import { MascotBand } from "@/components/sections/MascotBand";
-import { YouTubeFacade } from "@/components/blog/YouTubeFacade";
 
 const pressArticles = [
   {
@@ -48,6 +47,69 @@ const pressArticles = [
   },
 ];
 
+/**
+ * The pitch video as a card in the same grid as the articles. Poster and
+ * play button until clicked; then the youtube-nocookie iframe takes the
+ * poster's place, so nothing from YouTube loads on page view.
+ */
+const VideoCard: React.FC = () => {
+  const [playing, setPlaying] = useState(false);
+  return (
+    <div className="group rounded-2xl border border-border bg-card overflow-hidden hover:shadow-lg hover:border-primary/20 transition-all duration-300">
+      <div className="aspect-[16/10] overflow-hidden relative bg-black">
+        {playing ? (
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/LDBZkZ-v_W8?autoplay=1&rel=0"
+            title="Beta Ads pitch: Fremtidens verdiskaper"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="absolute inset-0 w-full h-full border-0"
+          />
+        ) : (
+          <button
+            type="button"
+            onClick={() => setPlaying(true)}
+            aria-label="Play the Beta Ads pitch video"
+            className="absolute inset-0 w-full h-full"
+          >
+            <img
+              src="/lovable-uploads/yt-fremtidens-verdiskaper-poster.webp"
+              alt="Frame from the Beta Ads pitch video"
+              width={1280}
+              height={720}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <span className="absolute inset-0 flex items-center justify-center">
+              <span className="w-14 h-14 rounded-full bg-white/90 text-black flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
+                <Play className="w-6 h-6 ml-0.5" fill="currentColor" />
+              </span>
+            </span>
+          </button>
+        )}
+      </div>
+      <div className="p-5">
+        <div className="flex items-center justify-between mb-2">
+          <p className="text-primary text-xs font-semibold uppercase tracking-widest">Video</p>
+          <p className="text-muted-foreground text-[10px] uppercase tracking-widest">YouTube</p>
+        </div>
+        <h2 className="text-base font-semibold text-foreground mb-1 line-clamp-2">
+          Beta Ads pitch: Fremtidens verdiskaper
+        </h2>
+        <p className="text-muted-foreground text-sm line-clamp-1 mb-3">
+          The Beta Ads pitch for SpareBank 1 SMN's Fremtidens Verdiskaper. In Norwegian.
+        </p>
+        <button
+          type="button"
+          onClick={() => setPlaying(true)}
+          className="flex items-center gap-1 text-sm text-muted-foreground hover:text-primary transition-colors"
+        >
+          Watch video <Play className="w-3 h-3" />
+        </button>
+      </div>
+    </div>
+  );
+};
+
 const Press: React.FC = () => {
   return (
     <>
@@ -88,25 +150,8 @@ const Press: React.FC = () => {
           </p>
         </div>
 
-        {/* Pitch video: Fremtidens Verdiskaper. Click-to-load, same facade as the blog. */}
-        <section className="mb-16">
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Watch</span>
-          <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-6 max-w-xl">
-            The Beta Ads pitch
-          </h2>
-          <div className="max-w-4xl">
-            <YouTubeFacade
-              id="LDBZkZ-v_W8"
-              poster="/lovable-uploads/yt-fremtidens-verdiskaper-poster.webp"
-              title="Beta Ads pitch: Fremtidens verdiskaper"
-              meta="Beta Ads' pitch for SpareBank 1 SMN's Fremtidens Verdiskaper. In Norwegian."
-              playLabel="Play the Beta Ads pitch video"
-            />
-          </div>
-        </section>
-
-        <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-6 block">Coverage</span>
         <div className="grid md:grid-cols-2 gap-6">
+          <VideoCard />
           {pressArticles.map((article, i) => (
             <a
               key={i}
