@@ -6,6 +6,43 @@ import type { BlogPost } from "../blogPosts";
 
 export const posts_no: BlogPost[] = [
   {
+    id: "framtidsfredag-2026-fremtidens-verdiskaper",
+    slug: "framtidsfredag-2026-fremtidens-verdiskaper",
+    locale: "no",
+    hasDashboard: "fremtidens-verdiskaper",
+    title: "Fire minutter i Steinkjer: Beta Ads i delfinalen i Fremtidens Verdiskaper",
+    excerpt:
+      "26. juni pitchet vi Beta Ads for en full sal på Framtidsfredag, som ett av fem selskaper i SpareBank 1 SMNs gründerkonkurranse. Videoen, slidene og hva vi fikk ut av det.",
+    content: `## Fire minutter på scenen
+
+Framtidsfredag 2026 på InnoCamp Steinkjer, 26. juni. Fem selskaper i delfinalen i Fremtidens Verdiskaper, fire minutter hver, spørsmål fra juryen etterpå. LGR Technologies vant, enstemmig. Vi fikk fire minutter video og en sal som nå vet hva vi gjør.`,
+    date: "21. sep 2026",
+    dateISO: "2026-09-21",
+    readTime: "4 min lesetid",
+    category: "Beta Ads",
+    tags: ["Fremtidens Verdiskaper", "Framtidsfredag", "SpareBank 1 SMN", "pitch", "Trøndelag", "gründer"],
+    image: "/lovable-uploads/fremtidsfredag/scene-logo-bred.webp",
+    relatedSlugs: [],
+    seoTitle: {
+      en: "Four minutes in Steinkjer: Beta Ads in the Fremtidens Verdiskaper semifinal | Beta Ads",
+      no: "Beta Ads i delfinalen i Fremtidens Verdiskaper 2026 | Beta Ads",
+      sv: "Beta Ads i semifinalen i Fremtidens Verdiskaper 2026 | Beta Ads",
+      fi: "Beta Ads Fremtidens Verdiskaper 2026 -välierässä | Beta Ads"
+    },
+    seoDescription: {
+      en: "On 26 June we pitched Beta Ads to a full room at Framtidsfredag in Steinkjer, one of five companies in SpareBank 1 SMN's startup competition. The video, the slides and what we took home.",
+      no: "26. juni pitchet vi Beta Ads for en full sal på Framtidsfredag i Steinkjer, som ett av fem selskaper i SpareBank 1 SMNs gründerkonkurranse. Videoen, slidene og hva vi fikk ut av det.",
+      sv: "Den 26 juni pitchade vi Beta Ads för en full sal på Framtidsfredag i Steinkjer, ett av fem bolag i SpareBank 1 SMN:s startuptävling. Videon, sliderna och vad vi tog med oss.",
+      fi: "26. kesäkuuta pitchasimme Beta Adsin täydelle salille Framtidsfredagissa Steinkjerissä, yhtenä viidestä yrityksestä SpareBank 1 SMN:n startup-kilpailussa. Video, slidet ja mitä saimme mukaan."
+    },
+    seoKeywords: {
+      en: ["Fremtidens Verdiskaper", "Framtidsfredag", "SpareBank 1 SMN", "startup pitch", "Beta Ads", "Trøndelag"],
+      no: ["Fremtidens Verdiskaper", "Framtidsfredag", "SpareBank 1 SMN", "gründerkonkurranse", "pitch", "Beta Ads", "Steinkjer"],
+      sv: ["Fremtidens Verdiskaper", "Framtidsfredag", "SpareBank 1 SMN", "startup-pitch", "Beta Ads"],
+      fi: ["Fremtidens Verdiskaper", "Framtidsfredag", "SpareBank 1 SMN", "startup-pitch", "Beta Ads"]
+    },
+  },
+  {
     id: "twitch-capcut-klipp-og-kanalgrafikk",
     slug: "twitch-capcut-klipp-og-kanalgrafikk",
     locale: "no",

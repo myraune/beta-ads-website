@@ -60,11 +60,12 @@ const TwitchApril2026Overhaul = lazy(() => import("@/components/blog/TwitchApril
 const HowTwitchAdvertisingWorks = lazy(() => import("@/components/blog/HowTwitchAdvertisingWorks"));
 const AdBlockerCrisis = lazy(() => import("@/components/blog/AdBlockerCrisis"));
 const TwitchCapCut = lazy(() => import("@/components/blog/TwitchCapCut"));
+const FremtidensVerdiskaper = lazy(() => import("@/components/blog/FremtidensVerdiskaper"));
 const StreamerUniversity2026 = lazy(() => import("@/components/blog/StreamerUniversity2026"));
 const GtaViNordicPlaybook = lazy(() => import("@/components/blog/GtaViNordicPlaybook"));
 
 /** hasDashboard keys that render a bespoke full-width editorial page. */
-const RICH_EDITORIAL = ["twitch-april-2026", "how-twitch-advertising-works", "ad-blocker-crisis", "streamer-university-2026", "gta-vi-nordic-playbook", "twitch-capcut"];
+const RICH_EDITORIAL = ["twitch-april-2026", "how-twitch-advertising-works", "ad-blocker-crisis", "streamer-university-2026", "gta-vi-nordic-playbook", "twitch-capcut", "fremtidens-verdiskaper"];
 
 /** hasDashboard-verdier som bruker det fullbredde, header-løse roundup-oppsettet. */
 const STREAMER_ROUNDUPS = ["norske-streamere", "svenska-streamare", "danske-streamere", "suomalaiset-striimaajat"];
@@ -315,6 +316,7 @@ const BlogPostView: React.FC<{ post: BlogPost; slug: string }> = ({ post, slug }
                     <GtaViNordicPlaybook lang={post.locale === "no" ? "no" : "en"} />
                   )}
                   {post.hasDashboard === "twitch-capcut" && <TwitchCapCut />}
+                  {post.hasDashboard === "fremtidens-verdiskaper" && <FremtidensVerdiskaper />}
                 </Suspense>
               </div>
             ) : (
