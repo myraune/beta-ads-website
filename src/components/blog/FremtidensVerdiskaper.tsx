@@ -88,8 +88,16 @@ const SLIDES = [
 export const FremtidensVerdiskaper: React.FC = () => {
   return (
     <div className="-mx-6 lg:-mx-12">
-      {/* Video */}
+      {/* Headline + video */}
       <section className="max-w-5xl mx-auto px-6 lg:px-12 pt-4 pb-16">
+        <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Framtidsfredag 2026</span>
+        <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-[1.06] tracking-tight mb-4 max-w-3xl">
+          Fire minutter i{" "}
+          <span style={serif} className="italic font-normal">Steinkjer</span>
+        </h1>
+        <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl">
+          Beta Ads i delfinalen i Fremtidens Verdiskaper, SpareBank 1 SMNs gründerkonkurranse. Videoen, slidene og hva vi fikk ut av det.
+        </p>
         <YouTubeFacade
           id="LDBZkZ-v_W8"
           poster="/lovable-uploads/yt-fremtidens-verdiskaper-poster.webp"
