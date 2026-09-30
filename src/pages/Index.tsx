@@ -4,6 +4,7 @@ import { SPHero } from "@/components/sections/SPHero";
 import { SPBrands } from "@/components/sections/SPBrands";
 import { SPFeatures } from "@/components/sections/SPFeatures";
 import { SPVideoShowcase } from "@/components/sections/SPVideoShowcase";
+import { SPFilm } from "@/components/sections/SPFilm";
 import { SPCampaignTools } from "@/components/sections/SPCampaignTools";
 import { SPUseCases } from "@/components/sections/SPUseCases";
 import { MeetBeta } from "@/components/sections/MeetBeta";
@@ -26,6 +27,17 @@ const Index: React.FC = () => {
           { hreflang: "x-default", href: "/" },
         ]}
         jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            name: "Beta Ads in 60 seconds",
+            description: "How Beta Ads puts brands inside livestreams: find streamers, build a campaign, go live across dozens of streams and measure every view, click and chat mention in one dashboard.",
+            thumbnailUrl: "https://beta-ads.no/videos/beta-ads-film-poster.webp",
+            contentUrl: "https://beta-ads.no/videos/beta-ads-film.mp4",
+            uploadDate: "2026-09-29",
+            duration: "PT58S",
+            publisher: { "@id": "https://beta-ads.no/#organization" },
+          },
           {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
@@ -103,6 +115,7 @@ const Index: React.FC = () => {
       <div className="min-h-screen">
         <SPHero />
         <SPBrands />
+        <SPFilm />
         <SPFeatures />
         <SPVideoShowcase />
         <SPCampaignTools />
