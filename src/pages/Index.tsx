@@ -4,7 +4,6 @@ import { SPHero } from "@/components/sections/SPHero";
 import { SPBrands } from "@/components/sections/SPBrands";
 import { SPFeatures } from "@/components/sections/SPFeatures";
 import { SPVideoShowcase } from "@/components/sections/SPVideoShowcase";
-import { SPFilm } from "@/components/sections/SPFilm";
 import { SPCampaignTools } from "@/components/sections/SPCampaignTools";
 import { SPUseCases } from "@/components/sections/SPUseCases";
 import { MeetBeta } from "@/components/sections/MeetBeta";
@@ -35,7 +34,7 @@ const Index: React.FC = () => {
             thumbnailUrl: "https://beta-ads.no/videos/beta-ads-film-poster.webp",
             contentUrl: "https://beta-ads.no/videos/beta-ads-film.mp4",
             uploadDate: "2026-09-29",
-            duration: "PT58S",
+            duration: "PT1M7S",
             publisher: { "@id": "https://beta-ads.no/#organization" },
           },
           {
@@ -115,7 +114,6 @@ const Index: React.FC = () => {
       <div className="min-h-screen">
         <SPHero />
         <SPBrands />
-        <SPFilm />
         <SPFeatures />
         <SPVideoShowcase />
         <SPCampaignTools />
