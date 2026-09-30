@@ -27,12 +27,34 @@ import {
   IconReports,
 } from "@/components/icons/BetaIcons";
 import { FileTree, type FileNode } from "@/components/ui/file-tree";
+import { FilmModal } from "@/components/FilmModal";
 
 /* ═══════════════════════════════════════════════════════════
    FEATURE SECTIONS - Apple-style clean scroll-through layout
    ═══════════════════════════════════════════════════════════ */
 
+const IconFilm: React.FC<{ className?: string; size?: number }> = ({ className, size = 16 }) => (
+  <svg viewBox="0 0 24 24" width={size} height={size} className={className} fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <rect x="3" y="5" width="18" height="14" rx="3" /><path d="M10 9.5v5l4.5-2.5z" fill="currentColor" />
+  </svg>
+);
+
 const features = [
+  {
+    id: "film",
+    label: "Film",
+    file: "watch-film.mp4",
+    icon: IconFilm,
+    title: "See it in action",
+    description:
+      "One minute from finding streamers to the campaign report. The same Streamer Explorer, campaign builder and dashboard your team gets on day one.",
+    bullets: [
+      "Find and book streamers",
+      "Build and launch a campaign in minutes",
+      "Follow views, clicks and chat mentions live",
+    ],
+    stat: { value: "1:07", label: "the whole platform in one film" },
+  },
   {
     id: "streamers",
     label: "Streamers",
@@ -907,7 +929,37 @@ const ReportModal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   );
 };
 
+/* Film: silent loop plays while in view; the full film (with sound) opens in the cinematic player */
+const FilmPreview: React.FC = () => {
+  const ref = useRef<HTMLVideoElement>(null);
+  const [open, setOpen] = useState(false);
+  useEffect(() => {
+    const v = ref.current; if (!v) return;
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) v.play().catch(() => {}); else v.pause(); }, { threshold: 0.35 });
+    io.observe(v); return () => io.disconnect();
+  }, []);
+  return (
+    <div className="relative aspect-video w-full overflow-hidden">
+      <video ref={ref} src="/videos/beta-ads-film-loop.mp4" poster="/videos/beta-ads-film-loop.webp" muted loop playsInline preload="none" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        aria-label="Watch the Beta Ads film"
+        className="group absolute left-1/2 bottom-6 md:bottom-8 -translate-x-1/2 inline-flex items-center gap-3 whitespace-nowrap rounded-full bg-white/95 pl-2 pr-5 py-2 text-sm md:text-base font-semibold text-neutral-900 shadow-xl transition-transform duration-300 hover:scale-105"
+      >
+        <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white">
+          <svg viewBox="0 0 24 24" className="h-4 w-4 translate-x-[1px] fill-current" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+        </span>
+        Watch the film <span className="font-normal text-neutral-500">1:07</span>
+      </button>
+      <FilmModal open={open} onClose={() => setOpen(false)} />
+    </div>
+  );
+};
+
 const previewComponents: Record<string, React.FC> = {
+  film: FilmPreview,
   streamers: StreamerPreview,
   targeting: TargetingPreview,
   launch: LaunchPreview,
@@ -1085,9 +1137,9 @@ export const SPFeatures: React.FC = () => {
                     type: "folder",
                     locked: true,
                     children: features.map((f): FileNode => ({
-                      name: `${f.label.toLowerCase()}.tsx`,
+                      name: (f as { file?: string }).file ?? `${f.label.toLowerCase()}.tsx`,
                       type: "file",
-                      extension: "tsx",
+                      extension: (f as { file?: string }).file ? "mp4" : "tsx",
                       icon: f.icon,
                       id: f.id,
                       active: f.id === activeId,

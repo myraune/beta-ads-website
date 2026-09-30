@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { FilmModal } from "@/components/FilmModal";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
@@ -521,7 +520,6 @@ const viewMap: Record<string, React.FC> = {
    ═══════════════════════════════════════════════ */
 export const SPHero: React.FC = () => {
   const [activeTab, setActiveTab] = useState("dashboard");
-  const [filmOpen, setFilmOpen] = useState(false);
   const [starClicks, setStarClicks] = useState(0);
   const [starEgg, setStarEgg] = useState(false);
   const ActiveView = viewMap[activeTab] || DashboardView;
@@ -584,23 +582,8 @@ export const SPHero: React.FC = () => {
                 Case Studies
               </Button>
             </Link>
-            {/* Film: a live mini-loop in the button, full film opens in a cinematic player */}
-            <button
-              type="button"
-              onClick={() => setFilmOpen(true)}
-              aria-label="Watch the Beta Ads film"
-              className="group inline-flex h-12 items-center gap-3 rounded-full bg-black/35 border border-white/25 backdrop-blur-sm pl-1.5 pr-5 text-sm font-semibold text-white transition-[transform,background-color,border-color] duration-300 hover:-translate-y-0.5 hover:bg-black/50 hover:border-white/50"
-            >
-              <span className="relative h-9 w-16 overflow-hidden rounded-full ring-1 ring-white/30">
-                <video src="/videos/beta-ads-film-teaser.mp4" poster="/videos/beta-ads-film-teaser.webp" autoPlay muted loop playsInline preload="metadata" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
-                <span className="absolute inset-0 flex items-center justify-center bg-black/25 transition-colors group-hover:bg-black/10">
-                  <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 translate-x-[1px] fill-white" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
-                </span>
-              </span>
-              Watch the film <span className="font-normal text-white/60">1:07</span>
-            </button>
           </div>
-          <FilmModal open={filmOpen} onClose={() => setFilmOpen(false)} />
+
         </div>
       </div>
 
