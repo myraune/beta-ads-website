@@ -28,6 +28,7 @@ const footerLinks = {
   "CASE STUDIES": [
     { label: "Samsung Galaxy S25 Ultra", to: "/case-study/samsung" },
     { label: "Samsung Galaxy Z Fold7", to: "/case-study/samsung-fold7" },
+    { label: "Surfshark VPN Finland", to: "/case-study/surfshark-finland" },
     { label: "Surfshark VPN", to: "/case-study/surfshark" },
     { label: "Saily eSIM", to: "/case-study/saily" },
     { label: "Shure MV6", to: "/case-study/shure" },

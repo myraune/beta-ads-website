@@ -208,6 +208,17 @@
   </url>
 
   <url>
+    <loc>https://beta-ads.no/case-study/surfshark-finland</loc>
+    <lastmod>2026-10-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://beta-ads.no/lovable-uploads/case-surfshark-finland/poll-driving.webp</image:loc>
+      <image:title>Surfshark VPN Finland x Beta Ads - Finnish Twitch advertising case study</image:title>
+    </image:image>
+  </url>
+
+  <url>
     <loc>https://beta-ads.no/case-study/surfshark</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>

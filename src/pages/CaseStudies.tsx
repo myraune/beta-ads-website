@@ -33,6 +33,20 @@ const caseStudies = [
 
 const detailedCaseStudies = [
   {
+    brand: "Surfshark",
+    title: "VPN Finland: bought 100,000 views, got close to a million",
+    badge: "Newest · August 2026",
+    description: "14 Finnish Twitch creators for a month with a live poll on every ad moment. 119,041 live views, 949,957 with replays, and 2,833 votes on whether Finland uses a VPN.",
+    stats: [
+      { label: "Live views", value: "119,041" },
+      { label: "With replays", value: "949,957" },
+      { label: "CTR", value: "1.08%" },
+      { label: "Poll votes", value: "2,833" },
+    ],
+    image: "/lovable-uploads/case-surfshark-finland/poll-driving.webp",
+    link: "/case-study/surfshark-finland",
+  },
+  {
     brand: "Samsung",
     title: "Galaxy S25 Ultra & Z Fold7 - Norwegian Twitch",
     description: "Two smartphone launches in 2025. Rich media overlays across 43 + 28 Norwegian streamer slots, 800K live + 558K+ VOD views, zero adblock impact on both campaigns.",
@@ -216,6 +230,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
             "url": "https://beta-ads.no/case-studies",
             "isPartOf": { "@id": "https://beta-ads.no/#website" },
             "hasPart": [
+              { "@type": "Article", "name": "Surfshark VPN Finland x Beta Ads", "url": "https://beta-ads.no/case-study/surfshark-finland" },
               { "@type": "Article", "name": "Samsung Galaxy S25 Ultra x Beta Ads", "url": "https://beta-ads.no/case-study/samsung" },
               { "@type": "Article", "name": "Samsung Galaxy Z Fold7 x Beta Ads", "url": "https://beta-ads.no/case-study/samsung-fold7" },
               { "@type": "Article", "name": "Surfshark VPN x Beta Ads", "url": "https://beta-ads.no/case-study/surfshark" },
@@ -371,7 +386,12 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
                   />
                 </div>
                 <div className="p-6">
-                  <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-2">{cs.brand}</p>
+                  <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-2">
+                    {cs.brand}
+                    {"badge" in cs && cs.badge && (
+                      <span className="ml-2 normal-case tracking-normal font-medium text-muted-foreground">· {cs.badge}</span>
+                    )}
+                  </p>
                   <h3 className="text-lg font-semibold text-foreground mb-2 leading-snug group-hover:text-primary transition-colors">
                     {cs.title}
                   </h3>
