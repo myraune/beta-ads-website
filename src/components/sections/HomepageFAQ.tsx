@@ -2,30 +2,34 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const faqs = [
+/* Single source for the visible FAQ and the FAQPage JSON-LD on "/" (Index.tsx
+   maps this array), so the two can never drift apart again. Only confirmed
+   facts: pricing per 1,000 views from 100,000 NOK, refund of undelivered views,
+   client dashboard login, streamer list approval on request. */
+export const homepageFaqs = [
   {
     question: "How is this different from Twitch's own ads?",
-    answer: "Twitch's native ads are pre-rolls and mid-rolls that viewers skip or block with adblock. Our overlay ads are built directly into the stream itself - they bypass adblock entirely and feel like part of the content, not an interruption.",
+    answer: "Twitch's own ads are pre-rolls and mid-rolls that viewers skip or remove with an ad blocker. Our overlay is part of the stream picture itself, rendered by the streamer's broadcast software, so blockers cannot remove it and nobody can skip it.",
   },
   {
     question: "What's the minimum campaign budget?",
-    answer: "Campaign budgets vary based on reach, duration, and market. Contact us directly for a custom quote - we'll match the right streamers and format to your goals and budget.",
+    answer: "Campaigns start from 100,000 NOK. You pay per 1,000 animation views, and the bigger the budget, the lower the price per view. The planner on this page shows what each budget buys.",
+  },
+  {
+    question: "What counts as a view, and what if you don't deliver?",
+    answer: "One view is one fully played run of your animation on a live stream. If a campaign delivers fewer views than you paid for, the undelivered views are refunded pro rata. Clicks and CTR are reported but not guaranteed.",
   },
   {
     question: "How do you ensure brand safety?",
-    answer: "Every streamer in our network is vetted and approved. We monitor streams in real-time and have content guidelines in place. You approve every streamer before your campaign goes live.",
+    answer: "We pick streamers for your brand and you can approve the streamer list before the campaign goes live. During the campaign every channel is checked for the overlay running correctly, and every chat mention of your brand is tracked.",
   },
   {
     question: "What metrics and reporting do I get?",
-    answer: "You get real-time access to impressions, CTR, viewership data, and engagement metrics through our dashboard. Weekly reports are delivered during active campaigns with views, verified clicks, screen time, and CTR broken down by streamer and day.",
+    answer: "You get your own login to the live campaign dashboard with views, clicks and chat mentions per streamer. When the campaign ends you get an automated report covering setup verification, chat tracking and replay reach.",
   },
   {
     question: "Can I target specific games or audiences?",
-    answer: "Yes. You can target by game category, streamer demographics, viewer location (country-level), streaming schedule, and audience size. We help you find the right streamers for your brand.",
-  },
-  {
-    question: "How quickly can a campaign go live?",
-    answer: "From brief to broadcast in as little as 5 business days. We handle creative production, streamer matching, and deployment - you just approve the final artwork and streamer list.",
+    answer: "Yes. We choose streamers by game, language, country and audience size from a database of 39,000+ streamers on Twitch, YouTube and Kick, and match them to who you want to reach.",
   },
 ];
 
@@ -51,7 +55,7 @@ export const HomepageFAQ: React.FC = () => {
 
         {/* Native <details> per the design system (no Accordion component). */}
         <div>
-          {faqs.map((faq, index) => (
+          {homepageFaqs.map((faq, index) => (
             <details key={index} className="group border-b border-border last:border-b-0">
               <summary className="flex items-center justify-between gap-4 py-5 cursor-pointer text-sm font-medium text-foreground hover:text-primary transition-colors select-none list-none [&::-webkit-details-marker]:hidden">
                 {faq.question}
