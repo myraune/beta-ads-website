@@ -88,7 +88,7 @@ export function AnimatedThemeToggler({
   const [mounted, setMounted] = useState(false);
 
   // next-themes: resolvedTheme handles "system" → actual resolved value
-  const { resolvedTheme, setTheme } = useTheme();
+  const { resolvedTheme, systemTheme, setTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -105,7 +105,10 @@ export function AnimatedThemeToggler({
   const isDark = resolvedTheme === "dark";
 
   const toggle = () => {
-    setTheme(isDark ? "light" : "dark");
+    const next = isDark ? "light" : "dark";
+    // Picking the same look as the Mac/OS setting goes back to "system", so the
+    // site keeps following the OS instead of pinning a choice forever.
+    setTheme(next === systemTheme ? "system" : next);
     if (sound) tick(lastSnd);
   };
 

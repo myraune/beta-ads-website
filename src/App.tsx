@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
-import { ThemeProvider, useTheme } from "next-themes";
+import { ThemeProvider } from "next-themes";
 import { MotionConfig } from "framer-motion";
 import { Layout } from "@/components/Layout";
 import { Component as AILoader } from "@/components/ui/ai-loader";
@@ -114,33 +114,32 @@ const t = {
 };
 
 
-/* Force dark only on /streamers. All other pages preserve whatever theme the user
-   has set (or system default on first visit). Restores the previous theme when
-   navigating away from /streamers. */
-const RouteThemeEnforcer = () => {
-  const { theme, setTheme } = useTheme();
-  const location = useLocation();
-  const prevPathnameRef = useRef<string | null>(null);
-  const savedThemeRef = useRef<string>("system");
-  // Keep a always-current ref so the effect can read the latest theme without
-  // adding it as a dependency (which would cause unnecessary re-runs).
-  const currentThemeRef = useRef<string>(theme || "system");
-  currentThemeRef.current = theme || "system";
+/* Theme follows the OS (prefers-color-scheme) unless the visitor picks one with the
+   toggle. /streamers is always dark, via forcedTheme so it is never written to
+   storage and never leaks into the rest of the site. The storage key was renamed
+   from next-themes' default "theme" so visitors stuck on an old saved value (from
+   the former setTheme("dark") on /streamers) start following their OS again. */
+const RoutedThemeProvider = ({ children }: { children: React.ReactNode }) => {
+  const { pathname } = useLocation();
+  return (
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+      enableSystem
+      storageKey="beta-theme"
+      forcedTheme={pathname === "/streamers" ? "dark" : undefined}
+    >
+      {children}
+    </ThemeProvider>
+  );
+};
 
+/* Scroll to top on every route change (was folded into the old theme enforcer). */
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
   useEffect(() => {
-    const prev = prevPathnameRef.current;
-    prevPathnameRef.current = location.pathname;
-
-    if (location.pathname === "/streamers" && prev !== "/streamers") {
-      savedThemeRef.current = currentThemeRef.current;
-      setTheme("dark");
-    } else if (location.pathname !== "/streamers" && prev === "/streamers") {
-      setTheme(savedThemeRef.current);
-    }
-
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  }, [location.pathname, setTheme]);
-
+  }, [pathname]);
   return null;
 };
 
@@ -164,17 +163,17 @@ const App = () => {
 
   return (
   <QueryClientProvider client={queryClient}>
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem forcedTheme={undefined}>
+    <BrowserRouter>
+    <RoutedThemeProvider>
       <Analytics />
       <ConversionTracker />
       <Toaster />
       <Sonner />
       <MotionConfig reducedMotion="user">
-      <BrowserRouter>
         <EngagementTracker />
         <StickyDemoCta />
         <SpeedInsightsWithRoute />
-        <RouteThemeEnforcer />
+        <ScrollToTop />
         <RouteTransition />
         <Suspense
           fallback={
@@ -245,9 +244,9 @@ const App = () => {
             </Route>
           </Routes>
         </Suspense>
-      </BrowserRouter>
       </MotionConfig>
-    </ThemeProvider>
+    </RoutedThemeProvider>
+    </BrowserRouter>
   </QueryClientProvider>
   );
 };
