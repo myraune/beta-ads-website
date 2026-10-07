@@ -100,7 +100,7 @@ const COPY = {
         { n: "03", title: "Live", desc: "Creators install nothing new; the overlay runs through the software they already stream with. Ads fire during agreed moments, not around the clock." },
         { n: "04", title: "Report", desc: "Completed views, CTR, poll answers, per-channel brand safety, replay reach. Kick and Twitch campaigns land in the same report." },
       ],
-      figureCaption: "Streamer Explorer in the Beta Ads dashboard: 39,445 streamers across Twitch, Kick, YouTube and Trovo, 37,599 of them recently active and open to collaborations, with engagement and brand-safety scores per channel. Kick creators are filtered out by platform, country and language.",
+      figureCaption: "Streamer Explorer in the Beta Ads dashboard: 39,445 streamers across Twitch, Kick and YouTube, 37,599 of them recently active and open to collaborations, with engagement and brand-safety scores per channel. Kick creators are filtered out by platform, country and language.",
     },
     why: {
       label: "Why creators",
@@ -164,7 +164,7 @@ const COPY = {
         { n: "03", title: "Live", desc: "Skaperne installerer ingenting nytt; overlayet går gjennom programvaren de allerede strømmer med. Annonsene går i avtalte øyeblikk, ikke døgnet rundt." },
         { n: "04", title: "Rapport", desc: "Fullførte visninger, CTR, svar på avstemninger, brand safety per kanal, Replay reach. Kick- og Twitch-kampanjer havner i samme rapport." },
       ],
-      figureCaption: "Streamer Explorer i Beta Ads-dashbordet: 39 445 streamere på tvers av Twitch, Kick, YouTube og Trovo, 37 599 av dem nylig aktive og åpne for samarbeid, med engasjement- og brand safety-score per kanal. Kick-skapere filtreres ut på plattform, land og språk.",
+      figureCaption: "Streamer Explorer i Beta Ads-dashbordet: 39 445 streamere på tvers av Twitch, Kick og YouTube, 37 599 av dem nylig aktive og åpne for samarbeid, med engasjement- og brand safety-score per kanal. Kick-skapere filtreres ut på plattform, land og språk.",
     },
     why: {
       label: "Hvorfor skapere",
@@ -228,7 +228,7 @@ const COPY = {
         { n: "03", title: "Live", desc: "Kreatörerna installerar inget nytt; overlayen går genom programvaran de redan streamar med. Annonserna går i avtalade ögonblick, inte dygnet runt." },
         { n: "04", title: "Rapport", desc: "Fullföljda visningar, CTR, svar på omröstningar, brand safety per kanal, Replay reach. Kick- och Twitch-kampanjer landar i samma rapport." },
       ],
-      figureCaption: "Streamer Explorer i Beta Ads-dashboarden: 39 445 streamers över Twitch, Kick, YouTube och Trovo, 37 599 av dem nyligen aktiva och öppna för samarbeten, med engagemangs- och brand safety-poäng per kanal. Kick-kreatörer filtreras fram på plattform, land och språk.",
+      figureCaption: "Streamer Explorer i Beta Ads-dashboarden: 39 445 streamers över Twitch, Kick och YouTube, 37 599 av dem nyligen aktiva och öppna för samarbeten, med engagemangs- och brand safety-poäng per kanal. Kick-kreatörer filtreras fram på plattform, land och språk.",
     },
     why: {
       label: "Varför kreatörer",
@@ -292,7 +292,7 @@ const COPY = {
         { n: "03", title: "Live", desc: "Creatorerne installerer intet nyt; overlayet kører gennem den software, de allerede streamer med. Annoncerne kører i aftalte øjeblikke, ikke døgnet rundt." },
         { n: "04", title: "Rapport", desc: "Gennemførte visninger, CTR, svar på afstemninger, brand safety per kanal, Replay reach. Kick- og Twitch-kampagner lander i samme rapport." },
       ],
-      figureCaption: "Streamer Explorer i Beta Ads-dashboardet: 39.445 streamere på tværs af Twitch, Kick, YouTube og Trovo, 37.599 af dem nyligt aktive og åbne for samarbejde, med engagement- og brand safety-score per kanal. Kick-creators filtreres frem på platform, land og sprog.",
+      figureCaption: "Streamer Explorer i Beta Ads-dashboardet: 39.445 streamere på tværs af Twitch, Kick og YouTube, 37.599 af dem nyligt aktive og åbne for samarbejde, med engagement- og brand safety-score per kanal. Kick-creators filtreres frem på platform, land og sprog.",
     },
     why: {
       label: "Hvorfor creators",
@@ -356,7 +356,7 @@ const COPY = {
         { n: "03", title: "Live", desc: "Tekijät eivät asenna mitään uutta; overlay kulkee ohjelmiston läpi, jolla he jo striimaavat. Mainokset näkyvät sovittuina hetkinä, eivät kellon ympäri." },
         { n: "04", title: "Raportti", desc: "Katsotut näytöt, CTR, äänestysvastaukset, bränditurvallisuus kanavaa kohti, Replay reach. Kick- ja Twitch-kampanjat päätyvät samaan raporttiin." },
       ],
-      figureCaption: "Streamer Explorer Beta Adsin hallintapaneelissa: 39 445 striimaajaa Twitchissä, Kickissä, YouTubessa ja Trovossa, joista 37 599 äskettäin aktiivisia ja avoimia yhteistyölle, sitoutumis- ja bränditurvallisuuspisteet kanavaa kohti. Kick-tekijät suodatetaan alustan, maan ja kielen mukaan.",
+      figureCaption: "Streamer Explorer Beta Adsin hallintapaneelissa: 39 445 striimaajaa Twitchissä, Kickissä ja YouTubessa, joista 37 599 äskettäin aktiivisia ja avoimia yhteistyölle, sitoutumis- ja bränditurvallisuuspisteet kanavaa kohti. Kick-tekijät suodatetaan alustan, maan ja kielen mukaan.",
     },
     why: {
       label: "Miksi tekijät",

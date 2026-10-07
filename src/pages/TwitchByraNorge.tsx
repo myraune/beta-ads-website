@@ -178,7 +178,7 @@ const faq = [
   },
   {
     q: "Dekker dere hele Norden?",
-    a: "Ja. Vi jobber fra Oslo, Stockholm og Helsingfors, og kjører kampanjer på norsk, svensk, dansk og finsk. Norge kan kjøres alene eller som del av et nordisk opplegg.",
+    a: "Ja. Vi holder til i Oslo og kjører kampanjer på norsk, svensk, dansk og finsk. Norge kan kjøres alene eller som del av et nordisk opplegg.",
   },
   {
     q: "Hvordan vet jeg at kampanjen faktisk gikk som avtalt?",
@@ -603,7 +603,7 @@ const TwitchByraNorge: React.FC = () => {
         variant="scene"
         eyebrow="Norsk, ikke et nordisk sidekontor"
         heading="Beta Agency AS er registrert i Norge"
-        body="Vi jobber fra Oslo, Stockholm og Helsingfors, og kjører kampanjer på norsk, svensk, dansk og finsk. Norge kan kjøres alene, eller som del av et nordisk opplegg."
+        body="Vi holder til i Oslo og kjører kampanjer på norsk, svensk, dansk og finsk. Norge kan kjøres alene, eller som del av et nordisk opplegg."
         points={[
           "Norske streamere, norsk chat, norske kunder",
           "Vi rapporterer hva chatten faktisk sa, ikke bare visninger",

@@ -10,7 +10,7 @@ import { MascotBand } from "@/components/sections/MascotBand";
 const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
 const stats = [
-  { value: "39,000+", label: "Streamers in Explorer, 4 platforms" },
+  { value: "39,000+", label: "Streamers in Explorer, 3 platforms" },
   { value: "#2", label: "Fastest-Growing Platform" },
   { value: "45 min", label: "Avg. Live Session" },
   { value: "2B+", label: "Monthly Users" },
@@ -45,7 +45,6 @@ const platforms = [
   { name: "Twitch", strength: "Largest gaming audience", slug: "/twitch-advertising" },
   { name: "YouTube", strength: "Broadest demographics", slug: "/youtube-advertising" },
   { name: "Kick", strength: "Fastest growth, longest sessions", slug: "/kick-advertising" },
-  { name: "Trovo", strength: "Untapped niche communities", slug: "#" },
 ];
 
 const YouTubeAdvertising: React.FC = () => {
@@ -290,10 +289,10 @@ const YouTubeAdvertising: React.FC = () => {
               Don't choose one platform. Own all of them.
             </h2>
             <p className="text-muted-foreground mt-3 max-w-2xl text-sm leading-relaxed">
-              Beta Ads runs native overlay campaigns across YouTube, Twitch, Kick, and Trovo from a single dashboard. No single platform captures the full Nordic streaming audience.
+              Beta Ads runs native overlay campaigns across YouTube, Twitch and Kick from a single dashboard. No single platform captures the full Nordic streaming audience.
             </p>
           </div>
-          <div className="grid md:grid-cols-4 gap-5">
+          <div className="grid md:grid-cols-3 gap-5">
             {platforms.map((p) => {
               const isCurrentPage = p.name === "YouTube";
               const isDisabled = p.slug === "#";

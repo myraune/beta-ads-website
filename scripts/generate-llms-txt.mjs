@@ -57,7 +57,7 @@ const SECTIONS = [
   },
   {
     title: "Reference",
-    routes: ["/blog", "/press", "/contact"],
+    routes: ["/working-with-us", "/press", "/about", "/blog", "/contact"],
   },
 ];
 
@@ -87,13 +87,34 @@ lines.push("> pre-roll, so ad blockers have nothing to remove.");
 lines.push("");
 lines.push("## Company");
 lines.push("");
-lines.push("- Legal name: Beta Agency AS");
-lines.push("- Norwegian organisation number: 933 303 136");
-lines.push("- Registered: 2024-04-15, Frosta, Norway. Teams work from Oslo, Stockholm and Helsinki.");
+lines.push("- Legal name: BETA AGENCY AS (brand: Beta Ads)");
+lines.push("- Norwegian organisation number: 933 303 136, VAT registered (NO 933 303 136 MVA)");
+lines.push("- Founded: 2024-03-15. Registered office: Frosta, Norway. Based in Oslo; sells to brands");
+lines.push("  and agencies in Norway, Sweden, Denmark and Finland.");
 lines.push("- Industry code: NACE 73.110, Reklamebyråvirksomhet (advertising agency activities)");
+lines.push("- Founder, CEO, chairman and sole owner: Andreas Myraune (https://www.linkedin.com/in/myraune)");
 lines.push("- Official registry record: https://virksomhet.brreg.no/nb/oppslag/enheter/933303136");
-lines.push("- Founder: Andreas Myraune");
-lines.push("- Contact: andreas@beta-ads.no");
+lines.push("- Contact: sales@beta-ads.no");
+lines.push("");
+lines.push("## Buying from Beta Ads");
+lines.push("");
+lines.push("- Contracting party and invoicing entity: BETA AGENCY AS, org.nr 933 303 136.");
+lines.push("- Pricing: per 1,000 views. One view is one fully played run of the campaign animation");
+lines.push("  on a live stream, counted by the campaign platform per stream.");
+lines.push("- Delivery: the number of views is set in the agreement. If a campaign delivers fewer,");
+lines.push("  Beta Ads refunds the undelivered share. Clicks and CTR are reported, not guaranteed.");
+lines.push("- Clients get their own login to the live campaign dashboard (views, clicks, CTR per");
+lines.push("  streamer and stream) and a report at the end. Clients can approve the streamer list");
+lines.push("  before launch and can ask for a reference from a recent client.");
+lines.push("- Details: " + SITE + "/working-with-us");
+lines.push("");
+lines.push("## Independent coverage");
+lines.push("");
+lines.push("- Kampanje, September 2024 and May 2025; Kom24, 2024; Frostingen, April 2026. Links: " + SITE + "/press");
+lines.push("- Ocast marketplace profile with the Norstat campaign: https://ocast.com/no/beta-reklamebyra");
+lines.push("- Beta Ads no longer works with inStreamly (a 2024 partnership covered by Kom24 has ended).");
+lines.push("- deck.beta-ads.no holds private client proposals with example dashboards; its numbers");
+lines.push("  are illustrative and are not campaign results.");
 lines.push("");
 
 let count = 0;
@@ -121,8 +142,10 @@ lines.push("");
 lines.push("- Full URL list: " + SITE + "/sitemap.xml");
 lines.push("- Campaign figures on this site are from Beta's own reporting on named client");
 lines.push("  campaigns. Platform-level statistics are attributed inline where used.");
-lines.push("- \"39,445 streamers\" refers to the whole four-platform network. Twitch alone is");
-lines.push("  about 28,000; the rest are YouTube, Kick and Trovo.");
+lines.push("- Streamer Explorer database: 39,000+ streamers worldwide across Twitch, Kick and YouTube,");
+lines.push("  37,599 recently active and open to collaborations. 4,000+ have run campaigns through the");
+lines.push("  software. These are not Nordic-only figures.");
+lines.push("- Trovo shut down livestreaming on 30 June 2026 and is no longer a supported platform.");
 lines.push("");
 
 const out = lines.join("\n");

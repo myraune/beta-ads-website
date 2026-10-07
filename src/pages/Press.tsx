@@ -39,7 +39,7 @@ const pressArticles = [
   },
   {
     title: "Instreamly og Beta inngår partnerskap",
-    subtitle: "Strategisk samarbeid i Norge",
+    subtitle: "Tidligere teknologipartner (2024). Samarbeidet er avsluttet.",
     publication: "Kom24",
     date: "2024",
     url: "https://www.kom24.no/andreas-myraune-beta-instreamly/instreamly-og-beta-inngar-partnerskap-i-norge/749907",

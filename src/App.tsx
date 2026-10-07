@@ -68,6 +68,7 @@ const CaseStudyKristiania = lazy(() => import("./pages/CaseStudyKristiania"));
 const CaseStudyKomplett = lazy(() => import("./pages/CaseStudyKomplett"));
 const CaseStudyNki = lazy(() => import("./pages/CaseStudyNki"));
 const Press = lazy(() => import("./pages/Press"));
+const WorkingWithUs = lazy(() => import("./pages/WorkingWithUs"));
 const StreamerProfile = lazy(() => import("./pages/StreamerProfile"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Privacy = lazy(() => import("./pages/Privacy"));
@@ -78,7 +79,7 @@ const queryClient = new QueryClient();
 const t = {
   heroSubtitle: "Nordic twitch agency",
   heroTitle: ["Your Brand. Part of the Stream.", "Not in the Way."],
-  heroDescription: "Native advertising on Twitch that bypasses adblock, reaches Gen Z authentically, and delivers 3-5x higher engagement than traditional video ads.",
+  heroDescription: "Native advertising on Twitch that bypasses adblock, reaches Gen Z where they actually watch, and can't be skipped.",
   heroSubDescription: "No forced integrations. Just guaranteed visibility.",
   brandButton: "Watch Demo",
   streamerButton: "Book a Call",
@@ -220,6 +221,7 @@ const App = () => {
               <Route path="/contact" element={<Contact />} />
               <Route path="/demo" element={<Demo t={t} language="en" />} />
               <Route path="/press" element={<Press />} />
+              <Route path="/working-with-us" element={<WorkingWithUs />} />
               {/* Norske streamer-profiler (én side per creator i den norske roundup-saken) */}
               <Route path="/streamere/:handle" element={<StreamerProfile />} />
               <Route path="/terms" element={<Terms />} />

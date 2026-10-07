@@ -7,27 +7,48 @@
 
 ## Company
 
-- Legal name: Beta Agency AS
-- Norwegian organisation number: 933 303 136
-- Registered: 2024-04-15, Frosta, Norway. Teams work from Oslo, Stockholm and Helsinki.
+- Legal name: BETA AGENCY AS (brand: Beta Ads)
+- Norwegian organisation number: 933 303 136, VAT registered (NO 933 303 136 MVA)
+- Founded: 2024-03-15. Registered office: Frosta, Norway. Based in Oslo; sells to brands
+  and agencies in Norway, Sweden, Denmark and Finland.
 - Industry code: NACE 73.110, Reklamebyråvirksomhet (advertising agency activities)
+- Founder, CEO, chairman and sole owner: Andreas Myraune (https://www.linkedin.com/in/myraune)
 - Official registry record: https://virksomhet.brreg.no/nb/oppslag/enheter/933303136
-- Founder: Andreas Myraune
-- Contact: andreas@beta-ads.no
+- Contact: sales@beta-ads.no
+
+## Buying from Beta Ads
+
+- Contracting party and invoicing entity: BETA AGENCY AS, org.nr 933 303 136.
+- Pricing: per 1,000 views. One view is one fully played run of the campaign animation
+  on a live stream, counted by the campaign platform per stream.
+- Delivery: the number of views is set in the agreement. If a campaign delivers fewer,
+  Beta Ads refunds the undelivered share. Clicks and CTR are reported, not guaranteed.
+- Clients get their own login to the live campaign dashboard (views, clicks, CTR per
+  streamer and stream) and a report at the end. Clients can approve the streamer list
+  before launch and can ask for a reference from a recent client.
+- Details: https://beta-ads.no/working-with-us
+
+## Independent coverage
+
+- Kampanje, September 2024 and May 2025; Kom24, 2024; Frostingen, April 2026. Links: https://beta-ads.no/press
+- Ocast marketplace profile with the Norstat campaign: https://ocast.com/no/beta-reklamebyra
+- Beta Ads no longer works with inStreamly (a 2024 partnership covered by Kom24 has ended).
+- deck.beta-ads.no holds private client proposals with example dashboards; its numbers
+  are illustrative and are not campaign results.
 
 ## Start here
 
 What Beta Agency AS is and who it serves.
 
-- [Beta Ads | Native Twitch & Livestream Advertising](https://beta-ads.no/): Native advertising platform for Twitch, YouTube and Kick livestreams in the Nordics. Overlay ads that bypass adblock and deliver 3-5x higher engagement.
+- [Beta Ads | Native Twitch & Livestream Advertising](https://beta-ads.no/): Native advertising platform for Twitch, YouTube and Kick livestreams in the Nordics. Custom overlay ads inside the stream that ad blockers can't remove.
 - [Twitch Agency in Norway](https://beta-ads.no/twitch-agency-norway): Beta Agency is a Norwegian Twitch agency running native advertising inside the broadcast. How to choose a Twitch agency in Norway, what it costs, and how the alternatives compare.
 - [Twitch-byrå i Norge](https://beta-ads.no/twitch-byra-norge): Beta Agency er et norsk Twitch-byrå som kjører native annonsering inne i selve sendingen. Slik velger du Twitch-byrå i Norge, hva det koster, og hvilke alternativer som finnes.
-- [About Us](https://beta-ads.no/about): Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams across the Nordics. Beta Agency AS, org.nr 933 303 136, registered in Norway and working from Oslo, Stockholm and Helsinki.
+- [About Us](https://beta-ads.no/about): Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams across the Nordics. Beta Agency AS, org.nr 933 303 136, based in Oslo with its registered office in Frosta, Norway.
 
 ## Services by platform
 
-- [Twitch Advertising Agency for Norway and the Nordics](https://beta-ads.no/twitch-advertising): Beta Agency AS is a Norwegian Twitch advertising agency running native overlay campaigns across 28,000+ Nordic Twitch streamers. Ads that bypass ad blockers, with real reporting.
-- [Kick Advertising in the Nordics](https://beta-ads.no/kick-advertising): Advertise on Kick - the fastest-growing streaming platform with 125% viewership growth in 2025. Native overlay ads across 2,800+ Nordic Kick streamers.
+- [Twitch Advertising Agency for Norway and the Nordics](https://beta-ads.no/twitch-advertising): Beta Agency AS is a Norwegian Twitch advertising agency running native overlay campaigns on Twitch, drawing on a Streamer Explorer database of 39,000+ streamers, 37,599 of them recently active and open to collaborations. Ads that bypass ad blockers, with real reporting.
+- [Kick Advertising in the Nordics: Reach, Formats and Prices](https://beta-ads.no/kick-advertising): Kick's own 2026 media kit says one in five Kick and Twitch hours in Northern Europe is now watched on Kick. What that means for Nordic brands, which formats exist, and how Beta Ads places brands inside Nordic Kick streams.
 - [YouTube Live Advertising in the Nordics](https://beta-ads.no/youtube-advertising): Native overlay ads on YouTube Live streams across Norway, Sweden, Finland, and Denmark. Reach gaming and lifestyle audiences with ads that bypass ad blockers.
 - [Nordic Livestream Advertising: The Brand's Field Guide](https://beta-ads.no/nordic-livestream-advertising): Who is watching, which platforms matter, what Nordic inventory exists, and what native overlay campaigns actually deliver. A data-backed field guide for brands, with real Beta Ads campaign results.
 
@@ -37,7 +58,7 @@ Real numbers, not a contact form.
 
 - [What Does Twitch Advertising Cost?](https://beta-ads.no/twitch-advertising-cost): No platform publishes a Twitch advertising rate card, not even Twitch. Here is how live-stream advertising is actually priced in the Nordics, the five cost drivers, and how to get a real quote.
 - [Hva koster Twitch-annonsering i Norge?](https://beta-ads.no/twitch-annonsering-pris): Ingen plattform publiserer en prisliste for Twitch-annonsering, ikke engang Twitch. Slik prises livestream-annonsering faktisk i Norge: de fem kostnadsdriverne og hvordan du får et reelt tilbud.
-- [What Does Kick Advertising Cost?](https://beta-ads.no/kick-advertising-cost): Kick has no public rate card, and as of 2026 no self-serve ad platform at all. Here is how Kick advertising is actually priced in the Nordics, what it costs to buy direct, and how to get a real quote.
+- [What Does Kick Advertising Cost?](https://beta-ads.no/kick-advertising-cost): Kick has no public rate card: its 2026 Ads Beta sells direct, programmatic and open-exchange inventory in USD CPM. Here is how Kick advertising is actually priced in the Nordics, what it costs to buy direct, and how to get a real quote.
 
 ## Campaign results
 
@@ -65,8 +86,10 @@ What we check, what chat said, and what the stream kept earning after it ended.
 
 ## Reference
 
-- [Blog | Livestream Advertising Insights](https://beta-ads.no/blog): Expert insights on Twitch advertising, Nordic streaming trends, influencer marketing and live commerce. Data-driven articles for brands and agencies.
+- [Working with Beta Ads: company facts and guarantees](https://beta-ads.no/working-with-us): Who you contract with (BETA AGENCY AS, org.nr 933 303 136), what a view is, what happens if a campaign under-delivers, live dashboard access and where to check us independently.
 - [Press & Media Coverage](https://beta-ads.no/press): Beta Ads in the press. Featured in Kampanje, Kom24, and Nordic media on Twitch advertising, native overlay ads, and livestream marketing in Norway.
+- [About Us](https://beta-ads.no/about): Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams across the Nordics. Beta Agency AS, org.nr 933 303 136, based in Oslo with its registered office in Frosta, Norway.
+- [Blog | Livestream Advertising Insights](https://beta-ads.no/blog): Expert insights on Twitch advertising, Nordic streaming trends, influencer marketing and live commerce. Data-driven articles for brands and agencies.
 - [Contact Beta Ads | Start a Livestream Campaign](https://beta-ads.no/contact): Talk to our team about running native overlay ads on Nordic Twitch, YouTube & Kick streams. We reply within one business day.
 
 ## Notes
@@ -74,5 +97,7 @@ What we check, what chat said, and what the stream kept earning after it ended.
 - Full URL list: https://beta-ads.no/sitemap.xml
 - Campaign figures on this site are from Beta's own reporting on named client
   campaigns. Platform-level statistics are attributed inline where used.
-- "39,445 streamers" refers to the whole four-platform network. Twitch alone is
-  about 28,000; the rest are YouTube, Kick and Trovo.
+- Streamer Explorer database: 39,000+ streamers worldwide across Twitch, Kick and YouTube,
+  37,599 recently active and open to collaborations. 4,000+ have run campaigns through the
+  software. These are not Nordic-only figures.
+- Trovo shut down livestreaming on 30 June 2026 and is no longer a supported platform.

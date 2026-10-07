@@ -42,7 +42,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
     <div className="min-h-screen text-foreground relative">
       <SEO
         title="About Us | Beta Ads"
-        description="Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams across the Nordics. Beta Agency AS, org.nr 933 303 136, registered in Norway and working from Oslo, Stockholm and Helsinki."
+        description="Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams across the Nordics. Beta Agency AS, org.nr 933 303 136, based in Oslo with its registered office in Frosta, Norway."
         canonical="/about"
         ogType="website"
         jsonLd={[
@@ -51,7 +51,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
             '@type': 'AboutPage',
             name: 'About Beta Ads',
             description:
-              'Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams across the Nordics. Beta Agency AS, org.nr 933 303 136, registered in Norway and working from Oslo, Stockholm and Helsinki.',
+              'Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams across the Nordics. Beta Agency AS, org.nr 933 303 136, based in Oslo with its registered office in Frosta, Norway.',
             url: 'https://beta-ads.no/about',
             isPartOf: { '@id': 'https://beta-ads.no/#website' },
             about: { '@id': 'https://beta-ads.no/#organization' },
@@ -74,7 +74,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
               addressLocality: 'Oslo',
               addressCountry: 'NO',
             },
-            sameAs: ['https://www.linkedin.com/in/andreasmyraune'],
+            sameAs: ['https://www.linkedin.com/in/myraune'],
           },
           {
             '@context': 'https://schema.org',

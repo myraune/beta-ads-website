@@ -902,7 +902,7 @@ const SamsungCaseStudy: React.FC = () => {
                   andreas@beta-ads.no
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/andreasmyraune"
+                  href="https://www.linkedin.com/in/myraune"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-foreground hover:text-primary transition-colors"

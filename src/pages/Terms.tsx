@@ -18,7 +18,7 @@ const Terms: React.FC = () => {
             <span className="text-xs font-semibold tracking-widest uppercase text-primary">Legal</span>
             <div className="flex flex-wrap items-baseline justify-between gap-x-10 gap-y-3">
               <h1 className="text-4xl md:text-5xl font-light tracking-tight m-0">Terms of Service</h1>
-              <p className="text-sm text-muted-foreground m-0">Last updated: September 17, 2026</p>
+              <p className="text-sm text-muted-foreground m-0">Last updated: October 7, 2026</p>
             </div>
           </header>
 
@@ -50,7 +50,7 @@ const Terms: React.FC = () => {
               <p>
                 These Terms of Service ("Terms") govern your access to and use
                 of the services provided by Beta Agency AS ("Beta Ads", "we",
-                "us", or "our"), a company registered in Oslo, Norway with
+                "us", or "our"), a company registered in Norway with
                 organization number 933 303 136.
               </p>
               <p className="mt-3">
@@ -180,11 +180,13 @@ const Terms: React.FC = () => {
                 7. Campaign Delivery
               </h2>
               <p>
-                We will make commercially reasonable efforts to deliver
-                campaigns as agreed. However, we cannot guarantee specific
-                impression counts, click-through rates, or other performance
-                metrics, as these depend on factors beyond our control, including
-                streamer behavior and viewer engagement.
+                The number of views (fully played runs of the campaign animation
+                on a live stream) is set out in the campaign agreement. If a
+                campaign delivers fewer views than agreed, Beta Ads refunds the
+                undelivered share. Clicks, click-through rates and other
+                performance metrics depend on factors outside our control,
+                including the offer, streamer behavior and viewer engagement, and
+                are reported but not guaranteed.
               </p>
               <p className="mt-3">
                 Beta Ads reserves the right to reject or remove any advertising

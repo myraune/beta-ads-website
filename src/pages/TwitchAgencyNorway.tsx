@@ -133,7 +133,7 @@ const faq = [
   },
   {
     q: "Can you run Norway on its own, or only the whole Nordics?",
-    a: "Either. We work from Oslo, Stockholm and Helsinki and run campaigns in Norwegian, Swedish, Danish and Finnish. Norway can run alone or as part of a Nordic buy.",
+    a: "Either. We are based in Oslo and run campaigns in Norwegian, Swedish, Danish and Finnish. Norway can run alone or as part of a Nordic buy.",
   },
   {
     q: "How do I know the campaign ran as agreed?",
@@ -556,7 +556,7 @@ const TwitchAgencyNorway: React.FC = () => {
         variant="scene"
         eyebrow="Norwegian, not a Nordic satellite office"
         heading="Beta Agency AS is registered in Norway"
-        body="We work from Oslo, Stockholm and Helsinki and run campaigns in Norwegian, Swedish, Danish and Finnish. Norway can run on its own, or as part of a Nordic buy."
+        body="We are based in Oslo and run campaigns in Norwegian, Swedish, Danish and Finnish. Norway can run on its own, or as part of a Nordic buy."
         points={[
           "Norwegian streamers, Norwegian chat, Norwegian clients",
           "We report what chat actually said, not just impressions",

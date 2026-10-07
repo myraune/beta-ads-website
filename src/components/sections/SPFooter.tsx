@@ -40,6 +40,7 @@ const footerLinks = {
   ],
   RESOURCES: [
     { label: "Press", to: "/press" },
+    { label: "Working with us", to: "/working-with-us" },
     { label: "Blog", to: "/blog" },
     { label: "Contact", to: "/contact" },
     // Norwegian-market landing page - surfaces Norwegian content (hreflang="no")
@@ -175,7 +176,7 @@ export const SPFooter: React.FC = () => {
               <span className="text-xs text-muted-foreground">© 2026 Beta Agency AS · Org.nr 933 303 136</span>
             </div>
             <p className="text-xs text-muted-foreground">
-              Made with kaffe in Oslo, Stockholm & Helsinki
+              Made with kaffe in Oslo
             </p>
           </div>
         </div>

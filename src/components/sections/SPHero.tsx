@@ -569,7 +569,7 @@ export const SPHero: React.FC = () => {
             <span style={{ fontFamily: "'Instrument Serif', serif" }} className="italic font-normal">Native Ads</span> on Streams
           </h1>
           <p className="text-base md:text-lg text-white/70 leading-relaxed mb-10 max-w-lg mx-auto">
-            Overlays on Twitch, YouTube & Kick that bypass adblock, reach Gen Z, and deliver 3-5x higher engagement than traditional ads.
+            Custom animated overlays inside Twitch, YouTube and Kick streams. Ad blockers can't remove them and viewers can't skip them.
           </p>
           <div className="flex flex-wrap gap-3 mb-8 md:mb-16 justify-center">
             <Link to="/demo">

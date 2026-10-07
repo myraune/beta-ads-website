@@ -133,13 +133,6 @@ const platforms = [
     logo: "/lovable-uploads/platform-kick.png",
     color: "#53FC18",
   },
-  {
-    name: "Trovo",
-    slug: "#",
-    tagline: "Untapped niche communities",
-    logo: "/lovable-uploads/platform-trovo.png",
-    color: "#19D66B",
-  },
 ];
 
 const adFormats = [
@@ -282,15 +275,15 @@ export const SPUseCases: React.FC = () => {
         <div className={`mb-4 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Platform Reach</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-3 max-w-xl">
-            39,000+ streamers. 4 platforms. One dashboard.
+            39,000+ streamers. 3 platforms. One dashboard.
           </h2>
           <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
-            Our Streamer Explorer covers 39,000+ streamers across Twitch, YouTube, Kick and Trovo, with 37,500+ recently active and open to brand collaborations. Launch native overlay ads from a single dashboard.
+            Our Streamer Explorer covers 39,000+ streamers across Twitch, YouTube and Kick, with 37,599 recently active and open to brand collaborations. Launch native overlay ads from a single dashboard.
           </p>
         </div>
 
         {/* ── Platform columns ── */}
-        <div className="grid grid-cols-2 md:grid-cols-4 mb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 mb-4">
           {/* Vertical dividers via grid gap substitute */}
           {platforms.map((p, i) => (
             <PlatformCol key={p.name} p={p} isVisible={isVisible} index={i} />

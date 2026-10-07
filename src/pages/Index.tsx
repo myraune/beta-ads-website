@@ -17,7 +17,7 @@ const Index: React.FC = () => {
     <>
       <SEO
         title="Beta Ads | Native Twitch & Livestream Advertising"
-        description="Native advertising platform for Twitch, YouTube and Kick livestreams in the Nordics. Overlay ads that bypass adblock and deliver 3-5x higher engagement."
+        description="Native advertising platform for Twitch, YouTube and Kick livestreams in the Nordics. Custom overlay ads inside the stream that ad blockers can't remove."
         canonical="/"
         locale="en"
         alternates={[
@@ -58,7 +58,7 @@ const Index: React.FC = () => {
               width: 200,
               height: 50,
             },
-            description: "Native advertising platform for Twitch, YouTube and Kick livestreams in the Nordics. Overlay ads that bypass adblock and deliver 3-5x higher engagement.",
+            description: "Native advertising platform for Twitch, YouTube and Kick livestreams in the Nordics. Custom overlay ads inside the stream that ad blockers can't remove.",
             foundingDate: "2024-04-15",
             slogan: "Your brand, live on Twitch – without interruptions",
             address: {
@@ -93,7 +93,7 @@ const Index: React.FC = () => {
               "@id": "https://beta-ads.no/#founder",
               name: "Andreas Myraune",
               jobTitle: "Founder & CEO",
-              sameAs: ["https://www.linkedin.com/in/andreasmyraune"],
+              sameAs: ["https://www.linkedin.com/in/myraune"],
             },
           },
           {
