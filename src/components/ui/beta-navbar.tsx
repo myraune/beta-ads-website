@@ -31,25 +31,25 @@ const productItems = [
     icon: Layers,
     label: "Ad Formats",
     desc: "6 native overlay formats",
-    scrollTo: "Ad formats",
+    scrollTo: "Campaign planner",
   },
   {
     icon: Tv,
     label: "Live Demo",
     desc: "See overlays in action",
-    scrollTo: "See it in action",
+    scrollTo: "On real streams",
   },
   {
     icon: Target,
     label: "Platform Reach",
     desc: "39K+ streamers, 4 platforms",
-    scrollTo: "Platforms and ad formats",
+    scrollTo: "How it works",
   },
   {
     icon: BarChart3,
     label: "Analytics",
     desc: "Real-time campaign data",
-    scrollTo: "Features",
+    scrollTo: "What the report shows",
   },
   {
     icon: Monitor,
@@ -108,8 +108,10 @@ export function BetaNavbar() {
   const aboutDropdownRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
-  // When not scrolled and on homepage, navbar sits over the dark hero bg - use white text
-  const isOnHero = !scrolled && location.pathname === "/";
+  // The homepage hero used to be a dark photo, so the unscrolled navbar used
+  // white text there. The v2 homepage hero is on the light/dark canvas, so the
+  // navbar uses the normal theme colours everywhere.
+  const isOnHero = false;
   const navigate = useNavigate();
 
   useEffect(() => {

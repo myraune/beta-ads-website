@@ -48,7 +48,13 @@ export const StickyDemoCta: React.FC = () => {
     const onScroll = () => {
       const max = document.documentElement.scrollHeight - window.innerHeight;
       if (max < 1200) return;
-      const past = window.scrollY / max >= 0.5;
+      let past = window.scrollY / max >= 0.5;
+      // The homepage hero carries the booking calendar itself; never show a
+      // second booking button while any of it is still on screen.
+      if (pathname === "/") {
+        const book = document.getElementById("book");
+        if (book && book.getBoundingClientRect().bottom > 0) past = false;
+      }
       setVisible(past);
       if (past && !sent) {
         sent = true;

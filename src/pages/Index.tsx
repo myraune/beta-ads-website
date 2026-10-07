@@ -1,13 +1,11 @@
 import React from "react";
 import { SEO } from "@/components/SEO";
-import { SPHero } from "@/components/sections/SPHero";
-import { SPBrands } from "@/components/sections/SPBrands";
-import { SPFeatures } from "@/components/sections/SPFeatures";
-import { SPVideoShowcase } from "@/components/sections/SPVideoShowcase";
-import { SPCampaignTools } from "@/components/sections/SPCampaignTools";
-import { SPUseCases } from "@/components/sections/SPUseCases";
-import { MeetBeta } from "@/components/sections/MeetBeta";
-import { SPCTA } from "@/components/sections/SPCTA";
+// Homepage v2: concept 05 "One screen" (hero + real booking calendar), concept 02
+// planner, then 05's appendix for skeptics. The old SP* sections are kept as files.
+import { HomeHero } from "@/components/home/HomeHero";
+import { HomePlanner } from "@/components/home/HomePlanner";
+import { HomeProof } from "@/components/home/HomeProof";
+import "@/components/home/home.css";
 import { SPFooter } from "@/components/sections/SPFooter";
 // SEO fix: FAQ section added so FAQPage JSON-LD schema matches visible page content
 import { HomepageFAQ } from "@/components/sections/HomepageFAQ";
@@ -111,17 +109,14 @@ const Index: React.FC = () => {
         ]}
       />
       {/* Accessibility fix: Layout.tsx already provides <main> - nested <main> is invalid HTML (WCAG 1.3.6) */}
-      <div className="min-h-screen">
-        <SPHero />
-        <SPBrands />
-        <SPFeatures />
-        <SPVideoShowcase />
-        <SPCampaignTools />
-        <SPUseCases />
-        <MeetBeta />
-        <SPCTA />
-        <HomepageFAQ />
-        <SPFooter />
+      <div className="min-h-screen bh-root">
+        <HomeHero />
+        <HomePlanner />
+        <HomeProof />
+        <div className="bh-tail">
+          <HomepageFAQ />
+          <SPFooter />
+        </div>
       </div>
     </>
   );

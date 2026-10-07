@@ -24,7 +24,14 @@ export const BOOKING_SHORT_LINK = "https://calendar.app.google/coW5NLQJtLxfRer19
 const gtag = (event: string, params: Record<string, unknown>) =>
   (window as any).gtag?.("event", event, params);
 
-export const BookingCalendar: React.FC<{ fallbackLabel?: string }> = ({ fallbackLabel = "Open the calendar in a new tab" }) => {
+export const BookingCalendar: React.FC<{
+  fallbackLabel?: string;
+  /** iframe height in px (default 720, what /demo uses) */
+  height?: number;
+  /** hide the "open in a new tab" link when the caller renders its own */
+  hideFallback?: boolean;
+  className?: string;
+}> = ({ fallbackLabel = "Open the calendar in a new tab", height = 720, hideFallback = false, className }) => {
   const frame = useRef<HTMLIFrameElement>(null);
   const [loaded, setLoaded] = useState(false);
 
@@ -43,7 +50,7 @@ export const BookingCalendar: React.FC<{ fallbackLabel?: string }> = ({ fallback
   }, []);
 
   return (
-    <div>
+    <div className={className}>
       <div className="relative rounded-2xl overflow-hidden ring-1 ring-border bg-background">
         {!loaded && (
           <div className="absolute inset-0 flex items-center justify-center text-sm text-muted-foreground" aria-hidden>
@@ -55,19 +62,20 @@ export const BookingCalendar: React.FC<{ fallbackLabel?: string }> = ({ fallback
           title="Book a demo with Beta Ads"
           src={`${SCHEDULE}?gv=true`}
           className="w-full border-0 bg-transparent"
-          style={{ height: 720 }}
+          style={{ height }}
           loading="eager"
           onLoad={() => setLoaded(true)}
         />
       </div>
-      <a
+      {!hideFallback && <a
         href={BOOKING_SHORT_LINK}
         target="_blank"
         rel="noopener noreferrer"
+        data-cta="book"
         className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground mt-3"
       >
         {fallbackLabel} <ExternalLink className="w-3.5 h-3.5" />
-      </a>
+      </a>}
     </div>
   );
 };
