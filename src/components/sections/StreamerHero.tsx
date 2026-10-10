@@ -242,7 +242,7 @@ const CampaignPreview: React.FC<{
 
     {/* Bottom: actions */}
     <div className="flex items-center gap-2">
-      <button className="flex-1 min-h-[44px] py-2 rounded-lg bg-primary text-white text-[11px] font-semibold hover:bg-primary/90 transition-colors">
+      <button className="flex-1 min-h-[44px] py-2 rounded-lg bg-primary text-primary-foreground text-[11px] font-semibold hover:bg-primary/90 transition-colors">
         Accept offer
       </button>
       <button className="min-h-[44px] px-4 py-2 rounded-lg border border-white/10 text-[11px] text-white/50 hover:text-white/80 transition-colors">

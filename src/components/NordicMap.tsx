@@ -94,7 +94,7 @@ const NordicMap: React.FC = () => {
 
           {/* Right: Text */}
           <div>
-            <p className="text-xs uppercase tracking-[0.25em] text-primary mb-4 font-light">
+            <p className="text-xs uppercase tracking-[0.25em] text-muted-foreground mb-4 font-light">
               Our Markets
             </p>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-light tracking-tight text-foreground mb-6">

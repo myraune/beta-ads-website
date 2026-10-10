@@ -41,7 +41,7 @@ export const StreamerWhatYouGet: React.FC = () => {
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <div className="mb-12">
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">For Streamers</span>
+          <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">For Streamers</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-3">
             What you get
           </h2>

@@ -18,7 +18,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { SPFooter } from '@/components/sections/SPFooter';
 import { MascotBand } from "@/components/sections/MascotBand";
 import { BookingCalendar } from "@/components/BookingCalendar";
 
@@ -134,11 +133,11 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-16 items-start">
             <div>
-              <p className="text-xs uppercase tracking-widest text-primary mb-6">{t.requestDemo}</p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight mb-8 leading-tight">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground mb-6">{t.requestDemo}</p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8 leading-tight">
                 {t.seeInAction.split(' ').slice(0, 2).join(' ')}
                 <br />
-                <span className="text-primary">{t.seeInAction.split(' ').slice(2).join(' ')}</span>
+                <span className="hl">{t.seeInAction.split(' ').slice(2).join(' ')}</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed mb-12 max-w-md">
                 {t.demoFormDescription}
@@ -221,7 +220,6 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
         flip={true}
       />
 
-      <SPFooter />
       </div>
     </div>
   );

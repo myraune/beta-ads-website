@@ -35,7 +35,7 @@ export const SPCTA: React.FC = () => {
         {/* Header row */}
         <div className={`flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           <div>
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4 block">
               Blog
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
@@ -70,7 +70,7 @@ export const SPCTA: React.FC = () => {
                       previously broke mid-word at 375px because flex items shrank; now each
                       pill keeps its words together and the row wraps cleanly to a second line. */}
                   <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mb-3">
-                    <span className="text-[11px] font-semibold text-primary uppercase tracking-wider whitespace-nowrap">
+                    <span className="text-[11px] font-semibold text-muted-foreground uppercase tracking-wider whitespace-nowrap">
                       {post.category}
                     </span>
                     <span className="text-[11px] text-muted-foreground whitespace-nowrap">· {formatPostDate(post.dateISO, resolvePostLocale(post))}</span>

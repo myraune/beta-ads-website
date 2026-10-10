@@ -326,7 +326,7 @@ const CampaignReportModal: React.FC<{
           {onViewCaseStudy && (
             <button
               onClick={onViewCaseStudy}
-              className="w-full py-2.5 rounded-xl bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-colors"
+              className="w-full py-2.5 rounded-xl bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors"
             >
               View Full Case Study
             </button>
@@ -380,7 +380,7 @@ const LogoWithBadge: React.FC<{
         hasAction ? (
           <button
             onClick={handleClick}
-            className="mt-1.5 inline-flex items-center px-2.5 py-1 sm:py-0.5 min-h-[24px] sm:min-h-0 rounded-full text-[9px] font-semibold tracking-wide transition-[transform,opacity,background-color] duration-200 hover:scale-105 bg-primary text-white border-none cursor-pointer"
+            className="mt-1.5 inline-flex items-center px-2.5 py-1 sm:py-0.5 min-h-[24px] sm:min-h-0 rounded-full text-[9px] font-semibold tracking-wide transition-[transform,opacity,background-color] duration-200 hover:scale-105 bg-primary text-primary-foreground border-none cursor-pointer"
           >
             {badgeLabels[logo.badge]}
           </button>

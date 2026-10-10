@@ -604,7 +604,7 @@ export default function TwitchAnalyticsToolsDashboard() {
                   {featureCategories.map((cat) => (
                     <>
                       <tr key={cat.category} className="bg-primary/5">
-                        <td colSpan={6} className="py-2 px-4 text-xs font-bold text-primary uppercase tracking-wider sticky left-0 bg-primary/5 z-10">
+                        <td colSpan={6} className="py-2 px-4 text-xs font-bold text-muted-foreground uppercase tracking-wider sticky left-0 bg-primary/5 z-10">
                           {cat.category}
                         </td>
                       </tr>
@@ -683,7 +683,7 @@ export default function TwitchAnalyticsToolsDashboard() {
                 </div>
                 <h3 className="text-sm font-semibold text-foreground">{uc.scenario}</h3>
               </div>
-              <div className="text-[10px] font-bold text-primary uppercase tracking-widest mb-1">Anbefalt</div>
+              <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Anbefalt</div>
               <div className="text-sm font-medium text-foreground mb-2">{uc.recommended}</div>
               <p className="text-xs text-muted-foreground leading-relaxed">{uc.why}</p>
             </div>
@@ -758,7 +758,7 @@ export default function TwitchAnalyticsToolsDashboard() {
                 <ToolIcon tool={tools[0]} size="sm" />
                 <ToolIcon tool={tools[1]} size="sm" />
               </div>
-              <div className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">For gratis research</div>
+              <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-2">For gratis research</div>
               <p className="text-base text-foreground font-semibold mb-2">TwitchTracker + SullyGnome</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 TwitchTracker for rask verifisering og langsiktige trender. SullyGnome for detaljerte rapporter og CSV-eksport. Begge er 100% gratis.
@@ -768,7 +768,7 @@ export default function TwitchAnalyticsToolsDashboard() {
               <div className="flex items-center gap-2 mb-3">
                 <ToolIcon tool={tools[2]} size="sm" />
               </div>
-              <div className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">For seriøs analyse</div>
+              <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-2">For seriøs analyse</div>
               <p className="text-base text-foreground font-semibold mb-2">Streams Charts Pro</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Det mest komplette produktet på markedet. Multi-plattform, regional data, API, og influencer-discovery. Verdt prisen for profesjonelle.
@@ -778,7 +778,7 @@ export default function TwitchAnalyticsToolsDashboard() {
               <div className="flex items-center gap-2 mb-3">
                 <ToolIcon tool={tools[4]} size="sm" />
               </div>
-              <div className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">For nordiske kampanjer</div>
+              <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-2">For nordiske kampanjer</div>
               <p className="text-base text-foreground font-semibold mb-2">Beta Ads Dashboard</p>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Hvis du kjører native overlay ads i Norden, gir Beta Ads det mest relevante datasettet - impressions, engagement, og nordisk publikumsverifikasjon.

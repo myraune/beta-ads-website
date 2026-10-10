@@ -26,7 +26,6 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
  * Beta Agency AS har ingen relasjon til noen av dem.
  */
 
-const serif = { fontFamily: "'Instrument Serif', serif" };
 
 const Reveal: React.FC<{ children: React.ReactNode; className?: string }> = ({
   children,
@@ -168,11 +167,11 @@ const TwitchCapCut: React.FC = () => (
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white leading-[1.06] tracking-tight mb-6">
             Twitch har fått en{" "}
-            <span style={serif} className="italic font-normal">
+            <span className="hl">
               klippemaskin
+              <br />
+              innebygd
             </span>
-            <br />
-            innebygd
           </h1>
           <p className="text-base text-white/75 leading-relaxed max-w-lg">
             Twitch og CapCut samarbeider nå om bannere, maler og automatisk klipping,
@@ -273,7 +272,7 @@ const TwitchCapCut: React.FC = () => (
             </ul>
           </div>
           <div className="pt-5 border-t sm:border-t-0 sm:border-l border-border sm:pl-10 mt-8 sm:mt-0">
-            <div className="text-xs font-semibold tracking-widest uppercase text-primary mb-4">
+            <div className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4">
               Slik er det nå
             </div>
             <ul className="space-y-3 m-0 list-none p-0">
@@ -307,7 +306,7 @@ const TwitchCapCut: React.FC = () => (
           {MODELS.map((m) => (
             <Reveal key={m.name}>
               <div className="border-t border-border pt-5">
-                <div className="text-xs font-semibold tracking-widest uppercase text-primary mb-2">
+                <div className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-2">
                   {m.kind}
                 </div>
                 <div className="text-lg font-semibold text-foreground tracking-tight mb-2">
@@ -405,7 +404,7 @@ const TwitchCapCut: React.FC = () => (
             <Link to="/contact">
               <Button
                 size="lg"
-                className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12"
               >
                 Book en demo <ArrowRight className="ml-2 w-4 h-4" />
               </Button>

@@ -55,19 +55,12 @@ export const MascotBand: React.FC<MascotBandProps> = ({
 
   const art = (
     <div
-      className={`relative min-h-[300px] lg:min-h-[380px] overflow-hidden bg-[#0c0c0f] ${
+      className={`relative min-h-[300px] lg:min-h-[380px] overflow-hidden bg-muted ${
         flip ? "order-1 lg:order-2" : "order-1"
       }`}
     >
       {variant === "cutout" ? (
         <>
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(120% 90% at 40% 8%, rgba(233,79,55,0.20), transparent 62%)",
-            }}
-          />
           <img
             src={src}
             alt={alt}
@@ -97,7 +90,7 @@ export const MascotBand: React.FC<MascotBandProps> = ({
       }`}
     >
       {eyebrow && (
-        <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+        <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">
           {eyebrow}
         </span>
       )}

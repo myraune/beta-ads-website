@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useState, lazy, Suspense } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useTheme } from "next-themes";
-import { SPFooter } from '@/components/sections/SPFooter';
 import { ArrowLeft, Calendar, Clock, Tag, Share2, Twitter, Linkedin, Facebook, List } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -531,7 +530,6 @@ const BlogPostView: React.FC<{ post: BlogPost; slug: string }> = ({ post, slug }
           </section>
         )}
 
-        <SPFooter />
       </div>
     </>
   );

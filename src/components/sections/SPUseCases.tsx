@@ -273,7 +273,7 @@ export const SPUseCases: React.FC = () => {
 
         {/* ── Header ── */}
         <div className={`mb-4 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Platform Reach</span>
+          <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Platform Reach</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-3 max-w-xl">
             39,000+ streamers. 3 platforms. One dashboard.
           </h2>
@@ -295,7 +295,7 @@ export const SPUseCases: React.FC = () => {
 
         {/* ── Ad Formats header ── */}
         <div className={`mb-12 transition-all duration-700 delay-300 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Ad Formats</span>
+          <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Ad Formats</span>
           {/* h3: sub-section within same page section - preserves h1 > h2 > h3 heading hierarchy */}
           <h3 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-3 max-w-xl">
             6 formats. Zero adblock.

@@ -81,7 +81,7 @@ export const YouTubeFacade: React.FC<YouTubeFacadeProps> = ({
             }}
           />
           <span className="absolute inset-x-0 top-0 flex justify-center pt-[22%]">
-            <span className="flex items-center justify-center h-14 w-14 rounded-full bg-primary text-white shadow-xl transition-transform duration-300 group-hover:scale-110">
+            <span className="flex items-center justify-center h-14 w-14 rounded-full bg-primary text-primary-foreground shadow-xl transition-transform duration-300 group-hover:scale-110">
               <Play className="w-6 h-6 ml-0.5" fill="currentColor" />
             </span>
           </span>

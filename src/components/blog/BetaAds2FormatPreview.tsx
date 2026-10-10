@@ -13,12 +13,12 @@ const formats = [
     desc: "A corner or bottom banner that appears at a timed moment during gameplay - brand logo, product name, quick CTA. Non-intrusive, impossible to block.",
     overlay: (
       <div className="absolute bottom-4 left-4 flex items-center gap-3 bg-black/80 backdrop-blur-sm border border-white/10 rounded-xl px-4 py-3 shadow-2xl animate-fade-in">
-        <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center shrink-0 text-white font-bold text-sm">B</div>
+        <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center shrink-0 text-primary-foreground font-bold text-sm">B</div>
         <div>
           <div className="text-white text-xs font-semibold leading-tight">Sponsored by Beta Ads</div>
           <div className="text-white/60 text-[11px]">Get 20% off - code STREAM</div>
         </div>
-        <button className="ml-2 bg-primary text-white text-[11px] font-semibold px-3 py-1.5 rounded-lg shrink-0">Shop</button>
+        <button className="ml-2 bg-primary text-primary-foreground text-[11px] font-semibold px-3 py-1.5 rounded-lg shrink-0">Shop</button>
       </div>
     ),
   },
@@ -39,7 +39,7 @@ const formats = [
             <div className="text-white font-bold text-base leading-tight mb-1">Live Streaming Ads<br/>That Actually Work</div>
             <div className="text-white/60 text-xs">Native overlays · Non-skippable · Verified delivery</div>
           </div>
-          <button className="bg-primary text-white font-semibold text-sm px-6 py-2 rounded-full w-full">Book a Demo</button>
+          <button className="bg-primary text-primary-foreground font-semibold text-sm px-6 py-2 rounded-full w-full">Book a Demo</button>
           <div className="text-white/30 text-[10px]">SPONSORED · beta-ads.no</div>
         </div>
       </div>
@@ -56,7 +56,7 @@ const formats = [
     desc: "An interactive poll rendered into the stream. Viewers vote in real-time on branded questions - results show live with vote counts. Drives active participation.",
     overlay: (
       <div className="absolute bottom-4 right-4 bg-black/85 backdrop-blur-sm border border-white/10 rounded-2xl p-4 w-56 shadow-2xl">
-        <div className="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Sponsored Poll</div>
+        <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mb-2">Sponsored Poll</div>
         <div className="text-white text-xs font-semibold mb-3">Which setup do you prefer?</div>
         {[
           { label: "Mechanical keyboard", pct: 64 },
@@ -91,7 +91,7 @@ const formats = [
           <div className="text-white text-xs font-semibold mb-3">Win a gaming setup worth €2,000</div>
           <div className="grid grid-cols-2 gap-2 mb-3">
             <button className="bg-white/10 hover:bg-primary/30 border border-white/10 text-white text-[11px] font-medium rounded-lg py-2 transition-colors">!enter</button>
-            <button className="bg-primary text-white text-[11px] font-semibold rounded-lg py-2">Join Now</button>
+            <button className="bg-primary text-primary-foreground text-[11px] font-semibold rounded-lg py-2">Join Now</button>
           </div>
           <div className="flex items-center gap-2 text-[10px] text-white/50">
             <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
@@ -144,7 +144,7 @@ export default function BetaAds2FormatPreview() {
             onClick={() => setActive(i)}
             className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border transition-all duration-200 ${
               active === i
-                ? "bg-primary border-primary text-white shadow-md shadow-primary/25"
+                ? "bg-primary border-primary text-primary-foreground shadow-md shadow-primary/25"
                 : "bg-card border-border text-muted-foreground hover:border-primary/40 hover:text-foreground"
             }`}
           >
@@ -214,7 +214,7 @@ export default function BetaAds2FormatPreview() {
               ))}
               {fmt.chatHighlight && (
                 <div className="bg-primary/15 border border-primary/25 rounded-lg p-2 mt-1">
-                  <div className="text-[9px] font-bold text-primary uppercase tracking-widest mb-1">Sponsored</div>
+                  <div className="text-[9px] font-bold text-muted-foreground uppercase tracking-widest mb-1">Sponsored</div>
                   <p className="text-white/80 text-[11px] leading-snug">{sponsoredChat.msg}</p>
                 </div>
               )}
@@ -236,7 +236,7 @@ export default function BetaAds2FormatPreview() {
               active === i ? "border-primary/40 bg-primary/5" : "border-border bg-card/50 hover:border-border/80"
             }`}
           >
-            <div className={`text-[10px] font-bold uppercase tracking-widest mb-1 ${active === i ? "text-primary" : "text-muted-foreground"}`}>
+            <div className={`text-[10px] font-bold uppercase tracking-widest mb-1 ${active === i ? "text-muted-foreground" : "text-muted-foreground"}`}>
               {f.name}
             </div>
             <div className="text-xs font-medium text-foreground">{f.ctr}</div>

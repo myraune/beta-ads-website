@@ -59,12 +59,12 @@ export const StreamerRoundup: React.FC<Props> = ({ creators, market, copy }) => 
     <div className="pb-4">
       {/* Editorial header */}
       <header className="max-w-3xl mb-8">
-        <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+        <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">
           {copy.eyebrow}
         </span>
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-foreground leading-[1.1] mb-4">
+        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-foreground leading-[1.1] mb-4">
           {copy.titleLead}{" "}
-          <span style={{ fontFamily: "'Instrument Serif', serif" }} className="italic font-normal">
+          <span className="hl">
             {copy.titleAccent}
           </span>
         </h1>
@@ -90,7 +90,7 @@ export const StreamerRoundup: React.FC<Props> = ({ creators, market, copy }) => 
           <span className="inline-flex items-center rounded-full bg-foreground text-background px-2 py-0.5 font-semibold tracking-widest uppercase">
             {languageLabel("no", market)}
           </span>
-          <span className="inline-flex items-center rounded-full bg-primary text-white px-2 py-0.5 font-semibold tracking-widest uppercase">
+          <span className="inline-flex items-center rounded-full bg-primary text-primary-foreground px-2 py-0.5 font-semibold tracking-widest uppercase">
             {languageLabel("en", market)}
           </span>
           <span className="inline-flex items-center rounded-full bg-muted text-foreground px-2 py-0.5 font-semibold tracking-widest uppercase">
@@ -141,7 +141,7 @@ export const StreamerRoundup: React.FC<Props> = ({ creators, market, copy }) => 
                   isNativeLanguage(c.language)
                     ? "bg-white/95 text-black"
                     : c.language === "en"
-                      ? "bg-primary text-white"
+                      ? "bg-primary text-primary-foreground"
                       : "bg-black/55 text-white backdrop-blur-sm"
                 }`}
                 title={languageTooltip(c.language, market)}
@@ -223,7 +223,7 @@ export const StreamerRoundup: React.FC<Props> = ({ creators, market, copy }) => 
           </div>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 shrink-0 rounded-full bg-primary hover:bg-primary/90 text-white px-7 h-12 text-sm font-medium transition-colors"
+            className="inline-flex items-center gap-2 shrink-0 rounded-full bg-primary hover:bg-primary/90 text-primary-foreground px-7 h-12 text-sm font-medium transition-colors"
           >
             {copy.ctaButton} <ArrowRight className="w-4 h-4" />
           </Link>

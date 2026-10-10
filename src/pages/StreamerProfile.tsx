@@ -3,7 +3,6 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
-import { SPFooter } from "@/components/sections/SPFooter";
 import { getCreatorByHandle, getMarketOfHandle, MARKET_CREATORS, MARKET_ROUNDUP, profileLabels, isNativeLanguage, languageLabel, languageTooltip } from "@/data/streamers";
 import { SocialIcon } from "@/components/blog/SocialIcon";
 import { NewsCard } from "@/components/blog/NewsCard";
@@ -146,7 +145,7 @@ const StreamerProfile: React.FC = () => {
                     langNative
                       ? "bg-white/95 text-black"
                       : c.language === "en"
-                        ? "bg-primary text-white"
+                        ? "bg-primary text-primary-foreground"
                         : "bg-black/55 text-white backdrop-blur-sm"
                   }`}
                   title={langTip}
@@ -236,7 +235,7 @@ const StreamerProfile: React.FC = () => {
           <section className="border-t border-border/60 pt-12 mb-14">
             <div className="flex items-center gap-2 mb-5">
               <SocialIcon label="Twitch" className="w-4 h-4 text-primary" />
-              <h2 className="text-xs font-semibold tracking-widest uppercase text-primary">
+              <h2 className="text-xs font-semibold tracking-widest uppercase text-muted-foreground">
                 {L.twitchStats}
               </h2>
             </div>
@@ -330,7 +329,7 @@ const StreamerProfile: React.FC = () => {
           <section className="border-t border-border/60 pt-12 mb-14">
             <div className="flex items-center gap-2 mb-5">
               <SocialIcon label="Twitch" className="w-4 h-4 text-primary" />
-              <h2 className="text-xs font-semibold tracking-widest uppercase text-primary">
+              <h2 className="text-xs font-semibold tracking-widest uppercase text-muted-foreground">
                 {L.audienceInterests}
               </h2>
             </div>
@@ -356,7 +355,7 @@ const StreamerProfile: React.FC = () => {
         {/* Høydepunkter */}
         {c.highlights.length > 0 && (
           <section className="border-t border-border/60 pt-12 mb-14">
-            <h2 className="text-xs font-semibold tracking-widest uppercase text-primary mb-4">
+            <h2 className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4">
               {L.highlights}
             </h2>
             <ul className="grid sm:grid-cols-2 gap-x-10 gap-y-3">
@@ -385,7 +384,7 @@ const StreamerProfile: React.FC = () => {
         {/* Nyhetsoppslag - ekte presse + portretter */}
         {c.news && c.news.length > 0 && (
           <section className="border-t border-border/60 pt-12 mb-14">
-            <h2 className="text-xs font-semibold tracking-widest uppercase text-primary mb-5">
+            <h2 className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-5">
               {L.inPress}
             </h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -399,7 +398,7 @@ const StreamerProfile: React.FC = () => {
         {/* Kilder / les mer */}
         {c.references.length > 0 && (
           <section className="border-t border-border/60 pt-12 mb-14 max-w-3xl">
-            <h2 className="text-xs font-semibold tracking-widest uppercase text-primary mb-4">
+            <h2 className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4">
               {L.sources}
             </h2>
             <ul className="space-y-1">
@@ -428,14 +427,14 @@ const StreamerProfile: React.FC = () => {
         <section className="border-t border-border pt-14 mb-2">
           <div className="rounded-3xl overflow-hidden bg-card border border-border grid md:grid-cols-[1.5fr_1fr] items-stretch">
             <div className="p-8 md:p-12 flex flex-col justify-center">
-              <span className="text-[11px] font-semibold tracking-widest uppercase text-primary mb-3 block">{cta.eyebrow}</span>
+              <span className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">{cta.eyebrow}</span>
               <h2 className="text-2xl md:text-4xl font-light tracking-tight text-foreground mb-4 leading-tight">
                 {cta.heading(c.name)}
               </h2>
               <p className="text-muted-foreground leading-relaxed max-w-md mb-8">{cta.body}</p>
               <div className="flex flex-wrap gap-3">
                 <Link to="/contact">
-                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12">
+                  <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12">
                     {cta.primary} <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </Link>
@@ -447,8 +446,7 @@ const StreamerProfile: React.FC = () => {
               </div>
               <p className="text-xs text-muted-foreground/60 mt-7">{cta.proof}</p>
             </div>
-            <div className="relative min-h-[260px] hidden md:block overflow-hidden bg-[#0c0c0f]">
-              <div className="absolute inset-0" style={{ background: "radial-gradient(120% 90% at 60% 8%, rgba(233,79,55,0.20), transparent 62%)" }} />
+            <div className="relative min-h-[260px] hidden md:block overflow-hidden bg-muted">
               <img
                 src="/lovable-uploads/beta-mascot-cut-pointing.webp"
                 alt="Beta, the Beta Ads mascot"
@@ -495,7 +493,6 @@ const StreamerProfile: React.FC = () => {
         </div>
       </div>
 
-      <SPFooter />
     </>
   );
 };

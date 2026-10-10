@@ -19,7 +19,6 @@ import { YouTubeFacade } from "@/components/blog/YouTubeFacade";
  * Næringsforeninga on the prize structure, and Framtidsfredag's own site.
  */
 
-const serif = { fontFamily: "'Instrument Serif', serif" };
 const P = "/lovable-uploads/fremtidsfredag";
 
 const Reveal: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = "" }) => {
@@ -32,7 +31,7 @@ const Reveal: React.FC<{ children: React.ReactNode; className?: string }> = ({ c
 };
 
 const Label: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">{children}</span>
+  <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">{children}</span>
 );
 
 const H2: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -90,10 +89,10 @@ export const FremtidensVerdiskaper: React.FC = () => {
     <div className="-mx-6 lg:-mx-12">
       {/* Headline + video */}
       <section className="max-w-5xl mx-auto px-6 lg:px-12 pt-4 pb-16">
-        <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Framtidsfredag 2026</span>
+        <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Framtidsfredag 2026</span>
         <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-[1.06] tracking-tight mb-4 max-w-3xl">
           Fire minutter i{" "}
-          <span style={serif} className="italic font-normal">Steinkjer</span>
+          <span className="hl">Steinkjer</span>
         </h1>
         <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl">
           Beta Ads i delfinalen i Fremtidens Verdiskaper, SpareBank 1 SMNs gründerkonkurranse. Videoen, slidene og hva vi fikk ut av det.
@@ -155,7 +154,7 @@ export const FremtidensVerdiskaper: React.FC = () => {
                 </figure>
                 <div className="max-w-md">
                   <h3 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-4">
-                    <span style={serif} className="italic">{s.title}</span>
+                    {s.title}
                   </h3>
                   <p className="text-[17px] leading-relaxed text-muted-foreground">{s.text}</p>
                 </div>
@@ -207,7 +206,7 @@ export const FremtidensVerdiskaper: React.FC = () => {
               <p className="text-background/60">Ekte sendinger, ekte rapporter, ingen slides denne gangen.</p>
             </div>
             <div className="flex flex-wrap gap-3 shrink-0">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8">
                 <Link to="/demo">Book en demo <ArrowRight className="ml-2 w-4 h-4" /></Link>
               </Button>
               <Button asChild size="lg" variant="ghost" className="text-background hover:bg-background/10 rounded-full px-8 border border-background/20">

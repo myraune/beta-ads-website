@@ -118,7 +118,7 @@ export const SPCampaignTools: React.FC = () => {
         }`}
       >
         <div className="max-w-2xl mb-12">
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+          <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">
             Reporting
           </span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
@@ -141,7 +141,7 @@ export const SPCampaignTools: React.FC = () => {
               {i === tools.length - 1 && (
                 <PeekingBeta pose="pointing" placement="stand" side="right" inset={8} size={20} mirror />
               )}
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">
                 {t.label}
               </span>
               <h3 className="text-lg font-semibold text-foreground mb-3">{t.head}</h3>

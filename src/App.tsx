@@ -6,13 +6,10 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-route
 import { ThemeProvider } from "next-themes";
 import { MotionConfig } from "framer-motion";
 import { Layout } from "@/components/Layout";
-import { Component as AILoader } from "@/components/ui/ai-loader";
-import { RouteTransition } from "@/components/RouteTransition";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { ConversionTracker } from "@/components/ConversionTracker";
 import { EngagementTracker } from "@/components/EngagementTracker";
-import { StickyDemoCta } from "@/components/StickyDemoCta";
 import blogPhotos from "virtual:blog-photos";
 import { registerPhotos } from "@/lib/blogImage";
 import { installLucideA11yPatch } from "@/lib/a11y-icons";
@@ -135,12 +132,27 @@ const RoutedThemeProvider = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-/* Scroll to top on every route change (was folded into the old theme enforcer). */
+/* Scroll to top on every route change, or to the section in the hash
+   ("/#tour" from a subpage). Lazy routes render after a moment, so the target
+   is polled for a short while before giving up. */
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
-  }, [pathname]);
+    const id = decodeURIComponent(hash.slice(1));
+    if (!id) {
+      window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+      return;
+    }
+    let tries = 0;
+    let timer = 0;
+    const seek = () => {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ block: "start" });
+      else if (tries++ < 40) timer = window.setTimeout(seek, 75);
+    };
+    seek();
+    return () => window.clearTimeout(timer);
+  }, [pathname, hash]);
   return null;
 };
 
@@ -172,16 +184,10 @@ const App = () => {
       <Sonner />
       <MotionConfig reducedMotion="user">
         <EngagementTracker />
-        <StickyDemoCta />
         <SpeedInsightsWithRoute />
         <ScrollToTop />
-        <RouteTransition />
         <Suspense
-          fallback={
-            <div className="fixed inset-0 z-[100] flex items-center justify-center bg-background pointer-events-none">
-              <AILoader />
-            </div>
-          }
+          fallback={<div className="fixed inset-0 z-[100] bg-background pointer-events-none" />}
         >
           <Routes>
             <Route element={<Layout />}>

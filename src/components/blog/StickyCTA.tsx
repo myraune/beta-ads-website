@@ -200,7 +200,7 @@ export const InlineCTA: React.FC<StickyCTAProps> = ({ language }) => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 whitespace-nowrap gap-2">
+          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 whitespace-nowrap gap-2">
             {t.bookCall}
             <ArrowRight className="w-4 h-4" />
           </Button>

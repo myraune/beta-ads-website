@@ -197,7 +197,7 @@ export default function ClippingEconomyDashboard() {
 
       {/* ── 1b. What Is Clipping ──────────────────────────────────────────── */}
       <section>
-        <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">The basics</p>
+        <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">The basics</p>
         <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-4">How Clipping Works</h2>
         <p className="text-base text-muted-foreground mb-10 max-w-2xl">
           Clippers aren't influencers. They're normal kids and young adults who take short clips from brands and creators, post them on TikTok, Reels, and Shorts - and get paid per 1,000 views. The brand sets the CPM, the clipper does the distribution.
@@ -221,7 +221,7 @@ export default function ClippingEconomyDashboard() {
 
       {/* ── 2. CPM Comparison ─────────────────────────────────────────────── */}
       <section id="cpm">
-        <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">Cost per 1,000 views</p>
+        <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">Cost per 1,000 views</p>
         <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-2">Clipping vs Every Other Channel</h2>
         <p className="text-base text-muted-foreground mb-10 max-w-xl">
           At its best, clipping delivers impressions for <strong className="text-foreground">$0.10 CPM</strong> - 100–350× cheaper than Meta or Google. Even average campaigns run at $1–3 CPM, outperforming every traditional digital channel.
@@ -263,7 +263,7 @@ export default function ClippingEconomyDashboard() {
 
       {/* ── 3. The $9K Math ───────────────────────────────────────────────── */}
       <section id="roi">
-        <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">Same budget. Radically different reach.</p>
+        <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">Same budget. Radically different reach.</p>
         <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-2">What $9,000 Buys You</h2>
         <p className="text-base text-muted-foreground mb-10 max-w-xl">
           bbno$'s $9,000 campaign delivered 190 million views at $0.10 CPM. The same $9,000 on Meta at $15 CPM buys 600,000 views. That's a <strong className="text-foreground">316× difference</strong>.
@@ -307,7 +307,7 @@ export default function ClippingEconomyDashboard() {
 
       {/* ── 4. Case Studies ───────────────────────────────────────────────── */}
       <section id="case-studies">
-        <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">Proven results</p>
+        <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">Proven results</p>
         <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-8">Real Campaign Results</h2>
 
         {/* Featured: Netflix */}
@@ -395,7 +395,7 @@ export default function ClippingEconomyDashboard() {
 
       {/* ── 5. Platform Landscape ─────────────────────────────────────────── */}
       <section id="platforms">
-        <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">Where campaigns run</p>
+        <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">Where campaigns run</p>
         <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">Key Platforms & Agencies</h2>
         <p className="text-base text-muted-foreground mb-10 max-w-2xl">
           The clipping ecosystem has matured rapidly. Eight major platforms now compete for brand budgets - from MrBeast's Vyro to Netflix-trusted Clipping.net. Each has a different model, CPM range, and target market.
@@ -460,7 +460,7 @@ export default function ClippingEconomyDashboard() {
 
       {/* ── 6. Who's Already Using This ───────────────────────────────────── */}
       <section id="adoption">
-        <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">Who's using it</p>
+        <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">Who's using it</p>
         <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">Industry Adoption</h2>
         <p className="text-base text-muted-foreground mb-10 max-w-xl">
           Music and entertainment led the charge. Streamers followed. Now fintech, consumer brands, and podcasts are adopting clipping as a core distribution channel. Regular brands are next.
@@ -496,7 +496,7 @@ export default function ClippingEconomyDashboard() {
 
       {/* ── 7. Brand Safety ───────────────────────────────────────────────── */}
       <section id="risks">
-        <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">Brand safety</p>
+        <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">Brand safety</p>
         <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-3">The Dark Side - and How to Avoid It</h2>
         <p className="text-base text-muted-foreground mb-8 max-w-xl">
           Clipping isn't all upside. Gambling sites run campaigns using creator clips without consent. Fake endorsements proliferate. Here's the risk landscape - and the playbook for doing it right.
@@ -546,7 +546,7 @@ export default function ClippingEconomyDashboard() {
 
       {/* ── 8. Earner Spotlight ───────────────────────────────────────────── */}
       <section id="earners">
-        <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">The clipper perspective</p>
+        <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">The clipper perspective</p>
         <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-2">What Clippers Actually Earn</h2>
         <p className="text-base text-muted-foreground mb-8 max-w-xl">
           The ceiling is real - but so is the competition. Most clippers in large open campaigns earn under $3 total. Niche campaigns with fewer participants yield far more consistent returns.
@@ -577,7 +577,7 @@ export default function ClippingEconomyDashboard() {
 
       {/* ── 9. FTC / Legal ────────────────────────────────────────────────── */}
       <section id="regulation">
-        <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-3">Legal context</p>
+        <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3">Legal context</p>
         <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-4">The Regulatory Gray Area</h2>
         <div className="rounded-2xl border border-border/40 bg-card/20 p-6 md:p-8 max-w-2xl">
           <p className="text-base text-foreground/80 leading-relaxed mb-4">

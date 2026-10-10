@@ -4,10 +4,8 @@ import { MarketingPageLayout } from "@/components/layout/MarketingPageLayout";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, Monitor, Zap, Eye, MessageSquare, Shield, Users, BarChart3, TrendingUp, Gamepad2, Music, Mic, Trophy, Sword, Car, Globe2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 import { MascotBand } from "@/components/sections/MascotBand";
 
-const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
 const stats = [
   { value: "37,599", label: "Streamers in Explorer, active and open to collabs" },
@@ -80,31 +78,29 @@ const TwitchAdvertising: React.FC = () => {
     >
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden" style={{ background: 'hsl(240 11% 5%)' }}>
-        <AnimatedShaderBackground heightFactor={0.85} />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
+      <section className="relative overflow-hidden">
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-28">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/80 backdrop-blur-sm mb-7">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-foreground/[0.04] text-foreground backdrop-blur-sm mb-7">
               <img src="/lovable-uploads/platform-twitch.png" alt="Twitch" className="h-3.5 w-auto" />
               Twitch Advertising
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
-              <span style={serifFont} className="italic font-normal">Native ads</span>
-              <br />inside Twitch
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-6 tracking-tight">
+              Native ads
+              <br /><span className="hl">inside Twitch</span>
             </h1>
-            <p className="text-lg text-white/65 leading-relaxed mb-10 max-w-lg">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg">
               Overlay ads that bypass ad blockers, reach Gen Z during 90-minute sessions, and deliver 3–5× higher engagement than traditional video formats.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/demo">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12">
                   Book a Demo <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
               <Link to="/case-studies">
-                <Button size="lg" variant="ghost" className="text-white hover:bg-white/10 rounded-full px-8 h-12 border border-white/20">
+                <Button size="lg" variant="ghost" className="text-foreground hover:bg-foreground/[0.06] rounded-full px-8 h-12 border border-border">
                   Case Studies
                 </Button>
               </Link>
@@ -112,11 +108,11 @@ const TwitchAdvertising: React.FC = () => {
           </div>
 
           {/* Stat strip */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-white/10 rounded-2xl overflow-hidden bg-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-border rounded-2xl overflow-hidden bg-border">
             {stats.map((s) => (
-              <div key={s.label} className="bg-black/30 backdrop-blur-sm px-6 py-5">
-                <div className="text-2xl font-bold text-white tracking-tight">{s.value}</div>
-                <div className="text-xs text-white/50 mt-0.5">{s.label}</div>
+              <div key={s.label} className="bg-card backdrop-blur-sm px-6 py-5">
+                <div className="text-2xl font-bold text-foreground tracking-tight">{s.value}</div>
+                <div className="text-xs text-muted-foreground mt-0.5">{s.label}</div>
               </div>
             ))}
           </div>
@@ -128,7 +124,7 @@ const TwitchAdvertising: React.FC = () => {
         <div ref={mockupRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${mockupVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">In-Stream</span>
+              <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">In-Stream</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">
                 Ads that live inside the stream - not around it
               </h2>
@@ -172,7 +168,7 @@ const TwitchAdvertising: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={formatsRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${formatsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="mb-12">
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Ad Formats</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Ad Formats</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
               Four formats. All bypass ad blockers.
             </h2>
@@ -194,7 +190,7 @@ const TwitchAdvertising: React.FC = () => {
         <div ref={whyRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${whyVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Why Twitch</span>
+              <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Why Twitch</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
                 Where the next generation of consumers lives
               </h2>
@@ -237,7 +233,7 @@ const TwitchAdvertising: React.FC = () => {
         <div ref={catRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${catVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Content Categories</span>
+              <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Content Categories</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">
                 Target by category, not just by platform
               </h2>
@@ -267,7 +263,7 @@ const TwitchAdvertising: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={caseRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${caseVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="mb-10">
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Results</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Results</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
               Real campaigns. Real numbers.
             </h2>
@@ -278,7 +274,7 @@ const TwitchAdvertising: React.FC = () => {
               to="/case-study/samsung"
               className="group rounded-2xl border border-border bg-card overflow-hidden block hover:border-primary/40 hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="relative aspect-[16/9] overflow-hidden bg-[hsl(240_11%_5%)]">
+              <div className="relative aspect-[16/9] overflow-hidden dark bg-[hsl(240_11%_5%)]">
                 <img
                   src="/lovable-uploads/samsung-fold7-banner.jpg"
                   alt="Samsung Galaxy S25 Ultra campaign creative"
@@ -286,7 +282,7 @@ const TwitchAdvertising: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4">
-                  <span className="text-[10px] font-semibold bg-primary text-white px-2 py-1 rounded-full">Samsung</span>
+                  <span className="text-[10px] font-semibold bg-primary text-primary-foreground px-2 py-1 rounded-full">Samsung</span>
                 </div>
               </div>
               <div className="p-6">
@@ -315,7 +311,7 @@ const TwitchAdvertising: React.FC = () => {
               to="/case-study/glorious"
               className="group rounded-2xl border border-border bg-card overflow-hidden block hover:border-primary/40 hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="relative aspect-[16/9] overflow-hidden bg-[hsl(240_11%_5%)]">
+              <div className="relative aspect-[16/9] overflow-hidden dark bg-[hsl(240_11%_5%)]">
                 <video
                   src="/lovable-uploads/overlay-glorious.webm"
                   autoPlay
@@ -327,7 +323,7 @@ const TwitchAdvertising: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
                 <div className="absolute bottom-4 left-4">
-                  <span className="text-[10px] font-semibold bg-primary text-white px-2 py-1 rounded-full">Glorious Gaming</span>
+                  <span className="text-[10px] font-semibold bg-primary text-primary-foreground px-2 py-1 rounded-full">Glorious Gaming</span>
                 </div>
               </div>
               <div className="p-6">
@@ -366,7 +362,7 @@ const TwitchAdvertising: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={howRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${howVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="mb-12">
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Process</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Process</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
               Brief to live in days, not weeks.
             </h2>

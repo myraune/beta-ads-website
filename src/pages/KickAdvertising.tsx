@@ -4,7 +4,6 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { MarketingPageLayout } from "@/components/layout/MarketingPageLayout";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
-import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 import { BrandMark, FLAGS } from "@/components/kick/BrandMark";
 import {
   AGE_18_34,
@@ -42,7 +41,6 @@ import {
  * numbers; the brand red stays on our calls to action.
  */
 
-const serif = { fontFamily: "'Instrument Serif', serif" };
 const MASCOT = "/lovable-uploads/beta-mascot-kick.jpg";
 const KICK_LOGO = "/lovable-uploads/platform-kick.png";
 const HOME_FIGURE = "/lovable-uploads/kick/kick-home-categories.webp";
@@ -80,7 +78,7 @@ const Bar: React.FC<{
 );
 
 const Label: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">{children}</span>
+  <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">{children}</span>
 );
 
 const H2: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -146,29 +144,27 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
       }}
     >
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[hsl(240_11%_5%)]">
-        <AnimatedShaderBackground heightFactor={0.85} />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
+      <section className="relative overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-24">
           <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center">
             <div className="max-w-2xl">
-              <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/80 backdrop-blur-sm mb-7">
+              <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-foreground/[0.04] text-foreground backdrop-blur-sm mb-7">
                 <img src={KICK_LOGO} alt="" className="h-3.5 w-auto" width={3840} height={2160} />
                 {t.hero.badge}
               </span>
-              <h1 className="text-5xl md:text-6xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
-                <span style={serif} className="italic font-normal">{t.hero.h1Accent}</span>
+              <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-[1.05] mb-6 tracking-tight">
+                {t.hero.h1Accent}
                 <br />
-                {t.hero.h1Rest}
+                <span className="hl">{t.hero.h1Rest}</span>
               </h1>
-              <p className="text-lg text-white/65 leading-relaxed mb-10 max-w-lg">{t.hero.sub}</p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg">{t.hero.sub}</p>
               <div className="flex flex-wrap gap-3">
-                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12">
+                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12">
                   <Link to="/demo">
                     {t.hero.primary} <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </Button>
-                <Button asChild size="lg" variant="ghost" className="text-white hover:bg-white/10 rounded-full px-8 h-12 border border-white/20">
+                <Button asChild size="lg" variant="ghost" className="text-foreground hover:bg-foreground/[0.06] rounded-full px-8 h-12 border border-border">
                   <Link to="/kick-advertising-cost">{t.hero.secondary}</Link>
                 </Button>
               </div>
@@ -179,17 +175,17 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
                 alt="Beta, the Beta Ads mascot, streaming in front of two green Kick monitors"
                 width={1200}
                 height={685}
-                className="w-full h-auto rounded-2xl ring-1 ring-white/10"
+                className="w-full h-auto rounded-2xl ring-1 ring-border"
                 loading="eager"
               />
             </figure>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-white/10 rounded-2xl overflow-hidden bg-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-border rounded-2xl overflow-hidden bg-border">
             {t.hero.stats.map((s) => (
-              <div key={s.label} className="bg-black/30 backdrop-blur-sm px-6 py-5">
-                <div className="text-2xl font-bold text-white tracking-tight tabular-nums">{s.value}</div>
-                <div className="text-xs text-white/50 mt-0.5 leading-snug">{s.label}</div>
+              <div key={s.label} className="bg-card backdrop-blur-sm px-6 py-5">
+                <div className="text-2xl font-bold text-foreground tracking-tight tabular-nums">{s.value}</div>
+                <div className="text-xs text-muted-foreground mt-0.5 leading-snug">{s.label}</div>
               </div>
             ))}
           </div>
@@ -324,13 +320,13 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
       </section>
 
       {/* Kick's formats, styled after Kick's own media kit: dark band, green labels, bordered spec cells, mockup right */}
-      <section className="border-t border-border bg-[#080809] text-white py-20 md:py-28">
+      <section className="border-t border-border py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="max-w-2xl">
             <span className="text-xs font-semibold tracking-widest uppercase mb-3 block" style={{ color: KICK_GREEN }}>{t.routes.label}</span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight uppercase leading-[1.02] mb-4">{t.routes.heading}</h2>
-            <p className="text-base md:text-lg text-white/60 leading-relaxed mb-5">{t.routes.kicker}</p>
-            <p className="text-base md:text-lg text-white/60 leading-relaxed">{t.routes.intro}</p>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-5">{t.routes.kicker}</p>
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed">{t.routes.intro}</p>
           </div>
 
           <div className="mt-20 space-y-24">
@@ -339,15 +335,15 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
                 <div>
                   <h3 className="text-2xl md:text-3xl font-bold tracking-tight uppercase leading-tight mb-8">{f.name}</h3>
                   <h4 className="text-sm font-bold tracking-wide uppercase mb-1.5" style={{ color: KICK_GREEN }}>{t.routes.kick.whatLabel}</h4>
-                  <p className="text-sm text-white/70 leading-relaxed mb-6">{f.desc}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">{f.desc}</p>
                   <h4 className="text-sm font-bold tracking-wide uppercase mb-1.5" style={{ color: KICK_GREEN }}>{t.routes.kick.whyLabel}</h4>
-                  <p className="text-sm text-white/70 leading-relaxed mb-6">{f.why}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">{f.why}</p>
                   <h4 className="text-sm font-bold tracking-wide uppercase mb-3" style={{ color: KICK_GREEN }}>{t.routes.kick.specsLabel}</h4>
                   <dl className="grid grid-cols-2 sm:grid-cols-3 gap-px m-0" style={{ background: KICK_GREEN }}>
                     {FORMAT_SPECS[f.key].map((sp) => (
                       <div key={sp.k} className="bg-[#111214] px-3 py-3">
-                        <dt className="text-xs font-semibold text-white">{t.routes.kick.specLabels[sp.k]}</dt>
-                        <dd className="text-[11px] leading-snug text-white/60 m-0 mt-1">{sp.v}</dd>
+                        <dt className="text-xs font-semibold text-foreground">{t.routes.kick.specLabels[sp.k]}</dt>
+                        <dd className="text-[11px] leading-snug text-muted-foreground m-0 mt-1">{sp.v}</dd>
                       </div>
                     ))}
                   </dl>
@@ -364,14 +360,14 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
             ))}
           </div>
 
-          <div className="mt-24 border-t border-white/10 pt-10 grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16">
+          <div className="mt-24 border-t border-border pt-10 grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16">
             <p className="text-lg md:text-xl font-bold tracking-tight uppercase leading-tight m-0" style={{ color: KICK_GREEN }}>{t.routes.kick.title}</p>
             <div>
-              <p className="text-sm text-white/70 leading-relaxed max-w-xl mb-0">{t.routes.kick.lead}</p>
-              <p className="text-sm text-white/70 leading-relaxed max-w-xl mt-3 mb-0">{t.routes.kick.buying}</p>
-              <p className="text-sm text-white/70 mt-3 mb-0">
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-xl mb-0">{t.routes.kick.lead}</p>
+              <p className="text-sm text-muted-foreground leading-relaxed max-w-xl mt-3 mb-0">{t.routes.kick.buying}</p>
+              <p className="text-sm text-muted-foreground mt-3 mb-0">
                 {t.routes.kick.contact.split("andreas@beta-ads.no")[0]}
-                <a href="mailto:andreas@beta-ads.no" className="font-semibold text-white underline underline-offset-4 hover:text-primary">andreas@beta-ads.no</a>
+                <a href="mailto:andreas@beta-ads.no" className="font-semibold text-foreground underline underline-offset-4 hover:text-primary">andreas@beta-ads.no</a>
                 {t.routes.kick.contact.split("andreas@beta-ads.no")[1]}
               </p>
             </div>
@@ -395,7 +391,7 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
                   <span className="text-base font-semibold text-foreground">{tier.name}</span>
                   <span className="text-xs font-mono text-muted-foreground">{tier.rating}</span>
                 </div>
-                {tier.note && <span className="text-xs font-semibold tracking-widest uppercase text-primary block mt-1">{tier.note}</span>}
+                {tier.note && <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground block mt-1">{tier.note}</span>}
                 <p className="text-sm leading-relaxed text-muted-foreground mt-3 mb-0">{tier.desc}</p>
               </div>
             ))}
@@ -471,7 +467,7 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
             <Label>{t.creators.label}</Label>
             <H2>{t.creators.heading}</H2>
             <p className="text-base md:text-lg font-light leading-relaxed text-muted-foreground mb-8">{t.creators.body}</p>
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12">
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12">
               <Link to={t.creators.href}>
                 {t.creators.cta} <ArrowRight className="ml-2 w-4 h-4" />
               </Link>

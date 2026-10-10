@@ -31,7 +31,6 @@ import { YouTubeFacade } from "@/components/blog/YouTubeFacade";
  * relationship with Rockstar or Take-Two and the credit line says so.
  */
 
-const serif = { fontFamily: "'Instrument Serif', serif" };
 
 const MARKET_LABEL: Record<string, Record<Lang, string>> = {
   no: { en: "Norway", no: "Norge" },
@@ -304,7 +303,7 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
   return (
     <article>
       {/* ── Hero: Rockstar's key art, the countdown, the premise ── */}
-      <section className="relative overflow-hidden rounded-3xl bg-[hsl(240_11%_5%)] ring-1 ring-white/10">
+      <section className="relative overflow-hidden rounded-3xl dark bg-[hsl(240_11%_5%)] ring-1 ring-white/10">
         <img
           src="/lovable-uploads/gta6/jason-lucia-car.webp"
           alt="Rockstar key art of Jason and Lucia in Vice City"
@@ -330,14 +329,16 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
           }}
         />
         <div className="relative z-10 px-6 sm:px-10 lg:px-14 py-14 lg:py-20 max-w-2xl">
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
+          <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4 block">
             {L(t.kicker)}
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-white leading-[1.06] tracking-tight mb-6">
             {L(t.h1a)}{" "}
-            <span style={serif} className="italic font-normal">{L(t.h1b)}</span>
-            <br />
-            {L(t.h1c)}
+            <span className="hl">
+              {L(t.h1b)}
+              <br />
+              {L(t.h1c)}
+            </span>
           </h1>
           <p className="text-base text-white/70 leading-relaxed mb-8">{L(t.intro)}</p>
           <div className="inline-flex items-baseline gap-3 rounded-2xl border border-white/15 bg-white/[0.07] px-5 py-3.5 backdrop-blur-sm">
@@ -389,7 +390,7 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
           {BASICS.map((b) => (
             <Reveal key={b.label.en}>
               <div className="grid sm:grid-cols-[150px_1fr] gap-x-8 gap-y-1 py-6 border-t border-border">
-                <dt className="text-xs font-semibold tracking-widest uppercase text-primary pt-1.5">
+                <dt className="text-xs font-semibold tracking-widest uppercase text-muted-foreground pt-1.5">
                   {L(b.label)}
                 </dt>
                 <dd className="m-0">
@@ -658,7 +659,7 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
         <Reveal>
           <div className="grid lg:grid-cols-[1fr_0.85fr] gap-12 items-start">
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">
                 {L(t.splitKicker)}
               </span>
               <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-4">
@@ -874,7 +875,7 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
             </div>
             <div className="flex flex-wrap gap-3 shrink-0">
               <Link to="/contact">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12">
                   {L(t.book)} <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>

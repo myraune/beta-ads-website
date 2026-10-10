@@ -2,11 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { SEO } from "@/components/SEO";
-import { SPFooter } from "@/components/sections/SPFooter";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { MascotBand } from "@/components/sections/MascotBand";
 
-const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
 /**
  * Dedicated Norwegian-market landing page - serves as the geo-targeted hub
@@ -202,15 +200,14 @@ const Norge: React.FC = () => {
             heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <p className="text-[11px] uppercase tracking-[0.22em] text-primary mb-6 font-semibold">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground mb-6 font-semibold">
             Norge · Twitch-annonsering
           </p>
           <h1
-            className="text-4xl md:text-6xl lg:text-7xl leading-[1.04] tracking-tight text-foreground mb-6 max-w-4xl"
-            style={serifFont}
+            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.04] tracking-tight text-foreground mb-6 max-w-4xl"
           >
             Native Twitch-annonsering{" "}
-            <span className="italic text-primary">for norske merkevarer</span>.
+            <span className="hl">for norske merkevarer.</span>
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl font-light text-foreground/90 mb-10 max-w-3xl leading-snug">
             Norges eneste native Twitch- og livestream-annonsespesialist.
@@ -235,7 +232,7 @@ const Norge: React.FC = () => {
               href="https://calendar.app.google/coW5NLQJtLxfRer19"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-primary text-white hover:bg-primary/90 px-7 h-12 rounded-full text-sm font-medium tracking-wide transition-colors"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 px-7 h-12 rounded-full text-sm font-medium tracking-wide transition-colors"
             >
               Bestill en 20-minutters konsultasjon{" "}
               <ArrowRight size={14} />
@@ -283,7 +280,7 @@ const Norge: React.FC = () => {
             casesVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <p className="text-[11px] uppercase tracking-[0.22em] text-primary mb-4 font-semibold">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground mb-4 font-semibold">
             Publiserte kampanjer
           </p>
           <h2 className="text-3xl lg:text-4xl font-light tracking-tight text-foreground mb-14 max-w-2xl">
@@ -341,7 +338,7 @@ const Norge: React.FC = () => {
             blogVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
-          <p className="text-[11px] uppercase tracking-[0.22em] text-primary mb-4 font-semibold">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground mb-4 font-semibold">
             Norsk innhold
           </p>
           <h2 className="text-3xl lg:text-4xl font-light tracking-tight text-foreground mb-14 max-w-2xl">
@@ -381,10 +378,10 @@ const Norge: React.FC = () => {
       <section className="relative border-t border-foreground/[0.06]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28">
           <div className="max-w-3xl">
-            <p className="text-[11px] uppercase tracking-[0.22em] text-primary mb-4 font-semibold">
+            <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground mb-4 font-semibold">
               Spørsmål og svar
             </p>
-            <h2 className="text-3xl lg:text-4xl font-light tracking-tight text-foreground mb-10" style={serifFont}>
+            <h2 className="text-3xl lg:text-4xl font-light tracking-tight text-foreground mb-10">
               Vanlige spørsmål om Twitch-annonsering
             </h2>
             <div className="divide-y divide-border/50">
@@ -432,12 +429,11 @@ const Norge: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <div className="max-w-2xl">
-              <p className="text-[11px] uppercase tracking-[0.22em] text-primary mb-4 font-semibold">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground mb-4 font-semibold">
                 Kom i gang
               </p>
               <h2
                 className="text-3xl lg:text-4xl font-light tracking-tight text-foreground"
-                style={serifFont}
               >
                 Skal du kjøre en norsk Twitch-kampanje i 2026?
               </h2>
@@ -454,7 +450,7 @@ const Norge: React.FC = () => {
                 href="https://calendar.app.google/coW5NLQJtLxfRer19"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-primary text-white hover:bg-primary/90 px-8 h-12 rounded-full text-sm font-medium tracking-wide transition-colors"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 px-8 h-12 rounded-full text-sm font-medium tracking-wide transition-colors"
               >
                 Bestill samtale <ArrowRight size={14} />
               </a>
@@ -487,7 +483,6 @@ const Norge: React.FC = () => {
         flip={true}
       />
 
-      <SPFooter />
     </div>
   );
 };

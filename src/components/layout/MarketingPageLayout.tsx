@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { SPFooter } from "@/components/sections/SPFooter";
 import { PeekingBeta } from "@/components/sections/PeekingBeta";
 import { SEO } from "@/components/SEO";
 import type { PageLocale } from "@/lib/blogLocale";
@@ -48,7 +47,7 @@ interface MarketingPageLayoutProps {
  *   1. A hero <section> (full-width, handles its own background)
  *   2. Any number of content <section> elements with `border-t border-border`
  *
- * The CTA block and <SPFooter> are rendered automatically after children.
+ * The CTA block is rendered automatically after children; the footer comes from Layout.
  */
 export const MarketingPageLayout: React.FC<MarketingPageLayoutProps> = ({
   seo,
@@ -92,7 +91,7 @@ export const MarketingPageLayout: React.FC<MarketingPageLayoutProps> = ({
               <Link to={cta.primaryHref}>
                 <Button
                   size="lg"
-                  className="bg-primary hover:bg-primary/90 text-white rounded-full px-8"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8"
                 >
                   {cta.primaryLabel}
                   <ArrowRight className="ml-2 w-4 h-4" />
@@ -114,7 +113,6 @@ export const MarketingPageLayout: React.FC<MarketingPageLayoutProps> = ({
         </div>
       </section>
 
-      <SPFooter />
     </div>
   );
 };

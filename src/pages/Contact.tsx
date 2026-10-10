@@ -2,8 +2,6 @@ import React from "react";
 import { SEO } from "@/components/SEO";
 import { ArrowRight, Mail, MapPin, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
-import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
-import { SPFooter } from "@/components/sections/SPFooter";
 import { PeekingBeta } from "@/components/sections/PeekingBeta";
 
 const Contact: React.FC = () => {
@@ -44,26 +42,20 @@ const Contact: React.FC = () => {
       />
 
       {/* Hero */}
-      <section className="relative overflow-clip" style={{ background: "hsl(240 11% 5%)" }}>
-        <AnimatedShaderBackground heightFactor={0.85} />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
+      <section className="relative overflow-clip">
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-28">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="max-w-2xl">
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">Contact</span>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6">
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4 block">Contact</span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] tracking-tight mb-6">
                 Let's<br />
-                <span style={{ fontFamily: "'Instrument Serif', serif" }} className="italic font-normal">talk.</span>
+                <span className="hl">talk.</span>
               </h1>
-              <p className="text-lg text-white/60 leading-relaxed max-w-md">
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-md">
                 Whether you're a brand planning a campaign, an agency looking for a new format, or a streamer wanting to monetize - we're easy to reach.
               </p>
             </div>
-            <div className="hidden lg:block relative h-[440px] rounded-3xl overflow-hidden bg-[#0c0c0f] ring-1 ring-white/10">
-              <div
-                className="absolute inset-0"
-                style={{ background: "radial-gradient(120% 90% at 42% 8%, rgba(233,79,55,0.20), transparent 62%)" }}
-              />
+            <div className="hidden lg:block relative h-[440px] rounded-3xl overflow-hidden bg-muted ring-1 ring-border">
               <img
                 src="/lovable-uploads/beta-mascot-cut-wave.webp"
                 alt="Beta Ads mascot waving hello"
@@ -157,7 +149,7 @@ const Contact: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Common questions</span>
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Common questions</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">Before you reach out</h2>
             </div>
             <div className="divide-y divide-border">
@@ -189,7 +181,6 @@ const Contact: React.FC = () => {
         </div>
       </section>
 
-      <SPFooter />
     </>
   );
 };

@@ -6,7 +6,6 @@ import { getBlogImage } from "@/lib/blogImage";
 import { formatPostDate, resolvePostLocale, detectPreferredLocale, dedupeByTranslationGroup } from "@/lib/blogLocale";
 import { Input } from "@/components/ui/input";
 import { SEO } from "@/components/SEO";
-import { SPFooter } from "@/components/sections/SPFooter";
 
 const Blog: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -89,8 +88,8 @@ const Blog: React.FC = () => {
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="mb-14">
-            <h1 className="text-4xl md:text-5xl font-light tracking-tight text-foreground mb-4">
-              Beta Ads Insights
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
+              Beta Ads <span className="hl">Insights</span>
             </h1>
             <p className="text-lg text-muted-foreground max-w-xl">
               Data-driven guides for the Nordic streaming market. Learn how to
@@ -141,11 +140,7 @@ const Blog: React.FC = () => {
           {/* Posts */}
           {filteredPosts.length === 0 ? (
             <div className="text-center py-16">
-              <div className="relative w-full max-w-[240px] mx-auto h-56 rounded-2xl overflow-hidden bg-[#0c0c0f] ring-1 ring-white/10 mb-6">
-                <div
-                  className="absolute inset-0"
-                  style={{ background: "radial-gradient(120% 90% at 50% 8%, rgba(233,79,55,0.16), transparent 62%)" }}
-                />
+              <div className="relative w-full max-w-[240px] mx-auto h-56 rounded-2xl overflow-hidden bg-muted ring-1 ring-white/10 mb-6">
                 <img
                   src="/lovable-uploads/beta-mascot-cut-shrug.webp"
                   alt="Beta Ads mascot shrugging - no articles found"
@@ -250,7 +245,6 @@ const Blog: React.FC = () => {
           )}
         </div>
       </div>
-      <SPFooter />
     </>
   );
 };

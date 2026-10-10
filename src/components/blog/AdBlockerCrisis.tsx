@@ -24,7 +24,6 @@ import ClientLogoStrip from "@/components/blog/ClientLogoStrip";
  *   no separate ad request to filter) - a format property, not a claim.
  */
 
-const serif = { fontFamily: "'Instrument Serif', serif" };
 
 const heroStats = [
   { value: "1B+", label: "People run ad-blockers" },
@@ -81,8 +80,7 @@ const AdBlockerCrisis: React.FC = () => {
   return (
     <div className="pb-4">
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden rounded-3xl bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-16 lg:py-24">
-        <div className="absolute -top-24 -right-24 w-[32rem] h-[32rem] rounded-full bg-primary/20 blur-[120px] pointer-events-none" aria-hidden />
+      <section className="relative overflow-hidden rounded-3xl dark bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-16 lg:py-24">
         <div className="relative grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center">
           <div className="max-w-2xl">
             <div className="flex flex-wrap items-center gap-3 mb-7 text-xs font-semibold tracking-widest uppercase">
@@ -94,7 +92,7 @@ const AdBlockerCrisis: React.FC = () => {
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight mb-6">
               The ad-block wall, and the one format that{" "}
-              <span style={serif} className="italic font-normal">gets through</span>
+              <span className="hl">gets through</span>
             </h1>
             <p className="text-lg text-white/65 leading-relaxed max-w-xl">
               More than a billion people run ad-blockers, and streaming's young, technical audience
@@ -126,7 +124,7 @@ const AdBlockerCrisis: React.FC = () => {
       {/* ── The scale (data-viz) ── */}
       <section className="mt-20 lg:mt-28 grid lg:grid-cols-2 gap-14 items-center">
         <Reveal>
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">The scale of it</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">The scale of it</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">
             Ad-block is heaviest exactly where streaming skews youngest
           </h2>
@@ -161,7 +159,7 @@ const AdBlockerCrisis: React.FC = () => {
       {/* ── Why traditional fails ── */}
       <section className="mt-20 lg:mt-28 grid lg:grid-cols-2 gap-14 items-start">
         <Reveal>
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Why the old playbook breaks</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Why the old playbook breaks</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">
             You pay for impressions that never render
           </h2>
@@ -187,10 +185,10 @@ const AdBlockerCrisis: React.FC = () => {
       </section>
 
       {/* ── Native overlay is unblockable (dark + video) ── */}
-      <section className="mt-20 lg:mt-28 rounded-3xl bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-16">
+      <section className="mt-20 lg:mt-28 rounded-3xl dark bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-16">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           <div>
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">The format that gets through</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">The format that gets through</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-white mb-5">
               Nothing for a blocker to strip
             </h2>
@@ -219,7 +217,7 @@ const AdBlockerCrisis: React.FC = () => {
       {/* ── The trust transfer ── */}
       <section className="mt-20 lg:mt-28">
         <div className="max-w-2xl mb-12">
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Why it also converts</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Why it also converts</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
             The streamer's trust transfers to the brand
           </h2>
@@ -248,7 +246,7 @@ const AdBlockerCrisis: React.FC = () => {
       {/* ── Verified Nordic results ── */}
       <section className="mt-20 lg:mt-28">
         <div className="max-w-2xl mb-12">
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Verified, not aspirational</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Verified, not aspirational</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
             What that gets through actually delivers
           </h2>
@@ -283,7 +281,7 @@ const AdBlockerCrisis: React.FC = () => {
       {/* ── Where money is going ── */}
       <section className="mt-20 lg:mt-28 grid lg:grid-cols-2 gap-14 items-center">
         <Reveal>
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">The budget is already moving</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">The budget is already moving</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">
             Native is where spend is heading
           </h2>
@@ -317,7 +315,7 @@ const AdBlockerCrisis: React.FC = () => {
           </div>
           <div className="flex flex-wrap gap-3 shrink-0">
             <Link to="/contact">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-7">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-7">
                 Get a quote <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>

@@ -15,11 +15,7 @@ export const StreamerCTA: React.FC = () => {
     >
       <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
         <div className="rounded-3xl border border-border overflow-hidden bg-card flex flex-col lg:flex-row items-stretch">
-          <div className="lg:w-2/5 relative min-h-[260px] lg:min-h-0 overflow-hidden bg-[#0c0c0f]">
-            <div
-              className="absolute inset-0"
-              style={{ background: "radial-gradient(120% 90% at 45% 8%, rgba(233,79,55,0.20), transparent 62%)" }}
-            />
+          <div className="lg:w-2/5 relative min-h-[260px] lg:min-h-0 overflow-hidden bg-muted">
             <img
               src="/lovable-uploads/beta-mascot-cut-thumbsup.webp"
               alt="Beta Ads mascot giving a thumbs up"

@@ -19,7 +19,6 @@ import ClientLogoStrip from "@/components/blog/ClientLogoStrip";
  * - Affiliate floor 50 -> 25 followers (+ 4h, 4 days, 3 CCV): Twitch.
  */
 
-const serif = { fontFamily: "'Instrument Serif', serif" };
 
 const heroStats = [
   { value: "5", label: "Parallel changes" },
@@ -131,8 +130,7 @@ const TwitchApril2026Overhaul: React.FC = () => {
   return (
     <div className="pb-4">
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden rounded-3xl bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-16 lg:py-24">
-        <div className="absolute -top-24 -right-24 w-[32rem] h-[32rem] rounded-full bg-primary/20 blur-[120px] pointer-events-none" aria-hidden />
+      <section className="relative overflow-hidden rounded-3xl dark bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-16 lg:py-24">
         <div className="relative max-w-3xl">
           <div className="flex flex-wrap items-center gap-3 mb-7 text-xs font-semibold tracking-widest uppercase">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-white/80">
@@ -143,7 +141,7 @@ const TwitchApril2026Overhaul: React.FC = () => {
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.05] tracking-tight mb-6">
             Twitch just rewrote{" "}
-            <span style={serif} className="italic font-normal">the rules</span> again
+            <span className="hl">the rules again</span>
           </h1>
           <p className="text-lg text-white/65 leading-relaxed max-w-xl">
             Between April 13 and the end of the month, Twitch changed how it shares viewer data,
@@ -166,7 +164,7 @@ const TwitchApril2026Overhaul: React.FC = () => {
       {/* ── The five changes ── */}
       <section className="mt-20 lg:mt-28">
         <div className="max-w-2xl mb-12">
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Five shifts, one month</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Five shifts, one month</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
             No single change reshapes the market. Together they do.
           </h2>
@@ -177,7 +175,7 @@ const TwitchApril2026Overhaul: React.FC = () => {
               <div className="group grid md:grid-cols-[auto_1fr_1fr] gap-5 md:gap-10 items-start rounded-2xl border border-border bg-card p-6 lg:p-8 hover:border-primary/30 transition-colors">
                 <div className="flex items-center gap-4 md:block">
                   <div className="text-4xl font-bold text-primary/20 tracking-tighter leading-none">{c.n}</div>
-                  <div className="text-[11px] font-semibold tracking-widest uppercase text-primary md:mt-3">{c.tag}</div>
+                  <div className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground md:mt-3">{c.tag}</div>
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-foreground mb-2 leading-snug">{c.title}</h3>
@@ -196,7 +194,7 @@ const TwitchApril2026Overhaul: React.FC = () => {
       {/* ── Market share context (data-viz) ── */}
       <section className="mt-20 lg:mt-28 grid lg:grid-cols-2 gap-14 items-center">
         <Reveal>
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Why now</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Why now</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">
             A platform defending its lead
           </h2>
@@ -228,10 +226,10 @@ const TwitchApril2026Overhaul: React.FC = () => {
       </section>
 
       {/* ── 2K overlay math (the standout viz) ── */}
-      <section className="mt-20 lg:mt-28 rounded-3xl bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-16">
+      <section className="mt-20 lg:mt-28 rounded-3xl dark bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-16">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           <div>
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">The 2K detail brands miss</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">The 2K detail brands miss</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-white mb-5">
               Same overlay, 78% more pixels
             </h2>
@@ -254,7 +252,7 @@ const TwitchApril2026Overhaul: React.FC = () => {
                   <span className="text-lg font-bold text-white tabular-nums">{d.display}</span>
                 </div>
                 <div className="h-4 rounded-full bg-white/10 overflow-hidden">
-                  <div className={`h-full rounded-full ${d.highlight ? "bg-primary" : "bg-white/40"}`} style={{ width: `${Math.round((d.px / overlayMax) * 100)}%` }} />
+                  <div className={`h-full rounded-full ${d.highlight ? "bg-white" : "bg-white/30"}`} style={{ width: `${Math.round((d.px / overlayMax) * 100)}%` }} />
                 </div>
               </div>
             ))}
@@ -282,7 +280,7 @@ const TwitchApril2026Overhaul: React.FC = () => {
       {/* ── Combos timeline + durable tools ── */}
       <section className="mt-20 lg:mt-28 grid lg:grid-cols-2 gap-14 items-start">
         <Reveal>
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">The Combos lesson</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">The Combos lesson</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
             Built on Bits? Build on something else.
           </h2>
@@ -328,7 +326,7 @@ const TwitchApril2026Overhaul: React.FC = () => {
       {/* ── Affiliate before/after ── */}
       <section className="mt-20 lg:mt-28">
         <div className="max-w-2xl mb-10">
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">A wider creator pool</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">A wider creator pool</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
             The affiliate floor just halved, and the Nordics feel it most
           </h2>
@@ -345,7 +343,7 @@ const TwitchApril2026Overhaul: React.FC = () => {
             <p className="text-sm text-muted-foreground">A single follower gate that kept the long tail out of monetization.</p>
           </div>
           <div className="rounded-2xl border border-primary/40 bg-primary/[0.03] p-8">
-            <div className="text-[11px] font-semibold tracking-widest uppercase text-primary mb-4">Now</div>
+            <div className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground mb-4">Now</div>
             <ul className="space-y-2.5">
               {affiliate.after.map((r) => (
                 <li key={r} className="flex items-center gap-2.5 text-sm text-foreground">
@@ -361,7 +359,7 @@ const TwitchApril2026Overhaul: React.FC = () => {
       {/* ── What brands should do now (action grid) ── */}
       <section className="mt-20 lg:mt-28">
         <div className="max-w-2xl mb-10">
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Your playbook</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Your playbook</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">What to do before it becomes table stakes</h2>
         </div>
         <div className="rounded-2xl border border-border overflow-hidden">
@@ -390,7 +388,7 @@ const TwitchApril2026Overhaul: React.FC = () => {
           </div>
           <div className="flex flex-wrap gap-3 shrink-0">
             <Link to="/contact">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-7">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-7">
                 Get a quote <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>

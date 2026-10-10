@@ -1,7 +1,6 @@
 import React from "react";
 import { SEO } from "@/components/SEO";
 import NkiCaseStudy from "@/components/blog/NkiCaseStudy";
-import { SPFooter } from "@/components/sections/SPFooter";
 
 const CaseStudyNki: React.FC = () => {
   return (
@@ -59,7 +58,6 @@ const CaseStudyNki: React.FC = () => {
         ]}
       />
       <NkiCaseStudy />
-      <SPFooter />
     </>
   );
 };

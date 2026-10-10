@@ -69,7 +69,7 @@ const Unsubscribe = () => {
 
         {status === "success" && (
           <>
-            <div className="relative w-full max-w-[260px] mx-auto aspect-[4/3] rounded-2xl overflow-hidden bg-[#0c0c0f] ring-1 ring-white/10 mb-2">
+            <div className="relative w-full max-w-[260px] mx-auto aspect-[4/3] rounded-2xl overflow-hidden bg-muted ring-1 ring-border mb-2">
               <img
                 src="/lovable-uploads/beta-mascot-goodbye.jpg"
                 alt="Beta, the Beta Ads mascot, waving goodbye"

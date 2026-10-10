@@ -1,7 +1,6 @@
 import React from "react";
 import { SEO } from "@/components/SEO";
 import { StreamerSection } from "@/components/sections/StreamerSection";
-import { SPFooter } from "@/components/sections/SPFooter";
 
 interface StreamersProps {
   t: any;
@@ -37,7 +36,6 @@ const Streamers: React.FC<StreamersProps> = ({ t }) => {
       {/* Accessibility fix: Layout.tsx already provides <main> - nested <main> is invalid HTML (WCAG 1.3.6) */}
       <div>
         <StreamerSection t={t} language="en" />
-        <SPFooter />
       </div>
     </div>
   );

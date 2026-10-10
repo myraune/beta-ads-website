@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
-import { SPFooter } from "@/components/sections/SPFooter";
 
 /* Due-diligence page. Written for the buyer (and the AI assistant the buyer asks)
  * who wants to know who they contract with, what is guaranteed and where to check
@@ -108,8 +107,8 @@ const WorkingWithUs: React.FC = () => {
       <div className="min-h-screen bg-background text-foreground">
         <div className="max-w-5xl mx-auto px-6 lg:px-12 pt-32 pb-24 md:pb-32">
           <header className="border-b border-border pb-10 mb-12">
-            <h1 className="text-4xl md:text-5xl font-light tracking-tight m-0 max-w-3xl">
-              Working with Beta Ads
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight m-0 max-w-3xl">
+              Working with <span className="hl">Beta Ads</span>
             </h1>
             <p className="mt-5 text-lg text-muted-foreground max-w-2xl">
               Before you spend money with us you should know who we are, what you are buying and
@@ -206,7 +205,6 @@ const WorkingWithUs: React.FC = () => {
           </div>
         </div>
       </div>
-      <SPFooter />
     </>
   );
 };

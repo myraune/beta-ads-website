@@ -52,7 +52,7 @@ export const StreamerHowItWorks: React.FC = () => {
 
           {/* Left: heading + steps */}
           <div>
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">How it works</span>
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">How it works</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-3">
               From signup to payout in 4 steps
             </h2>
@@ -100,7 +100,7 @@ export const StreamerHowItWorks: React.FC = () => {
               {/* Subtle bottom vignette */}
               <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
               {/* Live badge */}
-              <div className="absolute top-4 left-4 flex items-center gap-1.5 bg-primary text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-lg">
+              <div className="absolute top-4 left-4 flex items-center gap-1.5 bg-primary text-primary-foreground text-[11px] font-bold px-2.5 py-1 rounded-full shadow-lg">
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                 LIVE
               </div>

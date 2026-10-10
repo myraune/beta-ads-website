@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
-import { SPFooter } from "@/components/sections/SPFooter";
 
 const Terms: React.FC = () => {
   return (
@@ -15,9 +14,9 @@ const Terms: React.FC = () => {
       <div className="min-h-screen bg-background text-foreground">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-24 md:pb-32">
           <header className="border-b border-border pb-10 mb-12 grid lg:grid-cols-[16rem_1fr] gap-10 items-end">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary">Legal</span>
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground">Legal</span>
             <div className="flex flex-wrap items-baseline justify-between gap-x-10 gap-y-3">
-              <h1 className="text-4xl md:text-5xl font-light tracking-tight m-0">Terms of Service</h1>
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight m-0">Terms <span className="hl">of Service</span></h1>
               <p className="text-sm text-muted-foreground m-0">Last updated: October 7, 2026</p>
             </div>
           </header>
@@ -326,7 +325,6 @@ const Terms: React.FC = () => {
           </div>
         </div>
       </div>
-      <SPFooter />
     </>
   );
 };

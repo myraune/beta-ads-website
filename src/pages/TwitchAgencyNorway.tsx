@@ -4,7 +4,6 @@ import { MarketingPageLayout } from "@/components/layout/MarketingPageLayout";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 import { MascotBand } from "@/components/sections/MascotBand";
 
 /**
@@ -25,7 +24,6 @@ import { MascotBand } from "@/components/sections/MascotBand";
  * Numbers are ones the site already publishes.
  */
 
-const serif = { fontFamily: "'Instrument Serif', serif" };
 
 /** Shown on the page and emitted as dateModified. Bump when the content changes. */
 const LAST_UPDATED = "2026-08-31";
@@ -221,29 +219,27 @@ const TwitchAgencyNorway: React.FC = () => {
       }}
     >
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden" style={{ background: "hsl(240 11% 5%)" }}>
-        <AnimatedShaderBackground heightFactor={0.85} />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
+      <section className="relative overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-24">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/80 backdrop-blur-sm mb-7">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-foreground/[0.04] text-foreground backdrop-blur-sm mb-7">
               Beta Agency AS · Registered in Norway · Org.nr 933 303 136
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-6 tracking-tight">
               Twitch agency
               <br />
-              <span style={serif} className="italic font-normal">
+              <span className="hl">
                 in Norway
               </span>
             </h1>
-            <p className="text-lg text-white/70 leading-relaxed mb-10 max-w-2xl">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-2xl">
               We are a Norwegian Twitch agency that works inside the broadcast. An overlay in the
               layout, a chat command in the title, and the streamer saying it in their own words.
               Not a pre-roll most of the audience blocks.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/contact">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12">
                   Book a demo <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
@@ -251,7 +247,7 @@ const TwitchAgencyNorway: React.FC = () => {
                 <Button
                   size="lg"
                   variant="ghost"
-                  className="text-white hover:bg-white/10 rounded-full px-8 h-12 border border-white/20"
+                  className="text-foreground hover:bg-foreground/[0.06] rounded-full px-8 h-12 border border-border"
                 >
                   See campaigns we have run
                 </Button>
@@ -259,11 +255,11 @@ const TwitchAgencyNorway: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-white/10 rounded-2xl overflow-hidden bg-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-border rounded-2xl overflow-hidden bg-border">
             {heroStats.map((s) => (
-              <div key={s.label} className="bg-black/30 backdrop-blur-sm px-6 py-5">
-                <div className="text-2xl font-bold text-white tracking-tight">{s.value}</div>
-                <div className="text-xs text-white/50 mt-0.5">{s.label}</div>
+              <div key={s.label} className="bg-card backdrop-blur-sm px-6 py-5">
+                <div className="text-2xl font-bold text-foreground tracking-tight">{s.value}</div>
+                <div className="text-xs text-muted-foreground mt-0.5">{s.label}</div>
               </div>
             ))}
           </div>
@@ -280,7 +276,7 @@ const TwitchAgencyNorway: React.FC = () => {
         >
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">
                 The definition
               </span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
@@ -325,7 +321,7 @@ const TwitchAgencyNorway: React.FC = () => {
           }`}
         >
           <div className="max-w-2xl mb-12">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">
               The alternatives
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
@@ -351,7 +347,7 @@ const TwitchAgencyNorway: React.FC = () => {
                   <div className="flex items-baseline justify-between gap-4 mb-3">
                     <h3 className="text-base font-semibold text-foreground">{a.type}</h3>
                     {isUs && (
-                      <span className="text-[10px] font-semibold tracking-widest uppercase text-primary shrink-0">
+                      <span className="text-[10px] font-semibold tracking-widest uppercase text-muted-foreground shrink-0">
                         That is us
                       </span>
                     )}
@@ -396,7 +392,7 @@ const TwitchAgencyNorway: React.FC = () => {
           }`}
         >
           <div className="max-w-2xl mb-12">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">
               Before you sign
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
@@ -427,7 +423,7 @@ const TwitchAgencyNorway: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="max-w-2xl mb-12">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">
               Norwegian clients
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
@@ -468,7 +464,7 @@ const TwitchAgencyNorway: React.FC = () => {
           }`}
         >
           <div className="max-w-2xl mb-12">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">
               How we work
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
@@ -500,7 +496,7 @@ const TwitchAgencyNorway: React.FC = () => {
         >
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">
                 Price
               </span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">

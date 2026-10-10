@@ -4,7 +4,6 @@ import { MarketingPageLayout } from "@/components/layout/MarketingPageLayout";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 import { MascotBand } from "@/components/sections/MascotBand";
 
 /**
@@ -17,7 +16,6 @@ import { MascotBand } from "@/components/sections/MascotBand";
  * studies). Registered as an hreflang alternate of the English cost page.
  */
 
-const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
 const stats = [
   { value: "200-300 kr", label: "Effektiv CPM" },
@@ -195,42 +193,40 @@ const TwitchAnnonseringPris: React.FC = () => {
       }}
     >
       {/* Hero */}
-      <section className="relative overflow-hidden" style={{ background: "hsl(240 11% 5%)" }}>
-        <AnimatedShaderBackground heightFactor={0.85} />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
+      <section className="relative overflow-hidden">
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-28">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/80 backdrop-blur-sm mb-7">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-foreground/[0.04] text-foreground backdrop-blur-sm mb-7">
               <img src="/lovable-uploads/platform-twitch.png" alt="Twitch" className="h-3.5 w-auto" />
               Twitch-annonsering pris
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-6 tracking-tight">
               Hva Twitch-annonsering{" "}
-              <span style={serifFont} className="italic font-normal">faktisk</span> koster
+              <span className="hl">faktisk koster</span>
             </h1>
-            <p className="text-lg text-white/65 leading-relaxed mb-10 max-w-lg">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg">
               Ingen plattform publiserer en prisliste, ikke engang Twitch. Her er hvordan livestream-annonsering egentlig prises i Norge, de fem tingene som flytter tallet, og hvordan du får et reelt tilbud i stedet for en gjetning.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/contact">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12">
                   Få et tilbud <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
               <Link to="/norge">
-                <Button size="lg" variant="ghost" className="text-white hover:bg-white/10 rounded-full px-8 h-12 border border-white/20">
+                <Button size="lg" variant="ghost" className="text-foreground hover:bg-foreground/[0.06] rounded-full px-8 h-12 border border-border">
                   Norsk oversikt
                 </Button>
               </Link>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-white/10 rounded-2xl overflow-hidden bg-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-border rounded-2xl overflow-hidden bg-border">
             {stats.map((s) => (
-              <div key={s.label} className="bg-black/30 backdrop-blur-sm px-6 py-5">
-                <div className="text-2xl font-bold text-white tracking-tight">{s.value}</div>
-                <div className="text-xs text-white/50 mt-0.5">{s.label}</div>
+              <div key={s.label} className="bg-card backdrop-blur-sm px-6 py-5">
+                <div className="text-2xl font-bold text-foreground tracking-tight">{s.value}</div>
+                <div className="text-xs text-muted-foreground mt-0.5">{s.label}</div>
               </div>
             ))}
           </div>
@@ -241,7 +237,7 @@ const TwitchAnnonseringPris: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-start">
           <div>
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Det ærlige svaret</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Det ærlige svaret</span>
             <h2 className="text-3xl md:text-5xl font-light tracking-tight text-foreground leading-tight">
               Her er tallet du kom for
             </h2>
@@ -267,14 +263,14 @@ const TwitchAnnonseringPris: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={modelsRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${modelsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="max-w-2xl mb-14">
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Slik prises det</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Slik prises det</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">To produkter, to prismekanismer</h2>
             <p className="text-base text-muted-foreground leading-relaxed mt-4">Å blande disse er den enkeltstående største grunnen til at folk blir overrasket av et tilbud.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {models.map((m) => (
               <div key={m.title} className="p-8 lg:p-10 rounded-2xl border border-border bg-card">
-                <span className="text-[11px] font-semibold tracking-widest uppercase text-primary">{m.tag}</span>
+                <span className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground">{m.tag}</span>
                 <h3 className="text-2xl font-semibold text-foreground mt-3 mb-4">{m.title}</h3>
                 <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6">{m.body}</p>
                 <ul className="space-y-2.5 border-t border-border pt-6">
@@ -296,7 +292,7 @@ const TwitchAnnonseringPris: React.FC = () => {
         <div ref={driversRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${driversVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Hva flytter tallet</span>
+              <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Hva flytter tallet</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">Fem variabler som setter prisen</h2>
               <p className="text-base text-muted-foreground leading-relaxed max-w-md">
                 To kampanjer med samme budsjett kan kjøpe svært forskjellige resultater. Disse fem variablene avgjør hvilke. Søylene viser retningsgivende prispress, ikke en prisliste.
@@ -325,7 +321,7 @@ const TwitchAnnonseringPris: React.FC = () => {
         <div ref={seasonRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${seasonVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Størrelsen på muligheten</span>
+              <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Størrelsen på muligheten</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
                 504 000 timer norsk Twitch i året
               </h2>
@@ -354,34 +350,34 @@ const TwitchAnnonseringPris: React.FC = () => {
       </section>
 
       {/* Bevis-bånd */}
-      <section ref={proofRef} className={`py-20 md:py-28 border-t border-border transition-all duration-700 ${proofVisible ? "opacity-100" : "opacity-0"}`} style={{ background: "hsl(240 11% 5%)" }}>
+      <section ref={proofRef} className={`py-20 md:py-28 border-t border-border transition-all duration-700 ${proofVisible ? "opacity-100" : "opacity-0"}`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="max-w-2xl mb-14">
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Hva pengene leverer</span>
-            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-white">
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Hva pengene leverer</span>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
               Tallet betyr bare noe ved siden av resultatet
             </h2>
-            <p className="text-base text-white/60 leading-relaxed mt-4">
+            <p className="text-base text-muted-foreground leading-relaxed mt-4">
               Verifiserte resultater fra ekte norske kampanjer. Dette er hva budsjettet faktisk kjøpte.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px border border-white/10 rounded-2xl overflow-hidden bg-white/10 mb-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px border border-border rounded-2xl overflow-hidden bg-border mb-8">
             {proof.map((p) => (
-              <Link key={p.brand} to={p.href} className="group bg-black/40 backdrop-blur-sm px-6 py-7 hover:bg-black/20 transition-colors">
+              <Link key={p.brand} to={p.href} className="group bg-card backdrop-blur-sm px-6 py-7 hover:bg-muted transition-colors">
                 <div className="flex items-center justify-between mb-5 h-6">
-                  <img src={p.logo} alt={p.brand} className="h-5 w-auto object-contain opacity-70" style={{ filter: "brightness(0) invert(1)" }} />
-                  <ArrowUpRight className="w-4 h-4 text-white/30 group-hover:text-primary transition-colors" />
+                  <img src={p.logo} alt={p.brand} className="[filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] h-5 w-auto object-contain opacity-70" />
+                  <ArrowUpRight className="w-4 h-4 text-muted-foreground/70 group-hover:text-primary transition-colors" />
                 </div>
-                <div className="text-3xl font-bold text-white tracking-tight">{p.metric}</div>
-                <div className="text-xs text-white/50 mt-1">{p.label}</div>
+                <div className="text-3xl font-bold text-foreground tracking-tight">{p.metric}</div>
+                <div className="text-xs text-muted-foreground mt-1">{p.label}</div>
                 <div className="text-xs text-primary mt-3">{p.extra}</div>
               </Link>
             ))}
           </div>
 
           <div className="grid lg:grid-cols-2 gap-10 items-center pt-8">
-            <div className="rounded-2xl overflow-hidden bg-black ring-1 ring-white/10">
+            <div className="rounded-2xl overflow-hidden bg-black ring-1 ring-border">
               <video
                 src="/lovable-uploads/overlay-samsung.webm"
                 autoPlay loop muted playsInline preload="metadata"
@@ -390,8 +386,8 @@ const TwitchAnnonseringPris: React.FC = () => {
               />
             </div>
             <div>
-              <h3 className="text-2xl font-light tracking-tight text-white mb-4">Dette er formatet du betaler for</h3>
-              <p className="text-base text-white/60 leading-relaxed mb-6">
+              <h3 className="text-2xl font-light tracking-tight text-foreground mb-4">Dette er formatet du betaler for</h3>
+              <p className="text-base text-muted-foreground leading-relaxed mb-6">
                 Ikke en pre-roll seeren hopper over eller en adblocker fjerner. En merkevare-overlay vist inne i direktesendingen, til stede gjennom en 90-minutters økt, umulig å blokkere fordi den er en del av sendingen.
               </p>
               <Link to="/twitch-advertising" className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
@@ -407,7 +403,7 @@ const TwitchAnnonseringPris: React.FC = () => {
         <div ref={nordicRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${nordicVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Den nordiske premien</span>
+              <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Den nordiske premien</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
                 Hvorfor nordiske kampanjer prises annerledes, og hvorfor det er greit
               </h2>
@@ -428,7 +424,7 @@ const TwitchAnnonseringPris: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="max-w-2xl mb-14">
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Direkte eller administrert</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Direkte eller administrert</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">Kan du ikke bare kjøpe det direkte?</h2>
             <p className="text-base text-muted-foreground leading-relaxed mt-4">
               Noen ganger, og det er verdt å vite nøyaktig hva "direkte" koster før du antar at det er billigere.
@@ -440,7 +436,7 @@ const TwitchAnnonseringPris: React.FC = () => {
                 key={c.title}
                 className={`p-8 rounded-2xl border ${c.highlight ? "border-primary/40 bg-primary/[0.03]" : "border-border bg-card"}`}
               >
-                <span className="text-[11px] font-semibold tracking-widest uppercase text-primary">{c.tag}</span>
+                <span className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground">{c.tag}</span>
                 <h3 className="text-xl font-semibold text-foreground mt-3 mb-5">{c.title}</h3>
                 <ul className="space-y-3">
                   {c.facts.map((f) => (
@@ -473,7 +469,7 @@ const TwitchAnnonseringPris: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={bringRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${bringVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="max-w-2xl mb-14">
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Slik får du et reelt tall</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Slik får du et reelt tall</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">Fire ting å ta med, så får du et rett svar</h2>
           </div>
           <div className="grid md:grid-cols-4 gap-8">

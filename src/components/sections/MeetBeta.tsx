@@ -17,12 +17,7 @@ export const MeetBeta: React.FC = () => {
         }`}
       >
         <div className="rounded-3xl border border-border overflow-hidden bg-card grid lg:grid-cols-2 items-stretch">
-          <div className="relative min-h-[340px] lg:min-h-0 order-1 lg:order-none overflow-hidden bg-[#0c0c0f]">
-            {/* soft brand glow behind the floating mascot */}
-            <div
-              className="absolute inset-0"
-              style={{ background: "radial-gradient(120% 90% at 35% 8%, rgba(233,79,55,0.20), transparent 62%)" }}
-            />
+          <div className="relative min-h-[340px] lg:min-h-0 order-1 lg:order-none overflow-hidden bg-muted">
             <img
               src="/lovable-uploads/beta-mascot-cut-wave.webp"
               alt="Beta, the Beta Ads mascot, waving hello"
@@ -33,7 +28,7 @@ export const MeetBeta: React.FC = () => {
             />
           </div>
           <div className="p-10 md:p-14 flex flex-col justify-center">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">
               Say hi to Beta
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
@@ -45,7 +40,7 @@ export const MeetBeta: React.FC = () => {
             <div className="flex flex-wrap gap-3">
               <Link
                 to="/demo"
-                className="inline-flex items-center gap-2 bg-primary text-white hover:bg-primary/90 px-7 h-12 rounded-full text-sm font-semibold transition-colors"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 px-7 h-12 rounded-full text-sm font-semibold transition-colors"
               >
                 Watch a demo <ArrowRight className="w-4 h-4" />
               </Link>

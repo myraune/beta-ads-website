@@ -4,7 +4,6 @@ import { ArrowRight } from "lucide-react";
 import { blogPostsMeta } from "@/data/blogPostsMeta";
 import { getBlogImage } from "@/lib/blogImage";
 import { SEO } from "@/components/SEO";
-import { SPFooter } from "@/components/sections/SPFooter";
 import {
   NORDIC_MARKETS,
   marketByHubSlug,
@@ -132,10 +131,10 @@ const BlogLocaleHub: React.FC<{ hubSlug?: string }> = ({ hubSlug }) => {
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           {/* Header */}
           <div className="mb-12">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">
               {copy.eyebrow}
             </span>
-            <h1 className="text-4xl md:text-5xl font-light tracking-tight text-foreground mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
               {copy.h1}
             </h1>
             <p className="text-lg text-muted-foreground max-w-xl">{copy.intro}</p>
@@ -206,7 +205,6 @@ const BlogLocaleHub: React.FC<{ hubSlug?: string }> = ({ hubSlug }) => {
           )}
         </div>
       </div>
-      <SPFooter />
     </>
   );
 };

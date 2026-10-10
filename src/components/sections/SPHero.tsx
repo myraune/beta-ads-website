@@ -566,14 +566,14 @@ export const SPHero: React.FC = () => {
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight text-white mb-5">
             Run, Launch & Scale<br />
-            <span style={{ fontFamily: "'Instrument Serif', serif" }} className="italic font-normal">Native Ads</span> on Streams
+            <span className="hl">Native Ads on Streams</span>
           </h1>
           <p className="text-base md:text-lg text-white/70 leading-relaxed mb-10 max-w-lg mx-auto">
             Custom animated overlays inside Twitch, YouTube and Kick streams. Ad blockers can't remove them and viewers can't skip them.
           </p>
           <div className="flex flex-wrap gap-3 mb-8 md:mb-16 justify-center">
             <Link to="/demo">
-              <Button size="lg" className="bg-primary text-white hover:bg-primary/90 h-12 px-7 text-sm font-semibold rounded-full shadow-lg hover:shadow-xl transition-[transform,box-shadow,background-color] duration-300 hover:-translate-y-0.5">
+              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 h-12 px-7 text-sm font-semibold rounded-full shadow-lg hover:shadow-xl transition-[transform,box-shadow,background-color] duration-300 hover:-translate-y-0.5">
                 Book a Demo <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>

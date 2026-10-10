@@ -20,7 +20,6 @@ import ClientLogoStrip from "@/components/blog/ClientLogoStrip";
  * contradicts them (see the note at the foot).
  */
 
-const serif = { fontFamily: "'Instrument Serif', serif" };
 const SU_LOGO = "/lovable-uploads/su-real/streamer-university-logo.svg";
 
 const heroStats = [
@@ -136,8 +135,7 @@ const StreamerUniversity2026: React.FC = () => {
   return (
     <div className="pb-4">
       {/* ── Hero (two-column, real photo) ── */}
-      <section className="relative overflow-hidden rounded-3xl bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-14 lg:py-20">
-        <div className="absolute -top-24 -right-24 w-[32rem] h-[32rem] rounded-full bg-primary/20 blur-[120px] pointer-events-none" aria-hidden />
+      <section className="relative overflow-hidden rounded-3xl dark bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-14 lg:py-20">
         <div className="relative grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-center">
           <div>
             <div className="flex flex-wrap items-center gap-4 mb-7">
@@ -146,7 +144,7 @@ const StreamerUniversity2026: React.FC = () => {
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-[3.4rem] font-bold text-white leading-[1.05] tracking-tight mb-6">
               1.2 million people, one campus.{" "}
-              <span style={serif} className="italic font-normal">Then it went to Europe.</span>
+              <span className="hl">Then it went to Europe.</span>
             </h1>
             <p className="text-lg md:text-xl text-white/70 leading-relaxed max-w-xl">
               For six days in July, a small college in Arkansas was the most-watched place on Twitch.
@@ -181,7 +179,7 @@ const StreamerUniversity2026: React.FC = () => {
           <p className="text-[11px] text-muted-foreground/60 mt-2">The real venue: Hendrix College, Conway, Arkansas.</p>
         </Reveal>
         <Reveal>
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">What it actually is</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">What it actually is</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">
             A real campus, run as a live production
           </h2>
@@ -202,7 +200,7 @@ const StreamerUniversity2026: React.FC = () => {
       <section className="mt-20 lg:mt-28">
         <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-14 items-center">
           <div>
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">See it</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">See it</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
               It was a real event, on real local news
             </h2>
@@ -216,10 +214,10 @@ const StreamerUniversity2026: React.FC = () => {
       </section>
 
       {/* ── The scale (dark, data-viz + platform marks) ── */}
-      <section className="mt-20 lg:mt-28 rounded-3xl bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-16">
+      <section className="mt-20 lg:mt-28 rounded-3xl dark bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-16">
         <div className="grid lg:grid-cols-2 gap-14 items-center">
           <div>
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">The scale</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">The scale</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-white mb-5">
               Peak viewership more than doubled in a year
             </h2>
@@ -242,7 +240,7 @@ const StreamerUniversity2026: React.FC = () => {
                   <span className="text-2xl font-bold text-white tabular-nums">{g.display}</span>
                 </div>
                 <div className="h-4 rounded-full bg-white/10 overflow-hidden">
-                  <div className={`h-full rounded-full ${g.highlight ? "bg-primary" : "bg-white/40"}`} style={{ width: `${Math.round((g.pct / growthMax) * 100)}%` }} />
+                  <div className={`h-full rounded-full ${g.highlight ? "bg-white" : "bg-white/30"}`} style={{ width: `${Math.round((g.pct / growthMax) * 100)}%` }} />
                 </div>
                 <p className="text-[11px] text-white/40 mt-1.5">{g.note}</p>
               </div>
@@ -255,7 +253,7 @@ const StreamerUniversity2026: React.FC = () => {
       {/* ── The distribution insight ── */}
       <section className="mt-20 lg:mt-28">
         <div className="max-w-2xl mb-12">
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">The part media buyers should notice</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">The part media buyers should notice</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
             The audience did not come from one channel. It came from 6,004.
           </h2>
@@ -279,7 +277,7 @@ const StreamerUniversity2026: React.FC = () => {
       {/* ── Sponsor LOGO GRID ── */}
       <section className="mt-20 lg:mt-28">
         <div className="max-w-2xl mb-12">
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">What the brands actually did</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">What the brands actually did</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
             More than 20 partners, almost no traditional ads
           </h2>
@@ -314,7 +312,7 @@ const StreamerUniversity2026: React.FC = () => {
       {/* ── Zaxby's hard ROI ── */}
       <section className="mt-20 lg:mt-28 grid lg:grid-cols-2 gap-14 items-center">
         <Reveal>
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">The clearest ROI in the building</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">The clearest ROI in the building</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">
             Zaxby's catered lunch and grew 20,000 followers
           </h2>
@@ -340,7 +338,7 @@ const StreamerUniversity2026: React.FC = () => {
       {/* ── Quotes ── */}
       <section className="mt-20 lg:mt-28">
         <div className="max-w-2xl mb-10">
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">On the record</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">On the record</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">What the brand side said</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-6">
@@ -362,7 +360,7 @@ const StreamerUniversity2026: React.FC = () => {
       {/* ── Breakout creators ── */}
       <section className="mt-20 lg:mt-28 grid lg:grid-cols-2 gap-14 items-center">
         <Reveal>
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">The discovery engine</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">The discovery engine</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">
             An unknown finished the week with 777,000 followers
           </h2>
@@ -398,7 +396,7 @@ const StreamerUniversity2026: React.FC = () => {
       {/* ── The four lessons ── */}
       <section className="mt-20 lg:mt-28">
         <div className="max-w-2xl mb-12">
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">The transferable part</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">The transferable part</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
             Four things that worked, and translate to a normal budget
           </h2>
@@ -417,9 +415,9 @@ const StreamerUniversity2026: React.FC = () => {
       </section>
 
       {/* ── Europe 2027 (dark, with SU + Hendrix logos) ── */}
-      <section className="mt-20 lg:mt-28 rounded-3xl bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-16">
+      <section className="mt-20 lg:mt-28 rounded-3xl dark bg-[hsl(240_11%_5%)] px-6 sm:px-10 lg:px-16 py-16">
         <div className="max-w-3xl">
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">2027</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">2027</span>
           <h2 className="text-3xl md:text-5xl font-light tracking-tight text-white mb-6 leading-tight">
             It is coming to Europe, and nobody has picked the country yet
           </h2>
@@ -440,7 +438,7 @@ const StreamerUniversity2026: React.FC = () => {
       {/* ── What Nordic brands should take from it ── */}
       <section className="mt-20 lg:mt-28">
         <div className="max-w-2xl mb-12">
-          <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Closer to home</span>
+          <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Closer to home</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
             You do not need a campus to run this play
           </h2>
@@ -490,7 +488,7 @@ const StreamerUniversity2026: React.FC = () => {
           </div>
           <div className="flex flex-wrap gap-3 shrink-0">
             <Link to="/contact">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-7">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-7">
                 Get a quote <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>

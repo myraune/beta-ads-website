@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { SEO } from "@/components/SEO";
-import { SPFooter } from '@/components/sections/SPFooter';
 import { Play, ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -259,10 +258,10 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
       <section className="pt-32 pb-20 lg:pt-40 lg:pb-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div ref={heroRef} className={`max-w-2xl transition-all duration-700 ${heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">Case Studies</span>
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4 block">Case Studies</span>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] mb-6">
               Real results,<br />
-              <span style={{ fontFamily: "'Instrument Serif', serif" }} className="italic font-normal">real campaigns</span>
+              <span className="hl">real campaigns</span>
             </h1>
             <p className="text-lg font-light text-muted-foreground leading-relaxed">
               How Samsung, Glorious, Surfshark, and others reached millions of viewers through native Twitch advertising - with zero adblock impact.
@@ -273,10 +272,9 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
 
       {/* Campaign Highlights carousel */}
       <section ref={videosRef} className={`relative overflow-hidden py-16 lg:py-24 border-t border-border transition-all duration-700 ${videosVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-        <div className="absolute inset-0 pointer-events-none" aria-hidden style={{ background: "radial-gradient(ellipse 70% 50% at 75% 30%, rgba(233,79,55,0.05) 0%, transparent 55%)" }} />
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="mb-10">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Campaign Highlights</span>
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Campaign Highlights</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight">Watch it live on stream</h2>
           </div>
 
@@ -314,7 +312,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
             {/* Info panel */}
             <div className="p-8 lg:p-12 flex flex-col justify-between border-t lg:border-t-0 lg:border-l border-border">
               <div>
-                <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-2">{caseStudies[caseStudyIndex].brand}</p>
+                <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-2">{caseStudies[caseStudyIndex].brand}</p>
                 <h3 className="text-2xl lg:text-3xl font-light text-foreground mb-4 leading-tight">{caseStudies[caseStudyIndex].campaign}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-8">{caseStudies[caseStudyIndex].description}</p>
                 <div className="grid grid-cols-2">
@@ -364,10 +362,9 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
 
       {/* In-depth case studies */}
       <section ref={detailedRef} className={`relative overflow-hidden py-16 lg:py-24 border-t border-border transition-all duration-700 ${detailedVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-        <div className="absolute inset-0 pointer-events-none" aria-hidden style={{ background: "radial-gradient(ellipse 60% 45% at 25% 60%, rgba(233,79,55,0.04) 0%, transparent 55%)" }} />
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="mb-10">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">In-Depth</span>
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">In-Depth</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight">Full campaign breakdowns</h2>
           </div>
 
@@ -386,7 +383,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
                   />
                 </div>
                 <div className="p-6">
-                  <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-2">
+                  <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-2">
                     {cs.brand}
                     {"badge" in cs && cs.badge && (
                       <span className="ml-2 normal-case tracking-normal font-medium text-muted-foreground">· {cs.badge}</span>
@@ -420,13 +417,13 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Get Started</span>
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Get Started</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">Want results like these?</h2>
               <p className="text-muted-foreground mt-3 max-w-md">
                 Book a demo and we'll show you how your brand can reach millions through native Twitch advertising.
               </p>
             </div>
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12 shrink-0">
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12 shrink-0">
               <a href="https://calendar.app.google/coW5NLQJtLxfRer19" target="_blank" rel="noopener noreferrer">
                 Book a Demo <ArrowRight className="ml-2 w-4 h-4" />
               </a>
@@ -453,7 +450,6 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
         flip={true}
       />
 
-      <SPFooter />
     </div>
   );
 };

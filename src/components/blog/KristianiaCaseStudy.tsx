@@ -97,24 +97,11 @@ const KristianiaCaseStudy: React.FC = () => {
 
   return (
     <div>
-      <section className="relative overflow-clip" style={{ background: "hsl(240 11% 5%)" }}>
-        <div className="absolute inset-0 pointer-events-none" aria-hidden>
-          <div
-            className="absolute inset-0"
-            style={{
-              background: `radial-gradient(ellipse 70% 50% at 60% 30%, ${BRAND.glow} 0%, transparent 60%), radial-gradient(ellipse 60% 40% at 40% 70%, rgba(255,184,0,0.08) 0%, transparent 65%)`,
-            }}
-          />
-        </div>
-        <div
-          className="absolute inset-x-0 top-0 h-px z-[2]"
-          style={{ background: `linear-gradient(90deg, transparent 0%, ${BRAND.primary} 50%, transparent 100%)` }}
-        />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
+      <section className="relative overflow-clip">
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 md:pt-36 pb-20">
           <Link
             to="/case-studies"
-            className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white/80 transition-colors mb-10"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-10"
           >
             <ArrowLeft className="w-4 h-4" /> Back to campaigns
           </Link>
@@ -123,7 +110,7 @@ const KristianiaCaseStudy: React.FC = () => {
             <div className="flex items-center gap-4 mb-8">
               {/* Kristiania's signature "K" mark - extracted from their official brand sprite */}
               <div
-                className="flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/10 p-3 backdrop-blur-sm"
+                className="flex items-center justify-center rounded-xl bg-foreground/[0.04] border border-border p-3 backdrop-blur-sm"
                 style={{ boxShadow: `0 0 0 1px ${BRAND.primary}55` }}
               >
                 <img
@@ -140,34 +127,33 @@ const KristianiaCaseStudy: React.FC = () => {
                 >
                   Norway · Higher Ed · Two campaigns
                 </span>
-                <span className="text-xs text-white/50 tracking-wide">
+                <span className="text-xs text-muted-foreground tracking-wide">
                   Case Study · Feb–Apr 2025
                 </span>
               </div>
             </div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-6 tracking-tight">
               Høyskolen Kristiania<br />
               <span
-                style={{ fontFamily: "'Instrument Serif', serif" }}
-                className="italic font-normal"
+                className="hl"
               >
                 × Beta Ads
               </span>
             </h1>
-            <p className="text-lg text-white/60 leading-relaxed max-w-xl">
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
               Two parallel Twitch campaigns - recruitment awareness + a voting
               activation - running across the same Norwegian creator network.
-              Combined delivery: <strong className="text-white">~600,000 views</strong>,
+              Combined delivery: <strong className="text-foreground">~600,000 views</strong>,
               ~6,000 verified clicks, 3,329 hours of on-screen presence.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-16 border border-white/10 rounded-2xl overflow-hidden bg-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-16 border border-border rounded-2xl overflow-hidden bg-border">
             {stats.map((s) => (
-              <div key={s.label} className="bg-black/30 backdrop-blur-sm px-6 py-5">
-                <div className="text-2xl font-bold text-white tracking-tight">{s.value}</div>
-                <div className="text-xs text-white/50 mt-0.5">{s.label}</div>
+              <div key={s.label} className="bg-card backdrop-blur-sm px-6 py-5">
+                <div className="text-2xl font-bold text-foreground tracking-tight">{s.value}</div>
+                <div className="text-xs text-muted-foreground mt-0.5">{s.label}</div>
               </div>
             ))}
           </div>
@@ -653,7 +639,7 @@ const KristianiaCaseStudy: React.FC = () => {
             <Button
               asChild
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12 shrink-0"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12 shrink-0"
             >
               <Link to="/contact">
                 Book a demo <ArrowRight className="ml-2 w-4 h-4" />

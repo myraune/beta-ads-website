@@ -1,7 +1,6 @@
 import React from "react";
 import { SEO } from "@/components/SEO";
 import KomplettCaseStudy from "@/components/blog/KomplettCaseStudy";
-import { SPFooter } from "@/components/sections/SPFooter";
 
 const CaseStudyKomplett: React.FC = () => {
   return (
@@ -58,7 +57,6 @@ const CaseStudyKomplett: React.FC = () => {
         ]}
       />
       <KomplettCaseStudy />
-      <SPFooter />
     </>
   );
 };

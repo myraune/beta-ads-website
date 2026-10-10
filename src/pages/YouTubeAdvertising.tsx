@@ -4,10 +4,8 @@ import { MarketingPageLayout } from "@/components/layout/MarketingPageLayout";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, Monitor, Zap, Eye, Play, Shield, Users, TrendingUp, Globe, Music, Dumbbell, BookOpen, Mic, Video, Gamepad2, HeartPulse } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 import { MascotBand } from "@/components/sections/MascotBand";
 
-const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
 const stats = [
   { value: "39,000+", label: "Streamers in Explorer, 3 platforms" },
@@ -85,31 +83,29 @@ const YouTubeAdvertising: React.FC = () => {
     >
 
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden" style={{ background: 'hsl(240 11% 5%)' }}>
-        <AnimatedShaderBackground heightFactor={0.85} />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
+      <section className="relative overflow-hidden">
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-28">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/80 backdrop-blur-sm mb-7">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-foreground/[0.04] text-foreground backdrop-blur-sm mb-7">
               <img src="/lovable-uploads/platform-youtube.png" alt="YouTube" className="h-3.5 w-auto" />
               YouTube Live Advertising
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
-              <span style={serifFont} className="italic font-normal">Native ads</span>
-              <br />on YouTube Live
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-6 tracking-tight">
+              Native ads
+              <br /><span className="hl">on YouTube Live</span>
             </h1>
-            <p className="text-lg text-white/65 leading-relaxed mb-10 max-w-lg">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg">
               YouTube Live is the fastest-growing streaming platform in the Nordics. Reach gaming, music, and lifestyle audiences with overlay ads that can't be skipped or blocked.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/demo">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12">
                   Book a Demo <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
               <Link to="/case-studies">
-                <Button size="lg" variant="ghost" className="text-white hover:bg-white/10 rounded-full px-8 h-12 border border-white/20">
+                <Button size="lg" variant="ghost" className="text-foreground hover:bg-foreground/[0.06] rounded-full px-8 h-12 border border-border">
                   Case Studies
                 </Button>
               </Link>
@@ -117,11 +113,11 @@ const YouTubeAdvertising: React.FC = () => {
           </div>
 
           {/* Stat strip */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-white/10 rounded-2xl overflow-hidden bg-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-border rounded-2xl overflow-hidden bg-border">
             {stats.map((s) => (
-              <div key={s.label} className="bg-black/30 backdrop-blur-sm px-6 py-5">
-                <div className="text-2xl font-bold text-white tracking-tight">{s.value}</div>
-                <div className="text-xs text-white/50 mt-0.5">{s.label}</div>
+              <div key={s.label} className="bg-card backdrop-blur-sm px-6 py-5">
+                <div className="text-2xl font-bold text-foreground tracking-tight">{s.value}</div>
+                <div className="text-xs text-muted-foreground mt-0.5">{s.label}</div>
               </div>
             ))}
           </div>
@@ -149,7 +145,7 @@ const YouTubeAdvertising: React.FC = () => {
             </div>
 
             <div className="order-1 lg:order-2">
-              <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">In-Stream</span>
+              <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">In-Stream</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">
                 YouTube's 2B users. Your brand inside the stream.
               </h2>
@@ -181,7 +177,7 @@ const YouTubeAdvertising: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={formatsRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${formatsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="mb-12">
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Ad Formats</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Ad Formats</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
               Overlay technology built for YouTube Live.
             </h2>
@@ -203,7 +199,7 @@ const YouTubeAdvertising: React.FC = () => {
         <div ref={whyRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${whyVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Why YouTube Live</span>
+              <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Why YouTube Live</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
                 The platform Twitch-only brands are missing
               </h2>
@@ -232,7 +228,7 @@ const YouTubeAdvertising: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={catRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${catVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="mb-12">
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Content Categories</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Content Categories</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground max-w-2xl">
               Beyond gaming - the broadest streaming audience in the Nordics
             </h2>
@@ -257,7 +253,7 @@ const YouTubeAdvertising: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={howRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${howVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="mb-12">
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Process</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Process</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
               Same streamlined process. Any platform.
             </h2>
@@ -284,7 +280,7 @@ const YouTubeAdvertising: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={compRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${compVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="mb-12">
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Multi-Platform</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Multi-Platform</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
               Don't choose one platform. Own all of them.
             </h2>

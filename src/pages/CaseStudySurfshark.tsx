@@ -1,7 +1,6 @@
 import React from "react";
 import { SEO } from "@/components/SEO";
 import SurfsharkCaseStudy from "@/components/blog/SurfsharkCaseStudy";
-import { SPFooter } from "@/components/sections/SPFooter";
 
 const CaseStudySurfshark: React.FC = () => {
   return (
@@ -55,7 +54,6 @@ const CaseStudySurfshark: React.FC = () => {
         ]}
       />
       <SurfsharkCaseStudy />
-      <SPFooter />
     </>
   );
 };

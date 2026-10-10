@@ -1,8 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import { Navbar } from "./Navbar";
-import { AnimatedBackground } from "./AnimatedBackground";
-import { CursorGlow } from "./CursorGlow";
+import { FinalFooter, FinalNav } from "./home-final/FinalChrome";
 import { useKonamiCode } from "@/hooks/useEasterEggs";
 
 export const Layout: React.FC = () => {
@@ -16,8 +14,8 @@ export const Layout: React.FC = () => {
 
   useKonamiCode(activateParty);
 
-  // The homepage ("/", src/components/home-final) brings its own nav, <main> and
-  // footer from the approved design, so the site-wide chrome stays off there.
+  // The homepage ("/", src/components/home-final) renders the same nav and footer
+  // inside its own .bf root, so Layout only adds them on the other routes.
   const { pathname } = useLocation();
   if (pathname === "/") {
     return (
@@ -42,12 +40,15 @@ export const Layout: React.FC = () => {
       >
         Skip to main content
       </a>
-      <CursorGlow />
-      <AnimatedBackground />
-      <Navbar />
+      <div className="bf site-nav">
+        <FinalNav />
+      </div>
       <main id="main-content" className="relative z-10">
         <Outlet />
       </main>
+      <div className="bf site-foot">
+        <FinalFooter />
+      </div>
 
       {/* Konami code easter egg - party mode overlay */}
       {partyMode && (

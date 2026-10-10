@@ -1,7 +1,6 @@
 import React from "react";
 import { SEO } from "@/components/SEO";
 import KristianiaCaseStudy from "@/components/blog/KristianiaCaseStudy";
-import { SPFooter } from "@/components/sections/SPFooter";
 
 const CaseStudyKristiania: React.FC = () => {
   return (
@@ -55,7 +54,6 @@ const CaseStudyKristiania: React.FC = () => {
         ]}
       />
       <KristianiaCaseStudy />
-      <SPFooter />
     </>
   );
 };

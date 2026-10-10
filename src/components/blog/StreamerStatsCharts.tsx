@@ -38,7 +38,7 @@ const shorten = (t: string, n = 30): string => (t.length > n ? t.slice(0, n - 1)
 const SectionHead: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className="flex items-center gap-2 mb-6">
     <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-    <h2 className="text-xs font-semibold tracking-widest uppercase text-primary">{children}</h2>
+    <h2 className="text-xs font-semibold tracking-widest uppercase text-muted-foreground">{children}</h2>
   </div>
 );
 

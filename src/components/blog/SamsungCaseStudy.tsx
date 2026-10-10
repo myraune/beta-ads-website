@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp, Mail, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation, useMultipleScrollAnimations } from "@/hooks/useScrollAnimation";
-import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 import { WeeklyCTRAreaChart, CategoryDonut, CampaignComparisonChart, AdblockGauge } from "./SamsungCharts";
 import founderImage from "@/assets/founder-andreas-portrait.jpg";
 
@@ -304,18 +303,10 @@ const SamsungCaseStudy: React.FC = () => {
     <div>
 
       {/* ── HERO ── */}
-      <section className="relative overflow-hidden" style={{ background: "hsl(240 11% 5%)" }}>
-        <AnimatedShaderBackground heightFactor={0.85} />
-        {/* Samsung blue top accent stripe */}
-        <div
-          className="absolute inset-x-0 top-0 h-px z-[2]"
-          style={{ background: "linear-gradient(90deg, transparent 0%, #1428A0 50%, transparent 100%)" }}
-          aria-hidden
-        />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
+      <section className="relative overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 md:pt-36 pb-20">
 
-          <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white/80 transition-colors mb-10">
+          <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-10">
             <ArrowLeft className="w-4 h-4" /> Back to campaigns
           </Link>
 
@@ -324,13 +315,13 @@ const SamsungCaseStudy: React.FC = () => {
             <div>
               <div className="flex items-center gap-4 mb-8">
                 <div
-                  className="flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/10 p-3 backdrop-blur-sm"
+                  className="flex items-center justify-center rounded-xl bg-foreground/[0.04] border border-border p-3 backdrop-blur-sm"
                   style={{ boxShadow: "0 0 0 1px #1428A044" }}
                 >
                   <img
                     src="/lovable-uploads/logo-samsung.png"
                     alt="Samsung"
-                    className="h-4 w-auto [filter:brightness(0)_invert(1)]"
+                    className="h-4 w-auto [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)]"
                   />
                 </div>
                 <div className="flex flex-col gap-1">
@@ -340,33 +331,33 @@ const SamsungCaseStudy: React.FC = () => {
                   >
                     Norway · Smartphone launch · 2 campaigns
                   </span>
-                  <span className="text-xs text-white/50 tracking-wide">Case Study · Galaxy S25 Ultra + Z Fold7</span>
+                  <span className="text-xs text-muted-foreground tracking-wide">Case Study · Galaxy S25 Ultra + Z Fold7</span>
                 </div>
               </div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] tracking-tight mb-6">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] tracking-tight mb-6">
                 Samsung<br />
-                <span style={{ fontFamily: "'Instrument Serif', serif" }} className="italic font-normal">x Beta Ads</span>
+                <span className="hl">x Beta Ads</span>
               </h1>
-              <p className="text-lg text-white/60 leading-relaxed mb-10 max-w-md">
+              <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-md">
                 Two smartphone launches. One consistent audience. 800,000+ live completed views on Norwegian Twitch, plus another 558,000+ on VOD - all with zero adblock impact.
               </p>
-              <div className="grid grid-cols-3 border-t border-white/10 pt-5">
+              <div className="grid grid-cols-3 border-t border-border pt-5">
                 {[
                   { value: "800K+", label: "Live views" },
                   { value: "43 + 28", label: "Streamer slots" },
                   { value: "0%", label: "Adblock impact" },
                 ].map((s, i) => (
-                  <div key={s.label} className={`py-2 ${i < 2 ? "pr-3 sm:pr-5 border-r border-white/10" : ""} ${i > 0 ? "pl-3 sm:pl-5" : ""}`}>
+                  <div key={s.label} className={`py-2 ${i < 2 ? "pr-3 sm:pr-5 border-r border-border" : ""} ${i > 0 ? "pl-3 sm:pl-5" : ""}`}>
                     {/* whitespace-nowrap + smaller font on mobile keeps "43 + 28" on one line inside the 3-col grid at 375px so the middle column doesn't stretch taller than its siblings */}
-                    <div className="text-xl sm:text-2xl font-bold text-white tracking-tight whitespace-nowrap">{s.value}</div>
-                    <div className="text-xs text-white/50 mt-0.5">{s.label}</div>
+                    <div className="text-xl sm:text-2xl font-bold text-foreground tracking-tight whitespace-nowrap">{s.value}</div>
+                    <div className="text-xs text-muted-foreground mt-0.5">{s.label}</div>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Right: video */}
-            <div className="rounded-2xl overflow-hidden bg-black border border-white/10 shadow-2xl aspect-video">
+            <div className="rounded-2xl overflow-hidden bg-black border border-border shadow-2xl aspect-video">
               <iframe
                 src={DRIVE_VIDEO_EMBED}
                 className="w-full h-full"
@@ -380,10 +371,9 @@ const SamsungCaseStudy: React.FC = () => {
 
       {/* ── SIDE-BY-SIDE CAMPAIGN COMPARISON ── */}
       <section className="relative overflow-hidden py-24 md:py-32 border-t border-border">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden style={{ background: "radial-gradient(ellipse 70% 60% at 15% 40%, rgba(233,79,55,0.05) 0%, transparent 55%)" }} />
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div ref={campaignsRef} className={`mb-14 max-w-2xl transition-all duration-700 ${campaignsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Two campaigns · 2025</span>
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Two campaigns · 2025</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">Galaxy S25 Ultra and Z Fold7, side by side</h2>
             <p className="text-muted-foreground leading-relaxed">
               Two smartphone launches, six months apart, on the same Norwegian Twitch audience. Every number below comes directly from the campaign reports.
@@ -395,7 +385,7 @@ const SamsungCaseStudy: React.FC = () => {
             {/* ── S25 Ultra ── */}
             <div className="flex flex-col gap-6">
               <div>
-                <span className="text-xs font-semibold tracking-widest uppercase text-primary/70 mb-2 block">Campaign 1 - March to May 2025</span>
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-2 block">Campaign 1 - March to May 2025</span>
                 <h3 className="text-2xl font-semibold text-foreground mb-3">Galaxy S25 Ultra</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                   Samsung needed to reach Norwegian tech buyers who skip pre-roll and run adblock everywhere.
@@ -422,7 +412,7 @@ const SamsungCaseStudy: React.FC = () => {
               </div>
 
               <div className="p-5 rounded-2xl border border-border">
-                <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-2">Why it worked</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Why it worked</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Standard display ads average 0.1% CTR. The S25 Ultra campaign delivered 2.93% - 29 times
                   the benchmark - against an audience that actively blocks conventional advertising.
@@ -433,7 +423,7 @@ const SamsungCaseStudy: React.FC = () => {
             {/* ── Galaxy Z Fold7 ── */}
             <div className="flex flex-col gap-6">
               <div>
-                <span className="text-xs font-semibold tracking-widest uppercase text-primary/70 mb-2 block">Campaign 2 - September to October 2025</span>
+                <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-2 block">Campaign 2 - September to October 2025</span>
                 <h3 className="text-2xl font-semibold text-foreground mb-3">Galaxy Z Fold7</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                   Foldable phones require education. A viewer needs to understand the hinge, the inner display,
@@ -461,7 +451,7 @@ const SamsungCaseStudy: React.FC = () => {
               </div>
 
               <div className="p-5 rounded-2xl border border-border">
-                <p className="text-xs font-semibold uppercase tracking-wider text-primary mb-2">Why it worked</p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Why it worked</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   The Fold7 campaign delivered 2.34% CTR - 23 times the display benchmark. VOD views added
                   558,257+ additional impressions after the campaign ended, at zero extra cost.
@@ -474,7 +464,7 @@ const SamsungCaseStudy: React.FC = () => {
           {/* Comparison - efficiency line chart (per streamer, removes budget bias) */}
           <div className="mt-16 rounded-3xl border border-border/60 p-7 md:p-10">
             <div className="mb-2">
-              <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-1">Efficiency · per streamer</p>
+              <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">Efficiency · per streamer</p>
               <h3 className="text-lg font-semibold text-foreground tracking-tight">Two campaigns, two different strengths</h3>
               <p className="text-xs text-muted-foreground mt-2 max-w-2xl leading-relaxed">
                 Fold7 was a smaller buy (28 streamers vs S25's 43), so absolute totals don't tell the whole story. Normalised <span className="text-foreground">per streamer</span>, the two campaigns trade wins: <span className="text-foreground">Fold7 dominates reach efficiency</span> (5,069 unique viewers per streamer vs 3,224 - a 57% advantage) while <span className="text-foreground">S25 dominates engagement</span> (more clicks, higher CTR, more watch time per streamer). Index 100 = the average of both campaigns on each metric.
@@ -497,10 +487,9 @@ const SamsungCaseStudy: React.FC = () => {
 
       {/* ── FOLD7 DEEP DIVE ── */}
       <section className="relative overflow-hidden py-24 md:py-32 border-t border-border">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden style={{ background: "radial-gradient(ellipse 60% 50% at 80% 30%, rgba(233,79,55,0.05) 0%, transparent 55%)" }} />
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="mb-12 max-w-2xl">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Campaign Deep Dive</span>
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Campaign Deep Dive</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
               Two campaigns, two creatives,<br />one Norwegian audience
             </h2>
@@ -520,10 +509,10 @@ const SamsungCaseStudy: React.FC = () => {
               </video>
               <div className="px-5 py-4 border-t border-border bg-background flex items-center justify-between">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-primary">Campaign 1 · Mar–May 2025</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Campaign 1 · Mar–May 2025</p>
                   <p className="text-sm text-foreground font-medium mt-0.5">Galaxy S25 Ultra - Animated overlay</p>
                 </div>
-                {isS25 && <span className="text-[10px] font-semibold uppercase tracking-widest text-primary">Viewing</span>}
+                {isS25 && <span className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">Viewing</span>}
               </div>
             </button>
             <button
@@ -535,10 +524,10 @@ const SamsungCaseStudy: React.FC = () => {
               </video>
               <div className="px-5 py-4 border-t border-border bg-background flex items-center justify-between">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-primary">Campaign 2 · Sep–Oct 2025</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Campaign 2 · Sep–Oct 2025</p>
                   <p className="text-sm text-foreground font-medium mt-0.5">Galaxy Z Fold7 - Rich media overlay</p>
                 </div>
-                {!isS25 && <span className="text-[10px] font-semibold uppercase tracking-widest text-primary">Viewing</span>}
+                {!isS25 && <span className="text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">Viewing</span>}
               </div>
             </button>
           </div>
@@ -548,13 +537,13 @@ const SamsungCaseStudy: React.FC = () => {
             <div className="inline-flex items-center p-1 rounded-full border border-border bg-background/40 backdrop-blur-sm">
               <button
                 onClick={() => setActiveTab("s25")}
-                className={`px-6 py-2 text-xs font-semibold tracking-widest uppercase rounded-full transition-all duration-300 ${isS25 ? "bg-primary text-white shadow-sm" : "text-muted-foreground hover:text-foreground"}`}
+                className={`px-6 py-2 text-xs font-semibold tracking-widest uppercase rounded-full transition-all duration-300 ${isS25 ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"}`}
               >
                 Galaxy S25 Ultra
               </button>
               <button
                 onClick={() => setActiveTab("fold7")}
-                className={`px-6 py-2 text-xs font-semibold tracking-widest uppercase rounded-full transition-all duration-300 ${!isS25 ? "bg-primary text-white shadow-sm" : "text-muted-foreground hover:text-foreground"}`}
+                className={`px-6 py-2 text-xs font-semibold tracking-widest uppercase rounded-full transition-all duration-300 ${!isS25 ? "bg-primary text-primary-foreground shadow-sm" : "text-muted-foreground hover:text-foreground"}`}
               >
                 Galaxy Z Fold7
               </button>
@@ -568,7 +557,7 @@ const SamsungCaseStudy: React.FC = () => {
             <div className="rounded-3xl border border-border/60 p-7 md:p-8">
               <div className="flex items-baseline justify-between mb-5">
                 <div>
-                  <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-1">Weekly CTR</p>
+                  <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">Weekly CTR</p>
                   <h3 className="text-lg font-semibold text-foreground tracking-tight">Performance over time</h3>
                 </div>
                 <div className="text-right">
@@ -588,7 +577,7 @@ const SamsungCaseStudy: React.FC = () => {
             <div className="rounded-3xl border border-border/60 p-7 md:p-8">
               <div className="flex items-baseline justify-between mb-5">
                 <div>
-                  <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-1">Top Categories</p>
+                  <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">Top Categories</p>
                   <h3 className="text-lg font-semibold text-foreground tracking-tight">Where the views came from</h3>
                 </div>
                 <div className="text-right">
@@ -607,7 +596,7 @@ const SamsungCaseStudy: React.FC = () => {
             {/* Audience Profile */}
             <div className="rounded-3xl border border-border/60 p-7 md:p-8">
               <div className="mb-6">
-                <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-1">Audience</p>
+                <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">Audience</p>
                 <h3 className="text-lg font-semibold text-foreground tracking-tight">{isS25 ? "Norwegian male, mostly 18–24" : "Norwegian, male, 18–24"}</h3>
               </div>
               <div className="grid grid-cols-2 gap-x-8 gap-y-5">
@@ -641,7 +630,7 @@ const SamsungCaseStudy: React.FC = () => {
             {/* Best days */}
             <div className="rounded-3xl border border-border/60 p-7 md:p-8">
               <div className="mb-6">
-                <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-1">Best days</p>
+                <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">Best days</p>
                 <h3 className="text-lg font-semibold text-foreground tracking-tight">When viewers clicked most</h3>
               </div>
               <div className="space-y-1">
@@ -658,7 +647,7 @@ const SamsungCaseStudy: React.FC = () => {
                   <div key={d.date} className="flex justify-between items-center py-3 border-b border-border/40 last:border-0">
                     <div className="flex items-center gap-2.5">
                       <span className="text-sm font-medium text-foreground">{d.date}</span>
-                      {d.best && <span className="text-[10px] uppercase tracking-widest font-semibold text-primary">Best</span>}
+                      {d.best && <span className="text-[10px] uppercase tracking-widest font-semibold text-muted-foreground">Best</span>}
                     </div>
                     <div className="text-right">
                       <span className="text-base font-bold text-foreground tabular-nums">{d.clicks}</span>
@@ -676,7 +665,7 @@ const SamsungCaseStudy: React.FC = () => {
           <div ref={creatorRef} className={`transition-all duration-700 ${creatorVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <div className="flex items-end justify-between mb-4">
               <div>
-                <p className="text-xs font-semibold tracking-widest uppercase text-primary mb-1">
+                <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">
                   {isS25 ? "S25 Ultra · Top 20 streamers" : "Fold7 · Top 20 streamers"}
                 </p>
                 <p className="text-sm text-muted-foreground">
@@ -714,11 +703,10 @@ const SamsungCaseStudy: React.FC = () => {
 
       {/* ── MICRO-INFLUENCER SECTION ── */}
       <section className="relative overflow-hidden py-24 md:py-32 border-t border-border">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden style={{ background: "radial-gradient(ellipse 65% 55% at 20% 50%, rgba(233,79,55,0.06) 0%, transparent 60%)" }} />
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div ref={microRef} className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center transition-all duration-700 ${microVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Fold7 · Micro-Influencer Effect</span>
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Fold7 · Micro-Influencer Effect</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
                 Small audience.<br />Enormous engagement.
               </h2>
@@ -750,11 +738,10 @@ const SamsungCaseStudy: React.FC = () => {
 
       {/* ── VOD + IN-STREAM FOOTAGE ── */}
       <section className="relative overflow-hidden py-24 md:py-32">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden style={{ background: "radial-gradient(ellipse 55% 45% at 85% 55%, rgba(233,79,55,0.04) 0%, transparent 55%)" }} />
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div ref={vodRef} className={`grid lg:grid-cols-2 gap-16 items-center transition-all duration-700 ${vodVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Fold7 · The Long Tail</span>
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Fold7 · The Long Tail</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
                 VOD reach: the campaign that keeps running
               </h2>
@@ -815,10 +802,9 @@ const SamsungCaseStudy: React.FC = () => {
 
       {/* ── INSIGHTS GRID ── */}
       <section className="relative overflow-hidden py-24 md:py-32">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden style={{ background: "radial-gradient(ellipse 70% 50% at 50% 80%, rgba(233,79,55,0.04) 0%, transparent 55%)" }} />
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div ref={insightsRef} className={`mb-10 transition-all duration-700 ${insightsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Key Takeaways</span>
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Key Takeaways</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">What two campaigns prove</h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -839,14 +825,13 @@ const SamsungCaseStudy: React.FC = () => {
 
       {/* ── FINAL COMBINED RESULTS ── */}
       <section className="relative overflow-hidden py-20 md:py-28 border-t border-border">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden style={{ background: "radial-gradient(ellipse 80% 60% at 60% 50%, rgba(233,79,55,0.05) 0%, transparent 60%)" }} />
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Combined Results</span>
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Combined Results</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">Samsung on Twitch, 2025</h2>
             </div>
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12 shrink-0">
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12 shrink-0">
               <Link to="/contact">Book a campaign like this <ArrowRight className="ml-2 w-4 h-4" /></Link>
             </Button>
           </div>
@@ -885,7 +870,7 @@ const SamsungCaseStudy: React.FC = () => {
             </div>
 
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-2 block">Contact Person</span>
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-2 block">Contact Person</span>
               <p className="text-lg font-semibold text-foreground">Andreas Myraune</p>
               <p className="text-sm text-muted-foreground mb-4">Founder & CEO · Beta Ads</p>
 

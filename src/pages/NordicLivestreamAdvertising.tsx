@@ -4,10 +4,8 @@ import { MarketingPageLayout } from "@/components/layout/MarketingPageLayout";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 import { MascotBand } from "@/components/sections/MascotBand";
 
-const serif = { fontFamily: "'Instrument Serif', serif" };
 
 // Scope is stated on every label on purpose. "105M monthly Twitch viewers" is a
 // GLOBAL figure, and sitting unlabelled beside a Nordic stat on a page titled
@@ -89,40 +87,38 @@ const NordicLivestreamAdvertising: React.FC = () => {
       }}
     >
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden" style={{ background: "hsl(240 11% 5%)" }}>
-        <AnimatedShaderBackground heightFactor={0.85} />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
+      <section className="relative overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-24">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/80 backdrop-blur-sm mb-7">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-foreground/[0.04] text-foreground backdrop-blur-sm mb-7">
               Field guide, 2026
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.04] mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.04] mb-6 tracking-tight">
               The Nordic audience nobody
               <br />
-              else can <span style={serif} className="italic font-normal text-primary">reach</span>.
+              <span className="hl">else can reach.</span>
             </h1>
-            <p className="text-lg text-white/65 leading-relaxed mb-10 max-w-xl">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-xl">
               Young, engaged, ad-block-proof, and watching millions of hours of Nordic streaming a year. Here is who the global Twitch audience is, what the Nordic slice of it looks like, and what a native campaign actually delivers.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/contact">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12">
                   Book a demo <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
               <Link to="/twitch-advertising-cost">
-                <Button size="lg" variant="ghost" className="text-white hover:bg-white/10 rounded-full px-8 h-12 border border-white/20">
+                <Button size="lg" variant="ghost" className="text-foreground hover:bg-foreground/[0.06] rounded-full px-8 h-12 border border-border">
                   What it costs
                 </Button>
               </Link>
             </div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-16 border border-white/10 rounded-2xl overflow-hidden bg-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-16 border border-border rounded-2xl overflow-hidden bg-border">
             {heroStats.map((s) => (
-              <div key={s.label} className="bg-black/30 backdrop-blur-sm px-6 py-6">
-                <div className="text-3xl font-bold text-white tracking-tight">{s.value}</div>
-                <div className="text-xs text-white/50 mt-1">{s.label}</div>
+              <div key={s.label} className="bg-card backdrop-blur-sm px-6 py-6">
+                <div className="text-3xl font-bold text-foreground tracking-tight">{s.value}</div>
+                <div className="text-xs text-muted-foreground mt-1">{s.label}</div>
               </div>
             ))}
           </div>
@@ -133,7 +129,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={audRef.ref} className={`max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-center transition-all duration-700 ${audRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="max-w-xl">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Who is watching</span>
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Who is watching</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">
               The hardest audience in media to reach anywhere else
             </h2>
@@ -165,7 +161,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={platRef.ref} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${platRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="max-w-2xl mb-14">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Where they watch</span>
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Where they watch</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">Three platforms, 36.4 billion hours</h2>
             <p className="text-base text-muted-foreground leading-relaxed mt-4">
               Live streaming had a real year in 2025: 36.4 billion hours watched across the major platforms, up 6%, per Stream Hatchet. Twitch is still the centre of gravity, but Kick's growth is the fastest of any platform.
@@ -195,7 +191,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={nordRef.ref} className={`max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)] gap-16 items-center transition-all duration-700 ${nordRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="max-w-md">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">The Nordic inventory</span>
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">The Nordic inventory</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">3.4 million hours of Nordic Twitch a year</h2>
             <p className="text-base text-muted-foreground leading-relaxed">
               This is the supply a Nordic campaign draws from: streamed hours per year by language, snapshotted from SullyGnome. Finnish and Swedish lead, but Norwegian and Danish carry the highest CPMs and the least competition.
@@ -234,7 +230,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
             </span>
           </div>
           <div className="max-w-xl">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">The format</span>
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">The format</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">The ad renders inside the stream</h2>
             <p className="text-base text-muted-foreground leading-relaxed mb-4">
               That is a real Beta Ads overlay for the Samsung Galaxy S25 Ultra, running natively in a Norwegian Twitch stream. It is drawn into the video feed through OBS, so ad-block software has nothing to detect and nothing to remove.
@@ -265,7 +261,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={proofRef.ref} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${proofRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="max-w-2xl mb-14">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Proof, not promises</span>
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Proof, not promises</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">What it delivers in the Nordics</h2>
             <p className="text-base text-muted-foreground leading-relaxed mt-4">
               Nine verified Nordic campaigns in 2025, drawn from a pool of 39,000+ indexed creators. These are real numbers from real streams, and every one links to the full case study.
@@ -306,7 +302,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={stepRef.ref} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${stepRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="max-w-2xl mb-14">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">How it works</span>
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">How it works</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">From brief to broadcast, managed end to end</h2>
           </div>
           <div className="grid md:grid-cols-4 gap-8">

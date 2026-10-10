@@ -4,7 +4,6 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { MarketingPageLayout } from "@/components/layout/MarketingPageLayout";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { Button } from "@/components/ui/button";
-import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 
 /**
  * Beta Ads on Kick: the creator route. Where /kick-advertising sells Kick's
@@ -41,7 +40,6 @@ const OG: Record<Lang, string> = Object.fromEntries(
   LANGS.map((l) => [l, `/lovable-uploads/og/kick-streamer-advertising-${l}.png`]),
 ) as Record<Lang, string>;
 
-const serif = { fontFamily: "'Instrument Serif', serif" };
 const HERO_IMG = "/lovable-uploads/beta-mascot-onair.jpg";
 const EXPLORER = "/lovable-uploads/kick/streamer-explorer-kick.webp";
 
@@ -385,7 +383,7 @@ const COPY = {
 } as const;
 
 const Label: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">{children}</span>
+  <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">{children}</span>
 );
 const H2: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">{children}</h2>
@@ -436,37 +434,35 @@ const KickStreamerAdvertising: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => 
       cta={{ heading: t.cta.heading, subtext: t.cta.subtext, primaryLabel: t.cta.primary, primaryHref: "/demo", secondaryLabel: t.cta.secondary, secondaryHref: "/pricing" }}
     >
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[hsl(240_11%_5%)]">
-        <AnimatedShaderBackground heightFactor={0.85} />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
+      <section className="relative overflow-hidden">
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-24">
           <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-16 items-center">
             <div className="max-w-2xl">
-              <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/80 backdrop-blur-sm mb-7">{t.badge}</span>
-              <h1 className="text-5xl md:text-6xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
-                <span style={serif} className="italic font-normal">{t.h1Accent}</span>
+              <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-foreground/[0.04] text-foreground backdrop-blur-sm mb-7">{t.badge}</span>
+              <h1 className="text-5xl md:text-6xl font-bold text-foreground leading-[1.05] mb-6 tracking-tight">
+                {t.h1Accent}
                 <br />
-                {t.h1Rest}
+                <span className="hl">{t.h1Rest}</span>
               </h1>
-              <p className="text-lg text-white/65 leading-relaxed mb-10 max-w-lg">{t.sub}</p>
+              <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg">{t.sub}</p>
               <div className="flex flex-wrap gap-3">
-                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12">
+                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12">
                   <Link to="/demo">{t.primary} <ArrowRight className="ml-2 w-4 h-4" /></Link>
                 </Button>
-                <Button asChild size="lg" variant="ghost" className="text-white hover:bg-white/10 rounded-full px-8 h-12 border border-white/20">
+                <Button asChild size="lg" variant="ghost" className="text-foreground hover:bg-foreground/[0.06] rounded-full px-8 h-12 border border-border">
                   <Link to={kickPage}>{t.secondary}</Link>
                 </Button>
               </div>
             </div>
             <figure className="m-0 lg:justify-self-end w-full max-w-xl">
-              <img src={HERO_IMG} alt="Beta, the Beta Ads mascot, live on air at a streaming desk" width={1200} height={685} className="w-full h-auto rounded-2xl ring-1 ring-white/10" loading="eager" />
+              <img src={HERO_IMG} alt="Beta, the Beta Ads mascot, live on air at a streaming desk" width={1200} height={685} className="w-full h-auto rounded-2xl ring-1 ring-border" loading="eager" />
             </figure>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-white/10 rounded-2xl overflow-hidden bg-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-border rounded-2xl overflow-hidden bg-border">
             {t.stats.map((s) => (
-              <div key={s.label} className="bg-black/30 backdrop-blur-sm px-6 py-5">
-                <div className="text-2xl font-bold text-white tracking-tight tabular-nums">{s.value}</div>
-                <div className="text-xs text-white/50 mt-0.5 leading-snug">{s.label}</div>
+              <div key={s.label} className="bg-card backdrop-blur-sm px-6 py-5">
+                <div className="text-2xl font-bold text-foreground tracking-tight tabular-nums">{s.value}</div>
+                <div className="text-xs text-muted-foreground mt-0.5 leading-snug">{s.label}</div>
               </div>
             ))}
           </div>

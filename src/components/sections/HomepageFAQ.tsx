@@ -45,7 +45,7 @@ export const HomepageFAQ: React.FC = () => {
         }`}
       >
         <div className="mb-12">
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+          <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">
             Frequently asked
           </span>
           <h2 className="text-3xl lg:text-4xl font-light tracking-tight text-foreground">

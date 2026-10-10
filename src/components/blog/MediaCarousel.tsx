@@ -56,7 +56,7 @@ export const MediaCarousel: React.FC<Props> = ({ children, label }) => {
           disabled={atStart}
           aria-label="Bla tilbake"
           className={`hidden md:flex absolute left-0 top-[38%] -translate-y-1/2 -translate-x-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-background border border-border shadow-md text-foreground transition-all ${
-            atStart ? "opacity-0 pointer-events-none" : "opacity-0 group-hover/carousel:opacity-100 hover:bg-primary hover:text-white hover:border-primary"
+            atStart ? "opacity-0 pointer-events-none" : "opacity-0 group-hover/carousel:opacity-100 hover:bg-primary hover:text-primary-foreground hover:border-primary"
           }`}
         >
           <ChevronLeft className="w-5 h-5" />
@@ -71,7 +71,7 @@ export const MediaCarousel: React.FC<Props> = ({ children, label }) => {
           disabled={atEnd}
           aria-label="Bla framover"
           className={`hidden md:flex absolute right-0 top-[38%] -translate-y-1/2 translate-x-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-background border border-border shadow-md text-foreground transition-all ${
-            atEnd ? "opacity-0 pointer-events-none" : "opacity-0 group-hover/carousel:opacity-100 hover:bg-primary hover:text-white hover:border-primary"
+            atEnd ? "opacity-0 pointer-events-none" : "opacity-0 group-hover/carousel:opacity-100 hover:bg-primary hover:text-primary-foreground hover:border-primary"
           }`}
         >
           <ChevronRight className="w-5 h-5" />

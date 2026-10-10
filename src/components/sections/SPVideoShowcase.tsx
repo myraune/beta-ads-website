@@ -433,7 +433,7 @@ export const SPVideoShowcase: React.FC = () => {
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
           }`}
         >
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-4 block">
+          <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-4 block">
             See It Live
           </span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">

@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "next-themes";
 import { BOOKING_SHORT_LINK } from "@/components/BookingCalendar";
+import "./home-final.css";
+import "./final-chrome.css";
 
-/* Nav, footer and shared bits for the final-platform homepage ("/").
+/* Nav, footer and shared bits of the final-platform design. The homepage ("/")
+   renders them inside its own .bf root; every other route gets them from
+   Layout (src/components/Layout.tsx), wrapped in .bf so the scoped styles apply.
    Markup mirrors ~/dev/beta-ads-home-v3/31-final-platform/index.html. */
 
 export const LOGO_LIGHT = "/lovable-uploads/logo-color.png"; // H_COLOR
@@ -33,7 +37,7 @@ export const Arrow = () => <span aria-hidden="true">&rarr;</span>;
 /** Theme switch on next-themes. Picking the OS look goes back to "system" so the
     page keeps following the Mac setting; the other look is saved (beta-theme). */
 const ThemeSwitch: React.FC = () => {
-  const { resolvedTheme, systemTheme, setTheme } = useTheme();
+  const { resolvedTheme, systemTheme, setTheme, forcedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   const dark = mounted && resolvedTheme === "dark";
@@ -46,6 +50,8 @@ const ThemeSwitch: React.FC = () => {
     }
     setTheme(next === systemTheme ? "system" : next);
   };
+  // Pages with a forced theme (/streamers is always dark) have nothing to switch.
+  if (forcedTheme) return null;
   return (
     <button className="theme" type="button" aria-label={dark ? "Switch to light mode" : "Switch to dark mode"} onClick={toggle}>
       <svg className="theme__sun" viewBox="0 0 16 16" aria-hidden="true">
@@ -59,34 +65,98 @@ const ThemeSwitch: React.FC = () => {
   );
 };
 
-export const FinalNav: React.FC = () => (
-  <header className="nav">
-    <div className="nav__in">
-      <Link to="/" className="nav__logo" aria-label="Beta Ads home">
-        <img className="for-light" src={LOGO_LIGHT} alt="Beta Ads" width={95} height={23} />
-        <img className="for-dark" src={LOGO_DARK} alt="Beta Ads" width={95} height={23} />
-      </Link>
-      <nav className="nav__links" aria-label="Main">
-        <a href="#tour">Product</a>
+/** Homepage section links: a plain hash on "/", "/#id" from any other page
+    (ScrollToTop in App.tsx scrolls to the section once it has rendered). */
+const HomeAnchor: React.FC<{ id: string; children: React.ReactNode; onClick?: () => void }> = ({ id, children, onClick }) => {
+  const { pathname } = useLocation();
+  return pathname === "/" ? (
+    <a href={`#${id}`} onClick={onClick}>
+      {children}
+    </a>
+  ) : (
+    <Link to={`/#${id}`} onClick={onClick}>
+      {children}
+    </Link>
+  );
+};
+
+const MENU_MORE: [string, string][] = [
+  ["Blog", "/blog"],
+  ["About", "/about"],
+  ["Contact", "/contact"],
+];
+
+export const FinalNav: React.FC = () => {
+  const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+  // Close the mobile menu on navigation and on Escape.
+  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+  const close = () => setOpen(false);
+  const { forcedTheme } = useTheme();
+  const cls = ["nav", open && "nav--open", forcedTheme && "nav--forced"].filter(Boolean).join(" ");
+  return (
+    <header className={cls}>
+      <div className="nav__in">
+        <Link to="/" className="nav__logo" aria-label="Beta Ads home">
+          <img className="for-light" src={LOGO_LIGHT} alt="Beta Ads" width={95} height={23} />
+          <img className="for-dark" src={LOGO_DARK} alt="Beta Ads" width={95} height={23} />
+        </Link>
+        <nav className="nav__links" aria-label="Main">
+          <HomeAnchor id="tour">Product</HomeAnchor>
+          <Link to="/case-studies">Customers</Link>
+          <Link to="/twitch-advertising-cost">Pricing</Link>
+          <Link to="/working-with-us">Agencies</Link>
+        </nav>
+        <Link className="nav__side" to="/streamers">
+          For streamers
+        </Link>
+        <ThemeSwitch />
+        <BookDemo className="btn btn--sm" />
+        <button
+          className="nav__burger"
+          type="button"
+          aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="nav-menu"
+          onClick={() => setOpen((o) => !o)}
+        >
+          <span />
+          <span />
+        </button>
+      </div>
+      <nav id="nav-menu" className="nav__menu" aria-label="Menu" hidden={!open}>
+        <HomeAnchor id="tour" onClick={close}>
+          Product
+        </HomeAnchor>
         <Link to="/case-studies">Customers</Link>
         <Link to="/twitch-advertising-cost">Pricing</Link>
         <Link to="/working-with-us">Agencies</Link>
+        <Link to="/streamers">For streamers</Link>
+        <div className="nav__menu-more">
+          {MENU_MORE.map(([label, to]) => (
+            <Link key={to} to={to}>
+              {label}
+            </Link>
+          ))}
+        </div>
       </nav>
-      <Link className="nav__side" to="/streamers">
-        For streamers
-      </Link>
-      <ThemeSwitch />
-      <BookDemo className="btn btn--sm" />
-    </div>
-  </header>
-);
+    </header>
+  );
+};
 
 const FOOT_COLS: { h: string; links: [string, string][] }[] = [
-  { h: "Product", links: [["How it works", "/twitch-advertising"], ["Setup verification", "/campaign-compliance"], ["Chat tracking", "/livestream-chat-engagement"], ["Replay reach", "/replay-reach"]] },
-  { h: "Platforms", links: [["Twitch", "/twitch-advertising"], ["YouTube", "/youtube-advertising"], ["Kick", "/kick-advertising"], ["Nordics", "/nordic-livestream-advertising"]] },
-  { h: "Customers", links: [["Case studies", "/case-studies"], ["Samsung", "/case-study/samsung"], ["Komplett", "/case-study/komplett"], ["Shure", "/case-study/shure"]] },
+  { h: "Product", links: [["How it works", "/twitch-advertising"], ["Pricing", "/twitch-advertising-cost"], ["Setup verification", "/campaign-compliance"], ["Chat tracking", "/livestream-chat-engagement"], ["Replay reach", "/replay-reach"]] },
+  { h: "Platforms", links: [["Twitch", "/twitch-advertising"], ["YouTube", "/youtube-advertising"], ["Kick", "/kick-advertising"], ["Kick pricing", "/kick-advertising-cost"], ["Nordics", "/nordic-livestream-advertising"]] },
+  { h: "Customers", links: [["Case studies", "/case-studies"], ["Samsung", "/case-study/samsung"], ["Surfshark", "/case-study/surfshark"], ["Komplett", "/case-study/komplett"], ["Shure", "/case-study/shure"]] },
+  { h: "Nordics", links: [["Norge", "/norge"], ["Twitch agency Norway", "/twitch-agency-norway"], ["Twitch-byrå Norge", "/twitch-byra-norge"], ["Twitch annonsering pris", "/twitch-annonsering-pris"], ["Kick Norge", "/kick-annonsering"], ["Kick Sverige", "/kick-annonsering-sverige"], ["Kick Danmark", "/kick-annoncering"], ["Kick Suomi", "/kick-mainonta"]] },
   { h: "Company", links: [["About", "/about"], ["Press", "/press"], ["Blog", "/blog"], ["Working with us", "/working-with-us"], ["Contact", "/contact"]] },
-  { h: "For streamers", links: [["Join as a streamer", "/streamers"]] },
+  { h: "For streamers", links: [["Join as a streamer", "/streamers"], ["Kick streamers", "/kick-streamer-advertising"]] },
 ];
 
 export const FinalFooter: React.FC = () => (

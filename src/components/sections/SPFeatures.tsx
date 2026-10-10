@@ -265,7 +265,7 @@ const StreamerPreview: React.FC = () => {
                 className={`hidden sm:block transition-all duration-300 text-[10px] px-2.5 py-1.5 rounded-lg font-medium ${
                   added[s.name]
                     ? "bg-[#5adbb5]/20 text-[#5adbb5] opacity-100"
-                    : "opacity-0 group-hover:opacity-100 bg-primary text-white"
+                    : "opacity-0 group-hover:opacity-100 bg-primary text-primary-foreground"
                 }`}
               >
                 {added[s.name] ? "✓ Added" : "Add"}
@@ -726,7 +726,7 @@ const ReportsPreview: React.FC = () => {
                   <div className="text-[10px] text-muted-foreground mt-0.5">{r.date}</div>
                 </div>
                 {r.hasPreview ? (
-                  <span className="flex items-center gap-1.5 text-[10px] px-3 py-1.5 rounded-lg bg-primary text-white font-medium">
+                  <span className="flex items-center gap-1.5 text-[10px] px-3 py-1.5 rounded-lg bg-primary text-primary-foreground font-medium">
                     <Eye className="w-3 h-3" /> Preview
                   </span>
                 ) : (
@@ -948,7 +948,7 @@ const FilmPreview: React.FC = () => {
         aria-label="Watch the Beta Ads film"
         className="group absolute left-1/2 bottom-6 md:bottom-8 -translate-x-1/2 inline-flex items-center gap-3 whitespace-nowrap rounded-full bg-white/95 pl-2 pr-5 py-2 text-sm md:text-base font-semibold text-neutral-900 shadow-xl transition-transform duration-300 hover:scale-105"
       >
-        <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary text-white">
+        <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground">
           <svg viewBox="0 0 24 24" className="h-4 w-4 translate-x-[1px] fill-current" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
         </span>
         Watch the film <span className="font-normal text-neutral-500">1:07</span>
@@ -1086,7 +1086,7 @@ export const SPFeatures: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 2xl:max-w-[1400px]">
         {/* Section header */}
         <div className="pt-20 md:pt-28 pb-8 border-t border-border">
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Platform</span>
+          <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Platform</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-3 max-w-xl">
             Everything you need to run campaigns at scale
           </h2>

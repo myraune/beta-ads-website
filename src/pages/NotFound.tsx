@@ -17,7 +17,7 @@ const NotFound = () => {
         noindex={true}
       />
       <div className="text-center max-w-lg">
-        <div className="relative w-full max-w-sm mx-auto h-72 rounded-2xl overflow-hidden bg-[#0c0c0f] ring-1 ring-white/10 mb-8">
+        <div className="relative w-full max-w-sm mx-auto h-72 rounded-2xl overflow-hidden bg-muted ring-1 ring-border mb-8">
           <img
             src="/lovable-uploads/beta-mascot-404.jpg"
             alt="Beta, the Beta Ads mascot, shrugging next to a screen reading 404"
@@ -27,7 +27,7 @@ const NotFound = () => {
           />
           <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
         </div>
-        <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Error 404</span>
+        <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Error 404</span>
         <h1 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-3">Looks like this one went offline</h1>
         <p className="text-muted-foreground mb-8">
           The page you're looking for doesn't exist or has been moved. Let's get you back on stream.
@@ -35,7 +35,7 @@ const NotFound = () => {
         <div className="flex flex-wrap gap-3 justify-center">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-primary text-white text-sm font-semibold hover:bg-primary/90 transition-colors"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:bg-primary/90 transition-colors"
           >
             Back to home
           </Link>

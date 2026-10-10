@@ -4,10 +4,8 @@ import { MarketingPageLayout } from "@/components/layout/MarketingPageLayout";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import AnimatedShaderBackground from "@/components/ui/lazy-animated-background";
 import { MascotBand } from "@/components/sections/MascotBand";
 
-const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
 const stats = [
   { value: "200–300 kr", label: "Effective CPM" },
@@ -183,42 +181,40 @@ const TwitchAdvertisingCost: React.FC = () => {
       }}
     >
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden" style={{ background: "hsl(240 11% 5%)" }}>
-        <AnimatedShaderBackground heightFactor={0.85} />
-        <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
+      <section className="relative overflow-hidden">
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-28">
           <div className="max-w-2xl">
-            <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/80 backdrop-blur-sm mb-7">
+            <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-foreground/[0.04] text-foreground backdrop-blur-sm mb-7">
               <img src="/lovable-uploads/platform-twitch.png" alt="Twitch" className="h-3.5 w-auto" />
               Twitch Advertising Cost
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-6 tracking-tight">
               What Twitch advertising{" "}
-              <span style={serifFont} className="italic font-normal">actually</span> costs
+              <span className="hl">actually costs</span>
             </h1>
-            <p className="text-lg text-white/65 leading-relaxed mb-10 max-w-lg">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg">
               No platform publishes a rate card, not even Twitch. Here is how live-stream advertising is really priced in the Nordics, the five things that move the number, and how to get a real quote instead of a guess.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/contact">
-                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12">
                   Get a quote <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </Link>
               <Link to="/case-studies">
-                <Button size="lg" variant="ghost" className="text-white hover:bg-white/10 rounded-full px-8 h-12 border border-white/20">
+                <Button size="lg" variant="ghost" className="text-foreground hover:bg-foreground/[0.06] rounded-full px-8 h-12 border border-border">
                   Case Studies
                 </Button>
               </Link>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-white/10 rounded-2xl overflow-hidden bg-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-border rounded-2xl overflow-hidden bg-border">
             {stats.map((s) => (
-              <div key={s.label} className="bg-black/30 backdrop-blur-sm px-6 py-5">
-                <div className="text-2xl font-bold text-white tracking-tight">{s.value}</div>
-                <div className="text-xs text-white/50 mt-0.5">{s.label}</div>
+              <div key={s.label} className="bg-card backdrop-blur-sm px-6 py-5">
+                <div className="text-2xl font-bold text-foreground tracking-tight">{s.value}</div>
+                <div className="text-xs text-muted-foreground mt-0.5">{s.label}</div>
               </div>
             ))}
           </div>
@@ -229,7 +225,7 @@ const TwitchAdvertisingCost: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-2 gap-16 items-start">
           <div>
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">The honest answer</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">The honest answer</span>
             <h2 className="text-3xl md:text-5xl font-light tracking-tight text-foreground leading-tight">
               Here's the number you came for
             </h2>
@@ -255,14 +251,14 @@ const TwitchAdvertisingCost: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={modelsRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${modelsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="max-w-2xl mb-14">
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">How it's priced</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">How it's priced</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">Two products, two pricing mechanics</h2>
             <p className="text-base text-muted-foreground leading-relaxed mt-4">Confusing these is the single biggest reason people get surprised by a quote.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {models.map((m) => (
               <div key={m.title} className="p-8 lg:p-10 rounded-2xl border border-border bg-card">
-                <span className="text-[11px] font-semibold tracking-widest uppercase text-primary">{m.tag}</span>
+                <span className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground">{m.tag}</span>
                 <h3 className="text-2xl font-semibold text-foreground mt-3 mb-4">{m.title}</h3>
                 <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-6">{m.body}</p>
                 <ul className="space-y-2.5 border-t border-border pt-6">
@@ -284,7 +280,7 @@ const TwitchAdvertisingCost: React.FC = () => {
         <div ref={driversRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${driversVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">What moves the number</span>
+              <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">What moves the number</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">Five variables that set the price</h2>
               <p className="text-base text-muted-foreground leading-relaxed max-w-md">
                 Two campaigns with the same budget can buy very different results. These five variables decide which. The bars show directional price pressure, not a rate card.
@@ -313,7 +309,7 @@ const TwitchAdvertisingCost: React.FC = () => {
         <div ref={seasonRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${seasonVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">The size of the opportunity</span>
+              <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">The size of the opportunity</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
                 3.4 million hours of Nordic Twitch a year
               </h2>
@@ -342,27 +338,27 @@ const TwitchAdvertisingCost: React.FC = () => {
       </section>
 
       {/* ── Proof band (full-width dark: real results + real creative) ── */}
-      <section ref={proofRef} className={`py-20 md:py-28 border-t border-border transition-all duration-700 ${proofVisible ? "opacity-100" : "opacity-0"}`} style={{ background: "hsl(240 11% 5%)" }}>
+      <section ref={proofRef} className={`py-20 md:py-28 border-t border-border transition-all duration-700 ${proofVisible ? "opacity-100" : "opacity-0"}`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="max-w-2xl mb-14">
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">What the spend delivers</span>
-            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-white">
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">What the spend delivers</span>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
               The number only matters next to the outcome
             </h2>
-            <p className="text-base text-white/60 leading-relaxed mt-4">
+            <p className="text-base text-muted-foreground leading-relaxed mt-4">
               Verified results from real Nordic campaigns. This is what the budget actually bought.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px border border-white/10 rounded-2xl overflow-hidden bg-white/10 mb-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-px border border-border rounded-2xl overflow-hidden bg-border mb-8">
             {proof.map((p) => (
-              <Link key={p.brand} to={p.href} className="group bg-black/40 backdrop-blur-sm px-6 py-7 hover:bg-black/20 transition-colors">
+              <Link key={p.brand} to={p.href} className="group bg-card backdrop-blur-sm px-6 py-7 hover:bg-muted transition-colors">
                 <div className="flex items-center justify-between mb-5 h-6">
-                  <img src={p.logo} alt={p.brand} className="h-5 w-auto object-contain opacity-70" style={{ filter: "brightness(0) invert(1)" }} />
-                  <ArrowUpRight className="w-4 h-4 text-white/30 group-hover:text-primary transition-colors" />
+                  <img src={p.logo} alt={p.brand} className="[filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] h-5 w-auto object-contain opacity-70" />
+                  <ArrowUpRight className="w-4 h-4 text-muted-foreground/70 group-hover:text-primary transition-colors" />
                 </div>
-                <div className="text-3xl font-bold text-white tracking-tight">{p.metric}</div>
-                <div className="text-xs text-white/50 mt-1">{p.label}</div>
+                <div className="text-3xl font-bold text-foreground tracking-tight">{p.metric}</div>
+                <div className="text-xs text-muted-foreground mt-1">{p.label}</div>
                 <div className="text-xs text-primary mt-3">{p.extra}</div>
               </Link>
             ))}
@@ -370,7 +366,7 @@ const TwitchAdvertisingCost: React.FC = () => {
 
           {/* Real overlay creative */}
           <div className="grid lg:grid-cols-2 gap-10 items-center pt-8">
-            <div className="rounded-2xl overflow-hidden bg-black ring-1 ring-white/10">
+            <div className="rounded-2xl overflow-hidden bg-black ring-1 ring-border">
               <video
                 src="/lovable-uploads/overlay-samsung.webm"
                 autoPlay loop muted playsInline preload="metadata"
@@ -379,8 +375,8 @@ const TwitchAdvertisingCost: React.FC = () => {
               />
             </div>
             <div>
-              <h3 className="text-2xl font-light tracking-tight text-white mb-4">This is the format you're paying for</h3>
-              <p className="text-base text-white/60 leading-relaxed mb-6">
+              <h3 className="text-2xl font-light tracking-tight text-foreground mb-4">This is the format you're paying for</h3>
+              <p className="text-base text-muted-foreground leading-relaxed mb-6">
                 Not a pre-roll the viewer skips or an ad blocker strips out. A branded overlay rendered inside the live stream, present through a 90-minute session, impossible to block because it is part of the broadcast feed.
               </p>
               <Link to="/twitch-advertising" className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors">
@@ -396,7 +392,7 @@ const TwitchAdvertisingCost: React.FC = () => {
         <div ref={nordicRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${nordicVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">The Nordic premium</span>
+              <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">The Nordic premium</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
                 Why Nordic campaigns price differently, and why that's fine
               </h2>
@@ -417,7 +413,7 @@ const TwitchAdvertisingCost: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="max-w-2xl mb-14">
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Direct or managed</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Direct or managed</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">Can't you just buy it direct?</h2>
             <p className="text-base text-muted-foreground leading-relaxed mt-4">
               Sometimes, and it's worth knowing exactly what "direct" costs before you assume it's cheaper.
@@ -429,7 +425,7 @@ const TwitchAdvertisingCost: React.FC = () => {
                 key={c.title}
                 className={`p-8 rounded-2xl border ${c.highlight ? "border-primary/40 bg-primary/[0.03]" : "border-border bg-card"}`}
               >
-                <span className="text-[11px] font-semibold tracking-widest uppercase text-primary">{c.tag}</span>
+                <span className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground">{c.tag}</span>
                 <h3 className="text-xl font-semibold text-foreground mt-3 mb-5">{c.title}</h3>
                 <ul className="space-y-3">
                   {c.facts.map((f) => (
@@ -462,7 +458,7 @@ const TwitchAdvertisingCost: React.FC = () => {
       <section className="py-20 md:py-28 border-t border-border">
         <div ref={bringRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${bringVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="max-w-2xl mb-14">
-            <span className="text-xs font-semibold text-primary tracking-widest uppercase mb-3 block">Getting a real number</span>
+            <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">Getting a real number</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">Four things to bring, and you'll get a straight answer</h2>
           </div>
           <div className="grid md:grid-cols-4 gap-8">

@@ -3,7 +3,6 @@ import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
 import GokstadCaseStudy from "@/components/blog/GokstadCaseStudy";
 import { ArrowLeft } from "lucide-react";
-import { SPFooter } from "@/components/sections/SPFooter";
 
 const CaseStudyGokstad: React.FC = () => {
   return (
@@ -101,7 +100,6 @@ const CaseStudyGokstad: React.FC = () => {
 
         <GokstadCaseStudy />
       </div>
-      <SPFooter />
     </>
   );
 };

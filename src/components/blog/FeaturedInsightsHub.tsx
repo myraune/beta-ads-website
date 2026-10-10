@@ -58,7 +58,7 @@ export const FeaturedInsightsHub: React.FC<FeaturedInsightsHubProps> = ({ langua
         <div>
           <div className="flex items-center gap-2 mb-2">
             <TrendingUp className="w-5 h-5 text-primary" />
-            <span className="text-primary text-sm font-medium uppercase tracking-wider">
+            <span className="text-muted-foreground text-sm font-medium uppercase tracking-wider">
               Featured
             </span>
           </div>
@@ -97,7 +97,7 @@ export const FeaturedInsightsHub: React.FC<FeaturedInsightsHubProps> = ({ langua
 
             {/* Content */}
             <div className="p-5">
-              <span className="text-primary/70 text-xs font-medium uppercase tracking-wider">
+              <span className="text-muted-foreground text-xs font-medium uppercase tracking-wider">
                 {post.category}
               </span>
               <h3 className="text-lg font-semibold text-foreground mt-2 mb-2 group-hover:text-primary transition-colors line-clamp-2 leading-snug">

@@ -1,7 +1,6 @@
 import React from "react";
 import { SEO } from "@/components/SEO";
 import ShureCaseStudy from "@/components/blog/ShureCaseStudy";
-import { SPFooter } from "@/components/sections/SPFooter";
 
 const CaseStudyShure: React.FC = () => {
   return (
@@ -58,7 +57,6 @@ const CaseStudyShure: React.FC = () => {
         ]}
       />
       <ShureCaseStudy />
-      <SPFooter />
     </>
   );
 };

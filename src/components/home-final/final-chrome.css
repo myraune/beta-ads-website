@@ -1,0 +1,48 @@
+/* Site-wide additions to the final-platform chrome (nav + footer), hand written.
+   home-final.css is generated from the design; keep extra chrome rules here. */
+
+/* ---- mobile menu ---- */
+.bf .nav__burger{display:none;width:34px;height:34px;margin-right:-6px;border-radius:999px;flex:none;place-items:center;align-content:center;gap:5px;color:var(--ink)}
+.bf .nav__burger:hover{background:var(--hover)}
+.bf .nav__burger span{display:block;width:16px;height:1.5px;border-radius:1px;background:currentColor;transition:transform .2s ease}
+.bf .nav--open .nav__burger span:first-child{transform:translateY(3.25px) rotate(45deg)}
+.bf .nav--open .nav__burger span:last-child{transform:translateY(-3.25px) rotate(-45deg)}
+.bf .nav__menu{position:absolute;left:0;right:0;top:100%;background:var(--canvas);border-bottom:1px solid var(--line);box-shadow:0 24px 48px -32px rgba(15,16,18,.25);padding:8px 24px 24px;display:flex;flex-direction:column;max-height:calc(100vh - 64px);overflow-y:auto}
+.bf .nav__menu[hidden]{display:none}
+.bf .nav__menu > a{display:block;padding:13px 0;font-size:17px;font-weight:600;letter-spacing:-.015em;color:var(--ink);border-bottom:1px solid var(--line-2)}
+.bf .nav__menu-more{display:flex;flex-wrap:wrap;gap:4px 22px;padding-top:16px}
+.bf .nav__menu-more a{padding:6px 0;font-size:14.5px;font-weight:500;color:var(--ink-3)}
+.bf .nav__menu-more a:hover,.bf .nav__menu > a:hover{color:var(--ink)}
+/* forced theme (/streamers): no switch, so the side link sits next to the button */
+.bf .nav--forced .nav__side{margin-right:0}
+@media (max-width:1100px){
+  .bf .nav__burger{display:grid}
+}
+@media (min-width:1101px){
+  .bf .nav__menu{display:none!important}
+}
+@media (max-width:760px){
+  .bf .nav--forced .btn{margin-left:auto}
+  .bf .nav__menu{padding:4px 16px 20px;max-height:calc(100vh - 58px)}
+  .bf .nav__burger{margin-right:-4px}
+}
+
+/* ---- footer grid with the Nordics column ---- */
+@media (min-width:1101px){
+  .bf .foot__cols{grid-template-columns:repeat(6,minmax(0,1fr))}
+}
+@media (min-width:761px) and (max-width:1100px){
+  .bf .foot__cols{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+/* ---- chrome on routes other than "/" (Layout wraps nav and footer in .bf) ---- */
+/* The nav wrapper must not be a box: sticky positioning needs the page as its
+   containing block. Custom properties still inherit through display:contents. */
+.bf.site-nav{display:contents}
+/* Page heroes were laid out for an overlaid nav (pt-28 to pt-36), so the sticky
+   bar takes no room in the flow and the content scrolls under its blur. */
+.bf.site-nav .nav{margin-bottom:-64px;z-index:40}
+@media (max-width:760px){
+  .bf.site-nav .nav{margin-bottom:-58px}
+}
+.bf.site-foot{border-top:1px solid var(--line)}

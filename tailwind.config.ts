@@ -19,7 +19,13 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Manrope', 'system-ui', '-apple-system', '"Segoe UI"', 'sans-serif'],
+			},
 			colors: {
+				signal: 'hsl(var(--signal) / <alpha-value>)',
+				'head-light': 'hsl(var(--head-light))',
+				'ink-2': 'hsl(var(--ink-2))',
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',

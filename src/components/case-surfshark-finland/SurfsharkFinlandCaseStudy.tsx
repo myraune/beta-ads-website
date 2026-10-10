@@ -48,13 +48,14 @@ const SectionHead: React.FC<{ n: string; kicker: string; title: React.ReactNode;
       <span className="tabular-nums" style={{ color: accent }}>{n}</span>
       <span className="text-muted-foreground">{kicker}</span>
     </div>
-    <h2 className="text-[1.6rem] leading-[1.12] md:text-[2.1rem] font-semibold tracking-tight text-foreground max-w-4xl">{title}</h2>
+    <h2 className="text-[1.6rem] leading-[1.12] md:text-[2.1rem] font-bold tracking-tight text-foreground max-w-4xl">{title}</h2>
     {lede && <p className="mt-3 text-[15px] md:text-base leading-relaxed text-muted-foreground max-w-4xl">{lede}</p>}
   </header>
 );
 
-const Serif: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <span className="italic font-normal" style={{ fontFamily: "'Instrument Serif', serif" }}>{children}</span>
+/** The light half of a Bold/Light headline (see .hl in src/index.css). */
+const Light: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <span className="hl">{children}</span>
 );
 
 const Section: React.FC<{ id: string; children: React.ReactNode; className?: string }> = ({ id, children, className = "" }) => (
@@ -106,9 +107,9 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
               <span className="text-sm font-medium text-foreground">Finland · August 2026</span>
               <span className="text-sm text-muted-foreground">14 Finnish Twitch creators · 1 Aug to 1 Sep</span>
             </div>
-            <h1 className="text-[2.4rem] leading-[1.03] sm:text-5xl xl:text-[4.2rem] font-semibold tracking-[-0.03em] text-foreground">
+            <h1 className="text-[2.4rem] leading-[1.03] sm:text-5xl xl:text-[4.2rem] font-bold tracking-[-0.03em] text-foreground">
               Bought 100,000 views.{" "}
-              <Serif>Got close to a million.</Serif>
+              <Light>Got close to a million.</Light>
             </h1>
             <p className="mt-6 max-w-xl text-base md:text-lg leading-relaxed text-muted-foreground">
               Surfshark VPN ran for a month on Finnish Twitch with a twist on the usual overlay: every ad moment
@@ -160,7 +161,7 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
         <SectionHead
           n="01"
           kicker="The brief and setup"
-          title={<>One overlay, one question, <Serif>fourteen chats</Serif></>}
+          title={<>One overlay, one question, <Light>fourteen chats</Light></>}
           lede="14 Finnish creators for a month, and every ad moment had two jobs: show the offer, and ask chat a question."
         />
         <div className="grid md:grid-cols-2 xl:grid-cols-[1.1fr_1fr_0.9fr] gap-8 xl:gap-10 items-start">
@@ -231,7 +232,7 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
             <SectionHead
               n="02"
               kicker="Delivery"
-              title={<>Bought 100,000. <Serif>Delivered 119,041 live.</Serif></>}
+              title={<>Bought 100,000. <Light>Delivered 119,041 live.</Light></>}
               lede="A Twitch stream stays on the creator's channel as a VOD with the overlay still in it, and the best moments get clipped. That is where most of the total came from."
             />
             <div className="space-y-4">
@@ -277,7 +278,7 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
             <SectionHead
               n="03"
               kicker="Verification"
-              title={<>Every ad play <Serif>left a clip behind</Serif></>}
+              title={<>Every ad play <Light>left a clip behind</Light></>}
               lede="A short clip of the stream is recorded around each ad play and checked automatically. Delivery becomes something you can look at, not only a number in a dashboard."
             />
             <div className="grid grid-cols-2 gap-6 pb-8 border-b border-border">
@@ -298,7 +299,7 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
         <SectionHead
           n="04"
           kicker="On stream"
-          title={<>What it looked like <Serif>in the wild</Serif></>}
+          title={<>What it looked like <Light>in the wild</Light></>}
           lede="Real frames from the campaign's verification clips. Different creators, different layouts, the same overlay in the corner, and the poll on screen when it ran."
         />
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
@@ -318,13 +319,13 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
         <SectionHead
           n="05"
           kicker="What Finland answered"
-          title={<>We asked Finnish Twitch <Serif>if they use a VPN</Serif></>}
+          title={<>We asked Finnish Twitch <Light>if they use a VPN</Light></>}
           lede={`The poll ran ${fmt(headline.polls)} times in the creators' own chats. Answering takes one click and nobody leaves the stream. ${fmt(headline.votes)} votes came in, and ${fmt(headline.chatMessagesDuringAds)} chat messages from ${fmt(headline.chatPeopleDuringAds)} people landed while the ad was on screen.`}
         />
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div className="min-w-0">
             <blockquote className="mb-7">
-              <p lang="fi" className="text-2xl md:text-[2rem] leading-[1.15] text-foreground" style={{ fontFamily: "'Instrument Serif', serif" }}>
+              <p lang="fi" className="text-2xl md:text-[2rem] leading-[1.15] text-foreground">
                 “{poll.questionFi}”
               </p>
               <footer className="mt-2 text-sm text-muted-foreground">
@@ -381,7 +382,7 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
         <SectionHead
           n="06"
           kicker="What chat said"
-          title={<>The audience wrote <Serif>the sales FAQ</Serif></>}
+          title={<>The audience wrote <Light>the sales FAQ</Light></>}
           lede="We read every viewer message that mentioned Surfshark or VPN in the creators' chats, removed the bots and translated them from Finnish."
         />
         <div className="grid md:grid-cols-2 xl:grid-cols-[0.9fr_0.9fr_1.4fr] gap-10 xl:gap-12 items-start">
@@ -458,7 +459,7 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
         <SectionHead
           n="07"
           kicker="Who clicked, and from where"
-          title={<>A PC gaming audience, <Serif>98% of it in Finland</Serif></>}
+          title={<>A PC gaming audience, <Light>98% of it in Finland</Light></>}
           lede={`Every click is logged. Device, operating system and browser resolve on 99% of them (${fmt(clickAudience.resolvedOn)} click-log rows). Location resolves on ${geo.locatedShare} (${fmt(geo.located)} clicks), city on ${fmt(geo.cityResolved)}; geography shares are of the located clicks.`}
         />
         <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-10 gap-y-10">
@@ -535,7 +536,7 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
             <SectionHead
               n="08"
               kicker="After the stream"
-              title={<>The biggest channel passed <Serif>300,000 VOD views</Serif></>}
+              title={<>The biggest channel passed <Light>300,000 VOD views</Light></>}
               lede={`${fmt(delivery.vodViews)} views on ${delivery.vods} VODs from August. A few channels carried most of it.`}
             />
             <ol className="space-y-2.5">
@@ -570,7 +571,7 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
           </div>
 
           <div id="takeaways" className="min-w-0 scroll-mt-28">
-            <SectionHead n="09" kicker="Takeaways" title={<>What we would take <Serif>into the next flight</Serif></>} />
+            <SectionHead n="09" kicker="Takeaways" title={<>What we would take <Light>into the next flight</Light></>} />
             <ol className="space-y-7">
               {[
                 ["Count the replays.", "Live views are what you buy. VODs and clips are what you get on top, for weeks after the stream. Report them as a range, next to the live number, never instead of it."],
@@ -579,7 +580,7 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
                 ["Watch the frequency.", "The most repeated complaint was seeing the poll too often. Run it less and more people will enjoy answering it, which also makes the answers better."],
               ].map(([t, b], i) => (
                 <li key={t} className="grid grid-cols-[2.5rem_minmax(0,1fr)] gap-3">
-                  <span className="text-3xl leading-none tabular-nums" style={{ fontFamily: "'Instrument Serif', serif", color: accent }}>{i + 1}</span>
+                  <span className="text-3xl font-light leading-none tabular-nums" style={{ color: accent }}>{i + 1}</span>
                   <div>
                     <h3 className="text-lg font-semibold text-foreground">{t}</h3>
                     <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{b}</p>
@@ -614,10 +615,10 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
       {/* ───────────── CTA ───────────── */}
       <section className="border-t border-border">
         <div className={`${W} py-14 md:py-20`}>
-          <div className="rounded-[28px] bg-[#071214] text-white overflow-hidden grid lg:grid-cols-[1.4fr_1fr]">
+          <div className="dark rounded-[28px] bg-[#071214] text-white overflow-hidden grid lg:grid-cols-[1.4fr_1fr]">
             <div className="p-8 sm:p-10 md:p-12">
-              <h2 className="text-3xl md:text-[2.4rem] leading-[1.1] font-semibold tracking-tight">
-                Want to know what your market <Serif>thinks out loud?</Serif>
+              <h2 className="text-3xl md:text-[2.4rem] leading-[1.1] font-bold tracking-tight">
+                Want to know what your market <Light>thinks out loud?</Light>
               </h2>
               <p className="mt-4 text-white/70 text-base leading-relaxed max-w-lg">
                 We run native overlay campaigns with Nordic Twitch creators, verify ad plays by clip, and

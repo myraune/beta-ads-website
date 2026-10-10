@@ -39,7 +39,7 @@ const GloriousCaseStudy: React.FC = () => {
           100% { opacity: 1;   transform: scale(1.1); }
         }
       `}</style>
-      <section className="relative overflow-clip" style={{ background: "hsl(240 11% 5%)" }}>
+      <section className="relative overflow-clip">
         <div className="absolute inset-0 pointer-events-none" aria-hidden>
           <div className="absolute inset-0" style={{
             background: `radial-gradient(ellipse 80% 60% at 65% 35%, ${BRAND.glow} 0%, transparent 60%)`,
@@ -47,28 +47,21 @@ const GloriousCaseStudy: React.FC = () => {
             willChange: "opacity, transform",
           }} />
         </div>
-        {/* Brand gold top stripe */}
-        <div
-          className="absolute inset-x-0 top-0 h-px z-[2]"
-          style={{ background: `linear-gradient(90deg, transparent 0%, ${BRAND.primary} 50%, transparent 100%)` }}
-        />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 md:pt-36 pb-20">
-          <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white/80 transition-colors mb-10">
+          <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-10">
             <ArrowLeft className="w-4 h-4" /> Back to campaigns
           </Link>
 
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-8">
               <div
-                className="flex items-center justify-center rounded-xl bg-white/[0.06] border border-white/10 p-3 backdrop-blur-sm"
+                className="flex items-center justify-center rounded-xl bg-foreground/[0.04] border border-border p-3 backdrop-blur-sm"
                 style={{ boxShadow: `0 0 0 1px ${BRAND.primary}44` }}
               >
                 <img
                   src="/lovable-uploads/logo-glorious.png"
                   alt="Glorious"
-                  className="h-8 w-auto object-contain"
-                  style={{ filter: "brightness(0) invert(1)" }}
+                  className="[filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] h-8 w-auto object-contain"
                 />
               </div>
               <div className="flex flex-col gap-1">
@@ -78,26 +71,26 @@ const GloriousCaseStudy: React.FC = () => {
                 >
                   Nordics · Gaming peripherals · Product launch
                 </span>
-                <span className="text-xs text-white/50 tracking-wide">
+                <span className="text-xs text-muted-foreground tracking-wide">
                   Case Study · O3 Mouse campaign
                 </span>
               </div>
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-6 tracking-tight">
               Glorious<br />
-              <span style={{ fontFamily: "'Instrument Serif', serif" }} className="italic font-normal">× Beta Ads</span>
+              <span className="hl">× Beta Ads</span>
             </h1>
-            <p className="text-lg text-white/60 leading-relaxed max-w-xl">
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
               How Glorious reached the Nordic gaming community with native rich media overlays to promote the O3 mouse across Finland, Norway, and Sweden.
             </p>
           </div>
 
           {/* Stat strip */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-16 border border-white/10 rounded-2xl overflow-hidden bg-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-16 border border-border rounded-2xl overflow-hidden bg-border">
             {stats.map((s) => (
-              <div key={s.label} className="bg-black/30 backdrop-blur-sm px-6 py-5">
-                <div className="text-2xl font-bold text-white tracking-tight">{s.value}</div>
-                <div className="text-xs text-white/50 mt-0.5">{s.label}</div>
+              <div key={s.label} className="bg-card backdrop-blur-sm px-6 py-5">
+                <div className="text-2xl font-bold text-foreground tracking-tight">{s.value}</div>
+                <div className="text-xs text-muted-foreground mt-0.5">{s.label}</div>
               </div>
             ))}
           </div>
@@ -125,7 +118,7 @@ const GloriousCaseStudy: React.FC = () => {
             className={`grid lg:grid-cols-2 gap-16 items-start transition-all duration-700 ${bodyVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           >
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">The Challenge</span>
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">The Challenge</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
                 Reaching gamers who block everything
               </h2>
@@ -160,7 +153,7 @@ const GloriousCaseStudy: React.FC = () => {
             ref={solutionRef}
             className={`transition-all duration-700 ${solutionVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
           >
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">The Solution</span>
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">The Solution</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4 max-w-2xl">
               Localised overlays across 25 creators, 3 markets
             </h2>
@@ -196,7 +189,7 @@ const GloriousCaseStudy: React.FC = () => {
       {/* ── PERFORMANCE ANALYSIS ── */}
       <section className="py-20 md:py-28 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Campaign Data</span>
+          <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Campaign Data</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-10">Performance breakdown</h2>
           <img
             src="https://storage.googleapis.com/livad-blog/3292/analysis_campaigns_3292_3315_3317.png"
@@ -214,7 +207,7 @@ const GloriousCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Impact</span>
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Impact</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
                 A multi-market presence, built in one campaign
               </h2>
@@ -239,7 +232,7 @@ const GloriousCaseStudy: React.FC = () => {
       {/* ── VIDEO ── */}
       <section className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Campaign Footage</span>
+          <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Campaign Footage</span>
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-8">See it live on stream</h2>
           <div className="relative w-full rounded-2xl overflow-hidden bg-black" style={{ aspectRatio: "16/9" }}>
             <video
@@ -259,10 +252,10 @@ const GloriousCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 md:py-28">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-10">
             <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">Run a Similar Campaign</span>
+              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Run a Similar Campaign</span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">Reach Nordic gamers natively</h2>
             </div>
-            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12 shrink-0">
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12 shrink-0">
               <Link to="/contact">Book a demo <ArrowRight className="ml-2 w-4 h-4" /></Link>
             </Button>
           </div>

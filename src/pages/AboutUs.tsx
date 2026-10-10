@@ -1,7 +1,6 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { SEO } from '@/components/SEO';
-import { SPFooter } from '@/components/sections/SPFooter';
 import MarketsSection from '@/components/sections/MarketsSection';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 import cityOslo from '@/assets/city-oslo.webp';
@@ -10,7 +9,6 @@ interface AboutUsProps {
   t: any;
 }
 
-const serifFont = { fontFamily: "'Instrument Serif', serif" };
 
 const principles = [
   {
@@ -105,16 +103,14 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
               : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="text-[11px] uppercase tracking-[0.22em] text-primary mb-6 font-semibold">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground mb-6 font-semibold">
             About
           </p>
           <h1
-            className="text-4xl md:text-6xl lg:text-7xl leading-[1.04] tracking-tight text-foreground mb-10 max-w-4xl"
-            style={serifFont}
+            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.04] tracking-tight text-foreground mb-10 max-w-4xl"
           >
-            Ads that feel like{' '}
-            <span className="italic text-primary">content</span>,
-            <br className="hidden md:block" /> not interruption.
+            Ads that feel like content,
+            <br className="hidden md:block" /> <span className="hl">not interruption.</span>
           </h1>
           <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-10 lg:gap-16 max-w-5xl">
             <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
@@ -134,7 +130,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
               href="https://calendar.app.google/coW5NLQJtLxfRer19"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-primary text-white hover:bg-primary/90 px-7 h-12 rounded-full text-sm font-medium tracking-wide transition-colors"
+              className="inline-flex items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 px-7 h-12 rounded-full text-sm font-medium tracking-wide transition-colors"
             >
               Book a call <ArrowRight size={14} />
             </a>
@@ -152,11 +148,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
       <section className="relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 pb-16 lg:pb-24">
           <div className="rounded-3xl overflow-hidden border border-border bg-card grid md:grid-cols-2 items-stretch">
-            <div className="relative min-h-[320px] overflow-hidden bg-[#0c0c0f]">
-              <div
-                className="absolute inset-0"
-                style={{ background: "radial-gradient(120% 90% at 40% 8%, rgba(233,79,55,0.20), transparent 62%)" }}
-              />
+            <div className="relative min-h-[320px] overflow-hidden bg-muted">
               <img
                 src="/lovable-uploads/beta-mascot-cut-pointing.webp"
                 alt="Beta, the Beta Ads mascot"
@@ -167,7 +159,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
               />
             </div>
             <div className="p-10 md:p-14 flex flex-col justify-center">
-              <span className="text-[11px] uppercase tracking-[0.22em] text-primary mb-3 font-semibold">Meet Beta</span>
+              <span className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground mb-3 font-semibold">Meet Beta</span>
               <p className="text-foreground text-xl md:text-2xl font-light leading-relaxed max-w-md">
                 Our mascot, and the friendly face of native advertising that streamers and viewers actually welcome.
               </p>
@@ -188,15 +180,14 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
         >
           <div className="grid lg:grid-cols-[minmax(0,360px)_1fr] gap-12 lg:gap-24 items-start">
             <div>
-              <p className="text-[11px] uppercase tracking-[0.22em] text-primary mb-4 font-semibold">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground mb-4 font-semibold">
                 Why we exist
               </p>
               <h2
-                className="text-3xl lg:text-4xl leading-[1.15] tracking-tight text-foreground"
-                style={serifFont}
+                className="text-3xl lg:text-4xl font-bold leading-[1.15] tracking-tight text-foreground"
               >
                 Live streaming is the largest daily attention pool for
-                under-35s. Advertising hasn't caught up.
+                under-35s. <span className="hl">Advertising hasn't caught up.</span>
               </h2>
             </div>
             <div className="space-y-6 max-w-2xl">
@@ -235,7 +226,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
               : 'opacity-0 translate-y-8'
           }`}
         >
-          <p className="text-[11px] uppercase tracking-[0.22em] text-primary mb-4 font-semibold">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground mb-4 font-semibold">
             How we work
           </p>
           <h2
@@ -251,7 +242,6 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
               >
                 <div
                   className="text-3xl lg:text-4xl font-light text-primary/40 tabular-nums shrink-0 w-12 pt-1 tracking-tight"
-                  style={serifFont}
                 >
                   {String(i + 1).padStart(2, '0')}
                 </div>
@@ -275,14 +265,14 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
           ref={locRef}
           className="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32"
         >
-          <p className="text-[11px] uppercase tracking-[0.22em] text-primary mb-4 font-semibold">
+          <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground mb-4 font-semibold">
             Where we are
           </p>
           <h2
-            className="text-3xl lg:text-4xl font-light tracking-tight text-foreground mb-12 max-w-2xl"
+            className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-12 max-w-2xl"
           >
             Based in{' '}
-            <span className="italic" style={serifFont}>
+            <span className="hl">
               Oslo.
             </span>
           </h2>
@@ -301,10 +291,10 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
             </div>
             <div className="flex items-baseline justify-between mt-4">
               <div>
-                <p className="text-[10px] uppercase tracking-[0.25em] text-primary">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
                   Headquarters
                 </p>
-                <p className="text-xl text-foreground mt-0.5" style={serifFont}>
+                <p className="text-xl text-foreground mt-0.5">
                   Oslo, Norway
                 </p>
               </div>
@@ -323,12 +313,11 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
             <div className="max-w-2xl">
-              <p className="text-[11px] uppercase tracking-[0.22em] text-primary mb-4 font-semibold">
+              <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground mb-4 font-semibold">
                 Start a campaign
               </p>
               <h2
                 className="text-3xl lg:text-4xl font-light tracking-tight text-foreground"
-                style={serifFont}
               >
                 Want native ads running on Nordic live streams?
               </h2>
@@ -338,7 +327,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
                 href="https://calendar.app.google/coW5NLQJtLxfRer19"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-primary text-white hover:bg-primary/90 px-8 h-12 rounded-full text-sm font-medium tracking-wide transition-colors"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 px-8 h-12 rounded-full text-sm font-medium tracking-wide transition-colors"
               >
                 Book a call <ArrowRight size={14} />
               </a>
@@ -353,7 +342,6 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
         </div>
       </section>
 
-      <SPFooter />
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { SEO } from "@/components/SEO";
 import { ExternalLink, Play } from "lucide-react";
-import { SPFooter } from "@/components/sections/SPFooter";
 import { MascotBand } from "@/components/sections/MascotBand";
 
 const pressArticles = [
@@ -89,7 +88,7 @@ const VideoCard: React.FC = () => {
       </div>
       <div className="p-5">
         <div className="flex items-center justify-between mb-2">
-          <p className="text-primary text-xs font-semibold uppercase tracking-widest">Video</p>
+          <p className="text-muted-foreground text-xs font-semibold uppercase tracking-widest">Video</p>
           <p className="text-muted-foreground text-[10px] uppercase tracking-widest">YouTube</p>
         </div>
         <h2 className="text-base font-semibold text-foreground mb-1 line-clamp-2">
@@ -138,11 +137,11 @@ const Press: React.FC = () => {
       />
       <div className="max-w-6xl mx-auto px-6 lg:px-8 pt-32 md:pt-40 pb-20">
         <div className="mb-14">
-          <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+          <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">
             Press
           </span>
-          <h1 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4">
-            Beta Ads in the media
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-4">
+            Beta Ads <span className="hl">in the media</span>
           </h1>
           <p className="text-muted-foreground max-w-lg">
             Featured in leading Nordic publications covering advertising,
@@ -169,7 +168,7 @@ const Press: React.FC = () => {
               </div>
               <div className="p-5">
                 <div className="flex items-center justify-between mb-2">
-                  <p className="text-primary text-xs font-semibold uppercase tracking-widest">
+                  <p className="text-muted-foreground text-xs font-semibold uppercase tracking-widest">
                     {article.publication}
                   </p>
                   {article.date && (
@@ -210,7 +209,6 @@ const Press: React.FC = () => {
         flip
       />
 
-      <SPFooter />
     </>
   );
 };

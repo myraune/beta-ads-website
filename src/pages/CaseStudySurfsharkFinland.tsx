@@ -8,7 +8,6 @@
  */
 import React, { lazy, Suspense } from "react";
 import { SEO } from "@/components/SEO";
-import { SPFooter } from "@/components/sections/SPFooter";
 
 const SurfsharkFinlandCaseStudy = lazy(() => import("@/components/case-surfshark-finland/SurfsharkFinlandCaseStudy"));
 
@@ -80,7 +79,6 @@ const CaseStudySurfsharkFinland: React.FC = () => {
       <Suspense fallback={<div className="min-h-screen" />}>
         <SurfsharkFinlandCaseStudy />
       </Suspense>
-      <SPFooter />
     </>
   );
 };

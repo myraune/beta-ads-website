@@ -2,7 +2,6 @@ import React, { lazy, Suspense } from "react";
 import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
-import { SPFooter } from "@/components/sections/SPFooter";
 
 const SamsungCaseStudy = lazy(() => import("@/components/blog/SamsungCaseStudy"));
 
@@ -59,7 +58,6 @@ const CaseStudySamsungPage: React.FC = () => {
       <Suspense fallback={<div className="min-h-screen" />}>
         <SamsungCaseStudy />
       </Suspense>
-      <SPFooter />
     </>
   );
 };

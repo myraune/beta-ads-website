@@ -24,7 +24,6 @@ import { MascotBand } from "@/components/sections/MascotBand";
  * - Kept deliberately light: a short sample list rather than a large dump.
  */
 
-const serif = { fontFamily: "'Instrument Serif', serif" };
 
 const TONE_LABEL: Record<ChatTone, string> = {
   positive: "Positive",
@@ -135,28 +134,20 @@ const LivestreamChatEngagement: React.FC = () => {
             the colour carries into the page instead of ending in a hard band.
             The page background follows the theme: forcing it dark meant the
             light/dark toggle did nothing here, which read as broken. */}
-      <section className="relative bg-[hsl(240_11%_5%)]">
-        <div
-          className="absolute -top-32 -right-24 w-[38rem] h-[38rem] rounded-full bg-primary/20 blur-[130px] pointer-events-none"
-          aria-hidden
-        />
-        <div
-          className="absolute -bottom-64 -left-32 w-[46rem] h-[46rem] rounded-full bg-primary/10 blur-[150px] pointer-events-none"
-          aria-hidden
-        />
+      <section className="relative">
         {/* Deliberately short. The dashboard is the point of this page, so the
             hero states the claim and gets out of the way rather than taking a
             full screen before anything useful appears. */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-24 pb-7">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-7">
           <div className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-12 items-end">
             <div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-[1.06] mb-3 tracking-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-[1.06] mb-3 tracking-tight">
                 Chat{" "}
-                <span style={serif} className="italic font-normal text-primary">
+                <span className="hl">
                   tracking
                 </span>
               </h1>
-              <p className="text-base text-white/65 leading-relaxed max-w-lg">
+              <p className="text-base text-muted-foreground leading-relaxed max-w-lg">
                 See what live chat says about your brand while the campaign is still running. We
                 read every channel at once, keep the messages that mention you, translate them, and
                 tell you what the room actually felt.
@@ -170,23 +161,23 @@ const LivestreamChatEngagement: React.FC = () => {
               <div className="grid grid-cols-3 gap-x-5 gap-y-2 mb-5">
                 {heroStats.map((s) => (
                   <div key={s.label}>
-                    <div className="text-2xl font-bold text-white tracking-tight leading-none">
+                    <div className="text-2xl font-bold text-foreground tracking-tight leading-none">
                       {s.value}
                     </div>
-                    <div className="text-[11px] text-white/50 mt-1.5 leading-snug">{s.label}</div>
+                    <div className="text-[11px] text-muted-foreground mt-1.5 leading-snug">{s.label}</div>
                   </div>
                 ))}
               </div>
               <div className="flex flex-wrap gap-2 lg:justify-end">
                 <Link to="/contact">
-                  <Button className="bg-primary hover:bg-primary/90 text-white rounded-full px-6 h-10">
+                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 h-10">
                     Book a demo <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </Link>
                 <Link to="/twitch-advertising-cost">
                   <Button
                     variant="ghost"
-                    className="text-white hover:bg-white/10 rounded-full px-6 h-10 border border-white/20"
+                    className="text-foreground hover:bg-foreground/[0.06] rounded-full px-6 h-10 border border-border"
                   >
                     What it costs
                   </Button>
@@ -245,7 +236,7 @@ const LivestreamChatEngagement: React.FC = () => {
                     aria-pressed={active}
                     className={`rounded-full px-3 h-7 text-xs font-medium transition-colors border ${
                       active
-                        ? "bg-primary text-white border-primary"
+                        ? "bg-primary text-primary-foreground border-primary"
                         : "bg-background text-muted-foreground border-border hover:text-foreground hover:border-primary/30"
                     }`}
                   >
@@ -319,7 +310,7 @@ const LivestreamChatEngagement: React.FC = () => {
           }`}
         >
           <div className="max-w-2xl mb-8">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">
               What the tool does
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">
@@ -346,7 +337,7 @@ const LivestreamChatEngagement: React.FC = () => {
           }`}
         >
           <div className="max-w-xl">
-            <span className="text-xs font-semibold tracking-widest uppercase text-primary mb-3 block">
+            <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">
               Why it matters
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-5">

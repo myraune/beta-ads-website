@@ -3,11 +3,13 @@
 ## Stack
 React + TypeScript + Vite SPA. Tailwind CSS v3 with CSS custom properties. shadcn/ui (new-york). framer-motion for animations. lucide-react for icons.
 
-## Brand
-- Primary (signal red): `#e94f37` / `hsl(357 70% 60%)`
-- Dark background: `hsl(240 11% 5%)`
-- Light background: white
-- Serif accent font: `'Instrument Serif', serif` — italic only, for hero heading accents
+## Brand (final-platform system, same as the homepage in src/components/home-final)
+- Canvas: `#FBFBFA` light / `#08080A` dark (`bg-background`); ink `#0F1012` / `#F6F6F6`
+- Primary = ink: black buttons in light, white in dark (`bg-primary text-primary-foreground`)
+- Red is `--signal` only (`text-signal`, `bg-signal`): logo, LIVE dots, tiny product-UI accents
+- Font: Manrope everywhere. No serif, no italic accents
+- Headline device: bold lead + light grey tail, `<h1 className="font-bold">The platform <span className="hl">for livestream ads.</span></h1>`
+- Site chrome: FinalNav + FinalFooter from Layout on every route (homepage renders its own copy)
 
 ---
 
@@ -43,7 +45,7 @@ Every page should feel like it was designed by Apple's marketing team — not ge
 | Hero H1 | `text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05]` |
 | Section H2 | `text-3xl md:text-4xl font-light tracking-tight` |
 | Card H3 | `text-base font-semibold` |
-| Section label | `text-xs font-semibold tracking-widest uppercase text-primary` |
+| Section label | `text-xs font-semibold tracking-widest uppercase text-muted-foreground` |
 | Body | `text-sm leading-relaxed text-muted-foreground` |
 | Large body | `text-base md:text-lg font-light leading-relaxed` |
 | Stat value | `text-2xl font-bold tracking-tight` |
@@ -51,8 +53,8 @@ Every page should feel like it was designed by Apple's marketing team — not ge
 
 ### Rules
 - Section headings: always `font-light tracking-tight`. Not bold.
-- Section labels (category markers above headings): `text-xs font-semibold tracking-widest uppercase text-primary mb-3 block`
-- Hero headings: one line in normal weight, can have italic serif accent word via `style={{ fontFamily: "'Instrument Serif', serif" }} italic font-normal`
+- Section labels (category markers above headings): `text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block`
+- Hero headings: `font-bold` with the light tail in `<span className="hl">` (never italic serif)
 - Never center body text except in isolated CTA blocks
 - Body copy lives in `max-w-2xl` or `max-w-xl` columns — never full width
 
@@ -88,46 +90,37 @@ Left: heading + body copy. Right: feature items or visual. Never symmetric — l
 ## Component Patterns
 
 ### Hero Section
+Heroes follow the theme on the shared canvas (no dark shader heroes, no gradient fades).
+The sticky nav overlays the top 64px, so keep `pt-32`/`pt-36`.
 ```tsx
-<section className="relative overflow-hidden">
-  <AnimatedShaderBackground heightFactor={0.85} />
-  <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-background to-transparent z-[1] pointer-events-none" />
-  <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-28">
+<section className="relative">
+  <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-36 pb-28">
     <div className="max-w-2xl">
-      {/* Platform badge */}
-      <span className="inline-flex items-center gap-2 text-xs font-semibold px-3 py-1 rounded-full bg-white/10 text-white/80 backdrop-blur-sm mb-7">
-        <img src="..." className="h-3.5 w-auto" />
-        Page Title
-      </span>
-      {/* H1 with optional serif accent */}
-      <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
-        <span style={{ fontFamily: "'Instrument Serif', serif" }} className="italic font-normal">Accent word</span>
-        <br />Rest of heading
+      <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.05] mb-6 tracking-tight">
+        Bold lead <span className="hl">light tail</span>
       </h1>
-      {/* Subheading */}
-      <p className="text-lg text-white/65 leading-relaxed mb-10 max-w-lg">...</p>
-      {/* Buttons */}
+      <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg">...</p>
       <div className="flex flex-wrap gap-3">
-        <Button size="lg" className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12">
+        <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 h-12">
           Primary CTA <ArrowRight className="ml-2 w-4 h-4" />
         </Button>
-        <Button size="lg" variant="ghost" className="text-white hover:bg-white/10 rounded-full px-8 h-12 border border-white/20">
+        <Button size="lg" variant="ghost" className="text-foreground hover:bg-foreground/[0.06] rounded-full px-8 h-12 border border-border">
           Secondary CTA
         </Button>
       </div>
     </div>
-    {/* Stat strip */}
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-white/10 rounded-2xl overflow-hidden bg-white/10">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-px mt-20 border border-border rounded-2xl overflow-hidden bg-border">
       {stats.map((s) => (
-        <div key={s.label} className="bg-black/30 backdrop-blur-sm px-6 py-5">
-          <div className="text-2xl font-bold text-white tracking-tight">{s.value}</div>
-          <div className="text-xs text-white/50 mt-0.5">{s.label}</div>
+        <div key={s.label} className="bg-card px-6 py-5">
+          <div className="text-2xl font-bold text-foreground tracking-tight">{s.value}</div>
+          <div className="text-xs text-muted-foreground mt-0.5">{s.label}</div>
         </div>
       ))}
     </div>
   </div>
 </section>
 ```
+Always-dark panels (blog art, product mockups) get the `dark` class so tokens inside resolve to dark values.
 
 ### Feature Cards Grid
 ```tsx
