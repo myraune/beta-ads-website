@@ -439,6 +439,17 @@ const CASE_STUDIES = [
     ogImageHeight: 1000,
   },
   {
+    route: "/case-study/surfshark-finland",
+    title: "Surfshark VPN Finland Case Study | Beta Ads",
+    description:
+      "Surfshark VPN on Finnish Twitch: 100,000 views bought, 119,041 delivered live and 949,957 with replays across 14 creators. 1,281 clicks, 1.08% CTR and 2,833 poll votes on VPN use.",
+    locale: "en",
+    datePublished: "2026-10-07",
+    image: "/lovable-uploads/case-surfshark-finland/poll-driving.webp",
+    ogImageWidth: 1280,
+    ogImageHeight: 720,
+  },
+  {
     route: "/case-study/surfshark",
     title: "Surfshark VPN Case Study | Beta Ads",
     description:
