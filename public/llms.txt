@@ -40,7 +40,7 @@
 
 What Beta Agency AS is and who it serves.
 
-- [Beta Ads | Native Twitch & Livestream Advertising](https://beta-ads.no/): Native advertising platform for Twitch, YouTube and Kick livestreams in the Nordics. Custom overlay ads inside the stream that ad blockers can't remove.
+- [Beta Ads | The platform for livestream ads](https://beta-ads.no/): Find streamers, launch animated brand overlays and read the report in one platform for Twitch, YouTube and Kick. Pay per 1,000 views that played.
 - [Twitch Agency in Norway](https://beta-ads.no/twitch-agency-norway): Beta Agency is a Norwegian Twitch agency running native advertising inside the broadcast. How to choose a Twitch agency in Norway, what it costs, and how the alternatives compare.
 - [Twitch-byrå i Norge](https://beta-ads.no/twitch-byra-norge): Beta Agency er et norsk Twitch-byrå som kjører native annonsering inne i selve sendingen. Slik velger du Twitch-byrå i Norge, hva det koster, og hvilke alternativer som finnes.
 - [About Us](https://beta-ads.no/about): Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams across the Nordics. Beta Agency AS, org.nr 933 303 136, based in Oslo with its registered office in Frosta, Norway.
@@ -86,7 +86,7 @@ What we check, what chat said, and what the stream kept earning after it ended.
 
 ## Reference
 
-- [Working with Beta Ads: company facts and guarantees](https://beta-ads.no/working-with-us): Who you contract with (BETA AGENCY AS, org.nr 933 303 136), what a view is, what happens if a campaign under-delivers, live dashboard access and where to check us independently.
+- [Working with Beta Ads: managed campaigns or self-serve for agencies](https://beta-ads.no/working-with-us): Two ways to run livestream ads with Beta Ads: we run brand and test campaigns from brief to report, or media agencies and partners launch and resell campaigns themselves, with an Adform connection. Plus company facts and delivery guarantees.
 - [Press & Media Coverage](https://beta-ads.no/press): Beta Ads in the press. Featured in Kampanje, Kom24, and Nordic media on Twitch advertising, native overlay ads, and livestream marketing in Norway.
 - [About Us](https://beta-ads.no/about): Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams across the Nordics. Beta Agency AS, org.nr 933 303 136, based in Oslo with its registered office in Frosta, Norway.
 - [Blog | Livestream Advertising Insights](https://beta-ads.no/blog): Expert insights on Twitch advertising, Nordic streaming trends, influencer marketing and live commerce. Data-driven articles for brands and agencies.
