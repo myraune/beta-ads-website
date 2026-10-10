@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
+import { BuildPanel, LivePanel, ReportPanel } from "@/components/home-final/panels";
+import "@/components/home-final/home-final.css";
 
 /* Working with Beta Ads: the two ways to buy, then the due-diligence facts.
  * Managed (brands, test campaigns): we run the campaign from brief to report.
@@ -82,6 +84,32 @@ const GhostBtn: React.FC<{ href: string; children: React.ReactNode; cta: "book" 
 );
 
 const WorkingWithUs: React.FC = () => {
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  // Product panel videos: play only on screen, keep the poster under reduced motion,
+  // trim the wall clip before its end card (same rules as the homepage).
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+    const motion = !window.matchMedia("(prefers-reduced-motion: reduce)").matches && !navigator.webdriver;
+    const cleanups: (() => void)[] = [];
+    root.querySelectorAll<HTMLVideoElement>(".wwu-panel video").forEach((v) => {
+      const end = Number(v.dataset.end);
+      if (end) {
+        const guard = () => { if (v.currentTime >= end) v.currentTime = 0; };
+        v.addEventListener("timeupdate", guard);
+        cleanups.push(() => v.removeEventListener("timeupdate", guard));
+      }
+      if (!motion) { v.pause(); return; }
+      const io = new IntersectionObserver(([e]) => {
+        if (e.isIntersecting) { v.preload = "auto"; v.muted = true; v.play().catch(() => {}); } else v.pause();
+      }, { rootMargin: "120px" });
+      io.observe(v);
+      cleanups.push(() => io.disconnect());
+    });
+    return () => cleanups.forEach((f) => f());
+  }, []);
+
   return (
     <>
       <SEO
@@ -105,7 +133,7 @@ const WorkingWithUs: React.FC = () => {
         ]}
       />
 
-      <div className="min-h-screen bg-background text-foreground">
+      <div ref={rootRef} className="min-h-screen bg-background text-foreground">
         {/* ───────── Hero: two ways in ───────── */}
         <header className={`${W} pt-32 md:pt-40 pb-14 md:pb-20`}>
           <div className={`${kicker} mb-5`}>Working with us</div>
@@ -118,20 +146,17 @@ const WorkingWithUs: React.FC = () => {
           </p>
 
           <div className="mt-12 grid md:grid-cols-2 gap-4 md:gap-5">
-            <a href="#managed" className="group relative overflow-hidden rounded-[20px] bg-[#0b0a0b] text-white min-h-[320px] flex flex-col justify-end p-7 md:p-9">
-              <img src="/home/samsung-s25-stream-a.webp" alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover opacity-45 group-hover:opacity-55 transition-opacity" />
-              <span className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent" aria-hidden />
-              <span className="relative text-[11px] font-semibold uppercase tracking-[0.18em] text-white/60">For brands and test campaigns</span>
-              <span className="relative mt-3 text-3xl md:text-4xl font-bold tracking-tight">Managed. <span className="font-light text-white/70">We run it A to Z.</span></span>
-              <span className="relative mt-3 text-sm text-white/70 max-w-md">Streamers, overlay, launch, monitoring and report. You approve and follow along.</span>
+            <a href="#managed" className="group rounded-[20px] border border-border bg-card p-7 md:p-9 flex flex-col hover:border-foreground/30 transition-colors">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">For brands and test campaigns</span>
+              <span className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Managed. <span className="font-light text-muted-foreground">We run it A to Z.</span></span>
+              <span className="mt-3 text-[15px] text-muted-foreground max-w-md">Streamers, overlay, launch, monitoring and report. You approve and follow along.</span>
+              <span className="mt-8 text-sm font-semibold">How managed works &darr;</span>
             </a>
-            <a href="#self-serve" className="group relative overflow-hidden rounded-[8px] border border-border bg-card min-h-[320px] flex flex-col justify-end p-7 md:p-9">
-              <span className="mb-auto self-end w-[52%] max-w-[240px] rounded-[10px] overflow-hidden bg-[#0b0a0b] ring-1 ring-border" aria-hidden>
-                <img src="/home/glorious-poster.webp" alt="" className="w-full h-auto block opacity-90 group-hover:opacity-100 transition-opacity" loading="lazy" />
-              </span>
-              <span className="mt-6 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">For media agencies and partners</span>
+            <a href="#self-serve" className="group rounded-[8px] border border-border bg-card p-7 md:p-9 flex flex-col hover:border-foreground/30 transition-colors">
+              <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">For media agencies and partners</span>
               <span className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Self-serve. <span className="font-light text-muted-foreground">Launch it, sell it.</span></span>
-              <span className="mt-3 text-sm text-muted-foreground max-w-md">Your own login to build and launch campaigns for your clients, with an Adform connection to monitor them where you already work.</span>
+              <span className="mt-3 text-[15px] text-muted-foreground max-w-md">Your own login to build and launch campaigns for your clients, with an Adform connection to monitor them where you already work.</span>
+              <span className="mt-8 text-sm font-semibold">How self-serve works &darr;</span>
             </a>
           </div>
         </header>
@@ -139,44 +164,42 @@ const WorkingWithUs: React.FC = () => {
         {/* ───────── Managed ───────── */}
         <section id="managed" className="scroll-mt-24 border-t border-border py-16 md:py-24">
           <div className={W}>
-            <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-start">
-              <div className="lg:sticky lg:top-28">
+            <div className="grid lg:grid-cols-[1fr_auto] gap-6 lg:gap-16 items-end">
+              <div className="max-w-3xl">
                 <div className={`${kicker} mb-4`}>Managed · for brands and test campaigns</div>
                 <h2 className="text-3xl md:text-[2.6rem] leading-[1.08] font-bold tracking-tight m-0">
                   We run the whole campaign. <span className="hl">You see every step.</span>
                 </h2>
-                <p className="mt-5 text-muted-foreground leading-relaxed max-w-lg">
+                <p className="mt-5 text-muted-foreground leading-relaxed max-w-2xl">
                   The right start if livestream is new to you. You give us the brief and the budget. We
-                  handle the streamers, the creative, the setup and the reporting, and you follow it
-                  live in your own dashboard login.
+                  handle the streamers, the creative, the setup and the reporting, and every channel is
+                  checked on air while you follow it in your own dashboard login.
                 </p>
-                <figure className="mt-8 hidden lg:block">
-                  <div className="overflow-hidden rounded-[14px] bg-black aspect-video">
-                    <img src="/home/komplett-stream.webp" alt="Komplett's monthly gaming deals overlay running on a Norwegian Twitch stream" className="w-full h-full object-cover scale-[1.12]" loading="lazy" />
-                  </div>
-                  <figcaption className="mt-2.5 text-xs text-muted-foreground">A managed campaign on air: Komplett's overlay, built by us, on a Norwegian stream.</figcaption>
-                </figure>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <PrimaryBtn href={BOOKING_URL} cta="book">Plan a campaign</PrimaryBtn>
-                  <Link to="/case-studies" className="inline-flex items-center h-11 px-6 rounded-full border border-border text-foreground text-sm font-semibold hover:border-foreground/40 transition-colors">See managed campaigns</Link>
-                </div>
               </div>
+              <div className="flex flex-wrap gap-3">
+                <PrimaryBtn href={BOOKING_URL} cta="book">Plan a campaign</PrimaryBtn>
+                <Link to="/case-studies" className="inline-flex items-center h-11 px-6 rounded-full border border-border text-foreground text-sm font-semibold hover:border-foreground/40 transition-colors">See managed campaigns</Link>
+              </div>
+            </div>
 
-              <ol className="m-0 p-0 list-none border-t border-border">
-                {managedSteps.map((s, i) => (
-                  <li key={s.t} className="grid grid-cols-[3rem_minmax(0,1fr)_auto] gap-x-4 py-6 border-b border-border items-baseline">
+            <div className="bf wwu-panel mt-10 md:mt-12" style={{ background: "transparent" }}>
+              <LivePanel reveal={false} />
+            </div>
+
+            <ol className="mt-10 md:mt-12 m-0 p-0 list-none grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-2">
+              {managedSteps.map((s, i) => (
+                <li key={s.t} className="border-t border-border py-5">
+                  <div className="flex items-baseline justify-between gap-4">
                     <span className="text-sm tabular-nums text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
-                    <div>
-                      <h3 className="m-0 text-lg font-semibold tracking-tight">{s.t}</h3>
-                      <p className="mt-1.5 mb-0 text-[15px] leading-relaxed text-muted-foreground">{s.d}</p>
-                    </div>
-                    <span className={`text-[11px] font-semibold uppercase tracking-[0.14em] whitespace-nowrap ${s.who === "you" ? "text-foreground" : "text-muted-foreground"}`}>
+                    <span className={`text-[11px] font-semibold uppercase tracking-[0.14em] ${s.who === "you" ? "text-foreground" : "text-muted-foreground"}`}>
                       {s.who === "you" ? "You" : "Beta Ads"}
                     </span>
-                  </li>
-                ))}
-              </ol>
-            </div>
+                  </div>
+                  <h3 className="mt-3 m-0 text-lg font-semibold tracking-tight">{s.t}</h3>
+                  <p className="mt-1.5 mb-0 text-[15px] leading-relaxed text-muted-foreground">{s.d}</p>
+                </li>
+              ))}
+            </ol>
           </div>
         </section>
 
@@ -195,7 +218,11 @@ const WorkingWithUs: React.FC = () => {
               </p>
             </div>
 
-            <div className="mt-12 grid lg:grid-cols-[1.15fr_0.85fr] gap-6 items-stretch">
+            <div className="bf wwu-panel mt-10 md:mt-12" style={{ background: "transparent" }}>
+              <BuildPanel reveal={false} />
+            </div>
+
+            <div className="mt-10 md:mt-12 grid lg:grid-cols-[1.15fr_0.85fr] gap-6 items-stretch">
               <div className="grid sm:grid-cols-2 gap-x-10 gap-y-8 content-start">
                 {selfServe.map((f) => (
                   <div key={f.t} className="border-t border-border pt-5">
@@ -285,6 +312,12 @@ const WorkingWithUs: React.FC = () => {
                 ))}
               </div>
             </div>
+          </div>
+          <div className={W}>
+            <div className="bf wwu-panel mt-12" style={{ background: "transparent" }}>
+              <ReportPanel reveal={false} />
+            </div>
+            <p className="mt-3 text-xs text-muted-foreground">The end report: setup verification, chat tracking, replay reach and a PDF you can forward. Example UI.</p>
           </div>
         </section>
 
