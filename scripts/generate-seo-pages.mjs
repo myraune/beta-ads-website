@@ -822,7 +822,7 @@ const HOME_CONTENT = `
             <span style="font-weight:700;letter-spacing:-.01em">Beta Ads</span>
           </div>
           <h1 style="font-size:2.25rem;line-height:1.15;font-weight:700;letter-spacing:-.02em;margin:0 0 1.25rem">Native Twitch and livestream advertising for Nordic brands</h1>
-          <p style="color:#a8adb8;margin:0 0 1rem">Beta Ads is the trading name of Beta Agency AS (org. 933&nbsp;303&nbsp;136), a Norwegian livestream advertising agency registered in Frosta and working from Oslo, Stockholm and Helsinki.</p>
+          <p style="color:#a8adb8;margin:0 0 1rem">Beta Ads is the trading name of Beta Agency AS (org. 933&nbsp;303&nbsp;136), a Norwegian livestream advertising agency based in Oslo with its registered office in Frosta, selling across Norway, Sweden, Denmark and Finland.</p>
           <p style="color:#a8adb8;margin:0 0 2.5rem">We place native overlay ads inside live streams on Twitch, YouTube and Kick. Because the ad renders inside the broadcast feed, an ad blocker has nothing to remove. Campaigns run across more than 39,000 streamers in our Streamer Explorer database in Norway, Sweden, Denmark and Finland with verified per-impression reporting.</p>
           <h2 style="font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:#e94f37;margin:0 0 .75rem">What Beta Ads does</h2>
           <ul style="margin:0 0 2.5rem;padding-left:1.1rem;color:#a8adb8">
