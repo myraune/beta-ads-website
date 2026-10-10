@@ -352,7 +352,7 @@ const TwitchAgencyNorway: React.FC = () => {
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-muted-foreground/70 mb-4">
+                  <p className="text-xs text-muted-foreground mb-4">
                     {a.sourceUrl ? (
                       <a
                         href={a.sourceUrl}
@@ -406,7 +406,7 @@ const TwitchAgencyNorway: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-x-12 gap-y-8">
             {checklist.map((c, i) => (
               <div key={c.q} className="flex gap-4">
-                <span className="text-2xl font-bold text-primary/20 tracking-tighter shrink-0 leading-none">
+                <span className="text-2xl font-light text-head-light tracking-tighter shrink-0 leading-none">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
@@ -440,7 +440,7 @@ const TwitchAgencyNorway: React.FC = () => {
                 to={c.to}
                 className="group rounded-2xl border border-border bg-card p-6 hover:border-primary/30 transition-colors"
               >
-                <span className="text-xs text-muted-foreground/70 block mb-2">{c.sector}</span>
+                <span className="text-xs text-muted-foreground block mb-2">{c.sector}</span>
                 <h3 className="text-base font-semibold text-foreground mb-4">{c.name}</h3>
                 <span className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground group-hover:text-primary transition-colors">
                   Read the campaign
@@ -449,7 +449,7 @@ const TwitchAgencyNorway: React.FC = () => {
               </Link>
             ))}
           </div>
-          <p className="text-xs text-muted-foreground/60 mt-8">
+          <p className="text-xs text-muted-foreground mt-8">
             Last updated {new Date(`${LAST_UPDATED}T12:00:00`).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}.
           </p>
         </div>
@@ -477,7 +477,7 @@ const TwitchAgencyNorway: React.FC = () => {
                 {i < process.length - 1 && (
                   <div className="hidden md:block absolute top-4 left-full w-full h-px bg-border -translate-x-4" />
                 )}
-                <div className="text-4xl font-bold text-primary/15 mb-4 tracking-tighter">{p.step}</div>
+                <div className="text-4xl font-light text-head-light mb-4 tracking-tighter">{p.step}</div>
                 <h3 className="text-base font-semibold text-foreground mb-2">{p.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{p.text}</p>
               </div>

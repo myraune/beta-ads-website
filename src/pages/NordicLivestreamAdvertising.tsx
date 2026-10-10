@@ -150,7 +150,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
               <div key={x.l} className="bg-card px-7 py-8">
                 <div className="text-4xl font-bold tracking-tight text-foreground">{x.v}</div>
                 <div className="text-sm text-muted-foreground mt-1">{x.l}</div>
-                <div className="text-[11px] text-muted-foreground/50 mt-3 uppercase tracking-wider">{x.s}</div>
+                <div className="text-[11px] text-muted-foreground mt-3 uppercase tracking-wider">{x.s}</div>
               </div>
             ))}
           </div>
@@ -172,7 +172,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
               <div key={p.name}>
                 <div className="flex items-baseline justify-between mb-2">
                   <span className="text-base font-semibold text-foreground">{p.name}</span>
-                  <span className="text-sm text-muted-foreground">{p.display} hours <span className="text-muted-foreground/50">· {p.note}</span></span>
+                  <span className="text-sm text-muted-foreground">{p.display} hours <span className="text-muted-foreground">· {p.note}</span></span>
                 </div>
                 <div className="h-4 rounded-full bg-muted overflow-hidden">
                   <div className={`h-full rounded-full ${p.accent ? "bg-primary" : "bg-foreground/25"}`} style={{ width: `${Math.round((p.value / platformMax) * 100)}%` }} />
@@ -180,7 +180,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
               </div>
             ))}
           </div>
-          <div className="flex items-center gap-2 mt-8 text-xs text-muted-foreground/60">
+          <div className="flex items-center gap-2 mt-8 text-xs text-muted-foreground">
             <img src="/lovable-uploads/icon-streamhatchet.png" alt="Stream Hatchet" className="h-4 w-auto opacity-60" />
             Source: Stream Hatchet 2025 Yearly Live Streaming Trends Report (hours watched, full year 2025).
           </div>
@@ -209,7 +209,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
                 </div>
               </div>
             ))}
-            <p className="text-xs text-muted-foreground/60 pt-2">
+            <p className="text-xs text-muted-foreground pt-2">
               SullyGnome, July 2026 snapshot. Streamed hours (supply), not hours watched.
             </p>
           </div>
@@ -245,7 +245,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
       {/* ── The opportunity ── */}
       <section className="py-24 md:py-32 border-t border-border bg-foreground text-background">
         <div ref={gapRef.ref} className={`max-w-7xl mx-auto px-6 lg:px-12 grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-12 items-center transition-all duration-700 ${gapRef.isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <div className="text-[120px] md:text-[180px] font-bold leading-none tracking-tighter text-primary">
+          <div className="text-[120px] md:text-[180px] font-bold leading-none tracking-tighter text-background">
             &lt;5<span className="text-[0.5em] align-top">%</span>
           </div>
           <div className="max-w-lg">
@@ -277,7 +277,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
                   <img src={p.logo} alt={p.brand} className="h-5 w-auto object-contain mb-5 opacity-80" style={{ filter: "brightness(0) invert(0.75)" }} />
                   <div className="text-3xl font-bold tracking-tight text-foreground">{p.metric}</div>
                   <div className="text-sm text-muted-foreground mt-0.5">{p.label}</div>
-                  <div className="text-xs text-muted-foreground/70 mt-3 pt-3 border-t border-border flex items-center justify-between">
+                  <div className="text-xs text-muted-foreground mt-3 pt-3 border-t border-border flex items-center justify-between">
                     {p.extra}
                     <ArrowUpRight className="w-3.5 h-3.5 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
@@ -309,7 +309,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
             {steps.map((s, i) => (
               <div key={s.step} className="relative">
                 {i < steps.length - 1 && <div className="hidden md:block absolute top-4 left-full w-full h-px bg-border -translate-x-4" />}
-                <div className="text-4xl font-bold text-primary/15 mb-4 tracking-tighter">{s.step}</div>
+                <div className="text-4xl font-light text-head-light mb-4 tracking-tighter">{s.step}</div>
                 <h3 className="text-base font-semibold text-foreground mb-2">{s.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
               </div>

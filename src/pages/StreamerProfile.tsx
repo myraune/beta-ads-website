@@ -314,7 +314,7 @@ const StreamerProfile: React.FC = () => {
                 </div>
               )}
             </div>
-            <p className="text-[11px] text-muted-foreground/70 mt-5">
+            <p className="text-[11px] text-muted-foreground mt-5">
               {L.statsNote}
               {c.betaStats ? " " + L.betaNote : c.trackerStats ? " " + L.trackerNote : ""}
             </p>
@@ -348,7 +348,7 @@ const StreamerProfile: React.FC = () => {
                 {L.streamerInterests}: {c.betaStats.streamerInterests.join(", ")}.
               </p>
             ) : null}
-            <p className="text-[11px] text-muted-foreground/70 mt-4">{L.betaNote}</p>
+            <p className="text-[11px] text-muted-foreground mt-4">{L.betaNote}</p>
           </section>
         ) : null}
 
@@ -419,7 +419,7 @@ const StreamerProfile: React.FC = () => {
                 </li>
               ))}
             </ul>
-            <p className="text-[11px] text-muted-foreground/70 mt-6">{L.sourcesNote}</p>
+            <p className="text-[11px] text-muted-foreground mt-6">{L.sourcesNote}</p>
           </section>
         )}
 
@@ -444,7 +444,7 @@ const StreamerProfile: React.FC = () => {
                   </Button>
                 </Link>
               </div>
-              <p className="text-xs text-muted-foreground/60 mt-7">{cta.proof}</p>
+              <p className="text-xs text-muted-foreground mt-7">{cta.proof}</p>
             </div>
             <div className="relative min-h-[260px] hidden md:block overflow-hidden bg-muted">
               <img

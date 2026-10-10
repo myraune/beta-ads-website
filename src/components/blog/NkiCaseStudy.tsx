@@ -1,4 +1,5 @@
 import React from "react";
+import { brandInk } from "@/lib/brandInk";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -77,13 +78,13 @@ const NkiCaseStudy: React.FC = () => {
                 <img
                   src="/lovable-uploads/logo-nki.svg"
                   alt="NKI"
-                  className="h-6 w-auto object-contain"
+                  className="logo-ink h-6 w-auto object-contain"
                 />
               </div>
               <div className="flex flex-col gap-1">
                 <span
                   className="text-[11px] font-semibold tracking-[0.2em] uppercase"
-                  style={{ color: BRAND.label }}
+                  style={{ color: brandInk(BRAND.label) }}
                 >
                   Norway · Distance Learning · Quiz
                 </span>
@@ -124,7 +125,7 @@ const NkiCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <span
             className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-            style={{ color: BRAND.label }}
+            style={{ color: brandInk(BRAND.label) }}
           >
             The creative
           </span>
@@ -159,7 +160,7 @@ const NkiCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <span
             className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-            style={{ color: BRAND.label }}
+            style={{ color: brandInk(BRAND.label) }}
           >
             On stream
           </span>
@@ -228,7 +229,7 @@ const NkiCaseStudy: React.FC = () => {
             <div>
               <span
                 className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-                style={{ color: BRAND.label }}
+                style={{ color: brandInk(BRAND.label) }}
               >
                 The Challenge
               </span>
@@ -282,7 +283,7 @@ const NkiCaseStudy: React.FC = () => {
           >
             <span
               className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-              style={{ color: BRAND.label }}
+              style={{ color: brandInk(BRAND.label) }}
             >
               The Solution
             </span>
@@ -390,7 +391,7 @@ const NkiCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <span
             className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-            style={{ color: BRAND.label }}
+            style={{ color: brandInk(BRAND.label) }}
           >
             Beyond verified delivery
           </span>
@@ -438,7 +439,7 @@ const NkiCaseStudy: React.FC = () => {
           >
             <span
               className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-              style={{ color: BRAND.label }}
+              style={{ color: brandInk(BRAND.label) }}
             >
               Reach &amp; Demographics
             </span>
@@ -565,7 +566,7 @@ const NkiCaseStudy: React.FC = () => {
                     )}
                     <div
                       className="text-xs font-semibold tracking-widest uppercase mb-2"
-                      style={{ color: BRAND.label }}
+                      style={{ color: brandInk(BRAND.label) }}
                     >
                       {m.date}
                     </div>
@@ -590,7 +591,7 @@ const NkiCaseStudy: React.FC = () => {
             <div>
               <span
                 className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-                style={{ color: BRAND.label }}
+                style={{ color: brandInk(BRAND.label) }}
               >
                 Impact
               </span>
@@ -634,12 +635,12 @@ const NkiCaseStudy: React.FC = () => {
                   className="text-sm font-bold tracking-tight text-foreground"
                   style={{ letterSpacing: "-0.02em" }}
                 >
-                  <span style={{ color: BRAND.label }}>NKI</span>
+                  <span style={{ color: brandInk(BRAND.label) }}>NKI</span>
                 </span>
               </div>
               <span
                 className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-                style={{ color: BRAND.label }}
+                style={{ color: brandInk(BRAND.label) }}
               >
                 Run a Similar Campaign
               </span>

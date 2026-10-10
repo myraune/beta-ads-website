@@ -1,4 +1,5 @@
 import React from "react";
+import { brandInk } from "@/lib/brandInk";
 import { Link } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { MarketingPageLayout } from "@/components/layout/MarketingPageLayout";
@@ -241,7 +242,7 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
                 ))}
                 <div className="border-t border-border pt-2.5 flex flex-col-reverse">
                   <dt className="text-[11px] text-muted-foreground truncate">{t.nordic.mauTotal}</dt>
-                  <dd className="text-lg font-bold tracking-tight tabular-nums m-0" style={{ color: KICK_GREEN }}>{loc(lang, NORDIC_MAU_TOTAL)}</dd>
+                  <dd className="text-lg font-bold tracking-tight tabular-nums m-0" style={{ color: brandInk(KICK_GREEN) }}>{loc(lang, NORDIC_MAU_TOTAL)}</dd>
                 </div>
               </dl>
               <p className="text-[11px] leading-snug text-muted-foreground mt-4">{t.nordic.chartNote.split(/\. (?=[A-ZÅÄÖ])/)[0]}.</p>
@@ -323,7 +324,7 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
       <section className="border-t border-border py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="max-w-2xl">
-            <span className="text-xs font-semibold tracking-widest uppercase mb-3 block" style={{ color: KICK_GREEN }}>{t.routes.label}</span>
+            <span className="text-xs font-semibold tracking-widest uppercase mb-3 block" style={{ color: brandInk(KICK_GREEN) }}>{t.routes.label}</span>
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight uppercase leading-[1.02] mb-4">{t.routes.heading}</h2>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-5">{t.routes.kicker}</p>
             <p className="text-base md:text-lg text-muted-foreground leading-relaxed">{t.routes.intro}</p>
@@ -334,14 +335,14 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
               <Reveal key={f.key} className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-center">
                 <div>
                   <h3 className="text-2xl md:text-3xl font-bold tracking-tight uppercase leading-tight mb-8">{f.name}</h3>
-                  <h4 className="text-sm font-bold tracking-wide uppercase mb-1.5" style={{ color: KICK_GREEN }}>{t.routes.kick.whatLabel}</h4>
+                  <h4 className="text-sm font-bold tracking-wide uppercase mb-1.5" style={{ color: brandInk(KICK_GREEN) }}>{t.routes.kick.whatLabel}</h4>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-6">{f.desc}</p>
-                  <h4 className="text-sm font-bold tracking-wide uppercase mb-1.5" style={{ color: KICK_GREEN }}>{t.routes.kick.whyLabel}</h4>
+                  <h4 className="text-sm font-bold tracking-wide uppercase mb-1.5" style={{ color: brandInk(KICK_GREEN) }}>{t.routes.kick.whyLabel}</h4>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-6">{f.why}</p>
-                  <h4 className="text-sm font-bold tracking-wide uppercase mb-3" style={{ color: KICK_GREEN }}>{t.routes.kick.specsLabel}</h4>
+                  <h4 className="text-sm font-bold tracking-wide uppercase mb-3" style={{ color: brandInk(KICK_GREEN) }}>{t.routes.kick.specsLabel}</h4>
                   <dl className="grid grid-cols-2 sm:grid-cols-3 gap-px m-0" style={{ background: KICK_GREEN }}>
                     {FORMAT_SPECS[f.key].map((sp) => (
-                      <div key={sp.k} className="bg-[#111214] px-3 py-3">
+                      <div key={sp.k} className="bg-card px-3 py-3">
                         <dt className="text-xs font-semibold text-foreground">{t.routes.kick.specLabels[sp.k]}</dt>
                         <dd className="text-[11px] leading-snug text-muted-foreground m-0 mt-1">{sp.v}</dd>
                       </div>
@@ -361,7 +362,7 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
           </div>
 
           <div className="mt-24 border-t border-border pt-10 grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16">
-            <p className="text-lg md:text-xl font-bold tracking-tight uppercase leading-tight m-0" style={{ color: KICK_GREEN }}>{t.routes.kick.title}</p>
+            <p className="text-lg md:text-xl font-bold tracking-tight uppercase leading-tight m-0" style={{ color: brandInk(KICK_GREEN) }}>{t.routes.kick.title}</p>
             <div>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-xl mb-0">{t.routes.kick.lead}</p>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-xl mt-3 mb-0">{t.routes.kick.buying}</p>

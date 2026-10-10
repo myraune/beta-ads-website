@@ -191,14 +191,14 @@ const CampaignCompliance: React.FC = () => {
                 >
                   Needs attention only
                 </button>
-                <span className="text-[10px] font-semibold tracking-widest uppercase text-muted-foreground/60">
+                <span className="text-[10px] font-semibold tracking-widest uppercase text-muted-foreground">
                   Sample data
                 </span>
               </div>
             </div>
 
             {/* Column headers */}
-            <div className="hidden md:grid grid-cols-[7rem_5rem_5rem_5rem_9rem_1fr] gap-x-4 px-5 py-2 border-b border-border text-[11px] font-semibold tracking-wide uppercase text-muted-foreground/70">
+            <div className="hidden md:grid grid-cols-[7rem_5rem_5rem_5rem_9rem_1fr] gap-x-4 px-5 py-2 border-b border-border text-[11px] font-semibold tracking-wide uppercase text-muted-foreground">
               <span>Channel</span>
               <span>Banner</span>
               <span>Command</span>
@@ -215,7 +215,7 @@ const CampaignCompliance: React.FC = () => {
                 >
                   <span className="text-sm font-semibold text-foreground">
                     {c.ch}{" "}
-                    <span className="font-normal text-[11px] text-muted-foreground/60">
+                    <span className="font-normal text-[11px] text-muted-foreground">
                       {MARKET_LABEL[c.market]}
                     </span>
                   </span>
@@ -236,13 +236,13 @@ const CampaignCompliance: React.FC = () => {
                   >
                     {c.link}
                   </span>
-                  <span className="text-xs text-muted-foreground/70 leading-snug">
+                  <span className="text-xs text-muted-foreground leading-snug">
                     {c.note ?? ""}
                   </span>
                 </li>
               ))}
             </ul>
-            <div className="px-5 py-3 border-t border-border text-xs text-muted-foreground/70">
+            <div className="px-5 py-3 border-t border-border text-xs text-muted-foreground">
               Showing {visible.length} of {CHANNEL_SETUP.length} channels, worst first. Channels are
               anonymised and the rows are illustrative.
             </div>

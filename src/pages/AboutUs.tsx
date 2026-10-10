@@ -85,13 +85,6 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
         ]}
       />
 
-      <div
-        className="absolute inset-x-0 top-0 h-[500px] pointer-events-none z-0"
-        style={{
-          background:
-            'radial-gradient(ellipse 80% 70% at 30% 0%, hsl(var(--primary) / 0.08), transparent 70%)',
-        }}
-      />
 
       {/* ── Hero ── */}
       <section className="relative">
@@ -119,7 +112,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
               streams across the Nordics, so brands reach audiences that
               other media formats can't.
             </p>
-            <p className="text-lg lg:text-xl text-muted-foreground/70 leading-relaxed">
+            <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
               Brands get verified reach. Streamers get paid to keep making
               what their audience already tunes in for. Viewers get ads
               that respect their attention - and that survive ad-block.
@@ -241,7 +234,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
                 className="flex gap-8 pb-10 border-b border-foreground/[0.06] last:border-b-0 last:pb-0"
               >
                 <div
-                  className="text-3xl lg:text-4xl font-light text-primary/40 tabular-nums shrink-0 w-12 pt-1 tracking-tight"
+                  className="text-3xl lg:text-4xl font-light text-head-light tabular-nums shrink-0 w-12 pt-1 tracking-tight"
                 >
                   {String(i + 1).padStart(2, '0')}
                 </div>

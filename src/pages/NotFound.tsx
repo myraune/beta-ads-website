@@ -10,7 +10,7 @@ const NotFound = () => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-[70vh] flex items-center justify-center px-6">
+    <div className="min-h-[70vh] flex items-center justify-center px-6 pt-28 md:pt-32 pb-20">
       <SEO
         title="Page Not Found | Beta Ads"
         description="The page you're looking for doesn't exist or has been moved. Return to the Beta Ads homepage."

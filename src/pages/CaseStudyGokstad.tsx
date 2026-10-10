@@ -1,4 +1,5 @@
 import React from "react";
+import { brandInk } from "@/lib/brandInk";
 import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
 import GokstadCaseStudy from "@/components/blog/GokstadCaseStudy";
@@ -50,12 +51,6 @@ const CaseStudyGokstad: React.FC = () => {
           }
         ]}
       />
-      {/* Gokstad brand accent - navy + red nods to Sandefjord's viking heritage */}
-      <div
-        className="h-px w-full"
-        style={{ background: "linear-gradient(90deg, transparent 0%, #0d2c5e 35%, #b8212e 65%, transparent 100%)" }}
-        aria-hidden
-      />
       <div className="max-w-4xl mx-auto px-6 lg:px-8 pt-28 md:pt-36 pb-20">
         <Link
           to="/case-studies"
@@ -74,13 +69,13 @@ const CaseStudyGokstad: React.FC = () => {
               <img
                 src="/lovable-uploads/logo-gokstad.webp"
                 alt="Gokstad Akademiet"
-                className="h-7 w-auto object-contain"
+                className="logo-ink h-7 w-auto object-contain"
               />
             </div>
             <div className="flex flex-col gap-0.5">
               <span
                 className="text-[11px] font-semibold tracking-[0.2em] uppercase"
-                style={{ color: "#b8212e" }}
+                style={{ color: brandInk("#b8212e") }}
               >
                 Sandefjord · IT &amp; design academy · Recruitment
               </span>

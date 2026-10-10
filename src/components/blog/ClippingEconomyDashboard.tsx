@@ -211,7 +211,7 @@ export default function ClippingEconomyDashboard() {
             { step: '05', title: 'Get paid per view', desc: 'Platform tracks verified views, clipper earns CPM-based payout' },
           ].map((s) => (
             <div key={s.step} className="relative">
-              <div className="text-4xl font-bold text-primary/10 mb-3 tracking-tighter">{s.step}</div>
+              <div className="text-4xl font-light text-head-light mb-3 tracking-tighter">{s.step}</div>
               <h3 className="text-sm font-semibold text-foreground mb-1.5">{s.title}</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
             </div>
@@ -291,11 +291,11 @@ export default function ClippingEconomyDashboard() {
                 views for $9,000
               </div>
               <div className="flex items-center justify-between">
-                <span className={`text-xs ${r.highlight ? 'text-background/40' : 'text-muted-foreground/60'}`}>
+                <span className={`text-xs ${r.highlight ? 'text-background/40' : 'text-muted-foreground'}`}>
                   CPM: {r.cpm}
                 </span>
                 {r.highlight && (
-                  <span className="text-xs font-bold text-primary bg-primary/20 px-2 py-0.5 rounded-full">
+                  <span className="text-xs font-bold text-background bg-background/15 px-2 py-0.5 rounded-full">
                     {r.multiplier} more reach
                   </span>
                 )}
@@ -337,7 +337,7 @@ export default function ClippingEconomyDashboard() {
                   <div className="text-xs text-background/50">budget</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-primary tracking-tight">{cs.over}</div>
+                  <div className="text-3xl font-bold text-background tracking-tight">{cs.over}</div>
                   <div className="text-xs text-background/50">over target</div>
                 </div>
               </div>
@@ -487,7 +487,7 @@ export default function ClippingEconomyDashboard() {
                     style={{ width: `${d.pct}%`, backgroundColor: colors[i] }}
                   />
                 </div>
-                <p className="text-xs text-muted-foreground/60 pl-7">{d.example}</p>
+                <p className="text-xs text-muted-foreground pl-7">{d.example}</p>
               </div>
             );
           })}
@@ -563,7 +563,7 @@ export default function ClippingEconomyDashboard() {
               <div className="text-sm text-muted-foreground">{e.period}</div>
               <div className="mt-4 pt-4 border-t border-border/30">
                 <p className="text-sm text-foreground/70">{e.note}</p>
-                <p className="text-xs text-muted-foreground/60 mt-1">{e.source}</p>
+                <p className="text-xs text-muted-foreground mt-1">{e.source}</p>
               </div>
             </div>
           ))}
@@ -637,7 +637,7 @@ export default function ClippingEconomyDashboard() {
 
       {/* ── Sources ───────────────────────────────────────────────────────── */}
       <div className="pt-8 border-t border-border/30">
-        <p className="text-xs font-semibold text-muted-foreground/60 uppercase tracking-widest mb-4">Sources & Further Reading</p>
+        <p className="text-xs font-semibold text-muted-foreground uppercase tracking-widest mb-4">Sources & Further Reading</p>
         <div className="grid md:grid-cols-2 gap-x-10 gap-y-2">
           {[
             { label: 'Variety - "How Clipping Took Over the Music Biz"', url: 'https://variety.com/2026/music/news/clipping-marketing-tool-took-over-music-industry-1236699705/' },
@@ -663,7 +663,7 @@ export default function ClippingEconomyDashboard() {
             </a>
           ))}
         </div>
-        <p className="text-xs text-muted-foreground/40 mt-4">CPM benchmarks: Meta Ads Manager 2026, Google Ads industry averages · Campaign data: Clipping.net, Whop, Vyro, Forbes, Variety</p>
+        <p className="text-xs text-muted-foreground mt-4">CPM benchmarks: Meta Ads Manager 2026, Google Ads industry averages · Campaign data: Clipping.net, Whop, Vyro, Forbes, Variety</p>
       </div>
 
     </div>

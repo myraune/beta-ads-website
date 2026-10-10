@@ -35,7 +35,7 @@ export const MetricCard: React.FC<MetricCardProps> = ({
           </p>
           <p className="text-sm text-muted-foreground">{label}</p>
           {sublabel && (
-            <p className="text-xs text-muted-foreground/70">{sublabel}</p>
+            <p className="text-xs text-muted-foreground">{sublabel}</p>
           )}
         </div>
         {icon && (

@@ -48,13 +48,13 @@ const MarketsSection: React.FC<MarketsSectionProps> = ({ marketsRef, marketsVisi
 
   return (
     <section className="relative">
-      <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="border-t border-foreground/[0.06]" />
       </div>
 
       <div
         ref={marketsRef}
-        className={`max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-12 py-20 lg:py-40 transition-all duration-1000 ease-out ${
+        className={`max-w-7xl mx-auto px-6 lg:px-12 py-24 lg:py-32 transition-all duration-1000 ease-out ${
           marketsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}
       >

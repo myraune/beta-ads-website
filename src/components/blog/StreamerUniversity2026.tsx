@@ -123,7 +123,7 @@ const VideoEmbed: React.FC = () => {
           <img src="/lovable-uploads/su-video-thumb.webp" alt="News crews at Hendrix College for Streamer University" className="absolute inset-0 w-full h-full object-cover" />
           <span className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors" />
           <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center w-16 h-16 rounded-full bg-primary shadow-xl group-hover:scale-105 transition-transform">
-            <Play className="w-6 h-6 text-white translate-x-0.5" fill="currentColor" />
+            <Play className="w-6 h-6 text-primary-foreground translate-x-0.5" fill="currentColor" />
           </span>
         </button>
       )}
@@ -176,7 +176,7 @@ const StreamerUniversity2026: React.FC = () => {
           <div className="rounded-2xl overflow-hidden ring-1 ring-border shadow-xl">
             <img src="/lovable-uploads/su-real/hendrix-campus.webp" alt="Hendrix College campus in Conway, Arkansas, the 2026 venue" className="w-full h-auto" loading="lazy" />
           </div>
-          <p className="text-[11px] text-muted-foreground/60 mt-2">The real venue: Hendrix College, Conway, Arkansas.</p>
+          <p className="text-[11px] text-muted-foreground mt-2">The real venue: Hendrix College, Conway, Arkansas.</p>
         </Reveal>
         <Reveal>
           <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">What it actually is</span>
@@ -268,7 +268,7 @@ const StreamerUniversity2026: React.FC = () => {
             <div key={d.label} className="bg-card px-6 py-7">
               <div className="text-3xl font-bold text-foreground tracking-tight">{d.value}</div>
               <div className="text-sm text-foreground/80 mt-2 leading-snug">{d.label}</div>
-              <div className="text-[11px] text-muted-foreground/70 mt-2">{d.note}</div>
+              <div className="text-[11px] text-muted-foreground mt-2">{d.note}</div>
             </div>
           ))}
         </div>
@@ -302,7 +302,7 @@ const StreamerUniversity2026: React.FC = () => {
             </Reveal>
           ))}
         </div>
-        <p className="text-xs text-muted-foreground/70 mt-6 max-w-3xl leading-relaxed">
+        <p className="text-xs text-muted-foreground mt-6 max-w-3xl leading-relaxed">
           Sources: Digiday, StreamsCharts, Hendrix College. MrBeast also hid ten briefcases holding
           $10,000 each across campus, but attended as a guest, not a sponsor. In 2025 the phone
           sponsor was T-Mobile; in 2026 that slot went to creator-owned challenger Ch@mobile.
@@ -321,7 +321,7 @@ const StreamerUniversity2026: React.FC = () => {
             more than 20,000 followers that week, a lift of over 1,000% week over week. The stated
             goal, per its VP of brand strategy, was content that could "live well beyond the event."
           </p>
-          <p className="text-xs text-muted-foreground/70">Source: Digiday, 27 July 2026.</p>
+          <p className="text-xs text-muted-foreground">Source: Digiday, 27 July 2026.</p>
         </Reveal>
         <Reveal>
           <div className="rounded-2xl border border-border bg-card p-8 grid grid-cols-2 gap-y-8 gap-x-6">
@@ -354,7 +354,7 @@ const StreamerUniversity2026: React.FC = () => {
             </Reveal>
           ))}
         </div>
-        <p className="text-xs text-muted-foreground/70 mt-5">Interviews via Digiday, 27 July 2026.</p>
+        <p className="text-xs text-muted-foreground mt-5">Interviews via Digiday, 27 July 2026.</p>
       </section>
 
       {/* ── Breakout creators ── */}
@@ -385,10 +385,10 @@ const StreamerUniversity2026: React.FC = () => {
                 <div className="h-2.5 rounded-full bg-muted overflow-hidden">
                   <div className="h-full rounded-full bg-primary/80" style={{ width: `${Math.round((b.peak / breakoutMax) * 100)}%` }} />
                 </div>
-                <p className="text-[11px] text-muted-foreground/70 mt-1.5">{b.note}</p>
+                <p className="text-[11px] text-muted-foreground mt-1.5">{b.note}</p>
               </div>
             ))}
-            <p className="text-xs text-muted-foreground/70 pt-1">Peak concurrent viewers. Source: StreamsCharts. Follower and subscription totals via Digiday, from Streamlabs partner data.</p>
+            <p className="text-xs text-muted-foreground pt-1">Peak concurrent viewers. Source: StreamsCharts. Follower and subscription totals via Digiday, from Streamlabs partner data.</p>
           </div>
         </Reveal>
       </section>
@@ -405,7 +405,7 @@ const StreamerUniversity2026: React.FC = () => {
           {lessons.map((l) => (
             <Reveal key={l.n}>
               <div className="h-full rounded-2xl border border-border bg-card p-8">
-                <div className="text-4xl font-bold text-primary/20 tracking-tighter mb-4">{l.n}</div>
+                <div className="text-4xl font-light text-head-light tracking-tighter mb-4">{l.n}</div>
                 <h3 className="text-lg font-semibold text-foreground mb-3">{l.title}</h3>
                 <p className="text-base text-muted-foreground leading-relaxed">{l.body}</p>
               </div>
@@ -465,7 +465,7 @@ const StreamerUniversity2026: React.FC = () => {
             <ul className="space-y-3">
               {["The budget: this was a six-day live production", "The guaranteed audience: Cenat brings his own", "The control: you cannot approve any of it in advance"].map((f) => (
                 <li key={f} className="flex items-start gap-2.5 text-base text-muted-foreground">
-                  <X className="w-4 h-4 text-muted-foreground/60 shrink-0 mt-1" />
+                  <X className="w-4 h-4 text-muted-foreground shrink-0 mt-1" />
                   {f}
                 </li>
               ))}
@@ -514,7 +514,7 @@ const StreamerUniversity2026: React.FC = () => {
 
       {/* ── Sources + image credits ── */}
       <section className="mt-16 pt-8 border-t border-border">
-        <div className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/70 mb-4">Sources</div>
+        <div className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground mb-4">Sources</div>
         <div className="flex flex-wrap gap-x-6 gap-y-2">
           {sources.map((s) => (
             <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors">
@@ -522,12 +522,12 @@ const StreamerUniversity2026: React.FC = () => {
             </a>
           ))}
         </div>
-        <p className="text-[11px] text-muted-foreground/60 mt-5 max-w-3xl leading-relaxed">
+        <p className="text-[11px] text-muted-foreground mt-5 max-w-3xl leading-relaxed">
           Image credits: Streamer University and Hendrix College logos, public domain. Kai Cenat photo
           by MILLION DOLLAZ WORTH OF GAME (CC BY 3.0). Hendrix College campus by Valis55 (CC BY-SA 3.0),
           both via Wikimedia Commons. News segment: FOX 16 KLRT. Brand marks are each company's own.
         </p>
-        <p className="text-[11px] text-muted-foreground/50 mt-4 max-w-3xl leading-relaxed">
+        <p className="text-[11px] text-muted-foreground mt-4 max-w-3xl leading-relaxed">
           Note on figures: viewership numbers are third-party measured (StreamsCharts, SullyGnome), not
           organiser-reported. Four figures from the organiser's own recap are excluded because
           independent data contradicts them, including a "1.6M combined" peak (measured at 1.45M) and a

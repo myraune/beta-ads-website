@@ -427,11 +427,11 @@ function ToolDeepDive({ tool, index }: { tool: Tool; index: number }) {
               {tool.historicalData}
             </div>
             <div className="flex items-center gap-2">
-              <Zap className={`w-3.5 h-3.5 shrink-0 ${tool.realtime ? 'text-primary' : 'text-muted-foreground/40'}`} />
+              <Zap className={`w-3.5 h-3.5 shrink-0 ${tool.realtime ? 'text-primary' : 'text-muted-foreground'}`} />
               {tool.realtime ? 'Sanntid' : 'Forsinkede oppdateringer'}
             </div>
             <div className="flex items-center gap-2">
-              <Users className={`w-3.5 h-3.5 shrink-0 ${tool.multiPlatform ? 'text-primary' : 'text-muted-foreground/40'}`} />
+              <Users className={`w-3.5 h-3.5 shrink-0 ${tool.multiPlatform ? 'text-primary' : 'text-muted-foreground'}`} />
               {tool.multiPlatform ? 'Multi-plattform' : 'Kun Twitch'}
             </div>
           </div>

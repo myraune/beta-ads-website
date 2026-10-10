@@ -1,4 +1,5 @@
 import React from "react";
+import { brandInk } from "@/lib/brandInk";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -116,14 +117,14 @@ const KristianiaCaseStudy: React.FC = () => {
                 <img
                   src="/lovable-uploads/logo-kristiania-mark.svg"
                   alt="Høyskolen Kristiania"
-                  className="h-8 w-8 object-contain"
-                  style={{ color: BRAND.label }}
+                  className="logo-ink h-8 w-8 object-contain"
+                  style={{ color: brandInk(BRAND.label) }}
                 />
               </div>
               <div className="flex flex-col gap-1">
                 <span
                   className="text-[11px] font-semibold tracking-[0.2em] uppercase"
-                  style={{ color: BRAND.label }}
+                  style={{ color: brandInk(BRAND.label) }}
                 >
                   Norway · Higher Ed · Two campaigns
                 </span>
@@ -165,7 +166,7 @@ const KristianiaCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <span
             className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-            style={{ color: BRAND.label }}
+            style={{ color: brandInk(BRAND.label) }}
           >
             Watch the campaign
           </span>
@@ -198,7 +199,7 @@ const KristianiaCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <span
             className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-            style={{ color: BRAND.label }}
+            style={{ color: brandInk(BRAND.label) }}
           >
             The creative
           </span>
@@ -240,7 +241,7 @@ const KristianiaCaseStudy: React.FC = () => {
             <div>
               <span
                 className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-                style={{ color: BRAND.label }}
+                style={{ color: brandInk(BRAND.label) }}
               >
                 The Challenge
               </span>
@@ -296,7 +297,7 @@ const KristianiaCaseStudy: React.FC = () => {
           >
             <span
               className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-              style={{ color: BRAND.label }}
+              style={{ color: brandInk(BRAND.label) }}
             >
               The Solution
             </span>
@@ -325,7 +326,7 @@ const KristianiaCaseStudy: React.FC = () => {
                   <div className="flex items-baseline justify-between mb-5">
                     <span
                       className="text-xs font-semibold tracking-widest uppercase"
-                      style={{ color: BRAND.label }}
+                      style={{ color: brandInk(BRAND.label) }}
                     >
                       Campaign {idx + 1}
                     </span>
@@ -423,7 +424,7 @@ const KristianiaCaseStudy: React.FC = () => {
           >
             <span
               className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-              style={{ color: BRAND.label }}
+              style={{ color: brandInk(BRAND.label) }}
             >
               Reach &amp; Demographics
             </span>
@@ -550,7 +551,7 @@ const KristianiaCaseStudy: React.FC = () => {
                     )}
                     <div
                       className="text-xs font-semibold tracking-widest uppercase mb-2"
-                      style={{ color: BRAND.label }}
+                      style={{ color: brandInk(BRAND.label) }}
                     >
                       {m.date}
                     </div>
@@ -576,7 +577,7 @@ const KristianiaCaseStudy: React.FC = () => {
             <div>
               <span
                 className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-                style={{ color: BRAND.label }}
+                style={{ color: brandInk(BRAND.label) }}
               >
                 Impact
               </span>
@@ -623,12 +624,12 @@ const KristianiaCaseStudy: React.FC = () => {
                   style={{ letterSpacing: "-0.02em" }}
                 >
                   Høyskolen{" "}
-                  <span style={{ color: BRAND.label }}>Kristiania</span>
+                  <span style={{ color: brandInk(BRAND.label) }}>Kristiania</span>
                 </span>
               </div>
               <span
                 className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-                style={{ color: BRAND.label }}
+                style={{ color: brandInk(BRAND.label) }}
               >
                 Run a Similar Campaign
               </span>

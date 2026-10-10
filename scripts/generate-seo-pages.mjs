@@ -397,6 +397,27 @@ const STATIC_PAGES = [
     locale: "en",
   },
   {
+    route: "/working-with-us",
+    title: "Working with Beta Ads: managed campaigns or self-serve for agencies | Beta Ads",
+    description:
+      "Two ways to run livestream ads with Beta Ads: we run brand and test campaigns from brief to report, or media agencies and partners launch and resell campaigns themselves, with an Adform connection. Plus company facts and delivery guarantees.",
+    locale: "en",
+  },
+  {
+    route: "/managed-campaigns",
+    title: "Managed livestream campaigns: we run it A to Z | Beta Ads",
+    description:
+      "Managed Twitch, YouTube and Kick campaigns for brands and first test campaigns. We pick the streamers, design the overlay, launch, verify every channel and report. Priced per 1,000 views, from 100,000 NOK.",
+    locale: "en",
+  },
+  {
+    route: "/self-serve",
+    title: "Self-serve livestream ads for media agencies | Beta Ads",
+    description:
+      "Your own Beta Ads login to find streamers, build and launch livestream campaigns for your clients and sell them on your terms. Connect campaigns to Adform and monitor delivery where your team already works.",
+    locale: "en",
+  },
+  {
     route: "/terms",
     title: "Terms of Service | Beta Ads",
     description: "Terms of Service for Beta Ads by Beta Agency AS. Read our terms covering service usage, intellectual property, and liability.",

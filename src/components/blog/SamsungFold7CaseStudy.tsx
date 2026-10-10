@@ -101,7 +101,7 @@ const SamsungFold7CaseStudy: React.FC = () => {
             >
               <source src="/lovable-uploads/samsung-zfold7-overlay.webm" type="video/webm" />
             </video>
-            <div className="px-4 py-3 border-t border-border">
+            <div className="px-4 py-3 border-t border-border bg-card">
               <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Ad Format</p>
               <p className="text-sm text-foreground font-medium mt-0.5">Animated Overlay - Live on Stream</p>
             </div>

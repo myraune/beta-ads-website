@@ -146,18 +146,18 @@ const WorkingWithUs: React.FC = () => {
           </p>
 
           <div className="mt-12 grid md:grid-cols-2 gap-4 md:gap-5">
-            <a href="#managed" className="group rounded-[20px] border border-border bg-card p-7 md:p-9 flex flex-col hover:border-foreground/30 transition-colors">
+            <Link to="/managed-campaigns" className="group rounded-[20px] border border-border bg-card p-7 md:p-9 flex flex-col hover:border-foreground/30 transition-colors">
               <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">For brands and test campaigns</span>
               <span className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Managed. <span className="font-light text-muted-foreground">We run it A to Z.</span></span>
               <span className="mt-3 text-[15px] text-muted-foreground max-w-md">Streamers, overlay, launch, monitoring and report. You approve and follow along.</span>
-              <span className="mt-8 text-sm font-semibold">How managed works &darr;</span>
-            </a>
-            <a href="#self-serve" className="group rounded-[8px] border border-border bg-card p-7 md:p-9 flex flex-col hover:border-foreground/30 transition-colors">
+              <span className="mt-8 text-sm font-semibold">How managed works <span aria-hidden="true">&rarr;</span></span>
+            </Link>
+            <Link to="/self-serve" className="group rounded-[8px] border border-border bg-card p-7 md:p-9 flex flex-col hover:border-foreground/30 transition-colors">
               <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">For media agencies and partners</span>
               <span className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Self-serve. <span className="font-light text-muted-foreground">Launch it, sell it.</span></span>
               <span className="mt-3 text-[15px] text-muted-foreground max-w-md">Your own login to build and launch campaigns for your clients, with an Adform connection to monitor them where you already work.</span>
-              <span className="mt-8 text-sm font-semibold">How self-serve works &darr;</span>
-            </a>
+              <span className="mt-8 text-sm font-semibold">How self-serve works <span aria-hidden="true">&rarr;</span></span>
+            </Link>
           </div>
         </header>
 
@@ -178,7 +178,7 @@ const WorkingWithUs: React.FC = () => {
               </div>
               <div className="flex flex-wrap gap-3">
                 <PrimaryBtn href={BOOKING_URL} cta="book">Plan a campaign</PrimaryBtn>
-                <Link to="/case-studies" className="inline-flex items-center h-11 px-6 rounded-full border border-border text-foreground text-sm font-semibold hover:border-foreground/40 transition-colors">See managed campaigns</Link>
+                <Link to="/managed-campaigns" className="inline-flex items-center h-11 px-6 rounded-full border border-border text-foreground text-sm font-semibold hover:border-foreground/40 transition-colors">How managed works</Link>
               </div>
             </div>
 
@@ -253,6 +253,7 @@ const WorkingWithUs: React.FC = () => {
                 </ol>
                 <div className="mt-auto pt-6 flex flex-wrap gap-3">
                   <a href={PARTNER_MAIL} data-cta="email" className="inline-flex items-center h-11 px-6 rounded-full bg-white text-[#0b0a0b] text-sm font-semibold hover:bg-white/90 transition-colors">Get partner access</a>
+                  <Link to="/self-serve" className="inline-flex items-center h-11 px-6 rounded-full border border-white/25 text-white text-sm font-semibold hover:border-white/50 transition-colors">How self-serve works</Link>
                 </div>
               </div>
             </div>

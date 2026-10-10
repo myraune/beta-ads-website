@@ -143,6 +143,26 @@
     color: hsl(var(--head-light));
     letter-spacing: -0.01em;
   }
+
+  /* Client logos shipped as white (or single-colour) marks: ink in light,
+     white in dark, so they never vanish on the theme-following canvas. */
+  .logo-ink {
+    filter: brightness(0);
+  }
+  .dark .logo-ink {
+    filter: brightness(0) invert(1);
+  }
+}
+
+/* Brand-coloured text (case-study kickers, Kick green, market accents) was tuned
+   for the old always-dark pages. brandInk() in src/lib/brandInk.ts mixes the brand
+   colour toward the current ink, so neon colours darken on the light canvas and
+   deep colours lift on the dark one, and the text stays readable in both. */
+:root {
+  --brand-ink-mix: 52%;
+}
+.dark {
+  --brand-ink-mix: 72%;
 }
 
 @layer components {

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { brandInk } from "@/lib/brandInk";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp, Mail, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -327,7 +328,7 @@ const SamsungCaseStudy: React.FC = () => {
                 <div className="flex flex-col gap-1">
                   <span
                     className="text-[11px] font-semibold tracking-[0.2em] uppercase"
-                    style={{ color: "#5B7AE5" }}
+                    style={{ color: brandInk("#5B7AE5") }}
                   >
                     Norway · Smartphone launch · 2 campaigns
                   </span>

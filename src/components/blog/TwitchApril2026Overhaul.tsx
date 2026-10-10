@@ -174,7 +174,7 @@ const TwitchApril2026Overhaul: React.FC = () => {
             <Reveal key={c.n}>
               <div className="group grid md:grid-cols-[auto_1fr_1fr] gap-5 md:gap-10 items-start rounded-2xl border border-border bg-card p-6 lg:p-8 hover:border-primary/30 transition-colors">
                 <div className="flex items-center gap-4 md:block">
-                  <div className="text-4xl font-bold text-primary/20 tracking-tighter leading-none">{c.n}</div>
+                  <div className="text-4xl font-light text-head-light tracking-tighter leading-none">{c.n}</div>
                   <div className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground md:mt-3">{c.tag}</div>
                 </div>
                 <div>
@@ -182,7 +182,7 @@ const TwitchApril2026Overhaul: React.FC = () => {
                   <p className="text-sm text-muted-foreground leading-relaxed">{c.change}</p>
                 </div>
                 <div className="md:border-l md:border-border md:pl-8">
-                  <div className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/70 mb-2">Advertiser action</div>
+                  <div className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground mb-2">Advertiser action</div>
                   <p className="text-sm text-foreground/90 leading-relaxed">{c.action}</p>
                 </div>
               </div>
@@ -204,7 +204,7 @@ const TwitchApril2026Overhaul: React.FC = () => {
             creators. The vertical feed and the lower affiliate floor are its play to
             recapture mobile-first and long-tail creators before the gap widens.
           </p>
-          <p className="text-xs text-muted-foreground/70 leading-relaxed max-w-md">
+          <p className="text-xs text-muted-foreground leading-relaxed max-w-md">
             Share of hours watched. Source: Streams Charts, 2026.
           </p>
         </Reveal>
@@ -338,7 +338,7 @@ const TwitchApril2026Overhaul: React.FC = () => {
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           <div className="rounded-2xl border border-border bg-card p-8">
-            <div className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/70 mb-4">Before</div>
+            <div className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground mb-4">Before</div>
             <div className="text-3xl font-bold text-foreground/50 mb-4">50 followers</div>
             <p className="text-sm text-muted-foreground">A single follower gate that kept the long tail out of monetization.</p>
           </div>
@@ -411,7 +411,7 @@ const TwitchApril2026Overhaul: React.FC = () => {
 
       {/* ── Sources ── */}
       <section className="mt-16 pt-8 border-t border-border">
-        <div className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/70 mb-4">Sources</div>
+        <div className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground mb-4">Sources</div>
         <div className="flex flex-wrap gap-x-6 gap-y-2">
           {sources.map((s) => (
             <a key={s.href} href={s.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors">

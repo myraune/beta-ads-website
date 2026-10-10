@@ -316,7 +316,7 @@ const TwitchAdvertisingCost: React.FC = () => {
               <p className="text-base text-muted-foreground leading-relaxed max-w-md mb-5">
                 That is how much gets streamed annually across the four Nordic languages, the inventory a campaign actually buys against. Finnish and Swedish each pass a million hours a year on their own.
               </p>
-              <p className="text-xs text-muted-foreground/70 leading-relaxed max-w-md">
+              <p className="text-xs text-muted-foreground leading-relaxed max-w-md">
                 Hours streamed on Twitch over the trailing 12 months, by broadcast language. Source: SullyGnome, snapshot July 2026. This is streamed hours (supply), not hours watched.
               </p>
             </div>
@@ -355,7 +355,7 @@ const TwitchAdvertisingCost: React.FC = () => {
               <Link key={p.brand} to={p.href} className="group bg-card backdrop-blur-sm px-6 py-7 hover:bg-muted transition-colors">
                 <div className="flex items-center justify-between mb-5 h-6">
                   <img src={p.logo} alt={p.brand} className="[filter:brightness(0)] dark:[filter:brightness(0)_invert(1)] h-5 w-auto object-contain opacity-70" />
-                  <ArrowUpRight className="w-4 h-4 text-muted-foreground/70 group-hover:text-primary transition-colors" />
+                  <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
                 </div>
                 <div className="text-3xl font-bold text-foreground tracking-tight">{p.metric}</div>
                 <div className="text-xs text-muted-foreground mt-1">{p.label}</div>
@@ -448,7 +448,7 @@ const TwitchAdvertisingCost: React.FC = () => {
               </div>
             ))}
           </div>
-          <p className="text-xs text-muted-foreground/60 leading-relaxed mt-8 max-w-3xl">
+          <p className="text-xs text-muted-foreground leading-relaxed mt-8 max-w-3xl">
             Sources: Amazon Ads product pages (Streaming TV ads, Amazon DSP) for the published minimums; Kick co-founder statements to Digiday (2023) and win.gg (2026) confirming Kick is still testing ads and not yet selling to sponsors. No public CPM rate card exists for either platform, which is why none is quoted here.
           </p>
         </div>
@@ -465,7 +465,7 @@ const TwitchAdvertisingCost: React.FC = () => {
             {bring.map((b, i) => (
               <div key={b.step} className="relative">
                 {i < bring.length - 1 && <div className="hidden md:block absolute top-4 left-full w-full h-px bg-border -translate-x-4" />}
-                <div className="text-4xl font-bold text-primary/15 mb-4 tracking-tighter">{b.step}</div>
+                <div className="text-4xl font-light text-head-light mb-4 tracking-tighter">{b.step}</div>
                 <h3 className="text-base font-semibold text-foreground mb-2">{b.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
               </div>

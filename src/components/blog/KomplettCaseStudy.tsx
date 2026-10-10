@@ -1,4 +1,5 @@
 import React from "react";
+import { brandInk } from "@/lib/brandInk";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -78,7 +79,7 @@ const KomplettCaseStudy: React.FC = () => {
               <div className="flex flex-col gap-1">
                 <span
                   className="text-[11px] font-semibold tracking-[0.2em] uppercase"
-                  style={{ color: BRAND.primary }}
+                  style={{ color: brandInk(BRAND.primary) }}
                 >
                   🇳🇴 Norway · Retail · Gaming deal
                 </span>
@@ -117,7 +118,7 @@ const KomplettCaseStudy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <span
             className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-            style={{ color: BRAND.primary }}
+            style={{ color: brandInk(BRAND.primary) }}
           >
             The creative
           </span>
@@ -174,7 +175,7 @@ const KomplettCaseStudy: React.FC = () => {
             <div>
               <span
                 className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-                style={{ color: BRAND.primary }}
+                style={{ color: brandInk(BRAND.primary) }}
               >
                 The Challenge
               </span>
@@ -228,7 +229,7 @@ const KomplettCaseStudy: React.FC = () => {
           >
             <span
               className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-              style={{ color: BRAND.primary }}
+              style={{ color: brandInk(BRAND.primary) }}
             >
               The Solution
             </span>
@@ -319,7 +320,7 @@ const KomplettCaseStudy: React.FC = () => {
           >
             <span
               className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-              style={{ color: BRAND.primary }}
+              style={{ color: brandInk(BRAND.primary) }}
             >
               Reach &amp; Demographics
             </span>
@@ -439,7 +440,7 @@ const KomplettCaseStudy: React.FC = () => {
                     )}
                     <div
                       className="text-xs font-semibold tracking-widest uppercase mb-2"
-                      style={{ color: BRAND.primary }}
+                      style={{ color: brandInk(BRAND.primary) }}
                     >
                       {m.date}
                     </div>
@@ -464,7 +465,7 @@ const KomplettCaseStudy: React.FC = () => {
             <div>
               <span
                 className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-                style={{ color: BRAND.primary }}
+                style={{ color: brandInk(BRAND.primary) }}
               >
                 Impact
               </span>
@@ -507,12 +508,12 @@ const KomplettCaseStudy: React.FC = () => {
               <img
                 src="/lovable-uploads/logo-komplett.png"
                 alt="Komplett"
-                className="h-9 w-auto object-contain opacity-90"
+                className="logo-ink h-9 w-auto object-contain opacity-90"
               />
               <div>
                 <span
                   className="text-xs font-semibold tracking-widest uppercase mb-3 block"
-                  style={{ color: BRAND.primary }}
+                  style={{ color: brandInk(BRAND.primary) }}
                 >
                   Run a Similar Campaign
                 </span>

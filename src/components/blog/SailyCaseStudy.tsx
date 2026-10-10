@@ -1,4 +1,5 @@
 import React from "react";
+import { brandInk } from "@/lib/brandInk";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -79,9 +80,10 @@ const SailyCaseStudy: React.FC = () => {
 
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-8">
+              {/* Saily's own pairing: yellow wordmark on ink, in both themes */}
               <div
-                className="flex items-center justify-center rounded-xl bg-foreground/[0.04] border border-border px-4 py-2.5 backdrop-blur-sm"
-                style={{ boxShadow: `0 0 0 1px ${BRAND.primary}33` }}
+                className="flex items-center justify-center rounded-xl border border-border px-4 py-2.5"
+                style={{ background: BRAND.ink, boxShadow: `0 0 0 1px ${BRAND.primary}33` }}
               >
                 <span
                   aria-label="Saily"
@@ -94,7 +96,7 @@ const SailyCaseStudy: React.FC = () => {
               <div className="flex flex-col gap-1">
                 <span
                   className="text-[11px] font-semibold tracking-[0.2em] uppercase"
-                  style={{ color: BRAND.primary }}
+                  style={{ color: brandInk(BRAND.primary) }}
                 >
                   🇳🇴 Norway · Travel eSIM
                 </span>
@@ -534,8 +536,8 @@ const SailyCaseStudy: React.FC = () => {
             <div className="flex items-center gap-5">
               <span
                 aria-label="Saily"
-                className="text-3xl font-bold tracking-tighter leading-none"
-                style={{ color: BRAND.ink, fontFeatureSettings: "'ss01' on, 'cv11' on" }}
+                className="text-3xl font-bold tracking-tighter leading-none text-foreground"
+                style={{ fontFeatureSettings: "'ss01' on, 'cv11' on" }}
               >
                 saily
               </span>

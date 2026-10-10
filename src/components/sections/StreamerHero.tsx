@@ -652,7 +652,7 @@ export const StreamerHero: React.FC = () => (
           </a>
         </div>
 
-        <p className="text-[11px] text-muted-foreground/50">
+        <p className="text-[11px] text-muted-foreground">
           No follower minimum · No contracts · Free to join
         </p>
       </div>

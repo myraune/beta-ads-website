@@ -1,4 +1,5 @@
 import React, { lazy, Suspense } from "react";
+import { brandInk } from "@/lib/brandInk";
 import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
@@ -57,12 +58,6 @@ const CaseStudySamsungFold7: React.FC = () => {
           }
         ]}
       />
-      {/* Samsung-blue top accent stripe */}
-      <div
-        className="h-px w-full"
-        style={{ background: `linear-gradient(90deg, transparent 0%, ${SAMSUNG_BLUE} 50%, transparent 100%)` }}
-        aria-hidden
-      />
       <div className="max-w-4xl mx-auto px-6 lg:px-8 pt-28 md:pt-36 pb-20">
         <Link
           to="/case-studies"
@@ -87,7 +82,7 @@ const CaseStudySamsungFold7: React.FC = () => {
             <div className="flex flex-col gap-0.5">
               <span
                 className="text-[11px] font-semibold tracking-[0.2em] uppercase"
-                style={{ color: SAMSUNG_BLUE }}
+                style={{ color: brandInk(SAMSUNG_BLUE) }}
               >
                 Norway · Galaxy Z Fold7 launch
               </span>

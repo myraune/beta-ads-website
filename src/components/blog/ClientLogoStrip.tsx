@@ -24,7 +24,7 @@ export const ClientLogoStrip: React.FC<{ label?: string }> = ({
   label = "Native Nordic campaigns delivered for",
 }) => (
   <section className="mt-20 lg:mt-28">
-    <p className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/70 text-center mb-8">
+    <p className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground text-center mb-8">
       {label}
     </p>
     <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 sm:gap-x-14">

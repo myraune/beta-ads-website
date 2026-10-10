@@ -1,4 +1,5 @@
 import React from "react";
+import { brandInk } from "@/lib/brandInk";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -33,20 +34,7 @@ const GloriousCaseStudy: React.FC = () => {
   return (
     <div>
       {/* ── HERO ── */}
-      <style>{`
-        @keyframes glorious-glow {
-          0%   { opacity: 0.6; transform: scale(1); }
-          100% { opacity: 1;   transform: scale(1.1); }
-        }
-      `}</style>
       <section className="relative overflow-clip">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden>
-          <div className="absolute inset-0" style={{
-            background: `radial-gradient(ellipse 80% 60% at 65% 35%, ${BRAND.glow} 0%, transparent 60%)`,
-            animation: "glorious-glow 10s ease-in-out infinite alternate",
-            willChange: "opacity, transform",
-          }} />
-        </div>
         <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-28 md:pt-36 pb-20">
           <Link to="/case-studies" className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors mb-10">
             <ArrowLeft className="w-4 h-4" /> Back to campaigns
@@ -67,7 +55,7 @@ const GloriousCaseStudy: React.FC = () => {
               <div className="flex flex-col gap-1">
                 <span
                   className="text-[11px] font-semibold tracking-[0.2em] uppercase"
-                  style={{ color: BRAND.primary }}
+                  style={{ color: brandInk(BRAND.primary) }}
                 >
                   Nordics · Gaming peripherals · Product launch
                 </span>

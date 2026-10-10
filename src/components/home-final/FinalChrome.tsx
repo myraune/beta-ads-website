@@ -111,7 +111,7 @@ export const FinalNav: React.FC = () => {
           <HomeAnchor id="tour">Product</HomeAnchor>
           <Link to="/case-studies">Customers</Link>
           <Link to="/twitch-advertising-cost">Pricing</Link>
-          <Link to="/working-with-us">Agencies</Link>
+          <Link to="/self-serve">Agencies</Link>
         </nav>
         <Link className="nav__side" to="/streamers">
           For streamers
@@ -136,7 +136,7 @@ export const FinalNav: React.FC = () => {
         </HomeAnchor>
         <Link to="/case-studies">Customers</Link>
         <Link to="/twitch-advertising-cost">Pricing</Link>
-        <Link to="/working-with-us">Agencies</Link>
+        <Link to="/self-serve">Agencies</Link>
         <Link to="/streamers">For streamers</Link>
         <div className="nav__menu-more">
           {MENU_MORE.map(([label, to]) => (
@@ -155,7 +155,7 @@ const FOOT_COLS: { h: string; links: [string, string][] }[] = [
   { h: "Platforms", links: [["Twitch", "/twitch-advertising"], ["YouTube", "/youtube-advertising"], ["Kick", "/kick-advertising"], ["Kick pricing", "/kick-advertising-cost"], ["Nordics", "/nordic-livestream-advertising"]] },
   { h: "Customers", links: [["Case studies", "/case-studies"], ["Samsung", "/case-study/samsung"], ["Surfshark", "/case-study/surfshark"], ["Komplett", "/case-study/komplett"], ["Shure", "/case-study/shure"]] },
   { h: "Nordics", links: [["Norge", "/norge"], ["Twitch agency Norway", "/twitch-agency-norway"], ["Twitch-byrå Norge", "/twitch-byra-norge"], ["Twitch annonsering pris", "/twitch-annonsering-pris"], ["Kick Norge", "/kick-annonsering"], ["Kick Sverige", "/kick-annonsering-sverige"], ["Kick Danmark", "/kick-annoncering"], ["Kick Suomi", "/kick-mainonta"]] },
-  { h: "Company", links: [["About", "/about"], ["Press", "/press"], ["Blog", "/blog"], ["Working with us", "/working-with-us"], ["Contact", "/contact"]] },
+  { h: "Company", links: [["About", "/about"], ["Press", "/press"], ["Blog", "/blog"], ["Working with us", "/working-with-us"], ["Managed campaigns", "/managed-campaigns"], ["Self-serve for agencies", "/self-serve"], ["Contact", "/contact"]] },
   { h: "For streamers", links: [["Join as a streamer", "/streamers"], ["Kick streamers", "/kick-streamer-advertising"]] },
 ];
 

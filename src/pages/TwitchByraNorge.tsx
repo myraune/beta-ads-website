@@ -397,7 +397,7 @@ const TwitchByraNorge: React.FC = () => {
                       </span>
                     )}
                   </div>
-                  <p className="text-xs text-muted-foreground/70 mb-4">
+                  <p className="text-xs text-muted-foreground mb-4">
                     {b.kildeUrl ? (
                       <a
                         href={b.kildeUrl}
@@ -452,7 +452,7 @@ const TwitchByraNorge: React.FC = () => {
             {sjekkliste.map((s, i) => (
               <div key={s.q}>
                 <div className="flex gap-4">
-                  <span className="text-2xl font-bold text-primary/20 tracking-tighter shrink-0 leading-none">
+                  <span className="text-2xl font-light text-head-light tracking-tighter shrink-0 leading-none">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
@@ -487,7 +487,7 @@ const TwitchByraNorge: React.FC = () => {
                 to={k.to}
                 className="group rounded-2xl border border-border bg-card p-6 hover:border-primary/30 transition-colors"
               >
-                <span className="text-xs text-muted-foreground/70 block mb-2">{k.bransje}</span>
+                <span className="text-xs text-muted-foreground block mb-2">{k.bransje}</span>
                 <h3 className="text-base font-semibold text-foreground mb-4">{k.navn}</h3>
                 <span className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground group-hover:text-primary transition-colors">
                   Les kampanjen
@@ -496,7 +496,7 @@ const TwitchByraNorge: React.FC = () => {
               </Link>
             ))}
           </div>
-          <p className="text-xs text-muted-foreground/60 mt-8">
+          <p className="text-xs text-muted-foreground mt-8">
             Sist oppdatert {new Date(`${SIST_OPPDATERT}T12:00:00`).toLocaleDateString("nb-NO", { day: "numeric", month: "long", year: "numeric" })}.
           </p>
         </div>
@@ -524,7 +524,7 @@ const TwitchByraNorge: React.FC = () => {
                 {i < prosess.length - 1 && (
                   <div className="hidden md:block absolute top-4 left-full w-full h-px bg-border -translate-x-4" />
                 )}
-                <div className="text-4xl font-bold text-primary/15 mb-4 tracking-tighter">{p.steg}</div>
+                <div className="text-4xl font-light text-head-light mb-4 tracking-tighter">{p.steg}</div>
                 <h3 className="text-base font-semibold text-foreground mb-2">{p.tittel}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{p.tekst}</p>
               </div>

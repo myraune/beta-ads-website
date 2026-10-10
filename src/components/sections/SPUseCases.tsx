@@ -49,7 +49,7 @@ const AdFormatShowcase: React.FC = () => {
               }`}
             >
               <span className={`text-[10px] tabular-nums font-semibold ${
-                isActive ? "text-primary-foreground/70" : "text-muted-foreground/60"
+                isActive ? "text-primary-foreground/70" : "text-muted-foreground"
               }`}>
                 {String(i + 1).padStart(2, "0")}
               </span>
@@ -96,7 +96,7 @@ const AdFormatShowcase: React.FC = () => {
         <dl className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 sm:gap-x-10 gap-y-3 lg:min-w-[480px]">
           {fmt.specs.map((s) => (
             <div key={s.label}>
-              <dt className="text-[10px] uppercase tracking-widest text-muted-foreground/70 mb-1">
+              <dt className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1">
                 {s.label}
               </dt>
               <dd className="text-[13px] font-medium text-foreground tabular-nums">

@@ -1,4 +1,5 @@
 import React from "react";
+import { brandInk } from "@/lib/brandInk";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { SEO } from "@/components/SEO";
@@ -179,22 +180,6 @@ const Norge: React.FC = () => {
       {/* ── HERO ── */}
       <section className="relative">
         <div
-          className="absolute inset-x-0 top-0 h-px z-[2]"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent 0%, hsl(var(--primary)) 50%, transparent 100%)",
-          }}
-          aria-hidden
-        />
-        <div
-          className="absolute inset-x-0 top-0 h-[500px] pointer-events-none z-0"
-          style={{
-            background:
-              "radial-gradient(ellipse 80% 70% at 30% 0%, hsl(var(--primary) / 0.08), transparent 70%)",
-          }}
-          aria-hidden
-        />
-        <div
           ref={heroRef}
           className={`relative max-w-7xl mx-auto px-6 lg:px-12 pt-32 lg:pt-44 pb-20 lg:pb-28 transition-all duration-1000 ease-out ${
             heroVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
@@ -220,7 +205,7 @@ const Norge: React.FC = () => {
               overlay-annonser på 39 000+ streamere i Streamer Explorer-databasen vår - kampanjer
               som også overlever adblock.
             </p>
-            <p className="text-lg lg:text-xl text-muted-foreground/70 leading-relaxed">
+            <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
               Det norske 18–34-segmentet ser mer Twitch per dag enn de ser
               lineær-TV. Vi er den eneste plattformen bygget for å levere den
               målgruppen native inne i selve streamen - uten ekstern video-
@@ -311,7 +296,7 @@ const Norge: React.FC = () => {
                 </div>
                 <p
                   className="text-[11px] font-semibold tracking-[0.18em] uppercase mb-2"
-                  style={{ color: c.accent }}
+                  style={{ color: brandInk(c.accent) }}
                 >
                   {c.brand}
                 </p>

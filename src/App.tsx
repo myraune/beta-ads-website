@@ -66,6 +66,8 @@ const CaseStudyKomplett = lazy(() => import("./pages/CaseStudyKomplett"));
 const CaseStudyNki = lazy(() => import("./pages/CaseStudyNki"));
 const Press = lazy(() => import("./pages/Press"));
 const WorkingWithUs = lazy(() => import("./pages/WorkingWithUs"));
+const ManagedCampaigns = lazy(() => import("./pages/ManagedCampaigns"));
+const SelfServe = lazy(() => import("./pages/SelfServe"));
 const StreamerProfile = lazy(() => import("./pages/StreamerProfile"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Privacy = lazy(() => import("./pages/Privacy"));
@@ -228,6 +230,8 @@ const App = () => {
               <Route path="/demo" element={<Demo t={t} language="en" />} />
               <Route path="/press" element={<Press />} />
               <Route path="/working-with-us" element={<WorkingWithUs />} />
+              <Route path="/managed-campaigns" element={<ManagedCampaigns />} />
+              <Route path="/self-serve" element={<SelfServe />} />
               {/* Norske streamer-profiler (én side per creator i den norske roundup-saken) */}
               <Route path="/streamere/:handle" element={<StreamerProfile />} />
               <Route path="/terms" element={<Terms />} />

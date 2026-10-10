@@ -146,7 +146,7 @@ export const StreamerMedia: React.FC<Props> = ({
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="w-12 h-12 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center ring-2 ring-white/20 group-hover:bg-primary group-hover:ring-white/40 transition-all">
+                    <span className="w-12 h-12 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center ring-2 ring-white/20 group-hover:bg-black/80 group-hover:ring-white/40 transition-all">
                       <Play className="w-5 h-5 text-white fill-current pl-0.5" />
                     </span>
                   </div>
@@ -188,7 +188,7 @@ export const StreamerMedia: React.FC<Props> = ({
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="w-12 h-12 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center ring-2 ring-white/20 group-hover:bg-primary group-hover:ring-white/40 transition-all">
+                    <span className="w-12 h-12 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center ring-2 ring-white/20 group-hover:bg-black/80 group-hover:ring-white/40 transition-all">
                       <Play className="w-5 h-5 text-white fill-current pl-0.5" />
                     </span>
                   </div>
@@ -229,7 +229,7 @@ export const StreamerMedia: React.FC<Props> = ({
                     </div>
                   )}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="w-11 h-11 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center ring-2 ring-white/20 group-hover:bg-primary group-hover:ring-white/40 transition-all">
+                    <span className="w-11 h-11 rounded-full bg-black/60 backdrop-blur-sm flex items-center justify-center ring-2 ring-white/20 group-hover:bg-black/80 group-hover:ring-white/40 transition-all">
                       <Play className="w-4.5 h-4.5 text-white fill-current pl-0.5" />
                     </span>
                   </div>

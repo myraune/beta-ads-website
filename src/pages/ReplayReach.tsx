@@ -192,7 +192,7 @@ const ReplayReach: React.FC = () => {
                   <span className="text-[11px] text-muted-foreground">{l}</span>
                 </div>
               ))}
-              <span className="ml-auto text-[10px] font-semibold tracking-widest uppercase text-muted-foreground/60">
+              <span className="ml-auto text-[10px] font-semibold tracking-widest uppercase text-muted-foreground">
                 Sample data
               </span>
             </div>
@@ -210,11 +210,11 @@ const ReplayReach: React.FC = () => {
                       style={{ width: `${b.width}%` }}
                     />
                   </div>
-                  <p className="text-[11px] text-muted-foreground/60 mt-1">{b.note}</p>
+                  <p className="text-[11px] text-muted-foreground mt-1">{b.note}</p>
                 </div>
               ))}
             </div>
-            <div className="px-5 py-3 border-t border-border text-xs text-muted-foreground/70">
+            <div className="px-5 py-3 border-t border-border text-xs text-muted-foreground">
               Read these as a range, not a headline. The stream total counts every view including
               the live audience, so live is a subset of it and the two are never added together. A
               recorded view is also a weaker signal than a live one.
@@ -240,7 +240,7 @@ const ReplayReach: React.FC = () => {
             </h2>
           </div>
           <div className="rounded-2xl border border-border bg-card overflow-hidden">
-            <div className="hidden md:grid grid-cols-[8rem_1fr_6rem_6rem_6rem] gap-x-4 px-5 py-2 border-b border-border text-[11px] font-semibold tracking-wide uppercase text-muted-foreground/70">
+            <div className="hidden md:grid grid-cols-[8rem_1fr_6rem_6rem_6rem] gap-x-4 px-5 py-2 border-b border-border text-[11px] font-semibold tracking-wide uppercase text-muted-foreground">
               <span>Channel</span>
               <span>Share of total views</span>
               <span className="text-right">Total</span>
@@ -259,7 +259,7 @@ const ReplayReach: React.FC = () => {
                   >
                     <span className="text-sm font-semibold text-foreground">
                       {c.ch}{" "}
-                      <span className="font-normal text-[11px] text-muted-foreground/60">
+                      <span className="font-normal text-[11px] text-muted-foreground">
                         {MARKET_LABEL[c.market]}
                       </span>
                     </span>
@@ -287,7 +287,7 @@ const ReplayReach: React.FC = () => {
               <span className="text-foreground tabular-nums">{fmt(totals.total)} total views</span>
               <span className="text-muted-foreground tabular-nums">{fmt(totals.live)} of them live</span>
               <span className="text-muted-foreground tabular-nums">{fmt(totals.clip)} clips</span>
-              <span className="ml-auto text-muted-foreground/60">
+              <span className="ml-auto text-muted-foreground">
                 Channels anonymised, figures illustrative
               </span>
             </div>

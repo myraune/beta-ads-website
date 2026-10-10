@@ -113,7 +113,7 @@ export const StreamerStatsCharts: React.FC<Props> = ({ creator, peers, labels })
                 </BarChart>
               </ResponsiveContainer>
             </div>
-            <p className="text-[11px] text-muted-foreground/70 mt-4">{labels.avgViewers}</p>
+            <p className="text-[11px] text-muted-foreground mt-4">{labels.avgViewers}</p>
           </div>
         )}
 
@@ -154,7 +154,7 @@ export const StreamerStatsCharts: React.FC<Props> = ({ creator, peers, labels })
                 </BarChart>
               </ResponsiveContainer>
             </div>
-            <p className="text-[11px] text-muted-foreground/70 mt-4">{labels.viewsUnit}</p>
+            <p className="text-[11px] text-muted-foreground mt-4">{labels.viewsUnit}</p>
           </div>
         )}
       </div>

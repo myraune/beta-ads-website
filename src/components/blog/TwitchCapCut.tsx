@@ -264,7 +264,7 @@ const TwitchCapCut: React.FC = () => (
               {WORKFLOW.map((w) => (
                 <li
                   key={w.before}
-                  className="text-[15px] text-muted-foreground/70 leading-relaxed"
+                  className="text-[15px] text-muted-foreground leading-relaxed"
                 >
                   {w.before}
                 </li>
@@ -348,7 +348,7 @@ const TwitchCapCut: React.FC = () => (
         {MEANS.map((m) => (
           <Reveal key={m.n}>
             <div className="border-t-2 border-primary/70 pt-5">
-              <div className="text-xs font-semibold text-muted-foreground/60 tabular-nums mb-3">
+              <div className="text-xs font-semibold text-muted-foreground tabular-nums mb-3">
                 {m.n}
               </div>
               <h3 className="text-base font-semibold text-foreground mb-2">{m.title}</h3>

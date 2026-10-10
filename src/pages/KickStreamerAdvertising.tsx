@@ -515,7 +515,7 @@ const KickStreamerAdvertising: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => 
             {t.steps.items.map((s, i) => (
               <div key={s.n} className="relative">
                 {i < t.steps.items.length - 1 && <div className="hidden md:block absolute top-4 left-full w-full h-px bg-border -translate-x-4" />}
-                <div className="text-4xl font-bold text-primary/15 mb-4 tracking-tighter">{s.n}</div>
+                <div className="text-4xl font-light text-head-light mb-4 tracking-tighter">{s.n}</div>
                 <h3 className="text-base font-semibold text-foreground mb-2">{s.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
               </div>
@@ -559,7 +559,7 @@ const KickStreamerAdvertising: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => 
           <Reveal className="grid md:grid-cols-3 gap-x-10 gap-y-10 mt-10 border-t border-border">
             {CASES.map((c) => (
               <div key={c.brand} className="pt-6">
-                <img src={c.logo} alt={c.brand} className="h-6 w-auto mb-5" loading="lazy" />
+                <img src={c.logo} alt={c.brand} className="logo-ink h-6 w-auto mb-5" loading="lazy" />
                 <div className="text-3xl font-bold tracking-tight tabular-nums text-foreground">{lang === "en" ? c.metric : c.metricLocal}</div>
                 <div className="text-sm text-muted-foreground mt-1">{c.label[lang]}</div>
                 <Link to={c.href} className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline underline-offset-4 mt-4">

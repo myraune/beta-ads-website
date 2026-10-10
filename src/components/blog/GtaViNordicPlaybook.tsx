@@ -287,7 +287,7 @@ const SourceLink: React.FC<{ id?: string }> = ({ id }) => {
       href={s.href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-0.5 text-[11px] text-muted-foreground/70 hover:text-primary transition-colors"
+      className="inline-flex items-center gap-0.5 text-[11px] text-muted-foreground hover:text-primary transition-colors"
     >
       {s.publisher}
       <ArrowUpRight className="w-2.5 h-2.5" />
@@ -689,7 +689,7 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
                   </div>
                 ))}
               </div>
-              <p className="text-[11px] text-muted-foreground/70 mt-5">
+              <p className="text-[11px] text-muted-foreground mt-5">
                 {L(t.splitShare)}
                 <SourceLink id="inven-concurrents" />
               </p>
@@ -796,7 +796,7 @@ const GtaViNordicPlaybook: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => {
                   <div className="border-t border-border pt-5 h-full flex flex-col">
                     <div className="flex items-start justify-between gap-4 mb-3">
                       <h4 className="text-base font-semibold text-foreground">{L(v.title)}</h4>
-                      <span className="text-xs font-semibold text-muted-foreground/50 tabular-nums shrink-0">
+                      <span className="text-xs font-semibold text-muted-foreground tabular-nums shrink-0">
                         {v.n}
                       </span>
                     </div>

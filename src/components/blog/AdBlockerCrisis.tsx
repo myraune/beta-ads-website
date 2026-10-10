@@ -134,7 +134,7 @@ const AdBlockerCrisis: React.FC = () => {
             formats that seize attention rather than earn it, and they have the technical fluency
             to shut them off.
           </p>
-          <p className="text-xs text-muted-foreground/70 leading-relaxed max-w-md">
+          <p className="text-xs text-muted-foreground leading-relaxed max-w-md">
             Share of internet users running ad-blockers, by segment. Sources named per row.
           </p>
         </Reveal>
@@ -149,7 +149,7 @@ const AdBlockerCrisis: React.FC = () => {
                 <div className="h-3 rounded-full bg-muted overflow-hidden">
                   <div className={`h-full rounded-full ${d.highlight ? "bg-primary" : "bg-primary/60"}`} style={{ width: `${d.pct}%` }} />
                 </div>
-                <p className="text-[11px] text-muted-foreground/70 mt-1.5">{d.note}</p>
+                <p className="text-[11px] text-muted-foreground mt-1.5">{d.note}</p>
               </div>
             ))}
           </div>
@@ -237,7 +237,7 @@ const AdBlockerCrisis: React.FC = () => {
             </Reveal>
           ))}
         </div>
-        <p className="text-xs text-muted-foreground/70 mt-5 max-w-2xl">
+        <p className="text-xs text-muted-foreground mt-5 max-w-2xl">
           Twitch Research Power Group, "ROI of Live Communities", July 2025 (n=9,960 adults 18-44
           across 10 markets), via Amazon Ads.
         </p>
@@ -341,7 +341,7 @@ const AdBlockerCrisis: React.FC = () => {
 
       {/* ── Sources ── */}
       <section className="mt-16 pt-8 border-t border-border">
-        <div className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/70 mb-4">Sources</div>
+        <div className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground mb-4">Sources</div>
         <div className="flex flex-wrap gap-x-6 gap-y-2">
           {sources.map((s) => (
             s.href.startsWith("/") ? (

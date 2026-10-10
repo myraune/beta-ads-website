@@ -70,7 +70,7 @@ const Privacy: React.FC = () => {
               <h3 className="text-base font-semibold text-foreground mt-4 mb-2">
                 2.1 Information You Provide
               </h3>
-              <ul className="list-disc list-outside pl-5 marker:text-muted-foreground/60 space-y-2">
+              <ul className="list-disc list-outside pl-5 marker:text-muted-foreground space-y-2">
                 <li>
                   Contact information: name, email address, phone number, and
                   company name when you fill out forms, request a demo, or
@@ -93,7 +93,7 @@ const Privacy: React.FC = () => {
               <h3 className="text-base font-semibold text-foreground mt-4 mb-2">
                 2.2 Information Collected Automatically
               </h3>
-              <ul className="list-disc list-outside pl-5 marker:text-muted-foreground/60 space-y-2">
+              <ul className="list-disc list-outside pl-5 marker:text-muted-foreground space-y-2">
                 <li>
                   Device and browser information: IP address, browser type,
                   operating system, device identifiers, and screen resolution.
@@ -111,7 +111,7 @@ const Privacy: React.FC = () => {
               <h3 className="text-base font-semibold text-foreground mt-4 mb-2">
                 2.3 Information from Third Parties
               </h3>
-              <ul className="list-disc list-outside pl-5 marker:text-muted-foreground/60 space-y-2">
+              <ul className="list-disc list-outside pl-5 marker:text-muted-foreground space-y-2">
                 <li>
                   Streaming platform data: publicly available data from Twitch,
                   YouTube, or Kick when matching streamers for campaigns.
@@ -132,7 +132,7 @@ const Privacy: React.FC = () => {
                 We process your personal data for the following purposes and
                 legal bases:
               </p>
-              <ul className="list-disc list-outside pl-5 marker:text-muted-foreground/60 mt-3 space-y-2">
+              <ul className="list-disc list-outside pl-5 marker:text-muted-foreground mt-3 space-y-2">
                 <li>
                   <span className="text-foreground font-medium">
                     Service delivery
@@ -181,7 +181,7 @@ const Privacy: React.FC = () => {
               <p>
                 We do not sell your personal data. We may share your data with:
               </p>
-              <ul className="list-disc list-outside pl-5 marker:text-muted-foreground/60 mt-3 space-y-2">
+              <ul className="list-disc list-outside pl-5 marker:text-muted-foreground mt-3 space-y-2">
                 <li>
                   <span className="text-foreground font-medium">
                     Service providers:
@@ -223,7 +223,7 @@ const Privacy: React.FC = () => {
                 We keep this short because there is not much to tell. The website
                 uses two measurement tools and no advertising cookies.
               </p>
-              <ul className="list-disc list-outside pl-5 marker:text-muted-foreground/60 mt-3 space-y-2">
+              <ul className="list-disc list-outside pl-5 marker:text-muted-foreground mt-3 space-y-2">
                 <li>
                   <span className="text-foreground font-medium">
                     Google Analytics 4:
@@ -305,7 +305,7 @@ const Privacy: React.FC = () => {
                 the purposes described in this policy, unless a longer retention
                 period is required by law. Specifically:
               </p>
-              <ul className="list-disc list-outside pl-5 marker:text-muted-foreground/60 mt-3 space-y-2">
+              <ul className="list-disc list-outside pl-5 marker:text-muted-foreground mt-3 space-y-2">
                 <li>
                   Account and campaign data: retained for the duration of your
                   account or business relationship, plus up to 12 months after
@@ -336,7 +336,7 @@ const Privacy: React.FC = () => {
               <p>
                 As a data subject, you have the following rights under the GDPR:
               </p>
-              <ul className="list-disc list-outside pl-5 marker:text-muted-foreground/60 mt-3 space-y-2">
+              <ul className="list-disc list-outside pl-5 marker:text-muted-foreground mt-3 space-y-2">
                 <li>
                   <span className="text-foreground font-medium">
                     Right of access:

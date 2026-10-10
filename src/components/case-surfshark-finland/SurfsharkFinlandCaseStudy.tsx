@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { brandInk } from "@/lib/brandInk";
 import { Link } from "react-router-dom";
 import { RankedBars, SplitBar, Meter, accent, accentSoft } from "./charts";
 import {
@@ -45,7 +46,7 @@ const W = "max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10";
 const SectionHead: React.FC<{ n: string; kicker: string; title: React.ReactNode; lede?: React.ReactNode }> = ({ n, kicker, title, lede }) => (
   <header className="mb-7 md:mb-8">
     <div className="flex items-baseline gap-3 text-[11px] font-semibold uppercase tracking-[0.18em] mb-3">
-      <span className="tabular-nums" style={{ color: accent }}>{n}</span>
+      <span className="tabular-nums" style={{ color: brandInk(accent) }}>{n}</span>
       <span className="text-muted-foreground">{kicker}</span>
     </div>
     <h2 className="text-[1.6rem] leading-[1.12] md:text-[2.1rem] font-bold tracking-tight text-foreground max-w-4xl">{title}</h2>
@@ -481,7 +482,7 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
           <Panel>
             <RankedBars title="Country" rows={geo.countries} scaleTo={100} labelWidth="6.5rem" />
             <div className="mt-7 flex items-baseline gap-3">
-              <span className="text-5xl font-semibold tabular-nums tracking-tight" style={{ color: accent }}>{geo.vpnProxyClicks}</span>
+              <span className="text-5xl font-semibold tabular-nums tracking-tight" style={{ color: brandInk(accent) }}>{geo.vpnProxyClicks}</span>
               <span className="text-sm text-foreground leading-snug">located clicks ({geo.vpnProxyShare}) came through a VPN or proxy</span>
             </div>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -580,7 +581,7 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
                 ["Watch the frequency.", "The most repeated complaint was seeing the poll too often. Run it less and more people will enjoy answering it, which also makes the answers better."],
               ].map(([t, b], i) => (
                 <li key={t} className="grid grid-cols-[2.5rem_minmax(0,1fr)] gap-3">
-                  <span className="text-3xl font-light leading-none tabular-nums" style={{ color: accent }}>{i + 1}</span>
+                  <span className="text-3xl font-light leading-none tabular-nums" style={{ color: brandInk(accent) }}>{i + 1}</span>
                   <div>
                     <h3 className="text-lg font-semibold text-foreground">{t}</h3>
                     <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{b}</p>

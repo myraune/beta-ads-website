@@ -217,7 +217,7 @@ const LivestreamChatEngagement: React.FC = () => {
                 >
                   {showOriginal ? "Original shown" : "English only"}
                 </button>
-                <span className="text-[10px] font-semibold tracking-widest uppercase text-muted-foreground/60">
+                <span className="text-[10px] font-semibold tracking-widest uppercase text-muted-foreground">
                   Sample data
                 </span>
               </div>
@@ -252,7 +252,7 @@ const LivestreamChatEngagement: React.FC = () => {
             <div className="px-5 pt-3 pb-4 bg-muted/20">
               {groups.map(([day, items]) => (
                 <section key={day}>
-                  <h3 className="text-[11px] font-semibold tracking-wide uppercase text-muted-foreground/70 mt-3 mb-2.5 first:mt-0">
+                  <h3 className="text-[11px] font-semibold tracking-wide uppercase text-muted-foreground mt-3 mb-2.5 first:mt-0">
                     {day}
                   </h3>
                   <div className="grid gap-3.5 [grid-template-columns:repeat(auto-fill,minmax(300px,1fr))] items-start">
@@ -269,14 +269,14 @@ const LivestreamChatEngagement: React.FC = () => {
                         )}
                         <div className="flex items-center flex-wrap gap-x-2 gap-y-1 mt-3 pt-2.5 border-t border-border text-xs">
                           <span className="font-semibold text-foreground">{m.c}</span>
-                          <span className="text-muted-foreground/60">in</span>
+                          <span className="text-muted-foreground">in</span>
                           <span className="text-muted-foreground">{MARKET_LABEL[m.market]}</span>
-                          <span className="text-muted-foreground/50 tabular-nums">{m.t}</span>
+                          <span className="text-muted-foreground tabular-nums">{m.t}</span>
                           <span
                             className={`ml-auto text-[10.5px] rounded-full px-2 py-0.5 border ${
                               m.tone === "negative"
                                 ? "border-primary/30 text-primary"
-                                : "border-border text-muted-foreground/70"
+                                : "border-border text-muted-foreground"
                             }`}
                           >
                             {TONE_LABEL[m.tone]}
@@ -288,13 +288,13 @@ const LivestreamChatEngagement: React.FC = () => {
                 </section>
               ))}
             </div>
-            <div className="px-5 py-3 border-t border-border text-xs text-muted-foreground/70">
+            <div className="px-5 py-3 border-t border-border text-xs text-muted-foreground">
               Showing {visible.length} of {CHAT_MENTIONS.length} sample messages. A live campaign
               feed keeps filling for as long as the campaign runs.
             </div>
           </div>
 
-          <p className="text-xs text-muted-foreground/70 mt-4 max-w-3xl leading-relaxed">
+          <p className="text-xs text-muted-foreground mt-4 max-w-3xl leading-relaxed">
             Messages and totals above are invented for demonstration. Handles are shortened, and no
             client, creator or campaign is identified anywhere on this page.
           </p>

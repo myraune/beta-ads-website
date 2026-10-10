@@ -42,9 +42,8 @@ interface PeekingBetaProps {
   /** Mirror him so he faces into the layout rather than off the edge. */
   mirror?: boolean;
   /**
-   * Render the soft signal-red glow behind him. It only paints in dark mode,
-   * where he is charcoal on near-black and a black drop shadow does nothing.
-   * On a light banner the drop shadow is enough and the glow reads as muddy.
+   * Deprecated and ignored: the red glow behind him was retired with the
+   * final-platform design (red is for the logo and LIVE dots only).
    */
   glow?: boolean;
   className?: string;
@@ -81,7 +80,6 @@ export const PeekingBeta: React.FC<PeekingBetaProps> = ({
   inset = 16,
   size = 24,
   mirror = false,
-  glow = false,
   className = "",
 }) => {
   // stand: bottom sits exactly on the host's top border.
@@ -106,12 +104,6 @@ export const PeekingBeta: React.FC<PeekingBetaProps> = ({
 
   return (
     <span className={wrapper} aria-hidden="true">
-      {glow && (
-        <span
-          className="hidden dark:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[220%] h-[180%] rounded-full"
-          style={{ background: "radial-gradient(closest-side, rgba(233,79,55,0.28), transparent 72%)" }}
-        />
-      )}
       <img
         src={`/lovable-uploads/beta-mascot-cut-${pose}.webp`}
         alt={ALT[pose]}

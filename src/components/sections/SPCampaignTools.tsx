@@ -41,7 +41,7 @@ const ChatPreview: React.FC = () => (
   <div className="space-y-1.5" aria-hidden>
     {CHAT_PREVIEW_ROWS.map((m, i) => (
       <div key={i} className="flex items-center gap-1.5">
-        <span className="text-[9px] font-semibold text-muted-foreground/70 w-6 shrink-0">{m.c}</span>
+        <span className="text-[9px] font-semibold text-muted-foreground w-6 shrink-0">{m.c}</span>
         <span
           className={`h-2 rounded-full ${m.tone === "negative" ? "bg-primary/70" : "bg-foreground/15"}`}
           style={{ width: `${[68, 46, 78][i]}%` }}
@@ -60,7 +60,7 @@ const ReachPreview: React.FC = () => {
     <div className="space-y-2" aria-hidden>
       <div className="h-3 rounded-full bg-primary/70 w-full" />
       <div className="h-3 rounded-full bg-foreground/15" style={{ width: `${livePct}%` }} />
-      <div className="flex justify-between text-[9px] text-muted-foreground/70">
+      <div className="flex justify-between text-[9px] text-muted-foreground">
         <span>live inside total</span>
         <span className="tabular-nums">{(total / live).toFixed(1)}x</span>
       </div>
@@ -152,7 +152,7 @@ export const SPCampaignTools: React.FC = () => {
                   what you get before you click. */}
               <div className="mt-5 rounded-xl border border-border bg-muted/30 px-4 py-3.5">
                 {t.preview}
-                <p className="text-[10px] text-muted-foreground/60 mt-3">{t.caption}</p>
+                <p className="text-[10px] text-muted-foreground mt-3">{t.caption}</p>
               </div>
 
               <span className="inline-flex items-center gap-1.5 text-sm font-medium text-foreground mt-4 group-hover:text-primary transition-colors">

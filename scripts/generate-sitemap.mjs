@@ -57,6 +57,8 @@ const STATIC_PAGES = [
   { path: "/kick-streamer-mainonta", priority: "0.9", changefreq: "monthly" },
   { path: "/press",                  priority: "0.95", changefreq: "monthly" },
   { path: "/working-with-us",        priority: "0.9",  changefreq: "monthly" },
+  { path: "/managed-campaigns",      priority: "0.9",  changefreq: "monthly" },
+  { path: "/self-serve",             priority: "0.9",  changefreq: "monthly" },
   { path: "/norge",                  priority: "0.9",  changefreq: "monthly" },
   // Secondary high-priority pages
   { path: "/youtube-advertising",    priority: "0.9",  changefreq: "monthly" },

@@ -288,9 +288,9 @@ const BlogPostView: React.FC<{ post: BlogPost; slug: string }> = ({ post, slug }
                   />
                   <span className="w-px h-3 bg-border" aria-hidden="true" />
                   <span className="inline-flex items-center gap-3">
-                    <span className="inline-flex items-center gap-1.5"><SocialIcon label="Twitch" className="w-3.5 h-3.5 text-muted-foreground/60" />Twitch</span>
-                    <span className="inline-flex items-center gap-1.5"><SocialIcon label="YouTube" className="w-3.5 h-3.5 text-muted-foreground/60" />YouTube</span>
-                    <span className="inline-flex items-center gap-1.5"><SocialIcon label="Kick" className="w-3.5 h-3.5 text-muted-foreground/60" />Kick</span>
+                    <span className="inline-flex items-center gap-1.5"><SocialIcon label="Twitch" className="w-3.5 h-3.5 text-muted-foreground" />Twitch</span>
+                    <span className="inline-flex items-center gap-1.5"><SocialIcon label="YouTube" className="w-3.5 h-3.5 text-muted-foreground" />YouTube</span>
+                    <span className="inline-flex items-center gap-1.5"><SocialIcon label="Kick" className="w-3.5 h-3.5 text-muted-foreground" />Kick</span>
                   </span>
                 </div>
               )}

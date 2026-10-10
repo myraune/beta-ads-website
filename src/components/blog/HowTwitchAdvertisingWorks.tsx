@@ -346,7 +346,7 @@ const HowTwitchAdvertisingWorks: React.FC = () => {
             </Link>
           ))}
         </div>
-        <p className="text-xs text-muted-foreground/70 mt-4 max-w-2xl leading-relaxed">
+        <p className="text-xs text-muted-foreground mt-4 max-w-2xl leading-relaxed">
           Verified CTR = platform-tracked clicks over completed views. Samsung's Galaxy S25 Ultra and
           Z Fold7 launches are shown by reach elsewhere (800,000+ live views across 71 streamer slots);
           their CTR is under review and deliberately excluded here.
@@ -366,7 +366,7 @@ const HowTwitchAdvertisingWorks: React.FC = () => {
             budget that left pre-roll increasingly moved into creator-led native formats that survive
             ad-block and report verified results.
           </p>
-          <p className="text-xs text-muted-foreground/70">Source: Awisee, Twitch CPM rates.</p>
+          <p className="text-xs text-muted-foreground">Source: Awisee, Twitch CPM rates.</p>
         </Reveal>
         <Reveal>
           <div className="rounded-2xl border border-border bg-card p-8 grid grid-cols-2 gap-6">
@@ -424,7 +424,7 @@ const HowTwitchAdvertisingWorks: React.FC = () => {
             <div className="text-sm font-semibold text-foreground mb-4">Wrong format</div>
             <ul className="space-y-3">
               {fitNo.map((f) => (
-                <li key={f} className="flex items-start gap-2.5 text-sm text-muted-foreground"><X className="w-4 h-4 text-muted-foreground/60 shrink-0 mt-0.5" />{f}</li>
+                <li key={f} className="flex items-start gap-2.5 text-sm text-muted-foreground"><X className="w-4 h-4 text-muted-foreground shrink-0 mt-0.5" />{f}</li>
               ))}
             </ul>
           </div>
@@ -434,7 +434,7 @@ const HowTwitchAdvertisingWorks: React.FC = () => {
           <div className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
             {firstTest.map((f, i) => (
               <div key={f} className="flex items-start gap-3">
-                <span className="text-sm font-bold text-primary/40 tabular-nums shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-sm font-bold text-head-light tabular-nums shrink-0">{String(i + 1).padStart(2, "0")}</span>
                 <span className="text-sm text-foreground/90 leading-relaxed">{f}</span>
               </div>
             ))}
@@ -482,7 +482,7 @@ const HowTwitchAdvertisingWorks: React.FC = () => {
 
       {/* ── Sources ── */}
       <section className="mt-16 pt-8 border-t border-border">
-        <div className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/70 mb-4">Sources</div>
+        <div className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground mb-4">Sources</div>
         <div className="flex flex-wrap gap-x-6 gap-y-2">
           {sources.map((s) => (
             s.href.startsWith("/") ? (

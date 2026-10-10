@@ -158,7 +158,6 @@ const TwitchAdvertising: React.FC = () => {
                 />
               </div>
               <p className="text-[10px] text-muted-foreground mt-2 text-right">Real Twitch stream - overlay ad visible bottom-left</p>
-              <div className="absolute -inset-4 -z-10 rounded-2xl opacity-10 blur-2xl" style={{ background: "radial-gradient(ellipse at center, #9146ff, transparent 70%)" }} />
             </div>
           </div>
         </div>
@@ -376,7 +375,7 @@ const TwitchAdvertising: React.FC = () => {
             ].map((s, i) => (
               <div key={s.step} className="relative">
                 {i < 3 && <div className="hidden md:block absolute top-4 left-full w-full h-px bg-border -translate-x-4" />}
-                <div className="text-4xl font-bold text-primary/15 mb-4 tracking-tighter">{s.step}</div>
+                <div className="text-4xl font-light text-head-light mb-4 tracking-tighter">{s.step}</div>
                 <h3 className="text-base font-semibold text-foreground mb-2">{s.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
               </div>
