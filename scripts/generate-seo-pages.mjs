@@ -53,9 +53,9 @@ const OG_LOCALES = {
 const STATIC_PAGES = [
   {
     route: "/",
-    title: "Beta Ads | Native Twitch & Livestream Advertising",
+    title: "Beta Ads | The platform for livestream ads",
     description:
-      "Native advertising platform for Twitch, YouTube and Kick livestreams in the Nordics. Overlay ads that bypass adblock and deliver 3-5x higher engagement.",
+      "Find streamers, launch animated brand overlays and read the report in one platform for Twitch, YouTube and Kick. Pay per 1,000 views that played.",
     locale: "en",
     alternates: [
       { hreflang: "en", href: "/" },

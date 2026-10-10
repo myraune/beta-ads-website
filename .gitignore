@@ -25,3 +25,4 @@ dist-ssr
 out_@*.html
 *\ 2.mjs
 OVERNIGHT-REVIEW-NOTES.md
+.shots/

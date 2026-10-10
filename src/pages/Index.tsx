@@ -1,21 +1,16 @@
 import React from "react";
 import { SEO } from "@/components/SEO";
-// Homepage v2: concept 05 "One screen" (hero + real booking calendar), concept 02
-// planner, then 05's appendix for skeptics. The old SP* sections are kept as files.
-import { HomeHero } from "@/components/home/HomeHero";
-import { HomePlanner } from "@/components/home/HomePlanner";
-import { HomeProof } from "@/components/home/HomeProof";
-import "@/components/home/home.css";
-import { SPFooter } from "@/components/sections/SPFooter";
-// SEO fix: FAQ section added so FAQPage JSON-LD schema matches visible page content
-import { HomepageFAQ, homepageFaqs } from "@/components/sections/HomepageFAQ";
+// Homepage "31 Final / Platform" (approved static design, ported 1:1 in
+// src/components/home-final). It renders its own nav and footer; Layout hides the
+// site-wide ones on "/". The v2 home/* and SP* sections are kept as files.
+import { HomeFinal, finalFaqs } from "@/components/home-final/HomeFinal";
 
 const Index: React.FC = () => {
   return (
     <>
       <SEO
-        title="Beta Ads | Native Twitch & Livestream Advertising"
-        description="Native advertising platform for Twitch, YouTube and Kick livestreams in the Nordics. Custom overlay ads inside the stream that ad blockers can't remove."
+        title="Beta Ads | The platform for livestream ads"
+        description="Find streamers, launch animated brand overlays and read the report in one platform for Twitch, YouTube and Kick. Pay per 1,000 views that played."
         canonical="/"
         locale="en"
         alternates={[
@@ -24,17 +19,6 @@ const Index: React.FC = () => {
           { hreflang: "x-default", href: "/" },
         ]}
         jsonLd={[
-          {
-            "@context": "https://schema.org",
-            "@type": "VideoObject",
-            name: "Beta Ads in 60 seconds",
-            description: "How Beta Ads puts brands inside livestreams: find streamers, build a campaign, go live across dozens of streams and measure every view, click and chat mention in one dashboard.",
-            thumbnailUrl: "https://beta-ads.no/videos/beta-ads-film-poster.webp",
-            contentUrl: "https://beta-ads.no/videos/beta-ads-film.mp4",
-            uploadDate: "2026-09-29",
-            duration: "PT1M7S",
-            publisher: { "@id": "https://beta-ads.no/#organization" },
-          },
           {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
@@ -97,20 +81,11 @@ const Index: React.FC = () => {
           {
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: homepageFaqs.map((f) => ({ "@type": "Question", name: f.question, acceptedAnswer: { "@type": "Answer", text: f.answer } })),
+            mainEntity: finalFaqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
           },
         ]}
       />
-      {/* Accessibility fix: Layout.tsx already provides <main> - nested <main> is invalid HTML (WCAG 1.3.6) */}
-      <div className="min-h-screen bh-root">
-        <HomeHero />
-        <HomePlanner />
-        <HomeProof />
-        <div className="bh-tail">
-          <HomepageFAQ />
-          <SPFooter />
-        </div>
-      </div>
+      <HomeFinal />
     </>
   );
 };

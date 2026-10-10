@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Navbar } from "./Navbar";
 import { AnimatedBackground } from "./AnimatedBackground";
 import { CursorGlow } from "./CursorGlow";
@@ -15,6 +15,23 @@ export const Layout: React.FC = () => {
   }, []);
 
   useKonamiCode(activateParty);
+
+  // The homepage ("/", src/components/home-final) brings its own nav, <main> and
+  // footer from the approved design, so the site-wide chrome stays off there.
+  const { pathname } = useLocation();
+  if (pathname === "/") {
+    return (
+      <>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[300] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-background focus:text-foreground focus:border focus:border-border focus:shadow-lg focus:text-sm focus:font-medium"
+        >
+          Skip to main content
+        </a>
+        <Outlet />
+      </>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background relative" style={{ overflowX: 'clip' }}>

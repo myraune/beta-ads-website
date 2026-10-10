@@ -14,7 +14,7 @@ import { ArrowRight, X } from "lucide-react";
  * both with the page path, so it can be judged against book_demo_click.
  */
 
-const HIDE_ON = [/^\/demo/, /^\/streamers?/, /^\/streamere/, /^\/surfsharklive/, /^\/privacy/, /^\/terms/];
+const HIDE_ON = [/^\/$/, /^\/demo/, /^\/streamers?/, /^\/streamere/, /^\/surfsharklive/, /^\/privacy/, /^\/terms/];
 
 const LABEL: Record<string, string> = {
   nb: "Book en demo",
