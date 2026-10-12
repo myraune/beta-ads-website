@@ -101,7 +101,7 @@ const ManagedCampaigns: React.FC = () => {
           <div className="grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-16 items-end">
             <div>
               <h1 className="text-[2.6rem] leading-[1.04] sm:text-6xl lg:text-[4.4rem] font-bold tracking-[-0.03em] max-w-4xl m-0">
-                We run it A&nbsp;to&nbsp;Z.<br className="hidden sm:block" /> <span className="hl">You approve and follow along.</span>
+                We run it A&nbsp;to&nbsp;Z.<br className="hidden sm:block" /> <span className="hl">You approve and follow&nbsp;along.</span>
               </h1>
               <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
                 Streamers, overlay, launch, monitoring and report. You give us the brief and the
@@ -175,7 +175,7 @@ const ManagedCampaigns: React.FC = () => {
           <div className={`${W} grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-16 items-center`}>
             <figure className="m-0">
               <div className="relative rounded-[14px] overflow-hidden bg-[#0b0a0b] aspect-video">
-                <img src="/home/komplett-stream.webp" alt="A Komplett overlay running in the corner of a live Twitch stream" className="block w-full h-full object-cover" loading="lazy" width={960} height={540} />
+                <img src="/home/komplett-stream.webp" alt="A Komplett overlay running in the corner of a live Twitch stream" className="block w-full h-full object-cover scale-[1.13]" loading="lazy" width={960} height={540} />
               </div>
               <figcaption className="mt-3 text-xs text-muted-foreground">Komplett overlay and the !komplett chat command on a live stream. Real campaign capture.</figcaption>
             </figure>
