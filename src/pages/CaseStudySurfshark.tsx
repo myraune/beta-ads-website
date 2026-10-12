@@ -21,7 +21,7 @@ const CaseStudySurfshark: React.FC = () => {
             "description":
               "Surfshark used Beta's Rich Media Overlays across 26 Norwegian Twitch streamers, delivering 91,006 completed views and 37,713 unique viewers reached.",
             "url": "https://beta-ads.no/case-study/surfshark",
-            "image": "https://beta-ads.no/lovable-uploads/og-social-preview.png",
+            "image": "https://beta-ads.no/og/og-home.jpg",
             "datePublished": "2025-03-01",
             "dateModified": "2026-05-11",
             "author": {

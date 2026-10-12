@@ -52,7 +52,7 @@ const OG_LOCALES: Record<PageLocale, string> = {
 };
 
 const SITE_URL = "https://beta-ads.no";
-const DEFAULT_OG_IMAGE = `${SITE_URL}/lovable-uploads/og-social-preview.png`;
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og/og-home.jpg`;
 const SITE_NAME = "Beta Ads";
 
 const toAbsolute = (href: string): string =>
@@ -66,7 +66,7 @@ export const SEO: React.FC<SEOProps> = ({
   canonical,
   ogType = "website",
   ogImage,
-  ogImageAlt = "Beta Ads - Native Twitch Advertising Platform for the Nordics",
+  ogImageAlt = "The platform for livestream ads: the Beta Ads campaign view with a Samsung overlay verified on a live Twitch stream",
   ogImageWidth = 1200,
   ogImageHeight = 630,
   noindex = false,

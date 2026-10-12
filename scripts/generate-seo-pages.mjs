@@ -456,7 +456,7 @@ const CASE_STUDIES = [
       "Surfshark on Norwegian Twitch: 91,006 completed views, 707h on-screen and 37,713 unique viewers across 26 streamers. A reach-led VPN awareness run, zero adblock impact.",
     locale: "en",
     datePublished: "2025-03-01",
-    image: "/lovable-uploads/og-social-preview.png",
+    image: "/og/og-home.jpg",
   },
   {
     route: "/case-study/saily",
@@ -465,7 +465,7 @@ const CASE_STUDIES = [
       "Saily on Norwegian Twitch: 102,794 completed views, 518 verified clicks, 0.50% CTR across 22 streamers. 53,229 unique viewers reached in peak travel season.",
     locale: "en",
     datePublished: "2025-11-01",
-    image: "/lovable-uploads/og-social-preview.png",
+    image: "/og/og-home.jpg",
   },
   {
     route: "/case-study/shure",
@@ -485,7 +485,7 @@ const CASE_STUDIES = [
       "How Glorious used rich media overlays to promote the O3 mouse across 25 Nordic Twitch streamers, reaching 137K+ views in Finland, Norway, and Sweden.",
     locale: "en",
     datePublished: "2025-04-01",
-    image: "/lovable-uploads/og-social-preview.png",
+    image: "/og/og-home.jpg",
   },
   {
     route: "/case-study/gokstad",
@@ -494,7 +494,7 @@ const CASE_STUDIES = [
       "How Gokstad Akademiet recruited IT students through native Twitch overlays with 22 creators, 100K+ views, and 1.22% CTR across 49 categories.",
     locale: "en",
     datePublished: "2025-06-01",
-    image: "/lovable-uploads/og-social-preview.png",
+    image: "/og/og-home.jpg",
   },
   {
     route: "/case-study/komplett",
@@ -514,7 +514,7 @@ const CASE_STUDIES = [
       "Høyskolen Kristiania on Twitch: two parallel campaigns, ~600K display views, ~6,000 verified clicks across 31 Norwegian streamers over 8 weeks.",
     locale: "en",
     datePublished: "2025-09-01",
-    image: "/lovable-uploads/og-social-preview.png",
+    image: "/og/og-home.jpg",
   },
   {
     route: "/case-study/nki",
