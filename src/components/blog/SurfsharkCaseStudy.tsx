@@ -10,7 +10,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
  * (`surfshark-vpn-report-general.pdf`) covering a run across Norwegian
  * Twitch streamers in spring 2025. Every figure below matches that report:
  * 91,006 completed views, 560 verified clicks (0.62% verified CTR),
- * 4,301 unverified clicks (4.73%), 486 unique clicks (1.29%), 26 streamers,
+ * 486 unique clicks (1.29%), 26 streamers,
  * 37,713 unique viewers, 38 categories, 707h 49m artwork watch time,
  * best day 2025-06-04 (511 views, 8 clicks, 1.57% CTR).
  * This was a reach/awareness buy - the hero leads with reach, not CTR.
@@ -31,7 +31,7 @@ const stats = [
 
 const results = [
   { value: "38", label: "Categories" },
-  { value: "4.73%", label: "Unverified CTR" },
+  { value: "0.62%", label: "Verified CTR" },
   { value: "1.29%", label: "Unique CTR" },
   { value: "560", label: "Verified clicks" },
 ];
@@ -258,8 +258,8 @@ const SurfsharkCaseStudy: React.FC = () => {
             <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-12">
               Beta placed a Norwegian-localised overlay across 26 Nordic Twitch streamers,
               rotating the creative into stream layouts whenever the streamer went live.
-              The chat-pinned deep link drew 4,301 unverified clicks (4.73%) and 486 unique
-              clicks (1.29% unique CTR); 560 of those cleared full verification (0.62%).
+              The chat-pinned deep link drew 486 unique clicks (1.29% unique CTR), and 560
+              clicks cleared full verification (0.62%).
             </p>
 
             {/* Top 5 streamers breakdown */}
@@ -516,8 +516,8 @@ const SurfsharkCaseStudy: React.FC = () => {
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
                 The campaign delivered 91,006 completed views across 26 creators. The
-                chat-pinned CTA drew 4,301 unverified clicks (4.73%) and 486 unique clicks
-                (1.29%); 560 cleared full verification for a 0.62% verified CTR. As a
+                chat-pinned CTA drew 486 unique clicks (1.29%), and 560 cleared full
+                verification for a 0.62% verified CTR. As a
                 reach and awareness buy, the story here is coverage, not click rate.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">

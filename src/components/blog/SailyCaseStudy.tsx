@@ -42,7 +42,7 @@ const results = [
   { value: "22", label: "Streamers" },
   { value: "27", label: "Categories" },
   { value: "53,229", label: "Unique viewers" },
-  { value: "2.95%", label: "Unverified CTR" },
+  { value: "4 weeks", label: "Campaign length" },
 ];
 
 const regions = [
@@ -504,13 +504,13 @@ const SailyCaseStudy: React.FC = () => {
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
                 The campaign delivered 102,794 completed views with 685 hours of on-screen
                 presence over four weeks. 518 verified clicks through the chat-pinned CTA
-                (3,033 unverified) put the product in front of travellers right as they
-                were planning June-July trips.
+                put the product in front of travellers right as they were planning
+                June-July trips.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
-                The verified 0.50% CTR reflects a broad-funnel travel play - but the
-                unverified 2.95% and the category distribution matter more: Saily showed up
-                where travel intent was already active.
+                The verified 0.50% CTR reflects a broad-funnel travel play, and the
+                category distribution matters more: Saily showed up where travel intent
+                was already active.
               </p>
             </div>
             <div>

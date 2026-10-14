@@ -110,7 +110,7 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
             </div>
             <h1 className="text-[2.4rem] leading-[1.03] sm:text-5xl xl:text-[4.2rem] font-bold tracking-[-0.03em] text-foreground">
               Bought 100,000 views.{" "}
-              <Light>Got close to a million.</Light>
+              Delivered 949,957.
             </h1>
             <p className="mt-6 max-w-xl text-base md:text-lg leading-relaxed text-muted-foreground">
               Surfshark VPN ran for a month on Finnish Twitch with a twist on the usual overlay: every ad moment
@@ -126,7 +126,7 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
                 width={1280}
                 height={720}
                 className="w-full h-full object-cover"
-                fetchPriority="high"
+                {...{ fetchpriority: "high" }}
               />
             </div>
             <figcaption className="mt-2.5 text-xs text-muted-foreground">

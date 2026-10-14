@@ -7,7 +7,7 @@ const CaseStudyGlorious: React.FC = () => {
     <>
       <SEO
         title="Glorious Gaming Case Study | Beta Ads"
-        description="How Glorious used rich media overlays to promote the O3 mouse across 25 Nordic Twitch streamers, reaching 137K+ views in Finland, Norway, and Sweden."
+        description="How Glorious used rich media overlays to promote the V3 mouse across 25 Nordic Twitch streamers, reaching 137K+ views in Finland, Norway, and Sweden."
         canonical="/case-study/glorious"
         ogType="article"
         articlePublishedTime="2025-04-01"
@@ -18,7 +18,7 @@ const CaseStudyGlorious: React.FC = () => {
             "@type": "Article",
             "@id": "https://beta-ads.no/case-study/glorious#article",
             "headline": "Glorious x Beta Ads: Nordic Gaming Community Campaign",
-            "description": "How Glorious used rich media overlays to promote the O3 mouse across 25 Nordic Twitch streamers, reaching 137K+ views.",
+            "description": "How Glorious used rich media overlays to promote the V3 mouse across 25 Nordic Twitch streamers, reaching 137K+ views.",
             "url": "https://beta-ads.no/case-study/glorious",
             "image": "https://beta-ads.no/og/og-home.jpg",
             "datePublished": "2025-04-01",

@@ -67,7 +67,7 @@ const STATIC_PAGES = [
     route: "/norge",
     title: "Twitch-annonsering Norge | Beta Ads",
     description:
-      "Twitch-annonsering for norske merkevarer. Samsung, Shure, Komplett og NKI har kjørt kampanjer via Beta Ads på 39 000+ norske streamere. Book en samtale.",
+      "Twitch-annonsering for norske merkevarer. Samsung, Shure, Komplett og NKI har kjørt kampanjer via Beta Ads, med streamere plukket fra 39 000+ i Streamer Explorer. Book en samtale.",
     locale: "no",
     alternates: [
       { hreflang: "no", href: "/norge" },
@@ -79,7 +79,7 @@ const STATIC_PAGES = [
     route: "/streamers",
     title: "Earn from Your Stream | Beta Ads Streamer Program",
     description:
-      "Get real brand deals on Twitch, YouTube & Kick. Accept offers you like, skip the rest. No minimum followers, no contracts. Join 40+ Nordic streamers.",
+      "Get real brand deals on Twitch, YouTube & Kick. Accept offers you like, skip the rest. No minimum followers, no contracts. Join 39,000+ streamers in Streamer Explorer.",
     locale: "en",
   },
   {
@@ -100,14 +100,14 @@ const STATIC_PAGES = [
     route: "/demo",
     title: "Book a Demo | Beta Ads Livestream Advertising",
     description:
-      "See exactly how native overlay ads work on Twitch, YouTube and Kick. Book a 20-minute demo with our Nordic advertising team - free, no commitment.",
+      "See exactly how native overlay ads work on Twitch, YouTube and Kick. Book a 30-minute demo with our Nordic advertising team - free, no commitment.",
     locale: "en",
   },
   {
     route: "/twitch-advertising",
     title: "Twitch Advertising in the Nordics | Beta Ads",
     description:
-      "Native overlay ads on Twitch that bypass ad blockers and reach Gen Z. 39,000+ streamers in our Streamer Explorer database, 3-5x higher engagement, real-time analytics.",
+      "Native overlay ads on Twitch that bypass ad blockers and reach Gen Z. 39,000+ streamers in our Streamer Explorer database, real-time analytics.",
     locale: "en",
   },
   {
@@ -441,7 +441,7 @@ const CASE_STUDIES = [
     route: "/case-study/samsung",
     title: "Samsung x Beta Ads Case Study | Beta Ads",
     description:
-      "Samsung Galaxy S25 Ultra and Z Fold7 on Norwegian Twitch: 800K+ live views, 1.35M+ with VOD, 2.93% CTR, 71 streamer slots, zero adblock impact.",
+      "Samsung Galaxy S25 Ultra and Z Fold7 on Norwegian Twitch: 800,185 completed live views, 1.35M+ with VOD, 71 streamer slots, zero adblock impact.",
     locale: "en",
     datePublished: "2025-12-01",
     image: "/lovable-uploads/samsung-fold7-banner.jpg",
@@ -452,7 +452,7 @@ const CASE_STUDIES = [
     route: "/case-study/samsung-fold7",
     title: "Samsung Galaxy Z Fold7 Case Study | Beta Ads",
     description:
-      "Samsung Galaxy Z Fold7 on Norwegian Twitch: 300,054 live views, 3.70% CTR in Week 1 across 28 Norwegian streamers. Zero adblock impact.",
+      "Samsung Galaxy Z Fold7 on Norwegian Twitch: 300,054 completed live views and 558,257+ VOD views across 28 Norwegian streamers. Zero adblock impact.",
     locale: "en",
     datePublished: "2026-01-01",
     image: "/lovable-uploads/samsung-zfold7-banner.png",
@@ -503,7 +503,7 @@ const CASE_STUDIES = [
     route: "/case-study/glorious",
     title: "Glorious Gaming Case Study | Beta Ads",
     description:
-      "How Glorious used rich media overlays to promote the O3 mouse across 25 Nordic Twitch streamers, reaching 137K+ views in Finland, Norway, and Sweden.",
+      "How Glorious used rich media overlays to promote the V3 mouse across 25 Nordic Twitch streamers, reaching 137K+ views in Finland, Norway, and Sweden.",
     locale: "en",
     datePublished: "2025-04-01",
     image: "/og/og-home.jpg",

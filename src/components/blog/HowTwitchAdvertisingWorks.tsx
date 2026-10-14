@@ -19,7 +19,7 @@ import ClientLogoStrip from "@/components/blog/ClientLogoStrip";
  *   ($1.96B 2023 -> $1.8B 2024): Awisee.
  * CUT vs the old markdown: the fabricated "61% of blockers are 18-34", the
  * wrong "18-24 above 55%", and the unsourced "Twitch CPM fell 30-50%".
- * Disputed campaign CTRs (Samsung 2.93%, Kristiania 1.53%) are NOT presented
+ * Disputed campaign CTRs (Samsung, Kristiania) are NOT presented
  * as verified; Samsung appears by reach only.
  */
 
@@ -70,7 +70,7 @@ const adblock = [
 ];
 
 // Verified Beta Ads campaign CTR - solid numbers only (matches live case
-// studies). The disputed Samsung 2.93% / Kristiania 1.53% are excluded.
+// studies). The disputed Samsung and Kristiania CTRs are excluded.
 const campaigns = [
   { brand: "Shure MV6", logo: "/lovable-uploads/logo-shure.png", cat: "Audio launch", streamers: "2", ctr: 1.31, ctrLabel: "1.31%", peak: "9.12% peak", href: "/case-study/shure" },
   { brand: "Komplett", logo: "/lovable-uploads/logo-komplett.png", cat: "Retail", streamers: "34", ctr: 1.17, ctrLabel: "1.17%", peak: "4.48% peak", href: "/case-study/komplett" },

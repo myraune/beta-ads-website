@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
-import { BuildPanel, LivePanel, ReportPanel } from "@/components/home-final/panels";
 import "@/components/home-final/home-final.css";
 
 /* Working with Beta Ads: the two ways to buy, then the due-diligence facts.
@@ -146,16 +145,18 @@ const WorkingWithUs: React.FC = () => {
           </p>
 
           <div className="mt-12 grid md:grid-cols-2 gap-4 md:gap-5">
-            <Link to="/managed-campaigns" className="group rounded-[20px] border border-border bg-card p-7 md:p-9 flex flex-col hover:border-foreground/30 transition-colors">
+            <Link to="/managed-campaigns" className="group rounded-[18px] border border-border bg-card p-7 md:p-9 flex flex-col hover:border-foreground/30 transition-colors">
               <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">For brands and test campaigns</span>
-              <span className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Managed. <span className="font-light text-muted-foreground">We run it A to Z.</span></span>
+              <span className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Managed: we run it for you.</span>
               <span className="mt-3 text-[15px] text-muted-foreground max-w-md">Streamers, overlay, launch, monitoring and report. You approve and follow along.</span>
+              <span className="mt-6 text-sm text-foreground"><b className="font-semibold">Pick this if</b> livestream is new to you, it's a first test, or you want one contact who handles everything.</span>
               <span className="mt-8 text-sm font-semibold">How managed works <span aria-hidden="true">&rarr;</span></span>
             </Link>
-            <Link to="/self-serve" className="group rounded-[8px] border border-border bg-card p-7 md:p-9 flex flex-col hover:border-foreground/30 transition-colors">
+            <Link to="/self-serve" className="group rounded-[18px] border border-border bg-card p-7 md:p-9 flex flex-col hover:border-foreground/30 transition-colors">
               <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">For media agencies and partners</span>
-              <span className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Self-serve. <span className="font-light text-muted-foreground">Launch it, sell it.</span></span>
-              <span className="mt-3 text-[15px] text-muted-foreground max-w-md">Your own login to build and launch campaigns for your clients, with an Adform connection to monitor them where you already work.</span>
+              <span className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Self-serve: your own login.</span>
+              <span className="mt-3 text-[15px] text-muted-foreground max-w-md">Build and launch campaigns for your clients yourself, with an Adform connection to monitor them where you already work.</span>
+              <span className="mt-6 text-sm text-foreground"><b className="font-semibold">Pick this if</b> you're an agency running several clients and want livestream inside your own media plans.</span>
               <span className="mt-8 text-sm font-semibold">How self-serve works <span aria-hidden="true">&rarr;</span></span>
             </Link>
           </div>
@@ -180,10 +181,6 @@ const WorkingWithUs: React.FC = () => {
                 <PrimaryBtn href={BOOKING_URL} cta="book">Plan a campaign</PrimaryBtn>
                 <Link to="/managed-campaigns" className="inline-flex items-center h-11 px-6 rounded-full border border-border text-foreground text-sm font-semibold hover:border-foreground/40 transition-colors">How managed works</Link>
               </div>
-            </div>
-
-            <div className="bf wwu-panel mt-10 md:mt-12" style={{ background: "transparent" }}>
-              <LivePanel reveal={false} />
             </div>
 
             <ol className="mt-10 md:mt-12 m-0 p-0 list-none grid sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-2">
@@ -218,10 +215,6 @@ const WorkingWithUs: React.FC = () => {
               </p>
             </div>
 
-            <div className="bf wwu-panel mt-10 md:mt-12" style={{ background: "transparent" }}>
-              <BuildPanel reveal={false} />
-            </div>
-
             <div className="mt-10 md:mt-12 grid lg:grid-cols-[1.15fr_0.85fr] gap-6 items-stretch">
               <div className="grid sm:grid-cols-2 gap-x-10 gap-y-8 content-start">
                 {selfServe.map((f) => (
@@ -252,7 +245,7 @@ const WorkingWithUs: React.FC = () => {
                   ))}
                 </ol>
                 <div className="mt-auto pt-6 flex flex-wrap gap-3">
-                  <a href={PARTNER_MAIL} data-cta="email" className="inline-flex items-center h-11 px-6 rounded-full bg-white text-[#0b0a0b] text-sm font-semibold hover:bg-white/90 transition-colors">Get partner access</a>
+                  <a href={PARTNER_MAIL} data-cta="email" className="inline-flex items-center h-11 px-6 rounded-full bg-white text-[#0b0a0b] text-sm font-semibold hover:bg-white/90 transition-colors">Request a login</a>
                   <Link to="/self-serve" className="inline-flex items-center h-11 px-6 rounded-full border border-white/25 text-white text-sm font-semibold hover:border-white/50 transition-colors">How self-serve works</Link>
                 </div>
               </div>
@@ -313,12 +306,6 @@ const WorkingWithUs: React.FC = () => {
                 ))}
               </div>
             </div>
-          </div>
-          <div className={W}>
-            <div className="bf wwu-panel mt-12" style={{ background: "transparent" }}>
-              <ReportPanel reveal={false} />
-            </div>
-            <p className="mt-3 text-xs text-muted-foreground">The end report: setup verification, chat tracking, replay reach and a PDF you can forward. Example UI.</p>
           </div>
         </section>
 
@@ -391,7 +378,7 @@ const WorkingWithUs: React.FC = () => {
                 <div className={kicker}>Agencies and partners</div>
                 <p className="mt-3 text-2xl md:text-3xl font-bold tracking-tight m-0">Get your own <span className="hl">platform login.</span></p>
                 <p className="mt-3 mb-7 text-muted-foreground">Tell us about your agency and clients, and we set up access and the Adform connection.</p>
-                <GhostBtn href={PARTNER_MAIL} cta="email">Get partner access</GhostBtn>
+                <GhostBtn href={PARTNER_MAIL} cta="email">Request a login</GhostBtn>
               </div>
             </div>
           </div>

@@ -107,7 +107,7 @@ const SelfServe: React.FC = () => {
               </p>
             </div>
             <div className="flex flex-wrap gap-3 lg:pb-2">
-              <PrimaryBtn href={PARTNER_MAIL} cta="email">Get partner access</PrimaryBtn>
+              <PrimaryBtn href={PARTNER_MAIL} cta="email">Request a login</PrimaryBtn>
               <GhostBtn href={BOOKING_URL} cta="book">Book a call</GhostBtn>
             </div>
           </div>
@@ -266,7 +266,7 @@ const SelfServe: React.FC = () => {
                 <p className="mt-4 mb-0 text-white/65 max-w-xl">Tell us about your agency and clients, and we set up access and the Adform connection.</p>
               </div>
               <div className="flex flex-wrap gap-3">
-                <a href={PARTNER_MAIL} data-cta="email" className="inline-flex items-center h-11 px-6 rounded-full bg-white text-[#0b0a0b] text-sm font-semibold hover:bg-white/90 transition-colors">Get partner access</a>
+                <a href={PARTNER_MAIL} data-cta="email" className="inline-flex items-center h-11 px-6 rounded-full bg-white text-[#0b0a0b] text-sm font-semibold hover:bg-white/90 transition-colors">Request a login</a>
                 <a href={BOOKING_URL} data-cta="book" target="_blank" rel="noopener noreferrer" className="inline-flex items-center h-11 px-6 rounded-full border border-white/25 text-white text-sm font-semibold hover:border-white/50 transition-colors">Book a call</a>
               </div>
             </div>

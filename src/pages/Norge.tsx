@@ -18,7 +18,7 @@ import { MascotBand } from "@/components/sections/MascotBand";
 const stats = [
   { value: "39 000+", label: "Streamere i Streamer Explorer" },
   { value: "800 000+", label: "Verifiserte visninger (Samsung)" },
-  { value: "2.93%", label: "CTR - Galaxy S25 Ultra" },
+  { value: "3M+", label: "Fullførte visninger, alle kampanjer" },
   { value: "0%", label: "Adblock-impact" },
 ];
 
@@ -27,7 +27,7 @@ const norwegianCaseStudies = [
     brand: "Samsung",
     slug: "/case-study/samsung",
     tagline: "Galaxy S25 Ultra + Z Fold7",
-    headline: "800 000+ visninger · 2.34–2.93% CTR",
+    headline: "800 185 fullførte live-visninger · 71 streamer-slots",
     accent: "#1428A0",
     logo: "/lovable-uploads/logo-samsung.png",
   },
@@ -123,7 +123,7 @@ const Norge: React.FC = () => {
     <div className="min-h-screen">
       <SEO
         title="Twitch-byrå og Twitch-annonsering i Norge | Beta Ads"
-        description="Twitch-annonsering for norske merkevarer. Samsung, Shure, Komplett og NKI har kjørt kampanjer via Beta Ads på 39 000+ norske streamere. Book en samtale."
+        description="Twitch-annonsering for norske merkevarer. Samsung, Shure, Komplett og NKI har kjørt kampanjer via Beta Ads, med streamere plukket fra 39 000+ i Streamer Explorer. Book en samtale."
         canonical="/norge"
         locale="no"
         ogImageAlt="Beta Ads - native Twitch-annonsering for norske merkevarer"
@@ -161,7 +161,7 @@ const Norge: React.FC = () => {
               { "@type": "Question", name: "Hva koster en Twitch-kampanje i Norge?", acceptedAnswer: { "@type": "Answer", text: "Kampanjekostnader varierer basert på antall streamere, kampanjevarighet og format. Vi tilbyr fleksibel prising uten bindingstid – kontakt oss for et skreddersydd tilbud basert på dine mål og budsjett." } },
               { "@type": "Question", name: "Hvordan fungerer overlay-annonsering på Twitch?", acceptedAnswer: { "@type": "Answer", text: "Overlay-annonser er grafiske elementer som vises direkte i streamen – ikke som en pause eller avbrudd. De vises som en del av innholdet og omgår adblock helt. Seere ser annonsen mens de ser på favorittstreameren sin." } },
               { "@type": "Question", name: "Hvilke norske merkevarer har annonsert på Twitch?", acceptedAnswer: { "@type": "Answer", text: "Samsung, Shure, Komplett, Høyskolen Kristiania, NKI og Surfshark er blant merkene som har kjørt kampanjer via Beta Ads på norske Twitch-streamere. Se våre case studies for verifiserte resultater." } },
-              { "@type": "Question", name: "Hvem er Twitch-publikummet i Norge?", acceptedAnswer: { "@type": "Answer", text: "Norske Twitch-seere er primært mellom 18–34 år, med høy kjøpekraft og lav eksponering for tradisjonell TV-reklame. Over 70 % bruker adblock på ordinære annonseformater, noe som gjør native streaming-annonsering spesielt effektivt." } },
+              { "@type": "Question", name: "Hvem er Twitch-publikummet i Norge?", acceptedAnswer: { "@type": "Answer", text: "Norske Twitch-seere er primært mellom 18–34 år, med høy kjøpekraft og lav eksponering for tradisjonell TV-reklame. Mange bruker adblock, som fjerner pre-roll og vanlige annonseformater. En overlay som vises inne i selve streamen, kan ikke blokkeres." } },
               { "@type": "Question", name: "Hvor raskt kan en kampanje gå live?", acceptedAnswer: { "@type": "Answer", text: "Fra godkjent brief til live kampanje tar det vanligvis 5–10 virkedager. Vi håndterer streamervalg, kreativproduksjon og teknisk oppsett – du godkjenner streamerlisten og designet." } },
               { "@type": "Question", name: "Hva slags rapportering får vi?", acceptedAnswer: { "@type": "Answer", text: "Du får tilgang til sanntidsdata på visninger, klikkrate (CTR), skjermtid og engasjement via vårt dashboard. Ukentlige rapporter leveres under aktive kampanjer." } },
             ],
@@ -201,9 +201,9 @@ const Norge: React.FC = () => {
             <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
               Samsung, Shure, Komplett, Høyskolen Kristiania, NKI og Gokstad
               Akademiet har alle kjørt Twitch-kampanjer gjennom Beta Ads med
-              verifisert rapportering på visninger og klikk. Vi kjører native
-              overlay-annonser på 39 000+ streamere i Streamer Explorer-databasen vår - kampanjer
-              som også overlever adblock.
+              verifisert rapportering på visninger og klikk. Vi plukker streamere
+              fra 39 000+ i Streamer Explorer-databasen vår og kjører native
+              overlay-annonser som også overlever adblock.
             </p>
             <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
               Det norske 18–34-segmentet ser mer Twitch per dag enn de ser
@@ -219,7 +219,7 @@ const Norge: React.FC = () => {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90 px-7 h-12 rounded-full text-sm font-medium tracking-wide transition-colors"
             >
-              Bestill en 20-minutters konsultasjon{" "}
+              Bestill en 30-minutters konsultasjon{" "}
               <ArrowRight size={14} />
             </a>
             <Link
@@ -385,7 +385,7 @@ const Norge: React.FC = () => {
                 },
                 {
                   q: "Hvem er Twitch-publikummet i Norge?",
-                  a: "Norske Twitch-seere er primært mellom 18–34 år, med høy kjøpekraft og lav eksponering for tradisjonell TV-reklame. Over 70 % bruker adblock på ordinære annonseformater, noe som gjør native streaming-annonsering spesielt effektivt.",
+                  a: "Norske Twitch-seere er primært mellom 18–34 år, med høy kjøpekraft og lav eksponering for tradisjonell TV-reklame. Mange bruker adblock, som fjerner pre-roll og vanlige annonseformater. En overlay som vises inne i selve streamen, kan ikke blokkeres.",
                 },
                 {
                   q: "Hvor raskt kan en kampanje gå live?",
@@ -424,7 +424,7 @@ const Norge: React.FC = () => {
               </h2>
               <p className="text-base text-muted-foreground mt-6 leading-relaxed">
                 Vi booker 4–6 uker i forveien i de mest ettertraktede vinduene
-                (Black Friday, Nordic Game, juleuka). Bestill en 20-minutters
+                (Black Friday, Nordic Game, juleuka). Bestill en 30-minutters
                 konsultasjon så tar vi en gjennomgang av kategori, brief og
                 anslått leveranse - og kommer tilbake med et skreddersydd
                 forslag innen 24 timer.

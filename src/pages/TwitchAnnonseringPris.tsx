@@ -69,7 +69,7 @@ const inventory = [
 const inventoryMax = 1142810;
 
 // Kjøpe direkte vs. gjennom et byrå. Alle tall verifisert fra primærkilder
-// (Amazon Ads produktsider; Kick-ledelsens uttalelser 2026). Ingen CPM oppgis
+// (Amazon Ads produktsider; Kicks mediekit for 2026). Ingen CPM oppgis
 // fordi ingen er publisert for noen av plattformene.
 const directBuy: {
   tag: string;
@@ -93,9 +93,9 @@ const directBuy: {
     title: "Easygo",
     highlight: false,
     facts: [
-      "Per midten av 2026 sier Kicks CEO at annonser fortsatt testes og ennå ikke selges til sponsorer",
-      "Ingen selvbetjeningsplattform, ingen prisliste, ingen annonseportal",
-      "Eneste vei inn på Kick er en forhandlet kreatør-sponsing",
+      "Kicks Ads Beta fra 2026 selger display-, native- og videoflater, priset per avtale i USD-CPM",
+      "Ingen offentlig prisliste",
+      "Beta Ads selger Kicks egne annonseflater i Norden, i tillegg til kreatørintegrasjoner",
     ],
     link: { href: "/kick-advertising-cost", label: "Hva Kick-annonsering koster" },
   },
@@ -460,7 +460,7 @@ const TwitchAnnonseringPris: React.FC = () => {
             ))}
           </div>
           <p className="text-xs text-muted-foreground leading-relaxed mt-8 max-w-3xl">
-            Kilder: Amazon Ads produktsider (Streaming TV ads, Amazon DSP) for de publiserte minstesummene; uttalelser fra Kicks medgrunnlegger til Digiday (2023) og win.gg (2026) som bekrefter at Kick fortsatt tester annonser og ennå ikke selger til sponsorer. Ingen offentlig CPM-prisliste finnes for noen av plattformene, som er grunnen til at ingen oppgis her.
+            Kilder: Amazon Ads produktsider (Streaming TV ads, Amazon DSP) for de publiserte minstesummene; Kicks mediekit for 2026 for Ads Beta-produktene. Ingen offentlig CPM-prisliste finnes for noen av plattformene, som er grunnen til at ingen oppgis her.
           </p>
         </div>
       </section>

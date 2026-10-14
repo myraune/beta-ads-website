@@ -1750,7 +1750,7 @@ The question for Nordic brands is less "should we try live streaming advertising
 2. **Start with native overlay formats, not pre-roll.** Adblock rates among Nordic 18-34 make pre-roll inefficient spend per [AudienceProject Nordic data](https://www.audienceproject.com/).
 3. **Lock in Q3/Q4 2026 creator inventory early.** The strongest Nordic creators book 6-8 weeks ahead in competitive seasons.
 4. **Use multi-platform creator portfolios.** Twitch, Kick and YouTube Gaming all have viable Nordic inventory now; single-platform plans leave CTR on the table.
-5. **Scope your first campaign against a specific brief.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through category fit, creator availability, and a realistic 2026 test-campaign shape.
+5. **Scope your first campaign against a specific brief.** [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through category fit, creator availability, and a realistic 2026 test-campaign shape.
 
 ---
 
@@ -2561,7 +2561,7 @@ The brands that wait until the industry standardizes around multiplatform report
 2. **Negotiate rights cross-platform upfront.** A contract that specifies "Twitch only" leaves YouTube Gaming and Kick audience reach on the table.
 3. **Use unified reporting.** Platform-specific reports from separate vendors create reconciliation overhead; demand consolidated delivery data.
 4. **Test simulcast impact on CTR.** Early Beta Ads campaign data suggests simulcast increases total CTR by 15-30 % vs single-platform at the same creator set.
-5. **Book a multi-platform campaign brief.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) to map your target audience across Twitch, YouTube Gaming, and Kick.
+5. **Book a multi-platform campaign brief.** [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) to map your target audience across Twitch, YouTube Gaming, and Kick.
 
 ---
 
@@ -2783,7 +2783,7 @@ The $45 billion question is not whether to be on CTV. It is whether that budget 
 2. **Use CTV for reach, live streaming for engagement.** CTV reaches broad demos passively; live streaming reaches engaged 18-34 audiences actively. Match the format to the campaign goal.
 3. **Run parallel campaigns when possible.** CTV + native Twitch overlay on the same brief captures both ends of the attention spectrum without channel cannibalisation.
 4. **Measure brand lift, not just reach.** Engagement quality on live streaming outperforms CTV for mid-funnel brand lift per [Nielsen gaming advertising studies](https://www.nielsen.com/).
-5. **Book a strategic call to allocate across formats.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through the CTV-vs-live-streaming allocation framework against your 2026 plan.
+5. **Book a strategic call to allocate across formats.** [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through the CTV-vs-live-streaming allocation framework against your 2026 plan.
 
 ---
 
@@ -3591,7 +3591,7 @@ For Nordic advertisers in 2026, that confidence gap is closing. The brands that 
 2. **Bake verification into the contract.** Stipulate platform-level proof of delivery as a payment milestone.
 3. **Use AI clip detection to catch missed integrations.** If a sponsored moment was contractually agreed but didn't air, you should know within 48 hours.
 4. **Track sentiment alongside delivery.** A delivered integration that generates negative chat reaction is worse than a missed one.
-5. **Book a verification audit for your 2026 campaigns.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through our verification stack against your upcoming campaign.
+5. **Book a verification audit for your 2026 campaigns.** [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through our verification stack against your upcoming campaign.
 
 ---
 
@@ -3985,7 +3985,7 @@ The funnel collapsed. The audience is already watching. The infrastructure to co
 2. **Use native product placement over dedicated commerce slots.** Integrated product mentions during organic streams convert higher than isolated "shop now" moments.
 3. **Pair with clipping.** A shoppable live moment extended via 50+ TikTok/Reels clips dramatically expands the conversion window.
 4. **Measure assisted conversions.** Direct attribution under-measures; most conversions happen on a subsequent session after the live stream.
-5. **Book a shoppable campaign scope.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) for a live-commerce activation against your Nordic ecommerce brief.
+5. **Book a shoppable campaign scope.** [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) for a live-commerce activation against your Nordic ecommerce brief.
 
 ---
 
@@ -4744,7 +4744,7 @@ For Nordic advertisers, the runway is long and the moment is now.
 2. **Move share from declining formats.** Linear TV 18-34 reach has fallen 50-60 % since 2015 per [Nordicom](https://www.nordicom.gu.se/sv/mediebarometer); the budget should follow the audience.
 3. **Build a creator portfolio approach.** Single-creator buys under-perform portfolios of 15-25 creators in the same budget envelope per Beta Ads' 2025 campaign data.
 4. **Demand platform-verified attribution.** Any live-streaming buy without verified delivery reporting is indistinguishable from digital-out-of-home for audit purposes.
-5. **Plan for 2027 before competitors do.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) to scope your 2026-2027 Nordic live-streaming allocation.
+5. **Plan for 2027 before competitors do.** [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) to scope your 2026-2027 Nordic live-streaming allocation.
 
 ---
 
@@ -5372,7 +5372,7 @@ The question is no longer whether this approach is technically viable. It is whe
 2. **Start with native overlay formats.** Dynamic overlays are the clearest early-win use case - they scale cleanly and don't require creator voice work.
 3. **Budget for creative iteration during the campaign window.** AI DAI lets creative be swapped mid-flight based on early performance data; bake that into the planning cycle.
 4. **Match DAI to category fit.** Fast-moving consumer categories (retail, food delivery, seasonal launches) benefit more from in-flight optimisation than slow-burn brand awareness.
-5. **Test with a platform partner that has verified reporting.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through what AI-driven native delivery looks like for your specific brief.
+5. **Test with a platform partner that has verified reporting.** [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through what AI-driven native delivery looks like for your specific brief.
 
 ---
 
@@ -5829,7 +5829,7 @@ Brands that invest in long-term streaming partnerships with creators who have ac
 2. **Time sponsored activations around Discord community events.** AMAs, tournaments and member-only streams produce amplification spikes that carry into broader Twitch reach.
 3. **Use Discord Stage for sponsored creator conversations.** Audio-first community events are an under-utilised sponsorship format.
 4. **Track community sentiment as a campaign KPI.** Discord discussion post-campaign is a stronger signal than social reach alone.
-5. **Book a sponsorship that includes Discord community activation.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll scope community-layer reach against your brief.
+5. **Book a sponsorship that includes Discord community activation.** [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll scope community-layer reach against your brief.
 
 ---
 
@@ -6051,7 +6051,7 @@ The streaming partnership is no longer just a live event. With AI tools, it is a
 2. **Budget for AI-driven clip amplification.** Sponsored content with AI-generated short-form clips delivers 3-4× the organic reach of the live moment alone per [Whop clip-amplification data](https://whop.com).
 3. **Use AI translation for multi-market Nordic campaigns.** A Swedish-language creator stream can reach Norwegian and Finnish audiences via AI-generated subtitles with minimal production cost.
 4. **Screen for AI-detection tools in brand-safety vetting.** Some platforms now use AI to flag problematic creator content in real-time.
-5. **Book a campaign with AI-tool-enabled creators.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll scope an AI-enhanced native activation against your brief.
+5. **Book a campaign with AI-tool-enabled creators.** [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll scope an AI-enhanced native activation against your brief.
 
 ---
 
@@ -6300,7 +6300,7 @@ Beta Ads' platform indexes 39,000+ creators in our Streamer Explorer database wi
 2. **Prioritise long-tenure creators.** The depth of parasocial bond scales with years, not follower count. A 4-year creator with 1,500 viewers beats a 6-month creator with 5,000.
 3. **Avoid scripted reads.** Parasocial trust is broken the moment the viewer perceives the creator is performing an ad. Give the creator latitude on delivery.
 4. **Test in categories where trust compounds.** Skincare, finance, nutrition, education - categories where trust matters most - benefit most from parasocial advertising.
-5. **Book a campaign brief that matches creator portfolios to your category.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) to scope a parasocial-aligned creator list against your brief.
+5. **Book a campaign brief that matches creator portfolios to your category.** [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) to scope a parasocial-aligned creator list against your brief.
 
 ---
 
@@ -6410,7 +6410,7 @@ The reach calculation for streaming advertising is evolving. Brands that update 
 2. **Don't double-count overlap viewers.** Squad streams share significant audience overlap - use Streams Charts or TwitchTracker de-duplicated reach numbers, not aggregated sums.
 3. **Sponsor the host, not every co-streamer.** A sponsored overlay on the primary streamer's feed gets carried into the co-stream feeds automatically in most configurations.
 4. **Check IP/broadcast rights before buying.** Not all co-streams have the legal right to carry sponsored content - [Riot's co-streaming programme](https://lolesports.com/) for example has specific brand-safety requirements.
-5. **Book with a platform partner that tracks co-stream attribution.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through co-stream opportunities in your Nordic campaign window.
+5. **Book with a platform partner that tracks co-stream attribution.** [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through co-stream opportunities in your Nordic campaign window.
 
 ---
 
@@ -6538,7 +6538,7 @@ The key is matching your brand's audience profile to the category's viewer demog
 2. **Use [TwitchTracker category data](https://twitchtracker.com/games) to validate.** Check which categories' peak viewer windows align with your target demo's watching times.
 3. **Avoid over-concentration in one category.** Portfolio approach across 2-3 categories reduces risk if one category's audience shifts mid-campaign.
 4. **Follow major game-release windows.** Category viewership spikes by 40-80% around launches per [Streams Charts](https://streamscharts.com/reports/streaming-industry-yearly-report-2025).
-5. **Book a category-fit workshop.** [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll map your brand to Nordic category inventory.
+5. **Book a category-fit workshop.** [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll map your brand to Nordic category inventory.
 
 ---
 
@@ -7634,7 +7634,7 @@ Not every "Twitch ad" is the same product. Three distinct buying channels coexis
 | Sponsored campaigns on Twitch's platform | Twitch Sponsorships / Bounty Board (Partners + Affiliates) | Partially (mid-roll insertion) | Not publicly reported |
 | Native overlay ads | Third-party sponsorship platforms (Beta Ads, etc.) | Yes - rendered inside stream frame | 1–3 % typical, 4–9 % on peak days |
 
-The native overlay category is where the growth is. [Beta Ads' published Norwegian case studies](/case-studies) show consistent CTR ranges above the industry standard for display: **Samsung Galaxy S25 Ultra at 2.93 %**, **Komplett retail at 4.48 % peak-day CTR**, **Shure MV6 at 9.12 % peak-day CTR** when combined with a streamer mention.
+The native overlay category is where the growth is. [Beta Ads' published Norwegian case studies](/case-studies) show CTRs above the industry standard for display: **Samsung Galaxy S25 Ultra at 0.76 % verified CTR**, **Komplett retail at 4.48 % peak-day CTR**, **Shure MV6 at 9.12 % peak-day CTR** when combined with a streamer mention.
 
 ## The Adblock Reality
 
@@ -7667,13 +7667,12 @@ Verified figures from published Beta Ads case studies give a realistic range for
 
 | Campaign | Category | Streamers | Verified CTR |
 |---|---|---|---|
-| [Samsung Galaxy S25 Ultra](/case-study/samsung) | Consumer electronics launch | 43 | 2.93 % |
-| [Samsung Galaxy Z Fold7](/case-study/samsung) | Consumer electronics launch | 28 | 2.34 % |
+| [Samsung Galaxy S25 Ultra](/case-study/samsung) | Consumer electronics launch | 43 | 0.76 % |
 | [Høyskolen Kristiania - awareness](/case-study/kristiania) | Higher education recruiting | 25+ | 1.53 % |
 | [Komplett retail](/case-study/komplett) | Retail / electronics | 34 | 1.17 % (4.48 % peak) |
 | [Shure MV6](/case-study/shure) | Audio hardware launch | 2 | 1.31 % (9.12 % peak) |
 | [Surfshark VPN](/case-study/surfshark) | SaaS / privacy | 26 | 0.62 % |
-| [Saily eSIM](/case-study/saily) | Travel tech | 22 | 1.08 % |
+| [Saily eSIM](/case-study/saily) | Travel tech | 22 | 0.50 % |
 | [NKI Nettstudier](/case-study/nki) | Distance learning | 19 | 0.72 % |
 
 What the numbers confirm: 1.0–2.0 % is the typical verified CTR band for native Twitch overlay across most B2C categories in the Nordic market. Peak-day CTR 3–4× that is achievable when the creative integrates with a streamer mention at the right moment. Education and SaaS tend to sit slightly below the consumer-electronics band - a function of audience-product fit, not campaign execution.
@@ -7704,7 +7703,7 @@ For Norwegian brands specifically, [Beta Ads' Norwegian content hub](/norge) and
 
 **A first test should have:** a single specific category (not "gaming" - pick Just Chatting, Fortnite, or FIFA), 5–15 Nordic streamers from one national market, a 2–4 week runway, one overlay format (Snipe or Rich Media), and a measurable action (clicks to landing page, not just brand awareness). Data from that test determines whether the second runtime gets 3× the scope or gets redirected to a different category.
 
-**Next step:** skim the [Twitch advertising overview](/twitch-advertising) and [what a campaign actually costs](/twitch-advertising-cost), then [book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) with the Beta Ads team and we'll scope the first campaign against your actual brief.
+**Next step:** skim the [Twitch advertising overview](/twitch-advertising) and [what a campaign actually costs](/twitch-advertising-cost), then [book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) with the Beta Ads team and we'll scope the first campaign against your actual brief.
 
 ---
 
@@ -7773,7 +7772,7 @@ The timeline of the shift is compressed:
 
 **Chipotle on TikTok.** Chipotle's TikTok campaigns in 2023–2024 explicitly abandoned brand-safe TV cutdowns and built creative with TikTok creators using the platform's native formats. [Marketing Brew documented](https://www.marketingbrew.com/) a 300%+ lift in ad recall vs their legacy creative. The lesson: when you give the creator latitude on format, performance compounds.
 
-**Samsung on Nordic Twitch.** Samsung's Galaxy S25 Ultra and Z Fold7 Nordic launches, [documented in our case studies](/case-study/samsung), used 43 + 28 streamers respectively - not a single "hero streamer" buy, but a distributed activation where each creator integrated the product into their own stream format. Result: **800,000+ completed live views, 2.34–2.93% verified CTR**, zero adblock impact.
+**Samsung on Nordic Twitch.** Samsung's Galaxy S25 Ultra and Z Fold7 Nordic launches, [documented in our case studies](/case-study/samsung), used 43 + 28 streamers respectively - not a single "hero streamer" buy, but a distributed activation where each creator integrated the product into their own stream format. Result: **800,185 completed live views**, zero adblock impact.
 
 **Shure on detoo's channel.** Rather than a scripted product read, Shure's MV6 launch on [Norway's #1 Twitch streamer detoo](/case-study/shure) relied on native overlay overlaid with organic creator mentions during Just Chatting content - where microphones are literally visible on-stream. Peak-day CTR hit **9.12% - over 40× display ad benchmarks**.
 
@@ -7814,7 +7813,7 @@ Platforms like Beta Ads index 39,000+ streamers in our Streamer Explorer databas
 4. **Build a creator-portfolio approach, not a hero-streamer approach.** 15 creators at 1.5% CTR usually outperforms one creator at 3% CTR on total action volume.
 5. **Book a platform partner with verified reporting, not just a media agency.** The difference between streamer self-reports and platform-verified delivery is the thing that actually closes the measurement gap.
 
-Ready to scope a streamer-first campaign for your brand? [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through creator-category fit, available Nordic inventory, and what a realistic CTR band looks like for your category.
+Ready to scope a streamer-first campaign for your brand? [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through creator-category fit, available Nordic inventory, and what a realistic CTR band looks like for your category.
 
 ---
 
@@ -7897,12 +7896,12 @@ Resultatet er et format der **0 % adblock-tap** er en plattform-egenskap, ikke e
 
 Dette er ekte kampanjer Beta Ads har levert på det norske markedet i 2025, med verifiserte tall fra Twitch-plattformen:
 
-- **Samsung Galaxy S25 Ultra + Z Fold7** - 800 000+ live fullførte visninger, 2.34–2.93 % CTR på tvers av 43 + 28 streamer-slots, null adblock-impact. [Se hele analysen](/case-study/samsung).
+- **Samsung Galaxy S25 Ultra + Z Fold7** - 800 185 fullførte live-visninger på tvers av 43 + 28 streamer-slots, null adblock-impact. [Se hele analysen](/case-study/samsung).
 - **Shure MV6** - 182 554 visninger på 2 kanaler (inkludert detoo), 1.31 % verifisert CTR, 9.12 % CTR på toppdagen når detoo nevnte mikrofonen muntlig. [Shure-case](/case-study/shure).
 - **Høyskolen Kristiania** - to parallelle kampanjer (rekruttering + avstemning), kombinert 599 252 visninger, 5 997 verifiserte klikk. [Kristiania-case](/case-study/kristiania).
 - **NKI Nettstudier** - interaktiv quiz-kampanje, 220 003 visninger, 1 595 klikk over 19 streamere. [NKI-case](/case-study/nki).
 - **Komplett retail** - 151 278 visninger på tvers av Twitch + Kick, 4.48 % CTR på toppdagen, 34 skapere. [Komplett-case](/case-study/komplett).
-- **Saily eSIM** - 102 794 visninger, 1.08 % verifisert CTR, 22 skapere i reise-vinduet. [Saily-case](/case-study/saily).
+- **Saily eSIM** - 102 794 visninger, 0,50 % verifisert CTR, 22 skapere i reise-vinduet. [Saily-case](/case-study/saily).
 
 Fellesnevneren er at tallene er verifisert på platformnivå, ikke hentet fra streamernes egne screenshots. Det er forskjellen mellom "ca. rekkevidde" og målbar leveranse.
 
@@ -7930,7 +7929,7 @@ For norske merker betyr det at Twitch-annonsering ikke lenger krever manuell out
 
 **4. Kjør en testkampanje før du skalerer.** Én smal runde (2–4 uker, 5–10 streamere, ett format) genererer nok data til å vite om kategorien, creative-en og targetingen holder. Skaler deretter.
 
-**5. Book et strategimøte.** Det enkleste første steget er [en 20-minutters konsultasjon](https://calendar.app.google/coW5NLQJtLxfRer19) der vi går gjennom kategori, brief og anslått leveranse - og kommer tilbake med et skreddersydd forslag innen 24 timer.
+**5. Book et strategimøte.** Det enkleste første steget er [en 30-minutters konsultasjon](https://calendar.app.google/coW5NLQJtLxfRer19) der vi går gjennom kategori, brief og anslått leveranse - og kommer tilbake med et skreddersydd forslag innen 24 timer.
 
 ---
 
@@ -8011,8 +8010,8 @@ Resultatet är ett format där **0 % adblock-tapp** är en plattformsegenskap, i
 
 Det här är verkliga kampanjer Beta Ads levererat på den nordiska marknaden 2025, med verifierade siffror från Twitch-plattformen:
 
-- **Glorious O3 Mouse** - 137K+ visningar över 25 skapare i Sverige, Norge och Finland med Rich Media-overlays. [Hela analysen](/case-study/glorious).
-- **Samsung Galaxy S25 Ultra + Z Fold7** - 800 000+ live fullbordade visningar, 2,34–2,93 % CTR över 43 + 28 streamer-slots, noll adblock-påverkan. [Samsung-caset](/case-study/samsung).
+- **Glorious V3 Mouse** - 137K+ visningar över 25 skapare i Sverige, Norge och Finland med Rich Media-overlays. [Hela analysen](/case-study/glorious).
+- **Samsung Galaxy S25 Ultra + Z Fold7** - 800 185 fullbordade livevisningar över 43 + 28 streamer-slots, noll adblock-påverkan. [Samsung-caset](/case-study/samsung).
 - **Shure MV6** - 182 554 visningar på 2 kanaler (inklusive Norges största streamer detoo), 1,31 % verifierad CTR, 9,12 % peak-day CTR. [Shure-caset](/case-study/shure).
 - **Komplett retail** - 151 278 visningar över Twitch + Kick, 4,48 % peak-day CTR, 34 skapare. [Komplett-caset](/case-study/komplett).
 
@@ -8044,7 +8043,7 @@ För svenska varumärken innebär det att Twitch-reklam inte längre kräver man
 
 **4. Kör en testkampanj innan du skalar.** En smal runda (2–4 veckor, 5–10 streamers, ett format) genererar tillräckligt med data för att veta om kategorin, creative-en och targetingen håller.
 
-**5. Boka ett strategisamtal.** Det enklaste första steget är [en 20-minuters konsultation](https://calendar.app.google/coW5NLQJtLxfRer19) där vi går igenom kategori, brief och uppskattad leverans - och återkommer med ett skräddarsytt förslag inom 24 timmar.
+**5. Boka ett strategisamtal.** Det enklaste första steget är [en 30-minuters konsultation](https://calendar.app.google/coW5NLQJtLxfRer19) där vi går igenom kategori, brief och uppskattad leverans - och återkommer med ett skräddarsytt förslag inom 24 timmar.
 
 ---
 
@@ -8119,10 +8118,10 @@ Overlay-formaatti ratkaisee ongelman teknisesti. Overlay renderöityy itse video
 
 Nämä ovat todellisia kampanjoita Beta Ads on toteuttanut pohjoismaisilla markkinoilla vuonna 2025, varmistetuilla luvuilla Twitch-alustalta:
 
-- **Glorious O3 Mouse** - 137K+ katselukertaa 25 striimaajan verkostossa Suomessa, Norjassa ja Ruotsissa. [Katso kampanja-analyysi](/case-study/glorious).
-- **Samsung Galaxy S25 Ultra + Z Fold7** - 800 000+ live-katselukertaa, 2,34–2,93 % CTR 43 + 28 striimaaja-slotin yli, nolla adblock-vaikutusta. [Samsung-case](/case-study/samsung).
+- **Glorious V3 Mouse** - 137K+ katselukertaa 25 striimaajan verkostossa Suomessa, Norjassa ja Ruotsissa. [Katso kampanja-analyysi](/case-study/glorious).
+- **Samsung Galaxy S25 Ultra + Z Fold7** - 800 185 katsottua live-näyttöä 43 + 28 striimaaja-slotin yli, nolla adblock-vaikutusta. [Samsung-case](/case-study/samsung).
 - **Shure MV6** - 182 554 katselukertaa, 1,31 % varmistettu CTR, 9,12 % CTR huippupäivänä. [Shure-case](/case-study/shure).
-- **Saily eSIM** - 102 794 katselukertaa, 1,08 % varmistettu CTR. [Saily-case](/case-study/saily).
+- **Saily eSIM** - 102 794 katselukertaa, 0,50 % varmistettu CTR. [Saily-case](/case-study/saily).
 
 Yhteinen nimittäjä: luvut ovat alustatasolla varmistettuja, eivät striimaajien omia kuvakaappauksia. Se on ero "arvioidun tavoittavuuden" ja mitattavan toimituksen välillä.
 
@@ -8148,7 +8147,7 @@ Beta Adsin Streamer Explorer -tietokanta kattaa yli 39 000 striimaajaa Twitchiss
 
 **4. Aja testikampanja ennen skaalausta.** Kapea kierros (2–4 viikkoa, 5–10 striimaajaa, yksi formaatti) tuottaa tarpeeksi dataa varmistamaan että kategoria, creative ja kohdennus toimivat.
 
-**5. Varaa strategiakeskustelu.** Yksinkertaisin ensimmäinen askel on [20 minuutin konsultaatio](https://calendar.app.google/coW5NLQJtLxfRer19) jossa käymme läpi kategorian, briiffin ja arvioidun toimituksen.
+**5. Varaa strategiakeskustelu.** Yksinkertaisin ensimmäinen askel on [30 minuutin konsultaatio](https://calendar.app.google/coW5NLQJtLxfRer19) jossa käymme läpi kategorian, briiffin ja arvioidun toimituksen.
 
 ---
 
@@ -8276,7 +8275,7 @@ Norwegian Twitch inventory in 2026 is deep enough to support:
 
 The Beta Ads platform indexes 39,000+ streamers in our Streamer Explorer database (including every Norwegian creator in the dashboard below) with category, language, viewership history, and audience demographics. When a brand brief arrives, the matching isn't "pick from the top 10" - it's filtering the 300–500 Norwegian creators in the relevant category against brand-safety history, historical CTR on adjacent integrations, and audience overlap with the target customer profile.
 
-Beta Ads has run [nine verified Norwegian campaigns in 2025](/case-studies) drawing from this creator pool - Samsung, Surfshark, Shure, Komplett, Kristiania, NKI, Gokstad, Saily, Glorious. Every one of those campaigns used a different creator mix matched to the brand's specific brief.
+Beta Ads has run [29 campaigns with full reports](/case-studies) drawing from this creator pool, including Samsung, Surfshark, Shure, Komplett, Kristiania, NKI, Gokstad, Saily, Glorious. Every one of those campaigns used a different creator mix matched to the brand's specific brief.
 
 ## Action Items for 2026 Norwegian Media Planning
 
@@ -8284,7 +8283,7 @@ Beta Ads has run [nine verified Norwegian campaigns in 2025](/case-studies) draw
 2. **Weight category over rank.** A #8-ranked Just Chatting creator will outperform the #2-ranked Fortnite creator if your product is a coffee brand.
 3. **Build a 15–25 creator portfolio for a real campaign.** The hero-streamer model under-performs now that the middle tier has depth.
 4. **Ask about brand-safety history before booking.** Creator history, not just audience size, is what determines whether the integration lands cleanly.
-5. **Book a creator-portfolio workshop.** [A 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) with the Beta Ads team gives you a real list of 15–25 Norwegian creators matched to your category, not a leaderboard screenshot.
+5. **Book a creator-portfolio workshop.** [A 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) with the Beta Ads team gives you a real list of 15–25 Norwegian creators matched to your category, not a leaderboard screenshot.
 
 ---
 
@@ -8385,7 +8384,7 @@ The dashboard surfaces 2025 Nordic Twitch market data: country-level hours watch
 
 Norway's Twitch creator tier with 100+ average viewers roughly doubled between 2023 and 2025. The top of the leaderboard is anchored by **detoo** (Norway's #1 by hours watched per [TwitchTracker](https://twitchtracker.com/channels/viewership/norwegian)), with Komplettno, DennisVareide, and a deep variety/gaming middle tier. Category mix: Just Chatting, GTA V (Norwegian RP servers), FIFA, Fortnite, CS2.
 
-Beta Ads has run nine verified Norwegian campaigns in 2025 ([Samsung](/case-study/samsung), [Surfshark](/case-study/surfshark), [Shure](/case-study/shure), [Komplett](/case-study/komplett), [Kristiania](/case-study/kristiania), [NKI](/case-study/nki), [Gokstad](/case-study/gokstad), [Saily](/case-study/saily), [Glorious](/case-study/glorious)), giving the deepest Nordic case-study library available.
+Beta Ads has run 29 campaigns with full reports, including ([Samsung](/case-study/samsung), [Surfshark](/case-study/surfshark), [Shure](/case-study/shure), [Komplett](/case-study/komplett), [Kristiania](/case-study/kristiania), [NKI](/case-study/nki), [Gokstad](/case-study/gokstad), [Saily](/case-study/saily), [Glorious](/case-study/glorious)), giving the deepest Nordic case-study library available.
 
 ### Sweden: Europe's oldest Twitch community
 
@@ -8438,7 +8437,7 @@ For a pan-Nordic campaign, a reasonable 2026 allocation framework - adjusted by 
 4. **Schedule against Nordic esports calendar events.** ESL Nordic, BLAST Premier, EA FC season launches all produce predictable per-country viewership lifts.
 5. **Book pan-Nordic campaigns through single-source platforms.** Coordinating 15+ creators across 4 markets without unified reporting is operationally brittle. [Beta Ads' platform](/case-studies) consolidates creator sourcing, creative deployment, and verified reporting across all four Nordic markets.
 
-Ready to scope a 2026 Nordic creator portfolio matched to your brand category? [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll pull a real cross-market list against your brief.
+Ready to scope a 2026 Nordic creator portfolio matched to your brand category? [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll pull a real cross-market list against your brief.
 
 ---
 
@@ -8718,7 +8717,7 @@ Three recurring reasons:
 2. **Language gating.** Swedish-language streams appear "small" to non-Swedish-speaking media planners who default to English-language channel size as the proxy for reach.
 3. **Category assumption.** Gaming-only positioning misses Sweden's strong IRL and variety tiers.
 
-In practice, Sweden-native Twitch campaigns consistently deliver competitive CTR and brand-safety metrics against pan-European benchmarks. Beta Ads' [Glorious O3 Mouse campaign](/case-study/glorious) included Swedish creators in a 25-creator Nordic activation and delivered **137K+ completed views across Finland, Norway, and Sweden**.
+In practice, Sweden-native Twitch campaigns consistently deliver competitive CTR and brand-safety metrics against pan-European benchmarks. Beta Ads' [Glorious V3 Mouse campaign](/case-study/glorious) included Swedish creators in a 25-creator Nordic activation and delivered **137K+ completed views across Finland, Norway, and Sweden**.
 
 ## How Beta Ads Handles Swedish Creator Selection
 
@@ -8732,7 +8731,7 @@ The Beta Ads platform indexes 39,000+ creators in our Streamer Explorer database
 4. **Test at 15–25 creators, not 3.** Sweden's mid-tier depth is the asset; concentrating budget on hero creators leaves it on the table.
 5. **Ask about language-concentration reporting.** A creator with 100 % Swedish chat engagement is worth more per CTR than a creator with 60 % Swedish / 40 % international, even at comparable view counts.
 
-Ready to scope a Swedish or pan-Nordic creator portfolio? [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll pull a real creator list against your brand category.
+Ready to scope a Swedish or pan-Nordic creator portfolio? [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll pull a real creator list against your brand category.
 
 ---
 
@@ -8815,7 +8814,7 @@ The practical consequence: Finnish CTR benchmarks on well-matched categories con
 
 ## Saily's Finnish Campaign: A Real Example
 
-[Beta Ads' Saily eSIM campaign](/case-study/saily) included Finnish creators alongside Norwegian and Swedish, delivering **102,794 completed views and 1.08 % verified CTR** in a travel-tech category where Finnish creator-audience fit was strong (outdoor, travel-heavy IRL content). The Finnish portion of that campaign specifically over-delivered on peak-day engagement vs the broader Nordic average.
+[Beta Ads' Saily eSIM campaign](/case-study/saily) included Finnish creators alongside Norwegian and Swedish, delivering **102,794 completed views and 0.50 % verified CTR** in a travel-tech category where Finnish creator-audience fit was strong (outdoor, travel-heavy IRL content). The Finnish portion of that campaign specifically over-delivered on peak-day engagement vs the broader Nordic average.
 
 ## How Beta Ads Handles Finnish Creator Selection
 
@@ -8829,7 +8828,7 @@ The Beta Ads platform indexes 39,000+ creators in our Streamer Explorer database
 4. **Test SR-Finnish creators for category-specific activations.** Swedish-speaking Finns (~5 % of the population) are a distinct audience pool that Swedish-native creators can't reach.
 5. **Schedule against Finnish esports calendar events.** Finnish CS2, Dota 2, and Valorant event windows predictably lift Finnish Twitch viewership above steady-state averages.
 
-Want to scope a Finnish or pan-Nordic creator portfolio against your brief? [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) - we'll pull a real Finnish creator list matched to your category.
+Want to scope a Finnish or pan-Nordic creator portfolio against your brief? [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) - we'll pull a real Finnish creator list matched to your category.
 
 ---
 
@@ -8949,7 +8948,7 @@ Beta Ads' platform indexes Kick streamers alongside 39,000+ creators across Twit
 4. **Require platform-verified reporting.** Kick's native analytics are immature compared to Twitch. Only buy through platforms or agencies that layer their own verification on top.
 5. **Think about Kick as part of a combined Twitch+Kick campaign**, not as a standalone test. The [Komplett case study](/case-study/komplett) is a model: one creative, two platforms, one report.
 
-Ready to scope a Nordic campaign that includes Kick inventory? [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) - we'll walk through category fit, available Kick creators, and realistic CTR expectations.
+Ready to scope a Nordic campaign that includes Kick inventory? [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) - we'll walk through category fit, available Kick creators, and realistic CTR expectations.
 
 ---
 
@@ -9086,7 +9085,7 @@ Beta Ads indexes 39,000+ streamers in our Streamer Explorer database by category
 4. **Don't over-index on the global top 10 for Nordic campaigns.** Norwegian FIFA, GTA RP and Just Chatting inventory is the actual Nordic top 10, and the creator pool there is deeper than raw hours-watched suggests.
 5. **Combine gaming + Just Chatting on a single plan.** The category overlap on most major Nordic creators means dedicated "gaming only" campaigns leave audience on the table.
 
-Want to scope a 2026 Nordic game-streaming plan against your actual brief? [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll work through category fit, available creators, and realistic CTR ranges per game.
+Want to scope a 2026 Nordic game-streaming plan against your actual brief? [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll work through category fit, available creators, and realistic CTR ranges per game.
 
 ---
 
@@ -9172,7 +9171,7 @@ The historical concern about Twitch for non-gaming brands was content-category r
 
 ## Non-Endemic Brand Categories That Now Fit
 
-**Travel and hospitality.** Travel IRL content on Twitch and Kick pairs naturally with airline, eSIM, hotel, and travel-tech brands. Beta Ads' [Saily eSIM campaign](/case-study/saily) delivered **102,794 views and 1.08% verified CTR** on 22 Nordic streamers heavily weighted toward travel content.
+**Travel and hospitality.** Travel IRL content on Twitch and Kick pairs naturally with airline, eSIM, hotel, and travel-tech brands. Beta Ads' [Saily eSIM campaign](/case-study/saily) delivered **102,794 views and 0.50% verified CTR** on 22 Nordic streamers heavily weighted toward travel content.
 
 **Telecom and SaaS.** Just Chatting audiences are older than gaming audiences on average, shifting the demographic to 22–38 - the core SaaS and telecom buyer demographic. Beta Ads' [Surfshark campaign](/case-study/surfshark) targeted this audience mix with 26 Nordic streamers and delivered **91,006 completed views (0.62% verified CTR)**.
 
@@ -9198,9 +9197,9 @@ The practical consequence: CPMs on non-gaming Nordic inventory run measurably be
 2. **Test Just Chatting inventory specifically.** It's the biggest non-gaming category and pairs with the widest range of brand categories.
 3. **Budget for IRL on Kick.** +337% YoY growth rate won't stay that high forever; 2026 is the test window.
 4. **Pair with language filtering.** Non-gaming Nordic campaigns are most effective when creator-language matches audience language. Native-language creators outperform English-language creators for the same content type.
-5. **Use Beta Ads case-study library as the benchmark.** Nine verified Nordic campaigns ([/case-studies](/case-studies)) covering non-endemic categories - Saily, Surfshark, Komplett, NKI, Kristiania, Gokstad - show what CTR ranges non-gaming integrations actually deliver.
+5. **Use Beta Ads case-study library as the benchmark.** Our published case studies ([/case-studies](/case-studies)) covering non-endemic categories - Saily, Surfshark, Komplett, NKI, Kristiania, Gokstad - show what CTR ranges non-gaming integrations actually deliver.
 
-Ready to scope a non-gaming Nordic campaign? [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through creator-category fit in non-gaming inventory.
+Ready to scope a non-gaming Nordic campaign? [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through creator-category fit in non-gaming inventory.
 
 ---
 
@@ -9325,7 +9324,7 @@ The Beta Ads platform indexes 39,000+ streamers in our Streamer Explorer databas
 4. **Build a Nordic-specific creator list.** The global top-10 is mostly irrelevant for a Norway-only activation. Use [TwitchTracker's Norwegian rankings](https://twitchtracker.com/channels/viewership/norwegian) plus Beta Ads' streamer database to build the list that actually fits your audience.
 5. **Re-score your plan quarterly.** These rankings shift fast. The 2024 top-10 is already half-irrelevant for 2025; assume the 2025 list will be 40% different by EOY 2026.
 
-Ready to scope a Nordic creator portfolio against your 2026 brief? [Book a 20-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through category fit, available inventory, and realistic CTR ranges.
+Ready to scope a Nordic creator portfolio against your 2026 brief? [Book a 30-minute consultation](https://calendar.app.google/coW5NLQJtLxfRer19) and we'll walk through category fit, available inventory, and realistic CTR ranges.
 
 ---
 
@@ -10377,7 +10376,7 @@ Sommerkampanjer på Twitch er ikke bare et supplement til den tradisjonelle medi
 2. **Test kategori-skifte.** Sommeren endrer seervaner - gaming-streamere med vanligvis gaming-innhold skifter ofte til IRL/travel i sommermånedene.
 3. **Bygg for utendørskontekst.** Annonser som refererer til utendørs, reise eller sol presterer bedre i sommersegmentet enn vanlig gaming-kreativ.
 4. **Utnytt lange sesjonstider.** Sommerstreams varer ofte lengre enn gjennomsnittet - [ifølge Streams Charts](https://streamscharts.com/) ligger norsk session-lengde over internasjonalt snitt i juli-august.
-5. **Bestill en strategisk gjennomgang.** [Bestill en 20-minutters konsultasjon](https://calendar.app.google/coW5NLQJtLxfRer19) for å tilpasse sommerkampanjen til din kategori og budsjett.
+5. **Bestill en strategisk gjennomgang.** [Bestill en 30-minutters konsultasjon](https://calendar.app.google/coW5NLQJtLxfRer19) for å tilpasse sommerkampanjen til din kategori og budsjett.
 
 ---
 
@@ -10729,7 +10728,7 @@ Vil du vite hvordan du kan utnytte spilltrender og seertall i dine egne kampanje
 2. **Prioriter co-streaming-vinduer.** Store lanseringer produserer co-stream-bølger hvor sponsorinventar på én kanal bæres videre til flere kanaler samtidig.
 3. **Bruk Just Chatting + gaming-kombinasjon.** Nintendo-fans veksler mellom gameplay og kommentarstream - native overlays i begge kategoriene fanger hele sesjonen.
 4. **Mål on-stream-tid, ikke bare CTR.** Nintendo-titler har lange sesjoner, noe som driver høyere eksponeringstid enn snittet per [Streams Charts](https://streamscharts.com/).
-5. **Bestill en analyse av kommende spillanseringer.** [Bestill en 20-minutters konsultasjon](https://calendar.app.google/coW5NLQJtLxfRer19) så vi setter opp kampanjen mot neste utvikler-vindu som passer din kategori.
+5. **Bestill en analyse av kommende spillanseringer.** [Bestill en 30-minutters konsultasjon](https://calendar.app.google/coW5NLQJtLxfRer19) så vi setter opp kampanjen mot neste utvikler-vindu som passer din kategori.
 
 ---
 
@@ -11046,7 +11045,7 @@ Overlay-annonsene bypasser adblock, noe som er avgjørende i Norden der over 55%
 2. **Match kreativet til utgiver-kultur.** Riot-publikummet reagerer annerledes på creative enn Activision-publikummet; gjør en kategorispesifikk briefing.
 3. **Utnytt co-streaming-rettigheter.** [Riot's co-streaming program](https://lolesports.com/) lar et stort antall mindre streamere kringkaste offisielle events - med riktige rettigheter multipliseres sponsor-eksponeringen.
 4. **Kjøp på tvers av plattformer.** Utgiver-publikum er spredt over [Twitch](/twitch-advertising), [YouTube Gaming](/youtube-advertising) og [Kick](/kick-advertising); single-platform planer fanger ikke hele publikummet.
-5. **Bestill utgiver-fokusert kampanje.** [Bestill en 20-minutters konsultasjon](https://calendar.app.google/coW5NLQJtLxfRer19) for å planlegge mot spesifikke utgiver-vinduer.
+5. **Bestill utgiver-fokusert kampanje.** [Bestill en 30-minutters konsultasjon](https://calendar.app.google/coW5NLQJtLxfRer19) for å planlegge mot spesifikke utgiver-vinduer.
 
 ---
 
@@ -11278,7 +11277,7 @@ Native overlay ads gjennom Beta Ads gir deg tilgang til nordiske streamere og ad
 2. **Kort animasjonsvindu.** 3–8 sekunder er sweet spot for snipe-formatet per data fra [Beta Ads publiserte kampanjer](/case-studies).
 3. **Tydelig call-to-action.** Overlays uten synlig CTA-element leverer konsistent lavere CTR enn overlays med ett klart handlingspunkt.
 4. **Test muntlig integrasjon.** Kombiner overlay med at streameren nevner merket. CTR varierer med tilbud og målgruppe; se casestudiene våre, som [Shure MV6 peak-day på 9,12 %](/case-study/shure).
-5. **Bestill kreativ gjennomgang.** [Bestill en 20-minutters konsultasjon](https://calendar.app.google/coW5NLQJtLxfRer19) for gjennomgang av overlay-utkast mot beste praksis.
+5. **Bestill kreativ gjennomgang.** [Bestill en 30-minutters konsultasjon](https://calendar.app.google/coW5NLQJtLxfRer19) for gjennomgang av overlay-utkast mot beste praksis.
 
 ---
 
@@ -11439,7 +11438,7 @@ Les hele den publiserte [Shure-kampanjeanalysen](/case-study/shure).
 Samsung kjørte to separate kampanjer med Beta Ads i 2025: Galaxy S25 Ultra (43 streamer-slots) og Galaxy Z Fold7 (28 slots). detoo var del av begge som en av topp-kanalene. Kombinert:
 
 - **800 000+ live fullførte visninger** (ytterligere 558 000 på VOD)
-- **2.34–2.93% CTR** på tvers av begge kampanjer
+- **0,76 % verifisert CTR** på Galaxy S25 Ultra-kampanjen
 - **Null adblock-impact** - en av grunnene til at Samsung kjørte to rundabout kampanjer på samme plattform
 
 Les hele den publiserte [Samsung-kampanjeanalysen](/case-study/samsung).
@@ -11472,7 +11471,7 @@ En tradisjonell sponsor-avtale direkte mellom et merke og en streamer gir deg é
 
 Dersom bestiller for 2026 planlegger et norsk Twitch-spor, er detoo-inkluderte kampanjer booket på ukentlig basis. Vi setter opp en konsultasjon for å kartlegge mål, kategori og ønsket leveranse - og kommer tilbake med et skreddersydd forslag.
 
-👉 [Bestill en 20-minutters konsultasjon](/contact) eller se [alle publiserte kampanje-analyser](/case-studies).
+👉 [Bestill en 30-minutters konsultasjon](/contact) eller se [alle publiserte kampanje-analyser](/case-studies).
 `,
     date: "April 22, 2026",
     dateISO: "2026-04-22",

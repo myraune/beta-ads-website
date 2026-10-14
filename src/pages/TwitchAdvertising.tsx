@@ -9,7 +9,7 @@ import { MascotBand } from "@/components/sections/MascotBand";
 
 const stats = [
   { value: "37,599", label: "Streamers in Explorer, active and open to collabs" },
-  { value: "3–5×", label: "Higher Engagement" },
+  { value: "3M+", label: "Completed Views Delivered" },
   { value: "90 min", label: "Avg. Session" },
   { value: "0%", label: "Ad Block Rate" },
 ];
@@ -91,7 +91,7 @@ const TwitchAdvertising: React.FC = () => {
               <br /><span className="hl">inside Twitch</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-lg">
-              Overlay ads that bypass ad blockers, reach Gen Z during 90-minute sessions, and deliver 3–5× higher engagement than traditional video formats.
+              Overlay ads that bypass ad blockers, reach Gen Z during 90-minute sessions, and come with a full report on every campaign.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link to="/demo">
@@ -197,11 +197,11 @@ const TwitchAdvertising: React.FC = () => {
                 Nordic Twitch communities are smaller and more tightly-knit than US or UK equivalents. A Norwegian streamer with 1,000 concurrent viewers has built a community where brand integrations carry genuine social weight - viewers trust creator recommendations at a rate traditional ads never achieve.
               </p>
               <p className="text-muted-foreground text-sm leading-relaxed mb-8">
-                With 80% ad-blocker adoption among Nordic 18–34 year olds, traditional digital formats simply don't reach this demographic. Overlay ads are the only format that reliably reaches the Gen Z audience where they actually spend their time.
+                Ad blockers strip pre-rolls and display ads, so traditional digital formats often miss this demographic. An overlay rendered inside the stream can't be blocked, which makes it the format that reliably reaches the Gen Z audience where they actually spend their time.
               </p>
               <div className="space-y-3">
                 {[
-                  "80% ad-blocker rate among Nordic 18–34s - overlay ads bypass this entirely",
+                  "Ad blockers strip pre-rolls - an overlay rendered inside the stream can't be blocked",
                   "90+ minute average sessions - sustained brand exposure, not a 6-second skip",
                   "79% of Twitch viewers support ads that directly help their favorite creator",
                 ].map((point, i) => (
@@ -240,7 +240,7 @@ const TwitchAdvertising: React.FC = () => {
                 Not all Twitch viewers are the same. A FPS gaming community responds to different brands than a Just Chatting lifestyle audience. Our targeting lets you select exactly the right streamer categories for your campaign goals.
               </p>
               <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
-                All streamers in our network are verified Nordic creators - Norwegian, Swedish, Finnish, and Danish. You can target one market or run pan-Nordic campaigns from a single brief.
+                Our Streamer Explorer covers 39,000+ streamers worldwide across Twitch, YouTube and Kick, filterable by country and language. You can target one Nordic market or run pan-Nordic campaigns from a single brief.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-3">
@@ -317,7 +317,7 @@ const TwitchAdvertising: React.FC = () => {
                   muted
                   loop
                   playsInline
-                  aria-label="Glorious O3 overlay creative as displayed on Nordic Twitch streams"
+                  aria-label="Glorious V3 overlay creative as displayed on Nordic Twitch streams"
                   className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent pointer-events-none" />
@@ -326,9 +326,9 @@ const TwitchAdvertising: React.FC = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">Glorious O3 Mouse - Nordic Gaming Campaign</h3>
+                <h3 className="text-base font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">Glorious V3 Mouse - Nordic Gaming Campaign</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-5">
-                  Localised rich media overlays promoting the O3 mouse across Finland, Norway and Sweden during peak gaming hours.
+                  Localised rich media overlays promoting the V3 mouse across Finland, Norway and Sweden during peak gaming hours.
                 </p>
                 <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
                   <div>
@@ -417,7 +417,7 @@ const TwitchAdvertising: React.FC = () => {
               { q: "How much does Twitch advertising cost?", a: "The blended effective CPM on a managed Nordic campaign runs about 200 to 300 kr per 1,000 verified impressions, and the final number depends on scope, number of streamers, and duration. We offer flexible pricing with no long-term contracts. See our full cost breakdown at /twitch-advertising-cost, or contact us for a custom quote." },
               { q: "How do overlay ads bypass ad blockers?", a: "Overlay ads are rendered inside the stream itself as part of the video feed - not browser-injected elements. Ad blocking software has nothing to detect or remove." },
               { q: "Can I target specific countries or languages?", a: "Yes. Target by country (Norway, Sweden, Finland, Denmark), language, content category, audience size, and engagement metrics. Our Streamer Explorer covers 39,000+ streamers across Twitch, YouTube and Kick." },
-              { q: "What results can I expect?", a: "Native overlay ads typically deliver 3–5× higher engagement than traditional display ads. Twitch sessions average 90+ minutes of sustained brand exposure." },
+              { q: "What results can I expect?", a: "It depends on the brief. Our published case studies show what named campaigns delivered, from about 100,000 to 800,185 completed live views, each with a full report. Twitch sessions average 90+ minutes of sustained brand exposure." },
               { q: "Do I need to create the ad creatives?", a: "No. Our managed service includes creative production. We design overlay graphics that match your brand and fit naturally in livestream content." },
               { q: "What is the minimum number of streamers for a campaign?", a: "We run campaigns with as few as 5 streamers for focused niche campaigns, up to 100+ streamers for large brand awareness pushes. We'll recommend the right reach for your goal." },
               { q: "Can I approve which streamers carry my brand?", a: "Yes. You receive a shortlist of matched streamers before the campaign launches. You approve the final selection - no streamer goes live with your brand without your sign-off." },

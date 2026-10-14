@@ -40,7 +40,7 @@ const CaseStudySurfsharkFinland: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "Article",
             "@id": `${URL}#article`,
-            headline: "Surfshark VPN Finland: bought 100,000 views, got close to a million",
+            headline: "Surfshark VPN Finland: bought 100,000 views, delivered 949,957 with replays",
             description:
               "How Surfshark ran a month on 14 Finnish Twitch creators with a live poll on every ad moment: delivery, clip verification, poll results, chat, click audience and replays.",
             url: URL,

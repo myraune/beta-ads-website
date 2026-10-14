@@ -192,7 +192,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
                 sponsorships fall back on the host-read model.
               </p>
               <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
-                Beta Ads started in Oslo in 2023 to run the same playbook
+                Beta Ads started in Oslo in 2024 to run the same playbook
                 natively inside the live stream frame. Overlays rendered into
                 the creator's own layout, chat-pinned CTAs the streamer
                 reads aloud, and verified-view reporting that treats spend
@@ -292,7 +292,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
                 </p>
               </div>
               <p className="text-xs text-muted-foreground tabular-nums">
-                Since 2023
+                Since 2024
               </p>
             </div>
           </div>

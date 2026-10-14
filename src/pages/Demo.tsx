@@ -30,7 +30,7 @@ const defaults = {
   requestDemo: "REQUEST A DEMO",
   seeInAction: "See it in action",
   demoFormDescription: "Fill out the form and we'll get back to you within one business day with a personalized walkthrough of the platform.",
-  preferTalkDirectly: "Prefer to talk directly? Book a 15-minute call and I'll show you how it works.",
+  preferTalkDirectly: "Prefer to talk directly? Book a 30-minute call and I'll show you how it works.",
   bookCallDirect: "Book a call directly",
   name: "Name",
   namePlaceholder: "Your name",
@@ -105,7 +105,7 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Book a Demo | Beta Ads Livestream Advertising"
-        description="See exactly how native overlay ads work on Twitch, YouTube and Kick. Book a 20-minute demo with our Nordic advertising team - free, no commitment."
+        description="See exactly how native overlay ads work on Twitch, YouTube and Kick. Book a 30-minute demo with our Nordic advertising team - free, no commitment."
         canonical="/demo"
         ogType="website"
         jsonLd={[
@@ -209,7 +209,7 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
         alt="Beta, the Beta Ads mascot, gesturing at a calendar panel"
         variant="scene"
         eyebrow="What happens next"
-        heading="Twenty minutes, no deck"
+        heading="Thirty minutes, no deck"
         body="Send the form and you get a time from Andreas, not a sequence from a marketing tool. We will ask what you are trying to reach and tell you straight if livestream is the wrong channel for it."
         points={[
             "A real reply from a person, usually the same day",

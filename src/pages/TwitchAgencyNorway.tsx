@@ -29,8 +29,8 @@ import { MascotBand } from "@/components/sections/MascotBand";
 const LAST_UPDATED = "2026-08-31";
 
 const heroStats = [
-  { value: "28K+", label: "Twitch streamers" },
-  { value: "4", label: "platforms" },
+  { value: "39,000+", label: "streamers in Streamer Explorer" },
+  { value: "3", label: "platforms" },
   { value: "0%", label: "blocked by adblock" },
   { value: "NO/SE/DK/FI", label: "markets covered" },
 ];
@@ -123,7 +123,7 @@ const faq = [
   },
   {
     q: "Why not just buy standard Twitch ads?",
-    a: "Around 80% of Norwegians aged 18 to 34 run an adblocker, and pre-roll is the first thing to disappear. An overlay sits inside the video frame and is not blocked. It is also the format the audience accepts: 79% of Twitch viewers say they prefer ads that do not interrupt the stream.",
+    a: "Ad blockers strip pre-roll first. An overlay rendered inside the video frame cannot be blocked. It is also the format the audience accepts: 79% of Twitch viewers say they prefer ads that do not interrupt the stream.",
   },
   {
     q: "What is the difference between a Twitch agency and an influencer agency?",
@@ -527,8 +527,7 @@ const TwitchAgencyNorway: React.FC = () => {
               </h3>
               <div className="space-y-5">
                 {[
-                  ["80%", "of Norwegians aged 18 to 34 run an adblocker. Pre-roll is the first thing to go."],
-                  ["0%", "of overlays are blocked. They sit inside the video frame."],
+                  ["0%", "of overlays are blocked. Ad blockers strip pre-roll, but an overlay sits inside the video frame."],
                   ["79%", "of Twitch viewers prefer ads that do not interrupt the stream."],
                   ["73%", "of Twitch's audience is between 18 and 34."],
                 ].map(([v, t]) => (

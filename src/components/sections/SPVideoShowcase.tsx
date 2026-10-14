@@ -462,8 +462,6 @@ export const SPVideoShowcase: React.FC = () => {
         >
           {[
             { value: "500K+", label: "completed views" },
-            { value: "2.93%", label: "avg CTR" },
-            { value: "14,642", label: "link clicks" },
             { value: "43", label: "streamers" },
             { value: "0%", label: "adblock rate" },
           ].map((s) => (

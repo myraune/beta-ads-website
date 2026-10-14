@@ -17,7 +17,9 @@ export const finalFaqs = [
   { q: "How is it priced?", a: "Per 1,000 animation views, with campaigns from 100,000 NOK. Undelivered views are refunded pro rata." },
   { q: "What counts as a view?", a: "One fully played run of the animation on a live stream on Twitch, YouTube or Kick. The overlay stays in the VOD, so replays keep counting." },
   { q: "Can we choose the streamers?", a: "Search 39,000+ streamers in Streamer Explorer, and approve the streamer list on request before launch. You also get your own login to the live dashboard." },
-  { q: "Are clicks guaranteed?", a: "No. You buy completed views, and clicks and CTR are reported, not guaranteed. For reference, the Samsung Galaxy S25 Ultra campaign averaged a 2.93% CTR." },
+  { q: "How is delivery checked?", a: "Each stream is checked on air for the overlay, and each ad play is recorded as a clip you can open in the report. On the Surfshark Finland campaign, 98.7% of 759 ad plays were verified with a clip. Views that did not play are refunded." },
+  { q: "What is in the report?", a: "Completed live views, replay and clip views, clicks, chat mentions of the brand translated and scored, and the verification clips. You get it as a live dashboard and a PDF you can forward." },
+  { q: "Are clicks guaranteed?", a: "No. You buy completed views, and clicks and CTR are reported, not guaranteed." },
 ];
 
 const LOGOS: [string, string, number][] = [
@@ -32,13 +34,14 @@ const LOGOS: [string, string, number][] = [
 ];
 
 const yt = (id: string) => `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
-const CASES: { to: string; img: string; b: string; t: string }[] = [
-  { to: "/case-study/samsung", img: yt("Uw7IIecicB4"), b: "Samsung", t: "Galaxy S25 and Z Fold7: 800,185 completed views, 2.93% average CTR on the S25 Ultra." },
-  { to: "/case-study/shure", img: yt("IZOx_VMdJJg"), b: "Shure", t: "A custom overlay for the MV6 creator launch." },
-  { to: "/case-study/komplett", img: yt("ufNq-A4d7iA"), b: "Komplett", t: "Månedens Gaming Deal, linked straight from chat." },
-  { to: "/case-study/glorious", img: "/lovable-uploads/case-glorious-poster.webp", b: "Glorious", t: "Reaching the Nordic gaming community." },
-  { to: "/case-study/kristiania", img: yt("GwE4dagRm_k"), b: "Høyskolen Kristiania", t: "Two parallel Twitch campaigns." },
-  { to: "/case-study/saily", img: yt("DMz-NV1W_Is"), b: "Saily", t: "A travel intent eSIM campaign." },
+/* n/k = the headline result and its unit, each taken from that case page. */
+const CASES: { to: string; img: string; b: string; n: string; k: string; t: string }[] = [
+  { to: "/case-study/samsung", img: yt("Uw7IIecicB4"), b: "Samsung", n: "800,185", k: "completed live views", t: "Galaxy S25 and Z Fold7, two flights in Norway." },
+  { to: "/case-study/shure", img: yt("IZOx_VMdJJg"), b: "Shure", n: "182,554", k: "completed views from two creators", t: "A custom overlay for the MV6 creator launch." },
+  { to: "/case-study/komplett", img: yt("ufNq-A4d7iA"), b: "Komplett", n: "151,278", k: "views across 34 streamers", t: "Månedens Gaming Deal, linked straight from chat." },
+  { to: "/case-study/glorious", img: "/lovable-uploads/case-glorious-poster.webp", b: "Glorious", n: "137K+", k: "views, 25 creators, three markets", t: "The V3 mouse across the Nordics." },
+  { to: "/case-study/kristiania", img: yt("GwE4dagRm_k"), b: "Høyskolen Kristiania", n: "599,252", k: "views across 31 streamers", t: "Two parallel Twitch campaigns." },
+  { to: "/case-study/saily", img: yt("DMz-NV1W_Is"), b: "Saily", n: "102,794", k: "completed views across 22 streamers", t: "A travel intent eSIM campaign." },
 ];
 
 const POSTS: [string, string, string][] = [
@@ -117,6 +120,21 @@ export const HomeFinal: React.FC = () => {
       cleanups.push(() => io.disconnect());
     });
 
+    // Mobile booking bar: shown once the hero CTA is off screen, hidden again from the closing CTA down.
+    const bar = root.querySelector<HTMLElement>(".mcta");
+    const ctas = root.querySelectorAll(".hero__cta");
+    if (bar && ctas.length > 1) {
+      const [heroCta, closeCta] = [ctas[0], ctas[ctas.length - 1]];
+      const update = () => {
+        const heroGone = heroCta.getBoundingClientRect().bottom < 0;
+        const closeReached = closeCta.getBoundingClientRect().top < window.innerHeight;
+        bar.classList.toggle("on", heroGone && !closeReached);
+      };
+      window.addEventListener("scroll", update, { passive: true });
+      update();
+      cleanups.push(() => window.removeEventListener("scroll", update));
+    }
+
     return () => cleanups.forEach((f) => f());
   }, []);
 
@@ -132,15 +150,18 @@ export const HomeFinal: React.FC = () => {
         <section className="hero">
           <div className="hero__wash" aria-hidden="true" />
           <div className="hero__copy">
-            <h1>
-              <b>The platform</b> <span>for livestream ads.</span>
-            </h1>
-            <p className="hero__sub">Find the streamers, launch the overlay and read the report. One login for Twitch, YouTube and Kick.</p>
+            <h1>Animated ads inside Twitch, YouTube and Kick streams.</h1>
+            <p className="hero__sub">Pick the streamers, launch your overlay on all of them at once, and get a report you can forward. Priced per view that fully played.</p>
+            <ul className="hero__facts">
+              <li>Can't be skipped or ad blocked</li>
+              <li>Every ad play checked on air</li>
+              <li>Undelivered views refunded</li>
+            </ul>
             <div className="hero__cta">
               <BookDemo />
-              <a className="tlink" href="#build">
-                Take the tour <Arrow />
-              </a>
+              <A className="tlink" href="/case-study/surfshark-finland">
+                See a real campaign report <Arrow />
+              </A>
             </div>
           </div>
 
@@ -228,6 +249,7 @@ export const HomeFinal: React.FC = () => {
 
         {/* 2 LOGOS */}
         <section className="logos" id="customers" aria-label="Brands and agencies">
+          <p className="logos__k">Brands that have run campaigns with us</p>
           <ul className="lg">
             {LOGOS.map(([f, alt, h]) => (
               <li key={f}>
@@ -241,18 +263,22 @@ export const HomeFinal: React.FC = () => {
           </p>
         </section>
 
-        {/* 3 STATEMENT */}
-        <section className="statement reveal" id="tour">
-          <h2><b>One login,</b> <span>from shortlist to report.</span></h2>
+        {/* 3 NUMBERS (moved up from below "Where it runs") */}
+        <section className="totals totals--early" aria-label="Totals" id="tour">
+          <div className="totals__in reveal">
+            <div><b className="num">3M+</b><span>completed views delivered</span></div>
+            <div><b className="num">19,000+</b><span>hours of sponsored airtime</span></div>
+            <div><b className="num">29</b><span>campaigns, each with a full report</span></div>
+          </div>
         </section>
 
         {/* 4 CHAPTERS */}
         <div className="tour">
           <section className="ch" id="build">
             <header className="ch__h reveal">
-              <h2><b>Build the campaign</b> <span>in one flow.</span></h2>
+              <h2>Build the campaign in one flow.</h2>
               <div>
-                <p>Your creative becomes an animated overlay with its own chat command. Add a poll if you want one.</p>
+                <p>Your creative becomes an animated overlay with its own chat command, so viewers can type !yourbrand and get the link. Add a poll if you want one.</p>
                 <A className="qlink" href="/twitch-advertising">How it works <Arrow /></A>
               </div>
             </header>
@@ -261,28 +287,29 @@ export const HomeFinal: React.FC = () => {
 
           <section className="ch" id="live">
             <header className="ch__h reveal">
-              <h2><b>Verified on</b> <span>every channel.</span></h2>
+              <h2>Every stream checked on air.</h2>
               <div>
-                <p>One overlay, 25 streams at once. Every channel is checked on air, and every check lands in your report.</p>
+                <p>The overlay runs on all your streamers at once. Each stream is checked for it while live, each ad play is saved as a clip, and plays that did not happen are not billed.</p>
+                <p className="proofline">Surfshark Finland: <b>759 ad plays, 98.7% verified</b> with a recorded clip.</p>
               </div>
             </header>
             <LivePanel />
             <div className="deep reveal">
-              <span className="deep__k">Deep dive</span>
+              <span className="deep__k">More detail</span>
               <A className="tcard" href="/campaign-compliance"><b>Setup verification <Arrow /></b><span>Every channel checked on air.</span></A>
             </div>
           </section>
 
           <section className="ch" id="report">
             <header className="ch__h reveal">
-              <h2><b>Reporting</b> <span>you can forward.</span></h2>
+              <h2>A report you can forward to the client.</h2>
               <div>
-                <p>Every brand mention in chat, translated and scored. Replays keep counting, and it all lands in one PDF.</p>
+                <p>Completed views, replay views, clicks and every brand mention in chat, translated and scored. Live in your dashboard, and as one PDF.</p>
               </div>
             </header>
             <ReportPanel />
             <div className="deep reveal">
-              <span className="deep__k">Deep dive</span>
+              <span className="deep__k">More detail</span>
               <A className="tcard" href="/livestream-chat-engagement"><b>Chat tracking <Arrow /></b><span>Every brand mention, translated and scored.</span></A>
               <A className="tcard" href="/replay-reach"><b>Replay reach <Arrow /></b><span>Views keep counting after the stream.</span></A>
             </div>
@@ -300,19 +327,10 @@ export const HomeFinal: React.FC = () => {
           </div>
         </section>
 
-        {/* 5 NUMBERS */}
-        <section className="totals" aria-label="Totals">
-          <div className="totals__in reveal">
-            <div><b className="num">3M+</b><span>completed views</span></div>
-            <div><b className="num">19,000+</b><span>hours of sponsored airtime</span></div>
-            <div><b className="num">29</b><span>campaigns, each with a report</span></div>
-          </div>
-        </section>
-
         {/* 6 CUSTOMERS */}
         <section className="sec" id="samsung" aria-label="Case studies">
           <div className="sec__h reveal">
-            <h2><b>Campaigns</b> <span>that ran.</span></h2>
+            <h2>Campaigns that ran.</h2>
             <A className="qlink" href="/case-studies">All case studies <Arrow /></A>
           </div>
           <div className="cases reveal">
@@ -320,6 +338,7 @@ export const HomeFinal: React.FC = () => {
               <A className="case" href={c.to} key={c.to}>
                 <span className="case__img"><img src={c.img} alt="" loading="lazy" width={1280} height={720} /></span>
                 <b>{c.b}</b>
+                <span className="case__n">{c.n}<small>{c.k}</small></span>
                 <span>{c.t}</span>
                 <em>Read case <i aria-hidden="true">&rarr;</i></em>
               </A>
@@ -330,9 +349,9 @@ export const HomeFinal: React.FC = () => {
         {/* 7 GUARANTEE + COST */}
         <section className="sec" id="billing" aria-label="Billing and price">
           <div className="sec__h reveal">
-            <h2><b>Pay for views</b> <span>that played.</span></h2>
+            <h2>Pay only for views that played.</h2>
           </div>
-          <div className="tcards tcards--2 reveal">
+          <div className="tcards tcards--3b reveal">
             <div className="tcard tcard--static">
               <b>What you pay for</b>
               <span>A view is one full run of the animation on a live stream. Anything undelivered is refunded pro rata.</span>
@@ -340,15 +359,25 @@ export const HomeFinal: React.FC = () => {
             </div>
             <div className="tcard tcard--static">
               <b>What it costs</b>
-              <span>From 100,000 NOK. Priced per 1,000 views that played. Once clips and replay views are counted, effective CPM usually lands around 200 to 300 NOK.</span>
+              <span>Campaigns start at 100,000 NOK, priced per 1,000 views that played. Replay and clip views come on top at no cost, so the effective CPM usually lands around 200 to 300 NOK.</span>
               <A className="qlink" href="/twitch-advertising-cost">See the full price guide <Arrow /></A>
+            </div>
+            <div className="tcard tcard--static">
+              <b>Worked example</b>
+              <div className="calc" aria-label="Example: views bought, delivered and billed">
+                <div><span>Views you buy</span><b>100,000</b></div>
+                <div><span>Views that fully played</span><b>96,000</b></div>
+                <div><span>You are billed for</span><b>96,000</b></div>
+                <div><span>Refunded</span><b>4,000</b></div>
+              </div>
+              <span>Illustrative numbers. Replay views are reported on top and not billed.</span>
             </div>
           </div>
         </section>
 
         {/* 8 FAQ */}
         <section className="faq" id="faq" aria-label="Questions">
-          <h2><b>Questions</b> <span>buyers ask</span></h2>
+          <h2>Questions buyers ask</h2>
           <div className="faq__list">
             {finalFaqs.map((f, i) => (
               <details key={f.q} open={i === 0}>
@@ -362,7 +391,7 @@ export const HomeFinal: React.FC = () => {
         {/* BLOG */}
         <section className="sec" aria-label="From the blog">
           <div className="sec__h reveal">
-            <h2><b>From</b> <span>the blog.</span></h2>
+            <h2>From the blog</h2>
             <A className="qlink" href="/blog">All articles <Arrow /></A>
           </div>
           <div className="tcards tcards--3 reveal">
@@ -379,16 +408,16 @@ export const HomeFinal: React.FC = () => {
         {/* AUDIENCES */}
         <section className="aud" aria-label="Agencies and streamers">
           <div className="aud__in reveal">
-            <A href="/working-with-us"><b>For media agencies <Arrow /></b><span>The buying spec for your plan.</span></A>
-            <A href="/streamers"><b>For streamers <Arrow /></b><span>Get paid for brand overlays.</span></A>
+            <A href="/managed-campaigns"><b>For brands <Arrow /></b><span>We run the campaign for you, from brief to report.</span></A>
+            <A href="/self-serve"><b>For media agencies <Arrow /></b><span>Your own login to launch and resell campaigns.</span></A>
           </div>
         </section>
 
         {/* 9 CLOSE */}
         <section className="close">
           <div className="close__in reveal">
-            <h2><b>Be campaign</b> <span>number 30.</span></h2>
-            <p>We walk you through the platform with your market and your creative.</p>
+            <h2>Plan your first livestream campaign.</h2>
+            <p>In 30 minutes we shortlist streamers for your market, show the overlay with your creative, and estimate delivery for your budget.</p>
             <div className="hero__cta">
               <BookDemo />
               <a className="tlink" href="mailto:sales@beta-ads.no" data-cta="email">sales@beta-ads.no</a>
@@ -396,6 +425,11 @@ export const HomeFinal: React.FC = () => {
           </div>
         </section>
       </main>
+
+      <div className="mcta" aria-label="Book a demo">
+        <BookDemo className="mcta__p" />
+        <A className="mcta__s" href="/case-study/surfshark-finland">See a report</A>
+      </div>
 
       <FinalFooter />
     </div>

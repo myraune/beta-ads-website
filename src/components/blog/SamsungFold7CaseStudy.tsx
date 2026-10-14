@@ -25,10 +25,10 @@ const categories = [
 ];
 
 const weeklyProgression = [
-  { week: "Week 1", ctr: "3.70%", viewers: "29,549" },
-  { week: "Week 2", ctr: "3.20%", viewers: "70,019" },
-  { week: "Week 3", ctr: "2.56%", viewers: "112,248" },
-  { week: "Final", ctr: "2.34%", viewers: "141,930" },
+  { week: "Week 1", viewers: "29,549" },
+  { week: "Week 2", viewers: "70,019" },
+  { week: "Week 3", viewers: "112,248" },
+  { week: "Final", viewers: "141,930" },
 ];
 
 const SamsungFold7CaseStudy: React.FC = () => {
@@ -171,31 +171,27 @@ const SamsungFold7CaseStudy: React.FC = () => {
         </div>
       </section>
 
-      {/* Ad fatigue / weekly progression */}
+      {/* Weekly reach progression */}
       <section>
         <h2 className="text-2xl font-bold text-foreground border-b-2 border-border pb-3 mb-6">
           Campaign Progression
         </h2>
         <p className="text-muted-foreground leading-relaxed text-lg mb-6">
-          CTR declined naturally as the campaign matured - a classic ad fatigue curve as repeat viewers
-          become desensitised to the creative. However, unique viewer reach continued expanding throughout the
-          campaign, growing 4.8× from Week 1 to final.
+          Unique viewer reach kept expanding throughout the campaign, growing 4.8× from Week 1 to the
+          final week as more streamers and sessions came online.
         </p>
         <div className="grid grid-cols-4 gap-px rounded-xl overflow-hidden bg-border">
           {weeklyProgression.map((w) => (
             <div key={w.week} className="bg-background px-5 py-5">
               <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">{w.week}</div>
-              <div className="text-2xl font-bold text-foreground tracking-tight">{w.ctr}</div>
-              <div className="text-xs text-muted-foreground mt-1">CTR (unverified)</div>
-              <div className="text-xs text-muted-foreground mt-3">{w.viewers}</div>
-              <div className="text-xs text-muted-foreground">unique viewers</div>
+              <div className="text-2xl font-bold text-foreground tracking-tight tabular-nums">{w.viewers}</div>
+              <div className="text-xs text-muted-foreground mt-1">unique viewers</div>
             </div>
           ))}
         </div>
         <p className="text-sm text-muted-foreground mt-4 leading-relaxed">
-          Week 1 peaked at 3.70% CTR - well above industry benchmarks. The best single day was September 25
-          with 160 clicks across 10,564 views (1.51% verified CTR). Rotating creatives or refreshing the
-          streamer roster mid-campaign can sustain Week 1–level engagement throughout.
+          The best single day was September 25, with 10,564 views and 160 clicks. Rotating creatives or
+          refreshing the streamer roster mid-campaign keeps the creative fresh for repeat viewers.
         </p>
       </section>
 
@@ -294,11 +290,10 @@ const SamsungFold7CaseStudy: React.FC = () => {
           Impact
         </h2>
         <p className="text-muted-foreground leading-relaxed text-lg mb-6">
-          The dual-format campaign consistently outperformed industry benchmarks. Standard display advertising
-          achieves a CTR of around 0.1%. The Fold7 campaign delivered a{" "}
-          <strong className="text-foreground">2.34% unverified CTR</strong> across the full 31-day run - and
-          3.70% in its first week. Viewers who clicked through were actively considering the device, not
-          accidentally tapping an ad.
+          The dual-format campaign delivered{" "}
+          <strong className="text-foreground">300,054 completed live views</strong> from 141,930 unique viewers
+          over 31 days, with 93.05% of the audience in Norway. Add 558,257+ VOD views and the creative reached
+          roughly 858,000 views in total.
         </p>
         <p className="text-muted-foreground leading-relaxed text-lg">
           The rich media overlays rendered as browser sources inside OBS - not as external ads served by a
@@ -317,8 +312,6 @@ const SamsungFold7CaseStudy: React.FC = () => {
           {[
             { value: "300,054", label: "Completed live views" },
             { value: "141,930", label: "Unique viewers" },
-            { value: "2.34%", label: "Unverified CTR (3.70% in Week 1)" },
-            { value: "7,028", label: "Unverified link clicks" },
             { value: "2,000h 22m", label: "Artwork watch time" },
             { value: "28", label: "Norwegian streamers" },
             { value: "558,257+", label: "Additional VOD views" },

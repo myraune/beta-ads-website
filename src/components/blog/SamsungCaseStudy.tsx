@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ChevronDown, ChevronUp, Mail, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation, useMultipleScrollAnimations } from "@/hooks/useScrollAnimation";
-import { WeeklyCTRAreaChart, CategoryDonut, CampaignComparisonChart, AdblockGauge } from "./SamsungCharts";
+import { CategoryDonut, CampaignComparisonChart } from "./SamsungCharts";
 import founderImage from "@/assets/founder-andreas-portrait.jpg";
 
 const DRIVE_VIDEO_EMBED = "https://drive.google.com/file/d/1FxgGtpweqtrJ-gCRPp38PX_iVenr0gLt/preview";
@@ -65,30 +65,30 @@ const AnimStatDark: React.FC<{ value: string; label: string; isVisible: boolean;
 const s25Stats = [
   { value: "500,131", label: "Completed views" },
   { value: "138,633", label: "Unique viewers" },
-  { value: "14,642", label: "Link clicks" },
-  { value: "2.93%", label: "Average CTR" },
+  { value: "0.76%", label: "Verified CTR" },
   { value: "3,750h", label: "Watch time" },
   { value: "43", label: "Streamers" },
   { value: "56", label: "Campaign days" },
   { value: "74", label: "Game categories" },
   { value: "90.07%", label: "Norway audience" },
-  { value: "86.54%", label: "Aged 18-24" },
+  { value: "73.39%", label: "Aged 18-24" },
+  { value: "86.54%", label: "Desktop" },
+  { value: "50.28%", label: "Just Chatting" },
   { value: "0%", label: "Adblock impact" },
-  { value: "2.68%", label: "Best day CTR" },
 ];
 
 const fold7Stats = [
   { value: "300,054", label: "Completed views" },
   { value: "141,930", label: "Unique viewers" },
-  { value: "7,028", label: "Link clicks" },
-  { value: "2.34%", label: "Average CTR" },
-  { value: "2,000h", label: "Watch time" },
   { value: "558,257+", label: "VOD views" },
+  { value: "2,000h", label: "Watch time" },
   { value: "28", label: "Streamers" },
   { value: "31", label: "Campaign days" },
   { value: "54", label: "Game categories" },
   { value: "93.05%", label: "Norway audience" },
-  { value: "3.70%", label: "Week 1 CTR" },
+  { value: "80.39%", label: "Desktop" },
+  { value: "34.45%", label: "Just Chatting" },
+  { value: "+2,185", label: "New followers" },
   { value: "0%", label: "Adblock impact" },
 ];
 
@@ -132,14 +132,6 @@ const s25HighCTR = [
   { name: "marcusthomassen", ctr: "5.04%", views: "278 views" },
 ];
 
-const s25BestDays = [
-  { date: "Mar 24", clicks: 127, ctr: "2.68%", best: true, note: "Campaign best day · 4,743 views" },
-  { date: "Apr 2",  clicks: 60,  ctr: "3.34%", best: false, note: "Highest single-day CTR" },
-  { date: "Mar 23", clicks: 165, ctr: "2.40%", best: false, note: "" },
-  { date: "Mar 25", clicks: 143, ctr: "2.62%", best: false, note: "" },
-  { date: "May 7",  clicks: 215, ctr: "0.70%", best: false, note: "Highest click volume" },
-];
-
 /* ── Galaxy Z Fold7 streamer roster (28 creators total, top 20 listed) ── */
 const fold7Creators = [
   { rank: 1, name: "Danniz", completedViews: "97,110", clicks: 288, ctr: "0.30", followers: 99, note: "32.4% of all views" },
@@ -164,24 +156,6 @@ const fold7Creators = [
   { rank: 20, name: "fayazczar", completedViews: "1,156", clicks: 20, ctr: "1.73", followers: 86, note: "" },
 ];
 
-const fold7Weekly = [
-  { week: "Week 1", ctr: 3.70, label: "3.70%", viewers: "29,549" },
-  { week: "Week 2", ctr: 3.20, label: "3.20%", viewers: "70,019" },
-  { week: "Week 3", ctr: 2.56, label: "2.56%", viewers: "112,248" },
-  { week: "Final", ctr: 2.34, label: "2.34%", viewers: "141,930" },
-];
-
-/* ── S25 Ultra weekly CTR (4 fortnightly buckets across 56-day campaign) ──
-   Estimated from the daily CTR chart in samsung-s25-ultra-report-general.pdf.
-   Averages to 2.93% which matches the campaign headline. Shows the natural
-   ad-fatigue decline visible in the daily report. */
-const s25Weekly = [
-  { week: "Wk 1-2",  ctr: 4.20, label: "4.20%", viewers: "60,000+" },
-  { week: "Wk 3-4",  ctr: 2.95, label: "2.95%", viewers: "120,000+" },
-  { week: "Wk 5-6",  ctr: 2.50, label: "2.50%", viewers: "150,000+" },
-  { week: "Wk 7-8",  ctr: 2.05, label: "2.05%", viewers: "170,000+" },
-];
-
 const fold7Categories = [
   { name: "Just Chatting", share: 34.45, views: "103,358", ctr: "0.73%" },
   { name: "Minecraft", share: 17.95, views: "53,869", ctr: "0.39%" },
@@ -202,7 +176,7 @@ const insights = [
   { title: "Consistent audience", body: "Both campaigns hit the same demographic: Norwegian males 18-24, 90-93% Norway-based, desktop-first. The audience did not drift between spring and autumn." },
   { title: "Just Chatting dominates", body: "50.28% of S25 views and 34.45% of Fold7 views from Just Chatting. Conversational content is consistently the most receptive environment for interactive CTAs." },
   { title: "Micro-influencers convert", body: "Simmlings: 11.80% CTR from 746 views. m4r5t3in: 10.00%. The small-channel, high-trust dynamic delivers 9-18x the campaign average CTR." },
-  { title: "CTR peaks in Week 1", body: "Fold7 opened at 3.70% and closed at 2.34%. The decline is predictable. Rotating creatives mid-campaign sustains early-phase performance throughout." },
+  { title: "A few channels carry reach", body: "rubengks delivered 150,600 of the S25 Ultra's 500,131 completed views, and Danniz 97,110 of the Fold7's 300,054. Pair large channels for reach with smaller ones for engagement." },
   { title: "VOD doubles reach for free", body: "Fold7 accumulated 558,257+ VOD views on top of 300K live. Every campaign keeps generating impressions weeks after it ends, at no extra cost." },
   { title: "Zero adblock impact", body: "Overlays render as OBS browser sources. Both campaigns: every impression was a genuine live view. The format is structurally invisible to adblock software." },
 ];
@@ -394,7 +368,7 @@ const SamsungCaseStudy: React.FC = () => {
                   OBS browser sources, completely invisible to adblock, across 74 game categories.
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Just Chatting dominated at 50.28% of all views. Best day CTR hit 2.68% on March 24.
+                  Just Chatting dominated at 50.28% of all views. Verified CTR across the run was 0.76%.
                 </p>
               </div>
 
@@ -415,8 +389,8 @@ const SamsungCaseStudy: React.FC = () => {
               <div className="p-5 rounded-2xl border border-border">
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Why it worked</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Standard display ads average 0.1% CTR. The S25 Ultra campaign delivered 2.93% - 29 times
-                  the benchmark - against an audience that actively blocks conventional advertising.
+                  500,131 completed live views from 138,633 unique viewers, with a verified CTR of 0.76%,
+                  against an audience that actively blocks conventional advertising.
                 </p>
               </div>
             </div>
@@ -433,7 +407,7 @@ const SamsungCaseStudy: React.FC = () => {
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Beta ran two simultaneous formats: a rich media overlay inside OBS, plus a live chatbot CTA
-                  in stream chat. Week 1 CTR hit 3.70%. Best single day: 160 clicks on September 25.
+                  in stream chat. The run delivered 300,054 completed live views from 141,930 unique viewers.
                 </p>
               </div>
 
@@ -454,8 +428,8 @@ const SamsungCaseStudy: React.FC = () => {
               <div className="p-5 rounded-2xl border border-border">
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Why it worked</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  The Fold7 campaign delivered 2.34% CTR - 23 times the display benchmark. VOD views added
-                  558,257+ additional impressions after the campaign ended, at zero extra cost.
+                  300,054 completed live views in 31 days, with 93.05% of the audience in Norway. VOD views
+                  added 558,257+ additional impressions after the campaign ended, at zero extra cost.
                 </p>
               </div>
             </div>
@@ -468,7 +442,7 @@ const SamsungCaseStudy: React.FC = () => {
               <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">Efficiency · per streamer</p>
               <h3 className="text-lg font-semibold text-foreground tracking-tight">Two campaigns, two different strengths</h3>
               <p className="text-xs text-muted-foreground mt-2 max-w-2xl leading-relaxed">
-                Fold7 was a smaller buy (28 streamers vs S25's 43), so absolute totals don't tell the whole story. Normalised <span className="text-foreground">per streamer</span>, the two campaigns trade wins: <span className="text-foreground">Fold7 dominates reach efficiency</span> (5,069 unique viewers per streamer vs 3,224 - a 57% advantage) while <span className="text-foreground">S25 dominates engagement</span> (more clicks, higher CTR, more watch time per streamer). Index 100 = the average of both campaigns on each metric.
+                Fold7 was a smaller buy (28 streamers vs S25's 43), so absolute totals don't tell the whole story. Normalised <span className="text-foreground">per streamer</span>, the two campaigns trade wins: <span className="text-foreground">Fold7 dominates reach efficiency</span> (5,069 unique viewers per streamer vs 3,224 - a 57% advantage) while <span className="text-foreground">S25 leads on depth</span> (more completed views and more watch time per streamer). Index 100 = the average of both campaigns on each metric.
               </p>
             </div>
             <div className="flex items-center gap-6 text-[11px] mb-4 mt-5">
@@ -554,23 +528,43 @@ const SamsungCaseStudy: React.FC = () => {
           {/* iOS-style chart cards - campaign-aware */}
           <div className="grid lg:grid-cols-2 gap-5 mb-5">
 
-            {/* Card 1 - Weekly CTR area chart (both campaigns) */}
+            {/* Card 1 - Reach (views-based, both campaigns) */}
             <div className="rounded-3xl border border-border/60 p-7 md:p-8">
               <div className="flex items-baseline justify-between mb-5">
                 <div>
-                  <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">Weekly CTR</p>
-                  <h3 className="text-lg font-semibold text-foreground tracking-tight">Performance over time</h3>
+                  <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">Reach</p>
+                  <h3 className="text-lg font-semibold text-foreground tracking-tight">Completed live views</h3>
                 </div>
                 <div className="text-right">
-                  <div className="text-2xl font-bold text-foreground tracking-tight tabular-nums">{isS25 ? "4.20%" : "3.70%"}</div>
-                  <div className="text-[10px] uppercase tracking-widest text-muted-foreground">{isS25 ? "peak · wk 1-2" : "peak · week 1"}</div>
+                  <div className="text-2xl font-bold text-foreground tracking-tight tabular-nums">{isS25 ? "500,131" : "300,054"}</div>
+                  <div className="text-[10px] uppercase tracking-widest text-muted-foreground">{isS25 ? "56 days" : "31 days"}</div>
                 </div>
               </div>
-              <WeeklyCTRAreaChart data={isS25 ? s25Weekly : fold7Weekly} />
-              <p className="text-xs text-muted-foreground mt-5 leading-relaxed">
+              <div className="grid grid-cols-2 gap-x-8 gap-y-5">
+                {(isS25
+                  ? [
+                      { value: "138,633", label: "Unique viewers" },
+                      { value: "3,750h", label: "Watch time" },
+                      { value: "43", label: "Streamers" },
+                      { value: "74", label: "Game categories" },
+                    ]
+                  : [
+                      { value: "141,930", label: "Unique viewers" },
+                      { value: "2,000h", label: "Watch time" },
+                      { value: "28", label: "Streamers" },
+                      { value: "558,257+", label: "VOD views" },
+                    ]
+                ).map((s) => (
+                  <div key={s.label}>
+                    <div className="text-3xl font-bold text-foreground tracking-tight tabular-nums">{s.value}</div>
+                    <div className="text-xs text-muted-foreground mt-1">{s.label}</div>
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-muted-foreground mt-6 leading-relaxed">
                 {isS25
-                  ? "Natural ad fatigue across 56 days. CTR halved from the early peak (4.20%) to the final fortnight (2.05%), averaging 2.93% over the full campaign."
-                  : "Natural ad fatigue: CTR fell 37% from Week 1 to Week 4. Rotating creatives or adding streamers mid-campaign sustains Week 1-level engagement."}
+                  ? "A completed view is one fully played ad run on a live stream. Together the two campaigns delivered 800,185 completed live views."
+                  : "VOD views kept adding impressions after the live run ended, at no extra cost."}
               </p>
             </div>
 
@@ -591,7 +585,7 @@ const SamsungCaseStudy: React.FC = () => {
 
           </div>
 
-          {/* Audience + Best days row */}
+          {/* Audience + top streamers row */}
           <div className="grid lg:grid-cols-2 gap-5 mb-5">
 
             {/* Audience Profile */}
@@ -628,32 +622,19 @@ const SamsungCaseStudy: React.FC = () => {
               </p>
             </div>
 
-            {/* Best days */}
+            {/* Top streamers by completed views */}
             <div className="rounded-3xl border border-border/60 p-7 md:p-8">
               <div className="mb-6">
-                <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">Best days</p>
-                <h3 className="text-lg font-semibold text-foreground tracking-tight">When viewers clicked most</h3>
+                <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">Top streamers</p>
+                <h3 className="text-lg font-semibold text-foreground tracking-tight">Biggest channels by completed views</h3>
               </div>
               <div className="space-y-1">
-                {(isS25
-                  ? s25BestDays
-                  : [
-                      { date: "Sep 25", clicks: 160, ctr: "1.51%", best: true, note: "" },
-                      { date: "Sep 30", clicks: 116, ctr: "1.17%", best: false, note: "" },
-                      { date: "Oct 8", clicks: 105, ctr: "0.53%", best: false, note: "" },
-                      { date: "Sep 27", clicks: 100, ctr: "1.02%", best: false, note: "" },
-                      { date: "Sep 29", clicks: 99, ctr: "1.30%", best: false, note: "" },
-                    ]
-                ).map((d) => (
-                  <div key={d.date} className="flex justify-between items-center py-3 border-b border-border/40 last:border-0">
-                    <div className="flex items-center gap-2.5">
-                      <span className="text-sm font-medium text-foreground">{d.date}</span>
-                      {d.best && <span className="text-[10px] uppercase tracking-widest font-semibold text-muted-foreground">Best</span>}
-                    </div>
+                {(isS25 ? s25Creators : fold7Creators).slice(0, 5).map((c) => (
+                  <div key={c.name} className="flex justify-between items-center py-3 border-b border-border/40 last:border-0">
+                    <span className="text-sm font-medium text-foreground">{c.name}</span>
                     <div className="text-right">
-                      <span className="text-base font-bold text-foreground tabular-nums">{d.clicks}</span>
-                      <span className="text-xs text-muted-foreground ml-1">clicks</span>
-                      <span className="text-xs text-muted-foreground ml-3 tabular-nums">{d.ctr}</span>
+                      <span className="text-base font-bold text-foreground tabular-nums">{c.completedViews}</span>
+                      <span className="text-xs text-muted-foreground ml-1">views</span>
                     </div>
                   </div>
                 ))}
@@ -682,8 +663,8 @@ const SamsungCaseStudy: React.FC = () => {
                 data={s25Creators}
                 totalLabel="S25 Ultra total (43 streamers)"
                 totalViews="500,131"
-                totalClicks="14,642"
-                totalCTR="2.93%"
+                totalClicks="-"
+                totalCTR="0.76%"
                 totalFollowers="-"
                 followersLabel="Avg viewers"
               />
@@ -841,9 +822,9 @@ const SamsungCaseStudy: React.FC = () => {
               { value: "800,185", label: "Live completed views" },
               { value: "1.35M+", label: "Including VOD" },
               { value: "43 + 28", label: "Streamer slots" },
-              { value: "21,670", label: "Link clicks" },
+              { value: "56 + 31", label: "Campaign days" },
               { value: "0%", label: "Adblock impact" },
-              { value: "23–29×", label: "vs. display CTR" },
+              { value: "0.76%", label: "Verified CTR (S25 Ultra)" },
             ].map((s, i) => (
               <div key={s.label} className={`py-4 ${i % 2 === 0 && i < 5 ? "pr-6 border-r border-border" : ""} ${i % 2 !== 0 || i > 4 ? "pl-6" : ""} ${i < 4 ? "border-b border-border lg:border-b-0" : ""}`}>
                 <div className="text-2xl font-bold text-foreground tracking-tight tabular-nums">{s.value}</div>

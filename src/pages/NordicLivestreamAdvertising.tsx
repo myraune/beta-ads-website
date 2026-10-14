@@ -37,7 +37,7 @@ const nordicMax = 1.142;
 
 // Real, verified Beta Ads Nordic campaigns (from the case studies on this site).
 const proof = [
-  { brand: "Samsung", logo: "/lovable-uploads/logo-samsung.png", metric: "500,131", label: "completed views", extra: "2.93% avg CTR", video: "/lovable-uploads/overlay-samsung.webm", href: "/case-study/samsung" },
+  { brand: "Samsung", logo: "/lovable-uploads/logo-samsung.png", metric: "500,131", label: "completed views", extra: "43 Norwegian streamers", video: "/lovable-uploads/overlay-samsung.webm", href: "/case-study/samsung" },
   { brand: "Shure", logo: "/lovable-uploads/logo-shure.png", metric: "9.12%", label: "peak-day CTR", extra: "182,554 views", video: "/lovable-uploads/overlay-shure-gca.webm", href: "/case-study/shure" },
   { brand: "Komplett", logo: "/lovable-uploads/logo-komplett.png", metric: "151,278", label: "display views", extra: "1.17% CTR, 34 streamers", video: "/lovable-uploads/overlay-komplett.webm", href: "/case-study/komplett" },
   { brand: "Surfshark", logo: "/lovable-uploads/logo-surfshark.png", metric: "91,006", label: "completed views", extra: "37,713 unique viewers", video: "/lovable-uploads/overlay-surfshark.webm", href: "/case-study/surfshark" },
@@ -236,7 +236,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
               That is a real Beta Ads overlay for the Samsung Galaxy S25 Ultra, running natively in a Norwegian Twitch stream. It is drawn into the video feed through OBS, so ad-block software has nothing to detect and nothing to remove.
             </p>
             <p className="text-base text-muted-foreground leading-relaxed">
-              That matters because roughly 64% of livestream viewers run ad-block (inStreamly, 2026). A native overlay is one of the few formats this audience does not, and cannot, skip.
+              That matters because ad blockers strip pre-rolls. An overlay rendered inside the stream can't be blocked, so it is one of the few formats this audience does not, and cannot, skip.
             </p>
           </div>
         </div>
@@ -264,7 +264,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
             <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Proof, not promises</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">What it delivers in the Nordics</h2>
             <p className="text-base text-muted-foreground leading-relaxed mt-4">
-              Nine verified Nordic campaigns in 2025, drawn from a pool of 39,000+ indexed creators. These are real numbers from real streams, and every one links to the full case study.
+              Beta Ads has run 29 campaigns with full reports, picking creators from 39,000+ in our Streamer Explorer. The numbers below come from real streams, and each one links to the full case study.
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -285,14 +285,10 @@ const NordicLivestreamAdvertising: React.FC = () => {
               </Link>
             ))}
           </div>
-          <div className="mt-12 grid sm:grid-cols-2 gap-6 max-w-4xl">
+          <div className="mt-12 max-w-2xl">
             <div className="flex items-start gap-4 p-6 rounded-2xl border border-border bg-card">
               <div className="text-3xl font-bold text-primary tracking-tight shrink-0">44%</div>
               <p className="text-sm text-muted-foreground leading-relaxed">of Twitch viewers have bought a product a streamer they watch recommended (Twitch RPG survey, US, Feb 2023).</p>
-            </div>
-            <div className="flex items-start gap-4 p-6 rounded-2xl border border-border bg-card">
-              <div className="text-3xl font-bold text-primary tracking-tight shrink-0">67%</div>
-              <p className="text-sm text-muted-foreground leading-relaxed">more likely to consider a brand after seeing it supported on a stream they watch (Amazon Marketing Cloud, 2023).</p>
             </div>
           </div>
         </div>

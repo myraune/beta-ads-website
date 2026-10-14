@@ -81,7 +81,7 @@ const features = [
       "Demographic filters (age, region, language)",
       "Match scoring with percentage",
     ],
-    stat: { value: "2.93%", label: "avg CTR - Samsung S25 Ultra campaign" },
+    stat: { value: "500,131", label: "completed views - Samsung S25 Ultra campaign" },
   },
   {
     id: "launch",

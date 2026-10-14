@@ -257,8 +257,8 @@ export const CampaignComparisonChart: React.FC = () => {
   // Per-streamer normalized comparison. Removes the budget-bias problem
   // where Fold7's smaller buy (28 streamers, 31 days) made it look weak
   // in absolute terms. With per-streamer rates, both campaigns shine on
-  // different axes - Fold7 dominates reach efficiency, S25 dominates
-  // engagement. Index 100 = average of both campaigns on each metric.
+  // different axes - Fold7 dominates reach efficiency, S25 leads on
+  // depth. Index 100 = average of both campaigns on each metric.
   //
   // S25 Ultra: 43 streamers, 56 days
   // Fold7:     28 streamers, 31 days
@@ -266,11 +266,9 @@ export const CampaignComparisonChart: React.FC = () => {
     // Reach efficiency
     buildIndexed(3224, 5069, "3,224", "5,069", "Unique / streamer"),
     buildIndexed(11631, 10716, "11,631", "10,716", "Views / streamer"),
-    // Quality metrics
-    buildIndexed(2.93, 2.34, "2.93%", "2.34%", "Average CTR"),
+    // Audience quality
     buildIndexed(90.07, 93.05, "90.07%", "93.05%", "Norway audience"),
-    // Engagement efficiency
-    buildIndexed(341, 251, "341", "251", "Clicks / streamer"),
+    // Depth
     buildIndexed(87.2, 71.4, "87.2h", "71.4h", "Watch hrs / streamer"),
   ];
 

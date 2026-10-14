@@ -60,7 +60,7 @@ const GloriousCaseStudy: React.FC = () => {
                   Nordics · Gaming peripherals · Product launch
                 </span>
                 <span className="text-xs text-muted-foreground tracking-wide">
-                  Case Study · O3 Mouse campaign
+                  Case Study · V3 Mouse campaign
                 </span>
               </div>
             </div>
@@ -69,7 +69,7 @@ const GloriousCaseStudy: React.FC = () => {
               <span className="hl">× Beta Ads</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-              How Glorious reached the Nordic gaming community with native rich media overlays to promote the O3 mouse across Finland, Norway, and Sweden.
+              How Glorious reached the Nordic gaming community with native rich media overlays to promote the V3 mouse across Finland, Norway, and Sweden.
             </p>
           </div>
 
@@ -91,7 +91,7 @@ const GloriousCaseStudy: React.FC = () => {
           <AdGif
             src="https://storage.googleapis.com/livad-blog/3292/3669942.gif"
             poster="/lovable-uploads/adgif-3669942-poster.webp"
-            alt="Glorious O3 Mouse campaign overlay on Twitch stream"
+            alt="Glorious V3 Mouse campaign overlay on Twitch stream"
             className="w-full h-auto rounded-2xl"
             sizeLabel="3 MB"
           />
@@ -111,7 +111,7 @@ const GloriousCaseStudy: React.FC = () => {
                 Reaching gamers who block everything
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                Glorious needed to promote the new O3 mouse to tech-savvy gamers across the Nordics - an audience that blocks pre-roll ads on sight and has learned to ignore banner placements entirely.
+                Glorious needed to promote the new V3 mouse to tech-savvy gamers across the Nordics - an audience that blocks pre-roll ads on sight and has learned to ignore banner placements entirely.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
                 Standard digital formats couldn't penetrate this audience. Glorious needed something that felt native to the stream, was invisible to adblock software, and could scale across three languages and three markets simultaneously.
@@ -120,7 +120,7 @@ const GloriousCaseStudy: React.FC = () => {
             <div className="space-y-4 pt-2">
               {[
                 { label: "Target markets", value: "Finland, Norway, Sweden" },
-                { label: "Product", value: "Glorious O3 Mouse" },
+                { label: "Product", value: "Glorious V3 Mouse" },
                 { label: "Primary challenge", value: "Adblock-heavy gaming audience" },
                 { label: "Format used", value: "Rich Media Overlays" },
               ].map((row) => (
@@ -146,7 +146,7 @@ const GloriousCaseStudy: React.FC = () => {
               Localised overlays across 25 creators, 3 markets
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-12">
-              Beta deployed rich media overlay ads across 25 Nordic streamers. Creative assets were localised in Finnish, Norwegian, and English - appearing naturally during live broadcasts and prompting viewers to explore the O3 mouse through a link in the streamer's banner.
+              Beta deployed rich media overlay ads across 25 Nordic streamers. Creative assets were localised in Finnish, Norwegian, and English - appearing naturally during live broadcasts and prompting viewers to explore the V3 mouse through a link in the streamer's banner.
             </p>
 
             {/* Full-width GIF duo */}
@@ -154,14 +154,14 @@ const GloriousCaseStudy: React.FC = () => {
               <AdGif
             src="https://storage.googleapis.com/livad-blog/3292/3637484.gif"
             poster="/lovable-uploads/adgif-3637484-poster.webp"
-            alt="Glorious O3 overlay – Norwegian stream"
+            alt="Glorious V3 overlay – Norwegian stream"
             className="w-full h-auto rounded-2xl"
             sizeLabel="5 MB"
           />
               <AdGif
             src="https://storage.googleapis.com/livad-blog/3292/3644839.gif"
             poster="/lovable-uploads/adgif-3644839-poster.webp"
-            alt="Glorious O3 overlay – Finnish stream"
+            alt="Glorious V3 overlay – Finnish stream"
             className="w-full h-auto rounded-2xl"
             sizeLabel="3 MB"
           />
@@ -200,7 +200,7 @@ const GloriousCaseStudy: React.FC = () => {
                 A multi-market presence, built in one campaign
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed">
-                The international campaign established Glorious across three Nordic markets simultaneously. The message reached gamers in 112 different live stream categories - gaming, IRL, Just Chatting - bypassing traditional advertising hurdles and generating significant engagement for the O3 launch.
+                The international campaign established Glorious across three Nordic markets simultaneously. The message reached gamers in 112 different live stream categories - gaming, IRL, Just Chatting - bypassing traditional advertising hurdles and generating significant engagement for the V3 launch.
               </p>
             </div>
             <div>

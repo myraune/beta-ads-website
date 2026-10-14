@@ -14,7 +14,7 @@ const CaseStudySamsungFold7: React.FC = () => {
     <>
       <SEO
         title="Samsung Galaxy Z Fold7 Case Study | Beta Ads"
-        description="Samsung Galaxy Z Fold7 on Norwegian Twitch: 300,054 live views, 3.70% CTR in Week 1 across 28 Norwegian streamers. Zero adblock impact."
+        description="Samsung Galaxy Z Fold7 on Norwegian Twitch: 300,054 completed live views and 558,257+ VOD views across 28 Norwegian streamers. Zero adblock impact."
         canonical="/case-study/samsung-fold7"
         ogType="article"
         articlePublishedTime="2026-01-01"
@@ -94,7 +94,7 @@ const CaseStudySamsungFold7: React.FC = () => {
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl">
             How Samsung launched the Galaxy Z Fold7 to Norway's gaming community through native Twitch overlay ads
-            and live streamer integrations - delivering 23× the CTR of standard display advertising.
+            and live streamer integrations: 300,054 completed live views from 141,930 unique viewers in 31 days.
           </p>
         </div>
 
@@ -102,7 +102,7 @@ const CaseStudySamsungFold7: React.FC = () => {
         <div className="grid grid-cols-3 gap-px mb-10 border border-border rounded-2xl overflow-hidden bg-border">
           {[
             { value: "300K+", label: "Completed views" },
-            { value: "2.34%", label: "Click-through rate" },
+            { value: "558K+", label: "VOD views" },
             { value: "28", label: "Streamers" },
           ].map((s) => (
             <div key={s.label} className="bg-background px-6 py-5">

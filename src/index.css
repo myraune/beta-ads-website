@@ -137,11 +137,12 @@
    continuation, e.g. <h1><b>The platform</b> <span class="hl">for livestream ads.</span></h1>.
    .hl works inside any heading, whatever weight the heading itself has. */
 @layer components {
+  /* Retired 2026-10: the two-tone split read as a template device on every page,
+     so .hl now inherits the heading's own weight and colour. */
   .hl {
-    font-weight: 300;
+    font-weight: inherit;
     font-style: normal;
-    color: hsl(var(--head-light));
-    letter-spacing: -0.01em;
+    color: inherit;
   }
 
   /* Client logos shipped as white (or single-colour) marks: ink in light,

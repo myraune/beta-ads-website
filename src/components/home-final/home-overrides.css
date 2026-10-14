@@ -1,0 +1,58 @@
+/* Hand-written overrides on top of the generated home-final.css (do not edit that
+   file, it is regenerated from the design). Loaded after it via FinalChrome. */
+
+/* One voice per headline. The bold-ink + light-grey split read as a template
+   device on every section, so headings are a single weight and colour now.
+   Any leftover <b>/<span> inside a heading inherits instead of switching style. */
+.bf h1,.bf h2{font-weight:600;color:var(--head-b)}
+.bf .hero h1{letter-spacing:-.04em}
+.bf h1 b,.bf h1 span,.bf h2 b,.bf h2 span{font-weight:inherit;color:inherit;letter-spacing:inherit}
+.bf .faq h2 b{display:inline}
+
+/* Hero: one sentence of what it is, then the three facts a buyer checks first. */
+.bf .hero h1{font-size:60px;line-height:1.05;max-width:900px;margin-left:auto;margin-right:auto}
+.bf .hero__sub{max-width:640px;margin-left:auto;margin-right:auto}
+.bf .hero__facts{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;margin:22px auto 0;padding:0;list-style:none;font-size:15px;font-weight:500;color:var(--ink-2)}
+.bf .hero__facts li{display:inline-flex;align-items:center;gap:8px}
+.bf .hero__facts li::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ink-4)}
+
+/* Logo row gets a plain label so the relationship is stated, not implied. */
+.bf .logos__k{text-align:center;font-size:14px;font-weight:600;color:var(--ink-3);margin:0 0 22px}
+
+/* Stats sit right under the logos now, closer to the claims they back up. */
+.bf .totals--early{padding-top:40px}
+.bf .totals--early .totals__in div{padding:56px 58px 52px}
+.bf .totals--early .totals__in b{font-size:80px}
+@media (max-width:1100px){.bf .totals--early .totals__in div{padding:44px 40px}.bf .totals--early .totals__in b{font-size:60px}}
+@media (max-width:760px){.bf .totals--early{padding-top:28px}.bf .totals--early .totals__in div{padding:22px 20px}.bf .totals--early .totals__in b{font-size:44px}}
+
+/* Case cards: the result is the scan target, the description supports it. */
+.bf .case > span.case__n{display:block;font-size:26px;font-weight:600;letter-spacing:-.03em;color:var(--ink);margin-top:8px;line-height:1.1}
+.bf .case > span.case__n small{display:block;font-size:13.5px;font-weight:500;letter-spacing:0;color:var(--ink-3);margin-top:4px}
+
+/* Verification proof line under the live panel copy. */
+.bf .proofline{margin-top:14px;font-size:14.5px;font-weight:500;color:var(--ink-2)}
+.bf .proofline b{font-weight:600;color:var(--ink)}
+
+/* Worked billing example. */
+.bf .tcards--3b{grid-template-columns:repeat(3,minmax(0,1fr))}
+.bf .calc{margin:12px 0 2px;display:grid;gap:6px;font-size:15px;font-variant-numeric:tabular-nums}
+.bf .calc div{display:flex;justify-content:space-between;gap:16px;border-bottom:1px dashed var(--line);padding-bottom:6px;color:var(--ink-2)}
+.bf .calc div b{color:var(--ink);font-weight:600}
+.bf .calc div:last-child{border-bottom:0}
+
+/* Mobile: a fixed booking bar once the hero CTA has scrolled away. */
+.bf .mcta{display:none}
+@media (max-width:1100px){
+  .bf .tcards--3b{grid-template-columns:1fr}
+}
+@media (max-width:760px){
+  .bf .hero h1{font-size:38px;line-height:1.08}
+  .bf .hero__facts{flex-direction:column;align-items:center;gap:6px;font-size:14px}
+  .bf .case > span.case__n{font-size:22px}
+  .bf .mcta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;gap:10px;padding:10px;border-radius:14px;background:var(--surface);box-shadow:0 0 0 1px var(--line),0 10px 30px rgba(0,0,0,.18);transform:translateY(140%);transition:transform .25s}
+  .bf .mcta.on{transform:none}
+  .bf .mcta a{flex:1;display:flex;align-items:center;justify-content:center;height:44px;border-radius:10px;font-size:15px;font-weight:600}
+  .bf .mcta a.mcta__p{background:var(--ink);color:var(--on-ink)}
+  .bf .mcta a.mcta__s{box-shadow:0 0 0 1px var(--line);color:var(--ink)}
+}

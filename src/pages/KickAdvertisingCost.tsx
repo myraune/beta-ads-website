@@ -47,7 +47,7 @@ const drivers = [
 
 // Real, verified Beta Ads campaign outcomes (Nordic native campaigns).
 const proof = [
-  { brand: "Samsung", logo: "/lovable-uploads/logo-samsung.png", metric: "500,131", label: "completed views", extra: "2.93% avg CTR", href: "/case-study/samsung" },
+  { brand: "Samsung", logo: "/lovable-uploads/logo-samsung.png", metric: "500,131", label: "completed views", extra: "43 Norwegian streamers", href: "/case-study/samsung" },
   { brand: "Shure", logo: "/lovable-uploads/logo-shure.png", metric: "9.12%", label: "peak-day CTR", extra: "182,554 views", href: "/case-study/shure" },
   { brand: "NKI", logo: "/lovable-uploads/logo-nki.svg", metric: "220,003", label: "completed views", extra: "1,595 clicks", href: "/case-study/nki" },
   { brand: "Komplett", logo: "/lovable-uploads/logo-komplett.png", metric: "151,278", label: "display views", extra: "1.17% CTR", href: "/case-study/komplett" },
@@ -228,8 +228,8 @@ const KickAdvertisingCost: React.FC = () => {
         <div ref={modelsRef} className={`max-w-7xl mx-auto px-6 lg:px-12 transition-all duration-700 ${modelsVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <div className="max-w-2xl mb-14">
             <span className="text-xs font-semibold text-muted-foreground tracking-widest uppercase mb-3 block">How it's priced</span>
-            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">Two routes onto Kick, one that actually works today</h2>
-            <p className="text-base text-muted-foreground leading-relaxed mt-4">Kick's own ad stack isn't ready yet, so in practice one of these does the work.</p>
+            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground">Two routes onto Kick, and Beta Ads sells both</h2>
+            <p className="text-base text-muted-foreground leading-relaxed mt-4">Kick's own ad stack is still labelled Beta, so for presence inside the stream the creator route does most of the work.</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
             {models.map((m) => (
@@ -300,8 +300,8 @@ const KickAdvertisingCost: React.FC = () => {
               <div className="text-6xl md:text-7xl font-bold text-primary tracking-tight leading-none">100M+</div>
               <div className="text-sm text-muted-foreground mt-4">registered Kick users, and counting</div>
               <div className="mt-8 pt-8 border-t border-border">
-                <div className="text-2xl font-semibold text-foreground">Testing</div>
-                <div className="text-sm text-muted-foreground mt-1">the current state of Kick's own ad platform (per its CEO, 2026)</div>
+                <div className="text-2xl font-semibold text-foreground">Beta</div>
+                <div className="text-sm text-muted-foreground mt-1">the current label on Kick's own ad platform (Kick 2026 media kit)</div>
               </div>
             </div>
           </div>
@@ -397,7 +397,7 @@ const KickAdvertisingCost: React.FC = () => {
             ))}
           </div>
           <p className="text-xs text-muted-foreground leading-relaxed mt-8 max-w-3xl">
-            Sources: Kick co-founder statements to Digiday (2023) and win.gg (2026) confirming Kick is still testing ads and not yet selling to sponsors; Amazon Ads product pages (Streaming TV ads, Amazon DSP) for Twitch's published minimums. No public CPM rate card exists for either platform, which is why none is quoted here.
+            Sources: Kick's 2026 media kit for its Ads Beta products; Amazon Ads product pages (Streaming TV ads, Amazon DSP) for Twitch's published minimums. No public CPM rate card exists for either platform, which is why none is quoted here.
           </p>
         </div>
       </section>

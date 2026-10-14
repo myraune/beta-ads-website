@@ -90,11 +90,11 @@ const Contact: React.FC = () => {
                 <div className="flex-1">
                   <h2 className="text-2xl md:text-3xl font-light tracking-tight text-foreground mb-4">Book a demo call</h2>
                   <p className="text-muted-foreground text-base leading-relaxed max-w-lg mb-8">
-                    15 minutes. We walk you through how native overlay ads work, show you real campaign numbers, and tell you whether your brand is a fit for the format.
+                    30 minutes. We walk you through how native overlay ads work, show you real campaign numbers, and tell you whether your brand is a fit for the format.
                   </p>
                   <div className="grid grid-cols-3 border-t border-border pt-4 mb-8">
                     {[
-                      { value: "15 min", label: "Call length" },
+                      { value: "30 min", label: "Call length" },
                       { value: "Free", label: "No commitment" },
                       { value: "Live", label: "Platform demo" },
                     ].map((s, i) => (

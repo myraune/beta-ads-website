@@ -33,8 +33,8 @@ import { MascotBand } from "@/components/sections/MascotBand";
 const SIST_OPPDATERT = "2026-08-31";
 
 const heroStats = [
-  { value: "28K+", label: "Twitch-streamere" },
-  { value: "4", label: "plattformer" },
+  { value: "39 000+", label: "streamere i Streamer Explorer" },
+  { value: "3", label: "plattformer" },
   { value: "0 %", label: "blokkert av adblock" },
   { value: "2024", label: "Beta Agency AS" },
 ];
@@ -168,7 +168,7 @@ const faq = [
   },
   {
     q: "Hvorfor ikke bare kjøpe vanlige Twitch-annonser?",
-    a: "Rundt 80 prosent av nordmenn mellom 18 og 34 bruker adblocker, og pre-roll er det første som forsvinner. Et overlay ligger i selve videobildet og blir ikke blokkert. Det er også formatet publikum aksepterer: 79 prosent av Twitch-seere sier de foretrekker annonser som ikke avbryter sendingen.",
+    a: "Adblock fjerner pre-roll først. Et overlay ligger i selve videobildet og blir ikke blokkert. Det er også formatet publikum aksepterer: 79 prosent av Twitch-seere sier de foretrekker annonser som ikke avbryter sendingen.",
   },
   {
     q: "Hva er forskjellen på et Twitch-byrå og et influencer-byrå?",
@@ -574,8 +574,7 @@ const TwitchByraNorge: React.FC = () => {
               </h3>
               <div className="space-y-5">
                 {[
-                  ["80 %", "av nordmenn mellom 18 og 34 bruker adblocker. Pre-roll er det første som forsvinner."],
-                  ["0 %", "av overlayene blir blokkert. De ligger i selve videobildet."],
+                  ["0 %", "av overlayene blir blokkert. Adblock fjerner pre-roll, men et overlay ligger i selve videobildet."],
                   ["79 %", "av Twitch-seere foretrekker annonser som ikke avbryter sendingen."],
                   ["73 %", "av Twitch sitt publikum er mellom 18 og 34 år."],
                 ].map(([v, t]) => (

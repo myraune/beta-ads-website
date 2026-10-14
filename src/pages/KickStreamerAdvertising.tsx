@@ -45,7 +45,7 @@ const EXPLORER = "/lovable-uploads/kick/streamer-explorer-kick.webp";
 
 const CASES = [
   { brand: "Samsung", logo: "/lovable-uploads/logo-samsung.png", metric: "500,131", metricLocal: "500 131", href: "/case-study/samsung",
-    label: { en: "completed views, 2.93% CTR", no: "fullførte visninger, 2,93 % CTR", sv: "fullföljda visningar, 2,93 % CTR", da: "gennemførte visninger, 2,93 % CTR", fi: "katsottua näyttöä, 2,93 % CTR" } },
+    label: { en: "completed views, 43 streamers", no: "fullførte visninger, 43 strømmere", sv: "fullföljda visningar, 43 streamers", da: "gennemførte visninger, 43 streamere", fi: "katsottua näyttöä, 43 striimaajaa" } },
   { brand: "Shure", logo: "/lovable-uploads/logo-shure.png", metric: "9.12%", metricLocal: "9,12 %", href: "/case-study/shure",
     label: { en: "peak-day CTR, 182,554 views", no: "CTR på toppdagen, 182 554 visninger", sv: "CTR på toppdagen, 182 554 visningar", da: "CTR på topdagen, 182.554 visninger", fi: "huippupäivän CTR, 182 554 näyttöä" } },
   { brand: "Komplett", logo: "/lovable-uploads/logo-komplett.png", metric: "151,278", metricLocal: "151 278", href: "/case-study/komplett",
@@ -72,8 +72,8 @@ const COPY = {
     secondary: "Kick's own formats",
     stats: [
       { value: "4,179", label: "streamers who have run campaigns through the software (auto-accept)" },
-      { value: "2.93%", label: "average CTR on the Samsung campaign, 500,131 completed views" },
-      { value: "67%", label: "response rate reached on in-stream polls" },
+      { value: "800,185", label: "completed live views across two Samsung campaigns" },
+      { value: "5-20%", label: "of concurrent viewers typically answer a sponsored poll" },
       { value: "20.0%", label: "Kick's share of Kick + Twitch hours in Northern Europe (Kick, Q2 2026)" },
     ],
     formats: {
@@ -83,7 +83,7 @@ const COPY = {
       items: [
         { name: "Native overlay", desc: "A branded graphic on the stream during sponsored moments, animated or static. It never runs constantly and never covers the game." },
         { name: "Voice-triggered", desc: "Fires when the creator says your brand, using real-time voice recognition. The ad shows up at the exact second the endorsement happens." },
-        { name: "Polls and chat", desc: "A question the audience answers in chat, with the split in your report. Our poll campaigns have reached a 67 percent response rate." },
+        { name: "Polls and chat", desc: "A question the audience answers in chat, with the split in your report. Sponsored polls typically pull 5 to 20 percent of concurrent viewers." },
         { name: "Replay reach", desc: "The overlay is burned into the VOD and the clips, so the campaign keeps being seen after the live stream ends." },
       ],
       clipsLabel: "Real overlays in real streams",
@@ -136,8 +136,8 @@ const COPY = {
     secondary: "Kicks egne formater",
     stats: [
       { value: "4 179", label: "streamere som har kjørt kampanjer gjennom softwaren (auto-accept)" },
-      { value: "2,93 %", label: "gjennomsnittlig CTR på Samsung-kampanjen, 500 131 fullførte visninger" },
-      { value: "67 %", label: "svarandel oppnådd på avstemninger i strømmen" },
+      { value: "800 185", label: "fullførte live-visninger over to Samsung-kampanjer" },
+      { value: "5-20 %", label: "av seerne som ser på, svarer vanligvis på en sponset avstemning" },
       { value: "20,0 %", label: "Kicks andel av Kick + Twitch-timer i Nord-Europa (Kick, Q2 2026)" },
     ],
     formats: {
@@ -147,7 +147,7 @@ const COPY = {
       items: [
         { name: "Native overlay", desc: "En merket grafikk på strømmen i sponsede øyeblikk, animert eller statisk. Den går aldri konstant og ligger aldri over spillet." },
         { name: "Stemmestyrt", desc: "Utløses når skaperen sier navnet på merkevaren, med talegjenkjenning i sanntid. Annonsen vises i samme sekund som anbefalingen skjer." },
-        { name: "Avstemninger og chat", desc: "Et spørsmål publikum svarer på i chatten, med fordelingen i rapporten din. Avstemningskampanjene våre har nådd 67 prosent svarandel." },
+        { name: "Avstemninger og chat", desc: "Et spørsmål publikum svarer på i chatten, med fordelingen i rapporten din. En sponset avstemning får vanligvis svar fra 5 til 20 prosent av seerne som ser på." },
         { name: "Replay reach", desc: "Overlayet ligger i VOD-en og klippene, så kampanjen blir sett videre etter at live-strømmen er over." },
       ],
       clipsLabel: "Ekte overlays i ekte strømmer",
@@ -200,8 +200,8 @@ const COPY = {
     secondary: "Kicks egna format",
     stats: [
       { value: "4 179", label: "streamers som har kört kampanjer genom mjukvaran (auto-accept)" },
-      { value: "2,93 %", label: "genomsnittlig CTR på Samsung-kampanjen, 500 131 fullföljda visningar" },
-      { value: "67 %", label: "svarsfrekvens uppnådd på omröstningar i streamen" },
+      { value: "800 185", label: "fullföljda livevisningar över två Samsung-kampanjer" },
+      { value: "5-20 %", label: "av tittarna som är inne svarar oftast på en sponsrad omröstning" },
       { value: "20,0 %", label: "Kicks andel av Kick + Twitch-timmar i Nordeuropa (Kick, Q2 2026)" },
     ],
     formats: {
@@ -211,7 +211,7 @@ const COPY = {
       items: [
         { name: "Native overlay", desc: "En varumärkt grafik på streamen under sponsrade ögonblick, animerad eller statisk. Den går aldrig konstant och ligger aldrig över spelet." },
         { name: "Röststyrd", desc: "Triggas när kreatören säger varumärkets namn, med röstigenkänning i realtid. Annonsen visas i samma sekund som rekommendationen sker." },
-        { name: "Omröstningar och chatt", desc: "En fråga publiken svarar på i chatten, med fördelningen i din rapport. Våra omröstningskampanjer har nått 67 procents svarsfrekvens." },
+        { name: "Omröstningar och chatt", desc: "En fråga publiken svarar på i chatten, med fördelningen i din rapport. En sponsrad omröstning får oftast svar från 5 till 20 procent av tittarna som är inne." },
         { name: "Replay reach", desc: "Overlayen ligger kvar i VOD:en och klippen, så kampanjen fortsätter ses efter att live-streamen är slut." },
       ],
       clipsLabel: "Riktiga overlays i riktiga streams",
@@ -264,8 +264,8 @@ const COPY = {
     secondary: "Kicks egne formater",
     stats: [
       { value: "4.179", label: "streamere, der har kørt kampagner gennem softwaren (auto-accept)" },
-      { value: "2,93 %", label: "gennemsnitlig CTR på Samsung-kampagnen, 500.131 gennemførte visninger" },
-      { value: "67 %", label: "svarprocent opnået på afstemninger i streamen" },
+      { value: "800.185", label: "gennemførte live-visninger over to Samsung-kampagner" },
+      { value: "5-20 %", label: "af seerne, der kigger med, svarer typisk på en sponsoreret afstemning" },
       { value: "20,0 %", label: "Kicks andel af Kick + Twitch-timer i Nordeuropa (Kick, Q2 2026)" },
     ],
     formats: {
@@ -275,7 +275,7 @@ const COPY = {
       items: [
         { name: "Native overlay", desc: "En brandet grafik på streamen i sponsorerede øjeblikke, animeret eller statisk. Den kører aldrig konstant og ligger aldrig over spillet." },
         { name: "Stemmestyret", desc: "Udløses, når creatoren siger brandets navn, med stemmegenkendelse i realtid. Annoncen vises i samme sekund, som anbefalingen sker." },
-        { name: "Afstemninger og chat", desc: "Et spørgsmål publikum svarer på i chatten, med fordelingen i din rapport. Vores afstemningskampagner har nået 67 procents svarprocent." },
+        { name: "Afstemninger og chat", desc: "Et spørgsmål publikum svarer på i chatten, med fordelingen i din rapport. En sponsoreret afstemning får typisk svar fra 5 til 20 procent af seerne, der kigger med." },
         { name: "Replay reach", desc: "Overlayet ligger i VOD'en og klippene, så kampagnen bliver set videre, efter live-streamen er slut." },
       ],
       clipsLabel: "Rigtige overlays i rigtige streams",
@@ -328,8 +328,8 @@ const COPY = {
     secondary: "Kickin omat formaatit",
     stats: [
       { value: "4 179", label: "striimaajaa, jotka ovat ajaneet kampanjoita ohjelmiston kautta (auto-accept)" },
-      { value: "2,93 %", label: "keskimääräinen CTR Samsung-kampanjassa, 500 131 katsottua näyttöä" },
-      { value: "67 %", label: "vastausaste lähetyksen äänestyksissä" },
+      { value: "800 185", label: "katsottua live-näyttöä kahdessa Samsung-kampanjassa" },
+      { value: "5-20 %", label: "samanaikaisista katsojista vastaa tyypillisesti sponsoroituun äänestykseen" },
       { value: "20,0 %", label: "Kickin osuus Kick + Twitch -tunneista Pohjois-Euroopassa (Kick, Q2 2026)" },
     ],
     formats: {
@@ -339,7 +339,7 @@ const COPY = {
       items: [
         { name: "Native overlay", desc: "Brändätty grafiikka lähetyksessä sponsoroitujen hetkien aikana, animoituna tai staattisena. Ei koskaan jatkuvasti, ei koskaan pelin päällä." },
         { name: "Ääniohjattu", desc: "Käynnistyy, kun tekijä sanoo brändisi nimen, reaaliaikaisella puheentunnistuksella. Mainos näkyy samalla sekunnilla kuin suositus." },
-        { name: "Äänestykset ja chat", desc: "Kysymys, johon yleisö vastaa chatissa, jakauma raportissasi. Äänestyskampanjamme ovat yltäneet 67 prosentin vastausasteeseen." },
+        { name: "Äänestykset ja chat", desc: "Kysymys, johon yleisö vastaa chatissa, jakauma raportissasi. Sponsoroituun äänestykseen vastaa tyypillisesti 5-20 prosenttia samanaikaisista katsojista." },
         { name: "Replay reach", desc: "Overlay jää VOD:iin ja klippeihin, joten kampanjaa katsotaan vielä live-lähetyksen päätyttyä." },
       ],
       clipsLabel: "Oikeita overlayta oikeissa lähetyksissä",

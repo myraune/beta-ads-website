@@ -60,7 +60,7 @@ const inventory = [
 const inventoryMax = 1142810;
 
 // Buying direct vs through a managed agency. All figures verified from primary
-// sources (Amazon Ads product pages; Kick CEO statements 2026). No CPM is
+// sources (Amazon Ads product pages; Kick 2026 media kit). No CPM is
 // stated because none is published for either platform.
 const directBuy: {
   tag: string;
@@ -84,9 +84,9 @@ const directBuy: {
     title: "Easygo",
     highlight: false,
     facts: [
-      "As of mid-2026 Kick's CEO says ads are still in testing and not yet sold to sponsors",
-      "No self-serve platform, no rate card, no advertiser portal",
-      "The only route onto Kick is a negotiated creator sponsorship",
+      "Kick's 2026 Ads Beta sells display, native and video inventory, quoted per deal in USD CPM",
+      "No public rate card",
+      "Beta Ads sells Kick's own inventory in the Nordics, alongside creator integrations",
     ],
     link: { href: "/kick-advertising-cost", label: "What Kick advertising costs" },
   },
@@ -104,7 +104,7 @@ const directBuy: {
 
 // Real, verified campaign outcomes (from the case studies on this site).
 const proof = [
-  { brand: "Samsung", logo: "/lovable-uploads/logo-samsung.png", metric: "500,131", label: "completed views", extra: "2.93% avg CTR", href: "/case-study/samsung" },
+  { brand: "Samsung", logo: "/lovable-uploads/logo-samsung.png", metric: "500,131", label: "completed views", extra: "43 Norwegian streamers", href: "/case-study/samsung" },
   { brand: "Shure", logo: "/lovable-uploads/logo-shure.png", metric: "9.12%", label: "peak-day CTR", extra: "182,554 views", href: "/case-study/shure" },
   { brand: "NKI", logo: "/lovable-uploads/logo-nki.svg", metric: "220,003", label: "completed views", extra: "1,595 clicks", href: "/case-study/nki" },
   { brand: "Komplett", logo: "/lovable-uploads/logo-komplett.png", metric: "151,278", label: "display views", extra: "1.17% CTR", href: "/case-study/komplett" },
@@ -449,7 +449,7 @@ const TwitchAdvertisingCost: React.FC = () => {
             ))}
           </div>
           <p className="text-xs text-muted-foreground leading-relaxed mt-8 max-w-3xl">
-            Sources: Amazon Ads product pages (Streaming TV ads, Amazon DSP) for the published minimums; Kick co-founder statements to Digiday (2023) and win.gg (2026) confirming Kick is still testing ads and not yet selling to sponsors. No public CPM rate card exists for either platform, which is why none is quoted here.
+            Sources: Amazon Ads product pages (Streaming TV ads, Amazon DSP) for the published minimums; Kick's 2026 media kit for its Ads Beta products. No public CPM rate card exists for either platform, which is why none is quoted here.
           </p>
         </div>
       </section>
