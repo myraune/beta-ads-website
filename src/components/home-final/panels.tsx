@@ -96,10 +96,10 @@ export const LivePanel: React.FC<{ reveal?: boolean }> = ({ reveal = true }) => 
   );
 };
 
-export const ReportPanel: React.FC<{ reveal?: boolean }> = ({ reveal = true }) => {
+export const ReportPanel: React.FC<{ reveal?: boolean; compact?: boolean }> = ({ reveal = true, compact = false }) => {
   const rv = reveal ? " reveal" : "";
   return (
-    <div className={`panel panel--report dui${rv}`}>
+    <div className={`panel panel--report dui${compact ? " panel--compact" : ""}${rv}`}>
       <div className="r-side">
         <div className="r-brand">Samsung</div>
         <div className="r-camp">Galaxy S25 and Z Fold7</div>

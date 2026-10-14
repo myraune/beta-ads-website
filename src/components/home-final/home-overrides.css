@@ -30,9 +30,6 @@
 .bf .case > span.case__n{display:block;font-size:26px;font-weight:600;letter-spacing:-.03em;color:var(--ink);margin-top:8px;line-height:1.1}
 .bf .case > span.case__n small{display:block;font-size:13.5px;font-weight:500;letter-spacing:0;color:var(--ink-3);margin-top:4px}
 
-/* Verification proof line under the live panel copy. */
-.bf .proofline{margin-top:14px;font-size:14.5px;font-weight:500;color:var(--ink-2)}
-.bf .proofline b{font-weight:600;color:var(--ink)}
 
 /* Worked billing example. */
 .bf .tcards--3b{grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -41,8 +38,6 @@
 .bf .calc div b{color:var(--ink);font-weight:600}
 .bf .calc div:last-child{border-bottom:0}
 
-/* Mobile: a fixed booking bar once the hero CTA has scrolled away. */
-.bf .mcta{display:none}
 @media (max-width:1100px){
   .bf .tcards--3b{grid-template-columns:1fr}
 }
@@ -50,9 +45,52 @@
   .bf .hero h1{font-size:38px;line-height:1.08}
   .bf .hero__facts{flex-direction:column;align-items:center;gap:6px;font-size:14px}
   .bf .case > span.case__n{font-size:22px}
-  .bf .mcta{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:60;gap:10px;padding:10px;border-radius:14px;background:var(--surface);box-shadow:0 0 0 1px var(--line),0 10px 30px rgba(0,0,0,.18);transform:translateY(140%);transition:transform .25s}
-  .bf .mcta.on{transform:none}
-  .bf .mcta a{flex:1;display:flex;align-items:center;justify-content:center;height:44px;border-radius:10px;font-size:15px;font-weight:600}
-  .bf .mcta a.mcta__p{background:var(--ink);color:var(--on-ink)}
-  .bf .mcta a.mcta__s{box-shadow:0 0 0 1px var(--line);color:var(--ink)}
+}
+
+/* ── v4 ───────────────────────────────────────────────────────────────── */
+
+/* Totals as one quiet line under the logos. */
+.bf .proofstrip{max-width:1392px;margin:40px auto 0;padding:0 24px}
+.bf .proofstrip p{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 44px;margin:0;padding:22px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:15.5px;font-weight:500;color:var(--ink-3)}
+.bf .proofstrip b{font-size:22px;font-weight:600;letter-spacing:-.02em;color:var(--ink);margin-right:6px}
+
+/* Verification: one real recorded frame next to the numbers, on the light canvas. */
+.bf .clipproof{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:56px;align-items:center}
+.bf .clipproof__frame{position:relative;margin:0}
+.bf .clipproof__frame img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:var(--r-lg);box-shadow:var(--shadow-panel)}
+.bf .clipproof__tag{position:absolute;left:16px;top:16px;display:inline-flex;align-items:center;gap:8px;padding:6px 11px;border-radius:999px;background:rgba(10,11,13,.78);color:#fff;font-size:13px;font-weight:600;backdrop-filter:blur(6px)}
+.bf .clipproof__frame figcaption{margin-top:12px;font-size:13.5px;color:var(--ink-3);font-weight:500}
+.bf .clipproof__big b{display:block;font-size:76px;font-weight:600;letter-spacing:-.05em;line-height:1;color:var(--ink)}
+.bf .clipproof__big span{display:block;margin-top:10px;font-size:16px;color:var(--ink-3);font-weight:500;max-width:300px}
+.bf .clipproof__checks{list-style:none;margin:32px 0 0;padding:0;counter-reset:ck}
+.bf .clipproof__checks li{counter-increment:ck;display:grid;grid-template-columns:34px 1fr;row-gap:2px;padding:14px 0;border-top:1px solid var(--line)}
+.bf .clipproof__checks li::before{content:counter(ck,decimal-leading-zero);grid-row:span 2;font-size:13px;font-variant-numeric:tabular-nums;color:var(--ink-3);padding-top:2px}
+.bf .clipproof__checks b{font-size:16px;font-weight:600;color:var(--ink)}
+.bf .clipproof__checks span{font-size:14.5px;color:var(--ink-3);font-weight:500}
+.bf .clipproof__note{margin:14px 0 0;font-size:14.5px;font-weight:600;color:var(--ink)}
+
+/* Report: copy left, a compact close-up of the report right. */
+.bf .split{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:64px;align-items:center}
+.bf .split__copy h2{font-size:52px;line-height:1.05;letter-spacing:-.042em}
+.bf .split__copy p{margin-top:18px;font-size:18px;line-height:1.55;color:var(--ink-3);font-weight:500;max-width:440px}
+.bf .split__list{list-style:none;margin:26px 0 0;padding:0}
+.bf .split__list li{padding:11px 0;border-top:1px solid var(--line);font-size:15.5px;font-weight:500;color:var(--ink-2)}
+.bf .panel--compact{grid-template-columns:minmax(0,1fr)}
+.bf .panel--compact .r-side{display:none}
+.bf .panel--compact .r-row{grid-template-columns:84px minmax(0,1fr) 92px}
+.bf .panel--compact .r-row span:nth-child(3){display:none}
+.bf .panel--compact .r-states .seg{display:none}
+
+@media (max-width:1100px){
+  .bf .clipproof,.bf .split{grid-template-columns:minmax(0,1fr);gap:36px}
+  .bf .split__copy h2{font-size:44px}
+}
+@media (max-width:760px){
+  .bf .proofstrip{margin-top:28px;padding:0 16px}
+  .bf .proofstrip p{flex-direction:column;align-items:flex-start;gap:8px;font-size:14.5px;padding:18px 4px}
+  .bf .clipproof__big b{font-size:56px}
+  .bf .split__copy h2{font-size:34px}
+  .bf .split__copy p{font-size:16px}
+  /* Shorter phone page: secondary navigation blocks stay on desktop. */
+  .bf .where,.bf .sec--blog,.bf .deep{display:none}
 }

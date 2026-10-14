@@ -139,6 +139,10 @@
 @layer components {
   /* Retired 2026-10: the two-tone split read as a template device on every page,
      so .hl now inherits the heading's own weight and colour. */
+  /* One heading weight across the site: the homepage (.bf) uses 600, so the
+     Tailwind font-bold headings on every other page match it. */
+  h1.font-bold, h2.font-bold { font-weight: 600; }
+
   .hl {
     font-weight: inherit;
     font-style: normal;

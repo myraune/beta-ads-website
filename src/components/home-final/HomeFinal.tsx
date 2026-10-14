@@ -3,7 +3,7 @@ import { useTheme } from "next-themes";
 import { A, Arrow, BookDemo, FinalFooter, FinalNav, LOGO_DARK, LOGO_LIGHT } from "./FinalChrome";
 import { HERO_POSTER, HERO_VIDEO, startHeroPlayer } from "./heroPlayer";
 import "./home-final.css";
-import { BuildPanel, Corners, LivePanel, ReportPanel } from "./panels";
+import { BuildPanel, Corners, ReportPanel } from "./panels";
 
 /* Homepage "31 Final / Platform" (approved static design in
    ~/dev/beta-ads-home-v3/31-final-platform), ported 1:1. Styles are scoped
@@ -119,21 +119,6 @@ export const HomeFinal: React.FC = () => {
       io.observe(v);
       cleanups.push(() => io.disconnect());
     });
-
-    // Mobile booking bar: shown once the hero CTA is off screen, hidden again from the closing CTA down.
-    const bar = root.querySelector<HTMLElement>(".mcta");
-    const ctas = root.querySelectorAll(".hero__cta");
-    if (bar && ctas.length > 1) {
-      const [heroCta, closeCta] = [ctas[0], ctas[ctas.length - 1]];
-      const update = () => {
-        const heroGone = heroCta.getBoundingClientRect().bottom < 0;
-        const closeReached = closeCta.getBoundingClientRect().top < window.innerHeight;
-        bar.classList.toggle("on", heroGone && !closeReached);
-      };
-      window.addEventListener("scroll", update, { passive: true });
-      update();
-      cleanups.push(() => window.removeEventListener("scroll", update));
-    }
 
     return () => cleanups.forEach((f) => f());
   }, []);
@@ -263,13 +248,13 @@ export const HomeFinal: React.FC = () => {
           </p>
         </section>
 
-        {/* 3 NUMBERS (moved up from below "Where it runs") */}
-        <section className="totals totals--early" aria-label="Totals" id="tour">
-          <div className="totals__in reveal">
-            <div><b className="num">3M+</b><span>completed views delivered</span></div>
-            <div><b className="num">19,000+</b><span>hours of sponsored airtime</span></div>
-            <div><b className="num">29</b><span>campaigns, each with a full report</span></div>
-          </div>
+        {/* 3 TOTALS: one quiet line under the logos, not a big-number block */}
+        <section className="proofstrip" aria-label="Totals" id="tour">
+          <p>
+            <span><b className="num">3M+</b> completed views delivered</span>
+            <span><b className="num">19,000+</b> hours of sponsored airtime</span>
+            <span><b className="num">29</b> campaigns, each with a full report</span>
+          </p>
         </section>
 
         {/* 4 CHAPTERS */}
@@ -290,10 +275,24 @@ export const HomeFinal: React.FC = () => {
               <h2>Every stream checked on air.</h2>
               <div>
                 <p>The overlay runs on all your streamers at once. Each stream is checked for it while live, each ad play is saved as a clip, and plays that did not happen are not billed.</p>
-                <p className="proofline">Surfshark Finland: <b>759 ad plays, 98.7% verified</b> with a recorded clip.</p>
               </div>
             </header>
-            <LivePanel />
+            <div className="clipproof reveal">
+              <figure className="clipproof__frame">
+                <img src="/lovable-uploads/case-surfshark-finland/just-chatting.webp" alt="A frame from a recorded verification clip: a Finnish streamer live on Twitch with the Surfshark overlay in the corner." loading="lazy" width={1600} height={900} />
+                <span className="clipproof__tag"><span className="live-dot" />Recorded clip of one ad play</span>
+                <figcaption>Surfshark Finland, August 2026. Every play leaves a clip like this in the report.</figcaption>
+              </figure>
+              <div className="clipproof__side">
+                <div className="clipproof__big"><b className="num">98.7%</b><span>of 759 ad plays verified with a recorded clip</span></div>
+                <ol className="clipproof__checks">
+                  <li><b>Overlay placed</b><span>The overlay is set up in the streamer's broadcast.</span></li>
+                  <li><b>Visible on stream</b><span>It shows in the live picture viewers see.</span></li>
+                  <li><b>Animation played</b><span>The full run played, so it counts as a view.</span></li>
+                </ol>
+                <p className="clipproof__note">A play that did not happen is not billed.</p>
+              </div>
+            </div>
             <div className="deep reveal">
               <span className="deep__k">More detail</span>
               <A className="tcard" href="/campaign-compliance"><b>Setup verification <Arrow /></b><span>Every channel checked on air.</span></A>
@@ -301,13 +300,20 @@ export const HomeFinal: React.FC = () => {
           </section>
 
           <section className="ch" id="report">
-            <header className="ch__h reveal">
-              <h2>A report you can forward to the client.</h2>
-              <div>
-                <p>Completed views, replay views, clicks and every brand mention in chat, translated and scored. Live in your dashboard, and as one PDF.</p>
+            <div className="split reveal">
+              <div className="split__copy">
+                <h2>A report you can forward to the client.</h2>
+                <p>Live in your own dashboard while the campaign runs, and as one PDF when it ends.</p>
+                <ul className="split__list">
+                  <li>Completed live views, per streamer and per stream</li>
+                  <li>Replay and clip views on top</li>
+                  <li>Clicks from the chat command</li>
+                  <li>Every brand mention in chat, translated and scored</li>
+                  <li>The verification clips</li>
+                </ul>
               </div>
-            </header>
-            <ReportPanel />
+              <ReportPanel compact reveal={false} />
+            </div>
             <div className="deep reveal">
               <span className="deep__k">More detail</span>
               <A className="tcard" href="/livestream-chat-engagement"><b>Chat tracking <Arrow /></b><span>Every brand mention, translated and scored.</span></A>
@@ -389,7 +395,7 @@ export const HomeFinal: React.FC = () => {
         </section>
 
         {/* BLOG */}
-        <section className="sec" aria-label="From the blog">
+        <section className="sec sec--blog" aria-label="From the blog">
           <div className="sec__h reveal">
             <h2>From the blog</h2>
             <A className="qlink" href="/blog">All articles <Arrow /></A>
@@ -425,11 +431,6 @@ export const HomeFinal: React.FC = () => {
           </div>
         </section>
       </main>
-
-      <div className="mcta" aria-label="Book a demo">
-        <BookDemo className="mcta__p" />
-        <A className="mcta__s" href="/case-study/surfshark-finland">See a report</A>
-      </div>
 
       <FinalFooter />
     </div>
