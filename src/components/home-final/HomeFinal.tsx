@@ -4,6 +4,7 @@ import { A, Arrow, BookDemo, FinalFooter, FinalNav, LOGO_DARK, LOGO_LIGHT } from
 import { HERO_POSTER, HERO_VIDEO, startHeroPlayer } from "./heroPlayer";
 import "./home-final.css";
 import { BuildPanel, Corners, ReportPanel } from "./panels";
+import { ChatThumb, KickMark, NordicFlags, ReplayThumb, TwitchMark, VerifyThumb, YouTubeMark } from "./marks";
 
 /* Homepage "31 Final / Platform" (approved static design in
    ~/dev/beta-ads-home-v3/31-final-platform), ported 1:1. Styles are scoped
@@ -295,7 +296,7 @@ export const HomeFinal: React.FC = () => {
             </div>
             <div className="deep reveal">
               <span className="deep__k">More detail</span>
-              <A className="tcard" href="/campaign-compliance"><b>Setup verification <Arrow /></b><span>Every channel checked on air.</span></A>
+              <A className="tcard tcard--g" href="/campaign-compliance"><VerifyThumb /><b>Setup verification <Arrow /></b><span>Every channel checked on air.</span></A>
             </div>
           </section>
 
@@ -316,8 +317,8 @@ export const HomeFinal: React.FC = () => {
             </div>
             <div className="deep reveal">
               <span className="deep__k">More detail</span>
-              <A className="tcard" href="/livestream-chat-engagement"><b>Chat tracking <Arrow /></b><span>Every brand mention, translated and scored.</span></A>
-              <A className="tcard" href="/replay-reach"><b>Replay reach <Arrow /></b><span>Views keep counting after the stream.</span></A>
+              <A className="tcard tcard--g" href="/livestream-chat-engagement"><ChatThumb /><b>Chat tracking <Arrow /></b><span>Every brand mention, translated and scored.</span></A>
+              <A className="tcard tcard--g" href="/replay-reach"><ReplayThumb /><b>Replay reach <Arrow /></b><span>Views keep counting after the stream.</span></A>
             </div>
           </section>
         </div>
@@ -326,10 +327,10 @@ export const HomeFinal: React.FC = () => {
         <section className="where" aria-label="Where it runs">
           <div className="where__in reveal">
             <h2 className="where__h">Where it runs</h2>
-            <A href="/twitch-advertising"><b>Twitch <Arrow /></b><span>Ads inside Twitch streams, with a chat command.</span></A>
-            <A href="/youtube-advertising"><b>YouTube <Arrow /></b><span>Ads inside YouTube live streams and their replays.</span></A>
-            <A href="/kick-advertising"><b>Kick <Arrow /></b><span>Ads inside Kick streams, run the same way.</span></A>
-            <A href="/nordic-livestream-advertising"><b>Nordics <Arrow /></b><span>Local streamers for Nordic brands and markets.</span></A>
+            <A href="/twitch-advertising"><span className="where__mark"><TwitchMark /></span><b>Twitch <Arrow /></b><span>Ads inside Twitch streams, with a chat command.</span></A>
+            <A href="/youtube-advertising"><span className="where__mark"><YouTubeMark /></span><b>YouTube <Arrow /></b><span>Ads inside YouTube live streams and their replays.</span></A>
+            <A href="/kick-advertising"><span className="where__mark"><KickMark /></span><b>Kick <Arrow /></b><span>Ads inside Kick streams, run the same way.</span></A>
+            <A href="/nordic-livestream-advertising"><span className="where__mark"><NordicFlags /></span><b>Nordics <Arrow /></b><span>Local streamers for Nordic brands and markets.</span></A>
           </div>
         </section>
 
