@@ -288,7 +288,7 @@
 
     <!-- FAQ schema — appears in Google "People also ask" and rich snippets -->
     <!-- SiteNavigationElement schema — tells Google which pages are top-level
-         navigation. Heavy hint for Google Sitelinks selection. The four featured
+         navigation. Heavy hint for Google Sitelinks selection. The featured
          pages here are the ones we want to appear under our search result. -->
     <script type="application/ld+json">
     {
@@ -296,31 +296,59 @@
       "@graph": [
         {
           "@type": "SiteNavigationElement",
+          "@id": "https://beta-ads.no/#nav-pricing",
+          "name": "Pricing",
+          "description": "Livestream ads on Twitch, YouTube, Kick and TikTok LIVE priced per 1,000 views that fully played. Campaigns from 100,000 NOK, undelivered views refunded.",
+          "url": "https://beta-ads.no/pricing"
+        },
+        {
+          "@type": "SiteNavigationElement",
           "@id": "https://beta-ads.no/#nav-case-studies",
           "name": "Case Studies",
-          "description": "Real campaign results from Samsung, Glorious, Surfshark and more -  Norwegian Twitch overlay advertising case studies with verified CTR, click-through, and viewer data.",
+          "description": "Campaign results from Samsung, Shure, Komplett, Glorious, Saily and Surfshark, with delivery, replay reach and verification for each.",
           "url": "https://beta-ads.no/case-studies"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "@id": "https://beta-ads.no/#nav-campaign-builder",
+          "name": "Campaign builder",
+          "description": "Build a livestream ad campaign in five steps: an animated overlay with its own chat command and an optional poll.",
+          "url": "https://beta-ads.no/campaign-builder"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "@id": "https://beta-ads.no/#nav-brand-safety",
+          "name": "Brand safety",
+          "description": "Every ad play is recorded; the speech around it is transcribed, translated into English, checked for swearing and rated per channel.",
+          "url": "https://beta-ads.no/brand-safety"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "@id": "https://beta-ads.no/#nav-streamer-explorer",
+          "name": "Streamer Explorer",
+          "description": "Search 39,000+ streamers on Twitch, YouTube and Kick by platform, country, language and category.",
+          "url": "https://beta-ads.no/streamer-explorer"
         },
         {
           "@type": "SiteNavigationElement",
           "@id": "https://beta-ads.no/#nav-twitch-advertising",
           "name": "Twitch Advertising",
-          "description": "Native overlay advertising on Twitch livestreams across Norway, Sweden, Finland and Denmark. Bypass adblock, reach Gen Z, and get a full report on every campaign.",
+          "description": "Animated overlay ads inside Twitch streams that cannot be skipped or ad blocked, with a chat command and a full report.",
           "url": "https://beta-ads.no/twitch-advertising"
         },
         {
           "@type": "SiteNavigationElement",
-          "@id": "https://beta-ads.no/#nav-kick-advertising",
-          "name": "Kick Advertising",
-          "description": "Native ads on Kick -  the fastest-growing streaming platform in the Nordics. Reach IRL streamers, gambling, and unrestricted creators that Twitch can't.",
-          "url": "https://beta-ads.no/kick-advertising"
+          "@id": "https://beta-ads.no/#nav-tiktok-live",
+          "name": "TikTok LIVE Advertising",
+          "description": "New: animated brand overlays inside TikTok LIVE streams, run next to Twitch, YouTube and Kick.",
+          "url": "https://beta-ads.no/tiktok-live-advertising"
         },
         {
           "@type": "SiteNavigationElement",
-          "@id": "https://beta-ads.no/#nav-press",
-          "name": "Press",
-          "description": "Beta Ads media coverage and press features -  featured in leading Norwegian and Nordic media outlets for our work on native Twitch advertising.",
-          "url": "https://beta-ads.no/press"
+          "@id": "https://beta-ads.no/#nav-working-with-us",
+          "name": "Working with us",
+          "description": "Managed campaigns for brands, a self-serve login for agencies, or programmatic private deals on Adform and Magnite.",
+          "url": "https://beta-ads.no/working-with-us"
         }
       ]
     }
