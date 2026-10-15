@@ -76,7 +76,7 @@ const CaseStudySamsungFold7: React.FC = () => {
               <img
                 src="/lovable-uploads/logo-samsung.png"
                 alt="Samsung"
-                className="h-4 w-auto [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)]"
+                className="h-4 w-auto max-w-none shrink-0 [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)]"
               />
             </div>
             <div className="flex flex-col gap-0.5">

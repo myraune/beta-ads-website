@@ -290,13 +290,13 @@ const SamsungCaseStudy: React.FC = () => {
             <div>
               <div className="flex items-center gap-4 mb-8">
                 <div
-                  className="flex items-center justify-center rounded-xl bg-foreground/[0.04] border border-border p-3 backdrop-blur-sm"
+                  className="shrink-0 flex items-center justify-center rounded-xl bg-foreground/[0.04] border border-border p-3 backdrop-blur-sm"
                   style={{ boxShadow: "0 0 0 1px #1428A044" }}
                 >
                   <img
                     src="/lovable-uploads/logo-samsung.png"
                     alt="Samsung"
-                    className="h-4 w-auto [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)]"
+                    className="h-4 w-auto max-w-none shrink-0 [filter:brightness(0)] dark:[filter:brightness(0)_invert(1)]"
                   />
                 </div>
                 <div className="flex flex-col gap-1">

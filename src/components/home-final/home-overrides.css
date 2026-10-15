@@ -120,3 +120,11 @@
 .bf .dbar--r > span{background:var(--ink)}
 .bf .dbar b{font-size:13.5px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
 .bf .dthumb--bars small{font-size:11.5px;color:var(--ink-3);font-weight:500}
+
+/* Client logos keep their proportions on phones: the grid cell caps the width,
+   object-fit scales the mark down inside it instead of squashing it. */
+@media (max-width:760px){
+  .bf .lg{gap:26px 14px}
+  .bf .lg li{width:100%;display:flex;justify-content:center}
+  .bf .lg img{max-width:100%;object-fit:contain;transform:none}
+}
