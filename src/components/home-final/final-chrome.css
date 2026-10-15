@@ -92,3 +92,16 @@
 .bf .nav__menu-login a{padding:7px 0;font-size:15px;font-weight:600;color:var(--ink)}
 .bf .nav__dd-ch .mark--tiktok{color:var(--ink)}
 .bf .nav__new{margin-left:2px;padding:2px 7px;border-radius:999px;background:#e5322d;color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.02em;line-height:1.4}
+
+/* ---- narrow phones ---- */
+/* The header button must never wrap onto two lines. */
+.bf .nav .btn{white-space:nowrap;flex:none}
+@media (max-width:760px){
+  /* Hero spotlight label: grow rightwards from the overlay, inside the player,
+     instead of hanging off its left edge on narrow screens. */
+  .bf .hp-spot-l{left:0;right:auto}
+}
+@media (max-width:360px){
+  .bf .nav__in{gap:8px}
+  .bf .nav .btn--sm{padding-left:12px;padding-right:12px}
+}
