@@ -245,13 +245,9 @@ export const HomeFinal: React.FC = () => {
           </p>
         </section>
 
-        {/* 3 TOTALS: one quiet line under the logos, not a big-number block */}
-        <section className="proofstrip" aria-label="Totals" id="tour">
-          <p>
-            <span><b className="num">3M+</b> completed views delivered</span>
-            <span><b className="num">19,000+</b> hours of sponsored airtime</span>
-            <span><b className="num">29</b> campaigns, each with a full report</span>
-          </p>
+        {/* 3 STATEMENT */}
+        <section className="statement reveal" id="tour">
+          <h2 className="statement__split"><b>One login,</b> <span>from shortlist to report.</span></h2>
         </section>
 
         {/* 4 CHAPTERS */}
