@@ -136,7 +136,7 @@ export const HomeFinal: React.FC = () => {
         <section className="hero">
           <div className="hero__wash" aria-hidden="true" />
           <div className="hero__copy">
-            <h1 className="hero__split">
+            <h1>
               <b>The platform</b> <span>for livestream ads.</span>
             </h1>
             <p className="hero__sub">Find the streamers, launch the overlay and read the report. One login for Twitch, YouTube and Kick.</p>
@@ -247,14 +247,14 @@ export const HomeFinal: React.FC = () => {
 
         {/* 3 STATEMENT */}
         <section className="statement reveal" id="tour">
-          <h2 className="statement__split"><b>One login,</b> <span>from shortlist to report.</span></h2>
+          <h2><b>One login,</b> <span>from shortlist to report.</span></h2>
         </section>
 
         {/* 4 CHAPTERS */}
         <div className="tour">
           <section className="ch" id="build">
             <header className="ch__h reveal">
-              <h2>Build the campaign in one flow.</h2>
+              <h2><b>Build the campaign</b> <span>in one flow.</span></h2>
               <div>
                 <p>Your creative becomes an animated overlay with its own chat command, so viewers can type !yourbrand and get the link. Add a poll if you want one.</p>
                 <A className="qlink" href="/twitch-advertising">How it works <Arrow /></A>
@@ -265,7 +265,7 @@ export const HomeFinal: React.FC = () => {
 
           <section className="ch" id="live">
             <header className="ch__h reveal">
-              <h2>Every stream checked on air.</h2>
+              <h2><b>Every stream</b> <span>checked on air.</span></h2>
               <div>
                 <p>The overlay runs on all your streamers at once. Each stream is checked for it while live, each ad play is saved as a clip, and plays that did not happen are not billed.</p>
               </div>
@@ -295,7 +295,7 @@ export const HomeFinal: React.FC = () => {
           <section className="ch" id="report">
             <div className="split reveal">
               <div className="split__copy">
-                <h2>A report you can forward to the client.</h2>
+                <h2><b>A report</b> <span>you can forward.</span></h2>
                 <p>Live in your own dashboard while the campaign runs, and as one PDF when it ends.</p>
                 <ul className="split__list">
                   <li>Completed live views, per streamer and per stream</li>
@@ -329,7 +329,7 @@ export const HomeFinal: React.FC = () => {
         {/* 6 CUSTOMERS */}
         <section className="sec" id="samsung" aria-label="Case studies">
           <div className="sec__h reveal">
-            <h2>Campaigns that ran.</h2>
+            <h2><b>Campaigns</b> <span>that ran.</span></h2>
             <A className="qlink" href="/case-studies">All case studies <Arrow /></A>
           </div>
           <div className="cases reveal">
@@ -348,7 +348,7 @@ export const HomeFinal: React.FC = () => {
         {/* 7 GUARANTEE + COST */}
         <section className="sec" id="billing" aria-label="Billing and price">
           <div className="sec__h reveal">
-            <h2>Pay only for views that played.</h2>
+            <h2><b>Pay for views</b> <span>that played.</span></h2>
           </div>
           <div className="tcards tcards--3b reveal">
             <div className="tcard tcard--static">
@@ -376,7 +376,7 @@ export const HomeFinal: React.FC = () => {
 
         {/* 8 FAQ */}
         <section className="faq" id="faq" aria-label="Questions">
-          <h2>Questions buyers ask</h2>
+          <h2><b>Questions</b> <span>buyers ask</span></h2>
           <div className="faq__list">
             {finalFaqs.map((f, i) => (
               <details key={f.q} open={i === 0}>
@@ -390,7 +390,7 @@ export const HomeFinal: React.FC = () => {
         {/* BLOG */}
         <section className="sec sec--blog" aria-label="From the blog">
           <div className="sec__h reveal">
-            <h2>From the blog</h2>
+            <h2><b>From</b> <span>the blog.</span></h2>
             <A className="qlink" href="/blog">All articles <Arrow /></A>
           </div>
           <div className="tcards tcards--3 reveal">
@@ -415,7 +415,7 @@ export const HomeFinal: React.FC = () => {
         {/* 9 CLOSE */}
         <section className="close">
           <div className="close__in reveal">
-            <h2>Plan your first livestream campaign.</h2>
+            <h2><b>Plan your first</b> <span>livestream campaign.</span></h2>
             <p>In 30 minutes we shortlist streamers for your market, show the overlay with your creative, and estimate delivery for your budget.</p>
             <div className="hero__cta">
               <BookDemo />
