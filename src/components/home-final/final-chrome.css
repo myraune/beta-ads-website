@@ -79,3 +79,6 @@
 .bf .nav__menu-dd[open] summary::after{content:"\2212"}
 .bf .nav__menu-dd > div{display:flex;flex-direction:column;padding:0 0 12px}
 .bf .nav__menu-dd > div a{padding:8px 0 8px 12px;font-size:15px;font-weight:500;color:var(--ink-2)}
+/* Solutions: a narrow single-column list */
+.bf .nav__dd-panel--list{grid-template-columns:1fr;width:360px;left:-14px}
+.bf .nav__dd-feats--one{grid-template-columns:1fr}

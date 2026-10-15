@@ -47,6 +47,11 @@ const SECTIONS = [
              "/case-study/nki", "/case-study/gokstad", "/case-study/shure"],
   },
   {
+    title: "Who it is for",
+    note: "Managed campaigns for brands, self-serve logins for agencies, and reporting for marketing leads.",
+    routes: ["/managed-campaigns", "/self-serve", "/for-marketing-executives"],
+  },
+  {
     title: "How campaigns are verified",
     note: "What we check, what chat said, and what the stream kept earning after it ended.",
     routes: ["/campaign-compliance", "/brand-safety", "/livestream-chat-engagement", "/replay-reach"],

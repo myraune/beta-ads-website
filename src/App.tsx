@@ -33,6 +33,7 @@ const TwitchAgencyNorway = lazy(() => import("./pages/TwitchAgencyNorway"));
 const LivestreamChatEngagement = lazy(() => import("./pages/LivestreamChatEngagement"));
 const CampaignCompliance = lazy(() => import("./pages/CampaignCompliance"));
 const BrandSafety = lazy(() => import("./pages/BrandSafety"));
+const ForMarketingExecutives = lazy(() => import("./pages/ForMarketingExecutives"));
 const ReplayReach = lazy(() => import("./pages/ReplayReach"));
 const YouTubeAdvertising = lazy(() => import("./pages/YouTubeAdvertising"));
 const KickAdvertising = lazy(() => import("./pages/KickAdvertising"));
@@ -206,6 +207,7 @@ const App = () => {
               <Route path="/livestream-chat-engagement" element={<LivestreamChatEngagement />} />
               <Route path="/campaign-compliance" element={<CampaignCompliance />} />
               <Route path="/brand-safety" element={<BrandSafety />} />
+              <Route path="/for-marketing-executives" element={<ForMarketingExecutives />} />
               <Route path="/replay-reach" element={<ReplayReach />} />
               <Route path="/youtube-advertising" element={<YouTubeAdvertising />} />
               <Route path="/kick-advertising" element={<KickAdvertising />} />

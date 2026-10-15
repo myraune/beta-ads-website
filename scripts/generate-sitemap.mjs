@@ -45,6 +45,7 @@ const STATIC_PAGES = [
   { path: "/livestream-chat-engagement", priority: "0.9", changefreq: "monthly" },
   { path: "/campaign-compliance", priority: "0.9", changefreq: "monthly" },
   { path: "/brand-safety", priority: "0.9", changefreq: "monthly" },
+  { path: "/for-marketing-executives", priority: "0.9", changefreq: "monthly" },
   { path: "/replay-reach", priority: "0.9", changefreq: "monthly" },
   { path: "/kick-advertising",       priority: "0.95", changefreq: "monthly" },
   { path: "/kick-annonsering",       priority: "0.9",  changefreq: "monthly" },

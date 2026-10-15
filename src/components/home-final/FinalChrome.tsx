@@ -103,25 +103,57 @@ const PLATFORM_CHANNELS: { t: string; to: string; Mark: React.FC }[] = [
 const FeatureLink: React.FC<{ f: (typeof PLATFORM_FEATURES)[number]; onClick?: () => void; children: React.ReactNode }> = ({ f, onClick, children }) =>
   f.home ? <HomeAnchor id={f.home} onClick={onClick}>{children}</HomeAnchor> : <Link to={f.to} onClick={onClick}>{children}</Link>;
 
-/** Desktop dropdown: opens on hover and on keyboard focus, and on click for touch. */
-const PlatformMenu: React.FC = () => {
+/** Desktop dropdown: opens on hover and on keyboard focus, and on click for touch.
+    The panel content gets a close() so a picked link shuts it. */
+const NavDropdown: React.FC<{ label: string; id: string; panelClass?: string; children: (close: () => void) => React.ReactNode }> = ({ label, id, panelClass = "", children }) => {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
   useEffect(() => setOpen(false), [pathname]);
+  const close = () => setOpen(false);
   return (
     <div
       className={`nav__dd${open ? " nav__dd--open" : ""}`}
-      onMouseLeave={() => setOpen(false)}
-      onKeyDown={(e) => e.key === "Escape" && setOpen(false)}
+      onMouseLeave={close}
+      onKeyDown={(e) => e.key === "Escape" && close()}
     >
-      <button type="button" className="nav__dd-btn" aria-expanded={open} aria-controls="nav-platform" onClick={() => setOpen((o) => !o)}>
-        Platform
+      <button type="button" className="nav__dd-btn" aria-expanded={open} aria-controls={id} onClick={() => setOpen((o) => !o)}>
+        {label}
         <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" /></svg>
       </button>
-      <div id="nav-platform" className="nav__dd-panel">
+      <div id={id} className={`nav__dd-panel ${panelClass}`}>{children(close)}</div>
+    </div>
+  );
+};
+
+/* "Solutions": who it is for, each with its own page. */
+const SOLUTIONS: { t: string; d: string; to: string }[] = [
+  { t: "For brands", d: "We run the campaign for you, brief to report", to: "/managed-campaigns" },
+  { t: "For agencies", d: "Your own login to launch and resell campaigns", to: "/self-serve" },
+  { t: "For marketing executives", d: "Livestream reported like the rest of the plan", to: "/for-marketing-executives" },
+];
+
+const SolutionsMenu: React.FC = () => (
+  <NavDropdown label="Solutions" id="nav-solutions" panelClass="nav__dd-panel--list">
+    {(close) => (
+      <div className="nav__dd-feats nav__dd-feats--one">
+        {SOLUTIONS.map((x) => (
+          <Link key={x.to} to={x.to} onClick={close}>
+            <b>{x.t}</b>
+            <span>{x.d}</span>
+          </Link>
+        ))}
+      </div>
+    )}
+  </NavDropdown>
+);
+
+const PlatformMenu: React.FC = () => (
+  <NavDropdown label="Platform" id="nav-platform">
+    {(close) => (
+      <>
         <div className="nav__dd-feats">
           {PLATFORM_FEATURES.map((f) => (
-            <FeatureLink key={f.t} f={f} onClick={() => setOpen(false)}>
+            <FeatureLink key={f.t} f={f} onClick={close}>
               <b>{f.t}</b>
               <span>{f.d}</span>
             </FeatureLink>
@@ -130,19 +162,19 @@ const PlatformMenu: React.FC = () => {
         <div className="nav__dd-side">
           <span className="nav__dd-k">Runs on</span>
           {PLATFORM_CHANNELS.map(({ t, to, Mark }) => (
-            <Link key={t} to={to} className="nav__dd-ch" onClick={() => setOpen(false)}>
+            <Link key={t} to={to} className="nav__dd-ch" onClick={close}>
               <Mark />
               {t}
             </Link>
           ))}
-          <HomeAnchor id="tour" onClick={() => setOpen(false)}>
+          <HomeAnchor id="tour" onClick={close}>
             <span className="nav__dd-tour">Take the tour <Arrow /></span>
           </HomeAnchor>
         </div>
-      </div>
-    </div>
-  );
-};
+      </>
+    )}
+  </NavDropdown>
+);
 
 const MENU_MORE: [string, string][] = [
   ["Blog", "/blog"],
@@ -173,9 +205,9 @@ export const FinalNav: React.FC = () => {
         </Link>
         <nav className="nav__links" aria-label="Main">
           <PlatformMenu />
+          <SolutionsMenu />
           <Link to="/case-studies">Customers</Link>
           <Link to="/twitch-advertising-cost">Pricing</Link>
-          <Link to="/self-serve">Agencies</Link>
         </nav>
         <Link className="nav__side" to="/streamers">
           For streamers
@@ -205,9 +237,18 @@ export const FinalNav: React.FC = () => {
             ))}
           </div>
         </details>
+        <details className="nav__menu-dd">
+          <summary>Solutions</summary>
+          <div>
+            {SOLUTIONS.map((x) => (
+              <Link key={x.to} to={x.to} onClick={close}>
+                {x.t}
+              </Link>
+            ))}
+          </div>
+        </details>
         <Link to="/case-studies">Customers</Link>
         <Link to="/twitch-advertising-cost">Pricing</Link>
-        <Link to="/self-serve">Agencies</Link>
         <Link to="/streamers">For streamers</Link>
         <div className="nav__menu-more">
           {MENU_MORE.map(([label, to]) => (
@@ -226,7 +267,7 @@ const FOOT_COLS: { h: string; links: [string, string][] }[] = [
   { h: "Platforms", links: [["Twitch", "/twitch-advertising"], ["YouTube", "/youtube-advertising"], ["Kick", "/kick-advertising"], ["Kick pricing", "/kick-advertising-cost"], ["Nordics", "/nordic-livestream-advertising"]] },
   { h: "Customers", links: [["Case studies", "/case-studies"], ["Samsung", "/case-study/samsung"], ["Surfshark", "/case-study/surfshark-finland"], ["Komplett", "/case-study/komplett"], ["Shure", "/case-study/shure"]] },
   { h: "Nordics", links: [["Norge", "/norge"], ["Twitch agency Norway", "/twitch-agency-norway"], ["Twitch-byrå Norge", "/twitch-byra-norge"], ["Twitch annonsering pris", "/twitch-annonsering-pris"], ["Kick Norge", "/kick-annonsering"], ["Kick Sverige", "/kick-annonsering-sverige"], ["Kick Danmark", "/kick-annoncering"], ["Kick Suomi", "/kick-mainonta"]] },
-  { h: "Company", links: [["About", "/about"], ["Press", "/press"], ["Blog", "/blog"], ["Working with us", "/working-with-us"], ["Managed campaigns", "/managed-campaigns"], ["Self-serve for agencies", "/self-serve"], ["Contact", "/contact"]] },
+  { h: "Company", links: [["About", "/about"], ["Press", "/press"], ["Blog", "/blog"], ["Working with us", "/working-with-us"], ["Managed campaigns", "/managed-campaigns"], ["Self-serve for agencies", "/self-serve"], ["For marketing executives", "/for-marketing-executives"], ["Contact", "/contact"]] },
   { h: "For streamers", links: [["Join as a streamer", "/streamers"], ["Kick streamers", "/kick-streamer-advertising"]] },
 ];
 

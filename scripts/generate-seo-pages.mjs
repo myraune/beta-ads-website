@@ -383,6 +383,13 @@ const STATIC_PAGES = [
     locale: "en",
   },
   {
+    route: "/for-marketing-executives",
+    title: "Livestream Advertising for Marketing Executives | Beta Ads",
+    description:
+      "Livestream ads on Twitch, YouTube and Kick, reported like the rest of your media plan: what you bought, what was delivered, where it ran and whether it was brand safe, in one report you can take to the board.",
+    locale: "en",
+  },
+  {
     route: "/brand-safety",
     title: "Brand Safety for Livestream Ads: Swearing Detected, Every Language Translated | Beta Ads",
     description:
