@@ -71,6 +71,7 @@ const STATIC_ROUTES = [
   "/twitch-agency-norway",
   "/livestream-chat-engagement",
   "/campaign-compliance",
+  "/brand-safety",
   "/replay-reach",
   "/streamers",
   "/about",

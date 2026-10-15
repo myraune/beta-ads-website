@@ -383,6 +383,13 @@ const STATIC_PAGES = [
     locale: "en",
   },
   {
+    route: "/brand-safety",
+    title: "Brand Safety for Livestream Ads: Swearing Detected, Every Language Translated | Beta Ads",
+    description:
+      "Every ad play on Twitch, YouTube and Kick is recorded. The speech around it is transcribed, translated into English and checked for swearing, then rated no, low, medium or high risk per stream and per channel.",
+    locale: "en",
+  },
+  {
     route: "/replay-reach",
     title: "Replay Reach: What a Livestream Ad Does After the Stream | Beta Ads",
     description:

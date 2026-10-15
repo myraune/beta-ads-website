@@ -88,6 +88,7 @@ const PLATFORM_FEATURES: { t: string; d: string; to: string; home?: string }[] =
   { t: "Campaign builder", d: "Overlay, chat command and poll in one flow", to: "/#build", home: "build" },
   { t: "Streamer Explorer", d: "39,000+ streamers to search and shortlist", to: "/self-serve#platform" },
   { t: "Setup verification", d: "Every stream checked on air, every play clipped", to: "/campaign-compliance" },
+  { t: "Brand safety", d: "Swearing detected, every language translated", to: "/brand-safety" },
   { t: "Chat tracking", d: "Brand mentions translated and scored", to: "/livestream-chat-engagement" },
   { t: "Replay reach", d: "Views that keep counting after the stream", to: "/replay-reach" },
   { t: "Reporting", d: "Live dashboard and a PDF you can forward", to: "/#report", home: "report" },
@@ -221,7 +222,7 @@ export const FinalNav: React.FC = () => {
 };
 
 const FOOT_COLS: { h: string; links: [string, string][] }[] = [
-  { h: "Product", links: [["How it works", "/twitch-advertising"], ["Pricing", "/twitch-advertising-cost"], ["Setup verification", "/campaign-compliance"], ["Chat tracking", "/livestream-chat-engagement"], ["Replay reach", "/replay-reach"]] },
+  { h: "Product", links: [["How it works", "/twitch-advertising"], ["Pricing", "/twitch-advertising-cost"], ["Setup verification", "/campaign-compliance"], ["Brand safety", "/brand-safety"], ["Chat tracking", "/livestream-chat-engagement"], ["Replay reach", "/replay-reach"]] },
   { h: "Platforms", links: [["Twitch", "/twitch-advertising"], ["YouTube", "/youtube-advertising"], ["Kick", "/kick-advertising"], ["Kick pricing", "/kick-advertising-cost"], ["Nordics", "/nordic-livestream-advertising"]] },
   { h: "Customers", links: [["Case studies", "/case-studies"], ["Samsung", "/case-study/samsung"], ["Surfshark", "/case-study/surfshark-finland"], ["Komplett", "/case-study/komplett"], ["Shure", "/case-study/shure"]] },
   { h: "Nordics", links: [["Norge", "/norge"], ["Twitch agency Norway", "/twitch-agency-norway"], ["Twitch-byrå Norge", "/twitch-byra-norge"], ["Twitch annonsering pris", "/twitch-annonsering-pris"], ["Kick Norge", "/kick-annonsering"], ["Kick Sverige", "/kick-annonsering-sverige"], ["Kick Danmark", "/kick-annoncering"], ["Kick Suomi", "/kick-mainonta"]] },
