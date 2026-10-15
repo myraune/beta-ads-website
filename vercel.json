@@ -8,7 +8,7 @@
       "permanent": true
     },
     {
-      "source": "/pricing/:path*",
+      "source": "/pricing/:path+",
       "destination": "/pricing",
       "permanent": true
     },
