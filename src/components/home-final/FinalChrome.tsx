@@ -289,6 +289,10 @@ export const FinalNav: React.FC = () => {
             </a>
           ))}
         </div>
+        <div className="nav__menu-actions">
+          <BookDemo className="btn" />
+          <ThemeSwitch />
+        </div>
         <div className="nav__menu-more">
           {MENU_MORE.map(([label, to]) => (
             <Link key={to} to={to}>

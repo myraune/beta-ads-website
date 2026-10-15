@@ -462,3 +462,8 @@ section, div, footer, header, nav, main {
 }
 
 
+
+/* Phones: no micro-labels under 11px (stat labels, chips, captions). */
+@media (max-width: 760px) {
+  .text-\[10px\], .text-\[10\.5px\] { font-size: 11px; }
+}

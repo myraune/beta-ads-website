@@ -113,3 +113,20 @@
 .bf .nav__dd-cha{color:var(--ink-3);transition:transform .15s,color .15s}
 .bf a.nav__dd-ch:hover .nav__dd-cha{transform:translateX(3px);color:var(--ink)}
 .bf .nav__new{margin-left:0}
+
+/* ---- phone and tablet header: logo + burger only ----
+   The demo button and the theme switch move into the menu, so the logo keeps
+   its full size and nothing in the bar has to squeeze. */
+@media (max-width:1100px){
+  .bf .nav__in{gap:16px}
+  .bf .nav__logo{flex:none}
+  .bf .nav__logo img{height:22px;width:auto;max-width:none}
+  .bf .nav__in > .theme,.bf .nav__in > .btn{display:none}
+  .bf .nav__burger{margin-left:auto}
+}
+.bf .nav__menu-actions{display:none}
+@media (max-width:1100px){
+  .bf .nav__menu-actions{display:flex;align-items:center;gap:12px;padding-top:18px}
+  .bf .nav__menu-actions .btn{flex:1;justify-content:center;height:46px;font-size:15.5px}
+  .bf .nav__menu-actions .theme{margin:0;flex:none;width:46px;height:46px;border:1px solid var(--line)}
+}

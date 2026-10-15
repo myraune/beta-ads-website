@@ -35,12 +35,19 @@ export type FeaturePageProps = {
   close: { title: string; body: string };
 };
 
+/** A platform screenshot. On phones a full app screen shrunk to 360px is
+    unreadable, so it keeps a readable minimum width and scrolls sideways. */
 export const Shot: React.FC<{ src: string; alt: string; caption?: string; eager?: boolean }> = ({ src, alt, caption, eager }) => (
   <figure className="m-0">
     <div className="rounded-[16px] overflow-hidden border border-border bg-card shadow-[0_24px_48px_-28px_rgba(15,16,18,.28)]">
-      <img src={src} alt={alt} className="block w-full h-auto" loading={eager ? "eager" : "lazy"} />
+      <div className="overflow-x-auto overscroll-x-contain [scrollbar-width:thin]" tabIndex={0} role="group" aria-label={alt}>
+        <img src={src} alt={alt} className="block w-full min-w-[680px] md:min-w-0 h-auto" loading={eager ? "eager" : "lazy"} />
+      </div>
     </div>
-    {caption && <figcaption className="mt-3 text-xs text-muted-foreground">{caption}</figcaption>}
+    <figcaption className="mt-3 text-xs text-muted-foreground">
+      {caption}
+      <span className="md:hidden">{caption ? " " : ""}Swipe to see the full screen.</span>
+    </figcaption>
   </figure>
 );
 
