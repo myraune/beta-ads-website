@@ -359,7 +359,7 @@ export const HomeFinal: React.FC = () => {
             <div className="tcard tcard--static">
               <b>What it costs</b>
               <span>Campaigns start at 100,000 NOK, priced per 1,000 views that played. Replay and clip views come on top at no cost, so the effective CPM usually lands around 200 to 300 NOK.</span>
-              <A className="qlink" href="/twitch-advertising-cost">See the full price guide <Arrow /></A>
+              <A className="qlink" href="/pricing">See pricing <Arrow /></A>
             </div>
             <div className="tcard tcard--static">
               <b>Worked example</b>

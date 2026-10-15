@@ -242,7 +242,7 @@ export const FinalNav: React.FC = () => {
           <PlatformMenu />
           <SolutionsMenu />
           <Link to="/case-studies">Customers</Link>
-          <Link to="/twitch-advertising-cost">Pricing</Link>
+          <Link to="/pricing">Pricing</Link>
         </nav>
         <div className="nav__side">
           <LoginMenu />
@@ -283,7 +283,7 @@ export const FinalNav: React.FC = () => {
           </div>
         </details>
         <Link to="/case-studies">Customers</Link>
-        <Link to="/twitch-advertising-cost">Pricing</Link>
+        <Link to="/pricing">Pricing</Link>
         <Link to="/streamers">For streamers</Link>
         <div className="nav__menu-login">
           {LOGINS.map((x) => (
@@ -305,7 +305,7 @@ export const FinalNav: React.FC = () => {
 };
 
 const FOOT_COLS: { h: string; links: [string, string][] }[] = [
-  { h: "Product", links: [["How it works", "/twitch-advertising"], ["Pricing", "/twitch-advertising-cost"], ["Setup verification", "/campaign-compliance"], ["Brand safety", "/brand-safety"], ["Chat tracking", "/livestream-chat-engagement"], ["Replay reach", "/replay-reach"]] },
+  { h: "Product", links: [["How it works", "/twitch-advertising"], ["Pricing", "/pricing"], ["Setup verification", "/campaign-compliance"], ["Brand safety", "/brand-safety"], ["Chat tracking", "/livestream-chat-engagement"], ["Replay reach", "/replay-reach"]] },
   { h: "Platforms", links: [["Twitch", "/twitch-advertising"], ["YouTube", "/youtube-advertising"], ["Kick", "/kick-advertising"], ["TikTok LIVE", "/tiktok-live-advertising"], ["Kick pricing", "/kick-advertising-cost"], ["Nordics", "/nordic-livestream-advertising"]] },
   { h: "Customers", links: [["Case studies", "/case-studies"], ["Samsung", "/case-study/samsung"], ["Surfshark", "/case-study/surfshark-finland"], ["Komplett", "/case-study/komplett"], ["Shure", "/case-study/shure"]] },
   { h: "Nordics", links: [["Norge", "/norge"], ["Twitch agency Norway", "/twitch-agency-norway"], ["Twitch-byrå Norge", "/twitch-byra-norge"], ["Twitch annonsering pris", "/twitch-annonsering-pris"], ["Kick Norge", "/kick-annonsering"], ["Kick Sverige", "/kick-annonsering-sverige"], ["Kick Danmark", "/kick-annoncering"], ["Kick Suomi", "/kick-mainonta"]] },

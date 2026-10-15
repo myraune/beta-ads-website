@@ -397,6 +397,13 @@ const STATIC_PAGES = [
     locale: "en",
   },
   {
+    route: "/pricing",
+    title: "Pricing: Pay Per View That Played | Beta Ads",
+    description:
+      "Livestream ads on Twitch, YouTube, Kick and TikTok LIVE, priced per 1,000 views that fully played. Campaigns from 100,000 NOK, undelivered views refunded, replay views on top and not billed.",
+    locale: "en",
+  },
+  {
     route: "/brand-safety",
     title: "Brand Safety for Livestream Ads: Swearing Detected, Every Language Translated | Beta Ads",
     description:

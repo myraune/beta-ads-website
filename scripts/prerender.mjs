@@ -73,6 +73,7 @@ const STATIC_ROUTES = [
   "/livestream-chat-engagement",
   "/campaign-compliance",
   "/brand-safety",
+  "/pricing",
   "/for-marketing-executives",
   "/replay-reach",
   "/streamers",

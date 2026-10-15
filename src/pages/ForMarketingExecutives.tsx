@@ -21,7 +21,7 @@ const questions: { q: string; a: string; link: [string, string] }[] = [
   { q: "Did it actually run?", a: "Every stream is checked on air and every ad play is saved as a clip. On Surfshark Finland, 98.7% of 759 plays were verified with a recorded clip.", link: ["Setup verification", "/campaign-compliance"] },
   { q: "Was it brand safe?", a: "The speech around each ad is transcribed, translated into English and checked for swearing, then rated per channel. A channel that drifts can be dropped mid-flight.", link: ["Brand safety", "/brand-safety"] },
   { q: "What did we get?", a: "Completed live views, replay and clip views on top, clicks from the chat command, and every brand mention in chat, translated and scored.", link: ["Reporting", "/#report"] },
-  { q: "What did it cost?", a: "You pay per 1,000 views that fully played. Anything undelivered is refunded pro rata, and replay views are not billed.", link: ["Pricing", "/twitch-advertising-cost"] },
+  { q: "What did it cost?", a: "You pay per 1,000 views that fully played. Anything undelivered is refunded pro rata, and replay views are not billed.", link: ["Pricing", "/pricing"] },
 ];
 
 const cases: { brand: string; n: string; k: string; to: string }[] = [

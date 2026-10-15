@@ -33,6 +33,7 @@ const TwitchAgencyNorway = lazy(() => import("./pages/TwitchAgencyNorway"));
 const LivestreamChatEngagement = lazy(() => import("./pages/LivestreamChatEngagement"));
 const CampaignCompliance = lazy(() => import("./pages/CampaignCompliance"));
 const BrandSafety = lazy(() => import("./pages/BrandSafety"));
+const Pricing = lazy(() => import("./pages/Pricing"));
 const TikTokLiveAdvertising = lazy(() => import("./pages/TikTokLiveAdvertising"));
 const ForMarketingExecutives = lazy(() => import("./pages/ForMarketingExecutives"));
 const ReplayReach = lazy(() => import("./pages/ReplayReach"));
@@ -208,6 +209,7 @@ const App = () => {
               <Route path="/livestream-chat-engagement" element={<LivestreamChatEngagement />} />
               <Route path="/campaign-compliance" element={<CampaignCompliance />} />
               <Route path="/brand-safety" element={<BrandSafety />} />
+              <Route path="/pricing" element={<Pricing />} />
               <Route path="/tiktok-live-advertising" element={<TikTokLiveAdvertising />} />
               <Route path="/for-marketing-executives" element={<ForMarketingExecutives />} />
               <Route path="/replay-reach" element={<ReplayReach />} />
@@ -256,7 +258,6 @@ const App = () => {
               <Route path="/unsubscribe" element={<Unsubscribe />} />
               {/* SEO redirects - mirrors vercel.json edge redirects for client-side nav */}
               <Route path="/how-it-works" element={<Navigate to="/case-studies" replace />} />
-              <Route path="/pricing" element={<Navigate to="/twitch-advertising-cost" replace />} />
               <Route path="/blog/samsung-twitch-campaign-case-study" element={<Navigate to="/case-study/samsung" replace />} />
               <Route path="*" element={<NotFound />} />
             </Route>

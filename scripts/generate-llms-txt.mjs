@@ -38,7 +38,7 @@ const SECTIONS = [
   {
     title: "Pricing",
     note: "Real numbers, not a contact form.",
-    routes: ["/twitch-advertising-cost", "/twitch-annonsering-pris", "/kick-advertising-cost"],
+    routes: ["/pricing", "/twitch-advertising-cost", "/twitch-annonsering-pris", "/kick-advertising-cost"],
   },
   {
     title: "Campaign results",

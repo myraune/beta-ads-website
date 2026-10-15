@@ -8,13 +8,8 @@
       "permanent": true
     },
     {
-      "source": "/pricing",
-      "destination": "/twitch-advertising-cost",
-      "permanent": true
-    },
-    {
       "source": "/pricing/:path*",
-      "destination": "/twitch-advertising-cost",
+      "destination": "/pricing",
       "permanent": true
     },
     { "source": "/careers/:path*", "destination": "/about", "permanent": true },
