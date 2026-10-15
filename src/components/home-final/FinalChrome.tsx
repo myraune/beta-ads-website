@@ -190,9 +190,10 @@ const PlatformMenu: React.FC = () => (
           {PLATFORM_CHANNELS.map(({ t, to, Mark, isNew }) => {
             const inner = (
               <>
-                <Mark />
-                {t}
+                <span className="nav__dd-chi"><Mark /></span>
+                <span className="nav__dd-cht">{t}</span>
                 {isNew && <span className="nav__new">New</span>}
+                {to && <span className="nav__dd-cha" aria-hidden="true">&rarr;</span>}
               </>
             );
             return to ? (
