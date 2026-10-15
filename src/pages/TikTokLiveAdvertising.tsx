@@ -9,7 +9,8 @@ import { BOOKING_URL, SALES_MAIL, W, kicker, h2, PrimaryBtn, GhostBtn, Faq, faqL
    until the details are confirmed: no TikTok-specific numbers, prices, chat
    commands or verification claims. The page says it is new, what the format is
    (an animated overlay inside the creator's live stream), and invites brands to
-   run one of the first campaigns. The phone frame is a labelled illustration. */
+   run one of the first campaigns. The two phone previews are mockups from
+   Andreas (2026-10-15), captioned as such: they are not client campaigns. */
 
 const TITLE = "TikTok LIVE Advertising: Animated Ads Inside Creator Streams | Beta Ads";
 const DESCRIPTION =
@@ -79,26 +80,19 @@ const TikTokLiveAdvertising: React.FC = () => (
             </div>
           </div>
 
-          {/* Vertical live stream, illustration */}
-          <figure className="m-0 justify-self-center w-full max-w-[340px]">
-            <div className="relative aspect-[9/16] rounded-[36px] overflow-hidden bg-[#0b0a0b] ring-[10px] ring-[#0b0a0b] shadow-[0_40px_80px_-40px_rgba(15,16,18,.55)]">
-              <img src="/home/build-stream-bg.webp" alt="" className="absolute inset-0 w-full h-full object-cover" style={{ objectPosition: "42% 50%" }} />
-              <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-black/60 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-black/75 to-transparent" />
-              <div className="absolute left-3 top-4 flex items-center gap-2">
-                <span className="rounded-md bg-[#fe2c55] px-2 py-0.5 text-[11px] font-bold text-white">LIVE</span>
-                <span className="rounded-md bg-black/45 px-2 py-0.5 text-[11px] font-semibold text-white">1.2K</span>
-              </div>
-              <div className="absolute left-4 right-[38%] bottom-[150px] aspect-[16/10] rounded-xl border-2 border-dashed border-white/80 bg-white/10 backdrop-blur-[2px] grid place-items-center text-center">
-                <span className="text-[12px] font-semibold text-white leading-tight px-2">Your animated<br />overlay here</span>
-              </div>
-              <ul className="absolute left-3 right-14 bottom-5 m-0 p-0 list-none space-y-1.5 text-[11.5px] text-white">
-                <li><b className="font-semibold text-white/70 mr-1.5">mia.k</b>wait what is that</li>
-                <li><b className="font-semibold text-white/70 mr-1.5">jonas_99</b>link?</li>
-                <li><b className="font-semibold text-white/70 mr-1.5">elin.s</b>haha love this stream</li>
-              </ul>
+          {/* Two TikTok LIVE previews: brand overlays mocked up in vertical live streams */}
+          <figure className="m-0 justify-self-center w-full max-w-[460px]">
+            <div className="grid grid-cols-2 gap-4 items-start">
+              {[
+                ["/lovable-uploads/tiktok/tiktok-live-preview-kinder.webp", "A Kinder Bueno overlay inside a TikTok LIVE stream, with viewers reacting in chat.", ""],
+                ["/lovable-uploads/tiktok/tiktok-live-preview-mercadolibre.webp", "A Mercado Libre overlay with a discount code inside a TikTok LIVE stream, with viewers asking about the code in chat.", "mt-12"],
+              ].map(([src, alt, offset]) => (
+                <div key={src} className={`${offset} rounded-[26px] overflow-hidden bg-[#0b0a0b] ring-[6px] ring-[#0b0a0b] shadow-[0_30px_60px_-30px_rgba(15,16,18,.55)]`}>
+                  <img src={src} alt={alt} className="block w-full aspect-[9/16] object-cover" loading="eager" />
+                </div>
+              ))}
             </div>
-            <figcaption className="mt-4 text-center text-xs text-muted-foreground">Illustration of an overlay in a vertical live stream.</figcaption>
+            <figcaption className="mt-5 text-center text-xs text-muted-foreground">Overlay previews in TikTok LIVE. Mockups, not client campaigns.</figcaption>
           </figure>
         </div>
       </header>
