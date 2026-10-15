@@ -6,7 +6,7 @@ import "@/components/home-final/home-final.css";
 /* Working with Beta Ads: the two ways to buy, then the due-diligence facts.
  * Managed (brands, test campaigns): we run the campaign from brief to report.
  * Self-serve (media agencies, partners): their own login to launch and resell,
- * with the option to connect campaigns to Adform and monitor them there.
+ * or buy programmatically through a private deal on our Adform or Magnite SSP seat.
  * Company facts and buyer policies are from the public registers or confirmed
  * by Andreas (2026-10-07). Keep it that way: no marketing claims, no invented numbers. */
 
@@ -25,7 +25,7 @@ const managedSteps: { t: string; d: string; who: "you" | "us" }[] = [
 const selfServe: { t: string; d: string }[] = [
   { t: "Your own platform login", d: "Find streamers in the Streamer Explorer, build the campaign and launch it yourself, when it suits your client." },
   { t: "Sell it as your own", d: "Package livestream as part of your media plan and sell it to your client on your terms. We stay in the background." },
-  { t: "Adform connection", d: "We can connect campaigns to Adform, so you set them up from there and monitor delivery in the tool your team already uses." },
+  { t: "Programmatic deals", d: "We set up a private deal on our Adform or Magnite SSP seat and share the deal ID. Your team targets it in your own DSP." },
   { t: "Reporting you can forward", d: "Live numbers per streamer and per stream, clip verification and an end report you can put in front of the client." },
 ];
 
@@ -34,14 +34,15 @@ const compare: [string, string, string][] = [
   ["Who runs the campaign", "We do, from brief to report", "You do, in your own login"],
   ["Creative", "We design the overlay for you", "Your client's creative, set up in the platform"],
   ["Streamer list", "We select it, you can approve it", "You select it in the Streamer Explorer"],
-  ["Monitoring", "Your own dashboard login", "Platform dashboard, or Adform if connected"],
+  ["Monitoring", "Your own dashboard login", "Platform dashboard"],
+  ["Programmatic", "Not needed", "Private deal on Adform or Magnite, targeted in your DSP"],
   ["Who sells to the client", "We contract with you directly", "You do, on your terms"],
 ];
 
 const faqs: { q: string; a: string }[] = [
   { q: "Should we start managed or self-serve?", a: "Brands and first test campaigns usually start managed: we run everything and you see how livestream performs before you build anything yourself. Agencies that run campaigns for several clients usually want self-serve access." },
   { q: "Can an agency start managed and move to self-serve later?", a: "Yes. Many start with one campaign we run for them, then get their own login for the next ones." },
-  { q: "How does the Adform connection work?", a: "We connect the campaign to Adform so your team can set it up and follow it from there, next to the rest of the media plan. Ask us and we will set it up with you." },
+  { q: "Can we buy it programmatically?", a: "Yes. We set up a private deal on our SSP seat, on Adform or Magnite (Equativ is coming), and share the deal ID. Your team targets the deal ID in your DSP." },
   { q: "What counts as a view?", a: "One view is one fully played run of your animation on a live stream. Views are counted by the campaign platform per stream, not typed in by us." },
   { q: "What happens if a campaign delivers fewer views than agreed?", a: "You pay for the views in your agreement. If the campaign delivers fewer, we refund the undelivered share. Clicks and CTR are reported but not guaranteed." },
   { q: "Who do I sign the contract with and pay?", a: "BETA AGENCY AS, org.nr 933 303 136. The agreement names this company and the invoice comes from it, to a bank account in its name." },
@@ -113,7 +114,7 @@ const WorkingWithUs: React.FC = () => {
     <>
       <SEO
         title="Working with Beta Ads: managed campaigns or self-serve for agencies | Beta Ads"
-        description="Two ways to run livestream ads with Beta Ads: we run brand and test campaigns from brief to report, or media agencies and partners launch and resell campaigns themselves, with an Adform connection. Plus company facts and delivery guarantees."
+        description="Two ways to run livestream ads with Beta Ads: we run brand and test campaigns from brief to report, or media agencies and partners launch and resell campaigns themselves, or buy through a private deal in their own DSP. Plus company facts and delivery guarantees."
         canonical="/working-with-us"
         jsonLd={[
           {
@@ -155,7 +156,7 @@ const WorkingWithUs: React.FC = () => {
             <Link to="/self-serve" className="group rounded-[18px] border border-border bg-card p-7 md:p-9 flex flex-col hover:border-foreground/30 transition-colors">
               <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">For media agencies and partners</span>
               <span className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">Self-serve: your own login.</span>
-              <span className="mt-3 text-[15px] text-muted-foreground max-w-md">Build and launch campaigns for your clients yourself, with an Adform connection to monitor them where you already work.</span>
+              <span className="mt-3 text-[15px] text-muted-foreground max-w-md">Build and launch campaigns for your clients yourself, or buy through a private deal you target in your own DSP.</span>
               <span className="mt-6 text-sm text-foreground"><b className="font-semibold">Pick this if</b> you're an agency running several clients and want livestream inside your own media plans.</span>
               <span className="mt-8 text-sm font-semibold">How self-serve works <span aria-hidden="true">&rarr;</span></span>
             </Link>
@@ -225,15 +226,15 @@ const WorkingWithUs: React.FC = () => {
                 ))}
               </div>
 
-              {/* How the Adform connection fits in */}
+              {/* How programmatic buying fits in */}
               <div className="rounded-[18px] bg-[#0b0a0b] text-white p-7 md:p-8 flex flex-col dark:bg-white/[0.04] dark:ring-1 dark:ring-white/10">
-                <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/55">Works with Adform</div>
-                <p className="mt-3 text-xl font-semibold tracking-tight leading-snug m-0">Set it up and follow it next to the rest of the media plan.</p>
+                <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-white/55">Programmatic · Adform and Magnite</div>
+                <p className="mt-3 text-xl font-semibold tracking-tight leading-snug m-0">Buy it in your DSP, next to the rest of the plan.</p>
                 <ol className="mt-7 m-0 p-0 list-none space-y-0">
                   {[
-                    ["Set up", "Create the campaign from Adform, connected to Beta Ads."],
-                    ["Run", "The overlay runs inside the streamers' live streams."],
-                    ["Monitor", "Follow delivery in Adform, with the full detail in the Beta Ads dashboard."],
+                    ["Private deal", "We set up a private deal on our Adform or Magnite SSP seat and share the deal ID."],
+                    ["Target it", "Your team targets the deal ID in your DSP."],
+                    ["On air", "The overlay runs inside the streamers' live streams."],
                   ].map(([t, d], i) => (
                     <li key={t} className="grid grid-cols-[2rem_minmax(0,1fr)] gap-3 py-4 border-t border-white/12">
                       <span className="text-sm tabular-nums text-white/45">{i + 1}</span>
@@ -377,7 +378,7 @@ const WorkingWithUs: React.FC = () => {
               <div className="rounded-[8px] border border-border p-8 md:p-10">
                 <div className={kicker}>Agencies and partners</div>
                 <p className="mt-3 text-2xl md:text-3xl font-bold tracking-tight m-0">Get your own <span className="hl">platform login.</span></p>
-                <p className="mt-3 mb-7 text-muted-foreground">Tell us about your agency and clients, and we set up access and the Adform connection.</p>
+                <p className="mt-3 mb-7 text-muted-foreground">Tell us about your agency and clients, and we set up a login or a private deal.</p>
                 <GhostBtn href={PARTNER_MAIL} cta="email">Request a login</GhostBtn>
               </div>
             </div>

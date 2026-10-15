@@ -1,8 +1,9 @@
 /*
   CLAIMS ANDREAS STILL MUST CONFIRM before this page is promoted:
-  1. Exact Adform mechanics. The page only says campaigns can be connected to
-     Adform, set up from there and monitored there (AdformFlow.tsx and the FAQ).
-     Do not add tags, APIs, data fields or billing flows until confirmed.
+  1. Programmatic: confirmed by LIVAD (Arda, 2026-10-15): a private deal on our
+     Adform or Magnite SSP seat (Equativ coming), deal ID shared, the agency
+     targets it in its own DSP (DealFlow.tsx and the FAQ). Still unconfirmed:
+     which DSPs, and what reporting a programmatic buyer gets.
   2. Whether agencies can have Beta Ads build the creative for a self-serve
      campaign. The page currently only says the client's creative is set up in
      the platform and avoids promising that we design it.
@@ -13,7 +14,7 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { BuildPanel, ReportPanel } from "@/components/home-final/panels";
-import { AdformFlow } from "@/components/working/AdformFlow";
+import { DealFlow } from "@/components/working/DealFlow";
 import "@/components/home-final/home-final.css";
 import {
   BOOKING_URL, PARTNER_MAIL, W, kicker, h2,
@@ -25,11 +26,11 @@ import {
    partners. Facts confirmed by Andreas: own login to the same platform Beta Ads
    uses, Streamer Explorer (39,000+ streamers, 37,599 recently active and open to
    collaborations; never call them Nordic), build, launch, follow live, end report,
-   Adform connection at the level described above, request access by email. */
+   programmatic private deals as described above, request access by email. */
 
 const TITLE = "Self-serve livestream ads for media agencies | Beta Ads";
 const DESCRIPTION =
-  "Your own Beta Ads login to find streamers, build and launch livestream campaigns for your clients and sell them on your terms. Connect campaigns to Adform and monitor delivery where your team already works.";
+  "Your own Beta Ads login to find streamers, build and launch livestream campaigns for your clients and sell them on your terms. Or buy it programmatically: a private deal on Adform or Magnite, targeted in your own DSP.";
 
 const flow: { t: string; d: string }[] = [
   { t: "Find streamers", d: "Search the Streamer Explorer and build the streamer list for your client." },
@@ -48,7 +49,7 @@ const you = [
 ];
 const us = [
   "Set up your platform login",
-  "Set up the Adform connection with you",
+  "Set up a private deal and share the deal ID, if you buy programmatically",
   "Run the platform and the streamer database",
   "Count views per stream",
   "Record a clip of every ad play",
@@ -58,10 +59,10 @@ const faqs: { q: string; a: string }[] = [
   { q: "Who is self-serve for?", a: "Media agencies and partners that want livestream in their own media plans and run campaigns for several clients. Brands and first test campaigns usually start managed." },
   { q: "Is it the same platform Beta Ads uses?", a: "Yes. You get your own login to the platform we use for our own campaigns: the Streamer Explorer, the campaign builder, live monitoring and the end report." },
   { q: "How many streamers can we choose from?", a: "The Streamer Explorer has more than 39,000 streamers in the database, and 37,599 of them are recently active and open to collaborations." },
-  { q: "How does the Adform connection work?", a: "We can connect campaigns to Adform, so you set them up from there and monitor delivery in the tool your team already uses. We set it up with you when you get access." },
+  { q: "Can we buy it through our DSP?", a: "Yes. We set up a private deal on our SSP seat, on Adform or Magnite (Equativ is coming), and share the deal ID with you. Your team targets the deal ID in your DSP, and the overlay runs inside the streams." },
   { q: "Can we sell it to our clients as our own?", a: "Yes. You package livestream in your media plan and sell it to your client on your terms." },
   { q: "What counts as a view?", a: "One view is one fully played run of the animation on a live stream on Twitch, YouTube or Kick, counted by the platform per stream." },
-  { q: "How do we get access?", a: "Email sales@beta-ads.no with the subject Self-serve partner access. We set up the login and the Adform connection with you, then you launch." },
+  { q: "How do we get access?", a: "Email sales@beta-ads.no with the subject Self-serve partner access. We set up the login with you, or a private deal if you buy programmatically, then you launch." },
   { q: "Can we start with a managed campaign first?", a: "Yes. Many agencies run one campaign with us first, then move to self-serve for the next ones." },
 ];
 
@@ -103,7 +104,7 @@ const SelfServe: React.FC = () => {
               </h1>
               <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
                 Your own login to the platform we use, to build and launch livestream campaigns for
-                your clients. Connect them to Adform and monitor them where you already work.
+                your clients. Or buy programmatically: a private deal you target in your own DSP.
               </p>
             </div>
             <div className="flex flex-wrap gap-3 lg:pb-2">
@@ -167,20 +168,20 @@ const SelfServe: React.FC = () => {
           </div>
         </section>
 
-        {/* ───────── Adform ───────── */}
-        <section id="adform" className="scroll-mt-24 border-t border-border py-16 md:py-24">
+        {/* ───────── Programmatic ───────── */}
+        <section id="programmatic" className="scroll-mt-24 border-t border-border py-16 md:py-24">
           <div className={W}>
             <div className="max-w-3xl">
-              <div className={`${kicker} mb-4`}>Works with Adform</div>
-              <h2 className={h2}>Set it up in Adform. <span className="hl">Monitor it there too.</span></h2>
+              <div className={`${kicker} mb-4`}>Programmatic · Adform and Magnite</div>
+              <h2 className={h2}>Buy it in your DSP, with a private deal.</h2>
               <p className="mt-5 text-muted-foreground leading-relaxed max-w-2xl">
-                We can connect campaigns to Adform, so you set them up from there and monitor delivery
-                in the tool your team already uses. The full detail per streamer and per stream stays
-                in the Beta Ads dashboard.
+                We have SSP seats on Adform and Magnite, with Equativ coming. We set up a private deal
+                for the campaign and share the deal ID, and your team targets it in your own DSP, next
+                to the rest of the programmatic plan.
               </p>
             </div>
             <div className="mt-10 md:mt-12">
-              <AdformFlow />
+              <DealFlow />
             </div>
           </div>
         </section>
@@ -231,7 +232,7 @@ const SelfServe: React.FC = () => {
               <ol className="m-0 p-0 list-none rounded-[20px] border border-border divide-y divide-border">
                 {[
                   ["Request access", <>Email <a href={PARTNER_MAIL} data-cta="email" className="text-foreground underline underline-offset-4">sales@beta-ads.no</a> with the subject Self-serve partner access. Tell us about your agency and clients.</>],
-                  ["We set it up with you", "Your platform login and the Adform connection, set up together with your team."],
+                  ["We set it up with you", "Your platform login, or a private deal ID if you buy programmatically."],
                   ["You launch", "Build the first campaign for a client and launch it when it suits them."],
                 ].map(([t, d], i) => (
                   <li key={String(t)} className="grid grid-cols-[3rem_minmax(0,1fr)] gap-4 p-6 md:p-8">
@@ -263,7 +264,7 @@ const SelfServe: React.FC = () => {
                 <h2 className="text-3xl md:text-5xl leading-[1.05] font-bold tracking-tight m-0">
                   Get your own <span className="font-light text-white/55">platform login.</span>
                 </h2>
-                <p className="mt-4 mb-0 text-white/65 max-w-xl">Tell us about your agency and clients, and we set up access and the Adform connection.</p>
+                <p className="mt-4 mb-0 text-white/65 max-w-xl">Tell us about your agency and clients, and we set up a login or a private deal.</p>
               </div>
               <div className="flex flex-wrap gap-3">
                 <a href={PARTNER_MAIL} data-cta="email" className="inline-flex items-center h-11 px-6 rounded-full bg-white text-[#0b0a0b] text-sm font-semibold hover:bg-white/90 transition-colors">Request a login</a>

@@ -414,7 +414,7 @@ const STATIC_PAGES = [
     route: "/working-with-us",
     title: "Working with Beta Ads: managed campaigns or self-serve for agencies | Beta Ads",
     description:
-      "Two ways to run livestream ads with Beta Ads: we run brand and test campaigns from brief to report, or media agencies and partners launch and resell campaigns themselves, with an Adform connection. Plus company facts and delivery guarantees.",
+      "Two ways to run livestream ads with Beta Ads: we run brand and test campaigns from brief to report, or media agencies and partners launch and resell campaigns themselves, or buy through a private deal in their own DSP. Plus company facts and delivery guarantees.",
     locale: "en",
   },
   {
@@ -428,7 +428,7 @@ const STATIC_PAGES = [
     route: "/self-serve",
     title: "Self-serve livestream ads for media agencies | Beta Ads",
     description:
-      "Your own Beta Ads login to find streamers, build and launch livestream campaigns for your clients and sell them on your terms. Connect campaigns to Adform and monitor delivery where your team already works.",
+      "Your own Beta Ads login to find streamers, build and launch livestream campaigns for your clients and sell them on your terms. Or buy it programmatically: a private deal on Adform or Magnite, targeted in your own DSP.",
     locale: "en",
   },
   {

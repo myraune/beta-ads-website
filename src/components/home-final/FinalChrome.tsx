@@ -5,7 +5,7 @@ import { BOOKING_SHORT_LINK } from "@/components/BookingCalendar";
 import "./home-final.css";
 import "./final-chrome.css";
 import "./home-overrides.css";
-import { KickMark, TwitchMark, YouTubeMark } from "./marks";
+import { KickMark, TikTokMark, TwitchMark, YouTubeMark } from "./marks";
 
 /* Nav, footer and shared bits of the final-platform design. The homepage ("/")
    renders them inside its own .bf root; every other route gets them from
@@ -92,12 +92,14 @@ const PLATFORM_FEATURES: { t: string; d: string; to: string; home?: string }[] =
   { t: "Chat tracking", d: "Brand mentions translated and scored", to: "/livestream-chat-engagement" },
   { t: "Replay reach", d: "Views that keep counting after the stream", to: "/replay-reach" },
   { t: "Reporting", d: "Live dashboard and a PDF you can forward", to: "/#report", home: "report" },
-  { t: "Adform connection", d: "Set up and monitor campaigns from Adform", to: "/self-serve#adform" },
+  { t: "Programmatic deals", d: "Private deals on Adform and Magnite, bought in your DSP", to: "/self-serve#programmatic" },
 ];
-const PLATFORM_CHANNELS: { t: string; to: string; Mark: React.FC }[] = [
+const PLATFORM_CHANNELS: { t: string; to?: string; Mark: React.FC; isNew?: boolean }[] = [
   { t: "Twitch", to: "/twitch-advertising", Mark: TwitchMark },
   { t: "YouTube", to: "/youtube-advertising", Mark: YouTubeMark },
   { t: "Kick", to: "/kick-advertising", Mark: KickMark },
+  /* No TikTok page yet, so it is shown without a link. */
+  { t: "TikTok Live", Mark: TikTokMark, isNew: true },
 ];
 
 const FeatureLink: React.FC<{ f: (typeof PLATFORM_FEATURES)[number]; onClick?: () => void; children: React.ReactNode }> = ({ f, onClick, children }) =>
@@ -186,12 +188,20 @@ const PlatformMenu: React.FC = () => (
         </div>
         <div className="nav__dd-side">
           <span className="nav__dd-k">Runs on</span>
-          {PLATFORM_CHANNELS.map(({ t, to, Mark }) => (
-            <Link key={t} to={to} className="nav__dd-ch" onClick={close}>
-              <Mark />
-              {t}
-            </Link>
-          ))}
+          {PLATFORM_CHANNELS.map(({ t, to, Mark, isNew }) => {
+            const inner = (
+              <>
+                <Mark />
+                {t}
+                {isNew && <span className="nav__new">New</span>}
+              </>
+            );
+            return to ? (
+              <Link key={t} to={to} className="nav__dd-ch" onClick={close}>{inner}</Link>
+            ) : (
+              <span key={t} className="nav__dd-ch">{inner}</span>
+            );
+          })}
           <HomeAnchor id="tour" onClick={close}>
             <span className="nav__dd-tour">Take the tour <Arrow /></span>
           </HomeAnchor>

@@ -90,3 +90,5 @@
 .bf .nav__dd-foot{display:flex!important;flex-direction:row!important;gap:6px;margin-top:4px;padding:12px 14px!important;border-top:1px solid var(--line-2);border-radius:0 0 10px 10px!important;font-size:13.5px;font-weight:600;color:var(--ink)}
 .bf .nav__menu-login{display:flex;flex-direction:column;padding-top:14px}
 .bf .nav__menu-login a{padding:7px 0;font-size:15px;font-weight:600;color:var(--ink)}
+.bf .nav__dd-ch .mark--tiktok{color:var(--ink)}
+.bf .nav__new{margin-left:2px;padding:2px 7px;border-radius:999px;background:#e5322d;color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.02em;line-height:1.4}

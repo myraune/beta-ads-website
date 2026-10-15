@@ -10,7 +10,7 @@ import { BOOKING_URL, SALES_MAIL, W, kicker, h2, PrimaryBtn, GhostBtn, Faq, faqL
    leader asks, proof, how it fits the team). Every claim is one already confirmed
    on the site: priced per completed view from 100,000 NOK, pro rata refund, setup
    verification with a clip per play, brand safety per channel, own dashboard
-   login, end report, Adform connection, managed or self-serve. Case numbers are
+   login, end report, programmatic private deals (Adform, Magnite), managed or self-serve. Case numbers are
    copied from the case pages. */
 
 const TITLE = "Livestream Advertising for Marketing Executives | Beta Ads";
@@ -33,7 +33,7 @@ const cases: { brand: string; n: string; k: string; to: string }[] = [
 const faqs: { q: string; a: string }[] = [
   { q: "What is the minimum budget?", a: "Campaigns start at 100,000 NOK, priced per 1,000 views that fully played. Undelivered views are refunded pro rata." },
   { q: "Which markets can we run in?", a: "Norway, Sweden, Denmark and Finland with local streamers, on Twitch, YouTube and Kick. The Streamer Explorer covers 39,000+ streamers worldwide if a campaign goes wider." },
-  { q: "Can our media agency run it?", a: "Yes. Agencies get their own self-serve login and can connect campaigns to Adform, so livestream sits next to the rest of the plan. Or we run it for you, managed." },
+  { q: "Can our media agency run it?", a: "Yes. Agencies get their own self-serve login, or buy it programmatically: we set up a private deal on Adform or Magnite and they target the deal ID in their own DSP. Or we run it for you, managed." },
   { q: "What do we get at the end?", a: "A report with delivery per streamer and per stream, replay reach, clicks, chat tracking, brand safety and the verification clips, as a live dashboard and a PDF." },
   { q: "How do we know the numbers are real?", a: "Every ad play leaves a recorded clip you can open, and every stream is checked on air. You follow it in your own dashboard login while it runs." },
 ];
@@ -157,7 +157,7 @@ const ForMarketingExecutives: React.FC = () => (
             <Link to="/self-serve" className="rounded-[18px] border border-border bg-card p-7 md:p-9 flex flex-col hover:border-foreground/30 transition-colors">
               <span className={kicker}>Self-serve with your agency</span>
               <span className="mt-3 text-2xl md:text-3xl font-semibold tracking-tight">Your agency runs it, next to the plan.</span>
-              <span className="mt-3 text-[15px] text-muted-foreground max-w-md">Their own login to build and launch campaigns, connected to Adform so delivery shows up where they already report.</span>
+              <span className="mt-3 text-[15px] text-muted-foreground max-w-md">Their own login to build and launch campaigns, or a private deal on Adform or Magnite they target in their own DSP.</span>
               <span className="mt-8 text-sm font-semibold">How self-serve works <span aria-hidden="true">&rarr;</span></span>
             </Link>
           </div>
