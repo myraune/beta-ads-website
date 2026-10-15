@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { BOOKING_URL, SALES_MAIL, W, kicker, h2, PrimaryBtn, GhostBtn, Faq, faqLd } from "@/components/working/shared";
+import { Shot } from "@/components/working/FeaturePage";
 
 /* Brand safety: how the platform reads the stream around each ad play.
    Facts (Andreas / product, see memory reference_betaads_report_dimensions):
@@ -9,21 +10,14 @@ import { BOOKING_URL, SALES_MAIL, W, kicker, h2, PrimaryBtn, GhostBtn, Faq, faqL
    translated into English and checked for swearing; the content around each ad
    is rated no / low / medium / high risk, broken out per channel so a channel can
    be dropped mid-flight. It rates the surroundings of the ad, not the creator.
-   The transcript and the channel table below are labelled example UI. */
+   The two Clip Review screens are real platform views (Surfshark Finland,
+   Shure). The per-channel table is labelled example UI. */
 
 const TITLE = "Brand Safety for Livestream Ads: Swearing Detected, Every Language Translated | Beta Ads";
 const DESCRIPTION =
   "Every ad play on Twitch, YouTube and Kick is recorded. The speech around it is transcribed, translated into English and checked for swearing, then rated no, low, medium or high risk per stream and per channel.";
 
 type Risk = "No risk" | "Low" | "Medium" | "High";
-
-/* One ad play, as the transcript view shows it. The swear word is masked on the page. */
-const transcript: { t: string; said: React.ReactNode; en: React.ReactNode; risk: Risk; flag?: string }[] = [
-  { t: "00:00:12", said: "okei, nå kommer reklamen, chill", en: "okay, here comes the ad, chill", risk: "No risk" },
-  { t: "00:00:18", said: <><mark>f**n</mark>, den runden var helt rå</>, en: <><mark>f***</mark>, that round was insane</>, risk: "Low", flag: "Swearing" },
-  { t: "00:00:25", said: "skriv !samsung i chatten for lenken", en: "type !samsung in chat for the link", risk: "No risk" },
-  { t: "00:00:31", said: "hvem andre spiller i kveld?", en: "who else is playing tonight?", risk: "No risk" },
-];
 
 const steps: { t: string; d: string }[] = [
   { t: "Every ad play is recorded", d: "A short clip of the stream is saved around each play of your overlay, on every channel." },
@@ -47,15 +41,6 @@ const BANDS: { k: Risk; cls: string }[] = [
   { k: "Medium", cls: "bg-foreground/70" },
   { k: "High", cls: "bg-[#e5322d]" },
 ];
-
-const riskChip = (r: Risk) =>
-  r === "No risk"
-    ? "text-white/55 ring-1 ring-white/15"
-    : r === "Low"
-      ? "text-white ring-1 ring-white/35"
-      : r === "Medium"
-        ? "text-[#0b0a0b] bg-white"
-        : "text-white bg-[#e5322d]";
 
 const faqs: { q: string; a: string }[] = [
   { q: "What exactly is checked?", a: "The speech in the clip recorded around each ad play. It is transcribed, translated into English and checked for swearing, and the content around the ad is rated no, low, medium or high risk." },
@@ -114,48 +99,14 @@ const BrandSafety: React.FC = () => (
         </div>
       </header>
 
-      {/* ───────── Transcript view ───────── */}
-      <section className={W} aria-label="Transcript of one ad play">
-        <div className="rounded-[18px] bg-[#0b0a0b] text-white overflow-hidden ring-1 ring-black/5 dark:ring-white/10 shadow-[0_24px_48px_-28px_rgba(15,16,18,.35)] grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.4fr)]">
-          <figure className="relative m-0 min-h-[240px]">
-            <img src="/home/samsung-s25-stream-a.jpg" alt="The stream frame from the ad play the transcript belongs to." className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-            <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-black/70 px-3 py-1.5 text-[12.5px] font-semibold backdrop-blur">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#e5322d]" />Ad play clip · 00:00:12 to 00:00:34
-            </span>
-            <figcaption className="absolute left-4 right-4 bottom-4 flex flex-wrap gap-2 text-[12.5px]">
-              <span className="rounded-full bg-black/70 px-3 py-1.5 backdrop-blur">Detected: Norwegian</span>
-              <span className="rounded-full bg-black/70 px-3 py-1.5 backdrop-blur">Translated: English</span>
-            </figcaption>
-          </figure>
-          <div className="p-5 md:p-7">
-            <div className="flex flex-wrap items-baseline justify-between gap-3">
-              <div>
-                <div className="text-[12px] font-semibold uppercase tracking-[0.16em] text-white/50">Brand safety · transcript</div>
-                <div className="mt-1 text-lg font-semibold">Ad play 14 of 64 · Channel A</div>
-              </div>
-              <div className="text-right">
-                <div className="text-[12px] text-white/50">Risk around this play</div>
-                <div className="mt-1 inline-flex items-center rounded-md px-2.5 py-1 text-sm font-semibold ring-1 ring-white/35">Low · 1 swear word</div>
-              </div>
-            </div>
-            <div className="mt-5 border-t border-white/10">
-              <div className="hidden md:grid grid-cols-[76px_minmax(0,1fr)_minmax(0,1fr)_96px] gap-4 py-2.5 text-[12px] text-white/45">
-                <span>Time</span><span>Said (Norwegian)</span><span>English</span><span className="text-right">Rating</span>
-              </div>
-              {transcript.map((l) => (
-                <div key={l.t} className="grid grid-cols-[64px_minmax(0,1fr)_auto] md:grid-cols-[76px_minmax(0,1fr)_minmax(0,1fr)_96px] gap-x-4 gap-y-1 py-3 border-t border-white/10 text-[14.5px] items-baseline [&_mark]:bg-[#e5322d]/25 [&_mark]:text-white [&_mark]:rounded [&_mark]:px-1">
-                  <span className="text-white/45 tabular-nums text-[13px]">{l.t}</span>
-                  <span className="min-w-0">{l.said}</span>
-                  <span className="min-w-0 text-white/60 col-start-2 md:col-start-auto row-start-2 md:row-start-auto">{l.en}</span>
-                  <span className="text-right col-start-3 md:col-start-auto row-start-1 md:row-start-auto">
-                    <span className={`inline-flex rounded-md px-2 py-0.5 text-[12px] font-semibold ${riskChip(l.risk)}`}>{l.flag ?? l.risk}</span>
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-        <p className="mt-3 text-xs text-muted-foreground">Example UI. Swear words are masked on this page, not in your report.</p>
+      {/* ───────── Clip Review, from the platform ───────── */}
+      <section className={W} aria-label="Clip Review in the platform">
+        <Shot
+          src="/lovable-uploads/platform/clip-review-surfshark.webp"
+          alt="Clip Review in the Beta Ads platform: a Finnish Surfshark clip with the transcript, the English translation and the brand safety category Obscenity and Profanity."
+          caption="Clip Review: a Finnish clip, transcribed and translated into English, flagged as Obscenity and Profanity."
+          eager
+        />
       </section>
 
       {/* ───────── How it works ───────── */}
@@ -174,6 +125,26 @@ const BrandSafety: React.FC = () => (
               </li>
             ))}
           </ol>
+        </div>
+      </section>
+
+      {/* ───────── No risk ───────── */}
+      <section className="border-t border-border py-16 md:py-24">
+        <div className={`${W} grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-center`}>
+          <div>
+            <div className={`${kicker} mb-4`}>Every clip gets a rating</div>
+            <h2 className={h2}>Most clips come back clean.</h2>
+            <p className="mt-5 text-muted-foreground leading-relaxed">
+              Each clip gets a brand safety score and a category. Here a Norwegian clip is rated No Risk,
+              with the brand mention in the streamer's script highlighted, so you see the safe plays
+              and the flagged ones side by side.
+            </p>
+          </div>
+          <Shot
+            src="/lovable-uploads/platform/clip-review-shure.webp"
+            alt="Clip Review for a Norwegian Shure clip rated No Risk, with the brand mention highlighted in the streamer script."
+            caption="Clip Review: a Norwegian clip rated No Risk."
+          />
         </div>
       </section>
 

@@ -397,6 +397,34 @@ const STATIC_PAGES = [
     locale: "en",
   },
   {
+    route: "/campaign-builder",
+    title: "Campaign Builder: Livestream Ad Campaigns in Five Steps | Beta Ads",
+    description:
+      "Build a livestream ad campaign in one flow: objective, target audience, format, asset and review. Your creative becomes an animated overlay with its own chat command, and a poll if you want one.",
+    locale: "en",
+  },
+  {
+    route: "/streamer-explorer",
+    title: "Streamer Explorer: Search 39,000+ Streamers for Livestream Ads | Beta Ads",
+    description:
+      "Search and filter 39,000+ streamers on Twitch, YouTube and Kick by platform, country, language and category, open a profile, and build the streamer list for your campaign.",
+    locale: "en",
+  },
+  {
+    route: "/reporting",
+    title: "Reporting for Livestream Ad Campaigns: Live Dashboard and PDF | Beta Ads",
+    description:
+      "Follow every livestream campaign live in your own dashboard: delivery per streamer and per stream, verification clips, replay reach, clicks, chat and polls. Then forward one PDF report to the client.",
+    locale: "en",
+  },
+  {
+    route: "/programmatic",
+    title: "Programmatic Livestream Ads: Private Deals on Adform and Magnite | Beta Ads",
+    description:
+      "Buy livestream ads on Twitch, YouTube and Kick programmatically: we set up a private deal on our Adform or Magnite SSP seat, share the deal ID, and you target it in your own DSP.",
+    locale: "en",
+  },
+  {
     route: "/pricing",
     title: "Pricing: Pay Per View That Played | Beta Ads",
     description:

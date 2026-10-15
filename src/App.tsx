@@ -34,6 +34,10 @@ const LivestreamChatEngagement = lazy(() => import("./pages/LivestreamChatEngage
 const CampaignCompliance = lazy(() => import("./pages/CampaignCompliance"));
 const BrandSafety = lazy(() => import("./pages/BrandSafety"));
 const Pricing = lazy(() => import("./pages/Pricing"));
+const CampaignBuilder = lazy(() => import("./pages/CampaignBuilder"));
+const StreamerExplorer = lazy(() => import("./pages/StreamerExplorer"));
+const Reporting = lazy(() => import("./pages/Reporting"));
+const Programmatic = lazy(() => import("./pages/Programmatic"));
 const TikTokLiveAdvertising = lazy(() => import("./pages/TikTokLiveAdvertising"));
 const ForMarketingExecutives = lazy(() => import("./pages/ForMarketingExecutives"));
 const ReplayReach = lazy(() => import("./pages/ReplayReach"));
@@ -210,6 +214,10 @@ const App = () => {
               <Route path="/campaign-compliance" element={<CampaignCompliance />} />
               <Route path="/brand-safety" element={<BrandSafety />} />
               <Route path="/pricing" element={<Pricing />} />
+              <Route path="/campaign-builder" element={<CampaignBuilder />} />
+              <Route path="/streamer-explorer" element={<StreamerExplorer />} />
+              <Route path="/reporting" element={<Reporting />} />
+              <Route path="/programmatic" element={<Programmatic />} />
               <Route path="/tiktok-live-advertising" element={<TikTokLiveAdvertising />} />
               <Route path="/for-marketing-executives" element={<ForMarketingExecutives />} />
               <Route path="/replay-reach" element={<ReplayReach />} />

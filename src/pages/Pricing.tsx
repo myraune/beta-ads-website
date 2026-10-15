@@ -39,7 +39,7 @@ const notBilled: { t: string; d: string }[] = [
 const routes: { t: string; d: string; to: string }[] = [
   { t: "Managed", d: "We run the campaign for you, brief to report.", to: "/managed-campaigns" },
   { t: "Self-serve", d: "Your agency's own login to launch and resell campaigns.", to: "/self-serve" },
-  { t: "Programmatic", d: "A private deal on Adform or Magnite, bought in your DSP.", to: "/self-serve#programmatic" },
+  { t: "Programmatic", d: "A private deal on Adform or Magnite, bought in your DSP.", to: "/programmatic" },
 ];
 
 const faqs: { q: string; a: string }[] = [

@@ -84,15 +84,15 @@ const HomeAnchor: React.FC<{ id: string; children: React.ReactNode; onClick?: ()
 
 /* "Platform" dropdown: the features a buyer checks, each linking to the page or
    homepage section that shows it, plus the three platforms it runs on. */
-const PLATFORM_FEATURES: { t: string; d: string; to: string; home?: string }[] = [
-  { t: "Campaign builder", d: "Overlay, chat command and poll in one flow", to: "/#build", home: "build" },
-  { t: "Streamer Explorer", d: "39,000+ streamers to search and shortlist", to: "/self-serve#platform" },
+const PLATFORM_FEATURES: { t: string; d: string; to: string }[] = [
+  { t: "Campaign builder", d: "Overlay, chat command and poll in one flow", to: "/campaign-builder" },
+  { t: "Streamer Explorer", d: "39,000+ streamers to search and shortlist", to: "/streamer-explorer" },
   { t: "Setup verification", d: "Every stream checked on air, every play clipped", to: "/campaign-compliance" },
   { t: "Brand safety", d: "Swearing detected, every language translated", to: "/brand-safety" },
   { t: "Chat tracking", d: "Brand mentions translated and scored", to: "/livestream-chat-engagement" },
   { t: "Replay reach", d: "Views that keep counting after the stream", to: "/replay-reach" },
-  { t: "Reporting", d: "Live dashboard and a PDF you can forward", to: "/#report", home: "report" },
-  { t: "Programmatic deals", d: "Private deals on Adform and Magnite, bought in your DSP", to: "/self-serve#programmatic" },
+  { t: "Reporting", d: "Live dashboard and a PDF you can forward", to: "/reporting" },
+  { t: "Programmatic deals", d: "Private deals on Adform and Magnite, bought in your DSP", to: "/programmatic" },
 ];
 const PLATFORM_CHANNELS: { t: string; to?: string; Mark: React.FC; isNew?: boolean }[] = [
   { t: "Twitch", to: "/twitch-advertising", Mark: TwitchMark },
@@ -100,9 +100,6 @@ const PLATFORM_CHANNELS: { t: string; to?: string; Mark: React.FC; isNew?: boole
   { t: "Kick", to: "/kick-advertising", Mark: KickMark },
   { t: "TikTok Live", to: "/tiktok-live-advertising", Mark: TikTokMark, isNew: true },
 ];
-
-const FeatureLink: React.FC<{ f: (typeof PLATFORM_FEATURES)[number]; onClick?: () => void; children: React.ReactNode }> = ({ f, onClick, children }) =>
-  f.home ? <HomeAnchor id={f.home} onClick={onClick}>{children}</HomeAnchor> : <Link to={f.to} onClick={onClick}>{children}</Link>;
 
 /** Desktop dropdown: opens on hover and on keyboard focus, and on click for touch.
     The panel content gets a close() so a picked link shuts it. */
@@ -179,10 +176,10 @@ const PlatformMenu: React.FC = () => (
       <>
         <div className="nav__dd-feats">
           {PLATFORM_FEATURES.map((f) => (
-            <FeatureLink key={f.t} f={f} onClick={close}>
+            <Link key={f.t} to={f.to} onClick={close}>
               <b>{f.t}</b>
               <span>{f.d}</span>
-            </FeatureLink>
+            </Link>
           ))}
         </div>
         <div className="nav__dd-side">
@@ -266,9 +263,9 @@ export const FinalNav: React.FC = () => {
           <summary>Platform</summary>
           <div>
             {PLATFORM_FEATURES.map((f) => (
-              <FeatureLink key={f.t} f={f} onClick={close}>
+              <Link key={f.t} to={f.to} onClick={close}>
                 {f.t}
-              </FeatureLink>
+              </Link>
             ))}
           </div>
         </details>
@@ -305,7 +302,7 @@ export const FinalNav: React.FC = () => {
 };
 
 const FOOT_COLS: { h: string; links: [string, string][] }[] = [
-  { h: "Product", links: [["How it works", "/twitch-advertising"], ["Pricing", "/pricing"], ["Setup verification", "/campaign-compliance"], ["Brand safety", "/brand-safety"], ["Chat tracking", "/livestream-chat-engagement"], ["Replay reach", "/replay-reach"]] },
+  { h: "Product", links: [["Campaign builder", "/campaign-builder"], ["Streamer Explorer", "/streamer-explorer"], ["Pricing", "/pricing"], ["Setup verification", "/campaign-compliance"], ["Brand safety", "/brand-safety"], ["Chat tracking", "/livestream-chat-engagement"], ["Replay reach", "/replay-reach"], ["Reporting", "/reporting"], ["Programmatic", "/programmatic"]] },
   { h: "Platforms", links: [["Twitch", "/twitch-advertising"], ["YouTube", "/youtube-advertising"], ["Kick", "/kick-advertising"], ["TikTok LIVE", "/tiktok-live-advertising"], ["Kick pricing", "/kick-advertising-cost"], ["Nordics", "/nordic-livestream-advertising"]] },
   { h: "Customers", links: [["Case studies", "/case-studies"], ["Samsung", "/case-study/samsung"], ["Surfshark", "/case-study/surfshark-finland"], ["Komplett", "/case-study/komplett"], ["Shure", "/case-study/shure"]] },
   { h: "Nordics", links: [["Norge", "/norge"], ["Twitch agency Norway", "/twitch-agency-norway"], ["Twitch-byrå Norge", "/twitch-byra-norge"], ["Twitch annonsering pris", "/twitch-annonsering-pris"], ["Kick Norge", "/kick-annonsering"], ["Kick Sverige", "/kick-annonsering-sverige"], ["Kick Danmark", "/kick-annoncering"], ["Kick Suomi", "/kick-mainonta"]] },
