@@ -5,6 +5,7 @@ import { BOOKING_SHORT_LINK } from "@/components/BookingCalendar";
 import "./home-final.css";
 import "./final-chrome.css";
 import "./home-overrides.css";
+import { KickMark, TwitchMark, YouTubeMark } from "./marks";
 
 /* Nav, footer and shared bits of the final-platform design. The homepage ("/")
    renders them inside its own .bf root; every other route gets them from
@@ -81,6 +82,67 @@ const HomeAnchor: React.FC<{ id: string; children: React.ReactNode; onClick?: ()
   );
 };
 
+/* "Platform" dropdown: the features a buyer checks, each linking to the page or
+   homepage section that shows it, plus the three platforms it runs on. */
+const PLATFORM_FEATURES: { t: string; d: string; to: string; home?: string }[] = [
+  { t: "Campaign builder", d: "Overlay, chat command and poll in one flow", to: "/#build", home: "build" },
+  { t: "Streamer Explorer", d: "39,000+ streamers to search and shortlist", to: "/self-serve#platform" },
+  { t: "Setup verification", d: "Every stream checked on air, every play clipped", to: "/campaign-compliance" },
+  { t: "Chat tracking", d: "Brand mentions translated and scored", to: "/livestream-chat-engagement" },
+  { t: "Replay reach", d: "Views that keep counting after the stream", to: "/replay-reach" },
+  { t: "Reporting", d: "Live dashboard and a PDF you can forward", to: "/#report", home: "report" },
+  { t: "Adform connection", d: "Set up and monitor campaigns from Adform", to: "/self-serve#adform" },
+];
+const PLATFORM_CHANNELS: { t: string; to: string; Mark: React.FC }[] = [
+  { t: "Twitch", to: "/twitch-advertising", Mark: TwitchMark },
+  { t: "YouTube", to: "/youtube-advertising", Mark: YouTubeMark },
+  { t: "Kick", to: "/kick-advertising", Mark: KickMark },
+];
+
+const FeatureLink: React.FC<{ f: (typeof PLATFORM_FEATURES)[number]; onClick?: () => void; children: React.ReactNode }> = ({ f, onClick, children }) =>
+  f.home ? <HomeAnchor id={f.home} onClick={onClick}>{children}</HomeAnchor> : <Link to={f.to} onClick={onClick}>{children}</Link>;
+
+/** Desktop dropdown: opens on hover and on keyboard focus, and on click for touch. */
+const PlatformMenu: React.FC = () => {
+  const [open, setOpen] = useState(false);
+  const { pathname } = useLocation();
+  useEffect(() => setOpen(false), [pathname]);
+  return (
+    <div
+      className={`nav__dd${open ? " nav__dd--open" : ""}`}
+      onMouseLeave={() => setOpen(false)}
+      onKeyDown={(e) => e.key === "Escape" && setOpen(false)}
+    >
+      <button type="button" className="nav__dd-btn" aria-expanded={open} aria-controls="nav-platform" onClick={() => setOpen((o) => !o)}>
+        Platform
+        <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5L6 8l3.5-3.5" /></svg>
+      </button>
+      <div id="nav-platform" className="nav__dd-panel">
+        <div className="nav__dd-feats">
+          {PLATFORM_FEATURES.map((f) => (
+            <FeatureLink key={f.t} f={f} onClick={() => setOpen(false)}>
+              <b>{f.t}</b>
+              <span>{f.d}</span>
+            </FeatureLink>
+          ))}
+        </div>
+        <div className="nav__dd-side">
+          <span className="nav__dd-k">Runs on</span>
+          {PLATFORM_CHANNELS.map(({ t, to, Mark }) => (
+            <Link key={t} to={to} className="nav__dd-ch" onClick={() => setOpen(false)}>
+              <Mark />
+              {t}
+            </Link>
+          ))}
+          <HomeAnchor id="tour" onClick={() => setOpen(false)}>
+            <span className="nav__dd-tour">Take the tour <Arrow /></span>
+          </HomeAnchor>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const MENU_MORE: [string, string][] = [
   ["Blog", "/blog"],
   ["About", "/about"],
@@ -109,7 +171,7 @@ export const FinalNav: React.FC = () => {
           <img className="for-dark" src={LOGO_DARK} alt="Beta Ads" width={95} height={23} />
         </Link>
         <nav className="nav__links" aria-label="Main">
-          <HomeAnchor id="tour">Product</HomeAnchor>
+          <PlatformMenu />
           <Link to="/case-studies">Customers</Link>
           <Link to="/twitch-advertising-cost">Pricing</Link>
           <Link to="/self-serve">Agencies</Link>
@@ -132,9 +194,16 @@ export const FinalNav: React.FC = () => {
         </button>
       </div>
       <nav id="nav-menu" className="nav__menu" aria-label="Menu" hidden={!open}>
-        <HomeAnchor id="tour" onClick={close}>
-          Product
-        </HomeAnchor>
+        <details className="nav__menu-dd">
+          <summary>Platform</summary>
+          <div>
+            {PLATFORM_FEATURES.map((f) => (
+              <FeatureLink key={f.t} f={f} onClick={close}>
+                {f.t}
+              </FeatureLink>
+            ))}
+          </div>
+        </details>
         <Link to="/case-studies">Customers</Link>
         <Link to="/twitch-advertising-cost">Pricing</Link>
         <Link to="/self-serve">Agencies</Link>

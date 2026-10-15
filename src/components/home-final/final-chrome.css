@@ -46,3 +46,36 @@
   .bf.site-nav .nav{margin-bottom:-58px}
 }
 .bf.site-foot{border-top:1px solid var(--line)}
+
+/* ---- Platform dropdown (desktop) ---- */
+.bf .nav__links{align-items:center}
+.bf .nav__dd{position:relative;display:flex;align-items:center;height:64px}
+.bf .nav__dd-btn{display:inline-flex;align-items:center;gap:6px;font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+.bf .nav__dd-btn svg{width:12px;height:12px;flex:none;overflow:visible;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
+.bf .nav__dd:hover .nav__dd-btn,.bf .nav__dd--open .nav__dd-btn,.bf .nav__dd:focus-within .nav__dd-btn{color:var(--ink)}
+.bf .nav__dd:hover .nav__dd-btn svg,.bf .nav__dd--open .nav__dd-btn svg{transform:rotate(180deg)}
+.bf .nav__dd-panel{position:absolute;top:100%;left:-28px;display:grid;grid-template-columns:minmax(0,1fr) 200px;width:720px;padding:10px;border-radius:16px;background:var(--surface);box-shadow:0 0 0 1px var(--line),0 24px 60px -20px rgba(15,16,18,.28);opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .16s,transform .16s,visibility 0s .16s}
+.bf .nav__dd:hover .nav__dd-panel,.bf .nav__dd:focus-within .nav__dd-panel,.bf .nav__dd--open .nav__dd-panel{opacity:1;visibility:visible;transform:none;transition:opacity .16s,transform .16s}
+.bf .nav__dd-feats{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.bf .nav__dd-feats a{display:flex;flex-direction:column;gap:2px;padding:12px 14px;border-radius:10px}
+.bf .nav__dd-feats a:hover,.bf .nav__dd-feats a:focus-visible{background:var(--sunk)}
+.bf .nav__dd-feats b{font-size:14.5px;font-weight:600;color:var(--ink)}
+.bf .nav__dd-feats span{font-size:13px;line-height:1.4;color:var(--ink-3);font-weight:500}
+.bf .nav__dd-side{display:flex;flex-direction:column;gap:2px;padding:12px 14px;margin-left:8px;border-left:1px solid var(--line-2)}
+.bf .nav__dd-k{font-size:12px;font-weight:600;color:var(--ink-3);margin-bottom:6px}
+.bf .nav__dd-ch{display:flex;align-items:center;gap:10px;padding:8px 8px 8px 0;font-size:14.5px;font-weight:600;color:var(--ink)}
+.bf .nav__dd-ch .mark{width:20px;height:20px}
+.bf .nav__dd-ch .mark--yt{width:24px}
+.bf .nav__dd-ch:hover{color:var(--ink-2)}
+.bf .nav__dd-tour{display:inline-flex;gap:6px;margin-top:auto;padding-top:14px;font-size:14px;font-weight:600;color:var(--ink)}
+.bf .nav__dd-side > a:last-child{margin-top:auto}
+@media (prefers-reduced-motion:reduce){.bf .nav__dd-panel{transition:none!important}}
+
+/* ---- Platform in the mobile menu ---- */
+.bf .nav__menu-dd{border-bottom:1px solid var(--line-2)}
+.bf .nav__menu-dd summary{list-style:none;cursor:pointer;padding:13px 0;font-size:17px;font-weight:600;letter-spacing:-.015em;color:var(--ink);display:flex;justify-content:space-between}
+.bf .nav__menu-dd summary::-webkit-details-marker{display:none}
+.bf .nav__menu-dd summary::after{content:"+";color:var(--ink-3);font-weight:500}
+.bf .nav__menu-dd[open] summary::after{content:"\2212"}
+.bf .nav__menu-dd > div{display:flex;flex-direction:column;padding:0 0 12px}
+.bf .nav__menu-dd > div a{padding:8px 0 8px 12px;font-size:15px;font-weight:500;color:var(--ink-2)}
