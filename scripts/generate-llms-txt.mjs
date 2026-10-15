@@ -33,7 +33,7 @@ const SECTIONS = [
   },
   {
     title: "Services by platform",
-    routes: ["/twitch-advertising", "/kick-advertising", "/youtube-advertising", "/nordic-livestream-advertising"],
+    routes: ["/twitch-advertising", "/kick-advertising", "/youtube-advertising", "/tiktok-live-advertising", "/nordic-livestream-advertising"],
   },
   {
     title: "Pricing",

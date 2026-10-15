@@ -98,8 +98,7 @@ const PLATFORM_CHANNELS: { t: string; to?: string; Mark: React.FC; isNew?: boole
   { t: "Twitch", to: "/twitch-advertising", Mark: TwitchMark },
   { t: "YouTube", to: "/youtube-advertising", Mark: YouTubeMark },
   { t: "Kick", to: "/kick-advertising", Mark: KickMark },
-  /* No TikTok page yet, so it is shown without a link. */
-  { t: "TikTok Live", Mark: TikTokMark, isNew: true },
+  { t: "TikTok Live", to: "/tiktok-live-advertising", Mark: TikTokMark, isNew: true },
 ];
 
 const FeatureLink: React.FC<{ f: (typeof PLATFORM_FEATURES)[number]; onClick?: () => void; children: React.ReactNode }> = ({ f, onClick, children }) =>
@@ -306,7 +305,7 @@ export const FinalNav: React.FC = () => {
 
 const FOOT_COLS: { h: string; links: [string, string][] }[] = [
   { h: "Product", links: [["How it works", "/twitch-advertising"], ["Pricing", "/twitch-advertising-cost"], ["Setup verification", "/campaign-compliance"], ["Brand safety", "/brand-safety"], ["Chat tracking", "/livestream-chat-engagement"], ["Replay reach", "/replay-reach"]] },
-  { h: "Platforms", links: [["Twitch", "/twitch-advertising"], ["YouTube", "/youtube-advertising"], ["Kick", "/kick-advertising"], ["Kick pricing", "/kick-advertising-cost"], ["Nordics", "/nordic-livestream-advertising"]] },
+  { h: "Platforms", links: [["Twitch", "/twitch-advertising"], ["YouTube", "/youtube-advertising"], ["Kick", "/kick-advertising"], ["TikTok LIVE", "/tiktok-live-advertising"], ["Kick pricing", "/kick-advertising-cost"], ["Nordics", "/nordic-livestream-advertising"]] },
   { h: "Customers", links: [["Case studies", "/case-studies"], ["Samsung", "/case-study/samsung"], ["Surfshark", "/case-study/surfshark-finland"], ["Komplett", "/case-study/komplett"], ["Shure", "/case-study/shure"]] },
   { h: "Nordics", links: [["Norge", "/norge"], ["Twitch agency Norway", "/twitch-agency-norway"], ["Twitch-byrå Norge", "/twitch-byra-norge"], ["Twitch annonsering pris", "/twitch-annonsering-pris"], ["Kick Norge", "/kick-annonsering"], ["Kick Sverige", "/kick-annonsering-sverige"], ["Kick Danmark", "/kick-annoncering"], ["Kick Suomi", "/kick-mainonta"]] },
   { h: "Company", links: [["About", "/about"], ["Press", "/press"], ["Blog", "/blog"], ["Working with us", "/working-with-us"], ["Managed campaigns", "/managed-campaigns"], ["Self-serve for agencies", "/self-serve"], ["For marketing executives", "/for-marketing-executives"], ["Contact", "/contact"]] },

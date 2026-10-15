@@ -383,6 +383,13 @@ const STATIC_PAGES = [
     locale: "en",
   },
   {
+    route: "/tiktok-live-advertising",
+    title: "TikTok LIVE Advertising: Animated Ads Inside Creator Streams | Beta Ads",
+    description:
+      "New on Beta Ads: animated brand overlays inside TikTok LIVE streams, next to Twitch, YouTube and Kick. Same platform, same approach. Talk to us about running one of the first TikTok LIVE campaigns.",
+    locale: "en",
+  },
+  {
     route: "/for-marketing-executives",
     title: "Livestream Advertising for Marketing Executives | Beta Ads",
     description:

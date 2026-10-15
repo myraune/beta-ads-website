@@ -55,6 +55,7 @@ const STATIC_ROUTES = [
   "/twitch-advertising-cost",
   "/twitch-annonsering-pris",
   "/youtube-advertising",
+  "/tiktok-live-advertising",
   "/kick-advertising",
   "/kick-annonsering",
   "/kick-annonsering-sverige",

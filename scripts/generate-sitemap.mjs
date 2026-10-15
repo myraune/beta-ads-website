@@ -64,6 +64,7 @@ const STATIC_PAGES = [
   { path: "/norge",                  priority: "0.9",  changefreq: "monthly" },
   // Secondary high-priority pages
   { path: "/youtube-advertising",    priority: "0.9",  changefreq: "monthly" },
+  { path: "/tiktok-live-advertising", priority: "0.9", changefreq: "monthly" },
   { path: "/streamers",              priority: "0.9",  changefreq: "weekly"  },
   // Case studies — include image:image for Google Image Search eligibility
   { path: "/case-study/samsung",     priority: "0.85", changefreq: "monthly", image: "/lovable-uploads/samsung-fold7-banner.jpg",           imageTitle: "Samsung Galaxy S25 Ultra x Beta Ads - Norwegian Twitch campaign overlay" },
