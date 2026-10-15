@@ -136,18 +136,15 @@ export const HomeFinal: React.FC = () => {
         <section className="hero">
           <div className="hero__wash" aria-hidden="true" />
           <div className="hero__copy">
-            <h1>Animated ads inside Twitch, YouTube and Kick streams.</h1>
-            <p className="hero__sub">Pick the streamers, launch your overlay on all of them at once, and get a report you can forward. Priced per view that fully played.</p>
-            <ul className="hero__facts">
-              <li>Can't be skipped or ad blocked</li>
-              <li>Every ad play checked on air</li>
-              <li>Undelivered views refunded</li>
-            </ul>
+            <h1 className="hero__split">
+              <b>The platform</b> <span>for livestream ads.</span>
+            </h1>
+            <p className="hero__sub">Find the streamers, launch the overlay and read the report. One login for Twitch, YouTube and Kick.</p>
             <div className="hero__cta">
               <BookDemo />
-              <A className="tlink" href="/case-study/surfshark-finland">
-                See a real campaign report <Arrow />
-              </A>
+              <a className="tlink" href="#build">
+                Take the tour <Arrow />
+              </a>
             </div>
           </div>
 
@@ -235,7 +232,6 @@ export const HomeFinal: React.FC = () => {
 
         {/* 2 LOGOS */}
         <section className="logos" id="customers" aria-label="Brands and agencies">
-          <p className="logos__k">Brands that have run campaigns with us</p>
           <ul className="lg">
             {LOGOS.map(([f, alt, h]) => (
               <li key={f}>
