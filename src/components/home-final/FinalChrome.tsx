@@ -147,6 +147,31 @@ const SolutionsMenu: React.FC = () => (
   </NavDropdown>
 );
 
+/* "Login": the two dashboards on the LIVAD platform (already linked from the
+   streamer pages), plus the sign-up page for streamers who are not on it yet. */
+const LOGINS: { t: string; d: string; href: string }[] = [
+  { t: "Brand or agency", d: "Your campaign dashboard", href: "https://beta.business.livad.stream/dashboard" },
+  { t: "Streamer", d: "Your streamer account", href: "https://beta.streamer.livad.stream/login" },
+];
+
+const LoginMenu: React.FC = () => (
+  <NavDropdown label="Login" id="nav-login" panelClass="nav__dd-panel--list nav__dd-panel--right">
+    {(close) => (
+      <div className="nav__dd-feats nav__dd-feats--one">
+        {LOGINS.map((x) => (
+          <a key={x.href} href={x.href} target="_blank" rel="noopener noreferrer" data-cta="login" onClick={close}>
+            <b>{x.t}</b>
+            <span>{x.d}</span>
+          </a>
+        ))}
+        <Link to="/streamers" className="nav__dd-foot" onClick={close}>
+          New streamer? Join Beta Ads <Arrow />
+        </Link>
+      </div>
+    )}
+  </NavDropdown>
+);
+
 const PlatformMenu: React.FC = () => (
   <NavDropdown label="Platform" id="nav-platform">
     {(close) => (
@@ -209,9 +234,9 @@ export const FinalNav: React.FC = () => {
           <Link to="/case-studies">Customers</Link>
           <Link to="/twitch-advertising-cost">Pricing</Link>
         </nav>
-        <Link className="nav__side" to="/streamers">
-          For streamers
-        </Link>
+        <div className="nav__side">
+          <LoginMenu />
+        </div>
         <ThemeSwitch />
         <BookDemo className="btn btn--sm" />
         <button
@@ -250,6 +275,13 @@ export const FinalNav: React.FC = () => {
         <Link to="/case-studies">Customers</Link>
         <Link to="/twitch-advertising-cost">Pricing</Link>
         <Link to="/streamers">For streamers</Link>
+        <div className="nav__menu-login">
+          {LOGINS.map((x) => (
+            <a key={x.href} href={x.href} target="_blank" rel="noopener noreferrer" data-cta="login">
+              Login: {x.t.toLowerCase()}
+            </a>
+          ))}
+        </div>
         <div className="nav__menu-more">
           {MENU_MORE.map(([label, to]) => (
             <Link key={to} to={to}>
