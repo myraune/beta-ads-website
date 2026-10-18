@@ -104,7 +104,7 @@ const LivestreamChatEngagement: React.FC = () => {
       seo={{
         title: "Chat Tracking for Livestream Campaigns | Beta Ads",
         description:
-          "See what live chat says about your brand while the campaign is running. Keyword tracking across every channel, deduplicated counts, Nordic to English translation and tone scoring, in one dashboard.",
+          "See what live chat says about your brand during the campaign: keyword tracking on every channel, deduplicated counts, translation and tone scoring.",
         canonical: "/livestream-chat-engagement",
         jsonLd: [
           {

@@ -12,7 +12,7 @@ import { BOOKING_URL, SALES_MAIL, W, kicker, h2, PrimaryBtn, GhostBtn, Faq, faqL
 
 const TITLE = "Pricing: Pay Per View That Played | Beta Ads";
 const DESCRIPTION =
-  "Livestream ads on Twitch, YouTube, Kick and TikTok LIVE, priced per 1,000 views that fully played. Campaigns from 100,000 NOK, undelivered views refunded, replay views on top and not billed.";
+  "Livestream ads on Twitch, YouTube, Kick and TikTok LIVE, priced per 1,000 views that fully played. From 100,000 NOK. Undelivered views refunded.";
 
 const terms: { k: string; v: string; d: string }[] = [
   { k: "You pay for", v: "Views that played", d: "One view is one full run of the animation on a live stream. Priced per 1,000." },

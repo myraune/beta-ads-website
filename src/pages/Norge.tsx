@@ -93,24 +93,24 @@ const norwegianBlogPosts = [
     desc: "detoo topper TwitchTracker. Slik ser et ekte streamer-merkevare-samarbeid ut.",
   },
   {
-    slug: "gaming-markedsforing-forste-kampanje-guide",
-    title: "Gaming-markedsføring for merkevarer: Slik lager du din første Twitch-kampanje",
-    desc: "Fra brief til live-publisering - en steg-for-steg-guide.",
+    slug: "clip-analytics-ad-verification-nordic-streaming-no",
+    title: "Slik verifiserer vi hver annonsevisning",
+    desc: "Clip Analytics sjekker levering, brand safety og merkeomtaler på Twitch, YouTube og Kick.",
   },
   {
-    slug: "medieplanlegging-twitch-nordisk-mediemiks",
-    title: "Medieplanlegging for Twitch: Integrer livestreaming i mediemiksen",
-    desc: "Hvor passer livestream inn - og hvordan beregner du effekt mot TV, YouTube og display?",
+    slug: "how-to-brief-streamer-native-ad-integration-2026-no",
+    title: "Slik briefer du en streamer for en nativ annonse",
+    desc: "Briefen avgjør om kampanjen føles ekte eller tvunget. Slik skriver du en som fungerer.",
   },
   {
-    slug: "merkevarer-utenfor-gaming-twitch-annonsering",
-    title: "Merkevarer utenfor gaming: Hvorfor FMCG, finans og retail lykkes på Twitch",
-    desc: "Det er ikke bare gaming-brands som ser resultater.",
+    slug: "norske-twitch-streamere-2026",
+    title: "Norske Twitch-streamere du bør kjenne til i 2026",
+    desc: "Fra MrSavage og Knut til detoo, Emzia og Klokkismann.",
   },
   {
-    slug: "overlay-ads-kreativ-design-beste-praksis",
-    title: "Slik designer du overlay ads som fungerer",
-    desc: "Kreativt rammeverk for native Twitch-annonsering.",
+    slug: "gta-vi-nordisk-merkevareguide",
+    title: "GTA VI: guide for nordiske merkevarer",
+    desc: "Hva GTA VI er før du planlegger rundt lanseringen 19. november.",
   },
 ];
 
@@ -123,7 +123,7 @@ const Norge: React.FC = () => {
     <div className="min-h-screen">
       <SEO
         title="Twitch-byrå og Twitch-annonsering i Norge | Beta Ads"
-        description="Twitch-annonsering for norske merkevarer. Samsung, Shure, Komplett og NKI har kjørt kampanjer via Beta Ads, med streamere plukket fra 39 000+ i Streamer Explorer. Book en samtale."
+        description="Twitch-annonsering for norske merkevarer. Samsung, Shure, Komplett og NKI har kjørt kampanjer via Beta Ads, med streamere fra 39 000+ i Streamer Explorer."
         canonical="/norge"
         locale="no"
         ogImageAlt="Beta Ads - native Twitch-annonsering for norske merkevarer"

@@ -3,7 +3,7 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import { ArrowLeft, ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
-import { getCreatorByHandle, getMarketOfHandle, MARKET_CREATORS, MARKET_ROUNDUP, profileLabels, isNativeLanguage, languageLabel, languageTooltip } from "@/data/streamers";
+import { getCreatorByHandle, getMarketOfHandle, MARKET_CREATORS, MARKET_ROUNDUP, profileLabels, isNativeLanguage, languageLabel, languageTooltip, creatorSeoTitle, creatorSeoDescription } from "@/data/streamers";
 import { SocialIcon } from "@/components/blog/SocialIcon";
 import { NewsCard } from "@/components/blog/NewsCard";
 import { StreamerMedia } from "@/components/blog/StreamerMedia";
@@ -68,8 +68,8 @@ const StreamerProfile: React.FC = () => {
   return (
     <>
       <SEO
-        title={`${c.name}${c.realName ? ` (${c.realName})` : ""} | ${roundup.noun} | Beta Ads`}
-        description={`Bakgrunn, kanaler og kilder for ${c.name} - ${c.meta}. ${c.blurb}`}
+        title={creatorSeoTitle(c, roundup.noun)}
+        description={creatorSeoDescription(c)}
         canonical={`/streamere/${c.handle}`}
         locale={roundup.seoLocale}
         ogImage={c.image}

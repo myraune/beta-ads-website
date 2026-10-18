@@ -113,7 +113,7 @@ const KickAdvertisingCost: React.FC = () => {
       seo={{
         title: "What Does Kick Advertising Cost? | Beta Ads",
         description:
-          "Kick has no public rate card: its 2026 Ads Beta sells direct, programmatic and open-exchange inventory in USD CPM. Here is how Kick advertising is actually priced in the Nordics, what it costs to buy direct, and how to get a real quote.",
+          "Kick has no public rate card. Its 2026 Ads Beta sells direct, programmatic and open-exchange inventory in USD CPM. How Kick ads are priced in the Nordics.",
         canonical: "/kick-advertising-cost",
         jsonLd: [
           {

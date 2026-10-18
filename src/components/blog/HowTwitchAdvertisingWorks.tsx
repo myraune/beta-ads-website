@@ -75,7 +75,6 @@ const campaigns = [
   { brand: "Shure MV6", logo: "/lovable-uploads/logo-shure.png", cat: "Audio launch", streamers: "2", ctr: 1.31, ctrLabel: "1.31%", peak: "9.12% peak", href: "/case-study/shure" },
   { brand: "Komplett", logo: "/lovable-uploads/logo-komplett.png", cat: "Retail", streamers: "34", ctr: 1.17, ctrLabel: "1.17%", peak: "4.48% peak", href: "/case-study/komplett" },
   { brand: "NKI", logo: "/lovable-uploads/logo-nki.svg", cat: "Distance learning", streamers: "19", ctr: 0.72, ctrLabel: "0.72%", peak: null, href: "/case-study/nki" },
-  { brand: "Surfshark", logo: "/lovable-uploads/logo-surfshark.png", cat: "VPN awareness", streamers: "26", ctr: 0.62, ctrLabel: "0.62%", peak: null, href: "/case-study/surfshark" },
   { brand: "Saily", logo: "/lovable-uploads/logo-saily.png", cat: "Travel eSIM", streamers: "22", ctr: 0.50, ctrLabel: "0.50%", peak: null, href: "/case-study/saily" },
 ];
 const ctrMax = 1.4;
@@ -99,7 +98,7 @@ const fitNo = [
   "You only have 15-second TV cutdowns and no budget for native creative",
 ];
 const firstTest = [
-  "One specific category (Just Chatting, Fortnite or FIFA - not just 'gaming')",
+  "One specific category (Just Chatting, Fortnite or FIFA, not just 'gaming')",
   "5 - 15 Nordic streamers from one national market",
   "A 2 - 4 week runway",
   "One overlay format (Snipe or Rich Media)",

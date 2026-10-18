@@ -90,7 +90,7 @@ const CampaignCompliance: React.FC = () => {
       seo={{
         title: "Campaign Setup Verification | Beta Ads",
         description:
-          "Check that every creator on a livestream campaign actually put the banner up, got the command in the title, went live, and pointed at a tracked link. Continuous verification across every channel, in one view.",
+          "Check that every creator on a livestream campaign put the banner up, added the command to the title, went live and used a tracked link, on every channel.",
         canonical: "/campaign-compliance",
         jsonLd: [
           {

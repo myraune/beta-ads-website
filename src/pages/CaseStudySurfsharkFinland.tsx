@@ -26,7 +26,7 @@ const CaseStudySurfsharkFinland: React.FC = () => {
       />
       <SEO
         title="Surfshark VPN Finland Case Study | Beta Ads"
-        description="Surfshark VPN on Finnish Twitch: 100,000 views bought, 119,041 delivered live and 949,957 with replays across 14 creators. 1,281 clicks, 1.08% CTR and 2,833 poll votes on VPN use."
+        description="Surfshark VPN on Finnish Twitch: 100,000 views bought, 119,041 delivered live and 949,957 with replays across 14 creators. 1,281 clicks and 2,833 poll votes."
         canonical="/case-study/surfshark-finland"
         ogType="article"
         articlePublishedTime="2026-10-07"

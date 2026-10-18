@@ -113,8 +113,8 @@ const WorkingWithUs: React.FC = () => {
   return (
     <>
       <SEO
-        title="Working with Beta Ads: managed campaigns or self-serve for agencies | Beta Ads"
-        description="Two ways to run livestream ads with Beta Ads: we run brand and test campaigns from brief to report, or media agencies and partners launch and resell campaigns themselves, or buy through a private deal in their own DSP. Plus company facts and delivery guarantees."
+        title="Working with us: managed campaigns or self-serve | Beta Ads"
+        description="Two ways to run livestream ads: we run campaigns from brief to report, or agencies launch and resell them in self-serve, or buy via a private deal in a DSP."
         canonical="/working-with-us"
         jsonLd={[
           {

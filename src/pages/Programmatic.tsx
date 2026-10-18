@@ -11,8 +11,8 @@ const Programmatic: React.FC = () => (
   <FeaturePage
     path="/programmatic"
     crumb="Programmatic deals"
-    seoTitle="Programmatic Livestream Ads: Private Deals on Adform and Magnite | Beta Ads"
-    seoDescription="Buy livestream ads on Twitch, YouTube and Kick programmatically: we set up a private deal on our Adform or Magnite SSP seat, share the deal ID, and you target it in your own DSP."
+    seoTitle="Programmatic Livestream Ads on Adform and Magnite | Beta Ads"
+    seoDescription="Buy livestream ads on Twitch, YouTube and Kick programmatically: we set up a private deal on Adform or Magnite, share the deal ID, you target it in your DSP."
     kicker="Platform · Programmatic deals"
     title="Buy it in your DSP, with a private deal."
     lead="We have SSP seats on Adform and Magnite, with Equativ coming. We set up a private deal for the campaign and share the deal ID, and your team targets it in your own DSP."

@@ -286,7 +286,7 @@ export const CampaignComparisonChart: React.FC = () => {
           <XAxis
             dataKey="metric"
             stroke={MUTED}
-            fontSize={10}
+            fontSize={11}
             tickLine={false}
             axisLine={false}
             interval={0}
@@ -297,7 +297,7 @@ export const CampaignComparisonChart: React.FC = () => {
           />
           <YAxis
             stroke={MUTED}
-            fontSize={10}
+            fontSize={11}
             tickLine={false}
             axisLine={false}
             domain={[40, 160]}
@@ -305,7 +305,7 @@ export const CampaignComparisonChart: React.FC = () => {
             tickFormatter={(v) => `${v}`}
           />
           <Tooltip content={<ComparisonTooltip />} cursor={{ stroke: PRIMARY, strokeWidth: 1, strokeDasharray: "3 3" }} />
-          <ReferenceLine y={100} stroke="hsl(var(--muted-foreground))" strokeDasharray="4 4" strokeOpacity={0.4} label={{ value: "avg", position: "left", fill: MUTED, fontSize: 9 }} />
+          <ReferenceLine y={100} stroke="hsl(var(--muted-foreground))" strokeDasharray="4 4" strokeOpacity={0.4} label={{ value: "avg", position: "left", fill: MUTED, fontSize: 11 }} />
           <Line
             type="monotone"
             dataKey="s25"

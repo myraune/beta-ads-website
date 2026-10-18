@@ -8,6 +8,7 @@ import type { CreatorProfile } from "@/data/norskeStreamere";
 export const CREATORS: CreatorProfile[] = [
   {
     handle: "officialandypyro",
+    seoDescription: "OfficialAndyPyro: Anssi Huovinen on yksi Suomen seuratuimmista Twitch-striimaajista ja tunnettu monipuolisesta peli- ja juttelusisällöstään.",
     name: "OfficialAndyPyro",
     realName: "Anssi Huovinen",
     meta: "Twitch · YouTube (APGAMING) · monipelistriimaaja",

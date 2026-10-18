@@ -11,7 +11,7 @@ const Streamers: React.FC<StreamersProps> = ({ t }) => {
     <div>
       <SEO
         title="Earn from Your Stream | Beta Ads Streamer Program"
-        description="Get real brand deals on Twitch, YouTube & Kick. Accept offers you like, skip the rest. No minimum followers, no contracts. Join 39,000+ streamers in Streamer Explorer."
+        description="Get real brand deals on Twitch, YouTube & Kick. Accept offers you like, skip the rest. No minimum followers, no contracts. Join 39,000+ streamers on Beta Ads."
         canonical="/streamers"
         ogType="website"
         jsonLd={[

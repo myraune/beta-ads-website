@@ -140,7 +140,7 @@ const TwitchAnnonseringPris: React.FC = () => {
       seo={{
         title: "Hva koster Twitch-annonsering i Norge? | Beta Ads",
         description:
-          "Ingen plattform publiserer en prisliste for Twitch-annonsering, ikke engang Twitch. Slik prises livestream-annonsering faktisk i Norge: de fem kostnadsdriverne og hvordan du får et reelt tilbud.",
+          "Ingen plattform publiserer en prisliste for Twitch-annonsering, ikke engang Twitch. Slik prises livestream-annonsering i Norge og slik får du et reelt tilbud.",
         canonical: "/twitch-annonsering-pris",
         locale: "no",
         alternates: [

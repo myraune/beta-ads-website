@@ -15,7 +15,7 @@ import { BOOKING_URL, SALES_MAIL, W, kicker, h2, PrimaryBtn, GhostBtn, Faq, faqL
 
 const TITLE = "Livestream Advertising for Marketing Executives | Beta Ads";
 const DESCRIPTION =
-  "Livestream ads on Twitch, YouTube and Kick, reported like the rest of your media plan: what you bought, what was delivered, where it ran and whether it was brand safe, in one report you can take to the board.";
+  "Livestream ads on Twitch, YouTube and Kick, reported like the rest of your media plan: what you bought, what was delivered, where it ran and if it was safe.";
 
 const questions: { q: string; a: string; link: [string, string] }[] = [
   { q: "Did it actually run?", a: "Every stream is checked on air and every ad play is saved as a clip. On Surfshark Finland, 98.7% of 759 plays were verified with a recorded clip.", link: ["Setup verification", "/campaign-compliance"] },

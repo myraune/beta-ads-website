@@ -40,7 +40,7 @@ const proof = [
   { brand: "Samsung", logo: "/lovable-uploads/logo-samsung.png", metric: "500,131", label: "completed views", extra: "43 Norwegian streamers", video: "/lovable-uploads/overlay-samsung.webm", href: "/case-study/samsung" },
   { brand: "Shure", logo: "/lovable-uploads/logo-shure.png", metric: "9.12%", label: "peak-day CTR", extra: "182,554 views", video: "/lovable-uploads/overlay-shure-gca.webm", href: "/case-study/shure" },
   { brand: "Komplett", logo: "/lovable-uploads/logo-komplett.png", metric: "151,278", label: "display views", extra: "1.17% CTR, 34 streamers", video: "/lovable-uploads/overlay-komplett.webm", href: "/case-study/komplett" },
-  { brand: "Surfshark", logo: "/lovable-uploads/logo-surfshark.png", metric: "91,006", label: "completed views", extra: "37,713 unique viewers", video: "/lovable-uploads/overlay-surfshark.webm", href: "/case-study/surfshark" },
+  { brand: "Surfshark", logo: "/lovable-uploads/logo-surfshark.png", metric: "119,041", label: "live views in Finland", extra: "1.08% CTR, 2,833 poll votes", video: "/lovable-uploads/case-surfshark-finland/overlay-animation.webm", href: "/case-study/surfshark-finland" },
 ];
 
 const steps = [
@@ -62,9 +62,9 @@ const NordicLivestreamAdvertising: React.FC = () => {
   return (
     <MarketingPageLayout
       seo={{
-        title: "Nordic Livestream Advertising: The Brand's Field Guide | Beta Ads",
+        title: "Nordic Livestream Advertising: A Brand Field Guide | Beta Ads",
         description:
-          "Who is watching, which platforms matter, what Nordic inventory exists, and what native overlay campaigns actually deliver. A data-backed field guide for brands, with real Beta Ads campaign results.",
+          "Who is watching, which platforms matter, what Nordic inventory exists and what native overlay campaigns deliver. A field guide with real campaign results.",
         canonical: "/nordic-livestream-advertising",
         jsonLd: [
           {

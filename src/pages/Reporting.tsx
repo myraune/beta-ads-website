@@ -10,8 +10,8 @@ const Reporting: React.FC = () => (
   <FeaturePage
     path="/reporting"
     crumb="Reporting"
-    seoTitle="Reporting for Livestream Ad Campaigns: Live Dashboard and PDF | Beta Ads"
-    seoDescription="Follow every livestream campaign live in your own dashboard: delivery per streamer and per stream, verification clips, replay reach, clicks, chat and polls. Then forward one PDF report to the client."
+    seoTitle="Livestream Ad Reporting: Live Dashboard and PDF | Beta Ads"
+    seoDescription="Follow every livestream campaign live: delivery per streamer and stream, verification clips, replay reach, clicks, chat and polls. Then send one PDF report."
     kicker="Platform · Reporting"
     title="A report you can forward to the client."
     lead="Live in your own dashboard while the campaign runs, and as one PDF when it ends: delivery, verification clips, replay reach, clicks, chat and polls."

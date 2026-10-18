@@ -65,9 +65,9 @@ const STATIC_PAGES = [
   },
   {
     route: "/norge",
-    title: "Twitch-annonsering Norge | Beta Ads",
+    title: "Twitch-byrå og Twitch-annonsering i Norge | Beta Ads",
     description:
-      "Twitch-annonsering for norske merkevarer. Samsung, Shure, Komplett og NKI har kjørt kampanjer via Beta Ads, med streamere plukket fra 39 000+ i Streamer Explorer. Book en samtale.",
+      "Twitch-annonsering for norske merkevarer. Samsung, Shure, Komplett og NKI har kjørt kampanjer via Beta Ads, med streamere fra 39 000+ i Streamer Explorer.",
     locale: "no",
     alternates: [
       { hreflang: "no", href: "/norge" },
@@ -79,7 +79,7 @@ const STATIC_PAGES = [
     route: "/streamers",
     title: "Earn from Your Stream | Beta Ads Streamer Program",
     description:
-      "Get real brand deals on Twitch, YouTube & Kick. Accept offers you like, skip the rest. No minimum followers, no contracts. Join 39,000+ streamers in Streamer Explorer.",
+      "Get real brand deals on Twitch, YouTube & Kick. Accept offers you like, skip the rest. No minimum followers, no contracts. Join 39,000+ streamers on Beta Ads.",
     locale: "en",
   },
   {
@@ -105,9 +105,9 @@ const STATIC_PAGES = [
   },
   {
     route: "/twitch-advertising",
-    title: "Twitch Advertising in the Nordics | Beta Ads",
+    title: "Twitch Advertising Agency: Norway and the Nordics | Beta Ads",
     description:
-      "Native overlay ads on Twitch that bypass ad blockers and reach Gen Z. 39,000+ streamers in our Streamer Explorer database, real-time analytics.",
+      "Beta Agency AS is a Norwegian Twitch advertising agency running native overlays with 39,000+ streamers in Streamer Explorer. Ads that bypass ad blockers.",
     locale: "en",
   },
   {
@@ -121,7 +121,7 @@ const STATIC_PAGES = [
     route: "/kick-streamer-advertising",
     title: "Advertise Through Kick Streamers in the Nordics | Beta Ads",
     description:
-      "Beta Ads places brands inside Nordic Kick streams, picked from a Streamer Explorer database of 39,000+ creators: native overlays, voice-triggered ads, polls and replay reach. How a campaign runs, what it has delivered, and how to start.",
+      "Beta Ads places brands inside Nordic Kick streams, picked from 39,000+ creators in Streamer Explorer: native overlays, voice-triggered ads, polls and replays.",
     locale: "en",
     image: "/lovable-uploads/og/kick-streamer-advertising-en.png",
     ogImageWidth: 1200,
@@ -139,7 +139,7 @@ const STATIC_PAGES = [
     route: "/kick-streamer-annonsering",
     title: "Annonser gjennom Kick-strømmere i Norden | Beta Ads",
     description:
-      "Beta Ads plasserer merkevarer inne i nordiske Kick-strømmer, plukket fra en Streamer Explorer-database med over 39 000 skapere: native overlays, stemmestyrte annonser, avstemninger og Replay reach. Slik kjøres en kampanje, hva den har levert, og hvordan du starter.",
+      "Beta Ads plasserer merkevarer inne i nordiske Kick-strømmer, med 39 000+ skapere i Streamer Explorer: native overlays, stemmestyrte annonser og avstemninger.",
     locale: "no",
     image: "/lovable-uploads/og/kick-streamer-advertising-no.png",
     ogImageWidth: 1200,
@@ -157,7 +157,7 @@ const STATIC_PAGES = [
     route: "/kick-streamer-annonsering-sverige",
     title: "Annonsera genom Kick-streamers i Norden | Beta Ads",
     description:
-      "Beta Ads placerar varumärken inne i nordiska Kick-streams, valda ur en Streamer Explorer-databas med över 39 000 kreatörer: native overlays, röststyrda annonser, omröstningar och Replay reach. Så körs en kampanj, vad den har levererat och hur du börjar.",
+      "Beta Ads placerar varumärken i nordiska Kick-streams, med över 39 000 kreatörer i Streamer Explorer: native overlays, röststyrda annonser och omröstningar.",
     locale: "sv",
     image: "/lovable-uploads/og/kick-streamer-advertising-sv.png",
     ogImageWidth: 1200,
@@ -175,7 +175,7 @@ const STATIC_PAGES = [
     route: "/kick-streamer-annoncering",
     title: "Annoncer gennem Kick-streamere i Norden | Beta Ads",
     description:
-      "Beta Ads placerer brands inde i nordiske Kick-streams, udvalgt fra en Streamer Explorer-database med over 39.000 creators: native overlays, stemmestyrede annoncer, afstemninger og Replay reach. Sådan kører en kampagne, hvad den har leveret, og hvordan du starter.",
+      "Beta Ads placerer brands inde i nordiske Kick-streams, med over 39.000 creators i Streamer Explorer: native overlays, stemmestyrede annoncer og afstemninger.",
     locale: "da",
     image: "/lovable-uploads/og/kick-streamer-advertising-da.png",
     ogImageWidth: 1200,
@@ -193,7 +193,7 @@ const STATIC_PAGES = [
     route: "/kick-streamer-mainonta",
     title: "Mainosta Kick-striimaajien kautta Pohjoismaissa | Beta Ads",
     description:
-      "Beta Ads tuo brändit pohjoismaisten Kick-lähetysten sisään, tekijät valittuina yli 39 000 tekijän Streamer Explorer -tietokannasta: native overlayt, ääniohjatut mainokset, äänestykset ja Replay reach. Näin kampanja pyörii, mitä se on tuottanut ja miten aloitat.",
+      "Beta Ads tuo brändit pohjoismaisiin Kick-lähetyksiin yli 39 000 tekijän Streamer Explorer -tietokannasta: native overlayt, ääniohjatut mainokset, äänestykset.",
     locale: "fi",
     image: "/lovable-uploads/og/kick-streamer-advertising-fi.png",
     ogImageWidth: 1200,
@@ -210,9 +210,9 @@ const STATIC_PAGES = [
   {
     // Kick cluster: five languages, one hreflang set. Copy in src/data/kickAds.ts.
     route: "/kick-advertising",
-    title: "Kick Advertising in the Nordics: Reach, Formats and Prices | Beta Ads",
+    title: "Kick Advertising in the Nordics: Formats and Prices | Beta Ads",
     description:
-      "Kick's own 2026 media kit says one in five Kick and Twitch hours in Northern Europe is now watched on Kick. What that means for Nordic brands, which formats exist, and how Beta Ads places brands inside Nordic Kick streams.",
+      "Kick's 2026 media kit says one in five Kick and Twitch hours in Northern Europe is watched on Kick. Formats, prices and how Beta Ads puts brands on Kick.",
     locale: "en",
     image: "/lovable-uploads/og/kick-advertising-en.png",
     ogImageWidth: 1200,
@@ -229,9 +229,9 @@ const STATIC_PAGES = [
   {
     // Kick cluster: five languages, one hreflang set. Copy in src/data/kickAds.ts.
     route: "/kick-annonsering",
-    title: "Kick-annonsering i Norge og Norden: rekkevidde, formater og pris | Beta Ads",
+    title: "Kick-annonsering i Norge: formater og pris | Beta Ads",
     description:
-      "Kicks eget mediekit for 2026 sier at hver femte Kick- og Twitch-time i Nord-Europa nå ses på Kick. Hva det betyr for norske merkevarer, hvilke formater som finnes, og hvordan Beta Ads plasserer merkevarer inne i nordiske Kick-strømmer.",
+      "Kicks mediekit for 2026 sier at hver femte Kick- og Twitch-time i Nord-Europa ses på Kick. Formater, pris og hvordan Beta Ads plasserer merkevarer på Kick.",
     locale: "no",
     image: "/lovable-uploads/og/kick-advertising-no.png",
     ogImageWidth: 1200,
@@ -248,9 +248,9 @@ const STATIC_PAGES = [
   {
     // Kick cluster: five languages, one hreflang set. Copy in src/data/kickAds.ts.
     route: "/kick-annonsering-sverige",
-    title: "Kick-annonsering i Sverige och Norden: räckvidd, format och pris | Beta Ads",
+    title: "Kick-annonsering i Sverige: format och pris | Beta Ads",
     description:
-      "Kicks eget mediekit för 2026 säger att var femte Kick- och Twitch-timme i Nordeuropa nu ses på Kick. Vad det betyder för svenska varumärken, vilka format som finns, och hur Beta Ads placerar varumärken inne i nordiska Kick-streams.",
+      "Kicks mediekit för 2026 säger att var femte Kick- och Twitch-timme i Nordeuropa ses på Kick. Format, pris och hur Beta Ads placerar varumärken på Kick.",
     locale: "sv",
     image: "/lovable-uploads/og/kick-advertising-sv.png",
     ogImageWidth: 1200,
@@ -267,9 +267,9 @@ const STATIC_PAGES = [
   {
     // Kick cluster: five languages, one hreflang set. Copy in src/data/kickAds.ts.
     route: "/kick-annoncering",
-    title: "Kick-annoncering i Danmark og Norden: rækkevidde, formater og pris | Beta Ads",
+    title: "Kick-annoncering i Danmark: formater og pris | Beta Ads",
     description:
-      "Kicks eget mediekit for 2026 siger, at hver femte Kick- og Twitch-time i Nordeuropa nu ses på Kick. Hvad det betyder for danske brands, hvilke formater der findes, og hvordan Beta Ads placerer brands inde i nordiske Kick-streams.",
+      "Kicks mediekit for 2026 siger, at hver femte Kick- og Twitch-time i Nordeuropa ses på Kick. Formater, pris og hvordan Beta Ads placerer danske brands på Kick.",
     locale: "da",
     image: "/lovable-uploads/og/kick-advertising-da.png",
     ogImageWidth: 1200,
@@ -286,9 +286,9 @@ const STATIC_PAGES = [
   {
     // Kick cluster: five languages, one hreflang set. Copy in src/data/kickAds.ts.
     route: "/kick-mainonta",
-    title: "Kick-mainonta Suomessa ja Pohjoismaissa: tavoittavuus, formaatit ja hinta | Beta Ads",
+    title: "Kick-mainonta Suomessa: formaatit ja hinta | Beta Ads",
     description:
-      "Kickin oma mediakortti 2026 kertoo, että joka viides Kickin ja Twitchin katselutunti Pohjois-Euroopassa katsotaan nyt Kickissä. Mitä se tarkoittaa suomalaisille brändeille, mitä formaatteja on olemassa ja miten Beta Ads tuo brändit pohjoismaisten Kick-lähetysten sisään.",
+      "Kickin mediakortti 2026 kertoo, että joka viides Kickin ja Twitchin katselutunti Pohjois-Euroopassa katsotaan Kickissä. Formaatit, hinta ja Beta Adsin malli.",
     locale: "fi",
     image: "/lovable-uploads/og/kick-advertising-fi.png",
     ogImageWidth: 1200,
@@ -306,7 +306,7 @@ const STATIC_PAGES = [
     route: "/about",
     title: "About Us | Beta Ads",
     description:
-      "Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams across the Nordics. Founded in Oslo, now operating from Oslo and Chicago.",
+      "Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams in the Nordics. Beta Agency AS, org.nr 933 303 136, based in Oslo, Norway.",
     locale: "en",
   },
   {
@@ -327,7 +327,7 @@ const STATIC_PAGES = [
     route: "/twitch-advertising-cost",
     title: "What Does Twitch Advertising Cost? | Beta Ads",
     description:
-      "No platform publishes a Twitch advertising rate card, not even Twitch. Here is how live-stream advertising is actually priced in the Nordics, the five cost drivers, and how to get a real quote.",
+      "No platform publishes a Twitch advertising rate card, not even Twitch. How livestream ads are priced in the Nordics, five cost drivers and how to get a quote.",
     locale: "en",
     alternates: [
       { hreflang: "en", href: "/twitch-advertising-cost" },
@@ -339,7 +339,7 @@ const STATIC_PAGES = [
     route: "/twitch-annonsering-pris",
     title: "Hva koster Twitch-annonsering i Norge? | Beta Ads",
     description:
-      "Ingen plattform publiserer en prisliste for Twitch-annonsering, ikke engang Twitch. Slik prises livestream-annonsering faktisk i Norge: de fem kostnadsdriverne og hvordan du får et reelt tilbud.",
+      "Ingen plattform publiserer en prisliste for Twitch-annonsering, ikke engang Twitch. Slik prises livestream-annonsering i Norge og slik får du et reelt tilbud.",
     locale: "no",
     alternates: [
       { hreflang: "no", href: "/twitch-annonsering-pris" },
@@ -351,126 +351,126 @@ const STATIC_PAGES = [
     route: "/kick-advertising-cost",
     title: "What Does Kick Advertising Cost? | Beta Ads",
     description:
-      "Kick has no public rate card: its 2026 Ads Beta sells direct, programmatic and open-exchange inventory in USD CPM. Here is how Kick advertising is actually priced in the Nordics, what it costs to buy direct, and how to get a real quote.",
+      "Kick has no public rate card. Its 2026 Ads Beta sells direct, programmatic and open-exchange inventory in USD CPM. How Kick ads are priced in the Nordics.",
     locale: "en",
   },
   {
       route: "/twitch-agency-norway",
       title: "Twitch Agency in Norway | Beta Ads",
       description:
-        "Beta Agency is a Norwegian Twitch agency running native advertising inside the broadcast. How to choose a Twitch agency in Norway, what it costs, and how the alternatives compare.",
+        "Beta Agency is a Norwegian Twitch agency running native ads inside the broadcast. How to choose a Twitch agency in Norway, what it costs and the alternatives.",
       locale: "en",
     },
   {
       route: "/twitch-byra-norge",
       title: "Twitch-byrå i Norge | Beta Ads",
       description:
-        "Beta Agency er et norsk Twitch-byrå som kjører native annonsering inne i selve sendingen. Slik velger du Twitch-byrå i Norge, hva det koster, og hvilke alternativer som finnes.",
+        "Beta Agency er et norsk Twitch-byrå med native annonsering inne i sendingen. Slik velger du Twitch-byrå i Norge, hva det koster og hvilke alternativer du har.",
       locale: "no",
     },
   {
     route: "/nordic-livestream-advertising",
-    title: "Nordic Livestream Advertising: The Brand's Field Guide | Beta Ads",
+    title: "Nordic Livestream Advertising: A Brand Field Guide | Beta Ads",
     description:
-      "Who is watching, which platforms matter, what Nordic inventory exists, and what native overlay campaigns actually deliver. A data-backed field guide for brands, with real Beta Ads campaign results.",
+      "Who is watching, which platforms matter, what Nordic inventory exists and what native overlay campaigns deliver. A field guide with real campaign results.",
     locale: "en",
   },
   {
     route: "/campaign-compliance",
     title: "Campaign Setup Verification | Beta Ads",
     description:
-      "Check that every creator on a livestream campaign actually put the banner up, got the command in the title, went live, and pointed at a tracked link. Continuous verification across every channel, in one view.",
+      "Check that every creator on a livestream campaign put the banner up, added the command to the title, went live and used a tracked link, on every channel.",
     locale: "en",
   },
   {
     route: "/tiktok-live-advertising",
-    title: "TikTok LIVE Advertising: Animated Ads Inside Creator Streams | Beta Ads",
+    title: "TikTok LIVE Advertising: Ads Inside Creator Streams | Beta Ads",
     description:
-      "New on Beta Ads: animated brand overlays inside TikTok LIVE streams, next to Twitch, YouTube and Kick. Same platform, same approach. Talk to us about running one of the first TikTok LIVE campaigns.",
+      "New on Beta Ads: animated brand overlays inside TikTok LIVE streams, next to Twitch, YouTube and Kick. Talk to us about running a first TikTok LIVE campaign.",
     locale: "en",
   },
   {
     route: "/for-marketing-executives",
     title: "Livestream Advertising for Marketing Executives | Beta Ads",
     description:
-      "Livestream ads on Twitch, YouTube and Kick, reported like the rest of your media plan: what you bought, what was delivered, where it ran and whether it was brand safe, in one report you can take to the board.",
+      "Livestream ads on Twitch, YouTube and Kick, reported like the rest of your media plan: what you bought, what was delivered, where it ran and if it was safe.",
     locale: "en",
   },
   {
     route: "/campaign-builder",
-    title: "Campaign Builder: Livestream Ad Campaigns in Five Steps | Beta Ads",
+    title: "Campaign Builder: Livestream Ads in Five Steps | Beta Ads",
     description:
-      "Build a livestream ad campaign in one flow: objective, target audience, format, asset and review. Your creative becomes an animated overlay with its own chat command, and a poll if you want one.",
+      "Build a livestream ad campaign in one flow: objective, audience, format, asset and review. Your creative becomes an animated overlay with a chat command.",
     locale: "en",
   },
   {
     route: "/streamer-explorer",
-    title: "Streamer Explorer: Search 39,000+ Streamers for Livestream Ads | Beta Ads",
+    title: "Streamer Explorer: Search 39,000+ Streamers | Beta Ads",
     description:
-      "Search and filter 39,000+ streamers on Twitch, YouTube and Kick by platform, country, language and category, open a profile, and build the streamer list for your campaign.",
+      "Search and filter 39,000+ streamers on Twitch, YouTube and Kick by platform, country, language and category, and build the streamer list for your campaign.",
     locale: "en",
   },
   {
     route: "/reporting",
-    title: "Reporting for Livestream Ad Campaigns: Live Dashboard and PDF | Beta Ads",
+    title: "Livestream Ad Reporting: Live Dashboard and PDF | Beta Ads",
     description:
-      "Follow every livestream campaign live in your own dashboard: delivery per streamer and per stream, verification clips, replay reach, clicks, chat and polls. Then forward one PDF report to the client.",
+      "Follow every livestream campaign live: delivery per streamer and stream, verification clips, replay reach, clicks, chat and polls. Then send one PDF report.",
     locale: "en",
   },
   {
     route: "/programmatic",
-    title: "Programmatic Livestream Ads: Private Deals on Adform and Magnite | Beta Ads",
+    title: "Programmatic Livestream Ads on Adform and Magnite | Beta Ads",
     description:
-      "Buy livestream ads on Twitch, YouTube and Kick programmatically: we set up a private deal on our Adform or Magnite SSP seat, share the deal ID, and you target it in your own DSP.",
+      "Buy livestream ads on Twitch, YouTube and Kick programmatically: we set up a private deal on Adform or Magnite, share the deal ID, you target it in your DSP.",
     locale: "en",
   },
   {
     route: "/pricing",
     title: "Pricing: Pay Per View That Played | Beta Ads",
     description:
-      "Livestream ads on Twitch, YouTube, Kick and TikTok LIVE, priced per 1,000 views that fully played. Campaigns from 100,000 NOK, undelivered views refunded, replay views on top and not billed.",
+      "Livestream ads on Twitch, YouTube, Kick and TikTok LIVE, priced per 1,000 views that fully played. From 100,000 NOK. Undelivered views refunded.",
     locale: "en",
   },
   {
     route: "/brand-safety",
-    title: "Brand Safety for Livestream Ads: Swearing Detected, Every Language Translated | Beta Ads",
+    title: "Brand Safety for Livestream Ads: Swearing Detected | Beta Ads",
     description:
-      "Every ad play on Twitch, YouTube and Kick is recorded. The speech around it is transcribed, translated into English and checked for swearing, then rated no, low, medium or high risk per stream and per channel.",
+      "Every ad play on Twitch, YouTube and Kick is recorded, transcribed, translated into English and checked for swearing, then rated no, low, medium or high risk.",
     locale: "en",
   },
   {
     route: "/replay-reach",
-    title: "Replay Reach: What a Livestream Ad Does After the Stream | Beta Ads",
+    title: "Replay Reach: Livestream Ads After the Stream | Beta Ads",
     description:
-      "A native overlay is baked into the recording, so the stream keeps collecting views long after it ends. See total stream views, the live audience inside them, and clips, counted per channel without double counting.",
+      "A native overlay is baked into the recording, so the stream keeps collecting views after it ends. Total views, live audience and clips, counted per channel.",
     locale: "en",
   },
   {
     route: "/livestream-chat-engagement",
     title: "Chat Tracking for Livestream Campaigns | Beta Ads",
     description:
-      "See what live chat says about your brand while the campaign is running. Keyword tracking across every channel, deduplicated counts, Nordic to English translation and tone scoring, in one dashboard.",
+      "See what live chat says about your brand during the campaign: keyword tracking on every channel, deduplicated counts, translation and tone scoring.",
     locale: "en",
   },
   {
     route: "/working-with-us",
-    title: "Working with Beta Ads: managed campaigns or self-serve for agencies | Beta Ads",
+    title: "Working with us: managed campaigns or self-serve | Beta Ads",
     description:
-      "Two ways to run livestream ads with Beta Ads: we run brand and test campaigns from brief to report, or media agencies and partners launch and resell campaigns themselves, or buy through a private deal in their own DSP. Plus company facts and delivery guarantees.",
+      "Two ways to run livestream ads: we run campaigns from brief to report, or agencies launch and resell them in self-serve, or buy via a private deal in a DSP.",
     locale: "en",
   },
   {
     route: "/managed-campaigns",
     title: "Managed livestream campaigns: we run it A to Z | Beta Ads",
     description:
-      "Managed Twitch, YouTube and Kick campaigns for brands and first test campaigns. We pick the streamers, design the overlay, launch, verify every channel and report. Priced per 1,000 views, from 100,000 NOK.",
+      "Managed Twitch, YouTube and Kick campaigns for brands and first tests. We pick the streamers, design the overlay, launch, verify and report. From 100,000 NOK.",
     locale: "en",
   },
   {
     route: "/self-serve",
     title: "Self-serve livestream ads for media agencies | Beta Ads",
     description:
-      "Your own Beta Ads login to find streamers, build and launch livestream campaigns for your clients and sell them on your terms. Or buy it programmatically: a private deal on Adform or Magnite, targeted in your own DSP.",
+      "Your own Beta Ads login to find streamers and launch livestream campaigns for clients on your terms. Or buy via a private deal on Adform or Magnite in a DSP.",
     locale: "en",
   },
   {
@@ -519,21 +519,12 @@ const CASE_STUDIES = [
     route: "/case-study/surfshark-finland",
     title: "Surfshark VPN Finland Case Study | Beta Ads",
     description:
-      "Surfshark VPN on Finnish Twitch: 100,000 views bought, 119,041 delivered live and 949,957 with replays across 14 creators. 1,281 clicks, 1.08% CTR and 2,833 poll votes on VPN use.",
+      "Surfshark VPN on Finnish Twitch: 100,000 views bought, 119,041 delivered live and 949,957 with replays across 14 creators. 1,281 clicks and 2,833 poll votes.",
     locale: "en",
     datePublished: "2026-10-07",
     image: "/lovable-uploads/case-surfshark-finland/poll-driving.webp",
     ogImageWidth: 1280,
     ogImageHeight: 720,
-  },
-  {
-    route: "/case-study/surfshark",
-    title: "Surfshark VPN Case Study | Beta Ads",
-    description:
-      "Surfshark on Norwegian Twitch: 91,006 completed views, 707h on-screen and 37,713 unique viewers across 26 streamers. A reach-led VPN awareness run, zero adblock impact.",
-    locale: "en",
-    datePublished: "2025-03-01",
-    image: "/og/og-home.jpg",
   },
   {
     route: "/case-study/saily",
@@ -683,7 +674,7 @@ const BLOG_HUBS = [
 // Streamer profile shells, derived from the same data module StreamerProfile.tsx
 // reads, so the title format here cannot drift from the rendered page.
 function loadStreamerProfiles() {
-  const { MARKET_CREATORS, MARKET_ROUNDUP } = loadTsModule("src/data/streamers.ts", "streamers");
+  const { MARKET_CREATORS, MARKET_ROUNDUP, creatorSeoTitle, creatorSeoDescription } = loadTsModule("src/data/streamers.ts", "streamers");
   const out = [];
   for (const [market, creators] of Object.entries(MARKET_CREATORS || {})) {
     const roundup = MARKET_ROUNDUP?.[market];
@@ -693,8 +684,8 @@ function loadStreamerProfiles() {
         handle: c.handle,
         locale: roundup.seoLocale,
         image: c.image || null,
-        title: `${c.name}${c.realName ? ` (${c.realName})` : ""} | ${roundup.noun} | Beta Ads`,
-        description: `Bakgrunn, kanaler og kilder for ${c.name} - ${c.meta}. ${c.blurb}`,
+        title: creatorSeoTitle(c, roundup.noun),
+        description: creatorSeoDescription(c),
       });
     }
   }

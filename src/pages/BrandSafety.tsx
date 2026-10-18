@@ -13,9 +13,9 @@ import { Shot } from "@/components/working/FeaturePage";
    The two Clip Review screens are real platform views (Surfshark Finland,
    Shure). The per-channel table is labelled example UI. */
 
-const TITLE = "Brand Safety for Livestream Ads: Swearing Detected, Every Language Translated | Beta Ads";
+const TITLE = "Brand Safety for Livestream Ads: Swearing Detected | Beta Ads";
 const DESCRIPTION =
-  "Every ad play on Twitch, YouTube and Kick is recorded. The speech around it is transcribed, translated into English and checked for swearing, then rated no, low, medium or high risk per stream and per channel.";
+  "Every ad play on Twitch, YouTube and Kick is recorded, transcribed, translated into English and checked for swearing, then rated no, low, medium or high risk.";
 
 type Risk = "No risk" | "Low" | "Medium" | "High";
 

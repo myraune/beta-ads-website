@@ -10,8 +10,8 @@ const StreamerExplorer: React.FC = () => (
   <FeaturePage
     path="/streamer-explorer"
     crumb="Streamer Explorer"
-    seoTitle="Streamer Explorer: Search 39,000+ Streamers for Livestream Ads | Beta Ads"
-    seoDescription="Search and filter 39,000+ streamers on Twitch, YouTube and Kick by platform, country, language and category, open a profile, and build the streamer list for your campaign."
+    seoTitle="Streamer Explorer: Search 39,000+ Streamers | Beta Ads"
+    seoDescription="Search and filter 39,000+ streamers on Twitch, YouTube and Kick by platform, country, language and category, and build the streamer list for your campaign."
     kicker="Platform · Streamer Explorer"
     title="39,000+ streamers, ready to search."
     lead="Filter by platform, country, language and category, open a profile, and build the list for your campaign. 37,599 of them are recently active and open to collaborations."

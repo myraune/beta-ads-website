@@ -270,9 +270,9 @@ export interface KickCopy {
 }
 
 const EN: KickCopy = {
-  seoTitle: "Kick Advertising in the Nordics: Reach, Formats and Prices | Beta Ads",
+  seoTitle: "Kick Advertising in the Nordics: Formats and Prices | Beta Ads",
   seoDescription:
-    "Kick's own 2026 media kit says one in five Kick and Twitch hours in Northern Europe is now watched on Kick. What that means for Nordic brands, which formats exist, and how Beta Ads places brands inside Nordic Kick streams.",
+    "Kick's 2026 media kit says one in five Kick and Twitch hours in Northern Europe is watched on Kick. Formats, prices and how Beta Ads puts brands on Kick.",
   ogAlt: "Kick advertising in the Nordics, by Beta Ads",
   hero: {
     badge: "Kick advertising",
@@ -491,9 +491,9 @@ const EN: KickCopy = {
 };
 
 const NO: KickCopy = {
-  seoTitle: "Kick-annonsering i Norge og Norden: rekkevidde, formater og pris | Beta Ads",
+  seoTitle: "Kick-annonsering i Norge: formater og pris | Beta Ads",
   seoDescription:
-    "Kicks eget mediekit for 2026 sier at hver femte Kick- og Twitch-time i Nord-Europa nå ses på Kick. Hva det betyr for norske merkevarer, hvilke formater som finnes, og hvordan Beta Ads plasserer merkevarer inne i nordiske Kick-strømmer.",
+    "Kicks mediekit for 2026 sier at hver femte Kick- og Twitch-time i Nord-Europa ses på Kick. Formater, pris og hvordan Beta Ads plasserer merkevarer på Kick.",
   ogAlt: "Kick-annonsering i Norden, av Beta Ads",
   hero: {
     badge: "Kick-annonsering",
@@ -712,9 +712,9 @@ const NO: KickCopy = {
 };
 
 const SV: KickCopy = {
-  seoTitle: "Kick-annonsering i Sverige och Norden: räckvidd, format och pris | Beta Ads",
+  seoTitle: "Kick-annonsering i Sverige: format och pris | Beta Ads",
   seoDescription:
-    "Kicks eget mediekit för 2026 säger att var femte Kick- och Twitch-timme i Nordeuropa nu ses på Kick. Vad det betyder för svenska varumärken, vilka format som finns, och hur Beta Ads placerar varumärken inne i nordiska Kick-streams.",
+    "Kicks mediekit för 2026 säger att var femte Kick- och Twitch-timme i Nordeuropa ses på Kick. Format, pris och hur Beta Ads placerar varumärken på Kick.",
   ogAlt: "Kick-annonsering i Norden, av Beta Ads",
   hero: {
     badge: "Kick-annonsering",
@@ -933,9 +933,9 @@ const SV: KickCopy = {
 };
 
 const DA: KickCopy = {
-  seoTitle: "Kick-annoncering i Danmark og Norden: rækkevidde, formater og pris | Beta Ads",
+  seoTitle: "Kick-annoncering i Danmark: formater og pris | Beta Ads",
   seoDescription:
-    "Kicks eget mediekit for 2026 siger, at hver femte Kick- og Twitch-time i Nordeuropa nu ses på Kick. Hvad det betyder for danske brands, hvilke formater der findes, og hvordan Beta Ads placerer brands inde i nordiske Kick-streams.",
+    "Kicks mediekit for 2026 siger, at hver femte Kick- og Twitch-time i Nordeuropa ses på Kick. Formater, pris og hvordan Beta Ads placerer danske brands på Kick.",
   ogAlt: "Kick-annoncering i Norden, af Beta Ads",
   hero: {
     badge: "Kick-annoncering",
@@ -1154,9 +1154,9 @@ const DA: KickCopy = {
 };
 
 const FI: KickCopy = {
-  seoTitle: "Kick-mainonta Suomessa ja Pohjoismaissa: tavoittavuus, formaatit ja hinta | Beta Ads",
+  seoTitle: "Kick-mainonta Suomessa: formaatit ja hinta | Beta Ads",
   seoDescription:
-    "Kickin oma mediakortti 2026 kertoo, että joka viides Kickin ja Twitchin katselutunti Pohjois-Euroopassa katsotaan nyt Kickissä. Mitä se tarkoittaa suomalaisille brändeille, mitä formaatteja on olemassa ja miten Beta Ads tuo brändit pohjoismaisten Kick-lähetysten sisään.",
+    "Kickin mediakortti 2026 kertoo, että joka viides Kickin ja Twitchin katselutunti Pohjois-Euroopassa katsotaan Kickissä. Formaatit, hinta ja Beta Adsin malli.",
   ogAlt: "Kick-mainonta Pohjoismaissa, Beta Ads",
   hero: {
     badge: "Kick-mainonta",

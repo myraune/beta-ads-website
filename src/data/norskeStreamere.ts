@@ -87,6 +87,8 @@ export interface CreatorProfile {
   meta: string;
   /** Kort blurb til roundup-kortet. */
   blurb: string;
+  /** Valgfri meta description (120-158 tegn) når blurb ikke passer i malen. */
+  seoDescription?: string;
   /** Lengre intro brukt på profilsiden. */
   bio: string;
   /** 3-6 etterprøvbare høydepunkter fra forskningen. */
@@ -123,6 +125,7 @@ export interface CreatorProfile {
 export const CREATORS: CreatorProfile[] = [
   {
     handle: "mrsavage",
+    seoDescription: "MrSavage: Norges desidert største navn på Twitch. Profesjonell Fortnite-spiller med Fortnite-VM bak seg og et publikum i millionklassen.",
     twitchStats: { followers: 4638403, partner: true, createdAt: "2018-02-24T18:41:22.909365Z", lastGame: "Fortnite" },
     trackerStats: { avgViewers: 4437, peakViewers: 16444, hoursStreamed: 65 },
     name: "MrSavage",
@@ -230,6 +233,7 @@ export const CREATORS: CreatorProfile[] = [
   },
   {
     handle: "knut",
+    seoDescription: "Knut: Twitch · fitness, IRL & gaming. Streameren som koblet norsk treningskultur til gaming, kjent for «Camp Knut» og en blanding av gym, IRL og spill.",
     twitchStats: { followers: 419137, partner: true, createdAt: "2013-05-12T22:17:06.690621Z", lastGame: "Just Chatting" },
     betaStats: { avgViewers: 934, airTimeHours: 170.2, watchTimeHours: 158900, audienceInterests: ["Bodybuilding & Fitness", "Supplements & Biohacking", "PC Gaming Hardware", "Healthy Cooking", "Automotive & Supercars"], streamerInterests: ["Food", "Sports", "Technology", "Travel"] },
     trackerStats: { avgViewers: 1082, peakViewers: 15598, hoursStreamed: 179 },
@@ -1068,6 +1072,7 @@ export const CREATORS: CreatorProfile[] = [
   },
   {
     handle: "mystixx",
+    seoDescription: "Mystixx: Twitch · IRL & Minecraft. Norsk Twitch Partner og fulltidsstreamer fra Kongsberg, kjent for IRL/Just Chatting og Minecraft Hardcore.",
     twitchStats: { followers: 36271, partner: true, createdAt: "2013-12-04T17:24:24.66983Z", lastGame: "IRL" },
     trackerStats: { avgViewers: 133, peakViewers: 267, hoursStreamed: 130 },
     name: "Mystixx",

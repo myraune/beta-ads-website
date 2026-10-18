@@ -65,7 +65,6 @@ const CaseStudyGlorious = lazy(() => import("./pages/CaseStudyGlorious"));
 const CaseStudyGokstad = lazy(() => import("./pages/CaseStudyGokstad"));
 const CaseStudySamsungFold7 = lazy(() => import("./pages/CaseStudySamsungFold7"));
 const CaseStudySamsung = lazy(() => import("./pages/CaseStudySamsung"));
-const CaseStudySurfshark = lazy(() => import("./pages/CaseStudySurfshark"));
 const CaseStudySurfsharkFinland = lazy(() => import("./pages/CaseStudySurfsharkFinland"));
 const CaseStudySaily = lazy(() => import("./pages/CaseStudySaily"));
 const CaseStudyShure = lazy(() => import("./pages/CaseStudyShure"));
@@ -256,7 +255,6 @@ const App = () => {
               <Route path="/case-study/gokstad" element={<CaseStudyGokstad />} />
               <Route path="/case-study/samsung" element={<CaseStudySamsung />} />
               <Route path="/case-study/samsung-fold7" element={<CaseStudySamsungFold7 />} />
-              <Route path="/case-study/surfshark" element={<CaseStudySurfshark />} />
               <Route path="/case-study/surfshark-finland" element={<CaseStudySurfsharkFinland />} />
               <Route path="/case-study/saily" element={<CaseStudySaily />} />
               <Route path="/case-study/shure" element={<CaseStudyShure />} />

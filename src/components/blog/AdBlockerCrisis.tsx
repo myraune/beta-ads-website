@@ -54,7 +54,6 @@ const campaigns = [
   { brand: "Shure MV6", logo: "/lovable-uploads/logo-shure.png", ctr: 1.31, ctrLabel: "1.31%", peak: "9.12% peak", href: "/case-study/shure" },
   { brand: "Komplett", logo: "/lovable-uploads/logo-komplett.png", ctr: 1.17, ctrLabel: "1.17%", peak: "4.48% peak", href: "/case-study/komplett" },
   { brand: "NKI", logo: "/lovable-uploads/logo-nki.svg", ctr: 0.72, ctrLabel: "0.72%", peak: null, href: "/case-study/nki" },
-  { brand: "Surfshark", logo: "/lovable-uploads/logo-surfshark.png", ctr: 0.62, ctrLabel: "0.62%", peak: null, href: "/case-study/surfshark" },
   { brand: "Saily", logo: "/lovable-uploads/logo-saily.png", ctr: 0.50, ctrLabel: "0.50%", peak: null, href: "/case-study/saily" },
 ];
 const ctrMax = 1.4;

@@ -179,7 +179,7 @@ export const VERTICALS: Vertical[] = [
     proof: {
       brand: "Surfshark",
       logo: "/lovable-uploads/logo-surfshark.png",
-      href: "/case-study/surfshark",
+      href: "/case-study/surfshark-finland",
     },
   },
   {

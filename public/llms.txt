@@ -41,26 +41,26 @@
 What Beta Agency AS is and who it serves.
 
 - [Beta Ads | The platform for livestream ads](https://beta-ads.no/): Find streamers, launch animated brand overlays and read the report in one platform for Twitch, YouTube and Kick. Pay per 1,000 views that played.
-- [Twitch Agency in Norway](https://beta-ads.no/twitch-agency-norway): Beta Agency is a Norwegian Twitch agency running native advertising inside the broadcast. How to choose a Twitch agency in Norway, what it costs, and how the alternatives compare.
-- [Twitch-byrå i Norge](https://beta-ads.no/twitch-byra-norge): Beta Agency er et norsk Twitch-byrå som kjører native annonsering inne i selve sendingen. Slik velger du Twitch-byrå i Norge, hva det koster, og hvilke alternativer som finnes.
-- [About Us](https://beta-ads.no/about): Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams across the Nordics. Beta Agency AS, org.nr 933 303 136, based in Oslo with its registered office in Frosta, Norway.
+- [Twitch Agency in Norway](https://beta-ads.no/twitch-agency-norway): Beta Agency is a Norwegian Twitch agency running native ads inside the broadcast. How to choose a Twitch agency in Norway, what it costs and the alternatives.
+- [Twitch-byrå i Norge](https://beta-ads.no/twitch-byra-norge): Beta Agency er et norsk Twitch-byrå med native annonsering inne i sendingen. Slik velger du Twitch-byrå i Norge, hva det koster og hvilke alternativer du har.
+- [About Us](https://beta-ads.no/about): Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams in the Nordics. Beta Agency AS, org.nr 933 303 136, based in Oslo, Norway.
 
 ## Services by platform
 
-- [Twitch Advertising Agency for Norway and the Nordics](https://beta-ads.no/twitch-advertising): Beta Agency AS is a Norwegian Twitch advertising agency running native overlay campaigns on Twitch, drawing on a Streamer Explorer database of 39,000+ streamers, 37,599 of them recently active and open to collaborations. Ads that bypass ad blockers, with real reporting.
-- [Kick Advertising in the Nordics: Reach, Formats and Prices](https://beta-ads.no/kick-advertising): Kick's own 2026 media kit says one in five Kick and Twitch hours in Northern Europe is now watched on Kick. What that means for Nordic brands, which formats exist, and how Beta Ads places brands inside Nordic Kick streams.
+- [Twitch Advertising Agency: Norway and the Nordics](https://beta-ads.no/twitch-advertising): Beta Agency AS is a Norwegian Twitch advertising agency running native overlays with 39,000+ streamers in Streamer Explorer. Ads that bypass ad blockers.
+- [Kick Advertising in the Nordics: Formats and Prices](https://beta-ads.no/kick-advertising): Kick's 2026 media kit says one in five Kick and Twitch hours in Northern Europe is watched on Kick. Formats, prices and how Beta Ads puts brands on Kick.
 - [YouTube Live Advertising in the Nordics](https://beta-ads.no/youtube-advertising): Native overlay ads on YouTube Live streams across Norway, Sweden, Finland, and Denmark. Reach gaming and lifestyle audiences with ads that bypass ad blockers.
-- [TikTok LIVE Advertising: Animated Ads Inside Creator Streams](https://beta-ads.no/tiktok-live-advertising): New on Beta Ads: animated brand overlays inside TikTok LIVE streams, next to Twitch, YouTube and Kick. Same platform, same approach. Talk to us about running one of the first TikTok LIVE campaigns.
-- [Nordic Livestream Advertising: The Brand's Field Guide](https://beta-ads.no/nordic-livestream-advertising): Who is watching, which platforms matter, what Nordic inventory exists, and what native overlay campaigns actually deliver. A data-backed field guide for brands, with real Beta Ads campaign results.
+- [TikTok LIVE Advertising: Ads Inside Creator Streams](https://beta-ads.no/tiktok-live-advertising): New on Beta Ads: animated brand overlays inside TikTok LIVE streams, next to Twitch, YouTube and Kick. Talk to us about running a first TikTok LIVE campaign.
+- [Nordic Livestream Advertising: A Brand Field Guide](https://beta-ads.no/nordic-livestream-advertising): Who is watching, which platforms matter, what Nordic inventory exists and what native overlay campaigns deliver. A field guide with real campaign results.
 
 ## Pricing
 
 Real numbers, not a contact form.
 
-- [Pricing: Pay Per View That Played](https://beta-ads.no/pricing): Livestream ads on Twitch, YouTube, Kick and TikTok LIVE, priced per 1,000 views that fully played. Campaigns from 100,000 NOK, undelivered views refunded, replay views on top and not billed.
-- [What Does Twitch Advertising Cost?](https://beta-ads.no/twitch-advertising-cost): No platform publishes a Twitch advertising rate card, not even Twitch. Here is how live-stream advertising is actually priced in the Nordics, the five cost drivers, and how to get a real quote.
-- [Hva koster Twitch-annonsering i Norge?](https://beta-ads.no/twitch-annonsering-pris): Ingen plattform publiserer en prisliste for Twitch-annonsering, ikke engang Twitch. Slik prises livestream-annonsering faktisk i Norge: de fem kostnadsdriverne og hvordan du får et reelt tilbud.
-- [What Does Kick Advertising Cost?](https://beta-ads.no/kick-advertising-cost): Kick has no public rate card: its 2026 Ads Beta sells direct, programmatic and open-exchange inventory in USD CPM. Here is how Kick advertising is actually priced in the Nordics, what it costs to buy direct, and how to get a real quote.
+- [Pricing: Pay Per View That Played](https://beta-ads.no/pricing): Livestream ads on Twitch, YouTube, Kick and TikTok LIVE, priced per 1,000 views that fully played. From 100,000 NOK. Undelivered views refunded.
+- [What Does Twitch Advertising Cost?](https://beta-ads.no/twitch-advertising-cost): No platform publishes a Twitch advertising rate card, not even Twitch. How livestream ads are priced in the Nordics, five cost drivers and how to get a quote.
+- [Hva koster Twitch-annonsering i Norge?](https://beta-ads.no/twitch-annonsering-pris): Ingen plattform publiserer en prisliste for Twitch-annonsering, ikke engang Twitch. Slik prises livestream-annonsering i Norge og slik får du et reelt tilbud.
+- [What Does Kick Advertising Cost?](https://beta-ads.no/kick-advertising-cost): Kick has no public rate card. Its 2026 Ads Beta sells direct, programmatic and open-exchange inventory in USD CPM. How Kick ads are priced in the Nordics.
 
 ## Campaign results
 
@@ -78,32 +78,32 @@ Named Norwegian and Nordic clients with the setup and the numbers.
 
 Managed campaigns for brands, self-serve logins for agencies, and reporting for marketing leads.
 
-- [Managed livestream campaigns: we run it A to Z](https://beta-ads.no/managed-campaigns): Managed Twitch, YouTube and Kick campaigns for brands and first test campaigns. We pick the streamers, design the overlay, launch, verify every channel and report. Priced per 1,000 views, from 100,000 NOK.
-- [Self-serve livestream ads for media agencies](https://beta-ads.no/self-serve): Your own Beta Ads login to find streamers, build and launch livestream campaigns for your clients and sell them on your terms. Or buy it programmatically: a private deal on Adform or Magnite, targeted in your own DSP.
-- [Livestream Advertising for Marketing Executives](https://beta-ads.no/for-marketing-executives): Livestream ads on Twitch, YouTube and Kick, reported like the rest of your media plan: what you bought, what was delivered, where it ran and whether it was brand safe, in one report you can take to the board.
+- [Managed livestream campaigns: we run it A to Z](https://beta-ads.no/managed-campaigns): Managed Twitch, YouTube and Kick campaigns for brands and first tests. We pick the streamers, design the overlay, launch, verify and report. From 100,000 NOK.
+- [Self-serve livestream ads for media agencies](https://beta-ads.no/self-serve): Your own Beta Ads login to find streamers and launch livestream campaigns for clients on your terms. Or buy via a private deal on Adform or Magnite in a DSP.
+- [Livestream Advertising for Marketing Executives](https://beta-ads.no/for-marketing-executives): Livestream ads on Twitch, YouTube and Kick, reported like the rest of your media plan: what you bought, what was delivered, where it ran and if it was safe.
 
 ## How campaigns are verified
 
 What we check, what chat said, and what the stream kept earning after it ended.
 
-- [Campaign Builder: Livestream Ad Campaigns in Five Steps](https://beta-ads.no/campaign-builder): Build a livestream ad campaign in one flow: objective, target audience, format, asset and review. Your creative becomes an animated overlay with its own chat command, and a poll if you want one.
-- [Streamer Explorer: Search 39,000+ Streamers for Livestream Ads](https://beta-ads.no/streamer-explorer): Search and filter 39,000+ streamers on Twitch, YouTube and Kick by platform, country, language and category, open a profile, and build the streamer list for your campaign.
-- [Campaign Setup Verification](https://beta-ads.no/campaign-compliance): Check that every creator on a livestream campaign actually put the banner up, got the command in the title, went live, and pointed at a tracked link. Continuous verification across every channel, in one view.
-- [Brand Safety for Livestream Ads: Swearing Detected, Every Language Translated](https://beta-ads.no/brand-safety): Every ad play on Twitch, YouTube and Kick is recorded. The speech around it is transcribed, translated into English and checked for swearing, then rated no, low, medium or high risk per stream and per channel.
-- [Chat Tracking for Livestream Campaigns](https://beta-ads.no/livestream-chat-engagement): See what live chat says about your brand while the campaign is running. Keyword tracking across every channel, deduplicated counts, Nordic to English translation and tone scoring, in one dashboard.
-- [Replay Reach: What a Livestream Ad Does After the Stream](https://beta-ads.no/replay-reach): A native overlay is baked into the recording, so the stream keeps collecting views long after it ends. See total stream views, the live audience inside them, and clips, counted per channel without double counting.
-- [Reporting for Livestream Ad Campaigns: Live Dashboard and PDF](https://beta-ads.no/reporting): Follow every livestream campaign live in your own dashboard: delivery per streamer and per stream, verification clips, replay reach, clicks, chat and polls. Then forward one PDF report to the client.
-- [Programmatic Livestream Ads: Private Deals on Adform and Magnite](https://beta-ads.no/programmatic): Buy livestream ads on Twitch, YouTube and Kick programmatically: we set up a private deal on our Adform or Magnite SSP seat, share the deal ID, and you target it in your own DSP.
+- [Campaign Builder: Livestream Ads in Five Steps](https://beta-ads.no/campaign-builder): Build a livestream ad campaign in one flow: objective, audience, format, asset and review. Your creative becomes an animated overlay with a chat command.
+- [Streamer Explorer: Search 39,000+ Streamers](https://beta-ads.no/streamer-explorer): Search and filter 39,000+ streamers on Twitch, YouTube and Kick by platform, country, language and category, and build the streamer list for your campaign.
+- [Campaign Setup Verification](https://beta-ads.no/campaign-compliance): Check that every creator on a livestream campaign put the banner up, added the command to the title, went live and used a tracked link, on every channel.
+- [Brand Safety for Livestream Ads: Swearing Detected](https://beta-ads.no/brand-safety): Every ad play on Twitch, YouTube and Kick is recorded, transcribed, translated into English and checked for swearing, then rated no, low, medium or high risk.
+- [Chat Tracking for Livestream Campaigns](https://beta-ads.no/livestream-chat-engagement): See what live chat says about your brand during the campaign: keyword tracking on every channel, deduplicated counts, translation and tone scoring.
+- [Replay Reach: Livestream Ads After the Stream](https://beta-ads.no/replay-reach): A native overlay is baked into the recording, so the stream keeps collecting views after it ends. Total views, live audience and clips, counted per channel.
+- [Livestream Ad Reporting: Live Dashboard and PDF](https://beta-ads.no/reporting): Follow every livestream campaign live: delivery per streamer and stream, verification clips, replay reach, clicks, chat and polls. Then send one PDF report.
+- [Programmatic Livestream Ads on Adform and Magnite](https://beta-ads.no/programmatic): Buy livestream ads on Twitch, YouTube and Kick programmatically: we set up a private deal on Adform or Magnite, share the deal ID, you target it in your DSP.
 
 ## For streamers
 
-- [Earn from Your Stream | Beta Ads Streamer Program](https://beta-ads.no/streamers): Get real brand deals on Twitch, YouTube & Kick. Accept offers you like, skip the rest. No minimum followers, no contracts. Join 39,000+ streamers in Streamer Explorer.
+- [Earn from Your Stream | Beta Ads Streamer Program](https://beta-ads.no/streamers): Get real brand deals on Twitch, YouTube & Kick. Accept offers you like, skip the rest. No minimum followers, no contracts. Join 39,000+ streamers on Beta Ads.
 
 ## Reference
 
-- [Working with Beta Ads: managed campaigns or self-serve for agencies](https://beta-ads.no/working-with-us): Two ways to run livestream ads with Beta Ads: we run brand and test campaigns from brief to report, or media agencies and partners launch and resell campaigns themselves, or buy through a private deal in their own DSP. Plus company facts and delivery guarantees.
+- [Working with us: managed campaigns or self-serve](https://beta-ads.no/working-with-us): Two ways to run livestream ads: we run campaigns from brief to report, or agencies launch and resell them in self-serve, or buy via a private deal in a DSP.
 - [Press & Media Coverage](https://beta-ads.no/press): Beta Ads in the press. Featured in Kampanje, Kom24, and Nordic media on Twitch advertising, native overlay ads, and livestream marketing in Norway.
-- [About Us](https://beta-ads.no/about): Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams across the Nordics. Beta Agency AS, org.nr 933 303 136, based in Oslo with its registered office in Frosta, Norway.
+- [About Us](https://beta-ads.no/about): Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams in the Nordics. Beta Agency AS, org.nr 933 303 136, based in Oslo, Norway.
 - [Blog | Livestream Advertising Insights](https://beta-ads.no/blog): Expert insights on Twitch advertising, Nordic streaming trends, influencer marketing and live commerce. Data-driven articles for brands and agencies.
 - [Contact Beta Ads | Start a Livestream Campaign](https://beta-ads.no/contact): Talk to our team about running native overlay ads on Nordic Twitch, YouTube & Kick streams. We reply within one business day.
 

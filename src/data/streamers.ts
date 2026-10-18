@@ -192,3 +192,39 @@ export const MARKET_ROUNDUP: Record<
   da: { slug: "danske-twitch-streamere-2026", back: "Tilbage til danske streamere", all: "Alle", noun: "Danske streamere", seoLocale: "da" },
   fi: { slug: "suomalaiset-twitch-striimaajat-2026", back: "Takaisin suomalaisiin striimaajiin", all: "Kaikki", noun: "Suomalaiset striimaajat", seoLocale: "fi" },
 };
+
+// ---------------------------------------------------------------------------
+// SEO copy for /streamere/<handle>. Shared by StreamerProfile.tsx and
+// scripts/generate-seo-pages.mjs so the static shell and the rendered page
+// always match. Title at most 62 chars (real name dropped if it does not fit),
+// description at most 158 chars, cut at whole sentences of the blurb.
+// ---------------------------------------------------------------------------
+const SEO_TITLE_MAX = 62;
+const SEO_DESC_MAX = 158;
+const SEO_DESC_MIN = 120;
+
+type SeoCreator = Pick<CreatorProfile, "name" | "realName" | "meta" | "blurb" | "seoDescription">;
+
+export function creatorSeoTitle(c: SeoCreator, noun: string): string {
+  const full = `${c.name}${c.realName ? ` (${c.realName})` : ""} | ${noun} | Beta Ads`;
+  return full.length <= SEO_TITLE_MAX ? full : `${c.name} | ${noun} | Beta Ads`;
+}
+
+function fitSentences(head: string, text: string): string {
+  const sentences = text.split(/(?<=[.!?])\s+/).filter(Boolean);
+  let out = head;
+  for (const s of sentences) {
+    const next = `${out} ${s}`;
+    if (next.length > SEO_DESC_MAX) break;
+    out = next;
+  }
+  return out;
+}
+
+export function creatorSeoDescription(c: SeoCreator): string {
+  if (c.seoDescription) return c.seoDescription;
+  const withMeta = fitSentences(`${c.name}: ${c.meta}.`, c.blurb);
+  if (withMeta.length >= SEO_DESC_MIN) return withMeta;
+  const withoutMeta = fitSentences(`${c.name}:`, c.blurb);
+  return withoutMeta.length > withMeta.length ? withoutMeta : withMeta;
+}

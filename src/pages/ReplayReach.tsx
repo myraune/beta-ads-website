@@ -102,9 +102,9 @@ const ReplayReach: React.FC = () => {
   return (
     <MarketingPageLayout
       seo={{
-        title: "Replay Reach: What a Livestream Ad Does After the Stream | Beta Ads",
+        title: "Replay Reach: Livestream Ads After the Stream | Beta Ads",
         description:
-          "A native overlay is baked into the recording, so the stream keeps collecting views long after it ends. See total stream views, the live audience inside them, and clips, counted per channel without double counting.",
+          "A native overlay is baked into the recording, so the stream keeps collecting views after it ends. Total views, live audience and clips, counted per channel.",
         canonical: "/replay-reach",
         jsonLd: [
           {

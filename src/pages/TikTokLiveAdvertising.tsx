@@ -12,9 +12,9 @@ import { BOOKING_URL, SALES_MAIL, W, kicker, h2, PrimaryBtn, GhostBtn, Faq, faqL
    run one of the first campaigns. The two phone previews are mockups from
    Andreas (2026-10-15), captioned as such: they are not client campaigns. */
 
-const TITLE = "TikTok LIVE Advertising: Animated Ads Inside Creator Streams | Beta Ads";
+const TITLE = "TikTok LIVE Advertising: Ads Inside Creator Streams | Beta Ads";
 const DESCRIPTION =
-  "New on Beta Ads: animated brand overlays inside TikTok LIVE streams, next to Twitch, YouTube and Kick. Same platform, same approach. Talk to us about running one of the first TikTok LIVE campaigns.";
+  "New on Beta Ads: animated brand overlays inside TikTok LIVE streams, next to Twitch, YouTube and Kick. Talk to us about running a first TikTok LIVE campaign.";
 
 const carries: { t: string; d: string }[] = [
   { t: "An overlay in your brand", d: "Your creative as an animated overlay, sized for a vertical live stream." },

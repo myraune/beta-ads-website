@@ -10,8 +10,8 @@ const CampaignBuilder: React.FC = () => (
   <FeaturePage
     path="/campaign-builder"
     crumb="Campaign builder"
-    seoTitle="Campaign Builder: Livestream Ad Campaigns in Five Steps | Beta Ads"
-    seoDescription="Build a livestream ad campaign in one flow: objective, target audience, format, asset and review. Your creative becomes an animated overlay with its own chat command, and a poll if you want one."
+    seoTitle="Campaign Builder: Livestream Ads in Five Steps | Beta Ads"
+    seoDescription="Build a livestream ad campaign in one flow: objective, audience, format, asset and review. Your creative becomes an animated overlay with a chat command."
     kicker="Platform · Campaign builder"
     title="Build the campaign in one flow."
     lead="Objective, target audience, format, asset and review, in five steps. Your creative becomes an animated overlay with its own chat command, and a poll if you want one."

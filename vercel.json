@@ -3,6 +3,11 @@
   "outputDirectory": "dist",
   "redirects": [
     {
+      "source": "/case-study/surfshark",
+      "destination": "/case-study/surfshark-finland",
+      "permanent": true
+    },
+    {
       "source": "/how-it-works",
       "destination": "/case-studies",
       "permanent": true
