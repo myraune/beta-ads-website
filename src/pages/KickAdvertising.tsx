@@ -367,9 +367,9 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
               <p className="text-sm text-muted-foreground leading-relaxed max-w-xl mb-0">{t.routes.kick.lead}</p>
               <p className="text-sm text-muted-foreground leading-relaxed max-w-xl mt-3 mb-0">{t.routes.kick.buying}</p>
               <p className="text-sm text-muted-foreground mt-3 mb-0">
-                {t.routes.kick.contact.split("andreas@beta-ads.no")[0]}
-                <a href="mailto:andreas@beta-ads.no" className="font-semibold text-foreground underline underline-offset-4 hover:text-primary">andreas@beta-ads.no</a>
-                {t.routes.kick.contact.split("andreas@beta-ads.no")[1]}
+                {t.routes.kick.contact.split("sales@beta-ads.no")[0]}
+                <a href="mailto:sales@beta-ads.no" className="font-semibold text-foreground underline underline-offset-4 hover:text-primary">sales@beta-ads.no</a>
+                {t.routes.kick.contact.split("sales@beta-ads.no")[1]}
               </p>
             </div>
           </div>

@@ -187,7 +187,7 @@ const TwitchAgencyNorway: React.FC = () => {
               "Native in-stream advertising",
             ],
             address: { "@type": "PostalAddress", addressCountry: "NO", addressLocality: "Oslo" },
-            email: "andreas@beta-ads.no",
+            email: "sales@beta-ads.no",
           },
           {
             "@context": "https://schema.org",

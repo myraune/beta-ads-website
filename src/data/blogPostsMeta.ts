@@ -2816,8 +2816,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
   {
     id: "kick-100-million-users-milestone-nordic-advertisers-2026-no",
     slug: "kick-100-million-users-milestone-nordic-advertisers-2026-no",
-    title: "Kick har passert 100 millioner brukere. Medgrunnnlegger kalte det en forfengelighetsmilestone. Her er hva nordiske annonsorer bor ta med seg.",
-    excerpt: "10. april annonserte Kick 100 millioner brukere pa tre ar. Samme uke kalte medgrunnlegger Bijan Tehrani milepelen en forfengelighetsprestasjons og listet opp hva som fortsatt er skadet. For nordiske mediaplanleggere betyr den aerlige versjonen av tallet mer enn selve tallet.",
+    title: "Kick har passert 100 millioner brukere. Medgrunnleggeren kalte det en forfengelighetsmilestone. Her er hva nordiske annonsører bør ta med seg.",
+    excerpt: "10. april annonserte Kick 100 millioner brukere på tre år. Samme uke kalte medgrunnlegger Bijan Tehrani milepælen en forfengelighetsprestasjon og listet opp hva som fortsatt er skadet. For nordiske mediaplanleggere betyr den ærlige versjonen av tallet mer enn selve tallet.",
     date: "Apr 16, 2026",
     dateISO: "2026-04-16",
     readTime: "9 min lesetid",
@@ -3434,8 +3434,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
   {
     id: "kick-100-million-users-milestone-nordic-advertisers-2026-sv",
     slug: "kick-100-million-users-milestone-nordic-advertisers-2026-sv",
-    title: "Kick har passerat 100 miljoner anvandare. Medgrundaren kallade det ett forfanglighetsmal. Har ar vad nordiska annonsorer bor ta med sig.",
-    excerpt: "Den 10 april meddelade Kick 100 miljoner anvandare pa tre ar. Samma vecka kallade medgrundare Bijan Tehrani milstolpen en forfanglighetsprestasjon och listade vad som fortfarande ar trasigt. For nordiska mediaplanerare spelar den arliga versionen av siffran storre roll an siffran i sig.",
+    title: "Kick har passerat 100 miljoner användare. Medgrundaren kallade det ett fåfänglighetsmått. Här är vad nordiska annonsörer bör ta med sig.",
+    excerpt: "Den 10 april meddelade Kick 100 miljoner användare på tre år. Samma vecka kallade medgrundare Bijan Tehrani milstolpen en fåfänglighetsprestation och listade vad som fortfarande är trasigt. För nordiska mediaplanerare spelar den ärliga versionen av siffran större roll än siffran i sig.",
     date: "Apr 16, 2026",
     dateISO: "2026-04-16",
     readTime: "9 min läsning",
@@ -4121,8 +4121,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
   {
     id: "kick-100-million-users-milestone-nordic-advertisers-2026-da",
     slug: "kick-100-million-users-milestone-nordic-advertisers-2026-da",
-    title: "Kick har nu 100 millioner brugere. Medgrundlaggeren kaldte det en tomgangsmaaling. Her er hvad nordiske annoncorer boer tage med sig.",
-    excerpt: "Den 10. april annoncerede Kick 100 millioner brugere pa tre ar. Samme uge kaldte medgrundlagger Bijan Tehrani milpaelen en forfaengelighedsprastation og listede, hvad der stadig er i stykker. For nordiske medievagte betyder den aerlige version af tallet mere end selve tallet.",
+    title: "Kick har nu 100 millioner brugere. Medgrundlæggeren kaldte det en forfængelighedsmåling. Her er hvad nordiske annoncører bør tage med sig.",
+    excerpt: "Den 10. april annoncerede Kick 100 millioner brugere på tre år. Samme uge kaldte medgrundlægger Bijan Tehrani milepælen en forfængelighedspræstation og listede, hvad der stadig er i stykker. For nordiske medieplanlæggere betyder den ærlige version af tallet mere end selve tallet.",
     date: "Apr 16, 2026",
     dateISO: "2026-04-16",
     readTime: "9 min læsning",
@@ -4869,8 +4869,8 @@ export const blogPostsMeta: BlogPostMeta[] = [
   {
     id: "kick-100-million-users-milestone-nordic-advertisers-2026-fi",
     slug: "kick-100-million-users-milestone-nordic-advertisers-2026-fi",
-    title: "Kickilla on nyt 100 miljoonaa kayttajaa. Sen perustaja kutsui saavutusta turhamaisuusmittariksi. Tata pohjoismaisten mainostajien kannattaa ottaa huomioon.",
-    excerpt: "Kick ilmoitti 10. huhtikuuta 100 miljoonasta kayttajasta kolmessa vuodessa. Samalla viikolla perustaja Bijan Tehrani kutsui virstanpylvasta turhamaisuussaavutukseksi ja listasi, mika alustassa on viela pielesss. Pohjoismaisille mediamainostajille rehellinen versio luvusta merkitsee enemman kuin itse luku.",
+    title: "Kickillä on nyt 100 miljoonaa käyttäjää. Sen perustaja kutsui saavutusta turhamaisuusmittariksi. Tätä pohjoismaisten mainostajien kannattaa ottaa huomioon.",
+    excerpt: "Kick ilmoitti 10. huhtikuuta 100 miljoonasta käyttäjästä kolmessa vuodessa. Samalla viikolla perustaja Bijan Tehrani kutsui virstanpylvästä turhamaisuussaavutukseksi ja listasi, mikä alustassa on vielä pielessä. Pohjoismaisille mediamainostajille rehellinen versio luvusta merkitsee enemmän kuin itse luku.",
     date: "Apr 16, 2026",
     dateISO: "2026-04-16",
     readTime: "9 min lukuaika",

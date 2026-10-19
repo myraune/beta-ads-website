@@ -223,7 +223,14 @@ export const FinalNav: React.FC = () => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
     window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
+    // The open menu fills the screen; stop the page behind it from scrolling.
+    const root = document.documentElement;
+    const prev = root.style.overflow;
+    root.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      root.style.overflow = prev;
+    };
   }, [open]);
   const close = () => setOpen(false);
   const { forcedTheme } = useTheme();

@@ -96,7 +96,7 @@ const KomplettCaseStudy: React.FC = () => {
               </span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-              Tactical monthly deal-driver for Norway's #3 electronics retailer - peak
+              Tactical monthly deal-driver for Komplett, peak
               4.48% CTR, 1,768 verified clicks, and 19h 40m of artwork-on-screen time
               across 34 Norwegian gaming streamers.
             </p>

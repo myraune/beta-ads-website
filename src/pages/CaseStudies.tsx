@@ -23,8 +23,8 @@ const caseStudies = [
   { id: "Uw7IIecicB4", brand: "Samsung", campaign: "S25 Ultra Awareness Norway", impressions: "500,131", impressionsNum: 500131, ctr: "0.76%", ctrNum: 0.76, description: "Samsung Galaxy S25 Ultra launch across 43 Norwegian Twitch streamers. 500,131 completed views, 0.76% verified CTR, zero adblock impact.", caseLink: "/case-study/samsung" },
   { id: "GwE4dagRm_k", brand: "Kristiania", campaign: "Twitch, 2 parallel campaigns", impressions: "599,252", impressionsNum: 599252, ctr: "1.00%", ctrNum: 1.0, description: "Two parallel Norwegian Twitch campaigns (awareness + voting) on the same creator network, combined ~600K views, ~6,000 verified clicks across the Feb-Apr 2025 application window.", caseLink: "/case-study/kristiania" },
   { id: "IZOx_VMdJJg", brand: "Shure", campaign: "MV6 Microphone Launch", impressions: "182,554", impressionsNum: 182554, ctr: "1.31%", ctrNum: 1.31, description: "Concentrated two-creator launch for the MV6 microphone with a 9.12% peak-day CTR. Depth over breadth.", caseLink: "/case-study/shure" },
-  { id: "ufNq-A4d7iA", brand: "Komplett", campaign: "Månedens Gaming Deal", impressions: "151,278", impressionsNum: 151278, ctr: "1.17%", ctrNum: 1.17, description: "17-day tactical retail run for Norway's #3 electronics retailer, peak 4.48% CTR across 34 streamers on Twitch + Kick.", caseLink: "/case-study/komplett" },
-  { id: "DMz-NV1W_Is", brand: "Saily", campaign: "Travel eSIM Norway (Surfshark)", impressions: "102,794", impressionsNum: 102794, ctr: "0.50%", ctrNum: 0.5, description: "Travel-intent campaign: 65% of screen time inside Travel & Outdoors streams during peak summer travel season.", caseLink: "/case-study/saily" },
+  { id: "ufNq-A4d7iA", brand: "Komplett", campaign: "Månedens Gaming Deal", impressions: "151,278", impressionsNum: 151278, ctr: "1.17%", ctrNum: 1.17, description: "17-day tactical retail run for Komplett, peak 4.48% CTR across 34 streamers on Twitch + Kick.", caseLink: "/case-study/komplett" },
+  { id: "DMz-NV1W_Is", brand: "Saily", campaign: "Travel eSIM Norway", impressions: "102,794", impressionsNum: 102794, ctr: "0.50%", ctrNum: 0.5, description: "Travel-intent campaign: 65% of screen time inside Travel & Outdoors streams during peak summer travel season.", caseLink: "/case-study/saily" },
   { id: "aE0-S8GC1Iw", brand: "NKI", campaign: "Distance Learning Quiz Funnel", impressions: "220,003", impressionsNum: 220003, ctr: "0.72%", ctrNum: 0.72, description: '"Hva slags type student er du?" interactive quiz: 19 streamers, 90,356 unique viewers, 1,595 verified clicks into the lead-capture funnel.', caseLink: "/case-study/nki" },
 ];
 
@@ -60,7 +60,7 @@ const detailedCaseStudies = [
   {
     brand: "Saily",
     title: "Travel-Intent eSIM Campaign Norway",
-    description: "Surfshark's travel-eSIM brand placed contextually inside Travel & Outdoors streams during peak June travel-planning season, with 65% of screen time inside travel content.",
+    description: "Saily's travel eSIM, placed contextually inside Travel & Outdoors streams during peak June travel-planning season, with 65% of screen time inside travel content.",
     stats: [
       { label: "Completed views", value: "102,794" },
       { label: "Verified CTR", value: "0.50%" },
@@ -99,7 +99,7 @@ const detailedCaseStudies = [
   {
     brand: "Komplett",
     title: "Tactical Retail: Månedens Gaming Deal",
-    description: "Norway's #3 electronics retailer ran a 17-day tactical campaign that peaked at 4.48% verified CTR, proof that 'home for gamers' positioning converts when it lands inside the moment.",
+    description: "Komplett ran a 17-day tactical campaign that peaked at 4.48% verified CTR, proof that 'home for gamers' positioning converts when it lands inside the moment.",
     stats: [
       { label: "Display views", value: "151,278" },
       { label: "Verified CTR", value: "1.17%" },
@@ -112,7 +112,7 @@ const detailedCaseStudies = [
   {
     brand: "NKI",
     title: "Distance Learning: Quiz Funnel Lead-Gen",
-    description: '"Hva slags type student er du?" interactive quiz drove 90,356 unique Norwegian viewers into NKI\'s lead-capture funnel over 4 weeks. Long-form content, not banner clicks.',
+    description: '"Hva slags type student er du?" interactive quiz reached 90,356 unique Norwegian viewers over 4 weeks, with 1,595 clicks into NKI\'s funnel. Long-form content, not banner clicks.',
     stats: [
       { label: "Completed views", value: "220,003" },
       { label: "Verified clicks", value: "1,595" },
@@ -203,7 +203,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
     <div className="min-h-screen">
       <SEO
         title="Case Studies | Beta Ads"
-        description="Real campaign results from Samsung, Shure, Surfshark, Glorious, and more. Native Twitch overlay case studies with verified impressions, CTR, and ROI data."
+        description="Real campaign results from Samsung, Shure, Surfshark, Glorious, and more. Native Twitch overlay case studies with verified impressions and CTR."
         canonical="/case-studies"
         ogType="website"
         jsonLd={[
@@ -218,7 +218,6 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
               { "@type": "Article", "name": "Surfshark VPN Finland x Beta Ads", "url": "https://beta-ads.no/case-study/surfshark-finland" },
               { "@type": "Article", "name": "Samsung Galaxy S25 Ultra x Beta Ads", "url": "https://beta-ads.no/case-study/samsung" },
               { "@type": "Article", "name": "Samsung Galaxy Z Fold7 x Beta Ads", "url": "https://beta-ads.no/case-study/samsung-fold7" },
-              { "@type": "Article", "name": "Surfshark VPN Finland x Beta Ads", "url": "https://beta-ads.no/case-study/surfshark-finland" },
               { "@type": "Article", "name": "Saily eSIM x Beta Ads", "url": "https://beta-ads.no/case-study/saily" },
               { "@type": "Article", "name": "Shure MV6 x Beta Ads", "url": "https://beta-ads.no/case-study/shure" },
               { "@type": "Article", "name": "Glorious Gaming x Beta Ads", "url": "https://beta-ads.no/case-study/glorious" },

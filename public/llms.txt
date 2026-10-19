@@ -66,7 +66,7 @@ Real numbers, not a contact form.
 
 Named Norwegian and Nordic clients with the setup and the numbers.
 
-- [Case Studies](https://beta-ads.no/case-studies): Real campaign results from Samsung, Shure, Surfshark, Glorious, and more. Native Twitch overlay case studies with verified impressions, CTR, and ROI data.
+- [Case Studies](https://beta-ads.no/case-studies): Real campaign results from Samsung, Shure, Surfshark, Glorious, and more. Native Twitch overlay case studies with verified impressions and CTR.
 - [Samsung x Beta Ads Case Study](https://beta-ads.no/case-study/samsung): Samsung Galaxy S25 Ultra and Z Fold7 on Norwegian Twitch: 800,185 completed live views, 1.35M+ with VOD, 71 streamer slots, zero adblock impact.
 - [Høyskolen Kristiania Case Study](https://beta-ads.no/case-study/kristiania): Høyskolen Kristiania on Twitch: two parallel campaigns, ~600K display views, ~6,000 verified clicks across 31 Norwegian streamers over 8 weeks.
 - [Komplett Månedens Gaming Deal Case Study](https://beta-ads.no/case-study/komplett): How Komplett's tactical retail campaign hit a 4.48% peak-day CTR across 34 Norwegian gaming streamers. 151,278 display views, 1,768 verified clicks in 17 days.

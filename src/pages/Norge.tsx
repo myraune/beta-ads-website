@@ -18,7 +18,7 @@ import { MascotBand } from "@/components/sections/MascotBand";
 const stats = [
   { value: "39 000+", label: "Streamere i Streamer Explorer" },
   { value: "800 000+", label: "Verifiserte visninger (Samsung)" },
-  { value: "3M+", label: "Fullførte visninger, alle kampanjer" },
+  { value: "2,4M+", label: "Visninger i publiserte caser" },
   { value: "0%", label: "Adblock-impact" },
 ];
 
@@ -43,7 +43,7 @@ const norwegianCaseStudies = [
     brand: "Komplett",
     slug: "/case-study/komplett",
     tagline: "Retail-kampanje",
-    headline: "151 278 visninger · 4.48% peak-day CTR · 34 streamere",
+    headline: "151 278 visninger · 4,48 % CTR på beste dag · 34 streamere",
     accent: "#E30613",
     logo: "/lovable-uploads/logo-komplett.png",
   },
@@ -74,7 +74,7 @@ const norwegianCaseStudies = [
   {
     brand: "Saily",
     slug: "/case-study/saily",
-    tagline: "eSIM-launch - reisepublikum",
+    tagline: "Reisekampanje for eSIM",
     headline: "102 794 visninger · 53 229 unike seere",
     accent: "#7B4DFF",
     logo: "/lovable-uploads/logo-saily.png",
@@ -158,12 +158,12 @@ const Norge: React.FC = () => {
             "@type": "FAQPage",
             inLanguage: "no",
             mainEntity: [
-              { "@type": "Question", name: "Hva koster en Twitch-kampanje i Norge?", acceptedAnswer: { "@type": "Answer", text: "Kampanjekostnader varierer basert på antall streamere, kampanjevarighet og format. Vi tilbyr fleksibel prising uten bindingstid – kontakt oss for et skreddersydd tilbud basert på dine mål og budsjett." } },
-              { "@type": "Question", name: "Hvordan fungerer overlay-annonsering på Twitch?", acceptedAnswer: { "@type": "Answer", text: "Overlay-annonser er grafiske elementer som vises direkte i streamen – ikke som en pause eller avbrudd. De vises som en del av innholdet og omgår adblock helt. Seere ser annonsen mens de ser på favorittstreameren sin." } },
-              { "@type": "Question", name: "Hvilke norske merkevarer har annonsert på Twitch?", acceptedAnswer: { "@type": "Answer", text: "Samsung, Shure, Komplett, Høyskolen Kristiania, NKI og Surfshark er blant merkene som har kjørt kampanjer via Beta Ads på norske Twitch-streamere. Se våre case studies for verifiserte resultater." } },
+              { "@type": "Question", name: "Hva koster en Twitch-kampanje i Norge?", acceptedAnswer: { "@type": "Answer", text: "Kampanjer starter på 100 000 kr. Du betaler per 1 000 visninger som faktisk ble spilt av, og visninger som ikke ble levert, får du tilbake." } },
+              { "@type": "Question", name: "Hvordan fungerer overlay-annonsering på Twitch?", acceptedAnswer: { "@type": "Answer", text: "Overlay-annonser er grafiske elementer som vises direkte i streamen, ikke som en pause eller avbrudd. De vises som en del av innholdet og omgår adblock helt. Seere ser annonsen mens de ser på favorittstreameren sin." } },
+              { "@type": "Question", name: "Hvilke norske merkevarer har annonsert på Twitch?", acceptedAnswer: { "@type": "Answer", text: "Samsung, Shure, Komplett, Høyskolen Kristiania, NKI, Gokstad Akademiet og Saily er blant merkene som har kjørt kampanjer via Beta Ads på norske Twitch-streamere. Se våre case studies for verifiserte resultater." } },
               { "@type": "Question", name: "Hvem er Twitch-publikummet i Norge?", acceptedAnswer: { "@type": "Answer", text: "Norske Twitch-seere er primært mellom 18–34 år, med høy kjøpekraft og lav eksponering for tradisjonell TV-reklame. Mange bruker adblock, som fjerner pre-roll og vanlige annonseformater. En overlay som vises inne i selve streamen, kan ikke blokkeres." } },
-              { "@type": "Question", name: "Hvor raskt kan en kampanje gå live?", acceptedAnswer: { "@type": "Answer", text: "Fra godkjent brief til live kampanje tar det vanligvis 5–10 virkedager. Vi håndterer streamervalg, kreativproduksjon og teknisk oppsett – du godkjenner streamerlisten og designet." } },
-              { "@type": "Question", name: "Hva slags rapportering får vi?", acceptedAnswer: { "@type": "Answer", text: "Du får tilgang til sanntidsdata på visninger, klikkrate (CTR), skjermtid og engasjement via vårt dashboard. Ukentlige rapporter leveres under aktive kampanjer." } },
+              { "@type": "Question", name: "Hvor raskt kan en kampanje gå live?", acceptedAnswer: { "@type": "Answer", text: "Fra godkjent brief til live kampanje tar det vanligvis 5–10 virkedager. Vi håndterer streamervalg, kreativproduksjon og teknisk oppsett, og du godkjenner streamerlisten og designet." } },
+              { "@type": "Question", name: "Hva slags rapportering får vi?", acceptedAnswer: { "@type": "Answer", text: "Du får tilgang til sanntidsdata på visninger, klikkrate (CTR), skjermtid og engasjement via vårt dashboard. Når kampanjen er ferdig, får du én rapport du kan videresende." } },
             ],
           },
           {
@@ -195,7 +195,7 @@ const Norge: React.FC = () => {
             <span className="hl">for norske merkevarer.</span>
           </h1>
           <p className="text-lg md:text-xl lg:text-2xl font-light text-foreground/90 mb-10 max-w-3xl leading-snug">
-            Norges eneste native Twitch- og livestream-annonsespesialist.
+            Et norsk byrå som bare jobber med annonser i livestreams.
           </p>
           <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-10 lg:gap-16 max-w-5xl">
             <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
@@ -206,10 +206,9 @@ const Norge: React.FC = () => {
               overlay-annonser som også overlever adblock.
             </p>
             <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed">
-              Det norske 18–34-segmentet ser mer Twitch per dag enn de ser
-              lineær-TV. Vi er den eneste plattformen bygget for å levere den
-              målgruppen native inne i selve streamen - uten ekstern video-
-              pre-roll som blir skippet eller blokkert.
+              Annonsen vises inne i selve sendingen, ikke som pre-roll før
+              den. Den kan ikke skippes, og den blir liggende i reprisen. Hver
+              visning tas opp som et klipp, så du ser at den faktisk ble vist.
             </p>
           </div>
           <div className="mt-12 flex flex-wrap items-center gap-5">
@@ -373,15 +372,15 @@ const Norge: React.FC = () => {
               {[
                 {
                   q: "Hva koster en Twitch-kampanje i Norge?",
-                  a: "Kampanjekostnader varierer basert på antall streamere, kampanjevarighet og format. Vi tilbyr fleksibel prising uten bindingstid – kontakt oss for et skreddersydd tilbud basert på dine mål og budsjett.",
+                  a: "Kampanjer starter på 100 000 kr. Du betaler per 1 000 visninger som faktisk ble spilt av, og visninger som ikke ble levert, får du tilbake.",
                 },
                 {
                   q: "Hvordan fungerer overlay-annonsering på Twitch?",
-                  a: "Overlay-annonser er grafiske elementer som vises direkte i streamen – ikke som en pause eller avbrudd. De vises som en del av innholdet og omgår adblock helt. Seere ser annonsen mens de ser på favorittstreameren sin.",
+                  a: "Overlay-annonser er grafiske elementer som vises direkte i streamen, ikke som en pause eller avbrudd. De vises som en del av innholdet og omgår adblock helt. Seere ser annonsen mens de ser på favorittstreameren sin.",
                 },
                 {
                   q: "Hvilke norske merkevarer har annonsert på Twitch?",
-                  a: "Samsung, Shure, Komplett, Høyskolen Kristiania, NKI og Surfshark er blant merkene som har kjørt kampanjer via Beta Ads på norske Twitch-streamere. Se våre case studies for verifiserte resultater.",
+                  a: "Samsung, Shure, Komplett, Høyskolen Kristiania, NKI, Gokstad Akademiet og Saily er blant merkene som har kjørt kampanjer via Beta Ads på norske Twitch-streamere. Se våre case studies for verifiserte resultater.",
                 },
                 {
                   q: "Hvem er Twitch-publikummet i Norge?",
@@ -389,11 +388,11 @@ const Norge: React.FC = () => {
                 },
                 {
                   q: "Hvor raskt kan en kampanje gå live?",
-                  a: "Fra godkjent brief til live kampanje tar det vanligvis 5–10 virkedager. Vi håndterer streamervalgvelge, kreativproduksjon og teknisk oppsett – du godkjenner streamerlisten og designet.",
+                  a: "Fra godkjent brief til live kampanje tar det vanligvis 5–10 virkedager. Vi håndterer streamervalg, kreativproduksjon og teknisk oppsett, og du godkjenner streamerlisten og designet.",
                 },
                 {
                   q: "Hva slags rapportering får vi?",
-                  a: "Du får tilgang til sanntidsdata på visninger, klikkrate (CTR), skjermtid og engasjement via vårt dashboard. Ukentlige rapporter leveres under aktive kampanjer.",
+                  a: "Du får tilgang til sanntidsdata på visninger, klikkrate (CTR), skjermtid og engasjement via vårt dashboard. Når kampanjen er ferdig, får du én rapport du kan videresende.",
                 },
               ].map(({ q, a }) => (
                 <details key={q} className="group py-5">
@@ -426,8 +425,7 @@ const Norge: React.FC = () => {
                 Vi booker 4–6 uker i forveien i de mest ettertraktede vinduene
                 (Black Friday, Nordic Game, juleuka). Bestill en 30-minutters
                 konsultasjon så tar vi en gjennomgang av kategori, brief og
-                anslått leveranse - og kommer tilbake med et skreddersydd
-                forslag innen 24 timer.
+                anslått leveranse, og du får et forslag innen én arbeidsdag.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -457,7 +455,7 @@ const Norge: React.FC = () => {
         alt="Beta, maskoten til Beta Ads"
         variant="cutout"
         eyebrow="Hils på Beta"
-        heading="Vi er det eneste norske byrået som bare gjør dette"
+        heading="Et norsk byrå som bare gjør dette"
         body="Beta Agency AS er norsk, og vi kjøper ikke bannerannonser på si. Vi bygger native integrasjoner inn i selve sendingen: overlay i layouten, chat-kommando i tittelen, og streameren som sier det med sine egne ord."
         points={[
             "Norske streamere, norsk chat, norske kunder",

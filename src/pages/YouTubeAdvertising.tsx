@@ -9,8 +9,8 @@ import { MascotBand } from "@/components/sections/MascotBand";
 
 const stats = [
   { value: "39,000+", label: "Streamers in Explorer, 3 platforms" },
-  { value: "#2", label: "Fastest-Growing Platform" },
-  { value: "45 min", label: "Avg. Live Session" },
+  { value: "Live + VOD", label: "Overlay stays in the replay" },
+  { value: "1 report", label: "Twitch, YouTube and Kick together" },
   { value: "2B+", label: "Monthly Users" },
 ];
 
@@ -25,7 +25,7 @@ const why = [
   { icon: Shield, title: "Ad-block proof", desc: "Same overlay technology as Twitch - rendered in-stream, invisible to blockers." },
   { icon: Users, title: "Broader demographics", desc: "YouTube reaches audiences beyond gaming - music, lifestyle, education, sports." },
   { icon: TrendingUp, title: "SEO + Discovery", desc: "Live content appears in YouTube search and recommendations, extending reach beyond live viewers." },
-  { icon: Globe, title: "Nordic growth platform", desc: "YouTube Live grew while Twitch declined in 2025 - the fastest-rising streaming platform in the Nordics." },
+  { icon: Globe, title: "Replays built in", desc: "Every YouTube live stream stays up as a replay, so the overlay keeps collecting views after the broadcast ends." },
 ];
 
 const categories = [
@@ -203,7 +203,7 @@ const YouTubeAdvertising: React.FC = () => {
                 The platform Twitch-only brands are missing
               </h2>
               <div className="space-y-4 text-sm text-muted-foreground leading-relaxed">
-                <p>YouTube Live is rapidly gaining ground in the Nordics. While Twitch viewership declined 10% in 2025, YouTube Live continues to grow - particularly in non-gaming categories like music, education, and lifestyle content.</p>
+                <p>YouTube Live is strong in non-gaming categories like music, education and lifestyle, and every stream stays up as a replay after it ends.</p>
                 <p>For brands targeting audiences beyond core gaming, YouTube Live offers access to demographics that Twitch doesn't reach. The platform's discoverability advantage means live content surfaces in regular YouTube search results, extending your brand's reach beyond the live audience.</p>
                 <p>Combined with Twitch and Kick campaigns through Beta Ads, YouTube Live ensures your brand reaches the full Nordic streaming audience - not just one slice of it.</p>
               </div>

@@ -8,7 +8,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 /**
  * Data sourced from the verified Saily eSIM report (Drive file
  * `saily-report-02-07-2025.pdf`) for the June 2025 Norway Twitch
- * campaign. Saily is Surfshark's travel-eSIM brand.
+ * campaign. Saily is a travel eSIM from Nord Security.
  */
 /**
  * Saily's real brand colours, sampled from saily.com on 2026-09-08: a bright
@@ -219,7 +219,7 @@ const SailyCaseStudy: React.FC = () => {
                 Travel intent is seasonal. The creative needed to land at the right moment.
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                Saily (Surfshark's travel-eSIM product) needed to reach Norwegian travellers
+                Saily, the travel eSIM, needed to reach Norwegian travellers
                 ahead of the June–July peak. Paid search captures people already shopping
                 for travel eSIMs - the harder problem was getting in front of the ones who
                 hadn't yet realised they needed one.

@@ -26,7 +26,7 @@ const CaseStudyNki: React.FC = () => {
               "NKI ran a four-week interactive quiz campaign across 19 Norwegian streamers, driving 220,003 completed views and 90,356 unique viewers into the lead-capture funnel.",
             "url": "https://beta-ads.no/case-study/nki",
             "image": "https://beta-ads.no/lovable-uploads/case-studies/nki-detoo.png",
-            "datePublished": "2025-10-01",
+            "datePublished": "2025-11-28",
             "dateModified": "2026-05-11",
             "author": {
               "@type": "Organization",

@@ -22,7 +22,7 @@ const Contact: React.FC = () => {
             "mainEntity": {
               "@type": "Organization",
               "name": "Beta Ads",
-              "email": "andreas@beta-ads.no",
+              "email": "sales@beta-ads.no",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Oslo",
@@ -114,7 +114,7 @@ const Contact: React.FC = () => {
             {/* Email + Location stacked */}
             <div className="flex flex-col gap-6">
               <a
-                href="mailto:andreas@beta-ads.no"
+                href="mailto:sales@beta-ads.no"
                 className="group flex-1 rounded-3xl border border-border bg-card p-8 hover:border-primary/30 transition-all"
               >
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
@@ -125,7 +125,7 @@ const Contact: React.FC = () => {
                   Questions, proposals, press, partnerships. We reply within one business day.
                 </p>
                 <span className="text-sm font-medium text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
-                  andreas@beta-ads.no <ArrowRight className="w-4 h-4" />
+                  sales@beta-ads.no <ArrowRight className="w-4 h-4" />
                 </span>
               </a>
 
@@ -158,14 +158,14 @@ const Contact: React.FC = () => {
                   What's the minimum campaign budget?
                   <ArrowRight className="w-4 h-4 shrink-0 ml-4 transition-transform group-open:rotate-90 text-muted-foreground" />
                 </summary>
-                <p className="pt-3 text-sm text-muted-foreground leading-relaxed">Budgets vary by goals, market, and campaign duration. Book a call and we'll scope the right shape - including smaller tests when appropriate.</p>
+                <p className="pt-3 text-sm text-muted-foreground leading-relaxed">Campaigns start at 100,000 NOK, priced per 1,000 views that fully played. Views that are not delivered are refunded.</p>
               </details>
               <details className="group py-5">
                 <summary className="flex items-center justify-between cursor-pointer text-sm font-medium text-foreground hover:text-primary transition-colors select-none list-none">
                   How fast can a campaign go live?
                   <ArrowRight className="w-4 h-4 shrink-0 ml-4 transition-transform group-open:rotate-90 text-muted-foreground" />
                 </summary>
-                <p className="pt-3 text-sm text-muted-foreground leading-relaxed">Anywhere from 24 hours to 2 weeks depending on scope, creative complexity, and how many streamers are involved. We handle all outreach, setup, and OBS integration.</p>
+                <p className="pt-3 text-sm text-muted-foreground leading-relaxed">Usually 5 to 10 working days from an approved brief, depending on the creative and how many streamers are involved. We handle outreach, setup and the OBS integration.</p>
               </details>
               <details className="group py-5">
                 <summary className="flex items-center justify-between cursor-pointer text-sm font-medium text-foreground hover:text-primary transition-colors select-none list-none">

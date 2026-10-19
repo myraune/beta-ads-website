@@ -862,11 +862,11 @@ const SamsungCaseStudy: React.FC = () => {
 
               <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
                 <a
-                  href="mailto:andreas@beta-ads.no"
+                  href="mailto:sales@beta-ads.no"
                   className="flex items-center gap-2 text-sm text-foreground hover:text-primary transition-colors"
                 >
                   <Mail className="w-4 h-4 text-primary" />
-                  andreas@beta-ads.no
+                  sales@beta-ads.no
                 </a>
                 <a
                   href="https://www.linkedin.com/in/myraune"

@@ -397,7 +397,7 @@ const EN: KickCopy = {
         targeting: "Targeting",
       },
       buying: "Kick prices in USD CPM and the program is still labelled Beta. We quote per campaign, in your currency, with the same three-tier structure we use for creator campaigns.",
-      contact: "Write to andreas@beta-ads.no with market, budget and timing, and you get a quote back with real Nordic inventory numbers.",
+      contact: "Write to sales@beta-ads.no with market, budget and timing, and you get a quote back with real Nordic inventory numbers.",
     },
   },
   safety: {
@@ -618,7 +618,7 @@ const NO: KickCopy = {
         targeting: "Målretting",
       },
       buying: "Kick priser i USD CPM, og programmet er fortsatt merket Beta. Vi gir tilbud per kampanje, i din valuta, med samme tre nivåer som vi bruker på skaperkampanjer.",
-      contact: "Skriv til andreas@beta-ads.no med marked, budsjett og tidspunkt, så får du et tilbud tilbake med ekte nordiske tall på flatene.",
+      contact: "Skriv til sales@beta-ads.no med marked, budsjett og tidspunkt, så får du et tilbud tilbake med ekte nordiske tall på flatene.",
     },
   },
   safety: {
@@ -839,7 +839,7 @@ const SV: KickCopy = {
         targeting: "Styrning",
       },
       buying: "Kick prissätter i USD CPM, och programmet är fortfarande märkt Beta. Vi ger offert per kampanj, i din valuta, med samma tre nivåer som vi använder för kreatörskampanjer.",
-      contact: "Skriv till andreas@beta-ads.no med marknad, budget och tidpunkt, så får du en offert tillbaka med riktiga nordiska siffror på ytorna.",
+      contact: "Skriv till sales@beta-ads.no med marknad, budget och tidpunkt, så får du en offert tillbaka med riktiga nordiska siffror på ytorna.",
     },
   },
   safety: {
@@ -1060,7 +1060,7 @@ const DA: KickCopy = {
         targeting: "Målretning",
       },
       buying: "Kick prissætter i USD CPM, og programmet er stadig mærket Beta. Vi giver tilbud per kampagne, i din valuta, med samme tre niveauer som vi bruger til creator-kampagner.",
-      contact: "Skriv til andreas@beta-ads.no med marked, budget og timing, så får du et tilbud tilbage med rigtige nordiske tal på fladerne.",
+      contact: "Skriv til sales@beta-ads.no med marked, budget og timing, så får du et tilbud tilbage med rigtige nordiske tal på fladerne.",
     },
   },
   safety: {
@@ -1281,7 +1281,7 @@ const FI: KickCopy = {
         targeting: "Kohdennus",
       },
       buying: "Kick hinnoittelee USD CPM -pohjalta, ja ohjelma on yhä merkitty Beta-vaiheeseen. Annamme tarjouksen kampanjaa kohti, omassa valuutassasi, samalla kolmiportaisella rakenteella kuin tekijäkampanjoissa.",
-      contact: "Kirjoita osoitteeseen andreas@beta-ads.no ja kerro markkina, budjetti ja ajoitus, niin saat tarjouksen oikeilla pohjoismaisilla pintaluvuilla.",
+      contact: "Kirjoita osoitteeseen sales@beta-ads.no ja kerro markkina, budjetti ja ajoitus, niin saat tarjouksen oikeilla pohjoismaisilla pintaluvuilla.",
     },
   },
   safety: {

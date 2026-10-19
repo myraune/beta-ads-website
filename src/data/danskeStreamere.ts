@@ -12,12 +12,12 @@ export const CREATORS: CreatorProfile[] = [
     realName: "Jacob Krull",
     meta: "Twitch · YouTube · varieret gaming, IRL og musik",
     blurb: "En af Danmarks allerstørste Twitch-skabere med reaktioner, gaming og IRL-indhold, samt en parallel karriere som DJ og musikproducer.",
-    bio: "Jaxstyle, der i virkeligheden hedder Jacob Krull, er en af Danmarks mest fulgte Twitch-streamere og blev allerede i 2016 den yngste danske Twitch-partner nogensinde. Hans kanal bygger paa et bredt indhold med reaktioner, gameplay og IRL-streams, der appellerer til et stort ungt publikum. Ved siden af streaming har han skabt sig et navn paa den danske elektroniske musikscene som DJ og producer. Han kombinerer underholdning og musik paa en maade, der goer ham til en genkendelig figur i dansk online-kultur.",
+    bio: "Jaxstyle, der i virkeligheden hedder Jacob Krull, er en af Danmarks mest fulgte Twitch-streamere og blev allerede i 2016 den yngste danske Twitch-partner nogensinde. Hans kanal bygger på et bredt indhold med reaktioner, gameplay og IRL-streams, der appellerer til et stort ungt publikum. Ved siden af streaming har han skabt sig et navn på den danske elektroniske musikscene som DJ og producer. Han kombinerer underholdning og musik på en måde, der gør ham til en genkendelig figur i dansk online-kultur.",
     highlights: [
-      "Cirka 300.000 foelgere paa Twitch",
+      "Cirka 300.000 følgere på Twitch",
       "Blev den yngste danske Twitch-partner nogensinde i 2016",
-      "Aktiv DJ og musikproducer paa den danske elektroniske scene",
-      "Stort folge paa tvaers af Twitch, YouTube og Instagram"
+      "Aktiv DJ og musikproducer på den danske elektroniske scene",
+      "Stort følge på tværs af Twitch, YouTube og Instagram"
     ],
     image: "https://unavatar.io/twitch/jaxstyle",
     attribution: "Twitch / @jaxstyle",
@@ -57,10 +57,10 @@ export const CREATORS: CreatorProfile[] = [
     realName: "Rasmus Søndergaard",
     meta: "Twitch · League of Legends · highelo solo queue",
     blurb: "Et kendt navn på dansk Twitch og en af Europas stærkeste League of Legends solo queue-spillere med konstant høje seertal.",
-    bio: "Rasmus Soendergaard, kendt som SondergaardLol, er en af de mest sete danske Twitch-streamere og en fast del af den danske League of Legends-scene. Han regnes blandt Europas bedste solo queue-spillere og tiltraekker et stort, loyalt publikum, der foelger med i hans hoejt rangerede gameplay. Hans kanal har gentagne gange ligget i toppen af de mest sete danske kanaler maalt paa samlede seertimer. Med sin kombination af elite-niveau og underholdning er han en central figur i dansk competitive gaming.",
+    bio: "Rasmus Søndergaard, kendt som SondergaardLol, er en af de mest sete danske Twitch-streamere og en fast del af den danske League of Legends-scene. Han regnes blandt Europas bedste solo queue-spillere og tiltrækker et stort, loyalt publikum, der følger med i hans højt rangerede gameplay. Hans kanal har gentagne gange ligget i toppen af de mest sete danske kanaler målt på samlede seertimer. Med sin kombination af elite-niveau og underholdning er han en central figur i dansk competitive gaming.",
     highlights: [
-      "Over 270.000 foelgere paa Twitch",
-      "Jaevnligt den mest sete danske streamer maalt paa seertimer",
+      "Over 270.000 følgere på Twitch",
+      "Jævnligt den mest sete danske streamer målt på seertimer",
       "Regnes blandt Europas bedste League of Legends solo queue-spillere",
       "Profileret som atlet hos Red Bull"
     ],
@@ -100,11 +100,11 @@ export const CREATORS: CreatorProfile[] = [
     name: "MarckozHD",
     meta: "Twitch · YouTube · EA Sports FC og fodboldgaming",
     blurb: "En af Danmarks største gaming-skabere med fokus på EA Sports FC og fodboldspil, med et bredt følge på tværs af platforme.",
-    bio: "MarckozHD er en af de mest fulgte danske gaming-skabere og har bygget en stor kanal op omkring fodboldspil som EA Sports FC. Han er kendt for sit energiske indhold og sin store raekkevidde blandt unge danske gamere. Ud over Twitch har han et betydeligt publikum paa YouTube, hvor han deler gameplay og underholdning. Han hoerer til den haandfuld danske skabere, der konsekvent ligger i toppen maalt paa foelgere.",
+    bio: "MarckozHD er en af de mest fulgte danske gaming-skabere og har bygget en stor kanal op omkring fodboldspil som EA Sports FC. Han er kendt for sit energiske indhold og sin store rækkevidde blandt unge danske gamere. Ud over Twitch har han et betydeligt publikum på YouTube, hvor han deler gameplay og underholdning. Han hører til den håndfuld danske skabere, der konsekvent ligger i toppen målt på følgere.",
     highlights: [
-      "Cirka 290.000 foelgere paa Twitch",
-      "En af Danmarks stoerste skabere inden for fodboldgaming",
-      "Stort publikum paa tvaers af Twitch og YouTube"
+      "Cirka 290.000 følgere på Twitch",
+      "En af Danmarks største skabere inden for fodboldgaming",
+      "Stort publikum på tværs af Twitch og YouTube"
     ],
     image: "/lovable-uploads/creators/marckozhd.webp",
     attribution: "Twitch / @marckozhd",
@@ -125,12 +125,12 @@ export const CREATORS: CreatorProfile[] = [
     realName: "Marius Wendt",
     meta: "Twitch · Fortnite · esport og competitive gaming",
     blurb: "Dansk Fortnite-talent og competitive spiller, der kombinerer turneringsspil på højt niveau med underholdende streams.",
-    bio: "Marius Wendt, kendt som MariusCOW, er en ung dansk Fortnite-spiller og streamer, der har gjort sig bemaerket paa den competitive scene. Han har repraesenteret esport-organisationer og kombinerer turneringsspil med live-streaming for sit publikum. Med over 150.000 foelgere er han en af de mest fulgte danske Fortnite-skabere. Hans kanal henvender sig til et ungt publikum, der foelger baade hans gameplay og hans turneringspraestationer.",
+    bio: "Marius Wendt, kendt som MariusCOW, er en ung dansk Fortnite-spiller og streamer, der har gjort sig bemærket på den competitive scene. Han har repræsenteret esport-organisationer og kombinerer turneringsspil med live-streaming for sit publikum. Med over 150.000 følgere er han en af de mest fulgte danske Fortnite-skabere. Hans kanal henvender sig til et ungt publikum, der følger både hans gameplay og hans turneringspræstationer.",
     highlights: [
-      "Over 150.000 foelgere paa Twitch",
+      "Over 150.000 følgere på Twitch",
       "Competitive Fortnite-spiller med organisationstilknytning",
       "En af Danmarks mest fulgte Fortnite-skabere",
-      "Profil paa Esports Charts og Liquipedia"
+      "Profil på Esports Charts og Liquipedia"
     ],
     image: "/lovable-uploads/creators/mariuscow.webp",
     attribution: "Twitch / @mariuscow",
@@ -169,11 +169,11 @@ export const CREATORS: CreatorProfile[] = [
     realName: "Markus",
     meta: "Twitch · varieret gaming · ung dansk skaber",
     blurb: "Ung dansk streamer med et stort følge, der laver varieret gaming-indhold på dansk for et trofast publikum.",
-    bio: "markus_jimbo er en ung dansk Twitch-streamer, der har samlet et stort publikum omkring sit varierede gaming-indhold. Han streamer paa dansk og inviterer sine seere med paa rejsen, som han selv beskriver det i sin profil. Med naesten 150.000 foelgere hoerer han til de mest fulgte danske kanaler. Hans indhold appellerer saerligt til et ungt dansk gaming-publikum.",
+    bio: "markus_jimbo er en ung dansk Twitch-streamer, der har samlet et stort publikum omkring sit varierede gaming-indhold. Han streamer på dansk og inviterer sine seere med på rejsen, som han selv beskriver det i sin profil. Med næsten 150.000 følgere hører han til de mest fulgte danske kanaler. Hans indhold appellerer særligt til et ungt dansk gaming-publikum.",
     highlights: [
-      "Naesten 150.000 foelgere paa Twitch",
+      "Næsten 150.000 følgere på Twitch",
       "En af de mest fulgte danske gaming-kanaler",
-      "Streamer konsekvent paa dansk for et ungt publikum"
+      "Streamer konsekvent på dansk for et ungt publikum"
     ],
     image: "https://unavatar.io/twitch/markus_jimbo",
     attribution: "Twitch / @markus_jimbo",
@@ -203,12 +203,12 @@ export const CREATORS: CreatorProfile[] = [
     realName: "Jakob Kristensen",
     meta: "Twitch · YouTube · TikTok · EA Sports FC og fodbold",
     blurb: "Danmarks FIFA-konge og en af de største gaming-skabere for unge mænd med fokus på fodboldspil og fodboldkultur.",
-    bio: "Jakob Kristensen, bedre kendt som JKFIFA, er en af Danmarks stoerste gaming-skabere og kaldes ofte landets FIFA-konge. Hans indhold paa Twitch, YouTube og TikTok kredser om hans passion for FIFA og EA Sports FC samt fodbold generelt. Han henvender sig til et stort ungt mandligt publikum og er repraesenteret af Bark Agency. Med over 120.000 Twitch-foelgere og et samlet folge paa flere hundrede tusinde er han et af de stoerste navne inden for dansk fodboldgaming.",
+    bio: "Jakob Kristensen, bedre kendt som JKFIFA, er en af Danmarks største gaming-skabere og kaldes ofte landets FIFA-konge. Hans indhold på Twitch, YouTube og TikTok kredser om hans passion for FIFA og EA Sports FC samt fodbold generelt. Han henvender sig til et stort ungt mandligt publikum og er repræsenteret af Bark Agency. Med over 120.000 Twitch-følgere og et samlet følge på flere hundrede tusinde er han et af de største navne inden for dansk fodboldgaming.",
     highlights: [
-      "Over 120.000 foelgere paa Twitch",
-      "Over 300.000 foelgere paa tvaers af platforme",
+      "Over 120.000 følgere på Twitch",
+      "Over 300.000 følgere på tværs af platforme",
       "Omtales som Danmarks FIFA-konge",
-      "Repraesenteret af Bark Agency"
+      "Repræsenteret af Bark Agency"
     ],
     image: "https://unavatar.io/twitch/jkfifa",
     attribution: "Twitch / @jkfifa",
@@ -249,12 +249,12 @@ export const CREATORS: CreatorProfile[] = [
     realName: "Marie Watson",
     meta: "Twitch · gaming · mental sundhed og community",
     blurb: "En af Danmarks mest fulgte kvindelige streamere, kendt for gaming kombineret med åbenhed om mental sundhed og ADHD.",
-    bio: "Marie Watson er en af Danmarks mest fulgte kvindelige Twitch-streamere og en markant stemme i det danske gaming-community. Ud over gaming er hun kendt for sin aabenhed om mental sundhed og ADHD, hvilket har gjort hende til en relaterbar figur for mange seere. Hun har desuden skrevet boger og deltaget i dansk tv-underholdning. Med over 120.000 foelgere kombinerer hun underholdning med et tydeligt fokus paa community og trivsel.",
+    bio: "Marie Watson er en af Danmarks mest fulgte kvindelige Twitch-streamere og en markant stemme i det danske gaming-community. Ud over gaming er hun kendt for sin åbenhed om mental sundhed og ADHD, hvilket har gjort hende til en relaterbar figur for mange seere. Hun har desuden skrevet bøger og deltaget i dansk tv-underholdning. Med over 120.000 følgere kombinerer hun underholdning med et tydeligt fokus på community og trivsel.",
     highlights: [
-      "Over 120.000 foelgere paa Twitch",
-      "En af Danmarks stoerste kvindelige streamere",
+      "Over 120.000 følgere på Twitch",
+      "En af Danmarks største kvindelige streamere",
       "Forfatter og deltager i dansk tv-underholdning",
-      "Kendt for fokus paa mental sundhed og ADHD"
+      "Kendt for fokus på mental sundhed og ADHD"
     ],
     image: "/lovable-uploads/creators/mariewatson.webp",
     attribution: "Twitch / @mariewatson",
@@ -293,12 +293,12 @@ export const CREATORS: CreatorProfile[] = [
     name: "ellahdk",
     meta: "Twitch · varieret gaming · Just Chatting",
     blurb: "Veletableret dansk streamer med et trofast community omkring varieret gaming og Just Chatting siden 2014.",
-    bio: "ellahdk er en af de mere veletablerede danske Twitch-streamere med en kanal, der har eksisteret siden 2014. Hun er kendt for sit varierede gaming-indhold og Just Chatting-streams, hvor hun dyrker en taet relation til sit community. Med over 110.000 foelgere hoerer hun til de stoerste kvindelige danske skabere paa platformen. Hendes lange tilstedevaerelse har givet hende et loyalt og engageret publikum.",
+    bio: "ellahdk er en af de mere veletablerede danske Twitch-streamere med en kanal, der har eksisteret siden 2014. Hun er kendt for sit varierede gaming-indhold og Just Chatting-streams, hvor hun dyrker en tæt relation til sit community. Med over 110.000 følgere hører hun til de største kvindelige danske skabere på platformen. Hendes lange tilstedeværelse har givet hende et loyalt og engageret publikum.",
     highlights: [
-      "Over 110.000 foelgere paa Twitch",
+      "Over 110.000 følgere på Twitch",
       "Aktiv kanal siden 2014",
-      "En af de stoerste kvindelige danske streamere",
-      "Trofast community omkring variereret gaming og Just Chatting"
+      "En af de største kvindelige danske streamere",
+      "Trofast community omkring varieret gaming og Just Chatting"
     ],
     image: "https://unavatar.io/twitch/ellahdk",
     attribution: "Twitch / @ellahdk",
@@ -336,9 +336,9 @@ export const CREATORS: CreatorProfile[] = [
     realName: "Johan",
     meta: "Twitch · GTA · IRL og Just Chatting",
     blurb: "Ung dansk variety-streamer fra Nordjylland med stort engagement omkring GTA, IRL og Just Chatting.",
-    bio: "ConnieHeinz, der hedder Johan, er en ung dansk variety-streamer baseret i Nordjylland. Hans kanal byder paa et bredt indhold med blandt andet GTA, Among Us, IRL-streams og Just Chatting, og han er en af de mest sete danske kanaler maalt paa seertimer. Ved siden af streaming studerer han innovation og digitalisering paa Aalborg Universitet. Han har bygget et staerkt engageret community op omkring sit afslappede og personlige indhold.",
+    bio: "ConnieHeinz, der hedder Johan, er en ung dansk variety-streamer baseret i Nordjylland. Hans kanal byder på et bredt indhold med blandt andet GTA, Among Us, IRL-streams og Just Chatting, og han er en af de mest sete danske kanaler målt på seertimer. Ved siden af streaming studerer han innovation og digitalisering på Aalborg Universitet. Han har bygget et stærkt engageret community op omkring sit afslappede og personlige indhold.",
     highlights: [
-      "Jaevnligt blandt de mest sete danske streamere maalt paa seertimer",
+      "Jævnligt blandt de mest sete danske streamere målt på seertimer",
       "Twitch-partner og top-10 dansk kanal",
       "Baseret i Nordjylland og studerer ved Aalborg Universitet",
       "Bredt variety-indhold med GTA, IRL og Just Chatting"
@@ -352,7 +352,6 @@ export const CREATORS: CreatorProfile[] = [
       { label: "TikTok", url: "https://www.tiktok.com/@connieheinz" }
     ],
     references: [
-      { label: "Officiel hjemmeside", url: "https://connieheinz.dk/", type: "official-site" },
       { label: "TwitchTracker statistik", url: "https://twitchtracker.com/connieheinz", type: "tracker" }
     ],
     tiktokHandle: "connieheinz",
@@ -382,11 +381,11 @@ export const CREATORS: CreatorProfile[] = [
     realName: "Lykke og Rasmus",
     meta: "Twitch · YouTube · TikTok · IRL og rejseindhold",
     blurb: "Dansk par der streamer IRL og rejseindhold på fuld tid og jævnligt topper listerne over de mest sete danske kanaler.",
-    bio: "Lykke og Rasmus er et dansk par, der laver indhold paa fuld tid mens de rejser verden rundt. Deres Twitch-kanal er kendt for IRL-streams, der har gjort dem til en af de mest sete danske kanaler maalt paa toppeertal. Ud over Twitch har de et stort foelge paa YouTube, Instagram og TikTok, hvor de deler deres rejser og hverdag. Deres autentiske og personlige stil har skabt et engageret community paa tvaers af platforme.",
+    bio: "Lykke og Rasmus er et dansk par, der laver indhold på fuld tid mens de rejser verden rundt. Deres Twitch-kanal er kendt for IRL-streams, der har gjort dem til en af de mest sete danske kanaler målt på toppeertal. Ud over Twitch har de et stort følge på YouTube, Instagram og TikTok, hvor de deler deres rejser og hverdag. Deres autentiske og personlige stil har skabt et engageret community på tværs af platforme.",
     highlights: [
-      "Jaevnligt blandt de mest sete danske kanaler maalt paa toppeertal",
+      "Jævnligt blandt de mest sete danske kanaler målt på toppeertal",
       "Fuldtids content creators der rejser verden rundt",
-      "Stort foelge paa tvaers af Twitch, YouTube, Instagram og TikTok",
+      "Stort følge på tværs af Twitch, YouTube, Instagram og TikTok",
       "Kendt for autentisk IRL- og rejseindhold"
     ],
     image: "https://unavatar.io/twitch/lykkeograsmus",

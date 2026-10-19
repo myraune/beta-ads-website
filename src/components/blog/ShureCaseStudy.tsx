@@ -42,7 +42,7 @@ const regions = [
 const timeline = [
   { date: "Jul 12", label: "Kick-off", value: "detoo launch stream" },
   { date: "Jul 19", label: "detoo scale-up", value: "+272 avg viewers, MV6 feature" },
-  { date: "Jul 26", label: "Peak day", value: "9.12% CTR - 7× display benchmark" },
+  { date: "Jul 26", label: "Peak day", value: "9.12% CTR" },
   { date: "Aug 5", label: "Campaign close", value: "2,378 verified clicks" },
 ];
 
@@ -498,11 +498,10 @@ const ShureCaseStudy: React.FC = () => {
                 Impact
               </span>
               <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
-                Peak days outperformed benchmark CTR by 7×
+                The peak day hit 9.12% CTR
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                At campaign peak (July 26), verified CTR hit 9.12% - roughly 7× a typical
-                display benchmark for audio hardware. The sustained 1.31% verified / 2.16%
+                At campaign peak (July 26), verified CTR hit 9.12%. The sustained 1.31% verified / 2.16%
                 unique-viewer CTR across 761 hours of on-stream exposure demonstrates that
                 a concentrated creator approach can outperform broad reach for
                 consideration-stage products.

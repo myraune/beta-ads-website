@@ -1,7 +1,12 @@
 {
-  "buildCommand": "node scripts/generate-blog-meta.mjs && node scripts/generate-sitemap.mjs && vite build && node scripts/generate-seo-pages.mjs && node scripts/prerender.mjs && node scripts/generate-llms-txt.mjs",
+  "buildCommand": "node scripts/generate-blog-meta.mjs && node scripts/generate-sitemap.mjs && vite build && cp dist/index.html dist/404.html && node scripts/generate-seo-pages.mjs && node scripts/prerender.mjs && node scripts/generate-llms-txt.mjs",
   "outputDirectory": "dist",
   "redirects": [
+    {
+      "source": "/blog/samsung-twitch-campaign-case-study",
+      "destination": "/case-study/samsung",
+      "permanent": true
+    },
     {
       "source": "/case-study/surfshark",
       "destination": "/case-study/surfshark-finland",
@@ -97,7 +102,7 @@
       "destination": "https://stream-wall.vercel.app/surfsharklive/:path*"
     },
     {
-      "source": "/((?!.*\\.[a-zA-Z0-9]{2,4}$).*)",
+      "source": "/unsubscribe",
       "destination": "/index.html"
     }
   ],

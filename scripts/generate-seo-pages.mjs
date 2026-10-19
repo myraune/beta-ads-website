@@ -313,7 +313,7 @@ const STATIC_PAGES = [
     route: "/case-studies",
     title: "Case Studies | Beta Ads",
     description:
-      "Real campaign results from Samsung, Shure, Surfshark, Glorious, and more. Native Twitch overlay case studies with verified impressions, CTR, and ROI data.",
+      "Real campaign results from Samsung, Shure, Surfshark, Glorious, and more. Native Twitch overlay case studies with verified impressions and CTR.",
     locale: "en",
   },
   {
@@ -541,7 +541,7 @@ const CASE_STUDIES = [
     description:
       "Shure MV6 on Norwegian Twitch: 182,554 completed views, 2,378 verified clicks, 9.12% peak CTR - with just 2 streamers. 48,617 unique Norwegian viewers.",
     locale: "en",
-    datePublished: "2025-07-01",
+    datePublished: "2025-08-12",
     image: "/lovable-uploads/shure-mv6-banner.jpg",
     ogImageWidth: 1200,
     ogImageHeight: 600,
@@ -590,7 +590,7 @@ const CASE_STUDIES = [
     description:
       "NKI quiz campaign on Norwegian Twitch: 220,003 completed views, 1,595 verified clicks, 90,356 unique viewers across 19 streamers in Oct-Nov 2025.",
     locale: "en",
-    datePublished: "2025-10-01",
+    datePublished: "2025-11-28",
     image: "/lovable-uploads/case-studies/nki-detoo.png",
     ogImageWidth: 1065,
     ogImageHeight: 583,
@@ -904,7 +904,7 @@ const HOME_CONTENT = `
           <h2 style="font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:#e94f37;margin:0 0 .75rem">Why native livestream advertising</h2>
           <p style="color:#a8adb8;margin:0 0 2.5rem">Streaming's young, engaged audience blocks display and pre-roll ads at the highest rate of any group. A native overlay is rendered inside the stream, so it reaches that audience where interruptive formats cannot.</p>
           <h2 style="font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:#e94f37;margin:0 0 .75rem">Contact</h2>
-          <p style="color:#a8adb8;margin:0"><a href="mailto:andreas@beta-ads.no" style="color:#f2f4f8">andreas@beta-ads.no</a> &middot; Beta Agency AS, org. 933&nbsp;303&nbsp;136</p>
+          <p style="color:#a8adb8;margin:0"><a href="mailto:sales@beta-ads.no" style="color:#f2f4f8">sales@beta-ads.no</a> &middot; Beta Agency AS, org. 933&nbsp;303&nbsp;136</p>
         </div>
       </main>`;
 
