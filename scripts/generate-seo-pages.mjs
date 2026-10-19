@@ -539,7 +539,7 @@ const CASE_STUDIES = [
     route: "/case-study/shure",
     title: "Shure MV6 Case Study | Beta Ads",
     description:
-      "Shure MV6 on Norwegian Twitch: 182,554 completed views, 2,378 verified clicks, 9.12% peak CTR - with just 2 streamers. 48,617 unique Norwegian viewers.",
+      "Shure MV6 on Norwegian Twitch with one creator, detoo: 182,554 completed views, 2,378 verified clicks and a 9.12% peak-day CTR. 48,617 unique viewers.",
     locale: "en",
     datePublished: "2025-08-12",
     image: "/lovable-uploads/shure-mv6-banner.jpg",
@@ -561,7 +561,7 @@ const CASE_STUDIES = [
     description:
       "How Gokstad Akademiet recruited IT students through native Twitch overlays with 22 creators, 100K+ views, and 1.22% CTR across 49 categories.",
     locale: "en",
-    datePublished: "2025-06-01",
+    datePublished: "2026-02-26",
     image: "/og/og-home.jpg",
   },
   {
@@ -579,7 +579,7 @@ const CASE_STUDIES = [
     route: "/case-study/kristiania",
     title: "Høyskolen Kristiania Case Study | Beta Ads",
     description:
-      "Høyskolen Kristiania on Twitch: two parallel campaigns, ~600K display views, ~6,000 verified clicks across 31 Norwegian streamers over 8 weeks.",
+      "Høyskolen Kristiania on Twitch: two parallel campaigns, ~600K display views, ~6,000 verified clicks across 31 Norwegian streamers over 5 weeks.",
     locale: "en",
     datePublished: "2025-09-01",
     image: "/og/og-home.jpg",

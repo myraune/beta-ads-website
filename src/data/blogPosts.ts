@@ -7801,7 +7801,7 @@ Brands still running 2019-era creative through 2026 media plans are paying for i
 
 Streamer-first advertising is easy to describe and hard to execute. A Norwegian CPG brand running a Q3 2026 campaign across 15–50 streamers across [Twitch](/twitch-advertising), [YouTube](/youtube-advertising) and [Kick](/kick-advertising) needs: verified creator availability, category-matched audience data, contract coordination, creative approval workflows, OBS integration tooling, platform-verified reporting, and a single dashboard that aggregates it all.
 
-Platforms like Beta Ads index 39,000+ streamers in our Streamer Explorer database with category, language, audience demographic, engagement history, and platform-specific performance data - turning what used to be a five-vendor coordination problem into a single brief-to-launch workflow. The reason Samsung, Shure, Komplett, Kristiania, NKI and Gokstad each ran verified campaigns in 2025 wasn't that they solved the operational problem themselves; it was that the infrastructure layer existed by the time they arrived.
+Platforms like Beta Ads index 39,000+ streamers in our Streamer Explorer database with category, language, audience demographic, engagement history, and platform-specific performance data - turning what used to be a five-vendor coordination problem into a single brief-to-launch workflow. The reason Samsung, Shure, Komplett, Kristiania, NKI and Gokstad each ran verified campaigns in 2025 and 2026 wasn't that they solved the operational problem themselves; it was that the infrastructure layer existed by the time they arrived.
 
 ## Action Items for Brand Teams Adopting Streamer-First
 
@@ -7871,7 +7871,7 @@ For norske merkevarer betyr dette en strukturell endring: målgruppen som histor
 
 ### Topp norske Twitch-kategorier i 2026
 
-1. **Just Chatting** - største kategori for norskspråklige streams, dominert av detoo og BetaNorway
+1. **Just Chatting** - største kategori for norskspråklige streams, dominert av detoo
 2. **GTA V RP** - norske rollespill-servere driver tusenvis av samtidige seere
 3. **FIFA / EA FC** - sesong-topper rundt lanseringer og turneringer
 4. **Fortnite** - RubenGKS, FjolsenFN, yngre demografi
@@ -7895,7 +7895,7 @@ Resultatet er et format der **0 % adblock-tap** er en plattform-egenskap, ikke e
 Dette er ekte kampanjer Beta Ads har levert på det norske markedet i 2025, med verifiserte tall fra Twitch-plattformen:
 
 - **Samsung Galaxy S25 Ultra + Z Fold7** - 800 185 fullførte live-visninger på tvers av 43 + 28 streamer-slots, null adblock-impact. [Se hele analysen](/case-study/samsung).
-- **Shure MV6** - 182 554 visninger på 2 kanaler (inkludert detoo), 1,31 % verifisert CTR, med topp på 9,12 % på den beste dagen, da detoo nevnte mikrofonen muntlig. [Shure-case](/case-study/shure).
+- **Shure MV6** - 182 554 visninger på detoo sin kanal, 1,31 % verifisert CTR, med topp på 9,12 % på den beste dagen, da detoo nevnte mikrofonen muntlig. [Shure-case](/case-study/shure).
 - **Høyskolen Kristiania** - to parallelle kampanjer (rekruttering + avstemning), kombinert 599 252 visninger, 5 997 verifiserte klikk. [Kristiania-case](/case-study/kristiania).
 - **NKI Nettstudier** - interaktiv quiz-kampanje, 220 003 visninger, 1 595 klikk over 19 streamere. [NKI-case](/case-study/nki).
 - **Komplett retail** - 151 278 visninger på tvers av Twitch + Kick, 4,48 % CTR på toppdagen, 34 skapere. [Komplett-case](/case-study/komplett).
@@ -11421,7 +11421,7 @@ Det gjør detoo til en av de mest verdifulle kanalene et nordisk merke kan plass
 
 I 2025 lanserte Shure den nye MV6-mikrofonen i Norge. Målgruppen var gaming-streamere og audio-entusiaster - mennesker som allerede sammenligner mikrofon-spesifikasjoner i hverdagen.
 
-Sammen med detoo og én sekundær kanal (BetaNorway) kjørte Beta Ads en native overlay-kampanje der mikrofonen ble integrert direkte i streamen:
+Sammen med Benum, Shures distributør i Norden, kjørte Beta Ads en native overlay-kampanje på detoo sin kanal, der mikrofonen ble integrert direkte i streamen:
 
 - **182 554 totale visninger** (verifisert via Twitch-platformen)
 - **1,31 % verifisert CTR** - og **9,12 % CTR på toppdagen**

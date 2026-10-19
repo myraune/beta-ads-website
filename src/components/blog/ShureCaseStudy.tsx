@@ -201,10 +201,10 @@ const ShureCaseStudy: React.FC = () => {
                 aspiring creators who invest in gear and spread gospel to their audiences.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">
-                Rather than spread paid media thin across 30+ streamers, Shure doubled down
-                on two creators whose audiences already valued production quality. Depth
-                over breadth - a radically different media-mix approach for a hardware
-                launch.
+                Rather than spread paid media thin across 30+ streamers, Shure and its Nordic
+                distributor Benum put the whole campaign on one creator, detoo, whose audience
+                already valued production quality. Depth over breadth, a different media-mix
+                approach for a hardware launch.
               </p>
             </div>
             <div className="space-y-4 pt-2">
@@ -247,13 +247,13 @@ const ShureCaseStudy: React.FC = () => {
               The Solution
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-4 max-w-2xl">
-              Two creators, deep exposure, one lead creator carrying 2,377 clicks
+              One creator, deep exposure, 2,377 verified clicks
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-12">
               The overlay ran across 11 different live categories (Just Chatting, FIFA 23,
-              GTA V, COD, Slots) - wherever detoo and BetaNorway streamed, the overlay was
-              present. detoo's audience alone drove nearly every verified click in the
-              campaign, averaging 272 concurrent viewers throughout the run.
+              GTA V, COD, Slots): wherever detoo streamed, the overlay was present. His
+              audience drove the verified clicks, averaging 272 concurrent viewers
+              throughout the run.
             </p>
 
             <div className="grid md:grid-cols-2 gap-12 mb-12">
@@ -269,7 +269,6 @@ const ShureCaseStudy: React.FC = () => {
                       clicks: "2,377",
                       views: "182,546",
                     },
-                    { name: "BetaNorway", avgViewers: "-", clicks: "-", views: "-" },
                   ].map((s, i) => (
                     <div
                       key={s.name}

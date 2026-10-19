@@ -7,7 +7,7 @@ const CaseStudyKristiania: React.FC = () => {
     <>
       <SEO
         title="Høyskolen Kristiania Case Study | Beta Ads"
-        description="Høyskolen Kristiania on Twitch: two parallel campaigns, ~600K display views, ~6,000 verified clicks across 31 Norwegian streamers over 8 weeks."
+        description="Høyskolen Kristiania on Twitch: two parallel campaigns, ~600K display views, ~6,000 verified clicks across 31 Norwegian streamers over 5 weeks."
         canonical="/case-study/kristiania"
         ogType="article"
         articlePublishedTime="2025-09-01"
@@ -19,7 +19,7 @@ const CaseStudyKristiania: React.FC = () => {
             "@id": "https://beta-ads.no/case-study/kristiania#article",
             "headline": "Høyskolen Kristiania × Beta Ads: Two-Campaign Twitch Run, ~600K Combined Views",
             "description":
-              "Høyskolen Kristiania ran two parallel native overlay campaigns (awareness + voting) across the same Norwegian creator network, delivering ~600K combined display views and ~6,000 verified clicks across an 8-week recruitment window.",
+              "Høyskolen Kristiania ran two parallel native overlay campaigns (awareness + voting) across the same Norwegian creator network, delivering ~600K combined display views and ~6,000 verified clicks across an 5-week recruitment window.",
             "url": "https://beta-ads.no/case-study/kristiania",
             "image": "https://beta-ads.no/og/og-home.jpg",
             "datePublished": "2025-09-01",

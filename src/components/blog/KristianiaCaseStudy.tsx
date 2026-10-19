@@ -266,7 +266,7 @@ const KristianiaCaseStudy: React.FC = () => {
               {[
                 { label: "Market", value: "🇳🇴 Norway (95.4–95.7% viewership)" },
                 { label: "Format", value: "Rich Media Overlay × 2 creatives" },
-                { label: "Run", value: "Feb 28 – Apr 5 2025 (~8 weeks)" },
+                { label: "Run", value: "Feb 27 – Apr 5 2025 (~5 weeks)" },
                 { label: "Top creator both campaigns", value: "danniz (267–268 avg viewers)" },
                 { label: "Combined unique viewers", value: "~221K (some overlap)" },
                 { label: "Device split", value: "Desktop 96.4% / Mobile 3.0%" },
@@ -306,7 +306,7 @@ const KristianiaCaseStudy: React.FC = () => {
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mb-12">
               Beta deployed two distinct Kristiania creatives across the same
-              roster of Norwegian streamers. Both ran inside the same 8-week
+              roster of Norwegian streamers. Both ran inside the same 5-week
               window - the awareness creative carrying recruitment messaging,
               the voting creative driving a parallel campaign action. Same
               talent, two outcomes.
@@ -429,7 +429,7 @@ const KristianiaCaseStudy: React.FC = () => {
               Reach &amp; Demographics
             </span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-10 max-w-2xl">
-              ~221K unique Norwegian Gen Z viewers across 8 weeks
+              ~221K unique Norwegian Gen Z viewers across 5 weeks
             </h2>
 
             <div className="grid lg:grid-cols-3 gap-10 lg:gap-14">
@@ -587,7 +587,7 @@ const KristianiaCaseStudy: React.FC = () => {
               <p className="text-base text-muted-foreground leading-relaxed mb-4">
                 Across both campaigns, Kristiania reached ~221,000 unique
                 Norwegian Gen Z viewers and racked up 5,997 verified clicks -
-                inside an 8-week application-season window where recruitment
+                inside a 5-week application-season window where recruitment
                 outcomes for an entire academic year are decided.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed">

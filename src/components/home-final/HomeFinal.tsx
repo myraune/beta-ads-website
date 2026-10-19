@@ -38,7 +38,7 @@ const yt = (id: string) => `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
 /* n/k = the headline result and its unit, each taken from that case page. */
 const CASES: { to: string; img: string; b: string; n: string; k: string; t: string }[] = [
   { to: "/case-study/samsung", img: yt("Uw7IIecicB4"), b: "Samsung", n: "800,185", k: "completed live views", t: "Galaxy S25 and Z Fold7, two flights in Norway." },
-  { to: "/case-study/shure", img: yt("IZOx_VMdJJg"), b: "Shure", n: "182,554", k: "completed views from two creators", t: "A custom overlay for the MV6 creator launch." },
+  { to: "/case-study/shure", img: yt("IZOx_VMdJJg"), b: "Shure", n: "182,554", k: "completed views on detoo's channel", t: "A custom overlay for the MV6 creator launch." },
   { to: "/case-study/komplett", img: yt("ufNq-A4d7iA"), b: "Komplett", n: "151,278", k: "views across 34 streamers", t: "Månedens Gaming Deal, linked straight from chat." },
   { to: "/case-study/glorious", img: "/lovable-uploads/case-glorious-poster.webp", b: "Glorious", n: "137K+", k: "views, 25 creators, three markets", t: "The V3 mouse across the Nordics." },
   { to: "/case-study/kristiania", img: yt("GwE4dagRm_k"), b: "Høyskolen Kristiania", n: "599,252", k: "views across 31 streamers", t: "Two parallel Twitch campaigns." },

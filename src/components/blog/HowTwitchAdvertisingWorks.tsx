@@ -72,7 +72,7 @@ const adblock = [
 // Verified Beta Ads campaign CTR - solid numbers only (matches live case
 // studies). The disputed Samsung and Kristiania CTRs are excluded.
 const campaigns = [
-  { brand: "Shure MV6", logo: "/lovable-uploads/logo-shure.png", cat: "Audio launch", streamers: "2", ctr: 1.31, ctrLabel: "1.31%", peak: "9.12% peak", href: "/case-study/shure" },
+  { brand: "Shure MV6", logo: "/lovable-uploads/logo-shure.png", cat: "Audio launch", streamers: "1", ctr: 1.31, ctrLabel: "1.31%", peak: "9.12% peak", href: "/case-study/shure" },
   { brand: "Komplett", logo: "/lovable-uploads/logo-komplett.png", cat: "Retail", streamers: "34", ctr: 1.17, ctrLabel: "1.17%", peak: "4.48% peak", href: "/case-study/komplett" },
   { brand: "NKI", logo: "/lovable-uploads/logo-nki.svg", cat: "Distance learning", streamers: "19", ctr: 0.72, ctrLabel: "0.72%", peak: null, href: "/case-study/nki" },
   { brand: "Saily", logo: "/lovable-uploads/logo-saily.png", cat: "Travel eSIM", streamers: "22", ctr: 0.50, ctrLabel: "0.50%", peak: null, href: "/case-study/saily" },

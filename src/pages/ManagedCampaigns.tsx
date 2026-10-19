@@ -52,7 +52,7 @@ const cases: { brand: string; what: string; facts: string; to: string }[] = [
   { brand: "Samsung", what: "Galaxy S25 Ultra and Z Fold7", facts: "800,185 completed live views, 1.35M+ with VOD, 71 streamer slots", to: "/case-study/samsung" },
   { brand: "Samsung", what: "Galaxy Z Fold7", facts: "300,054 completed live views, 558,257+ VOD views, 28 streamers", to: "/case-study/samsung-fold7" },
   { brand: "NKI", what: "Quiz campaign", facts: "220,003 completed views, 1,595 verified clicks, 19 streamers", to: "/case-study/nki" },
-  { brand: "Shure", what: "MV6 microphone", facts: "182,554 completed views, 2,378 verified clicks, 2 streamers", to: "/case-study/shure" },
+  { brand: "Shure", what: "MV6 microphone", facts: "182,554 completed views, 2,378 verified clicks, one creator", to: "/case-study/shure" },
   { brand: "Komplett", what: "Månedens Gaming Deal", facts: "151,278 display views, 1,768 verified clicks, 34 streamers", to: "/case-study/komplett" },
 ];
 

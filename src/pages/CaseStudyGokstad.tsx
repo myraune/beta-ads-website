@@ -24,7 +24,7 @@ const CaseStudyGokstad: React.FC = () => {
             "description": "How Gokstad Akademiet recruited IT and design students through native Twitch stream overlays with 22 creators across 49 categories.",
             "url": "https://beta-ads.no/case-study/gokstad",
             "image": "https://beta-ads.no/og/og-home.jpg",
-            "datePublished": "2025-06-01",
+            "datePublished": "2026-02-26",
             "dateModified": "2026-05-11",
             "author": {
               "@type": "Organization",
