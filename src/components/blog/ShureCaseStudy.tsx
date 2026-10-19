@@ -96,9 +96,9 @@ const ShureCaseStudy: React.FC = () => {
               </span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-              A concentrated two-creator launch for the MV6 microphone - 761 hours of
-              on-screen presence, 2,378 verified clicks, and a 9.12% best-day CTR driven by
-              audio-focused Norwegian streamers.
+              One creator, detoo, carried the MV6 launch with Benum, Shure's Nordic
+              distributor: 761 hours of on-screen presence, 2,378 verified clicks and a
+              9.12% best-day CTR.
             </p>
           </div>
 
