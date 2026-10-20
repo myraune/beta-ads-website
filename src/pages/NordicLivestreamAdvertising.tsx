@@ -72,7 +72,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
             "@type": "Article",
             headline: "The Nordic Livestream Advertising Landscape in 2026",
             author: { "@type": "Organization", name: "Beta Ads" },
-            publisher: { "@type": "Organization", name: "Beta Ads", logo: { "@type": "ImageObject", url: "https://beta-ads.no/lovable-uploads/logo-color.png" } },
+            publisher: { "@type": "Organization", name: "Beta Ads", logo: { "@type": "ImageObject", url: "https://beta-ads.no/brand/beta-ads-logo-512.png" } },
             datePublished: "2026-07-13",
           },
         ],

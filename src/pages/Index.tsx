@@ -36,9 +36,9 @@ const Index: React.FC = () => {
             url: "https://beta-ads.no",
             logo: {
               "@type": "ImageObject",
-              url: "https://beta-ads.no/lovable-uploads/logo-color.png",
-              width: 200,
-              height: 50,
+              url: "https://beta-ads.no/brand/beta-ads-logo-512.png",
+              width: 512,
+              height: 512,
             },
             description: "Native advertising platform for Twitch, YouTube and Kick livestreams in the Nordics. Custom overlay ads inside the stream that ad blockers can't remove.",
             foundingDate: "2024-04-15",
@@ -75,7 +75,8 @@ const Index: React.FC = () => {
               "@id": "https://beta-ads.no/#founder",
               name: "Andreas Myraune",
               jobTitle: "Founder & CEO",
-              sameAs: ["https://www.linkedin.com/in/myraune"],
+              image: "https://myraune.com/about/andreas.jpg",
+              sameAs: ["https://www.linkedin.com/in/myraune", "https://myraune.com/about"],
             },
           },
           {

@@ -72,7 +72,8 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
               addressLocality: 'Oslo',
               addressCountry: 'NO',
             },
-            sameAs: ['https://www.linkedin.com/in/myraune'],
+            image: { '@type': 'ImageObject', url: 'https://myraune.com/about/andreas.jpg', width: 960, height: 662, caption: 'Andreas Myraune, founder of Beta Ads' },
+            sameAs: ['https://www.linkedin.com/in/myraune', 'https://myraune.com/about'],
           },
           {
             '@context': 'https://schema.org',

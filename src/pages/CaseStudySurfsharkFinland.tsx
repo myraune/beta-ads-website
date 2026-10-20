@@ -58,9 +58,9 @@ const CaseStudySurfsharkFinland: React.FC = () => {
               name: "Beta Ads",
               logo: {
                 "@type": "ImageObject",
-                url: "https://beta-ads.no/lovable-uploads/logo-color.png",
-                width: 200,
-                height: 50,
+                url: "https://beta-ads.no/brand/beta-ads-logo-512.png",
+                width: 512,
+                height: 512,
               },
             },
             isPartOf: { "@id": "https://beta-ads.no/#website" },

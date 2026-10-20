@@ -217,9 +217,9 @@ const BlogPostView: React.FC<{ post: BlogPost; slug: string }> = ({ post, slug }
               "name": "Beta Ads",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://beta-ads.no/lovable-uploads/logo-color.png",
-                "width": 200,
-                "height": 50
+                "url": "https://beta-ads.no/brand/beta-ads-logo-512.png",
+                "width": 512,
+                "height": 512
               }
             },
             "mainEntityOfPage": { "@type": "WebPage", "@id": `https://beta-ads.no/blog/${post.slug}` },
