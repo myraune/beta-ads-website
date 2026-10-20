@@ -5,7 +5,7 @@ import "@/components/home-final/home-final.css";
 import { BOOKING_URL, SALES_MAIL, W, kicker, h2, PrimaryBtn, GhostBtn, Faq, faqLd } from "@/components/working/shared";
 
 /* One template for the Platform feature pages (/campaign-builder,
-   /streamer-explorer, /reporting, /programmatic): hero with a real screenshot,
+   /streamer-explorer, /reporting, /programmatic): hero with a coded product panel or image,
    alternating sections, related links, FAQ and a closing CTA. Each page passes
    only its own copy and images; claims stay with the page that makes them. */
 

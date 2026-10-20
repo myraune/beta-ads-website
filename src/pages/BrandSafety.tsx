@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { BOOKING_URL, SALES_MAIL, W, kicker, h2, PrimaryBtn, GhostBtn, Faq, faqLd } from "@/components/working/shared";
-import { Shot } from "@/components/working/FeaturePage";
+import "@/components/home-final/home-final.css";
+import { PanelFrame, ClipReviewPanel } from "@/components/home-final/product-panels";
 
 /* Brand safety: how the platform reads the stream around each ad play.
    Facts (Andreas / product, see memory reference_betaads_report_dimensions):
@@ -10,8 +11,11 @@ import { Shot } from "@/components/working/FeaturePage";
    translated into English and checked for swearing; the content around each ad
    is rated no / low / medium / high risk, broken out per channel so a channel can
    be dropped mid-flight. It rates the surroundings of the ad, not the creator.
-   The two Clip Review screens are real platform views (Surfshark Finland,
-   Shure). The per-channel table is labelled example UI. */
+   The two Clip Review panels are coded dark product panels: the flagged one
+   is the real Surfshark Finland clip (frame, transcript and scores from the
+   platform view); the clean Norwegian Samsung clip has a short example
+   transcript.
+   The per-channel table is labelled example UI. */
 
 const TITLE = "Brand Safety for Livestream Ads: Swearing Detected | Beta Ads";
 const DESCRIPTION =
@@ -101,12 +105,10 @@ const BrandSafety: React.FC = () => (
 
       {/* ───────── Clip Review, from the platform ───────── */}
       <section className={W} aria-label="Clip Review in the platform">
-        <Shot
-          src="/lovable-uploads/platform/clip-review-surfshark.webp"
-          alt="Clip Review in the Beta Ads platform: a Finnish Surfshark clip with the transcript, the English translation and the brand safety category Obscenity and Profanity."
-          caption="Clip Review: a Finnish clip, transcribed and translated into English, flagged as Obscenity and Profanity."
-          eager
-        />
+        <figure className="m-0">
+          <PanelFrame><ClipReviewPanel variant="flagged" /></PanelFrame>
+          <figcaption className="mt-3 text-xs text-muted-foreground">Clip Review: a Finnish clip, translated into English, flagged as Obscenity and Profanity.</figcaption>
+        </figure>
       </section>
 
       {/* ───────── How it works ───────── */}
@@ -135,16 +137,15 @@ const BrandSafety: React.FC = () => (
             <div className={`${kicker} mb-4`}>Every clip gets a rating</div>
             <h2 className={h2}>Most clips come back clean.</h2>
             <p className="mt-5 text-muted-foreground leading-relaxed">
-              Each clip gets a brand safety score and a category. Here a Norwegian clip is rated No Risk,
-              with the brand mention in the streamer's script highlighted, so you see the safe plays
-              and the flagged ones side by side.
+              Each clip gets a brand safety score and a category. Here a Norwegian Samsung clip is rated
+              No Risk, with the brand mention in the streamer's words highlighted, so you see the safe
+              plays and the flagged ones side by side.
             </p>
           </div>
-          <Shot
-            src="/lovable-uploads/platform/clip-review-shure.webp"
-            alt="Clip Review for a Norwegian Shure clip rated No Risk, with the brand mention highlighted in the streamer script."
-            caption="Clip Review: a Norwegian clip rated No Risk."
-          />
+          <figure className="m-0 min-w-0">
+            <PanelFrame><ClipReviewPanel variant="clean" /></PanelFrame>
+            <figcaption className="mt-3 text-xs text-muted-foreground">Clip Review: a Norwegian Samsung clip rated No Risk.</figcaption>
+          </figure>
         </div>
       </section>
 

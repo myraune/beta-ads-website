@@ -1,8 +1,10 @@
 import React from "react";
 import { FeaturePage } from "@/components/working/FeaturePage";
+import { PanelFrame, DashboardPanel, LiveMonitorPanel, DeliveryPanel, ReplayPanel, PollPanel } from "@/components/home-final/product-panels";
 
-/* Reporting. Screens are the real dashboard and campaign room views (live
-   monitor, delivery, replay reach) plus the poll result. Copy sticks to the
+/* Reporting. Coded dark product panels of the dashboard and campaign room
+   views (live monitor, delivery, replay reach) plus the poll result, with the
+   Surfshark Finland figures. Copy sticks to the
    confirmed report dimensions: delivery, verification clips, replay and clip
    views, clicks, chat tracking, polls, brand safety, PDF. */
 
@@ -15,31 +17,31 @@ const Reporting: React.FC = () => (
     kicker="Platform · Reporting"
     title="A report you can forward to the client."
     lead="Live in your own dashboard while the campaign runs, and as one PDF when it ends: delivery, verification clips, replay reach, clicks, chat and polls."
-    hero={{ src: "/lovable-uploads/platform/dashboard.webp", alt: "The Beta Ads dashboard with views, clicks, CTR, spend and watch time, a daily views chart and a campaign list.", caption: "The dashboard." }}
+    hero={{ visual: <PanelFrame><DashboardPanel /></PanelFrame>, caption: "The dashboard, Surfshark VPN Finland." }}
     sections={[
       {
         kicker: "Live monitor",
         title: "See who is live with your ad right now.",
         body: "The campaign room shows which channels are live, how many viewers are watching, and which ones are running your overlay at this moment.",
-        img: { src: "/lovable-uploads/platform/campaign-room-live.webp", alt: "Live campaign monitor: live channels with viewer counts and a preview of the stream running the overlay.", caption: "Live campaign monitor." },
+        visual: <PanelFrame><LiveMonitorPanel /></PanelFrame>,
       },
       {
         kicker: "Delivery",
         title: "Delivery you can look at.",
         body: "Every ad play is recorded as a clip and checked: whether the overlay was displayed correctly and whether the brand was mentioned. It is evidence, not a served-impression count.",
-        img: { src: "/lovable-uploads/platform/campaign-room-delivery.webp", alt: "Delivery view: share of ad plays with a recorded clip, share displayed correctly, and brand mention rate.", caption: "Delivery and ad detection." },
+        visual: <PanelFrame><DeliveryPanel /></PanelFrame>,
       },
       {
         kicker: "Replay reach",
         title: "Live views billed. Replays counted on top.",
         body: "The overlay stays in the VOD and in clips. Replay reach shows those views per channel, next to the live views you paid for.",
-        img: { src: "/lovable-uploads/platform/campaign-room-replay.webp", alt: "Replay reach: live views billed, VOD views and clip views per channel.", caption: "Replay reach per channel." },
+        visual: <PanelFrame><ReplayPanel /></PanelFrame>,
       },
       {
         kicker: "Polls",
         title: "What the audience answered.",
         body: "If the campaign runs a poll in the creator's chat, every answer comes back in the report, with the share for each option.",
-        img: { src: "/lovable-uploads/platform/audience-poll.webp", alt: "Poll result from the creator's chat: answer shares and vote counts for each option.", caption: "A live chat poll, Surfshark Finland." },
+        visual: <PanelFrame><PollPanel /></PanelFrame>,
       },
     ]}
     related={[

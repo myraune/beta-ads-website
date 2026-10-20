@@ -1,10 +1,11 @@
 import React from "react";
 import { FeaturePage } from "@/components/working/FeaturePage";
+import { PanelFrame, ExplorerPanel, CategoryPanel, ProfilePanel } from "@/components/home-final/product-panels";
 
 /* Streamer Explorer. Counts from the streamer database: 39,445 in Streamer
    Explorer ("39,000+"), 37,599 recently active and open to collaborations.
    Worldwide, across Twitch, YouTube and Kick: never call it Nordic. Filters and
-   columns are read off the real screens. */
+   columns follow the real screens, shown as coded dark product panels. */
 
 const StreamerExplorer: React.FC = () => (
   <FeaturePage
@@ -15,19 +16,19 @@ const StreamerExplorer: React.FC = () => (
     kicker="Platform · Streamer Explorer"
     title="39,000+ streamers, ready to search."
     lead="Filter by platform, country, language and category, open a profile, and build the list for your campaign. 37,599 of them are recently active and open to collaborations."
-    hero={{ src: "/lovable-uploads/platform/streamer-explorer.webp", alt: "Streamer Explorer: a table of streamers with platform, country, language, top categories, followers and engagement, with filters on the left.", caption: "Streamer Explorer, filtered by platform, country and language." }}
+    hero={{ visual: <PanelFrame><ExplorerPanel /></PanelFrame>, caption: "Streamer Explorer, filtered by platform and country." }}
     sections={[
       {
         kicker: "Category Explorer",
         title: "Start from the game, not the name.",
         body: "Browse by category to see how many streamers are active in each game, how many viewers they reach, and how much air time and watch time there is.",
-        img: { src: "/lovable-uploads/platform/category-explorer.webp", alt: "Category Explorer: categories with active streamers, total views, average and live viewers, air time and watch time.", caption: "Category Explorer." },
+        visual: <PanelFrame><CategoryPanel /></PanelFrame>,
       },
       {
         kicker: "Streamer profiles",
         title: "Open a profile before you book.",
         body: "Each streamer has a profile with their audience, their top categories and earlier sponsorship moments, so you know who you are putting your brand next to.",
-        img: { src: "/lovable-uploads/platform/streamer-profile.webp", alt: "A streamer profile with sponsorship moments, top stream categories and audience breakdowns by region, device, gender and age.", caption: "A streamer profile." },
+        visual: <PanelFrame><ProfilePanel /></PanelFrame>,
       },
     ]}
     related={[

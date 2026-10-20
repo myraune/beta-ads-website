@@ -1,10 +1,12 @@
 import React from "react";
 import { FeaturePage } from "@/components/working/FeaturePage";
 import { BuildPanel } from "@/components/home-final/panels";
+import { PanelFrame } from "@/components/home-final/product-panels";
 
-/* Campaign builder. Steps and options are read off the real builder screen
-   (objective, target audience, format, asset, review; awareness or traffic).
-   Chat command and poll: confirmed product features. */
+/* Campaign builder. Steps and options follow the real builder (objective,
+   target audience, format, asset, review; awareness or traffic), shown as the
+   coded dark product panel instead of a screenshot. Chat command and poll:
+   confirmed product features. */
 
 const CampaignBuilder: React.FC = () => (
   <FeaturePage
@@ -15,7 +17,7 @@ const CampaignBuilder: React.FC = () => (
     kicker="Platform · Campaign builder"
     title="Build the campaign in one flow."
     lead="Objective, target audience, format, asset and review, in five steps. Your creative becomes an animated overlay with its own chat command, and a poll if you want one."
-    hero={{ src: "/lovable-uploads/platform/campaign-builder.webp", alt: "The Beta Ads campaign builder on the first step: campaign name, an awareness or traffic objective and the dates.", caption: "The campaign builder, step 1 of 5." }}
+    hero={{ visual: <PanelFrame><BuildPanel reveal={false} /></PanelFrame>, caption: "The builder on the format step." }}
     sections={[
       {
         kicker: "Five steps",
@@ -27,7 +29,7 @@ const CampaignBuilder: React.FC = () => (
         kicker: "The overlay",
         title: "An overlay with its own chat command.",
         body: "Your creative runs as an animated overlay in a corner of the stream. Viewers type !yourbrand in chat and get your link back, and you can add a poll that opens in the creator's chat.",
-        visual: <div className="bf" style={{ background: "transparent" }}><BuildPanel reveal={false} /></div>,
+        points: ["Animated overlay in a corner of the stream", "!yourbrand chat command posts your link", "Optional poll in the creator's chat"],
       },
     ]}
     related={[
