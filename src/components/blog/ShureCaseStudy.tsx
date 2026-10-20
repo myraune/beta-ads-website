@@ -152,10 +152,23 @@ const ShureCaseStudy: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-8 max-w-2xl">
             MV6 microphone overlay shown live in-stream
           </h2>
+          {/* The overlay is a full-frame 1920x1080 alpha WebM, so it sits on a
+              real frame from detoo's stream exactly where it ran: waveform along
+              the top and bottom, Shure mark top right, MV6 bottom left. */}
           <div
-            className="rounded-2xl overflow-hidden bg-black border max-w-3xl"
+            className="relative rounded-2xl overflow-hidden bg-black border max-w-3xl aspect-video"
             style={{ borderColor: `${BRAND.primary}33` }}
+            role="img"
+            aria-label="Shure MV6 overlay running on detoo's live Twitch stream: a green waveform along the top and bottom edges, the Shure mark top right and the MV6 microphone bottom left, while he unboxes the microphone on camera"
           >
+            <img
+              src="/lovable-uploads/case-studies/shure-stream-poster.webp"
+              alt=""
+              width={1920}
+              height={1080}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
             <video
               src="/lovable-uploads/case-studies/shure-overlay.webm"
               autoPlay
@@ -163,13 +176,17 @@ const ShureCaseStudy: React.FC = () => {
               muted
               playsInline
               preload="metadata"
-              className="w-full h-auto"
-              aria-label="Shure MV6 microphone overlay creative as displayed on Norwegian Twitch streams"
+              aria-hidden="true"
+              tabIndex={-1}
+              className="absolute inset-0 w-full h-full"
             />
+            <span className="absolute right-3 bottom-3 inline-flex items-center gap-1.5 rounded-md border border-white/15 bg-black/70 px-2 py-1 text-[12px] font-medium text-white/85">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#e5322d]" aria-hidden="true" />detoo · Twitch
+            </span>
           </div>
           <p className="text-xs text-muted-foreground mt-4 max-w-3xl">
-            detoo ran the overlay alongside his actual Shure mic pickup - audience saw the
-            product live, on-stream, in the hands of the creator they tuned in for.
+            Frame from the campaign: detoo unboxing the MV6 on stream with the overlay running.
+            The audience saw the product live, in the hands of the creator they tuned in for.
           </p>
         </div>
       </section>
