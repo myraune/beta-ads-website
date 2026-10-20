@@ -118,3 +118,38 @@
 @media (max-width:420px){
   .bf .clipproof__frame figcaption{font-size:12.5px}
 }
+
+/* ---- Panels respond to their own width, not the viewport ----
+   FeaturePage sections put a panel in a half-width column, where the viewport
+   media queries in home-final.css still pick the full desktop grid (at 1200px
+   the build panel got "250px 0px 340px"). The page-level .bf wrapper around a
+   panel becomes a size container and these rules mirror the stacked layouts. */
+.bf:has(> .panel){container-type:inline-size}
+@container (max-width:1100px){
+  .bf .panel--build{grid-template-columns:210px minmax(0,1fr)}
+  .bf .b-side{grid-column:1/-1;border-left:0;border-top:1px solid var(--line-2);flex-direction:row}
+  .bf .b-side .bcard{flex:1}
+  .bf .panel--live{grid-template-columns:minmax(0,1fr)}
+  .bf .wall{border-right:0}
+}
+@container (max-width:760px){
+  .bf .panel--build{grid-template-columns:minmax(0,1fr);min-height:0}
+  .bf .steps{border-right:0;border-bottom:1px solid var(--line-2);padding:16px}
+  .bf .steps ol{flex-direction:row;gap:6px;margin-top:12px;overflow:hidden}
+  .bf .steps li{font-size:0;gap:0}
+  .bf .steps li.on{font-size:14px;gap:8px}
+  .bf .b-main{padding:16px}
+  .bf .b-head .r-btn{display:none}
+  .bf .b-side{flex-direction:column;padding:16px}
+  .bf .v-list li:nth-child(n+5){display:none}
+  .bf .panel--report{grid-template-columns:minmax(0,1fr)}
+  .bf .r-side{display:none}
+  .bf .r-main{padding:18px 16px 20px}
+  .bf .r-num{font-size:38px}
+  .bf .seg{display:none}
+  .bf .r-row{grid-template-columns:64px minmax(0,1fr) auto;gap:10px;height:auto;padding:13px 0;font-size:14px}
+  .bf .r-row span:nth-child(3){display:none}
+  .bf .r-row span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+}
+
+/* ---- product panels ---- */
