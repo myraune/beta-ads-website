@@ -8,7 +8,7 @@ export const BOOKING_URL = "https://calendar.app.google/coW5NLQJtLxfRer19";
 export const SALES_MAIL = "mailto:sales@beta-ads.no";
 export const PARTNER_MAIL = "mailto:sales@beta-ads.no?subject=Self-serve%20partner%20access";
 
-export const W = "max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-10";
+export const W = "max-w-[1392px] mx-auto px-4 md:px-6"; // matches the header (.nav__in)
 export const kicker = "text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground";
 export const h2 = "text-3xl md:text-[2.6rem] leading-[1.08] font-bold tracking-tight m-0";
 

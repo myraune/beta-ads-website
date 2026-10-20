@@ -81,14 +81,11 @@ const SailyCaseStudy: React.FC = () => {
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-8">
               {/* Saily's own pairing: yellow wordmark on ink, in both themes */}
-              <div
-                className="flex items-center justify-center rounded-xl border border-border px-4 py-2.5"
-                style={{ background: BRAND.ink, boxShadow: `0 0 0 1px ${BRAND.primary}33` }}
-              >
+              <div className="flex items-center">
                 <span
                   aria-label="Saily"
                   className="text-3xl font-bold tracking-tighter leading-none"
-                  style={{ color: BRAND.primary, fontFeatureSettings: "'ss01' on, 'cv11' on" }}
+                  style={{ color: brandInk(BRAND.primary), fontFeatureSettings: "'ss01' on, 'cv11' on" }}
                 >
                   saily
                 </span>

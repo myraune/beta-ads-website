@@ -111,8 +111,7 @@ const KristianiaCaseStudy: React.FC = () => {
             <div className="flex items-center gap-4 mb-8">
               {/* Kristiania's signature "K" mark - extracted from their official brand sprite */}
               <div
-                className="flex items-center justify-center rounded-xl bg-foreground/[0.04] border border-border p-3 backdrop-blur-sm"
-                style={{ boxShadow: `0 0 0 1px ${BRAND.primary}55` }}
+                className="flex items-center"
               >
                 <img
                   src="/lovable-uploads/logo-kristiania-mark.svg"
@@ -318,11 +317,6 @@ const KristianiaCaseStudy: React.FC = () => {
                   key={c.name}
                   className="rounded-2xl border border-border p-7 lg:p-8 bg-card relative overflow-hidden"
                 >
-                  {/* Top brand-colored accent stripe */}
-                  <div
-                    className="absolute inset-x-0 top-0 h-0.5"
-                    style={{ background: BRAND.primary, opacity: idx === 0 ? 1 : 0.55 }}
-                  />
                   <div className="flex items-baseline justify-between mb-5">
                     <span
                       className="text-xs font-semibold tracking-widest uppercase"

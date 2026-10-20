@@ -43,8 +43,7 @@ const GloriousCaseStudy: React.FC = () => {
           <div className="max-w-3xl">
             <div className="flex items-center gap-4 mb-8">
               <div
-                className="flex items-center justify-center rounded-xl bg-foreground/[0.04] border border-border p-3 backdrop-blur-sm"
-                style={{ boxShadow: `0 0 0 1px ${BRAND.primary}44` }}
+                className="flex items-center"
               >
                 <img
                   src="/lovable-uploads/logo-glorious.png"

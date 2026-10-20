@@ -277,13 +277,7 @@ const Norge: React.FC = () => {
                 to={c.slug}
                 className="group flex flex-col rounded-2xl border border-foreground/[0.08] bg-card hover:border-foreground/20 p-7 transition-all duration-300 hover:-translate-y-0.5"
               >
-                <div
-                  className="flex items-center justify-center h-14 w-14 rounded-xl border mb-6"
-                  style={{
-                    borderColor: `${c.accent}33`,
-                    boxShadow: `0 0 0 1px ${c.accent}1a`,
-                  }}
-                >
+                <div className="flex items-center h-10 mb-6">
                   {/* Every client mark here is monochrome, so the filter has to
                       follow the theme. A hard-coded invert renders white logos
                       on the light-theme card (bg-card, near-white) invisible. */}

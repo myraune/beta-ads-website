@@ -290,7 +290,7 @@ const SamsungCaseStudy: React.FC = () => {
             <div>
               <div className="flex items-center gap-4 mb-8">
                 <div
-                  className="shrink-0 flex items-center justify-center rounded-xl bg-foreground/[0.04] border border-border p-3 backdrop-blur-sm"
+                  className="shrink-0 flex items-center"
                   style={{ boxShadow: "0 0 0 1px #1428A044" }}
                 >
                   <img
