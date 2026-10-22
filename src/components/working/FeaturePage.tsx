@@ -33,6 +33,8 @@ export type FeaturePageProps = {
   faqs: { q: string; a: string }[];
   faqTitle: string;
   close: { title: string; body: string };
+  /** Optional block after the sections, e.g. plans. */
+  extra?: React.ReactNode;
 };
 
 /** A platform screenshot. On phones a full app screen shrunk to 360px is
@@ -135,6 +137,8 @@ export const FeaturePage: React.FC<FeaturePageProps> = (p) => (
           </div>
         </section>
       ))}
+
+      {p.extra}
 
       <section className="border-t border-border py-16 md:py-20">
         <div className={`${W} grid sm:grid-cols-3 gap-x-10 gap-y-6`}>
