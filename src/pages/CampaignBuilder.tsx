@@ -1,12 +1,62 @@
-import React from "react";
+import React, { useState } from "react";
 import { FeaturePage } from "@/components/working/FeaturePage";
 import { BuildPanel } from "@/components/home-final/panels";
 import { PanelFrame } from "@/components/home-final/product-panels";
+import { W, kicker, h2 } from "@/components/working/shared";
 
 /* Campaign builder. Steps and options follow the real builder (objective,
    target audience, format, asset, review; awareness or traffic), shown as the
-   coded dark product panel instead of a screenshot. Chat command and poll:
-   confirmed product features. */
+   coded dark product panel instead of a screenshot, one panel per step.
+   Chat command and poll: confirmed product features. */
+
+const STEPS = [
+  { n: "01", t: "Objective", d: "Name the campaign, pick awareness or traffic and set the dates. You pay per 1,000 views that played." },
+  { n: "02", t: "Target audience", d: "Pick markets, platforms, categories and language. We shortlist streamers from Streamer Explorer and you approve every name." },
+  { n: "03", t: "Format", d: "Your creative runs as an animated overlay in a corner of the stream, with its own chat command and an optional poll." },
+  { n: "04", t: "Asset", d: "Upload the overlay and the link it points to. The file is checked against the spec before anything goes live." },
+  { n: "05", t: "Review", d: "Every choice on one page. Submit, and the campaign goes to streamer approval and setup verification." },
+];
+
+const BuilderSteps: React.FC = () => {
+  const [step, setStep] = useState(1);
+  const s = STEPS[step - 1];
+  return (
+    <section className="border-t border-border py-16 md:py-24">
+      <div className={W}>
+        <div className="max-w-3xl">
+          <div className={`${kicker} mb-4`}>Five steps</div>
+          <h2 className={h2}>From objective to review.</h2>
+        </div>
+        <div role="tablist" aria-label="Builder steps" className="mt-8 md:mt-10 grid grid-cols-5 border-t border-border">
+          {STEPS.map((x, i) => (
+            <button key={x.t} type="button" role="tab" aria-selected={step === i + 1} onClick={() => setStep(i + 1)}
+              className={`-mt-px border-t-2 pt-4 pb-2 pr-3 text-left transition-colors ${step === i + 1 ? "border-foreground text-foreground" : "border-transparent text-muted-foreground hover:text-foreground"}`}>
+              <span className="block text-xs font-semibold">{x.n}</span>
+              <span className="hidden sm:block mt-1 text-[15px] font-semibold tracking-tight">{x.t}</span>
+            </button>
+          ))}
+        </div>
+        <div className="mt-6 grid lg:grid-cols-[minmax(0,1fr)_auto] gap-4 items-end">
+          <p className="m-0 max-w-2xl text-muted-foreground leading-relaxed"><span className="sm:hidden font-semibold text-foreground">{s.t}. </span>{s.d}</p>
+          <div className="flex gap-2">
+            <button type="button" onClick={() => setStep(Math.max(1, step - 1))} disabled={step === 1}
+              className="h-10 px-4 rounded-full border border-border text-sm font-semibold disabled:opacity-30">Back</button>
+            <button type="button" onClick={() => setStep(Math.min(5, step + 1))} disabled={step === 5}
+              className="h-10 px-4 rounded-full bg-primary text-primary-foreground text-sm font-semibold disabled:opacity-30">Next step</button>
+          </div>
+        </div>
+        {/* All five panels share one grid cell so the height never jumps between steps. */}
+        <div className="mt-8 grid" role="tabpanel">
+          {STEPS.map((x, i) => (
+            <div key={x.t} className={`[grid-area:1/1] min-w-0 flex flex-col [&>.bf]:flex-1 [&>.bf]:flex [&>.bf]:flex-col [&_.panel]:flex-1 ${step === i + 1 ? "" : "invisible"}`} aria-hidden={step !== i + 1}>
+              <PanelFrame><BuildPanel reveal={false} step={i + 1} /></PanelFrame>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
 
 const CampaignBuilder: React.FC = () => (
   <FeaturePage
@@ -20,18 +70,13 @@ const CampaignBuilder: React.FC = () => (
     hero={{ visual: <PanelFrame><BuildPanel reveal={false} /></PanelFrame>, caption: "The builder on the format step." }}
     sections={[
       {
-        kicker: "Five steps",
-        title: "From objective to review.",
-        body: "Name the campaign, pick an objective and set the dates. Then choose the audience, the format and the asset, and review it before it goes out.",
-        points: ["01 Objective: awareness or traffic", "02 Target audience", "03 Format", "04 Asset", "05 Review"],
-      },
-      {
         kicker: "The overlay",
         title: "An overlay with its own chat command.",
         body: "Your creative runs as an animated overlay in a corner of the stream. Viewers type !yourbrand in chat and get your link back, and you can add a poll that opens in the creator's chat.",
         points: ["Animated overlay in a corner of the stream", "!yourbrand chat command posts your link", "Optional poll in the creator's chat"],
       },
     ]}
+    extra={<BuilderSteps />}
     related={[
       ["Streamer Explorer", "Find the streamers for the campaign.", "/streamer-explorer"],
       ["Setup verification", "Every stream checked on air, every play clipped.", "/campaign-compliance"],
