@@ -48,6 +48,7 @@ const STATIC_PAGES = [
   { path: "/pricing", priority: "0.95", changefreq: "monthly" },
   { path: "/campaign-builder", priority: "0.9", changefreq: "monthly" },
   { path: "/streamer-explorer", priority: "0.9", changefreq: "monthly" },
+  { path: "/twitch-sponsorship-checker", priority: "0.7", changefreq: "monthly" },
   { path: "/reporting", priority: "0.9", changefreq: "monthly" },
   { path: "/programmatic", priority: "0.9", changefreq: "monthly" },
   { path: "/for-marketing-executives", priority: "0.9", changefreq: "monthly" },

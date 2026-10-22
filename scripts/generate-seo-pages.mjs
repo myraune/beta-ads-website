@@ -411,6 +411,13 @@ const STATIC_PAGES = [
     locale: "en",
   },
   {
+    route: "/twitch-sponsorship-checker",
+    title: "Twitch Sponsor Checker: Who Sponsors a Streamer? | Beta Ads",
+    description:
+      "Search any Twitch streamer and see which brands sponsor them. We read stream titles, the bio and the last 100 VODs, and show the proof for every deal.",
+    locale: "en",
+  },
+  {
     route: "/reporting",
     title: "Livestream Ad Reporting: Live Dashboard and PDF | Beta Ads",
     description:

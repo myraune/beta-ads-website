@@ -36,6 +36,7 @@ const BrandSafety = lazy(() => import("./pages/BrandSafety"));
 const Pricing = lazy(() => import("./pages/Pricing"));
 const CampaignBuilder = lazy(() => import("./pages/CampaignBuilder"));
 const StreamerExplorer = lazy(() => import("./pages/StreamerExplorer"));
+const SponsorshipChecker = lazy(() => import("./pages/SponsorshipChecker"));
 const Reporting = lazy(() => import("./pages/Reporting"));
 const Programmatic = lazy(() => import("./pages/Programmatic"));
 const TikTokLiveAdvertising = lazy(() => import("./pages/TikTokLiveAdvertising"));
@@ -215,6 +216,7 @@ const App = () => {
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/campaign-builder" element={<CampaignBuilder />} />
               <Route path="/streamer-explorer" element={<StreamerExplorer />} />
+              <Route path="/twitch-sponsorship-checker" element={<SponsorshipChecker />} />
               <Route path="/reporting" element={<Reporting />} />
               <Route path="/programmatic" element={<Programmatic />} />
               <Route path="/tiktok-live-advertising" element={<TikTokLiveAdvertising />} />
