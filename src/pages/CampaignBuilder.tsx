@@ -45,10 +45,10 @@ const BuilderSteps: React.FC = () => {
               className="h-10 px-4 rounded-full bg-primary text-primary-foreground text-sm font-semibold disabled:opacity-30">Next step</button>
           </div>
         </div>
-        {/* All five panels share one grid cell so the height never jumps between steps. */}
-        <div className="mt-8 grid" role="tabpanel">
+        {/* From md up, all five panels share one grid cell so the height never jumps between steps. On phones only the active panel renders, at its own height. */}
+        <div className="mt-8 md:grid" role="tabpanel">
           {STEPS.map((x, i) => (
-            <div key={x.t} className={`[grid-area:1/1] min-w-0 flex flex-col [&>.bf]:flex-1 [&>.bf]:flex [&>.bf]:flex-col [&_.panel]:flex-1 ${step === i + 1 ? "" : "invisible"}`} aria-hidden={step !== i + 1}>
+            <div key={x.t} className={`md:[grid-area:1/1] min-w-0 flex-col [&>.bf]:flex-1 [&>.bf]:flex [&>.bf]:flex-col [&_.panel]:flex-1 ${step === i + 1 ? "flex" : "hidden md:flex md:invisible"}`} aria-hidden={step !== i + 1}>
               <PanelFrame><BuildPanel reveal={false} step={i + 1} /></PanelFrame>
             </div>
           ))}

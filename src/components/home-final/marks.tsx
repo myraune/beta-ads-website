@@ -40,6 +40,11 @@ const Flag: React.FC<{ bg: string; cross: string; inner?: string; label: string 
   </svg>
 );
 
+export const FlagNO = () => <Flag label="Norway" bg="#BA0C2F" cross="#FFFFFF" inner="#00205B" />;
+export const FlagSE = () => <Flag label="Sweden" bg="#006AA7" cross="#FECC00" />;
+export const FlagDK = () => <Flag label="Denmark" bg="#C8102E" cross="#FFFFFF" />;
+export const FlagFI = () => <Flag label="Finland" bg="#FFFFFF" cross="#002F6C" />;
+
 export const NordicFlags = () => (
   <span className="flags">
     <Flag label="Norway" bg="#BA0C2F" cross="#FFFFFF" inner="#00205B" />
