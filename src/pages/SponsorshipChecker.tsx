@@ -4,6 +4,7 @@ import { ArrowRight, ExternalLink, Loader2, Search } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { W, kicker, h2, BOOKING_URL } from "@/components/working/shared";
 import { LIVE_DEALS, SNAPSHOT_DATE } from "@/data/liveDeals";
+import { ExplorerPlans } from "@/components/working/ExplorerPlans";
 
 /* Twitch sponsorship checker. Search a channel, then /api/creator-sponsors reads the
    current title, bio and last 100 VOD titles and Claude says which brands sponsor
@@ -21,6 +22,35 @@ type Result = {
     live: { viewers: number; title: string; game: string } | null; vodCount: number; since: string | null };
   sponsors: Sponsor[]; not_sponsors: { token: string; reason: string }[]; summary: string; scannedLines: number;
 };
+
+/* Same client logos as the homepage strip. */
+const LOGOS: [string, string, number][] = [
+  ["samsung", "Samsung", 16], ["logitech", "Logitech", 28], ["komplett", "Komplett", 22], ["steelseries", "SteelSeries", 18],
+  ["shure", "Shure", 20], ["glorious", "Glorious", 19], ["foodora", "foodora", 21], ["saily", "Saily", 26],
+];
+
+/* Real calls from the checker on 21 October 2026, one per kind of result. */
+const KINDS = [
+  { tab: "Sponsors", title: "Paid deals, dated.", body: "A brand-named !command, #ad or a partner tag, tied to the streams it ran on. You see when it started and if it is still running.",
+    login: "astabush", who: "AstaBush", rows: [["HelloFresh", "!Hellofresh in every title, 6 to 22 Oct", "12 streams"], ["Helix", "!Helix with #HelixPartner, 28 Aug", "1 stream"], ["Alienware", "Cozy rainy Monday with !Alienware, 7 Sep", "1 stream"]] },
+  { tab: "Campaign starts", title: "Catch a deal the week it starts.", body: "No brand in the earlier titles, then a command and #ad. That is a new campaign, and a brand that just started buying streams.",
+    login: "artosis", who: "Artosis", rows: [["HelloFresh", "!HelloFresh #ad, first seen 21 Oct", "New"], ["Before that", "No brand in titles back to 22 Aug", "Clean"]] },
+  { tab: "Own brands", title: "The creator's own shop is not a sponsor.", body: "Coaching courses, merch and second channels look like deals to a keyword list. They are counted apart.",
+    login: "agurin", who: "agurin", rows: [["SteelSeries", "!steelseries NEW, 25 Sep to 22 Oct", "28 streams"], ["!course", "The creator's own coaching course", "Own brand"]] },
+  { tab: "Noise", title: "Chat commands, thrown out.", body: "Every channel has a dozen !commands. Claude reads each one in context and says why it is not a deal.",
+    login: "agurin", who: "agurin", rows: [["!khazix", "League of Legends champion guide", "Not a deal"], ["!borders", "Overlay command, no brand", "Not a deal"], ["!prime", "Prime Gaming sub reminder", "Not a deal"]] },
+];
+
+const TOOLKIT = [
+  { t: "Streamer Explorer", d: "39,000+ streamers on Twitch, YouTube and Kick. Filter by country, language, category, audience and brand safety.", to: "/streamer-explorer",
+    rows: [["Platform", "Twitch, YouTube, Kick"], ["Country and language", "Every market"], ["Brand safety score", "Per streamer"]] },
+  { t: "AI streamer search", d: "Describe the streamers you need or paste a brief, and get the list back. 5 Beta Credits a run.", to: "/streamer-explorer#plans",
+    rows: [["Brief", "Norwegian FPS streamers, 18 to 24"], ["Result", "A shortlist you can save"], ["Cost", "5 credits"]] },
+  { t: "Streamer lists", d: "Save shortlists per market or client, share them with your team and turn them into a campaign.", to: "/streamer-explorer",
+    rows: [["Growth", "10 lists, 2,500 each"], ["Scale", "Unlimited lists"], ["Export", "CSV"]] },
+  { t: "Brand safety vetting", d: "Check what a streamer says on stream before your brand sits next to them.", to: "/brand-safety",
+    rows: [["Growth", "500 vetted a month"], ["Scale", "2,000 vetted a month"], ["Enterprise", "Unlimited"]] },
+];
 
 const EXAMPLES = ["AstaBush", "agurin", "Artosis", "Mr_Mammal", "DansGaming"];
 const KIND: Record<Sponsor["kind"], string> = { sponsor: "Sponsor", affiliate: "Affiliate code", own_brand: "Own brand", unclear: "Unclear" };
@@ -113,6 +143,7 @@ const SponsorshipChecker: React.FC = () => {
     }
   };
 
+  const [kind, setKind] = useState(0);
   const idle = !loading && !result && !error;
 
   return (
@@ -142,7 +173,7 @@ const SponsorshipChecker: React.FC = () => {
                 value={q}
                 onChange={e => { setQ(e.target.value); setOpen(true); }}
                 onFocus={() => setOpen(true)}
-                placeholder="Search a Twitch streamer"
+                placeholder="Search a Twitch streamer, e.g. agurin"
                 aria-label="Twitch channel"
                 autoComplete="off"
                 spellCheck={false}
@@ -242,6 +273,17 @@ const SponsorshipChecker: React.FC = () => {
         </div>
       </section>
 
+      {/* ── LOGOS ── */}
+      <section className={`${W} py-16 md:py-24 text-center`}>
+        <h2 className={`${h2} max-w-3xl mx-auto`}>Built by the team behind <span className="text-muted-foreground font-light">these livestream campaigns.</span></h2>
+        <ul className="mt-10 m-0 p-0 list-none flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+          {LOGOS.map(([f, alt, hgt]) => (
+            <li key={f}><img src={`/lovable-uploads/logo-${f}.png`} alt={alt} style={{ height: hgt }} className="w-auto brightness-0 opacity-75 dark:invert" loading="lazy" /></li>
+          ))}
+        </ul>
+        <Link to="/case-studies" className="mt-8 inline-block text-sm font-semibold text-muted-foreground hover:text-foreground">See the case studies &rarr;</Link>
+      </section>
+
       {/* ── SEARCH. PROVE. PITCH. ── */}
       <section className={`${W} pt-4 md:pt-6`}>
         <div className="rounded-[28px] bg-[#0E0F12] text-white px-5 py-14 md:px-12 md:py-20">
@@ -281,17 +323,81 @@ const SponsorshipChecker: React.FC = () => {
         </div>
       </section>
 
-      {/* ── CLOSE ── */}
-      <section className={`${W} py-20 md:py-28 text-center`}>
-        <h2 className={`${h2} max-w-3xl mx-auto`}>Want your brand in these streams? <span className="text-muted-foreground font-light">We run it for you.</span></h2>
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" data-cta="book"
-            className="inline-flex items-center gap-2 h-11 px-6 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">
-            Book a demo <ArrowRight className="w-4 h-4" />
-          </a>
-          <Link to="/streamer-explorer" className="inline-flex items-center h-11 px-6 rounded-full border border-border text-sm font-semibold hover:border-foreground/40 transition-colors">
-            Streamer Explorer
-          </Link>
+      {/* ── KINDS: tabs ── */}
+      <section className={`${W} py-20 md:py-28`}>
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className={h2}>Covering what keyword lists <span className="text-muted-foreground font-light">get wrong.</span></h2>
+          <p className="mt-4 text-muted-foreground leading-relaxed">A list of brand names counts every !command. The checker reads them the way a person would, and sorts them.</p>
+        </div>
+        <div role="tablist" className="mt-8 flex flex-wrap justify-center gap-2">
+          {KINDS.map((k, i) => (
+            <button key={k.tab} role="tab" aria-selected={kind === i} type="button" onClick={() => setKind(i)}
+              className={`h-10 px-5 rounded-full text-sm font-semibold transition-colors ${kind === i ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground hover:text-foreground"}`}>
+              {k.tab}
+            </button>
+          ))}
+        </div>
+        <div className="mt-10 md:mt-14 grid md:grid-cols-2 gap-8 md:gap-14 items-center">
+          <div>
+            <h3 className="text-3xl md:text-[2.6rem] leading-[1.06] font-bold tracking-tight m-0">{KINDS[kind].title}</h3>
+            <p className="mt-5 mb-0 text-muted-foreground leading-relaxed max-w-md">{KINDS[kind].body}</p>
+            <button type="button" onClick={() => check(KINDS[kind].login, true)} className="mt-6 text-sm font-semibold hover:opacity-70">Check {KINDS[kind].who} live &rarr;</button>
+          </div>
+          <div className="rounded-2xl border border-border bg-card p-5 md:p-6 shadow-[0_24px_48px_-28px_rgba(15,16,18,.2)]">
+            <div className="flex items-center gap-3">
+              <img src={avatar(KINDS[kind].login)} alt="" className="w-8 h-8 rounded-full" />
+              <span className="font-semibold">{KINDS[kind].who}</span>
+              <span className="ml-auto text-xs text-muted-foreground">Checked 21 Oct 2026</span>
+            </div>
+            <div className="mt-4 border-t border-border">
+              {KINDS[kind].rows.map(([a, b, c]) => (
+                <div key={a} className="flex items-baseline gap-4 py-3 border-b border-border last:border-b-0 text-sm">
+                  <span className="font-semibold w-28 shrink-0">{a}</span>
+                  <span className="text-muted-foreground min-w-0">{b}</span>
+                  <span className={`ml-auto shrink-0 text-xs font-semibold ${c === "Not a deal" ? "text-signal" : ""}`}>{c}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── TOOLKIT ── */}
+      <section className={`${W} pb-8`}>
+        <div className="text-center max-w-2xl mx-auto">
+          <h2 className={h2}>Plus the rest <span className="text-muted-foreground font-light">of the platform.</span></h2>
+          <p className="mt-4 text-muted-foreground">The checker is the free part. Behind the login: the tools we plan our own campaigns with.</p>
+        </div>
+        <div className="mt-10 md:mt-12 grid md:grid-cols-2 gap-4 md:gap-5">
+          {TOOLKIT.map(t => (
+            <Link key={t.t} to={t.to} className="group rounded-[20px] bg-muted/60 p-6 md:p-8 flex flex-col hover:bg-muted transition-colors">
+              <span className="text-lg font-bold tracking-tight">{t.t}</span>
+              <span className="mt-2 text-[15px] text-muted-foreground leading-relaxed max-w-md">{t.d}</span>
+              <span className="mt-6 rounded-xl bg-card p-4 shadow-[0_1px_2px_rgba(15,16,18,.04),0_16px_32px_-24px_rgba(15,16,18,.2)]">
+                {t.rows.map(([a, b]) => (
+                  <span key={a} className="flex items-baseline justify-between gap-4 py-2 border-b border-border last:border-b-0 text-sm">
+                    <span className="text-muted-foreground">{a}</span><span className="font-semibold text-right">{b}</span>
+                  </span>
+                ))}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <ExplorerPlans centered />
+
+      {/* ── CLOSE: dark CTA ── */}
+      <section className={`${W} pb-20 md:pb-28`}>
+        <div className="rounded-[28px] bg-[#0E0F12] text-white px-6 py-16 md:py-24 text-center">
+          <h2 className={`${h2} text-white max-w-3xl mx-auto`}>Stop guessing who sponsors whom. <span className="text-white/45 font-light">Search it.</span></h2>
+          <p className="mt-5 max-w-xl mx-auto text-white/60 leading-relaxed">Free, for any Twitch channel. And if you want your brand in these streams, we run the campaign for you.</p>
+          <div className="mt-9 max-w-xl mx-auto flex flex-col sm:flex-row gap-3">
+            <button type="button" onClick={() => { topRef.current?.scrollIntoView({ behavior: "smooth" }); }}
+              className="flex-1 h-12 rounded-full bg-white text-[#0F1012] text-sm font-semibold hover:opacity-90 transition-opacity">Search a streamer</button>
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" data-cta="book"
+              className="flex-1 h-12 inline-flex items-center justify-center gap-2 rounded-full border border-white/20 text-sm font-semibold hover:border-white/50 transition-colors">Book a demo <ArrowRight className="w-4 h-4" /></a>
+          </div>
         </div>
       </section>
     </div>

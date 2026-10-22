@@ -10,6 +10,8 @@ import * as z from "zod/v4";
    vite.config.ts locally. Needs TWITCH_CLIENT_ID, TWITCH_CLIENT_SECRET and
    ANTHROPIC_API_KEY (server-side only, never VITE_-prefixed). */
 
+export const maxDuration = 60; // Claude call is ~10-20 s
+
 const MODEL = "claude-opus-5-5";
 const CACHE_MS = 6 * 60 * 60 * 1000;
 const PER_IP_HOUR = 15;

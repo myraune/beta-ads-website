@@ -38,12 +38,12 @@ const CREDIT_COSTS = [
   ["Filtering, lists, exports, campaigns", "Free"],
 ];
 
-export const ExplorerPlans: React.FC = () => {
+export const ExplorerPlans: React.FC<{ centered?: boolean }> = ({ centered }) => {
   const [yearly, setYearly] = useState(false);
   return (
     <section id="plans" className="border-t border-border py-16 md:py-24 scroll-mt-20">
       <div className={W}>
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div className={centered ? "flex flex-col items-center text-center gap-6" : "flex flex-col md:flex-row md:items-end md:justify-between gap-6"}>
           <div className="max-w-2xl">
             <div className={`${kicker} mb-4`}>Plans</div>
             <h2 className={h2}>Pick the plan your research runs on. <span className="text-muted-foreground font-light">Campaigns stay free.</span></h2>
@@ -67,7 +67,7 @@ export const ExplorerPlans: React.FC = () => {
             const price = "monthly" in p ? (yearly ? p.yearly : p.monthly) : null;
             return (
               <div key={p.name} className={`rounded-[18px] p-7 flex flex-col border ${dark ? "border-transparent bg-[#0E0F12] text-white" : "border-border bg-card"}`}>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 h-6">
                   <span className={`text-sm font-semibold ${dark ? "text-white/60" : "text-muted-foreground"}`}>{p.name}</span>
                   {dark && <span className="text-[11px] font-semibold px-2 h-6 inline-flex items-center rounded-full bg-white/10">Most popular</span>}
                 </div>
