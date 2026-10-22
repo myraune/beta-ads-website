@@ -12,14 +12,14 @@ const PLANS = [
     name: "Growth",
     for: "For brands running influencer campaigns in-house.",
     monthly: 299, yearly: 249, yearlyTotal: "2,988",
-    credits: "150 LIVAD Credits a month",
+    credits: "150 Beta Credits a month",
     points: ["5 seats plus 5 viewer seats", "Full Streamer & Category Explorer, every filter", "500 vetted streamers a month", "10 lists, 2,500 streamers each", "CSV export up to 1,000 rows"],
   },
   {
     name: "Scale",
     for: "For agencies and brand teams working across many clients.",
     monthly: 899, yearly: 749, yearlyTotal: "8,988",
-    credits: "400 LIVAD Credits a month",
+    credits: "400 Beta Credits a month",
     popular: true,
     points: ["20 seats plus unlimited viewer seats", "Unlimited lists and saved presets", "2,000 vetted streamers a month", "CSV export up to 25,000 rows", "Unlimited explorer depth"],
   },
@@ -48,7 +48,7 @@ export const ExplorerPlans: React.FC = () => {
             <div className={`${kicker} mb-4`}>Plans</div>
             <h2 className={h2}>Pick the plan your research runs on. <span className="text-muted-foreground font-light">Campaigns stay free.</span></h2>
             <p className="mt-5 mb-0 text-muted-foreground leading-relaxed">
-              Every plan opens both explorers, lists and LIVAD Credits for the AI features. Start with a 7-day free trial, no card needed.
+              Every plan opens both explorers, lists and Beta Credits for the AI features. Start with a 7-day free trial, no card needed.
             </p>
           </div>
           <div role="radiogroup" aria-label="Billing interval" className="inline-flex self-start md:self-auto p-1 rounded-full border border-border bg-card text-sm font-semibold">
@@ -66,7 +66,7 @@ export const ExplorerPlans: React.FC = () => {
             const dark = "popular" in p && p.popular;
             const price = "monthly" in p ? (yearly ? p.yearly : p.monthly) : null;
             return (
-              <div key={p.name} className={`rounded-[18px] p-7 flex flex-col ${dark ? "bg-[#0E0F12] text-white" : "border border-border bg-card"}`}>
+              <div key={p.name} className={`rounded-[18px] p-7 flex flex-col border ${dark ? "border-transparent bg-[#0E0F12] text-white" : "border-border bg-card"}`}>
                 <div className="flex items-center gap-3">
                   <span className={`text-sm font-semibold ${dark ? "text-white/60" : "text-muted-foreground"}`}>{p.name}</span>
                   {dark && <span className="text-[11px] font-semibold px-2 h-6 inline-flex items-center rounded-full bg-white/10">Most popular</span>}
@@ -80,11 +80,11 @@ export const ExplorerPlans: React.FC = () => {
                 </p>
                 <p className={`mt-5 mb-0 text-[15px] ${dark ? "text-white/70" : "text-muted-foreground"}`}>{p.for}</p>
                 <div className={`mt-5 text-[15px] font-semibold border-t pt-4 ${dark ? "border-white/10" : "border-border"}`}>{p.credits}</div>
-                <ul className="mt-3 m-0 p-0 list-none space-y-2 text-[15px]">
+                <ul className="mt-3 mb-8 p-0 list-none space-y-2 text-[15px]">
                   {p.points.map(pt => <li key={pt} className={dark ? "text-white/70" : "text-muted-foreground"}>{pt}</li>)}
                 </ul>
                 <a href={"monthly" in p ? PLATFORM_URL : BOOKING_URL} target="_blank" rel="noopener noreferrer" data-cta={"monthly" in p ? "platform" : "book"}
-                  className={`mt-8 inline-flex items-center justify-center h-11 rounded-full text-sm font-semibold transition-opacity hover:opacity-90 ${dark ? "bg-white text-[#0F1012]" : "monthly" in p ? "bg-primary text-primary-foreground" : "border border-border"}`}>
+                  className={`mt-auto inline-flex items-center justify-center h-11 rounded-full text-sm font-semibold transition-opacity hover:opacity-90 ${dark ? "bg-white text-[#0F1012]" : "monthly" in p ? "bg-primary text-primary-foreground" : "border border-border"}`}>
                   {"monthly" in p ? "Start free trial" : "Talk to us"}
                 </a>
               </div>
@@ -94,7 +94,7 @@ export const ExplorerPlans: React.FC = () => {
 
         <div className="mt-12 grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] gap-8 lg:gap-16">
           <div>
-            <h3 className="text-xl font-bold tracking-tight m-0">What a LIVAD Credit pays for</h3>
+            <h3 className="text-xl font-bold tracking-tight m-0">What a Beta Credit pays for</h3>
             <p className="mt-3 mb-0 text-muted-foreground leading-relaxed max-w-md">
               Credits pay for the AI features. When they run out, only those stop: explorers, lists, exports and campaign creation keep working.
               Top up with packs of 250, 600 or 1,500 credits. Bought credits never expire; plan credits reset each billing period.

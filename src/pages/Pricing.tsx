@@ -177,7 +177,7 @@ const Pricing: React.FC = () => (
           </div>
           <Link to="/streamer-explorer#plans" className="group mt-4 md:mt-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6 rounded-[18px] bg-muted/60 px-7 py-5 text-[15px]">
             <span className="font-semibold">Streamer Explorer on its own</span>
-            <span className="text-muted-foreground">Research plans from $249 a month with LIVAD Credits for the AI features. Campaigns stay free.</span>
+            <span className="text-muted-foreground">Research plans from $249 a month with Beta Credits for the AI features. Campaigns stay free.</span>
             <span className="sm:ml-auto text-sm font-semibold whitespace-nowrap">See plans <span aria-hidden="true" className="inline-block transition-transform group-hover:translate-x-0.5">&rarr;</span></span>
           </Link>
         </div>
