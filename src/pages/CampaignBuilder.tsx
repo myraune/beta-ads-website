@@ -3,6 +3,7 @@ import { FeaturePage } from "@/components/working/FeaturePage";
 import { BuildPanel } from "@/components/home-final/panels";
 import { PanelFrame } from "@/components/home-final/product-panels";
 import { W, kicker, h2 } from "@/components/working/shared";
+import { PortalBuilder, type BuilderTheme } from "@/components/home-final/builder-panels";
 
 /* Campaign builder. Steps and options follow the real builder (objective,
    target audience, format, asset, review; awareness or traffic), shown as the
@@ -19,6 +20,8 @@ const STEPS = [
 
 const BuilderSteps: React.FC = () => {
   const [step, setStep] = useState(1);
+  // Temporary A/B switch for review: site-style dark panel vs a faithful copy of the portal.
+  const [theme, setTheme] = useState<BuilderTheme>("portal");
   const s = STEPS[step - 1];
   return (
     <section className="border-t border-border py-16 md:py-24">
@@ -38,7 +41,13 @@ const BuilderSteps: React.FC = () => {
         </div>
         <div className="mt-6 grid lg:grid-cols-[minmax(0,1fr)_auto] gap-4 items-end">
           <p className="m-0 max-w-2xl text-muted-foreground leading-relaxed"><span className="sm:hidden font-semibold text-foreground">{s.t}. </span>{s.d}</p>
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-wrap">
+            <span className="inline-flex p-1 rounded-full border border-border text-xs font-semibold mr-2">
+              {([["portal", "Portal style"], ["site", "Site style"]] as const).map(([v, l]) => (
+                <button key={v} type="button" onClick={() => setTheme(v)}
+                  className={`h-8 px-3 rounded-full ${theme === v ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}>{l}</button>
+              ))}
+            </span>
             <button type="button" onClick={() => setStep(Math.max(1, step - 1))} disabled={step === 1}
               className="h-10 px-4 rounded-full border border-border text-sm font-semibold disabled:opacity-30">Back</button>
             <button type="button" onClick={() => setStep(Math.min(5, step + 1))} disabled={step === 5}
@@ -48,8 +57,8 @@ const BuilderSteps: React.FC = () => {
         {/* From md up, all five panels share one grid cell so the height never jumps between steps. On phones only the active panel renders, at its own height. */}
         <div className="mt-8 md:grid" role="tabpanel">
           {STEPS.map((x, i) => (
-            <div key={x.t} className={`md:[grid-area:1/1] min-w-0 flex-col [&>.bf]:flex-1 [&>.bf]:flex [&>.bf]:flex-col [&_.panel]:flex-1 ${step === i + 1 ? "flex" : "hidden md:flex md:invisible"}`} aria-hidden={step !== i + 1}>
-              <PanelFrame><BuildPanel reveal={false} step={i + 1} /></PanelFrame>
+            <div key={x.t} className={`md:[grid-area:1/1] min-w-0 flex-col [&>.pb-wrap]:flex-1 ${step === i + 1 ? "flex" : "hidden md:flex md:invisible"}`} aria-hidden={step !== i + 1}>
+              <PortalBuilder step={i + 1} theme={theme} />
             </div>
           ))}
         </div>
