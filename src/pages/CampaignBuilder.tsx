@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { FeaturePage } from "@/components/working/FeaturePage";
-import { BuildPanel } from "@/components/home-final/panels";
-import { PanelFrame } from "@/components/home-final/product-panels";
 import { W, kicker, h2 } from "@/components/working/shared";
-import { PortalBuilder, type BuilderTheme } from "@/components/home-final/builder-panels";
+import { PortalBuilder } from "@/components/home-final/builder-panels";
 
 /* Campaign builder. Steps and options follow the real builder (objective,
    target audience, format, asset, review; awareness or traffic), shown as the
-   coded dark product panel instead of a screenshot, one panel per step.
+   coded copy of the portal builder (builder-panels.tsx) instead of a screenshot,
+   one panel per step.
    Chat command and poll: confirmed product features. */
 
 const STEPS = [
@@ -20,8 +19,6 @@ const STEPS = [
 
 const BuilderSteps: React.FC = () => {
   const [step, setStep] = useState(1);
-  // Temporary A/B switch for review: site-style dark panel vs a faithful copy of the portal.
-  const [theme, setTheme] = useState<BuilderTheme>("portal");
   const s = STEPS[step - 1];
   return (
     <section className="border-t border-border py-16 md:py-24">
@@ -41,13 +38,7 @@ const BuilderSteps: React.FC = () => {
         </div>
         <div className="mt-6 grid lg:grid-cols-[minmax(0,1fr)_auto] gap-4 items-end">
           <p className="m-0 max-w-2xl text-muted-foreground leading-relaxed"><span className="sm:hidden font-semibold text-foreground">{s.t}. </span>{s.d}</p>
-          <div className="flex gap-2 flex-wrap">
-            <span className="inline-flex p-1 rounded-full border border-border text-xs font-semibold mr-2">
-              {([["portal", "Portal style"], ["site", "Site style"]] as const).map(([v, l]) => (
-                <button key={v} type="button" onClick={() => setTheme(v)}
-                  className={`h-8 px-3 rounded-full ${theme === v ? "bg-primary text-primary-foreground" : "text-muted-foreground"}`}>{l}</button>
-              ))}
-            </span>
+          <div className="flex gap-2">
             <button type="button" onClick={() => setStep(Math.max(1, step - 1))} disabled={step === 1}
               className="h-10 px-4 rounded-full border border-border text-sm font-semibold disabled:opacity-30">Back</button>
             <button type="button" onClick={() => setStep(Math.min(5, step + 1))} disabled={step === 5}
@@ -58,7 +49,7 @@ const BuilderSteps: React.FC = () => {
         <div className="mt-8 md:grid" role="tabpanel">
           {STEPS.map((x, i) => (
             <div key={x.t} className={`md:[grid-area:1/1] min-w-0 flex-col [&>.pb-wrap]:flex-1 ${step === i + 1 ? "flex" : "hidden md:flex md:invisible"}`} aria-hidden={step !== i + 1}>
-              <PortalBuilder step={i + 1} theme={theme} />
+              <PortalBuilder step={i + 1} theme="portal" />
             </div>
           ))}
         </div>
@@ -76,7 +67,7 @@ const CampaignBuilder: React.FC = () => (
     kicker="Platform · Campaign builder"
     title="Build the campaign in one flow."
     lead="Objective, target audience, format, asset and review, in five steps. Your creative becomes an animated overlay with its own chat command, and a poll if you want one."
-    hero={{ visual: <PanelFrame><BuildPanel reveal={false} /></PanelFrame>, caption: "The builder on the format step." }}
+    hero={{ visual: <PortalBuilder step={3} theme="portal" />, caption: "The campaign builder in the Beta Ads platform, on the format step." }}
     sections={[
       {
         kicker: "The overlay",
