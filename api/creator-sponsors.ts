@@ -4,8 +4,9 @@ import * as z from "zod/v4";
 
 /* Sponsorship checker for /twitch-sponsorship-checker.
    GET  ?q=name   -> channel search (Twitch Helix), for the autocomplete.
-   POST {login}   -> reads the creator's current title, bio and last 100 VOD titles,
-                     and asks Claude which brands sponsor them.
+   POST {login}   -> reads the creator's current title, bio, last 100 VOD titles and
+                     public chat bot commands (Nightbot, StreamElements), and asks
+                     Claude which brands sponsor them.
    Runs as a Vercel function in production and through the dev middleware in
    vite.config.ts locally. Needs TWITCH_CLIENT_ID, TWITCH_CLIENT_SECRET and
    ANTHROPIC_API_KEY (server-side only, never VITE_-prefixed). */
@@ -17,7 +18,7 @@ const CACHE_MS = 6 * 60 * 60 * 1000;
 const PER_IP_HOUR = 15;
 const PER_DAY = 300; // hard ceiling on Claude calls per instance per day, protects the credits
 
-type Title = { id: number; date: string; lastDate: string; count: number; text: string; url: string; source: "live" | "vod" | "bio" };
+type Title = { id: number; date: string; lastDate: string; count: number; text: string; url: string; source: "live" | "vod" | "bio" | "command" };
 
 const cache = new Map<string, { at: number; data: unknown }>();
 const hits = new Map<string, number[]>();
@@ -51,6 +52,29 @@ async function helix<T = any>(path: string): Promise<T> {
   return r.json();
 }
 
+/* Brand deals mostly live behind chat commands (!reklame, !cupra): the title only says
+   "!reklame", the bot reply names the brand. Both bots expose commands publicly.
+   date is when the command was last edited. */
+async function botCommands(login: string): Promise<Omit<Title, "id" | "lastDate" | "count">[]> {
+  const get = (url: string, headers?: Record<string, string>) =>
+    fetch(url, { headers, signal: AbortSignal.timeout(5000) }).then(r => (r.ok ? r.json() : null)).catch(() => null);
+  const [nb, se] = await Promise.all([
+    get(`https://api.nightbot.tv/1/channels/t/${login}`).then(async c =>
+      c?.channel?._id ? (await get("https://api.nightbot.tv/1/commands", { "Nightbot-Channel": c.channel._id }))?.commands ?? [] : []),
+    get(`https://api.streamelements.com/kappa/v2/channels/${login}`).then(async c =>
+      c?._id ? (await get(`https://api.streamelements.com/kappa/v2/bot/commands/${c._id}/public`)) ?? [] : []),
+  ]);
+  const rows = [
+    ...nb.map((c: any) => ({ name: c.name, reply: c.message, at: c.updatedAt, url: `https://nightbot.tv/t/${login}/commands` })),
+    ...se.map((c: any) => ({ name: `!${c.command}`, reply: c.reply, at: c.updatedAt, url: `https://streamelements.com/${login}/commands` })),
+  ];
+  return rows
+    .filter(c => c.name && c.reply?.trim() && c.at)
+    .sort((a, b) => b.at.localeCompare(a.at))
+    .slice(0, 150)
+    .map(c => ({ date: c.at.slice(0, 10), text: `${c.name}: ${c.reply}`, url: c.url, source: "command" as const }));
+}
+
 /* Same title streamed many days in a row collapses to one line with a date range. */
 function collapse(rows: Omit<Title, "id" | "lastDate" | "count">[]): Title[] {
   const byText = new Map<string, Title>();
@@ -79,7 +103,9 @@ const Result = z.object({
   summary: z.string(),
 });
 
-const SYSTEM = `You read Twitch stream titles and a channel bio and decide which brands sponsor the creator.
+const SYSTEM = `You read Twitch stream titles, a channel bio and the channel's public chat bot commands, and decide which brands sponsor the creator.
+
+Lines with source "command" are "!name: bot reply", dated by when the command was last edited. They are the best evidence: creators put "!reklame" or "!ad" in the title and the bot reply names the brands. A reply that discloses advertising in any language (Reklame, reklame for, annonse, annonce, #ad, #reklame, sponsored, "in partnership with", a discount code or tracking link for a company) is a deal. A disclosure list such as "this stream contains ads for A, B and C" counts for each brand it names; use that line as evidence for each. A command edited long ago is an older deal, keep it but say so in note.
 
 Twitch titles are full of !commands. Most are chat bot commands, not deals: !discord, !socials, !youtube, !merch for the creator's own shop, !prime (a Prime Gaming sub reminder), !drops, game guides, champion or build names, community events, other streamers. Count a brand only when the line shows a commercial relationship: a !command named after a company or product (!hellofresh, !gamersupps, !steelseries), #ad or #sponsored, "sponsored by", "partner", "code X" or "use code" with a brand, or a brand @mention in a promo context.
 
@@ -90,11 +116,12 @@ async function analyse(login: string) {
   const u = users.data?.[0];
   if (!u) return null;
 
-  const [channel, stream, vods, followers] = await Promise.all([
+  const [channel, stream, vods, followers, commands] = await Promise.all([
     helix(`channels?broadcaster_id=${u.id}`),
     helix(`streams?user_id=${u.id}`),
     helix(`videos?user_id=${u.id}&type=archive&first=100`),
     helix(`channels/followers?broadcaster_id=${u.id}`).catch(() => null),
+    botCommands(u.login),
   ]);
   const ch = channel.data?.[0] ?? {};
   const live = stream.data?.[0] ?? null;
@@ -104,7 +131,9 @@ async function analyse(login: string) {
   if (ch.title) rows.push({ date: today, text: ch.title, url: `https://twitch.tv/${u.login}`, source: "live" });
   for (const v of vods.data ?? []) rows.push({ date: v.created_at.slice(0, 10), text: v.title, url: v.url, source: "vod" });
   const titles = collapse(rows);
+  const titleLines = titles.length;
   if (u.description) titles.push({ id: titles.length + 1, date: today, lastDate: today, count: 1, text: u.description, url: `https://twitch.tv/${u.login}/about`, source: "bio" });
+  for (const c of commands) titles.push({ ...c, id: titles.length + 1, lastDate: c.date, count: 1 });
 
   const creator = {
     login: u.login,
@@ -115,12 +144,13 @@ async function analyse(login: string) {
     followers: followers?.total ?? null,
     live: live ? { viewers: live.viewer_count, title: live.title, game: live.game_name } : null,
     vodCount: vods.data?.length ?? 0,
-    since: titles.length ? titles.reduce((m, t) => (t.date < m ? t.date : m), today) : null,
+    commandCount: commands.length,
+    since: titleLines ? titles.filter(t => t.source !== "command").reduce((m, t) => (t.date < m ? t.date : m), today) : null,
   };
 
-  if (!titles.length) return { creator, sponsors: [], not_sponsors: [], summary: "No titles or VODs to read for this channel.", scannedLines: 0 };
+  if (!titles.length) return { creator, sponsors: [], not_sponsors: [], summary: "No titles, VODs or bot commands to read for this channel.", scannedLines: 0 };
 
-  const lines = titles.map(t => `${t.id} | ${t.source} | ${t.date === t.lastDate ? t.date : `${t.date}..${t.lastDate}`}${t.count > 1 ? ` x${t.count}` : ""} | ${t.text.replace(/\s+/g, " ").slice(0, 300)}`).join("\n");
+  const lines = titles.map(t => `${t.id} | ${t.source} | ${t.date === t.lastDate ? t.date : `${t.date}..${t.lastDate}`}${t.count > 1 ? ` x${t.count}` : ""} | ${t.text.replace(/\s+/g, " ").slice(0, t.source === "command" ? 600 : 300)}`).join("\n");
 
   const client = new Anthropic();
   const res = await client.beta.messages.parse({
@@ -138,20 +168,26 @@ async function analyse(login: string) {
   const byId = new Map(titles.map(t => [t.id, t]));
   const sponsors = res.parsed_output.sponsors
     .map(s => {
-      const ev = s.evidence_ids.map(id => byId.get(id)).filter((t): t is Title => !!t);
-      if (!ev.length) return null; // drop anything Claude could not tie to a real line
+      const cited = s.evidence_ids.map(id => byId.get(id)).filter((t): t is Title => !!t);
+      if (!cited.length) return null; // drop anything Claude could not tie to a real line
+      // A command only has an edit date; the titles that advertise it (!cupra) show the real streams.
+      const names = cited.filter(t => t.source === "command").map(t => t.text.split(":")[0].trim().toLowerCase())
+        .filter(n => n.length > 2 && n !== "!reklame" && n !== "!ad" && n !== "!annonce");
+      const inTitles = titles.filter(t => (t.source === "vod" || t.source === "live") && !cited.includes(t)
+        && names.some(n => new RegExp(`${n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?![\\p{L}\\d])`, "iu").test(t.text)));
+      const ev = [...cited, ...inTitles];
       return {
         brand: s.brand, category: s.category, kind: s.kind, confidence: s.confidence, note: s.note,
         firstSeen: ev.reduce((m, t) => (t.date < m ? t.date : m), ev[0].date),
         lastSeen: ev.reduce((m, t) => (t.lastDate > m ? t.lastDate : m), ev[0].lastDate),
-        streams: ev.reduce((n, t) => n + t.count, 0),
-        evidence: ev.slice(0, 4).map(t => ({ text: t.text, date: t.lastDate, url: t.url, source: t.source })),
+        streams: ev.reduce((n, t) => n + (t.source === "vod" || t.source === "live" ? t.count : 0), 0),
+        evidence: [...cited.slice(0, 3), ...inTitles.slice(0, 2)].map(t => ({ text: t.text, date: t.lastDate, url: t.url, source: t.source })),
       };
     })
     .filter(Boolean)
     .sort((a, b) => b!.lastSeen.localeCompare(a!.lastSeen));
 
-  return { creator, sponsors, not_sponsors: res.parsed_output.not_sponsors, summary: res.parsed_output.summary, scannedLines: titles.length };
+  return { creator, sponsors, not_sponsors: res.parsed_output.not_sponsors, summary: res.parsed_output.summary, scannedLines: titleLines };
 }
 
 function allow(ip: string) {

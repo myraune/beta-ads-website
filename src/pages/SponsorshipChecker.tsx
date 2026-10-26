@@ -12,14 +12,14 @@ import { ExplorerPlans } from "@/components/working/ExplorerPlans";
    real streams that ran a brand !command on 21 October 2026 (src/data/liveDeals.ts). */
 
 type Hit = { login: string; name: string; avatar: string; live: boolean; game: string; language: string };
-type Evidence = { text: string; date: string; url: string; source: "live" | "vod" | "bio" };
+type Evidence = { text: string; date: string; url: string; source: "live" | "vod" | "bio" | "command" };
 type Sponsor = {
   brand: string; category: string; kind: "sponsor" | "affiliate" | "own_brand" | "unclear";
   confidence: "high" | "medium" | "low"; note: string; firstSeen: string; lastSeen: string; streams: number; evidence: Evidence[];
 };
 type Result = {
   creator: { login: string; name: string; avatar: string; language: string | null; game: string | null; followers: number | null;
-    live: { viewers: number; title: string; game: string } | null; vodCount: number; since: string | null };
+    live: { viewers: number; title: string; game: string } | null; vodCount: number; commandCount?: number; since: string | null };
   sponsors: Sponsor[]; not_sponsors: { token: string; reason: string }[]; summary: string; scannedLines: number;
 };
 
@@ -54,7 +54,7 @@ const TOOLKIT = [
 
 const EXAMPLES = ["AstaBush", "agurin", "Artosis", "Mr_Mammal", "DansGaming"];
 const KIND: Record<Sponsor["kind"], string> = { sponsor: "Sponsor", affiliate: "Affiliate code", own_brand: "Own brand", unclear: "Unclear" };
-const STEPS = ["Reading the channel and bio", "Reading the last 100 VOD titles", "Checking each brand mention with Claude"];
+const STEPS = ["Reading the channel and bio", "Reading the last 100 VOD titles and chat bot commands", "Checking each brand mention with Claude"];
 
 const fmt = (d: string) => new Date(d + "T12:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 const num = (n: number) => n.toLocaleString("en-US");
@@ -150,7 +150,7 @@ const SponsorshipChecker: React.FC = () => {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Twitch Sponsor Checker: Who Sponsors a Streamer? | Beta Ads"
-        description="Search any Twitch streamer and see which brands sponsor them. We read stream titles, the bio and the last 100 VODs, and show the proof for every deal."
+        description="Search any Twitch streamer and see which brands sponsor them. We read stream titles, the bio, the last 100 VODs and the chat bot commands, and show the proof for every deal."
         canonical="/twitch-sponsorship-checker"
         ogType="website"
       />
@@ -161,7 +161,7 @@ const SponsorshipChecker: React.FC = () => {
           The sponsorship search <span className="text-muted-foreground font-light">engine for Twitch.</span>
         </h1>
         <p className="mt-6 max-w-xl mx-auto text-lg text-muted-foreground leading-relaxed">
-          Search a streamer and see every brand that pays them, from the live title, the bio and the last 100 VODs.
+          Search a streamer and see every brand that pays them, from the live title, the bio, the last 100 VODs and the chat bot commands.
           Claude keeps the deals and drops chat commands like !discord and !prime.
         </p>
 
@@ -457,14 +457,16 @@ const ResultView: React.FC<{ r: Result }> = ({ r }) => {
               <dl className="mt-4 grid grid-cols-3 gap-4 max-w-md m-0">
                 <div><dt className="text-xs text-muted-foreground">First seen</dt><dd className="m-0 text-sm font-semibold">{fmt(s.firstSeen)}</dd></div>
                 <div><dt className="text-xs text-muted-foreground">Last seen</dt><dd className="m-0 text-sm font-semibold">{fmt(s.lastSeen)}</dd></div>
-                <div><dt className="text-xs text-muted-foreground">Streams</dt><dd className="m-0 text-sm font-semibold">{s.streams}</dd></div>
+                {s.streams > 0
+                  ? <div><dt className="text-xs text-muted-foreground">Streams</dt><dd className="m-0 text-sm font-semibold">{s.streams}</dd></div>
+                  : <div><dt className="text-xs text-muted-foreground">Found in</dt><dd className="m-0 text-sm font-semibold">{s.evidence.some(e => e.source === "command") ? "Chat bot" : "Bio"}</dd></div>}
               </dl>
               <p className="mt-4 mb-0 text-sm text-muted-foreground leading-relaxed">{s.note}</p>
               <ul className="mt-4 m-0 p-0 list-none border-t border-border">
                 {s.evidence.map(e => (
                   <li key={e.url + e.date} className="border-b border-border last:border-b-0">
                     <a href={e.url} target="_blank" rel="noopener noreferrer" className="flex items-baseline gap-3 py-2.5 text-sm hover:text-foreground group">
-                      <span className="w-20 shrink-0 text-xs text-muted-foreground">{e.source === "live" ? "Live now" : e.source === "bio" ? "Bio" : fmt(e.date)}</span>
+                      <span className="w-20 shrink-0 text-xs text-muted-foreground">{e.source === "live" ? "Live now" : e.source === "bio" ? "Bio" : e.source === "command" ? "Chat bot" : fmt(e.date)}</span>
                       <span className="min-w-0 truncate text-muted-foreground group-hover:text-foreground">{e.text}</span>
                     </a>
                   </li>
@@ -478,7 +480,7 @@ const ResultView: React.FC<{ r: Result }> = ({ r }) => {
       <aside className="rounded-2xl bg-muted/60 p-5 md:p-6 text-sm">
         <div className={`${kicker} mb-3`}>What we read</div>
         <p className="m-0 text-muted-foreground leading-relaxed">
-          {r.scannedLines} different titles from {c.vodCount} VODs{c.since ? ` since ${fmt(c.since)}` : ""}, the live title and the bio.
+          {r.scannedLines} different titles from {c.vodCount} VODs{c.since ? ` since ${fmt(c.since)}` : ""}, the live title, the bio{c.commandCount ? ` and ${c.commandCount} public chat bot commands` : ""}.
           Twitch keeps VODs for a limited time, so older deals may be missing.
         </p>
         {r.not_sponsors.length > 0 && (
