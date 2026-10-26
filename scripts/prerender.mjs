@@ -110,6 +110,20 @@ const STATIC_ROUTES = [
   "/blog/clip-analytics-ad-verification-nordic-streaming",
 ];
 
+// Comparison pages: same list the page and the sitemap read (src/data/competitors.ts).
+async function getCompareSlugs() {
+  const TMP = path.join(ROOT, "node_modules", ".cache", "prerender-competitors.cjs");
+  await esbuild({
+    entryPoints: [path.join(ROOT, "src/data/competitors.ts")],
+    bundle: true, format: "cjs", outfile: TMP, platform: "node",
+    tsconfig: path.join(ROOT, "tsconfig.json"), logLevel: "silent",
+  });
+  const require = createRequire(import.meta.url);
+  delete require.cache[require.resolve(TMP)];
+  const mod = require(TMP);
+  return mod.COMPARE_PUBLISHED ? mod.competitors.map((c) => c.slug) : null;
+}
+
 async function getBlogSlugs() {
   // Must agree with the sitemap, which derives from blogPostsAll and applies
   // filterPublished. Regex-scraping every slug: line out of the source files
@@ -284,8 +298,10 @@ async function main() {
 
   const blogSlugs = await getBlogSlugs();
   const streamerHandles = getStreamerHandles();
+  const compareSlugs = await getCompareSlugs();
   const allRoutes = [
     ...STATIC_ROUTES,
+    ...(compareSlugs ? ["/compare", ...compareSlugs.map((s) => `/compare/${s}`)] : []),
     ...blogSlugs.map((s) => `/blog/${s}`),
     ...streamerHandles.map((h) => `/streamere/${h}`),
   ];

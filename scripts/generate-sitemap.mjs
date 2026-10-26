@@ -182,8 +182,24 @@ async function parseStreamerHandles() {
     .filter(Boolean);
 }
 
+// Comparison pages (/compare/:slug) come from src/data/competitors.ts, the same
+// list the page renders, so a new competitor reaches the sitemap automatically.
+async function parseCompetitors() {
+  const TMP = path.join(ROOT, "node_modules", ".cache", "sitemap-competitors.cjs");
+  await build({
+    entryPoints: [path.join(ROOT, "src/data/competitors.ts")],
+    bundle: true, format: "cjs", outfile: TMP, platform: "node",
+    tsconfig: path.join(ROOT, "tsconfig.json"), logLevel: "silent",
+  });
+  const require = createRequire(import.meta.url);
+  delete require.cache[require.resolve(TMP)];
+  const mod = require(TMP);
+  return mod.COMPARE_PUBLISHED ? mod.competitors : null;
+}
+
 async function main() {
   const blogPosts = await parseBlogPosts();
+  const competitors = await parseCompetitors();
   const streamerHandles = await parseStreamerHandles();
 
   const staticEntries = STATIC_PAGES.map((p) =>
@@ -210,6 +226,13 @@ async function main() {
     })
   );
 
+  const compareEntries = !competitors ? [] : [
+    urlEntry({ loc: `${BASE_URL}/compare`, lastmod: TODAY, changefreq: "monthly", priority: "0.8" }),
+    ...competitors.map((c) =>
+      urlEntry({ loc: `${BASE_URL}/compare/${c.slug}`, lastmod: c.checked, changefreq: "monthly", priority: "0.8" })
+    ),
+  ];
+
   const streamerEntries = streamerHandles.map((h) =>
     urlEntry({
       loc:        `${BASE_URL}/streamere/${h}`,
@@ -226,6 +249,9 @@ async function main() {
     "",
     "  <!-- ── Static pages ── -->",
     staticEntries.join("\n\n"),
+    "",
+    "  <!-- ── Comparison pages ── -->",
+    compareEntries.join("\n\n"),
     "",
     "  <!-- ── Norwegian streamer profiles ── -->",
     streamerEntries.join("\n\n"),

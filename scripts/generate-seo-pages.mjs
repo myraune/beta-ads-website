@@ -1128,6 +1128,23 @@ function main() {
     caseStudyCount++;
   }
 
+  // Comparison pages: hub + one shell per entry in src/data/competitors.ts.
+  const { competitors, COMPARE_PUBLISHED } = loadTsModule("src/data/competitors.ts", "competitors");
+  if (COMPARE_PUBLISHED) {
+  writeShell(path.join(DIST, "compare", "index.html"), injectMeta(shell, {
+    title: "Beta Ads alternatives and comparisons | Beta Ads",
+    description: "How Beta Ads compares with Twitch Ads, StreamElements, inStreamly, UpliftU, Lurkit, Wehype, Juno, Uplify, Loots and influencer agencies for livestream advertising in the Nordics. Sourced, dated, and honest about when the other option fits better.",
+    canonical: "/compare",
+    locale: "en",
+  }));
+  for (const c of competitors) {
+    const route = `/compare/${c.slug}`;
+    writeShell(path.join(DIST, "compare", c.slug, "index.html"), injectMeta(shell, {
+      title: c.title, description: c.description, canonical: route, locale: "en",
+    }));
+  }
+  }
+
   // Per-country blog hubs (/blog/norge, /blog/sverige, /blog/suomi, /blog/danmark).
   // Copy mirrors HUB_COPY in src/pages/BlogLocaleHub.tsx.
   let hubCount = 0;

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { COMPARE_VISIBLE } from "@/data/competitors";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "next-themes";
 import { BOOKING_SHORT_LINK } from "@/components/BookingCalendar";
@@ -317,7 +318,7 @@ const FOOT_COLS: { h: string; links: [string, string][] }[] = [
   { h: "Platforms", links: [["Twitch", "/twitch-advertising"], ["YouTube", "/youtube-advertising"], ["Kick", "/kick-advertising"], ["TikTok LIVE", "/tiktok-live-advertising"], ["Kick pricing", "/kick-advertising-cost"], ["Nordics", "/nordic-livestream-advertising"]] },
   { h: "Customers", links: [["Case studies", "/case-studies"], ["Samsung", "/case-study/samsung"], ["Surfshark", "/case-study/surfshark-finland"], ["Komplett", "/case-study/komplett"], ["Shure", "/case-study/shure"]] },
   { h: "Nordics", links: [["Norge", "/norge"], ["Twitch agency Norway", "/twitch-agency-norway"], ["Twitch-byrå Norge", "/twitch-byra-norge"], ["Twitch annonsering pris", "/twitch-annonsering-pris"], ["Kick Norge", "/kick-annonsering"], ["Kick Sverige", "/kick-annonsering-sverige"], ["Kick Danmark", "/kick-annoncering"], ["Kick Suomi", "/kick-mainonta"]] },
-  { h: "Company", links: [["About", "/about"], ["Press", "/press"], ["Blog", "/blog"], ["Working with us", "/working-with-us"], ["Managed campaigns", "/managed-campaigns"], ["Self-serve for agencies", "/self-serve"], ["For marketing executives", "/for-marketing-executives"], ["Contact", "/contact"]] },
+  { h: "Company", links: [["About", "/about"], ["Press", "/press"], ["Blog", "/blog"], ["Working with us", "/working-with-us"], ["Managed campaigns", "/managed-campaigns"], ["Self-serve for agencies", "/self-serve"], ["For marketing executives", "/for-marketing-executives"], ...(COMPARE_VISIBLE ? [["Compare", "/compare"] as [string, string]] : []), ["Contact", "/contact"]] },
   { h: "For streamers", links: [["Join as a streamer", "/streamers"], ["Kick streamers", "/kick-streamer-advertising"]] },
 ];
 
