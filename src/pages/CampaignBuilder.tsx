@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FeaturePage } from "@/components/working/FeaturePage";
 import { W, kicker, h2 } from "@/components/working/shared";
 import { BuildPanel } from "@/components/home-final/panels";
@@ -18,46 +18,27 @@ const STEPS = [
   { n: "05", t: "Review", d: "Every choice on one page. Submit, and the campaign goes to streamer approval and setup verification." },
 ];
 
-const BuilderSteps: React.FC = () => {
-  const [step, setStep] = useState(1);
-  const s = STEPS[step - 1];
-  return (
-    <section className="border-t border-border py-16 md:py-24">
-      <div className={W}>
-        <div className="max-w-3xl">
-          <div className={`${kicker} mb-4`}>Five steps</div>
-          <h2 className={h2}>From objective to review.</h2>
-        </div>
-        <div role="tablist" aria-label="Builder steps" className="mt-8 md:mt-10 grid grid-cols-5 border-t border-border">
-          {STEPS.map((x, i) => (
-            <button key={x.t} type="button" role="tab" aria-selected={step === i + 1} onClick={() => setStep(i + 1)}
-              className={`-mt-px border-t-2 pt-4 pb-2 pr-3 text-left transition-colors ${step === i + 1 ? "border-foreground text-foreground" : "border-transparent text-muted-foreground hover:text-foreground"}`}>
-              <span className="block text-xs font-semibold">{x.n}</span>
-              <span className="hidden sm:block mt-1 text-[15px] font-semibold tracking-tight">{x.t}</span>
-            </button>
-          ))}
-        </div>
-        <div className="mt-6 grid lg:grid-cols-[minmax(0,1fr)_auto] gap-4 items-end">
-          <p className="m-0 max-w-2xl text-muted-foreground leading-relaxed"><span className="sm:hidden font-semibold text-foreground">{s.t}. </span>{s.d}</p>
-          <div className="flex gap-2">
-            <button type="button" onClick={() => setStep(Math.max(1, step - 1))} disabled={step === 1}
-              className="h-10 px-4 rounded-full border border-border text-sm font-semibold disabled:opacity-30">Back</button>
-            <button type="button" onClick={() => setStep(Math.min(5, step + 1))} disabled={step === 5}
-              className="h-10 px-4 rounded-full bg-primary text-primary-foreground text-sm font-semibold disabled:opacity-30">Next step</button>
-          </div>
-        </div>
-        {/* From md up, all five panels share one grid cell so the height never jumps between steps. On phones only the active panel renders, at its own height. */}
-        <div className="mt-8 md:grid" role="tabpanel">
-          {STEPS.map((x, i) => (
-            <div key={x.t} className={`md:[grid-area:1/1] min-w-0 flex-col [&>.bf]:flex-1 [&>.bf]:flex [&>.bf]:flex-col [&_.panel]:flex-1 ${step === i + 1 ? "flex" : "hidden md:flex md:invisible"}`} aria-hidden={step !== i + 1}>
-              <PanelFrame><BuildPanel reveal={false} step={i + 1} /></PanelFrame>
-            </div>
-          ))}
-        </div>
+const BuilderSteps: React.FC = () => (
+  <section className="border-t border-border py-16 md:py-24">
+    <div className={W}>
+      <div className="max-w-3xl">
+        <div className={`${kicker} mb-4`}>Five steps</div>
+        <h2 className={h2}>From objective to review.</h2>
       </div>
-    </section>
-  );
-};
+      <ol className="mt-10 md:mt-14 p-0 list-none space-y-14 md:space-y-20">
+        {STEPS.map((x, i) => (
+          <li key={x.t}>
+            <div className="grid md:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-2 md:gap-10 items-baseline border-t border-border pt-5">
+              <h3 className="m-0 text-xl font-bold tracking-tight"><span className="text-muted-foreground font-semibold mr-3">{x.n}</span>{x.t}</h3>
+              <p className="m-0 max-w-2xl text-muted-foreground leading-relaxed">{x.d}</p>
+            </div>
+            <div className="mt-6"><PanelFrame><BuildPanel reveal={false} step={i + 1} /></PanelFrame></div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+);
 
 const CampaignBuilder: React.FC = () => (
   <FeaturePage
