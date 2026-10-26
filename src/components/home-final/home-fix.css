@@ -1,0 +1,131 @@
+/* Homepage visual system, 2026-10-26 (Andreas: "rotete", "visual bugs all the time").
+   Loaded last by HomeFinal. Homepage-only rules are scoped to .bf--home; footer rules
+   apply site-wide on purpose so every page gets the same five-column footer.
+
+   One content edge: every section's text starts at the same x as the chapter
+   headings (desktop 82px at 1440, i.e. 24px gutter + 58px inset; phones 20px).
+   One type scale outside the product mockups: 13 / 15 / 16 / 18 / 20 / 26 / 52 / 68.
+   Radii: 999 (pills), 14 (panels, frames), 10 (small cards). */
+
+/* ---- headings never leave one word on its own line ---- */
+.bf.bf--home h1,.bf.bf--home h2{text-wrap:balance}
+.bf.bf--home p{text-wrap:pretty}
+
+/* ---- type scale (text outside the product mockups) ---- */
+.bf.bf--home .btn,.bf.bf--home .tlink,.bf.bf--home .qlink{font-size:15px}
+.bf.bf--home .logos__ag,.bf.bf--home .logos__ag .qlink{font-size:15px}
+.bf.bf--home .tcard > span,.bf.bf--home .case > span:not(.case__img):not(.case__n){font-size:16px}
+.bf.bf--home .case > span.case__n{font-size:26px}
+.bf.bf--home .faq details p{font-size:16px}
+.bf.bf--home .case > span.case__n small{font-size:13px}
+
+/* ---- hero: tighter so more of the product sits above the fold ---- */
+/* at 1440x900 the whole product window now sits above the fold */
+.bf.bf--home .hero{padding-top:72px}
+.bf.bf--home .hp-stage{margin-top:48px}
+.bf.bf--home .hp{border-radius:14px}
+/* the chat column starts at the top, no empty band above the first line */
+.bf.bf--home .hp-msgs{justify-content:flex-start}
+
+/* ---- logos ---- */
+.bf.bf--home .logos{padding-top:64px}
+.bf.bf--home .logos__ag{margin-top:32px}
+
+/* ---- chapters: one layout for all three ----
+   heading left, copy right, both aligned to the top of the row, then one surface. */
+.bf.bf--home .tour{padding-top:24px}
+.bf.bf--home .ch{padding-top:128px}
+.bf.bf--home .ch:last-child{padding-bottom:128px}
+.bf.bf--home .ch__h{grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:64px;align-items:start;margin-bottom:48px}
+.bf.bf--home .ch__h p{padding-bottom:0;max-width:480px}
+.bf.bf--home .ch__h > div > .qlink,.bf.bf--home .ch__h > div > .qlinks{margin-top:16px}
+.bf.bf--home .panel{border-radius:14px}
+
+/* Build: the stepper runs across the top instead of a tall half-empty column */
+.bf.bf--home .panel--build{grid-template-columns:minmax(0,1fr) 340px;grid-template-rows:auto 1fr}
+.bf.bf--home .panel--build .steps{grid-column:1/-1;display:flex;align-items:center;gap:28px;padding:16px 30px;border-right:0;border-bottom:1px solid var(--line-2)}
+.bf.bf--home .panel--build .steps-h{flex:none}
+.bf.bf--home .panel--build .steps ol{margin-top:0;flex-direction:row;gap:22px}
+.bf.bf--home .panel--build .steps li{height:28px;gap:9px}
+.bf.bf--home .panel--build .b-side{border-left:1px solid var(--line-2)}
+/* preview reads as a real stream, not a murky block */
+.bf.bf--home .pv-bg{filter:blur(1.5px) saturate(.6) brightness(.62)}
+/* poll answers look like answers, not unfinished dashed fields */
+.bf.bf--home .opt{border-style:solid;border-color:var(--line);background:rgba(255,255,255,.02);color:var(--ink-2)}
+
+/* Live: the verify column fills the panel height */
+.bf.bf--home .verify{display:flex;flex-direction:column;min-width:0}
+/* rows share the panel height so no empty block sits under the list */
+.bf.bf--home .verify .v-list{flex:1;display:flex;flex-direction:column;padding:0}
+.bf.bf--home .verify .v-list li{flex:1;height:auto;min-height:44px}
+
+/* ---- case cards ---- */
+.bf.bf--home .case__img{border-radius:10px}
+/* the source recordings carry coloured recap frames (yellow, red, green): crop them off */
+.bf.bf--home .case__img img{transform:scale(1.18)}
+.bf.bf--home .case:hover .case__img img{transform:scale(1.21)}
+.bf.bf--home .cases{row-gap:56px}
+
+/* ---- billing: two columns, aligned with the cards above ---- */
+.bf.bf--home .tcards--2{gap:32px 64px}
+
+/* ---- FAQ sits on the same edge and rhythm as the sections above ---- */
+.bf.bf--home .faq h2{padding-top:120px}
+.bf.bf--home .faq__list{padding-top:120px}
+
+/* ---- close: plain, no tinted box with soft edges ---- */
+.bf.bf--home .close__in{background:none;padding:144px 24px 112px}
+.bf.bf--home .close p{max-width:560px;margin-left:auto;margin-right:auto}
+
+/* ---- dark: product surfaces keep a visible edge on the near-black page ---- */
+.dark .bf.bf--home .hp,.dark .bf.bf--home .panel{border-color:rgba(255,255,255,.11);border-top-color:rgba(255,255,255,.2)}
+
+/* ---- footer (site-wide): five columns, nothing wraps mid-label ---- */
+.bf .foot__cols{grid-template-columns:repeat(5,minmax(0,1fr));gap:24px 32px}
+.bf .foot__cols a{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bf .foot__top{grid-template-columns:minmax(0,1fr) minmax(0,3fr);gap:48px}
+
+@media (max-width:1100px){
+  .bf .foot__top{grid-template-columns:minmax(0,1fr);gap:40px}
+  .bf.bf--home .ch__h{grid-template-columns:1fr;gap:20px}
+  .bf.bf--home .panel--build{grid-template-columns:minmax(0,1fr)}
+  .bf.bf--home .panel--build .b-side{border-left:0}
+  .bf .foot__cols{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+/* ---- phones: one 20px edge for every section ---- */
+@media (max-width:760px){
+  .bf.bf--home .hp-stage{padding:0 20px;margin-top:40px}
+  .bf.bf--home .logos{padding:48px 20px 0}
+  .bf.bf--home .tour{margin:0}
+  .bf.bf--home .ch{padding:88px 20px 0}
+  .bf.bf--home .ch:last-child{padding-bottom:88px}
+  .bf.bf--home .ch__h{margin-bottom:28px}
+  .bf.bf--home .sec{padding:0}
+  .bf.bf--home .sec > *{padding-left:20px;padding-right:20px}
+  .bf.bf--home .faq{padding:0}
+  .bf.bf--home .faq h2{padding:80px 20px 8px}
+  .bf.bf--home .faq__list{padding:16px 20px 80px}
+  .bf.bf--home .close{padding:0}
+  .bf.bf--home .close__in{padding:96px 20px 80px}
+  .bf.bf--home .close h2 b,.bf.bf--home .close h2 span{display:inline}
+  .bf.bf--home .hero h1 b,.bf.bf--home .hero h1 span{display:inline}
+  .bf.bf--home .hero__cta .btn{height:46px}
+
+  /* build stepper on phones: numbers only, the current step named */
+  .bf.bf--home .panel--build .steps{padding:14px 16px;gap:14px}
+  .bf.bf--home .panel--build .steps-h{display:none}
+  .bf.bf--home .panel--build .steps ol{gap:6px}
+
+  /* report rows wrap instead of cutting the chat message with an ellipsis */
+  .bf.bf--home .r-row{grid-template-columns:64px minmax(0,1fr) auto;align-items:start}
+  .bf.bf--home .r-row span{white-space:normal;overflow:visible;text-overflow:clip}
+  .bf.bf--home .r-row:nth-child(n+5){display:none}
+
+  .bf.bf--home .tcards--2{gap:28px}
+  .bf .foot{padding:0 20px 32px}
+  .bf .foot__top{padding:48px 0 40px}
+  .bf .foot__bot{padding:18px 0 0}
+  .bf .foot__cols{grid-template-columns:1fr 1fr;gap:28px 16px}
+}
+.bf.bf--home .logos__ag{text-wrap:balance}

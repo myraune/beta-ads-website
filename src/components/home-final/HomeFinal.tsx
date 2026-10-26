@@ -3,8 +3,8 @@ import { useTheme } from "next-themes";
 import { A, Arrow, BookDemo, FinalFooter, FinalNav, LOGO_DARK, LOGO_LIGHT } from "./FinalChrome";
 import { HERO_POSTER, HERO_VIDEO, startHeroPlayer } from "./heroPlayer";
 import "./home-final.css";
-import { BuildPanel, Corners, ReportPanel } from "./panels";
-import { ChatThumb, KickMark, NordicFlags, ReplayThumb, TwitchMark, VerifyThumb, YouTubeMark } from "./marks";
+import "./home-fix.css";
+import { BuildPanel, Corners, LivePanel, ReportPanel } from "./panels";
 
 /* Homepage "31 Final / Platform" (approved static design in
    ~/dev/beta-ads-home-v3/31-final-platform), ported 1:1. Styles are scoped
@@ -18,7 +18,7 @@ export const finalFaqs = [
   { q: "How is it priced?", a: "Per 1,000 animation views, with campaigns from 100,000 NOK. Undelivered views are refunded pro rata." },
   { q: "What counts as a view?", a: "One fully played run of the animation on a live stream on Twitch, YouTube or Kick. The overlay stays in the VOD, so replays keep counting." },
   { q: "Can we choose the streamers?", a: "Search 39,000+ streamers in Streamer Explorer, and approve the streamer list on request before launch. You also get your own login to the live dashboard." },
-  { q: "How is delivery checked?", a: "Each stream is checked on air for the overlay, and each ad play is recorded as a clip you can open in the report. On the Surfshark Finland campaign, 98.7% of 759 ad plays were verified with a clip. Views that did not play are refunded." },
+  { q: "How is delivery checked?", a: "Each stream is checked on air for the overlay, and each ad play is recorded as a clip you can open in the report. Views that did not play are refunded." },
   { q: "What is in the report?", a: "Completed live views, replay and clip views, clicks, chat mentions of the brand translated and scored, and the verification clips. You get it as a live dashboard and a PDF you can forward." },
   { q: "Are clicks guaranteed?", a: "No. You buy completed views, and clicks and CTR are reported, not guaranteed." },
 ];
@@ -36,19 +36,13 @@ const LOGOS: [string, string, number][] = [
 
 const yt = (id: string) => `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
 /* n/k = the headline result and its unit, each taken from that case page. */
-const CASES: { to: string; img: string; b: string; n: string; k: string; t: string }[] = [
-  { to: "/case-study/samsung", img: yt("Uw7IIecicB4"), b: "Samsung", n: "800,185", k: "completed live views", t: "Galaxy S25 and Z Fold7, two flights in Norway." },
-  { to: "/case-study/shure", img: yt("IZOx_VMdJJg"), b: "Shure", n: "182,554", k: "completed views on detoo's channel", t: "A custom overlay for the MV6 creator launch." },
-  { to: "/case-study/komplett", img: yt("ufNq-A4d7iA"), b: "Komplett", n: "151,278", k: "views across 34 streamers", t: "Månedens Gaming Deal, linked straight from chat." },
-  { to: "/case-study/glorious", img: "/lovable-uploads/case-glorious-poster.webp", b: "Glorious", n: "137K+", k: "views, 25 creators, three markets", t: "The V3 mouse across the Nordics." },
-  { to: "/case-study/kristiania", img: yt("GwE4dagRm_k"), b: "Høyskolen Kristiania", n: "599,252", k: "views across 31 streamers", t: "Two parallel Twitch campaigns." },
-  { to: "/case-study/saily", img: yt("DMz-NV1W_Is"), b: "Saily", n: "102,794", k: "completed views across 22 streamers", t: "A travel intent eSIM campaign." },
-];
-
-const POSTS: [string, string, string][] = [
-  ["/blog/gta-vi-nordic-brand-playbook", "Sep 2, 2026", "GTA VI Explained: What Launches on 19 November, and Why Nordic Brands Care"],
-  ["/blog/streamer-university-2026-brand-breakdown", "Jul 29, 2026", "Streamer University 2026: What 1.2 Million Concurrent Viewers Taught Brands About Creator Marketing"],
-  ["/blog/clip-analytics-ad-verification-nordic-streaming", "May 12, 2026", "Inside Clip Analytics: How Beta Ads Verifies Every Ad Impression"],
+const CASES: { to: string; img: string; b: string; n: string; t: string }[] = [
+  { to: "/case-study/samsung", img: yt("Uw7IIecicB4"), b: "Samsung", n: "800K+", t: "Galaxy S25 and Z Fold7, two flights in Norway." },
+  { to: "/case-study/kristiania", img: yt("GwE4dagRm_k"), b: "Høyskolen Kristiania", n: "599K+", t: "Two parallel Twitch campaigns, 31 streamers." },
+  { to: "/case-study/shure", img: yt("IZOx_VMdJJg"), b: "Shure", n: "182K+", t: "A custom overlay for the MV6 creator launch." },
+  { to: "/case-study/komplett", img: yt("ufNq-A4d7iA"), b: "Komplett", n: "151K+", t: "Månedens Gaming Deal across 34 streamers." },
+  { to: "/case-study/glorious", img: "/lovable-uploads/case-glorious-poster.webp", b: "Glorious", n: "137K+", t: "The V3 mouse with 25 creators in three markets." },
+  { to: "/case-study/saily", img: yt("DMz-NV1W_Is"), b: "Saily", n: "102K+", t: "A travel intent eSIM campaign, 22 streamers." },
 ];
 
 
@@ -128,7 +122,7 @@ export const HomeFinal: React.FC = () => {
   useEffect(() => { drawRef.current(); }, [resolvedTheme]);
 
   return (
-    <div className="bf" ref={rootRef}>
+    <div className="bf bf--home" ref={rootRef}>
       <FinalNav />
 
       <main id="main-content">
@@ -203,10 +197,6 @@ export const HomeFinal: React.FC = () => {
                       <Corners />
                       <span className="hp-spot-l"><span className="live-dot" />Overlay verified on stream</span>
                     </div>
-                    <div className="hp-info">
-                      <b>Animated overlay</b>
-                      <span>Cannot be skipped or ad blocked. Stays in the VOD.</span>
-                    </div>
                   </div>
                   <aside className="hp-chat">
                     <div className="hp-chat-h">Stream chat</div>
@@ -245,19 +235,14 @@ export const HomeFinal: React.FC = () => {
           </p>
         </section>
 
-        {/* 3 STATEMENT */}
-        <section className="statement reveal" id="tour">
-          <h2><b>One login,</b> <span>from shortlist to report.</span></h2>
-        </section>
-
-        {/* 4 CHAPTERS */}
-        <div className="tour">
+        {/* 3 TOUR: three chapters, one layout each: heading left, copy right, one surface */}
+        <div className="tour" id="tour">
           <section className="ch" id="build">
             <header className="ch__h reveal">
               <h2><b>Build the campaign</b> <span>in one flow.</span></h2>
               <div>
-                <p>Your creative becomes an animated overlay with its own chat command, so viewers can type !yourbrand and get the link. Add a poll if you want one.</p>
-                <A className="qlink" href="/twitch-advertising">How it works <Arrow /></A>
+                <p>Your creative becomes an animated overlay with its own chat command, so viewers type !yourbrand and get the link. Add a poll if you want one.</p>
+                <A className="qlink" href="/campaign-builder">Campaign builder <Arrow /></A>
               </div>
             </header>
             <BuildPanel />
@@ -267,66 +252,29 @@ export const HomeFinal: React.FC = () => {
             <header className="ch__h reveal">
               <h2><b>Every stream</b> <span>checked on air.</span></h2>
               <div>
-                <p>The overlay runs on all your streamers at once. Each stream is checked for it while live, each ad play is saved as a clip, and plays that did not happen are not billed.</p>
+                <p>The overlay runs on all your streamers at once. Each stream is checked while it is live, and a play that did not happen is not billed.</p>
+                <A className="qlink" href="/campaign-compliance">Setup verification <Arrow /></A>
               </div>
             </header>
-            <div className="clipproof reveal">
-              <figure className="clipproof__frame">
-                <img src="/lovable-uploads/case-surfshark-finland/just-chatting.webp" alt="A frame from a recorded verification clip: a Finnish streamer live on Twitch with the Surfshark overlay in the corner." loading="lazy" width={1600} height={900} />
-                <span className="clipproof__tag"><span className="live-dot" />Recorded clip of one ad play</span>
-                <figcaption>Surfshark Finland, August 2026. Every play leaves a clip like this in the report.</figcaption>
-              </figure>
-              <div className="clipproof__side">
-                <div className="clipproof__big"><b className="num">98.7%</b><span>of 759 ad plays verified with a recorded clip</span></div>
-                <ol className="clipproof__checks">
-                  <li><b>Overlay placed</b><span>The overlay is set up in the streamer's broadcast.</span></li>
-                  <li><b>Visible on stream</b><span>It shows in the live picture viewers see.</span></li>
-                  <li><b>Animation played</b><span>The full run played, so it counts as a view.</span></li>
-                </ol>
-                <p className="clipproof__note">A play that did not happen is not billed.</p>
-              </div>
-            </div>
-            <div className="deep reveal">
-              <span className="deep__k">More detail</span>
-              <A className="tcard tcard--g" href="/campaign-compliance"><VerifyThumb /><b>Setup verification <Arrow /></b><span>Every channel checked on air.</span></A>
-            </div>
+            <LivePanel />
           </section>
 
           <section className="ch" id="report">
-            <div className="split reveal">
-              <div className="split__copy">
-                <h2><b>A report</b> <span>you can forward.</span></h2>
-                <p>Live in your own dashboard while the campaign runs, and as one PDF when it ends.</p>
-                <ul className="split__list">
-                  <li>Completed live views, per streamer and per stream</li>
-                  <li>Replay and clip views on top</li>
-                  <li>Clicks from the chat command</li>
-                  <li>Every brand mention in chat, translated and scored</li>
-                  <li>The verification clips</li>
-                </ul>
+            <header className="ch__h reveal">
+              <h2><b>A report</b> <span>you can forward.</span></h2>
+              <div>
+                <p>Live in your own dashboard while the campaign runs, and one PDF when it ends: views per streamer, replays, clicks and every brand mention in chat.</p>
+                <div className="qlinks">
+                  <A className="qlink" href="/livestream-chat-engagement">Chat tracking <Arrow /></A>
+                  <A className="qlink" href="/replay-reach">Replay reach <Arrow /></A>
+                </div>
               </div>
-              <ReportPanel compact reveal={false} />
-            </div>
-            <div className="deep reveal">
-              <span className="deep__k">More detail</span>
-              <A className="tcard tcard--g" href="/livestream-chat-engagement"><ChatThumb /><b>Chat tracking <Arrow /></b><span>Every brand mention, translated and scored.</span></A>
-              <A className="tcard tcard--g" href="/replay-reach"><ReplayThumb /><b>Replay reach <Arrow /></b><span>Views keep counting after the stream.</span></A>
-            </div>
+            </header>
+            <ReportPanel />
           </section>
         </div>
 
-        {/* WHERE IT RUNS */}
-        <section className="where" aria-label="Where it runs">
-          <div className="where__in reveal">
-            <h2 className="where__h">Where it runs</h2>
-            <A href="/twitch-advertising"><span className="where__mark"><TwitchMark /></span><b>Twitch <Arrow /></b><span>Ads inside Twitch streams, with a chat command.</span></A>
-            <A href="/youtube-advertising"><span className="where__mark"><YouTubeMark /></span><b>YouTube <Arrow /></b><span>Ads inside YouTube live streams and their replays.</span></A>
-            <A href="/kick-advertising"><span className="where__mark"><KickMark /></span><b>Kick <Arrow /></b><span>Ads inside Kick streams, run the same way.</span></A>
-            <A href="/nordic-livestream-advertising"><span className="where__mark"><NordicFlags /></span><b>Nordics <Arrow /></b><span>Local streamers for Nordic brands and markets.</span></A>
-          </div>
-        </section>
-
-        {/* 6 CUSTOMERS */}
+        {/* 4 CUSTOMERS */}
         <section className="sec" id="samsung" aria-label="Case studies">
           <div className="sec__h reveal">
             <h2><b>Campaigns</b> <span>that ran.</span></h2>
@@ -337,7 +285,7 @@ export const HomeFinal: React.FC = () => {
               <A className="case" href={c.to} key={c.to}>
                 <span className="case__img"><img src={c.img} alt="" loading="lazy" width={1280} height={720} /></span>
                 <b>{c.b}</b>
-                <span className="case__n">{c.n}<small>{c.k}</small></span>
+                <span className="case__n">{c.n}<small>views</small></span>
                 <span>{c.t}</span>
                 <em>Read case <i aria-hidden="true">&rarr;</i></em>
               </A>
@@ -345,12 +293,12 @@ export const HomeFinal: React.FC = () => {
           </div>
         </section>
 
-        {/* 7 GUARANTEE + COST */}
+        {/* 5 BILLING */}
         <section className="sec" id="billing" aria-label="Billing and price">
           <div className="sec__h reveal">
             <h2><b>Pay for views</b> <span>that played.</span></h2>
           </div>
-          <div className="tcards tcards--3b reveal">
+          <div className="tcards tcards--2 reveal">
             <div className="tcard tcard--static">
               <b>What you pay for</b>
               <span>A view is one full run of the animation on a live stream. Anything undelivered is refunded pro rata.</span>
@@ -361,20 +309,10 @@ export const HomeFinal: React.FC = () => {
               <span>Campaigns start at 100,000 NOK, priced per 1,000 views that played. Replay and clip views come on top at no cost, so the effective CPM usually lands around 200 to 300 NOK.</span>
               <A className="qlink" href="/pricing">See pricing <Arrow /></A>
             </div>
-            <div className="tcard tcard--static">
-              <b>Worked example</b>
-              <div className="calc" aria-label="Example: views bought, delivered and billed">
-                <div><span>Views you buy</span><b>100,000</b></div>
-                <div><span>Views that fully played</span><b>96,000</b></div>
-                <div><span>You are billed for</span><b>96,000</b></div>
-                <div><span>Refunded</span><b>4,000</b></div>
-              </div>
-              <span>Illustrative numbers. Replay views are reported on top and not billed.</span>
-            </div>
           </div>
         </section>
 
-        {/* 8 FAQ */}
+        {/* 6 FAQ */}
         <section className="faq" id="faq" aria-label="Questions">
           <h2><b>Questions</b> <span>buyers ask</span></h2>
           <div className="faq__list">
@@ -387,32 +325,7 @@ export const HomeFinal: React.FC = () => {
           </div>
         </section>
 
-        {/* BLOG */}
-        <section className="sec sec--blog" aria-label="From the blog">
-          <div className="sec__h reveal">
-            <h2><b>From</b> <span>the blog.</span></h2>
-            <A className="qlink" href="/blog">All articles <Arrow /></A>
-          </div>
-          <div className="tcards tcards--3 reveal">
-            {POSTS.map(([to, date, title]) => (
-              <A className="tcard" href={to} key={to}>
-                <i>{date}</i>
-                <b>{title}</b>
-                <em>Read <Arrow /></em>
-              </A>
-            ))}
-          </div>
-        </section>
-
-        {/* AUDIENCES */}
-        <section className="aud" aria-label="Agencies and streamers">
-          <div className="aud__in reveal">
-            <A href="/managed-campaigns"><b>For brands <Arrow /></b><span>We run the campaign for you, from brief to report.</span></A>
-            <A href="/self-serve"><b>For media agencies <Arrow /></b><span>Your own login to launch and resell campaigns.</span></A>
-          </div>
-        </section>
-
-        {/* 9 CLOSE */}
+        {/* 7 CLOSE */}
         <section className="close">
           <div className="close__in reveal">
             <h2><b>Plan your first</b> <span>livestream campaign.</span></h2>
