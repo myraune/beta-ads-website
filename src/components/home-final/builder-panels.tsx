@@ -1,7 +1,7 @@
 import React from "react";
 import {
   Megaphone, SquarePlay, PanelLeft, Target, Images, ChartColumn, MessagesSquare, Rocket, Upload, Check,
-  ArrowRight, ArrowLeft, Info, LayoutDashboard, Users, ListChecks, CreditCard, Moon, Gamepad2, ChevronDown, Calendar,
+  ArrowRight, ArrowLeft, Info, LayoutDashboard, Users, ListChecks, CreditCard, Moon, Sun, Gamepad2, ChevronDown, Calendar,
 } from "lucide-react";
 import "./builder-panels.css";
 import { FlagNO, TwitchMark } from "./marks";
@@ -56,10 +56,11 @@ export const PortalBuilder: React.FC<{ step: number; theme: BuilderTheme }> = ({
   <div className={`pb pb--${theme}`} role="img" aria-label={`Campaign builder, step ${step}: ${STEPS[step - 1]}`}>
     {theme === "portal" && (
       <div className="pb-top">
-        <img className="pb-logo" src="/lovable-uploads/logo-color.png" alt="" />
+        <img className="pb-logo pb-logo--light" src="/lovable-uploads/logo-color.png" alt="" />
+        <img className="pb-logo pb-logo--dark" src="/lovable-uploads/logo-red-white.png" alt="" />
         <span className="pb-pill"><img src="/brand/beta-ads-icon-512.png" alt="" />Beta ads</span>
         <span className="pb-pill pb-pill--credit"><i />400</span>
-        <Moon className="pb-moon" />
+        <Moon className="pb-moon" /><Sun className="pb-moon pb-sun" />
         <span className="pb-user"><b>Your team</b><ChevronDown /></span>
       </div>
     )}

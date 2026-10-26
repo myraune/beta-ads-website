@@ -15,11 +15,15 @@
 /* app shell (portal only) */
 .pb-top{height:46px;display:flex;align-items:center;gap:10px;padding:0 16px;background:#fff;border-bottom:1px solid var(--line)}
 .pb-logo{height:22px;width:auto;margin-right:auto}
+.pb-logo--dark{display:none}
 .pb-pill{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 10px;border-radius:7px;background:#eceef1;font-size:12px;color:var(--ink2);font-weight:500}
 .pb-pill img{width:16px;height:16px;border-radius:4px}
 .pb-pill--credit i{width:8px;height:8px;border-radius:50%;background:var(--acc)}
 .pb-pill--credit{font-weight:700;color:var(--ink)}
 .pb-moon{color:var(--mu)}
+.pb-sun{display:none}
+.dark .pb--portal .pb-sun{display:block}
+.dark .pb--portal .pb-moon:not(.pb-sun){display:none}
 .pb-user{display:inline-flex;align-items:center;gap:4px;font-size:12px}
 .pb-body{display:flex;min-width:0}
 .pb-nav{width:176px;flex:none;background:#fff;padding:14px 10px;display:flex;flex-direction:column;gap:2px;border-right:1px solid var(--line)}
@@ -147,3 +151,16 @@
   .pb-rev{grid-template-columns:repeat(2,minmax(0,1fr))}
   .pb-chat{width:110px}
 }
+
+/* Portal dark mode (the portal's own moon toggle), used when the site is in dark mode. */
+.dark .pb--portal{--bg:#121214;--card:#1e1e20;--rail:#19191b;--ink:#ececee;--ink2:#b9bbc1;--mu:#8b8e96;--line:rgba(255,255,255,.07);
+  --field:#2a2a2d;--fieldline:rgba(255,255,255,.06);--acc-tint:rgba(239,68,68,.16);--acc-line:rgba(239,68,68,.45);--tog:#45474d;--chip:#262629;--btn-back:#45474d;
+  box-shadow:0 0 0 1px rgba(255,255,255,.06),0 40px 120px rgba(0,0,0,.5)}
+.dark .pb--portal .pb-top,.dark .pb--portal .pb-nav{background:#1a1a1c}
+.dark .pb--portal .pb-pill{background:#2a2a2d}
+.dark .pb--portal .pb-logo--light{display:none}
+.dark .pb--portal .pb-logo--dark{display:block}
+.dark .pb--portal .pb-rail{background:radial-gradient(90% 16% at 20% 104%,#2c2c2f 0 60%,transparent 61%),radial-gradient(130% 22% at 70% 108%,#232326 0 60%,transparent 61%),var(--rail)}
+.dark .pb--portal .pb-chat{background:#232326;color:var(--ink)}
+.dark .pb--portal .pb-chat i{background:rgba(255,255,255,.07)}
+.dark .pb--portal .pb-rev .pb-field,.dark .pb--portal .pb-revt .pb-field{background:#2f2f33}
