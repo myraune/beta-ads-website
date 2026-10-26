@@ -43,7 +43,7 @@ const StreamerExplorer: React.FC = () => (
       { q: "How many streamers are in it?", a: "39,000+ streamers across Twitch, YouTube and Kick, of which 37,599 are recently active and open to collaborations." },
       { q: "Are they all Nordic?", a: "No. The database is worldwide. Filter by country and language to find streamers for your market." },
       { q: "Can we approve the streamer list?", a: "Yes. In a managed campaign we shortlist and you approve or remove anyone before launch. On self-serve you build the list yourself." },
-      { q: "What does access cost?", a: "Growth is $299 a month ($249 billed yearly) with 150 Beta Credits, Scale is $899 a month ($749 billed yearly) with 400 credits, and Enterprise is custom. Every plan starts with a 7-day free trial, and creating campaigns is free." },
+      { q: "What does access cost?", a: "Growth is $299 a month ($249 billed yearly) with 150 Beta Credits, Scale is $899 a month ($749 billed yearly) with 400 credits, and Enterprise is custom. Creating campaigns is free on every plan, and we set up access with you in a short demo." },
       { q: "What is a Beta Credit?", a: "Credits pay for the AI features: an AI streamer or category search costs 5 credits, a streamer summary 1 and an AI campaign session 25. Filtering, lists, exports and campaign creation never cost credits. Top-up packs come in 250, 600 and 1,500." },
       { q: "Do brands in a managed campaign need a plan?", a: "No. In a managed campaign we build the streamer list for you and you approve it in your own login." },
     ]}

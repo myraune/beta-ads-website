@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { FeaturePage } from "@/components/working/FeaturePage";
 import { W, kicker, h2 } from "@/components/working/shared";
-import { PortalBuilder } from "@/components/home-final/builder-panels";
+import { BuildPanel } from "@/components/home-final/panels";
+import { PanelFrame } from "@/components/home-final/product-panels";
 
 /* Campaign builder. Steps and options follow the real builder (objective,
    target audience, format, asset, review; awareness or traffic), shown as the
-   coded copy of the portal builder (builder-panels.tsx) instead of a screenshot,
-   one panel per step.
+   coded dark product panel instead of a screenshot, one panel per step.
+   (A faithful portal replica was tried in c32f52b and dropped in favour of this one.)
    Chat command and poll: confirmed product features. */
 
 const STEPS = [
@@ -48,8 +49,8 @@ const BuilderSteps: React.FC = () => {
         {/* From md up, all five panels share one grid cell so the height never jumps between steps. On phones only the active panel renders, at its own height. */}
         <div className="mt-8 md:grid" role="tabpanel">
           {STEPS.map((x, i) => (
-            <div key={x.t} className={`md:[grid-area:1/1] min-w-0 flex-col [&>.pb-wrap]:flex-1 ${step === i + 1 ? "flex" : "hidden md:flex md:invisible"}`} aria-hidden={step !== i + 1}>
-              <PortalBuilder step={i + 1} theme="portal" />
+            <div key={x.t} className={`md:[grid-area:1/1] min-w-0 flex-col [&>.bf]:flex-1 [&>.bf]:flex [&>.bf]:flex-col [&_.panel]:flex-1 ${step === i + 1 ? "flex" : "hidden md:flex md:invisible"}`} aria-hidden={step !== i + 1}>
+              <PanelFrame><BuildPanel reveal={false} step={i + 1} /></PanelFrame>
             </div>
           ))}
         </div>
@@ -67,7 +68,7 @@ const CampaignBuilder: React.FC = () => (
     kicker="Platform · Campaign builder"
     title="Build the campaign in one flow."
     lead="Objective, target audience, format, asset and review, in five steps. Your creative becomes an animated overlay with its own chat command, and a poll if you want one."
-    hero={{ visual: <PortalBuilder step={3} theme="portal" />, caption: "The campaign builder in the Beta Ads platform, on the format step." }}
+    hero={{ visual: <PanelFrame><BuildPanel reveal={false} /></PanelFrame>, caption: "The builder on the format step." }}
     sections={[
       {
         kicker: "The overlay",

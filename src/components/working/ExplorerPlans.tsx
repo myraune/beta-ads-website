@@ -5,8 +5,6 @@ import { W, kicker, h2, BOOKING_URL } from "@/components/working/shared";
    pricing page (beta.business.livad.stream/pricing, read 21 October 2026). Prices in
    USD excluding tax. Creating and running campaigns is free on every plan. */
 
-export const PLATFORM_URL = "https://beta.business.livad.stream/pricing";
-
 const PLANS = [
   {
     name: "Growth",
@@ -48,7 +46,7 @@ export const ExplorerPlans: React.FC<{ centered?: boolean }> = ({ centered }) =>
             <div className={`${kicker} mb-4`}>Plans</div>
             <h2 className={h2}>Pick the plan your research runs on. <span className="text-muted-foreground font-light">Campaigns stay free.</span></h2>
             <p className="mt-5 mb-0 text-muted-foreground leading-relaxed">
-              Every plan opens both explorers, lists and Beta Credits for the AI features. Start with a 7-day free trial, no card needed.
+              Every plan opens both explorers, lists and Beta Credits for the AI features. Access is set up with us in a short demo.
             </p>
           </div>
           <div role="radiogroup" aria-label="Billing interval" className="inline-flex self-start md:self-auto p-1 rounded-full border border-border bg-card text-sm font-semibold">
@@ -83,9 +81,9 @@ export const ExplorerPlans: React.FC<{ centered?: boolean }> = ({ centered }) =>
                 <ul className="mt-3 mb-8 p-0 list-none space-y-2 text-[15px]">
                   {p.points.map(pt => <li key={pt} className={dark ? "text-white/70" : "text-muted-foreground"}>{pt}</li>)}
                 </ul>
-                <a href={"monthly" in p ? PLATFORM_URL : BOOKING_URL} target="_blank" rel="noopener noreferrer" data-cta={"monthly" in p ? "platform" : "book"}
+                <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" data-cta="book"
                   className={`mt-auto inline-flex items-center justify-center h-11 rounded-full text-sm font-semibold transition-opacity hover:opacity-90 ${dark ? "bg-white text-[#0F1012]" : "monthly" in p ? "bg-primary text-primary-foreground" : "border border-border"}`}>
-                  {"monthly" in p ? "Start free trial" : "Talk to us"}
+                  {"monthly" in p ? "Book a demo" : "Talk to us"}
                 </a>
               </div>
             );
