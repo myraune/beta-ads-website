@@ -200,7 +200,7 @@ const SponsorshipChecker: React.FC = () => {
                 disabled={loading || !q.trim()}
                 className="inline-flex items-center justify-center gap-2 h-11 px-6 rounded-full bg-primary text-primary-foreground text-sm font-semibold disabled:opacity-40 hover:opacity-90 transition-opacity"
               >
-                {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
+                {loading ? <Loader2 className="loader-spinner w-4 h-4 animate-spin" /> : null}
                 Check
               </button>
             </div>
@@ -235,23 +235,28 @@ const SponsorshipChecker: React.FC = () => {
         </form>
       </header>
 
-      {idle ? (
-        <FrameArc />
-      ) : (
-        <section className={`${W} pt-12 pb-20 min-h-[240px]`} aria-live="polite">
+      {/* While a check runs, the arc stays where it was and keeps rolling, and the
+          steps sit on top of it, so nothing below the search moves. */}
+      {idle || loading ? (
+        <div className="relative" aria-live="polite">
+          <FrameArc />
           {loading && (
-            <div className="max-w-2xl mx-auto rounded-2xl border border-border p-6">
-              <ol className="m-0 p-0 list-none space-y-3">
-                {STEPS.map((s, i) => (
-                  <li key={s} className={`flex items-center gap-3 text-sm ${i <= step ? "text-foreground" : "text-muted-foreground/60"}`}>
-                    {i < step ? <span className="w-4 text-center">✓</span> : i === step ? <Loader2 className="w-4 h-4 animate-spin" /> : <span className="w-4" />}
-                    {s}
-                  </li>
-                ))}
-              </ol>
+            <div className={`${W} absolute inset-x-0 top-0`}>
+              <div className="max-w-xl mx-auto rounded-2xl border border-border bg-background/90 backdrop-blur p-5 shadow-[0_12px_30px_-18px_rgba(15,16,18,.35)]">
+                <ol className="m-0 p-0 list-none space-y-3">
+                  {STEPS.map((s, i) => (
+                    <li key={s} className={`flex items-center gap-3 text-sm ${i <= step ? "text-foreground" : "text-muted-foreground/60"}`}>
+                      {i < step ? <span className="w-4 text-center">✓</span> : i === step ? <Loader2 className="loader-spinner w-4 h-4 animate-spin" /> : <span className="w-4" />}
+                      {s}
+                    </li>
+                  ))}
+                </ol>
+              </div>
             </div>
           )}
-          {loading && <div className="mt-6"><FrameArc /></div>}
+        </div>
+      ) : (
+        <section className={`${W} pt-12 pb-20 min-h-[240px]`} aria-live="polite">
           {error && <p className="max-w-2xl mx-auto rounded-2xl border border-border p-6 text-sm m-0">{error}</p>}
           {result && <ResultView r={result} />}
         </section>
