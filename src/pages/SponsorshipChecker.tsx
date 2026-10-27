@@ -62,7 +62,8 @@ const frame = (login: string) => `/checker/${login}.webp`;
 const avatar = (login: string) => `/checker/av-${login}.webp`;
 
 /* The curved strip of stream frames under the search, like a smile: the middle
-   sits lowest, the ends rise, tilt outwards and fade. It rolls endlessly to the
+   sits lowest, the ends rise, tilt outwards and fade. The curve stays inside the box
+   (no corner above the top, even tilted at the far ends) so wide screens never show a frame cut off. It rolls endlessly to the
    left: each frame's slot slides along the curve and wraps at the far end, where
    it is fully faded, so the loop has no seam. Under reduced motion it keeps rolling, at a third of the speed. */
 const ARC = LIVE_DEALS.slice(0, 19);
@@ -72,7 +73,7 @@ const placeFrame = (el: HTMLDivElement, o: number, mid: number) => {
   const a = Math.abs(o);
   const fade = Math.max(0, 1 - a / (mid + 1.5));
   const edge = Math.min(1, Math.max(0, (mid + 0.5 - a) / 2)); // 0 at the wrap point, +/-(mid + 0.5)
-  el.style.transform = `translate(calc(${o * 128}px - 50%), ${120 - a ** 1.55 * 9}px) rotate(${o * 2.4}deg)`;
+  el.style.transform = `translate(calc(${o * 128}px - 50%), ${146 - a ** 1.8 * 2.2}px) rotate(${o * 2.4}deg)`;
   el.style.opacity = String((0.35 + fade * 0.65) * edge);
 };
 const FrameArc: React.FC = () => {
@@ -90,7 +91,7 @@ const FrameArc: React.FC = () => {
     return () => cancelAnimationFrame(raf);
   }, [mid]);
   return (
-    <div className="relative h-[230px] md:h-[300px] overflow-hidden" aria-hidden="true">
+    <div className="relative h-[230px] md:h-[300px] overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]" aria-hidden="true">
       <div className="absolute left-1/2 top-0 w-0">
         {ARC.map((d, i) => (
           <div key={d.login} ref={el => { refs.current[i] = el; if (el && !el.style.transform) placeFrame(el, i - mid, mid); }}
