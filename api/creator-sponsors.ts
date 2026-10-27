@@ -90,10 +90,17 @@ function collapse(rows: Omit<Title, "id" | "lastDate" | "count">[]): Title[] {
   return [...byText.values()].sort((a, b) => b.lastDate.localeCompare(a.lastDate)).map((t, i) => ({ ...t, id: i + 1 }));
 }
 
+/* "https://www.AMD.com/en" -> "amd.com"; anything that is not a plain hostname becomes "". */
+const cleanDomain = (d: string) => {
+  const h = d.trim().toLowerCase().replace(/^[a-z]+:\/\//, "").replace(/^www\./, "").split(/[/?#]/)[0];
+  return /^[a-z0-9-]+(\.[a-z0-9-]+)+$/.test(h) ? h : "";
+};
+
 const Result = z.object({
   sponsors: z.array(z.object({
     brand: z.string(),
     category: z.string(),
+    domain: z.string(),
     kind: z.enum(["sponsor", "affiliate", "own_brand", "unclear"]),
     confidence: z.enum(["high", "medium", "low"]),
     evidence_ids: z.array(z.number()),
@@ -109,7 +116,7 @@ Lines with source "command" are "!name: bot reply", dated by when the command wa
 
 Twitch titles are full of !commands. Most are chat bot commands, not deals: !discord, !socials, !youtube, !merch for the creator's own shop, !prime (a Prime Gaming sub reminder), !drops, game guides, champion or build names, community events, other streamers. Count a brand only when the line shows a commercial relationship: a !command named after a company or product (!hellofresh, !gamersupps, !steelseries), #ad or #sponsored, "sponsored by", "partner", "code X" or "use code" with a brand, or a brand @mention in a promo context.
 
-kind: "sponsor" for a paid placement, "affiliate" for codes or links that look like an affiliate or creator-code deal, "own_brand" for the creator's own merch or company, "unclear" when you cannot tell. Use the real brand name with normal capitalisation (Opera GX, not OPERAGX). evidence_ids are the ids of the lines that show it; never invent ids. not_sponsors lists the !commands or names you looked at and rejected, with a short reason, at most 12. summary is two plain sentences for a marketer: who sponsors this creator and since when, based on the dates. Write dates like "25 Sep 2026", refer to the creator by name or as "they", and do not use em dashes. If nothing qualifies, return an empty sponsors list and say so.`;
+kind: "sponsor" for a paid placement, "affiliate" for codes or links that look like an affiliate or creator-code deal, "own_brand" for the creator's own merch or company, "unclear" when you cannot tell. Use the real brand name with normal capitalisation (Opera GX, not OPERAGX). domain is the brand's own website domain, such as amd.com or cupra.no, not a tracking or shop link domain; use an empty string if you do not know it. evidence_ids are the ids of the lines that show it; never invent ids. not_sponsors lists the !commands or names you looked at and rejected, with a short reason, at most 12. summary is two plain sentences for a marketer: who sponsors this creator and since when, based on the dates. Write dates like "25 Sep 2026", refer to the creator by name or as "they", and do not use em dashes. If nothing qualifies, return an empty sponsors list and say so.`;
 
 async function analyse(login: string) {
   const users = await helix(`users?login=${encodeURIComponent(login)}`);
@@ -177,7 +184,7 @@ async function analyse(login: string) {
         && names.some(n => new RegExp(`${n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?![\\p{L}\\d])`, "iu").test(t.text)));
       const ev = [...cited, ...inTitles];
       return {
-        brand: s.brand, category: s.category, kind: s.kind, confidence: s.confidence, note: s.note,
+        brand: s.brand, category: s.category, domain: cleanDomain(s.domain), kind: s.kind, confidence: s.confidence, note: s.note,
         firstSeen: ev.reduce((m, t) => (t.date < m ? t.date : m), ev[0].date),
         lastSeen: ev.reduce((m, t) => (t.lastDate > m ? t.lastDate : m), ev[0].lastDate),
         streams: ev.reduce((n, t) => n + (t.source === "vod" || t.source === "live" ? t.count : 0), 0),
