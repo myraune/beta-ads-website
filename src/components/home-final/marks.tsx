@@ -73,11 +73,3 @@ export const ChatThumb = () => (
   </span>
 );
 
-/** Surfshark Finland: live ad views next to views on the replays (VODs). */
-export const ReplayThumb = () => (
-  <span className="dthumb dthumb--bars" aria-hidden="true">
-    <span className="dbar"><em>Live</em><span style={{ width: "15%" }} /><b>119,041</b></span>
-    <span className="dbar dbar--r"><em>Replays</em><span style={{ width: "100%" }} /><b>798,323</b></span>
-    <small>Surfshark Finland, August 2026</small>
-  </span>
-);

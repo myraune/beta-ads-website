@@ -26,7 +26,7 @@ const CaseStudySurfsharkFinland: React.FC = () => {
       />
       <SEO
         title="Surfshark VPN Finland Case Study | Beta Ads"
-        description="Surfshark VPN on Finnish Twitch: 100,000 views bought, 119,041 delivered live and 949,957 with replays across 14 creators. 1,281 clicks and 2,833 poll votes."
+        description="Surfshark VPN on Finnish Twitch: 100,000 views bought and 119,041 delivered live across 14 creators. 1,281 clicks and 2,833 poll votes."
         canonical="/case-study/surfshark-finland"
         ogType="article"
         articlePublishedTime="2026-10-07"
@@ -40,9 +40,9 @@ const CaseStudySurfsharkFinland: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "Article",
             "@id": `${URL}#article`,
-            headline: "Surfshark VPN Finland: bought 100,000 views, delivered 949,957 with replays",
+            headline: "Surfshark VPN Finland: bought 100,000 views, delivered 119,041 live",
             description:
-              "How Surfshark ran a month on 14 Finnish Twitch creators with a live poll on every ad moment: delivery, clip verification, poll results, chat, click audience and replays.",
+              "How Surfshark ran a month on 14 Finnish Twitch creators with a live poll on every ad moment: delivery, clip verification, poll results, chat and click audience.",
             url: URL,
             image: `https://beta-ads.no${OG}`,
             datePublished: "2026-10-07",

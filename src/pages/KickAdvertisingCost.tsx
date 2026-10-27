@@ -451,7 +451,7 @@ const KickAdvertisingCost: React.FC = () => {
         variant="scene"
         eyebrow="About the numbers"
         heading="Cheaper reach, same reporting"
-        body="Kick channels generally cost less per viewer than the equivalent Twitch channel, mostly because fewer buyers are competing for the inventory. Everything downstream is identical: same setup checks, same chat tracking, same replay counting."
+        body="Kick channels generally cost less per viewer than the equivalent Twitch channel, mostly because fewer buyers are competing for the inventory. Everything downstream is identical: same setup checks, same chat tracking, same report."
         points={[
             "Priced on average concurrent viewers, not follower count",
             "Same verification and chat reporting as a Twitch campaign",

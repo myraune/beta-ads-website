@@ -9,7 +9,7 @@ import { MascotBand } from "@/components/sections/MascotBand";
 
 const stats = [
   { value: "39,000+", label: "Streamers in Explorer, 3 platforms" },
-  { value: "Live + VOD", label: "Overlay stays in the replay" },
+  { value: "Live", label: "Overlay inside the stream" },
   { value: "1 report", label: "Twitch, YouTube and Kick together" },
   { value: "2B+", label: "Monthly Users" },
 ];
@@ -25,7 +25,7 @@ const why = [
   { icon: Shield, title: "Ad-block proof", desc: "Same overlay technology as Twitch - rendered in-stream, invisible to blockers." },
   { icon: Users, title: "Broader demographics", desc: "YouTube reaches audiences beyond gaming - music, lifestyle, education, sports." },
   { icon: TrendingUp, title: "SEO + Discovery", desc: "Live content appears in YouTube search and recommendations, extending reach beyond live viewers." },
-  { icon: Globe, title: "Replays built in", desc: "Every YouTube live stream stays up as a replay, so the overlay keeps collecting views after the broadcast ends." },
+  { icon: Globe, title: "Replays built in", desc: "Every YouTube live stream stays up as a video after it ends, and the overlay is part of that recording." },
 ];
 
 const categories = [
@@ -316,14 +316,14 @@ const YouTubeAdvertising: React.FC = () => {
         alt="Beta, the Beta Ads mascot, at a streaming desk lit in YouTube red"
         variant="scene"
         eyebrow="On YouTube Live"
-        heading="The stream keeps working after it ends"
-        body="A YouTube livestream turns into a permanent video the second it stops. The overlay is already baked into that recording, so the placement keeps collecting views long after the live audience has gone."
+        heading="The overlay is part of the recording"
+        body="A YouTube livestream turns into a video the second it stops, and the overlay is already rendered into it. You pay for completed live views; the recording is a bonus we do not count or bill."
         points={[
-            "Live viewers are only part of the number, the replay adds the rest",
+            "Billed on completed live views only",
             "No re-cut or re-upload needed, the sponsorship is in the file",
-            "Counted per channel, with the live audience shown inside the total",
+            "Every ad play checked and clipped while the stream is live",
           ]}
-        cta={{ label: "How replay reach is counted", to: "/replay-reach" }}
+        cta={{ label: "How reporting works", to: "/reporting" }}
         flip={false}
       />
 
@@ -337,7 +337,7 @@ const YouTubeAdvertising: React.FC = () => {
               { q: "How is this different from regular YouTube ads?", a: "Regular YouTube ads (pre-roll, mid-roll) can be skipped or blocked. Native overlay ads are part of the stream - viewers can't skip them, and ad blockers can't remove them." },
               { q: "What categories of streamers are on YouTube Live?", a: "The YouTube Live streamers in our Explorer span gaming, music, sports, education, lifestyle, and IRL content - considerably broader than Twitch's gaming-dominant catalog." },
               { q: "Can I run campaigns on both Twitch and YouTube simultaneously?", a: "Yes, and we recommend it. Beta Ads manages multi-platform campaigns from a single dashboard, giving your brand presence across the full Nordic streaming audience." },
-              { q: "Does YouTube Live content stay discoverable after the campaign ends?", a: "Yes. YouTube archives live streams as VODs that continue to surface in search results. Your overlay ad is present in archived content, extending the campaign's effective reach well beyond the live audience." },
+              { q: "Does YouTube Live content stay discoverable after the campaign ends?", a: "Yes. YouTube archives live streams as VODs that continue to surface in search results. Your overlay is part of the archived video, but we only count and bill completed live views." },
               { q: "How does audience targeting work on YouTube Live?", a: "We filter the YouTube Live streamers in our Explorer by content category, country, language, audience demographics, and average concurrent viewers. You approve the final creator list before launch." },
             ].map((faq, i) => (
               <details key={i} className="group border-b border-border last:border-b-0">

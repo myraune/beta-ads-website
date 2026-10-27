@@ -1,7 +1,7 @@
 import React from "react";
 import { TwitchMark, YouTubeMark, KickMark } from "./marks";
 import { Corners } from "./panels";
-import { delivery, headline, poll, verification, vodChannels, fmt } from "@/components/case-surfshark-finland/data";
+import { headline, poll, verification, fmt } from "@/components/case-surfshark-finland/data";
 
 /* Coded product panels for the Platform pages, in the same dark language as the
    homepage tour panels (panels.tsx): rail / main / side composition, real stream
@@ -111,7 +111,6 @@ export const DashboardPanel: React.FC = () => (
         <li className="on"><i />Overview</li>
         <li><i />Setup verification</li>
         <li><i />Chat tracking</li>
-        <li><i />Replay reach</li>
         <li><i />PDF report</li>
       </ul>
     </div>
@@ -122,7 +121,6 @@ export const DashboardPanel: React.FC = () => (
           <div className="r-num num">{fmt(headline.viewsDelivered)}</div>
         </div>
         <div className="r-states">
-          <span className="seg"><b className="on">Live</b><b>Live + replays</b></span>
           <span className="tbtn tbtn--dark">Export PDF</span>
         </div>
       </div>
@@ -451,58 +449,6 @@ export const DeliveryPanel: React.FC = () => (
     </div>
   </div>
 );
-
-/* ── 7. Replay reach ──────────────────────────────────────────────────────── */
-
-/* Same rule as the monitor: a face only where it is that creator. */
-const REPLAY_IMG: Record<string, string | undefined> = {
-  henksuliini: `${CR}/henksuliini.webp`,
-};
-
-export const ReplayPanel: React.FC = () => {
-  const top = vodChannels.slice(0, 5);
-  const max = top[0].views;
-  const parts = [
-    { l: "Live, billed", v: delivery.live },
-    { l: "VOD views", v: delivery.vodViews },
-    { l: "Clip views", v: delivery.clipViews },
-  ];
-  return (
-    <div
-      className="panel pp-rep dui"
-      role="img"
-      aria-label={`Replay reach for Surfshark VPN Finland: ${fmt(delivery.combined)} views with replays, of which ${fmt(delivery.live)} live views billed, ${fmt(delivery.vodViews)} VOD views and ${fmt(delivery.clipViews)} clip views, with VOD views for the five biggest channels. Illustrative UI.`}
-    >
-      <div className="r-main">
-        <div className="r-top">
-          <div>
-            <div className="r-k">Views with replays</div>
-            <div className="r-num num">{fmt(delivery.combined)}</div>
-          </div>
-          <span className="seg"><b>Live</b><b className="on">Live + replays</b></span>
-        </div>
-        <div className="pp-split" aria-hidden="true">
-          {parts.map((p, i) => <i key={p.l} className={`s${i}`} style={{ flexGrow: p.v }} />)}
-        </div>
-        <div className="pp-legend">
-          {parts.map((p, i) => <span key={p.l}><i className={`s${i}`} />{p.l}<b className="num">{fmt(p.v)}</b></span>)}
-        </div>
-        <div className="pp-tbl pp-tbl--rep">
-          <div className="pp-tr pp-th"><span>Channel</span><span className="pp-r">VODs</span><span>VOD views</span><span /></div>
-          {top.map((c, i) => (
-            <div key={c.channel} className="pp-tr">
-              <span className="pp-who"><Ava src={REPLAY_IMG[c.channel]} name={c.channel} square /><b>{c.channel}</b></span>
-              <span className="pp-r num pp-dim">{c.vods}</span>
-              <Bar pct={(c.views / max) * 100} strong={i === 0} />
-              <span className="pp-r num pp-strong">{fmt(c.views)}</span>
-            </div>
-          ))}
-        </div>
-        <div className="pp-note">Live views billed. Replays and clips reported on top.</div>
-      </div>
-    </div>
-  );
-};
 
 /* ── 8. Poll ──────────────────────────────────────────────────────────────── */
 

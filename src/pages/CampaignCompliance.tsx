@@ -287,10 +287,10 @@ const CampaignCompliance: React.FC = () => {
               <ArrowRight className="w-3.5 h-3.5" /> Chat tracking
             </Link>
             <Link
-              to="/replay-reach"
+              to="/reporting"
               className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors"
             >
-              <ArrowRight className="w-3.5 h-3.5" /> Replay reach
+              <ArrowRight className="w-3.5 h-3.5" /> Reporting
             </Link>
             <Link
               to="/case-studies"

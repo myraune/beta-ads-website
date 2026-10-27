@@ -20,21 +20,21 @@ const DESCRIPTION =
 const questions: { q: string; a: string; link: [string, string] }[] = [
   { q: "Did it actually run?", a: "Every stream is checked on air and every ad play is saved as a clip. On Surfshark Finland, 98.7% of 759 plays were verified with a recorded clip.", link: ["Setup verification", "/campaign-compliance"] },
   { q: "Was it brand safe?", a: "The speech around each ad is transcribed, translated into English and checked for swearing, then rated per channel. A channel that drifts can be dropped mid-flight.", link: ["Brand safety", "/brand-safety"] },
-  { q: "What did we get?", a: "Completed live views, replay and clip views on top, clicks from the chat command, and every brand mention in chat, translated and scored.", link: ["Reporting", "/reporting"] },
-  { q: "What did it cost?", a: "You pay per 1,000 views that fully played. Anything undelivered is refunded pro rata, and replay views are not billed.", link: ["Pricing", "/pricing"] },
+  { q: "What did we get?", a: "Completed live views, clicks from the chat command, and every brand mention in chat, translated and scored.", link: ["Reporting", "/reporting"] },
+  { q: "What did it cost?", a: "You pay per 1,000 views that fully played. Anything undelivered is refunded pro rata.", link: ["Pricing", "/pricing"] },
 ];
 
 const cases: { brand: string; n: string; k: string; to: string }[] = [
   { brand: "Samsung", n: "800,185", k: "completed live views, Galaxy S25 and Z Fold7", to: "/case-study/samsung" },
   { brand: "Høyskolen Kristiania", n: "599,252", k: "views across 31 streamers", to: "/case-study/kristiania" },
-  { brand: "Surfshark Finland", n: "949,957", k: "views with replays, 100,000 bought", to: "/case-study/surfshark-finland" },
+  { brand: "Surfshark Finland", n: "119,041", k: "live views delivered, 100,000 bought", to: "/case-study/surfshark-finland" },
 ];
 
 const faqs: { q: string; a: string }[] = [
   { q: "What is the minimum budget?", a: "Campaigns start at 100,000 NOK, priced per 1,000 views that fully played. Undelivered views are refunded pro rata." },
   { q: "Which markets can we run in?", a: "Norway, Sweden, Denmark and Finland with local streamers, on Twitch, YouTube and Kick. The Streamer Explorer covers 39,000+ streamers worldwide if a campaign goes wider." },
   { q: "Can our media agency run it?", a: "Yes. Agencies get their own self-serve login, or buy it programmatically: we set up a private deal on Adform or Magnite and they target the deal ID in their own DSP. Or we run it for you, managed." },
-  { q: "What do we get at the end?", a: "A report with delivery per streamer and per stream, replay reach, clicks, chat tracking, brand safety and the verification clips, as a live dashboard and a PDF." },
+  { q: "What do we get at the end?", a: "A report with delivery per streamer and per stream, clicks, chat tracking, brand safety and the verification clips, as a live dashboard and a PDF." },
   { q: "How do we know the numbers are real?", a: "Every ad play leaves a recorded clip you can open, and every stream is checked on air. You follow it in your own dashboard login while it runs." },
 ];
 
@@ -89,7 +89,7 @@ const ForMarketingExecutives: React.FC = () => (
         <div className="bf wwu-panel" style={{ background: "transparent" }}>
           <ReportPanel reveal={false} />
         </div>
-        <p className="mt-3 text-xs text-muted-foreground">The end report: completed views, replay reach, chat tracking and a PDF you can forward. Example UI.</p>
+        <p className="mt-3 text-xs text-muted-foreground">The end report: completed views, chat tracking and a PDF you can forward. Example UI.</p>
       </section>
 
       {/* ───────── Four questions ───────── */}

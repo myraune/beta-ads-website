@@ -213,7 +213,7 @@ const SelfServe: React.FC = () => {
               <h2 className={h2}>A report you can <span className="hl">forward to the client.</span></h2>
               <p className="mt-5 text-muted-foreground leading-relaxed max-w-2xl">
                 Live numbers per streamer and per stream, clip verification and an end report with
-                setup verification, chat tracking and replay reach.
+                setup verification and chat tracking.
               </p>
             </div>
             <div className="bf wwu-panel mt-10 md:mt-12" style={{ background: "transparent" }}>

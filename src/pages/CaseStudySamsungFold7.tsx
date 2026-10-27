@@ -14,7 +14,7 @@ const CaseStudySamsungFold7: React.FC = () => {
     <>
       <SEO
         title="Samsung Galaxy Z Fold7 Case Study | Beta Ads"
-        description="Samsung Galaxy Z Fold7 on Norwegian Twitch: 300,054 completed live views and 558,257+ VOD views across 28 Norwegian streamers. Zero adblock impact."
+        description="Samsung Galaxy Z Fold7 on Norwegian Twitch: 300,054 completed live views across 28 Norwegian streamers. Zero adblock impact."
         canonical="/case-study/samsung-fold7"
         ogType="article"
         articlePublishedTime="2026-01-01"
@@ -102,7 +102,7 @@ const CaseStudySamsungFold7: React.FC = () => {
         <div className="grid grid-cols-3 gap-px mb-10 border border-border rounded-2xl overflow-hidden bg-border">
           {[
             { value: "300K+", label: "Completed views" },
-            { value: "558K+", label: "VOD views" },
+            { value: "0%", label: "Adblock impact" },
             { value: "28", label: "Streamers" },
           ].map((s) => (
             <div key={s.label} className="bg-background px-6 py-5">

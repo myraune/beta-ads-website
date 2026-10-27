@@ -80,7 +80,7 @@ const s25Stats = [
 const fold7Stats = [
   { value: "300,054", label: "Completed views" },
   { value: "141,930", label: "Unique viewers" },
-  { value: "558,257+", label: "VOD views" },
+  { value: "93.05%", label: "Audience in Norway" },
   { value: "2,000h", label: "Watch time" },
   { value: "28", label: "Streamers" },
   { value: "31", label: "Campaign days" },
@@ -177,7 +177,6 @@ const insights = [
   { title: "Just Chatting dominates", body: "50.28% of S25 views and 34.45% of Fold7 views from Just Chatting. Conversational content is consistently the most receptive environment for interactive CTAs." },
   { title: "Micro-influencers convert", body: "Simmlings: 11.80% CTR from 746 views. m4r5t3in: 10.00%. The small-channel, high-trust dynamic delivers 9-18x the campaign average CTR." },
   { title: "A few channels carry reach", body: "rubengks delivered 150,600 of the S25 Ultra's 500,131 completed views, and Danniz 97,110 of the Fold7's 300,054. Pair large channels for reach with smaller ones for engagement." },
-  { title: "VOD doubles reach for free", body: "Fold7 accumulated 558,257+ VOD views on top of 300K live. Every campaign keeps generating impressions weeks after it ends, at no extra cost." },
   { title: "Zero adblock impact", body: "Overlays render as OBS browser sources. Both campaigns: every impression was a genuine live view. The format is structurally invisible to adblock software." },
 ];
 
@@ -267,7 +266,6 @@ const SamsungCaseStudy: React.FC = () => {
   const { setRef: setInsightRef, visibleItems: insightVisible } = useMultipleScrollAnimations<HTMLDivElement>(insights.length);
   const { ref: creatorRef, isVisible: creatorVisible } = useScrollAnimation<HTMLDivElement>();
   const { ref: microRef, isVisible: microVisible } = useScrollAnimation<HTMLDivElement>();
-  const { ref: vodRef, isVisible: vodVisible } = useScrollAnimation<HTMLDivElement>();
   const { ref: campaignsRef, isVisible: campaignsVisible } = useScrollAnimation<HTMLDivElement>();
 
   // Deep Dive: which campaign is currently selected for the analytics tab
@@ -314,7 +312,7 @@ const SamsungCaseStudy: React.FC = () => {
                 <span className="hl">x Beta Ads</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-md">
-                Two smartphone launches. One consistent audience. 800,000+ live completed views on Norwegian Twitch, plus another 558,000+ on VOD - all with zero adblock impact.
+                Two smartphone launches. One consistent audience. 800,000+ completed live views on Norwegian Twitch, all with zero adblock impact.
               </p>
               <div className="grid grid-cols-3 border-t border-border pt-5">
                 {[
@@ -428,8 +426,7 @@ const SamsungCaseStudy: React.FC = () => {
               <div className="p-5 rounded-2xl border border-border">
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Why it worked</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  300,054 completed live views in 31 days, with 93.05% of the audience in Norway. VOD views
-                  added 558,257+ additional impressions after the campaign ended, at zero extra cost.
+                  300,054 completed live views in 31 days, with 93.05% of the audience in Norway.
                 </p>
               </div>
             </div>
@@ -552,7 +549,7 @@ const SamsungCaseStudy: React.FC = () => {
                       { value: "141,930", label: "Unique viewers" },
                       { value: "2,000h", label: "Watch time" },
                       { value: "28", label: "Streamers" },
-                      { value: "558,257+", label: "VOD views" },
+                      { value: "93.05%", label: "Audience in Norway" },
                     ]
                 ).map((s) => (
                   <div key={s.label}>
@@ -564,7 +561,7 @@ const SamsungCaseStudy: React.FC = () => {
               <p className="text-xs text-muted-foreground mt-6 leading-relaxed">
                 {isS25
                   ? "A completed view is one fully played ad run on a live stream. Together the two campaigns delivered 800,185 completed live views."
-                  : "VOD views kept adding impressions after the live run ended, at no extra cost."}
+                  : "A completed view is one fully played ad run on a live stream."}
               </p>
             </div>
 
@@ -718,70 +715,6 @@ const SamsungCaseStudy: React.FC = () => {
         </div>
       </section>
 
-      {/* ── VOD + IN-STREAM FOOTAGE ── */}
-      <section className="relative overflow-hidden py-24 md:py-32">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div ref={vodRef} className={`grid lg:grid-cols-2 gap-16 items-center transition-all duration-700 ${vodVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <div>
-              <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">Fold7 · The Long Tail</span>
-              <h2 className="text-3xl md:text-4xl font-light tracking-tight text-foreground mb-6">
-                VOD reach: the campaign that keeps running
-              </h2>
-              <p className="text-muted-foreground text-base leading-relaxed mb-8">
-                Twitch streams stay live as VODs after broadcast. The Fold7 campaign's top three streamers
-                alone accumulated more VOD views than the entire live run. Samsung's creative kept generating
-                impressions weeks after the campaign ended, at no additional cost.
-              </p>
-              <div className="space-y-3 mb-6">
-                {[
-                  { name: "RubenGKS", vod: "214,500", note: "Highest VOD reach" },
-                  { name: "Danniz", vod: "148,800", note: "Includes subathon" },
-                  { name: "Jonieboi", vod: "105,542", note: "+857 followers" },
-                ].map((s) => (
-                  <div key={s.name} className="flex items-center justify-between p-4 rounded-xl border border-border bg-muted/10 hover:bg-muted/20 transition-colors">
-                    <div>
-                      <div className="text-sm font-semibold text-foreground">{s.name}</div>
-                      <div className="text-xs text-muted-foreground">{s.note}</div>
-                    </div>
-                    <div className="text-lg font-bold text-foreground tabular-nums">{s.vod}</div>
-                  </div>
-                ))}
-              </div>
-              <div className="grid grid-cols-3 border-t border-border pt-4">
-                {[{ value: "300,054", label: "Fold7 live views" }, { value: "558,257+", label: "Fold7 VOD views" }, { value: "~858K", label: "Fold7 total reach" }].map((s, i) => (
-                  <div key={s.label} className={`py-2 ${i < 2 ? "pr-4 border-r border-border" : ""} ${i > 0 ? "pl-4" : ""}`}>
-                    <div className="text-xl font-bold text-foreground">{s.value}</div>
-                    <div className="text-xs text-muted-foreground mt-0.5">{s.label}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Campaign banners */}
-            <div className="flex flex-col gap-4">
-              <div className="rounded-2xl overflow-hidden border border-border bg-black">
-                <img
-                  src="/lovable-uploads/samsung-s25-banner.jpg"
-                  width={320}
-                  height={320}
-                  alt="Samsung Galaxy Z Fold7 campaign banner"
-                  className="w-full h-auto"
-                />
-              </div>
-              <div className="rounded-2xl overflow-hidden border border-border bg-black">
-                <img
-                  src="/lovable-uploads/samsung-fold7-banner.jpg"
-                  width={850}
-                  height={500}
-                  alt="Samsung Galaxy S25 Ultra campaign banner"
-                  className="w-full h-auto"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── INSIGHTS GRID ── */}
       <section className="relative overflow-hidden py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -820,7 +753,7 @@ const SamsungCaseStudy: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border-t border-border pt-8">
             {[
               { value: "800,185", label: "Live completed views" },
-              { value: "1.35M+", label: "Including VOD" },
+              { value: "2", label: "Campaigns" },
               { value: "43 + 28", label: "Streamer slots" },
               { value: "56 + 31", label: "Campaign days" },
               { value: "0%", label: "Adblock impact" },

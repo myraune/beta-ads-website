@@ -80,7 +80,6 @@ const STATIC_ROUTES = [
   "/reporting",
   "/programmatic",
   "/for-marketing-executives",
-  "/replay-reach",
   "/streamers",
   "/about",
   "/blog",

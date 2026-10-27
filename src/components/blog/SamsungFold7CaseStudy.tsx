@@ -257,33 +257,6 @@ const SamsungFold7CaseStudy: React.FC = () => {
         </p>
       </section>
 
-      {/* VOD reach */}
-      <section>
-        <h2 className="text-2xl font-bold text-foreground border-b-2 border-border pb-3 mb-6">
-          Extended Reach via VOD
-        </h2>
-        <p className="text-muted-foreground leading-relaxed text-lg mb-4">
-          Twitch streams don't disappear after broadcast. VOD (recorded stream) views added a substantial
-          secondary audience - with Samsung's creative assets continuing to work long after the live session ended.
-        </p>
-        <div className="grid sm:grid-cols-3 gap-4 mb-6">
-          {[
-            { value: "300,054", label: "Live completed views" },
-            { value: "558,257+", label: "VOD views (minimum)" },
-            { value: "~858K", label: "Combined minimum reach" },
-          ].map((s) => (
-            <div key={s.label} className="p-5 rounded-xl border border-border bg-muted/20">
-              <div className="text-2xl font-bold text-foreground tracking-tight">{s.value}</div>
-              <div className="text-sm text-muted-foreground mt-1">{s.label}</div>
-            </div>
-          ))}
-        </div>
-        <p className="text-sm text-muted-foreground">
-          RubenGKS alone drove 214,500 VOD views. Danniz contributed 148,800 (including his subathon content).
-          Jonieboi added 105,542. Total minimum VOD reach exceeded live views by nearly 2:1.
-        </p>
-      </section>
-
       {/* Impact */}
       <section>
         <h2 className="text-2xl font-bold text-foreground border-b-2 border-border pb-3 mb-6">
@@ -292,8 +265,7 @@ const SamsungFold7CaseStudy: React.FC = () => {
         <p className="text-muted-foreground leading-relaxed text-lg mb-6">
           The dual-format campaign delivered{" "}
           <strong className="text-foreground">300,054 completed live views</strong> from 141,930 unique viewers
-          over 31 days, with 93.05% of the audience in Norway. Add 558,257+ VOD views and the creative reached
-          roughly 858,000 views in total.
+          over 31 days, with 93.05% of the audience in Norway.
         </p>
         <p className="text-muted-foreground leading-relaxed text-lg">
           The rich media overlays rendered as browser sources inside OBS - not as external ads served by a
@@ -314,7 +286,6 @@ const SamsungFold7CaseStudy: React.FC = () => {
             { value: "141,930", label: "Unique viewers" },
             { value: "2,000h 22m", label: "Artwork watch time" },
             { value: "28", label: "Norwegian streamers" },
-            { value: "558,257+", label: "Additional VOD views" },
             { value: "0%", label: "Adblock impact" },
           ].map(({ value, label }) => (
             <li key={label} className="text-lg text-muted-foreground flex items-start gap-3">

@@ -16,10 +16,10 @@ import { BuildPanel, Corners, LivePanel, ReportPanel } from "./panels";
 /** Visible FAQ and the FAQPage JSON-LD on "/" both read this array. */
 export const finalFaqs = [
   { q: "How is it priced?", a: "Per 1,000 animation views, with campaigns from 100,000 NOK. Undelivered views are refunded pro rata." },
-  { q: "What counts as a view?", a: "One fully played run of the animation on a live stream on Twitch, YouTube or Kick. The overlay stays in the VOD, so replays keep counting." },
+  { q: "What counts as a view?", a: "One fully played run of the animation on a live stream on Twitch, YouTube or Kick. Undelivered views are refunded pro rata." },
   { q: "Can we choose the streamers?", a: "Search 39,000+ streamers in Streamer Explorer, and approve the streamer list on request before launch. You also get your own login to the live dashboard." },
   { q: "How is delivery checked?", a: "Each stream is checked on air for the overlay, and each ad play is recorded as a clip you can open in the report. Views that did not play are refunded." },
-  { q: "What is in the report?", a: "Completed live views, replay and clip views, clicks, chat mentions of the brand translated and scored, and the verification clips. You get it as a live dashboard and a PDF you can forward." },
+  { q: "What is in the report?", a: "Completed live views, clicks, chat mentions of the brand translated and scored, and the verification clips. You get it as a live dashboard and a PDF you can forward." },
   { q: "Are clicks guaranteed?", a: "No. You buy completed views, and clicks and CTR are reported, not guaranteed." },
 ];
 
@@ -262,10 +262,10 @@ export const HomeFinal: React.FC = () => {
             <header className="ch__h reveal">
               <h2><b>A report</b> <span>you can forward.</span></h2>
               <div>
-                <p>Live in your own dashboard while the campaign runs, and one PDF when it ends: views per streamer, replays, clicks and every brand mention in chat.</p>
+                <p>Live in your own dashboard while the campaign runs, and one PDF when it ends: views per streamer, clicks and every brand mention in chat.</p>
                 <div className="qlinks">
                   <A className="qlink" href="/livestream-chat-engagement">Chat tracking <Arrow /></A>
-                  <A className="qlink" href="/replay-reach">Replay reach <Arrow /></A>
+                  <A className="qlink" href="/reporting">Reporting <Arrow /></A>
                 </div>
               </div>
             </header>
@@ -305,7 +305,7 @@ export const HomeFinal: React.FC = () => {
             </div>
             <div className="tcard tcard--static">
               <b>What it costs</b>
-              <span>Campaigns start at 100,000 NOK, priced per 1,000 views that played. Replay and clip views come on top at no cost, so the effective CPM usually lands around 200 to 300 NOK.</span>
+              <span>Campaigns start at 100,000 NOK, priced per 1,000 views that played. You get a quote for your market and budget before anything is booked.</span>
               <A className="qlink" href="/pricing">See pricing <Arrow /></A>
             </div>
           </div>

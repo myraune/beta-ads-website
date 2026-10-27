@@ -50,7 +50,7 @@ const ROUTES = [
   "/case-study/shure", "/case-study/saily", "/case-study/gokstad", "/case-study/glorious", "/contact", "/demo", "/press", "/streamers",
   "/norge", "/twitch-advertising", "/twitch-advertising-cost", "/kick-advertising",
   "/kick-advertising-cost", "/youtube-advertising", "/nordic-livestream-advertising",
-  "/campaign-compliance", "/replay-reach", "/livestream-chat-engagement",
+  "/campaign-compliance", "/livestream-chat-engagement",
   "/twitch-annonsering-pris", "/privacy", "/terms",
 ];
 

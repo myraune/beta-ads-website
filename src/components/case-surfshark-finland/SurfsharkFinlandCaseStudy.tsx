@@ -12,8 +12,6 @@ import {
   quotes,
   clickAudience,
   geo,
-  vodChannels,
-  vodOther,
   gallery,
   codePanels,
   fmt,
@@ -82,7 +80,6 @@ const Big: React.FC<{ v: React.ReactNode; l: React.ReactNode; size?: string }> =
 
 const SurfsharkFinlandCaseStudy: React.FC = () => {
   const reducedMotion = usePrefersReducedMotion();
-  const vodMax = vodChannels[0].views;
 
   return (
     <article className="ssf">
@@ -110,12 +107,11 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
             </div>
             <h1 className="text-[2.4rem] leading-[1.03] sm:text-5xl xl:text-[4.2rem] font-bold tracking-[-0.03em] text-foreground">
               Bought 100,000 views.{" "}
-              Delivered 949,957.
+              Delivered 119,041 live.
             </h1>
             <p className="mt-6 max-w-xl text-base md:text-lg leading-relaxed text-muted-foreground">
               Surfshark VPN ran for a month on Finnish Twitch with a twist on the usual overlay: every ad moment
-              opened a poll in the creator's own chat. The campaign over-delivered live, kept collecting views in
-              the replays, and came back with a month of market research nobody had to pay a panel for.
+              opened a poll in the creator's own chat. The campaign over-delivered live by 19% and came back with a month of market research nobody had to pay a panel for.
             </p>
           </div>
           <figure>
@@ -139,7 +135,7 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
         <dl className="mt-10 md:mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 border-y border-border divide-border">
           {[
             { v: fmt(headline.viewsDelivered), l: "Live ad views", s: "119% of the 100,000 bought" },
-            { v: fmt(delivery.combined), l: "Views with replays", s: "Live, VODs and clips" },
+            { v: fmt(verification.streams), l: "Streams", s: "With the ad running, 14 creators" },
             { v: fmt(headline.clicks), l: "Clicks", s: `${headline.ctr} click-through rate` },
             { v: `${verification.clipVerified}%`, l: "Clip-verified", s: `${fmt(verification.adPlays)} ad plays checked` },
             { v: fmt(headline.votes), l: "Poll votes", s: `${headline.polls} polls run in chat` },
@@ -234,7 +230,7 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
               n="02"
               kicker="Delivery"
               title={<>Bought 100,000. <Light>Delivered 119,041 live.</Light></>}
-              lede="A Twitch stream stays on the creator's channel as a VOD with the overlay still in it, and the best moments get clipped. That is where most of the total came from."
+              lede="Views are counted when the whole animation played on a live stream. Surfshark paid for 100,000 and got 19% more at no extra cost."
             />
             <div className="space-y-4">
               {[
@@ -253,26 +249,6 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
                 </div>
               ))}
             </div>
-            <div className="mt-10">
-              <div className="flex flex-wrap items-baseline justify-between gap-3 mb-4">
-                <h3 className="text-base font-semibold text-foreground">Where the {fmt(delivery.combined)} views came from</h3>
-              </div>
-              <SplitBar
-                ariaLabel={`Split of ${fmt(delivery.combined)} combined views`}
-                parts={[
-                  { label: "VOD views", value: delivery.vodViews, display: fmt(delivery.vodViews), note: `${delivery.vods} VODs` },
-                  { label: "Live ad views", value: delivery.live, display: fmt(delivery.live), note: "What was billed" },
-                  { label: "Clip views", value: delivery.clipViews, display: fmt(delivery.clipViews), note: `${delivery.clips} clips` },
-                ]}
-              />
-            </div>
-            <p className="mt-8 rounded-[12px] bg-muted/60 p-5 text-sm leading-relaxed text-muted-foreground">
-              <span className="font-semibold text-foreground">Read the replays as a range.</span> A VOD view on Twitch is a video
-              load, and some are autoplay rather than someone sitting down to rewatch. The {fmt(delivery.vodViews)} is a real
-              count from Twitch, but not the same thing as the {fmt(delivery.live)} live views Surfshark paid for. Clip views are
-              the cleanest part. VOD and clip counts cover the {delivery.channelsWithReplayData} channels with replay data,
-              snapshot 1 September 2026.
-            </p>
           </div>
 
           <div id="verification" className="min-w-0 scroll-mt-28">
@@ -530,52 +506,13 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
         </p>
       </Section>
 
-      {/* ───────────── 08 Replays + 09 Takeaways side by side ───────────── */}
-      <Section id="replays">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          <div className="min-w-0">
-            <SectionHead
-              n="08"
-              kicker="After the stream"
-              title={<>The biggest channel passed <Light>300,000 VOD views</Light></>}
-              lede={`${fmt(delivery.vodViews)} views on ${delivery.vods} VODs from August. A few channels carried most of it.`}
-            />
-            <ol className="space-y-2.5">
-              {vodChannels.map((c, i) => (
-                <li key={c.channel} className="grid grid-cols-[7rem_minmax(0,1fr)] gap-x-4 items-center">
-                  <div className="text-right">
-                    <span className="block text-sm font-medium text-foreground truncate">{c.channel}</span>
-                    <span className="block text-[11px] text-muted-foreground">{c.vods} VODs</span>
-                  </div>
-                  <div className="flex items-center gap-3 min-w-0">
-                    <div className="h-6 rounded-[5px] shrink-0" style={{ width: `${(c.views / vodMax) * 70}%`, background: i === 0 ? accent : accentSoft(0.5) }} aria-hidden />
-                    <span className="text-sm font-semibold tabular-nums text-foreground whitespace-nowrap">{fmt(c.views)}</span>
-                  </div>
-                </li>
-              ))}
-              <li className="grid grid-cols-[7rem_minmax(0,1fr)] gap-x-4 items-center pt-1">
-                <div className="text-right">
-                  <span className="block text-sm text-muted-foreground">{vodOther.channels} other channels</span>
-                  <span className="block text-[11px] text-muted-foreground">{vodOther.vods} VODs</span>
-                </div>
-                <div className="flex items-center gap-3 min-w-0">
-                  <div className="h-6 rounded-[5px] shrink-0" style={{ width: `${(vodOther.views / vodMax) * 70}%`, background: accentSoft(0.25), minWidth: 4 }} aria-hidden />
-                  <span className="text-sm font-semibold tabular-nums text-muted-foreground whitespace-nowrap">{fmt(vodOther.views)}</span>
-                </div>
-              </li>
-            </ol>
-            <p className="mt-6 text-xs text-muted-foreground leading-relaxed">
-              Twitch VOD view counts, snapshot 1 September 2026, for the {delivery.channelsWithReplayData} channels with replay
-              data. "Other channels" is the remainder of the {fmt(delivery.vodViews)} total. On top of the VODs, {delivery.clips} clips
-              collected {fmt(delivery.clipViews)} views.
-            </p>
-          </div>
-
+      {/* ───────────── 08 Takeaways ───────────── */}
+      <Section id="takeaways-wrap">
+        <div>
           <div id="takeaways" className="min-w-0 scroll-mt-28">
-            <SectionHead n="09" kicker="Takeaways" title={<>What we would take <Light>into the next flight</Light></>} />
-            <ol className="space-y-7">
+            <SectionHead n="08" kicker="Takeaways" title={<>What we would take <Light>into the next flight</Light></>} />
+            <ol className="grid md:grid-cols-3 gap-8">
               {[
-                ["Count the replays.", "Live views are what you buy. VODs and clips are what you get on top, for weeks after the stream. Report them as a range, next to the live number, never instead of it."],
                 ["Ask the audience something.", "A poll adds almost nothing to the setup and turns an overlay into research. Surfshark now knows how many Finnish viewers have no VPN, how many are undecided and how many pay a competitor."],
                 ["Read the chat.", "The questions viewers ask are the FAQ and the next creative brief. Here that meant explaining what a VPN is for, and answering price, devices, streaming and logs up front."],
                 ["Watch the frequency.", "The most repeated complaint was seeing the poll too often. Run it less and more people will enjoy answering it, which also makes the answers better."],
@@ -600,14 +537,13 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
           <ul className="space-y-3">
             <li><span className="text-foreground font-medium">Campaign report.</span> Surfshark Finland campaign report, LIVAD delivery, poll and click logs, campaign 3854, 1 August to 1 September 2026. Live views, clicks, CTR, polls, votes, poll split, chat activity during ad moments, device, OS, browser and geography.</li>
             <li><span className="text-foreground font-medium">Clip and campaign analytics.</span> LIVAD clip verification and campaign analytics, final pull 1 September 2026. Ad plays, streams, clip verification, correct display, brand said, hours watched.</li>
-            <li><span className="text-foreground font-medium">Replays.</span> Twitch VOD and clip view counts for the {delivery.channelsWithReplayData} channels with replay data, snapshot 1 September 2026.</li>
             <li><span className="text-foreground font-medium">Chat.</span> LIVAD keyword tracking (surfshark, vpn, surf), deduplicated, bots removed, read and translated from Finnish by us. LIVAD's dashboard counts {fmt(chat.dashboardKeywordHits)} keyword hits; {chat.messages} is the deduplicated viewer message count.</li>
           </ul>
           <div className="space-y-3">
             <p><span className="text-foreground font-medium">Two click counts.</span> The report counts {fmt(headline.clicks)} clicks, which is the figure behind the {headline.ctr} CTR. Device, OS and browser shares are calculated on {fmt(clickAudience.resolvedOn)} rows in the raw click log, where the user agent resolved. The two come from different counts in the LIVAD data and differ by 46. We show both rather than force them to match. Geography is located on {fmt(geo.located)} clicks, {geo.locatedShare} of the total.</p>
             <p><span className="text-foreground font-medium">Two chat numbers.</span> {fmt(headline.chatMessagesDuringAds)} messages from {fmt(headline.chatPeopleDuringAds)} people is all chat activity during ad moments. The {chat.messages} messages in section 06 are only the ones that mention Surfshark or VPN.</p>
             <p><span className="text-foreground font-medium">Ad plays and polls.</span> {fmt(verification.adPlays)} ad plays were verified by clip; {fmt(headline.polls)} polls were run. The two are logged separately and are not expected to match one to one.</p>
-            <p><span className="text-foreground font-medium">Replays.</span> A Twitch VOD view is a video load, including some autoplay. The combined {fmt(delivery.combined)} is live views plus VOD and clip views, and should be read as a range.</p>
+            <p><span className="text-foreground font-medium">No replay figures.</span> A Twitch VOD's view count includes the people who watched live, so it is not reach on top of the live views and is not reported here.</p>
             <p><span className="text-foreground font-medium">Not reported.</span> Age and gender are not available in the click log. One translated chat quote was left out because it quoted a price.</p>
           </div>
         </div>
@@ -623,7 +559,7 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
               </h2>
               <p className="mt-4 text-white/70 text-base leading-relaxed max-w-lg">
                 We run native overlay campaigns with Nordic Twitch creators, verify ad plays by clip, and
-                report the chat, the replays and the clicks in one place.
+                report the chat and the clicks in one place.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <a

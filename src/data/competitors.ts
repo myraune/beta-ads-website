@@ -115,7 +115,7 @@ export const competitors: Competitor[] = [
       ["Nordic availability", "Built for Norway, Sweden, Denmark and Finland", "Amazon DSP, including Twitch video, launched in Norway, Sweden, Denmark and Finland in 2021; Creator Sponsorships are listed for Sweden only"],
       ["Creative", "Animated from scratch for your brand", "Your own video for media ads; sponsorship skins use a logo and a fixed call to action, with no animation"],
       ["Pricing", BETA.pricing, "Amazon mentions a minimum spend but publishes no figure"],
-      ["After the stream", "The overlay is part of the video, so it stays in the VOD and keeps earning views", "Video ads are served by the platform around the content"],
+      ["After the stream", "The overlay is part of the video, so it is in the VOD and clips too", "Video ads are served by the platform around the content"],
     ],
     differs: [
       ["Inside the content, not around it", "The overlay is rendered into the broadcast by the streamer's own software, so it is part of the video viewers watch and part of the recording afterwards."],

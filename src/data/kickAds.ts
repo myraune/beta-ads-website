@@ -459,7 +459,7 @@ const EN: KickCopy = {
   creators: {
     label: "Beta Ads on Kick",
     heading: "The other way in: inside the stream itself.",
-    body: "Kick's placements put your brand around the picture. Our creator network puts it inside it: Kick streamers picked from a Streamer Explorer database of 39,000+ creators, native overlays during agreed moments, voice-triggered ads, polls in chat, and reach that survives into the replay. Booked from the same team, reported in the same report.",
+    body: "Kick's placements put your brand around the picture. Our creator network puts it inside it: Kick streamers picked from a Streamer Explorer database of 39,000+ creators, native overlays during agreed moments, voice-triggered ads and polls in chat. Booked from the same team, reported in the same report.",
     cta: "How creator campaigns on Kick work",
     href: "/kick-streamer-advertising",
   },

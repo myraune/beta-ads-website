@@ -306,20 +306,6 @@
 .bf .pp-ring__l{display:block;font-size:14px;font-weight:600}
 .bf .pp-ring__s{display:block;font-size:12.5px;color:var(--ink-3);font-weight:500;margin-top:1px}
 
-/* 7. Replay */
-.bf .pp-split{display:flex;gap:3px;height:12px;margin-top:22px}
-.bf .pp-split i{display:block;flex-basis:0;border-radius:3px;min-width:4px}
-.bf .pp-split .s0,.bf .pp-legend .s0{background:var(--ink)}
-.bf .pp-split .s1,.bf .pp-legend .s1{background:rgba(255,255,255,.22)}
-.bf .pp-split .s2,.bf .pp-legend .s2{background:rgba(255,255,255,.5)}
-.bf .pp-legend{display:flex;flex-wrap:wrap;gap:6px 20px;margin-top:12px;font-size:13px;color:var(--ink-3);font-weight:500}
-.bf .pp-legend span{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
-.bf .pp-legend i{width:8px;height:8px;border-radius:2px}
-.bf .pp-legend b{color:var(--ink);font-weight:600}
-.bf .pp-tbl--rep{margin-top:22px}
-.bf .pp-tbl--rep .pp-tr{grid-template-columns:minmax(0,1fr) 44px minmax(0,1.2fr) 76px;min-height:52px}
-.bf .pp-note{margin-top:14px;padding-top:14px;border-top:1px solid var(--line-2);font-size:13px;color:var(--ink-3);font-weight:500}
-
 /* 8. Poll */
 .bf .pp-poll{display:grid;grid-template-columns:minmax(0,1fr) 320px}
 .bf .pp-poll__body{padding:18px 20px 20px}

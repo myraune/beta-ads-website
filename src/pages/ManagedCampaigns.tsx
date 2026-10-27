@@ -26,7 +26,7 @@ const steps: { t: string; d: string; who: "You" | "Beta Ads" | "Both" }[] = [
   { t: "Briefing and setup", who: "Beta Ads", d: "We brief every streamer and set the overlay up in OBS with them." },
   { t: "Setup verification", who: "Beta Ads", d: "Every channel is checked on air: overlay placed, visible on stream, animation running." },
   { t: "Live monitoring", who: "Both", d: "Every ad play leaves a recorded clip. You follow views, clicks and CTR per streamer and per stream in your own dashboard login." },
-  { t: "End report", who: "Beta Ads", d: "Delivery, clicks, chat tracking and replay reach when the campaign ends. Undelivered views are refunded pro rata." },
+  { t: "End report", who: "Beta Ads", d: "Delivery, clicks and chat tracking when the campaign ends. Undelivered views are refunded pro rata." },
 ];
 
 const you = [
@@ -49,8 +49,8 @@ const us = [
 ];
 
 const cases: { brand: string; what: string; facts: string; to: string }[] = [
-  { brand: "Samsung", what: "Galaxy S25 Ultra and Z Fold7", facts: "800,185 completed live views, 1.35M+ with VOD, 71 streamer slots", to: "/case-study/samsung" },
-  { brand: "Samsung", what: "Galaxy Z Fold7", facts: "300,054 completed live views, 558,257+ VOD views, 28 streamers", to: "/case-study/samsung-fold7" },
+  { brand: "Samsung", what: "Galaxy S25 Ultra and Z Fold7", facts: "800,185 completed live views, 71 streamer slots", to: "/case-study/samsung" },
+  { brand: "Samsung", what: "Galaxy Z Fold7", facts: "300,054 completed live views, 28 streamers", to: "/case-study/samsung-fold7" },
   { brand: "NKI", what: "Quiz campaign", facts: "220,003 completed views, 1,595 verified clicks, 19 streamers", to: "/case-study/nki" },
   { brand: "Shure", what: "MV6 microphone", facts: "182,554 completed views, 2,378 verified clicks, one creator", to: "/case-study/shure" },
   { brand: "Komplett", what: "Månedens Gaming Deal", facts: "151,278 display views, 1,768 verified clicks, 34 streamers", to: "/case-study/komplett" },
@@ -63,7 +63,7 @@ const faqs: { q: string; a: string }[] = [
   { q: "Can we choose the streamers?", a: "We pick them from the Streamer Explorer, and you can approve the list and remove anyone on it before launch." },
   { q: "Do we need to make the creative?", a: "No. We design the animated overlay in your brand, sized for a corner of the stream, plus the chat command and an optional poll." },
   { q: "How do we know the ad actually ran?", a: "Every channel is checked on air, and every ad play leaves a recorded clip you can look at. You follow views, clicks and CTR in your own dashboard login." },
-  { q: "What is in the end report?", a: "Delivery, clicks, chat tracking and replay reach, per streamer and per stream, as a report you can forward." },
+  { q: "What is in the end report?", a: "Delivery, clicks and chat tracking, per streamer and per stream, as a report you can forward." },
   { q: "We are an agency. Can we start managed?", a: "Yes. Many agencies run one managed campaign first, then move to their own self-serve login for the next ones." },
 ];
 
@@ -207,7 +207,7 @@ const ManagedCampaigns: React.FC = () => {
                 <h2 className={h2}>Your own login while it runs. <span className="hl">A report when it ends.</span></h2>
                 <p className="mt-5 text-muted-foreground leading-relaxed max-w-2xl">
                   Views, clicks and CTR per streamer and per stream, with a recorded clip of every ad play.
-                  The end report adds chat tracking and replay reach, as a PDF you can forward.
+                  The end report adds chat tracking, as a PDF you can forward.
                 </p>
               </div>
             </div>

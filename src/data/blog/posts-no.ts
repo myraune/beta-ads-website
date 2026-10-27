@@ -64,7 +64,7 @@ Seedream 5.0 lager bilder, altså bannere og kanalgrafikk. Den kom på CapCut i 
 
 ## Hvorfor en redigeringsapp angår en medieplan
 
-En overlay som ligger i sendingen forsvinner når sendingen er over, med mindre noen klipper den ut. Nå gjør skaperen det på minutter i stedet for i en kveldsøkt med redigering. Det er den samme mekanismen vi måler som Replay reach: sendingen fortsetter å levere lenge etter at den er slutt.
+En overlay som ligger i sendingen forsvinner når sendingen er over, med mindre noen klipper den ut. Nå gjør skaperen det på minutter i stedet for i en kveldsøkt med redigering.
 
 Terskelen for kanalgrafikk faller samtidig til null. Mindre skapere som aldri har hatt råd til en designer får en kanal som ser proff ut. For en merkevare betyr det at «ser kanalen seriøs ut» slutter å være et brukbart signal når man plukker skapere. Tallene betyr mer, utseendet betyr mindre.
 

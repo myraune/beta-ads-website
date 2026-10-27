@@ -1,22 +1,23 @@
 import React from "react";
 import { FeaturePage } from "@/components/working/FeaturePage";
-import { PanelFrame, DashboardPanel, LiveMonitorPanel, DeliveryPanel, ReplayPanel, PollPanel } from "@/components/home-final/product-panels";
+import { PanelFrame, DashboardPanel, LiveMonitorPanel, DeliveryPanel, PollPanel } from "@/components/home-final/product-panels";
 
 /* Reporting. Coded dark product panels of the dashboard and campaign room
-   views (live monitor, delivery, replay reach) plus the poll result, with the
+   views (live monitor, delivery) plus the poll result, with the
    Surfshark Finland figures. Copy sticks to the
-   confirmed report dimensions: delivery, verification clips, replay and clip
-   views, clicks, chat tracking, polls, brand safety, PDF. */
+   confirmed report dimensions: delivery, verification clips, clicks, chat
+   tracking, polls, brand safety, PDF. No replay or VOD figures: a Twitch VOD
+   view count includes the live audience, so it is not replay reach. */
 
 const Reporting: React.FC = () => (
   <FeaturePage
     path="/reporting"
     crumb="Reporting"
     seoTitle="Livestream Ad Reporting: Live Dashboard and PDF | Beta Ads"
-    seoDescription="Follow every livestream campaign live: delivery per streamer and stream, verification clips, replay reach, clicks, chat and polls. Then send one PDF report."
+    seoDescription="Follow every livestream campaign live: delivery per streamer and stream, verification clips, clicks, chat and polls. Then send one PDF report."
     kicker="Platform · Reporting"
     title="A report you can forward to the client."
-    lead="Live in your own dashboard while the campaign runs, and as one PDF when it ends: delivery, verification clips, replay reach, clicks, chat and polls."
+    lead="Live in your own dashboard while the campaign runs, and as one PDF when it ends: delivery, verification clips, clicks, chat and polls."
     hero={{ visual: <PanelFrame><DashboardPanel /></PanelFrame>, caption: "The dashboard, Surfshark VPN Finland." }}
     sections={[
       {
@@ -30,12 +31,6 @@ const Reporting: React.FC = () => (
         title: "Delivery you can look at.",
         body: "Every ad play is recorded as a clip and checked: whether the overlay was displayed correctly and whether the brand was mentioned. It is evidence, not a served-impression count.",
         visual: <PanelFrame><DeliveryPanel /></PanelFrame>,
-      },
-      {
-        kicker: "Replay reach",
-        title: "Live views billed. Replays counted on top.",
-        body: "The overlay stays in the VOD and in clips. Replay reach shows those views per channel, next to the live views you paid for.",
-        visual: <PanelFrame><ReplayPanel /></PanelFrame>,
       },
       {
         kicker: "Polls",
@@ -52,7 +47,7 @@ const Reporting: React.FC = () => (
     faqTitle="Questions about reporting"
     faqs={[
       { q: "When can we see the numbers?", a: "From the first stream. You follow delivery in your own dashboard login while the campaign runs." },
-      { q: "What is in the end report?", a: "Delivery per streamer and per stream, the verification clips, replay and clip views, clicks from the chat command, chat tracking, poll results and brand safety, as one PDF." },
+      { q: "What is in the end report?", a: "Delivery per streamer and per stream, the verification clips, clicks from the chat command, chat tracking, poll results and brand safety, as one PDF." },
       { q: "Are clicks guaranteed?", a: "No. You buy completed views. Clicks and CTR are tracked and reported, not guaranteed." },
       { q: "Can we share it with the client?", a: "Yes. The report is made to be forwarded as it is." },
     ]}

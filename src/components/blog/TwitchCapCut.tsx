@@ -93,7 +93,7 @@ const MEANS: { n: string; title: string; body: string }[] = [
   {
     n: "01",
     title: "Sponsede øyeblikk lever lenger",
-    body: "En overlay som ligger i sendingen forsvinner når sendingen er over, med mindre noen klipper den ut. Nå gjør skaperen det på minutter. Det er den samme mekanismen vi måler som Replay reach.",
+    body: "En overlay som ligger i sendingen forsvinner når sendingen er over, med mindre noen klipper den ut. Nå gjør skaperen det på minutter.",
   },
   {
     n: "02",
@@ -359,10 +359,10 @@ const TwitchCapCut: React.FC = () => (
       </div>
       <Reveal>
         <Link
-          to="/replay-reach"
+          to="/reporting"
           className="group inline-flex items-center gap-1.5 text-sm font-medium text-foreground mt-10 hover:text-primary transition-colors"
         >
-          Se hvordan vi måler Replay reach
+          Se hva rapporten viser
           <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
         </Link>
       </Reveal>

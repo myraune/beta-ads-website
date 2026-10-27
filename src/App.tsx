@@ -41,7 +41,6 @@ const Reporting = lazy(() => import("./pages/Reporting"));
 const Programmatic = lazy(() => import("./pages/Programmatic"));
 const TikTokLiveAdvertising = lazy(() => import("./pages/TikTokLiveAdvertising"));
 const ForMarketingExecutives = lazy(() => import("./pages/ForMarketingExecutives"));
-const ReplayReach = lazy(() => import("./pages/ReplayReach"));
 const YouTubeAdvertising = lazy(() => import("./pages/YouTubeAdvertising"));
 const KickAdvertising = lazy(() => import("./pages/KickAdvertising"));
 const KickAnnonsering = lazy(() => import("./pages/KickAnnonsering"));
@@ -224,7 +223,6 @@ const App = () => {
               <Route path="/programmatic" element={<Programmatic />} />
               <Route path="/tiktok-live-advertising" element={<TikTokLiveAdvertising />} />
               <Route path="/for-marketing-executives" element={<ForMarketingExecutives />} />
-              <Route path="/replay-reach" element={<ReplayReach />} />
               <Route path="/youtube-advertising" element={<YouTubeAdvertising />} />
               <Route path="/kick-advertising" element={<KickAdvertising />} />
               <Route path="/kick-annonsering" element={<KickAnnonsering />} />

@@ -52,7 +52,6 @@ const STATIC_PAGES = [
   { path: "/reporting", priority: "0.9", changefreq: "monthly" },
   { path: "/programmatic", priority: "0.9", changefreq: "monthly" },
   { path: "/for-marketing-executives", priority: "0.9", changefreq: "monthly" },
-  { path: "/replay-reach", priority: "0.9", changefreq: "monthly" },
   { path: "/kick-advertising",       priority: "0.95", changefreq: "monthly" },
   { path: "/kick-annonsering",       priority: "0.9",  changefreq: "monthly" },
   { path: "/kick-annonsering-sverige", priority: "0.9", changefreq: "monthly" },

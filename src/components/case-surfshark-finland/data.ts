@@ -28,12 +28,8 @@ export const headline = {
 export const delivery = {
   bought: 100000,
   live: 119041,
-  vodViews: 798323,
-  vods: 183,
-  clipViews: 32593,
-  clips: 320,
-  combined: 949957,
-  channelsWithReplayData: 11,
+  // No VOD or clip view counts: a Twitch VOD's view count includes the live
+  // audience, so it is not replay reach and must not be added to live views.
 };
 
 /** [C] verification */
@@ -168,24 +164,6 @@ export const geo = {
     { label: "Kokkola", pct: 2.4, n: 12 },
   ],
   otherCities: { pct: 27.2, n: 138 },
-};
-
-/** [Q] Twitch VOD views from August, top 7 of the 11 channels with replay data */
-export const vodChannels = [
-  { channel: "turunpug", vods: 24, views: 305687 },
-  { channel: "henksuliini", vods: 10, views: 133791 },
-  { channel: "miikaz", vods: 30, views: 120970 },
-  { channel: "datrope", vods: 25, views: 75878 },
-  { channel: "ketku", vods: 16, views: 60899 },
-  { channel: "tuubeli", vods: 24, views: 43259 },
-  { channel: "snihy", vods: 16, views: 42515 },
-];
-
-/** derived: 798,323 minus the seven channels above; 183 VODs minus theirs */
-export const vodOther = {
-  channels: 4,
-  views: delivery.vodViews - vodChannels.reduce((s, c) => s + c.views, 0),
-  vods: delivery.vods - vodChannels.reduce((s, c) => s + c.vods, 0),
 };
 
 export const gallery = [

@@ -23,6 +23,7 @@
       "permanent": true
     },
     { "source": "/careers/:path*", "destination": "/about", "permanent": true },
+    { "source": "/replay-reach", "destination": "/reporting", "permanent": true },
     { "source": "/career/:path*", "destination": "/about", "permanent": true },
     { "source": "/jobs/:path*", "destination": "/about", "permanent": true },
     { "source": "/jobb/:path*", "destination": "/about", "permanent": true },

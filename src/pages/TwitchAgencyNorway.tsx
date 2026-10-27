@@ -80,7 +80,7 @@ const checklist = [
   },
   {
     q: "What happens to the campaign after the stream ends?",
-    why: "The overlay is baked into the recording. An agency that does not count views after the broadcast is not counting half the campaign.",
+    why: "The overlay is baked into the recording, so it is in the VOD too. Ask what is counted and billed: with us, only completed live views.",
   },
   {
     q: "How do you know the overlay was actually live?",
@@ -286,7 +286,7 @@ const TwitchAgencyNorway: React.FC = () => {
                 A Twitch agency connects brands to streamers and builds the ad into the live
                 broadcast. That is a different job from what a general influencer agency does,
                 because the format is different: a stream runs for hours, chat answers in real time,
-                and the recording keeps collecting views long after the streamer logs off.
+                and the overlay stays in the recording after the streamer logs off.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed max-w-xl">
                 In Norway, very few agencies treat Twitch as their main channel. Most are influencer

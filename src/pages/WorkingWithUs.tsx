@@ -19,7 +19,7 @@ const managedSteps: { t: string; d: string; who: "you" | "us" }[] = [
   { t: "Custom overlay", d: "We design the animation in your brand, sized for a corner of the stream, plus the chat command and an optional poll.", who: "us" },
   { t: "Launch", d: "We brief the streamers, set it up in OBS and check that it runs on every channel from day one.", who: "us" },
   { t: "Live monitoring", d: "Every ad play leaves a recorded clip. You follow views, clicks and CTR in your own dashboard login.", who: "us" },
-  { t: "Report", d: "A full report when the campaign ends: delivery, clicks, chat and replay reach. Undelivered views are refunded.", who: "us" },
+  { t: "Report", d: "A full report when the campaign ends: delivery, clicks and chat. Undelivered views are refunded.", who: "us" },
 ];
 
 const selfServe: { t: string; d: string }[] = [

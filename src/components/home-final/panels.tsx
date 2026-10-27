@@ -274,7 +274,6 @@ export const ReportPanel: React.FC<{ reveal?: boolean; compact?: boolean }> = ({
         <ul className="r-nav">
           <li><i />Setup verification</li>
           <li className="on"><i />Chat tracking</li>
-          <li><i />Replay reach</li>
           <li><i />PDF report</li>
         </ul>
         <dl className="r-facts">
@@ -285,11 +284,10 @@ export const ReportPanel: React.FC<{ reveal?: boolean; compact?: boolean }> = ({
       <div className="r-main">
         <div className="r-top">
           <div>
-            <div className="r-k">Completed views</div>
+            <div className="r-k">Completed live views</div>
             <div className="r-num num">800,185</div>
           </div>
           <div className="r-states">
-            <span className="seg"><b className="on">Live + replays</b><b>Live</b><b>Replays</b></span>
             <span className="tbtn tbtn--dark">Export PDF</span>
           </div>
         </div>

@@ -196,7 +196,7 @@ const BrandSafety: React.FC = () => (
           {[
             ["Setup verification", "Every stream checked on air, every play clipped.", "/campaign-compliance"],
             ["Chat tracking", "Every brand mention in chat, translated and scored.", "/livestream-chat-engagement"],
-            ["Replay reach", "Views that keep counting after the stream.", "/replay-reach"],
+            ["Reporting", "A report you can forward to the client.", "/reporting"],
           ].map(([t, d, to]) => (
             <Link key={to} to={to} className="group border-t border-border pt-5">
               <span className="text-lg font-semibold tracking-tight">{t} <span aria-hidden="true" className="text-muted-foreground group-hover:text-foreground transition-colors">&rarr;</span></span>

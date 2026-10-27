@@ -5,9 +5,9 @@ import { BOOKING_URL, SALES_MAIL, W, kicker, h2, PrimaryBtn, GhostBtn, Faq, faqL
 
 /* Beta Ads pricing, for every platform. Only the public, confirmed terms:
    priced per 1,000 views that fully played, campaigns from 100,000 NOK,
-   undelivered views refunded pro rata, replay and clip views reported on top and
-   not billed, effective CPM usually 200 to 300 NOK once those are counted,
-   clicks and CTR reported but not guaranteed. The internal CPM ladder is never
+   undelivered views refunded pro rata, clicks and CTR reported but not
+   guaranteed. No replay, VOD or "effective CPM" claims: a Twitch VOD view count
+   includes the live audience, so it is not reach on top. The internal CPM ladder is never
    published here. TikTok LIVE is quoted case by case while it is new. */
 
 const TITLE = "Pricing: Pay Per View That Played | Beta Ads";
@@ -17,7 +17,7 @@ const DESCRIPTION =
 const terms: { k: string; v: string; d: string }[] = [
   { k: "You pay for", v: "Views that played", d: "One view is one full run of the animation on a live stream. Priced per 1,000." },
   { k: "Campaigns from", v: "100,000 NOK", d: "The minimum for one campaign, on one or several platforms." },
-  { k: "Effective CPM", v: "200 to 300 NOK", d: "What it usually lands at once replay and clip views are counted." },
+  { k: "Clicks and CTR", v: "Reported", d: "Tracked per streamer and per stream in your dashboard, not guaranteed." },
   { k: "Undelivered", v: "Refunded", d: "Views that do not play are refunded pro rata, never billed." },
 ];
 
@@ -27,12 +27,12 @@ const included: string[] = [
   "Setup verification on every stream, a clip of every ad play",
   "Brand safety: the speech around each ad, translated and rated",
   "Your own dashboard login while it runs",
-  "End report with delivery, replay reach, clicks and chat tracking",
+  "End report with delivery, clicks and chat tracking",
 ];
 
 const notBilled: { t: string; d: string }[] = [
-  { t: "Replay views", d: "The overlay stays in the VOD. Those views are reported on top." },
-  { t: "Clip views", d: "Clips viewers make of the stream keep counting, at no cost." },
+  { t: "Views that did not fully play", d: "A view only counts when the whole animation played on a live stream." },
+  { t: "Clicks", d: "Clicks from the chat command are tracked and reported, never charged on top." },
   { t: "Undelivered views", d: "Anything that did not play is refunded pro rata." },
 ];
 
@@ -44,7 +44,6 @@ const routes: { t: string; d: string; to: string }[] = [
 
 const faqs: { q: string; a: string }[] = [
   { q: "How is it priced?", a: "Per 1,000 views that fully played on a live stream, with campaigns from 100,000 NOK. Undelivered views are refunded pro rata." },
-  { q: "Why does the effective CPM end up lower than the price?", a: "You pay for live views only. The overlay stays in the replay and in clips, and those views are reported on top without being billed, so the cost per view seen usually lands around 200 to 300 NOK per 1,000." },
   { q: "Are clicks guaranteed?", a: "No. You buy completed views. Clicks and CTR are tracked and reported in the dashboard and the report, but not guaranteed." },
   { q: "Is the price the same on every platform?", a: "Twitch, YouTube and Kick follow the same model. TikTok LIVE is new, and we quote those campaigns with you." },
   { q: "Is the overlay design included?", a: "In a managed campaign we design the animated overlay in your brand. In self-serve, your agency sets up the client's creative in the platform." },
@@ -88,7 +87,7 @@ const Pricing: React.FC = () => (
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
               One model on every platform: priced per 1,000 views that fully played on a live stream.
-              Replays come on top, and anything undelivered is refunded.
+              Anything undelivered is refunded.
             </p>
           </div>
           <div className="flex flex-wrap gap-3 lg:pb-2">
@@ -131,7 +130,6 @@ const Pricing: React.FC = () => (
                 ["Views that fully played", "96,000", ""],
                 ["You are billed for", "96,000", "font-semibold text-white"],
                 ["Refunded", "4,000", ""],
-                ["Replay and clip views, on top", "reported, not billed", "text-white/60"],
               ].map(([k, v, cls]) => (
                 <div key={k} className="flex items-baseline justify-between gap-6 border-t border-white/10 py-3.5 text-[15px]">
                   <span className="text-white/70">{k}</span>

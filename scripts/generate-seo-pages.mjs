@@ -121,7 +121,7 @@ const STATIC_PAGES = [
     route: "/kick-streamer-advertising",
     title: "Advertise Through Kick Streamers in the Nordics | Beta Ads",
     description:
-      "Beta Ads places brands inside Nordic Kick streams, picked from 39,000+ creators in Streamer Explorer: native overlays, voice-triggered ads, polls and replays.",
+      "Beta Ads places brands inside Nordic Kick streams, picked from 39,000+ creators in Streamer Explorer: native overlays, voice-triggered ads and polls.",
     locale: "en",
     image: "/lovable-uploads/og/kick-streamer-advertising-en.png",
     ogImageWidth: 1200,
@@ -421,7 +421,7 @@ const STATIC_PAGES = [
     route: "/reporting",
     title: "Livestream Ad Reporting: Live Dashboard and PDF | Beta Ads",
     description:
-      "Follow every livestream campaign live: delivery per streamer and stream, verification clips, replay reach, clicks, chat and polls. Then send one PDF report.",
+      "Follow every livestream campaign live: delivery per streamer and stream, verification clips, clicks, chat and polls. Then send one PDF report.",
     locale: "en",
   },
   {
@@ -443,13 +443,6 @@ const STATIC_PAGES = [
     title: "Brand Safety for Livestream Ads: Swearing Detected | Beta Ads",
     description:
       "Every ad play on Twitch, YouTube and Kick is recorded, transcribed, translated into English and checked for swearing, then rated no, low, medium or high risk.",
-    locale: "en",
-  },
-  {
-    route: "/replay-reach",
-    title: "Replay Reach: Livestream Ads After the Stream | Beta Ads",
-    description:
-      "A native overlay is baked into the recording, so the stream keeps collecting views after it ends. Total views, live audience and clips, counted per channel.",
     locale: "en",
   },
   {
@@ -504,7 +497,7 @@ const CASE_STUDIES = [
     route: "/case-study/samsung",
     title: "Samsung x Beta Ads Case Study | Beta Ads",
     description:
-      "Samsung Galaxy S25 Ultra and Z Fold7 on Norwegian Twitch: 800,185 completed live views, 1.35M+ with VOD, 71 streamer slots, zero adblock impact.",
+      "Samsung Galaxy S25 Ultra and Z Fold7 on Norwegian Twitch: 800,185 completed live views, 71 streamer slots, zero adblock impact.",
     locale: "en",
     datePublished: "2025-12-01",
     image: "/lovable-uploads/samsung-fold7-banner.jpg",
@@ -515,7 +508,7 @@ const CASE_STUDIES = [
     route: "/case-study/samsung-fold7",
     title: "Samsung Galaxy Z Fold7 Case Study | Beta Ads",
     description:
-      "Samsung Galaxy Z Fold7 on Norwegian Twitch: 300,054 completed live views and 558,257+ VOD views across 28 Norwegian streamers. Zero adblock impact.",
+      "Samsung Galaxy Z Fold7 on Norwegian Twitch: 300,054 completed live views across 28 Norwegian streamers. Zero adblock impact.",
     locale: "en",
     datePublished: "2026-01-01",
     image: "/lovable-uploads/samsung-zfold7-banner.png",
@@ -526,7 +519,7 @@ const CASE_STUDIES = [
     route: "/case-study/surfshark-finland",
     title: "Surfshark VPN Finland Case Study | Beta Ads",
     description:
-      "Surfshark VPN on Finnish Twitch: 100,000 views bought, 119,041 delivered live and 949,957 with replays across 14 creators. 1,281 clicks and 2,833 poll votes.",
+      "Surfshark VPN on Finnish Twitch: 100,000 views bought and 119,041 delivered live across 14 creators. 1,281 clicks and 2,833 poll votes.",
     locale: "en",
     datePublished: "2026-10-07",
     image: "/lovable-uploads/case-surfshark-finland/poll-driving.webp",
