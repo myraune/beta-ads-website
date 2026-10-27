@@ -37,7 +37,7 @@ const KINDS = [
     login: "artosis", who: "Artosis", rows: [["HelloFresh", "!HelloFresh #ad, first seen 21 Oct", "New"], ["Before that", "No brand in titles back to 22 Aug", "Clean"]] },
   { tab: "Own brands", title: "The creator's own shop is not a sponsor.", body: "Coaching courses, merch and second channels look like deals to a keyword list. They are counted apart.",
     login: "agurin", who: "agurin", rows: [["SteelSeries", "!steelseries NEW, 25 Sep to 22 Oct", "28 streams"], ["!course", "The creator's own coaching course", "Own brand"]] },
-  { tab: "Noise", title: "Chat commands, thrown out.", body: "Every channel has a dozen !commands. Claude reads each one in context and says why it is not a deal.",
+  { tab: "Noise", title: "Chat commands, thrown out.", body: "Every channel has a dozen !commands. We read each one in context and say why it is not a deal.",
     login: "agurin", who: "agurin", rows: [["!khazix", "League of Legends champion guide", "Not a deal"], ["!borders", "Overlay command, no brand", "Not a deal"], ["!prime", "Prime Gaming sub reminder", "Not a deal"]] },
 ];
 
@@ -54,7 +54,7 @@ const TOOLKIT = [
 
 const EXAMPLES = ["AstaBush", "agurin", "Artosis", "Mr_Mammal", "DansGaming"];
 const KIND: Record<Sponsor["kind"], string> = { sponsor: "Sponsor", affiliate: "Affiliate code", own_brand: "Own brand", unclear: "Unclear" };
-const STEPS = ["Reading the channel and bio", "Reading the last 100 VOD titles and chat bot commands", "Checking each brand mention with Claude"];
+const STEPS = ["Reading the channel and bio", "Reading the last 100 VOD titles and chat bot commands", "Checking each brand mention"];
 
 const fmt = (d: string) => new Date(d + "T12:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 const num = (n: number) => n.toLocaleString("en-US");
@@ -176,8 +176,7 @@ const SponsorshipChecker: React.FC = () => {
           The sponsorship search <span className="text-muted-foreground font-light">engine for Twitch.</span>
         </h1>
         <p className="mt-6 max-w-xl mx-auto text-lg text-muted-foreground leading-relaxed">
-          Search a streamer and see every brand that pays them, from the live title, the bio, the last 100 VODs and the chat bot commands.
-          Claude keeps the deals and drops chat commands like !discord and !prime.
+          Type a streamer and see every brand they work with, each one shown with the title or chat command that proves it.
         </p>
 
         <form className="mt-9 max-w-2xl mx-auto text-left" onSubmit={e => { e.preventDefault(); check(q); }}>
@@ -328,7 +327,7 @@ const SponsorshipChecker: React.FC = () => {
                 </div>
               </div>
             </Row>
-            <Row n="03" title="Noise thrown out" body="A keyword list counts !prime and !khazix as brands. Claude reads them in context and tells you why they are not deals.">
+            <Row n="03" title="Noise thrown out" body="A keyword list counts !prime and !khazix as brands. We read them in context and tell you why they are not deals.">
               <div className="rounded-xl bg-white text-[#0F1012] p-4 shadow-2xl text-sm space-y-2.5">
                 {[["!prime", "Prime Gaming sub reminder"], ["!khazix", "League of Legends champion guide"], ["!course", "The creator's own coaching course"], ["!discord", "Community server"]].map(([k, v]) => (
                   <div key={k} className="flex items-baseline gap-3"><span className="font-semibold w-20 shrink-0">{k}</span><span className="text-[#6B7079] min-w-0 truncate">{v}</span><span className="ml-auto text-xs font-semibold text-[#C8243A] shrink-0">Not a deal</span></div>

@@ -414,7 +414,7 @@ const STATIC_PAGES = [
     route: "/twitch-sponsorship-checker",
     title: "Twitch Sponsor Checker: Who Sponsors a Streamer? | Beta Ads",
     description:
-      "Search any Twitch streamer and see which brands sponsor them. We read stream titles, the bio and the last 100 VODs, and show the proof for every deal.",
+      "Search any Twitch streamer and see which brands sponsor them. We read stream titles, the bio, the last 100 VODs and the chat bot commands, and show the proof for every deal.",
     locale: "en",
   },
   {
