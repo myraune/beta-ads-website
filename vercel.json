@@ -105,6 +105,10 @@
     {
       "source": "/unsubscribe",
       "destination": "/index.html"
+    },
+    {
+      "source": "/creative-library/admin",
+      "destination": "/index.html"
     }
   ],
   "headers": [

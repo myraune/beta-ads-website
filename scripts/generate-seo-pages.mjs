@@ -432,6 +432,13 @@ const STATIC_PAGES = [
     locale: "en",
   },
   {
+    route: "/creative-library",
+    title: "Creative Library: Livestream Overlay Ideas by Industry | Beta Ads",
+    description:
+      "Animated overlays we have built for brands on Twitch, YouTube and Kick, sorted by industry. Campaigns that ran and concepts made for pitches.",
+    locale: "en",
+  },
+  {
     route: "/pricing",
     title: "Pricing: Pay Per View That Played | Beta Ads",
     description:

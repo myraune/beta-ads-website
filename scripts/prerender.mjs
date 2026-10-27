@@ -74,6 +74,7 @@ const STATIC_ROUTES = [
   "/campaign-compliance",
   "/brand-safety",
   "/pricing",
+  "/creative-library",
   "/campaign-builder",
   "/streamer-explorer",
   "/twitch-sponsorship-checker",

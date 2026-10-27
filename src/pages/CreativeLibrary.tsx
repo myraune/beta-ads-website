@@ -1,0 +1,215 @@
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { SEO } from "@/components/SEO";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { BOOKING_URL, W, kicker, h2, PrimaryBtn } from "@/components/working/shared";
+import { INDUSTRIES, type Creative } from "@/data/creatives";
+
+/* Creative library: animated overlays Beta Ads has built, filterable by industry
+   and by campaign vs concept. Posters are public; the videos unlock once a
+   visitor leaves a work email (POST /api/creatives returns a signed token, kept
+   in localStorage, sent back as x-creative-token). Items come from the Blob
+   manifest, added through /creative-library/admin. */
+
+const TITLE = "Creative Library: Livestream Overlay Ideas by Industry | Beta Ads";
+const DESCRIPTION =
+  "Animated overlays we have built for brands on Twitch, YouTube and Kick, sorted by industry. Campaigns that ran and concepts made for pitches.";
+const TOKEN_KEY = "creative-token";
+
+const readToken = () => { try { return localStorage.getItem(TOKEN_KEY) || ""; } catch { return ""; } };
+const writeToken = (t: string) => { try { localStorage.setItem(TOKEN_KEY, t); } catch { /* private mode: unlock lasts this visit */ } };
+
+type Kind = "all" | "client" | "concept";
+
+const UnlockForm: React.FC<{ onUnlocked: (token: string) => void; compact?: boolean }> = ({ onUnlocked, compact }) => {
+  const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
+  const [website, setWebsite] = useState("");
+  const [state, setState] = useState<{ busy: boolean; error: string }>({ busy: false, error: "" });
+
+  const submit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setState({ busy: true, error: "" });
+    const r = await fetch("/api/creatives", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email, company, website, referrer: document.referrer }),
+    }).then((res) => res.json()).catch(() => ({ error: "Something went wrong. Try again." }));
+    if (r.error || !r.token) return setState({ busy: false, error: r.error || "Something went wrong. Try again." });
+    writeToken(r.token);
+    onUnlocked(r.token);
+  };
+
+  return (
+    <form onSubmit={submit} className={`grid gap-3 ${compact ? "" : "sm:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_auto]"}`}>
+      <label className="sr-only" htmlFor={`cl-email${compact ? "-m" : ""}`}>Work email</label>
+      <input id={`cl-email${compact ? "-m" : ""}`} type="email" required autoComplete="email" placeholder="Work email" value={email} onChange={(e) => setEmail(e.target.value)}
+        className="h-11 rounded-full border border-border bg-background px-5 text-sm outline-none focus:border-foreground/40" />
+      <label className="sr-only" htmlFor={`cl-company${compact ? "-m" : ""}`}>Company</label>
+      <input id={`cl-company${compact ? "-m" : ""}`} type="text" autoComplete="organization" placeholder="Company (optional)" value={company} onChange={(e) => setCompany(e.target.value)}
+        className="h-11 rounded-full border border-border bg-background px-5 text-sm outline-none focus:border-foreground/40" />
+      {/* Honeypot, hidden from people and screen readers. */}
+      <input type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" value={website} onChange={(e) => setWebsite(e.target.value)} className="hidden" />
+      <button type="submit" disabled={state.busy}
+        className="h-11 px-6 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity disabled:opacity-50">
+        {state.busy ? "Unlocking…" : "Watch the animations"}
+      </button>
+      {state.error && <p role="alert" className="m-0 text-sm text-red-600 sm:col-span-3">{state.error}</p>}
+    </form>
+  );
+};
+
+const Card: React.FC<{ c: Creative; unlocked: boolean; onOpen: () => void }> = ({ c, unlocked, onOpen }) => (
+  <button type="button" onClick={onOpen} className="group text-left flex flex-col">
+    <span className="relative block aspect-video overflow-hidden rounded-[14px] bg-muted">
+      <img src={c.poster} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
+      {c.kind === "concept" && (
+        <span className="absolute left-3 top-3 h-6 px-2.5 inline-flex items-center rounded-full bg-black/70 text-white text-[11px] font-semibold">Concept</span>
+      )}
+      <span className="absolute right-3 bottom-3 h-7 px-3 inline-flex items-center rounded-full bg-white/90 text-[#0F1012] text-xs font-semibold">
+        {unlocked ? "Play" : "Email to watch"}
+      </span>
+    </span>
+    <span className="mt-3 block text-[13px] text-muted-foreground">{c.brand} · {c.industry}</span>
+    <span className="mt-0.5 block text-[17px] font-semibold tracking-tight">{c.title}</span>
+    {c.description && <span className="mt-1 block text-[14.5px] leading-relaxed text-muted-foreground line-clamp-2">{c.description}</span>}
+  </button>
+);
+
+const CreativeLibrary: React.FC = () => {
+  const [items, setItems] = useState<Creative[] | null>(null);
+  const [token, setToken] = useState(readToken);
+  const [unlocked, setUnlocked] = useState(false);
+  const [industry, setIndustry] = useState<string>("All");
+  const [kind, setKind] = useState<Kind>("all");
+  const [open, setOpen] = useState<Creative | null>(null);
+  const unlockRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let live = true;
+    fetch("/api/creatives", { headers: token ? { "x-creative-token": token } : {} })
+      .then((r) => r.json())
+      .then((d) => { if (live) { setItems(d.items || []); setUnlocked(Boolean(d.unlocked)); } })
+      .catch(() => live && setItems([]));
+    return () => { live = false; };
+  }, [token]);
+
+  const counts = useMemo(() => {
+    const m = new Map<string, number>();
+    (items || []).forEach((c) => m.set(c.industry, (m.get(c.industry) || 0) + 1));
+    return m;
+  }, [items]);
+
+  const shown = (items || []).filter((c) => (industry === "All" || c.industry === industry) && (kind === "all" || c.kind === kind));
+  const current = open && items?.find((c) => c.id === open.id);
+
+  return (
+    <>
+      <SEO title={TITLE} description={DESCRIPTION} canonical="/creative-library" />
+      <div className="min-h-screen bg-background text-foreground">
+        <header className={`${W} pt-28 md:pt-36 pb-10 md:pb-14`}>
+          <nav aria-label="Breadcrumb" className="mb-6 text-[13px] text-muted-foreground">
+            <ol className="m-0 p-0 list-none flex items-center gap-2">
+              <li><Link to="/" className="hover:text-foreground transition-colors">Home</Link></li>
+              <li aria-hidden="true">/</li>
+              <li aria-current="page" className="text-foreground">Creative library</li>
+            </ol>
+          </nav>
+          <div className={`${kicker} mb-5`}>Creative library</div>
+          <div className="grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-16 items-end">
+            <div>
+              <h1 className="text-[2.6rem] leading-[1.04] sm:text-6xl lg:text-[4.2rem] font-bold tracking-[-0.03em] max-w-4xl m-0">
+                Overlay ideas, sorted by industry.
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
+                Animated overlays we have built for brands on Twitch, YouTube and Kick: campaigns that ran, and concepts we made for a pitch.
+                Pick your industry and see what an ad inside a live stream can look like.
+              </p>
+            </div>
+            <div className="lg:pb-2"><PrimaryBtn href={BOOKING_URL} cta="book">Book a demo</PrimaryBtn></div>
+          </div>
+        </header>
+
+        <section className={`${W} pb-20 md:pb-28`} aria-label="Creatives">
+          {!unlocked && (
+            <div ref={unlockRef} className="mb-10 rounded-[18px] bg-card border border-border p-6 md:p-8 grid lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-5 lg:gap-10 items-center">
+              <div>
+                <h2 className="m-0 text-xl font-semibold tracking-tight">Leave your email to watch them.</h2>
+                <p className="mt-1.5 mb-0 text-[14.5px] text-muted-foreground leading-relaxed">
+                  Every animation opens right away. We use your email to follow up about Beta Ads, and you can opt out at any time.
+                </p>
+              </div>
+              <UnlockForm onUnlocked={setToken} />
+            </div>
+          )}
+
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-border pb-5">
+            <div role="tablist" aria-label="Industry" className="flex flex-wrap gap-2">
+              {["All", ...INDUSTRIES.filter((i) => counts.has(i))].map((i) => (
+                <button key={i} type="button" role="tab" aria-selected={industry === i} onClick={() => setIndustry(i)}
+                  className={`h-9 px-4 rounded-full border text-sm font-medium transition-colors ${industry === i ? "bg-foreground text-background border-foreground" : "border-border text-muted-foreground hover:text-foreground"}`}>
+                  {i}{i !== "All" && <span className="ml-1.5 opacity-60">{counts.get(i)}</span>}
+                </button>
+              ))}
+            </div>
+            <div role="radiogroup" aria-label="Type" className="inline-flex self-start p-1 rounded-full border border-border bg-card text-sm font-semibold">
+              {([["all", "All"], ["client", "Campaigns"], ["concept", "Concepts"]] as [Kind, string][]).map(([v, l]) => (
+                <button key={v} type="button" role="radio" aria-checked={kind === v} onClick={() => setKind(v)}
+                  className={`h-8 px-4 rounded-full transition-colors ${kind === v ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>{l}</button>
+              ))}
+            </div>
+          </div>
+
+          {items === null ? (
+            <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10" aria-hidden="true">
+              {Array.from({ length: 6 }, (_, i) => <div key={i} className="aspect-video rounded-[14px] bg-muted animate-pulse" />)}
+            </div>
+          ) : shown.length === 0 ? (
+            <div className="mt-10 rounded-[18px] bg-card border border-border p-8 md:p-10">
+              <h2 className={`${h2} !text-2xl`}>{items.length ? "Nothing here for that filter yet." : "The library is being filled right now."}</h2>
+              <p className="mt-3 mb-6 text-muted-foreground max-w-xl">In a 30 minute demo we show the overlays we would build for your brand and your market.</p>
+              <PrimaryBtn href={BOOKING_URL} cta="book">Book a demo</PrimaryBtn>
+            </div>
+          ) : (
+            <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
+              {shown.map((c) => (
+                <Card key={c.id} c={c} unlocked={unlocked} onOpen={() => setOpen(c)} />
+              ))}
+            </div>
+          )}
+          <p className="mt-10 mb-0 text-xs text-muted-foreground">
+            Concepts are spec work made for a pitch, not campaigns the brand ran. Brand names and logos belong to their owners.
+          </p>
+        </section>
+      </div>
+
+      <Dialog open={Boolean(open)} onOpenChange={(v) => !v && setOpen(null)}>
+        <DialogContent className="max-w-4xl p-0 overflow-hidden gap-0 focus:outline-none focus-visible:outline-none">
+          {current && (
+            <>
+              <div className="aspect-video bg-black">
+                {unlocked && current.video ? (
+                  <video key={current.video} src={current.video} poster={current.poster} autoPlay muted loop playsInline controls className="h-full w-full object-contain" />
+                ) : (
+                  <img src={current.poster} alt="" className="h-full w-full object-cover opacity-60" />
+                )}
+              </div>
+              <div className="p-6 md:p-7">
+                <div className="text-[13px] text-muted-foreground">
+                  {current.brand} · {current.industry}{current.kind === "concept" ? " · Concept" : " · Campaign"}{current.format ? ` · ${current.format}` : ""}
+                </div>
+                <DialogTitle className="mt-1 text-2xl font-semibold tracking-tight">{current.title}</DialogTitle>
+                <DialogDescription className="mt-2 text-[15px] leading-relaxed">
+                  {current.description || "An animated overlay that plays inside the stream, in one corner."}
+                </DialogDescription>
+                {!unlocked && <div className="mt-5"><UnlockForm compact onUnlocked={setToken} /></div>}
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+};
+
+export default CreativeLibrary;

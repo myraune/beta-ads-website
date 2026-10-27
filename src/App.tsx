@@ -34,6 +34,8 @@ const LivestreamChatEngagement = lazy(() => import("./pages/LivestreamChatEngage
 const CampaignCompliance = lazy(() => import("./pages/CampaignCompliance"));
 const BrandSafety = lazy(() => import("./pages/BrandSafety"));
 const Pricing = lazy(() => import("./pages/Pricing"));
+const CreativeLibrary = lazy(() => import("./pages/CreativeLibrary"));
+const CreativeLibraryAdmin = lazy(() => import("./pages/CreativeLibraryAdmin"));
 const CampaignBuilder = lazy(() => import("./pages/CampaignBuilder"));
 const StreamerExplorer = lazy(() => import("./pages/StreamerExplorer"));
 const SponsorshipChecker = lazy(() => import("./pages/SponsorshipChecker"));
@@ -216,6 +218,8 @@ const App = () => {
               <Route path="/campaign-compliance" element={<CampaignCompliance />} />
               <Route path="/brand-safety" element={<BrandSafety />} />
               <Route path="/pricing" element={<Pricing />} />
+              <Route path="/creative-library" element={<CreativeLibrary />} />
+              <Route path="/creative-library/admin" element={<CreativeLibraryAdmin />} />
               <Route path="/campaign-builder" element={<CampaignBuilder />} />
               <Route path="/streamer-explorer" element={<StreamerExplorer />} />
               <Route path="/twitch-sponsorship-checker" element={<SponsorshipChecker />} />
