@@ -16,10 +16,10 @@ import { BuildPanel, Corners, LivePanel, ReportPanel } from "./panels";
 /** Visible FAQ and the FAQPage JSON-LD on "/" both read this array. */
 export const finalFaqs = [
   { q: "How is it priced?", a: "Per 1,000 animation views, with campaigns from 100,000 NOK. Undelivered views are refunded pro rata." },
-  { q: "What counts as a view?", a: "One fully played run of the animation on a live stream on Twitch, YouTube or Kick. Undelivered views are refunded pro rata." },
+  { q: "What counts as a view?", a: "A viewer watching while the animation fully played on Twitch, YouTube or Kick. That is what you pay for, and undelivered views are refunded pro rata. The banner and the !brand title stay on screen for the whole stream on top, not billed." },
   { q: "Can we choose the streamers?", a: "Search 39,000+ streamers in Streamer Explorer, and approve the streamer list on request before launch. You also get your own login to the live dashboard." },
   { q: "How is delivery checked?", a: "Each stream is checked on air for the overlay, and each ad play is recorded as a clip you can open in the report. Views that did not play are refunded." },
-  { q: "What is in the report?", a: "Completed live views, clicks, chat mentions of the brand translated and scored, and the verification clips. You get it as a live dashboard and a PDF you can forward." },
+  { q: "What is in the report?", a: "Completed views, clicks, chat mentions of the brand translated and scored, and the verification clips. You get it as a live dashboard and a PDF you can forward." },
   { q: "Are clicks guaranteed?", a: "No. You buy completed views, and clicks and CTR are reported, not guaranteed." },
 ];
 
@@ -300,7 +300,7 @@ export const HomeFinal: React.FC = () => {
           <div className="tcards tcards--2 reveal">
             <div className="tcard tcard--static">
               <b>What you pay for</b>
-              <span>A view is one full run of the animation on a live stream. Anything undelivered is refunded pro rata.</span>
+              <span>A view is a viewer watching while the animation fully played. Anything undelivered is refunded pro rata.</span>
               <A className="qlink" href="/working-with-us">How billing works <Arrow /></A>
             </div>
             <div className="tcard tcard--static">

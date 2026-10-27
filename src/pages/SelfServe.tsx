@@ -61,7 +61,7 @@ const faqs: { q: string; a: string }[] = [
   { q: "How many streamers can we choose from?", a: "The Streamer Explorer has more than 39,000 streamers in the database, and 37,599 of them are recently active and open to collaborations." },
   { q: "Can we buy it through our DSP?", a: "Yes. We set up a private deal on our SSP seat, on Adform or Magnite (Equativ is coming), and share the deal ID with you. Your team targets the deal ID in your DSP, and the overlay runs inside the streams." },
   { q: "Can we sell it to our clients as our own?", a: "Yes. You package livestream in your media plan and sell it to your client on your terms." },
-  { q: "What counts as a view?", a: "One view is one fully played run of the animation on a live stream on Twitch, YouTube or Kick, counted by the platform per stream." },
+  { q: "What counts as a view?", a: "One view is one viewer watching while the animation fully played on Twitch, YouTube or Kick, counted by the platform per stream." },
   { q: "How do we get access?", a: "Email sales@beta-ads.no with the subject Self-serve partner access. We set up the login with you, or a private deal if you buy programmatically, then you launch." },
   { q: "Can we start with a managed campaign first?", a: "Yes. Many agencies run one campaign with us first, then move to self-serve for the next ones." },
 ];

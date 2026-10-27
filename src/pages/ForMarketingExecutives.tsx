@@ -20,14 +20,14 @@ const DESCRIPTION =
 const questions: { q: string; a: string; link: [string, string] }[] = [
   { q: "Did it actually run?", a: "Every stream is checked on air and every ad play is saved as a clip. On Surfshark Finland, 98.7% of 759 plays were verified with a recorded clip.", link: ["Setup verification", "/campaign-compliance"] },
   { q: "Was it brand safe?", a: "The speech around each ad is transcribed, translated into English and checked for swearing, then rated per channel. A channel that drifts can be dropped mid-flight.", link: ["Brand safety", "/brand-safety"] },
-  { q: "What did we get?", a: "Completed live views, clicks from the chat command, and every brand mention in chat, translated and scored.", link: ["Reporting", "/reporting"] },
+  { q: "What did we get?", a: "Completed views, clicks from the chat command, and every brand mention in chat, translated and scored.", link: ["Reporting", "/reporting"] },
   { q: "What did it cost?", a: "You pay per 1,000 views that fully played. Anything undelivered is refunded pro rata.", link: ["Pricing", "/pricing"] },
 ];
 
 const cases: { brand: string; n: string; k: string; to: string }[] = [
-  { brand: "Samsung", n: "800,185", k: "completed live views, Galaxy S25 and Z Fold7", to: "/case-study/samsung" },
+  { brand: "Samsung", n: "800,185", k: "completed views, Galaxy S25 and Z Fold7", to: "/case-study/samsung" },
   { brand: "Høyskolen Kristiania", n: "599,252", k: "views across 31 streamers", to: "/case-study/kristiania" },
-  { brand: "Surfshark Finland", n: "119,041", k: "live views delivered, 100,000 bought", to: "/case-study/surfshark-finland" },
+  { brand: "Surfshark Finland", n: "119,041", k: "completed views delivered, 100,000 bought", to: "/case-study/surfshark-finland" },
 ];
 
 const faqs: { q: string; a: string }[] = [

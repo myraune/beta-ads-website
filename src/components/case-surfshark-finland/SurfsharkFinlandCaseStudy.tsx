@@ -7,6 +7,8 @@ import {
   headline,
   delivery,
   verification,
+  banner,
+  bannerChannels,
   poll,
   chat,
   quotes,
@@ -107,11 +109,11 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
             </div>
             <h1 className="text-[2.4rem] leading-[1.03] sm:text-5xl xl:text-[4.2rem] font-bold tracking-[-0.03em] text-foreground">
               Bought 100,000 views.{" "}
-              Delivered 119,041 live.
+              Delivered 119,041.
             </h1>
             <p className="mt-6 max-w-xl text-base md:text-lg leading-relaxed text-muted-foreground">
               Surfshark VPN ran for a month on Finnish Twitch with a twist on the usual overlay: every ad moment
-              opened a poll in the creator's own chat. The campaign over-delivered live by 19% and came back with a month of market research nobody had to pay a panel for.
+              opened a poll in the creator's own chat. The campaign over-delivered by 19% and came back with a month of market research nobody had to pay a panel for.
             </p>
           </div>
           <figure>
@@ -134,8 +136,8 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
         {/* Key figures: the whole campaign on one row */}
         <dl className="mt-10 md:mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 border-y border-border divide-border">
           {[
-            { v: fmt(headline.viewsDelivered), l: "Live ad views", s: "119% of the 100,000 bought" },
-            { v: fmt(verification.streams), l: "Streams", s: "With the ad running, 14 creators" },
+            { v: fmt(headline.viewsDelivered), l: "Completed views", s: "119% of the 100,000 bought" },
+            { v: fmt(banner.streamViews), l: "Stream views", s: "Banner on screen, live and after" },
             { v: fmt(headline.clicks), l: "Clicks", s: `${headline.ctr} click-through rate` },
             { v: `${verification.clipVerified}%`, l: "Clip-verified", s: `${fmt(verification.adPlays)} ad plays checked` },
             { v: fmt(headline.votes), l: "Poll votes", s: `${headline.polls} polls run in chat` },
@@ -229,8 +231,8 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
             <SectionHead
               n="02"
               kicker="Delivery"
-              title={<>Bought 100,000. <Light>Delivered 119,041 live.</Light></>}
-              lede="Views are counted when the whole animation played on a live stream. Surfshark paid for 100,000 and got 19% more at no extra cost."
+              title={<>Bought 100,000. <Light>Delivered 119,041.</Light></>}
+              lede="A completed view is a viewer watching when the whole animation played. Surfshark paid for 100,000 and got 19% more at no extra cost."
             />
             <div className="space-y-4">
               {[
@@ -506,12 +508,42 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
         </p>
       </Section>
 
-      {/* ───────────── 08 Takeaways ───────────── */}
-      <Section id="takeaways-wrap">
-        <div>
+      {/* ───────────── 08 Banner reach + 09 Takeaways side by side ───────────── */}
+      <Section id="banner-reach">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
+          <div className="min-w-0">
+            <SectionHead
+              n="08"
+              kicker="Banner reach"
+              title={<>The banner was on <Light>every minute of every stream</Light></>}
+              lede={`The Surfshark banner and the !surfshark title stayed on screen for the whole broadcast through August. Their reach is everyone who opened those streams, live or afterwards: ${fmt(banner.streamViews)} stream views on ${banner.broadcasts} broadcasts.`}
+            />
+            <ol className="space-y-2.5">
+              {bannerChannels.map((c, i) => (
+                <li key={c.channel} className="grid grid-cols-[7rem_minmax(0,1fr)] gap-x-4 items-center">
+                  <div className="text-right">
+                    <span className="block text-sm font-medium text-foreground truncate">{c.channel}</span>
+                    <span className="block text-[11px] text-muted-foreground">{c.broadcasts} broadcasts</span>
+                  </div>
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="h-6 rounded-[5px] shrink-0" style={{ width: `${(c.views / bannerChannels[0].views) * 70}%`, background: i === 0 ? accent : accentSoft(0.5) }} aria-hidden />
+                    <span className="text-sm font-semibold tabular-nums text-foreground whitespace-nowrap">{fmt(c.views)}</span>
+                  </div>
+                </li>
+              ))}
+            </ol>
+            <p className="mt-6 rounded-[12px] bg-muted/60 p-5 text-sm leading-relaxed text-muted-foreground">
+              <span className="font-semibold text-foreground">Two audiences, never added.</span> Completed views
+              ({fmt(headline.viewsDelivered)}) are the viewers watching when the animation played, and that is what was billed.
+              Stream views are everyone who opened the broadcasts, live or later, with the banner on screen. The completed
+              views are already inside that total. On top, {banner.clips} clips of the streams collected {fmt(banner.clipViews)} views.
+              Twitch view counts per broadcast, snapshot 1 September 2026, for the {banner.channelsWithData} channels with data.
+            </p>
+          </div>
+
           <div id="takeaways" className="min-w-0 scroll-mt-28">
-            <SectionHead n="08" kicker="Takeaways" title={<>What we would take <Light>into the next flight</Light></>} />
-            <ol className="grid md:grid-cols-3 gap-8">
+            <SectionHead n="09" kicker="Takeaways" title={<>What we would take <Light>into the next flight</Light></>} />
+            <ol className="space-y-7">
               {[
                 ["Ask the audience something.", "A poll adds almost nothing to the setup and turns an overlay into research. Surfshark now knows how many Finnish viewers have no VPN, how many are undecided and how many pay a competitor."],
                 ["Read the chat.", "The questions viewers ask are the FAQ and the next creative brief. Here that meant explaining what a VPN is for, and answering price, devices, streaming and logs up front."],
@@ -543,7 +575,7 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
             <p><span className="text-foreground font-medium">Two click counts.</span> The report counts {fmt(headline.clicks)} clicks, which is the figure behind the {headline.ctr} CTR. Device, OS and browser shares are calculated on {fmt(clickAudience.resolvedOn)} rows in the raw click log, where the user agent resolved. The two come from different counts in the LIVAD data and differ by 46. We show both rather than force them to match. Geography is located on {fmt(geo.located)} clicks, {geo.locatedShare} of the total.</p>
             <p><span className="text-foreground font-medium">Two chat numbers.</span> {fmt(headline.chatMessagesDuringAds)} messages from {fmt(headline.chatPeopleDuringAds)} people is all chat activity during ad moments. The {chat.messages} messages in section 06 are only the ones that mention Surfshark or VPN.</p>
             <p><span className="text-foreground font-medium">Ad plays and polls.</span> {fmt(verification.adPlays)} ad plays were verified by clip; {fmt(headline.polls)} polls were run. The two are logged separately and are not expected to match one to one.</p>
-            <p><span className="text-foreground font-medium">No replay figures.</span> A Twitch VOD's view count includes the people who watched live, so it is not reach on top of the live views and is not reported here.</p>
+            <p><span className="text-foreground font-medium">Banner reach.</span> Stream views are Twitch's view count on each broadcast, live plus afterwards, for the {banner.channelsWithData} channels with data, snapshot 1 September 2026. The banner was on screen for the whole broadcast, so this is its reach. It already includes the {fmt(headline.viewsDelivered)} completed views and is never added to them.</p>
             <p><span className="text-foreground font-medium">Not reported.</span> Age and gender are not available in the click log. One translated chat quote was left out because it quoted a price.</p>
           </div>
         </div>

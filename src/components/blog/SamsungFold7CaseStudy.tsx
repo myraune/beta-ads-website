@@ -264,7 +264,7 @@ const SamsungFold7CaseStudy: React.FC = () => {
         </h2>
         <p className="text-muted-foreground leading-relaxed text-lg mb-6">
           The dual-format campaign delivered{" "}
-          <strong className="text-foreground">300,054 completed live views</strong> from 141,930 unique viewers
+          <strong className="text-foreground">300,054 completed views</strong> from 141,930 unique viewers
           over 31 days, with 93.05% of the audience in Norway.
         </p>
         <p className="text-muted-foreground leading-relaxed text-lg">
@@ -282,7 +282,7 @@ const SamsungFold7CaseStudy: React.FC = () => {
         </h2>
         <ul className="space-y-3 mb-10">
           {[
-            { value: "300,054", label: "Completed live views" },
+            { value: "300,054", label: "Completed views" },
             { value: "141,930", label: "Unique viewers" },
             { value: "2,000h 22m", label: "Artwork watch time" },
             { value: "28", label: "Norwegian streamers" },

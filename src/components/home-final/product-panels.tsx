@@ -1,7 +1,7 @@
 import React from "react";
 import { TwitchMark, YouTubeMark, KickMark } from "./marks";
 import { Corners } from "./panels";
-import { headline, poll, verification, fmt } from "@/components/case-surfshark-finland/data";
+import { headline, poll, verification, banner, bannerChannels, fmt } from "@/components/case-surfshark-finland/data";
 
 /* Coded product panels for the Platform pages, in the same dark language as the
    homepage tour panels (panels.tsx): rail / main / side composition, real stream
@@ -85,7 +85,7 @@ const Shot: React.FC<{
 
 /* ── 1. Dashboard ─────────────────────────────────────────────────────────── */
 
-/* Cumulative completed live views, 1 Aug to 1 Sep. Start (0), the 100,000
+/* Cumulative completed views, 1 Aug to 1 Sep. Start (0), the 100,000
    bought and the end (119,041) are real; the daily weights between are
    illustrative, so the curve carries no intermediate numbers. */
 const WTS = [3, 4, 4, 5, 5, 3, 3, 4, 5, 6, 5, 4, 3, 5, 6, 6, 5, 4, 4, 5, 6, 7, 6, 4, 4, 6, 7, 7, 6, 5, 4];
@@ -102,7 +102,7 @@ export const DashboardPanel: React.FC = () => (
   <div
     className="panel pp-dash dui"
     role="img"
-    aria-label="Campaign dashboard for Surfshark VPN Finland, 1 August to 1 September 2026: 119,041 completed live views against 100,000 bought, 1,281 clicks, 1.08% CTR, 202 streams, 759 ad plays and 964 hours watched, with a delivery curve, the latest ad play on stream and the poll result. Illustrative UI."
+    aria-label="Campaign dashboard for Surfshark VPN Finland, 1 August to 1 September 2026: 119,041 completed views against 100,000 bought, 1,281 clicks, 1.08% CTR, 202 streams, 759 ad plays and 964 hours watched, with a delivery curve, the latest ad play on stream and the poll result. Illustrative UI."
   >
     <div className="r-side">
       <div className="r-brand">Surfshark</div>
@@ -117,7 +117,7 @@ export const DashboardPanel: React.FC = () => (
     <div className="r-main">
       <div className="r-top">
         <div>
-          <div className="r-k">Completed live views</div>
+          <div className="r-k">Completed views</div>
           <div className="r-num num">{fmt(headline.viewsDelivered)}</div>
         </div>
         <div className="r-states">
@@ -449,6 +449,54 @@ export const DeliveryPanel: React.FC = () => (
     </div>
   </div>
 );
+
+/* ── 7. Banner reach ──────────────────────────────────────────────────────── */
+
+/* Two audiences side by side, never added: completed views are the viewers
+   present when the animation played (billed); stream views are everyone who
+   opened the broadcasts, live or afterwards, with the banner on screen.
+   A face only where it is that creator, as in the monitor. */
+const BANNER_IMG: Record<string, string | undefined> = {
+  henksuliini: `${CR}/henksuliini.webp`,
+};
+
+export const BannerReachPanel: React.FC = () => {
+  const top = bannerChannels.slice(0, 5);
+  const max = top[0].views;
+  return (
+    <div
+      className="panel pp-rep dui"
+      role="img"
+      aria-label={`Reach for Surfshark VPN Finland: ${fmt(banner.streamViews)} stream views with the banner on screen across ${banner.broadcasts} broadcasts, next to ${fmt(headline.viewsDelivered)} completed views of the animation, which were billed, and ${fmt(banner.clipViews)} clip views. Stream views for the five biggest channels. Illustrative UI.`}
+    >
+      <div className="r-main">
+        <div className="r-top">
+          <div>
+            <div className="r-k">Stream views, banner on screen</div>
+            <div className="r-num num">{fmt(banner.streamViews)}</div>
+          </div>
+        </div>
+        <div className="pp-mini pp-mini--3">
+          <div><span>Completed views, billed</span><b className="num">{fmt(headline.viewsDelivered)}</b></div>
+          <div><span>Broadcasts</span><b className="num">{fmt(banner.broadcasts)}</b></div>
+          <div><span>Clip views</span><b className="num">{fmt(banner.clipViews)}</b></div>
+        </div>
+        <div className="pp-tbl pp-tbl--rep">
+          <div className="pp-tr pp-th"><span>Channel</span><span className="pp-r">Broadcasts</span><span>Stream views</span><span /></div>
+          {top.map((c, i) => (
+            <div key={c.channel} className="pp-tr">
+              <span className="pp-who"><Ava src={BANNER_IMG[c.channel]} name={c.channel} square /><b>{c.channel}</b></span>
+              <span className="pp-r num pp-dim">{c.broadcasts}</span>
+              <Bar pct={(c.views / max) * 100} strong={i === 0} />
+              <span className="pp-r num pp-strong">{fmt(c.views)}</span>
+            </div>
+          ))}
+        </div>
+        <div className="pp-note">Stream views are live plus afterwards. They are never added to completed views.</div>
+      </div>
+    </div>
+  );
+};
 
 /* ── 8. Poll ──────────────────────────────────────────────────────────────── */
 

@@ -284,7 +284,7 @@ export const ReportPanel: React.FC<{ reveal?: boolean; compact?: boolean }> = ({
       <div className="r-main">
         <div className="r-top">
           <div>
-            <div className="r-k">Completed live views</div>
+            <div className="r-k">Completed views</div>
             <div className="r-num num">800,185</div>
           </div>
           <div className="r-states">

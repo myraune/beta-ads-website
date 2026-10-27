@@ -1,13 +1,14 @@
 import React from "react";
 import { FeaturePage } from "@/components/working/FeaturePage";
-import { PanelFrame, DashboardPanel, LiveMonitorPanel, DeliveryPanel, PollPanel } from "@/components/home-final/product-panels";
+import { PanelFrame, DashboardPanel, LiveMonitorPanel, DeliveryPanel, BannerReachPanel, PollPanel } from "@/components/home-final/product-panels";
 
 /* Reporting. Coded dark product panels of the dashboard and campaign room
    views (live monitor, delivery) plus the poll result, with the
    Surfshark Finland figures. Copy sticks to the
    confirmed report dimensions: delivery, verification clips, clicks, chat
-   tracking, polls, brand safety, PDF. No replay or VOD figures: a Twitch VOD
-   view count includes the live audience, so it is not replay reach. */
+   tracking, polls, brand safety, PDF. Banner reach is the broadcasts' total
+   views (live plus afterwards), shown next to completed views and never added
+   to them: the animation's viewers are already inside that total. */
 
 const Reporting: React.FC = () => (
   <FeaturePage
@@ -31,6 +32,12 @@ const Reporting: React.FC = () => (
         title: "Delivery you can look at.",
         body: "Every ad play is recorded as a clip and checked: whether the overlay was displayed correctly and whether the brand was mentioned. It is evidence, not a served-impression count.",
         visual: <PanelFrame><DeliveryPanel /></PanelFrame>,
+      },
+      {
+        kicker: "Banner reach",
+        title: "Two audiences. Never added together.",
+        body: "The animation plays in moments, so completed views count the viewers watching when it played. That is what you pay for. The banner and the !brand stream title stay on screen for the whole broadcast through the campaign, so they reach everyone who opens the stream, live or afterwards. We count those stream views per channel from Twitch and show them next to completed views.",
+        visual: <PanelFrame><BannerReachPanel /></PanelFrame>,
       },
       {
         kicker: "Polls",

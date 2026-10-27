@@ -80,7 +80,7 @@ const checklist = [
   },
   {
     q: "What happens to the campaign after the stream ends?",
-    why: "The overlay is baked into the recording, so it is in the VOD too. Ask what is counted and billed: with us, only completed live views.",
+    why: "The overlay is baked into the recording, so it is in the VOD too. Ask what is counted and billed: with us, only completed views.",
   },
   {
     q: "How do you know the overlay was actually live?",

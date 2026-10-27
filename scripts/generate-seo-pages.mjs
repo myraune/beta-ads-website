@@ -497,7 +497,7 @@ const CASE_STUDIES = [
     route: "/case-study/samsung",
     title: "Samsung x Beta Ads Case Study | Beta Ads",
     description:
-      "Samsung Galaxy S25 Ultra and Z Fold7 on Norwegian Twitch: 800,185 completed live views, 71 streamer slots, zero adblock impact.",
+      "Samsung Galaxy S25 Ultra and Z Fold7 on Norwegian Twitch: 800,185 completed views, 71 streamer slots, zero adblock impact.",
     locale: "en",
     datePublished: "2025-12-01",
     image: "/lovable-uploads/samsung-fold7-banner.jpg",
@@ -508,7 +508,7 @@ const CASE_STUDIES = [
     route: "/case-study/samsung-fold7",
     title: "Samsung Galaxy Z Fold7 Case Study | Beta Ads",
     description:
-      "Samsung Galaxy Z Fold7 on Norwegian Twitch: 300,054 completed live views across 28 Norwegian streamers. Zero adblock impact.",
+      "Samsung Galaxy Z Fold7 on Norwegian Twitch: 300,054 completed views across 28 Norwegian streamers. Zero adblock impact.",
     locale: "en",
     datePublished: "2026-01-01",
     image: "/lovable-uploads/samsung-zfold7-banner.png",
@@ -519,7 +519,7 @@ const CASE_STUDIES = [
     route: "/case-study/surfshark-finland",
     title: "Surfshark VPN Finland Case Study | Beta Ads",
     description:
-      "Surfshark VPN on Finnish Twitch: 100,000 views bought and 119,041 delivered live across 14 creators. 1,281 clicks and 2,833 poll votes.",
+      "Surfshark VPN on Finnish Twitch: 100,000 views bought and 119,041 completed views delivered across 14 creators. 1,281 clicks and 2,833 poll votes.",
     locale: "en",
     datePublished: "2026-10-07",
     image: "/lovable-uploads/case-surfshark-finland/poll-driving.webp",

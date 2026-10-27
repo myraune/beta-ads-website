@@ -28,9 +28,33 @@ export const headline = {
 export const delivery = {
   bought: 100000,
   live: 119041,
-  // No VOD or clip view counts: a Twitch VOD's view count includes the live
-  // audience, so it is not replay reach and must not be added to live views.
 };
+
+/**
+ * [C][Q] Banner reach. The banner and the !surfshark stream title are on screen
+ * for the whole broadcast through the campaign, so their reach is the total
+ * views the broadcasts got, live plus afterwards (Twitch's view count on each
+ * broadcast, snapshot 1 Sep 2026, 11 channels with data).
+ * NEVER add these to completed views: the animation's viewers are among them.
+ */
+export const banner = {
+  streamViews: 798323,
+  broadcasts: 183,
+  clipViews: 32593,
+  clips: 320,
+  channelsWithData: 11,
+};
+
+/** [Q] views per broadcast channel, top 7 of the 11 with data */
+export const bannerChannels = [
+  { channel: "turunpug", broadcasts: 24, views: 305687 },
+  { channel: "henksuliini", broadcasts: 10, views: 133791 },
+  { channel: "miikaz", broadcasts: 30, views: 120970 },
+  { channel: "datrope", broadcasts: 25, views: 75878 },
+  { channel: "ketku", broadcasts: 16, views: 60899 },
+  { channel: "tuubeli", broadcasts: 24, views: 43259 },
+  { channel: "snihy", broadcasts: 16, views: 42515 },
+];
 
 /** [C] verification */
 export const verification = {

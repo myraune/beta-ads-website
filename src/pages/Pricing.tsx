@@ -6,8 +6,9 @@ import { BOOKING_URL, SALES_MAIL, W, kicker, h2, PrimaryBtn, GhostBtn, Faq, faqL
 /* Beta Ads pricing, for every platform. Only the public, confirmed terms:
    priced per 1,000 views that fully played, campaigns from 100,000 NOK,
    undelivered views refunded pro rata, clicks and CTR reported but not
-   guaranteed. No replay, VOD or "effective CPM" claims: a Twitch VOD view count
-   includes the live audience, so it is not reach on top. The internal CPM ladder is never
+   guaranteed. The banner and !brand title run the whole stream and are not
+   billed; their reach (the broadcasts' total views) is never added to completed
+   views, and there is no "effective CPM" built on it. The internal CPM ladder is never
    published here. TikTok LIVE is quoted case by case while it is new. */
 
 const TITLE = "Pricing: Pay Per View That Played | Beta Ads";
@@ -15,7 +16,7 @@ const DESCRIPTION =
   "Livestream ads on Twitch, YouTube, Kick and TikTok LIVE, priced per 1,000 views that fully played. From 100,000 NOK. Undelivered views refunded.";
 
 const terms: { k: string; v: string; d: string }[] = [
-  { k: "You pay for", v: "Views that played", d: "One view is one full run of the animation on a live stream. Priced per 1,000." },
+  { k: "You pay for", v: "Views that played", d: "One view is one viewer watching while the animation fully played. Priced per 1,000." },
   { k: "Campaigns from", v: "100,000 NOK", d: "The minimum for one campaign, on one or several platforms." },
   { k: "Clicks and CTR", v: "Reported", d: "Tracked per streamer and per stream in your dashboard, not guaranteed." },
   { k: "Undelivered", v: "Refunded", d: "Views that do not play are refunded pro rata, never billed." },
@@ -31,7 +32,8 @@ const included: string[] = [
 ];
 
 const notBilled: { t: string; d: string }[] = [
-  { t: "Views that did not fully play", d: "A view only counts when the whole animation played on a live stream." },
+  { t: "Banner views", d: "The banner and the !brand title stay on screen for the whole stream through the campaign. Everyone who opens the stream, live or later, sees them, and none of it is billed." },
+  { t: "Views that did not fully play", d: "A view only counts when a viewer was watching while the whole animation played." },
   { t: "Clicks", d: "Clicks from the chat command are tracked and reported, never charged on top." },
   { t: "Undelivered views", d: "Anything that did not play is refunded pro rata." },
 ];
@@ -130,6 +132,7 @@ const Pricing: React.FC = () => (
                 ["Views that fully played", "96,000", ""],
                 ["You are billed for", "96,000", "font-semibold text-white"],
                 ["Refunded", "4,000", ""],
+                ["Stream views with the banner", "counted, not billed", "text-white/60"],
               ].map(([k, v, cls]) => (
                 <div key={k} className="flex items-baseline justify-between gap-6 border-t border-white/10 py-3.5 text-[15px]">
                   <span className="text-white/70">{k}</span>

@@ -312,7 +312,7 @@ const SamsungCaseStudy: React.FC = () => {
                 <span className="hl">x Beta Ads</span>
               </h1>
               <p className="text-lg text-muted-foreground leading-relaxed mb-10 max-w-md">
-                Two smartphone launches. One consistent audience. 800,000+ completed live views on Norwegian Twitch, all with zero adblock impact.
+                Two smartphone launches. One consistent audience. 800,000+ completed views on Norwegian Twitch, all with zero adblock impact.
               </p>
               <div className="grid grid-cols-3 border-t border-border pt-5">
                 {[
@@ -387,7 +387,7 @@ const SamsungCaseStudy: React.FC = () => {
               <div className="p-5 rounded-2xl border border-border">
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Why it worked</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  500,131 completed live views from 138,633 unique viewers, with a verified CTR of 0.76%,
+                  500,131 completed views from 138,633 unique viewers, with a verified CTR of 0.76%,
                   against an audience that actively blocks conventional advertising.
                 </p>
               </div>
@@ -405,7 +405,7 @@ const SamsungCaseStudy: React.FC = () => {
                 </p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Beta ran two simultaneous formats: a rich media overlay inside OBS, plus a live chatbot CTA
-                  in stream chat. The run delivered 300,054 completed live views from 141,930 unique viewers.
+                  in stream chat. The run delivered 300,054 completed views from 141,930 unique viewers.
                 </p>
               </div>
 
@@ -426,7 +426,7 @@ const SamsungCaseStudy: React.FC = () => {
               <div className="p-5 rounded-2xl border border-border">
                 <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-2">Why it worked</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  300,054 completed live views in 31 days, with 93.05% of the audience in Norway.
+                  300,054 completed views in 31 days, with 93.05% of the audience in Norway.
                 </p>
               </div>
             </div>
@@ -530,7 +530,7 @@ const SamsungCaseStudy: React.FC = () => {
               <div className="flex items-baseline justify-between mb-5">
                 <div>
                   <p className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-1">Reach</p>
-                  <h3 className="text-lg font-semibold text-foreground tracking-tight">Completed live views</h3>
+                  <h3 className="text-lg font-semibold text-foreground tracking-tight">Completed views</h3>
                 </div>
                 <div className="text-right">
                   <div className="text-2xl font-bold text-foreground tracking-tight tabular-nums">{isS25 ? "500,131" : "300,054"}</div>
@@ -560,8 +560,8 @@ const SamsungCaseStudy: React.FC = () => {
               </div>
               <p className="text-xs text-muted-foreground mt-6 leading-relaxed">
                 {isS25
-                  ? "A completed view is one fully played ad run on a live stream. Together the two campaigns delivered 800,185 completed live views."
-                  : "A completed view is one fully played ad run on a live stream."}
+                  ? "A completed view is a viewer watching while the ad fully played. Together the two campaigns delivered 800,185 completed views."
+                  : "A completed view is a viewer watching while the ad fully played."}
               </p>
             </div>
 
@@ -752,7 +752,7 @@ const SamsungCaseStudy: React.FC = () => {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border-t border-border pt-8">
             {[
-              { value: "800,185", label: "Live completed views" },
+              { value: "800,185", label: "Completed views" },
               { value: "2", label: "Campaigns" },
               { value: "43 + 28", label: "Streamer slots" },
               { value: "56 + 31", label: "Campaign days" },

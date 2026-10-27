@@ -31,7 +31,7 @@ const caseStudies = [
 const detailedCaseStudies = [
   {
     brand: "Surfshark",
-    title: "VPN Finland: bought 100,000 views, delivered 119,041 live",
+    title: "VPN Finland: bought 100,000 views, delivered 119,041",
     badge: "Newest · August 2026",
     description: "14 Finnish Twitch creators for a month with a live poll on every ad moment. 119,041 live views, 1,281 clicks and 2,833 votes on whether Finland uses a VPN.",
     stats: [
@@ -46,7 +46,7 @@ const detailedCaseStudies = [
   {
     brand: "Samsung",
     title: "Galaxy S25 Ultra & Z Fold7 on Norwegian Twitch",
-    description: "Two smartphone launches in 2025. Rich media overlays across 43 + 28 Norwegian streamer slots, 800,185 completed live views, zero adblock impact on both campaigns.",
+    description: "Two smartphone launches in 2025. Rich media overlays across 43 + 28 Norwegian streamer slots, 800,185 completed views, zero adblock impact on both campaigns.",
     stats: [
       { label: "Campaigns", value: "2" },
       { label: "Live views", value: "800,185" },
@@ -249,7 +249,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
               <span className="hl">each with a report.</span>
             </h1>
             <p className="text-lg font-light text-muted-foreground leading-relaxed">
-              The ones clients cleared for publication: what was bought, what was delivered live, and how it was checked. None of these ads could be skipped or ad blocked.
+              The ones clients cleared for publication: what was bought, what was delivered, and how it was checked. None of these ads could be skipped or ad blocked.
             </p>
           </div>
         </div>
@@ -429,7 +429,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
         points={[
             "Setup verification, checked per channel while the campaign is live",
             "Every chat mention, translated and scored by tone",
-            "Completed live views per streamer and per stream",
+            "Completed views per streamer and per stream",
           ]}
         cta={{ label: "See the reporting views", to: "/campaign-compliance" }}
         flip={true}

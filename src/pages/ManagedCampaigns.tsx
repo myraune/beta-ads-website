@@ -49,8 +49,8 @@ const us = [
 ];
 
 const cases: { brand: string; what: string; facts: string; to: string }[] = [
-  { brand: "Samsung", what: "Galaxy S25 Ultra and Z Fold7", facts: "800,185 completed live views, 71 streamer slots", to: "/case-study/samsung" },
-  { brand: "Samsung", what: "Galaxy Z Fold7", facts: "300,054 completed live views, 28 streamers", to: "/case-study/samsung-fold7" },
+  { brand: "Samsung", what: "Galaxy S25 Ultra and Z Fold7", facts: "800,185 completed views, 71 streamer slots", to: "/case-study/samsung" },
+  { brand: "Samsung", what: "Galaxy Z Fold7", facts: "300,054 completed views, 28 streamers", to: "/case-study/samsung-fold7" },
   { brand: "NKI", what: "Quiz campaign", facts: "220,003 completed views, 1,595 verified clicks, 19 streamers", to: "/case-study/nki" },
   { brand: "Shure", what: "MV6 microphone", facts: "182,554 completed views, 2,378 verified clicks, one creator", to: "/case-study/shure" },
   { brand: "Komplett", what: "Månedens Gaming Deal", facts: "151,278 display views, 1,768 verified clicks, 34 streamers", to: "/case-study/komplett" },
@@ -58,7 +58,7 @@ const cases: { brand: string; what: string; facts: string; to: string }[] = [
 
 const faqs: { q: string; a: string }[] = [
   { q: "What does a managed campaign cost?", a: "Managed campaigns are priced per 1,000 animation views, and campaigns start from 100,000 NOK. We agree the number of views before launch." },
-  { q: "What counts as a view?", a: "One view is one fully played run of your animation on a live stream on Twitch, YouTube or Kick. Views are counted by the campaign platform per stream." },
+  { q: "What counts as a view?", a: "One view is one viewer watching while your animation fully played on Twitch, YouTube or Kick. Views are counted by the campaign platform per stream." },
   { q: "What if the campaign delivers fewer views than agreed?", a: "You pay for the views in your agreement. If the campaign delivers fewer, we refund the undelivered share pro rata. Clicks and CTR are reported, not guaranteed." },
   { q: "Can we choose the streamers?", a: "We pick them from the Streamer Explorer, and you can approve the list and remove anyone on it before launch." },
   { q: "Do we need to make the creative?", a: "No. We design the animated overlay in your brand, sized for a corner of the stream, plus the chat command and an optional poll." },
@@ -236,7 +236,7 @@ const ManagedCampaigns: React.FC = () => {
               </div>
               <dl className="mt-8 m-0 border-t border-border">
                 {[
-                  ["One view", "One fully played run of the animation on a live stream on Twitch, YouTube or Kick."],
+                  ["One view", "One viewer watching while the animation fully played on Twitch, YouTube or Kick."],
                   ["Undelivered views", "Refunded pro rata. Clicks and CTR are reported, not guaranteed."],
                   ["Contract and invoice", "BETA AGENCY AS, org.nr 933 303 136."],
                 ].map(([t, d]) => (

@@ -43,7 +43,7 @@ const faqs: { q: string; a: string }[] = [
   { q: "Should we start managed or self-serve?", a: "Brands and first test campaigns usually start managed: we run everything and you see how livestream performs before you build anything yourself. Agencies that run campaigns for several clients usually want self-serve access." },
   { q: "Can an agency start managed and move to self-serve later?", a: "Yes. Many start with one campaign we run for them, then get their own login for the next ones." },
   { q: "Can we buy it programmatically?", a: "Yes. We set up a private deal on our SSP seat, on Adform or Magnite (Equativ is coming), and share the deal ID. Your team targets the deal ID in your DSP." },
-  { q: "What counts as a view?", a: "One view is one fully played run of your animation on a live stream. Views are counted by the campaign platform per stream, not typed in by us." },
+  { q: "What counts as a view?", a: "One view is one viewer watching while your animation fully played. Views are counted by the campaign platform per stream, not typed in by us." },
   { q: "What happens if a campaign delivers fewer views than agreed?", a: "You pay for the views in your agreement. If the campaign delivers fewer, we refund the undelivered share. Clicks and CTR are reported but not guaranteed." },
   { q: "Who do I sign the contract with and pay?", a: "BETA AGENCY AS, org.nr 933 303 136. The agreement names this company and the invoice comes from it, to a bank account in its name." },
   { q: "Who owns and runs Beta Ads?", a: "Andreas Myraune founded the company and is its CEO, chairman and sole owner. He signs the agreements and is the person you deal with." },
@@ -295,7 +295,7 @@ const WorkingWithUs: React.FC = () => {
               </div>
               <div className="grid sm:grid-cols-2 gap-x-10 gap-y-8">
                 {[
-                  ["Priced per 1,000 views", "One view is one fully played run of the animation on a live stream, counted by the platform per stream."],
+                  ["Priced per 1,000 views", "One view is one viewer watching while the animation fully played, counted by the platform per stream."],
                   ["Undelivered views refunded", "If a campaign delivers fewer views than agreed, the undelivered share is refunded. Clicks and CTR are reported, not guaranteed."],
                   ["Every ad play verified", "A short clip of the stream is recorded around each ad play, so delivery is something you can look at."],
                   ["Your own dashboard login", "Views, clicks and CTR per streamer and per stream while it runs, and a report when it ends."],

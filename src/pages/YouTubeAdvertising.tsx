@@ -317,9 +317,9 @@ const YouTubeAdvertising: React.FC = () => {
         variant="scene"
         eyebrow="On YouTube Live"
         heading="The overlay is part of the recording"
-        body="A YouTube livestream turns into a video the second it stops, and the overlay is already rendered into it. You pay for completed live views; the recording is a bonus we do not count or bill."
+        body="A YouTube livestream turns into a video the second it stops, and the overlay is already rendered into it. You pay for completed views; the recording is a bonus we do not count or bill."
         points={[
-            "Billed on completed live views only",
+            "Billed on completed views only",
             "No re-cut or re-upload needed, the sponsorship is in the file",
             "Every ad play checked and clipped while the stream is live",
           ]}
@@ -337,7 +337,7 @@ const YouTubeAdvertising: React.FC = () => {
               { q: "How is this different from regular YouTube ads?", a: "Regular YouTube ads (pre-roll, mid-roll) can be skipped or blocked. Native overlay ads are part of the stream - viewers can't skip them, and ad blockers can't remove them." },
               { q: "What categories of streamers are on YouTube Live?", a: "The YouTube Live streamers in our Explorer span gaming, music, sports, education, lifestyle, and IRL content - considerably broader than Twitch's gaming-dominant catalog." },
               { q: "Can I run campaigns on both Twitch and YouTube simultaneously?", a: "Yes, and we recommend it. Beta Ads manages multi-platform campaigns from a single dashboard, giving your brand presence across the full Nordic streaming audience." },
-              { q: "Does YouTube Live content stay discoverable after the campaign ends?", a: "Yes. YouTube archives live streams as VODs that continue to surface in search results. Your overlay is part of the archived video, but we only count and bill completed live views." },
+              { q: "Does YouTube Live content stay discoverable after the campaign ends?", a: "Yes. YouTube archives live streams as VODs that continue to surface in search results. Your overlay is part of the archived video, but we only count and bill completed views." },
               { q: "How does audience targeting work on YouTube Live?", a: "We filter the YouTube Live streamers in our Explorer by content category, country, language, audience demographics, and average concurrent viewers. You approve the final creator list before launch." },
             ].map((faq, i) => (
               <details key={i} className="group border-b border-border last:border-b-0">
