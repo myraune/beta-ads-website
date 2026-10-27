@@ -64,9 +64,10 @@ const avatar = (login: string) => `/checker/av-${login}.webp`;
 /* The curved strip of stream frames under the search, like a smile: the middle
    sits lowest, the ends rise, tilt outwards and fade. It rolls endlessly to the
    left: each frame's slot slides along the curve and wraps at the far end, where
-   it is fully faded, so the loop has no seam. Still under reduced motion. */
+   it is fully faded, so the loop has no seam. Under reduced motion it keeps rolling, at a third of the speed. */
 const ARC = LIVE_DEALS.slice(0, 19);
 const ARC_SPEED = 0.35; // slots per second
+const ARC_SPEED_REDUCED = 0.12;
 const placeFrame = (el: HTMLDivElement, o: number, mid: number) => {
   const a = Math.abs(o);
   const fade = Math.max(0, 1 - a / (mid + 1.5));
@@ -81,10 +82,10 @@ const FrameArc: React.FC = () => {
     const n = ARC.length;
     const draw = (shift: number) =>
       refs.current.forEach((el, i) => el && placeFrame(el, ((((i - mid - shift + n / 2) % n) + n) % n) - n / 2, mid));
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { draw(0); return; }
+    const speed = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? ARC_SPEED_REDUCED : ARC_SPEED;
     let raf = 0;
     const start = performance.now();
-    const tick = (now: number) => { draw(((now - start) / 1000) * ARC_SPEED); raf = requestAnimationFrame(tick); };
+    const tick = (now: number) => { draw(((now - start) / 1000) * speed); raf = requestAnimationFrame(tick); };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [mid]);
