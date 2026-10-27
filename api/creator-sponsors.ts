@@ -116,7 +116,7 @@ Lines with source "command" are "!name: bot reply", dated by when the command wa
 
 Twitch titles are full of !commands. Most are chat bot commands, not deals: !discord, !socials, !youtube, !merch for the creator's own shop, !prime (a Prime Gaming sub reminder), !drops, game guides, champion or build names, community events, other streamers. Count a brand only when the line shows a commercial relationship: a !command named after a company or product (!hellofresh, !gamersupps, !steelseries), #ad or #sponsored, "sponsored by", "partner", "code X" or "use code" with a brand, or a brand @mention in a promo context.
 
-kind: "sponsor" for a paid placement, "affiliate" for codes or links that look like an affiliate or creator-code deal, "own_brand" for the creator's own merch or company, "unclear" when you cannot tell. Use the real brand name with normal capitalisation (Opera GX, not OPERAGX). domain is the brand's own website domain, such as amd.com or cupra.no, not a tracking or shop link domain; use an empty string if you do not know it. evidence_ids are the ids of the lines that show it; never invent ids. not_sponsors lists the !commands or names you looked at and rejected, with a short reason, at most 12. summary is two plain sentences for a marketer: who sponsors this creator and since when, based on the dates. Write dates like "25 Sep 2026", refer to the creator by name or as "they", and do not use em dashes. If nothing qualifies, return an empty sponsors list and say so.`;
+kind: "sponsor" for a paid placement, "affiliate" for codes or links that look like an affiliate or creator-code deal, "own_brand" for the creator's own merch or company, "unclear" when you cannot tell. Use the real brand name with normal capitalisation (Opera GX, not OPERAGX). domain is the brand's own website domain, such as amd.com or cupra.no, not a tracking or shop link domain; use an empty string if you do not know it. evidence_ids are the ids of the lines that show it, the strongest first and at most 4; never invent ids. note is one sentence of at most 25 words. not_sponsors lists the !commands or names you looked at and rejected, with a reason of a few words, at most 8. summary is two plain sentences for a marketer: who sponsors this creator and since when, based on the dates. Write dates like "25 Sep 2026", refer to the creator by name or as "they", and do not use em dashes. If nothing qualifies, return an empty sponsors list and say so.`;
 
 async function analyse(login: string) {
   const users = await helix(`users?login=${encodeURIComponent(login)}`);
@@ -162,7 +162,7 @@ async function analyse(login: string) {
   const client = new Anthropic();
   const res = await client.beta.messages.parse({
     model: MODEL,
-    max_tokens: 4000,
+    max_tokens: 6000, // big channels list 15+ brands; 4000 cut the JSON off
     betas: ["server-side-fallback-2026-07-01"],
     fallbacks: "default",
     output_config: { effort: "medium", format: betaZodOutputFormat(Result) },
