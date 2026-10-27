@@ -52,6 +52,16 @@ const TOOLKIT = [
     rows: [["Growth", "500 vetted a month"], ["Scale", "2,000 vetted a month"], ["Enterprise", "Unlimited"]] },
 ];
 
+/* The Nordic study: the biggest live channels per country, checked once and stored
+   in public/checker/nordic-top.json, so opening one costs no API call. */
+type TopRow = { login: string; name: string; avatar: string; followers: number; result: Result };
+type TopCountry = { code: "se" | "no" | "dk" | "fi"; label: string; rows: TopRow[] };
+type TopData = { checkedAt: string; countries: TopCountry[] };
+const COUNTRIES: { code: TopCountry["code"]; label: string }[] = [
+  { code: "se", label: "Sweden" }, { code: "no", label: "Norway" }, { code: "dk", label: "Denmark" }, { code: "fi", label: "Finland" },
+];
+const COUNTRY_HASH = (code: string) => `top-${COUNTRIES.find(c => c.code === code)!.label.toLowerCase()}`;
+
 const EXAMPLES = ["AstaBush", "agurin", "Artosis", "Mr_Mammal", "DansGaming"];
 const KIND: Record<Sponsor["kind"], string> = { sponsor: "Sponsor", affiliate: "Affiliate code", own_brand: "Own brand", unclear: "Unclear" };
 const STEPS = ["Reading the channel and bio", "Reading the last 100 VOD titles and chat bot commands", "Checking each brand mention"];
@@ -143,6 +153,28 @@ const SponsorshipChecker: React.FC = () => {
     return () => clearInterval(t);
   }, [loading]);
 
+  const [top, setTop] = useState<TopData | null>(null);
+  const [country, setCountry] = useState<TopCountry["code"]>("se");
+  useEffect(() => {
+    fetch("/checker/nordic-top.json").then(r => (r.ok ? r.json() : null)).then(setTop).catch(() => {});
+    const fromHash = () => {
+      const c = COUNTRIES.find(x => location.hash === `#${COUNTRY_HASH(x.code)}`);
+      if (c) { setCountry(c.code); document.getElementById("top-streamers")?.scrollIntoView({ block: "start" }); }
+    };
+    fromHash();
+    window.addEventListener("hashchange", fromHash);
+    return () => window.removeEventListener("hashchange", fromHash);
+  }, []);
+  const showTop = (code: TopCountry["code"]) => {
+    setCountry(code);
+    history.replaceState(null, "", `#${COUNTRY_HASH(code)}`);
+    document.getElementById("top-streamers")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+  const openStored = (r: Result) => {
+    setQ(r.creator.name); setError(""); setResult(r);
+    topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   const check = async (login: string, scroll = false) => {
     const name = login.trim();
     if (!name || loading) return;
@@ -232,6 +264,15 @@ const SponsorshipChecker: React.FC = () => {
               </button>
             ))}
           </div>
+          <div className="mt-2 flex flex-wrap items-center justify-center gap-2 text-sm text-muted-foreground">
+            <span>Top streamers in</span>
+            {COUNTRIES.map(c => (
+              <button key={c.code} type="button" onClick={() => showTop(c.code)}
+                className="h-8 px-3 rounded-full border border-border hover:border-foreground/40 text-foreground transition-colors">
+                {c.label}
+              </button>
+            ))}
+          </div>
         </form>
       </header>
 
@@ -294,6 +335,8 @@ const SponsorshipChecker: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <TopStreamers data={top} country={country} setCountry={setCountry} open={openStored} />
 
       {/* ── LOGOS ── */}
       <section className={`${W} py-16 md:py-24 text-center`}>
@@ -439,14 +482,14 @@ const Row: React.FC<{ n: string; title: string; body: string; flip?: boolean; ch
 
 /* The brand's own favicon in high resolution. Unknown domains come back as a 16 px
    globe, so anything that small falls back to the brand's first letter. */
-const BrandLogo: React.FC<{ brand: string; domain?: string }> = ({ brand, domain }) => {
+const BrandLogo: React.FC<{ brand: string; domain?: string; small?: boolean }> = ({ brand, domain, small }) => {
   const [ok, setOk] = useState(!!domain);
   return (
-    <span className="w-10 h-10 shrink-0 rounded-lg border border-border bg-white grid place-items-center overflow-hidden">
+    <span title={small ? brand : undefined} className={`${small ? "w-7 h-7 rounded-md" : "w-10 h-10 rounded-lg"} shrink-0 border border-border bg-white grid place-items-center overflow-hidden`}>
       {ok
-        ? <img src={`https://www.google.com/s2/favicons?domain=${domain}&sz=128`} alt="" className="w-7 h-7 object-contain"
+        ? <img src={`https://www.google.com/s2/favicons?domain=${domain}&sz=128`} alt="" className={small ? "w-5 h-5 object-contain" : "w-7 h-7 object-contain"}
             onError={() => setOk(false)} onLoad={e => e.currentTarget.naturalWidth <= 16 && setOk(false)} />
-        : <span className="text-sm font-bold text-[#0F1012]">{brand.charAt(0)}</span>}
+        : <span className={`${small ? "text-[11px]" : "text-sm"} font-bold text-[#0F1012]`}>{brand.charAt(0)}</span>}
     </span>
   );
 };
@@ -455,6 +498,53 @@ const range = (a: string, b: string) => {
   if (a === b) return fmt(a);
   const short = a.slice(0, 4) === b.slice(0, 4) ? new Date(a + "T12:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short" }) : fmt(a);
   return `${short} to ${fmt(b)}`;
+};
+
+const TopStreamers: React.FC<{ data: TopData | null; country: TopCountry["code"]; setCountry: (c: TopCountry["code"]) => void; open: (r: Result) => void }> =
+  ({ data, country, setCountry, open }) => {
+  const rows = data?.countries.find(c => c.code === country)?.rows ?? [];
+  return (
+    <section id="top-streamers" className={`${W} pt-16 md:pt-24 scroll-mt-20`}>
+      <div className="text-center max-w-2xl mx-auto">
+        <h2 className={h2}>The biggest Nordic streamers. <span className="text-muted-foreground font-light">Every sponsor.</span></h2>
+        <p className="mt-4 text-muted-foreground leading-relaxed">
+          The ten biggest channels live in each country{data ? ` on ${fmt(data.checkedAt)}` : ""}, run through the checker. Pick one to see the proof.
+        </p>
+      </div>
+      <div role="tablist" className="mt-8 flex flex-wrap justify-center gap-2">
+        {COUNTRIES.map(c => (
+          <button key={c.code} id={COUNTRY_HASH(c.code)} role="tab" aria-selected={country === c.code} type="button" onClick={() => setCountry(c.code)}
+            className={`h-9 px-4 rounded-full text-sm font-semibold border transition-colors scroll-mt-28 ${country === c.code ? "bg-foreground text-background border-foreground" : "border-border hover:border-foreground/40"}`}>
+            {c.label}
+          </button>
+        ))}
+      </div>
+      <ol className="mt-8 max-w-3xl mx-auto m-0 p-0 list-none rounded-2xl border border-border divide-y divide-border overflow-hidden">
+        {!data && <li className="p-6 text-sm text-muted-foreground text-center">Loading the list…</li>}
+        {rows.map((row, i) => {
+          const deals = row.result.sponsors.filter(s => s.kind !== "own_brand");
+          return (
+            <li key={row.login}>
+              <button type="button" onClick={() => open(row.result)} className="w-full text-left flex items-center gap-3 md:gap-4 px-4 py-3 hover:bg-muted/50 transition-colors">
+                <span className="w-5 shrink-0 text-sm font-semibold text-muted-foreground tabular-nums">{i + 1}</span>
+                <img src={row.avatar} alt="" loading="lazy" className="w-9 h-9 rounded-full shrink-0" />
+                <span className="min-w-0 flex-1">
+                  <span className="block text-sm font-semibold truncate">{row.name}</span>
+                  <span className="block text-xs text-muted-foreground">{num(row.followers)} followers</span>
+                </span>
+                <span className="hidden sm:flex items-center gap-1">
+                  {deals.slice(0, 5).map(s => <BrandLogo key={s.brand} brand={s.brand} domain={s.domain} small />)}
+                </span>
+                <span className="w-24 shrink-0 text-right text-sm font-semibold">
+                  {deals.length === 0 ? <span className="text-muted-foreground font-normal">No deals</span> : `${deals.length} ${deals.length === 1 ? "sponsor" : "sponsors"}`}
+                </span>
+              </button>
+            </li>
+          );
+        })}
+      </ol>
+    </section>
+  );
 };
 
 const SponsorCard: React.FC<{ s: Sponsor }> = ({ s }) => (
