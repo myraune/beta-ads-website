@@ -1,5 +1,5 @@
 import { del, list } from "@vercel/blob";
-import { INDUSTRIES, isIndustry, type Creative } from "../src/data/creatives";
+import { INDUSTRIES, isIndustry, isKind, type Creative } from "../src/data/creatives";
 import { json, readManifest, writeManifest, readBlobJson, isAdmin } from "./_lib/creatives";
 
 /* Admin side of the creative library (/creative-library/admin), behind
@@ -32,7 +32,7 @@ export async function POST(request: Request) {
   const video = str(b.video, 500);
   if (!brand || !title) return json({ error: "Brand and title are required." }, 400);
   if (!isIndustry(b.industry)) return json({ error: "Pick an industry." }, 400);
-  if (b.kind !== "client" && b.kind !== "concept") return json({ error: "Pick campaign or concept." }, 400);
+  if (!isKind(b.kind)) return json({ error: "Pick a type." }, 400);
   if (!/^https:\/\/[\w.-]+\.public\.blob\.vercel-storage\.com\//.test(poster) || !/^https:\/\/[\w.-]+\.public\.blob\.vercel-storage\.com\//.test(video))
     return json({ error: "Upload the video first." }, 400);
 

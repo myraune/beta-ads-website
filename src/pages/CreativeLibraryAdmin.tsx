@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { upload } from "@vercel/blob/client";
 import { SEO } from "@/components/SEO";
 import { W } from "@/components/working/shared";
-import { INDUSTRIES, type Creative, type CreativeKind } from "@/data/creatives";
+import { INDUSTRIES, KIND_LABEL, type Creative, type CreativeKind } from "@/data/creatives";
 
 /* /creative-library/admin: not linked anywhere, noindex, behind the admin
    password (CREATIVE_ADMIN_PASSWORD). Upload a video, the poster is grabbed from
@@ -135,7 +135,7 @@ const CreativeLibraryAdmin: React.FC = () => {
                 <div>
                   <span className={label}>Type</span>
                   <div className="flex gap-4 h-10 items-center text-sm">
-                    {([["client", "Campaign that ran"], ["concept", "Concept"]] as [CreativeKind, string][]).map(([v, l]) => (
+                    {([["client", "Campaign that ran"], ["concept", "Concept"], ["network", "Partner network"]] as [CreativeKind, string][]).map(([v, l]) => (
                       <label key={v} className="inline-flex items-center gap-2"><input type="radio" name="kind" checked={form.kind === v} onChange={() => setForm({ ...form, kind: v })} />{l}</label>
                     ))}
                   </div>
@@ -170,7 +170,7 @@ const CreativeLibraryAdmin: React.FC = () => {
                   {data.items.map((c) => (
                     <li key={c.id} className="flex items-center gap-3">
                       <img src={c.poster} alt="" className="h-12 w-[86px] rounded-md object-cover bg-muted" />
-                      <span className="min-w-0 flex-1 text-sm"><b className="font-medium">{c.brand} · {c.title}</b><br /><span className="text-muted-foreground">{c.industry} · {c.kind === "concept" ? "Concept" : "Campaign"}</span></span>
+                      <span className="min-w-0 flex-1 text-sm"><b className="font-medium">{c.brand} · {c.title}</b><br /><span className="text-muted-foreground">{c.industry} · {KIND_LABEL[c.kind]}</span></span>
                       <button type="button" onClick={() => remove(c)} className="h-8 px-3 rounded-lg border border-border text-xs font-semibold">Remove</button>
                     </li>
                   ))}

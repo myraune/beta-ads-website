@@ -2,9 +2,10 @@ import { json, readManifest, saveLead, issueToken, tokenValid } from "./_lib/cre
 import { FREE_PREVIEWS, libraryOrder } from "../src/data/creatives";
 
 /* Creative library for /creative-library.
-   GET               -> every creative in library order, with poster; video URLs
-                        only on the first FREE_PREVIEWS (marked free).
-   GET  (x-creative-token header with a valid token) -> the same list, all video URLs.
+   GET               -> the first FREE_PREVIEWS creatives in library order (marked
+                        free, with video), and only industry + type for the rest,
+                        so nothing of a locked creative can be seen before signing up.
+   GET  (x-creative-token header with a valid token) -> every creative with video.
    POST {name, email, company, website} -> stores the lead in the private Blob store
                                            and returns an access token for the videos.
    website is a honeypot: bots fill it, people never see it. */
@@ -16,7 +17,12 @@ const EMAIL = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
 export async function GET(request: Request) {
   const unlocked = tokenValid(request.headers.get("x-creative-token"));
   const items = libraryOrder(await readManifest()).map((c, i) => (i < FREE_PREVIEWS ? { ...c, free: true } : c));
-  return json({ unlocked, items: unlocked ? items : items.map(({ video, ...rest }) => (rest.free ? { ...rest, video } : rest)) });
+  if (unlocked) return json({ unlocked, items, locked: [] });
+  return json({
+    unlocked,
+    items: items.filter((c) => c.free),
+    locked: items.filter((c) => !c.free).map(({ industry, kind }) => ({ industry, kind })),
+  });
 }
 
 export async function POST(request: Request) {

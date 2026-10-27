@@ -1,26 +1,25 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { BOOKING_URL, W, kicker, h2, PrimaryBtn } from "@/components/working/shared";
-import { INDUSTRIES, FREE_PREVIEWS, type Creative } from "@/data/creatives";
+import { INDUSTRIES, KIND_LABEL, type Creative, type CreativeKind } from "@/data/creatives";
 
 /* Creative library: animated overlays Beta Ads has built, filterable by industry
-   and by campaign vs concept. Posters are public and the first FREE_PREVIEWS
-   play for anyone; the rest unlock once a visitor leaves name, work email and
-   company (POST /api/creatives returns a signed token, kept in localStorage,
+   and type. The first FREE_PREVIEWS play for anyone; the rest are not even sent
+   to the browser until a visitor leaves name, work email and company (POST /api/creatives returns a signed token, kept in localStorage,
    sent back as x-creative-token). The API returns the items in library order.
    Items come from the Blob manifest, added through /creative-library/admin. */
 
 const TITLE = "Creative Library: Livestream Overlay Ideas by Industry | Beta Ads";
 const DESCRIPTION =
-  "Animated overlays we have built for brands on Twitch, YouTube and Kick, sorted by industry. Campaigns that ran and concepts made for pitches.";
+  "Animated overlays for brands on Twitch, YouTube and Kick, sorted by industry: campaigns we ran, concepts made for pitches and partner-network examples.";
 const TOKEN_KEY = "creative-token";
 
 const readToken = () => { try { return localStorage.getItem(TOKEN_KEY) || ""; } catch { return ""; } };
 const writeToken = (t: string) => { try { localStorage.setItem(TOKEN_KEY, t); } catch { /* private mode: unlock lasts this visit */ } };
 
-type Kind = "all" | "client" | "concept";
+type Kind = "all" | CreativeKind;
 
 const UnlockForm: React.FC<{ onUnlocked: (token: string) => void; compact?: boolean }> = ({ onUnlocked, compact }) => {
   const [name, setName] = useState("");
@@ -57,7 +56,7 @@ const UnlockForm: React.FC<{ onUnlocked: (token: string) => void; compact?: bool
       <input type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" value={website} onChange={(e) => setWebsite(e.target.value)} className="hidden" />
       <button type="submit" disabled={state.busy}
         className={`h-11 px-6 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 ${compact ? "sm:col-span-3" : "sm:col-span-3 xl:col-span-1"}`}>
-        {state.busy ? "Unlocking…" : "Watch all the animations"}
+        {state.busy ? "Unlocking…" : "Unlock all the ideas"}
       </button>
       {state.error && <p role="alert" className="m-0 text-sm text-red-600 sm:col-span-3 xl:col-span-4">{state.error}</p>}
     </form>
@@ -69,7 +68,7 @@ const Card: React.FC<{ c: Creative; unlocked: boolean; onOpen: () => void }> = (
     <span className="relative block aspect-video overflow-hidden rounded-[14px] bg-muted">
       <img src={c.poster} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
       <span className="absolute left-3 top-3 flex gap-1.5">
-        {c.kind === "concept" && <span className="h-6 px-2.5 inline-flex items-center rounded-full bg-black/70 text-white text-[11px] font-semibold">Concept</span>}
+        {c.kind !== "client" && <span className="h-6 px-2.5 inline-flex items-center rounded-full bg-black/70 text-white text-[11px] font-semibold">{KIND_LABEL[c.kind]}</span>}
         {c.free && !unlocked && <span className="h-6 px-2.5 inline-flex items-center rounded-full bg-primary text-primary-foreground text-[11px] font-semibold">Free preview</span>}
       </span>
       <span className="absolute right-3 bottom-3 h-7 px-3 inline-flex items-center rounded-full bg-white/90 text-[#0F1012] text-xs font-semibold">
@@ -82,31 +81,62 @@ const Card: React.FC<{ c: Creative; unlocked: boolean; onOpen: () => void }> = (
   </button>
 );
 
+/** What a visitor without access sees under the free previews: blurred stand-in
+    cards fading into the page, then the sign-up. The locked creatives themselves
+    are never sent to the browser, so there is nothing behind the blur to dig out. */
+const Gate: React.FC<{ count: number; industry: string; blur: string[]; onUnlocked: (token: string) => void }> = ({ count, industry, blur, onUnlocked }) => (
+  <div className="relative mt-10">
+    <div aria-hidden="true" className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 pointer-events-none select-none">
+      {Array.from({ length: 3 }, (_, i) => (
+        <div key={i} className={i > 0 ? "hidden sm:block" : ""}>
+          <div className="aspect-video overflow-hidden rounded-[14px] bg-muted">
+            {blur.length > 0 && <img src={blur[(i + 1) % blur.length]} alt="" className="h-full w-full object-cover blur-2xl scale-125 opacity-70" />}
+          </div>
+          <div className="mt-3 h-3 w-32 rounded-full bg-muted" />
+          <div className="mt-2.5 h-4 w-48 rounded-full bg-muted" />
+        </div>
+      ))}
+    </div>
+    <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/80 to-background" />
+    <div className="relative -mt-24 sm:-mt-32 mx-auto max-w-2xl rounded-[18px] bg-card border border-border p-6 md:p-8 text-center shadow-[0_24px_60px_-30px_rgba(0,0,0,0.35)]">
+      <div className={`${kicker} mb-3`}>{count} more {industry === "All" ? "ideas" : `in ${industry}`}</div>
+      <h2 className="m-0 text-2xl md:text-[1.7rem] font-semibold tracking-tight">Unlock the rest of the creative ideas.</h2>
+      <p className="mt-2 mb-6 text-[15px] text-muted-foreground leading-relaxed">
+        Leave your name, work email and company and every animation in the library opens right away. We use your details to follow up
+        about Beta Ads, and you can opt out at any time.
+      </p>
+      <UnlockForm compact onUnlocked={onUnlocked} />
+    </div>
+  </div>
+);
+
 const CreativeLibrary: React.FC = () => {
   const [items, setItems] = useState<Creative[] | null>(null);
+  const [locked, setLocked] = useState<Pick<Creative, "industry" | "kind">[]>([]);
   const [token, setToken] = useState(readToken);
   const [unlocked, setUnlocked] = useState(false);
   const [industry, setIndustry] = useState<string>("All");
   const [kind, setKind] = useState<Kind>("all");
   const [open, setOpen] = useState<Creative | null>(null);
-  const unlockRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let live = true;
     fetch("/api/creatives", { headers: token ? { "x-creative-token": token } : {} })
       .then((r) => r.json())
-      .then((d) => { if (live) { setItems(d.items || []); setUnlocked(Boolean(d.unlocked)); } })
+      .then((d) => { if (live) { setItems(d.items || []); setLocked(d.locked || []); setUnlocked(Boolean(d.unlocked)); } })
       .catch(() => live && setItems([]));
     return () => { live = false; };
   }, [token]);
 
   const counts = useMemo(() => {
     const m = new Map<string, number>();
-    (items || []).forEach((c) => m.set(c.industry, (m.get(c.industry) || 0) + 1));
+    [...(items || []), ...locked].forEach((c) => m.set(c.industry, (m.get(c.industry) || 0) + 1));
     return m;
-  }, [items]);
+  }, [items, locked]);
 
-  const shown = (items || []).filter((c) => (industry === "All" || c.industry === industry) && (kind === "all" || c.kind === kind));
+  const match = (c: Pick<Creative, "industry" | "kind">) => (industry === "All" || c.industry === industry) && (kind === "all" || c.kind === kind);
+  const shown = (items || []).filter(match);
+  const hidden = locked.filter(match).length;
   const current = open && items?.find((c) => c.id === open.id);
 
   return (
@@ -128,7 +158,7 @@ const CreativeLibrary: React.FC = () => {
                 Overlay ideas, sorted by industry.
               </h1>
               <p className="mt-6 max-w-2xl text-lg text-muted-foreground leading-relaxed">
-                Animated overlays we have built for brands on Twitch, YouTube and Kick: campaigns that ran, and concepts we made for a pitch.
+                Animated overlays for brands on Twitch, YouTube and Kick: campaigns we ran, concepts we made for a pitch, and examples from our partner network.
                 Pick your industry and see what an ad inside a live stream can look like.
               </p>
             </div>
@@ -137,20 +167,6 @@ const CreativeLibrary: React.FC = () => {
         </header>
 
         <section className={`${W} pb-20 md:pb-28`} aria-label="Creatives">
-          {!unlocked && (
-            <div ref={unlockRef} className="mb-10 rounded-[18px] bg-card border border-border p-6 md:p-8 grid gap-5">
-              <div>
-                <h2 className="m-0 text-xl font-semibold tracking-tight">
-                  The first {FREE_PREVIEWS} are free. Sign up to watch {items ? `the other ${Math.max(items.length - FREE_PREVIEWS, 0)}` : "the rest"}.
-                </h2>
-                <p className="mt-1.5 mb-0 text-[14.5px] text-muted-foreground leading-relaxed">
-                  Every animation opens right away. We use your details to follow up about Beta Ads, and you can opt out at any time.
-                </p>
-              </div>
-              <UnlockForm onUnlocked={setToken} />
-            </div>
-          )}
-
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-border pb-5">
             <div role="tablist" aria-label="Industry" className="flex flex-wrap gap-2">
               {["All", ...INDUSTRIES.filter((i) => counts.has(i))].map((i) => (
@@ -161,7 +177,7 @@ const CreativeLibrary: React.FC = () => {
               ))}
             </div>
             <div role="radiogroup" aria-label="Type" className="inline-flex self-start p-1 rounded-full border border-border bg-card text-sm font-semibold">
-              {([["all", "All"], ["client", "Campaigns"], ["concept", "Concepts"]] as [Kind, string][]).map(([v, l]) => (
+              {([["all", "All"], ["client", "Campaigns"], ["concept", "Concepts"], ["network", "Partner network"]] as [Kind, string][]).filter(([v]) => v === "all" || [...(items || []), ...locked].some((c) => c.kind === v)).map(([v, l]) => (
                 <button key={v} type="button" role="radio" aria-checked={kind === v} onClick={() => setKind(v)}
                   className={`h-8 px-4 rounded-full transition-colors ${kind === v ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>{l}</button>
               ))}
@@ -172,21 +188,27 @@ const CreativeLibrary: React.FC = () => {
             <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10" aria-hidden="true">
               {Array.from({ length: 6 }, (_, i) => <div key={i} className="aspect-video rounded-[14px] bg-muted animate-pulse" />)}
             </div>
-          ) : shown.length === 0 ? (
+          ) : shown.length === 0 && !hidden ? (
             <div className="mt-10 rounded-[18px] bg-card border border-border p-8 md:p-10">
               <h2 className={`${h2} !text-2xl`}>{items.length ? "Nothing here for that filter yet." : "The library is being filled right now."}</h2>
               <p className="mt-3 mb-6 text-muted-foreground max-w-xl">In a 30 minute demo we show the overlays we would build for your brand and your market.</p>
               <PrimaryBtn href={BOOKING_URL} cta="book">Book a demo</PrimaryBtn>
             </div>
           ) : (
-            <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
-              {shown.map((c) => (
-                <Card key={c.id} c={c} unlocked={unlocked} onOpen={() => setOpen(c)} />
-              ))}
-            </div>
+            <>
+              {shown.length > 0 && (
+                <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
+                  {shown.map((c) => (
+                    <Card key={c.id} c={c} unlocked={unlocked} onOpen={() => setOpen(c)} />
+                  ))}
+                </div>
+              )}
+              {hidden > 0 && <Gate count={hidden} industry={industry} blur={items.map((c) => c.poster)} onUnlocked={setToken} />}
+            </>
           )}
           <p className="mt-10 mb-0 text-xs text-muted-foreground">
-            Concepts are spec work made for a pitch, not campaigns the brand ran. Brand names and logos belong to their owners.
+            Concepts are spec work made for a pitch, not campaigns the brand ran. Partner network examples ran on the platform we use, in other
+            markets, and were made by our partner, not by Beta Ads. Brand names and logos belong to their owners.
           </p>
         </section>
       </div>
@@ -204,7 +226,7 @@ const CreativeLibrary: React.FC = () => {
               </div>
               <div className="p-6 md:p-7">
                 <div className="text-[13px] text-muted-foreground">
-                  {current.brand} · {current.industry}{current.kind === "concept" ? " · Concept" : " · Campaign"}{current.format ? ` · ${current.format}` : ""}
+                  {current.brand} · {current.industry}{` · ${KIND_LABEL[current.kind]}`}{current.format ? ` · ${current.format}` : ""}
                 </div>
                 <DialogTitle className="mt-1 text-2xl font-semibold tracking-tight">{current.title}</DialogTitle>
                 <DialogDescription className="mt-2 text-[15px] leading-relaxed">

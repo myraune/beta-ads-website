@@ -29,8 +29,9 @@ for (const s of seed) {
   added++;
   console.log("added", s.id);
 }
-// Concepts first (the bulk of the ideas), campaigns that ran after them; the
-// "Campaigns" filter on the page shows those on their own.
-items.sort((a, b) => (a.kind === b.kind ? 0 : a.kind === "concept" ? -1 : 1));
+// Concepts first (the bulk of the ideas), then campaigns that ran, then
+// partner-network examples; the type filter on the page shows each on its own.
+const rank = { concept: 0, client: 1, network: 2 };
+items.sort((a, b) => rank[a.kind] - rank[b.kind]);
 await put("manifest.json", JSON.stringify(items, null, 1), { ...PRIVATE, addRandomSuffix: false, allowOverwrite: true, contentType: "application/json" });
 console.log(`done: ${added} added, ${items.length} in the library`);

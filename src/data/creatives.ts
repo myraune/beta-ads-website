@@ -20,8 +20,12 @@ export const INDUSTRIES = [
 
 export type Industry = (typeof INDUSTRIES)[number];
 
-/** client: ran as a paid campaign. concept: spec work, shown as "Concept". */
-export type CreativeKind = "client" | "concept";
+/** client: a Beta Ads campaign that ran. concept: our spec work for a pitch.
+    network: ran on the partner platform in another market, made by the partner. */
+export type CreativeKind = "client" | "concept" | "network";
+
+export const KIND_LABEL: Record<CreativeKind, string> = { client: "Campaign", concept: "Concept", network: "Partner network" };
+export const isKind = (v: unknown): v is CreativeKind => typeof v === "string" && v in KIND_LABEL;
 
 export type Creative = {
   id: string;
