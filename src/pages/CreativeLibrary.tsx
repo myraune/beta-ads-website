@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -65,7 +65,7 @@ const UnlockForm: React.FC<{ onUnlocked: (token: string) => void; compact?: bool
 
 /** Plays the preview from the start while hovered or focused (muted, mounted only
     then, so the grid loads posters and nothing else). */
-const Card: React.FC<{ c: Creative; unlocked: boolean; onOpen: () => void }> = ({ c, unlocked, onOpen }) => {
+const Card: React.FC<{ c: Creative; unlocked: boolean; onOpen: () => void; onStale: (url?: string) => void }> = ({ c, unlocked, onOpen, onStale }) => {
   const [hover, setHover] = useState(false);
   const on = () => setHover(true);
   const off = () => setHover(false);
@@ -73,7 +73,7 @@ const Card: React.FC<{ c: Creative; unlocked: boolean; onOpen: () => void }> = (
   <button type="button" onClick={onOpen} onMouseEnter={on} onMouseLeave={off} onFocus={on} onBlur={off} className="group text-left flex flex-col">
     <span className="relative block aspect-video overflow-hidden rounded-[14px] bg-muted">
       <img src={c.poster} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
-      {hover && c.video && <video src={c.video} poster={c.poster} autoPlay muted loop playsInline aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />}
+      {hover && c.video && <video src={c.video} poster={c.poster} autoPlay muted loop playsInline aria-hidden="true" onError={() => onStale(c.video)} className="absolute inset-0 h-full w-full object-cover" />}
       <span className="absolute left-3 top-3 flex gap-1.5">
         {c.kind !== "client" && <span className="h-6 px-2.5 inline-flex items-center rounded-full bg-black/70 text-white text-[11px] font-semibold">{KIND_LABEL[c.kind]}</span>}
         {c.free && !unlocked && <span className="h-6 px-2.5 inline-flex items-center rounded-full bg-primary text-primary-foreground text-[11px] font-semibold">Free preview</span>}
@@ -127,6 +127,17 @@ const CreativeLibrary: React.FC = () => {
   const [kind, setKind] = useState<Kind>("all");
   const [open, setOpen] = useState<Creative | null>(null);
 
+  // A video swapped in the admin gets a new URL and the old file is deleted, so a
+  // page left open can hold a dead link: on a load error, fetch the list again.
+  // Once per URL, so a file that is broken for real cannot loop.
+  const [fetched, setFetched] = useState(0);
+  const retried = useRef(new Set<string>());
+  const refetch = (url?: string) => {
+    if (!url || retried.current.has(url)) return;
+    retried.current.add(url);
+    setFetched((n) => n + 1);
+  };
+
   useEffect(() => {
     let live = true;
     fetch("/api/creatives", { headers: token ? { "x-creative-token": token } : {} })
@@ -134,7 +145,7 @@ const CreativeLibrary: React.FC = () => {
       .then((d) => { if (live) { setItems(d.items || []); setLocked(d.locked || []); setUnlocked(Boolean(d.unlocked)); } })
       .catch(() => live && setItems([]));
     return () => { live = false; };
-  }, [token]);
+  }, [token, fetched]);
 
   const counts = useMemo(() => {
     const m = new Map<string, number>();
@@ -207,7 +218,7 @@ const CreativeLibrary: React.FC = () => {
               {shown.length > 0 && (
                 <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10">
                   {shown.map((c) => (
-                    <Card key={c.id} c={c} unlocked={unlocked} onOpen={() => setOpen(c)} />
+                    <Card key={c.id} c={c} unlocked={unlocked} onOpen={() => setOpen(c)} onStale={refetch} />
                   ))}
                 </div>
               )}
@@ -227,7 +238,7 @@ const CreativeLibrary: React.FC = () => {
             <>
               <div className="aspect-video bg-black">
                 {current.video ? (
-                  <video key={current.video} src={current.video} poster={current.poster} autoPlay muted loop playsInline controls className="h-full w-full object-contain" />
+                  <video key={current.video} src={current.video} poster={current.poster} autoPlay muted loop playsInline controls onError={() => refetch(current.video)} className="h-full w-full object-contain" />
                 ) : (
                   <img src={current.poster} alt="" className="h-full w-full object-cover opacity-60" />
                 )}
