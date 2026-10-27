@@ -34,9 +34,26 @@ export type Creative = {
   /** Short format label, e.g. "Corner overlay, 12 s". */
   format?: string;
   poster: string;
-  /** Only present in API responses for visitors with a valid access token. */
+  /** Only present in API responses for free items or visitors with a valid access token. */
   video?: string;
+  /** Set by the API on the first FREE_PREVIEWS items: watchable without signing up. */
+  free?: boolean;
   createdAt: string;
 };
 
 export const isIndustry = (v: unknown): v is Industry => typeof v === "string" && (INDUSTRIES as readonly string[]).includes(v);
+
+/** How many creatives (the first ones in library order) play without signing up. */
+export const FREE_PREVIEWS = 3;
+
+/** Library order: manifest order, round-robin across brands (keeping each
+    brand's own order), so the first rows show many brands instead of ten
+    Komplett ideas in a row. The API uses it to pick the free previews, so the
+    free ones are always the first cards on the page. */
+export function libraryOrder(list: Creative[]): Creative[] {
+  const groups = new Map<string, Creative[]>();
+  list.forEach((c) => groups.set(c.brand, [...(groups.get(c.brand) || []), c]));
+  const out: Creative[] = [];
+  for (let round = 0; out.length < list.length; round++) groups.forEach((g) => g[round] && out.push(g[round]));
+  return out;
+}

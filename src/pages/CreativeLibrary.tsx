@@ -3,13 +3,14 @@ import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { BOOKING_URL, W, kicker, h2, PrimaryBtn } from "@/components/working/shared";
-import { INDUSTRIES, type Creative } from "@/data/creatives";
+import { INDUSTRIES, FREE_PREVIEWS, type Creative } from "@/data/creatives";
 
 /* Creative library: animated overlays Beta Ads has built, filterable by industry
-   and by campaign vs concept. Posters are public; the videos unlock once a
-   visitor leaves a work email (POST /api/creatives returns a signed token, kept
-   in localStorage, sent back as x-creative-token). Items come from the Blob
-   manifest, added through /creative-library/admin. */
+   and by campaign vs concept. Posters are public and the first FREE_PREVIEWS
+   play for anyone; the rest unlock once a visitor leaves name, work email and
+   company (POST /api/creatives returns a signed token, kept in localStorage,
+   sent back as x-creative-token). The API returns the items in library order.
+   Items come from the Blob manifest, added through /creative-library/admin. */
 
 const TITLE = "Creative Library: Livestream Overlay Ideas by Industry | Beta Ads";
 const DESCRIPTION =
@@ -21,17 +22,8 @@ const writeToken = (t: string) => { try { localStorage.setItem(TOKEN_KEY, t); } 
 
 type Kind = "all" | "client" | "concept";
 
-/** Round-robin across brands (keeping each brand's own order), so the first rows
-    show many brands instead of ten Komplett ideas in a row. */
-function spreadBrands(list: Creative[]): Creative[] {
-  const groups = new Map<string, Creative[]>();
-  list.forEach((c) => groups.set(c.brand, [...(groups.get(c.brand) || []), c]));
-  const out: Creative[] = [];
-  for (let round = 0; out.length < list.length; round++) groups.forEach((g) => g[round] && out.push(g[round]));
-  return out;
-}
-
 const UnlockForm: React.FC<{ onUnlocked: (token: string) => void; compact?: boolean }> = ({ onUnlocked, compact }) => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
   const [website, setWebsite] = useState("");
@@ -43,7 +35,7 @@ const UnlockForm: React.FC<{ onUnlocked: (token: string) => void; compact?: bool
     const r = await fetch("/api/creatives", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ email, company, website, referrer: document.referrer }),
+      body: JSON.stringify({ name, email, company, website, referrer: document.referrer }),
     }).then((res) => res.json()).catch(() => ({ error: "Something went wrong. Try again." }));
     if (r.error || !r.token) return setState({ busy: false, error: r.error || "Something went wrong. Try again." });
     writeToken(r.token);
@@ -51,20 +43,23 @@ const UnlockForm: React.FC<{ onUnlocked: (token: string) => void; compact?: bool
   };
 
   return (
-    <form onSubmit={submit} className={`grid gap-3 ${compact ? "" : "sm:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)_auto]"}`}>
+    <form onSubmit={submit} className={`grid gap-3 ${compact ? "sm:grid-cols-3" : "sm:grid-cols-3 xl:grid-cols-[repeat(3,minmax(0,1fr))_auto]"}`}>
+      <label className="sr-only" htmlFor={`cl-name${compact ? "-m" : ""}`}>Name</label>
+      <input id={`cl-name${compact ? "-m" : ""}`} type="text" required autoComplete="name" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}
+        className="h-11 rounded-full border border-border bg-background px-5 text-sm outline-none focus:border-foreground/40" />
       <label className="sr-only" htmlFor={`cl-email${compact ? "-m" : ""}`}>Work email</label>
       <input id={`cl-email${compact ? "-m" : ""}`} type="email" required autoComplete="email" placeholder="Work email" value={email} onChange={(e) => setEmail(e.target.value)}
         className="h-11 rounded-full border border-border bg-background px-5 text-sm outline-none focus:border-foreground/40" />
       <label className="sr-only" htmlFor={`cl-company${compact ? "-m" : ""}`}>Company</label>
-      <input id={`cl-company${compact ? "-m" : ""}`} type="text" autoComplete="organization" placeholder="Company (optional)" value={company} onChange={(e) => setCompany(e.target.value)}
+      <input id={`cl-company${compact ? "-m" : ""}`} type="text" required autoComplete="organization" placeholder="Company" value={company} onChange={(e) => setCompany(e.target.value)}
         className="h-11 rounded-full border border-border bg-background px-5 text-sm outline-none focus:border-foreground/40" />
       {/* Honeypot, hidden from people and screen readers. */}
       <input type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" value={website} onChange={(e) => setWebsite(e.target.value)} className="hidden" />
       <button type="submit" disabled={state.busy}
-        className="h-11 px-6 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity disabled:opacity-50">
-        {state.busy ? "Unlocking…" : "Watch the animations"}
+        className={`h-11 px-6 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 ${compact ? "sm:col-span-3" : "sm:col-span-3 xl:col-span-1"}`}>
+        {state.busy ? "Unlocking…" : "Watch all the animations"}
       </button>
-      {state.error && <p role="alert" className="m-0 text-sm text-red-600 sm:col-span-3">{state.error}</p>}
+      {state.error && <p role="alert" className="m-0 text-sm text-red-600 sm:col-span-3 xl:col-span-4">{state.error}</p>}
     </form>
   );
 };
@@ -73,11 +68,12 @@ const Card: React.FC<{ c: Creative; unlocked: boolean; onOpen: () => void }> = (
   <button type="button" onClick={onOpen} className="group text-left flex flex-col">
     <span className="relative block aspect-video overflow-hidden rounded-[14px] bg-muted">
       <img src={c.poster} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
-      {c.kind === "concept" && (
-        <span className="absolute left-3 top-3 h-6 px-2.5 inline-flex items-center rounded-full bg-black/70 text-white text-[11px] font-semibold">Concept</span>
-      )}
+      <span className="absolute left-3 top-3 flex gap-1.5">
+        {c.kind === "concept" && <span className="h-6 px-2.5 inline-flex items-center rounded-full bg-black/70 text-white text-[11px] font-semibold">Concept</span>}
+        {c.free && !unlocked && <span className="h-6 px-2.5 inline-flex items-center rounded-full bg-primary text-primary-foreground text-[11px] font-semibold">Free preview</span>}
+      </span>
       <span className="absolute right-3 bottom-3 h-7 px-3 inline-flex items-center rounded-full bg-white/90 text-[#0F1012] text-xs font-semibold">
-        {unlocked ? "Play" : "Email to watch"}
+        {unlocked || c.free ? "Play" : "Sign up to watch"}
       </span>
     </span>
     <span className="mt-3 block text-[13px] text-muted-foreground">{c.brand} · {c.industry}</span>
@@ -110,7 +106,7 @@ const CreativeLibrary: React.FC = () => {
     return m;
   }, [items]);
 
-  const shown = spreadBrands((items || []).filter((c) => (industry === "All" || c.industry === industry) && (kind === "all" || c.kind === kind)));
+  const shown = (items || []).filter((c) => (industry === "All" || c.industry === industry) && (kind === "all" || c.kind === kind));
   const current = open && items?.find((c) => c.id === open.id);
 
   return (
@@ -142,11 +138,13 @@ const CreativeLibrary: React.FC = () => {
 
         <section className={`${W} pb-20 md:pb-28`} aria-label="Creatives">
           {!unlocked && (
-            <div ref={unlockRef} className="mb-10 rounded-[18px] bg-card border border-border p-6 md:p-8 grid lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] gap-5 lg:gap-10 items-center">
+            <div ref={unlockRef} className="mb-10 rounded-[18px] bg-card border border-border p-6 md:p-8 grid gap-5">
               <div>
-                <h2 className="m-0 text-xl font-semibold tracking-tight">Leave your email to watch them.</h2>
+                <h2 className="m-0 text-xl font-semibold tracking-tight">
+                  The first {FREE_PREVIEWS} are free. Sign up to watch {items ? `the other ${Math.max(items.length - FREE_PREVIEWS, 0)}` : "the rest"}.
+                </h2>
                 <p className="mt-1.5 mb-0 text-[14.5px] text-muted-foreground leading-relaxed">
-                  Every animation opens right away. We use your email to follow up about Beta Ads, and you can opt out at any time.
+                  Every animation opens right away. We use your details to follow up about Beta Ads, and you can opt out at any time.
                 </p>
               </div>
               <UnlockForm onUnlocked={setToken} />
@@ -198,7 +196,7 @@ const CreativeLibrary: React.FC = () => {
           {current && (
             <>
               <div className="aspect-video bg-black">
-                {unlocked && current.video ? (
+                {current.video ? (
                   <video key={current.video} src={current.video} poster={current.poster} autoPlay muted loop playsInline controls className="h-full w-full object-contain" />
                 ) : (
                   <img src={current.poster} alt="" className="h-full w-full object-cover opacity-60" />
@@ -212,7 +210,12 @@ const CreativeLibrary: React.FC = () => {
                 <DialogDescription className="mt-2 text-[15px] leading-relaxed">
                   {current.description || "An animated overlay that plays inside the stream, in one corner."}
                 </DialogDescription>
-                {!unlocked && <div className="mt-5"><UnlockForm compact onUnlocked={setToken} /></div>}
+                {!current.video && (
+                  <div className="mt-5">
+                    <p className="mt-0 mb-3 text-sm font-semibold">Sign up to watch this one and the rest of the library.</p>
+                    <UnlockForm compact onUnlocked={setToken} />
+                  </div>
+                )}
               </div>
             </>
           )}

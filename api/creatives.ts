@@ -1,10 +1,12 @@
 import { json, readManifest, saveLead, issueToken, tokenValid } from "./_lib/creatives";
+import { FREE_PREVIEWS, libraryOrder } from "../src/data/creatives";
 
 /* Creative library for /creative-library.
-   GET               -> every creative, with poster but no video URL.
-   GET  (x-creative-token header with a valid token) -> the same list with video URLs.
-   POST {email, company, website} -> stores the lead in the private Blob store and
-                                     returns an access token for the videos.
+   GET               -> every creative in library order, with poster; video URLs
+                        only on the first FREE_PREVIEWS (marked free).
+   GET  (x-creative-token header with a valid token) -> the same list, all video URLs.
+   POST {name, email, company, website} -> stores the lead in the private Blob store
+                                           and returns an access token for the videos.
    website is a honeypot: bots fill it, people never see it. */
 
 const PER_IP_HOUR = 10;
@@ -13,15 +15,18 @@ const EMAIL = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
 
 export async function GET(request: Request) {
   const unlocked = tokenValid(request.headers.get("x-creative-token"));
-  const items = await readManifest();
-  return json({ unlocked, items: unlocked ? items : items.map(({ video: _video, ...rest }) => rest) });
+  const items = libraryOrder(await readManifest()).map((c, i) => (i < FREE_PREVIEWS ? { ...c, free: true } : c));
+  return json({ unlocked, items: unlocked ? items : items.map(({ video, ...rest }) => (rest.free ? { ...rest, video } : rest)) });
 }
 
 export async function POST(request: Request) {
   const body = await request.json().catch(() => ({}));
   const email = typeof body.email === "string" ? body.email.trim().toLowerCase().slice(0, 200) : "";
+  const name = typeof body.name === "string" ? body.name.trim().slice(0, 120) : "";
   const company = typeof body.company === "string" ? body.company.trim().slice(0, 120) : "";
+  if (!name) return json({ error: "Enter your name." }, 400);
   if (!EMAIL.test(email)) return json({ error: "Enter a valid work email." }, 400);
+  if (!company) return json({ error: "Enter your company." }, 400);
   // Honeypot: answer like a success so the bot learns nothing, but store nothing.
   if (typeof body.website === "string" && body.website.trim()) return json({ token: "" });
 
@@ -32,6 +37,7 @@ export async function POST(request: Request) {
   hits.set(ip, [...recent, now]);
 
   await saveLead({
+    name,
     email,
     company,
     country: request.headers.get("x-vercel-ip-country") || "",
