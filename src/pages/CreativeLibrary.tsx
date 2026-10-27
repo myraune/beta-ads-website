@@ -95,25 +95,27 @@ const Card: React.FC<{ c: Creative; unlocked: boolean; onOpen: () => void; onSta
 const Gate: React.FC<{ count: number; industry: string; blur: string[]; onUnlocked: (token: string) => void }> = ({ count, industry, blur, onUnlocked }) => (
   <div className="relative mt-10">
     <div aria-hidden="true" className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 pointer-events-none select-none">
-      {Array.from({ length: 3 }, (_, i) => (
-        <div key={i} className={i > 0 ? "hidden sm:block" : ""}>
+      {Array.from({ length: 9 }, (_, i) => (
+        <div key={i} className={i >= 4 ? "hidden sm:block" : ""}>
           <div className="aspect-video overflow-hidden rounded-[14px] bg-muted">
-            {blur.length > 0 && <img src={blur[(i + 1) % blur.length]} alt="" className="h-full w-full object-cover blur-2xl scale-125 opacity-70" />}
+            {blur.length > 0 && <img src={blur[(i + 1) % blur.length]} alt="" className={`h-full w-full object-cover blur-2xl scale-125 opacity-70 ${i % 2 ? "-scale-x-125" : ""}`} />}
           </div>
           <div className="mt-3 h-3 w-32 rounded-full bg-muted" />
           <div className="mt-2.5 h-4 w-48 rounded-full bg-muted" />
         </div>
       ))}
     </div>
-    <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/80 to-background" />
-    <div className="relative -mt-24 sm:-mt-32 mx-auto max-w-2xl rounded-[18px] bg-card border border-border p-6 md:p-8 text-center shadow-[0_24px_60px_-30px_rgba(0,0,0,0.35)]">
-      <div className={`${kicker} mb-3`}>{count} more {industry === "All" ? "ideas" : `in ${industry}`}</div>
-      <h2 className="m-0 text-2xl md:text-[1.7rem] font-semibold tracking-tight">Unlock the rest of the creative ideas.</h2>
-      <p className="mt-2 mb-6 text-[15px] text-muted-foreground leading-relaxed">
-        Leave your name, work email and company and every animation in the library opens right away. We use your details to follow up
-        about Beta Ads, and you can opt out at any time.
-      </p>
-      <UnlockForm compact onUnlocked={onUnlocked} />
+    <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-b from-background/10 via-background/70 to-background" />
+    <div className="absolute inset-x-0 top-[16%] sm:top-[22%] px-0 sm:px-6">
+      <div className="mx-auto max-w-2xl rounded-[18px] bg-card border border-border p-6 md:p-8 text-center shadow-[0_24px_60px_-30px_rgba(0,0,0,0.35)]">
+        <div className={`${kicker} mb-3`}>{count} more {industry === "All" ? "ideas" : `in ${industry}`}</div>
+        <h2 className="m-0 text-2xl md:text-[1.7rem] font-semibold tracking-tight">Unlock the rest of the creative ideas.</h2>
+        <p className="mt-2 mb-6 text-[15px] text-muted-foreground leading-relaxed">
+          Leave your name, work email and company and every animation in the library opens right away. We use your details to follow up
+          about Beta Ads, and you can opt out at any time.
+        </p>
+        <UnlockForm compact onUnlocked={onUnlocked} />
+      </div>
     </div>
   </div>
 );
@@ -196,9 +198,9 @@ const CreativeLibrary: React.FC = () => {
               ))}
             </div>
             <div role="radiogroup" aria-label="Type" className="inline-flex self-start p-1 rounded-full border border-border bg-card text-sm font-semibold">
-              {([["all", "All"], ["client", "Campaigns"], ["concept", "Concepts"], ["network", "Partner network"]] as [Kind, string][]).filter(([v]) => v === "all" || [...(items || []), ...locked].some((c) => c.kind === v)).map(([v, l]) => (
+              {([["all", "All"], ["client", "Campaigns"], ["concept", "Concepts"], ["network", "Partners"]] as [Kind, string][]).filter(([v]) => v === "all" || [...(items || []), ...locked].some((c) => c.kind === v)).map(([v, l]) => (
                 <button key={v} type="button" role="radio" aria-checked={kind === v} onClick={() => setKind(v)}
-                  className={`h-8 px-4 rounded-full transition-colors ${kind === v ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>{l}</button>
+                  className={`h-8 px-3.5 sm:px-4 rounded-full whitespace-nowrap transition-colors ${kind === v ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"}`}>{l}</button>
               ))}
             </div>
           </div>
