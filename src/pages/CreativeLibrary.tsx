@@ -21,6 +21,16 @@ const writeToken = (t: string) => { try { localStorage.setItem(TOKEN_KEY, t); } 
 
 type Kind = "all" | "client" | "concept";
 
+/** Round-robin across brands (keeping each brand's own order), so the first rows
+    show many brands instead of ten Komplett ideas in a row. */
+function spreadBrands(list: Creative[]): Creative[] {
+  const groups = new Map<string, Creative[]>();
+  list.forEach((c) => groups.set(c.brand, [...(groups.get(c.brand) || []), c]));
+  const out: Creative[] = [];
+  for (let round = 0; out.length < list.length; round++) groups.forEach((g) => g[round] && out.push(g[round]));
+  return out;
+}
+
 const UnlockForm: React.FC<{ onUnlocked: (token: string) => void; compact?: boolean }> = ({ onUnlocked, compact }) => {
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
@@ -100,7 +110,7 @@ const CreativeLibrary: React.FC = () => {
     return m;
   }, [items]);
 
-  const shown = (items || []).filter((c) => (industry === "All" || c.industry === industry) && (kind === "all" || c.kind === kind));
+  const shown = spreadBrands((items || []).filter((c) => (industry === "All" || c.industry === industry) && (kind === "all" || c.kind === kind)));
   const current = open && items?.find((c) => c.id === open.id);
 
   return (

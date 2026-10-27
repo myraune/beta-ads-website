@@ -29,7 +29,8 @@ for (const s of seed) {
   added++;
   console.log("added", s.id);
 }
-// Campaigns that ran first, then concepts; newest additions stay at the top of each group.
-items.sort((a, b) => (a.kind === b.kind ? 0 : a.kind === "client" ? -1 : 1));
+// Concepts first (the bulk of the ideas), campaigns that ran after them; the
+// "Campaigns" filter on the page shows those on their own.
+items.sort((a, b) => (a.kind === b.kind ? 0 : a.kind === "concept" ? -1 : 1));
 await put("manifest.json", JSON.stringify(items, null, 1), { ...PRIVATE, addRandomSuffix: false, allowOverwrite: true, contentType: "application/json" });
 console.log(`done: ${added} added, ${items.length} in the library`);
