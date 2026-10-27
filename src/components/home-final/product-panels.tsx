@@ -403,6 +403,7 @@ export const LiveMonitorPanel: React.FC = () => (
           </li>
         ))}
       </ol>
+      <div className="v-foot num">{14 - CHANNELS.length} more channels in the campaign</div>
     </div>
   </div>
 );

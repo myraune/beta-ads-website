@@ -126,7 +126,7 @@ export const FeaturePage: React.FC<FeaturePageProps> = (p) => (
                 )}
               </div>
             </div>
-            <div className="mt-10 md:mt-12 min-w-0">{s.visual}</div>
+            <div className="fp-wide mt-10 md:mt-12 min-w-0">{s.visual}</div>
           </div>
         </section>
       ) : (

@@ -567,3 +567,13 @@
   .bf .b-revs{grid-template-columns:repeat(4,minmax(0,1fr))}
   .bf .b-revs div:nth-child(n+5){display:none}
 }
+
+/* Feature pages show these panels at the full content width (FeaturePage .fp-wide).
+   At ~1340px the fixed 300px side column leaves a 1000px video that makes the
+   panel ~800px tall with empty space beside it: give the side column a share
+   instead, and a softer shadow than the homepage hero needs. */
+@container (min-width:901px){
+  .fp-wide .bf .pp-mon,.fp-wide .bf .pp-del,.fp-wide .bf .pp-poll{grid-template-columns:minmax(0,1.75fr) minmax(0,1fr)}
+}
+.fp-wide .bf .panel,html:not(.dark) .fp-wide .bf .dui.panel{box-shadow:0 1px 2px rgba(15,16,18,.06),0 18px 36px -26px rgba(15,16,18,.3)}
+.dark .fp-wide .bf .panel{box-shadow:0 24px 48px -32px rgba(0,0,0,.7)}
