@@ -270,6 +270,11 @@ html.theming .bf,html.theming .bf *,html.theming .bf *:before,html.theming .bf *
 .bf .r-nav li i{width:7px;height:7px;border-radius:50%;border:1px solid var(--ink-4)}
 .bf .r-nav li.on{background:var(--sw-tint);color:var(--ink);font-weight:600}
 .bf .r-nav li.on i{background:var(--sw);border-color:var(--sw)}
+.bf .r-side{display:flex;flex-direction:column}
+.bf .r-facts{margin-top:auto;padding-top:16px;border-top:1px solid var(--line-2);display:flex;flex-direction:column;gap:8px;font-size:13px}
+.bf .r-facts div{display:flex;justify-content:space-between;gap:12px}
+.bf .r-facts dt{color:var(--ink-3)}
+.bf .r-facts dd{margin:0;color:var(--ink-2);font-weight:500}
 .bf .r-main{padding:28px 34px 30px;min-width:0}
 .bf .r-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
 .bf .r-k{font-size:13.5px;color:var(--ink-3);font-weight:500}

@@ -277,6 +277,10 @@ export const ReportPanel: React.FC<{ reveal?: boolean; compact?: boolean }> = ({
           <li><i />Replay reach</li>
           <li><i />PDF report</li>
         </ul>
+        <dl className="r-facts">
+          <div><dt>Flights</dt><dd>2</dd></div>
+          <div><dt>Market</dt><dd>Norway</dd></div>
+        </dl>
       </div>
       <div className="r-main">
         <div className="r-top">

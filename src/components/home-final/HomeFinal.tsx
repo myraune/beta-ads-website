@@ -34,15 +34,14 @@ const LOGOS: [string, string, number][] = [
   ["saily", "Saily", 26],
 ];
 
-const yt = (id: string) => `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
 /* n/k = the headline result and its unit, each taken from that case page. */
 const CASES: { to: string; img: string; b: string; n: string; t: string }[] = [
-  { to: "/case-study/samsung", img: yt("Uw7IIecicB4"), b: "Samsung", n: "800K+", t: "Galaxy S25 and Z Fold7, two flights in Norway." },
-  { to: "/case-study/kristiania", img: yt("GwE4dagRm_k"), b: "Høyskolen Kristiania", n: "599K+", t: "Two parallel Twitch campaigns, 31 streamers." },
-  { to: "/case-study/shure", img: yt("IZOx_VMdJJg"), b: "Shure", n: "182K+", t: "A custom overlay for the MV6 creator launch." },
-  { to: "/case-study/komplett", img: yt("ufNq-A4d7iA"), b: "Komplett", n: "151K+", t: "Månedens Gaming Deal across 34 streamers." },
+  { to: "/case-study/samsung", img: "/lovable-uploads/home-case-samsung.webp", b: "Samsung", n: "800K+", t: "Galaxy S25 and Z Fold7, two flights in Norway." },
+  { to: "/case-study/kristiania", img: "/lovable-uploads/home-case-kristiania.webp", b: "Høyskolen Kristiania", n: "599K+", t: "Two parallel Twitch campaigns, 31 streamers." },
+  { to: "/case-study/shure", img: "/lovable-uploads/home-case-shure.webp", b: "Shure", n: "182K+", t: "A custom overlay for the MV6 creator launch." },
+  { to: "/case-study/komplett", img: "/lovable-uploads/home-case-komplett.webp", b: "Komplett", n: "151K+", t: "Månedens Gaming Deal across 34 streamers." },
   { to: "/case-study/glorious", img: "/lovable-uploads/case-glorious-poster.webp", b: "Glorious", n: "137K+", t: "The V3 mouse with 25 creators in three markets." },
-  { to: "/case-study/saily", img: yt("DMz-NV1W_Is"), b: "Saily", n: "102K+", t: "A travel intent eSIM campaign, 22 streamers." },
+  { to: "/case-study/saily", img: "/lovable-uploads/home-case-saily.webp", b: "Saily", n: "102K+", t: "A travel intent eSIM campaign, 22 streamers." },
 ];
 
 
@@ -201,8 +200,8 @@ export const HomeFinal: React.FC = () => {
                   <aside className="hp-chat">
                     <div className="hp-chat-h">Stream chat</div>
                     <ol className="hp-msgs">
-                      <li><b>errqa</b>yoooo</li>
-                      <li><b>nathalie06</b>kult</li>
+                      <li><b>flash</b>hei</li>
+                      <li><b>erraa</b>yoooo</li>
                       <li><b>effects25</b>hey</li>
                       <li><b>yaklama</b>gud å stilig</li>
                       <li><b>lafter</b>rått!</li>

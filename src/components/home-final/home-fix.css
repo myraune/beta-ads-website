@@ -61,9 +61,7 @@
 
 /* ---- case cards ---- */
 .bf.bf--home .case__img{border-radius:10px}
-/* the source recordings carry coloured recap frames (yellow, red, green): crop them off */
-.bf.bf--home .case__img img{transform:scale(1.18)}
-.bf.bf--home .case:hover .case__img img{transform:scale(1.21)}
+/* thumbnails are pre-cropped files (home-case-*.webp) with the recap frames already cut off */
 .bf.bf--home .cases{row-gap:56px}
 
 /* ---- billing: two columns, aligned with the cards above ---- */
