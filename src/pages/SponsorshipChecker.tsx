@@ -62,27 +62,42 @@ const frame = (login: string) => `/checker/${login}.webp`;
 const avatar = (login: string) => `/checker/av-${login}.webp`;
 
 /* The curved strip of stream frames under the search, like a smile: the middle
-   sits lowest, the ends rise, tilt outwards and fade. */
+   sits lowest, the ends rise, tilt outwards and fade. It rolls endlessly to the
+   left: each frame's slot slides along the curve and wraps at the far end, where
+   it is fully faded, so the loop has no seam. Still under reduced motion. */
 const ARC = LIVE_DEALS.slice(0, 19);
+const ARC_SPEED = 0.35; // slots per second
+const placeFrame = (el: HTMLDivElement, o: number, mid: number) => {
+  const a = Math.abs(o);
+  const fade = Math.max(0, 1 - a / (mid + 1.5));
+  const edge = Math.min(1, Math.max(0, (mid + 0.5 - a) / 2)); // 0 at the wrap point, +/-(mid + 0.5)
+  el.style.transform = `translate(calc(${o * 128}px - 50%), ${120 - a ** 1.55 * 9}px) rotate(${o * 2.4}deg)`;
+  el.style.opacity = String((0.35 + fade * 0.65) * edge);
+};
 const FrameArc: React.FC = () => {
   const mid = (ARC.length - 1) / 2;
+  const refs = useRef<(HTMLDivElement | null)[]>([]);
+  useEffect(() => {
+    const n = ARC.length;
+    const draw = (shift: number) =>
+      refs.current.forEach((el, i) => el && placeFrame(el, ((((i - mid - shift + n / 2) % n) + n) % n) - n / 2, mid));
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { draw(0); return; }
+    let raf = 0;
+    const start = performance.now();
+    const tick = (now: number) => { draw(((now - start) / 1000) * ARC_SPEED); raf = requestAnimationFrame(tick); };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [mid]);
   return (
     <div className="relative h-[230px] md:h-[300px] overflow-hidden" aria-hidden="true">
       <div className="absolute left-1/2 top-0 w-0">
-        {ARC.map((d, i) => {
-          const o = i - mid;
-          const x = o * 128;
-          const y = 120 - Math.abs(o) ** 1.55 * 9;
-          const r = o * 2.4;
-          const fade = Math.max(0, 1 - Math.abs(o) / (mid + 1.5));
-          return (
-            <div key={d.login} className="absolute w-[120px] md:w-[150px] aspect-video rounded-lg overflow-hidden shadow-[0_12px_30px_-12px_rgba(15,16,18,.35)] bg-muted"
-              style={{ transform: `translate(calc(${x}px - 50%), ${y}px) rotate(${r}deg)`, opacity: 0.35 + fade * 0.65 }}>
-              <img src={frame(d.login)} alt="" loading="lazy" className="w-full h-full object-cover" />
-              <span className="absolute left-1.5 bottom-1.5 text-[10px] font-semibold px-1.5 py-0.5 rounded bg-black/70 text-white">{d.brand}</span>
-            </div>
-          );
-        })}
+        {ARC.map((d, i) => (
+          <div key={d.login} ref={el => { refs.current[i] = el; if (el && !el.style.transform) placeFrame(el, i - mid, mid); }}
+            className="absolute w-[120px] md:w-[150px] aspect-video rounded-lg overflow-hidden shadow-[0_12px_30px_-12px_rgba(15,16,18,.35)] bg-muted will-change-transform">
+            <img src={frame(d.login)} alt="" loading="lazy" className="w-full h-full object-cover" />
+            <span className="absolute left-1.5 bottom-1.5 text-[10px] font-semibold px-1.5 py-0.5 rounded bg-black/70 text-white">{d.brand}</span>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -235,6 +250,7 @@ const SponsorshipChecker: React.FC = () => {
               </ol>
             </div>
           )}
+          {loading && <div className="mt-6"><FrameArc /></div>}
           {error && <p className="max-w-2xl mx-auto rounded-2xl border border-border p-6 text-sm m-0">{error}</p>}
           {result && <ResultView r={result} />}
         </section>

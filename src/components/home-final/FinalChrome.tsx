@@ -88,6 +88,7 @@ const HomeAnchor: React.FC<{ id: string; children: React.ReactNode; onClick?: ()
 const PLATFORM_FEATURES: { t: string; d: string; to: string }[] = [
   { t: "Campaign builder", d: "Overlay, chat command and poll in one flow", to: "/campaign-builder" },
   { t: "Streamer Explorer", d: "39,000+ streamers to search and shortlist", to: "/streamer-explorer" },
+  { t: "Sponsor checker", d: "Free: every brand a Twitch streamer works with", to: "/twitch-sponsorship-checker" },
   { t: "Setup verification", d: "Every stream checked on air, every play clipped", to: "/campaign-compliance" },
   { t: "Brand safety", d: "Swearing detected, every language translated", to: "/brand-safety" },
   { t: "Chat tracking", d: "Brand mentions translated and scored", to: "/livestream-chat-engagement" },
@@ -314,7 +315,7 @@ export const FinalNav: React.FC = () => {
 };
 
 const FOOT_COLS: { h: string; links: [string, string][] }[] = [
-  { h: "Product", links: [["Campaign builder", "/campaign-builder"], ["Streamer Explorer", "/streamer-explorer"], ["Pricing", "/pricing"], ["Setup verification", "/campaign-compliance"], ["Brand safety", "/brand-safety"], ["Chat tracking", "/livestream-chat-engagement"], ["Replay reach", "/replay-reach"], ["Reporting", "/reporting"], ["Programmatic", "/programmatic"]] },
+  { h: "Product", links: [["Campaign builder", "/campaign-builder"], ["Streamer Explorer", "/streamer-explorer"], ["Sponsor checker", "/twitch-sponsorship-checker"], ["Pricing", "/pricing"], ["Setup verification", "/campaign-compliance"], ["Brand safety", "/brand-safety"], ["Chat tracking", "/livestream-chat-engagement"], ["Replay reach", "/replay-reach"], ["Reporting", "/reporting"], ["Programmatic", "/programmatic"]] },
   { h: "Platforms", links: [["Twitch", "/twitch-advertising"], ["YouTube", "/youtube-advertising"], ["Kick", "/kick-advertising"], ["TikTok LIVE", "/tiktok-live-advertising"], ["Kick pricing", "/kick-advertising-cost"], ["Nordics", "/nordic-livestream-advertising"]] },
   { h: "Customers", links: [["Case studies", "/case-studies"], ["Samsung", "/case-study/samsung"], ["Kristiania", "/case-study/kristiania"], ["Shure", "/case-study/shure"], ["Komplett", "/case-study/komplett"], ["Glorious", "/case-study/glorious"]] },
   { h: "Nordics", links: [["Norge", "/norge"], ["Twitch agency Norway", "/twitch-agency-norway"], ["Twitch-byrå Norge", "/twitch-byra-norge"], ["Twitch-annonsering pris", "/twitch-annonsering-pris"], ["Kick Norge", "/kick-annonsering"], ["Kick Sverige", "/kick-annonsering-sverige"], ["Kick Danmark", "/kick-annoncering"], ["Kick Suomi", "/kick-mainonta"]] },
