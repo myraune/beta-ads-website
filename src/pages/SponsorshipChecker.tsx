@@ -14,7 +14,7 @@ import { ExplorerPlans } from "@/components/working/ExplorerPlans";
 type Hit = { login: string; name: string; avatar: string; live: boolean; game: string; language: string };
 type Evidence = { text: string; date: string; url: string; source: "live" | "vod" | "bio" | "command" };
 type Sponsor = {
-  brand: string; category: string; kind: "sponsor" | "affiliate" | "own_brand" | "unclear";
+  brand: string; category: string; domain?: string; kind: "sponsor" | "affiliate" | "own_brand" | "unclear";
   confidence: "high" | "medium" | "low"; note: string; firstSeen: string; lastSeen: string; streams: number; evidence: Evidence[];
 };
 type Result = {
@@ -430,6 +430,60 @@ const Row: React.FC<{ n: string; title: string; body: string; flip?: boolean; ch
   </div>
 );
 
+/* The brand's own favicon in high resolution. Unknown domains come back as a 16 px
+   globe, so anything that small falls back to the brand's first letter. */
+const BrandLogo: React.FC<{ brand: string; domain?: string }> = ({ brand, domain }) => {
+  const [ok, setOk] = useState(!!domain);
+  return (
+    <span className="w-10 h-10 shrink-0 rounded-lg border border-border bg-white grid place-items-center overflow-hidden">
+      {ok
+        ? <img src={`https://www.google.com/s2/favicons?domain=${domain}&sz=128`} alt="" className="w-7 h-7 object-contain"
+            onError={() => setOk(false)} onLoad={e => e.currentTarget.naturalWidth <= 16 && setOk(false)} />
+        : <span className="text-sm font-bold text-[#0F1012]">{brand.charAt(0)}</span>}
+    </span>
+  );
+};
+
+const range = (a: string, b: string) => {
+  if (a === b) return fmt(a);
+  const short = a.slice(0, 4) === b.slice(0, 4) ? new Date(a + "T12:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short" }) : fmt(a);
+  return `${short} to ${fmt(b)}`;
+};
+
+const SponsorCard: React.FC<{ s: Sponsor }> = ({ s }) => (
+  <article className="rounded-2xl border border-border bg-card p-4 flex flex-col min-w-0">
+    <div className="flex items-center gap-3">
+      <BrandLogo brand={s.brand} domain={s.domain} />
+      <div className="min-w-0 flex-1">
+        <h3 className="text-base font-bold tracking-tight m-0 truncate">{s.brand}</h3>
+        <p className="m-0 text-xs text-muted-foreground truncate">{s.category}</p>
+      </div>
+      <span className="shrink-0 px-2 h-6 inline-flex items-center rounded-full bg-foreground text-background text-[11px] font-semibold">{KIND[s.kind]}</span>
+    </div>
+    <p className="mt-3 mb-0 text-xs text-muted-foreground">
+      <span className="font-semibold text-foreground">{range(s.firstSeen, s.lastSeen)}</span>
+      {" · "}{s.streams > 0 ? `${s.streams} stream${s.streams === 1 ? "" : "s"}` : s.evidence.some(e => e.source === "command") ? "chat bot" : "bio"}
+      {s.confidence !== "high" && ` · ${s.confidence} confidence`}
+    </p>
+    <p className="mt-2 mb-0 text-sm text-muted-foreground leading-snug line-clamp-3">{s.note}</p>
+    <details className="mt-auto pt-3 group/p">
+      <summary className="text-xs font-semibold cursor-pointer list-none inline-flex items-center gap-1 hover:text-foreground">
+        Proof ({s.evidence.length}) <span className="transition-transform group-open/p:rotate-90">›</span>
+      </summary>
+      <ul className="mt-2 m-0 p-0 list-none border-t border-border">
+        {s.evidence.map(e => (
+          <li key={e.url + e.date + e.text} className="border-b border-border last:border-b-0">
+            <a href={e.url} target="_blank" rel="noopener noreferrer" className="block py-2 text-xs group">
+              <span className="text-muted-foreground">{e.source === "live" ? "Live now" : e.source === "bio" ? "Bio" : e.source === "command" ? "Chat bot" : fmt(e.date)}</span>
+              <span className="block mt-0.5 text-muted-foreground group-hover:text-foreground line-clamp-2 break-words">{e.text}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
+  </article>
+);
+
 const ResultView: React.FC<{ r: Result }> = ({ r }) => {
   const c = r.creator;
   return (
@@ -453,43 +507,13 @@ const ResultView: React.FC<{ r: Result }> = ({ r }) => {
 
         <p className="mt-6 text-base leading-relaxed max-w-2xl">{r.summary}</p>
 
-        <div className="mt-8 space-y-4">
-          {r.sponsors.length === 0 && (
-            <p className="rounded-2xl border border-border p-6 text-sm text-muted-foreground m-0">No brand deals in the titles we could read.</p>
-          )}
-          {r.sponsors.map(s => (
-            <article key={s.brand} className="rounded-2xl border border-border bg-card p-5 md:p-6">
-              <div className="flex items-start gap-4 flex-wrap">
-                <div className="min-w-0">
-                  <h3 className="text-lg font-bold tracking-tight m-0">{s.brand}</h3>
-                  <p className="m-0 text-sm text-muted-foreground">{s.category}</p>
-                </div>
-                <div className="ml-auto flex items-center gap-2 text-xs font-semibold">
-                  <span className="px-2.5 h-7 inline-flex items-center rounded-full bg-foreground text-background">{KIND[s.kind]}</span>
-                  {s.confidence !== "high" && <span className="px-2.5 h-7 inline-flex items-center rounded-full border border-border text-muted-foreground">{s.confidence} confidence</span>}
-                </div>
-              </div>
-              <dl className="mt-4 grid grid-cols-3 gap-4 max-w-md m-0">
-                <div><dt className="text-xs text-muted-foreground">First seen</dt><dd className="m-0 text-sm font-semibold">{fmt(s.firstSeen)}</dd></div>
-                <div><dt className="text-xs text-muted-foreground">Last seen</dt><dd className="m-0 text-sm font-semibold">{fmt(s.lastSeen)}</dd></div>
-                {s.streams > 0
-                  ? <div><dt className="text-xs text-muted-foreground">Streams</dt><dd className="m-0 text-sm font-semibold">{s.streams}</dd></div>
-                  : <div><dt className="text-xs text-muted-foreground">Found in</dt><dd className="m-0 text-sm font-semibold">{s.evidence.some(e => e.source === "command") ? "Chat bot" : "Bio"}</dd></div>}
-              </dl>
-              <p className="mt-4 mb-0 text-sm text-muted-foreground leading-relaxed">{s.note}</p>
-              <ul className="mt-4 m-0 p-0 list-none border-t border-border">
-                {s.evidence.map(e => (
-                  <li key={e.url + e.date} className="border-b border-border last:border-b-0">
-                    <a href={e.url} target="_blank" rel="noopener noreferrer" className="flex items-baseline gap-3 py-2.5 text-sm hover:text-foreground group">
-                      <span className="w-20 shrink-0 text-xs text-muted-foreground">{e.source === "live" ? "Live now" : e.source === "bio" ? "Bio" : e.source === "command" ? "Chat bot" : fmt(e.date)}</span>
-                      <span className="min-w-0 truncate text-muted-foreground group-hover:text-foreground">{e.text}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </article>
-          ))}
-        </div>
+        {r.sponsors.length === 0 ? (
+          <p className="mt-8 rounded-2xl border border-border p-6 text-sm text-muted-foreground m-0">No brand deals in the titles we could read.</p>
+        ) : (
+          <div className="mt-8 grid sm:grid-cols-2 gap-3">
+            {r.sponsors.map(s => <SponsorCard key={s.brand} s={s} />)}
+          </div>
+        )}
       </div>
 
       <aside className="rounded-2xl bg-muted/60 p-5 md:p-6 text-sm">

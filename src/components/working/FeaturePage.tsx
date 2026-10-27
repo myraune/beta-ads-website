@@ -105,14 +105,38 @@ export const FeaturePage: React.FC<FeaturePageProps> = (p) => (
         )}
       </section>
 
-      {p.sections.map((s, i) => (
+      {p.sections.map((s, i) => s.visual ? (
+        /* Coded panels are built for the full content width: squeezed into half
+           a column they stack and grow far taller than the text beside them. */
+        <section key={s.title} className={`border-t border-border py-16 md:py-24 ${i === 0 ? "mt-16 md:mt-24" : ""}`}>
+          <div className={W}>
+            <div className="grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-6 lg:gap-16 items-end">
+              <div>
+                <div className={`${kicker} mb-4`}>{s.kicker}</div>
+                <h2 className={h2}>{s.title}</h2>
+              </div>
+              <div>
+                <div className="text-muted-foreground leading-relaxed max-w-xl">{s.body}</div>
+                {s.points && (
+                  <ul className="mt-5 m-0 p-0 list-none max-w-xl">
+                    {s.points.map((pt) => (
+                      <li key={pt} className="border-t border-border py-3 text-[15px]">{pt}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+            <div className="mt-10 md:mt-12 min-w-0">{s.visual}</div>
+          </div>
+        </section>
+      ) : (
         <section key={s.title} className={`border-t border-border py-16 md:py-24 ${i === 0 ? "mt-16 md:mt-24" : ""}`}>
           <div className={`${W} grid lg:grid-cols-2 gap-10 lg:gap-16 items-center`}>
             <div className={i % 2 ? "lg:order-2" : ""}>
               <div className={`${kicker} mb-4`}>{s.kicker}</div>
               <h2 className={h2}>{s.title}</h2>
               <div className="mt-5 text-muted-foreground leading-relaxed max-w-xl">{s.body}</div>
-              {s.points && (s.img || s.visual) && (
+              {s.points && s.img && (
                 <ul className="mt-6 m-0 p-0 list-none max-w-xl">
                   {s.points.map((pt) => (
                     <li key={pt} className="border-t border-border py-3 text-[15px]">{pt}</li>
@@ -123,8 +147,6 @@ export const FeaturePage: React.FC<FeaturePageProps> = (p) => (
             <div className={`min-w-0 ${i % 2 ? "lg:order-1" : ""}`}>
               {s.img ? (
                 <Shot {...s.img} />
-              ) : s.visual ? (
-                s.visual
               ) : (
                 /* No visual: the points take the right-hand column. */
                 <ol className="m-0 p-0 list-none">

@@ -132,8 +132,8 @@ const BrandSafety: React.FC = () => (
 
       {/* ───────── No risk ───────── */}
       <section className="border-t border-border py-16 md:py-24">
-        <div className={`${W} grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16 items-center`}>
-          <div>
+        <div className={`${W} grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-16`}>
+          <div className="lg:sticky lg:top-28 self-start">
             <div className={`${kicker} mb-4`}>Every clip gets a rating</div>
             <h2 className={h2}>Most clips come back clean.</h2>
             <p className="mt-5 text-muted-foreground leading-relaxed">
