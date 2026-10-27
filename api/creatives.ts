@@ -1,5 +1,5 @@
-import { json, readManifest, saveLead, issueToken, tokenValid } from "./_lib/creatives";
-import { FREE_IDS, libraryOrder } from "../src/data/creatives";
+import { json, readManifest, saveLead, issueToken, tokenValid } from "./_lib/creatives.js";
+import { FREE_IDS, libraryOrder } from "../src/data/creatives.js";
 
 /* Creative library for /creative-library.
    GET               -> the FREE_IDS creatives (marked

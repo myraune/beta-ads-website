@@ -1,6 +1,6 @@
 import { del, list } from "@vercel/blob";
-import { INDUSTRIES, isIndustry, isKind, type Creative } from "../src/data/creatives";
-import { json, readManifest, writeManifest, readBlobJson, isAdmin } from "./_lib/creatives";
+import { INDUSTRIES, isIndustry, isKind, type Creative } from "../src/data/creatives.js";
+import { json, readManifest, writeManifest, readBlobJson, isAdmin } from "./_lib/creatives.js";
 
 /* Admin side of the creative library (/creative-library/admin), behind
    CREATIVE_ADMIN_PASSWORD in the x-admin-password header.

@@ -1,6 +1,6 @@
 import { createHmac, timingSafeEqual } from "node:crypto";
 import { get, put } from "@vercel/blob";
-import type { Creative } from "../../src/data/creatives";
+import type { Creative } from "../../src/data/creatives.js";
 
 /* Server side of the creative library.
    Two Blob stores: the public one (BLOB_READ_WRITE_TOKEN) holds the videos and

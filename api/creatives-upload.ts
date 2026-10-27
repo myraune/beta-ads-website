@@ -1,5 +1,5 @@
 import { handleUpload, type HandleUploadBody } from "@vercel/blob/client";
-import { json, isAdmin } from "./_lib/creatives";
+import { json, isAdmin } from "./_lib/creatives.js";
 
 /* Client uploads for the creative library admin: the browser sends the video and
    the poster straight to the public Blob store (no 4.5 MB function body limit);
