@@ -1,8 +1,8 @@
 import { json, readManifest, saveLead, issueToken, tokenValid } from "./_lib/creatives";
-import { FREE_PREVIEWS, libraryOrder } from "../src/data/creatives";
+import { FREE_IDS, libraryOrder } from "../src/data/creatives";
 
 /* Creative library for /creative-library.
-   GET               -> the first FREE_PREVIEWS creatives in library order (marked
+   GET               -> the FREE_IDS creatives (marked
                         free, with video), and only industry + type for the rest,
                         so nothing of a locked creative can be seen before signing up.
    GET  (x-creative-token header with a valid token) -> every creative with video.
@@ -16,7 +16,10 @@ const EMAIL = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
 
 export async function GET(request: Request) {
   const unlocked = tokenValid(request.headers.get("x-creative-token"));
-  const items = libraryOrder(await readManifest()).map((c, i) => (i < FREE_PREVIEWS ? { ...c, free: true } : c));
+  const all = libraryOrder(await readManifest());
+  const picked = FREE_IDS.map((id) => all.find((c) => c.id === id)).filter((c) => c !== undefined);
+  const free = [...picked, ...all.filter((c) => !picked.includes(c))].slice(0, FREE_IDS.length);
+  const items = [...free.map((c) => ({ ...c, free: true })), ...all.filter((c) => !free.includes(c))];
   if (unlocked) return json({ unlocked, items, locked: [] });
   return json({
     unlocked,

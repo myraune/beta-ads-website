@@ -6,7 +6,7 @@ import { BOOKING_URL, W, kicker, h2, PrimaryBtn } from "@/components/working/sha
 import { INDUSTRIES, KIND_LABEL, type Creative, type CreativeKind } from "@/data/creatives";
 
 /* Creative library: animated overlays Beta Ads has built, filterable by industry
-   and type. The first FREE_PREVIEWS play for anyone; the rest are not even sent
+   and type. The FREE_IDS previews play for anyone; the rest are not even sent
    to the browser until a visitor leaves name, work email and company (POST /api/creatives returns a signed token, kept in localStorage,
    sent back as x-creative-token). The API returns the items in library order.
    Items come from the Blob manifest, added through /creative-library/admin. */
@@ -63,10 +63,17 @@ const UnlockForm: React.FC<{ onUnlocked: (token: string) => void; compact?: bool
   );
 };
 
-const Card: React.FC<{ c: Creative; unlocked: boolean; onOpen: () => void }> = ({ c, unlocked, onOpen }) => (
-  <button type="button" onClick={onOpen} className="group text-left flex flex-col">
+/** Plays the preview from the start while hovered or focused (muted, mounted only
+    then, so the grid loads posters and nothing else). */
+const Card: React.FC<{ c: Creative; unlocked: boolean; onOpen: () => void }> = ({ c, unlocked, onOpen }) => {
+  const [hover, setHover] = useState(false);
+  const on = () => setHover(true);
+  const off = () => setHover(false);
+  return (
+  <button type="button" onClick={onOpen} onMouseEnter={on} onMouseLeave={off} onFocus={on} onBlur={off} className="group text-left flex flex-col">
     <span className="relative block aspect-video overflow-hidden rounded-[14px] bg-muted">
       <img src={c.poster} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]" />
+      {hover && c.video && <video src={c.video} poster={c.poster} autoPlay muted loop playsInline aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />}
       <span className="absolute left-3 top-3 flex gap-1.5">
         {c.kind !== "client" && <span className="h-6 px-2.5 inline-flex items-center rounded-full bg-black/70 text-white text-[11px] font-semibold">{KIND_LABEL[c.kind]}</span>}
         {c.free && !unlocked && <span className="h-6 px-2.5 inline-flex items-center rounded-full bg-primary text-primary-foreground text-[11px] font-semibold">Free preview</span>}
@@ -79,7 +86,8 @@ const Card: React.FC<{ c: Creative; unlocked: boolean; onOpen: () => void }> = (
     <span className="mt-0.5 block text-[17px] font-semibold tracking-tight">{c.title}</span>
     {c.description && <span className="mt-1 block text-[14.5px] leading-relaxed text-muted-foreground line-clamp-2">{c.description}</span>}
   </button>
-);
+  );
+};
 
 /** What a visitor without access sees under the free previews: blurred stand-in
     cards fading into the page, then the sign-up. The locked creatives themselves
