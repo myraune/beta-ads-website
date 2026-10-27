@@ -47,10 +47,10 @@ export type Creative = {
 
 export const isIndustry = (v: unknown): v is Industry => typeof v === "string" && (INDUSTRIES as readonly string[]).includes(v);
 
-/** The creatives that play without signing up, shown first in this order: one
-    campaign that ran and two concepts, from three different industries. If one
-    is removed from the library, the next in library order takes its place. */
-export const FREE_IDS = ["glorious-mice", "acecombat8-jokerflight", "redbull-flugtag"];
+/** The creatives that play without signing up, shown first in this order:
+    three campaigns that ran (Andreas' pick). If one is removed from the
+    library, the next in library order takes its place. */
+export const FREE_IDS = ["shure-mv6", "samsung-galaxy-z-fold7", "hoyskolen-kristiania"];
 
 /** Library order: manifest order, round-robin across brands (keeping each
     brand's own order), so the first rows show many brands instead of ten
