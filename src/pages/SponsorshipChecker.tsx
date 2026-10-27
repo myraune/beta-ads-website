@@ -508,7 +508,7 @@ const TopStreamers: React.FC<{ data: TopData | null; country: TopCountry["code"]
       <div className="text-center max-w-2xl mx-auto">
         <h2 className={h2}>The biggest Nordic streamers. <span className="text-muted-foreground font-light">Every sponsor.</span></h2>
         <p className="mt-4 text-muted-foreground leading-relaxed">
-          The ten biggest channels live in each country{data ? ` on ${fmt(data.checkedAt)}` : ""}, run through the checker. Pick one to see the proof.
+          Ten of the biggest channels in each country with brand deals on record{data ? `, checked ${fmt(data.checkedAt)}` : ""}. Pick one to see every deal and the proof.
         </p>
       </div>
       <div role="tablist" className="mt-8 flex flex-wrap justify-center gap-2">
