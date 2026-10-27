@@ -6,8 +6,9 @@ import { FREE_IDS, libraryOrder } from "../src/data/creatives.js";
                         free, with video), and only industry + type for the rest,
                         so nothing of a locked creative can be seen before signing up.
    GET  (x-creative-token header with a valid token) -> every creative with video.
-   POST {name, email, company, website} -> stores the lead in the private Blob store
-                                           and returns an access token for the videos.
+   POST {name, email, company, website, source} -> stores the lead in the private Blob store
+                                           and returns an access token. The same token unlocks the
+                                           videos here and searches in the sponsorship checker.
    website is a honeypot: bots fill it, people never see it. */
 
 const PER_IP_HOUR = 10;
@@ -49,6 +50,7 @@ export async function POST(request: Request) {
     name,
     email,
     company,
+    source: typeof body.source === "string" ? body.source.slice(0, 60) : "creative-library",
     country: request.headers.get("x-vercel-ip-country") || "",
     referrer: typeof body.referrer === "string" ? body.referrer.slice(0, 300) : "",
     userAgent: (request.headers.get("user-agent") || "").slice(0, 300),

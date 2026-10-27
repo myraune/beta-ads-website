@@ -1,10 +1,12 @@
 import Anthropic from "@anthropic-ai/sdk";
 import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
 import * as z from "zod/v4";
+import { tokenValid } from "./_lib/creatives.js";
 
 /* Sponsorship checker for /twitch-sponsorship-checker.
    GET  ?q=name   -> channel search (Twitch Helix), for the autocomplete.
-   POST {login}   -> reads the creator's current title, bio, last 100 VOD titles and
+   POST {login}   -> (needs the x-creative-token a visitor gets by signing up, see
+                     api/creatives.ts) reads the creator's current title, bio, last 100 VOD titles and
                      public chat bot commands (Nightbot, StreamElements), and asks
                      Claude which brands sponsor them.
    Runs as a Vercel function in production and through the dev middleware in
@@ -225,6 +227,7 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
+  if (!tokenValid(request.headers.get("x-creative-token"))) return json({ error: "Sign up to search.", gate: true }, 401);
   let login = "";
   try {
     login = String((await request.json()).login ?? "").trim().toLowerCase().replace(/^.*twitch\.tv\//, "").replace(/[/?#].*$/, "");

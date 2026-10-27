@@ -14,7 +14,7 @@ const field = "h-10 w-full rounded-lg border border-border bg-background px-3 te
 const label = "block text-[13px] font-medium text-muted-foreground mb-1.5";
 const slug = (s: string) => s.toLowerCase().normalize("NFKD").replace(/[^\w\s-]/g, "").trim().replace(/[\s_]+/g, "-").slice(0, 50) || "creative";
 
-type Lead = { name?: string; email: string; company?: string; country?: string; at: string; referrer?: string };
+type Lead = { name?: string; email: string; company?: string; country?: string; at: string; referrer?: string; source?: string };
 
 /** First frame worth showing: 1.5 s in (or the middle of a short clip), as WebP. */
 function grabPoster(file: File): Promise<Blob> {
@@ -94,7 +94,7 @@ const CreativeLibraryAdmin: React.FC = () => {
   };
 
   const csv = () => {
-    const rows = [["at", "name", "email", "company", "country", "referrer"], ...(data?.leads || []).map((l) => [l.at, l.name || "", l.email, l.company || "", l.country || "", l.referrer || ""])];
+    const rows = [["at", "name", "email", "company", "country", "source", "referrer"], ...(data?.leads || []).map((l) => [l.at, l.name || "", l.email, l.company || "", l.country || "", l.source || "creative-library", l.referrer || ""])];
     const text = rows.map((r) => r.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(",")).join("\n");
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([text], { type: "text/csv" }));
@@ -158,7 +158,7 @@ const CreativeLibraryAdmin: React.FC = () => {
                   {data.leads.map((l) => (
                     <li key={l.at + l.email} className="py-2.5 flex justify-between gap-4">
                       <span className="min-w-0 truncate">{l.name ? <>{l.name} · </> : null}<b className="font-medium">{l.email}</b>{l.company ? <span className="text-muted-foreground"> · {l.company}</span> : null}</span>
-                      <span className="shrink-0 text-muted-foreground tabular-nums">{l.country ? `${l.country} · ` : ""}{l.at.slice(0, 10)}</span>
+                      <span className="shrink-0 text-muted-foreground tabular-nums">{l.source === "sponsorship-checker" ? "Checker · " : ""}{l.country ? `${l.country} · ` : ""}{l.at.slice(0, 10)}</span>
                     </li>
                   ))}
                   {!data.leads.length && <li className="py-3 text-muted-foreground">No emails yet.</li>}

@@ -5,10 +5,13 @@ import { SEO } from "@/components/SEO";
 import { W, kicker, h2, BOOKING_URL } from "@/components/working/shared";
 import { LIVE_DEALS, SNAPSHOT_DATE } from "@/data/liveDeals";
 import { ExplorerPlans } from "@/components/working/ExplorerPlans";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { UnlockForm, readToken, clearToken } from "@/components/LeadUnlock";
 
 /* Twitch sponsorship checker. Search a channel, then /api/creator-sponsors reads the
    current title, bio and last 100 VOD titles and Claude says which brands sponsor
-   the creator, with the titles as proof. The frames and cards below the search are
+   the creator, with the titles as proof. Searching needs a free sign-up (name, work email,
+   company, see components/LeadUnlock.tsx); the top lists below are stored results and stay open. The frames and cards below the search are
    real streams that ran a brand !command on 21 October 2026 (src/data/liveDeals.ts). */
 
 type Hit = { login: string; name: string; avatar: string; live: boolean; game: string; language: string };
@@ -175,21 +178,35 @@ const SponsorshipChecker: React.FC = () => {
     topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const check = async (login: string, scroll = false) => {
+  const [token, setToken] = useState(readToken);
+  // The channel someone tried to check before signing up; checked as soon as they have.
+  const [gateFor, setGateFor] = useState<string | null>(null);
+
+  const check = async (login: string, scroll = false, tok = token) => {
     const name = login.trim();
     if (!name || loading) return;
+    setQ(name); setOpen(false);
+    if (!tok) { setGateFor(name); return; }
     if (scroll) topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    setQ(name); setOpen(false); setError(""); setResult(null); setLoading(true);
+    setError(""); setResult(null); setLoading(true);
     try {
-      const r = await fetch("/api/creator-sponsors", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ login: name }) });
+      const r = await fetch("/api/creator-sponsors", { method: "POST", headers: { "content-type": "application/json", "x-creative-token": tok }, body: JSON.stringify({ login: name }) });
       const d = await r.json();
-      if (!r.ok) setError(d.error ?? "The check failed.");
+      if (d.gate) { clearToken(); setToken(""); setGateFor(name); }
+      else if (!r.ok) setError(d.error ?? "The check failed.");
       else setResult(d);
     } catch {
       setError("The check failed. Try again in a minute.");
     } finally {
       setLoading(false);
     }
+  };
+
+  const unlocked = (t: string) => {
+    setToken(t);
+    const pending = gateFor;
+    setGateFor(null);
+    if (pending) check(pending, true, t);
   };
 
   const [kind, setKind] = useState(0);
@@ -203,6 +220,17 @@ const SponsorshipChecker: React.FC = () => {
         canonical="/twitch-sponsorship-checker"
         ogType="website"
       />
+
+      <Dialog open={gateFor !== null} onOpenChange={o => { if (!o) setGateFor(null); }}>
+        <DialogContent className="max-w-md rounded-3xl p-8">
+          <DialogTitle className="text-2xl font-semibold tracking-tight">Sign up to search</DialogTitle>
+          <DialogDescription className="text-[15px] leading-relaxed">
+            Free. Leave your name, work email and company and check{gateFor ? <> <b className="text-foreground font-semibold">{gateFor}</b> and</> : null} any other Twitch streamer.
+          </DialogDescription>
+          <div className="mt-2"><UnlockForm id="sc-gate" source="sponsorship-checker" cta="Search" layout="stack" onUnlocked={unlocked} /></div>
+          <p className="m-0 text-xs text-muted-foreground">The top lists below are open to everyone.</p>
+        </DialogContent>
+      </Dialog>
 
       {/* ── HERO: centred search ── */}
       <header ref={topRef} className={`${W} pt-28 md:pt-36 text-center scroll-mt-20`}>

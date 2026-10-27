@@ -4,6 +4,7 @@ import { SEO } from "@/components/SEO";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { BOOKING_URL, W, kicker, h2, PrimaryBtn } from "@/components/working/shared";
 import { INDUSTRIES, KIND_LABEL, type Creative, type CreativeKind } from "@/data/creatives";
+import { UnlockForm, readToken } from "@/components/LeadUnlock";
 
 /* Creative library: animated overlays Beta Ads has built, filterable by industry
    and type. The FREE_IDS previews play for anyone; the rest are not even sent
@@ -14,54 +15,8 @@ import { INDUSTRIES, KIND_LABEL, type Creative, type CreativeKind } from "@/data
 const TITLE = "Creative Library: Livestream Overlay Ideas by Industry | Beta Ads";
 const DESCRIPTION =
   "Animated overlays for brands on Twitch, YouTube and Kick, sorted by industry: campaigns we ran, concepts made for pitches and partner-network examples.";
-const TOKEN_KEY = "creative-token";
-
-const readToken = () => { try { return localStorage.getItem(TOKEN_KEY) || ""; } catch { return ""; } };
-const writeToken = (t: string) => { try { localStorage.setItem(TOKEN_KEY, t); } catch { /* private mode: unlock lasts this visit */ } };
-
 type Kind = "all" | CreativeKind;
 
-const UnlockForm: React.FC<{ onUnlocked: (token: string) => void; compact?: boolean }> = ({ onUnlocked, compact }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [company, setCompany] = useState("");
-  const [website, setWebsite] = useState("");
-  const [state, setState] = useState<{ busy: boolean; error: string }>({ busy: false, error: "" });
-
-  const submit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setState({ busy: true, error: "" });
-    const r = await fetch("/api/creatives", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ name, email, company, website, referrer: document.referrer }),
-    }).then((res) => res.json()).catch(() => ({ error: "Something went wrong. Try again." }));
-    if (r.error || !r.token) return setState({ busy: false, error: r.error || "Something went wrong. Try again." });
-    writeToken(r.token);
-    onUnlocked(r.token);
-  };
-
-  return (
-    <form onSubmit={submit} className={`grid gap-3 ${compact ? "sm:grid-cols-3" : "sm:grid-cols-3 xl:grid-cols-[repeat(3,minmax(0,1fr))_auto]"}`}>
-      <label className="sr-only" htmlFor={`cl-name${compact ? "-m" : ""}`}>Name</label>
-      <input id={`cl-name${compact ? "-m" : ""}`} type="text" required autoComplete="name" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)}
-        className="h-11 rounded-full border border-border bg-background px-5 text-sm outline-none focus:border-foreground/40" />
-      <label className="sr-only" htmlFor={`cl-email${compact ? "-m" : ""}`}>Work email</label>
-      <input id={`cl-email${compact ? "-m" : ""}`} type="email" required autoComplete="email" placeholder="Work email" value={email} onChange={(e) => setEmail(e.target.value)}
-        className="h-11 rounded-full border border-border bg-background px-5 text-sm outline-none focus:border-foreground/40" />
-      <label className="sr-only" htmlFor={`cl-company${compact ? "-m" : ""}`}>Company</label>
-      <input id={`cl-company${compact ? "-m" : ""}`} type="text" required autoComplete="organization" placeholder="Company" value={company} onChange={(e) => setCompany(e.target.value)}
-        className="h-11 rounded-full border border-border bg-background px-5 text-sm outline-none focus:border-foreground/40" />
-      {/* Honeypot, hidden from people and screen readers. */}
-      <input type="text" tabIndex={-1} autoComplete="off" aria-hidden="true" value={website} onChange={(e) => setWebsite(e.target.value)} className="hidden" />
-      <button type="submit" disabled={state.busy}
-        className={`h-11 px-6 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 ${compact ? "sm:col-span-3" : "sm:col-span-3 xl:col-span-1"}`}>
-        {state.busy ? "Unlocking…" : "Unlock all the ideas"}
-      </button>
-      {state.error && <p role="alert" className="m-0 text-sm text-red-600 sm:col-span-3 xl:col-span-4">{state.error}</p>}
-    </form>
-  );
-};
 
 /** Plays the preview from the start while hovered or focused (muted, mounted only
     then, so the grid loads posters and nothing else). */
@@ -114,7 +69,7 @@ const Gate: React.FC<{ count: number; industry: string; blur: string[]; onUnlock
           Leave your name, work email and company and every animation in the library opens right away. We use your details to follow up
           about Beta Ads, and you can opt out at any time.
         </p>
-        <UnlockForm compact onUnlocked={onUnlocked} />
+        <UnlockForm id="cl-gate" source="creative-library" cta="Unlock all the ideas" onUnlocked={onUnlocked} />
       </div>
     </div>
   </div>
@@ -256,7 +211,7 @@ const CreativeLibrary: React.FC = () => {
                 {!current.video && (
                   <div className="mt-5">
                     <p className="mt-0 mb-3 text-sm font-semibold">Sign up to watch this one and the rest of the library.</p>
-                    <UnlockForm compact onUnlocked={setToken} />
+                    <UnlockForm id="cl-modal" source="creative-library" cta="Unlock all the ideas" onUnlocked={setToken} />
                   </div>
                 )}
               </div>
