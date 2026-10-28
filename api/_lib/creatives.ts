@@ -5,11 +5,14 @@ import type { Creative } from "../../src/data/creatives.js";
 /* Server side of the creative library.
    Two Blob stores: the public one (BLOB_READ_WRITE_TOKEN) holds the videos and
    posters, the private one (LEADS_READ_WRITE_TOKEN) holds manifest.json and one
-   JSON file per lead. Visitors unlock the videos with an HMAC-signed token
-   (CREATIVE_TOKEN_SECRET); the admin page sends CREATIVE_ADMIN_PASSWORD. */
+   JSON file per lead, plus approvals.json: the emails Andreas has approved for
+   the library. Visitors get an HMAC-signed token (CREATIVE_TOKEN_SECRET) when
+   they sign up; it opens the sponsorship checker straight away, and the library
+   once its email is approved. The admin page sends CREATIVE_ADMIN_PASSWORD. */
 
 const PRIVATE = () => ({ access: "private" as const, token: process.env.LEADS_READ_WRITE_TOKEN });
 const MANIFEST = "manifest.json";
+const APPROVALS = "approvals.json";
 const TOKEN_DAYS = 180;
 
 export const json = (body: unknown, status = 200) =>
@@ -47,18 +50,38 @@ export function issueToken(email: string) {
   return `${payload}.${sign(payload)}`;
 }
 
-export function tokenValid(token: string | null): boolean {
-  if (!token || !process.env.CREATIVE_TOKEN_SECRET) return false;
+/** The email a valid, unexpired token was issued to, or null. */
+export function tokenEmail(token: string | null): string | null {
+  if (!token || !process.env.CREATIVE_TOKEN_SECRET) return null;
   const [payload, sig] = token.split(".");
-  if (!payload || !sig) return false;
+  if (!payload || !sig) return null;
   const expected = Buffer.from(sign(payload));
   const given = Buffer.from(sig);
-  if (expected.length !== given.length || !timingSafeEqual(expected, given)) return false;
+  if (expected.length !== given.length || !timingSafeEqual(expected, given)) return null;
   try {
-    return JSON.parse(Buffer.from(payload, "base64url").toString()).x > Date.now();
+    const { e, x } = JSON.parse(Buffer.from(payload, "base64url").toString());
+    return x > Date.now() && typeof e === "string" ? e : null;
   } catch {
-    return false;
+    return null;
   }
+}
+
+export const tokenValid = (token: string | null) => tokenEmail(token) !== null;
+
+let approvals: { at: number; emails: string[] } | null = null;
+
+/** Emails approved for the library. Cached for 30 s per instance, so an approval
+    reaches every instance within half a minute. */
+export async function readApprovals(fresh = false): Promise<string[]> {
+  if (!fresh && approvals && Date.now() - approvals.at < 30_000) return approvals.emails;
+  const emails = (await readBlobJson<string[]>(APPROVALS)) || [];
+  approvals = { at: Date.now(), emails };
+  return emails;
+}
+
+export async function writeApprovals(emails: string[]) {
+  await put(APPROVALS, JSON.stringify(emails), { ...PRIVATE(), addRandomSuffix: false, allowOverwrite: true, contentType: "application/json" });
+  approvals = { at: Date.now(), emails };
 }
 
 export function isAdmin(password: string | null | undefined): boolean {

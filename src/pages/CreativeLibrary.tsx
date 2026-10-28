@@ -34,7 +34,7 @@ const Card: React.FC<{ c: Creative; unlocked: boolean; onOpen: () => void; onSta
         {c.free && !unlocked && <span className="h-6 px-2.5 inline-flex items-center rounded-full bg-primary text-primary-foreground text-[11px] font-semibold">Free preview</span>}
       </span>
       <span className="absolute right-3 bottom-3 h-7 px-3 inline-flex items-center rounded-full bg-white/90 text-[#0F1012] text-xs font-semibold">
-        {unlocked || c.free ? "Play" : "Sign up to watch"}
+        Play
       </span>
     </span>
     <span className="mt-3 block text-[13px] text-muted-foreground">{c.brand} · {c.industry}</span>
@@ -47,7 +47,7 @@ const Card: React.FC<{ c: Creative; unlocked: boolean; onOpen: () => void; onSta
 /** What a visitor without access sees under the free previews: blurred stand-in
     cards fading into the page, then the sign-up. The locked creatives themselves
     are never sent to the browser, so there is nothing behind the blur to dig out. */
-const Gate: React.FC<{ count: number; industry: string; blur: string[]; onUnlocked: (token: string) => void }> = ({ count, industry, blur, onUnlocked }) => (
+const Gate: React.FC<{ count: number; industry: string; blur: string[]; requested: boolean; onUnlocked: (token: string) => void }> = ({ count, industry, blur, requested, onUnlocked }) => (
   <div className="relative mt-10">
     <div aria-hidden="true" className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 pointer-events-none select-none">
       {Array.from({ length: 9 }, (_, i) => (
@@ -64,12 +64,24 @@ const Gate: React.FC<{ count: number; industry: string; blur: string[]; onUnlock
     <div className="absolute inset-x-0 top-[16%] sm:top-[22%] px-0 sm:px-6">
       <div className="mx-auto max-w-2xl rounded-[18px] bg-card border border-border p-6 md:p-8 text-center shadow-[0_24px_60px_-30px_rgba(0,0,0,0.35)]">
         <div className={`${kicker} mb-3`}>{count} more {industry === "All" ? "ideas" : `in ${industry}`}</div>
-        <h2 className="m-0 text-2xl md:text-[1.7rem] font-semibold tracking-tight">Unlock the rest of the creative ideas.</h2>
-        <p className="mt-2 mb-6 text-[15px] text-muted-foreground leading-relaxed">
-          Leave your name, work email and company and every animation in the library opens right away. We use your details to follow up
-          about Beta Ads, and you can opt out at any time.
-        </p>
-        <UnlockForm id="cl-gate" source="creative-library" cta="Unlock all the ideas" onUnlocked={onUnlocked} />
+        {requested ? (
+          <>
+            <h2 className="m-0 text-2xl md:text-[1.7rem] font-semibold tracking-tight">Thanks, your request is in.</h2>
+            <p className="mt-2 mb-0 text-[15px] text-muted-foreground leading-relaxed">
+              We review every request by hand. You'll get an email from us when your access is approved, and the whole library then opens on
+              this page.
+            </p>
+          </>
+        ) : (
+          <>
+            <h2 className="m-0 text-2xl md:text-[1.7rem] font-semibold tracking-tight">Request access to the rest of the creative ideas.</h2>
+            <p className="mt-2 mb-6 text-[15px] text-muted-foreground leading-relaxed">
+              Leave your name, work email and company. We review every request by hand and email you when the library is open for you. We use
+              your details to follow up about Beta Ads, and you can opt out at any time.
+            </p>
+            <UnlockForm id="cl-gate" source="creative-library" cta="Request access" onUnlocked={onUnlocked} />
+          </>
+        )}
       </div>
     </div>
   </div>
@@ -80,6 +92,7 @@ const CreativeLibrary: React.FC = () => {
   const [locked, setLocked] = useState<Pick<Creative, "industry" | "kind">[]>([]);
   const [token, setToken] = useState(readToken);
   const [unlocked, setUnlocked] = useState(false);
+  const [requested, setRequested] = useState(false);
   const [industry, setIndustry] = useState<string>("All");
   const [kind, setKind] = useState<Kind>("all");
   const [open, setOpen] = useState<Creative | null>(null);
@@ -99,7 +112,7 @@ const CreativeLibrary: React.FC = () => {
     let live = true;
     fetch("/api/creatives", { headers: token ? { "x-creative-token": token } : {} })
       .then((r) => r.json())
-      .then((d) => { if (live) { setItems(d.items || []); setLocked(d.locked || []); setUnlocked(Boolean(d.unlocked)); } })
+      .then((d) => { if (live) { setItems(d.items || []); setLocked(d.locked || []); setUnlocked(Boolean(d.unlocked)); setRequested(Boolean(d.requested)); } })
       .catch(() => live && setItems([]));
     return () => { live = false; };
   }, [token, fetched]);
@@ -179,7 +192,7 @@ const CreativeLibrary: React.FC = () => {
                   ))}
                 </div>
               )}
-              {hidden > 0 && <Gate count={hidden} industry={industry} blur={items.map((c) => c.poster)} onUnlocked={setToken} />}
+              {hidden > 0 && <Gate count={hidden} industry={industry} blur={items.map((c) => c.poster)} requested={requested} onUnlocked={setToken} />}
             </>
           )}
           <p className="mt-10 mb-0 text-xs text-muted-foreground">
@@ -208,12 +221,6 @@ const CreativeLibrary: React.FC = () => {
                 <DialogDescription className="mt-2 text-[15px] leading-relaxed">
                   {current.description || "An animated overlay that plays inside the stream, in one corner."}
                 </DialogDescription>
-                {!current.video && (
-                  <div className="mt-5">
-                    <p className="mt-0 mb-3 text-sm font-semibold">Sign up to watch this one and the rest of the library.</p>
-                    <UnlockForm id="cl-modal" source="creative-library" cta="Unlock all the ideas" onUnlocked={setToken} />
-                  </div>
-                )}
               </div>
             </>
           )}

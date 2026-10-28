@@ -12,6 +12,12 @@ import { INDUSTRIES, KIND_LABEL, type Creative, type CreativeKind } from "@/data
 const PW_KEY = "creative-admin-pw";
 const field = "h-10 w-full rounded-lg border border-border bg-background px-3 text-sm outline-none focus:border-foreground/40";
 const label = "block text-[13px] font-medium text-muted-foreground mb-1.5";
+/** A ready email Andreas sends himself (mailto opens his own mail app), never sent by the site. */
+const accessMail = (l: { name?: string; email: string }) => {
+  const first = (l.name || "").split(" ")[0];
+  const body = `Hi${first ? ` ${first}` : ""},\n\nYou now have access to the Beta Ads creative library: https://beta-ads.no/creative-library\n\nIt opens in the browser you signed up in. On another device, just fill in the form again with the same email.\n\nAndreas`;
+  return `mailto:${l.email}?subject=${encodeURIComponent("Your access to the Beta Ads creative library")}&body=${encodeURIComponent(body)}`;
+};
 const slug = (s: string) => s.toLowerCase().normalize("NFKD").replace(/[^\w\s-]/g, "").trim().replace(/[\s_]+/g, "-").slice(0, 50) || "creative";
 
 type Lead = { name?: string; email: string; company?: string; country?: string; at: string; referrer?: string; source?: string };
@@ -38,7 +44,7 @@ function grabPoster(file: File): Promise<Blob> {
 
 const CreativeLibraryAdmin: React.FC = () => {
   const [pw, setPw] = useState(() => { try { return sessionStorage.getItem(PW_KEY) || ""; } catch { return ""; } });
-  const [data, setData] = useState<{ items: Creative[]; leads: Lead[] } | null>(null);
+  const [data, setData] = useState<{ items: Creative[]; leads: Lead[]; approved: string[] } | null>(null);
   const [error, setError] = useState("");
   const [form, setForm] = useState({ brand: "", title: "", industry: "", kind: "client" as CreativeKind, format: "", description: "" });
   const [file, setFile] = useState<File | null>(null);
@@ -93,8 +99,21 @@ const CreativeLibraryAdmin: React.FC = () => {
     if (r.error) setError(r.error); else load(pw);
   };
 
+  const approve = async (email: string, approved: boolean) => {
+    const r = await fetch("/api/creatives-admin", {
+      method: "PATCH",
+      headers: { "content-type": "application/json", "x-admin-password": pw },
+      body: JSON.stringify({ email, approved }),
+    }).then((res) => res.json()).catch(() => ({ error: "Network error." }));
+    if (r.error) return setError(r.error);
+    setData((d) => (d ? { ...d, approved: r.approved } : d));
+  };
+
+  // Library requests from emails that are not approved yet.
+  const waiting = data ? new Set(data.leads.filter((l) => l.source !== "sponsorship-checker" && !data.approved.includes(l.email)).map((l) => l.email)).size : 0;
+
   const csv = () => {
-    const rows = [["at", "name", "email", "company", "country", "source", "referrer"], ...(data?.leads || []).map((l) => [l.at, l.name || "", l.email, l.company || "", l.country || "", l.source || "creative-library", l.referrer || ""])];
+    const rows = [["at", "name", "email", "company", "country", "source", "approved", "referrer"], ...(data?.leads || []).map((l) => [l.at, l.name || "", l.email, l.company || "", l.country || "", l.source || "creative-library", data?.approved.includes(l.email) ? "yes" : "no", l.referrer || ""])];
     const text = rows.map((r) => r.map((v) => `"${String(v).replace(/"/g, '""')}"`).join(",")).join("\n");
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([text], { type: "text/csv" }));
@@ -151,16 +170,35 @@ const CreativeLibraryAdmin: React.FC = () => {
             <div className="grid gap-10 self-start">
               <div>
                 <div className="flex items-center justify-between">
-                  <h2 className="m-0 text-lg font-semibold">Emails ({data.leads.length})</h2>
+                  <h2 className="m-0 text-lg font-semibold">
+                    Emails ({data.leads.length})
+                    {waiting > 0 && <span className="ml-2 align-middle h-6 px-2.5 inline-flex items-center rounded-full bg-primary text-primary-foreground text-xs">{waiting} waiting</span>}
+                  </h2>
                   <button type="button" onClick={csv} disabled={!data.leads.length} className="h-9 px-4 rounded-lg border border-border text-sm font-semibold disabled:opacity-40">Export CSV</button>
                 </div>
-                <ul className="mt-3 m-0 p-0 list-none divide-y divide-border border-y border-border max-h-[340px] overflow-auto text-sm">
-                  {data.leads.map((l) => (
-                    <li key={l.at + l.email} className="py-2.5 flex justify-between gap-4">
-                      <span className="min-w-0 truncate">{l.name ? <>{l.name} · </> : null}<b className="font-medium">{l.email}</b>{l.company ? <span className="text-muted-foreground"> · {l.company}</span> : null}</span>
-                      <span className="shrink-0 text-muted-foreground tabular-nums">{l.source === "sponsorship-checker" ? "Checker · " : ""}{l.country ? `${l.country} · ` : ""}{l.at.slice(0, 10)}</span>
-                    </li>
-                  ))}
+                <p className="mt-1 mb-0 text-[13px] text-muted-foreground">Approve to open the library for that email. Then send the access email from your own inbox.</p>
+                <ul className="mt-3 m-0 p-0 list-none divide-y divide-border border-y border-border max-h-[480px] overflow-auto text-sm">
+                  {data.leads.map((l) => {
+                    const ok = data.approved.includes(l.email);
+                    return (
+                      <li key={l.at + l.email} className="py-2.5 flex items-center justify-between gap-4">
+                        <span className="min-w-0">
+                          <span className="block truncate">{l.name ? <>{l.name} · </> : null}<b className="font-medium">{l.email}</b>{l.company ? <span className="text-muted-foreground"> · {l.company}</span> : null}</span>
+                          <span className="block text-muted-foreground tabular-nums text-xs mt-0.5">{l.source === "sponsorship-checker" ? "Checker · " : "Library · "}{l.country ? `${l.country} · ` : ""}{l.at.slice(0, 10)}</span>
+                        </span>
+                        <span className="shrink-0 flex items-center gap-2">
+                          {ok ? (
+                            <>
+                              <a href={accessMail(l)} className="h-8 px-3 inline-flex items-center rounded-lg border border-border text-xs font-semibold">Email them</a>
+                              <button type="button" onClick={() => approve(l.email, false)} className="h-8 px-3 rounded-lg text-xs font-semibold text-muted-foreground">Revoke</button>
+                            </>
+                          ) : (
+                            <button type="button" onClick={() => approve(l.email, true)} className="h-8 px-3 rounded-lg bg-primary text-primary-foreground text-xs font-semibold">Approve</button>
+                          )}
+                        </span>
+                      </li>
+                    );
+                  })}
                   {!data.leads.length && <li className="py-3 text-muted-foreground">No emails yet.</li>}
                 </ul>
               </div>

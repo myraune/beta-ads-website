@@ -1,14 +1,17 @@
-import { json, readManifest, saveLead, issueToken, tokenValid } from "./_lib/creatives.js";
+import { json, readManifest, saveLead, issueToken, tokenEmail, readApprovals } from "./_lib/creatives.js";
 import { FREE_IDS, libraryOrder } from "../src/data/creatives.js";
 
 /* Creative library for /creative-library.
    GET               -> the FREE_IDS creatives (marked
                         free, with video), and only industry + type for the rest,
                         so nothing of a locked creative can be seen before signing up.
-   GET  (x-creative-token header with a valid token) -> every creative with video.
+   GET  (x-creative-token header) -> requested: the token is valid (signed up);
+                        unlocked: its email is approved, then every creative with video.
+                        Andreas approves each request by hand in the admin, so a
+                        competitor signing up does not get to see the library.
    POST {name, email, company, website, source} -> stores the lead in the private Blob store
-                                           and returns an access token. The same token unlocks the
-                                           videos here and searches in the sponsorship checker.
+                                           and returns a token. It opens sponsorship-checker
+                                           searches right away, and the library once approved.
    website is a honeypot: bots fill it, people never see it. */
 
 const PER_IP_HOUR = 10;
@@ -16,14 +19,16 @@ const hits = new Map<string, number[]>();
 const EMAIL = /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i;
 
 export async function GET(request: Request) {
-  const unlocked = tokenValid(request.headers.get("x-creative-token"));
+  const email = tokenEmail(request.headers.get("x-creative-token"));
+  const unlocked = email !== null && (await readApprovals()).includes(email);
   const all = libraryOrder(await readManifest());
   const picked = FREE_IDS.map((id) => all.find((c) => c.id === id)).filter((c) => c !== undefined);
   const free = [...picked, ...all.filter((c) => !picked.includes(c))].slice(0, FREE_IDS.length);
   const items = [...free.map((c) => ({ ...c, free: true })), ...all.filter((c) => !free.includes(c))];
-  if (unlocked) return json({ unlocked, items, locked: [] });
+  if (unlocked) return json({ unlocked, requested: true, items, locked: [] });
   return json({
     unlocked,
+    requested: email !== null,
     items: items.filter((c) => c.free),
     locked: items.filter((c) => !c.free).map(({ industry, kind }) => ({ industry, kind })),
   });

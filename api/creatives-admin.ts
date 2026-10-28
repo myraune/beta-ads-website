@@ -1,10 +1,12 @@
 import { del, list } from "@vercel/blob";
 import { INDUSTRIES, isIndustry, isKind, type Creative } from "../src/data/creatives.js";
-import { json, readManifest, writeManifest, readBlobJson, isAdmin } from "./_lib/creatives.js";
+import { json, readManifest, writeManifest, readBlobJson, readApprovals, writeApprovals, isAdmin } from "./_lib/creatives.js";
 
 /* Admin side of the creative library (/creative-library/admin), behind
    CREATIVE_ADMIN_PASSWORD in the x-admin-password header.
-   GET                         -> creatives (with video URLs) and every lead.
+   GET                         -> creatives (with video URLs), every lead and the
+                                  emails approved for the library.
+   PATCH {email, approved}     -> approves or revokes one email's library access.
    POST {brand, title, ...}    -> adds a creative whose files were already uploaded
                                   through /api/creatives-upload.
    DELETE ?id=                 -> removes a creative and its two files. */
@@ -20,7 +22,18 @@ export async function GET(request: Request) {
   const leads = (await Promise.all(files.blobs.map((b) => readBlobJson<Record<string, string>>(b.pathname))))
     .filter(Boolean)
     .sort((a, b) => String(b!.at).localeCompare(String(a!.at)));
-  return json({ items: await readManifest(true), leads, industries: INDUSTRIES });
+  return json({ items: await readManifest(true), leads, approved: await readApprovals(true), industries: INDUSTRIES });
+}
+
+export async function PATCH(request: Request) {
+  if (!isAdmin(request.headers.get("x-admin-password"))) return json({ error: "Wrong password." }, 401);
+  const b = await request.json().catch(() => ({}));
+  const email = str(b.email, 200).toLowerCase();
+  if (!email) return json({ error: "No email." }, 400);
+  const current = await readApprovals(true);
+  const next = b.approved ? [...new Set([...current, email])] : current.filter((e) => e !== email);
+  await writeApprovals(next);
+  return json({ approved: next });
 }
 
 export async function POST(request: Request) {
