@@ -96,6 +96,9 @@ export interface CreatorProfile {
   image: string;
   attribution: string;
   attributionUrl: string;
+  /** Listed in the roundup only, with no /streamere profile: the card links
+   *  here instead (the creator's management asked us to send bookings to them). */
+  managedBy?: { label: string; url: string };
   language: "no" | "sv" | "da" | "fi" | "en" | "mixed";
   socials: SocialLink[];
   /** Eksterne kilder leseren kan klikke for å lese mer. */
@@ -433,6 +436,58 @@ export const CREATORS: CreatorProfile[] = [
       { id: "Tq4ROSW0fuw", title: "Subathon highlights #1", published: "2023-08-12T19:13:05+00:00" },
       { id: "uAvJdbyBSY0", title: "SUBATHON 1 MARS | STREAM HIGHLIGHTS", published: "2023-02-28T09:07:10+00:00" },
     ],
+  },
+  {
+    handle: "emzia",
+    twitchStats: { followers: 97618, partner: true, createdAt: "2015-04-10T23:35:13.51328Z", lastGame: "Just Chatting" },
+    trackerStats: { avgViewers: 184, peakViewers: 270, hoursStreamed: 111 },
+    name: "Emzia",
+    realName: "Emilie Helgesen",
+    meta: "Twitch · skytespill & variert",
+    blurb:
+      "En av Norges mest etablerte streamere og en tydelig stemme for et trygt streamingmiljø. Tidligere Twitch-ambassadør, og et kjent fjes også utenfor plattformen.",
+    bio:
+      "Emilie Helgesen (Emzia) er en av Norges lengst-etablerte streamere - kanalen ble opprettet i april 2015, og hun gikk fulltid i 2018. Hun streamer hovedsakelig skytespill (Call of Duty, battle royales) i tillegg til adventure, horror, MMO og single-player-titler, kjent for et rolig, inkluderende fellesskap. Hun er Twitch-ambassadør (knyttet til TwitchCon EU 2019), har co-hostet ESL sitt «World of Esports»-program på Viasat Sport (2017), og har deltatt i norske TV-produksjoner som «Forræder» og «Fangene på Fortet». Streamer i hovedsak på engelsk til et internasjonalt publikum.",
+    highlights: [
+      "Twitch-kanal opprettet april 2015; fulltidsstreamer fra 2018",
+      "Twitch-ambassadør tilknyttet TwitchCon EU 2019",
+      "Co-host av ESL «World of Esports» (Viasat Sport, 2017 - 17 episoder)",
+      "TV-deltakelser: «Forræder» og «Fangene på Fortet»",
+      "Statista (april 2025): #2 mest sett blant norskspråklige Twitch-streamere på ukentlig viewership-timer",
+    ],
+    image: "/lovable-uploads/creators/emzia.png",
+    attribution: "NOT Management",
+    attributionUrl: "https://notmanagement.no/talent/emzia/",
+    managedBy: { label: "Booking via NOT Management", url: "https://notmanagement.no/talent/emzia/" },
+    language: "en",
+    socials: [
+      { label: "Twitch",    url: "https://www.twitch.tv/emzia" },
+      { label: "Instagram", url: "https://www.instagram.com/emziatv" },
+      { label: "TikTok",    url: "https://www.tiktok.com/@emziatv" },
+      { label: "YouTube",   url: "https://www.youtube.com/@emziatv" },
+    ],
+    references: [
+      { label: "NOT Management: Emzia",        url: "https://notmanagement.no/talent/emzia/", type: "agency" },
+      { label: "emzia.tv (offisiell side)",    url: "https://emzia.tv/",                      type: "official-site" },
+    ],
+    twitchClips: [
+      { slug: "VastNurturingSeahorseWow", title: "[ENG/NOR]  This game is not dead yet <3", viewCount: 15353, duration: 26, createdAt: "2018-02-04T22:52:55Z", game: "Z1: Battle Royale", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/d77e7543-9f37-47eb-9140-17d859dc2bbc/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/emzia/clip/VastNurturingSeahorseWow" },
+      { slug: "GoodUglyMomFeelsBadMan", title: "[ENG/NOR] Duos with the one and only Marctastic. Sunday chill :)", viewCount: 12850, duration: 26, createdAt: "2018-01-29T00:01:38Z", game: "Z1: Battle Royale", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/209dbb30-f4d5-4f69-89f9-69b6b9b9afaa/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/emzia/clip/GoodUglyMomFeelsBadMan" },
+      { slug: "CourteousCredulousTrayFloof", title: "Subscribed", viewCount: 2762, duration: 32, createdAt: "2016-10-21T20:30:18Z", game: null, thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/2de60863-6126-4c0e-aa3f-24a9ea2a3bca/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/emzia/clip/CourteousCredulousTrayFloof" },
+      { slug: "UninterestedCleanNeanderthalOSkomodo", title: "Showing off my new clothing HAUL!🌟 Also doing challenges in Fall Guys! !asos !asquad #ad", viewCount: 2250, duration: 33, createdAt: "2020-11-11T16:22:13Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/4cb26fb8-c9ab-4a26-9695-30d299c090ab/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/emzia/clip/UninterestedCleanNeanderthalOSkomodo" },
+      { slug: "CulturedTemperedSandwichDuDudu", title: "Showing my FULL HARLEY QUINN halloween costume", viewCount: 2083, duration: 32, createdAt: "2017-06-19T13:50:01Z", game: null, thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/19cef455-39cc-4989-badc-011c151104ad/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/emzia/clip/CulturedTemperedSandwichDuDudu" },
+      { slug: "IronicBusyOtterFUNgineer", title: "Karl dont drop the soap monkaS", viewCount: 1946, duration: 11, createdAt: "2020-08-22T13:31:42Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/d771828e-1d18-475c-b754-0627c60af5b5/landscape/thumb/thumb-0000000000-1600x900.jpg", url: "https://www.twitch.tv/emzia/clip/IronicBusyOtterFUNgineer" },
+    ],
+    youtubeChannelHandle: "Emzia",
+    youtubeVideos: [
+      { id: "JV6ZaWv_6LM", title: "Birthday stream 2025 | Recap", published: "2025-09-28T22:00:18+00:00" },
+      { id: "xvPhX1UG8Nk", title: "Galaxy Tab S11 Ultra✨", published: "2025-09-15T10:52:26+00:00" },
+      { id: "QdoCDX53pHM", title: "Feel like a Monster", published: "2025-08-14T17:09:21+00:00" },
+      { id: "qYJs9-_gBaE", title: "Best & Funny plays in Warzone! Call of Duty: Mordern Warfare | Highlights", published: "2020-12-13T11:00:49+00:00" },
+      { id: "A3OnchD8qvo", title: "Emzia | Hunting ghosts in Phasmophobia | Stream highlights", published: "2020-11-22T13:00:02+00:00" },
+      { id: "o1SgFj6Evuo", title: "Emzia | Call of Duty - Black Ops: Cold War BETA | Funny Moments", published: "2020-11-13T11:30:02+00:00" },
+    ],
+    tiktokHandle: "emziatv",
   },
   {
     handle: "thomaspaste",
