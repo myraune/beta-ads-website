@@ -5,13 +5,14 @@ import type { Creative } from "@/data/creatives";
 import { adminFetch, SIGNED_OUT } from "@/components/admin/shared";
 import LeadsPanel, { type Lead } from "@/components/admin/LeadsPanel";
 import CreativesPanel from "@/components/admin/CreativesPanel";
+import TrafficPanel from "@/components/admin/TrafficPanel";
 
 /* /admin: the back office of beta-ads.no. Not linked anywhere, noindex.
    Sign in with Google; only ADMIN_EMAIL gets in (checked on the server in
    api/_lib/admin.ts). */
 
 type Data = { items: Creative[]; leads: Lead[]; approved: string[] };
-const TABS = [["leads", "Leads"], ["creatives", "Creatives"]] as const;
+const TABS = [["leads", "Leads"], ["traffic", "Traffic"], ["creatives", "Creatives"]] as const;
 type Tab = (typeof TABS)[number][0];
 
 declare global {
@@ -138,6 +139,8 @@ const Admin: React.FC = () => {
               {error && <p role="alert" className="mt-0 text-sm text-red-600">{error}</p>}
               {!data ? (!error && <p className="m-0 text-sm text-muted-foreground">Loading…</p>) : tab === "leads" ? (
                 <LeadsPanel leads={data.leads} approved={data.approved} setApproved={(approved) => setData({ ...data, approved })} />
+              ) : tab === "traffic" ? (
+                <TrafficPanel leads={data.leads} />
               ) : (
                 <CreativesPanel items={data.items} reload={load} />
               )}
