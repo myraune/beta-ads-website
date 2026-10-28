@@ -22,6 +22,7 @@
       "destination": "/pricing",
       "permanent": true
     },
+    { "source": "/creative-library/admin", "destination": "/admin", "permanent": false },
     { "source": "/careers/:path*", "destination": "/about", "permanent": true },
     { "source": "/replay-reach", "destination": "/reporting", "permanent": true },
     { "source": "/career/:path*", "destination": "/about", "permanent": true },
@@ -107,7 +108,7 @@
       "destination": "/index.html"
     },
     {
-      "source": "/creative-library/admin",
+      "source": "/admin",
       "destination": "/index.html"
     }
   ],

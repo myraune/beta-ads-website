@@ -10,7 +10,7 @@ import { UnlockForm, readToken } from "@/components/LeadUnlock";
    and type. The FREE_IDS previews play for anyone; the rest are not even sent
    to the browser until a visitor leaves name, work email and company (POST /api/creatives returns a signed token, kept in localStorage,
    sent back as x-creative-token). The API returns the items in library order.
-   Items come from the Blob manifest, added through /creative-library/admin. */
+   Items come from the Blob manifest, added through /admin. */
 
 const TITLE = "Creative Library: Livestream Overlay Ideas by Industry | Beta Ads";
 const DESCRIPTION =

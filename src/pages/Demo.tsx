@@ -95,6 +95,12 @@ const Demo: React.FC<DemoProps> = ({ t: tProp }) => {
     try {
       const { error } = await supabase.functions.invoke("notify-demo-request", { body: data });
       if (error) throw error;
+      // Also keep it as a lead for /admin. Best-effort: the mail above already went out.
+      fetch("/api/creatives", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ ...data, source: "demo", referrer: document.referrer }),
+      }).catch(() => {});
       // Highest-intent conversion on the site. It is a form submit, not a link
       // click, so ConversionTracker's delegated listener never sees it - track
       // it explicitly so the SEO-test scoreboard counts real demo requests.

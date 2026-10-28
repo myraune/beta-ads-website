@@ -8,7 +8,7 @@ import type { Creative } from "../../src/data/creatives.js";
    JSON file per lead, plus approvals.json: the emails Andreas has approved for
    the library. Visitors get an HMAC-signed token (CREATIVE_TOKEN_SECRET) when
    they sign up; it opens the sponsorship checker straight away, and the library
-   once its email is approved. The admin page sends CREATIVE_ADMIN_PASSWORD. */
+   once its email is approved. Admin access is checked in ./admin.ts. */
 
 const PRIVATE = () => ({ access: "private" as const, token: process.env.LEADS_READ_WRITE_TOKEN });
 const MANIFEST = "manifest.json";
@@ -82,12 +82,4 @@ export async function readApprovals(fresh = false): Promise<string[]> {
 export async function writeApprovals(emails: string[]) {
   await put(APPROVALS, JSON.stringify(emails), { ...PRIVATE(), addRandomSuffix: false, allowOverwrite: true, contentType: "application/json" });
   approvals = { at: Date.now(), emails };
-}
-
-export function isAdmin(password: string | null | undefined): boolean {
-  const real = process.env.CREATIVE_ADMIN_PASSWORD;
-  if (!real || !password) return false;
-  const a = Buffer.from(password);
-  const b = Buffer.from(real);
-  return a.length === b.length && timingSafeEqual(a, b);
 }

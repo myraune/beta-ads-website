@@ -1,9 +1,10 @@
 import { del, list } from "@vercel/blob";
 import { INDUSTRIES, isIndustry, isKind, type Creative } from "../src/data/creatives.js";
-import { json, readManifest, writeManifest, readBlobJson, readApprovals, writeApprovals, isAdmin } from "./_lib/creatives.js";
+import { json, readManifest, writeManifest, readBlobJson, readApprovals, writeApprovals } from "./_lib/creatives.js";
+import { isAdminRequest } from "./_lib/admin.js";
 
-/* Admin side of the creative library (/creative-library/admin), behind
-   CREATIVE_ADMIN_PASSWORD in the x-admin-password header.
+/* Admin side of the creative library (/admin), for the signed-in admin or a
+   server sending CREATIVE_ADMIN_PASSWORD (see ./_lib/admin.ts).
    GET                         -> creatives (with video URLs), every lead and the
                                   emails approved for the library.
    PATCH {email, approved}     -> approves or revokes one email's library access.
@@ -17,7 +18,7 @@ const str = (v: unknown, max: number) => (typeof v === "string" ? v.trim().slice
 const slug = (s: string) => s.toLowerCase().normalize("NFKD").replace(/[^\w\s-]/g, "").trim().replace(/[\s_]+/g, "-").slice(0, 60);
 
 export async function GET(request: Request) {
-  if (!isAdmin(request.headers.get("x-admin-password"))) return json({ error: "Wrong password." }, 401);
+  if (!isAdminRequest(request)) return json({ error: "Sign in first." }, 401);
   const files = await list({ prefix: "leads/", token: process.env.LEADS_READ_WRITE_TOKEN, limit: 1000 });
   const leads = (await Promise.all(files.blobs.map((b) => readBlobJson<Record<string, string>>(b.pathname))))
     .filter(Boolean)
@@ -26,7 +27,7 @@ export async function GET(request: Request) {
 }
 
 export async function PATCH(request: Request) {
-  if (!isAdmin(request.headers.get("x-admin-password"))) return json({ error: "Wrong password." }, 401);
+  if (!isAdminRequest(request)) return json({ error: "Sign in first." }, 401);
   const b = await request.json().catch(() => ({}));
   const email = str(b.email, 200).toLowerCase();
   if (!email) return json({ error: "No email." }, 400);
@@ -37,7 +38,7 @@ export async function PATCH(request: Request) {
 }
 
 export async function POST(request: Request) {
-  if (!isAdmin(request.headers.get("x-admin-password"))) return json({ error: "Wrong password." }, 401);
+  if (!isAdminRequest(request)) return json({ error: "Sign in first." }, 401);
   const b = await request.json().catch(() => ({}));
   const brand = str(b.brand, 60);
   const title = str(b.title, 80);
@@ -63,7 +64,7 @@ export async function POST(request: Request) {
 }
 
 export async function DELETE(request: Request) {
-  if (!isAdmin(request.headers.get("x-admin-password"))) return json({ error: "Wrong password." }, 401);
+  if (!isAdminRequest(request)) return json({ error: "Sign in first." }, 401);
   const id = new URL(request.url).searchParams.get("id");
   const items = await readManifest(true);
   const item = items.find((i) => i.id === id);

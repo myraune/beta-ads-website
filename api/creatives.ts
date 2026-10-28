@@ -41,7 +41,10 @@ export async function POST(request: Request) {
   const company = typeof body.company === "string" ? body.company.trim().slice(0, 120) : "";
   if (!name) return json({ error: "Enter your name." }, 400);
   if (!EMAIL.test(email)) return json({ error: "Enter a valid work email." }, 400);
-  if (!company) return json({ error: "Enter your company." }, 400);
+  const source = typeof body.source === "string" ? body.source.slice(0, 60) : "creative-library";
+  // The demo form (src/pages/Demo.tsx) leaves company optional and adds a message.
+  const message = source === "demo" && typeof body.message === "string" ? body.message.trim().slice(0, 1000) : "";
+  if (!company && source !== "demo") return json({ error: "Enter your company." }, 400);
   // Honeypot: answer like a success so the bot learns nothing, but store nothing.
   if (typeof body.website === "string" && body.website.trim()) return json({ token: "" });
 
@@ -55,7 +58,8 @@ export async function POST(request: Request) {
     name,
     email,
     company,
-    source: typeof body.source === "string" ? body.source.slice(0, 60) : "creative-library",
+    source,
+    ...(message ? { message } : {}),
     country: request.headers.get("x-vercel-ip-country") || "",
     referrer: typeof body.referrer === "string" ? body.referrer.slice(0, 300) : "",
     userAgent: (request.headers.get("user-agent") || "").slice(0, 300),
