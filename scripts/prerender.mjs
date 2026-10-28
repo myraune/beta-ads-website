@@ -151,21 +151,32 @@ async function getBlogSlugs() {
 
 // Streamer-profile handles for /streamere/:handle — each renders its own
 // canonical, Person JSON-LD and og:image, so they must be prerendered too.
-// Same list the route, the sitemap and generate-seo-pages read: MARKET_CREATORS
-// in streamers.ts spans all four markets and leaves out roundup-only creators
-// (managedBy), which have no profile page. Regex-scraping handle: lines out of
-// the data files could not see that flag.
-async function getStreamerHandles() {
-  const TMP = path.join(ROOT, "node_modules", ".cache", "prerender-streamers.cjs");
-  await esbuild({
-    entryPoints: [path.join(ROOT, "src/data/streamers.ts")],
-    bundle: true, format: "cjs", outfile: TMP, platform: "node",
-    tsconfig: path.join(ROOT, "tsconfig.json"), logLevel: "silent",
-  });
-  const require = createRequire(import.meta.url);
-  delete require.cache[require.resolve(TMP)];
-  const { MARKET_CREATORS } = require(TMP);
-  return [...new Set(Object.values(MARKET_CREATORS).flat().map((c) => c.handle))];
+//
+// This used to read norskeStreamere.ts alone, which is 10 of the 40 profiles.
+// generate-seo-pages derives its list from streamers.ts, which composes all four
+// markets, so it wrote SEO shells for the Swedish, Danish and Finnish creators
+// that prerender then never visited. Those 30 pages shipped at ~36 words with no
+// h1. Read the same four files it composes from, so adding a market cannot
+// silently strand another set.
+const STREAMER_DATA_FILES = [
+  "src/data/norskeStreamere.ts",
+  "src/data/svenskaStreamare.ts",
+  "src/data/danskeStreamere.ts",
+  "src/data/suomalaisetStriimaajat.ts",
+];
+
+function getStreamerHandles() {
+  const handles = [];
+  for (const rel of STREAMER_DATA_FILES) {
+    const file = path.join(ROOT, rel);
+    if (!fs.existsSync(file)) {
+      console.warn(`  ⚠️  streamer data file missing, profiles will not prerender: ${rel}`);
+      continue;
+    }
+    const src = fs.readFileSync(file, "utf-8");
+    for (const m of src.matchAll(/^\s+handle:\s*["']([^"']+)["']/gm)) handles.push(m[1]);
+  }
+  return [...new Set(handles)];
 }
 
 // ---------------------------------------------------------------------------
@@ -286,7 +297,7 @@ async function main() {
   }
 
   const blogSlugs = await getBlogSlugs();
-  const streamerHandles = await getStreamerHandles();
+  const streamerHandles = getStreamerHandles();
   const compareSlugs = await getCompareSlugs();
   const allRoutes = [
     ...STATIC_ROUTES,

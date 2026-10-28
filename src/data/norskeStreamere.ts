@@ -96,9 +96,9 @@ export interface CreatorProfile {
   image: string;
   attribution: string;
   attributionUrl: string;
-  /** Listed in the roundup only, with no /streamere profile: the card links
-   *  here instead (the creator's management asked us to send bookings to them). */
-  managedBy?: { label: string; url: string };
+  /** Management that wants to be the first point of contact: shown as a banner
+   *  near the top of the profile page. */
+  management?: { name: string; note: string; email: string; url: string };
   language: "no" | "sv" | "da" | "fi" | "en" | "mixed";
   socials: SocialLink[];
   /** Eksterne kilder leseren kan klikke for å lese mer. */
@@ -458,7 +458,12 @@ export const CREATORS: CreatorProfile[] = [
     image: "/lovable-uploads/creators/emzia.png",
     attribution: "NOT Management",
     attributionUrl: "https://notmanagement.no/talent/emzia/",
-    managedBy: { label: "Booking via NOT Management", url: "https://notmanagement.no/talent/emzia/" },
+    management: {
+      name: "NOT Management",
+      note: "Emzia er representert av NOT Management. Henvendelser om samarbeid og booking går direkte til dem.",
+      email: "contact@notmanagement.no",
+      url: "https://notmanagement.no/talent/emzia/",
+    },
     language: "en",
     socials: [
       { label: "Twitch",    url: "https://www.twitch.tv/emzia" },
@@ -469,6 +474,62 @@ export const CREATORS: CreatorProfile[] = [
     references: [
       { label: "NOT Management: Emzia",        url: "https://notmanagement.no/talent/emzia/", type: "agency" },
       { label: "emzia.tv (offisiell side)",    url: "https://emzia.tv/",                      type: "official-site" },
+    ],
+    news: [
+      {
+        title: "Emilie er Norges uoffisielle dronning av Twitch",
+        url: "https://www.vg.no/annonsorinnhold/smart/komplett/424-jenter-som-gamer-emilie-er-norges-uoffisielle-dronning-av-twitch",
+        source: "VG Partnerstudio",
+        date: "ukjent",
+        summary: "VG-portrett som kaller Emzia 'Norges uoffisielle dronning av Twitch' og løfter henne frem som en av landets største streamere og forbilde for jenter i gaming.",
+        ogImage: "/lovable-uploads/news/emzia-0.jpg",
+        tone: "positive",
+      },
+      {
+        title: "Emzias beste råd: Slik lykkes du på Twitch",
+        url: "https://www.vg.no/annonsorinnhold/smart/komplett/445-emzias-beste-rad-slik-kan-du-lykkes-pa-twitch",
+        source: "VG Partnerstudio",
+        date: "2017-11",
+        summary: "VG-artikkel hvor Emzia deler sine beste tips til nye streamere om utstyr, plan og fellesskap på Twitch.",
+        ogImage: "/lovable-uploads/news/emzia-2.jpg",
+        tone: "positive",
+      },
+      {
+        title: "Premiere på Viaplay 2. desember: Fangene på Fortet er tilbake med 48 kjendiser som gir alt",
+        url: "https://presse.viaplaygroup.no/post/premiere-pa-viaplay-2-desember-fangene-pa-fortet-er-tilbake-med-",
+        source: "Viaplay Group (pressemelding)",
+        date: "2022-12",
+        summary: "Viaplays offisielle pressemelding om Fangene på Fortet-relanseringen, der Emzia var blant de 48 kjendisene som konkurrerte.",
+        ogImage: "/lovable-uploads/news/emzia-5.jpg",
+        tone: "positive",
+      },
+      {
+        title: "Emilie lever av streaming: Får donasjoner av fans som ser henne spille dataspill",
+        url: "https://www.vg.no/sport/i/G178zl/emilie-lever-av-streaming-faar-donasjoner-av-fans-som-ser-henne-spille-dataspill",
+        source: "VG Sport",
+        date: "ukjent",
+        summary: "VG Sport-intervju der Emilie 'Emzia' Helgesen forteller hvordan hun lever av Twitch-streaming og bygger lojalt fellesskap rundt kanalen sin.",
+        ogImage: null,
+        tone: "positive",
+      },
+      {
+        title: "Her er spillerne i den nye sesongen av Forræder",
+        url: "https://kommunikasjon.ntb.no/pressemelding/her-er-spillerne-i-den-nye-sesongen-av-forraeder?publisherId=13318709&releaseId=17956230",
+        source: "TV 2 / NTB Kommunikasjon",
+        date: "ukjent",
+        summary: "Offisiell TV 2-pressemelding som presenterer Emilie 'Emzia' Helgesen som deltaker i sesong 2 av Forræder.",
+        ogImage: null,
+        tone: "neutral",
+      },
+      {
+        title: "Forræder sesong 2 - innspilling på Kongsvinger Festning",
+        url: "https://festningshotellene.no/festningen-hotel-resort/2023/02/15/forraeder-sesong-2/",
+        source: "Festningshotellene",
+        date: "2023-02",
+        summary: "Omtale av innspillingen av Forræder sesong 2 på Kongsvinger Festning, der Emzia var en av de 16 deltakerne som nådde finalen som par.",
+        ogImage: null,
+        tone: "neutral",
+      },
     ],
     twitchClips: [
       { slug: "VastNurturingSeahorseWow", title: "[ENG/NOR]  This game is not dead yet <3", viewCount: 15353, duration: 26, createdAt: "2018-02-04T22:52:55Z", game: "Z1: Battle Royale", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/d77e7543-9f37-47eb-9140-17d859dc2bbc/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/emzia/clip/VastNurturingSeahorseWow" },

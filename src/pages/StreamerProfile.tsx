@@ -203,6 +203,20 @@ const StreamerProfile: React.FC = () => {
             {!c.bannerImage && " · Banner: Twitch-klipp"}
           </p>
 
+          {c.management && (
+            <aside className="mt-6 rounded-2xl bg-muted px-5 py-4 sm:px-6 sm:py-5 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
+              <p className="m-0 flex-1 text-sm sm:text-base text-foreground/85 leading-relaxed">{c.management.note}</p>
+              <div className="flex flex-wrap gap-2 shrink-0">
+                <a href={`mailto:${c.management.email}`} className="inline-flex items-center h-10 px-4 rounded-full bg-foreground text-background text-sm font-semibold">
+                  {c.management.email}
+                </a>
+                <a href={c.management.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center h-10 px-4 rounded-full border border-border text-sm font-semibold text-foreground hover:border-foreground/40">
+                  {c.management.name}
+                </a>
+              </div>
+            </aside>
+          )}
+
           {/* Bio + sosiale lenker */}
           <div className="grid lg:grid-cols-3 gap-x-10 gap-y-6 mt-9">
             <p className="lg:col-span-2 text-lg md:text-xl font-light text-foreground/85 leading-relaxed">
@@ -423,7 +437,9 @@ const StreamerProfile: React.FC = () => {
           </section>
         )}
 
-        {/* Brand CTA - convert the search traffic this profile earns */}
+        {/* Brand CTA - convert the search traffic this profile earns. Left out
+            when the creator's management wants to be the first contact. */}
+        {!c.management && (
         <section className="border-t border-border pt-14 mb-2">
           <div className="rounded-3xl overflow-hidden bg-card border border-border grid md:grid-cols-[1.5fr_1fr] items-stretch">
             <div className="p-8 md:p-12 flex flex-col justify-center">
@@ -456,6 +472,7 @@ const StreamerProfile: React.FC = () => {
             </div>
           </div>
         </section>
+        )}
 
         {/* Prev/next streamer */}
         <nav className="border-t border-border pt-6 mt-10 flex items-center justify-between gap-4 text-sm">

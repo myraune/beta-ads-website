@@ -21,16 +21,12 @@ export type { CreatorProfile };
 
 export type MarketCode = "no" | "se" | "da" | "fi";
 
-/** Creators som har egen profilside. De med `managedBy` står bare i roundupen,
- *  så de holdes ute av profilruten, sitemap og prerender herfra. */
-const withProfile = (list: CreatorProfile[]) => list.filter((c) => !c.managedBy);
-
-/** Creator-lister per marked (kun de med profilside). */
+/** Creator-lister per marked. */
 export const MARKET_CREATORS: Partial<Record<MarketCode, CreatorProfile[]>> = {
-  no: withProfile(NO_CREATORS),
-  se: withProfile(SE_CREATORS),
-  da: withProfile(DA_CREATORS),
-  fi: withProfile(FI_CREATORS),
+  no: NO_CREATORS,
+  se: SE_CREATORS,
+  da: DA_CREATORS,
+  fi: FI_CREATORS,
 };
 
 /** Flat liste over alle creators på tvers av markeder. */

@@ -106,21 +106,11 @@ export const StreamerRoundup: React.FC<Props> = ({ creators, market, copy }) => 
             key={c.handle}
             className="group relative flex flex-col rounded-2xl border border-border/60 bg-card/40 overflow-hidden hover:border-primary/40 hover:bg-card/70 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5 transition-all duration-300"
           >
-            {c.managedBy ? (
-              <a
-                href={c.managedBy.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${c.name}: ${c.managedBy.label}`}
-                className="absolute inset-0 z-10"
-              />
-            ) : (
-              <Link
-                to={`/streamere/${c.handle}`}
-                aria-label={`Les mer om ${c.name}`}
-                className="absolute inset-0 z-10"
-              />
-            )}
+            <Link
+              to={`/streamere/${c.handle}`}
+              aria-label={`Les mer om ${c.name}`}
+              className="absolute inset-0 z-10"
+            />
 
             {/* Banner: mest sette Twitch-klipp */}
             <div className="relative block aspect-[16/9] overflow-hidden bg-muted">
@@ -209,7 +199,7 @@ export const StreamerRoundup: React.FC<Props> = ({ creators, market, copy }) => 
                   ))}
                 </div>
                 <span className="inline-flex items-center gap-1 text-xs font-medium text-primary shrink-0 group-hover:gap-2 transition-all">
-                  {c.managedBy?.label ?? copy.readMore}
+                  {copy.readMore}
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
                 </span>
               </div>
