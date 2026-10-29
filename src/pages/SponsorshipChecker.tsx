@@ -10,8 +10,9 @@ import { UnlockForm, readToken, clearToken } from "@/components/LeadUnlock";
 
 /* Twitch sponsorship checker. Search a channel, then /api/creator-sponsors reads the
    current title, bio and last 100 VOD titles and Claude says which brands sponsor
-   the creator, with the titles as proof. Searching needs a free sign-up (name, work email,
-   company, see components/LeadUnlock.tsx); the top lists below are stored results and stay open. The frames and cards below the search are
+   the creator, with the titles as proof. Searching is free. The creator's business email
+   (from the bio, About panels and bot commands) shows after a free sign-up: name, work email,
+   company, see components/LeadUnlock.tsx. The frames and cards below the search are
    real streams that ran a brand !command on 21 October 2026 (src/data/liveDeals.ts). */
 
 type Hit = { login: string; name: string; avatar: string; live: boolean; game: string; language: string };
@@ -179,21 +180,18 @@ const SponsorshipChecker: React.FC = () => {
   };
 
   const [token, setToken] = useState(readToken);
-  // The channel someone tried to check before signing up; checked as soon as they have.
+  // The creator whose email someone asked for before signing up.
   const [gateFor, setGateFor] = useState<string | null>(null);
 
-  const check = async (login: string, scroll = false, tok = token) => {
+  const check = async (login: string, scroll = false) => {
     const name = login.trim();
     if (!name || loading) return;
-    setQ(name); setOpen(false);
-    if (!tok) { setGateFor(name); return; }
     if (scroll) topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-    setError(""); setResult(null); setLoading(true);
+    setQ(name); setOpen(false); setError(""); setResult(null); setLoading(true);
     try {
-      const r = await fetch("/api/creator-sponsors", { method: "POST", headers: { "content-type": "application/json", "x-creative-token": tok }, body: JSON.stringify({ login: name }) });
+      const r = await fetch("/api/creator-sponsors", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ login: name }) });
       const d = await r.json();
-      if (d.gate) { clearToken(); setToken(""); setGateFor(name); }
-      else if (!r.ok) setError(d.error ?? "The check failed.");
+      if (!r.ok) setError(d.error ?? "The check failed.");
       else setResult(d);
     } catch {
       setError("The check failed. Try again in a minute.");
@@ -202,12 +200,9 @@ const SponsorshipChecker: React.FC = () => {
     }
   };
 
-  const unlocked = (t: string) => {
-    setToken(t);
-    const pending = gateFor;
-    setGateFor(null);
-    if (pending) check(pending, true, t);
-  };
+  const unlocked = (t: string) => { setToken(t); setGateFor(null); };
+  // A token the server no longer accepts (expired, secret rotated): ask again.
+  const tokenRejected = () => { clearToken(); setToken(""); };
 
   const [kind, setKind] = useState(0);
   const idle = !loading && !result && !error;
@@ -223,12 +218,11 @@ const SponsorshipChecker: React.FC = () => {
 
       <Dialog open={gateFor !== null} onOpenChange={o => { if (!o) setGateFor(null); }}>
         <DialogContent className="max-w-md rounded-3xl p-8">
-          <DialogTitle className="text-2xl font-semibold tracking-tight">Sign up to search</DialogTitle>
+          <DialogTitle className="text-2xl font-semibold tracking-tight">See the business email</DialogTitle>
           <DialogDescription className="text-[15px] leading-relaxed">
-            Free. Leave your name, work email and company and check{gateFor ? <> <b className="text-foreground font-semibold">{gateFor}</b> and</> : null} any other Twitch streamer.
+            Free. Leave your name, work email and company to see {gateFor ? <b className="text-foreground font-semibold">{gateFor}</b> : "the creator"}'s contact email, and every other streamer's you check.
           </DialogDescription>
-          <div className="mt-2"><UnlockForm id="sc-gate" source="sponsorship-checker" cta="Search" layout="stack" onUnlocked={unlocked} /></div>
-          <p className="m-0 text-xs text-muted-foreground">The top lists below are open to everyone.</p>
+          <div className="mt-2"><UnlockForm id="sc-gate" source="sponsorship-checker" cta="Show email" layout="stack" onUnlocked={unlocked} /></div>
         </DialogContent>
       </Dialog>
 
@@ -327,7 +321,7 @@ const SponsorshipChecker: React.FC = () => {
       ) : (
         <section className={`${W} pt-12 pb-20 min-h-[240px]`} aria-live="polite">
           {error && <p className="max-w-2xl mx-auto rounded-2xl border border-border p-6 text-sm m-0">{error}</p>}
-          {result && <ResultView r={result} />}
+          {result && <ResultView r={result} token={token} onGate={() => setGateFor(result.creator.name)} onTokenRejected={tokenRejected} />}
         </section>
       )}
 
@@ -609,7 +603,57 @@ const SponsorCard: React.FC<{ s: Sponsor }> = ({ s }) => (
   </article>
 );
 
-const ResultView: React.FC<{ r: Result }> = ({ r }) => {
+type Contact = { count: number; gate?: boolean; emails?: { email: string; source: "bio" | "panel" | "command" }[] };
+const SOURCE_LABEL = { bio: "Twitch bio", panel: "About panel", command: "Chat command" } as const;
+
+/** The creator's business email. The server says how many it found to anyone and sends the
+    addresses only with a sign-up token, so nothing sits behind the blur. */
+const ContactBox: React.FC<{ login: string; token: string; onGate: () => void; onTokenRejected: () => void }> = ({ login, token, onGate, onTokenRejected }) => {
+  const [data, setData] = useState<Contact | null>(null);
+  useEffect(() => {
+    let live = true;
+    setData(null);
+    fetch(`/api/creator-sponsors?contact=${encodeURIComponent(login)}`, { headers: token ? { "x-creative-token": token } : {} })
+      .then(r => (r.ok ? r.json() : { count: 0 }))
+      .then((d: Contact) => { if (!live) return; if (token && d.gate) onTokenRejected(); setData(d); })
+      .catch(() => live && setData({ count: 0 }));
+    return () => { live = false; };
+  }, [login, token]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  return (
+    <div className="rounded-2xl border border-border bg-card p-5 md:p-6 text-sm mb-4">
+      <div className={`${kicker} mb-3`}>Business email</div>
+      {!data ? (
+        <p className="m-0 text-muted-foreground inline-flex items-center gap-2"><Loader2 className="w-3.5 h-3.5 animate-spin" />Reading the profile…</p>
+      ) : data.count === 0 ? (
+        <p className="m-0 text-muted-foreground leading-relaxed">No public email in the bio, the About panels or the chat commands.</p>
+      ) : data.emails ? (
+        <ul className="m-0 p-0 list-none space-y-3">
+          {data.emails.map(e => (
+            <li key={e.email} className="min-w-0">
+              <a href={`mailto:${e.email}`} className="font-semibold break-all hover:opacity-70">{e.email}</a>
+              <span className="block text-xs text-muted-foreground">{SOURCE_LABEL[e.source]}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <>
+          <div aria-hidden="true" className="space-y-2 select-none">
+            {Array.from({ length: Math.min(data.count, 3) }, (_, i) => (
+              <div key={i} className="font-semibold blur-[5px] text-foreground/80">{["business", "contact", "partners"][i]}@channelmail.com</div>
+            ))}
+          </div>
+          <p className="mt-3 mb-4 text-muted-foreground leading-relaxed">{data.count === 1 ? "1 email found" : `${data.count} emails found`} on the profile.</p>
+          <button type="button" onClick={onGate} className="w-full h-10 rounded-full bg-primary text-primary-foreground text-sm font-semibold hover:opacity-90 transition-opacity">
+            Show email
+          </button>
+        </>
+      )}
+    </div>
+  );
+};
+
+const ResultView: React.FC<{ r: Result; token: string; onGate: () => void; onTokenRejected: () => void }> = ({ r, token, onGate, onTokenRejected }) => {
   const c = r.creator;
   return (
     <div className="grid lg:grid-cols-[minmax(0,1fr)_340px] gap-8 items-start text-left">
@@ -641,6 +685,8 @@ const ResultView: React.FC<{ r: Result }> = ({ r }) => {
         )}
       </div>
 
+      <div>
+      <ContactBox login={c.login} token={token} onGate={onGate} onTokenRejected={onTokenRejected} />
       <aside className="rounded-2xl bg-muted/60 p-5 md:p-6 text-sm">
         <div className={`${kicker} mb-3`}>What we read</div>
         <p className="m-0 text-muted-foreground leading-relaxed">
@@ -658,6 +704,7 @@ const ResultView: React.FC<{ r: Result }> = ({ r }) => {
           </>
         )}
       </aside>
+      </div>
     </div>
   );
 };

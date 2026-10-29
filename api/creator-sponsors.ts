@@ -5,8 +5,10 @@ import { tokenValid } from "./_lib/creatives.js";
 
 /* Sponsorship checker for /twitch-sponsorship-checker.
    GET  ?q=name   -> channel search (Twitch Helix), for the autocomplete.
-   POST {login}   -> (needs the x-creative-token a visitor gets by signing up, see
-                     api/creatives.ts) reads the creator's current title, bio, last 100 VOD titles and
+   GET  ?contact=name -> business emails from the bio, the About panels and the bot
+                     commands. Without the x-creative-token a visitor gets by signing up
+                     (api/creatives.ts) it returns only how many it found.
+   POST {login}   -> reads the creator's current title, bio, last 100 VOD titles and
                      public chat bot commands (Nightbot, StreamElements), and asks
                      Claude which brands sponsor them.
    Runs as a Vercel function in production and through the dev middleware in
@@ -75,6 +77,44 @@ async function botCommands(login: string): Promise<Omit<Title, "id" | "lastDate"
     .sort((a, b) => b.at.localeCompare(a.at))
     .slice(0, 150)
     .map(c => ({ date: c.at.slice(0, 10), text: `${c.name}: ${c.reply}`, url: c.url, source: "command" as const }));
+}
+
+/* The About panels under the stream. Helix has no endpoint for them; Twitch's own web
+   client reads them from gql.twitch.tv with its public client id. */
+async function panels(login: string): Promise<string[]> {
+  const r = await fetch("https://gql.twitch.tv/gql", {
+    method: "POST",
+    headers: { "Client-Id": "kimne78kx3ncx6brgo4mv6wki5h1ko", "content-type": "application/json" },
+    body: JSON.stringify({ query: `query{user(login:${JSON.stringify(login)}){panels{... on DefaultPanel{title description linkURL}}}}` }),
+    signal: AbortSignal.timeout(6000),
+  }).then(res => (res.ok ? res.json() : null)).catch(() => null);
+  return (r?.data?.user?.panels ?? []).flatMap((p: any) => [p?.title, p?.description, p?.linkURL]).filter(Boolean);
+}
+
+const EMAIL = /[a-z0-9._%+-]+(?:@|\s?[[(]at[\])]\s?)[a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-z]{2,}/gi;
+const contactCache = new Map<string, { at: number; emails: { email: string; source: "bio" | "panel" | "command" }[] }>();
+
+/* Business emails a creator publishes: bio, About panels ("Business: x@y.com", mailto links),
+   and bot commands such as !business or !email. Writes "name [at] domain" out in full. */
+async function contactEmails(login: string) {
+  const hit = contactCache.get(login);
+  if (hit && Date.now() - hit.at < CACHE_MS) return hit.emails;
+  const u = (await helix(`users?login=${encodeURIComponent(login)}`)).data?.[0];
+  if (!u) return [];
+  const [panelText, commands] = await Promise.all([panels(u.login), botCommands(u.login)]);
+  const found = new Map<string, "bio" | "panel" | "command">();
+  const scan = (text: string, source: "bio" | "panel" | "command") => {
+    for (const m of text.match(EMAIL) ?? []) {
+      const email = m.toLowerCase().replace(/^mailto:/, "").replace(/\s?[[(]at[\])]\s?/, "@");
+      if (!found.has(email) && !/\.(png|jpe?g|gif|webp)$/.test(email)) found.set(email, source);
+    }
+  };
+  scan(u.description ?? "", "bio");
+  panelText.forEach(t => scan(t, "panel"));
+  commands.forEach(c => scan(c.text, "command"));
+  const emails = [...found].map(([email, source]) => ({ email, source }));
+  contactCache.set(login, { at: Date.now(), emails });
+  return emails;
 }
 
 /* Same title streamed many days in a row collapses to one line with a date range. */
@@ -212,7 +252,19 @@ function allow(ip: string) {
 }
 
 export async function GET(request: Request) {
-  const q = (new URL(request.url).searchParams.get("q") ?? "").trim();
+  const params = new URL(request.url).searchParams;
+  const contact = (params.get("contact") ?? "").trim().toLowerCase();
+  if (contact) {
+    if (!/^[a-z0-9_]{2,25}$/.test(contact)) return json({ error: "Enter a Twitch channel name." }, 400);
+    try {
+      const emails = await contactEmails(contact);
+      if (!tokenValid(request.headers.get("x-creative-token"))) return json({ count: emails.length, gate: true });
+      return json({ count: emails.length, emails });
+    } catch {
+      return json({ error: "Could not read the profile right now." }, 502);
+    }
+  }
+  const q = (params.get("q") ?? "").trim();
   if (q.length < 2 || q.length > 40) return json({ results: [] });
   try {
     const r = await helix(`search/channels?first=8&query=${encodeURIComponent(q)}`);
@@ -227,7 +279,6 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
-  if (!tokenValid(request.headers.get("x-creative-token"))) return json({ error: "Sign up to search.", gate: true }, 401);
   let login = "";
   try {
     login = String((await request.json()).login ?? "").trim().toLowerCase().replace(/^.*twitch\.tv\//, "").replace(/[/?#].*$/, "");
