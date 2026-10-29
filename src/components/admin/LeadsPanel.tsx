@@ -8,9 +8,9 @@ import { adminFetch } from "./shared";
 
 export type Lead = { name?: string; email: string; company?: string; country?: string; at: string; referrer?: string; source?: string; message?: string };
 
-const SOURCES = { "creative-library": "Library", "sponsorship-checker": "Checker", demo: "Demo" } as const;
-type Source = keyof typeof SOURCES;
-const sourceOf = (l: Lead): Source => (l.source && l.source in SOURCES ? (l.source as Source) : "creative-library");
+export const SOURCES = { "creative-library": "Library", "sponsorship-checker": "Checker", demo: "Demo" } as const;
+export type Source = keyof typeof SOURCES;
+export const sourceOf = (l: Lead): Source => (l.source && l.source in SOURCES ? (l.source as Source) : "creative-library");
 
 /** A ready email Andreas sends himself (mailto opens his own mail app), never sent by the site. */
 const accessMail = (l: Lead) => {

@@ -1,25 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { adminFetch } from "./shared";
+import { adminFetch, Kpi } from "./shared";
 import type { Lead } from "./LeadsPanel";
 
 /* Traffic tab of /admin: beta-ads.no visitors from the HQ tracker, set against
    the leads the site collected in the same days. */
 
 type Row = { key: string | null; visitors: number; views: number };
-type Stats = {
+export type Stats = {
   days: number; live: number; visitors: number; views: number; prevVisitors: number; engagedMs: number | null;
   byDay: { day: string; value: number }[]; pages: Row[]; referrers: Row[]; countries: Row[]; sources: Row[];
 };
 const RANGES = [7, 28, 90, 365] as const;
 const nf = new Intl.NumberFormat("en-GB");
-
-const Kpi: React.FC<{ label: string; value: string; note?: string }> = ({ label, value, note }) => (
-  <div className="rounded-[14px] border border-border bg-card px-5 py-4">
-    <div className="text-[13px] text-muted-foreground">{label}</div>
-    <div className="mt-1 text-2xl font-semibold tabular-nums">{value}</div>
-    {note && <div className="mt-0.5 text-xs text-muted-foreground tabular-nums">{note}</div>}
-  </div>
-);
 
 const Table: React.FC<{ title: string; rows: Row[]; empty: string; fmt?: (k: string | null) => string }> = ({ title, rows, empty, fmt = (k) => k || "—" }) => {
   const max = Math.max(1, ...rows.map((r) => r.visitors));
