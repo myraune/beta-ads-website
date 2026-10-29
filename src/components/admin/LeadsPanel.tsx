@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { adminFetch } from "./shared";
 
 /* Leads tab of /admin: everyone who left their details on the site, newest
-   first. Library requests need Andreas' approval before the library opens. */
+   first. Library requests need Andreas' approval before the library opens.
+   Any other lead can be given access too: every form issues the same
+   email-bound token, so the library opens in the browser they used. */
 
 export type Lead = { name?: string; email: string; company?: string; country?: string; at: string; referrer?: string; source?: string; message?: string };
 
@@ -74,14 +76,17 @@ const LeadsPanel: React.FC<{ leads: Lead[]; approved: string[]; setApproved: (a:
               </span>
               <span className="shrink-0 flex items-center gap-2">
                 {s === "demo" && <a href={`mailto:${l.email}?subject=${encodeURIComponent("Re: your demo request")}`} className="h-8 px-3 inline-flex items-center rounded-lg border border-border text-xs font-semibold">Reply</a>}
-                {s === "creative-library" && (isOk(l) ? (
+                {isOk(l) ? (
                   <>
                     <a href={accessMail(l)} className="h-8 px-3 inline-flex items-center rounded-lg border border-border text-xs font-semibold">Email them</a>
                     <button type="button" onClick={() => approve(l.email, false)} className="h-8 px-3 rounded-lg text-xs font-semibold text-muted-foreground">Revoke</button>
                   </>
                 ) : (
-                  <button type="button" onClick={() => approve(l.email, true)} className="h-8 px-3 rounded-lg bg-primary text-primary-foreground text-xs font-semibold">Approve</button>
-                ))}
+                  <button type="button" onClick={() => approve(l.email, true)}
+                    className={`h-8 px-3 rounded-lg text-xs font-semibold ${s === "creative-library" ? "bg-primary text-primary-foreground" : "border border-border"}`}>
+                    {s === "creative-library" ? "Approve" : "Give library access"}
+                  </button>
+                )}
               </span>
             </li>
           );
