@@ -219,7 +219,7 @@ const SponsorshipChecker: React.FC = () => {
     <div className="min-h-screen bg-background text-foreground">
       <SEO
         title="Twitch Sponsor Checker: Who Sponsors a Streamer? | Beta Ads"
-        description="Search any Twitch streamer and see which brands sponsor them. We read stream titles, the bio, the last 100 VODs and the chat bot commands, and show the proof for every deal."
+        description="Search any Twitch streamer and see which brands sponsor them. We read titles, the bio, the last 100 VODs and chat bot commands, with proof for each deal."
         canonical="/twitch-sponsorship-checker"
         ogType="website"
         jsonLd={[

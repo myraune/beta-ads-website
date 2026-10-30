@@ -1,13 +1,21 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
 // Homepage "31 Final / Platform" (approved static design, ported 1:1 in
 // src/components/home-final). It renders its own nav and footer; Layout hides the
 // site-wide ones on "/". The v2 home/* and SP* sections are kept as files.
 import { HomeFinal, finalFaqs } from "@/components/home-final/HomeFinal";
+import { HERO_POSTER } from "@/components/home-final/heroPlayer";
 
 const Index: React.FC = () => {
   return (
     <>
+      {/* The hero poster is the mobile LCP. It is drawn inside the lazy Index
+          chunk, so the preload scanner cannot find it in the static HTML. This
+          lands in the prerendered / only, not on every route. */}
+      <Helmet>
+        <link rel="preload" as="image" href={HERO_POSTER} {...{ fetchpriority: "high" }} />
+      </Helmet>
       <SEO
         title="Beta Ads | The platform for livestream ads"
         description="Find streamers, launch animated brand overlays and read the report in one platform for Twitch, YouTube and Kick. Pay per 1,000 views that played."

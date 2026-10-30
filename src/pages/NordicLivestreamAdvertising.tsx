@@ -62,7 +62,7 @@ const NordicLivestreamAdvertising: React.FC = () => {
   return (
     <MarketingPageLayout
       seo={{
-        title: "Nordic Livestream Advertising: A Brand Field Guide | Beta Ads",
+        title: "Nordic Livestream Advertising: Brand Field Guide | Beta Ads",
         description:
           "Who is watching, which platforms matter, what Nordic inventory exists and what native overlay campaigns deliver. A field guide with real campaign results.",
         canonical: "/nordic-livestream-advertising",

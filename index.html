@@ -2,10 +2,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Google tag (gtag.js). Added 2026-09-15 so the SEO test has a
+    <!-- Google tag (gtag.js), loaded after first paint (see below). Added 2026-09-15 so the SEO test has a
          measurement layer: Vercel Web Analytics was never enabled on the
          project, so every conversion event since 13 July was dropped. -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VW901DS4HY"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -25,6 +24,30 @@
       });
       gtag('js', new Date());
       gtag('config', 'G-VW901DS4HY');
+      // gtag.js (~190 KB) is fetched after the load event, or on the first
+      // scroll, tap or key press if that comes sooner. Loaded async in the head
+      // it shared the mobile connection with the hero image and pushed LCP
+      // out by over a second. Hits queued in dataLayer above are sent once it
+      // arrives, so the page_view is not lost.
+      (function () {
+        var done = false;
+        var evs = ['scroll', 'pointerdown', 'keydown', 'touchstart'];
+        function loadGtag() {
+          // Never during the prerender capture (headless Chrome under
+          // automation): an injected tag would be baked into the static HTML
+          // and gtag.js would then load twice for real visitors.
+          if (done || navigator.webdriver) return;
+          done = true;
+          evs.forEach(function (e) { removeEventListener(e, loadGtag); });
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtag/js?id=G-VW901DS4HY';
+          document.head.appendChild(s);
+        }
+        evs.forEach(function (e) { addEventListener(e, loadGtag, { once: true, passive: true }); });
+        if (document.readyState === 'complete') loadGtag();
+        else addEventListener('load', loadGtag, { once: true });
+      })();
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -48,15 +71,32 @@
       }
     </style>
 
-    <!-- Fonts & performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Preload the homepage hero LCP image (the stream frame drawn by the hero player in home-final). It's
-         rendered only inside the lazy-loaded Index chunk, so the browser's preload scanner can't
-         discover it from static HTML; this starts the fetch in parallel with the
-         JS bundle instead of waiting for React to mount. -->
-    <link rel="preload" as="image" href="/home/samsung-s25-stream-a.jpg" fetchpriority="high" />
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+    <!-- Fonts & performance. Manrope is self-hosted (variable 300-800, latin +
+         latin-ext, copied from Google Fonts v23) so no third-party stylesheet
+         blocks first paint. The latin file is preloaded because every page's
+         LCP is text or sits under text set in Manrope. -->
+    <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <style>
+      @font-face {
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 300 800;
+        font-display: swap;
+        src: url(/fonts/manrope-latin-ext.woff2) format('woff2');
+        unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+      }
+      @font-face {
+        font-family: 'Manrope';
+        font-style: normal;
+        font-weight: 300 800;
+        font-display: swap;
+        src: url(/fonts/manrope-latin.woff2) format('woff2');
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+    </style>
+    <!-- The homepage hero poster is preloaded by the homepage itself (Index.tsx,
+         via Helmet, so it lands in the prerendered / only). A preload here went
+         out at high priority on every route and competed with /pricing's CSS. -->
     <link rel="dns-prefetch" href="//www.youtube.com" />
     <link rel="dns-prefetch" href="//discord.com" />
     <link rel="dns-prefetch" href="//twitch.tv" />

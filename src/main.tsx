@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { HelmetProvider } from 'react-helmet-async'
-import App from './App.tsx'
+import App, { preloadRoute } from './App.tsx'
 import './index.css'
 
 /**
@@ -36,5 +36,8 @@ if (slugMatch) {
     .catch(() => {})
     .then(mount);
 } else {
-  mount();
+  // Landing pages (/, /pricing) load their route chunk first for the same
+  // reason: React's first render then matches the prerendered markup instead
+  // of a blank Suspense cover. Any other path resolves immediately.
+  preloadRoute(window.location.pathname).catch(() => {}).then(mount);
 }

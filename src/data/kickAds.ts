@@ -270,7 +270,7 @@ export interface KickCopy {
 }
 
 const EN: KickCopy = {
-  seoTitle: "Kick Advertising in the Nordics: Formats and Prices | Beta Ads",
+  seoTitle: "Kick Advertising in the Nordics: Formats, Prices | Beta Ads",
   seoDescription:
     "Kick's 2026 media kit says one in five Kick and Twitch hours in Northern Europe is watched on Kick. Formats, prices and how Beta Ads puts brands on Kick.",
   ogAlt: "Kick advertising in the Nordics, by Beta Ads",

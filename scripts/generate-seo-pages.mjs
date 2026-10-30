@@ -79,7 +79,7 @@ const STATIC_PAGES = [
     route: "/streamers",
     title: "Earn from Your Stream | Beta Ads Streamer Program",
     description:
-      "Get real brand deals on Twitch, YouTube & Kick. Accept offers you like, skip the rest. No minimum followers, no contracts. Join 39,000+ streamers on Beta Ads.",
+      "Get real brand deals on Twitch, YouTube & Kick. Accept offers you like, skip the rest. No minimum followers, no contracts. Join 39,000+ streamers.",
     locale: "en",
   },
   {
@@ -210,7 +210,7 @@ const STATIC_PAGES = [
   {
     // Kick cluster: five languages, one hreflang set. Copy in src/data/kickAds.ts.
     route: "/kick-advertising",
-    title: "Kick Advertising in the Nordics: Formats and Prices | Beta Ads",
+    title: "Kick Advertising in the Nordics: Formats, Prices | Beta Ads",
     description:
       "Kick's 2026 media kit says one in five Kick and Twitch hours in Northern Europe is watched on Kick. Formats, prices and how Beta Ads puts brands on Kick.",
     locale: "en",
@@ -391,7 +391,7 @@ const STATIC_PAGES = [
   },
   {
     route: "/nordic-livestream-advertising",
-    title: "Nordic Livestream Advertising: A Brand Field Guide | Beta Ads",
+    title: "Nordic Livestream Advertising: Brand Field Guide | Beta Ads",
     description:
       "Who is watching, which platforms matter, what Nordic inventory exists and what native overlay campaigns deliver. A field guide with real campaign results.",
     locale: "en",
@@ -405,7 +405,7 @@ const STATIC_PAGES = [
   },
   {
     route: "/tiktok-live-advertising",
-    title: "TikTok LIVE Advertising: Ads Inside Creator Streams | Beta Ads",
+    title: "TikTok LIVE Advertising: Ads in Creator Streams | Beta Ads",
     description:
       "New on Beta Ads: animated brand overlays inside TikTok LIVE streams, next to Twitch, YouTube and Kick. Talk to us about running a first TikTok LIVE campaign.",
     locale: "en",
@@ -435,7 +435,7 @@ const STATIC_PAGES = [
     route: "/twitch-sponsorship-checker",
     title: "Twitch Sponsor Checker: Who Sponsors a Streamer? | Beta Ads",
     description:
-      "Search any Twitch streamer and see which brands sponsor them. We read stream titles, the bio, the last 100 VODs and the chat bot commands, and show the proof for every deal.",
+      "Search any Twitch streamer and see which brands sponsor them. We read titles, the bio, the last 100 VODs and chat bot commands, with proof for each deal.",
     locale: "en",
   },
   {
@@ -454,7 +454,7 @@ const STATIC_PAGES = [
   },
   {
     route: "/creative-library",
-    title: "Creative Library: Livestream Overlay Ideas by Industry | Beta Ads",
+    title: "Creative Library: Livestream Overlay Ideas | Beta Ads",
     description:
       "Animated overlays for brands on Twitch, YouTube and Kick, sorted by industry: campaigns we ran, concepts made for pitches and partner-network examples.",
     locale: "en",
@@ -468,7 +468,7 @@ const STATIC_PAGES = [
   },
   {
     route: "/brand-safety",
-    title: "Brand Safety for Livestream Ads: Swearing Detected | Beta Ads",
+    title: "Brand Safety for Livestream Ads: Swearing Check | Beta Ads",
     description:
       "Every ad play on Twitch, YouTube and Kick is recorded, transcribed, translated into English and checked for swearing, then rated no, low, medium or high risk.",
     locale: "en",
@@ -1154,7 +1154,7 @@ function main() {
   if (COMPARE_PUBLISHED) {
   writeShell(path.join(DIST, "compare", "index.html"), injectMeta(shell, {
     title: "Beta Ads alternatives and comparisons | Beta Ads",
-    description: "How Beta Ads compares with Twitch Ads, StreamElements, inStreamly, UpliftU, Lurkit, Wehype, Juno, Uplify, Loots and influencer agencies for livestream advertising in the Nordics. Sourced, dated, and honest about when the other option fits better.",
+    description: "How Beta Ads compares with Twitch Ads, StreamElements, inStreamly, Lurkit and influencer agencies for Nordic livestream ads. Sourced, dated and honest.",
     canonical: "/compare",
     locale: "en",
   }));

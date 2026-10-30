@@ -59,7 +59,7 @@ export const NordicFlags = () => (
 /** A real frame from the Samsung S25 verification wall, with the check count. */
 export const VerifyThumb = () => (
   <span className="dthumb dthumb--img" aria-hidden="true">
-    <img src="/home/samsung-s25-wall.jpg" alt="" loading="lazy" />
+    <img src="/home/samsung-s25-wall-1280.webp" alt="" loading="lazy" />
     <span className="dthumb__chip"><span className="live-dot" />25 of 25 checked</span>
   </span>
 );

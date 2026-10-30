@@ -17,7 +17,7 @@ import { PanelFrame, ClipReviewPanel } from "@/components/home-final/product-pan
    transcript.
    The per-channel table is labelled example UI. */
 
-const TITLE = "Brand Safety for Livestream Ads: Swearing Detected | Beta Ads";
+const TITLE = "Brand Safety for Livestream Ads: Swearing Check | Beta Ads";
 const DESCRIPTION =
   "Every ad play on Twitch, YouTube and Kick is recorded, transcribed, translated into English and checked for swearing, then rated no, low, medium or high risk.";
 

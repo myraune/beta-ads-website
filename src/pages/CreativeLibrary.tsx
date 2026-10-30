@@ -12,7 +12,7 @@ import { UnlockForm, readToken } from "@/components/LeadUnlock";
    sent back as x-creative-token). The API returns the items in library order.
    Items come from the Blob manifest, added through /admin. */
 
-const TITLE = "Creative Library: Livestream Overlay Ideas by Industry | Beta Ads";
+const TITLE = "Creative Library: Livestream Overlay Ideas | Beta Ads";
 const DESCRIPTION =
   "Animated overlays for brands on Twitch, YouTube and Kick, sorted by industry: campaigns we ran, concepts made for pitches and partner-network examples.";
 type Kind = "all" | CreativeKind;

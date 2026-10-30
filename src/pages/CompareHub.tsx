@@ -13,7 +13,7 @@ const CompareHub: React.FC = () => (
   <>
     <SEO
       title="Beta Ads alternatives and comparisons | Beta Ads"
-      description="How Beta Ads compares with Twitch Ads, StreamElements, inStreamly, UpliftU, Lurkit, Wehype, Juno, Uplify, Loots and influencer agencies for livestream advertising in the Nordics. Sourced, dated, and honest about when the other option fits better."
+      description="How Beta Ads compares with Twitch Ads, StreamElements, inStreamly, Lurkit and influencer agencies for Nordic livestream ads. Sourced, dated and honest."
       canonical="/compare"
       jsonLd={[
         {

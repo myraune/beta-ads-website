@@ -106,8 +106,8 @@ export const competitors: Competitor[] = [
     focus: "Global; Twitch Creator Sponsorships in 17 countries, Sweden the only Nordic one",
     score: { inStream: ["partial", "Video takes over the player; skins sit around it; readouts are live"], custom: ["partial", "Your own video; sponsorship skins are templated and static"], platforms: ["partial", "Twitch only"], nordic: ["partial", "Video via Amazon DSP in the Nordics; sponsorships in Sweden only"], price: ["no", "Says minimum spend, no figure"], refund: ["unknown"], dashboard: ["yes", "Amazon DSP reporting"], chatCmd: ["unknown"], poll: ["unknown"], clips: ["unknown"], chatTracking: ["unknown"], managed: ["yes", "Managed through Amazon Ads"], selfServe: ["yes", "Amazon DSP self-service"] },
     kind: "Twitch's own ads, bought through Amazon",
-    title: "Beta Ads vs Twitch Ads (Amazon DSP): livestream ads for Nordic brands | Beta Ads",
-    description: "Twitch Ads are video, display and Creator Sponsorship formats sold by Amazon Ads. Beta Ads puts a custom animated overlay inside the stream itself. Formats, buying, Nordic availability and pricing compared, with sources.",
+    title: "Beta Ads vs Twitch Ads (Amazon DSP) for Nordic brands",
+    description: "Twitch Ads are video, display and sponsorship formats sold by Amazon Ads. Beta Ads puts an animated overlay inside the stream. Formats and prices compared.",
     summary: "Twitch Ads are video, display and sponsorship formats sold through Amazon Ads. Beta Ads puts your brand inside the stream itself, as a custom animated overlay, priced per 1,000 played views.",
     rows: [
       ["What runs", "Custom animated overlay in a corner of the stream, rendered in the streamer's broadcast", "Unskippable video, display units around the player, and Creator Sponsorships with channel skins and readouts"],

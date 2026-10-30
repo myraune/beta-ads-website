@@ -6,7 +6,9 @@
  *
  * Returns { draw, destroy } so the page can redraw on theme change and clean up.
  */
-export const HERO_POSTER = "/home/samsung-s25-stream-a.jpg";
+// 1280x720 WebP of the same frame as samsung-s25-stream-a.jpg (65 KB vs 128 KB).
+// It is the mobile LCP, so its weight is the LCP load time on a slow connection.
+export const HERO_POSTER = "/home/samsung-s25-stream-a-1280.webp";
 export const HERO_VIDEO = "/home/samsung-s25-stream-a.mp4";
 
 type G = { W: number; H: number; dx: number; dy: number; dw: number; dh: number; ox: number; oy: number; ow: number; oh: number };

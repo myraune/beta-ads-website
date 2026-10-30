@@ -239,7 +239,7 @@ export const LivePanel: React.FC<{ reveal?: boolean }> = ({ reveal = true }) => 
     <div className={`panel panel--live dui${rv}`} role="img" aria-label="Live view: one overlay running across 25 streams at once, with a setup verification list beside it.">
       <div className="wall">
         <div className="wall-crop">
-          <video data-end="4.7" muted playsInline loop preload="none" poster="/home/samsung-s25-wall.jpg" aria-hidden="true" tabIndex={-1}>
+          <video data-end="4.7" muted playsInline loop preload="none" poster="/home/samsung-s25-wall-1280.webp" aria-hidden="true" tabIndex={-1}>
             <source src="/home/samsung-s25-wall.mp4" type="video/mp4" />
           </video>
         </div>

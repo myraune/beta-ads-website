@@ -13,12 +13,13 @@ import { EngagementTracker } from "@/components/EngagementTracker";
 import blogPhotos from "virtual:blog-photos";
 import { registerPhotos } from "@/lib/blogImage";
 import { installLucideA11yPatch } from "@/lib/a11y-icons";
+import { lazyRoute } from "@/lib/lazyRoute";
 
 // Register user-uploaded blog photos from /public/blog-photos/ folders
 registerPhotos(blogPhotos);
 
 // Entry pages
-const Index = lazy(() => import("./pages/Index"));
+const Index = lazyRoute(() => import("./pages/Index"));
 const Streamers = lazy(() => import("./pages/Streamers"));
 
 // Other pages - lazy, no forced delay
@@ -36,7 +37,7 @@ const TwitchAgencyNorway = lazy(() => import("./pages/TwitchAgencyNorway"));
 const LivestreamChatEngagement = lazy(() => import("./pages/LivestreamChatEngagement"));
 const CampaignCompliance = lazy(() => import("./pages/CampaignCompliance"));
 const BrandSafety = lazy(() => import("./pages/BrandSafety"));
-const Pricing = lazy(() => import("./pages/Pricing"));
+const Pricing = lazyRoute(() => import("./pages/Pricing"));
 const CreativeLibrary = lazy(() => import("./pages/CreativeLibrary"));
 const Admin = lazy(() => import("./pages/Admin"));
 const CampaignBuilder = lazy(() => import("./pages/CampaignBuilder"));
@@ -86,6 +87,17 @@ const SelfServe = lazy(() => import("./pages/SelfServe"));
 const StreamerProfile = lazy(() => import("./pages/StreamerProfile"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Privacy = lazy(() => import("./pages/Privacy"));
+
+/**
+ * Landing routes whose chunk main.tsx loads before mounting, so the prerendered
+ * page is never replaced by the blank Suspense cover (see lib/lazyRoute.ts).
+ */
+const PRELOAD_ROUTES: Record<string, { preload: () => Promise<void> }> = {
+  "/": Index,
+  "/pricing": Pricing,
+};
+export const preloadRoute = (pathname: string): Promise<void> =>
+  PRELOAD_ROUTES[pathname.replace(/(.)\/+$/, "$1")]?.preload() ?? Promise.resolve();
 
 const queryClient = new QueryClient();
 
