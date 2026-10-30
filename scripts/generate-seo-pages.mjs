@@ -374,6 +374,9 @@ const STATIC_PAGES = [
     description:
       "Slik når du gamere i Norge: influencer-avtale med én streamer, annonse inne i sendingen hos mange, eller Twitch-annonse. Se forskjellen på en ekte sending.",
     locale: "no",
+    image: "/lovable-uploads/og/gaming-influencer-byra-norge.jpg",
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
   },
   {
     route: "/sponse-streamer-pris",
@@ -381,6 +384,9 @@ const STATIC_PAGES = [
     description:
       "Regn om et sponsortilbud til pris per 1 000 seere med ekte Twitch-seertall. Hva honoraret bygger på, og hva du bør avtale før du signerer.",
     locale: "no",
+    image: "/lovable-uploads/og/sponse-streamer-pris.jpg",
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
   },
   {
     route: "/beste-twitch-byra-norge",
@@ -388,6 +394,9 @@ const STATIC_PAGES = [
     description:
       "Kart over byråene som jobber med Twitch og gaming-streamere i Norge: hva de gjør, hvordan de tar betalt og hvem de passer for. Alle fakta med kilde.",
     locale: "no",
+    image: "/lovable-uploads/og/beste-twitch-byra-norge.jpg",
+    ogImageWidth: 1200,
+    ogImageHeight: 630,
   },
   {
     route: "/nordic-livestream-advertising",
