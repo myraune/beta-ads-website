@@ -41,6 +41,11 @@ const SECTIONS = [
     routes: ["/pricing", "/twitch-advertising-cost", "/twitch-annonsering-pris", "/kick-advertising-cost"],
   },
   {
+    title: "Guides for buyers in Norway",
+    note: "Norwegian-language guides: agency types, what a streamer sponsorship costs, and a sourced overview of agencies.",
+    routes: ["/gaming-influencer-byra-norge", "/sponse-streamer-pris", "/beste-twitch-byra-norge"],
+  },
+  {
     title: "Campaign results",
     note: "Named Norwegian and Nordic clients with the setup and the numbers.",
     routes: ["/case-studies", "/case-study/samsung", "/case-study/kristiania", "/case-study/komplett",

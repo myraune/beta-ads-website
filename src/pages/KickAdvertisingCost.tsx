@@ -8,7 +8,7 @@ import { MascotBand } from "@/components/sections/MascotBand";
 
 
 const stats = [
-  { value: "200–300 kr", label: "Effective CPM" },
+  { value: "100–300 kr", label: "Effective CPM" },
   { value: "2", label: "Pricing models" },
   { value: "5", label: "Cost drivers" },
   { value: "0", label: "Public rate cards" },
@@ -140,7 +140,7 @@ const KickAdvertisingCost: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "FAQPage",
             mainEntity: [
-              { "@type": "Question", name: "How much does Kick advertising cost?", acceptedAnswer: { "@type": "Answer", text: "For a managed Nordic campaign, Beta Ads runs at a blended effective CPM of roughly 200 to 300 NOK per thousand verified impressions, the same as on Twitch. Kick itself publishes no rate card. Cost depends on the creator, the category, the audience geography, timing and format, and for presence inside the broadcast, the route is a negotiated creator integration; Kick's own Ads Beta sells platform placements separately." } },
+              { "@type": "Question", name: "How much does Kick advertising cost?", acceptedAnswer: { "@type": "Answer", text: "For a managed Nordic campaign, Beta Ads runs at a blended effective CPM of roughly 100 to 300 NOK per thousand verified impressions, the same as on Twitch. Kick itself publishes no rate card. Cost depends on the creator, the category, the audience geography, timing and format, and for presence inside the broadcast, the route is a negotiated creator integration; Kick's own Ads Beta sells platform placements separately." } },
               { "@type": "Question", name: "Can you buy Kick ads directly?", acceptedAnswer: { "@type": "Answer", text: "Yes, since 2026. Kick's Ads Beta sells homepage and category banners, native tiles and non-skippable in-player video, bought direct from Kick, programmatically through a DSP, or on the open exchange. There is no public rate card and no self-serve portal; every buy is quoted in USD CPM. Presence inside the stream itself still runs through a creator integration." } },
               { "@type": "Question", name: "Does Kick have a published ad rate card?", acceptedAnswer: { "@type": "Answer", text: "No. Kick has never published a CPM, rate card or minimum spend for advertisers. Any Kick CPM figure circulating online is a third-party estimate, and the sources that publish them say so themselves." } },
             ],
@@ -206,7 +206,7 @@ const KickAdvertisingCost: React.FC = () => {
               Here's the number you came for
             </h2>
             <div className="mt-10 pt-8 border-t border-border">
-              <div className="text-6xl md:text-7xl font-bold text-primary tracking-tight leading-none">200–300 kr</div>
+              <div className="text-6xl md:text-7xl font-bold text-primary tracking-tight leading-none">100–300 kr</div>
               <div className="text-sm text-muted-foreground mt-4 max-w-sm leading-relaxed">
                 Blended effective CPM for a managed Nordic campaign, per 1,000 verified impressions, the same range we run on Twitch.
               </div>

@@ -29,6 +29,9 @@ const TwitchAnnonseringPris = lazy(() => import("./pages/TwitchAnnonseringPris")
 const KickAdvertisingCost = lazy(() => import("./pages/KickAdvertisingCost"));
 const NordicLivestreamAdvertising = lazy(() => import("./pages/NordicLivestreamAdvertising"));
 const TwitchByraNorge = lazy(() => import("./pages/TwitchByraNorge"));
+const GamingInfluencerByraNorge = lazy(() => import("./pages/GamingInfluencerByraNorge"));
+const SponseStreamerPris = lazy(() => import("./pages/SponseStreamerPris"));
+const BesteTwitchByraNorge = lazy(() => import("./pages/BesteTwitchByraNorge"));
 const TwitchAgencyNorway = lazy(() => import("./pages/TwitchAgencyNorway"));
 const LivestreamChatEngagement = lazy(() => import("./pages/LivestreamChatEngagement"));
 const CampaignCompliance = lazy(() => import("./pages/CampaignCompliance"));
@@ -213,6 +216,9 @@ const App = () => {
               <Route path="/kick-advertising-cost" element={<KickAdvertisingCost />} />
               <Route path="/nordic-livestream-advertising" element={<NordicLivestreamAdvertising />} />
               <Route path="/twitch-byra-norge" element={<TwitchByraNorge />} />
+              <Route path="/gaming-influencer-byra-norge" element={<GamingInfluencerByraNorge />} />
+              <Route path="/sponse-streamer-pris" element={<SponseStreamerPris />} />
+              <Route path="/beste-twitch-byra-norge" element={<BesteTwitchByraNorge />} />
               <Route path="/twitch-agency-norway" element={<TwitchAgencyNorway />} />
               <Route path="/livestream-chat-engagement" element={<LivestreamChatEngagement />} />
               <Route path="/campaign-compliance" element={<CampaignCompliance />} />

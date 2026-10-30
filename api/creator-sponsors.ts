@@ -9,6 +9,7 @@ import { callsToday, logUsage, readCached, writeCached } from "./_lib/checker-st
    GET  ?contact=name -> business emails from the bio, the About panels and the bot
                      commands. Without the x-creative-token a visitor gets by signing up
                      (api/creatives.ts) it returns only how many it found.
+   GET ?stats=x   -> live viewer count and followers for the sponsorship cost calculator.
    POST {login}   -> reads the creator's current title, bio, last 100 VOD titles and
                      public chat bot commands (Nightbot, StreamElements), and asks
                      Claude which brands sponsor them.
@@ -263,6 +264,26 @@ export async function GET(request: Request) {
       return json({ count: emails.length, emails });
     } catch {
       return json({ error: "Could not read the profile right now." }, 502);
+    }
+  }
+  // viewer numbers for the /sponse-streamer-pris calculator: Twitch only, no Claude call
+  const stats = (params.get("stats") ?? "").trim().toLowerCase();
+  if (stats) {
+    if (!/^[a-z0-9_]{2,25}$/.test(stats)) return json({ error: "Enter a Twitch channel name." }, 400);
+    try {
+      const u = (await helix(`users?login=${encodeURIComponent(stats)}`)).data?.[0];
+      if (!u) return json({ error: "Found no Twitch channel with that name." }, 404);
+      const [stream, followers] = await Promise.all([
+        helix(`streams?user_id=${u.id}`),
+        helix(`channels/followers?broadcaster_id=${u.id}`).catch(() => null),
+      ]);
+      const live = stream.data?.[0];
+      return json({
+        login: u.login, name: u.display_name, avatar: u.profile_image_url, followers: followers?.total ?? null,
+        live: live ? { viewers: live.viewer_count, game: live.game_name, title: live.title } : null,
+      });
+    } catch {
+      return json({ error: "Twitch is unavailable right now." }, 502);
     }
   }
   const q = (params.get("q") ?? "").trim();

@@ -18,7 +18,7 @@ import { MascotBand } from "@/components/sections/MascotBand";
 
 
 const stats = [
-  { value: "200-300 kr", label: "Effektiv CPM" },
+  { value: "100-300 kr", label: "Effektiv CPM" },
   { value: "2", label: "Prismodeller" },
   { value: "5", label: "Kostnadsdrivere" },
   { value: "0", label: "Offentlige prislister" },
@@ -175,7 +175,7 @@ const TwitchAnnonseringPris: React.FC = () => {
             "@type": "FAQPage",
             inLanguage: "no",
             mainEntity: [
-              { "@type": "Question", name: "Hva koster Twitch-annonsering i Norge?", acceptedAnswer: { "@type": "Answer", text: "For en administrert nordisk kampanje kjører Beta Ads på en blandet effektiv CPM på omtrent 200 til 300 kr per tusen verifiserte visninger, på tvers av overlay- og kreatørformater. Det er en premie over bred global display fordi det kjøper et verdifullt nordisk publikum i et native format som fullføres og ikke kan blokkeres. Hvor en kampanje lander i det spennet avhenger av fem variabler (kategori, publikums-geografi, sesong, kreatørnivå og format) og hvilken av to prismodeller du bruker." } },
+              { "@type": "Question", name: "Hva koster Twitch-annonsering i Norge?", acceptedAnswer: { "@type": "Answer", text: "For en administrert nordisk kampanje kjører Beta Ads på en blandet effektiv CPM på omtrent 100 til 300 kr per tusen verifiserte visninger, på tvers av overlay- og kreatørformater. Det er en premie over bred global display fordi det kjøper et verdifullt nordisk publikum i et native format som fullføres og ikke kan blokkeres. Hvor en kampanje lander i det spennet avhenger av fem variabler (kategori, publikums-geografi, sesong, kreatørnivå og format) og hvilken av to prismodeller du bruker." } },
               { "@type": "Question", name: "Finnes det en publisert prisliste for Twitch-annonser?", acceptedAnswer: { "@type": "Answer", text: "Nei. Amazon Ads, som driver Twitchs annonsebørs, publiserer ingen offentlig prisliste. Selvbetjeningsnivået for video har ingen minstesum, og større kjøp prises av en kundeansvarlig. CPM-en beveger seg i sanntid basert på etterspørsel i auksjonen." } },
               { "@type": "Question", name: "Hva er forskjellen på CPM-kjøp og kreatør-integrasjoner?", acceptedAnswer: { "@type": "Answer", text: "CPM programmatisk og overlay-annonser kjøpes per tusen visninger i auksjon. Faste kreatør-integrasjoner forhandles direkte med en streamer for en definert leveranse, priset etter samtidige seere og relevans. De mest effektive kampanjene kombinerer begge." } },
               { "@type": "Question", name: "Hvorfor prises nordiske Twitch-kampanjer annerledes?", acceptedAnswer: { "@type": "Answer", text: "Nordiske publikum har høy kjøpekraft, så å nå dem spesifikt er verdt mer for alle annonsører som byr på beholdningen. Nordisk-språklige streamere er også en liten, konsentrert del av den globale beholdningen, så presis målretting krever markedsspesifikk kreatørdata." } },
@@ -242,7 +242,7 @@ const TwitchAnnonseringPris: React.FC = () => {
               Her er tallet du kom for
             </h2>
             <div className="mt-10 pt-8 border-t border-border">
-              <div className="text-6xl md:text-7xl font-bold text-primary tracking-tight leading-none">200-300 kr</div>
+              <div className="text-6xl md:text-7xl font-bold text-primary tracking-tight leading-none">100-300 kr</div>
               <div className="text-sm text-muted-foreground mt-4 max-w-sm leading-relaxed">
                 Blandet effektiv CPM for en administrert nordisk kampanje, per 1 000 verifiserte visninger, på tvers av overlay- og kreatørformater.
               </div>

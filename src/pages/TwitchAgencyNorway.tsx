@@ -119,7 +119,7 @@ const faq = [
   },
   {
     q: "What does a Twitch campaign in Norway cost?",
-    a: "Effective CPM on a Nordic campaign we run for you is typically around 200 to 300 NOK per 1,000 verified impressions. Price depends on how many channels are involved, how long the overlay stays up, and how narrowly the roster is selected. We run campaigns from five streamers upward.",
+    a: "Effective CPM on a Nordic campaign we run for you is typically around 100 to 300 NOK per 1,000 verified impressions. Price depends on how many channels are involved, how long the overlay stays up, and how narrowly the roster is selected. We run campaigns from five streamers upward.",
   },
   {
     q: "Why not just buy standard Twitch ads?",
@@ -504,7 +504,7 @@ const TwitchAgencyNorway: React.FC = () => {
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4 max-w-xl">
                 Effective CPM on a Nordic campaign we run for you is typically{" "}
-                <strong className="text-foreground">200 to 300 NOK</strong> per 1,000 verified
+                <strong className="text-foreground">100 to 300 NOK</strong> per 1,000 verified
                 impressions. We run from five streamers upward.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed max-w-xl mb-7">

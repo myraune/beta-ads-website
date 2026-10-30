@@ -8,7 +8,7 @@ import { MascotBand } from "@/components/sections/MascotBand";
 
 
 const stats = [
-  { value: "200–300 kr", label: "Effective CPM" },
+  { value: "100–300 kr", label: "Effective CPM" },
   { value: "2", label: "Pricing models" },
   { value: "5", label: "Cost drivers" },
   { value: "0", label: "Public rate cards" },
@@ -163,7 +163,7 @@ const TwitchAdvertisingCost: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "FAQPage",
             mainEntity: [
-              { "@type": "Question", name: "How much does Twitch advertising cost?", acceptedAnswer: { "@type": "Answer", text: "For a managed Nordic campaign, Beta Ads runs at a blended effective CPM of roughly 200 to 300 NOK per thousand verified impressions, across overlay and creator formats. That is a premium to broad global display because it buys a high-value Nordic audience in a native format that completes and cannot be ad-blocked. Where a campaign lands in that range depends on five variables (category, audience geography, seasonality, creator tier and format) and on which of two pricing models you use." } },
+              { "@type": "Question", name: "How much does Twitch advertising cost?", acceptedAnswer: { "@type": "Answer", text: "For a managed Nordic campaign, Beta Ads runs at a blended effective CPM of roughly 100 to 300 NOK per thousand verified impressions, across overlay and creator formats. That is a premium to broad global display because it buys a high-value Nordic audience in a native format that completes and cannot be ad-blocked. Where a campaign lands in that range depends on five variables (category, audience geography, seasonality, creator tier and format) and on which of two pricing models you use." } },
               { "@type": "Question", name: "Is there a published Twitch ad rate card?", acceptedAnswer: { "@type": "Answer", text: "No. Amazon Ads, which runs Twitch's ad exchange, does not post a public rate card. Its self-serve video tier has no minimum spend, and larger buys are quoted by an account executive. The CPM itself moves in real time based on auction demand." } },
               { "@type": "Question", name: "What is the difference between CPM buys and creator integrations?", acceptedAnswer: { "@type": "Answer", text: "CPM programmatic and overlay ads are bought per thousand impressions by auction. Flat-fee creator integrations are negotiated directly with a streamer for a defined deliverable, priced by their concurrent viewership and fit. Most effective campaigns combine both." } },
               { "@type": "Question", name: "Why do Nordic Twitch campaigns cost differently?", acceptedAnswer: { "@type": "Answer", text: "Nordic audiences carry high purchasing power, so reaching them specifically is worth more to every advertiser bidding on that inventory. Nordic-language streamers are also a small, concentrated slice of global inventory, so precise targeting requires market-specific creator data." } },
@@ -230,7 +230,7 @@ const TwitchAdvertisingCost: React.FC = () => {
               Here's the number you came for
             </h2>
             <div className="mt-10 pt-8 border-t border-border">
-              <div className="text-6xl md:text-7xl font-bold text-primary tracking-tight leading-none">200–300 kr</div>
+              <div className="text-6xl md:text-7xl font-bold text-primary tracking-tight leading-none">100–300 kr</div>
               <div className="text-sm text-muted-foreground mt-4 max-w-sm leading-relaxed">
                 Blended effective CPM for a managed Nordic campaign, per 1,000 verified impressions, across overlay and creator formats.
               </div>

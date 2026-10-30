@@ -8,7 +8,7 @@ import { BOOKING_URL, SALES_MAIL, W, kicker, h2, PrimaryBtn, GhostBtn, Faq, faqL
    undelivered views refunded pro rata, clicks and CTR reported but not
    guaranteed. The banner and !brand title run the whole stream and are not
    billed; their reach (the broadcasts' total views) is never added to completed
-   views, and there is no "effective CPM" built on it. The internal CPM ladder is never
+   views. The public effective CPM range is 100 to 300 kr (Andreas, 2026-10-30). The internal CPM ladder is never
    published here. TikTok LIVE is quoted case by case while it is new. */
 
 const TITLE = "Pricing: Pay Per View That Played | Beta Ads";

@@ -369,6 +369,27 @@ const STATIC_PAGES = [
       locale: "no",
     },
   {
+    route: "/gaming-influencer-byra-norge",
+    title: "Gaming influencer-byrå i Norge | Beta Ads",
+    description:
+      "Slik når du gamere i Norge: influencer-avtale med én streamer, annonse inne i sendingen hos mange, eller Twitch-annonse. Se forskjellen på en ekte sending.",
+    locale: "no",
+  },
+  {
+    route: "/sponse-streamer-pris",
+    title: "Hva koster det å sponse en streamer i Norge? | Beta Ads",
+    description:
+      "Regn om et sponsortilbud til pris per 1 000 seere med ekte Twitch-seertall. Hva honoraret bygger på, og hva du bør avtale før du signerer.",
+    locale: "no",
+  },
+  {
+    route: "/beste-twitch-byra-norge",
+    title: "Twitch-byråer i Norge 2026: oversikt med kilder | Beta Ads",
+    description:
+      "Kart over byråene som jobber med Twitch og gaming-streamere i Norge: hva de gjør, hvordan de tar betalt og hvem de passer for. Alle fakta med kilde.",
+    locale: "no",
+  },
+  {
     route: "/nordic-livestream-advertising",
     title: "Nordic Livestream Advertising: A Brand Field Guide | Beta Ads",
     description:

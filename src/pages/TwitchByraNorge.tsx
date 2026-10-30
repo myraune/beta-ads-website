@@ -164,7 +164,7 @@ const faq = [
   },
   {
     q: "Hva koster det å annonsere på Twitch i Norge?",
-    a: "Effektiv CPM på en nordisk kampanje vi kjører for deg ligger typisk rundt 200 til 300 kroner per 1 000 verifiserte visninger. Prisen avhenger av antall kanaler, hvor lenge overlayet ligger ute og hvor spisset utvalget er. Vi kjører kampanjer fra fem streamere og oppover.",
+    a: "Effektiv CPM på en nordisk kampanje vi kjører for deg ligger typisk rundt 100 til 300 kroner per 1 000 verifiserte visninger. Prisen avhenger av antall kanaler, hvor lenge overlayet ligger ute og hvor spisset utvalget er. Vi kjører kampanjer fra fem streamere og oppover.",
   },
   {
     q: "Hvorfor ikke bare kjøpe vanlige Twitch-annonser?",
@@ -425,6 +425,17 @@ const TwitchByraNorge: React.FC = () => {
               );
             })}
           </div>
+          <p className="text-sm text-muted-foreground mt-8">
+            Se også{" "}
+            <Link to="/beste-twitch-byra-norge" className="text-foreground underline decoration-border underline-offset-2 hover:text-primary">
+              oversikten over Twitch-byråer i Norge
+            </Link>
+            , med kilder, og{" "}
+            <Link to="/gaming-influencer-byra-norge" className="text-foreground underline decoration-border underline-offset-2 hover:text-primary">
+              forskjellen på en influencer-avtale og en annonse i sendingen
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
@@ -551,7 +562,7 @@ const TwitchByraNorge: React.FC = () => {
               </h2>
               <p className="text-base text-muted-foreground leading-relaxed mb-4 max-w-xl">
                 Effektiv CPM på en nordisk kampanje vi kjører for deg ligger typisk rundt{" "}
-                <strong className="text-foreground">200 til 300 kroner</strong> per 1 000
+                <strong className="text-foreground">100 til 300 kroner</strong> per 1 000
                 verifiserte visninger. Vi kjører fra fem streamere og oppover.
               </p>
               <p className="text-base text-muted-foreground leading-relaxed max-w-xl mb-7">
@@ -564,6 +575,13 @@ const TwitchByraNorge: React.FC = () => {
                 className="group inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors"
               >
                 Se hele prisoversikten
+                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+              <Link
+                to="/sponse-streamer-pris"
+                className="group inline-flex items-center gap-1.5 text-sm font-medium text-foreground hover:text-primary transition-colors ml-6"
+              >
+                Hva koster det å sponse en streamer?
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>
