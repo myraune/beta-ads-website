@@ -25,7 +25,7 @@ const Index: React.FC = () => {
             "@id": "https://beta-ads.no/#service",
             parentOrganization: { "@id": "https://beta-ads.no/#organization" },
             name: "Beta Ads",
-            legalName: "Beta Agency AS",
+            legalName: "BETA AGENCY AS",
             taxID: "933303136",
             identifier: {
               "@type": "PropertyValue",

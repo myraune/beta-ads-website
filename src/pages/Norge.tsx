@@ -450,7 +450,7 @@ const Norge: React.FC = () => {
         variant="cutout"
         eyebrow="Hils på Beta"
         heading="Et norsk byrå som bare gjør dette"
-        body="Beta Agency AS er norsk, og vi kjøper ikke bannerannonser på si. Vi bygger native integrasjoner inn i selve sendingen: overlay i layouten, chat-kommando i tittelen, og streameren som sier det med sine egne ord."
+        body="Beta Ads er norsk, og vi kjøper ikke bannerannonser på si. Vi bygger native integrasjoner inn i selve sendingen: overlay i layouten, chat-kommando i tittelen, og streameren som sier det med sine egne ord."
         points={[
             "Norske streamere, norsk chat, norske kunder",
             "Vi rapporterer hva chatten faktisk sa, ikke bare visninger",

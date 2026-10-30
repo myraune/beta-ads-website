@@ -107,7 +107,7 @@ const STATIC_PAGES = [
     route: "/twitch-advertising",
     title: "Twitch Advertising Agency: Norway and the Nordics | Beta Ads",
     description:
-      "Beta Agency AS is a Norwegian Twitch advertising agency running native overlays with 39,000+ streamers in Streamer Explorer. Ads that bypass ad blockers.",
+      "Beta Ads is a Norwegian Twitch advertising agency running native overlays with 39,000+ streamers in Streamer Explorer. Ads that bypass ad blockers.",
     locale: "en",
   },
   {
@@ -358,14 +358,14 @@ const STATIC_PAGES = [
       route: "/twitch-agency-norway",
       title: "Twitch Agency in Norway | Beta Ads",
       description:
-        "Beta Agency is a Norwegian Twitch agency running native ads inside the broadcast. How to choose a Twitch agency in Norway, what it costs and the alternatives.",
+        "Beta Ads is a Norwegian Twitch agency running native ads inside the broadcast. How to choose a Twitch agency in Norway, what it costs and the alternatives.",
       locale: "en",
     },
   {
       route: "/twitch-byra-norge",
       title: "Twitch-byrå i Norge | Beta Ads",
       description:
-        "Beta Agency er et norsk Twitch-byrå med native annonsering inne i sendingen. Slik velger du Twitch-byrå i Norge, hva det koster og hvilke alternativer du har.",
+        "Beta Ads er et norsk Twitch-byrå med native annonsering inne i sendingen. Slik velger du Twitch-byrå i Norge, hva det koster og hvilke alternativer du har.",
       locale: "no",
     },
   {

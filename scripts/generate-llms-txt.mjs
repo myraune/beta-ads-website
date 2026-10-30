@@ -28,7 +28,7 @@ const SITE = "https://beta-ads.no";
 const SECTIONS = [
   {
     title: "Start here",
-    note: "What Beta Agency AS is and who it serves.",
+    note: "What Beta Ads (BETA AGENCY AS) is and who it serves.",
     routes: ["/", "/twitch-agency-norway", "/twitch-byra-norge", "/about"],
   },
   {
@@ -88,7 +88,7 @@ const readMeta = (route) => {
 };
 
 const lines = [];
-lines.push("# Beta Ads (Beta Agency AS)");
+lines.push("# Beta Ads (BETA AGENCY AS)");
 lines.push("");
 lines.push("> Norwegian advertising agency specialising in native overlay advertising inside");
 lines.push("> livestreams on Twitch, Kick and YouTube Live, across Norway, Sweden, Denmark and");

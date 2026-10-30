@@ -36,7 +36,7 @@ const heroStats = [
   { value: "39 000+", label: "streamere i Streamer Explorer" },
   { value: "3", label: "plattformer" },
   { value: "0 %", label: "blokkert av adblock" },
-  { value: "2024", label: "Beta Agency AS" },
+  { value: "2024", label: "Beta Ads etablert" },
 ];
 
 /**
@@ -74,8 +74,8 @@ const byraTyper = [
   },
   {
     type: "Spesialist på annonser i selve sendingen",
-    eksempel: "Beta Agency",
-    kilde: "Det er dette Beta Agency gjør.",
+    eksempel: "Beta Ads",
+    kilde: "Det er dette Beta Ads gjør.",
     passer:
       "Du vil inn i selve sendingen: overlay i layouten, chat-kommando i tittelen, streameren som sier det med egne ord.",
     svakhet:
@@ -160,7 +160,7 @@ const prosess = [
 const faq = [
   {
     q: "Finnes det norske Twitch-byråer?",
-    a: "Ja, men få som jobber med Twitch som hovedkanal. De fleste norske alternativene er influencer- eller innholdsbyråer som også tar streaming, eller nordiske creator-nettverk der Norge er ett av flere markeder. Beta Agency AS er norskregistrert og jobber med native annonsering i selve sendingen som kjernevirksomhet.",
+    a: "Ja, men få som jobber med Twitch som hovedkanal. De fleste norske alternativene er influencer- eller innholdsbyråer som også tar streaming, eller nordiske creator-nettverk der Norge er ett av flere markeder. Beta Ads (BETA AGENCY AS) er norskregistrert og jobber med native annonsering i selve sendingen som kjernevirksomhet.",
   },
   {
     q: "Hva koster det å annonsere på Twitch i Norge?",
@@ -196,7 +196,7 @@ const TwitchByraNorge: React.FC = () => {
       seo={{
         title: "Twitch-byrå i Norge | Beta Ads",
         description:
-          "Beta Agency er et norsk Twitch-byrå med native annonsering inne i sendingen. Slik velger du Twitch-byrå i Norge, hva det koster og hvilke alternativer du har.",
+          "Beta Ads er et norsk Twitch-byrå med native annonsering inne i sendingen. Slik velger du Twitch-byrå i Norge, hva det koster og hvilke alternativer du har.",
         canonical: "/twitch-byra-norge",
         locale: "no",
         alternates: [
@@ -213,8 +213,9 @@ const TwitchByraNorge: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
             dateModified: SIST_OPPDATERT,
-            name: "Beta Agency AS",
-            alternateName: "Beta Ads",
+            name: "Beta Ads",
+            legalName: "BETA AGENCY AS",
+            alternateName: ["Beta Agency", "Beta"],
             description:
               "Norsk Twitch-byrå som kjører native annonsering i direktesendinger på Twitch, Kick og YouTube Live.",
             url: "https://beta-ads.no/twitch-byra-norge",
@@ -381,7 +382,7 @@ const TwitchByraNorge: React.FC = () => {
 
           <div className="grid md:grid-cols-2 gap-5">
             {byraTyper.map((b) => {
-              const erOss = b.eksempel === "Beta Agency";
+              const erOss = b.eksempel === "Beta Ads";
               return (
                 <div
                   key={b.type}
@@ -615,7 +616,7 @@ const TwitchByraNorge: React.FC = () => {
         alt="Beta, maskoten til Beta Ads, i studio"
         variant="scene"
         eyebrow="Norsk, ikke et nordisk sidekontor"
-        heading="Beta Agency AS er registrert i Norge"
+        heading="Beta Ads er registrert i Norge"
         body="Vi holder til i Oslo og kjører kampanjer på norsk, svensk, dansk og finsk. Norge kan kjøres alene, eller som del av et nordisk opplegg."
         points={[
           "Norske streamere, norsk chat, norske kunder",

@@ -62,7 +62,7 @@ const agencyTypes = [
   },
   {
     type: "Native in-stream specialist",
-    source: "This is what Beta Agency does.",
+    source: "This is what Beta Ads does.",
     fits:
       "You want to be inside the broadcast: overlay in the layout, chat command in the title, the streamer saying it in their own words.",
     falls: "Wrong choice if you just want a TikTok video or a discount code pushed to as many people as possible.",
@@ -115,7 +115,7 @@ const process = [
 const faq = [
   {
     q: "Are there Twitch agencies in Norway?",
-    a: "A few, but very few that treat Twitch as their main channel. Most Norwegian options are influencer or content agencies that also take streaming work, or Nordic creator networks where Norway is one of several markets. Beta Agency AS is registered in Norway and runs native in-broadcast advertising as its core business.",
+    a: "A few, but very few that treat Twitch as their main channel. Most Norwegian options are influencer or content agencies that also take streaming work, or Nordic creator networks where Norway is one of several markets. Beta Ads (BETA AGENCY AS) is registered in Norway and runs native in-broadcast advertising as its core business.",
   },
   {
     q: "What does a Twitch campaign in Norway cost?",
@@ -151,7 +151,7 @@ const TwitchAgencyNorway: React.FC = () => {
       seo={{
         title: "Twitch Agency in Norway | Beta Ads",
         description:
-          "Beta Agency is a Norwegian Twitch agency running native ads inside the broadcast. How to choose a Twitch agency in Norway, what it costs and the alternatives.",
+          "Beta Ads is a Norwegian Twitch agency running native ads inside the broadcast. How to choose a Twitch agency in Norway, what it costs and the alternatives.",
         canonical: "/twitch-agency-norway",
         locale: "en",
         alternates: [
@@ -168,8 +168,9 @@ const TwitchAgencyNorway: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
             dateModified: LAST_UPDATED,
-            name: "Beta Agency AS",
-            alternateName: "Beta Ads",
+            name: "Beta Ads",
+            legalName: "BETA AGENCY AS",
+            alternateName: ["Beta Agency", "Beta"],
             description:
               "Norwegian Twitch agency running native advertising inside live broadcasts on Twitch, Kick and YouTube Live.",
             url: "https://beta-ads.no/twitch-agency-norway",
@@ -550,7 +551,7 @@ const TwitchAgencyNorway: React.FC = () => {
         alt="Beta, the Beta Ads mascot, in the studio"
         variant="scene"
         eyebrow="Norwegian, not a Nordic satellite office"
-        heading="Beta Agency AS is registered in Norway"
+        heading="Beta Ads is registered in Norway"
         body="We are based in Oslo and run campaigns in Norwegian, Swedish, Danish and Finnish. Norway can run on its own, or as part of a Nordic buy."
         points={[
           "Norwegian streamers, Norwegian chat, Norwegian clients",

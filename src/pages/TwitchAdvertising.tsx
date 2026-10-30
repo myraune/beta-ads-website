@@ -52,7 +52,7 @@ const TwitchAdvertising: React.FC = () => {
     <MarketingPageLayout
       seo={{
         title: "Twitch Advertising Agency: Norway and the Nordics | Beta Ads",
-        description: "Beta Agency AS is a Norwegian Twitch advertising agency running native overlays with 39,000+ streamers in Streamer Explorer. Ads that bypass ad blockers.",
+        description: "Beta Ads is a Norwegian Twitch advertising agency running native overlays with 39,000+ streamers in Streamer Explorer. Ads that bypass ad blockers.",
         canonical: "/twitch-advertising",
         jsonLd: [
           { "@context": "https://schema.org", "@type": "Service", "@id": "https://beta-ads.no/twitch-advertising#service", name: "Twitch Advertising Agency - Beta Ads", serviceType: "Twitch advertising agency", description: "Native overlay ads on Twitch streams. 0% adblock rate, CTRs up to 9.12%. Managed campaigns from brief to broadcast.", provider: { "@id": "https://beta-ads.no/#organization" }, areaServed: ["Norway", "Sweden", "Denmark", "Finland"], url: "https://beta-ads.no/twitch-advertising" },
