@@ -26,11 +26,14 @@ import {
    partners. Facts confirmed by Andreas: own login to the same platform Beta Ads
    uses, Streamer Explorer (39,000+ streamers, 37,599 recently active and open to
    collaborations; never call them Nordic), build, launch, follow live, end report,
-   programmatic private deals as described above, request access by email. */
+   programmatic private deals as described above, request access by email.
+   Pricing (Andreas 2026-10-30): self-serve from 50,000 NOK per campaign (managed
+   from 100,000 NOK), live a few days after booking, smaller and shorter campaigns
+   run more often. */
 
 const TITLE = "Self-serve livestream ads for media agencies | Beta Ads";
 const DESCRIPTION =
-  "Your own Beta Ads login to find streamers and launch livestream campaigns for clients on your terms. Or buy via a private deal on Adform or Magnite in a DSP.";
+  "Your own Beta Ads login to find streamers and launch livestream campaigns for clients, from 50,000 NOK per campaign and live in a few days. Or buy via a private deal in your DSP.";
 
 const flow: { t: string; d: string }[] = [
   { t: "Find streamers", d: "Search the Streamer Explorer and build the streamer list for your client." },
@@ -56,6 +59,8 @@ const us = [
 ];
 
 const faqs: { q: string; a: string }[] = [
+  { q: "What does self-serve cost?", a: "Campaigns from 50,000 NOK each, priced per 1,000 views that fully played. Managed campaigns start at 100,000 NOK, so with your own login you can run smaller and shorter campaigns more often." },
+  { q: "How fast can a campaign go live?", a: "A few days from booking." },
   { q: "Who is self-serve for?", a: "Media agencies and partners that want livestream in their own media plans and run campaigns for several clients. Brands and first test campaigns usually start managed." },
   { q: "Is it the same platform Beta Ads uses?", a: "Yes. You get your own login to the platform we use for our own campaigns: the Streamer Explorer, the campaign builder, live monitoring and the end report." },
   { q: "How many streamers can we choose from?", a: "The Streamer Explorer has more than 39,000 streamers in the database, and 37,599 of them are recently active and open to collaborations." },
@@ -106,6 +111,18 @@ const SelfServe: React.FC = () => {
                 Your own login to the platform we use, to build and launch livestream campaigns for
                 your clients. Or buy programmatically: a private deal you target in your own DSP.
               </p>
+              <dl className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl m-0">
+                {[
+                  ["From 50,000 NOK", "per campaign with your own login"],
+                  ["A few days", "from booking to live on stream"],
+                  ["Run it more often", "smaller, shorter campaigns through the year"],
+                ].map(([v, l]) => (
+                  <div key={v} className="border-l-2 border-border pl-4">
+                    <dt className="text-xl font-semibold tracking-tight">{v}</dt>
+                    <dd className="m-0 mt-1 text-sm text-muted-foreground">{l}</dd>
+                  </div>
+                ))}
+              </dl>
             </div>
             <div className="flex flex-wrap gap-3 lg:pb-2">
               <PrimaryBtn href={PARTNER_MAIL} cta="email">Request a login</PrimaryBtn>
@@ -247,7 +264,7 @@ const SelfServe: React.FC = () => {
               <aside className="rounded-[8px] bg-muted p-6 md:p-8 flex flex-col">
                 <div className={kicker}>Not ready to run it yourself?</div>
                 <p className="mt-3 mb-0 text-xl font-semibold tracking-tight leading-snug">Start with one managed campaign, then move to self-serve.</p>
-                <p className="mt-3 mb-6 text-[15px] text-muted-foreground leading-relaxed">We run the first one from brief to report, so your team sees how it works.</p>
+                <p className="mt-3 mb-6 text-[15px] text-muted-foreground leading-relaxed">We run the first one from brief to report, so your team sees how it works. Managed campaigns start at 100,000 NOK.</p>
                 <div className="mt-auto"><GhostLink to="/managed-campaigns">How managed works</GhostLink></div>
               </aside>
             </div>

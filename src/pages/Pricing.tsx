@@ -40,12 +40,12 @@ const notBilled: { t: string; d: string }[] = [
 
 const routes: { t: string; d: string; to: string }[] = [
   { t: "Managed", d: "We run the campaign for you, brief to report.", to: "/managed-campaigns" },
-  { t: "Self-serve", d: "Your agency's own login to launch and resell campaigns.", to: "/self-serve" },
+  { t: "Self-serve", d: "Your agency's own login to launch and resell campaigns, from 50,000 NOK per campaign.", to: "/self-serve" },
   { t: "Programmatic", d: "A private deal on Adform or Magnite, bought in your DSP.", to: "/programmatic" },
 ];
 
 const faqs: { q: string; a: string }[] = [
-  { q: "How is it priced?", a: "Per 1,000 views that fully played on a live stream, with campaigns from 100,000 NOK. Undelivered views are refunded pro rata." },
+  { q: "How is it priced?", a: "Per 1,000 views that fully played on a live stream, with campaigns from 100,000 NOK. Agencies with their own self-serve login can run campaigns from 50,000 NOK. Undelivered views are refunded pro rata." },
   { q: "Are clicks guaranteed?", a: "No. You buy completed views. Clicks and CTR are tracked and reported in the dashboard and the report, but not guaranteed." },
   { q: "Is the price the same on every platform?", a: "Twitch, YouTube and Kick follow the same model. TikTok LIVE is new, and we quote those campaigns with you." },
   { q: "Is the overlay design included?", a: "In a managed campaign we design the animated overlay in your brand. In self-serve, your agency sets up the client's creative in the platform." },
