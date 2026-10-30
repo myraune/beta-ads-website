@@ -621,7 +621,7 @@ const ContactBox: React.FC<{ login: string; token: string; onGate: () => void; o
   }, [login, token]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <div className="rounded-2xl border border-border bg-card p-5 md:p-6 text-sm mb-4">
+    <div className="rounded-2xl border border-border bg-card p-5 md:p-6 text-sm lg:mb-4">
       <div className={`${kicker} mb-3`}>Business email</div>
       {!data ? (
         <p className="m-0 text-muted-foreground inline-flex items-center gap-2"><Loader2 className="w-3.5 h-3.5 animate-spin" />Reading the profile…</p>
@@ -674,6 +674,9 @@ const ResultView: React.FC<{ r: Result; token: string; onGate: () => void; onTok
           </a>
         </div>
 
+        {/* On phones the side column lands below every sponsor card, so the email box sits here instead. */}
+        <div className="lg:hidden mt-6"><ContactBox login={c.login} token={token} onGate={onGate} onTokenRejected={onTokenRejected} /></div>
+
         <p className="mt-6 text-base leading-relaxed max-w-2xl">{r.summary}</p>
 
         {r.sponsors.length === 0 ? (
@@ -686,7 +689,7 @@ const ResultView: React.FC<{ r: Result; token: string; onGate: () => void; onTok
       </div>
 
       <div>
-      <ContactBox login={c.login} token={token} onGate={onGate} onTokenRejected={onTokenRejected} />
+      <div className="hidden lg:block"><ContactBox login={c.login} token={token} onGate={onGate} onTokenRejected={onTokenRejected} /></div>
       <aside className="rounded-2xl bg-muted/60 p-5 md:p-6 text-sm">
         <div className={`${kicker} mb-3`}>What we read</div>
         <p className="m-0 text-muted-foreground leading-relaxed">
