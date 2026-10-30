@@ -130,7 +130,28 @@ const CreativeLibrary: React.FC = () => {
 
   return (
     <>
-      <SEO title={TITLE} description={DESCRIPTION} canonical="/creative-library" />
+      <SEO
+        title={TITLE}
+        description={DESCRIPTION}
+        canonical="/creative-library"
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          name: "Beta Ads creative library",
+          description: DESCRIPTION,
+          url: "https://beta-ads.no/creative-library",
+          about: [...counts.keys()],
+          mainEntity: {
+            "@type": "ItemList",
+            numberOfItems: (items?.length || 0) + locked.length,
+            itemListElement: shown.map((c, i) => ({
+              "@type": "ListItem",
+              position: i + 1,
+              item: { "@type": "CreativeWork", name: `${c.brand}: ${c.title}`, genre: c.industry, ...(c.description ? { description: c.description } : {}), image: c.poster },
+            })),
+          },
+        }}
+      />
       <div className="min-h-screen bg-background text-foreground">
         <header className={`${W} pt-28 md:pt-36 pb-10 md:pb-14`}>
           <nav aria-label="Breadcrumb" className="mb-6 text-[13px] text-muted-foreground">

@@ -346,6 +346,22 @@ async function main() {
   let page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 800 });
 
+  // vite preview has no /api, so the creative library would be captured as
+  // "being filled right now". Fetch what any visitor gets from the live API
+  // (the free previews, plus only industry and type of the locked ones) and
+  // answer the page's fetch with it, so the saved HTML lists real creatives.
+  const creativesBody = await fetch(`${SITE}/api/creatives`).then((r) => (r.ok ? r.text() : null)).catch(() => null);
+  if (!creativesBody) console.warn("  /api/creatives unreachable: the creative library is prerendered empty.");
+  const serveCreatives = (p) => p.evaluateOnNewDocument((body) => {
+    if (!body) return;
+    const real = window.fetch.bind(window);
+    window.fetch = (input, init) =>
+      String(input).startsWith("/api/creatives") && !(init && init.method && init.method !== "GET")
+        ? Promise.resolve(new Response(body, { headers: { "content-type": "application/json" } }))
+        : real(input, init);
+  }, creativesBody);
+  await serveCreatives(page);
+
   // Intercept canvas.getContext so Three.js sees no WebGL in headless mode,
   // and returns null (graceful) instead of throwing an uncaught error.
   await page.evaluateOnNewDocument(() => {
@@ -389,6 +405,7 @@ async function main() {
       try { await page.close(); } catch (_) {}
       page = await browser.newPage();
       await page.setViewport({ width: 1440, height: 900 });
+      await serveCreatives(page);
       // The replacement page needs the same error surfacing as the original,
       // otherwise a retry that fails again does so silently.
       page.on("console", (msg) => {

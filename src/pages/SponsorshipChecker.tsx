@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, ExternalLink, Loader2, Search } from "lucide-react";
 import { SEO } from "@/components/SEO";
-import { W, kicker, h2, BOOKING_URL } from "@/components/working/shared";
+import { W, kicker, h2, BOOKING_URL, Faq, faqLd } from "@/components/working/shared";
 import { LIVE_DEALS, SNAPSHOT_DATE } from "@/data/liveDeals";
 import { ExplorerPlans } from "@/components/working/ExplorerPlans";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
@@ -26,6 +26,14 @@ type Result = {
     live: { viewers: number; title: string; game: string } | null; vodCount: number; commandCount?: number; since: string | null };
   sponsors: Sponsor[]; not_sponsors: { token: string; reason: string }[]; summary: string; scannedLines: number;
 };
+
+const FAQS = [
+  { q: "How do I see who sponsors a Twitch streamer?", a: "Type the streamer's name in the search above and pick the channel. The checker lists every brand they work with, with the first and last date it was seen, the number of streams and the exact stream titles, linked to the VOD." },
+  { q: "Where does the sponsor data come from?", a: "From the channel itself: stream titles, the bio, the last 100 VODs and the chat bot commands. Every brand on the result comes with the title or command that proves it." },
+  { q: "Is the Twitch sponsor checker free?", a: "Yes. Searching any Twitch channel is free and needs no sign-up. To see a creator's business email, leave your name, work email and company once." },
+  { q: "How is this different from a list of brand keywords?", a: "A keyword list counts every !command as a brand, like !prime or a champion guide. The checker reads each one in context, sorts real deals from the rest and says why something is not a deal." },
+  { q: "Can I find a streamer's business email?", a: "Often, yes. The checker looks for an email in the Twitch bio, the About panels and the bot commands, and shows how many it found. The addresses are shown after a free sign-up." },
+];
 
 /* Same client logos as the homepage strip. */
 const LOGOS: [string, string, number][] = [
@@ -214,6 +222,21 @@ const SponsorshipChecker: React.FC = () => {
         description="Search any Twitch streamer and see which brands sponsor them. We read stream titles, the bio, the last 100 VODs and the chat bot commands, and show the proof for every deal."
         canonical="/twitch-sponsorship-checker"
         ogType="website"
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            name: "Twitch Sponsor Checker",
+            url: "https://beta-ads.no/twitch-sponsorship-checker",
+            applicationCategory: "BusinessApplication",
+            operatingSystem: "Any",
+            browserRequirements: "Requires JavaScript",
+            description: "Search any Twitch streamer and see which brands sponsor them, with the stream titles and chat commands that prove each deal.",
+            offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+            publisher: { "@type": "Organization", name: "Beta Ads", url: "https://beta-ads.no" },
+          },
+          faqLd(FAQS),
+        ]}
       />
 
       <Dialog open={gateFor !== null} onOpenChange={o => { if (!o) setGateFor(null); }}>
@@ -473,6 +496,7 @@ const SponsorshipChecker: React.FC = () => {
       </section>
 
       <ExplorerPlans centered />
+      <Faq title="Twitch sponsor checker, answered." faqs={FAQS} />
 
       {/* ── CLOSE: dark CTA ── */}
       <section className={`${W} pb-20 md:pb-28`}>
