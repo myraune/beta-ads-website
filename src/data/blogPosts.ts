@@ -519,8 +519,8 @@ The streaming ad market is moving from "how many eyeballs" to "which eyeballs, a
     seoDescription: {
       en: "YouTube's Vibe Protect pauses livestream ads during peak engagement. Combined with Twitch's MSA data overhaul, what brands need to know about ad timing.",
       no: "YouTubes Vibe Protect pauser annonser under toppengasjement i livestreamer. Sammen med Twitchs MSA-oppdatering: dette bør merkevarer vite om annonsetiming.",
-      sv: "YouTubes Vibe Protect pausar annonser under toppengagemang i livestreamar. Med Twitchs MSA-uppdatering: det här behöver varumärken veta om annonstiming 2026.",
-      fi: "YouTuben Vibe Protect tauottaa mainokset livestriimin huippuhetkinä. Twitchin MSA-päivityksen ohella tämä brändien tulee tietää mainosten ajoituksesta 2026.",
+      sv: "YouTubes Vibe Protect pausar annonser under toppengagemang i livestreamar. Med Twitchs MSA-uppdatering: det här behöver varumärken veta om annonstiming.",
+      fi: "YouTuben Vibe Protect tauottaa mainokset livestriimin huippuhetkinä. Twitchin MSA-päivityksen ohella tämä brändien tulee tietää mainosten ajoituksesta.",
     },
     seoKeywords: {
       en: ["YouTube Vibe Protect", "livestream ad timing", "Twitch MSA update", "streaming advertising 2026", "Nordic livestream ads"],
@@ -736,8 +736,8 @@ For Nordic brand teams planning livestream campaigns, the Tiny Takeover announce
       fi: "Twitch avaa sponsoroidut kampanjat Affiliateille",
     },
     seoDescription: {
-      en: "Twitch's Minecraft Tiny Takeover was the first sponsored campaign open to Affiliates, not just Partners. What this shift means for Nordic brand advertising.",
-      no: "Twitchs Minecraft Tiny Takeover i april 2026 var den første sponsede kampanjen åpen for Affiliates, ikke bare Partners. Hva det betyr for nordiske merkevarer.",
+      en: "Twitch's Minecraft Tiny Takeover was the first sponsored campaign open to Affiliates, not just Partners. What this means for Nordic brand advertising.",
+      no: "Twitchs Minecraft Tiny Takeover i april 2026 var den første sponsede kampanjen åpen for Affiliates, ikke bare Partners. Hva det betyr for nordiske merker.",
       sv: "Twitchs Minecraft Tiny Takeover i april 2026 var den första sponsrade kampanjen öppen för Affiliates, inte bara Partners. Vad det betyder för varumärken.",
       fi: "Twitchin huhtikuun 2026 Minecraft Tiny Takeover oli ensimmäinen sponsoroitu kampanja myös Affiliate-tasolle, ei vain Partnereille. Mitä se tarkoittaa?",
     },
@@ -870,7 +870,7 @@ If you are sizing a 2026 Nordic livestream budget and want a second opinion on t
     seoDescription: {
       en: "Kick hit 100M users in April 2026 - but its co-founder called it a vanity metric. What the milestone actually means for Nordic advertisers.",
       no: "Kick passerte 100 millioner brukere 10. april 2026, men medgründeren kalte det et forfengelig tall. Hva det betyr for Twitch-, Kick- og creator-budsjetter.",
-      sv: "Kick nådde 100 miljoner användare 10 april 2026, men medgrundaren kallade det en fåfäng siffra. Vad det betyder för Twitch-, Kick- och creator-budgetar 2026.",
+      sv: "Kick nådde 100 miljoner användare 10 april 2026, men medgrundaren kallade det en fåfäng siffra. Vad det betyder för Twitch-, Kick- och creator-budgetar.",
       fi: "Kick ylitti 100 miljoonaa käyttäjää 10. huhtikuuta 2026, mutta perustaja kutsui sitä turhamaisuusluvuksi. Mitä se tarkoittaa Twitch- ja Kick-budjeteille.",
     },
     seoKeywords: {
@@ -996,10 +996,10 @@ For Nordic brands that have been cautious about live stream advertising because 
       fi: "Luojasisältö somesta ulos: 11 miljardin siirtymä",
     },
     seoDescription: {
-      en: "Paid amplification of creator content into CTV, display, and retail media is growing 56% YoY. What it means for Nordic brands running live stream campaigns.",
+      en: "Paid amplification of creator content into CTV, display, and retail media is growing 56% YoY. What it means for Nordic brands running livestream campaigns.",
       no: "Betalt amplifisering av creator-innhold til CTV, display og retail media vokser 56 % årlig. Slik påvirker det nordiske merkevarer med livestream-kampanjer.",
       sv: "Betald amplifiering av creator-innehåll till CTV, display och retail media växer 56 % årligen. Så påverkar det nordiska varumärkens livestreamkampanjer.",
-      fi: "Luojasisällön maksettu amplifiointi CTV-, display- ja retail media -kanaviin kasvaa 56 % vuodessa. Näin se vaikuttaa pohjoismaisiin livestream-kampanjoihin.",
+      fi: "Luojasisällön maksettu amplifiointi CTV-, display- ja retail media -kanaviin kasvaa 56 % vuodessa. Näin se vaikuttaa Pohjoismaiden livestream-kampanjoihin.",
     },
     seoKeywords: {
       en: ["paid amplification", "creator content CTV", "live stream advertising ROI", "Nordic creator economy", "off-platform amplification", "creator ad spend 2026"],
@@ -5743,9 +5743,9 @@ That is the entire brief. Anything longer is probably scripting. Anything shorte
       fi: "Näin brieffaat striimaajan natiivimainontaan"
     },
     seoDescription: {
-      en: "The quality of your creator brief determines whether a streaming campaign feels authentic or forced. How to write briefs that get great native integrations.",
+      en: "The quality of your creator brief determines whether a streaming campaign feels authentic or forced. How to write briefs for great native integrations.",
       no: "Kvaliteten på din kreative brief avgjør om en streamingkampanje føles autentisk eller tvunget. Lær å skrive briefs som gir gode native annonsintegrasjoner.",
-      sv: "Kvaliteten på din kreativa brief avgör om en streamingkampanj känns autentisk eller tvingad. Lär dig att skriva briefs som ger bra native annonsintegrationer.",
+      sv: "Kvaliteten på din kreativa brief avgör om en streamingkampanj känns autentisk eller tvingad. Lär dig skriva briefs som ger bra native annonsintegrationer.",
       fi: "Luovabriifin laatu määrittää, tuntuuko streaming-kampanja aidolta vai pakotetulta. Opi kirjoittamaan briifejä, jotka tuottavat hyviä natiivimainoksia."
     },
     seoKeywords: {
@@ -8342,7 +8342,7 @@ Beta Ads has run [29 campaigns with full reports](/case-studies) drawing from th
     seoDescription: {
       en: "LoL led Twitch in 2025 with 1.95B hours. Roblox surged 212%, CS2 rebounded +29%. Full game rankings with hours watched, peak viewers, and YoY changes.",
       no: "League of Legends toppet Twitch i 2025 med 1,95B timer sett. Roblox steg 212 %, Counter-Strike 2 +29 %. Full rangering med timer, toppseertall og endring.",
-      sv: "League of Legends toppade Twitch 2025 med 1,95B timmar. Roblox steg 212 %, Counter-Strike 2 +29 %. Full spelrankning med timmar, topptittare och förändring.",
+      sv: "League of Legends toppade Twitch 2025 med 1,95B timmar. Roblox steg 212 %, Counter-Strike 2 +29 %. Full rankning med timmar, topptittare och förändring.",
       fi: "League of Legends johti Twitchiä 2025 1,95 miljardilla katselutunnilla. Roblox nousi 212 %, Counter-Strike 2 +29 %. Koko pelilista ja vuosimuutokset.",
     },
     seoKeywords: {
@@ -8498,10 +8498,10 @@ Ready to scope a 2026 Nordic creator portfolio matched to your brand category? [
       fi: "Twitch, YouTube Gaming ja Kick 2025: Markkinaosuus"
     },
     seoDescription: {
-      en: "Twitch lost 8.9%; Kick grew 131%, YouTube Gaming +12% in 2025. Complete market share breakdown, viewer counts, and platform trends from 36.4B hours streamed.",
-      no: "Twitch mistet 8,9 % av timer sett mens Kick vokste 131 % og YouTube Gaming 12 % i 2025. Markedsandel, seertrender og plattformdata fra 36,4B streamede timer.",
-      sv: "Twitch tappade 8,9 % av tittade timmar medan Kick växte 131 % och YouTube Gaming 12 % 2025. Marknadsandel, tittartrender och data från 36,4B streamade timmar.",
-      fi: "Twitch menetti 8,9 % katsotuista tunneista, kun Kick kasvoi 131 % ja YouTube Gaming 12 % vuonna 2025. Markkinaosuudet ja alustadata 36,4 miljardista tunnista."
+      en: "Twitch lost 8.9%; Kick grew 131%, YouTube Gaming +12% in 2025. Market share breakdown, viewer counts and platform trends from 36.4B hours streamed.",
+      no: "Twitch mistet 8,9 % av timer sett mens Kick vokste 131 % og YouTube Gaming 12 % i 2025. Markedsandel, seertrender og data fra 36,4B streamede timer.",
+      sv: "Twitch tappade 8,9 % av tittade timmar medan Kick växte 131 % och YouTube Gaming 12 % 2025. Marknadsandel, tittartrender och data från 36,4B timmar.",
+      fi: "Twitch menetti 8,9 % katsotuista tunneista, kun Kick kasvoi 131 % ja YouTube Gaming 12 % vuonna 2025. Markkinaosuudet ja alustadata 36,4 mrd. tunnista."
     },
     seoKeywords: {
       en: ["twitch vs youtube gaming", "twitch vs kick", "streaming platform market share 2025", "youtube gaming 2025", "kick growth 2026", "nordic platform allocation"],
@@ -8753,7 +8753,7 @@ Ready to scope a Swedish or pan-Nordic creator portfolio? [Book a 30-minute cons
       fi: "Ruotsin parhaat Twitch-striimaajat 2025 | Beta Ads"
     },
     seoDescription: {
-      en: "Sweden has Europe's oldest Twitch community and deepest mid-tier creator pool. 2025 rankings, creator categories, and what the depth means for 2026 campaigns.",
+      en: "Sweden has Europe's oldest Twitch community and deepest mid-tier creator pool. 2025 rankings, categories and what the depth means for 2026 campaigns.",
       no: "Sverige har Europas eldste Twitch-samfunn og det dypeste mellomskiktet i Norden. 2025-rangeringer og hva det betyr for 2026-kampanjer.",
       sv: "Sverige har Europas äldsta Twitch-community och djupast mellannivå av skapare i Norden. 2025-rankningar och vad djupet betyder för 2026-kampanjer.",
       fi: "Ruotsissa on Euroopan vanhin Twitch-yhteisö ja syvin keskitason striimaajavaranto Pohjoismaissa."
@@ -8970,8 +8970,8 @@ Ready to scope a Nordic campaign that includes Kick inventory? [Book a 30-minute
     },
     seoDescription: {
       en: "Kick hit 4.5B watch hours in 2025, up 131% YoY. Creator count doubled, Just Chatting and IRL grew fastest. Why Nordic advertisers can enter now.",
-      no: "Kick nådde 4,5 milliarder timer sett i 2025, +131 % YoY. Skapertieren doblet seg, og Just Chatting og IRL vokste raskest. Hva nordiske annonsører bør teste.",
-      sv: "Kick nådde 4,5 miljarder sedda timmar 2025, +131% YoY. Skapartier fördubblades, Just Chatting och IRL växte snabbast. Vad nordiska annonsörer bör testa 2026.",
+      no: "Kick nådde 4,5 milliarder timer sett i 2025, +131 % YoY. Skapertieren doblet seg. Just Chatting og IRL vokste raskest. Hva nordiske annonsører bør teste.",
+      sv: "Kick nådde 4,5 miljarder sedda timmar 2025, +131% YoY. Skapartier fördubblades, Just Chatting och IRL växte snabbast. Vad nordiska annonsörer bör testa.",
       fi: "Kick saavutti 4,5 miljardia katseltua tuntia vuonna 2025, +131 % YoY. Luojataso kaksinkertaistui. Mitä pohjoismaisten mainostajien pitäisi testata 2026."
     },
     seoKeywords: {
@@ -9929,10 +9929,10 @@ The creator marketing lifecycle doesn't have to be broken. It just needs to be b
       fi: "Sisällöntuottajamarkkinoinnin elinkaari on rikki"
     },
     seoDescription: {
-      en: "Creator marketing is fragmented across too many tools. How centralizing discovery, onboarding, execution, and reporting into one platform fixes the lifecycle.",
-      no: "Creator-markedsføring er fragmentert på tvers av for mange verktøy. Slik fikser du livssyklusen med oppdagelse, onboarding, utførelse og rapportering samlet.",
+      en: "Creator marketing is fragmented across too many tools. How centralizing discovery, onboarding, execution and reporting in one platform fixes the lifecycle.",
+      no: "Creator-markedsføring er spredt på for mange verktøy. Slik fikser du livssyklusen med oppdagelse, onboarding, utførelse og rapportering samlet.",
       sv: "Creator-marknadsföring är fragmenterad över för många verktyg. Så fixar du livscykeln genom att samla upptäckt, onboarding, genomförande och rapportering.",
-      fi: "Sisällöntuottajamarkkinointi on hajautunut liian moniin työkaluihin. Löytämisen, perehdytyksen, toteutuksen ja raportoinnin keskittäminen korjaa elinkaaren."
+      fi: "Sisällöntuottajamarkkinointi on hajautunut liian moneen työkaluun. Löytämisen, perehdytyksen, toteutuksen ja raportoinnin keskittäminen korjaa elinkaaren."
     },
     seoKeywords: {
       en: ["creator marketing lifecycle", "influencer marketing platform", "creator campaign management", "streamer partnerships", "creator discovery tool", "nordic creator marketing"],
@@ -11491,7 +11491,7 @@ Planlegger dere et norsk Twitch-spor i 2026, booker vi kampanjer med detoo fortl
     },
     seoDescription: {
       en: "detoo is Norway's most-watched Twitch streamer. Beta Ads ran Shure MV6 (182,554 views, 2,378 clicks) and Samsung Galaxy on his channel.",
-      no: "detoo er Norges mest sette Twitch-streamer. Shure MV6-kampanjen på kanalen ga 182 554 visninger og 2 378 verifiserte klikk. Slik ser et streamer-samarbeid ut.",
+      no: "detoo er Norges mest sette Twitch-streamer. Shure MV6-kampanjen på kanalen ga 182 554 visninger og 2 378 verifiserte klikk. Slik ser samarbeidet ut.",
       sv: "detoo är Norges mest sedda Twitch-streamer. Beta Ads har kört Shure MV6 (182 554 visningar, 2 378 verifierade klick) och Samsung Galaxy-kampanjer på hans kanal. Så ser ett norskt streamer-varumärke-samarbete ut.",
       fi: "detoo on Norjan katsotuin Twitch-striimaaja. Beta Ads on toteuttanut Shure MV6 (182 554 katselua, 2 378 varmistettua klikkausta) ja Samsung Galaxy -kampanjat hänen kanavallaan."
     },
@@ -11788,7 +11788,7 @@ Brands we already work with have direct login access. Agency partners managing m
     translationGroup: "clip-analytics-verification",
     hasDashboard: "clip-analytics",
     seoTitle: { en: "Clip Analytics: Näin Beta Ads varmentaa livestriimimainonnan | Beta Ads", no: "Clip Analytics: Näin Beta Ads varmentaa livestriimimainonnan | Beta Ads", sv: "Clip Analytics: Näin Beta Ads varmentaa livestriimimainonnan | Beta Ads", fi: "Clip Analytics: Livestriimimainonnan varmennus | Beta Ads", da: "Clip Analytics: Näin Beta Ads varmentaa livestriimimainonnan | Beta Ads" },
-    seoDescription: { en: "Clip Analytics tarkistaa jokaisen mainosnäytön pohjoismaisessa striimausverkostossa reaaliajassa: mainosten näkyminen, bränditurvallisuus ja brändimaininnat automaattisesti.", no: "Clip Analytics tarkistaa jokaisen mainosnäytön pohjoismaisessa striimausverkostossa reaaliajassa: mainosten näkyminen, bränditurvallisuus ja brändimaininnat automaattisesti.", sv: "Clip Analytics tarkistaa jokaisen mainosnäytön pohjoismaisessa striimausverkostossa reaaliajassa: mainosten näkyminen, bränditurvallisuus ja brändimaininnat automaattisesti.", fi: "Clip Analytics tarkistaa jokaisen mainosnäytön pohjoismaisessa striimausverkostossa reaaliajassa: mainosten näkyminen, bränditurvallisuus ja brändimaininnat.", da: "Clip Analytics tarkistaa jokaisen mainosnäytön pohjoismaisessa striimausverkostossa reaaliajassa: mainosten näkyminen, bränditurvallisuus ja brändimaininnat automaattisesti." },
+    seoDescription: { en: "Clip Analytics tarkistaa jokaisen mainosnäytön pohjoismaisissa striimeissä reaaliajassa: mainosten näkyminen, bränditurvallisuus ja brändimaininnat automaattisesti.", no: "Clip Analytics tarkistaa jokaisen mainosnäytön pohjoismaisissa striimeissä reaaliajassa: mainosten näkyminen, bränditurvallisuus ja brändimaininnat automaattisesti.", sv: "Clip Analytics tarkistaa jokaisen mainosnäytön pohjoismaisissa striimeissä reaaliajassa: mainosten näkyminen, bränditurvallisuus ja brändimaininnat automaattisesti.", fi: "Clip Analytics tarkistaa jokaisen mainosnäytön pohjoismaisissa striimeissä reaaliajassa: mainosten näkyminen, bränditurvallisuus ja brändimaininnat.", da: "Clip Analytics tarkistaa jokaisen mainosnäytön pohjoismaisissa striimeissä reaaliajassa: mainosten näkyminen, bränditurvallisuus ja brändimaininnat automaattisesti." },
     seoKeywords: { en: ["livestriimimainonta","Twitch-mainonta Suomi","striimausmainonta","mainosten varmennus","bränditurvallisuus","Clip Analytics","vaikuttajamarkkinointi striimaus","pohjoismainen striimausverkosto"], no: ["livestriimimainonta","Twitch-mainonta Suomi","striimausmainonta","mainosten varmennus","bränditurvallisuus","Clip Analytics","vaikuttajamarkkinointi striimaus","pohjoismainen striimausverkosto"], sv: ["livestriimimainonta","Twitch-mainonta Suomi","striimausmainonta","mainosten varmennus","bränditurvallisuus","Clip Analytics","vaikuttajamarkkinointi striimaus","pohjoismainen striimausverkosto"], fi: ["livestriimimainonta","Twitch-mainonta Suomi","striimausmainonta","mainosten varmennus","bränditurvallisuus","Clip Analytics","vaikuttajamarkkinointi striimaus","pohjoismainen striimausverkosto"], da: ["livestriimimainonta","Twitch-mainonta Suomi","striimausmainonta","mainosten varmennus","bränditurvallisuus","Clip Analytics","vaikuttajamarkkinointi striimaus","pohjoismainen striimausverkosto"] },
   },
   {
@@ -11897,7 +11897,7 @@ Brands we already work with have direct login access. Agency partners managing m
     locale: "en",
     translationGroup: "dentsu-2025-gaming-trends-report-nordic-twitch-advertising",
     seoTitle: {"en":"Dentsu Gaming Trends Report 2025: Nordic Twitch Ads","no":"Dentsu Gaming Trends 2025: Hva det betyr for Twitch","sv":"Dentsu Gaming Trends 2025 och Twitch-annonsering","da":"Dentsu Gaming Trends 2025 og Twitch-annoncering","fi":"Dentsu Gaming Trends 2025 ja Twitch-mainonta"},
-    seoDescription: {"en":"Dentsu's 2025 Gaming Trends Report: gaming gets under 5% of media budgets despite 3.4 billion players. What it means for brands buying Twitch in the Nordics.","no":"Dentsus Gaming Trends Report 2025: gaming får under 5 % av mediebudsjettene, til tross for 3,4 milliarder spillere. Hva det betyr for Twitch-kjøp i Norden.","sv":"Dentsus Gaming Trends Report 2025: gaming får under 5 % av mediebudgetarna, trots 3,4 miljarder spelare. Vad det betyder för varumärken som köper Twitch.","da":"Dentsus Gaming Trends Report 2025: gaming får under 5 % af mediebudgetterne, trods 3,4 milliarder spillere. Hvad det betyder for brands, der køber Twitch.","fi":"Dentsun Gaming Trends Report 2025: gaming saa alle 5 % mediabudjeteista, vaikka pelaajia on 3,4 miljardia. Mitä tämä tarkoittaa Twitch-mainostajille?"},
+    seoDescription: {"en":"Dentsu's 2025 Gaming Trends Report: gaming gets under 5% of media budgets despite 3.4 billion players. What it means for Nordic brands buying Twitch.","no":"Dentsus Gaming Trends Report 2025: gaming får under 5 % av mediebudsjettene, til tross for 3,4 milliarder spillere. Hva det betyr for Twitch-kjøp i Norden.","sv":"Dentsus Gaming Trends Report 2025: gaming får under 5 % av mediebudgetarna, trots 3,4 miljarder spelare. Vad det betyder för varumärken som köper Twitch.","da":"Dentsus Gaming Trends Report 2025: gaming får under 5 % af mediebudgetterne, trods 3,4 milliarder spillere. Hvad det betyder for brands, der køber Twitch.","fi":"Dentsun Gaming Trends Report 2025: gaming saa alle 5 % mediabudjeteista, vaikka pelaajia on 3,4 miljardia. Mitä tämä tarkoittaa Twitch-mainostajille?"},
     seoKeywords: {"en":["Dentsu gaming report","gaming trends 2025","Twitch advertising","livestream advertising Nordics","gaming ad spend","Nordic Twitch ads"],"no":["Dentsu gaming rapport","gaming trender 2025","Twitch-annonsering","livestream-annonsering Norden","gaming annonsebudsjett"],"sv":["Dentsu gaming rapport","gaming trender 2025","Twitch-annonsering","livestream-annonsering Norden","gaming annonsbudget"],"da":["Dentsu gaming rapport","gaming trends 2025","Twitch-annoncering","livestream-annoncering Norden","gaming annoncebudget"],"fi":["Dentsu gaming raportti","gaming trendit 2025","Twitch-mainonta","suoratoistomainonta Pohjoismaat","gaming mainosbudjetti"]},
   },
   // ── Localized cornerstone posts are appended at runtime by

@@ -128,7 +128,7 @@ const COPY = {
   no: {
     seoTitle: "Annonser gjennom Kick-strømmere i Norden | Beta Ads",
     seoDescription:
-      "Beta Ads plasserer merkevarer inne i nordiske Kick-strømmer, med 39 000+ skapere i Streamer Explorer: native overlays, stemmestyrte annonser og avstemninger.",
+      "Beta Ads plasserer merkevarer i nordiske Kick-strømmer, med 39 000+ skapere i Streamer Explorer: native overlays, stemmestyrte annonser og avstemninger.",
     badge: "Beta Ads på Kick",
     h1Accent: "Inne i strømmen,",
     h1Rest: "ikke rundt den.",
@@ -256,7 +256,7 @@ const COPY = {
   da: {
     seoTitle: "Annoncer gennem Kick-streamere i Norden | Beta Ads",
     seoDescription:
-      "Beta Ads placerer brands inde i nordiske Kick-streams, med over 39.000 creators i Streamer Explorer: native overlays, stemmestyrede annoncer og afstemninger.",
+      "Beta Ads placerer brands inde i nordiske Kick-streams, med 39.000+ creators i Streamer Explorer: native overlays, stemmestyrede annoncer og afstemninger.",
     badge: "Beta Ads på Kick",
     h1Accent: "Inde i streamen,",
     h1Rest: "ikke rundt om den.",
@@ -320,7 +320,7 @@ const COPY = {
   fi: {
     seoTitle: "Mainosta Kick-striimaajien kautta Pohjoismaissa | Beta Ads",
     seoDescription:
-      "Beta Ads tuo brändit pohjoismaisiin Kick-lähetyksiin yli 39 000 tekijän Streamer Explorer -tietokannasta: native overlayt, ääniohjatut mainokset, äänestykset.",
+      "Beta Ads tuo brändit pohjoismaisiin Kick-lähetyksiin yli 39 000 tekijän Streamer Explorerista: native overlayt, ääniohjatut mainokset, äänestykset.",
     badge: "Beta Ads Kickissä",
     h1Accent: "Lähetyksen sisällä,",
     h1Rest: "ei sen ympärillä.",

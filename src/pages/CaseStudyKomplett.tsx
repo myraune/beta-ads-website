@@ -7,7 +7,7 @@ const CaseStudyKomplett: React.FC = () => {
     <>
       <SEO
         title="Komplett Månedens Gaming Deal Case Study | Beta Ads"
-        description="How Komplett's tactical retail campaign hit a 4.48% peak-day CTR across 34 Norwegian gaming streamers. 151,278 display views, 1,768 verified clicks in 17 days."
+        description="Komplett's tactical retail campaign hit a 4.48% peak-day CTR across 34 Norwegian gaming streamers. 151,278 display views, 1,768 verified clicks in 17 days."
         canonical="/case-study/komplett"
         ogType="article"
         articlePublishedTime="2025-08-01"

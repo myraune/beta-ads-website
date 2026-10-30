@@ -58,7 +58,7 @@ const YouTubeAdvertising: React.FC = () => {
     <MarketingPageLayout
       seo={{
         title: "YouTube Live Advertising in the Nordics | Beta Ads",
-        description: "Native overlay ads on YouTube Live streams across Norway, Sweden, Finland, and Denmark. Reach gaming and lifestyle audiences with ads that bypass ad blockers.",
+        description: "Native overlay ads on YouTube Live streams in Norway, Sweden, Finland and Denmark. Reach gaming and lifestyle audiences with ads that bypass ad blockers.",
         canonical: "/youtube-advertising",
         jsonLd: [
           { "@context": "https://schema.org", "@type": "Service", "@id": "https://beta-ads.no/youtube-advertising#service", name: "YouTube Live Advertising - Beta Ads", serviceType: "Native Livestream Advertising", description: "Native overlay ads on Nordic YouTube Live streams. 45+ minute average session exposure, 0% adblock impact.", provider: { "@id": "https://beta-ads.no/#organization" }, areaServed: ["Norway", "Sweden", "Denmark", "Finland"], url: "https://beta-ads.no/youtube-advertising" },

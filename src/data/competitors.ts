@@ -151,7 +151,7 @@ export const competitors: Competitor[] = [
     score: { inStream: ["yes", "Every campaign requires a branded overlay in OBS"], custom: ["yes", "Branded overlay per campaign brief"], platforms: ["partial", "Twitch first; links can be shared on YouTube and Kick"], nordic: ["unknown"], price: ["no", "No published rates; performance-based"], refund: ["unknown"], dashboard: ["unknown"], chatCmd: ["yes", "Chatbot commands are part of campaign tasks"], poll: ["unknown"], clips: ["unknown"], chatTracking: ["unknown"], managed: ["yes", "Sales-led, managed campaigns"], selfServe: ["unknown"] },
     kind: "Sponsorship network for streamers, now owned by Razer",
     title: "Beta Ads vs StreamElements sponsorships for brands | Beta Ads",
-    description: "StreamElements runs performance-based sponsorships across a large creator network, with branded overlays and chatbot commands, and was bought by Razer in 2026. Beta Ads runs custom overlay campaigns on Nordic streams. Compared, with sources.",
+    description: "StreamElements runs performance-based sponsorships with branded overlays and chatbot commands; Razer bought it in 2026. Beta Ads runs Nordic overlays.",
     summary: "StreamElements runs performance-based sponsorships across a large, mostly North American creator network, and its assets were bought by Razer in July 2026. Beta Ads runs custom overlay campaigns on Nordic streams, priced per 1,000 played views.",
     rows: [
       ["What it is", "Livestream ad platform and managed service for Nordic brands", "Sponsorship network: brand offers delivered to streamers' dashboards"],
@@ -196,8 +196,8 @@ export const competitors: Competitor[] = [
     focus: "Twitch, with Norwegian tech and retail clients",
     score: { inStream: ["yes", "Banner in OBS, up to 30 seconds every 10 minutes"], custom: ["yes", "Custom animation and banner"], platforms: ["partial", "Twitch; Kick not mentioned"], nordic: ["partial", "Norwegian clients and campaigns"], price: ["no", "No general rates published"], refund: ["unknown"], dashboard: ["yes", "Real-time brand dashboard"], chatCmd: ["yes", "Chat commands with a chatbot"], poll: ["no", "Not seen in their campaigns"], clips: ["no", "No automatic clips of ad plays"], chatTracking: ["partial", "Counts brand mentions in chat; no translation or scoring"], managed: ["yes", "Full-service"], selfServe: ["partial", "Brand users can trigger activations"] },
     kind: "Twitch sponsorship platform, Norway",
-    title: "Beta Ads vs UpliftU: livestream advertising in Norway compared | Beta Ads",
-    description: "UpliftU (LØFT OPP AS, Sandefjord) runs Twitch sponsorships with overlays and chat commands for Norwegian brands. Beta Ads runs custom overlays on Twitch, YouTube and Kick with AI clips, chat tracking and a refund for undelivered views. Compared, with sources.",
+    title: "UpliftU vs Beta Ads: livestream advertising in Norway",
+    description: "UpliftU (LØFT OPP AS, Sandefjord) sells Twitch sponsorships to Norwegian brands. Beta Ads runs overlays on Twitch, YouTube and Kick with a refund.",
     summary: "UpliftU is a Norwegian Twitch sponsorship platform with overlays and chat commands, run by LØFT OPP AS in Sandefjord. Beta Ads covers Twitch, YouTube and Kick, clips every ad play automatically, and refunds views it does not deliver.",
     rows: [
       ["Company", "BETA AGENCY AS, org.nr 933 303 136, Oslo", "LØFT OPP AS, org.nr 926 625 845, Sandefjord"],
@@ -243,8 +243,8 @@ export const competitors: Competitor[] = [
     focus: "Global, with campaigns across Europe, Latin America and Japan",
     score: { inStream: ["yes", "Artwork shown automatically on stream"], custom: ["yes", "Artwork made by them or the brand"], platforms: ["yes", "Twitch, YouTube and Kick"], nordic: ["partial", "Agency partners in Norway and Denmark"], price: ["no", "CPC or CPV rates set per contract"], refund: ["unknown"], dashboard: ["yes", "Campaign dashboard plus weekly reports"], chatCmd: ["partial", "A chat message with the link is sent with the animation"], poll: ["yes", "Chat voting"], clips: ["unknown"], chatTracking: ["yes", "Chat and voice intelligence with sentiment"], managed: ["yes", "Delivered against the brand's brief"], selfServe: ["unknown"] },
     kind: "Livestream sponsorship platform, Poland",
-    title: "inStreamly alternative for Nordic brands: Beta Ads vs inStreamly | Beta Ads",
-    description: "inStreamly is a Warsaw-based livestream sponsorship platform with a large global streamer network. Beta Ads, a former inStreamly partner, runs custom overlay campaigns on Nordic streams with a published price and a refund for undelivered views. Compared, with sources.",
+    title: "inStreamly alternative for Nordic brands | Beta Ads",
+    description: "inStreamly is a Warsaw-based sponsorship platform with a global streamer network. Beta Ads, a former partner, runs Nordic overlay campaigns with a refund.",
     summary: "inStreamly runs livestream sponsorships across a large global streamer network from Warsaw. Beta Ads runs custom overlay campaigns on Nordic streams, with a published price from 100,000 NOK and a refund for undelivered views.",
     rows: [
       ["Company", "BETA AGENCY AS, Oslo, Norway", "inStreamly P.S.A., Warsaw, Poland"],
@@ -291,8 +291,8 @@ export const competitors: Competitor[] = [
     focus: "Game publishers and studios, and brands looking for presence in gaming",
     score: { inStream: ["partial", "Creators make the content from your brief"], custom: ["partial", "Made by each creator, no brand overlay"], platforms: ["partial", "Twitch, YouTube, Shorts and TikTok; Kick not mentioned"], nordic: ["unknown"], price: ["partial", "Plans on request; 20% commission per Quest"], refund: ["unknown"], dashboard: ["yes", "Real-time data per creator"], chatCmd: ["unknown"], poll: ["unknown"], clips: ["unknown"], chatTracking: ["unknown"], managed: ["yes", "Assisted Service with account managers"], selfServe: ["yes", "Campaigns launched in a few clicks"] },
     kind: "Creator marketing platform for games, Sweden",
-    title: "Beta Ads vs Lurkit: creator marketing for games vs livestream ads for brands | Beta Ads",
-    description: "Lurkit is a Swedish creator marketing platform for game publishers and studios, with paid Quests at a 20% commission. Beta Ads runs custom overlay campaigns inside live streams for brands. Company, model, platforms and pricing compared, with sources.",
+    title: "Lurkit vs Beta Ads: game creator marketing vs stream ads",
+    description: "Lurkit is a Swedish creator marketing platform for game publishers, with paid Quests at 20% commission. Beta Ads runs overlays in live streams for brands.",
     summary: "Lurkit helps game publishers and studios work with creators, from key campaigns to paid Quests where creators make the content. Beta Ads puts one custom overlay inside the streams for your brand, priced per 1,000 played views.",
     rows: [
       ["Built for", "Brands and their media agencies", "Game publishers and studios, plus brands that want presence in gaming"],
@@ -338,8 +338,8 @@ export const competitors: Competitor[] = [
     focus: "Game publishers and studios, worldwide",
     score: { inStream: ["partial", "Creators stream your game from a brief"], custom: ["partial", "Made by each creator, no brand overlay mentioned"], platforms: ["partial", "Twitch; YouTube and Kick not mentioned on its site"], nordic: ["unknown"], price: ["no", "No prices on its site"], refund: ["unknown"], dashboard: ["yes", "Real-time progress tracking per campaign"], chatCmd: ["unknown"], poll: ["unknown"], clips: ["unknown"], chatTracking: ["unknown"], managed: ["yes", "Strategic and operational partner"], selfServe: ["unknown"] },
     kind: "Creator marketing for games, official Twitch partner, Sweden",
-    title: "Beta Ads vs Wehype: Twitch creator campaigns for games vs livestream ads for brands | Beta Ads",
-    description: "Wehype is a Swedish creator marketing company for game publishers, and since August 2026 its campaigns appear inside Twitch's Sponsorship Dashboard. Beta Ads runs custom overlay campaigns inside live streams for brands. Company, model, platforms and pricing compared, with sources.",
+    title: "Wehype vs Beta Ads: game creator campaigns vs stream ads",
+    description: "Wehype is a Swedish creator marketing firm for game publishers, in Twitch's Sponsorship Dashboard since August 2026. Beta Ads runs overlay ads for brands.",
     summary: "Wehype runs creator campaigns for game publishers, and its campaigns are offered to streamers directly inside Twitch's Sponsorship Dashboard. Beta Ads puts one custom overlay inside the streams for your brand, priced per 1,000 played views.",
     rows: [
       ["Built for", "Brands and their media agencies", "Game publishers and studios"],
@@ -382,8 +382,8 @@ export const competitors: Competitor[] = [
     focus: "International creator network, 20+ markets per Juno",
     score: { inStream: ["yes", "Overlay in the stream via a browser source"], custom: ["partial", "A 20-second visual was made for Philips in 2023"], platforms: ["yes", "Twitch, Kick and YouTube Live, plus TikTok"], nordic: ["unknown"], price: ["no", "No rates published"], refund: ["unknown"], dashboard: ["unknown"], chatCmd: ["partial", "A link is posted in chat"], poll: ["unknown"], clips: ["unknown"], chatTracking: ["unknown"], managed: ["yes", "Sales-led campaigns"], selfServe: ["unknown"] },
     kind: "Livestream ad network, Denmark",
-    title: "Beta Ads vs Juno (Adlab, formerly Cavea): livestream ads compared | Beta Ads",
-    description: "Juno, run by The Monocular ApS in Denmark with the creator app Adlab (formerly Cavea), places overlays inside live streams across a creator network. Beta Ads runs custom overlay campaigns for Nordic brands with a published price and refund. Compared, with sources.",
+    title: "Juno (Adlab, formerly Cavea) vs Beta Ads: livestream ads",
+    description: "Juno (The Monocular ApS, Denmark) runs overlays in live streams via the Adlab app, formerly Cavea. Beta Ads runs Nordic overlays with a published price.",
     summary: "Juno places overlays inside live streams through its creator app Adlab, run by The Monocular ApS in Denmark. Beta Ads designs a custom animation for your brand and publishes how you pay, with a refund for undelivered views.",
     rows: [
       ["Company", "BETA AGENCY AS, Oslo, Norway", "The Monocular ApS, Denmark (Juno for brands, Adlab for creators; cavea.io now redirects to Juno)"],
@@ -427,7 +427,7 @@ export const competitors: Competitor[] = [
     score: { inStream: ["yes", "Overlays up to 15% or 50% of the screen, via an OBS widget"], custom: ["yes", "Banner, video or animation"], platforms: ["partial", "Twitch, YouTube, VK Video Live and Trovo; Kick not mentioned"], nordic: ["unknown"], price: ["partial", "Bought on CPM, practical start around RUB 1 million; no rate card"], refund: ["partial", "Adds placements until the plan is met"], dashboard: ["yes", "Real-time CPM, CPC and CTR"], chatCmd: ["partial", "A link is posted in chat when the ad shows"], poll: ["unknown"], clips: ["unknown"], chatTracking: ["unknown"], managed: ["yes", "Media plan within one business day"], selfServe: ["partial", "Brand login; the Russian offer is managed"] },
     kind: "Creator sponsorship platform, Russia",
     title: "Beta Ads vs Uplify: livestream overlay ads compared | Beta Ads",
-    description: "Uplify is a Moscow-based platform selling overlays inside creator streams on Twitch, YouTube, VK and Trovo, mainly in Russia and Brazil. Beta Ads runs custom overlay campaigns on Nordic streams. Company, markets, formats and pricing compared, with sources.",
+    description: "Uplify, based in Moscow, sells overlays in streams on Twitch, YouTube, VK and Trovo, mainly in Russia and Brazil. Beta Ads runs Nordic overlay campaigns.",
     summary: "Uplify is a Moscow-based platform that sells overlays inside creator streams, with its main markets in Russia and Brazil. Beta Ads runs custom overlay campaigns on Nordic streams, priced from 100,000 NOK with a refund for undelivered views.",
     rows: [
       ["What it is", "Livestream ad platform and managed service for Nordic brands", "Platform for buying overlays in creator streams and VODs"],
@@ -473,7 +473,7 @@ export const competitors: Competitor[] = [
     score: { inStream: ["yes", "Overlay plus chat message (product as of June 2026)"], custom: ["partial", "Your own video or image in a standard unit"], platforms: ["partial", "Twitch; Kick not mentioned"], nordic: ["unknown"], price: ["partial", "Dynamic pricing by demand; no figures"], refund: ["unknown", "Advertiser page and purchase terms contradict each other"], dashboard: ["yes", "Real-time dashboards"], chatCmd: ["partial", "A link is posted in chat on every display"], poll: ["unknown"], clips: ["unknown"], chatTracking: ["unknown"], managed: ["unknown"], selfServe: ["yes", "Now invite-only with a waiting list"] },
     kind: "Self-serve brand deals on streams, Germany",
     title: "Beta Ads vs Loots: livestream brand deals compared | Beta Ads",
-    description: "Loots ran a self-serve product where brands bought short overlays and chat messages on streams; its site now shows an invite-only v4. Beta Ads runs managed overlay campaigns for Nordic brands. Compared, with sources and archived pages.",
+    description: "Loots sold self-serve overlays and chat messages on streams; its site now shows an invite-only v4. Beta Ads runs managed Nordic overlay campaigns.",
     summary: "Loots sold short self-serve brand displays on streams, and its site now shows an invite-only product with a waiting list. Beta Ads runs managed overlay campaigns for Nordic brands, open now, with a published price.",
     rows: [
       ["What it is", "Livestream ad platform and managed service", "Self-serve brand deals: a short overlay plus a chat message"],
@@ -514,7 +514,7 @@ export const competitors: Competitor[] = [
     score: { inStream: ["partial", "Depends on the creator integration"], custom: ["yes", "Each creator's own content"], platforms: ["partial", "Varies"], nordic: ["partial", "Varies"], price: ["no", "Rarely public"], refund: ["partial", "Depends on the contract"], dashboard: ["partial", "Varies by agency"], chatCmd: ["unknown"], poll: ["unknown"], clips: ["unknown"], chatTracking: ["unknown"], managed: ["yes"], selfServe: ["unknown"] },
     kind: "Gaming and influencer agencies",
     title: "Beta Ads vs an influencer marketing agency for Twitch | Beta Ads",
-    description: "Influencer and gaming agencies charge project fees, retainers, commission or markup on creator fees. Beta Ads charges per 1,000 played views and refunds undelivered views. How the two compare for livestream campaigns, with sources.",
+    description: "Influencer and gaming agencies charge fees, retainers, commission or markup. Beta Ads charges per 1,000 played views and refunds undelivered views.",
     summary: "An influencer agency negotiates deals creator by creator and usually charges fees, retainers or commission. Beta Ads charges per 1,000 played views, refunds anything not delivered, and shows every view in your own dashboard.",
     rows: [
       ["What you pay for", "Views delivered: per 1,000 fully played animation views", "Agency time and creator fees: project fees, retainers, commission or markup"],

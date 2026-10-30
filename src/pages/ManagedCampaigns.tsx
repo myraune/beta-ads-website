@@ -17,7 +17,7 @@ import {
 
 const TITLE = "Managed livestream campaigns: we run it A to Z | Beta Ads";
 const DESCRIPTION =
-  "Managed Twitch, YouTube and Kick campaigns for brands and first tests. We pick the streamers, design the overlay, launch, verify and report. From 100,000 NOK.";
+  "Managed Twitch, YouTube and Kick campaigns for brands and first tests. We pick streamers, design the overlay, launch, verify and report. From 100,000 NOK.";
 
 const steps: { t: string; d: string; who: "You" | "Beta Ads" | "Both" }[] = [
   { t: "Brief and budget", who: "You", d: "Tell us the product, the market and the goal. We agree the number of views before launch." },

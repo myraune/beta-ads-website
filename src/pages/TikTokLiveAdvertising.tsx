@@ -14,7 +14,7 @@ import { BOOKING_URL, SALES_MAIL, W, kicker, h2, PrimaryBtn, GhostBtn, Faq, faqL
 
 const TITLE = "TikTok LIVE Advertising: Ads in Creator Streams | Beta Ads";
 const DESCRIPTION =
-  "New on Beta Ads: animated brand overlays inside TikTok LIVE streams, next to Twitch, YouTube and Kick. Talk to us about running a first TikTok LIVE campaign.";
+  "New on Beta Ads: animated brand overlays inside TikTok LIVE streams, next to Twitch, YouTube and Kick. Talk to us about a first TikTok LIVE campaign.";
 
 const carries: { t: string; d: string }[] = [
   { t: "An overlay in your brand", d: "Your creative as an animated overlay, sized for a vertical live stream." },

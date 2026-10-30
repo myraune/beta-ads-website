@@ -40,7 +40,7 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
     <div className="min-h-screen text-foreground relative">
       <SEO
         title="About Us | Beta Ads"
-        description="Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams in the Nordics. Beta Agency AS, org.nr 933 303 136, based in Oslo, Norway."
+        description="Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams in the Nordics. Beta Agency AS, org.nr 933 303 136, Oslo, Norway."
         canonical="/about"
         ogType="website"
         jsonLd={[

@@ -114,7 +114,7 @@ const STATIC_PAGES = [
     route: "/youtube-advertising",
     title: "YouTube Live Advertising in the Nordics | Beta Ads",
     description:
-      "Native overlay ads on YouTube Live streams across Norway, Sweden, Finland, and Denmark. Reach gaming and lifestyle audiences with ads that bypass ad blockers.",
+      "Native overlay ads on YouTube Live streams in Norway, Sweden, Finland and Denmark. Reach gaming and lifestyle audiences with ads that bypass ad blockers.",
     locale: "en",
   },
   {
@@ -139,7 +139,7 @@ const STATIC_PAGES = [
     route: "/kick-streamer-annonsering",
     title: "Annonser gjennom Kick-strømmere i Norden | Beta Ads",
     description:
-      "Beta Ads plasserer merkevarer inne i nordiske Kick-strømmer, med 39 000+ skapere i Streamer Explorer: native overlays, stemmestyrte annonser og avstemninger.",
+      "Beta Ads plasserer merkevarer i nordiske Kick-strømmer, med 39 000+ skapere i Streamer Explorer: native overlays, stemmestyrte annonser og avstemninger.",
     locale: "no",
     image: "/lovable-uploads/og/kick-streamer-advertising-no.png",
     ogImageWidth: 1200,
@@ -175,7 +175,7 @@ const STATIC_PAGES = [
     route: "/kick-streamer-annoncering",
     title: "Annoncer gennem Kick-streamere i Norden | Beta Ads",
     description:
-      "Beta Ads placerer brands inde i nordiske Kick-streams, med over 39.000 creators i Streamer Explorer: native overlays, stemmestyrede annoncer og afstemninger.",
+      "Beta Ads placerer brands inde i nordiske Kick-streams, med 39.000+ creators i Streamer Explorer: native overlays, stemmestyrede annoncer og afstemninger.",
     locale: "da",
     image: "/lovable-uploads/og/kick-streamer-advertising-da.png",
     ogImageWidth: 1200,
@@ -193,7 +193,7 @@ const STATIC_PAGES = [
     route: "/kick-streamer-mainonta",
     title: "Mainosta Kick-striimaajien kautta Pohjoismaissa | Beta Ads",
     description:
-      "Beta Ads tuo brändit pohjoismaisiin Kick-lähetyksiin yli 39 000 tekijän Streamer Explorer -tietokannasta: native overlayt, ääniohjatut mainokset, äänestykset.",
+      "Beta Ads tuo brändit pohjoismaisiin Kick-lähetyksiin yli 39 000 tekijän Streamer Explorerista: native overlayt, ääniohjatut mainokset, äänestykset.",
     locale: "fi",
     image: "/lovable-uploads/og/kick-streamer-advertising-fi.png",
     ogImageWidth: 1200,
@@ -269,7 +269,7 @@ const STATIC_PAGES = [
     route: "/kick-annoncering",
     title: "Kick-annoncering i Danmark: formater og pris | Beta Ads",
     description:
-      "Kicks mediekit for 2026 siger, at hver femte Kick- og Twitch-time i Nordeuropa ses på Kick. Formater, pris og hvordan Beta Ads placerer danske brands på Kick.",
+      "Kicks mediekit 2026 siger, at hver femte Kick- og Twitch-time i Nordeuropa ses på Kick. Formater, pris og hvordan Beta Ads placerer danske brands på Kick.",
     locale: "da",
     image: "/lovable-uploads/og/kick-advertising-da.png",
     ogImageWidth: 1200,
@@ -288,7 +288,7 @@ const STATIC_PAGES = [
     route: "/kick-mainonta",
     title: "Kick-mainonta Suomessa: formaatit ja hinta | Beta Ads",
     description:
-      "Kickin mediakortti 2026 kertoo, että joka viides Kickin ja Twitchin katselutunti Pohjois-Euroopassa katsotaan Kickissä. Formaatit, hinta ja Beta Adsin malli.",
+      "Kickin mediakortin 2026 mukaan joka viides Kickin ja Twitchin katselutunti Pohjois-Euroopassa katsotaan Kickissä. Formaatit, hinta ja Beta Adsin malli.",
     locale: "fi",
     image: "/lovable-uploads/og/kick-advertising-fi.png",
     ogImageWidth: 1200,
@@ -306,7 +306,7 @@ const STATIC_PAGES = [
     route: "/about",
     title: "About Us | Beta Ads",
     description:
-      "Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams in the Nordics. Beta Agency AS, org.nr 933 303 136, based in Oslo, Norway.",
+      "Beta Ads is a native advertising platform for Twitch, Kick and YouTube livestreams in the Nordics. Beta Agency AS, org.nr 933 303 136, Oslo, Norway.",
     locale: "en",
   },
   {
@@ -327,7 +327,7 @@ const STATIC_PAGES = [
     route: "/twitch-advertising-cost",
     title: "What Does Twitch Advertising Cost? | Beta Ads",
     description:
-      "No platform publishes a Twitch advertising rate card, not even Twitch. How livestream ads are priced in the Nordics, five cost drivers and how to get a quote.",
+      "No platform publishes a Twitch ad rate card, not even Twitch. How livestream ads are priced in the Nordics, five cost drivers and how to get a quote.",
     locale: "en",
     alternates: [
       { hreflang: "en", href: "/twitch-advertising-cost" },
@@ -339,7 +339,7 @@ const STATIC_PAGES = [
     route: "/twitch-annonsering-pris",
     title: "Hva koster Twitch-annonsering i Norge? | Beta Ads",
     description:
-      "Ingen plattform publiserer en prisliste for Twitch-annonsering, ikke engang Twitch. Slik prises livestream-annonsering i Norge og slik får du et reelt tilbud.",
+      "Ingen plattform har en prisliste for Twitch-annonsering, ikke engang Twitch. Slik prises livestream-annonsering i Norge og slik får du et reelt tilbud.",
     locale: "no",
     alternates: [
       { hreflang: "no", href: "/twitch-annonsering-pris" },
@@ -358,14 +358,14 @@ const STATIC_PAGES = [
       route: "/twitch-agency-norway",
       title: "Twitch Agency in Norway | Beta Ads",
       description:
-        "Beta Ads is a Norwegian Twitch agency running native ads inside the broadcast. How to choose a Twitch agency in Norway, what it costs and the alternatives.",
+        "Beta Ads is a Norwegian Twitch agency running native ads in the broadcast. How to choose a Twitch agency in Norway, what it costs and the alternatives.",
       locale: "en",
     },
   {
       route: "/twitch-byra-norge",
       title: "Twitch-byrå i Norge | Beta Ads",
       description:
-        "Beta Ads er et norsk Twitch-byrå med native annonsering inne i sendingen. Slik velger du Twitch-byrå i Norge, hva det koster og hvilke alternativer du har.",
+        "Beta Ads er et norsk Twitch-byrå med native annonsering i sendingen. Slik velger du Twitch-byrå i Norge, hva det koster og hvilke alternativer du har.",
       locale: "no",
     },
   {
@@ -407,14 +407,14 @@ const STATIC_PAGES = [
     route: "/tiktok-live-advertising",
     title: "TikTok LIVE Advertising: Ads in Creator Streams | Beta Ads",
     description:
-      "New on Beta Ads: animated brand overlays inside TikTok LIVE streams, next to Twitch, YouTube and Kick. Talk to us about running a first TikTok LIVE campaign.",
+      "New on Beta Ads: animated brand overlays inside TikTok LIVE streams, next to Twitch, YouTube and Kick. Talk to us about a first TikTok LIVE campaign.",
     locale: "en",
   },
   {
     route: "/for-marketing-executives",
     title: "Livestream Advertising for Marketing Executives | Beta Ads",
     description:
-      "Livestream ads on Twitch, YouTube and Kick, reported like the rest of your media plan: what you bought, what was delivered, where it ran and if it was safe.",
+      "Livestream ads on Twitch, YouTube and Kick, reported like the rest of your media: what you bought, what was delivered, where it ran and if it was safe.",
     locale: "en",
   },
   {
@@ -449,7 +449,7 @@ const STATIC_PAGES = [
     route: "/programmatic",
     title: "Programmatic Livestream Ads on Adform and Magnite | Beta Ads",
     description:
-      "Buy livestream ads on Twitch, YouTube and Kick programmatically: we set up a private deal on Adform or Magnite, share the deal ID, you target it in your DSP.",
+      "Buy livestream ads on Twitch, YouTube and Kick programmatically: we set up a private deal on Adform or Magnite, share the deal ID, you target it in a DSP.",
     locale: "en",
   },
   {
@@ -470,7 +470,7 @@ const STATIC_PAGES = [
     route: "/brand-safety",
     title: "Brand Safety for Livestream Ads: Swearing Check | Beta Ads",
     description:
-      "Every ad play on Twitch, YouTube and Kick is recorded, transcribed, translated into English and checked for swearing, then rated no, low, medium or high risk.",
+      "Each ad play on Twitch, YouTube and Kick is recorded, transcribed, translated to English and checked for swearing, then rated no, low, medium or high risk.",
     locale: "en",
   },
   {
@@ -484,21 +484,21 @@ const STATIC_PAGES = [
     route: "/working-with-us",
     title: "Working with us: managed campaigns or self-serve | Beta Ads",
     description:
-      "Two ways to run livestream ads: we run campaigns from brief to report, or agencies launch and resell them in self-serve, or buy via a private deal in a DSP.",
+      "Two ways to run livestream ads: we run campaigns from brief to report, or agencies launch and resell them in self-serve, or buy a private deal in a DSP.",
     locale: "en",
   },
   {
     route: "/managed-campaigns",
     title: "Managed livestream campaigns: we run it A to Z | Beta Ads",
     description:
-      "Managed Twitch, YouTube and Kick campaigns for brands and first tests. We pick the streamers, design the overlay, launch, verify and report. From 100,000 NOK.",
+      "Managed Twitch, YouTube and Kick campaigns for brands and first tests. We pick streamers, design the overlay, launch, verify and report. From 100,000 NOK.",
     locale: "en",
   },
   {
     route: "/self-serve",
     title: "Self-serve livestream ads for media agencies | Beta Ads",
     description:
-      "Your own Beta Ads login to find streamers and launch livestream campaigns for clients on your terms. Or buy via a private deal on Adform or Magnite in a DSP.",
+      "Your own Beta Ads login to find streamers and launch livestream campaigns for clients on your terms. Or buy a private deal on Adform or Magnite in a DSP.",
     locale: "en",
   },
   {
@@ -558,7 +558,7 @@ const CASE_STUDIES = [
     route: "/case-study/saily",
     title: "Saily eSIM Case Study | Beta Ads",
     description:
-      "Saily on Norwegian Twitch: 102,794 completed views, 518 verified clicks, 0.50% CTR across 22 streamers. 53,229 unique viewers reached in peak travel season.",
+      "Saily on Norwegian Twitch: 102,794 completed views, 518 verified clicks, 0.50% CTR across 22 streamers. 53,229 unique viewers in peak travel season.",
     locale: "en",
     datePublished: "2025-11-01",
     image: "/og/og-home.jpg",
@@ -596,7 +596,7 @@ const CASE_STUDIES = [
     route: "/case-study/komplett",
     title: "Komplett Månedens Gaming Deal Case Study | Beta Ads",
     description:
-      "How Komplett's tactical retail campaign hit a 4.48% peak-day CTR across 34 Norwegian gaming streamers. 151,278 display views, 1,768 verified clicks in 17 days.",
+      "Komplett's tactical retail campaign hit a 4.48% peak-day CTR across 34 Norwegian gaming streamers. 151,278 display views, 1,768 verified clicks in 17 days.",
     locale: "en",
     datePublished: "2025-08-01",
     image: "/lovable-uploads/case-studies/komplett-preview.jpg",
@@ -666,6 +666,8 @@ function loadTsModule(relPath, cacheKey) {
   delete require.cache[require.resolve(outfile)];
   return require(outfile);
 }
+
+const { formatSeoTitle } = loadTsModule("src/lib/seoTitle.ts", "seo-title");
 
 // Per-country blog hubs. Mirrors HUB_COPY in src/pages/BlogLocaleHub.tsx.
 const BLOG_HUBS = [
@@ -936,8 +938,10 @@ const HOME_CONTENT = `
         </div>
       </main>`;
 
-function injectMeta(shellHtml, { title, description, canonical, locale, alternates, image, ogType = "website", articlePublishedTime = null, ogImageWidth = 1200, ogImageHeight = 630 }) {
+function injectMeta(shellHtml, { title: rawPageTitle, description, canonical, locale, alternates, image, ogType = "website", articlePublishedTime = null, ogImageWidth = 1200, ogImageHeight = 630 }) {
   let html = shellHtml;
+  // Same rule as <SEO>: " | Beta Ads" only when the whole title fits in 60.
+  const title = formatSeoTitle(rawPageTitle);
   const canonicalUrl = toAbsolute(canonical);
   const ogLocale = OG_LOCALES[locale] || "en_US";
   const ogImage = image ? toAbsolute(image) : null;

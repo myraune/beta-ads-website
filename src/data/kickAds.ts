@@ -935,7 +935,7 @@ const SV: KickCopy = {
 const DA: KickCopy = {
   seoTitle: "Kick-annoncering i Danmark: formater og pris | Beta Ads",
   seoDescription:
-    "Kicks mediekit for 2026 siger, at hver femte Kick- og Twitch-time i Nordeuropa ses på Kick. Formater, pris og hvordan Beta Ads placerer danske brands på Kick.",
+    "Kicks mediekit 2026 siger, at hver femte Kick- og Twitch-time i Nordeuropa ses på Kick. Formater, pris og hvordan Beta Ads placerer danske brands på Kick.",
   ogAlt: "Kick-annoncering i Norden, af Beta Ads",
   hero: {
     badge: "Kick-annoncering",
@@ -1156,7 +1156,7 @@ const DA: KickCopy = {
 const FI: KickCopy = {
   seoTitle: "Kick-mainonta Suomessa: formaatit ja hinta | Beta Ads",
   seoDescription:
-    "Kickin mediakortti 2026 kertoo, että joka viides Kickin ja Twitchin katselutunti Pohjois-Euroopassa katsotaan Kickissä. Formaatit, hinta ja Beta Adsin malli.",
+    "Kickin mediakortin 2026 mukaan joka viides Kickin ja Twitchin katselutunti Pohjois-Euroopassa katsotaan Kickissä. Formaatit, hinta ja Beta Adsin malli.",
   ogAlt: "Kick-mainonta Pohjoismaissa, Beta Ads",
   hero: {
     badge: "Kick-mainonta",
@@ -1343,7 +1343,7 @@ const FI: KickCopy = {
   creators: {
     label: "Beta Ads Kickissä",
     heading: "Toinen reitti sisään: itse lähetyksen sisällä.",
-    body: "Kickin mainospaikat asettavat brändisi kuvan ympärille. Tekijäverkostomme asettaa sen kuvan sisään: Kick-striimaajat valittuina yli 39 000 tekijän Streamer Explorer -tietokannasta, native overlayt sovittuina hetkinä, ääniohjatut mainokset, äänestykset chatissa ja tavoittavuus, joka elää uusinnoissa. Varataan samalta tiimiltä, raportoidaan samassa raportissa.",
+    body: "Kickin mainospaikat asettavat brändisi kuvan ympärille. Tekijäverkostomme asettaa sen kuvan sisään: Kick-striimaajat valittuina yli 39 000 tekijän Streamer Explorerista, native overlayt sovittuina hetkinä, ääniohjatut mainokset, äänestykset chatissa ja tavoittavuus, joka elää uusinnoissa. Varataan samalta tiimiltä, raportoidaan samassa raportissa.",
     cta: "Näin tekijäkampanjat Kickissä toimivat",
     href: "/kick-streamer-mainonta",
   },

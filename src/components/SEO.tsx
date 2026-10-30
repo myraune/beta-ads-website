@@ -1,4 +1,5 @@
 import { useEffect, useMemo } from "react";
+import { formatSeoTitle } from "@/lib/seoTitle";
 import { Helmet } from "react-helmet-async";
 
 /**
@@ -76,7 +77,7 @@ export const SEO: React.FC<SEOProps> = ({
   locale = "en",
   alternates,
 }) => {
-  const fullTitle = title.includes("Beta Ads") ? title : `${title} | Beta Ads`;
+  const fullTitle = formatSeoTitle(title);
 
   const canonicalUrl = canonical ? toAbsolute(canonical) : undefined;
 

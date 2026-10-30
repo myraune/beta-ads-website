@@ -196,7 +196,7 @@ const TwitchByraNorge: React.FC = () => {
       seo={{
         title: "Twitch-byrå i Norge | Beta Ads",
         description:
-          "Beta Ads er et norsk Twitch-byrå med native annonsering inne i sendingen. Slik velger du Twitch-byrå i Norge, hva det koster og hvilke alternativer du har.",
+          "Beta Ads er et norsk Twitch-byrå med native annonsering i sendingen. Slik velger du Twitch-byrå i Norge, hva det koster og hvilke alternativer du har.",
         canonical: "/twitch-byra-norge",
         locale: "no",
         alternates: [

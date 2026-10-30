@@ -114,7 +114,7 @@ const WorkingWithUs: React.FC = () => {
     <>
       <SEO
         title="Working with us: managed campaigns or self-serve | Beta Ads"
-        description="Two ways to run livestream ads: we run campaigns from brief to report, or agencies launch and resell them in self-serve, or buy via a private deal in a DSP."
+        description="Two ways to run livestream ads: we run campaigns from brief to report, or agencies launch and resell them in self-serve, or buy a private deal in a DSP."
         canonical="/working-with-us"
         jsonLd={[
           {

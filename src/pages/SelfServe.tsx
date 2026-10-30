@@ -30,7 +30,7 @@ import {
 
 const TITLE = "Self-serve livestream ads for media agencies | Beta Ads";
 const DESCRIPTION =
-  "Your own Beta Ads login to find streamers and launch livestream campaigns for clients on your terms. Or buy via a private deal on Adform or Magnite in a DSP.";
+  "Your own Beta Ads login to find streamers and launch livestream campaigns for clients on your terms. Or buy a private deal on Adform or Magnite in a DSP.";
 
 const flow: { t: string; d: string }[] = [
   { t: "Find streamers", d: "Search the Streamer Explorer and build the streamer list for your client." },

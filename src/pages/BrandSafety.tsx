@@ -19,7 +19,7 @@ import { PanelFrame, ClipReviewPanel } from "@/components/home-final/product-pan
 
 const TITLE = "Brand Safety for Livestream Ads: Swearing Check | Beta Ads";
 const DESCRIPTION =
-  "Every ad play on Twitch, YouTube and Kick is recorded, transcribed, translated into English and checked for swearing, then rated no, low, medium or high risk.";
+  "Each ad play on Twitch, YouTube and Kick is recorded, transcribed, translated to English and checked for swearing, then rated no, low, medium or high risk.";
 
 type Risk = "No risk" | "Low" | "Medium" | "High";
 

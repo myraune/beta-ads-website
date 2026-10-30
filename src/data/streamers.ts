@@ -196,11 +196,11 @@ export const MARKET_ROUNDUP: Record<
 // ---------------------------------------------------------------------------
 // SEO copy for /streamere/<handle>. Shared by StreamerProfile.tsx and
 // scripts/generate-seo-pages.mjs so the static shell and the rendered page
-// always match. Title at most 62 chars (real name dropped if it does not fit),
-// description at most 158 chars, cut at whole sentences of the blurb.
+// always match. Title at most 60 chars (real name dropped if it does not fit),
+// description at most 155 chars, cut at whole sentences of the blurb.
 // ---------------------------------------------------------------------------
 const SEO_TITLE_MAX = 60;
-const SEO_DESC_MAX = 158;
+const SEO_DESC_MAX = 155;
 const SEO_DESC_MIN = 120;
 
 type SeoCreator = Pick<CreatorProfile, "name" | "realName" | "meta" | "blurb" | "seoDescription">;
