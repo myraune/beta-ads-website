@@ -292,6 +292,20 @@ export const HomeFinal: React.FC = () => {
           </div>
         </section>
 
+        {/* 4b FREE TOOL: sponsor checker launch film */}
+        <section className="sec" id="sponsor-checker" aria-label="Free sponsorship checker">
+          <div className="sec__h reveal">
+            <h2><b>See every sponsor</b> <span>before you book.</span></h2>
+            <A className="qlink" href="/twitch-sponsorship-checker">Try the free checker <Arrow /></A>
+          </div>
+          <div className="scfilm reveal">
+            <video controls playsInline preload="none" poster="/videos/sponsor-checker-poster.webp" width={1920} height={1080}>
+              <source src="/videos/sponsor-checker.mp4" type="video/mp4" />
+            </video>
+            <p>Type a Twitch channel and get every brand that streamer has worked with, with the stream title or chat command that proves it and when it ran. Free, no login.</p>
+          </div>
+        </section>
+
         {/* 5 BILLING */}
         <section className="sec" id="billing" aria-label="Billing and price">
           <div className="sec__h reveal">
