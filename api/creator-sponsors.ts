@@ -2,6 +2,7 @@ import Anthropic from "@anthropic-ai/sdk";
 import { betaZodOutputFormat } from "@anthropic-ai/sdk/helpers/beta/zod";
 import * as z from "zod/v4";
 import { tokenValid } from "./_lib/creatives.js";
+import { callsToday, logUsage, readCached, writeCached } from "./_lib/checker-store.js";
 
 /* Sponsorship checker for /twitch-sponsorship-checker.
    GET  ?q=name   -> channel search (Twitch Helix), for the autocomplete.
@@ -18,15 +19,15 @@ import { tokenValid } from "./_lib/creatives.js";
 export const maxDuration = 60; // Claude call is ~10-20 s
 
 const MODEL = "claude-opus-5-5";
-const CACHE_MS = 6 * 60 * 60 * 1000;
+const CACHE_MS = 24 * 60 * 60 * 1000; // sponsors change over weeks, so one paid check per channel per day is enough
+const PRICE = { input: 4 / 1e6, output: 20 / 1e6 }; // Opus 5.5, USD per token
 const PER_IP_HOUR = 15;
-const PER_DAY = 300; // hard ceiling on Claude calls per instance per day, protects the credits
+const PER_DAY = 300; // Claude calls per day across all instances (counted in the Blob usage log), protects the credits
 
 type Title = { id: number; date: string; lastDate: string; count: number; text: string; url: string; source: "live" | "vod" | "bio" | "command" };
 
 const cache = new Map<string, { at: number; data: unknown }>();
 const hits = new Map<string, number[]>();
-let day = { key: "", n: 0 };
 let token: { value: string; exp: number } | null = null;
 
 const json = (body: unknown, status = 200) =>
@@ -212,7 +213,10 @@ async function analyse(login: string) {
     messages: [{ role: "user", content: `Creator: ${u.display_name} (twitch.tv/${u.login})\nLines (id | source | date | text):\n${lines}` }],
   });
   if (res.stop_reason === "refusal" || !res.parsed_output) throw new Error(`Claude returned no result (${res.stop_reason})`);
-  console.log(`[creator-sponsors] ${u.login}: ${titles.length} lines, ${res.usage.input_tokens} in / ${res.usage.output_tokens} out`);
+  const usd = res.usage.input_tokens * PRICE.input + res.usage.output_tokens * PRICE.output;
+  console.log(`[creator-sponsors] ${u.login}: ${titles.length} lines, ${res.usage.input_tokens} in / ${res.usage.output_tokens} out, $${usd.toFixed(3)}`);
+  await logUsage({ login: u.login, model: MODEL, lines: titles.length, input: res.usage.input_tokens, output: res.usage.output_tokens, usd })
+    .catch(e => console.error("[creator-sponsors] usage log", e));
 
   const byId = new Map(titles.map(t => [t.id, t]));
   const sponsors = res.parsed_output.sponsors
@@ -242,12 +246,9 @@ async function analyse(login: string) {
 function allow(ip: string) {
   const now = Date.now();
   const recent = (hits.get(ip) ?? []).filter(t => now - t < 3_600_000);
-  const key = new Date().toISOString().slice(0, 10);
-  if (day.key !== key) day = { key, n: 0 };
-  if (recent.length >= PER_IP_HOUR || day.n >= PER_DAY) return false;
+  if (recent.length >= PER_IP_HOUR) return false;
   recent.push(now);
   hits.set(ip, recent);
-  day.n++;
   return true;
 }
 
@@ -285,16 +286,22 @@ export async function POST(request: Request) {
   } catch { /* handled below */ }
   if (!/^[a-z0-9_]{2,25}$/.test(login)) return json({ error: "Enter a Twitch channel name." }, 400);
 
+  // this instance's memory first, then the shared Blob cache, before paying for a Claude call
   const cached = cache.get(login);
   if (cached && Date.now() - cached.at < CACHE_MS) return json({ ...(cached.data as object), cached: true });
+  const shared = await readCached<object>(login, CACHE_MS);
+  if (shared) { cache.set(login, { at: Date.now(), data: shared }); return json({ ...shared, cached: true }); }
 
   const ip = request.headers.get("x-forwarded-for")?.split(",")[0].trim() || "local";
   if (!allow(ip)) return json({ error: "Too many lookups. Try again in an hour." }, 429);
+  // fail open if the count can't be read: a Blob hiccup should not take the checker down
+  if ((await callsToday().catch(() => 0)) >= PER_DAY) return json({ error: "The checker has hit today's limit. Try again tomorrow." }, 429);
 
   try {
     const data = await analyse(login);
     if (!data) return json({ error: `No Twitch channel called "${login}".` }, 404);
     cache.set(login, { at: Date.now(), data });
+    await writeCached(login, data).catch(e => console.error("[creator-sponsors] cache write", e));
     return json(data);
   } catch (e) {
     console.error("[creator-sponsors]", e);
