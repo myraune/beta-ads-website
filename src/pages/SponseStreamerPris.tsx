@@ -233,6 +233,8 @@ const SponseStreamerPris: React.FC = () => (
       title="Hva koster det å sponse en streamer i Norge? | Beta Ads"
       description="Regn om et sponsortilbud til pris per 1 000 seere med ekte Twitch-seertall. Hva honoraret bygger på, og hva du bør avtale før du signerer."
       canonical="/sponse-streamer-pris"
+      ogImage="/lovable-uploads/og/sponse-streamer-pris.jpg"
+      ogImageAlt="En streamer i en sponset Just Chatting-sending på Twitch"
       locale="no"
       jsonLd={[
         {

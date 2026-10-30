@@ -303,6 +303,8 @@ const BesteTwitchByraNorge: React.FC = () => {
         title="Twitch-byråer i Norge 2026: oversikt med kilder | Beta Ads"
         description="Kart over byråene som jobber med Twitch og gaming-streamere i Norge: hva de gjør, hvordan de tar betalt og hvem de passer for. Alle fakta med kilde."
         canonical="/beste-twitch-byra-norge"
+        ogImage="/lovable-uploads/og/beste-twitch-byra-norge.jpg"
+        ogImageAlt="Vegg av norske Twitch-sendinger med samme annonse-overlay"
         locale="no"
         jsonLd={[
           {

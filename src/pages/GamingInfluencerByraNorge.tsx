@@ -195,6 +195,8 @@ const GamingInfluencerByraNorge: React.FC = () => (
       title="Gaming influencer-byrå i Norge | Beta Ads"
       description="Slik når du gamere i Norge: influencer-avtale med én streamer, annonse inne i sendingen hos mange, eller Twitch-annonse. Se forskjellen på en ekte sending."
       canonical="/gaming-influencer-byra-norge"
+      ogImage="/lovable-uploads/og/gaming-influencer-byra-norge.jpg"
+      ogImageAlt="Samsung Galaxy S25 Ultra-overlay i hjørnet av en norsk Twitch-sending, med chatten ved siden av"
       locale="no"
       jsonLd={[
         {
