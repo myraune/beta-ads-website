@@ -26,7 +26,7 @@ export function lazyRoute<P extends object>(
     });
   const Lazy = lazy(fetchModule);
   const Route = ((props: P) =>
-    loaded ? createElement(loaded, props) : createElement(Lazy, props)) as LazyRoute<P>;
+    loaded ? createElement(loaded, props) : createElement(Lazy as ComponentType<P>, props)) as LazyRoute<P>;
   Route.preload = () => fetchModule().then(() => undefined);
   return Route;
 }
