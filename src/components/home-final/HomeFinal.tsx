@@ -224,7 +224,7 @@ export const HomeFinal: React.FC = () => {
           <ul className="lg">
             {LOGOS.map(([f, alt, h]) => (
               <li key={f}>
-                <img src={`/lovable-uploads/logo-${f}.png`} alt={alt} style={{ height: h }} loading="lazy" decoding="async" />
+                <img src={`/lovable-uploads/logo-${f}-96.webp`} alt={alt} style={{ height: h }} loading="lazy" decoding="async" />
               </li>
             ))}
           </ul>

@@ -13,8 +13,10 @@ import { KickMark, TikTokMark, TwitchMark, YouTubeMark } from "./marks";
    Layout (src/components/Layout.tsx), wrapped in .bf so the scoped styles apply.
    Markup mirrors ~/dev/beta-ads-home-v3/31-final-platform/index.html. */
 
-export const LOGO_LIGHT = "/lovable-uploads/logo-color.png"; // H_COLOR
-export const LOGO_DARK = "/lovable-uploads/logo-red-white.png"; // H_RED+WHITE
+// 384 px wide WebP of logo-color.png / logo-red-white.png (the PNGs stay for JSON-LD and OG images).
+// The nav draws them at 95x23, so 384 px covers 4x screens; 35 KB + 33 KB of PNG became about 10 KB each on every page.
+export const LOGO_LIGHT = "/lovable-uploads/logo-color-nav.webp"; // H_COLOR
+export const LOGO_DARK = "/lovable-uploads/logo-red-white-nav.webp"; // H_RED+WHITE
 
 /** Internal routes use the router, everything else is a plain anchor. */
 export const A: React.FC<React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string }> = ({ href, children, ...rest }) =>
