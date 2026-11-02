@@ -105,7 +105,7 @@ const norwegianBlogPosts = [
   {
     slug: "norske-twitch-streamere-2026",
     title: "Norske Twitch-streamere du bør kjenne til i 2026",
-    desc: "Fra MrSavage og Knut til detoo, Emzia og Klokkismann.",
+    desc: "Fra MrSavage og Knut til detoo, Jonieboi og thomasPASTE.",
   },
   {
     slug: "gta-vi-nordisk-merkevareguide",

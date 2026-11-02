@@ -35,14 +35,15 @@ function fmtViewers(n: number): string {
   return n.toLocaleString("nb-NO");
 }
 
-/** Brand-facing CTA copy per market. A streamer profile that ranks for a creator
- *  name is a conversion opportunity: a brand found it, so give them a next step. */
-const PROFILE_CTA: Record<string, { eyebrow: string; heading: (n: string) => string; body: string; primary: string; secondary: string; proof: string }> = {
-  no: { eyebrow: "For merkevarer", heading: (n) => `Vil du nå publikummet til ${n}?`, body: "Beta Ads kjører verifiserte native-kampanjer med norske streamere. Ekte rekkevidde, ekte CTR, og annonser adblock ikke kan fjerne.", primary: "Book en demo", secondary: "Se hva det koster", proof: "9 verifiserte nordiske kampanjer i 2025: Samsung, Shure, Komplett, Surfshark, NKI m.fl." },
-  sv: { eyebrow: "För varumärken", heading: (n) => `Vill du nå ${n}s publik?`, body: "Beta Ads kör verifierade native-kampanjer med nordiska streamers. Äkta räckvidd, äkta CTR, och annonser adblock inte kan ta bort.", primary: "Boka en demo", secondary: "Se vad det kostar", proof: "9 verifierade nordiska kampanjer 2025: Samsung, Shure, Komplett, Surfshark, NKI m.fl." },
-  da: { eyebrow: "For brands", heading: (n) => `Vil du nå ${n}s publikum?`, body: "Beta Ads kører verificerede native-kampagner med nordiske streamere. Ægte rækkevidde, ægte CTR, og annoncer adblock ikke kan fjerne.", primary: "Book en demo", secondary: "Se hvad det koster", proof: "9 verificerede nordiske kampagner i 2025: Samsung, Shure, Komplett, Surfshark, NKI m.fl." },
-  fi: { eyebrow: "Brändeille", heading: (n) => `Haluatko tavoittaa yleisön, jota ${n} vetää?`, body: "Beta Ads toteuttaa todennettuja natiivikampanjoita pohjoismaisten striimaajien kanssa. Aitoa tavoittavuutta, aitoa CTR:ää, ja mainoksia joita adblock ei poista.", primary: "Varaa demo", secondary: "Katso mitä se maksaa", proof: "9 todennettua pohjoismaista kampanjaa 2025: Samsung, Shure, Komplett, Surfshark, NKI ym." },
-  en: { eyebrow: "For brands", heading: (n) => `Want to reach ${n}'s audience?`, body: "Beta Ads runs verified native overlay campaigns with Nordic creators. Real reach, real CTR, and ads ad-block cannot remove.", primary: "Book a demo", secondary: "See what it costs", proof: "9 verified Nordic campaigns in 2025: Samsung, Shure, Komplett, Surfshark, NKI and more." },
+/** Brand-facing CTA copy per market. Profiles are fact sheets built from public
+ *  sources, so the CTA sells Beta Ads in general and never implies the creator
+ *  works with us; `disclaimer` says so outright under the buttons. */
+const PROFILE_CTA: Record<string, { eyebrow: string; heading: string; body: string; primary: string; secondary: string; disclaimer: (n: string) => string }> = {
+  no: { eyebrow: "For merkevarer", heading: "Vil du annonsere hos norske streamere?", body: "Beta Ads setter merkevaren inn i livesendinger hos streamere som har meldt seg på i nettverket vårt. Du betaler per 1 000 fullførte visninger. Vi har kjørt kampanjer for blant andre Samsung, Shure og Komplett.", primary: "Book en demo", secondary: "Se hva det koster", disclaimer: (n) => `Denne profilen er et faktaark fra offentlige kilder. Den betyr ikke at ${n} samarbeider med Beta Ads.` },
+  sv: { eyebrow: "För varumärken", heading: "Vill du annonsera hos nordiska streamers?", body: "Beta Ads placerar varumärket i livesändningar hos streamers som har anslutit sig till vårt nätverk. Du betalar per 1 000 fullständiga visningar. Vi har kört kampanjer för bland andra Samsung, Shure och Komplett.", primary: "Boka en demo", secondary: "Se vad det kostar", disclaimer: (n) => `Den här profilen är ett faktablad från offentliga källor. Den betyder inte att ${n} samarbetar med Beta Ads.` },
+  da: { eyebrow: "For brands", heading: "Vil du annoncere hos nordiske streamere?", body: "Beta Ads sætter brandet ind i livestreams hos streamere, der har tilmeldt sig vores netværk. Du betaler per 1.000 fuldførte visninger. Vi har kørt kampagner for blandt andre Samsung, Shure og Komplett.", primary: "Book en demo", secondary: "Se hvad det koster", disclaimer: (n) => `Denne profil er et faktaark fra offentlige kilder. Den betyder ikke, at ${n} samarbejder med Beta Ads.` },
+  fi: { eyebrow: "Brändeille", heading: "Haluatko mainostaa pohjoismaisten striimaajien lähetyksissä?", body: "Beta Ads tuo brändin livelähetyksiin striimaajilla, jotka ovat liittyneet verkostoomme. Maksat 1 000 loppuun katsotusta näytöstä. Olemme tehneet kampanjoita muun muassa Samsungille, Shurelle ja Komplettille.", primary: "Varaa demo", secondary: "Katso mitä se maksaa", disclaimer: (n) => `Tämä profiili on julkisista lähteistä koottu tietosivu. Se ei tarkoita, että ${n} tekee yhteistyötä Beta Adsin kanssa.` },
+  en: { eyebrow: "For brands", heading: "Want to advertise with Nordic streamers?", body: "Beta Ads puts your brand inside live streams by streamers who have joined our network. You pay per 1,000 completed views. We have run campaigns for Samsung, Shure and Komplett, among others.", primary: "Book a demo", secondary: "See what it costs", disclaimer: (n) => `This profile is a fact sheet built from public sources. It does not mean ${n} works with Beta Ads.` },
 };
 
 const StreamerProfile: React.FC = () => {
@@ -445,7 +446,7 @@ const StreamerProfile: React.FC = () => {
             <div className="p-8 md:p-12 flex flex-col justify-center">
               <span className="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">{cta.eyebrow}</span>
               <h2 className="text-2xl md:text-4xl font-light tracking-tight text-foreground mb-4 leading-tight">
-                {cta.heading(c.name)}
+                {cta.heading}
               </h2>
               <p className="text-muted-foreground leading-relaxed max-w-md mb-8">{cta.body}</p>
               <div className="flex flex-wrap gap-3">
@@ -460,7 +461,7 @@ const StreamerProfile: React.FC = () => {
                   </Button>
                 </Link>
               </div>
-              <p className="text-xs text-muted-foreground mt-7">{cta.proof}</p>
+              <p className="text-xs text-muted-foreground mt-7">{cta.disclaimer(c.name)}</p>
             </div>
             <div className="relative min-h-[260px] hidden md:block overflow-hidden bg-muted">
               <img

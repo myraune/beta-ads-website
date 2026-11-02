@@ -8,16 +8,14 @@ const topStreamers = [
   { rank: 3, name: 'LevelUpNor', avgViewers: 396, peakViewers: 1531, hoursStreamed: 36.4, followers: 13400 },
   { rank: 4, name: 'detoo', avgViewers: 346, peakViewers: 2471, hoursStreamed: 145.8, followers: 73600 },
   { rank: 5, name: 'thomasPASTE', avgViewers: 221, peakViewers: 1284, hoursStreamed: 49.8, followers: 51700 },
-  { rank: 6, name: 'Klokkismann', avgViewers: 210, peakViewers: 1158, hoursStreamed: 45.5, followers: 15300 },
-  { rank: 7, name: 'Jonieboi', avgViewers: 205, peakViewers: 2595, hoursStreamed: 30.2, followers: 22600 },
-  { rank: 8, name: 'sanderdale', avgViewers: 203, peakViewers: 1497, hoursStreamed: 10.9, followers: 21300 },
-  { rank: 9, name: 'TobyTwoFaced', avgViewers: 193, peakViewers: 3443, hoursStreamed: 280.5, followers: 19800 },
-  { rank: 10, name: 'PondernStream', avgViewers: 192, peakViewers: 854, hoursStreamed: 38.9, followers: 51100 },
-  { rank: 11, name: 'POWER_no', avgViewers: 190, peakViewers: 1396, hoursStreamed: 38.3, followers: 6000 },
-  { rank: 12, name: 'Emzia', avgViewers: 170, peakViewers: 21141, hoursStreamed: 84.5, followers: 97300 },
-  { rank: 13, name: 'VeigarV2', avgViewers: 160, peakViewers: 2758, hoursStreamed: 144.3, followers: 67000 },
-  { rank: 14, name: 'Elkjop_Gaming', avgViewers: 158, peakViewers: 1596, hoursStreamed: 9.8, followers: 6200 },
-  { rank: 15, name: 'Ailincia', avgViewers: 128, peakViewers: 3893, hoursStreamed: 71.9, followers: 70600 },
+  { rank: 6, name: 'Jonieboi', avgViewers: 205, peakViewers: 2595, hoursStreamed: 30.2, followers: 22600 },
+  { rank: 7, name: 'sanderdale', avgViewers: 203, peakViewers: 1497, hoursStreamed: 10.9, followers: 21300 },
+  { rank: 8, name: 'TobyTwoFaced', avgViewers: 193, peakViewers: 3443, hoursStreamed: 280.5, followers: 19800 },
+  { rank: 9, name: 'PondernStream', avgViewers: 192, peakViewers: 854, hoursStreamed: 38.9, followers: 51100 },
+  { rank: 10, name: 'POWER_no', avgViewers: 190, peakViewers: 1396, hoursStreamed: 38.3, followers: 6000 },
+  { rank: 11, name: 'VeigarV2', avgViewers: 160, peakViewers: 2758, hoursStreamed: 144.3, followers: 67000 },
+  { rank: 12, name: 'Elkjop_Gaming', avgViewers: 158, peakViewers: 1596, hoursStreamed: 9.8, followers: 6200 },
+  { rank: 13, name: 'Ailincia', avgViewers: 128, peakViewers: 3893, hoursStreamed: 71.9, followers: 70600 },
 ];
 
 const avgViewersData = topStreamers.slice(0, 10).map(s => ({
@@ -46,9 +44,9 @@ const NorwegianStreamersDashboard = () => {
       <div>
         <h3 className="text-xl font-semibold text-foreground mb-6">Peak Viewership Records (Dec 2025)</h3>
         <StatCardGrid columns={3}>
-          <StatCard value={21141} label="Emzia (Peak)" highlight />
-          <StatCard value={6942} label="Komplettno (Peak)" />
+          <StatCard value={6942} label="Komplettno (Peak)" highlight />
           <StatCard value={3893} label="Ailincia (Peak)" />
+          <StatCard value={3443} label="TobyTwoFaced (Peak)" />
         </StatCardGrid>
       </div>
 

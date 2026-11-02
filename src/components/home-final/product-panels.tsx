@@ -178,7 +178,7 @@ const STREAMERS: Row[] = [
   { h: "perra", p: "twitch", c: "Sweden", l: "Swedish", cat: "Just Chatting", avg: 1580, fol: 185174 },
   { h: "henksuliini", img: `${CR}/henksuliini.webp`, p: "twitch", c: "Finland", l: "Finnish", cat: "Just Chatting", avg: 544, fol: 113711, added: true },
   { h: "detoo", img: `${CR}/detoo.jpg`, p: "twitch", c: "Norway", l: "Norwegian", cat: "IRL", avg: 403, fol: 85915, added: true },
-  { h: "Klokkismann", img: `${CR}/klokkismann.jpg`, p: "twitch", c: "Norway", l: "Norwegian", cat: "Minecraft", avg: 166, fol: 15922 },
+  { h: "thomasPASTE", img: `${CR}/thomaspaste.png`, p: "twitch", c: "Norway", l: "Norwegian", cat: "Arma Reforger", avg: 162, fol: 51653 },
   { h: "Jonieboi", img: `${CR}/jonieboi.png`, p: "twitch", c: "Norway", l: "Norwegian", cat: "GTA V", avg: 137, fol: 24339 },
   { h: "Danniz", img: `${CR}/danniz.png`, p: "twitch", c: "Norway", l: "Norwegian", cat: "Just Chatting", avg: 105, fol: 44354, added: true },
 ];
@@ -190,7 +190,7 @@ export const ExplorerPanel: React.FC = () => {
     <div
       className="panel pp-exp dui"
       role="img"
-      aria-label="Streamer Explorer across Twitch, YouTube and Kick: filters for platform, country, language and category, a table of streamers including perra, henksuliini, detoo, Klokkismann, Jonieboi and Danniz with top category, average viewers and followers, and a shortlist of three. Illustrative UI."
+      aria-label="Streamer Explorer across Twitch, YouTube and Kick: filters for platform, country, language and category, a table of streamers including perra, henksuliini, detoo, thomasPASTE, Jonieboi and Danniz with top category, average viewers and followers, and a shortlist of three. Illustrative UI."
     >
       <div className="pp-rail">
         <div className="pp-rail__h">Filters</div>

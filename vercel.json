@@ -3,6 +3,16 @@
   "outputDirectory": "dist",
   "redirects": [
     {
+      "source": "/streamere/klokkismann",
+      "destination": "/blog/norske-twitch-streamere-2026",
+      "permanent": true
+    },
+    {
+      "source": "/streamere/emzia",
+      "destination": "/blog/norske-twitch-streamere-2026",
+      "permanent": true
+    },
+    {
       "source": "/blog/samsung-twitch-campaign-case-study",
       "destination": "/case-study/samsung",
       "permanent": true
