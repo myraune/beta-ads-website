@@ -35,15 +35,19 @@ const SamsungFold7CaseStudy: React.FC = () => {
   return (
     <div className="space-y-14">
 
-      {/* Hero image - the actual Galaxy Z Fold7 campaign creative */}
-      <img
-        src="/lovable-uploads/samsung-zfold7-banner.png"
-        width={1000}
-        height={1000}
-        alt="Samsung Galaxy Z Fold7 campaign creative"
-        className="w-full h-auto rounded-xl object-cover object-center"
-        style={{ maxHeight: "420px" }}
-      />
+      {/* Recap film - real clips from the campaign's streams, cut to the final report numbers */}
+      <video
+        controls
+        playsInline
+        preload="none"
+        poster="/videos/samsung-fold7-recap-poster.webp"
+        width={1600}
+        height={900}
+        className="w-full h-auto rounded-xl bg-muted"
+        aria-label="Samsung Galaxy Z Fold7 × Beta Ads campaign recap"
+      >
+        <source src="/videos/samsung-fold7-recap.mp4" type="video/mp4" />
+      </video>
 
       {/* Challenge */}
       <section>

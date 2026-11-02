@@ -18,7 +18,7 @@ const CaseStudySamsungFold7: React.FC = () => {
         canonical="/case-study/samsung-fold7"
         ogType="article"
         articlePublishedTime="2026-01-01"
-        articleModifiedTime="2026-05-11"
+        articleModifiedTime="2026-11-02"
         ogImage="/lovable-uploads/samsung-zfold7-banner.png"
         ogImageWidth={1000}
         ogImageHeight={1000}
@@ -32,7 +32,7 @@ const CaseStudySamsungFold7: React.FC = () => {
             "url": "https://beta-ads.no/case-study/samsung-fold7",
             "image": "https://beta-ads.no/lovable-uploads/samsung-zfold7-banner.png",
             "datePublished": "2026-01-01",
-            "dateModified": "2026-05-11",
+            "dateModified": "2026-11-02",
             "author": {
               "@type": "Organization",
               "name": "Beta Ads",
@@ -46,6 +46,17 @@ const CaseStudySamsungFold7: React.FC = () => {
                 "height": 512,
               } },
             "isPartOf": { "@id": "https://beta-ads.no/#website" }
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "VideoObject",
+            "name": "Samsung Galaxy Z Fold7 × Beta Ads: campaign recap",
+            "description": "45-second recap of Samsung's Galaxy Z Fold7 campaign on Norwegian Twitch: 28 creators, 300,054 completed views, 1,965 verified clicks.",
+            "thumbnailUrl": "https://beta-ads.no/videos/samsung-fold7-recap-poster.webp",
+            "contentUrl": "https://beta-ads.no/videos/samsung-fold7-recap.mp4",
+            "uploadDate": "2026-11-02",
+            "duration": "PT45S",
+            "publisher": { "@type": "Organization", "name": "Beta Ads", "url": "https://beta-ads.no" }
           },
           {
             "@context": "https://schema.org",
