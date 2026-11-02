@@ -70,6 +70,7 @@ const STATIC_PAGES = [
   { path: "/working-with-us",        priority: "0.9",  changefreq: "monthly" },
   { path: "/managed-campaigns",      priority: "0.9",  changefreq: "monthly" },
   { path: "/self-serve",             priority: "0.9",  changefreq: "monthly" },
+  { path: "/report/sample",          priority: "0.5",  changefreq: "yearly" },
   { path: "/norge",                  priority: "0.9",  changefreq: "monthly" },
   // Secondary high-priority pages
   { path: "/youtube-advertising",    priority: "0.9",  changefreq: "monthly" },

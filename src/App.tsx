@@ -84,6 +84,8 @@ const CompareHub = lazy(() => import("./pages/CompareHub"));
 const WorkingWithUs = lazy(() => import("./pages/WorkingWithUs"));
 const ManagedCampaigns = lazy(() => import("./pages/ManagedCampaigns"));
 const SelfServe = lazy(() => import("./pages/SelfServe"));
+const RequestAccess = lazy(() => import("./pages/RequestAccess"));
+const SampleReport = lazy(() => import("./pages/SampleReport"));
 const StreamerProfile = lazy(() => import("./pages/StreamerProfile"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Privacy = lazy(() => import("./pages/Privacy"));
@@ -272,6 +274,8 @@ const App = () => {
               <Route path="/working-with-us" element={<WorkingWithUs />} />
               <Route path="/managed-campaigns" element={<ManagedCampaigns />} />
               <Route path="/self-serve" element={<SelfServe />} />
+              <Route path="/login" element={<RequestAccess />} />
+              <Route path="/report/sample" element={<SampleReport />} />
               {COMPARE_VISIBLE && <Route path="/compare" element={<CompareHub />} />}
               {COMPARE_VISIBLE && <Route path="/compare/:slug" element={<Compare />} />}
               {/* Norske streamer-profiler (én side per creator i den norske roundup-saken) */}

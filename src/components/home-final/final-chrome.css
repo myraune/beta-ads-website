@@ -130,3 +130,23 @@
   .bf .nav__menu-actions .btn{flex:1;justify-content:center;height:46px;font-size:15.5px}
   .bf .nav__menu-actions .theme{margin:0;flex:none;width:46px;height:46px;border:1px solid var(--line)}
 }
+
+/* ---- grouped dropdowns (Platform stages, Solutions, Resources) ---- */
+.bf .nav__dd-groups{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
+.bf .nav__dd-groups--two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.bf .nav__dd-groups .nav__dd-feats{align-content:start}
+.bf .nav__dd-groups .nav__dd-k{padding:10px 14px 2px;margin:0}
+.bf .nav__dd-k--gap{margin-top:8px!important}
+.bf #nav-platform{width:940px}
+.bf .nav__dd-panel--sol{grid-template-columns:minmax(0,1fr) 250px;width:860px;left:-140px}
+.bf .nav__dd-panel--res{grid-template-columns:minmax(0,1fr) 230px;width:720px;left:-240px}
+.bf .nav__dd-markets{display:flex;gap:6px;padding:6px 14px}
+.bf .nav__dd-markets a{padding:7px 12px;border-radius:10px;border:1px solid var(--line);font-size:14px;font-weight:600;color:var(--ink)}
+.bf .nav__dd-markets a:hover{background:var(--sunk)}
+.bf .nav__dd-story{display:flex;flex-direction:column;gap:6px;margin-left:8px;padding:12px;border-radius:12px;background:var(--sunk)}
+.bf .nav__dd-story img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:8px;margin-bottom:4px}
+.bf .nav__dd-story .nav__dd-k{margin:0}
+.bf .nav__dd-story b{font-size:15px;line-height:1.35;font-weight:600;color:var(--ink)}
+.bf .nav__dd-story .nav__dd-tour{padding-top:6px}
+.bf .nav__menu-k{padding:10px 0 2px 12px;font-size:12px;font-weight:600;color:var(--ink-3)}
+.bf .nav__dd-panel--res .nav__dd-side > a:last-child{margin-top:0}

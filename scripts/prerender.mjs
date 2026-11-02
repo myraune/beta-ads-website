@@ -97,6 +97,8 @@ const STATIC_ROUTES = [
   "/working-with-us",
   "/managed-campaigns",
   "/self-serve",
+  "/login",
+  "/report/sample",
   "/case-studies",
   "/case-study/samsung",
   "/case-study/samsung-fold7",

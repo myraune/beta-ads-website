@@ -263,6 +263,13 @@
   </url>
 
   <url>
+    <loc>https://beta-ads.no/report/sample</loc>
+    <lastmod>2026-11-02</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
     <loc>https://beta-ads.no/norge</loc>
     <lastmod>2026-11-02</lastmod>
     <changefreq>monthly</changefreq>

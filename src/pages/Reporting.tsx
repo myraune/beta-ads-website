@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FeaturePage } from "@/components/working/FeaturePage";
 import { PanelFrame, DashboardPanel, LiveMonitorPanel, DeliveryPanel, BannerReachPanel, PollPanel } from "@/components/home-final/product-panels";
 
@@ -46,6 +47,17 @@ const Reporting: React.FC = () => (
         visual: <PanelFrame><PollPanel /></PanelFrame>,
       },
     ]}
+    extra={
+      <section className="max-w-[1392px] mx-auto px-4 md:px-6 pb-16 md:pb-20">
+        <Link to="/report/sample" className="group flex flex-wrap items-center justify-between gap-5 rounded-[24px] bg-muted px-6 sm:px-10 py-8 md:py-10">
+          <span className="max-w-2xl">
+            <span className="block text-2xl md:text-3xl font-bold tracking-tight">See a sample report.</span>
+            <span className="mt-2 block text-muted-foreground leading-relaxed">A full end report for a made-up brand: completed views, delivery per streamer, clicks from chat, polls and every ad play.</span>
+          </span>
+          <span className="inline-flex items-center h-12 px-6 rounded-full bg-foreground text-background text-[15px] font-semibold">Open the sample report <span aria-hidden="true" className="ml-2">&rarr;</span></span>
+        </Link>
+      </section>
+    }
     related={[
       ["Setup verification", "Every stream checked on air, every play clipped.", "/campaign-compliance"],
       ["Chat tracking", "Every brand mention in chat, translated and scored.", "/livestream-chat-engagement"],

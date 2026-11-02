@@ -1,0 +1,69 @@
+/* /report/sample: the report panels, in the homepage panel language
+   (.panel, .r-main, .pp-mini, .pp-bar from home-final.css /
+   home-overrides.css) on the feature page template. Only what those lack. */
+
+.bf .rp-camp{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding-bottom:20px;margin-bottom:24px;border-bottom:1px solid var(--line-2)}
+.bf .rp-camp b{display:block;font-size:15px;font-weight:600}
+.bf .rp-camp span{display:block;font-size:13.5px;color:var(--ink-3);font-weight:500;margin-top:2px}
+.bf .rp-camp dl{display:flex;gap:28px;margin:0;font-size:13px}
+.bf .rp-camp dt{color:var(--ink-3)}
+.bf .rp-camp dd{margin:2px 0 0;color:var(--ink-2);font-weight:500}
+
+.bf .rp-sub{font-size:13px;color:var(--ink-3);font-weight:500;margin-top:6px}
+.bf .rp-h{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:30px;font-size:13px;font-weight:600;color:var(--ink-2)}
+.bf .rp-seg{display:flex;gap:16px;flex-wrap:wrap}
+.bf .rp-seg button{all:unset;cursor:pointer;font-size:13px;font-weight:500;color:var(--ink-3)}
+.bf .rp-seg button[aria-pressed="true"]{color:var(--ink);font-weight:600}
+.bf .rp-chart{height:220px;margin-top:14px}
+
+/* tables: r-table rows with their own columns */
+.bf .rp-t{margin-top:18px;border-top:1px solid var(--line-2)}
+.bf .rp-r{display:grid;gap:16px;align-items:center;min-height:50px;padding:6px 0;border-bottom:1px solid var(--line-2);font-size:14px;color:var(--ink);font-weight:500}
+.bf .rp-r:last-child{border-bottom:0}
+.bf .rp-r--th{min-height:40px;font-size:12.5px;color:var(--ink-3);font-weight:600}
+.bf .rp-r .d{color:var(--ink-3)}
+.bf .rp-r .n{text-align:right;font-variant-numeric:tabular-nums}
+.bf .rp-who{display:flex;align-items:center;gap:10px;min-width:0}
+.bf .rp-who b{font-weight:600}
+.bf .rp-who small{display:block;font-size:12px;color:var(--ink-3);font-weight:500}
+.bf .rp-vbar{display:grid;grid-template-columns:72px minmax(0,1fr);gap:12px;align-items:center}
+.bf .rp-vbar b{font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+
+.bf .rp-cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:6px}
+.bf .rp-list{margin:14px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+.bf .rp-list li{display:grid;grid-template-columns:minmax(0,1fr) 56px;gap:4px 12px;font-size:13.5px;color:var(--ink-2);font-weight:500}
+.bf .rp-list li b{text-align:right;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.bf .rp-list li .pp-bar{grid-column:1/-1}
+
+.bf .rp-hours{display:grid;grid-template-columns:repeat(24,minmax(0,1fr));gap:3px;align-items:end;height:120px;margin-top:14px}
+.bf .rp-hours i{display:block;border-radius:3px 3px 0 0;background:var(--ink-4);min-height:2px}
+.bf .rp-hours i.top{background:var(--ink)}
+.bf .rp-hx{display:grid;grid-template-columns:repeat(4,1fr);margin-top:6px;font-size:11.5px;color:var(--ink-3)}
+
+.bf .rp-note{margin-top:18px;font-size:12.5px;color:var(--ink-3)}
+.bf .rp-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--sw);margin-right:8px;vertical-align:middle}
+
+.bf .pp-mini.rp-mini--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.bf .rp-mini b{white-space:nowrap}
+
+/* motion: Sheet writes --p (0 to 1) once the panel is in view */
+.bf .rp-anim .pp-bar i{width:calc(var(--w) * 1% * var(--p,1))}
+.bf .rp-anim .rp-hours i{height:calc(var(--h) * 1% * var(--p,1))}
+.bf .rp-anim:not([data-done]) .rp-chart{clip-path:inset(-12px calc((1 - var(--p,1)) * 100%) -12px -12px)}
+
+/* red: the lead bar, the peak hour and the chart line (set in the TSX) */
+.bf .rp-anim .pp-bar--s i{background:var(--sw)}
+.bf .rp-hours i.top{background:var(--sw)}
+
+@media (max-width:760px){
+  .bf .rp-camp{flex-direction:column;gap:14px}
+  .bf .rp-camp dl{flex-wrap:wrap;gap:16px 24px}
+  .bf .rp-cols{grid-template-columns:1fr;gap:28px}
+  .bf .rp-scroll{overflow-x:auto;margin:0 -16px;padding:0 16px}
+  .bf .rp-scroll .rp-t{min-width:620px}
+  .bf .rp-h{flex-direction:column;align-items:flex-start;gap:10px}
+  .bf .rp-mini,.bf .pp-mini.rp-mini--3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bf .rp-mini > div{border-left:0;padding-left:0;border-top:1px solid var(--line-2)}
+  .bf .pp-mini.rp-mini > div:nth-child(-n+2){border-top:0}
+  .bf .pp-mini.rp-mini > div:nth-child(even){padding-left:16px;border-left:1px solid var(--line-2)}
+}

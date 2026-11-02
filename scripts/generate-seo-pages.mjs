@@ -511,6 +511,19 @@ const STATIC_PAGES = [
     locale: "en",
   },
   {
+    route: "/report/sample",
+    title: "Sample campaign report | Beta Ads",
+    description:
+      "What a Beta Ads livestream campaign report looks like: completed views, verified plays, clicks from chat, delivery per streamer and a clip for every ad play. Fictional brand and numbers.",
+    locale: "en",
+  },
+  {
+    route: "/login",
+    title: "Request access | Beta Ads platform login",
+    description: "Agencies and brands get their own Beta Ads login on request. Tell us who you are and how you buy, and we set up your access.",
+    locale: "en",
+  },
+  {
     route: "/terms",
     title: "Terms of Service | Beta Ads",
     description: "Terms of Service for Beta Ads by Beta Agency AS. Read our terms covering service usage, intellectual property, and liability.",

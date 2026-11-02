@@ -87,15 +87,23 @@ const HomeAnchor: React.FC<{ id: string; children: React.ReactNode; onClick?: ()
 
 /* "Platform" dropdown: the features a buyer checks, each linking to the page or
    homepage section that shows it, plus the three platforms it runs on. */
-const PLATFORM_FEATURES: { t: string; d: string; to: string }[] = [
-  { t: "Campaign builder", d: "Overlay, chat command and poll in one flow", to: "/campaign-builder" },
-  { t: "Streamer Explorer", d: "39,000+ streamers to search and shortlist", to: "/streamer-explorer" },
-  { t: "Sponsor checker", d: "Free: every brand a Twitch streamer works with", to: "/twitch-sponsorship-checker" },
-  { t: "Setup verification", d: "Every stream checked on air, every play clipped", to: "/campaign-compliance" },
-  { t: "Brand safety", d: "Swearing detected, every language translated", to: "/brand-safety" },
-  { t: "Chat tracking", d: "Brand mentions translated and scored", to: "/livestream-chat-engagement" },
-  { t: "Reporting", d: "Live dashboard and a PDF you can forward", to: "/reporting" },
-  { t: "Programmatic deals", d: "Private deals on Adform and Magnite, bought in your DSP", to: "/programmatic" },
+type NavItem = { t: string; d: string; to: string };
+/* Grouped by the order a buyer meets them: pick streamers, launch, then read results. */
+const PLATFORM_GROUPS: { h: string; items: NavItem[] }[] = [
+  { h: "Plan", items: [
+    { t: "Streamer Explorer", d: "39,000+ streamers to search and shortlist", to: "/streamer-explorer" },
+    { t: "Sponsor checker", d: "Free: every brand a Twitch streamer works with", to: "/twitch-sponsorship-checker" },
+  ] },
+  { h: "Run", items: [
+    { t: "Campaign builder", d: "Overlay, chat command and poll in one flow", to: "/campaign-builder" },
+    { t: "Programmatic deals", d: "Private deals on Adform and Magnite, bought in your DSP", to: "/programmatic" },
+  ] },
+  { h: "Measure", items: [
+    { t: "Setup verification", d: "Every stream checked on air, every play clipped", to: "/campaign-compliance" },
+    { t: "Brand safety", d: "Swearing detected, every language translated", to: "/brand-safety" },
+    { t: "Chat tracking", d: "Brand mentions translated and scored", to: "/livestream-chat-engagement" },
+    { t: "Reporting", d: "Live dashboard and a PDF you can forward", to: "/reporting" },
+  ] },
 ];
 const PLATFORM_CHANNELS: { t: string; to?: string; Mark: React.FC; isNew?: boolean }[] = [
   { t: "Twitch", to: "/twitch-advertising", Mark: TwitchMark },
@@ -126,32 +134,110 @@ const NavDropdown: React.FC<{ label: string; id: string; panelClass?: string; ch
   );
 };
 
-/* "Solutions": who it is for, each with its own page. */
-const SOLUTIONS: { t: string; d: string; to: string }[] = [
+/* "Solutions": who it is for (role), what they sell (industry, each pointing at a
+   case from that industry) and where (market). The side card is one real case. */
+const SOLUTIONS: NavItem[] = [
   { t: "For brands", d: "We run the campaign for you, brief to report", to: "/managed-campaigns" },
   { t: "For agencies", d: "Your own login to launch and resell campaigns", to: "/self-serve" },
   { t: "For marketing executives", d: "Livestream reported like the rest of the plan", to: "/for-marketing-executives" },
 ];
+const INDUSTRIES: NavItem[] = [
+  { t: "Consumer tech", d: "Samsung, Komplett, Shure, Glorious", to: "/case-study/samsung" },
+  { t: "Education", d: "Kristiania, Gokstad, NKI", to: "/case-study/kristiania" },
+  { t: "Apps and subscriptions", d: "Saily", to: "/case-study/saily" },
+];
+const MARKETS: [string, string][] = [
+  ["Norway", "/norge"],
+  ["All Nordics", "/nordic-livestream-advertising"],
+];
 
 const SolutionsMenu: React.FC = () => (
-  <NavDropdown label="Solutions" id="nav-solutions" panelClass="nav__dd-panel--list">
+  <NavDropdown label="Solutions" id="nav-solutions" panelClass="nav__dd-panel--sol">
     {(close) => (
-      <div className="nav__dd-feats nav__dd-feats--one">
-        {SOLUTIONS.map((x) => (
-          <Link key={x.to} to={x.to} onClick={close}>
-            <b>{x.t}</b>
-            <span>{x.d}</span>
-          </Link>
-        ))}
-      </div>
+      <>
+        <div className="nav__dd-groups nav__dd-groups--two">
+          <div className="nav__dd-feats nav__dd-feats--one">
+            <span className="nav__dd-k">By role</span>
+            {SOLUTIONS.map((x) => (
+              <Link key={x.to} to={x.to} onClick={close}>
+                <b>{x.t}</b>
+                <span>{x.d}</span>
+              </Link>
+            ))}
+          </div>
+          <div className="nav__dd-feats nav__dd-feats--one">
+            <span className="nav__dd-k">By industry</span>
+            {INDUSTRIES.map((x) => (
+              <Link key={x.t} to={x.to} onClick={close}>
+                <b>{x.t}</b>
+                <span>{x.d}</span>
+              </Link>
+            ))}
+            <span className="nav__dd-k nav__dd-k--gap">By market</span>
+            <div className="nav__dd-markets">
+              {MARKETS.map(([t, to]) => (
+                <Link key={to} to={to} onClick={close}>{t}</Link>
+              ))}
+            </div>
+          </div>
+        </div>
+        <Link to="/case-study/samsung" className="nav__dd-story" onClick={close}>
+          <img src="/lovable-uploads/home-case-samsung.webp" alt="" loading="lazy" />
+          <span className="nav__dd-k">Samsung, Norway 2025</span>
+          <b>800,185 completed views across 71 streamer slots</b>
+          <span className="nav__dd-tour">Read the story <Arrow /></span>
+        </Link>
+      </>
     )}
   </NavDropdown>
 );
 
-/* "Login": the two dashboards on the LIVAD platform (already linked from the
-   streamer pages), plus the sign-up page for streamers who are not on it yet. */
+/* "Resources": the free tools and reading that otherwise only live in the footer. */
+const RESOURCES: NavItem[] = [
+  { t: "Blog", d: "Guides and market numbers for livestream ads", to: "/blog" },
+  { t: "Creative library", d: "Every overlay we have made, played back", to: "/creative-library" },
+  { t: "Sponsor checker", d: "Free: see which brands a streamer works with", to: "/twitch-sponsorship-checker" },
+  ...(COMPARE_VISIBLE ? [{ t: "Compare", d: "Beta Ads next to other livestream networks", to: "/compare" }] : []),
+  { t: "Press", d: "Coverage, logos and company facts", to: "/press" },
+];
+const ROUNDUPS: [string, string][] = [
+  ["Norway", "/blog/norske-twitch-streamere-2026"],
+  ["Sweden", "/blog/svenska-twitch-streamare-2026"],
+  ["Denmark", "/blog/danske-twitch-streamere-2026"],
+  ["Finland", "/blog/suomalaiset-twitch-striimaajat-2026"],
+];
+
+const ResourcesMenu: React.FC = () => (
+  <NavDropdown label="Resources" id="nav-resources" panelClass="nav__dd-panel--res">
+    {(close) => (
+      <>
+        <div className="nav__dd-feats">
+          {RESOURCES.map((x) => (
+            <Link key={x.to} to={x.to} onClick={close}>
+              <b>{x.t}</b>
+              <span>{x.d}</span>
+            </Link>
+          ))}
+        </div>
+        <div className="nav__dd-side">
+          <span className="nav__dd-k">Top streamers by country</span>
+          {ROUNDUPS.map(([t, to]) => (
+            <Link key={to} to={to} className="nav__dd-ch" onClick={close}>
+              <span className="nav__dd-cht">{t}</span>
+              <span className="nav__dd-cha" aria-hidden="true">&rarr;</span>
+            </Link>
+          ))}
+        </div>
+      </>
+    )}
+  </NavDropdown>
+);
+
+/* "Login": brands and agencies land on /login (request access, or go on to the
+   dashboard); streamers go straight to their LIVAD account. Plus the sign-up
+   page for streamers who are not on it yet. */
 const LOGINS: { t: string; d: string; href: string }[] = [
-  { t: "Brand or agency", d: "Your campaign dashboard", href: "https://beta.business.livad.stream/dashboard" },
+  { t: "Brand or agency", d: "Your campaign dashboard, or request access", href: "/login" },
   { t: "Streamer", d: "Your streamer account", href: "https://beta.streamer.livad.stream/login" },
 ];
 
@@ -159,7 +245,12 @@ const LoginMenu: React.FC = () => (
   <NavDropdown label="Login" id="nav-login" panelClass="nav__dd-panel--list nav__dd-panel--right">
     {(close) => (
       <div className="nav__dd-feats nav__dd-feats--one">
-        {LOGINS.map((x) => (
+        {LOGINS.map((x) => x.href.startsWith("/") ? (
+          <Link key={x.href} to={x.href} data-cta="login" onClick={close}>
+            <b>{x.t}</b>
+            <span>{x.d}</span>
+          </Link>
+        ) : (
           <a key={x.href} href={x.href} target="_blank" rel="noopener noreferrer" data-cta="login" onClick={close}>
             <b>{x.t}</b>
             <span>{x.d}</span>
@@ -177,12 +268,17 @@ const PlatformMenu: React.FC = () => (
   <NavDropdown label="Platform" id="nav-platform">
     {(close) => (
       <>
-        <div className="nav__dd-feats">
-          {PLATFORM_FEATURES.map((f) => (
-            <Link key={f.t} to={f.to} onClick={close}>
-              <b>{f.t}</b>
-              <span>{f.d}</span>
-            </Link>
+        <div className="nav__dd-groups">
+          {PLATFORM_GROUPS.map((g) => (
+            <div key={g.h} className="nav__dd-feats nav__dd-feats--one">
+              <span className="nav__dd-k">{g.h}</span>
+              {g.items.map((f) => (
+                <Link key={f.t} to={f.to} onClick={close}>
+                  <b>{f.t}</b>
+                  <span>{f.d}</span>
+                </Link>
+              ))}
+            </div>
           ))}
         </div>
         <div className="nav__dd-side">
@@ -212,7 +308,6 @@ const PlatformMenu: React.FC = () => (
 );
 
 const MENU_MORE: [string, string][] = [
-  ["Blog", "/blog"],
   ["About", "/about"],
   ["Contact", "/contact"],
 ];
@@ -248,6 +343,7 @@ export const FinalNav: React.FC = () => {
         <nav className="nav__links" aria-label="Main">
           <PlatformMenu />
           <SolutionsMenu />
+          <ResourcesMenu />
           <Link to="/case-studies">Customers</Link>
           <Link to="/pricing">Pricing</Link>
         </nav>
@@ -272,20 +368,40 @@ export const FinalNav: React.FC = () => {
         <details className="nav__menu-dd">
           <summary>Platform</summary>
           <div>
-            {PLATFORM_FEATURES.map((f) => (
-              <Link key={f.t} to={f.to} onClick={close}>
-                {f.t}
-              </Link>
-            ))}
+            {PLATFORM_GROUPS.flatMap((g) => [
+              <span key={g.h} className="nav__menu-k">{g.h}</span>,
+              ...g.items.map((f) => (
+                <Link key={f.t} to={f.to} onClick={close}>
+                  {f.t}
+                </Link>
+              )),
+            ])}
           </div>
         </details>
         <details className="nav__menu-dd">
           <summary>Solutions</summary>
           <div>
-            {SOLUTIONS.map((x) => (
+            {[...SOLUTIONS, ...INDUSTRIES].map((x) => (
+              <Link key={x.t} to={x.to} onClick={close}>
+                {x.t}
+              </Link>
+            ))}
+            {MARKETS.map(([t, to]) => (
+              <Link key={to} to={to} onClick={close}>{t}</Link>
+            ))}
+          </div>
+        </details>
+        <details className="nav__menu-dd">
+          <summary>Resources</summary>
+          <div>
+            {RESOURCES.map((x) => (
               <Link key={x.to} to={x.to} onClick={close}>
                 {x.t}
               </Link>
+            ))}
+            <span className="nav__menu-k">Top streamers</span>
+            {ROUNDUPS.map(([t, to]) => (
+              <Link key={to} to={to} onClick={close}>{t}</Link>
             ))}
           </div>
         </details>
@@ -293,7 +409,9 @@ export const FinalNav: React.FC = () => {
         <Link to="/pricing">Pricing</Link>
         <Link to="/streamers">For streamers</Link>
         <div className="nav__menu-login">
-          {LOGINS.map((x) => (
+          {LOGINS.map((x) => x.href.startsWith("/") ? (
+            <Link key={x.href} to={x.href} data-cta="login">Login: {x.t.toLowerCase()}</Link>
+          ) : (
             <a key={x.href} href={x.href} target="_blank" rel="noopener noreferrer" data-cta="login">
               Login: {x.t.toLowerCase()}
             </a>
