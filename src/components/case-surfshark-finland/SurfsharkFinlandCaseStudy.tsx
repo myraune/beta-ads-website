@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { RecapFilm } from "@/components/blog/RecapFilm";
 import { brandInk } from "@/lib/brandInk";
 import { Link } from "react-router-dom";
 import { RankedBars, SplitBar, Meter, accent, accentSoft } from "./charts";
@@ -118,17 +119,10 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
           </div>
           <figure>
             <div className="overflow-hidden rounded-[22px] bg-black aspect-video">
-              <img
-                src={`${IMG}/poll-driving.webp`}
-                alt="Finnish IRL stream filmed from the driver's seat, with the Surfshark '4 extra months' overlay on the left and the live VPN poll at the bottom"
-                width={1280}
-                height={720}
-                className="w-full h-full object-cover"
-                {...{ fetchpriority: "high" }}
-              />
+              <RecapFilm slug="surfshark-finland" label="Surfshark Finland × Beta Ads campaign recap" className="w-full h-full object-cover bg-black" />
             </div>
             <figcaption className="mt-2.5 text-xs text-muted-foreground">
-              A real frame from the campaign: the overlay on the left edge, the Finnish poll running live at the bottom.
+              The recap film: real clips from the campaign's streams, the live poll and the final report numbers.
             </figcaption>
           </figure>
         </div>

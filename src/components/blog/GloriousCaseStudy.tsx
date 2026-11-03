@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { AdGif } from "@/components/blog/AdGif";
+import { RecapFilm } from "@/components/blog/RecapFilm";
 
 /** Glorious brand palette - white + gold accent `#D4AF37` per their identity */
 const BRAND = {
@@ -84,16 +85,10 @@ const GloriousCaseStudy: React.FC = () => {
         </div>
       </section>
 
-      {/* ── HEADER IMAGE ── */}
+      {/* ── RECAP FILM ── real clips from the campaign's streams, cut to the final report numbers */}
       <section className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
-          <AdGif
-            src="https://storage.googleapis.com/livad-blog/3292/3669942.gif"
-            poster="/lovable-uploads/adgif-3669942-poster.webp"
-            alt="Glorious V3 Mouse campaign overlay on Twitch stream"
-            className="w-full h-auto rounded-2xl"
-            sizeLabel="3 MB"
-          />
+          <RecapFilm slug="glorious" label="Glorious Model O3 × Beta Ads campaign recap" className="w-full h-auto rounded-2xl bg-muted" />
         </div>
       </section>
 

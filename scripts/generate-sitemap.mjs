@@ -87,6 +87,7 @@ const STATIC_PAGES = [
   { path: "/case-study/kristiania",  priority: "0.8",  changefreq: "monthly", image: "/og/og-home.jpg",                imageTitle: "Høyskolen Kristiania x Beta Ads - 600K views Twitch recruitment campaign" },
   { path: "/case-study/komplett",    priority: "0.8",  changefreq: "monthly", image: "/lovable-uploads/case-studies/komplett-preview.jpg",    imageTitle: "Komplett Gaming Deal x Beta Ads - Twitch retail advertising campaign" },
   { path: "/case-study/nki",         priority: "0.8",  changefreq: "monthly", image: "/lovable-uploads/case-studies/nki-detoo.png",           imageTitle: "NKI Distance Learning x Beta Ads - 220,003 views Twitch quiz campaign" },
+  { path: "/case-study/norstat",     priority: "0.8",  changefreq: "monthly", image: "/videos/norstat-recap-poster.webp",                   imageTitle: "Norstat x Beta Ads - 70,083 views Twitch panel recruitment campaign" },
   { path: "/blog",                   priority: "0.75", changefreq: "weekly"  },
   // Per-country Nordic blog hubs (localized landing pages)
   { path: "/blog/norge",             priority: "0.7",  changefreq: "weekly"  },

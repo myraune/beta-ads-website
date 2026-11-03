@@ -8,6 +8,7 @@
  */
 import React, { lazy, Suspense } from "react";
 import { SEO } from "@/components/SEO";
+import { recapVideoLd } from "@/components/blog/RecapFilm";
 
 const SurfsharkFinlandCaseStudy = lazy(() => import("@/components/case-surfshark-finland/SurfsharkFinlandCaseStudy"));
 
@@ -30,7 +31,7 @@ const CaseStudySurfsharkFinland: React.FC = () => {
         canonical="/case-study/surfshark-finland"
         ogType="article"
         articlePublishedTime="2026-10-07"
-        articleModifiedTime="2026-10-07"
+        articleModifiedTime="2026-11-02"
         ogImage={OG}
         ogImageWidth={1280}
         ogImageHeight={720}
@@ -46,7 +47,7 @@ const CaseStudySurfsharkFinland: React.FC = () => {
             url: URL,
             image: `https://beta-ads.no${OG}`,
             datePublished: "2026-10-07",
-            dateModified: "2026-10-07",
+            dateModified: "2026-11-02",
             author: {
               "@type": "Organization",
               name: "Beta Ads",
@@ -65,6 +66,7 @@ const CaseStudySurfsharkFinland: React.FC = () => {
             },
             isPartOf: { "@id": "https://beta-ads.no/#website" },
           },
+          recapVideoLd("surfshark-finland", "Surfshark Finland × Beta Ads: campaign recap", "Recap of Surfshark VPN on Finnish Twitch: 14 creators, a live poll in chat with 2,833 answers, 119,041 completed views and 1,281 clicks.", 38, "2026-11-02"),
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",

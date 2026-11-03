@@ -645,6 +645,17 @@ const CASE_STUDIES = [
     ogImageWidth: 1065,
     ogImageHeight: 583,
   },
+  {
+    route: "/case-study/norstat",
+    title: "Norstat Case Study | Beta Ads",
+    description:
+      "How Norstat put its survey panel in front of young Norwegian men on Twitch: 20 streamers, 70,083 completed views and a 100% male audience, 76% aged 18 to 24.",
+    locale: "en",
+    datePublished: "2026-11-02",
+    image: "/videos/norstat-recap-poster.webp",
+    ogImageWidth: 1600,
+    ogImageHeight: 900,
+  },
 ];
 
 // ---------------------------------------------------------------------------

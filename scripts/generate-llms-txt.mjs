@@ -49,7 +49,7 @@ const SECTIONS = [
     title: "Campaign results",
     note: "Named Norwegian and Nordic clients with the setup and the numbers.",
     routes: ["/case-studies", "/case-study/samsung", "/case-study/kristiania", "/case-study/komplett",
-             "/case-study/nki", "/case-study/gokstad", "/case-study/shure"],
+             "/case-study/nki", "/case-study/gokstad", "/case-study/shure", "/case-study/norstat"],
   },
   {
     title: "Who it is for",

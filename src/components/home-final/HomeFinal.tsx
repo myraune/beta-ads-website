@@ -44,6 +44,12 @@ const CASES: { to: string; img: string; b: string; n: string; t: string }[] = [
   { to: "/case-study/saily", img: "/lovable-uploads/home-case-saily.webp", b: "Saily", n: "102K+", t: "A travel intent eSIM campaign, 22 streamers." },
 ];
 
+/* Recap films: a short muted loop from each campaign's own recap film, linking to the case with the full film. */
+const FILMS: { to: string; slug: string; b: string; t: string }[] = [
+  { to: "/case-study/surfshark-finland", slug: "surfshark-finland", b: "Surfshark Finland", t: "A live poll in 14 Finnish chats, 2,833 answers." },
+  { to: "/case-study/glorious", slug: "glorious", b: "Glorious", t: "The Model O3 across Norway, Sweden and Finland." },
+  { to: "/case-study/norstat", slug: "norstat", b: "Norstat", t: "A panel offer in front of 24,065 young men." },
+];
 
 /** Motion is off under prefers-reduced-motion and for the build-time prerender
     (headless Chrome reports navigator.webdriver), so the static HTML is complete. */
@@ -287,6 +293,28 @@ export const HomeFinal: React.FC = () => {
                 <span className="case__n">{c.n}<small>views</small></span>
                 <span>{c.t}</span>
                 <em>Read case <i aria-hidden="true">&rarr;</i></em>
+              </A>
+            ))}
+          </div>
+        </section>
+
+        {/* 4a RECAP FILMS: loops from the campaigns' recap films (poster only under reduced motion) */}
+        <section className="sec" id="recap-films" aria-label="Campaign recap films">
+          <div className="sec__h reveal">
+            <h2><b>Recap films</b> <span>from the streams.</span></h2>
+            <A className="qlink" href="/case-studies">All case studies <Arrow /></A>
+          </div>
+          <div className="cases reveal">
+            {FILMS.map((f) => (
+              <A className="case" href={f.to} key={f.to}>
+                <span className="case__img">
+                  <video muted loop playsInline preload="none" poster={`/videos/home-recap-${f.slug}.webp`} width={960} height={540} aria-hidden="true">
+                    <source src={`/videos/home-recap-${f.slug}.mp4`} type="video/mp4" />
+                  </video>
+                </span>
+                <b>{f.b}</b>
+                <span>{f.t}</span>
+                <em>Watch the recap <i aria-hidden="true">&rarr;</i></em>
               </A>
             ))}
           </div>

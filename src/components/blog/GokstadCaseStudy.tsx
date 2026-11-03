@@ -1,17 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { AdGif } from "@/components/blog/AdGif";
+import { RecapFilm } from "@/components/blog/RecapFilm";
 
 const GokstadCaseStudy: React.FC = () => {
   return (
     <div className="space-y-8">
-      <AdGif
-            src="https://storage.googleapis.com/ad-gifs/3790920.gif"
-            poster="/lovable-uploads/adgif-3790920-poster.webp"
-            alt="Gokstad Akademiet campaign header"
-            className="w-full h-auto rounded-xl"
-            sizeLabel="11 MB"
-          />
+      {/* Recap film - real clips from the campaign's streams, cut to the final report numbers */}
+      <RecapFilm slug="gokstad" label="Gokstad Akademiet × Beta Ads campaign recap" />
 
       <section>
         <h2 className="text-2xl font-bold text-foreground border-b-2 border-border pb-3 mb-6">

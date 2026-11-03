@@ -110,6 +110,7 @@ const STATIC_ROUTES = [
   "/case-study/kristiania",
   "/case-study/komplett",
   "/case-study/nki",
+  "/case-study/norstat",
   "/terms",
   "/privacy",
   "/blog/clip-analytics-ad-verification-nordic-streaming",

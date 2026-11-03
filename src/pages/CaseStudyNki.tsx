@@ -1,5 +1,6 @@
 import React from "react";
 import { SEO } from "@/components/SEO";
+import { recapVideoLd } from "@/components/blog/RecapFilm";
 import NkiCaseStudy from "@/components/blog/NkiCaseStudy";
 
 const CaseStudyNki: React.FC = () => {
@@ -11,7 +12,7 @@ const CaseStudyNki: React.FC = () => {
         canonical="/case-study/nki"
         ogType="article"
         articlePublishedTime="2025-10-01"
-        articleModifiedTime="2026-05-11"
+        articleModifiedTime="2026-11-02"
         ogImage="/lovable-uploads/case-studies/nki-detoo.png"
         ogImageAlt="NKI quiz campaign on Norwegian Twitch - detoo streamer overlay"
         ogImageWidth={1065}
@@ -27,7 +28,7 @@ const CaseStudyNki: React.FC = () => {
             "url": "https://beta-ads.no/case-study/nki",
             "image": "https://beta-ads.no/lovable-uploads/case-studies/nki-detoo.png",
             "datePublished": "2025-11-28",
-            "dateModified": "2026-05-11",
+            "dateModified": "2026-11-02",
             "author": {
               "@type": "Organization",
               "name": "Beta Ads",
@@ -46,6 +47,7 @@ const CaseStudyNki: React.FC = () => {
             },
             "isPartOf": { "@id": "https://beta-ads.no/#website" },
           },
+          recapVideoLd("nki", "NKI × Beta Ads: campaign recap", "Recap of NKI on Norwegian Twitch, booked through dentsu: 19 creators asked their chat what type of student they are, 220,003 completed views and 1,595 verified clicks.", 33, "2026-11-02"),
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",

@@ -77,6 +77,7 @@ const CaseStudyShure = lazy(() => import("./pages/CaseStudyShure"));
 const CaseStudyKristiania = lazy(() => import("./pages/CaseStudyKristiania"));
 const CaseStudyKomplett = lazy(() => import("./pages/CaseStudyKomplett"));
 const CaseStudyNki = lazy(() => import("./pages/CaseStudyNki"));
+const CaseStudyNorstat = lazy(() => import("./pages/CaseStudyNorstat"));
 const Press = lazy(() => import("./pages/Press"));
 import { COMPARE_VISIBLE } from "@/data/competitors";
 const Compare = lazy(() => import("./pages/Compare"));
@@ -292,6 +293,7 @@ const App = () => {
               <Route path="/case-study/kristiania" element={<CaseStudyKristiania />} />
               <Route path="/case-study/komplett" element={<CaseStudyKomplett />} />
               <Route path="/case-study/nki" element={<CaseStudyNki />} />
+              <Route path="/case-study/norstat" element={<CaseStudyNorstat />} />
               <Route path="/unsubscribe" element={<Unsubscribe />} />
               {/* SEO redirects - mirrors vercel.json edge redirects for client-side nav */}
               <Route path="/how-it-works" element={<Navigate to="/case-studies" replace />} />

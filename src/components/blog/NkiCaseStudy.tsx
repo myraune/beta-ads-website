@@ -1,4 +1,5 @@
 import React from "react";
+import { RecapFilm } from "@/components/blog/RecapFilm";
 import { brandInk } from "@/lib/brandInk";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
@@ -116,6 +117,13 @@ const NkiCaseStudy: React.FC = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── RECAP FILM ── real clips from the campaign's streams, cut to the final report numbers */}
+      <section className="border-t border-border">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+          <RecapFilm slug="nki" label="NKI × Beta Ads campaign recap" className="w-full h-auto rounded-2xl bg-muted" />
         </div>
       </section>
 

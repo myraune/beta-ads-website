@@ -148,6 +148,19 @@ const detailedCaseStudies = [
     image: "/lovable-uploads/case-gokstad-poster.webp",
     link: "/case-study/gokstad",
   },
+  {
+    brand: "Norstat",
+    title: "Panel Recruitment: Young Men on Twitch",
+    description: "Norstat put its survey panel in front of young Norwegian men across 20 streams. The report shows a 100% male audience, 76% of them aged 18 to 24.",
+    stats: [
+      { label: "Completed views", value: "70,083" },
+      { label: "Unique viewers", value: "24,065" },
+      { label: "Male audience", value: "100%" },
+      { label: "Streamers", value: "20" },
+    ],
+    image: "/videos/norstat-recap-poster.webp",
+    link: "/case-study/norstat",
+  },
 ];
 
 const VideoModal: React.FC<{ videoId: string | null; onClose: () => void }> = ({ videoId, onClose }) => (
@@ -224,7 +237,8 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
               { "@type": "Article", "name": "Komplett Gaming x Beta Ads", "url": "https://beta-ads.no/case-study/komplett" },
               { "@type": "Article", "name": "Høyskolen Kristiania x Beta Ads", "url": "https://beta-ads.no/case-study/kristiania" },
               { "@type": "Article", "name": "NKI Distance Learning x Beta Ads", "url": "https://beta-ads.no/case-study/nki" },
-              { "@type": "Article", "name": "Gokstad Akademiet x Beta Ads", "url": "https://beta-ads.no/case-study/gokstad" }
+              { "@type": "Article", "name": "Gokstad Akademiet x Beta Ads", "url": "https://beta-ads.no/case-study/gokstad" },
+              { "@type": "Article", "name": "Norstat x Beta Ads", "url": "https://beta-ads.no/case-study/norstat" }
             ]
           },
           {
