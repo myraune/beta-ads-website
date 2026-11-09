@@ -215,7 +215,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Case Studies | Beta Ads"
+        title="Twitch Ad Case Studies: 29 Campaigns With Reports | Beta Ads"
         description="Real campaign results from Samsung, Shure, Surfshark, Glorious, and more. Native Twitch overlay case studies with verified impressions and CTR."
         canonical="/case-studies"
         ogType="website"
@@ -223,7 +223,7 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
           {
             "@context": "https://schema.org",
             "@type": "CollectionPage",
-            "name": "Case Studies | Beta Ads",
+            "name": "Twitch Ad Case Studies: 29 Campaigns With Reports | Beta Ads",
             "description": "See real campaign results from Samsung, Shure, Surfshark and more. Native Twitch overlay advertising case studies.",
             "url": "https://beta-ads.no/case-studies",
             "isPartOf": { "@id": "https://beta-ads.no/#website" },

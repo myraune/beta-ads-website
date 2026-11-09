@@ -97,10 +97,19 @@ export function startHeroPlayer(
     else requestAnimationFrame(loop);
   };
   const onPlaying = () => { if (!running) { running = true; loop(); } };
-  if (motion) {
-    video.addEventListener("playing", onPlaying);
+  // The clip is 1.5 MB. It starts only once the page has loaded, so it never
+  // shares the connection with the poster, which is the mobile LCP element.
+  // On a slow device hydration lands after load, and the clip starts at once.
+  const begin = () => {
+    if (!alive) return;
+    video.preload = "auto";
     video.muted = true;
     video.play().catch(() => {});
+  };
+  if (motion) {
+    video.addEventListener("playing", onPlaying);
+    if (document.readyState === "complete") begin();
+    else window.addEventListener("load", begin, { once: true });
   }
 
   return {
@@ -109,6 +118,7 @@ export function startHeroPlayer(
       alive = false;
       window.removeEventListener("resize", layout);
       video.removeEventListener("playing", onPlaying);
+      window.removeEventListener("load", begin);
       poster.onload = null;
     },
   };

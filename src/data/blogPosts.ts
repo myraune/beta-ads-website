@@ -8492,16 +8492,16 @@ Ready to scope a 2026 Nordic creator portfolio matched to your brand category? [
       "platform-diversification-nordic-advertisers-2026"
     ],
     seoTitle: {
-      en: "Twitch vs YouTube Gaming vs Kick 2025: Market Share",
-      no: "Twitch vs YouTube Gaming vs Kick 2025: Markedsandel",
-      sv: "Twitch, YouTube Gaming och Kick 2025: Marknadsandel",
-      fi: "Twitch, YouTube Gaming ja Kick 2025: Markkinaosuus"
+      en: "Twitch vs YouTube Gaming vs Kick 2026: Market Share",
+      no: "Twitch vs YouTube Gaming vs Kick 2026: Markedsandel",
+      sv: "Twitch, YouTube Gaming och Kick 2026: Marknadsandel",
+      fi: "Twitch, YouTube Gaming ja Kick 2026: Markkinaosuus"
     },
     seoDescription: {
-      en: "Twitch lost 8.9%; Kick grew 131%, YouTube Gaming +12% in 2025. Market share breakdown, viewer counts and platform trends from 36.4B hours streamed.",
-      no: "Twitch mistet 8,9 % av timer sett mens Kick vokste 131 % og YouTube Gaming 12 % i 2025. Markedsandel, seertrender og data fra 36,4B streamede timer.",
-      sv: "Twitch tappade 8,9 % av tittade timmar medan Kick växte 131 % och YouTube Gaming 12 % 2025. Marknadsandel, tittartrender och data från 36,4B timmar.",
-      fi: "Twitch menetti 8,9 % katsotuista tunneista, kun Kick kasvoi 131 % ja YouTube Gaming 12 % vuonna 2025. Markkinaosuudet ja alustadata 36,4 mrd. tunnista."
+      en: "Twitch holds 51.3% of hours watched but keeps shrinking. YouTube Gaming grew 14.63%, Kick 65.35% and passed 100 million users. Stream Hatchet Q1 2026 data.",
+      no: "Twitch har 51,3 % av timer sett, men krymper. YouTube Gaming vokste 14,63 %, Kick 65,35 % og passerte 100 millioner brukere. Stream Hatchet Q1 2026.",
+      sv: "Twitch har 51,3 % av tittade timmar men tappar. YouTube Gaming växte 14,63 %, Kick 65,35 % och passerade 100 miljoner användare. Stream Hatchet Q1 2026.",
+      fi: "Twitchillä on 51,3 % tunneista, mutta osuus pienenee. YouTube Gaming kasvoi 14,63 %, Kick 65,35 % ja ylitti 100 miljoonaa käyttäjää. Stream Hatchet Q1 2026."
     },
     seoKeywords: {
       en: ["twitch vs youtube gaming", "twitch vs kick", "streaming platform market share 2025", "youtube gaming 2025", "kick growth 2026", "nordic platform allocation"],

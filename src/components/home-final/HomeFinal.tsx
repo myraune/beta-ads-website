@@ -91,7 +91,6 @@ export const HomeFinal: React.FC = () => {
 
     const canvas = canvasRef.current, spot = spotRef.current, hv = heroVideoRef.current;
     if (canvas && spot && hv) {
-      if (motion) hv.preload = "auto";
       const player = startHeroPlayer(canvas, spot, hv, motion);
       drawRef.current = player.draw;
       cleanups.push(player.destroy);
