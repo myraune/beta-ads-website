@@ -214,7 +214,7 @@ export const SEO: React.FC<SEOProps> = ({
         <meta property="article:modified_time" content={articleModifiedTime} />
       )}
       {ogType === "article" && (
-        <meta property="article:author" content="https://www.linkedin.com/company/beta-nordic/" />
+        <meta property="article:author" content="https://www.linkedin.com/company/beta-ads-nordics/" />
       )}
 
       {/* Twitter Card */}

@@ -823,7 +823,7 @@ function buildBlogPostingJsonLd({ slug, rawTitle, description, image, dateISO, k
         "@type": "Organization",
         "name": "Beta Ads",
         "url": BASE_URL,
-        "sameAs": ["https://www.linkedin.com/company/beta-nordic/", "https://discord.gg/tSmM6XMEkn"]
+        "sameAs": ["https://www.linkedin.com/company/beta-ads-nordics/", "https://discord.gg/tSmM6XMEkn"]
       },
       "publisher": {
         "@type": "Organization",
@@ -881,7 +881,7 @@ function buildCaseStudyJsonLd({ route, title, description, image, datePublished 
         "@type": "Organization",
         "name": "Beta Ads",
         "url": BASE_URL,
-        "sameAs": ["https://www.linkedin.com/company/beta-nordic/", "https://discord.gg/tSmM6XMEkn"]
+        "sameAs": ["https://www.linkedin.com/company/beta-ads-nordics/", "https://discord.gg/tSmM6XMEkn"]
       },
       "publisher": {
         "@type": "Organization",
@@ -1088,7 +1088,7 @@ function injectMeta(shellHtml, { title: rawPageTitle, description, canonical, lo
   // article:published_time + article:author — improves LinkedIn/Facebook share cards
   if (ogType === "article" && articlePublishedTime) {
     const pubTag = `<meta property="article:published_time" content="${articlePublishedTime}" />`;
-    const authorTag = `<meta property="article:author" content="https://www.linkedin.com/company/beta-nordic/" />`;
+    const authorTag = `<meta property="article:author" content="https://www.linkedin.com/company/beta-ads-nordics/" />`;
     if (!html.includes('article:published_time')) {
       html = html.replace("</head>", `    ${pubTag}\n  </head>`);
     }

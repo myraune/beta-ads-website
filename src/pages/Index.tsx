@@ -65,7 +65,7 @@ const Index: React.FC = () => {
               { "@type": "Country", name: "Denmark", alternateName: "Danmark" },
             ],
             sameAs: [
-              "https://www.linkedin.com/company/beta-nordic/",
+              "https://www.linkedin.com/company/beta-ads-nordics/",
               "https://discord.gg/tSmM6XMEkn",
               "https://www.instagram.com/betaadsofficial",
               "https://twitter.com/betaads",

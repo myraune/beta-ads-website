@@ -210,7 +210,7 @@ const BlogPostView: React.FC<{ post: BlogPost; slug: string }> = ({ post, slug }
               "@type": "Organization",
               "name": "Beta Ads",
               "url": "https://beta-ads.no",
-              "sameAs": ["https://www.linkedin.com/company/beta-nordic/", "https://discord.gg/tSmM6XMEkn"]
+              "sameAs": ["https://www.linkedin.com/company/beta-ads-nordics/", "https://discord.gg/tSmM6XMEkn"]
             },
             "publisher": {
               "@type": "Organization",

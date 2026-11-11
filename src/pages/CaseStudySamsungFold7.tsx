@@ -37,7 +37,7 @@ const CaseStudySamsungFold7: React.FC = () => {
               "@type": "Organization",
               "name": "Beta Ads",
               "url": "https://beta-ads.no",
-              "sameAs": ["https://www.linkedin.com/company/beta-nordic/"],
+              "sameAs": ["https://www.linkedin.com/company/beta-ads-nordics/"],
             },
             "publisher": { "@type": "Organization", "name": "Beta Ads", "logo": {
                 "@type": "ImageObject",
