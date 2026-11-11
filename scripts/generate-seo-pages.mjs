@@ -442,9 +442,9 @@ const STATIC_PAGES = [
   },
   {
     route: "/twitch-sponsorship-checker",
-    title: "Twitch Sponsor Checker: Who Sponsors a Streamer? | Beta Ads",
+    title: "Twitch Streamer Sponsorships: Who Sponsors Whom | Beta Ads",
     description:
-      "Search any Twitch streamer and see which brands sponsor them. We read titles, the bio, the last 100 VODs and chat bot commands, with proof for each deal.",
+      "See the sponsorships of any Twitch streamer: every brand deal, dated, with the stream titles that prove it. Plus how streamer sponsorships work and cost.",
     locale: "en",
   },
   {

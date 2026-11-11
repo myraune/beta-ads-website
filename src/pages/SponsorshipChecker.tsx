@@ -27,13 +27,20 @@ type Result = {
   sponsors: Sponsor[]; not_sponsors: { token: string; reason: string }[]; summary: string; scannedLines: number;
 };
 
+/* Sponsorships shown before the sign-up. The rest of the list and the business email
+   unlock with the same free sign-up as the creative library. */
+const FREE_SPONSORS = 3;
+
 const FAQS = [
   { q: "How do I see who sponsors a Twitch streamer?", a: "Type the streamer's name in the search above and pick the channel. The checker lists every brand they work with, with the first and last date it was seen, the number of streams and the exact stream titles, linked to the VOD." },
   { q: "Where does the sponsor data come from?", a: "From the channel itself: stream titles, the bio, the last 100 VODs and the chat bot commands. Every brand on the result comes with the title or command that proves it." },
-  { q: "Is the Twitch sponsor checker free?", a: "Yes. Searching any Twitch channel is free and needs no sign-up. To see a creator's business email, leave your name, work email and company once." },
+  { q: "Is the Twitch sponsor checker free?", a: `Yes. Searching any Twitch channel is free and needs no sign-up. The first ${FREE_SPONSORS} sponsorships show right away. To see the full list and the creator's business email, leave your name, work email and company once.` },
+  { q: "How much does a streamer sponsorship cost?", a: "There is no public rate card. A direct deal is a flat fee you agree with the streamer, priced by how many people watch at the same time and how well the channel fits your brand. A managed Nordic campaign with Beta Ads runs at a blended effective CPM of roughly 100 to 300 NOK per 1,000 verified impressions." },
+  { q: "How do streamer sponsorships usually work?", a: "Most run on stream: a brand !command in the title that posts a link in chat, a logo or overlay, a #ad or partner tag, and often an affiliate code. Some are one stream, others run for weeks. The checker shows when each deal started and how many streams it ran on." },
   { q: "How is this different from a list of brand keywords?", a: "A keyword list counts every !command as a brand, like !prime or a champion guide. The checker reads each one in context, sorts real deals from the rest and says why something is not a deal." },
   { q: "Can I find a streamer's business email?", a: "Often, yes. The checker looks for an email in the Twitch bio, the About panels and the bot commands, and shows how many it found. The addresses are shown after a free sign-up." },
 ];
+
 
 /* Same client logos as the homepage strip. */
 const LOGOS: [string, string, number][] = [
@@ -218,8 +225,8 @@ const SponsorshipChecker: React.FC = () => {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <SEO
-        title="Twitch Sponsor Checker: Who Sponsors a Streamer? | Beta Ads"
-        description="Search any Twitch streamer and see which brands sponsor them. We read titles, the bio, the last 100 VODs and chat bot commands, with proof for each deal."
+        title="Twitch Streamer Sponsorships: Who Sponsors Whom | Beta Ads"
+        description="See the sponsorships of any Twitch streamer: every brand deal, dated, with the stream titles that prove it. Plus how streamer sponsorships work and cost."
         canonical="/twitch-sponsorship-checker"
         ogType="website"
         jsonLd={[
@@ -252,10 +259,10 @@ const SponsorshipChecker: React.FC = () => {
       {/* ── HERO: centred search ── */}
       <header ref={topRef} className={`${W} pt-28 md:pt-36 text-center scroll-mt-20`}>
         <h1 className="text-[2.6rem] leading-[1.04] sm:text-6xl lg:text-[4.4rem] font-bold tracking-[-0.035em] max-w-4xl mx-auto m-0">
-          The sponsorship search <span className="text-muted-foreground font-light">engine for Twitch.</span>
+          Every streamer sponsorship, <span className="text-muted-foreground font-light">searchable.</span>
         </h1>
         <p className="mt-6 max-w-xl mx-auto text-lg text-muted-foreground leading-relaxed">
-          Type a streamer and see every brand they work with, each one shown with the title or chat command that proves it.
+          Type a Twitch streamer and see every brand that sponsors them, each deal shown with the title or chat command that proves it.
         </p>
 
         <form className="mt-9 max-w-2xl mx-auto text-left" onSubmit={e => { e.preventDefault(); check(q); }}>
@@ -344,7 +351,7 @@ const SponsorshipChecker: React.FC = () => {
       ) : (
         <section className={`${W} pt-12 pb-20 min-h-[240px]`} aria-live="polite">
           {error && <p className="max-w-2xl mx-auto rounded-2xl border border-border p-6 text-sm m-0">{error}</p>}
-          {result && <ResultView r={result} token={token} onGate={() => setGateFor(result.creator.name)} onTokenRejected={tokenRejected} />}
+          {result && <ResultView r={result} token={token} onGate={() => setGateFor(result.creator.name)} onUnlocked={unlocked} onTokenRejected={tokenRejected} />}
         </section>
       )}
 
@@ -495,8 +502,9 @@ const SponsorshipChecker: React.FC = () => {
         </div>
       </section>
 
+      <Explainer />
       <ExplorerPlans centered />
-      <Faq title="Twitch sponsor checker, answered." faqs={FAQS} />
+      <Faq title="Streamer sponsorships, answered." faqs={FAQS} />
 
       {/* ── CLOSE: dark CTA ── */}
       <section className={`${W} pb-20 md:pb-28`}>
@@ -514,6 +522,34 @@ const SponsorshipChecker: React.FC = () => {
     </div>
   );
 };
+
+/* Written for people who search "streamer sponsorships" or "streamer sponsorship rates":
+   what a deal looks like on stream, what it costs and how to find one. Every number is one
+   the site already states with its source (/twitch-advertising-cost). */
+const EXPLAIN = [
+  { h: "What a streamer sponsorship looks like", p: "Most deals live on stream, not in a post. The brand gets a !command in the stream title that drops a link in chat, a logo or overlay on screen, and a #ad or partner tag. Many also carry an affiliate code. A deal can be one stream or run for weeks, which is why the checker shows the first and last date and the number of streams." },
+  { h: "What streamer sponsorships cost", p: "There is no public rate card for Twitch or Kick. A direct deal is a flat fee you agree with the streamer, priced by how many people watch at the same time and how well the channel fits. A managed Nordic campaign with Beta Ads runs at a blended effective CPM of roughly 100 to 300 NOK per 1,000 verified impressions.", link: ["/twitch-advertising-cost", "Twitch advertising cost, in full"] as const },
+  { h: "Finding sponsorship opportunities", p: "For a brand, the fastest shortlist is the streamers your competitors already sponsor: search them here and you see who bought what, and when. For a streamer, the same search shows which brands are buying streams right now. Then you need a way in: the business email, which the checker reads from the bio, the About panels and the chat commands." },
+  { h: "Paid deal, affiliate or own brand", p: "Not every brand in a title is a paid sponsorship. Affiliate codes pay per sale. Merch, coaching courses and second channels belong to the creator. Commands like !prime are platform reminders. The checker labels each one, so a list of brands is not mistaken for a list of deals." },
+];
+
+const Explainer: React.FC = () => (
+  <section className={`${W} pt-20 md:pt-28`}>
+    <div className="text-center max-w-2xl mx-auto">
+      <h2 className={h2}>How streamer sponsorships <span className="text-muted-foreground font-light">work.</span></h2>
+      <p className="mt-4 text-muted-foreground leading-relaxed">What you see on stream, what it costs and how to find the right deal.</p>
+    </div>
+    <div className="mt-10 md:mt-12 grid md:grid-cols-2 gap-x-14 gap-y-10 max-w-5xl mx-auto">
+      {EXPLAIN.map(x => (
+        <div key={x.h}>
+          <h3 className="text-xl font-bold tracking-tight m-0">{x.h}</h3>
+          <p className="mt-3 mb-0 text-muted-foreground leading-relaxed">{x.p}</p>
+          {x.link && <Link to={x.link[0]} className="mt-3 inline-block text-sm font-semibold hover:opacity-70">{x.link[1]} &rarr;</Link>}
+        </div>
+      ))}
+    </div>
+  </section>
+);
 
 const Row: React.FC<{ n: string; title: string; body: string; flip?: boolean; children: React.ReactNode }> = ({ n, title, body, flip, children }) => (
   <div className="rounded-2xl bg-white/[0.035] p-6 md:p-10 grid md:grid-cols-2 gap-8 md:gap-12 items-center">
@@ -677,8 +713,27 @@ const ContactBox: React.FC<{ login: string; token: string; onGate: () => void; o
   );
 };
 
-const ResultView: React.FC<{ r: Result; token: string; onGate: () => void; onTokenRejected: () => void }> = ({ r, token, onGate, onTokenRejected }) => {
+/** The rest of the deals, behind the free sign-up. Only the logos show, blurred. */
+const SponsorGate: React.FC<{ name: string; rest: Sponsor[]; onUnlocked: (t: string) => void }> = ({ name, rest, onUnlocked }) => (
+  <div className="mt-3 rounded-2xl border border-border bg-muted/40 p-5 md:p-7">
+    <div aria-hidden="true" className="flex flex-wrap gap-1.5 blur-[3px] select-none">
+      {rest.slice(0, 12).map(s => <BrandLogo key={s.brand} brand={s.brand} domain={s.domain} small />)}
+    </div>
+    <h3 className="mt-4 text-xl font-bold tracking-tight m-0">
+      {rest.length} more {rest.length === 1 ? "brand" : "brands"} on {name}'s channel
+    </h3>
+    <p className="mt-2 mb-5 text-sm text-muted-foreground leading-relaxed max-w-lg">
+      Free. Leave your name, work email and company to see every deal with its proof and the business email, for every streamer you check.
+    </p>
+    <UnlockForm id="sc-list" source="sponsorship-checker-list" cta="Show all sponsorships" onUnlocked={onUnlocked} />
+  </div>
+);
+
+const ResultView: React.FC<{ r: Result; token: string; onGate: () => void; onUnlocked: (t: string) => void; onTokenRejected: () => void }> = ({ r, token, onGate, onUnlocked, onTokenRejected }) => {
   const c = r.creator;
+  // Without a sign-up, the first few deals show and the rest wait behind the form.
+  const locked = !token && r.sponsors.length > FREE_SPONSORS;
+  const shown = locked ? r.sponsors.slice(0, FREE_SPONSORS) : r.sponsors;
   return (
     <div className="grid lg:grid-cols-[minmax(0,1fr)_340px] gap-8 items-start text-left">
       <div className="min-w-0">
@@ -706,9 +761,12 @@ const ResultView: React.FC<{ r: Result; token: string; onGate: () => void; onTok
         {r.sponsors.length === 0 ? (
           <p className="mt-8 rounded-2xl border border-border p-6 text-sm text-muted-foreground m-0">No brand deals in the titles we could read.</p>
         ) : (
-          <div className="mt-8 grid sm:grid-cols-2 gap-3">
-            {r.sponsors.map(s => <SponsorCard key={s.brand} s={s} />)}
-          </div>
+          <>
+            <div className="mt-8 grid sm:grid-cols-2 gap-3">
+              {shown.map(s => <SponsorCard key={s.brand} s={s} />)}
+            </div>
+            {locked && <SponsorGate name={c.name} rest={r.sponsors.slice(FREE_SPONSORS)} onUnlocked={onUnlocked} />}
+          </>
         )}
       </div>
 
