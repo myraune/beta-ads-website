@@ -79,6 +79,7 @@ const STATIC_ROUTES = [
   "/pricing",
   "/creative-library",
   "/campaign-builder",
+  "/virtual-product-placement",
   "/streamer-explorer",
   "/twitch-sponsorship-checker",
   "/reporting",

@@ -320,7 +320,7 @@ const STATIC_PAGES = [
     route: "/press",
     title: "Press & Media Coverage | Beta Ads",
     description:
-      "Beta Ads in the press. Featured in Kampanje, Kom24, and Nordic media on Twitch advertising, native overlay ads, and livestream marketing in Norway.",
+      "Beta Ads in the press. Featured in Kampanje, Kom24, Shifter and Nordic media on Twitch advertising, native overlay ads, and livestream marketing in Norway.",
     locale: "en",
   },
   {
@@ -431,6 +431,13 @@ const STATIC_PAGES = [
     title: "Campaign Builder: Livestream Ads in Five Steps | Beta Ads",
     description:
       "Build a livestream ad campaign in one flow: objective, audience, format, asset and review. Your creative becomes an animated overlay with a chat command.",
+    locale: "en",
+  },
+  {
+    route: "/virtual-product-placement",
+    title: "Virtual Product Placement in Live Streams and Clips | Beta Ads",
+    description:
+      "Put your product inside the game scene on Twitch, Kick and YouTube. From one product photo we build a 3D model and place it with matching light and shadow, live and in clips.",
     locale: "en",
   },
   {

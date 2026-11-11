@@ -5,6 +5,14 @@ import { MascotBand } from "@/components/sections/MascotBand";
 
 const pressArticles = [
   {
+    title: "Fem startups tatt opp i Atlas Accelerators fjerde kull",
+    subtitle: "Beta Ads er ett av fem selskaper blant 50 søkere",
+    publication: "Shifter",
+    date: "November 2026",
+    url: "https://www.shifter.no/nyheter/fem-startups-tatt-opp-i-atlas-accelerators-fjerde-kull/482382",
+    image: "/lovable-uploads/blog-atlas-card.jpg",
+  },
+  {
     title: "Odelsgutten Andreas (22) satser på Twitch-reklame fra Chicago",
     subtitle: "– Vil tjene penger",
     publication: "Frostingen",
@@ -114,7 +122,7 @@ const Press: React.FC = () => {
     <>
       <SEO
         title="Press & Media Coverage | Beta Ads"
-        description="Beta Ads in the press. Featured in Kampanje, Kom24, and Nordic media on Twitch advertising, native overlay ads, and livestream marketing in Norway."
+        description="Beta Ads in the press. Featured in Kampanje, Kom24, Shifter and Nordic media on Twitch advertising, native overlay ads, and livestream marketing in Norway."
         canonical="/press"
         jsonLd={[
           {

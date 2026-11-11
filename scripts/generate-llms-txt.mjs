@@ -59,7 +59,7 @@ const SECTIONS = [
   {
     title: "How campaigns are verified",
     note: "What we check, what chat said, and what the stream kept earning after it ended.",
-    routes: ["/campaign-builder", "/streamer-explorer", "/campaign-compliance", "/brand-safety", "/livestream-chat-engagement", "/reporting", "/programmatic"],
+    routes: ["/campaign-builder", "/virtual-product-placement", "/streamer-explorer", "/campaign-compliance", "/brand-safety", "/livestream-chat-engagement", "/reporting", "/programmatic"],
   },
   {
     title: "For streamers",

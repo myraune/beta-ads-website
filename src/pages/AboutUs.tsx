@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { SEO } from '@/components/SEO';
@@ -204,6 +205,12 @@ const AboutUs: React.FC<AboutUsProps> = ({ t }) => {
                 Shure, Komplett, and Høyskolen Kristiania across Norway,
                 Sweden, Denmark, and Finland - measured, repeatable, and
                 native by design.
+              </p>
+              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed">
+                In November 2026 we launched virtual product placement in the
+                Nordics, and joined the fourth cohort of Atlas Accelerator,
+                one of five startups picked from 50 applicants.{" "}
+                <Link to="/blog/beta-ads-atlas-accelerator" className="underline underline-offset-4 text-foreground">Read the news</Link>.
               </p>
             </div>
           </div>

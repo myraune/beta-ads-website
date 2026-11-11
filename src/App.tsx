@@ -41,6 +41,7 @@ const Pricing = lazyRoute(() => import("./pages/Pricing"));
 const CreativeLibrary = lazy(() => import("./pages/CreativeLibrary"));
 const Admin = lazy(() => import("./pages/Admin"));
 const CampaignBuilder = lazy(() => import("./pages/CampaignBuilder"));
+const VirtualProductPlacement = lazy(() => import("./pages/VirtualProductPlacement"));
 const StreamerExplorer = lazy(() => import("./pages/StreamerExplorer"));
 const SponsorshipChecker = lazy(() => import("./pages/SponsorshipChecker"));
 const Reporting = lazy(() => import("./pages/Reporting"));
@@ -242,6 +243,7 @@ const App = () => {
               <Route path="/creative-library" element={<CreativeLibrary />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/campaign-builder" element={<CampaignBuilder />} />
+              <Route path="/virtual-product-placement" element={<VirtualProductPlacement />} />
               <Route path="/streamer-explorer" element={<StreamerExplorer />} />
               <Route path="/twitch-sponsorship-checker" element={<SponsorshipChecker />} />
               <Route path="/reporting" element={<Reporting />} />

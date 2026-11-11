@@ -60,11 +60,13 @@ const HowTwitchAdvertisingWorks = lazy(() => import("@/components/blog/HowTwitch
 const AdBlockerCrisis = lazy(() => import("@/components/blog/AdBlockerCrisis"));
 const TwitchCapCut = lazy(() => import("@/components/blog/TwitchCapCut"));
 const FremtidensVerdiskaper = lazy(() => import("@/components/blog/FremtidensVerdiskaper"));
+const VppLaunch = lazy(() => import("@/components/blog/VppLaunch"));
+const AtlasAccelerator = lazy(() => import("@/components/blog/AtlasAccelerator"));
 const StreamerUniversity2026 = lazy(() => import("@/components/blog/StreamerUniversity2026"));
 const GtaViNordicPlaybook = lazy(() => import("@/components/blog/GtaViNordicPlaybook"));
 
 /** hasDashboard keys that render a bespoke full-width editorial page. */
-const RICH_EDITORIAL = ["twitch-april-2026", "how-twitch-advertising-works", "ad-blocker-crisis", "streamer-university-2026", "gta-vi-nordic-playbook", "twitch-capcut", "fremtidens-verdiskaper"];
+const RICH_EDITORIAL = ["twitch-april-2026", "how-twitch-advertising-works", "ad-blocker-crisis", "streamer-university-2026", "gta-vi-nordic-playbook", "twitch-capcut", "fremtidens-verdiskaper", "vpp-launch", "atlas-accelerator"];
 
 /** hasDashboard-verdier som bruker det fullbredde, header-løse roundup-oppsettet. */
 const STREAMER_ROUNDUPS = ["norske-streamere", "svenska-streamare", "danske-streamere", "suomalaiset-striimaajat"];
@@ -316,6 +318,8 @@ const BlogPostView: React.FC<{ post: BlogPost; slug: string }> = ({ post, slug }
                   )}
                   {post.hasDashboard === "twitch-capcut" && <TwitchCapCut />}
                   {post.hasDashboard === "fremtidens-verdiskaper" && <FremtidensVerdiskaper />}
+                  {post.hasDashboard === "vpp-launch" && <VppLaunch lang={post.locale === "no" ? "no" : "en"} />}
+                  {post.hasDashboard === "atlas-accelerator" && <AtlasAccelerator lang={post.locale === "no" ? "no" : "en"} />}
                 </Suspense>
               </div>
             ) : (
