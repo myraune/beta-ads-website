@@ -16,14 +16,14 @@ import { UnlockForm, readToken, clearToken } from "@/components/LeadUnlock";
    real streams that ran a brand !command on 21 October 2026 (src/data/liveDeals.ts). */
 
 type Hit = { login: string; name: string; avatar: string; live: boolean; game: string; language: string };
-type Evidence = { text: string; date: string; url: string; source: "live" | "vod" | "bio" | "command" };
+type Evidence = { text: string; date: string; url: string; source: "live" | "vod" | "bio" | "command" | "panel"; image?: string };
 type Sponsor = {
   brand: string; category: string; domain?: string; kind: "sponsor" | "affiliate" | "own_brand" | "unclear";
   confidence: "high" | "medium" | "low"; note: string; firstSeen: string; lastSeen: string; streams: number; evidence: Evidence[];
 };
 type Result = {
   creator: { login: string; name: string; avatar: string; language: string | null; game: string | null; followers: number | null;
-    live: { viewers: number; title: string; game: string } | null; vodCount: number; commandCount?: number; since: string | null };
+    live: { viewers: number; title: string; game: string } | null; vodCount: number; commandCount?: number; panelCount?: number; since: string | null };
   sponsors: Sponsor[]; not_sponsors: { token: string; reason: string }[]; summary: string; scannedLines: number;
 };
 
@@ -629,7 +629,22 @@ const TopStreamers: React.FC<{ data: TopData | null; country: TopCountry["code"]
   );
 };
 
-const SponsorCard: React.FC<{ s: Sponsor }> = ({ s }) => (
+/* "About panel | (image banner, no text) | link: https://bit.ly/x -> https://brand.com/?ref=y"
+   reads as "Image banner linking to brand.com/?ref=y (via bit.ly/x)". */
+const bare = (u: string) => u.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+const panelProof = (text: string) => {
+  const [, ...parts] = text.split(" | ");
+  const linkPart = parts.find(p => p.startsWith("link: "));
+  const words = parts.filter(p => p !== linkPart && p !== "(image banner, no text)").join(" · ");
+  if (!linkPart) return words;
+  const [from, to] = linkPart.slice(6).split(" -> ");
+  const target = `${bare(to ?? from).slice(0, 80)}${to ? ` (via ${bare(from)})` : ""}`;
+  return words ? `${words} · links to ${target}` : `Image banner linking to ${target}`;
+};
+
+const SponsorCard: React.FC<{ s: Sponsor }> = ({ s }) => {
+  const panelOnly = s.evidence.every(e => e.source === "panel");
+  return (
   <article className="rounded-2xl border border-border bg-card p-4 flex flex-col min-w-0">
     <div className="flex items-center gap-3">
       <BrandLogo brand={s.brand} domain={s.domain} />
@@ -640,8 +655,12 @@ const SponsorCard: React.FC<{ s: Sponsor }> = ({ s }) => (
       <span className="shrink-0 px-2 h-6 inline-flex items-center rounded-full bg-foreground text-background text-[11px] font-semibold">{KIND[s.kind]}</span>
     </div>
     <p className="mt-3 mb-0 text-xs text-muted-foreground">
-      <span className="font-semibold text-foreground">{range(s.firstSeen, s.lastSeen)}</span>
-      {" · "}{s.streams > 0 ? `${s.streams} stream${s.streams === 1 ? "" : "s"}` : s.evidence.some(e => e.source === "command") ? "chat bot" : "bio"}
+      {panelOnly
+        ? <span className="font-semibold text-foreground">In the About panel on {fmt(s.lastSeen)}</span>
+        : <>
+            <span className="font-semibold text-foreground">{range(s.firstSeen, s.lastSeen)}</span>
+            {" · "}{s.streams > 0 ? `${s.streams} stream${s.streams === 1 ? "" : "s"}` : s.evidence.some(e => e.source === "command") ? "chat bot" : s.evidence.some(e => e.source === "panel") ? "About panel" : "bio"}
+          </>}
       {s.confidence !== "high" && ` · ${s.confidence} confidence`}
     </p>
     <p className="mt-2 mb-0 text-sm text-muted-foreground leading-snug line-clamp-3">{s.note}</p>
@@ -653,15 +672,17 @@ const SponsorCard: React.FC<{ s: Sponsor }> = ({ s }) => (
         {s.evidence.map(e => (
           <li key={e.url + e.date + e.text} className="border-b border-border last:border-b-0">
             <a href={e.url} target="_blank" rel="noopener noreferrer" className="block py-2 text-xs group">
-              <span className="text-muted-foreground">{e.source === "live" ? "Live now" : e.source === "bio" ? "Bio" : e.source === "command" ? "Chat bot" : fmt(e.date)}</span>
-              <span className="block mt-0.5 text-muted-foreground group-hover:text-foreground line-clamp-2 break-words">{e.text}</span>
+              <span className="text-muted-foreground">{e.source === "live" ? "Live now" : e.source === "bio" ? "Bio" : e.source === "command" ? "Chat bot" : e.source === "panel" ? `About panel, seen ${fmt(e.date)}` : fmt(e.date)}</span>
+              {e.source === "panel" && e.image && <img src={e.image} alt="" loading="lazy" className="mt-1.5 w-full max-w-[320px] rounded-lg border border-border" />}
+              <span className="block mt-0.5 text-muted-foreground group-hover:text-foreground line-clamp-2 break-words">{e.source === "panel" ? panelProof(e.text) : e.text}</span>
             </a>
           </li>
         ))}
       </ul>
     </details>
   </article>
-);
+  );
+};
 
 type Contact = { count: number; gate?: boolean; emails?: { email: string; source: "bio" | "panel" | "command" }[] };
 const SOURCE_LABEL = { bio: "Twitch bio", panel: "About panel", command: "Chat command" } as const;
@@ -775,7 +796,7 @@ const ResultView: React.FC<{ r: Result; token: string; onGate: () => void; onUnl
       <aside className="rounded-2xl bg-muted/60 p-5 md:p-6 text-sm">
         <div className={`${kicker} mb-3`}>What we read</div>
         <p className="m-0 text-muted-foreground leading-relaxed">
-          {r.scannedLines} different titles from {c.vodCount} VODs{c.since ? ` since ${fmt(c.since)}` : ""}, the live title, the bio{c.commandCount ? ` and ${c.commandCount} public chat bot commands` : ""}.
+          {r.scannedLines} different titles from {c.vodCount} VODs{c.since ? ` since ${fmt(c.since)}` : ""}, the live title, the bio{c.panelCount ? `, ${c.panelCount} About panels` : ""}{c.commandCount ? ` and ${c.commandCount} public chat bot commands` : ""}.
           Twitch keeps VODs for a limited time, so older deals may be missing.
         </p>
         {r.not_sponsors.length > 0 && (

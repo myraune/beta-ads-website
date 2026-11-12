@@ -25,7 +25,7 @@ const PRICE = { input: 4 / 1e6, output: 20 / 1e6 }; // Opus 5.5, USD per token
 const PER_IP_HOUR = 15;
 const PER_DAY = 300; // Claude calls per day across all instances (counted in the Blob usage log), protects the credits
 
-type Title = { id: number; date: string; lastDate: string; count: number; text: string; url: string; source: "live" | "vod" | "bio" | "command" };
+type Title = { id: number; date: string; lastDate: string; count: number; text: string; url: string; source: "live" | "vod" | "bio" | "command" | "panel"; image?: string };
 
 const cache = new Map<string, { at: number; data: unknown }>();
 const hits = new Map<string, number[]>();
@@ -81,16 +81,55 @@ async function botCommands(login: string): Promise<Omit<Title, "id" | "lastDate"
     .map(c => ({ date: c.at.slice(0, 10), text: `${c.name}: ${c.reply}`, url: c.url, source: "command" as const }));
 }
 
+type Panel = { title: string; description: string; image: string; link: string; final: string };
+
 /* The About panels under the stream. Helix has no endpoint for them; Twitch's own web
    client reads them from gql.twitch.tv with its public client id. */
-async function panels(login: string): Promise<string[]> {
+async function panels(login: string): Promise<Panel[]> {
   const r = await fetch("https://gql.twitch.tv/gql", {
     method: "POST",
     headers: { "Client-Id": "kimne78kx3ncx6brgo4mv6wki5h1ko", "content-type": "application/json" },
-    body: JSON.stringify({ query: `query{user(login:${JSON.stringify(login)}){panels{... on DefaultPanel{title description linkURL}}}}` }),
+    body: JSON.stringify({ query: `query{user(login:${JSON.stringify(login)}){panels{... on DefaultPanel{title description imageURL linkURL}}}}` }),
     signal: AbortSignal.timeout(6000),
   }).then(res => (res.ok ? res.json() : null)).catch(() => null);
-  return (r?.data?.user?.panels ?? []).flatMap((p: any) => [p?.title, p?.description, p?.linkURL]).filter(Boolean);
+  return (r?.data?.user?.panels ?? [])
+    .filter((p: any) => p && (p.title || p.description || p.linkURL))
+    .map((p: any) => ({ title: p.title ?? "", description: p.description ?? "", image: p.imageURL ?? "", link: p.linkURL ?? "", final: p.linkURL ?? "" }));
+}
+
+/* Every About panel with its link resolved, and the evidence line for the ones that can say
+   something about a sponsor (a link off the creator's own socials, or any text). */
+export async function aboutPanels(login: string): Promise<(Panel & { line: string })[]> {
+  const list = await panels(login);
+  return Promise.all(list.map(async p => {
+    const final = p.link ? await resolveLink(p.link) : "";
+    const social = !!p.link && SOCIAL.test(hostOf(final));
+    const text = [p.title, p.description.replace(/\s+/g, " ").trim()].filter(Boolean).join(" | ");
+    const link = p.link ? ` | link: ${p.link}${final !== p.link ? ` -> ${final}` : ""}` : "";
+    return { ...p, final, line: social && !text ? "" : `About panel | ${text || "(image banner, no text)"}${link}` };
+  }));
+}
+
+const panelText = (p: Panel) => [p.title, p.description, p.link].filter(Boolean);
+
+/* Links to the creator's own socials, tips and Twitch pages say nothing about sponsors. */
+const SOCIAL = /(^|\.)(twitch\.tv|tiktok\.com|twitter\.com|x\.com|youtube\.com|youtu\.be|instagram\.com|discord\.(gg|com)|snapchat\.com|facebook\.com|kick\.com|threads\.net|reddit\.com|linktr\.ee|beacons\.ai|streamelements\.com|streamlabs\.com|paypal\.(me|com)|ko-fi\.com|patreon\.com|throne\.com|spotify\.com)$/;
+const hostOf = (url: string) => { try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return ""; } };
+
+/* Panel banners often link through a short link (bit.ly/lacypackdraw) and carry the code only in
+   the image. Following up to three redirects without reading any body gives the real brand domain
+   and the referral parameter. Public http(s) hosts only. */
+async function resolveLink(url: string): Promise<string> {
+  let at = url;
+  for (let i = 0; i < 3; i++) {
+    const host = hostOf(at);
+    if (!/^https?:/.test(at) || !host || /^(localhost|\d+\.\d+\.\d+\.\d+|\[)/.test(host)) return at;
+    const r = await fetch(at, { method: "HEAD", redirect: "manual", signal: AbortSignal.timeout(4000) }).catch(() => null);
+    const next = r && r.status >= 300 && r.status < 400 ? r.headers.get("location") : null;
+    if (!next) return at;
+    at = new URL(next, at).toString();
+  }
+  return at;
 }
 
 const EMAIL = /[a-z0-9._%+-]+(?:@|\s?[[(]at[\])]\s?)[a-z0-9-]+(?:\.[a-z0-9-]+)*\.[a-z]{2,}/gi;
@@ -103,7 +142,7 @@ async function contactEmails(login: string) {
   if (hit && Date.now() - hit.at < CACHE_MS) return hit.emails;
   const u = (await helix(`users?login=${encodeURIComponent(login)}`)).data?.[0];
   if (!u) return [];
-  const [panelText, commands] = await Promise.all([panels(u.login), botCommands(u.login)]);
+  const [panelList, commands] = await Promise.all([panels(u.login), botCommands(u.login)]);
   const found = new Map<string, "bio" | "panel" | "command">();
   const scan = (text: string, source: "bio" | "panel" | "command") => {
     for (const m of text.match(EMAIL) ?? []) {
@@ -112,7 +151,7 @@ async function contactEmails(login: string) {
     }
   };
   scan(u.description ?? "", "bio");
-  panelText.forEach(t => scan(t, "panel"));
+  panelList.flatMap(panelText).forEach(t => scan(t, "panel"));
   commands.forEach(c => scan(c.text, "command"));
   const emails = [...found].map(([email, source]) => ({ email, source }));
   contactCache.set(login, { at: Date.now(), emails });
@@ -154,9 +193,13 @@ const Result = z.object({
   summary: z.string(),
 });
 
-const SYSTEM = `You read Twitch stream titles, a channel bio and the channel's public chat bot commands, and decide which brands sponsor the creator.
+const SYSTEM = `You read Twitch stream titles, a channel bio, the channel's About panels and its public chat bot commands, and decide which brands sponsor the creator.
 
 Lines with source "command" are "!name: bot reply", dated by when the command was last edited. They are the best evidence: creators put "!reklame" or "!ad" in the title and the bot reply names the brands. A reply that discloses advertising in any language (Reklame, reklame for, annonse, annonce, #ad, #reklame, sponsored, "in partnership with", a discount code or tracking link for a company) is a deal. A disclosure list such as "this stream contains ads for A, B and C" counts for each brand it names; use that line as evidence for each. A command edited long ago is an older deal, keep it but say so in note.
+
+Lines with source "panel" are the channel's About panels: "About panel | title | text | link -> where the link really goes". They have no date. A panel that links to a company's site with a referral or creator code (?ref=, ?code=, /r/, a short link that resolves to a brand) or that says "use code", "sponsored by" or "partner" is a deal. Many sponsor panels are only an image with the code written in the image, so the line says "(image banner, no text)": then the link is the only evidence, so set confidence to "medium" at most. Links to the creator's own merch, socials, sub pages, leaderboards and chat rules are not deals.
+
+Gambling, betting, casino and case-opening sites (skin or loot box sites such as PackDraw, Hellcase, CSGOEmpire, Stake, Roobet) are real deals: list them like any other sponsor and set category to "Gambling" so a marketer sees it; say in note if it is a case-opening or skin site.
 
 Twitch titles are full of !commands. Most are chat bot commands, not deals: !discord, !socials, !youtube, !merch for the creator's own shop, !prime (a Prime Gaming sub reminder), !drops, game guides, champion or build names, community events, other streamers. Count a brand only when the line shows a commercial relationship: a !command named after a company or product (!hellofresh, !gamersupps, !steelseries), #ad or #sponsored, "sponsored by", "partner", "code X" or "use code" with a brand, or a brand @mention in a promo context.
 
@@ -167,12 +210,13 @@ async function analyse(login: string) {
   const u = users.data?.[0];
   if (!u) return null;
 
-  const [channel, stream, vods, followers, commands] = await Promise.all([
+  const [channel, stream, vods, followers, commands, panelList] = await Promise.all([
     helix(`channels?broadcaster_id=${u.id}`),
     helix(`streams?user_id=${u.id}`),
     helix(`videos?user_id=${u.id}&type=archive&first=100`),
     helix(`channels/followers?broadcaster_id=${u.id}`).catch(() => null),
     botCommands(u.login),
+    aboutPanels(u.login),
   ]);
   const ch = channel.data?.[0] ?? {};
   const live = stream.data?.[0] ?? null;
@@ -185,6 +229,8 @@ async function analyse(login: string) {
   const titleLines = titles.length;
   if (u.description) titles.push({ id: titles.length + 1, date: today, lastDate: today, count: 1, text: u.description, url: `https://twitch.tv/${u.login}/about`, source: "bio" });
   for (const c of commands) titles.push({ ...c, id: titles.length + 1, lastDate: c.date, count: 1 });
+  // Panels have no date: they are "seen on" the day of the check.
+  for (const p of panelList.filter(p => p.line)) titles.push({ id: titles.length + 1, date: today, lastDate: today, count: 1, text: p.line, url: p.final || p.link || `https://twitch.tv/${u.login}/about`, source: "panel", image: p.image || undefined });
 
   const creator = {
     login: u.login,
@@ -196,7 +242,8 @@ async function analyse(login: string) {
     live: live ? { viewers: live.viewer_count, title: live.title, game: live.game_name } : null,
     vodCount: vods.data?.length ?? 0,
     commandCount: commands.length,
-    since: titleLines ? titles.filter(t => t.source !== "command").reduce((m, t) => (t.date < m ? t.date : m), today) : null,
+    panelCount: panelList.length,
+    since: titleLines ? titles.filter(t => t.source !== "command" && t.source !== "panel").reduce((m, t) => (t.date < m ? t.date : m), today) : null,
   };
 
   if (!titles.length) return { creator, sponsors: [], not_sponsors: [], summary: "No titles, VODs or bot commands to read for this channel.", scannedLines: 0 };
@@ -230,12 +277,14 @@ async function analyse(login: string) {
       const inTitles = titles.filter(t => (t.source === "vod" || t.source === "live") && !cited.includes(t)
         && names.some(n => new RegExp(`${n.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}(?![\\p{L}\\d])`, "iu").test(t.text)));
       const ev = [...cited, ...inTitles];
+      // A sponsor shown only by an image banner with a link has no readable text: never "high".
+      const linkOnly = ev.every(t => t.source === "panel" && t.text.includes("(image banner, no text)"));
       return {
-        brand: s.brand, category: s.category, domain: cleanDomain(s.domain), kind: s.kind, confidence: s.confidence, note: s.note,
+        brand: s.brand, category: s.category, domain: cleanDomain(s.domain), kind: s.kind, confidence: linkOnly && s.confidence === "high" ? "medium" as const : s.confidence, note: s.note,
         firstSeen: ev.reduce((m, t) => (t.date < m ? t.date : m), ev[0].date),
         lastSeen: ev.reduce((m, t) => (t.lastDate > m ? t.lastDate : m), ev[0].lastDate),
         streams: ev.reduce((n, t) => n + (t.source === "vod" || t.source === "live" ? t.count : 0), 0),
-        evidence: [...cited.slice(0, 3), ...inTitles.slice(0, 2)].map(t => ({ text: t.text, date: t.lastDate, url: t.url, source: t.source })),
+        evidence: [...cited.slice(0, 3), ...inTitles.slice(0, 2)].map(t => ({ text: t.text, date: t.lastDate, url: t.url, source: t.source, ...(t.image ? { image: t.image } : {}) })),
       };
     })
     .filter(Boolean)
@@ -310,7 +359,7 @@ export async function POST(request: Request) {
   // this instance's memory first, then the shared Blob cache, before paying for a Claude call
   const cached = cache.get(login);
   if (cached && Date.now() - cached.at < CACHE_MS) return json({ ...(cached.data as object), cached: true });
-  const shared = await readCached<object>(login, CACHE_MS);
+  const shared = await readCached<object>(`${login}.p1`, CACHE_MS);
   if (shared) { cache.set(login, { at: Date.now(), data: shared }); return json({ ...shared, cached: true }); }
 
   const ip = request.headers.get("x-forwarded-for")?.split(",")[0].trim() || "local";
@@ -322,7 +371,7 @@ export async function POST(request: Request) {
     const data = await analyse(login);
     if (!data) return json({ error: `No Twitch channel called "${login}".` }, 404);
     cache.set(login, { at: Date.now(), data });
-    await writeCached(login, data).catch(e => console.error("[creator-sponsors] cache write", e));
+    await writeCached(`${login}.p1`, data).catch(e => console.error("[creator-sponsors] cache write", e));
     return json(data);
   } catch (e) {
     console.error("[creator-sponsors]", e);
