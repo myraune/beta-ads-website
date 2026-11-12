@@ -46,6 +46,12 @@ const T = {
     cta2: "See the Samsung case",
     src: "Source: Shifter, «Fem startups tatt opp i Atlas Accelerators fjerde kull», 11 November 2026.",
     read: "Read on Shifter",
+    kickoff: "The cohort kick-off in Bergen. Andreas joined from the US, on the screen.",
+    kickoffAlt: "Atlas Accelerator kick-off meeting room, with Andreas Myraune on a video call presenting Beta Ads on the big screen",
+    logoAlt: "The Atlas Accelerator logo on a screen at the kick-off",
+    shifterK: "In the press",
+    shifterH: "Five startups picked for Atlas Accelerator's fourth cohort",
+    shifterP: "Shifter, 11 November 2026",
   },
   no: {
     kicker: "Nyheter · november 2026",
@@ -77,6 +83,12 @@ const T = {
     cta2: "Se Samsung-casen",
     src: "Kilde: Shifter, «Fem startups tatt opp i Atlas Accelerators fjerde kull», 11. november 2026.",
     read: "Les på Shifter",
+    kickoff: "Oppstarten for kullet i Bergen. Andreas var med fra USA, på skjermen.",
+    kickoffAlt: "Møterommet på oppstarten i Atlas Accelerator, med Andreas Myraune på videosamtale som presenterer Beta Ads på storskjermen",
+    logoAlt: "Atlas Accelerator-logoen på skjermen under oppstarten",
+    shifterK: "Omtalt i Shifter",
+    shifterH: "Fem startups tatt opp i Atlas Accelerators fjerde kull",
+    shifterP: "Shifter, 11. november 2026",
   },
 } as const;
 
@@ -106,6 +118,10 @@ export const AtlasAccelerator: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => 
             {t.read} <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </p>
+        <figure className="m-0 mt-12">
+          <img src={`${F}/kickoff-bergen.webp`} alt={t.kickoffAlt} width={2000} height={1333} className="w-full h-auto rounded-2xl" />
+          <figcaption className="text-xs text-muted-foreground mt-3">{t.kickoff}</figcaption>
+        </figure>
       </section>
 
       <section className="border-t border-border py-16 md:py-24">
@@ -114,12 +130,7 @@ export const AtlasAccelerator: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => 
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground mb-6">{t.whyH}</h2>
             {t.whyP.map((p) => <p key={p} className="text-[17px] leading-relaxed text-muted-foreground mb-5 max-w-[38rem]">{p}</p>)}
           </div>
-          <figure className="m-0">
-            <div className="grid grid-cols-3 gap-2">
-              {FRAMES.map((f) => <img key={f} src={`${F}/${f}.jpg`} alt="" width={640} height={360} loading="lazy" className="w-full h-auto rounded-lg" />)}
-            </div>
-            <figcaption className="text-xs text-muted-foreground mt-3">{t.caption}</figcaption>
-          </figure>
+          <img src={`${F}/atlas-logo-screen.webp`} alt={t.logoAlt} width={2000} height={1333} loading="lazy" className="w-full h-auto rounded-2xl" />
         </div>
       </section>
 
@@ -134,6 +145,27 @@ export const AtlasAccelerator: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => 
               </div>
             ))}
           </div>
+          <figure className="m-0 mt-14">
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
+              {FRAMES.map((f) => <img key={f} src={`${F}/${f}.jpg`} alt="" width={640} height={360} loading="lazy" className="w-full h-auto rounded-lg" />)}
+            </div>
+            <figcaption className="text-xs text-muted-foreground mt-3">{t.caption}</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section className="border-t border-border py-16 md:py-24">
+        <div className="max-w-6xl mx-auto px-6 lg:px-12">
+          <a href={SHIFTER} target="_blank" rel="noopener noreferrer" className="group grid md:grid-cols-[1fr_auto] gap-6 items-center rounded-3xl bg-muted/60 hover:bg-muted p-8 md:p-12 transition-colors">
+            <div>
+              <div className="text-sm font-medium text-muted-foreground mb-3">{t.shifterK}</div>
+              <div className="text-2xl md:text-3xl font-bold tracking-tight text-foreground leading-tight">«{t.shifterH}»</div>
+              <div className="text-[15px] text-muted-foreground mt-3">{t.shifterP}</div>
+            </div>
+            <span className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-6 py-3 text-sm font-semibold">
+              {t.read} <ArrowUpRight className="w-4 h-4" />
+            </span>
+          </a>
         </div>
       </section>
 
@@ -153,7 +185,9 @@ export const AtlasAccelerator: React.FC<{ lang?: Lang }> = ({ lang = "en" }) => 
               </Button>
             </div>
           </div>
-          <p className="text-xs text-muted-foreground mt-10 max-w-2xl">{t.src}</p>
+          <p className="text-xs text-muted-foreground mt-10 max-w-2xl">
+            <a href={SHIFTER} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">{t.src}</a>
+          </p>
         </div>
       </section>
     </div>
