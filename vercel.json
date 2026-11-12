@@ -3,6 +3,51 @@
   "outputDirectory": "dist",
   "redirects": [
     {
+      "source": "/blog/glorious-o3-nordic-campaign",
+      "destination": "/case-study/glorious",
+      "permanent": true
+    },
+    {
+      "source": "/blog/gokstad-akademiet-gamer-recruitment",
+      "destination": "/case-study/gokstad",
+      "permanent": true
+    },
+    {
+      "source": "/blog/twitch-cpm-media-buying-guide-2026",
+      "destination": "/twitch-advertising-cost",
+      "permanent": true
+    },
+    {
+      "source": "/blog/twitch-advertising-benchmarks-2025",
+      "destination": "/twitch-advertising-cost",
+      "permanent": true
+    },
+    {
+      "source": "/blog/top-streaming-games-2025",
+      "destination": "/blog/most-watched-twitch-games-2025",
+      "permanent": true
+    },
+    {
+      "source": "/blog/medieplanlegging-twitch-nordisk-mediemiks",
+      "destination": "/blog/nordic-streaming-media-planning-calendar-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/affiliate-sponsored-brand-deal-twitch-content-differences-2026",
+      "destination": "/blog/twitch-sponsored-campaigns-open-to-affiliates-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/discord-communities-amplify-twitch-sponsorships-2026",
+      "destination": "/blog/twitch-community-events-brand-activation-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/twitch-game-lift-playable-demos-advertisers-2026",
+      "destination": "/twitch-advertising",
+      "permanent": true
+    },
+    {
       "source": "/streamere/klokkismann",
       "destination": "/blog/norske-twitch-streamere-2026",
       "permanent": true
