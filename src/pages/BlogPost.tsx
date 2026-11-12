@@ -20,11 +20,128 @@ import { SocialIcon } from "@/components/blog/SocialIcon";
 import { ReadingProgress } from "@/components/blog/ReadingProgress";
 import { TableOfContents, dashboardTocItems } from "@/components/blog/TableOfContents";
 import { StickyCTA, StreamerStickyCTA, InlineCTA, StreamerInlineCTA } from "@/components/blog/StickyCTA";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown, { type Components } from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 
 // Auto-generate TOC items from markdown content
+/** Markdown renderers for a post body, shared by the standard layout and the
+    clip-analytics page, which shows its article under the dashboard. */
+const markdownComponents: Components = {
+  h2: ({ children }) => {
+    const text = String(children).replace(/[*_`\[\]]/g, "").trim();
+    const id = text.toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").slice(0, 60);
+    return (
+      <h2 id={id} className="text-2xl md:text-3xl font-bold text-foreground mt-14 mb-5 pb-3 border-b border-border/50 scroll-mt-24">
+        {children}
+      </h2>
+    );
+  },
+  h3: ({ children }) => {
+    const text = String(children).replace(/[*_`\[\]]/g, "").trim();
+    const id = text.toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").slice(0, 60);
+    return (
+      <h3 id={id} className="text-xl md:text-2xl font-semibold text-foreground mt-10 mb-4 scroll-mt-24">
+        {children}
+      </h3>
+    );
+  },
+  p: ({ children, node }) => {
+    // A standalone markdown image parses to <p><img></p>, but the
+    // img renderer below emits a <figure> (block-level), which is
+    // invalid inside <p> and triggers a DOM-nesting/hydration error.
+    // Unwrap paragraphs whose only meaningful child is an image so
+    // the <figure> renders as a valid block-level sibling.
+    const kids = node?.children ?? [];
+    const meaningful = kids.filter(
+      (c) => c.type !== "text" || c.value.trim() !== ""
+    );
+    if (
+      meaningful.length === 1 &&
+      meaningful[0].type === "element" &&
+      meaningful[0].tagName === "img"
+    ) {
+      return <>{children}</>;
+    }
+    return (
+      <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-5">
+        {children}
+      </p>
+    );
+  },
+  ul: ({ children }) => (
+    <ul className="list-disc pl-6 space-y-2.5 text-foreground/80 mb-5 text-base md:text-lg">
+      {children}
+    </ul>
+  ),
+  ol: ({ children }) => (
+    <ol className="list-decimal pl-6 space-y-2.5 text-foreground/80 mb-5 text-base md:text-lg">
+      {children}
+    </ol>
+  ),
+  li: ({ children }) => (
+    <li className="text-foreground/80 leading-relaxed">{children}</li>
+  ),
+  strong: ({ children }) => (
+    <strong className="text-foreground font-semibold">{children}</strong>
+  ),
+  blockquote: ({ children }) => (
+    <blockquote className="my-6 px-5 py-4 bg-primary/10 border-l-4 border-primary rounded-r-xl text-foreground/90 italic text-lg">
+      {children}
+    </blockquote>
+  ),
+  a: ({ href, children }) => {
+    // File downloads (PDF etc.) must be plain anchors - React
+    // Router would intercept the path and 404 on a client route.
+    const isFile = /\.(pdf|zip|pptx?|docx?|xlsx?)$/i.test(href ?? "");
+    if (href?.startsWith("/") && !isFile) {
+      return <Link to={href} className="text-primary font-medium underline underline-offset-2 hover:text-primary/80 transition-colors">{children}</Link>;
+    }
+    return <a href={href} target="_blank" rel="noopener noreferrer" className="text-primary font-medium underline underline-offset-2 hover:text-primary/80 transition-colors">{children}</a>;
+  },
+  img: ({ src, alt }) => {
+    return (
+      <figure className="my-8 -mx-4 sm:mx-0">
+        <img
+          src={src}
+          alt={alt || ""}
+          className="w-full rounded-xl object-cover shadow-md"
+          style={{ maxHeight: "480px" }}
+        />
+        {alt && (
+          <figcaption className="mt-2 text-center text-sm text-muted-foreground italic px-4">
+            {alt}
+          </figcaption>
+        )}
+      </figure>
+    );
+  },
+  table: ({ children }) => (
+    <div className="overflow-x-auto my-8 rounded-xl border border-border shadow-sm">
+      <table className="w-full border-collapse">{children}</table>
+    </div>
+  ),
+  thead: ({ children }) => (
+    <thead className="bg-muted/60">{children}</thead>
+  ),
+  tbody: ({ children }) => <tbody>{children}</tbody>,
+  tr: ({ children }) => (
+    <tr className="border-b border-border/50 even:bg-muted/20 hover:bg-muted/40 transition-colors">
+      {children}
+    </tr>
+  ),
+  th: ({ children }) => (
+    <th className="text-left py-3.5 px-5 text-foreground font-semibold text-sm uppercase tracking-wide">
+      {children}
+    </th>
+  ),
+  td: ({ children }) => (
+    <td className="py-3.5 px-5 text-foreground/80 text-sm md:text-base">
+      {children}
+    </td>
+  ),
+};
+
 function extractTocFromMarkdown(content: string) {
   const headingRegex = /^(#{2,3})\s+(.+)$/gm;
   const items: { id: string; title: string; level: number }[] = [];
@@ -321,6 +438,16 @@ const BlogPostView: React.FC<{ post: BlogPost; slug: string }> = ({ post, slug }
                   {post.hasDashboard === "vpp-launch" && <VppLaunch lang={post.locale === "no" ? "no" : "en"} />}
                   {post.hasDashboard === "atlas-accelerator" && <AtlasAccelerator lang={post.locale === "no" ? "no" : "en"} />}
                 </Suspense>
+                {/* The dashboard is an iframe, so its text belongs to /clip-analytics-preview.
+                    Without this the article (EN, NO, SV, DA, FI) was never rendered and
+                    the prerendered page held only its header, ~200 words. */}
+                {post.hasDashboard === "clip-analytics" && (
+                  <div className="max-w-2xl mt-12">
+                    <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                      {post.content}
+                    </ReactMarkdown>
+                  </div>
+                )}
               </div>
             ) : (
             /* Content + Sidebar */
@@ -344,120 +471,7 @@ const BlogPostView: React.FC<{ post: BlogPost; slug: string }> = ({ post, slug }
                   <div className="max-w-none">
                     <ReactMarkdown
                       remarkPlugins={[remarkGfm]}
-                      components={{
-                        h2: ({ children }) => {
-                          const text = String(children).replace(/[*_`\[\]]/g, "").trim();
-                          const id = text.toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").slice(0, 60);
-                          return (
-                            <h2 id={id} className="text-2xl md:text-3xl font-bold text-foreground mt-14 mb-5 pb-3 border-b border-border/50 scroll-mt-24">
-                              {children}
-                            </h2>
-                          );
-                        },
-                        h3: ({ children }) => {
-                          const text = String(children).replace(/[*_`\[\]]/g, "").trim();
-                          const id = text.toLowerCase().replace(/[^a-z0-9\s-]/g, "").replace(/\s+/g, "-").slice(0, 60);
-                          return (
-                            <h3 id={id} className="text-xl md:text-2xl font-semibold text-foreground mt-10 mb-4 scroll-mt-24">
-                              {children}
-                            </h3>
-                          );
-                        },
-                        p: ({ children, node }) => {
-                          // A standalone markdown image parses to <p><img></p>, but the
-                          // img renderer below emits a <figure> (block-level), which is
-                          // invalid inside <p> and triggers a DOM-nesting/hydration error.
-                          // Unwrap paragraphs whose only meaningful child is an image so
-                          // the <figure> renders as a valid block-level sibling.
-                          const kids = node?.children ?? [];
-                          const meaningful = kids.filter(
-                            (c) => c.type !== "text" || c.value.trim() !== ""
-                          );
-                          if (
-                            meaningful.length === 1 &&
-                            meaningful[0].type === "element" &&
-                            meaningful[0].tagName === "img"
-                          ) {
-                            return <>{children}</>;
-                          }
-                          return (
-                            <p className="text-base md:text-lg text-foreground/80 leading-relaxed mb-5">
-                              {children}
-                            </p>
-                          );
-                        },
-                        ul: ({ children }) => (
-                          <ul className="list-disc pl-6 space-y-2.5 text-foreground/80 mb-5 text-base md:text-lg">
-                            {children}
-                          </ul>
-                        ),
-                        ol: ({ children }) => (
-                          <ol className="list-decimal pl-6 space-y-2.5 text-foreground/80 mb-5 text-base md:text-lg">
-                            {children}
-                          </ol>
-                        ),
-                        li: ({ children }) => (
-                          <li className="text-foreground/80 leading-relaxed">{children}</li>
-                        ),
-                        strong: ({ children }) => (
-                          <strong className="text-foreground font-semibold">{children}</strong>
-                        ),
-                        blockquote: ({ children }) => (
-                          <blockquote className="my-6 px-5 py-4 bg-primary/10 border-l-4 border-primary rounded-r-xl text-foreground/90 italic text-lg">
-                            {children}
-                          </blockquote>
-                        ),
-                        a: ({ href, children }) => {
-                          // File downloads (PDF etc.) must be plain anchors - React
-                          // Router would intercept the path and 404 on a client route.
-                          const isFile = /\.(pdf|zip|pptx?|docx?|xlsx?)$/i.test(href ?? "");
-                          if (href?.startsWith("/") && !isFile) {
-                            return <Link to={href} className="text-primary font-medium underline underline-offset-2 hover:text-primary/80 transition-colors">{children}</Link>;
-                          }
-                          return <a href={href} target="_blank" rel="noopener noreferrer" className="text-primary font-medium underline underline-offset-2 hover:text-primary/80 transition-colors">{children}</a>;
-                        },
-                        img: ({ src, alt }) => {
-                          return (
-                            <figure className="my-8 -mx-4 sm:mx-0">
-                              <img
-                                src={src}
-                                alt={alt || ""}
-                                className="w-full rounded-xl object-cover shadow-md"
-                                style={{ maxHeight: "480px" }}
-                              />
-                              {alt && (
-                                <figcaption className="mt-2 text-center text-sm text-muted-foreground italic px-4">
-                                  {alt}
-                                </figcaption>
-                              )}
-                            </figure>
-                          );
-                        },
-                        table: ({ children }) => (
-                          <div className="overflow-x-auto my-8 rounded-xl border border-border shadow-sm">
-                            <table className="w-full border-collapse">{children}</table>
-                          </div>
-                        ),
-                        thead: ({ children }) => (
-                          <thead className="bg-muted/60">{children}</thead>
-                        ),
-                        tbody: ({ children }) => <tbody>{children}</tbody>,
-                        tr: ({ children }) => (
-                          <tr className="border-b border-border/50 even:bg-muted/20 hover:bg-muted/40 transition-colors">
-                            {children}
-                          </tr>
-                        ),
-                        th: ({ children }) => (
-                          <th className="text-left py-3.5 px-5 text-foreground font-semibold text-sm uppercase tracking-wide">
-                            {children}
-                          </th>
-                        ),
-                        td: ({ children }) => (
-                          <td className="py-3.5 px-5 text-foreground/80 text-sm md:text-base">
-                            {children}
-                          </td>
-                        ),
-                      }}
+                      components={markdownComponents}
                     >
                       {post.content}
                     </ReactMarkdown>
