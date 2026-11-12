@@ -113,7 +113,7 @@ export async function aboutPanels(login: string): Promise<(Panel & { line: strin
 const panelText = (p: Panel) => [p.title, p.description, p.link].filter(Boolean);
 
 /* Links to the creator's own socials, tips and Twitch pages say nothing about sponsors. */
-const SOCIAL = /(^|\.)(twitch\.tv|tiktok\.com|twitter\.com|x\.com|youtube\.com|youtu\.be|instagram\.com|discord\.(gg|com)|snapchat\.com|facebook\.com|kick\.com|threads\.net|reddit\.com|linktr\.ee|beacons\.ai|streamelements\.com|streamlabs\.com|paypal\.(me|com)|ko-fi\.com|patreon\.com|throne\.com|spotify\.com)$/;
+const SOCIAL = /(^|\.)(twitch\.tv|tiktok\.com|twitter\.com|x\.com|youtube\.com|youtu\.be|instagram\.com|discord\.(gg|com)|snapchat\.com|facebook\.com|kick\.com|threads\.net|reddit\.com|linktr\.ee|beacons\.ai|streamelements\.com|streamlabs\.com|paypal\.(me|com)|ko-fi\.com|patreon\.com|throne\.com|spotify\.com|pally\.gg)$/;
 const hostOf = (url: string) => { try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return ""; } };
 
 /* Panel banners often link through a short link (bit.ly/lacypackdraw) and carry the code only in
@@ -197,7 +197,7 @@ const SYSTEM = `You read Twitch stream titles, a channel bio, the channel's Abou
 
 Lines with source "command" are "!name: bot reply", dated by when the command was last edited. They are the best evidence: creators put "!reklame" or "!ad" in the title and the bot reply names the brands. A reply that discloses advertising in any language (Reklame, reklame for, annonse, annonce, #ad, #reklame, sponsored, "in partnership with", a discount code or tracking link for a company) is a deal. A disclosure list such as "this stream contains ads for A, B and C" counts for each brand it names; use that line as evidence for each. A command edited long ago is an older deal, keep it but say so in note.
 
-Lines with source "panel" are the channel's About panels: "About panel | title | text | link -> where the link really goes". They have no date. A panel that links to a company's site with a referral or creator code (?ref=, ?code=, /r/, a short link that resolves to a brand) or that says "use code", "sponsored by" or "partner" is a deal. Many sponsor panels are only an image with the code written in the image, so the line says "(image banner, no text)": then the link is the only evidence, so set confidence to "medium" at most. Links to the creator's own merch, socials, sub pages, leaderboards and chat rules are not deals.
+Lines with source "panel" are the channel's About panels: "About panel | title | text | link -> where the link really goes". They have no date. A panel that links to a company's site with a referral or creator code (?ref=, ?code=, /r/, a short link that resolves to a brand) or that says "use code", "sponsored by" or "partner" is a deal. Many sponsor panels are only an image with the code written in the image, so the line says "(image banner, no text)": then the link is the only evidence, so set confidence to "medium" at most. Links to the creator's own merch, socials, sub pages, leaderboards and chat rules are not deals. A shop for the creator's own team or org (their esports team's poster or merch page, a membership) is own_brand, not a sponsor.
 
 Gambling, betting, casino and case-opening sites (skin or loot box sites such as PackDraw, Hellcase, CSGOEmpire, Stake, Roobet) are real deals: list them like any other sponsor and set category to "Gambling" so a marketer sees it; say in note if it is a case-opening or skin site.
 
