@@ -435,4 +435,208 @@ export const CREATORS: CreatorProfile[] = [
       { slug: "OriginalKindCrowLitty", title: "Aleksib inhuman juan deag flick", viewCount: 26923, duration: 18, createdAt: "2019-04-10T12:19:58Z", game: "Counter-Strike", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/3ed1e981-492a-4eda-affc-6eb9d494cde6/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/aleeksi/clip/OriginalKindCrowLitty" },
     ],
   },
+  {
+    handle: "turunpug",
+    seoDescription: "TurunPug: Juuso Jokinen on turkulainen Twitch-partneri, jonka striimeissä yhdistyvät pelit, juttelu ja IRL-seikkailut. ENCE Creators -jäsen.",
+    name: "TurunPug",
+    realName: "Juuso Jokinen",
+    meta: "Twitch · ENCE Creators · IRL ja juttelu",
+    blurb: "Juuso \"TurunPug\" Jokinen on turkulainen striimaaja, jonka kanavalla yhdistyvät pelit, juttelu ja kesän IRL-seikkailut.",
+    bio: "Juuso Jokinen tunnetaan Twitchissä nimellä TurunPug. Hän on Turusta, ja ENCE kuvaa häntä yhdeksi Suomen tunnetuimmista striimaajista. Striimaus alkoi vuonna 2020 koronapandemian aikana, ja siitä tuli nopeasti täysipäiväinen työ. Talvella hän pelaa ja juttelee toimistolta käsin. Kesällä hän lähtee liikkeelle striimausreppunsa kanssa ja vie yhteisönsä mukaan seikkailuihin. Vuonna 2023 kanavasta tuli ENCEn mukaan ensimmäinen suomenkielinen Twitch-kanava, joka ylsi 10 000 tilaajaan. Tammikuussa 2025 hän liittyi ENCE Creators -ohjelmaan. Kanavalla on lähes 50 000 seuraajaa, ja se on TwitchTrackerin mukaan Suomen kolmanneksi katsotuin kanava viimeisen 30 päivän ajalta.",
+    highlights: [
+      "Lähes 50 000 seuraajaa Twitchissä, Twitch-partneri",
+      "TwitchTrackerin mukaan Suomen 3. katsotuin Twitch-kanava (30 päivää, marraskuu 2026)",
+      "Ensimmäinen suomenkielinen Twitch-kanava, joka ylsi 10 000 tilaajaan (2023, ENCE)",
+      "Liittyi ENCE Creators -ohjelmaan tammikuussa 2025",
+      "Mukana Red Bullin \"Can You Make It?\" -haasteessa: 3 500 km Euroopan halki ilman rahaa",
+      "Räjäytti vanhan auton dynamiitilla subathonin päätteeksi maaliskuussa 2022"
+    ],
+    image: "/lovable-uploads/creators/turunpug.png",
+    attribution: "Twitch / @turunpug",
+    attributionUrl: "https://www.twitch.tv/turunpug",
+    language: "fi",
+    socials: [
+      { label: "Twitch", url: "https://www.twitch.tv/turunpug" },
+      { label: "Instagram", url: "https://www.instagram.com/turunpug/" },
+      { label: "YouTube", url: "https://www.youtube.com/channel/UCPUlZSw-WN---Chf3vp6R1g" }
+    ],
+    references: [
+      { label: "TurunPug · TwitchTracker", url: "https://twitchtracker.com/turunpug", type: "tracker" },
+      { label: "TurunPug · StreamsCharts", url: "https://streamscharts.com/channels/turunpug", type: "tracker" },
+      { label: "TurunPug joins ENCE Creators · ENCE", url: "https://ence.gg/article/turunpug-joins-ence-creators", type: "official-site" }
+    ],
+    news: [
+      {
+        title: "TurunPug joins ENCE Creators",
+        url: "https://ence.gg/article/turunpug-joins-ence-creators",
+        source: "ENCE",
+        date: "2025-01-31",
+        summary: "ENCE toivottaa Juuso \"TurunPug\" Jokisen tervetulleeksi ENCE Creators -ohjelmaan. Artikkeli kertoo hänen urastaan vuodesta 2020, 10 000 tilaajan ennätyksestä ja Red Bullin \"Can You Make It?\" -haasteesta.",
+        ogImage: "/lovable-uploads/news/turunpug-0.jpg",
+        tone: "positive",
+      },
+      {
+        title: "Kleiner Twitch-Streamer erreicht wichtigen Meilenstein, sprengt danach live sein Auto",
+        url: "https://mein-mmo.de/en/little-twitch-streamer-reaches-important-milestone-then-blows-up-his-car-live,801773",
+        source: "Mein-MMO",
+        date: "2022-03-20",
+        summary: "Saksalainen pelimedia kertoo, miten TurunPug päätti subathoninsa räjäyttämällä vanhan Ford Fiestan dynamiitilla suorassa lähetyksessä.",
+        ogImage: "/lovable-uploads/news/turunpug-1.jpg",
+        tone: "neutral",
+      }
+    ],
+    twitchStats: { followers: 49631, partner: true, createdAt: "2016-01-24T17:10:04.131938Z", lastGame: "Just Chatting" },
+    trackerStats: { avgViewers: 611, peakViewers: 1095, hoursStreamed: 89 },
+    youtubeChannelHandle: "UCPUlZSw-WN---Chf3vp6R1g",
+    youtubeVideos: [
+      { id: "XVxdPh8bax0", title: "Miks te teette näin mulle? | #turunpug: #Twitch", published: "2024-10-10T14:31:47+00:00" },
+      { id: "iLmMBYCazrE", title: "CAPTAIN JJ JA EUROPEAN SKIES! | VATSIM", published: "2024-09-25T20:52:03+00:00" },
+      { id: "l9or0Wl5FLc", title: "MONDAY FLIGHTS WITH PUGAIR | Boeing 777 | VATSIM", published: "2024-09-23T22:59:42+00:00" },
+      { id: "6f89cnGmPUs", title: "Kohti keilailun sm-kisoja!", published: "2024-03-27T12:49:54+00:00" },
+      { id: "xTXKDYXvS_g", title: "MESTARI NÄYTTÄÄ!", published: "2023-06-20T09:00:42+00:00" },
+      { id: "reE66DP1wRc", title: "TULI MIEHEKÄS OLO!", published: "2023-06-19T09:00:37+00:00" },
+    ],
+    twitchClips: [
+      { slug: "VivaciousEnticingSandpiperAllenHuhu-glFSFrfy9wCAiKBp", title: "PAM", viewCount: 147243, duration: 11, createdAt: "2022-06-22T17:31:29Z", game: "Sports", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/f7bb9392-ce9e-4f7d-9671-4e2d1e699683/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/turunpug/clip/VivaciousEnticingSandpiperAllenHuhu-glFSFrfy9wCAiKBp" },
+      { slug: "CrispyObedientAmazonSeemsGood-YfMr7IiCep4wERLD", title: "auto pamahti :D", viewCount: 74566, duration: 25, createdAt: "2022-03-19T11:45:48Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/76302c8f-f1c7-463a-b9a5-913a114c60f9/landscape/thumb/thumb-0000000000-1280x720.jpg", url: "https://www.twitch.tv/turunpug/clip/CrispyObedientAmazonSeemsGood-YfMr7IiCep4wERLD" },
+      { slug: "FrigidHyperNoodleSuperVinlin-EQi1H-kRRlbS5gwc", title: "Sieltä se tuli!!!", viewCount: 23013, duration: 23, createdAt: "2023-08-24T12:24:22Z", game: "Just Chatting", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/ccf1ce89-cf79-4cc7-82d9-b61aa03c2479/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/turunpug/clip/FrigidHyperNoodleSuperVinlin-EQi1H-kRRlbS5gwc" },
+    ],
+  },
+  {
+    handle: "samppacs2",
+    seoDescription: "SamppaCS2: Samu Kylmälä on suomalainen Counter-Strike 2 -pelaaja ja Twitch-partneri, joka striimaa CS2:ta suomeksi. Lue lisää kanavasta.",
+    name: "SamppaCS2",
+    realName: "Samu Kylmälä",
+    meta: "Twitch · Counter-Strike 2 -pelaaja · FPS",
+    blurb: "Samu \"Samppa\" Kylmälä on suomalainen Counter-Strike-pelaaja, joka striimaa CS2:ta suomeksi Twitchissä.",
+    bio: "Samu Kylmälä tunnetaan nimellä Samppa, ja Twitchissä hänen kanavansa on SamppaCS2. Liquipedian mukaan hän on suomalainen Counter-Strike 2 -pelaaja ja entinen valmentaja. Kilpaura alkoi CS:GO:ssa vuonna 2017. Vuosien varrella hän on pelannut muun muassa Conquer Gamingissa, hREDSissä ja Exen Esportsissa. Vuosina 2024 ja 2025 hän valmensi ENCE Prospects -joukkuetta. Striimeissä keskiössä on kilpailullinen CS2 suomeksi. Kanava on TwitchTrackerin mukaan Suomen neljänneksi katsotuin viimeisen 30 päivän ajalta.",
+    highlights: [
+      "TwitchTrackerin mukaan Suomen 4. katsotuin Twitch-kanava (30 päivää, marraskuu 2026)",
+      "Keskimäärin yli 600 samanaikaista katsojaa viimeisen 30 päivän aikana",
+      "Kilpaillut Counter-Strikessa vuodesta 2017, muun muassa hREDSissä ja Exen Esportsissa",
+      "Valmensi ENCE Prospects -joukkuetta 2024-2025",
+      "Twitch-partneri, striimaa suomeksi"
+    ],
+    image: "/lovable-uploads/creators/samppacs2.png",
+    attribution: "Twitch / @samppacs2",
+    attributionUrl: "https://www.twitch.tv/samppacs2",
+    language: "fi",
+    socials: [
+      { label: "Twitch", url: "https://www.twitch.tv/samppacs2" },
+      { label: "YouTube", url: "https://www.youtube.com/@samppacs2" },
+      { label: "TikTok", url: "https://www.tiktok.com/@samppacs2" },
+      { label: "Instagram", url: "https://www.instagram.com/samppacs2" },
+      { label: "X (Twitter)", url: "https://twitter.com/SamppaCS2" }
+    ],
+    references: [
+      { label: "Samppa · Liquipedia", url: "https://liquipedia.net/counterstrike/Samppa", type: "wikipedia" },
+      { label: "SamppaCS2 · TwitchTracker", url: "https://twitchtracker.com/samppacs2", type: "tracker" },
+      { label: "SamppaCS2 · StreamsCharts", url: "https://streamscharts.com/channels/samppacs2", type: "tracker" }
+    ],
+    news: [
+      {
+        title: "Samppa - Liquipedia Counter-Strike Wiki",
+        url: "https://liquipedia.net/counterstrike/Samppa",
+        source: "Liquipedia",
+        date: "2026",
+        summary: "Esports-tietokanta Liquipedian pelaajasivu, jossa on Samppan joukkuehistoria vuodesta 2017, valmennusura ENCE Prospectsissa ja turnaustulokset.",
+        ogImage: null,
+        tone: "neutral",
+      }
+    ],
+    twitchStats: { followers: 6629, partner: true, createdAt: "2014-08-24T16:25:38.990177Z", lastGame: "Counter-Strike" },
+    trackerStats: { avgViewers: 608, peakViewers: 2809, hoursStreamed: 77 },
+    youtubeChannelHandle: "UC03zfu6RVIuRYyHSZ72BGIQ",
+    youtubeVideos: [
+      { id: "8ScFkdFNmbg", title: "Askelta edellä", published: "2026-03-10T14:35:09+00:00" },
+      { id: "d1ba0dNZFYk", title: "LOHILIVE PARHAAT PALAT!", published: "2026-03-09T16:52:11+00:00" },
+      { id: "BT05RG6h6UQ", title: "Ovp herkkua", published: "2026-03-07T19:13:14+00:00" },
+      { id: "AAXvwUpezFc", title: "100% Dust taku", published: "2026-03-06T11:35:04+00:00" },
+      { id: "H2AmD9RZSFE", title: "Dese naukut", published: "2026-03-05T10:56:46+00:00" },
+      { id: "wadCxc6cnDE", title: "Ancient hölkkäys", published: "2026-02-26T08:37:17+00:00" },
+    ],
+    twitchClips: [
+      { slug: "FitAnimatedGullPraiseIt-6RhUP1wCXS_vnjLW", title: "Learning cox", viewCount: 644, duration: 38, createdAt: "2026-08-24T14:59:08Z", game: "Old School RuneScape", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/83db505f-4d40-4db1-bc60-5b7b55d344bb/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/samppacs2/clip/FitAnimatedGullPraiseIt-6RhUP1wCXS_vnjLW" },
+      { slug: "MiniatureThoughtfulTruffleYee-_DP94YKi8QMSVKwM", title: "Terveiset Pelaajatcomille", viewCount: 619, duration: 11, createdAt: "2025-10-16T15:31:16Z", game: "Counter-Strike", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/80113a22-30e1-48e9-895b-055a9cb65441/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/samppacs2/clip/MiniatureThoughtfulTruffleYee-_DP94YKi8QMSVKwM" },
+      { slug: "GiftedSecretivePuffinCoolStoryBob-On14AJ_yOlpL-qXI", title: "!raimon4k", viewCount: 580, duration: 19, createdAt: "2026-03-06T10:46:40Z", game: "Counter-Strike", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/72aa2b54-4af9-4a36-a3fe-b1a46b8a2f7b/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/samppacs2/clip/GiftedSecretivePuffinCoolStoryBob-On14AJ_yOlpL-qXI" },
+      { slug: "TangentialHappyPeachPlanking-ajirYqfkG4Io3QXB", title: "ancient 1v4", viewCount: 533, duration: 39, createdAt: "2026-05-04T15:08:56Z", game: "Counter-Strike", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/4caaf361-16f7-4450-9a2f-158b57ad8eaf/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/samppacs2/clip/TangentialHappyPeachPlanking-ajirYqfkG4Io3QXB" },
+      { slug: "PowerfulResourcefulSnoodJebaited-QW5bBonBMINPBHqf", title: "RAIMO MEGA BEAST", viewCount: 488, duration: 31, createdAt: "2026-09-08T17:34:26Z", game: "Counter-Strike", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/f63349eb-9620-42ab-a318-973bc1daf715/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/samppacs2/clip/PowerfulResourcefulSnoodJebaited-QW5bBonBMINPBHqf" },
+    ],
+  },
+  {
+    handle: "paulinpelivideot",
+    seoDescription: "PaulinPelivideot: Pauli Matalamäki on turkulainen tubettaja, striimaaja ja DJ, joka tunnetaan huijareiden huijausvideoista ja autopeleistä.",
+    name: "PaulinPelivideot",
+    realName: "Pauli Matalamäki",
+    meta: "Twitch · YouTube · tubettaja, striimaaja ja DJ",
+    blurb: "Pauli Matalamäki eli PaulinPelivideot on turkulainen tubettaja, striimaaja ja DJ, joka tunnetaan huijareiden huijausvideoistaan.",
+    bio: "Pauli Matalamäki tunnetaan nimellä Paulin Pelivideot. Hän on turkulainen tubettaja, striimaaja ja DJ. Kanavan nimestä huolimatta hänen YouTube-videonsa ovat käsitelleet paljon teknologiaa, ja suosituin sarja on ollut \"Huijataan huijareita\", jossa hän kääntää nettihuijarien juonet heitä itseään vastaan. Twitchissä hän striimaa suomeksi, ja mielipelejä ovat olleet erityisesti autopelit kuten My Summer Car ja Wreckfest. MTV Uutisten mukaan hän siirsi striimauksensa YouTubesta Twitchiin. Twitch-kanavalla on yli 56 000 seuraajaa, ja se on TwitchTrackerin mukaan Suomen kahdeksanneksi katsotuin viimeisen 30 päivän ajalta.",
+    highlights: [
+      "Yli 56 000 seuraajaa Twitchissä, Twitch-partneri",
+      "TwitchTrackerin mukaan Suomen 8. katsotuin Twitch-kanava (30 päivää, marraskuu 2026)",
+      "Tunnettu \"Huijataan huijareita\" -videosarjasta",
+      "Omien sivujensa mukaan noin 160 000 tilaajaa YouTubessa",
+      "Striimaa paljon autopelejä, kuten My Summer Car ja Wreckfest"
+    ],
+    image: "/lovable-uploads/creators/paulinpelivideot.png",
+    attribution: "Twitch / @paulinpelivideot",
+    attributionUrl: "https://www.twitch.tv/paulinpelivideot",
+    language: "fi",
+    socials: [
+      { label: "Twitch", url: "https://www.twitch.tv/paulinpelivideot" },
+      { label: "YouTube", url: "https://www.youtube.com/@PaulinPelivideot" },
+      { label: "Kotisivu", url: "https://paulimatalamaki.fi" }
+    ],
+    references: [
+      { label: "Pauli Matalamäki · virallinen sivu", url: "https://paulimatalamaki.fi", type: "official-site" },
+      { label: "PaulinPelivideot · TwitchTracker", url: "https://twitchtracker.com/paulinpelivideot", type: "tracker" },
+      { label: "PaulinPelivideot · StreamsCharts", url: "https://streamscharts.com/channels/paulinpelivideot", type: "tracker" }
+    ],
+    news: [
+      {
+        title: "Yhä useampi suomalainen tienaa kuvaamalla suorana pelaamistaan tai arkeaan",
+        url: "https://www.mtvuutiset.fi/artikkeli/yha-useampi-suomalainen-tienaa-kuvaamalla-suorana-pelaamistaan-tai-arkeaan-suoratoistopalvelu-twitchin-sisaltoja-seuraavat-miljoonat-ihmiset/8148664",
+        source: "MTV Uutiset (STT)",
+        date: "2021-05-22",
+        summary: "STT:n juttu suomalaisista Twitch-striimaajista. Pauli Matalamäki kertoo, miksi hän siirsi striimauksensa YouTubesta Twitchiin ja miten tulot syntyvät tilauksista ja lahjoituksista.",
+        ogImage: null,
+        tone: "positive",
+      },
+      {
+        title: "Turkulainen Pauli, 26, höynäytti nigerialaista nettikauppahuijaria pahemman kerran",
+        url: "https://www.mtvuutiset.fi/artikkeli/turkulainen-pauli-26-hoynaytti-nigerialaista-nettikauppahuijaria-pahemman-kerran-sai-uhkausviestin-suivaantuneelta-huijarilta-han-halusi-sytyttaa-saabini-tuleen/7413234",
+        source: "MTV Uutiset",
+        date: "2019-05-21",
+        summary: "MTV Uutiset kertoo, miten Pauli Matalamäki paljasti nettikauppahuijarin väärennetyn maksukuitin ja teki tapauksesta videon huijausvideosarjaansa.",
+        ogImage: null,
+        tone: "positive",
+      },
+      {
+        title: "Paulin Pelivideot testaa 5G-liittymää",
+        url: "https://elisa.fi/ideat/paulin-pelivideot-testasi-5g-liittymaa/",
+        source: "Elisa Ideat",
+        date: "2019-12-30",
+        summary: "Elisan artikkeli, jossa Paulin Pelivideot testaa 5G-liittymää pelaamiseen ja kertoo suosikkipeleistään Wreckfestistä ja My Summer Carista.",
+        ogImage: null,
+        tone: "positive",
+      }
+    ],
+    twitchStats: { followers: 56264, partner: true, createdAt: "2012-08-11T00:35:49.410937Z", lastGame: "Fighters on Stream" },
+    trackerStats: { avgViewers: 353, peakViewers: 561, hoursStreamed: 143 },
+    youtubeChannelHandle: "UC4z_GyXiY50GwZbGY27QRSg",
+    youtubeVideos: [
+      { id: "XUG5ROgfsSU", title: "Ostin 869 € varaston ARVOALUEELTA mutta voiko nämä olla aitoja?!", published: "2026-11-06T11:30:17+00:00" },
+      { id: "mNIRuIhUwpM", title: "Oliko tämä kyläläisten pahin virhe? (IRL Dawnwalker) #dawnwalker #irl #socialgame", published: "2026-08-30T17:52:20+00:00" },
+      { id: "DZ3QKkAKWlU", title: "Kuka VALEHTELEE?! Joku meistä on petturi! (IRL Dawnwalker)", published: "2026-08-30T09:59:50+00:00" },
+      { id: "_Vd_xIHfbvY", title: "Etsin maailman parhaan KEBABIN!?! (ja huonoimman)", published: "2026-08-08T09:07:53+00:00" },
+      { id: "4Ky0VPtpyPE", title: "Testasin HIENOIMMAN junan?! Ja näin Mika Häkkisen?!?", published: "2026-07-18T09:57:10+00:00" },
+      { id: "9aHKr9GCOf0", title: "Upea löytö ROSKIKSESTA?! Testissä Pariisin kirpparit!", published: "2026-07-11T10:59:08+00:00" },
+    ],
+    twitchClips: [
+      { slug: "MuddyWittyBeanBrokeBack-VI16UrObxqzF9P1w", title: "POV: Paulin hytissä faniristeilyllä", viewCount: 12465, duration: 17, createdAt: "2022-05-02T18:13:21Z", game: "My Summer Car", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/758ca6a2-bc55-4ede-b1e7-4584e590d8c8/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/paulinpelivideot/clip/MuddyWittyBeanBrokeBack-VI16UrObxqzF9P1w" },
+      { slug: "HelplessMoralFennelOpieOP-vd8EebR7p9dPCnB0", title: "When Streamer tries to explain \"Taikavarpu\" :)", viewCount: 10858, duration: 59, createdAt: "2022-09-22T18:26:22Z", game: "Crash Bandicoot", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/f48928e2-bc9e-40b8-96f9-50f1a5036574/landscape/thumb/thumb-0000000000-1664x936.jpg", url: "https://www.twitch.tv/paulinpelivideot/clip/HelplessMoralFennelOpieOP-vd8EebR7p9dPCnB0" },
+      { slug: "EagerApatheticMangetoutDuDudu-yNGqVpQPc6jBPJ1l", title: "Tilli kurkistelee", viewCount: 8902, duration: 28, createdAt: "2022-10-13T09:35:05Z", game: "Food & Drink", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/43df8519-a055-4c2d-887c-626abb46f0e4/landscape/thumb/thumb-0000000000-1664x936.jpg", url: "https://www.twitch.tv/paulinpelivideot/clip/EagerApatheticMangetoutDuDudu-yNGqVpQPc6jBPJ1l" },
+      { slug: "CalmDelightfulSwordAMPEnergyCherry", title: "Teimon viimeiset morot!", viewCount: 8652, duration: 20, createdAt: "2021-02-07T13:30:28Z", game: "My Summer Car", thumbnailURL: "https://static-cdn.jtvnw.net/twitch-video-assets/twitch-vap-video-assets-prod-us-west-2/89b34554-8396-4f28-a5d2-c2cf9a507c21/landscape/thumb/thumb-0000000000-1920x1080.jpg", url: "https://www.twitch.tv/paulinpelivideot/clip/CalmDelightfulSwordAMPEnergyCherry" },
+    ],
+  },
 ];
