@@ -369,6 +369,15 @@ async function main() {
   }, creativesBody);
   await serveCreatives(page);
 
+  // Lets page code tell the capture apart from a visit. The homepage holds
+  // below-the-fold media back until it nears the viewport
+  // (src/components/home-final/lazyMedia.tsx); it must not switch any on here,
+  // or the URLs land in the static HTML and are fetched eagerly again.
+  // navigator.webdriver is no use for this: Lighthouse and PageSpeed run
+  // headless Chrome too, where it is also true.
+  const markCapture = (p) => p.evaluateOnNewDocument(() => { window.__BA_PRERENDER__ = true; });
+  await markCapture(page);
+
   // Intercept canvas.getContext so Three.js sees no WebGL in headless mode,
   // and returns null (graceful) instead of throwing an uncaught error.
   await page.evaluateOnNewDocument(() => {
@@ -413,6 +422,7 @@ async function main() {
       page = await browser.newPage();
       await page.setViewport({ width: 1440, height: 900 });
       await serveCreatives(page);
+      await markCapture(page);
       // The replacement page needs the same error surfacing as the original,
       // otherwise a retry that fails again does so silently.
       page.on("console", (msg) => {

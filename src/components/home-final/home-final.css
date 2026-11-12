@@ -223,6 +223,7 @@ html.theming .bf,html.theming .bf *,html.theming .bf *:before,html.theming .bf *
 .bf .r-btn{font-size:13.5px;font-weight:500;color:var(--ink);height:34px;display:inline-flex;align-items:center;padding:0 14px;border-radius:8px;border:1px solid var(--line);background:rgba(255,255,255,.03);white-space:nowrap}
 .bf .preview{position:relative;margin-top:22px;aspect-ratio:16/9;border-radius:9px;overflow:hidden;border:1px solid var(--line-2);background:#060607}
 .bf .pv-bg{position:absolute;inset:-12px;background:url(/home/build-stream-bg.webp) center/cover;filter:blur(2.5px) saturate(.5) brightness(.45)}
+.bf .pv-bg[data-defer]{background-image:none} /* homepage: fetched once near the viewport (lazyMedia.tsx) */
 .bf .pv-ov{position:absolute;right:0;bottom:-9%;width:54%;height:auto;aspect-ratio:1/1}
 .bf .pv-tag{position:absolute;left:14px;top:12px;font-size:12.5px;font-weight:500;color:rgba(246,246,246,.82);padding:4px 9px;border-radius:6px;background:rgba(8,8,10,.72);border:1px solid var(--line)}
 .bf .b-side{border-left:1px solid var(--line-2);padding:24px 20px;display:flex;flex-direction:column;gap:14px}

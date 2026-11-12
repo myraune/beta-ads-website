@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FlagNO, FlagSE, FlagFI, FlagDK, TwitchMark, KickMark } from "./marks";
+import { PosterVideo, useNearViewport } from "./lazyMedia";
 
 /* The dark product surfaces from the homepage tour (design 31 / 11-night-platform),
    shared so other pages can show the real UI instead of photos. They need a `.bf`
@@ -50,8 +51,13 @@ const GloriousOnStream: React.FC<{ tag?: string }> = ({ tag }) => (
 
 /** The campaign builder, one panel per step (1 Objective ... 5 Review). Step 3 is
     the homepage graphic. Glorious ran in Finland, Norway and Sweden (case page). */
-export const BuildPanel: React.FC<{ reveal?: boolean; step?: number }> = ({ reveal = true, step = 3 }) => {
+/** lazyMedia holds the preview poster back until it nears the viewport (homepage,
+    where the panel is below the fold). Off by default: /campaign-builder shows
+    this panel in its hero. */
+export const BuildPanel: React.FC<{ reveal?: boolean; step?: number; lazyMedia?: boolean }> = ({ reveal = true, step = 3, lazyMedia = false }) => {
   const rv = reveal ? " reveal" : "";
+  const pvRef = useRef<HTMLDivElement>(null);
+  const pvNear = useNearViewport(pvRef, lazyMedia);
   return (
     <div className={`panel panel--build dui${rv}`} role="img" aria-label={`Campaign builder ${STEP_LABEL[step - 1]}`}>
       <div className="steps">
@@ -123,10 +129,10 @@ export const BuildPanel: React.FC<{ reveal?: boolean; step?: number }> = ({ reve
         {step === 3 && (
           <>
             <div className="preview">
-              <div className="pv-bg" aria-hidden="true" />
-              <video className="pv-ov" muted playsInline loop preload="none" poster="/home/glorious-poster.webp" aria-hidden="true" tabIndex={-1}>
+              <div className="pv-bg" ref={pvRef} aria-hidden="true" data-defer={pvNear ? undefined : ""} />
+              <PosterVideo lazy={lazyMedia} className="pv-ov" muted playsInline loop preload="none" poster="/home/glorious-poster.webp" aria-hidden="true" tabIndex={-1}>
                 <source src="/home/glorious-v3.webm" type="video/webm" />
-              </video>
+              </PosterVideo>
               <span className="pv-tag">Preview on stream</span>
             </div>
           </>
@@ -233,15 +239,15 @@ export const BuildPanel: React.FC<{ reveal?: boolean; step?: number }> = ({ reve
   );
 };
 
-export const LivePanel: React.FC<{ reveal?: boolean }> = ({ reveal = true }) => {
+export const LivePanel: React.FC<{ reveal?: boolean; lazyMedia?: boolean }> = ({ reveal = true, lazyMedia = false }) => {
   const rv = reveal ? " reveal" : "";
   return (
     <div className={`panel panel--live dui${rv}`} role="img" aria-label="Live view: one overlay running across 25 streams at once, with a setup verification list beside it.">
       <div className="wall">
         <div className="wall-crop">
-          <video data-end="4.7" muted playsInline loop preload="none" poster="/home/samsung-s25-wall-1280.webp" aria-hidden="true" tabIndex={-1}>
+          <PosterVideo lazy={lazyMedia} data-end="4.7" muted playsInline loop preload="none" poster="/home/samsung-s25-wall-1280.webp" aria-hidden="true" tabIndex={-1}>
             <source src="/home/samsung-s25-wall.mp4" type="video/mp4" />
-          </video>
+          </PosterVideo>
         </div>
         <div className="wall-grid" aria-hidden="true" />
         <div className="wall-pick" aria-hidden="true"><Corners /></div>

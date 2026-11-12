@@ -5,6 +5,7 @@ import { HERO_POSTER, HERO_VIDEO, startHeroPlayer } from "./heroPlayer";
 import "./home-final.css";
 import "./home-fix.css";
 import { BuildPanel, Corners, LivePanel, ReportPanel } from "./panels";
+import { NearImg, PosterVideo } from "./lazyMedia";
 
 /* Homepage "31 Final / Platform" (approved static design in
    ~/dev/beta-ads-home-v3/31-final-platform), ported 1:1. Styles are scoped
@@ -249,7 +250,7 @@ export const HomeFinal: React.FC = () => {
                 <A className="qlink" href="/campaign-builder">Campaign builder <Arrow /></A>
               </div>
             </header>
-            <BuildPanel />
+            <BuildPanel lazyMedia />
           </section>
 
           <section className="ch" id="live">
@@ -260,7 +261,7 @@ export const HomeFinal: React.FC = () => {
                 <A className="qlink" href="/campaign-compliance">Setup verification <Arrow /></A>
               </div>
             </header>
-            <LivePanel />
+            <LivePanel lazyMedia />
           </section>
 
           <section className="ch" id="report">
@@ -287,7 +288,7 @@ export const HomeFinal: React.FC = () => {
           <div className="cases reveal">
             {CASES.map((c) => (
               <A className="case" href={c.to} key={c.to}>
-                <span className="case__img"><img src={c.img} alt="" loading="lazy" width={1280} height={720} /></span>
+                <span className="case__img"><NearImg src={c.img} alt="" width={1280} height={720} /></span>
                 <b>{c.b}</b>
                 <span className="case__n">{c.n}<small>views</small></span>
                 <span>{c.t}</span>
@@ -307,9 +308,9 @@ export const HomeFinal: React.FC = () => {
             {FILMS.map((f) => (
               <A className="case" href={f.to} key={f.to}>
                 <span className="case__img">
-                  <video muted loop playsInline preload="none" poster={`/videos/home-recap-${f.slug}.webp`} width={960} height={540} aria-hidden="true">
+                  <PosterVideo muted loop playsInline preload="none" poster={`/videos/home-recap-${f.slug}.webp`} width={960} height={540} aria-hidden="true">
                     <source src={`/videos/home-recap-${f.slug}.mp4`} type="video/mp4" />
-                  </video>
+                  </PosterVideo>
                 </span>
                 <b>{f.b}</b>
                 <span>{f.t}</span>
@@ -326,9 +327,9 @@ export const HomeFinal: React.FC = () => {
             <A className="qlink" href="/twitch-sponsorship-checker">Try the free checker <Arrow /></A>
           </div>
           <div className="scfilm reveal">
-            <video controls playsInline preload="none" poster="/videos/sponsor-checker-poster.webp" width={1920} height={1080}>
+            <PosterVideo controls playsInline preload="none" poster="/videos/sponsor-checker-poster.webp" width={1920} height={1080}>
               <source src="/videos/sponsor-checker.mp4" type="video/mp4" />
-            </video>
+            </PosterVideo>
             <p>Type a Twitch channel and get every brand that streamer has worked with, with the stream title or chat command that proves it and when it ran. Free, no login.</p>
           </div>
         </section>
