@@ -67,7 +67,7 @@ const VirtualProductPlacement: React.FC = () => (
     path="/virtual-product-placement"
     crumb="Virtual product placement"
     seoTitle="Virtual Product Placement in Live Streams and Clips | Beta Ads"
-    seoDescription="Put your product inside the game scene on Twitch, Kick and YouTube. From one product photo we build a 3D model and place it with matching light and shadow, live and in clips. Now in the Nordics."
+    seoDescription="Put your product inside the game scene on Twitch, Kick and YouTube. One product photo becomes a 3D model, placed live and in clips. Now in the Nordics."
     kicker="Platform · New format"
     title="Your product, inside the game."
     lead="Virtual product placement puts a 3D version of your product into the scene of a live stream or a clip, lit like everything around it. No ad break, nothing to skip. Now available to brands in the Nordics."

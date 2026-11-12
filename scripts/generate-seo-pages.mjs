@@ -437,7 +437,7 @@ const STATIC_PAGES = [
     route: "/virtual-product-placement",
     title: "Virtual Product Placement in Live Streams and Clips | Beta Ads",
     description:
-      "Put your product inside the game scene on Twitch, Kick and YouTube. From one product photo we build a 3D model and place it with matching light and shadow, live and in clips.",
+      "Put your product inside the game scene on Twitch, Kick and YouTube. One product photo becomes a 3D model, placed live and in clips. Now in the Nordics.",
     locale: "en",
   },
   {
@@ -521,7 +521,7 @@ const STATIC_PAGES = [
     route: "/report/sample",
     title: "Sample campaign report | Beta Ads",
     description:
-      "What a Beta Ads livestream campaign report looks like: completed views, verified plays, clicks from chat, delivery per streamer and a clip for every ad play. Fictional brand and numbers.",
+      "What a Beta Ads campaign report contains: completed views, verified clicks, delivery per streamer, audience and chat tracking. Fictional brand and numbers.",
     locale: "en",
   },
   {

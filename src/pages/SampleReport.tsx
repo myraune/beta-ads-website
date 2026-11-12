@@ -419,7 +419,7 @@ const SampleReport: React.FC = () => {
       path="/report/sample"
       crumb="Sample report"
       seoTitle="Sample campaign report | Beta Ads"
-      seoDescription="What a Beta Ads livestream campaign report contains: completed views, verified and unique clicks, delivery per streamer and category, audience, verification and chat tracking. Fictional brand and numbers."
+      seoDescription="What a Beta Ads campaign report contains: completed views, verified clicks, delivery per streamer, audience and chat tracking. Fictional brand and numbers."
       kicker="Reporting · Sample report"
       title="A sample report, every number in it."
       lead={`This is what you get after a campaign. The layout and every metric are the real Beta Ads report. ${BRAND}, the 16 streamers and the numbers are made up.`}
