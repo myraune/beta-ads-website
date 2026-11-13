@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 export const StreamerWhatYouGet: React.FC = () => {
@@ -47,6 +48,11 @@ export const StreamerWhatYouGet: React.FC = () => {
           </h2>
           <p className="text-muted-foreground text-sm leading-relaxed max-w-md">
             Everything you need to monetize your stream with brand sponsorships.
+          </p>
+          <p className="text-muted-foreground text-sm leading-relaxed max-w-md mt-3">
+            What it looks like in practice:{" "}
+            <Link to="/blog/norges-storste-streamer-merkevare-samarbeid" className="underline underline-offset-4 text-foreground">how detoo's work with Shure and Samsung was built</Link>{" "}
+            (in Norwegian).
           </p>
         </div>
 

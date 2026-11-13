@@ -285,6 +285,10 @@ const TwitchAdvertisingCost: React.FC = () => {
               <p className="text-base text-muted-foreground leading-relaxed max-w-md">
                 Two campaigns with the same budget can buy very different results. These five variables decide which. The bars show directional price pressure, not a rate card.
               </p>
+              <p className="text-base text-muted-foreground leading-relaxed max-w-md mt-4">
+                For when to book across Norway, Sweden, Denmark and Finland, see the{" "}
+                <Link to="/blog/nordic-streaming-media-planning-calendar-2026" className="underline underline-offset-4 text-foreground">2026 Nordic streaming calendar</Link>.
+              </p>
             </div>
             <div className="space-y-6">
               {drivers.map((d) => (
@@ -347,6 +351,8 @@ const TwitchAdvertisingCost: React.FC = () => {
             </h2>
             <p className="text-base text-muted-foreground leading-relaxed mt-4">
               Verified results from real Nordic campaigns. This is what the budget actually bought.
+              For what click-through rate to expect and how it is measured, read{" "}
+              <Link to="/blog/how-twitch-advertising-works-2026" className="underline underline-offset-4 text-foreground">how Twitch advertising actually works in 2026</Link>.
             </p>
           </div>
 

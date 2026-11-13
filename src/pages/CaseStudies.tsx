@@ -365,6 +365,10 @@ const CaseStudies: React.FC<CaseStudiesProps> = ({ t }) => {
           <div className="mb-10">
             <span className="text-xs font-semibold tracking-widest uppercase text-muted-foreground mb-3 block">In-Depth</span>
             <h2 className="text-3xl md:text-4xl font-light tracking-tight">Full campaign breakdowns</h2>
+            <p className="text-sm text-muted-foreground leading-relaxed mt-3 max-w-2xl">
+              Views and clicks are only part of the result. To see whether a sponsorship moved sales, read{" "}
+              <Link to="/blog/incremental-sales-lift-twitch-sponsorship-measurement-2026" className="underline underline-offset-4 text-foreground">how to measure incremental sales lift from a Twitch sponsorship</Link>.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">

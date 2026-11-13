@@ -205,6 +205,11 @@ const KickAdvertising: React.FC<{ lang?: KickLang }> = ({ lang = "en" }) => {
               {t.overview.body.map((p) => (
                 <p key={p} className="text-sm md:text-[15px] leading-relaxed text-muted-foreground mb-4 break-inside-avoid">{p}</p>
               ))}
+              {t.overview.readMore && (
+                <Link to={t.overview.readMore.href} className="inline-flex items-center gap-1.5 text-sm font-medium text-primary hover:underline underline-offset-4 break-inside-avoid">
+                  {t.overview.readMore.label} <ArrowUpRight className="w-4 h-4" />
+                </Link>
+              )}
             </div>
           </div>
 

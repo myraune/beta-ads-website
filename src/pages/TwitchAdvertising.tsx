@@ -130,6 +130,8 @@ const TwitchAdvertising: React.FC = () => {
               </h2>
               <p className="text-muted-foreground text-sm leading-relaxed mb-6 max-w-md">
                 Unlike banner ads placed beside the player or pre-roll video interruptions, overlay ads are rendered directly into the stream feed. Viewers see your brand as part of the content - not an interruption to skip.
+                The full walkthrough of formats and measurement is in{" "}
+                <Link to="/blog/how-twitch-advertising-works-2026" className="underline underline-offset-4 text-foreground">how Twitch advertising actually works in 2026</Link>.
               </p>
               <div className="space-y-3">
                 {[
@@ -198,6 +200,10 @@ const TwitchAdvertising: React.FC = () => {
               </p>
               <p className="text-muted-foreground text-sm leading-relaxed mb-8">
                 Ad blockers strip pre-rolls and display ads, so traditional digital formats often miss this demographic. An overlay rendered inside the stream can't be blocked, which makes it the format that reliably reaches the Gen Z audience where they actually spend their time.
+              </p>
+              <p className="text-muted-foreground text-sm leading-relaxed mb-8">
+                Weighing Twitch against YouTube or Kick? Read{" "}
+                <Link to="/blog/twitch-vs-youtube-gaming-2025" className="underline underline-offset-4 text-foreground">our platform comparison</Link>.
               </p>
               <div className="space-y-3">
                 {[

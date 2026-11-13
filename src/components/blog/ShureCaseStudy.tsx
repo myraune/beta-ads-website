@@ -526,6 +526,11 @@ const ShureCaseStudy: React.FC = () => {
                 already trusted - driving the kind of product awareness that's very hard
                 to buy through traditional display or pre-roll.
               </p>
+              <p className="text-base text-muted-foreground leading-relaxed mt-4">
+                The same campaign from the streamer's side:{" "}
+                <Link to="/blog/norges-storste-streamer-merkevare-samarbeid" className="underline underline-offset-4 text-foreground">how detoo's work with Shure and Samsung was built</Link>{" "}
+                (in Norwegian).
+              </p>
             </div>
             <div>
               <div className="grid grid-cols-2 gap-px rounded-2xl overflow-hidden bg-border">

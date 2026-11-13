@@ -174,7 +174,7 @@ export interface KickCopy {
     secondary: string;
     stats: { value: string; label: string }[];
   };
-  overview: { label: string; heading: string; body: string[] };
+  overview: { label: string; heading: string; body: string[]; readMore?: { href: string; label: string } };
   share: {
     label: string;
     heading: string;
@@ -295,6 +295,7 @@ const EN: KickCopy = {
       "Globally Kick is the third-largest live platform with 14.4 percent of all hours watched in Q1 2026. In Northern Europe it already takes one in five of all Kick and Twitch hours, against one in twenty-three in Western Europe. The Nordics are one of Kick's strongest regions in Europe, not an afterthought.",
       "The Nordic figures below are not in the public media kit. Kick's advertising team sent them to us when we became their Nordic partner: 7.5 million watch hours in August 2026, trending up month on month, across 1.13 million monthly active users. Finland is over half. Eight in ten viewers are 18 to 34, they stay 55 minutes on average, and the chat runs at 26,000 messages a minute. That is the attention a brand borrows.",
     ],
+    readMore: { href: "/blog/kick-streaming-growth-2025", label: "Related reading: how Kick grew in 2025, and what it means for Nordic advertisers" },
   },
   share: {
     label: "Where Kick stands",

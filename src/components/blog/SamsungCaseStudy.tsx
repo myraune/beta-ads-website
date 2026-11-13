@@ -735,6 +735,11 @@ const SamsungCaseStudy: React.FC = () => {
               </div>
             ))}
           </div>
+          <p className="text-sm text-muted-foreground leading-relaxed mt-8 max-w-2xl">
+            Related reading:{" "}
+            <Link to="/blog/norges-storste-streamer-merkevare-samarbeid" className="underline underline-offset-4 text-foreground">how Norway's most-watched Twitch streamer, detoo, built his work with Shure and Samsung</Link>{" "}
+            (in Norwegian).
+          </p>
         </div>
       </section>
 
