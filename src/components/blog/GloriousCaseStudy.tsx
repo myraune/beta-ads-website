@@ -5,7 +5,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { AdGif } from "@/components/blog/AdGif";
-import { RecapFilm } from "@/components/blog/RecapFilm";
+import { RecapFilm, RecapFilmLink } from "@/components/blog/RecapFilm";
 
 /** Glorious brand palette - white + gold accent `#D4AF37` per their identity */
 const BRAND = {
@@ -89,6 +89,7 @@ const GloriousCaseStudy: React.FC = () => {
       <section className="border-t border-border">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
           <RecapFilm slug="glorious" label="Glorious Model O3 × Beta Ads campaign recap" className="w-full h-auto rounded-2xl bg-muted" />
+          <RecapFilmLink slug="glorious" />
         </div>
       </section>
 

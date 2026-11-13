@@ -45,11 +45,11 @@ const CASES: { to: string; img: string; b: string; n: string; t: string }[] = [
   { to: "/case-study/saily", img: "/lovable-uploads/home-case-saily.webp", b: "Saily", n: "102K+", t: "A travel intent eSIM campaign, 22 streamers." },
 ];
 
-/* Recap films: a short muted loop from each campaign's own recap film, linking to the case with the full film. */
+/* Recap films: a short muted loop from each campaign's own recap film, linking to the film's watch page. */
 const FILMS: { to: string; slug: string; b: string; t: string }[] = [
-  { to: "/case-study/surfshark-finland", slug: "surfshark-finland", b: "Surfshark Finland", t: "A live poll in 14 Finnish chats, 2,833 answers." },
-  { to: "/case-study/glorious", slug: "glorious", b: "Glorious", t: "The Model O3 across Norway, Sweden and Finland." },
-  { to: "/case-study/norstat", slug: "norstat", b: "Norstat", t: "A panel offer in front of 24,065 young men." },
+  { to: "/films/surfshark-finland", slug: "surfshark-finland", b: "Surfshark Finland", t: "A live poll in 14 Finnish chats, 2,833 answers." },
+  { to: "/films/glorious", slug: "glorious", b: "Glorious", t: "The Model O3 across Norway, Sweden and Finland." },
+  { to: "/films/norstat", slug: "norstat", b: "Norstat", t: "A panel offer in front of 24,065 young men." },
 ];
 
 /** Motion is off under prefers-reduced-motion and for the build-time prerender
@@ -302,7 +302,7 @@ export const HomeFinal: React.FC = () => {
         <section className="sec" id="recap-films" aria-label="Campaign recap films">
           <div className="sec__h reveal">
             <h2><b>Recap films</b> <span>from the streams.</span></h2>
-            <A className="qlink" href="/case-studies">All case studies <Arrow /></A>
+            <A className="qlink" href="/films">All recap films <Arrow /></A>
           </div>
           <div className="cases reveal">
             {FILMS.map((f) => (

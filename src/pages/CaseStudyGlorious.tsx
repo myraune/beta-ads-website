@@ -1,6 +1,5 @@
 import React from "react";
 import { SEO } from "@/components/SEO";
-import { recapVideoLd } from "@/components/blog/RecapFilm";
 import GloriousCaseStudy from "@/components/blog/GloriousCaseStudy";
 
 const CaseStudyGlorious: React.FC = () => {
@@ -38,7 +37,6 @@ const CaseStudyGlorious: React.FC = () => {
               } },
             "isPartOf": { "@id": "https://beta-ads.no/#website" }
           },
-          recapVideoLd("glorious", "Glorious Model O3 × Beta Ads: campaign recap", "Recap of the Glorious Model O3 campaign on Twitch in Norway, Sweden and Finland: 25 creators, 137,316 completed views and 4,342 brand mentions in chat.", 30, "2026-11-02"),
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",

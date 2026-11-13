@@ -1,4 +1,5 @@
 import React from "react";
+import { RecapFilm, RecapFilmLink } from "@/components/blog/RecapFilm";
 
 const topStreamers = [
   { name: "Danniz", views: "97,110", ctr: "0.30%", note: "32.4% of all campaign views" },
@@ -36,18 +37,10 @@ const SamsungFold7CaseStudy: React.FC = () => {
     <div className="space-y-14">
 
       {/* Recap film - real clips from the campaign's streams, cut to the final report numbers */}
-      <video
-        controls
-        playsInline
-        preload="none"
-        poster="/videos/samsung-fold7-recap-poster.webp"
-        width={1600}
-        height={900}
-        className="w-full h-auto rounded-xl bg-muted"
-        aria-label="Samsung Galaxy Z Fold7 × Beta Ads campaign recap"
-      >
-        <source src="/videos/samsung-fold7-recap.mp4" type="video/mp4" />
-      </video>
+      <div>
+        <RecapFilm slug="samsung-fold7" label="Samsung Galaxy Z Fold7 × Beta Ads campaign recap" />
+        <RecapFilmLink slug="samsung-fold7" />
+      </div>
 
       {/* Challenge */}
       <section>

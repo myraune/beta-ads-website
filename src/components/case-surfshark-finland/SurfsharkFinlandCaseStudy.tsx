@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { RecapFilm } from "@/components/blog/RecapFilm";
+import { RecapFilm, RecapFilmLink } from "@/components/blog/RecapFilm";
 import { brandInk } from "@/lib/brandInk";
 import { Link } from "react-router-dom";
 import { RankedBars, SplitBar, Meter, accent, accentSoft } from "./charts";
@@ -122,7 +122,8 @@ const SurfsharkFinlandCaseStudy: React.FC = () => {
               <RecapFilm slug="surfshark-finland" label="Surfshark Finland × Beta Ads campaign recap" className="w-full h-full object-cover bg-black" />
             </div>
             <figcaption className="mt-2.5 text-xs text-muted-foreground">
-              The recap film: real clips from the campaign's streams, the live poll and the final report numbers.
+              The recap film: real clips from the campaign's streams, the live poll and the final report numbers.{" "}
+              <RecapFilmLink slug="surfshark-finland" className="" />
             </figcaption>
           </figure>
         </div>

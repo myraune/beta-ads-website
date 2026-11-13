@@ -49,17 +49,6 @@ const CaseStudySamsungFold7: React.FC = () => {
           },
           {
             "@context": "https://schema.org",
-            "@type": "VideoObject",
-            "name": "Samsung Galaxy Z Fold7 × Beta Ads: campaign recap",
-            "description": "45-second recap of Samsung's Galaxy Z Fold7 campaign on Norwegian Twitch: 28 creators, 300,054 completed views, 1,965 verified clicks.",
-            "thumbnailUrl": "https://beta-ads.no/videos/samsung-fold7-recap-poster.webp",
-            "contentUrl": "https://beta-ads.no/videos/samsung-fold7-recap.mp4",
-            "uploadDate": "2026-11-02",
-            "duration": "PT45S",
-            "publisher": { "@type": "Organization", "name": "Beta Ads", "url": "https://beta-ads.no" }
-          },
-          {
-            "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             "itemListElement": [
               { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://beta-ads.no/" },

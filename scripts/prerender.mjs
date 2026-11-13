@@ -112,10 +112,24 @@ const STATIC_ROUTES = [
   "/case-study/komplett",
   "/case-study/nki",
   "/case-study/norstat",
+  "/films",
   "/terms",
   "/privacy",
   "/blog/clip-analytics-ad-verification-nordic-streaming",
 ];
+
+// Recap film watch pages (/films/<slug>): same list the pages and the sitemap read (src/data/films.ts).
+async function getFilmSlugs() {
+  const TMP = path.join(ROOT, "node_modules", ".cache", "prerender-films.cjs");
+  await esbuild({
+    entryPoints: [path.join(ROOT, "src/data/films.ts")],
+    bundle: true, format: "cjs", outfile: TMP, platform: "node",
+    tsconfig: path.join(ROOT, "tsconfig.json"), logLevel: "silent",
+  });
+  const require = createRequire(import.meta.url);
+  delete require.cache[require.resolve(TMP)];
+  return require(TMP).FILMS.map((f) => f.slug);
+}
 
 // Comparison pages: same list the page and the sitemap read (src/data/competitors.ts).
 async function getCompareSlugs() {
@@ -306,8 +320,10 @@ async function main() {
   const blogSlugs = await getBlogSlugs();
   const streamerHandles = getStreamerHandles();
   const compareSlugs = await getCompareSlugs();
+  const filmSlugs = await getFilmSlugs();
   const allRoutes = [
     ...STATIC_ROUTES,
+    ...filmSlugs.map((s) => `/films/${s}`),
     ...(compareSlugs ? ["/compare", ...compareSlugs.map((s) => `/compare/${s}`)] : []),
     ...blogSlugs.map((s) => `/blog/${s}`),
     ...streamerHandles.map((h) => `/streamere/${h}`),

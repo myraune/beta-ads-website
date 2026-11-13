@@ -1,6 +1,6 @@
 import React from "react";
 import { SEO } from "@/components/SEO";
-import { recapVideoLd, RecapFilm } from "@/components/blog/RecapFilm";
+import { RecapFilm, RecapFilmLink } from "@/components/blog/RecapFilm";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
@@ -50,7 +50,6 @@ const CaseStudyNorstat: React.FC = () => {
               } },
             "isPartOf": { "@id": "https://beta-ads.no/#website" }
           },
-          recapVideoLd("norstat", "Norstat × Beta Ads: campaign recap", "Recap of Norstat's panel campaign on Norwegian Twitch: 20 streamers, 70,083 completed views, 24,065 unique viewers, a 100% male audience.", 32, "2026-11-02"),
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
@@ -92,7 +91,10 @@ const CaseStudyNorstat: React.FC = () => {
 
         <div className="space-y-8">
           {/* Recap film - real clips from the campaign's streams, cut to the final report numbers */}
-          <RecapFilm slug="norstat" label="Norstat × Beta Ads campaign recap" />
+          <div>
+            <RecapFilm slug="norstat" label="Norstat × Beta Ads campaign recap" />
+            <RecapFilmLink slug="norstat" />
+          </div>
 
           <section>
             <h2 className="text-2xl font-bold text-foreground border-b-2 border-border pb-3 mb-6">Challenge</h2>

@@ -1,7 +1,6 @@
 import React from "react";
 import { brandInk } from "@/lib/brandInk";
 import { SEO } from "@/components/SEO";
-import { recapVideoLd } from "@/components/blog/RecapFilm";
 import { Link } from "react-router-dom";
 import GokstadCaseStudy from "@/components/blog/GokstadCaseStudy";
 import { ArrowLeft } from "lucide-react";
@@ -41,7 +40,6 @@ const CaseStudyGokstad: React.FC = () => {
               } },
             "isPartOf": { "@id": "https://beta-ads.no/#website" }
           },
-          recapVideoLd("gokstad", "Gokstad Akademiet × Beta Ads: campaign recap", "Recap of Gokstad Akademiet on Norwegian Twitch, booked through dentsu: 22 creators, 100,011 completed views, 1,218 clicks and 1,842 brand mentions in chat.", 29, "2026-11-02"),
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",

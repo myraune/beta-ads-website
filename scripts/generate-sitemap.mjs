@@ -89,6 +89,8 @@ const STATIC_PAGES = [
   { path: "/case-study/komplett",    priority: "0.8",  changefreq: "monthly", image: "/lovable-uploads/case-studies/komplett-preview.jpg",    imageTitle: "Komplett Gaming Deal x Beta Ads - Twitch retail advertising campaign" },
   { path: "/case-study/nki",         priority: "0.8",  changefreq: "monthly", image: "/lovable-uploads/case-studies/nki-detoo.png",           imageTitle: "NKI Distance Learning x Beta Ads - 220,003 views Twitch quiz campaign" },
   { path: "/case-study/norstat",     priority: "0.8",  changefreq: "monthly", image: "/videos/norstat-recap-poster.webp",                   imageTitle: "Norstat x Beta Ads - 70,083 views Twitch panel recruitment campaign" },
+  // Recap films index; the six watch pages (/films/<slug>) come from src/data/films.ts with <video:video> data
+  { path: "/films",                  priority: "0.8",  changefreq: "monthly" },
   { path: "/blog",                   priority: "0.75", changefreq: "weekly"  },
   // Per-country Nordic blog hubs (localized landing pages)
   { path: "/blog/norge",             priority: "0.7",  changefreq: "weekly"  },
@@ -140,7 +142,10 @@ async function parseBlogPosts() {
 // ---------------------------------------------------------------------------
 // Build XML
 // ---------------------------------------------------------------------------
-function urlEntry({ loc, lastmod, changefreq, priority, image, imageTitle }) {
+const xmlEsc = (s) =>
+  String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+
+function urlEntry({ loc, lastmod, changefreq, priority, image, imageTitle, video }) {
   const lines = [
     "  <url>",
     `    <loc>${loc}</loc>`,
@@ -157,6 +162,18 @@ function urlEntry({ loc, lastmod, changefreq, priority, image, imageTitle }) {
       lines.push(`      <image:title>${imageTitle}</image:title>`);
     }
     lines.push(`    </image:image>`);
+  }
+  // Google video sitemap extension: only on a film's watch page (its canonical home)
+  if (video) {
+    lines.push(`    <video:video>`);
+    lines.push(`      <video:thumbnail_loc>${video.thumbnail}</video:thumbnail_loc>`);
+    lines.push(`      <video:title>${xmlEsc(video.title)}</video:title>`);
+    lines.push(`      <video:description>${xmlEsc(video.description)}</video:description>`);
+    lines.push(`      <video:content_loc>${video.content}</video:content_loc>`);
+    lines.push(`      <video:duration>${video.duration}</video:duration>`);
+    lines.push(`      <video:publication_date>${video.publicationDate}</video:publication_date>`);
+    lines.push(`      <video:family_friendly>yes</video:family_friendly>`);
+    lines.push(`    </video:video>`);
   }
   lines.push("  </url>");
   return lines.join("\n");
@@ -203,8 +220,24 @@ async function parseCompetitors() {
   return mod.COMPARE_PUBLISHED ? mod.competitors : null;
 }
 
+// Recap film watch pages (/films/:slug): same list the pages render.
+async function parseFilms() {
+  const TMP = path.join(ROOT, "node_modules", ".cache", "sitemap-films.cjs");
+  await build({
+    entryPoints: [path.join(ROOT, "src/data/films.ts")],
+    bundle: true, format: "cjs", outfile: TMP, platform: "node",
+    tsconfig: path.join(ROOT, "tsconfig.json"), logLevel: "silent",
+  });
+  const require = createRequire(import.meta.url);
+  delete require.cache[require.resolve(TMP)];
+  const { FILMS } = require(TMP);
+  fs.unlinkSync(TMP);
+  return FILMS;
+}
+
 async function main() {
   const blogPosts = await parseBlogPosts();
+  const films = await parseFilms();
   const competitors = await parseCompetitors();
   const streamerHandles = await parseStreamerHandles();
 
@@ -232,6 +265,23 @@ async function main() {
     })
   );
 
+  const filmEntries = films.map((f) =>
+    urlEntry({
+      loc:        `${BASE_URL}/films/${f.slug}`,
+      lastmod:    TODAY,
+      changefreq: "monthly",
+      priority:   "0.75",
+      video: {
+        thumbnail:       `${BASE_URL}/videos/${f.slug}-recap-poster.webp`,
+        title:           f.title,
+        description:     f.metaDescription,
+        content:         `${BASE_URL}/videos/${f.slug}-recap.mp4`,
+        duration:        Math.round(f.seconds),
+        publicationDate: f.uploadDate,
+      },
+    })
+  );
+
   const compareEntries = !competitors ? [] : [
     urlEntry({ loc: `${BASE_URL}/compare`, lastmod: TODAY, changefreq: "monthly", priority: "0.8" }),
     ...competitors.map((c) =>
@@ -251,10 +301,14 @@ async function main() {
   const xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
-    '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
+    '        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"',
+    '        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">',
     "",
     "  <!-- ── Static pages ── -->",
     staticEntries.join("\n\n"),
+    "",
+    "  <!-- ── Recap film watch pages (with video sitemap data) ── -->",
+    filmEntries.join("\n\n"),
     "",
     "  <!-- ── Comparison pages ── -->",
     compareEntries.join("\n\n"),
@@ -272,7 +326,7 @@ async function main() {
   fs.writeFileSync(outPath, xml, "utf-8");
 
   console.log(
-    `✅ sitemap.xml generated — ${STATIC_PAGES.length} static + ${streamerHandles.length} streamer + ${blogPosts.length} blog posts (${STATIC_PAGES.length + streamerHandles.length + blogPosts.length} total URLs)`
+    `✅ sitemap.xml generated — ${STATIC_PAGES.length} static + ${films.length} film + ${streamerHandles.length} streamer + ${blogPosts.length} blog posts (${STATIC_PAGES.length + films.length + streamerHandles.length + blogPosts.length} total URLs)`
   );
 }
 

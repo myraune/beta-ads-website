@@ -1,13 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { AdGif } from "@/components/blog/AdGif";
-import { RecapFilm } from "@/components/blog/RecapFilm";
+import { RecapFilm, RecapFilmLink } from "@/components/blog/RecapFilm";
 
 const GokstadCaseStudy: React.FC = () => {
   return (
     <div className="space-y-8">
       {/* Recap film - real clips from the campaign's streams, cut to the final report numbers */}
-      <RecapFilm slug="gokstad" label="Gokstad Akademiet × Beta Ads campaign recap" />
+      <div>
+        <RecapFilm slug="gokstad" label="Gokstad Akademiet × Beta Ads campaign recap" />
+        <RecapFilmLink slug="gokstad" />
+      </div>
 
       <section>
         <h2 className="text-2xl font-bold text-foreground border-b-2 border-border pb-3 mb-6">

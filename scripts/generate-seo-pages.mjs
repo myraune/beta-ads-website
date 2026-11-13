@@ -1193,6 +1193,33 @@ function main() {
     caseStudyCount++;
   }
 
+  // Recap films: index + one watch page per film in src/data/films.ts.
+  // Copy mirrors the <SEO> calls in src/pages/Films.tsx and src/pages/FilmWatch.tsx.
+  // No JSON-LD here: the prerender captures the page's own VideoObject, and a
+  // second copy in the shell would duplicate it.
+  const { FILMS } = loadTsModule("src/data/films.ts", "films");
+  writeShell(path.join(DIST, "films", "index.html"), injectMeta(shell, {
+    title: "Campaign recap films from Twitch",
+    description: "Short recap films from Beta Ads campaigns on Twitch for Samsung, Surfshark, Glorious, NKI, Norstat and Gokstad Akademiet, with real clips from the streams.",
+    canonical: "/films",
+    locale: "en",
+    image: "/videos/surfshark-finland-recap-poster.webp",
+    ogImageWidth: 1600,
+    ogImageHeight: 900,
+  }));
+  for (const f of FILMS) {
+    writeShell(path.join(DIST, "films", f.slug, "index.html"), injectMeta(shell, {
+      title: f.seoTitle,
+      description: f.metaDescription,
+      canonical: `/films/${f.slug}`,
+      locale: "en",
+      image: `/videos/${f.slug}-recap-poster.webp`,
+      ogType: "video.other",
+      ogImageWidth: 1600,
+      ogImageHeight: 900,
+    }));
+  }
+
   // Comparison pages: hub + one shell per entry in src/data/competitors.ts.
   const { competitors, COMPARE_PUBLISHED } = loadTsModule("src/data/competitors.ts", "competitors");
   if (COMPARE_PUBLISHED) {

@@ -8,7 +8,6 @@
  */
 import React, { lazy, Suspense } from "react";
 import { SEO } from "@/components/SEO";
-import { recapVideoLd } from "@/components/blog/RecapFilm";
 
 const SurfsharkFinlandCaseStudy = lazy(() => import("@/components/case-surfshark-finland/SurfsharkFinlandCaseStudy"));
 
@@ -66,7 +65,6 @@ const CaseStudySurfsharkFinland: React.FC = () => {
             },
             isPartOf: { "@id": "https://beta-ads.no/#website" },
           },
-          recapVideoLd("surfshark-finland", "Surfshark Finland × Beta Ads: campaign recap", "Recap of Surfshark VPN on Finnish Twitch: 14 creators, a live poll in chat with 2,833 answers, 119,041 completed views and 1,281 clicks.", 38, "2026-11-02"),
           {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
