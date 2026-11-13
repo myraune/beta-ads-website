@@ -12,7 +12,7 @@ import { formatPostDate, resolvePostLocale, detectPreferredLocale, dedupeByTrans
 // curated slug is ever removed - e.g. by a content-quality cut.
 const FEATURED_SLUGS = [
   "dentsu-2025-gaming-trends-report-nordic-twitch-advertising",
-  "kick-100-million-users-milestone-nordic-advertisers-2026",
+  "kick-streaming-growth-2025",
   "twitch-april-2026-platform-overhaul-advertiser-guide",
   "how-to-brief-streamer-native-ad-integration-2026",
 ];

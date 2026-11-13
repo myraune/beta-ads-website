@@ -123,7 +123,9 @@ async function parseBlogPosts() {
   });
   const require = createRequire(import.meta.url);
   delete require.cache[require.resolve(TMP)];
-  const { blogPostsAll: blogPosts } = require(TMP);
+  const { blogPostsAll, NOINDEX_BLOG_SLUGS } = require(TMP);
+  // Noindexed posts stay live for readers but do not belong in the sitemap.
+  const blogPosts = blogPostsAll.filter((p) => !NOINDEX_BLOG_SLUGS.has(p.slug));
 
   const esc = (s) =>
     s ? s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") : null;

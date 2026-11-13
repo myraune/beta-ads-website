@@ -39,7 +39,8 @@ const hubTranslations = {
 const featuredSlugs = [
   "dentsu-2025-gaming-trends-report-nordic-twitch-advertising",
   "kick-streaming-growth-2025",
-  "kick-100-million-users-milestone-nordic-advertisers-2026",
+  // kick-100-million-users-milestone-nordic-advertisers-2026 merged into
+  // kick-streaming-growth-2025 (13 Nov 2026, 301).
 ];
 
 export const FeaturedInsightsHub: React.FC<FeaturedInsightsHubProps> = ({ language }) => {

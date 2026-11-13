@@ -978,8 +978,18 @@ const HOME_CONTENT = `
         </div>
       </main>`;
 
-function injectMeta(shellHtml, { title: rawPageTitle, description, canonical, locale, alternates, image, ogType = "website", articlePublishedTime = null, ogImageWidth = 1200, ogImageHeight = 630 }) {
+function injectMeta(shellHtml, { title: rawPageTitle, description, canonical, locale, alternates, image, ogType = "website", articlePublishedTime = null, ogImageWidth = 1200, ogImageHeight = 630, robots = null }) {
   let html = shellHtml;
+  // <meta name="robots">: the shell's default is "index, follow, ..."; a page
+  // kept out of the index (e.g. a noindexed blog translation) overrides it.
+  if (robots) {
+    const robotsTag = `<meta name="robots" content="${robots}" />`;
+    if (/<meta\s+name="robots"/.test(html)) {
+      html = html.replace(/<meta\s+name="robots"\s+content="[^"]*"\s*\/?>/, robotsTag);
+    } else {
+      html = html.replace("</head>", `    ${robotsTag}\n  </head>`);
+    }
+  }
   // Same rule as <SEO>: " | Beta Ads" only when the whole title fits in 60.
   const title = formatSeoTitle(rawPageTitle);
   const canonicalUrl = toAbsolute(canonical);
@@ -1282,10 +1292,13 @@ function main() {
     console.error("❌ parseBlogPosts() returned 0 posts — refusing to ship shells without blog coverage.");
     process.exit(1);
   }
-  // translationGroup -> the locales it exists in, for hreflang clusters.
+  // Slugs kept out of the index (src/data/blogIndexing.ts): robots noindex in
+  // the shell, and never listed as anyone's hreflang alternate.
+  const { NOINDEX_BLOG_SLUGS } = loadTsModule("src/data/blogIndexing.ts", "blog-indexing");
+  // translationGroup -> the indexable versions it exists in, for hreflang clusters.
   const groupMembers = new Map();
   for (const p of posts) {
-    if (!p.translationGroup) continue;
+    if (!p.translationGroup || NOINDEX_BLOG_SLUGS.has(p.slug)) continue;
     if (!groupMembers.has(p.translationGroup)) groupMembers.set(p.translationGroup, []);
     groupMembers.get(p.translationGroup).push(p);
   }
@@ -1293,9 +1306,12 @@ function main() {
     const canonical = `/blog/${post.slug}`;
     // Posts sharing a translationGroup are each other's language alternates, so
     // Google serves the right language per country instead of picking one.
-    const cluster = post.translationGroup ? groupMembers.get(post.translationGroup) : null;
+    const noindex = NOINDEX_BLOG_SLUGS.has(post.slug);
+    const cluster = post.translationGroup && !noindex ? groupMembers.get(post.translationGroup) : null;
     let alternates;
-    if (cluster && cluster.length > 1) {
+    if (noindex) {
+      alternates = undefined;
+    } else if (cluster && cluster.length > 1) {
       alternates = cluster.map((m) => ({ hreflang: m.locale, href: `/blog/${m.slug}` }));
       // x-default must be the same URL on every page of the cluster, or the
       // set is not reciprocal: the English version, else the group's original
@@ -1317,6 +1333,7 @@ function main() {
       image: post.image,
       ogType: "article",
       articlePublishedTime: post.dateISO || null,
+      robots: noindex ? "noindex, follow" : null,
     });
     // Inject BlogPosting + BreadcrumbList JSON-LD into the static shell so
     // Googlebot sees structured data on first-pass crawl (before JS hydration).

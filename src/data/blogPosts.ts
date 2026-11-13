@@ -7723,7 +7723,7 @@ Twitch is not a direct substitute for TV - even for younger audiences. It's a su
 - **Connected TV (Google TV, Samsung TV Plus, DR Play)** - best for display-quality brand-safety with incremental reach against TV
 - **YouTube live streaming** - similar audience shape to Twitch but skews slightly older
 - **Native Twitch overlay + streamer sponsorships** - the 18–34 engagement layer, with verified attribution
-- **Clipping campaigns** - downstream distribution of the best live moments across TikTok/Reels/Shorts (see [our guide on the clipping economy](/blog/clipping-economy-brand-marketing-guide-2026))
+- **Clipping campaigns** - downstream distribution of the best live moments across TikTok/Reels/Shorts (see [our guide on the clipping economy](/blog/paid-amplification-creator-content-beyond-social-2026))
 
 A mature Nordic launch plan deploys two or three of these in parallel, with native Twitch carrying the engagement and CTR components while TV/CTV carry reach.
 
@@ -12059,6 +12059,24 @@ const UNPUBLISHED_GROUPS = new Set([
   "women-esports-streaming-advertising-audience-2026",
   "youtube-live-advertising-nordic-2026",
   "long-term-streamer-partnerships-vs-one-off-campaigns-2026",
+  // -- Indexing cleanup 13 Nov 2026: merged into or replaced by a stronger post;
+  //    every language version 301s to its counterpart (see vercel.json) --
+  "creator-marketing-lifecycle-broken-how-to-fix-2026",
+  "most-watched-twitch-games-2025",
+  "twitch-sponsored-campaigns-open-to-affiliates-2026",
+  "kick-100-million-users-milestone-nordic-advertisers-2026",
+  "youtube-vibe-protect-livestream-ad-timing-2026",
+]);
+
+/**
+ * NOT PUBLISHED, by slug: posts without a translationGroup, which the group
+ * gate above cannot reach. The three December 2025 English streamer lists were
+ * superseded by the 2026 native lists and 301 to them (vercel.json).
+ */
+const UNPUBLISHED_SLUGS = new Set([
+  "norwegian-twitch-streamers-2025-analytics",
+  "swedish-twitch-streamers-2025",
+  "finnish-twitch-streamers-2025",
 ]);
 
 // The 8 B2B/media-planning posts were finished for launch: reviewed for sourcing
@@ -12072,18 +12090,15 @@ const PUBLISHED_OVERRIDE_SLUGS = new Set([
   // figures (61% age-share, 55% 18-24 adblock, -30-50% CPM) do NOT render -
   // only verified case-study numbers and named external sources do.
   "how-twitch-advertising-works-2026",
-  // Rescued: the fabricated version (64% headline, invented Nordic market
-  // sizing, 94%/61%/76% figures) is fully replaced by a fact-checked rich
-  // component (AdBlockerCrisis) using only named-source numbers.
-  "ad-blocker-crisis-livestream-native-ads-2026",
+  // ad-blocker-crisis-livestream-native-ads-2026 was rescued here too, then
+  // merged into how-twitch-advertising-works-2026 (13 Nov 2026, 301).
   "b2b-brands-live-streaming-advertising-2026",
-  "creator-brief-authentic-integration-templates-2026",
   "incremental-sales-lift-twitch-sponsorship-measurement-2026",
-  "nordic-fast-channels-brand-advertising-2026",
   "nordic-streaming-media-planning-calendar-2026",
-  "streamer-clip-usage-rights-paid-media-2026",
-  "streaming-ad-frequency-capping-wearout-2026",
-  "twitch-community-events-brand-activation-2026",
+  // Merged or removed 13 Nov 2026 (301 in vercel.json): creator-brief-authentic-
+  // integration-templates-2026, nordic-fast-channels-brand-advertising-2026,
+  // streamer-clip-usage-rights-paid-media-2026, streaming-ad-frequency-capping-
+  // wearout-2026, twitch-community-events-brand-activation-2026.
 ]);
 
 /** The publish gate, applied to both the base posts and each lazy locale.
@@ -12091,9 +12106,10 @@ const PUBLISHED_OVERRIDE_SLUGS = new Set([
 export const filterPublished = (posts: BlogPost[]): BlogPost[] =>
   posts.filter(
     (p) =>
-      PUBLISHED_OVERRIDE_SLUGS.has(p.slug) ||
-      !p.translationGroup ||
-      !UNPUBLISHED_GROUPS.has(p.translationGroup)
+      !UNPUBLISHED_SLUGS.has(p.slug) &&
+      (PUBLISHED_OVERRIDE_SLUGS.has(p.slug) ||
+        !p.translationGroup ||
+        !UNPUBLISHED_GROUPS.has(p.translationGroup))
   );
 
 /**

@@ -12,6 +12,7 @@ import {
   type BlogPost,
 } from "@/data/blogPosts";
 import { getBlogPostMetaBySlug, blogPostsMeta } from "@/data/blogPostsMeta";
+import { isIndexableBlogSlug } from "@/data/blogIndexing";
 import { getBlogImage } from "@/lib/blogImage";
 import { SEO, type PageLocale } from "@/components/SEO";
 import { resolvePostLocale, formatPostDate, blogUiLabels } from "@/lib/blogLocale";
@@ -272,14 +273,18 @@ const BlogPostView: React.FC<{ post: BlogPost; slug: string }> = ({ post, slug }
   // no English one), the same on every page of the cluster.
   const translationAlternates = useMemo(() => {
     if (!post.translationGroup) return undefined;
-    const cluster = blogPostsMeta.filter((p) => p.translationGroup === post.translationGroup);
+    // Noindexed versions are not alternates: hreflang only links indexable pages.
+    if (!isIndexableBlogSlug(post.slug)) return undefined;
+    const cluster = blogPostsMeta.filter(
+      (p) => p.translationGroup === post.translationGroup && isIndexableBlogSlug(p.slug)
+    );
     if (cluster.length < 2) return undefined;
     const xDefault = cluster.find((p) => resolvePostLocale(p) === "en") ?? cluster[0];
     return [
       ...cluster.map((p) => ({ hreflang: resolvePostLocale(p), href: `/blog/${p.slug}` })),
       { hreflang: "x-default" as const, href: `/blog/${xDefault.slug}` },
     ];
-  }, [post.translationGroup]);
+  }, [post.translationGroup, post.slug]);
   // Resolve through getBlogImage so OG/JSON-LD/related cards honor the screenshot
   // blocklist exactly like the hero does (swaps suppressed screenshots for a
   // brand photo). Without this, ~10 blocklisted posts showed a brand photo in
@@ -332,6 +337,8 @@ const BlogPostView: React.FC<{ post: BlogPost; slug: string }> = ({ post, slug }
         articleModifiedTime={dateModified}
         locale={postLocale}
         alternates={translationAlternates}
+        noindex={!isIndexableBlogSlug(post.slug)}
+        noindexFollow
         jsonLd={[
           {
             "@context": "https://schema.org",

@@ -19,6 +19,9 @@ interface SEOProps {
   ogImageWidth?: number;
   ogImageHeight?: number;
   noindex?: boolean;
+  /** With noindex: emit "noindex, follow" instead of "noindex, nofollow", for
+   *  pages kept out of the index whose links should still be followed. */
+  noindexFollow?: boolean;
   /** ISO 8601 date string - emits article:published_time when ogType="article" */
   articlePublishedTime?: string;
   /** ISO 8601 date string - emits article:modified_time when ogType="article" */
@@ -71,6 +74,7 @@ export const SEO: React.FC<SEOProps> = ({
   ogImageWidth = 1200,
   ogImageHeight = 630,
   noindex = false,
+  noindexFollow = false,
   articlePublishedTime,
   articleModifiedTime,
   jsonLd,
@@ -93,7 +97,8 @@ export const SEO: React.FC<SEOProps> = ({
   // (and re-write every meta tag) on every render.
   const hreflangTags = useMemo<Array<{ hreflang: string; href: string }>>(() => {
     const tags: Array<{ hreflang: string; href: string }> = [];
-    if (canonicalUrl) {
+    // A noindexed page is nobody's language alternate, so it lists none either.
+    if (canonicalUrl && !noindex) {
       if (alternates && alternates.length > 0) {
         alternates.forEach((alt) => {
           tags.push({ hreflang: alt.hreflang, href: toAbsolute(alt.href) });
@@ -114,9 +119,10 @@ export const SEO: React.FC<SEOProps> = ({
       }
     }
     return tags;
-  }, [canonicalUrl, alternates, locale]);
+  }, [canonicalUrl, alternates, locale, noindex]);
 
   const ogLocale = OG_LOCALES[locale];
+  const robotsContent = noindexFollow ? "noindex, follow" : "noindex, nofollow";
 
   // Imperative fallback - react-helmet-async@3 has a known React 18 StrictMode
   // issue where Helmet updates don't propagate reliably on route changes, so
@@ -173,21 +179,21 @@ export const SEO: React.FC<SEOProps> = ({
     });
 
     if (noindex) {
-      upsertMeta('meta[name="robots"]', "name", "robots", "noindex, nofollow");
+      upsertMeta('meta[name="robots"]', "name", "robots", robotsContent);
     } else {
       const robots = document.head.querySelector('meta[name="robots"]');
       if (robots?.getAttribute("content")?.includes("noindex")) {
         robots.setAttribute("content", "index, follow");
       }
     }
-  }, [fullTitle, description, canonicalUrl, resolvedOgImage, ogType, noindex, locale, ogLocale, hreflangTags]);
+  }, [fullTitle, description, canonicalUrl, resolvedOgImage, ogType, noindex, robotsContent, locale, ogLocale, hreflangTags]);
 
   return (
     <Helmet>
       <html lang={locale} />
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      {noindex && <meta name="robots" content="noindex, nofollow" />}
+      {noindex && <meta name="robots" content={robotsContent} />}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 
       {/* hreflang alternates are emitted imperatively by useEffect above -

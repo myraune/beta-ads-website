@@ -24,3 +24,6 @@ export const blogPostsAll: BlogPost[] = [
   ...blogPosts,
   ...filterPublished([...posts_no, ...posts_sv, ...posts_da, ...posts_fi]),
 ];
+
+/** Re-exported for the build scripts (sitemap): posts that are live but noindexed. */
+export { NOINDEX_BLOG_SLUGS } from "./blogIndexing";

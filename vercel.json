@@ -3,6 +3,291 @@
   "outputDirectory": "dist",
   "redirects": [
     {
+      "source": "/blog/creator-marketing-lifecycle-broken-how-to-fix-2026",
+      "destination": "/blog/beta-ads-2-0-platform-launch",
+      "permanent": true
+    },
+    {
+      "source": "/blog/creator-marketing-lifecycle-broken-how-to-fix-2026-no",
+      "destination": "/blog/beta-ads-2-0-platform-launch-no",
+      "permanent": true
+    },
+    {
+      "source": "/blog/creator-marketing-lifecycle-broken-how-to-fix-2026-sv",
+      "destination": "/blog/beta-ads-2-0-platform-launch-sv",
+      "permanent": true
+    },
+    {
+      "source": "/blog/creator-marketing-lifecycle-broken-how-to-fix-2026-da",
+      "destination": "/blog/beta-ads-2-0-platform-launch-da",
+      "permanent": true
+    },
+    {
+      "source": "/blog/creator-marketing-lifecycle-broken-how-to-fix-2026-fi",
+      "destination": "/blog/beta-ads-2-0-platform-launch-fi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/most-watched-twitch-games-2025",
+      "destination": "/blog/twitch-statistics-2025-global-insights",
+      "permanent": true
+    },
+    {
+      "source": "/blog/most-watched-twitch-games-2025-no",
+      "destination": "/blog/twitch-statistics-2025-global-insights-no",
+      "permanent": true
+    },
+    {
+      "source": "/blog/most-watched-twitch-games-2025-sv",
+      "destination": "/blog/twitch-statistics-2025-global-insights-sv",
+      "permanent": true
+    },
+    {
+      "source": "/blog/most-watched-twitch-games-2025-da",
+      "destination": "/blog/twitch-statistics-2025-global-insights-da",
+      "permanent": true
+    },
+    {
+      "source": "/blog/most-watched-twitch-games-2025-fi",
+      "destination": "/blog/twitch-statistics-2025-global-insights-fi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/twitch-sponsored-campaigns-open-to-affiliates-2026",
+      "destination": "/blog/twitch-april-2026-platform-overhaul-advertiser-guide",
+      "permanent": true
+    },
+    {
+      "source": "/blog/twitch-sponsored-campaigns-open-to-affiliates-2026-no",
+      "destination": "/blog/twitch-april-2026-platform-overhaul-advertiser-guide-no",
+      "permanent": true
+    },
+    {
+      "source": "/blog/twitch-sponsored-campaigns-open-to-affiliates-2026-sv",
+      "destination": "/blog/twitch-april-2026-platform-overhaul-advertiser-guide-sv",
+      "permanent": true
+    },
+    {
+      "source": "/blog/twitch-sponsored-campaigns-open-to-affiliates-2026-da",
+      "destination": "/blog/twitch-april-2026-platform-overhaul-advertiser-guide-da",
+      "permanent": true
+    },
+    {
+      "source": "/blog/twitch-sponsored-campaigns-open-to-affiliates-2026-fi",
+      "destination": "/blog/twitch-april-2026-platform-overhaul-advertiser-guide-fi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kick-100-million-users-milestone-nordic-advertisers-2026",
+      "destination": "/blog/kick-streaming-growth-2025",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kick-100-million-users-milestone-nordic-advertisers-2026-no",
+      "destination": "/blog/kick-streaming-growth-2025-no",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kick-100-million-users-milestone-nordic-advertisers-2026-sv",
+      "destination": "/blog/kick-streaming-growth-2025-sv",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kick-100-million-users-milestone-nordic-advertisers-2026-da",
+      "destination": "/blog/kick-streaming-growth-2025-da",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kick-100-million-users-milestone-nordic-advertisers-2026-fi",
+      "destination": "/blog/kick-streaming-growth-2025-fi",
+      "permanent": true
+    },
+    {
+      "source": "/blog/streamer-clip-usage-rights-paid-media-2026",
+      "destination": "/blog/paid-amplification-creator-content-beyond-social-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/creator-brief-authentic-integration-templates-2026",
+      "destination": "/blog/how-to-brief-streamer-native-ad-integration-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ad-blocker-crisis-livestream-native-ads-2026",
+      "destination": "/blog/how-twitch-advertising-works-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/streaming-ad-frequency-capping-wearout-2026",
+      "destination": "/blog/nordic-streaming-media-planning-calendar-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/twitch-community-events-brand-activation-2026",
+      "destination": "/blog/nordic-streaming-media-planning-calendar-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/youtube-vibe-protect-livestream-ad-timing-2026",
+      "destination": "/youtube-advertising",
+      "permanent": true
+    },
+    {
+      "source": "/blog/youtube-vibe-protect-livestream-ad-timing-2026-no",
+      "destination": "/youtube-advertising",
+      "permanent": true
+    },
+    {
+      "source": "/blog/youtube-vibe-protect-livestream-ad-timing-2026-sv",
+      "destination": "/youtube-advertising",
+      "permanent": true
+    },
+    {
+      "source": "/blog/youtube-vibe-protect-livestream-ad-timing-2026-da",
+      "destination": "/youtube-advertising",
+      "permanent": true
+    },
+    {
+      "source": "/blog/youtube-vibe-protect-livestream-ad-timing-2026-fi",
+      "destination": "/youtube-advertising",
+      "permanent": true
+    },
+    {
+      "source": "/blog/finnish-twitch-streamers-2025",
+      "destination": "/blog/suomalaiset-twitch-striimaajat-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/norwegian-twitch-streamers-2025-analytics",
+      "destination": "/blog/norske-twitch-streamere-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/swedish-twitch-streamers-2025",
+      "destination": "/blog/svenska-twitch-streamare-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nordic-fast-channels-brand-advertising-2026",
+      "destination": "/blog/nordic-streaming-media-planning-calendar-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/twitch-shoppable-ads-live-commerce-nordic-2026",
+      "destination": "/blog/paid-amplification-creator-content-beyond-social-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nintendo-dominerer-livestreaming-2026",
+      "destination": "/blog/twitch-statistics-2025-global-insights",
+      "permanent": true
+    },
+    {
+      "source": "/blog/non-gaming-brands-dominating-twitch-chat-2026",
+      "destination": "/blog/b2b-brands-live-streaming-advertising-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/live-streaming-ad-spend-growth-2025",
+      "destination": "/blog/twitch-statistics-2025-global-insights",
+      "permanent": true
+    },
+    {
+      "source": "/blog/non-gaming-content-twitch-2025",
+      "destination": "/blog/twitch-statistics-2025-global-insights",
+      "permanent": true
+    },
+    {
+      "source": "/blog/gen-z-streaming-ad-relevance-gap-2026",
+      "destination": "/blog/how-twitch-advertising-works-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/top-streamers-2025-rankings",
+      "destination": "/blog/twitch-statistics-2025-global-insights",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ai-clipping-stream-advertising",
+      "destination": "/blog/paid-amplification-creator-content-beyond-social-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/why-native-stream-ads-outperform-3-to-1",
+      "destination": "/blog/how-twitch-advertising-works-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/platform-diversification-nordic-advertisers-2026",
+      "destination": "/blog/twitch-vs-youtube-gaming-2025",
+      "permanent": true
+    },
+    {
+      "source": "/blog/native-stream-ads-vs-display-ads",
+      "destination": "/blog/how-twitch-advertising-works-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nordic-esports-advertising-opportunity-2026",
+      "destination": "/blog/nordic-streaming-media-planning-calendar-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/livestream-commerce-nordic-brands-2026",
+      "destination": "/blog/paid-amplification-creator-content-beyond-social-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/live-stream-ad-receptivity-active-viewing-2026",
+      "destination": "/blog/how-twitch-advertising-works-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/beyond-banner-blindness-nordic-stream-advertising",
+      "destination": "/blog/how-twitch-advertising-works-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/kick-q3-2025-growth-nordic-advertising-opportunity",
+      "destination": "/blog/kick-streaming-growth-2025",
+      "permanent": true
+    },
+    {
+      "source": "/blog/clipping-economy-brand-marketing-guide-2026",
+      "destination": "/blog/paid-amplification-creator-content-beyond-social-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/gen-z-interactive-ads-streaming-2026",
+      "destination": "/blog/how-twitch-advertising-works-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/creator-first-brand-strategies-live-streaming-2026",
+      "destination": "/blog/how-to-brief-streamer-native-ad-integration-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/esports-viewership-2025",
+      "destination": "/blog/twitch-statistics-2025-global-insights",
+      "permanent": true
+    },
+    {
+      "source": "/blog/micro-streamer-roi-nordic-brands-2026",
+      "destination": "/blog/how-twitch-advertising-works-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nordic-streaming-market-ad-budget-shift-2026",
+      "destination": "/blog/how-twitch-advertising-works-2026",
+      "permanent": true
+    },
+    {
+      "source": "/blog/twitch-recommendation-algorithm-advertisers-2026",
+      "destination": "/blog/twitch-april-2026-platform-overhaul-advertiser-guide",
+      "permanent": true
+    },
+    {
       "source": "/blog/glorious-o3-nordic-campaign",
       "destination": "/case-study/glorious",
       "permanent": true
@@ -24,7 +309,7 @@
     },
     {
       "source": "/blog/top-streaming-games-2025",
-      "destination": "/blog/most-watched-twitch-games-2025",
+      "destination": "/blog/twitch-statistics-2025-global-insights",
       "permanent": true
     },
     {
@@ -34,12 +319,12 @@
     },
     {
       "source": "/blog/affiliate-sponsored-brand-deal-twitch-content-differences-2026",
-      "destination": "/blog/twitch-sponsored-campaigns-open-to-affiliates-2026",
+      "destination": "/blog/twitch-april-2026-platform-overhaul-advertiser-guide",
       "permanent": true
     },
     {
       "source": "/blog/discord-communities-amplify-twitch-sponsorships-2026",
-      "destination": "/blog/twitch-community-events-brand-activation-2026",
+      "destination": "/blog/nordic-streaming-media-planning-calendar-2026",
       "permanent": true
     },
     {
