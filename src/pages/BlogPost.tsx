@@ -184,6 +184,9 @@ const GtaViNordicPlaybook = lazy(() => import("@/components/blog/GtaViNordicPlay
 /** hasDashboard keys that render a bespoke full-width editorial page. */
 const RICH_EDITORIAL = ["twitch-april-2026", "how-twitch-advertising-works", "ad-blocker-crisis", "streamer-university-2026", "gta-vi-nordic-playbook", "twitch-capcut", "fremtidens-verdiskaper", "vpp-launch", "atlas-accelerator"];
 
+/** Dashboard posts (sidebar layout) that also render their article body below the charts. */
+const BODY_UNDER_DASHBOARD = ["twitch-stats"];
+
 /** hasDashboard-verdier som bruker det fullbredde, header-løse roundup-oppsettet. */
 const STREAMER_ROUNDUPS = ["norske-streamere", "svenska-streamare", "danske-streamere", "suomalaiset-striimaajat"];
 
@@ -302,7 +305,12 @@ const BlogPostView: React.FC<{ post: BlogPost; slug: string }> = ({ post, slug }
   };
 
   const autoTocItems = useMemo(() => extractTocFromMarkdown(post.content), [post.content]);
-  const tocItems = post.hasDashboard ? dashboardTocItems[post.hasDashboard] || [] : autoTocItems;
+  const tocItems = post.hasDashboard
+    ? [
+        ...(dashboardTocItems[post.hasDashboard] || []),
+        ...(BODY_UNDER_DASHBOARD.includes(post.hasDashboard) ? autoTocItems : []),
+      ]
+    : autoTocItems;
   const isStreamerRoundup = !!post.hasDashboard && STREAMER_ROUNDUPS.includes(post.hasDashboard);
   // Rich editorial posts render full-width with their own hero (no sidebar/header).
   const richEditorial = !!post.hasDashboard && RICH_EDITORIAL.includes(post.hasDashboard);
@@ -463,6 +471,7 @@ const BlogPostView: React.FC<{ post: BlogPost; slug: string }> = ({ post, slug }
             <div className="flex gap-10 xl:gap-14 pb-12">
               <div className="flex-1 min-w-0">
                 {post.hasDashboard ? (
+                  <>
                   <Suspense fallback={<div className="text-center py-12 text-muted-foreground">{uiLabels.loadingDashboard}</div>}>
                     {post.hasDashboard === "twitch-stats" && <TwitchStatsDashboard />}
                     {post.hasDashboard === "norwegian-streamers" && <NorwegianStreamersDashboard />}
@@ -476,6 +485,17 @@ const BlogPostView: React.FC<{ post: BlogPost; slug: string }> = ({ post, slug }
                     {post.hasDashboard === "gokstad-case-study" && <GokstadCaseStudy />}
                     {post.hasDashboard === "clipping-economy" && <ClippingEconomyDashboard />}
                   </Suspense>
+                  {/* The dashboard carries the charts; the sourced article in
+                      post.content was never rendered, so the prerendered page held
+                      ~450 words. It renders below the charts, like clip-analytics. */}
+                  {BODY_UNDER_DASHBOARD.includes(post.hasDashboard) && (
+                    <div className="max-w-none mt-12">
+                      <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+                        {post.content}
+                      </ReactMarkdown>
+                    </div>
+                  )}
+                  </>
                 ) : (
                   <div className="max-w-none">
                     <ReactMarkdown
