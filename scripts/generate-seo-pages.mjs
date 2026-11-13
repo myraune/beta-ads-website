@@ -1297,8 +1297,11 @@ function main() {
     let alternates;
     if (cluster && cluster.length > 1) {
       alternates = cluster.map((m) => ({ hreflang: m.locale, href: `/blog/${m.slug}` }));
-      const enSibling = cluster.find((m) => m.locale === "en");
-      alternates.push({ hreflang: "x-default", href: `/blog/${(enSibling || post).slug}` });
+      // x-default must be the same URL on every page of the cluster, or the
+      // set is not reciprocal: the English version, else the group's original
+      // (first in blogPostsAll order, before the per-locale files).
+      const xDefault = cluster.find((m) => m.locale === "en") || cluster[0];
+      alternates.push({ hreflang: "x-default", href: `/blog/${xDefault.slug}` });
     } else if (post.locale !== "en") {
       alternates = [
         { hreflang: post.locale, href: canonical },

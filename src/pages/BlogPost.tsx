@@ -7,12 +7,11 @@ import { Badge } from "@/components/ui/badge";
 import {
   getBlogPostBySlug,
   getRelatedPosts,
-  blogPosts,
   ensureLocaleLoaded,
   isLocaleLoaded,
   type BlogPost,
 } from "@/data/blogPosts";
-import { getBlogPostMetaBySlug } from "@/data/blogPostsMeta";
+import { getBlogPostMetaBySlug, blogPostsMeta } from "@/data/blogPostsMeta";
 import { getBlogImage } from "@/lib/blogImage";
 import { SEO, type PageLocale } from "@/components/SEO";
 import { resolvePostLocale, formatPostDate, blogUiLabels } from "@/lib/blogLocale";
@@ -263,11 +262,21 @@ const BlogPostView: React.FC<{ post: BlogPost; slug: string }> = ({ post, slug }
   const displayDate = formatPostDate(post.dateISO, postLocale);
   // hreflang cluster: link every language version of this article (posts that
   // share a translationGroup) so Google serves the right language per country.
-  const translationAlternates = post.translationGroup
-    ? blogPosts
-        .filter((p) => p.translationGroup === post.translationGroup)
-        .map((p) => ({ hreflang: resolvePostLocale(p), href: `/blog/${p.slug}` }))
-    : undefined;
+  // Read from blogPostsMeta, not blogPosts: blogPosts only holds the locales
+  // loaded so far, so the English page listed only itself and each translation
+  // listed only English and itself, and Google ignores non-reciprocal sets.
+  // x-default is the English version (or the group's original when there is
+  // no English one), the same on every page of the cluster.
+  const translationAlternates = useMemo(() => {
+    if (!post.translationGroup) return undefined;
+    const cluster = blogPostsMeta.filter((p) => p.translationGroup === post.translationGroup);
+    if (cluster.length < 2) return undefined;
+    const xDefault = cluster.find((p) => resolvePostLocale(p) === "en") ?? cluster[0];
+    return [
+      ...cluster.map((p) => ({ hreflang: resolvePostLocale(p), href: `/blog/${p.slug}` })),
+      { hreflang: "x-default" as const, href: `/blog/${xDefault.slug}` },
+    ];
+  }, [post.translationGroup]);
   // Resolve through getBlogImage so OG/JSON-LD/related cards honor the screenshot
   // blocklist exactly like the hero does (swaps suppressed screenshots for a
   // brand photo). Without this, ~10 blocklisted posts showed a brand photo in
